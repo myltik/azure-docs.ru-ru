@@ -29,4 +29,4 @@
 Начните работу с [бесплатной пробной версией](http://azure.microsoft.com/pricing/free-trial/) и [создайте свою первую базу данных SQL](sql-database-get-started.md) всего за несколько минут.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

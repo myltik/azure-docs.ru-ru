@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/30/2015" 
 	ms.author="szark"/>
 
 
@@ -211,7 +211,7 @@
 
 Он позволяет пользователю включить или отключить функцию подготовки в агенте. Допустимые значения: "y" или "n". Если подготовка отключена, узел SSH и пользовательские ключи в образе сохраняются, а любые настройки, указанные в API для подготовки Azure, игнорируются.
 
-	Note that this parameter defaults to "n" on Ubuntu Cloud Images that use cloud-init for provisioning.
+**Примечание.** В образах облаков Ubuntu, использующих пакет cloud-init для выполнения задач по подготовке, для этого параметра по умолчанию устанавливается значение n.
 
 **Provisioning.DeleteRootPassword:**
 
@@ -317,4 +317,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

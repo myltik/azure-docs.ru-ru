@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="07/02/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Что произошло с моим проектом?
 
@@ -22,7 +22,7 @@
 > - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
 > - [What Happened](vs-mobile-services-dotnet-what-happened.md)
 
-###Что произошло с моим проектом?</span>
+###Что произошло с моим проектом?
 
 #####Добавленные ссылки
 
@@ -45,4 +45,4 @@
 
 [Дополнительные сведения о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

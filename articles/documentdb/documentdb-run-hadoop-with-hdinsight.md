@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Выполнение заданий Hadoop с помощью DocumentDB и HDInsight | Azure" 
+	pageTitle="Выполнение заданий Hadoop с помощью DocumentDB и HDInsight | Microsoft Azure" 
 	description="Узнайте, как выполнять простые задания Hive, Pig и MapReduce с помощью DocumentDB и Azure HDInsight."
 	services="documentdb" 
 	authors="AndrewHoh" 
@@ -297,7 +297,7 @@
 9. **Выполните** новый сценарий. **Нажмите** зеленую кнопку выполнения.
 
 10. Проверьте результаты. Выполните вход на [портал предварительной версии Azure][azure-portal].
-	1. Щелкните кнопку <strong>Просмотреть</strong> на панели слева. </br>
+	1. Щелкните кнопку <strong>Обзор</strong> на панели слева. </br>
 	2. В правой верхней части панели обзора выберите <strong>Все ресурсы</strong>. </br>
 	3. Найдите и щелкните пункт <strong>Учетные записи DocumentDB</strong>. </br>
 	4. Затем найдите свою <strong>учетную запись DocumentDB</strong>, <strong>базу данных DocumentDB</strong> и <strong>коллекцию DocumentDB</strong>, связанную с выходной коллекцией, указанной в запросе Hive.</br>
@@ -383,7 +383,7 @@
 9. **Выполните** новый сценарий. **Нажмите** зеленую кнопку выполнения.
 
 10. Проверьте результаты. Выполните вход на [портал предварительной версии Azure][azure-portal].
-	1. Щелкните кнопку <strong>Просмотреть</strong> на панели слева. </br>
+	1. Щелкните кнопку <strong>Обзор</strong> на панели слева. </br>
 	2. В правой верхней части панели обзора выберите <strong>Все ресурсы</strong>. </br>
 	3. Найдите и щелкните пункт <strong>Учетные записи DocumentDB</strong>. </br>
 	4. Затем найдите свою <strong>учетную запись DocumentDB</strong>, <strong>базу данных DocumentDB</strong> и <strong>коллекцию DocumentDB</strong>, связанную с выходной коллекцией, указанной в запросе Pig.</br>
@@ -490,4 +490,4 @@
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

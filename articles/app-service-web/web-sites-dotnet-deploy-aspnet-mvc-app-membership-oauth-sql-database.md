@@ -83,52 +83,52 @@
 
 1. Замените разметку файла *Layout.cshtml* на код, приведенный ниже. Изменения выделены ниже.
 
-<pre>
-			&lt;!DOCTYPE html>
-			&lt;html>
-			&lt;head>
-			    &lt;meta charset="utf-8" />
-			    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
-			    &lt;title>@ViewBag.Title - <mark>Contact Manager</mark>&lt;/title>
+```
+			&lt;!DOCTYPE html&gt;
+			&lt;html&gt;
+			&lt;head&gt;
+			    &lt;meta charset="utf-8" /&gt;
+			    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+			    &lt;title&gt;@ViewBag.Title - <mark>Contact Manager</mark>&lt;/title&gt;
 			    @Styles.Render("~/Content/css")
 			    @Scripts.Render("~/bundles/modernizr")
 			
-			&lt;/head>
-			&lt;body>
-			    &lt;div class="navbar navbar-inverse navbar-fixed-top">
-			        &lt;div class="container">
-			            &lt;div class="navbar-header">
-			                &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			                    &lt;span class="icon-bar">&lt;/span>
-			                    &lt;span class="icon-bar">&lt;/span>
-			                    &lt;span class="icon-bar">&lt;/span>
-			                &lt;/button>
+			&lt;/head&gt;
+			&lt;body&gt;
+			    &lt;div class="navbar navbar-inverse navbar-fixed-top"&gt;
+			        &lt;div class="container"&gt;
+			            &lt;div class="navbar-header"&gt;
+			                &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"&gt;
+			                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
+			                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
+			                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
+			                &lt;/button&gt;
 			                @Html.ActionLink("<mark>CM Demo</mark>", "Index", "<mark>Cm</mark>", new { area = "" }, new { @class = "navbar-brand" })
-			            &lt;/div>
-			            &lt;div class="navbar-collapse collapse">
-			                &lt;ul class="nav navbar-nav">
-			                    &lt;li>@Html.ActionLink("Home", "Index", "Home")&lt;/li>
-			                    &lt;li>@Html.ActionLink("About", "About", "Home")&lt;/li>
-			                    &lt;li>@Html.ActionLink("Contact", "Contact", "Home")&lt;/li>
-			                &lt;/ul>
+			            &lt;/div&gt;
+			            &lt;div class="navbar-collapse collapse"&gt;
+			                &lt;ul class="nav navbar-nav"&gt;
+			                    &lt;li&gt;@Html.ActionLink("Home", "Index", "Home")&lt;/li&gt;
+			                    &lt;li&gt;@Html.ActionLink("About", "About", "Home")&lt;/li&gt;
+			                    &lt;li&gt;@Html.ActionLink("Contact", "Contact", "Home")&lt;/li&gt;
+			                &lt;/ul&gt;
 			                @Html.Partial("_LoginPartial")
-			            &lt;/div>
-			        &lt;/div>
-			    &lt;/div>
-			    &lt;div class="container body-content">
+			            &lt;/div&gt;
+			        &lt;/div&gt;
+			    &lt;/div&gt;
+			    &lt;div class="container body-content"&gt;
 			        @RenderBody()
-			        &lt;hr />
-			        &lt;footer>
-			            &lt;p>&amp;copy; @DateTime.Now.Year - <mark>Contact Manager</mark>&lt;/p>
-			        &lt;/footer>
-			    &lt;/div>
+			        &lt;hr /&gt;
+			        &lt;footer&gt;
+			            &lt;p&gt;&amp;copy; @DateTime.Now.Year - <mark>Contact Manager</mark>&lt;/p&gt;
+			        &lt;/footer&gt;
+			    &lt;/div&gt;
 			
 			    @Scripts.Render("~/bundles/jquery")
 			    @Scripts.Render("~/bundles/bootstrap")
 			    @RenderSection("scripts", required: false)
-			&lt;/body>
-			&lt;/html>
-</pre>
+			&lt;/body&gt;
+			&lt;/html&gt;
+```
 
 ### Локальный запуск приложения
 
@@ -407,7 +407,7 @@
 
 	![изображение кода](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-   Этот код создает новую роль с именем *canEdit*, создает нового локального пользователя *user1@contoso.com* и добавляет *user1@contoso.com* к роли *canEdit*. Дополнительную информацию см. в [учебниках по удостоверениям ASP.NET](http://www.asp.net/identity/overview/features-api).
+   Этот код создает новую роль с именем *canEdit*, нового локального пользователя **user1@contoso.com* и добавляет **user1@contoso.com* к роли *canEdit*. Подробнее об этом см. в [учебниках по удостоверениям ASP.NET](http://www.asp.net/identity/overview/features-api).
 
 ## Использование временного кода для добавления новых пользователей социальных сетей к роли canEdit  ##
 В этом разделе будет временно изменен метод **ExternalLoginConfirmation** в контроллере Account для добавления новых пользователей, регистрирующихся с помощью поставщика OAuth, к роли *canEdit*. Мы временно изменим метод **ExternalLoginConfirmation** таким образом, чтобы новые пользователи автоматически добавлялись к роли администратора. Пока нет средств для добавления ролей и управления ими, мы будем использовать приведенный ниже код временной автоматической регистрации. Надеемся в будущем предоставить средство, аналогичное [WSAT](http://msdn.microsoft.com/library/ms228053.aspx), которое позволит вам создавать и изменять учетные записи пользователей и роли.
@@ -417,8 +417,7 @@
 
                 await UserManager.AddToRoleAsync(user.Id, "canEdit");
 
-   Приведенный выше код добавляет вновь зарегистрированного пользователя в роль canEdit, что дает ему доступ к методам действий, которые изменяют (редактируют) данные.
-	<pre>
+   Приведенный выше код добавляет вновь зарегистрированного пользователя к роли canEdit, которая предоставляет доступ к методам действий, изменяющих данные. ```
 	      // POST: /Account/ExternalLoginConfirmation
 	      [HttpPost]
 	      [AllowAnonymous]
@@ -454,7 +453,7 @@
 	         ViewBag.ReturnUrl = returnUrl;
 	         return View(model);
 	      }
-	</pre>
+```
 
 Далее в этом учебнике будет развернуто приложение в Azure, благодаря которому можно будет войти с помощью Google или другого стороннего поставщика проверки подлинности. Это добавит вновь зарегистрированную учетную запись к роли *canEdit*. Каждый, кому известен URL-адрес вашего веб-приложения, сможет использовать свой идентификатор Google для регистрации и обновления вашей базы данных. Чтобы предотвратить подобные действия со стороны других лиц, можно остановить сайт. Изучив базу данных, вы сможете проверить, кто входит в роль *canEdit*.
 
@@ -462,14 +461,15 @@
 
 		Update-Database
 
-Выполните команду **Update-Database**, которая вызывает метод **Seed** и только что добавленный метод **AddUserAndRole**. Метод **AddUserAndRole** создаст пользователя *user1@contoso.com* и добавит его к роли *canEdit*.
+Выполните команду **Update-Database**, которая вызывает метод **Seed** и только что добавленный метод **AddUserAndRole**. Метод **AddUserAndRole** создаст пользователя **user1@contoso.com* и добавит его к роли *canEdit*.
 
 ## Защита приложения с помощью SSL и атрибута Authorize ##
 
 В этом разделе будет применен атрибут [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) для ограничения доступа к методам действий. Анонимные пользователи смогут просматривать только метод действия **Индекс** главного контроллера. Зарегистрированные пользователи смогут видеть контактные данные (страницы **Индекс** и **Сведения** контроллера Cm), сведения о программе и страницы связи. Только пользователи с назначенной ролью *canEdit* получат доступ к методам действий, изменяющих данные.
 
-1. Добавьте в приложение фильтры [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) и [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx). В качестве альтернативы можно добавить атрибуты [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) и [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) для каждого контроллера, но с точки зрения безопасности рекомендуется применять их ко всему приложению. В случае глобального добавления атрибутов каждый новый контроллер и метод действия будет защищен автоматически, вам не потребуется помнить о необходимости их применения. Дополнительные сведения см. в разделе [Защита приложений ASP.NET MVC и новый атрибут AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) Откройте файл *App_Start\FilterConfig.cs* и замените метод *RegisterGlobalFilters* следующим кодом (который добавляет два фильтра):
-		<pre>
+1. Добавьте в приложение фильтры [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) и [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx). В качестве альтернативы можно добавить атрибуты [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) и [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) для каждого контроллера, но с точки зрения безопасности рекомендуется применять их ко всему приложению. В случае глобального добавления атрибутов каждый новый контроллер и метод действия будет защищен автоматически, вам не потребуется помнить о необходимости их применения. Дополнительные сведения см. в разделе [Защита приложений ASP.NET MVC и новый атрибут AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) Откройте файл *App\_Start\\FilterConfig.cs* и замените метод *RegisterGlobalFilters* следующим кодом (который добавляет два фильтра):
+
+```
         public static void
         RegisterGlobalFilters(GlobalFilterCollection filters)
         {
@@ -477,15 +477,16 @@
             <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute());
             filters.Add(new RequireHttpsAttribute());</mark>
         }
-		</pre>
+```
 
 
 
 
 	Фильтр [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx), применяемый приведенным выше кодом, не позволит анонимным пользователям получить доступ к методам в приложении. С помощью атрибута [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) вы сможете отказаться от обязательной авторизации в соответствующих методах, чтобы анонимные пользователи могли входить в систему и просматривать главную страницу. Фильтр [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) будет требовать использования HTTPS для доступа к веб-приложению.
 
-1. Добавьте атрибут [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) в метод **Index** контроллера Home. Атрибут [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) позволяет помещать в белый список методы, которые требуется вывести из-под авторизации. 
-		<pre>
+1. Добавьте атрибут [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) в метод **Index** контроллера Home. С помощью атрибута [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) можно создать белый список методов, для которых не нужна авторизация. 
+
+```
 	public class HomeController : Controller
    {
       <mark>[AllowAnonymous]</mark>
@@ -493,11 +494,10 @@
       {
          return View();
       }
-	</pre>
+```
 
 2. Выполнив глобальный поиск для атрибута *AllowAnonymous*, вы увидите, что он используется в методах входа и регистрации контроллера Account.
-1. В файле *CmController.cs* добавьте `[Authorize(Roles = "canEdit")]` к методам HttpGet и HttpPost, которые изменяют данные (Create, Edit, Delete, все методы действия, кроме Index и Details), в контроллере *Cm*. Ниже показана часть готового кода: 
-		<pre>
+1. В файле *CmController.cs* добавьте `[Authorize(Roles = "canEdit")]` к методам HttpGet и HttpPost, которые изменяют данные (Create, Edit, Delete, все методы действия, кроме Index и Details), в контроллере *Cm*. Ниже показана часть готового кода. ```
 	// GET: Cm/Create
        <mark>[Authorize(Roles = "canEdit")]</mark>
         public ActionResult Create()
@@ -537,11 +537,11 @@
             }
             return View(contact);
         }
-		</pre>
+```
 
 1. Если вы все еще не вышли из предыдущего сеанса, нажмите ссылку **Выход**.
 1. Щелкните ссылку **О программе** или **Связь**. Вы перейдете на страницу входа, поскольку анонимные пользователи не могут просматривать эти страницы. 
-1. Щелкните ссылку **Зарегистрироваться в качестве нового пользователя** и добавьте локального пользователя с адресом электронной почты *joe@contoso.com*. Проверьте, может ли *Joe* просматривать главную страницу, страницу сведений о программе и страницу связи. 
+1. Щелкните ссылку **Зарегистрироваться в качестве нового пользователя** и добавьте локального пользователя с адресом электронной почты **joe@contoso.com*. Проверьте, может ли *Joe* просматривать главную страницу, страницу сведений о программе и страницу связи.
 
 	![вход](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
@@ -647,7 +647,7 @@
 
 	![Страница CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rs1.png)
  
-Убедитесь, что идентификаторы **UserId** принадлежат пользователю *user1@contoso.com* и используемой для регистрации учетной записи Google. 
+Убедитесь, что идентификаторы **UserId** принадлежат пользователю **user1@contoso.com* и зарегистрированной вами учетной записи Google.
 
 
 ## Дальнейшие действия
@@ -731,4 +731,4 @@
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с пакетом SDK для DocumentDB .NET | Azure"
+	pageTitle="Приступая к работе с пакетом SDK для DocumentDB .NET | Microsoft Azure"
 	description="Сведения о создании и настройке учетной записи Azure DocumentDB, создании баз данных и коллекций, а также хранении документов JSON в учетной записи базы данных документов NoSQL."
 	services="documentdb"
 	documentationCenter=".net"
@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/19/2015"
 	ms.author="anhoh"/>
 
@@ -475,4 +475,4 @@ DocumentDB — это служба баз данных документов NoS
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

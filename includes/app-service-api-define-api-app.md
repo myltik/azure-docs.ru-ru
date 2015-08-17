@@ -71,7 +71,7 @@
 
 **Примечание**. Если вы развернете приложение API в качестве *общедоступного анонимного* приложения с включенным пользовательским интерфейсом Swagger, то любой сможет использовать пользовательский интерфейс Swagger для обнаружения и вызова ваших интерфейсов API.
 
-1. Откройте файл *App_Start/SwaggerConfig.cs* и найдите **EnableSwaggerUI**:
+1. Откройте файл *App\_Start/SwaggerConfig.cs* и найдите **EnableSwaggerUI**:
 
 	![](./media/app-service-api-define-api-app/12-enable-swagger-ui-with-box.png)
 
@@ -97,4 +97,4 @@
 
 	![](./media/app-service-api-define-api-app/15-swagger-ui-post-test.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

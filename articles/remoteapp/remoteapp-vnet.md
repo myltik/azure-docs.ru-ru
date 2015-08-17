@@ -37,4 +37,4 @@
 - [Развертывание коллекции Azure RemoteApp для виртуальной сети Azure (с поддержкой ExpressRoute)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

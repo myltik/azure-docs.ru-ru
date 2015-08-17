@@ -1,9 +1,7 @@
 <properties
 	pageTitle="Виртуальные машины для обработки и анализа данных в Azure | Microsoft Azure"
 	description="Настройки виртуальной машины для обработки и анализа данных"
-	metaKeywords=""
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm" 
@@ -34,4 +32,4 @@
 > [AZURE.NOTE]За виртуальные машины Azure вы **платите только по факту использования**. Чтобы вам не выставляли счета за неиспользуемую виртуальную машину, она должна находиться в состоянии **Остановлена (освобождена)**. Это состояние отображается на [портале управления Azure](http://manage.windowsazure.com/). Пошаговые инструкции по отмене распределения памяти для виртуальной машины см. в разделе [Завершение работы виртуальной машины и отмена распределения памяти для нее, когда она не используется](machine-learning-data-science-setup-virtual-machine.md#shutdown).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

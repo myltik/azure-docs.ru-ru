@@ -164,4 +164,4 @@
 [пример мобильных служб TODO]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

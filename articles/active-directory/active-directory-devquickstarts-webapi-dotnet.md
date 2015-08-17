@@ -132,12 +132,12 @@ public IEnumerable<TodoItem> Get()
   -	`ida:ClientId` — это идентификатор вашего приложения, скопированный из портала Azure.
   -	`todo:TodoListResourceId` — это код URI идентификатора приложения, введенный на портале Azure.
 
-Наконец, выполните очистку, соберите и запустите каждый из проектов. Если вы этого еще не сделали, пришло время создать нового пользователя в клиенте в домене *.onmicrosoft.com. Войдите в клиент To Do List от имени данного пользователя и добавьте несколько задач в список To Do List.
+Наконец, выполните очистку, соберите и запустите каждый из проектов. Если вы еще этого не сделали, создайте нового пользователя в своем клиенте с доменом *.onmicrosoft.com. Войдите в клиент To Do List от имени данного пользователя и добавьте несколько задач в список To Do List.
 
-Завершенный образец (без ваших настроек) вы можете загрузить [отсюда](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Теперь можно попробовать дополнительные сценарии работы с удостоверением:
+Для справки следует отметить, что готовый пример (без ваших значений конфигурации) находится [здесь](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Теперь можно попробовать дополнительные сценарии работы с удостоверением:
 
 [Создание нативного клиента .NET с помощью Azure AD >>](../active-directory-devquickstarts-native-dotnet.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

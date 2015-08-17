@@ -5,9 +5,9 @@
 
 Сначала необходимо создать файл запроса подписи сертификата (CSR), используемый Apple для создания подписанного сертификата push-уведомлений.
 
-1. В папке **Служебные программы** или папке **Другое** запустите средство Связка ключей.
+1. В папке **Служебные программы** или папке **Другое** запустите средство Keychain Access.
 
-2. Щелкните **Связка ключей**, разверните **Certificate Assistant** (Помощник по сертификатам), а затем щелкните **Request a Certificate from a Certificate Authority...** (Запросить сертификат в центре сертификации...).
+2. Щелкните **Keychain Access**, разверните **Certificate Assistant** (Помощник по сертификатам), а затем щелкните **Request a Certificate from a Certificate Authority...** (Запросить сертификат в центре сертификации...).
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
 
@@ -125,4 +125,4 @@
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

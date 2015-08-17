@@ -10,4 +10,4 @@
   - Использование [Табличного хранилища](./storage-dotnet-how-to-use-tables.md) для хранения структурированных данных.
   - Использование [Базы данных SQL](../sql-database/sql-database-dotnet-how-to-use.md) для хранения реляционных данных.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

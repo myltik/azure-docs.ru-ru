@@ -171,14 +171,14 @@
 Следующий файл App.config содержит необходимые значения для подключения. Значения в элементе <appSettings> — это обязательные значения, получаемые в процессе настройки учетной записи служб мультимедиа.
 
 
-<pre><code>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</code></pre>
+```
+&lt;configuration&gt;
+    &lt;appSettings&gt;
+	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
+    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
+    &lt;/appSettings&gt;
+&lt;/configuration&gt;
+```
 
 Чтобы получить значения для подключения из конфигурации, можно использовать класс **ConfigurationManager**, а затем присвоить значения полям в коде:
 	
@@ -191,4 +191,4 @@
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

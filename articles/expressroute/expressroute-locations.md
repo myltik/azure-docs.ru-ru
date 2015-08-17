@@ -4,15 +4,15 @@
    services="expressroute"
    documentationCenter="na"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/07/2015"
+   ms.date="08/04/2015"
    ms.author="cherylmc" />
 
 # Партнеры и одноранговые расположения ExpressRoute
@@ -28,6 +28,7 @@ ExpressRoute поддерживается во всех регионах и ра
 |**Геополитический регион**|**Регионы Azure**|**Расположения ExpressRoute**|
 |---|---|---|
 |**США**|Все регионы США — восточная часть США, западная часть США, восточная часть США 2, центральная часть США, юго-центральная часть США, северо-центральная часть США|Атланта, Чикаго, Даллас, Лос-Анджелес, Нью-Йорк, Сиэтл, Кремниевая долина, Вашингтон (округ Колумбия)|
+|**США**|Айова, Вирджиния|Эшберн, Чикаго|
 |**Северная Америка**|Южная Бразилия|Сан-Паулу|
 |**Европа**|Северная Европа, Западная Европа|Амстердам, Лондон|
 |**Азия**|Восточная Азия, Юго-Восточная Азия|Гонконг, Сингапур|
@@ -55,9 +56,9 @@ ExpressRoute поддерживается во всех регионах и ра
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Поддерживаются | Не поддерживается | Мельбурн+, Сидней |
 | **[Zayo Group](http://www.zayo.com/)** | Поддерживаются | Не поддерживается | Вашингтон, округ Колумбия |
 
- Знак **+** означает «Скоро»
+ Знак **+** означает «скоро»
 
-Пошаговые инструкции по настройке подключения см. в статье [Настройка подключения через поставщика Exchange](expressroute-configuring-exps.md).
+Пошаговые инструкции по настройке подключения см. в статье [Настройка подключения через поставщика EXP](expressroute-configuring-exps.md).
 
 ## Поставщики сетевых услуг и их расположения
 
@@ -76,9 +77,9 @@ ExpressRoute поддерживается во всех регионах и ра
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Поддерживаются | Не поддерживается | Сингапур |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Поддерживаются | Скоро | Амстердам, Ченнаи+, Гонконг, Лондон, Мумбаи+, Сингапур |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Поддерживаются | Не поддерживается | Мельбурн+, Сидней |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Поддерживаются | Не поддерживается | Лондон, Гонконг, Кремниевая долина, Вашингтон, округ Колумбия |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Поддерживаются | Не поддерживается | Лондон, Гонконг, Кремниевая долина, Вашингтон, округ Колумбия, Айова, США, Вирджиния, США |
 
- Знак **+** означает «Скоро»
+ Знак **+** означает «скоро»
 
 Пошаговые инструкции по настройке подключения см. в статье [Настройка подключения через поставщика сетевых услуг](expressroute-configuring-nsps.md).
 
@@ -111,8 +112,8 @@ ExpressRoute поддерживается во всех регионах и ра
 ## Дальнейшие действия
 - Убедитесь, что соблюдаются [предварительные требования к подключению ExpressRoute](expressroute-prerequisites.md).
 - Ознакомьтесь со статьей с [часто задаваемыми вопросами](expressroute-faqs.md), чтобы получить дополнительную информацию.
-- Если вы хотите настроить подключение ExpressRoute, см. статью [Настройка подключения через поставщика Exchange](expressroute-configuring-exps.md) или [Настройка подключения через поставщика сетевых услуг](expressroute-configuring-nsps.md).
-- Если вы хотите настроить VPN-подключение «сеть-сеть» и ExpressRoute для одной и той же виртуальной сети, см. статью [Настройка подключения существующих одновременно VPN типа ExpressRoute и «сеть-сеть»](expressroute-coexist.md).
+- Если вы хотите настроить подключение ExpressRoute, см. статью [Настройка подключения через поставщика EXP](expressroute-configuring-exps.md) или [Настройка подключения через поставщика сетевых услуг](expressroute-configuring-nsps.md).
+- Если вы хотите настроить VPN-подключение «сеть — сеть» и ExpressRoute для одной и той же виртуальной сети, см. статью [Настройка подключения существующих одновременно VPN типа ExpressRoute и «сеть —-сеть»](expressroute-coexist.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

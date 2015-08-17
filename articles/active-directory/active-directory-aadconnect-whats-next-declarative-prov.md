@@ -28,4 +28,4 @@
 
 Дополнительные сведения о языке выражений см. в статье [Общие сведения о выражениях декларативной подготовки](https://msdn.microsoft.com/library/azure/dn801048.aspx).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -126,7 +126,7 @@
 1. Запустите установщик Azure AD Connect (MSI).
 2. Появится экран "Вас приветствует Azure AD Connect". Чтобы выйти из мастера, нажмите кнопку "X" в правом верхнем углу окна.
 3. Откройте окно командной строки.
-4. Из папки установки Azure AD Connect (по умолчанию: C:\Program Files\Microsoft Azure Active Directory Connect) выполните следующую команду:
+4. Из папки установки Azure AD Connect (по умолчанию: C:\\Program Files\\Microsoft Azure Active Directory Connect) выполните следующую команду:
     * AzureADConnect.exe /migrate
 
 Появится следующий пользовательский интерфейс Azure AD Connect:
@@ -206,4 +206,4 @@
 * [Azure AD Connect на портале MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

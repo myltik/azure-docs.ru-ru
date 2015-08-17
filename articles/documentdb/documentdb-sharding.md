@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Секционирование данных в DocumentDB с помощью пакета SDK для .NET" 
+	pageTitle="Секционирование данных в DocumentDB с помощью пакета SDK для .NET| Microsoft Azure" 
 	description="Узнайте, как использовать Azure DocumentDB SDK .NET для секционирования (сегментирования) данных и маршрутизации запросов по нескольким коллекциям" 
 	services="documentdb" 
 	authors="arramac" 
@@ -30,7 +30,7 @@ Azure DocumentDB — это служба баз данных документо�
 - Коллекции — это границы для транзакций ACID, т. е. для хранимых процедур и триггеров.
 - Коллекции не применяют схемы, поэтому их можно использовать для документов JSON одного или разных типов.
 
-Начиная с версии [1.1.0 пакета Azure DocumentDB SDK для .NET ](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) можно выполнять операции с документами непосредственно в базе данных. [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) внутренне использует PartitionResolver, указанный вами для базы данных, чтобы перенаправлять запросы в соответствующую коллекцию.
+Начиная с версии [1\.1.0 пакета Azure DocumentDB SDK для .NET ](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) можно выполнять операции с документами непосредственно в базе данных. [DocumentClient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) внутренне использует PartitionResolver, указанный вами для базы данных, чтобы перенаправлять запросы в соответствующую коллекцию.
 
 Каждый класс PartitionResolver — это конкретная реализация интерфейса [IPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.aspx), у которого три метода: [GetPartitionKey](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.getpartitionkey.aspx), [ResolveForCreate](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforcreate.aspx) и [ResolveForRead](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.resolveforread.aspx). Запросы LINQ и итераторы ReadFeed используют метод ResolveForRead внутренне для перебора всех коллекций, соответствующих ключу секции для запроса. Аналогичным образом операции создания используют метод ResolveForCreate для перенаправления в нужную секцию. Для операций замены, удаления и чтения изменения не требуются, так как они используют документы, которые уже содержат ссылку на соответствующую коллекцию.
 
@@ -167,4 +167,4 @@ DocumentDB поддерживает клиентское секциониров�
 * [Блог с советами по повышению производительности DocumentDB](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

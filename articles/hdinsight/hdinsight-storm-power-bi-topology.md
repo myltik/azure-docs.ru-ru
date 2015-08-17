@@ -138,4 +138,4 @@
 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

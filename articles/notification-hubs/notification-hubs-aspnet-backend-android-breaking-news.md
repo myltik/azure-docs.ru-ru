@@ -36,7 +36,7 @@
 
 Прежде всего, необходимо добавить элементы пользовательского интерфейса для имеющегося основного действия, позволяющие пользователю выбирать категории для регистрации. Выбранные пользователем категории хранятся на устройстве. При запуске приложения в концентраторе уведомлений создается регистрация устройства с выбранными категориями, представленными в форме тегов.
 
-1. Откройте файл res/layout/activity_main.xml file и замените содержимое на следующее:
+1. Откройте файл res/layout/activity\_main.xml file и замените содержимое на следующее:
 			
 		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		    xmlns:tools="http://schemas.android.com/tools"
@@ -96,7 +96,7 @@
 	    <string name="label_science">Science</string>
 	    <string name="label_sports">Sports</string>
 
-	Основная графическая структура main_activity.xml должна выглядеть следующим образом:
+	Основная графическая структура main\_activity.xml должна выглядеть следующим образом:
 
 	![][A1]
 
@@ -319,4 +319,4 @@
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

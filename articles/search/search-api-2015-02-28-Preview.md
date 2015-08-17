@@ -2307,4 +2307,4 @@ URI запроса содержит параметр [index name] и [key], ко
       "suggesterName": "sg"
     }
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

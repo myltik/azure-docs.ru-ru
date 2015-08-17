@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
-Перед использованием функции управления оповещениями в Microsoft Azure Operational Insights необходимо установить решение. Дополнительные сведения об установке решений см. в разделе [Использование коллекции решений для добавления или удаления решений](operational-insights-add-solution.md). Решение работает только в том случае, если ваши серверы отслеживаются агентами Operations Manager. Дополнительные сведения об использовании Operations Manager с Operational Insights см. в разделе [Подключение к Operational Insights из System Center Operations Manager](operational-insights-connect-scom.md).
+Перед использованием функции управления оповещениями в Microsoft Azure Operational Insights необходимо установить решение. Дополнительные сведения об установке решений см. в разделе [Установки рабочей области](operational-insights-setup-workspace.md). Решение работает только в том случае, если ваши серверы отслеживаются агентами Operations Manager. Дополнительные сведения об использовании Operations Manager с Operational Insights см. в разделе [Подключение к Operational Insights из System Center Operations Manager](operational-insights-connect-scom.md).
 
 После установки решения можно просмотреть оповещения для отслеживаемых серверов, воспользовавшись плиткой **Управление оповещениями** на панели мониторинга **Обзор** в службе Operational Insights.
 
@@ -58,4 +58,4 @@
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

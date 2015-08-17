@@ -103,4 +103,4 @@
 	Если указанные проблемы не были устранены, установите последнюю версию пакета SDK для Azure версии 2.6 для [VS 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409), [VS 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) или [VS 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

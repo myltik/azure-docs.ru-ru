@@ -467,7 +467,7 @@
 [Директива OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
 [Диагностика и устранение неполадок]: http://go.microsoft.com/fwlink/?LinkId=320839
 [Установка диспетчера пакета NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Сведения о ценах — кэш]: http://azure.microsoft.com/pricing/details/cache/
+[Сведения о ценах — кэш]: http://www.windowsazure.com/pricing/details/cache/
 [Management Portal]: https://manage.windowsazure.com/
 [Предложения кэша]: http://go.microsoft.com/fwlink/?LinkId=317277
 [Capacity planning]: http://go.microsoft.com/fwlink/?LinkId=320167
@@ -486,4 +486,4 @@
 [Какой кэш Azure подходит мне лучше всего?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

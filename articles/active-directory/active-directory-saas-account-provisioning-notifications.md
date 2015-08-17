@@ -40,15 +40,10 @@
 Если уведомления о подготовке учетных записей включены, вы будете получать сообщения о критических проблемах, связанных с подготовкой пользователей. Чтобы не перегружать почту, вы будете получать одно уведомление в день о каждом приложении SaaS, для которого включены уведомления по электронной почте.
 
 
-
-
-## Дополнительные ресурсы
-
-* [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-account-provisioning-notifications/ic766307.png
 [2]: ./media/active-directory-saas-account-provisioning-notifications/ic766308.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

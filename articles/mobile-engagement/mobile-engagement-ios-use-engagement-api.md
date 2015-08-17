@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Как использовать API Engagement в iOS" 
+<properties
+	pageTitle="Как использовать API Engagement в iOS"
 	description="Пакет SDK для последней версии iOS - Как использовать API Engagement в iOS"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="na" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/24/2015" 
-	ms.author="kapiteir" />
+	ms.date="01/24/2015"
+	ms.author="piyushjo" />
 
 
 #Как использовать API Engagement в iOS
@@ -61,34 +61,34 @@ API Engagement предоставляется в классе `EngagementAgent`.
 
 **Пример без дополнительных данных:**
 
-			@implementation MyViewController {
-			   [...]
-			   - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-			   {
-			    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-			        ...
-			    [[EngagementAgent shared] sendSessionEvent:@"will_rotate" extras:nil];
-			        ...
-			   }
-			   [...]
-			}
+	@implementation MyViewController {
+	   [...]
+	   - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+	   {
+	    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+	        ...
+	    [[EngagementAgent shared] sendSessionEvent:@"will_rotate" extras:nil];
+	        ...
+	   }
+	   [...]
+	}
 
 **Пример с дополнительными данными:**
 
-			@implementation MyViewController {
-			   [...]
-			   - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-			   {
-			    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-			        ...
-			    NSMutableDictionary* extras = [NSMutableDictionary dictionary];
-			    [extras setObject:[NSNumber numberWithInt:toInterfaceOrientation] forKey:@"to_orientation_id"];
-			    [extras setObject:[NSNumber numberWithDouble:duration] forKey:@"duration"];
-			    [[EngagementAgent shared] sendSessionEvent:@"will_rotate" extras:extras];
-			        ...
-			   }
-			   [...]
-			}
+	@implementation MyViewController {
+	   [...]
+	   - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+	   {
+	    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+	        ...
+	    NSMutableDictionary* extras = [NSMutableDictionary dictionary];
+	    [extras setObject:[NSNumber numberWithInt:toInterfaceOrientation] forKey:@"to_orientation_id"];
+	    [extras setObject:[NSNumber numberWithDouble:duration] forKey:@"duration"];
+	    [[EngagementAgent shared] sendSessionEvent:@"will_rotate" extras:extras];
+	        ...
+	   }
+	   [...]
+	}
 
 ### Изолированные события
 
@@ -96,7 +96,7 @@ API Engagement предоставляется в классе `EngagementAgent`.
 
 **Пример**
 
-			[[EngagementAgent shared] sendEvent:@"received_notification" extras:nil];
+	[[EngagementAgent shared] sendEvent:@"received_notification" extras:nil];
 
 ##Уведомление об ошибках
 
@@ -106,17 +106,17 @@ API Engagement предоставляется в классе `EngagementAgent`.
 
 **Пример**
 
-			/** The user has entered invalid data in a form */
-			@implementation MyViewController {
-			  [...]
-			  -(void)onMyFormSubmitted:(MyForm*)form {
-			    [...]
-			    /* The user has entered an invalid email address */
-			    [[EngagementAgent shared] sendSessionError:@"sign_up_email" extras:nil]
-			    [...]
-			  }
-			  [...]
-			}
+	/** The user has entered invalid data in a form */
+	@implementation MyViewController {
+	  [...]
+	  -(void)onMyFormSubmitted:(MyForm*)form {
+	    [...]
+	    /* The user has entered an invalid email address */
+	    [[EngagementAgent shared] sendSessionError:@"sign_up_email" extras:nil]
+	    [...]
+	  }
+	  [...]
+	}
 
 ### Изолированные ошибки
 
@@ -124,7 +124,7 @@ API Engagement предоставляется в классе `EngagementAgent`.
 
 **Пример**
 
-			[[EngagementAgent shared] sendError:@"something_failed" extras:nil];
+	[[EngagementAgent shared] sendError:@"something_failed" extras:nil];
 
 ##Уведомление о заданиях
 
@@ -132,18 +132,18 @@ API Engagement предоставляется в классе `EngagementAgent`.
 
 Предположим, что вам необходимо сообщить о продолжительности процесса входа в систему:
 
-			[...]
-			-(void)signIn 
-			{
-			  /* Start job */
-			  [[EngagementAgent shared] startJob:@"sign_in" extras:nil];
-			
-			  [... sign in ...]
-			
-			  /* End job */
-			  [[EngagementAgent shared] endJob:@"sign_in"];
-			}
-			[...]
+	[...]
+	-(void)signIn
+	{
+	  /* Start job */
+	  [[EngagementAgent shared] startJob:@"sign_in" extras:nil];
+
+	  [... sign in ...]
+
+	  /* End job */
+	  [[EngagementAgent shared] endJob:@"sign_in"];
+	}
+	[...]
 
 ### Уведомление об ошибках при выполнении задания
 
@@ -153,35 +153,35 @@ API Engagement предоставляется в классе `EngagementAgent`.
 
 Предположим, что вам необходимо сообщить об ошибке во время входа в систему:
 
-			[...]
-			-(void)signin
-			{
-			  /* Start job */
-			  [[EngagementAgent shared] startJob:@"sign_in" extras:nil];
-			
-			  BOOL success = NO;
-			  while (!success) {
-			    /* Try to sign in */
-			    NSError* error = nil;
-			    [self trySigin:&error];
-			    success = error == nil;
-			
-			    /* If an error occured report it */
-			    if(!success)
-			    {
-			      [[EngagementAgent shared] sendJobError:@"sign_in_error"
-			                     jobName:@"sign_in"
-			                      extras:[NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]];
-			
-			      /* Retry after a moment */
-			      [NSThread sleepForTimeInterval:20];
-			    }
-			  }
-			
-			  /* End job */
-			  [[EngagementAgent shared] endJob:@"sign_in"];
-			};
-			[...]
+	[...]
+	-(void)signin
+	{
+	  /* Start job */
+	  [[EngagementAgent shared] startJob:@"sign_in" extras:nil];
+
+	  BOOL success = NO;
+	  while (!success) {
+	    /* Try to sign in */
+	    NSError* error = nil;
+	    [self trySigin:&error];
+	    success = error == nil;
+
+	    /* If an error occured report it */
+	    if(!success)
+	    {
+	      [[EngagementAgent shared] sendJobError:@"sign_in_error"
+	                     jobName:@"sign_in"
+	                      extras:[NSDictionary dictionaryWithObject:[error localizedDescription] forKey:@"error"]];
+
+	      /* Retry after a moment */
+	      [NSThread sleepForTimeInterval:20];
+	    }
+	  }
+
+	  /* End job */
+	  [[EngagementAgent shared] endJob:@"sign_in"];
+	};
+	[...]
 
 ### События при выполнении задания
 
@@ -191,25 +191,25 @@ API Engagement предоставляется в классе `EngagementAgent`.
 
 Предположим, что у нас есть социальная сеть, и мы используем задание, чтобы сообщить об общем времени подключения пользователя к серверу. Пользователь может получить сообщения от своих друзей. Это и есть событием задания.
 
-			[...]
-			- (void) signin
-			{
-			  [...Sign in code...]
-			  [[EngagementAgent shared] startJob:@"connection" extras:nil];
-			}
-			[...]
-			- (void) signout
-			{
-			  [...Sign out code...]
-			  [[EngagementAgent shared] endJob:@"connection"];
-			}
-			[...]
-			- (void) onMessageReceived 
-			{
-			  [...Notify user...]
-			  [[EngagementAgent shared] sendJobEvent:@"connection" jobName:@"message_received" extras:nil];
-			}
-			[...]
+	[...]
+	- (void) signin
+	{
+	  [...Sign in code...]
+	  [[EngagementAgent shared] startJob:@"connection" extras:nil];
+	}
+	[...]
+	- (void) signout
+	{
+	  [...Sign out code...]
+	  [[EngagementAgent shared] endJob:@"connection"];
+	}
+	[...]
+	- (void) onMessageReceived
+	{
+	  [...Notify user...]
+	  [[EngagementAgent shared] sendJobEvent:@"connection" jobName:@"message_received" extras:nil];
+	}
+	[...]
 
 ##Дополнительные параметры
 
@@ -221,16 +221,16 @@ API Engagement предоставляется в классе `EngagementAgent`.
 
 > [AZURE.NOTE]Дополнительный параметр сериализуется в JSON-файле. Если требуется передать объекты, отличные от описанных выше, в классе следует реализовать следующий метод:
 >
-			 -(NSString*)JSONRepresentation; 
+			 -(NSString*)JSONRepresentation;
 >
 > Метод должен возвратить представление объекта в формате JSON.
 
 ### Пример
 
-			NSMutableDictionary* extras = [NSMutableDictionary dictionaryWithCapacity:2];
-			[extras setObject:[NSNumber numberWithInt:123] forKey:@"video_id"];
-			[extras setObject:@"http://foobar.com/blog" forKey:@"ref_click"];
-			[[EngagementAgent shared] sendEvent:@"video_clicked" extras:extras];
+	NSMutableDictionary* extras = [NSMutableDictionary dictionaryWithCapacity:2];
+	[extras setObject:[NSNumber numberWithInt:123] forKey:@"video_id"];
+	[extras setObject:@"http://foobar.com/blog" forKey:@"ref_click"];
+	[[EngagementAgent shared] sendEvent:@"video_clicked" extras:extras];
 
 ### Ограничения
 
@@ -240,7 +240,7 @@ API Engagement предоставляется в классе `EngagementAgent`.
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Это означает, что ключ должен содержать не менее одной буквы, за которой следуют буквы, цифры или символы подчеркивания (_).
+Это означает, что ключ должен содержать не менее одной буквы, за которой следуют буквы, цифры или символы подчеркивания (\_).
 
 #### Размер
 
@@ -248,7 +248,7 @@ API Engagement предоставляется в классе `EngagementAgent`.
 
 В предыдущем примере длина JSON-файла, отправленного на сервер, составляет 58 знаков:
 
-			{"ref_click":"http://foobar.com/blog","video_id":"123"}
+	{"ref_click":"http:\/\/foobar.com\/blog","video_id":"123"}
 
 ##Уведомление о данных приложения
 
@@ -260,10 +260,10 @@ API Engagement предоставляется в классе `EngagementAgent`.
 
 **Пример**
 
-			NSMutableDictionary* appInfo = [NSMutableDictionary dictionaryWithCapacity:2];
-			[appInfo setObject:@"female" forKey:@"gender"];
-			[appInfo setObject:@"1983-12-07" forKey:@"birthdate"]; // December 7th 1983
-			[[EngagementAgent shared] sendAppInfo:appInfo];
+	NSMutableDictionary* appInfo = [NSMutableDictionary dictionaryWithCapacity:2];
+	[appInfo setObject:@"female" forKey:@"gender"];
+	[appInfo setObject:@"1983-12-07" forKey:@"birthdate"]; // December 7th 1983
+	[[EngagementAgent shared] sendAppInfo:appInfo];
 
 ### Ограничения
 
@@ -273,7 +273,7 @@ API Engagement предоставляется в классе `EngagementAgent`.
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Это означает, что ключ должен содержать не менее одной буквы, за которой следуют буквы, цифры или символы подчеркивания (_).
+Это означает, что ключ должен содержать не менее одной буквы, за которой следуют буквы, цифры или символы подчеркивания (\_).
 
 #### Размер
 
@@ -281,8 +281,6 @@ API Engagement предоставляется в классе `EngagementAgent`.
 
 В предыдущем примере длина JSON-файла, отправленного на сервер, составляет 44 знака:
 
-			{"birthdate":"1983-12-07","gender":"female"}
+	{"birthdate":"1983-12-07","gender":"female"}
 
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

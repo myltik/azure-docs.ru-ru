@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Шаблоны запросов Azure Stream Analytics | Microsoft Azure"
-	description="Справочник по языку запросов Azure Stream Analytics"
+	description="Общие шаблоны запросов Azure Stream Analytics"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,11 +13,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/30/2015"
+	ms.date="08/03/2015"
 	ms.author="jeffstok"/>
 
 
-# Справочник по языку запросов Azure Stream Analytics #
+# Общие шаблоны запросов Azure Stream Analytics  #
 
 ## Введение ##
 Запросы в Azure Stream Analytics выражаются с помощью SQL-подобного языка запросов, который описан [здесь](https://msdn.microsoft.com/library/azure/dn834998.aspx). В этом документе описаны решения для нескольких стандартных шаблонов запросов на основе реальных сценариев. Документ не завершен и будет дополняться новыми шаблонами на постоянной основе.
@@ -443,7 +443,7 @@
 Собираем все вместе и получаем хорошее -> плохое -> хорошее без другого хорошего события между ними. Теперь можно вычислить длительность между началом и концом хорошего события, что дает длительность ошибки.
 
 ## Получение справки
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-ru/home?forum=AzureStreamAnalytics).
 
 ## Дальнейшие действия
 
@@ -454,4 +454,4 @@
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

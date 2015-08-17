@@ -1357,4 +1357,4 @@
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

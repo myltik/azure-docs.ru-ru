@@ -80,7 +80,7 @@ Azure Service Fabric можно использовать для разверты
 ## Структура файла пакета приложения
 Для развертывания приложения с помощью, к примеру, командлетов PowerShell приложение должно следовать предопределенной структуре каталогов.
 
-\applicationmanifest.xml \MyServicePkg \servicemanifest.xml \code \config \data
+\\applicationmanifest.xml \\MyServicePkg \\servicemanifest.xml \\code \\config \\data
 
 Корневой каталог содержит файл applicationmanifest.xml, определяющий приложение. Дочерний каталог для каждой службы, включенной в приложение, используется для хранения всех артефактов, необходимых службе: файла servicemanifest.xml и, как правило, 3 каталогов:
 
@@ -198,7 +198,7 @@ Azure Service Fabric можно использовать для разверты
 				  \ ...
 			\config
 			\data
-			...
+			\...
 
 ```
 
@@ -311,4 +311,4 @@ Azure Service Fabric можно использовать для разверты
 
 	
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

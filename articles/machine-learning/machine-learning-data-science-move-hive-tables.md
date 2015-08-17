@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="jacob.spoelstra" 
-	editor="cgronlun" />
+	editor="cgronlun"  />
 
 <tags 
 	ms.service="machine-learning" 
@@ -153,4 +153,4 @@ https://&#60;Hadoop имя кластера>.azurehdinsight.net/Home/HiveEditor
 
 После выполнения этой процедуры у вас должна быть готовая к использованию таблица с данными в формате ORC.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

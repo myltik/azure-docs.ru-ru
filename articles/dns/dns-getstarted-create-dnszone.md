@@ -10,10 +10,10 @@
 <tags
    ms.service="dns"
    ms.devlang="na"
-   ms.topic="hero-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="07/28/2015"
    ms.author="joaoma"/>
 
 # Приступая к работе с Azure DNS
@@ -55,7 +55,7 @@
 
 Служба Azure DNS управляется поставщиком ресурсов Microsoft.Network. Вашу подписку Azure необходимо зарегистрировать, чтобы использовать этот поставщик ресурсов, прежде чем работать с Azure DNS. Это однократная операция для каждой подписки.
 
-	PS c:> Register-AzureProvider -ProviderNamespace Microsoft.Network
+	PS C:\> Register-AzureProvider -ProviderNamespace Microsoft.Network
 
 
 
@@ -147,4 +147,4 @@
 [Приступая к созданию наборов записей и записей](dns-getstarted-create-recordset.md)<BR> [Управление зонами DNS](dns-operations-dnszones.md)<BR> [Управление DNS-записями](dns-operations-recordsets.md)<BR> [Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)<BR> [Справочник по API REST для службы Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

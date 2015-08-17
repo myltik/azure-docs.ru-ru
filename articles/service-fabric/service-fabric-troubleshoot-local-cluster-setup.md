@@ -86,4 +86,4 @@
 - [Обзор и диагностика кластера с помощью системных отчетов о работоспособности](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Визуализация кластера с помощью обозревателя Service Fabric](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

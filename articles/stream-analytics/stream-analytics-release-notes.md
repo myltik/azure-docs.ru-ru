@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/30/2015" 
+	ms.date="08/05/2015" 
 	ms.author="jeffstok"/>
 
 #Заметки о выпуске Microsoft Stream Analytic
@@ -29,23 +29,23 @@
 </tr>
 <tr>
 <td>ИД организации Power BI отключен от идентификатора Azure</td>
-<td>Эта функция позволяет получать выходные данные Power BI для задания ASA с любого типа учетной записи Azure (идентификатор Live или идентификатор организации). Кроме того, можно иметь один ИД организации для вашей учетной записи Azure и использовать другой для авторизации выходных данных Power BI.</td>
+<td>Эта функция позволяет получать <a href="https://azure.microsoft.com/documentation/articles/stream-analytics-power-bi-dashboard/">выходные данные Power BI</a> для задания ASA с любого типа учетной записи Azure (идентификатор Live или идентификатор организации). Кроме того, можно иметь один ИД организации для вашей учетной записи Azure и использовать другой для авторизации выходных данных Power BI.</td>
 </tr>
 <tr>
 <td>Поддержка выходных данных очередей служебной шины</td>
-<td>Выходные данные очереди служебной шины теперь доступны в заданиях Stream Analytics.</td>
+<td>Выходные данные <a href="https://azure.microsoft.com/documentation/articles/stream-analytics-connect-data-event-outputs/#service-bus-queues">очередей служебной шины</a> теперь доступны в заданиях Stream Analytics.</td>
 </tr>
 <tr>
 <td>Поддержка выходных данных разделов служебной шины</td>
-<td>Выходные данные разделов служебной шины теперь доступны в заданиях Stream Analytics.</td>
+<td>Выходные данные <a href="https://azure.microsoft.com/documentation/articles/stream-analytics-connect-data-event-outputs/#service-bus-topics">разделов служебной шины</a> теперь доступны в заданиях Stream Analytics.</td>
 </tr>
 <tr>
 <td>Новые функции массивов</td>
-<td>Добавлены функции массивов GetArrayElement, GetArrayElements, GetArrayLength.</td>
+<td>Добавлены функции массивов <a href="https://msdn.microsoft.com/library/azure/mt270218.aspx">GetArrayElement</a>, <a href="https://msdn.microsoft.com/library/azure/mt298451.aspx">GetArrayElements</a> и <a href="https://msdn.microsoft.com/library/azure/mt270226.aspx">GetArrayLength</a>.</td>
 </tr>
 <tr>
 <td>Новые функции записи</td>
-<td>Добавлены функции записей GetRecordProperties и GetRecordPropertyValue.</td>
+<td>Добавлены функции записей <a href="https://msdn.microsoft.com/library/azure/mt270221.aspx">GetRecordProperties</a> и <a href="https://msdn.microsoft.com/library/azure/mt270220.aspx">GetRecordPropertyValue</a>.</td>
 </tr>
 </table>
 
@@ -141,7 +141,7 @@
 </table>
 
 ## Получение справки
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-ru/home?forum=AzureStreamAnalytics).
 
 ## Дальнейшие действия
 
@@ -152,4 +152,4 @@
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

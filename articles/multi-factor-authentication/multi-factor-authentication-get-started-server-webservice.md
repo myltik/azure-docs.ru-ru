@@ -89,4 +89,4 @@
 
 <center>![Setup](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)</center>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

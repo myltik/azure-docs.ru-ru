@@ -108,4 +108,4 @@ Visual Studio Application Insights позволяет отслеживать д�
 
 <!--Link references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

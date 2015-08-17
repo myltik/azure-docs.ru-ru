@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/26/2015" 
+	ms.date="08/05/2015" 
 	ms.author="tdykstra"/>
 
 # Защита приложения API: добавление проверки подлинности Azure Active Directory или поставщика социальных сетей
@@ -269,4 +269,4 @@
 [портал предварительной версии Azure]: https://portal.azure.com/
 [портале предварительной версии Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

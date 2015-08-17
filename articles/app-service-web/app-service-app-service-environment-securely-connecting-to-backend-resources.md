@@ -30,7 +30,7 @@
 ## Требования к DNS и исходящим подключениям ##
 Обратите внимание, что для правильной работы среды службы приложений требуется исходящий доступ к хранилищу Azure и базе данных SQL в том же регионе Azure. Если исходящий доступ к Интернету заблокирован в виртуальной сети, среды службы приложений не смогут получить доступ к этим конечным точкам Azure.
 
-Клиент может также иметь пользовательские DNS-серверы в виртуальной сети. Среды служб приложений должны быть в состоянии разрешать адреса конечных точек Azure для имен *.database.windows.net, *.file.core.windows.net и *.blob.core.windows.net. 
+Клиент может также иметь пользовательские DNS-серверы в виртуальной сети. Среды служб приложений должны быть в состоянии разрешать адреса конечных точек Azure для имен *.database.windows.net, *.file.core.windows.net и *.blob.core.windows.net.
 
 Также рекомендуется настроить пользовательские DNS-серверы в виртуальной сети заранее, т. е. до создания среды службы приложений. Если конфигурация виртуальной сети DNS изменяется во время создания среды службы приложений, это приведет к сбою процесса создания среды службы приложений.
 
@@ -110,4 +110,4 @@
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

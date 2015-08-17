@@ -1,3 +1,3 @@
 Набор данных содержит информацию о фильмах, оцененных в твитах Twitter: идентификатор фильма IMDB, название и жанр фильма, год выхода. В наборе данных содержится 17 тыс. фильмов. Набор данных был представлен в документе "S. Dooms, T. De Pessemier and L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013."
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

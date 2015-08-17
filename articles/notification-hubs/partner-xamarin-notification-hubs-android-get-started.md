@@ -12,11 +12,11 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="06/09/2015"
 	ms.author="yuaxu;wesmc"/>
 
-# Приступая к работе с концентраторами уведомлений
+# Приступая к работе с центрами уведомлений
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -498,4 +498,4 @@ Push-уведомления обычно отправляются в серве�
 [Компонент обмена сообщениями в Azure]: http://components.xamarin.com/view/azure-messaging
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

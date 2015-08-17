@@ -38,15 +38,15 @@
 
 После подключения к рабочему столу кластера HDInsight сделайте следующее, чтобы выполнить задание MapReduce с помощью команды Hadoop:
 
-1. На рабочем столе HDInsight запустите **командную строку Hadoop**. Откроется новое окно командной строки в каталоге **c:\apps\dist\hadoop-&lt;номер_версии>**.
+1. На рабочем столе HDInsight запустите **командную строку Hadoop**. Откроется новое окно командной строки в каталоге **c:\\apps\\dist\\hadoop-&lt;номер\_версии>**.
 
-	> [AZURE.NOTE]При обновлении Hadoop номер версии изменяется. Для поиска пути можно использовать переменную среды **HADOOP_HOME**. Например, `cd %HADOOP_HOME%` изменит каталоги на каталог Hadoop без необходимости знать номер версии.
+	> [AZURE.NOTE]При обновлении Hadoop номер версии изменяется. Для поиска пути можно использовать переменную среды **HADOOP\_HOME**. Например, `cd %HADOOP_HOME%` изменит каталоги на каталог Hadoop без необходимости знать номер версии.
 
 2. Чтобы выполнить пример задания MapReduce с помощью команды **Hadoop**, используйте следующую команду:
 
 		hadoop jar hadoop-mapreduce-examples.jar wordcount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/WordCountOutput
 
-	При этом запустится класс **wordcount**, содержащийся в текущем каталоге в файле **hadoop-mapreduce-examples.jar**. В качестве входных данных он использует документ **wasb://example/data/gutenberg/davinci.txt**, а выходные данные сохраняются в **wasb:///example/data/WordCountOutput**.
+	При этом запустится класс **wordcount**, содержащийся в текущем каталоге в файле **hadoop-mapreduce-examples.jar**. В качестве входных данных он использует документ ****wasb://example/data/gutenberg/davinci.txt**, а выходные данные сохраняются в ****wasb:///example/data/WordCountOutput**.
 
 	> [AZURE.NOTE]Дополнительные сведения об этом задании MapReduce и данные для примера см. в разделе <a href="hdinsight-use-mapreduce.md">Использование MapReduce в HDInsight в Hadoop</a>.
 
@@ -57,11 +57,11 @@
 		File Output Format Counters
         Bytes Written=337623
 
-3. По завершении задания воспользуйтесь следующей командой, чтобы вывести список выходных файлов, хранящихся в **wasb://example/data/WordCountOutput**:
+3. По завершении задания воспользуйтесь следующей командой, чтобы вывести список выходных файлов, хранящихся в ****wasb://example/data/WordCountOutput**.
 
 		hadoop fs -ls wasb:///example/data/WordCountOutput
 
-	Должно появиться два файла, **_SUCCESS_ и **part-r-00000**. Файл **part-r-00000** содержит выходные данные этого задания.
+	Должно отобразиться два файла, **\_SUCCESS** и **part-r-00000**. Файл **part-r-00000** содержит выходные данные этого задания.
 
 	> [AZURE.NOTE]Некоторые задания MapReduce могут разделять результаты на несколько файлов **part-r-№№№№№**. В этом случае используйте суффикс №№№№№, чтобы определить порядок файлов.
 
@@ -69,7 +69,7 @@
 
 		hadoop fs -cat wasb:///example/data/WordCountOutput/part-r-00000
 
-	Отобразится список слов, которые содержатся в файле **wasb://example/data/gutenberg/davinci.txt**, а также количество вхождений каждого слова. Ниже приведен пример данных, которые будут содержаться в файле:
+	Отобразится список слов, которые содержатся в файле ****wasb://example/data/gutenberg/davinci.txt**, а также количество вхождений каждого слова. Ниже приведен пример данных, которые будут содержаться в файле.
 
 		wreathed        3
 		wreathing       1
@@ -95,4 +95,4 @@
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

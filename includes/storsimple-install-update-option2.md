@@ -15,4 +15,4 @@
 
 7. Теперь можно [установить обновление 1 с помощью портала управления](#use-the-management-portal-to-install-update-1).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

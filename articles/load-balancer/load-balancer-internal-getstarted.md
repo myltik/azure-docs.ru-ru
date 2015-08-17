@@ -335,4 +335,4 @@
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

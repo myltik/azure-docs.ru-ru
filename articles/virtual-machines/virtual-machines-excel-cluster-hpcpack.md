@@ -377,4 +377,4 @@ binding.Security.Message.ClientCredentialType = BasicHttpMessageCredentialType.U
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

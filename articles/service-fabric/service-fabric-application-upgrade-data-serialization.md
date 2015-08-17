@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="08/05/2015"
    ms.author="jesseb"/>
 
 
@@ -64,6 +64,5 @@
 [Параметры обновления](service-fabric-application-upgrade-parameters.md)
 
 [Дополнительные разделы](service-fabric-application-upgrade-advanced.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/28/2015" 
+    ms.date="08/03/2015" 
     ms.author="elizapo" />
 
 
@@ -21,7 +21,7 @@
 # Настройка Active Directory для Azure RemoteApp
 
 
-Для гибридной коллекции RemoteApp необходимо настроить локальную инфраструктуру доменов Active Directory и клиент Azure Active Directory с интеграцией каталогов (при желании можно настроить и единый вход). Кроме того, в локальном каталоге необходимо создать несколько объектов Active Directory. Используйте следующие сведения, чтобы настроить локальные службы Active Directory и Azure AD, а затем интегрировать их.
+Для гибридной коллекции Azure RemoteApp необходимо настроить локальную инфраструктуру доменов Active Directory и клиент Azure Active Directory с интеграцией каталогов (при желании можно настроить и единый вход). Кроме того, в локальном каталоге необходимо создать несколько объектов Active Directory. Используйте следующие сведения, чтобы настроить локальные службы Active Directory и Azure AD, а затем интегрировать их.
 
 ## Настройка локальной службы Active Directory
 Начните с настройки локальной службы Active Directory. Необходимо определить используемый суффикс домена UPN, а затем создать объекты Active Directory для RemoteApp.
@@ -105,7 +105,7 @@
 -	В разделе **Active Directory -> Каталог по умолчанию -> Пользователи** вы добавили нового пользователя в домене (например, myAzureSyncUser@mydomain.com)).
 -	В вашем домене в Active Directory вы добавили нового пользователя домена (например, myDomainSyncUser@mydomain.com)) и включили в группу "Администраторы предприятия".
 
-Теперь запустите средство синхронизации Microsoft Azure Active Directory. В первом запросе используйте учетные данные **myAzureSyncUser@mydomain.com** (учетные данные администратора Microsoft Azure Active Directory), а во втором — учетные данные **myDomainSyncUser@mydomain.com**.
+Теперь запустите средство синхронизации Microsoft Azure Active Directory. В первом запросе используйте учетные данные ****myAzureSyncUser@mydomain.com** (учетные данные администратора Microsoft Azure Active Directory), а во втором — учетные данные ****myDomainSyncUser@mydomain.com**.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

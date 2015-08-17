@@ -1,128 +1,77 @@
 <properties 
-	pageTitle="Наблюдение за производительностью и использованием вашего приложения с помощью Application Insights" 
+	pageTitle="Приступая к работе с Application Insights" 
 	description="Анализ использования, доступности и производительности локального приложения или веб-приложения Microsoft Azure с помощью Application Insights." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/26/2015" 
+	ms.topic="hero-article" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
-# Наблюдение за производительностью и использованием вашего приложения с помощью Application Insights
+# Начало работы с Visual Studio Application Insights
 
-*Application Insights находится в состоянии предварительной версии*
+*Доступна только предварительная версия Application Insights.*
 
+Обнаружение проблем, решение проблем и постоянное усовершенствование приложений. Быстрая диагностика любых проблем в работающем приложении. Понимание действий, выполняемых пользователями с этим приложением.
 
-Visual Studio Application Insights осуществляет наблюдение за действующим приложением, помогая [обнаруживать и диагностировать проблемы производительности и исключения][detect], а также [исследовать, как используется ваше приложение][knowUsers]. Эта служба может использоваться с различными типами приложений, такими как веб-приложения ASP.NET и Java, приложения для устройств iOS, Android, Windows и других устройств, приложения HTML + JavaScript.
+Настроить службу очень легко, так что результаты будут видны уже через несколько минут.
 
-В этой статье мы рассмотрим типы приложений, которые разрабатываются в Visual Studio. Существуют также расширения Application Insights для других IDE.
+В настоящее время поддерживаются приложения для iOS, Android и Windows, веб-приложения J2EE и ASP.NET, а также службы WCF. Веб-приложения могут работать в Azure или на локальных серверах. Пакет SDK для JavaScript работает на всех веб-страницах.
 
-Вам потребуется [Visual Studio 2013, обновление 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) или более поздняя версия и учетная запись в [Microsoft Azure](http://azure.com).
+## Приступая к работе
 
-## <a name="ide"></a> Добавление Application Insights в проект
+Начните с любого сочетания и любого порядка точек входа, приведенных в левой части схемы. Следуйте наиболее подходящему маршруту.
 
-#### Добавление в новый проект
+Для работы Application Insights в приложение необходимо добавить пакет SDK, который отправляет данные телеметрии на [портал Azure](http://portal.azure.com). Существуют разные пакеты SDK для многих сочетаний поддерживаемых платформ, языков и сред IDE.
 
-При создании нового проекта в Visual Studio установите флажок для компонента Application Insights.
+Вам потребуется учетная запись в [Microsoft Azure](http://azure.com). Возможно, у вас уже есть доступ к учетной записи группы вашей организации. При необходимости можно получить учетную запись с оплатой по мере использования. Application Insights имеет уровень Free, поэтому вы можете не платить до тех пор, пока ваше приложение не станет популярным. См. страницу с [информацией о ценах](https://azure.microsoft.com/pricing/details/application-insights/).
 
+Что вам нужно | Что следует делать | Что вы получаете
+---|---|---
+ <a href="app-insights-start-monitoring-app-health-usage.md">![ASP.NET](./media/app-insights-get-started/appinsights-gs-i-01-perf.png)</a> | <a href="app-insights-start-monitoring-app-health-usage.md">Добавить пакет SDK Application Insights в веб-проект</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-start-monitoring-app-health-usage.md">![Мониторинг производительности и использования](./media/app-insights-get-started/appinsights-gs-r-01-perf.png)</a>
+<a href="app-insights-monitor-performance-live-website-now.md">![Сайт ASP.NET уже работает.](./media/app-insights-get-started/appinsights-gs-i-04-red2.png)</a><br/><a href="app-insights-monitor-performance-live-website-now.md">![Мониторинг зависимостей и производительности](./media/app-insights-get-started/appinsights-gs-i-03-red.png)</a>|<a href="app-insights-monitor-performance-live-website-now.md">Установить монитор состояния на сервере IIS</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-performance-live-website-now.md">![Мониторинг зависимостей ASP.NET](./media/app-insights-get-started/appinsights-gs-r-03-red.png)</a>
+<a href="insights-perf-analytics.md">![Веб-приложения или виртуальные машины Azure](./media/app-insights-get-started/appinsights-gs-i-10-azure.png)</a>|<a href="insights-perf-analytics.md">Включить Insights в веб-приложении Azure или в виртуальной машине</a> <br/> ![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="insights-perf-analytics.md">![Мониторинг зависимостей и производительности](./media/app-insights-get-started/appinsights-gs-r-03-red.png)</a>
+<a href="app-insights-java-get-started.md">![Java](./media/app-insights-get-started/appinsights-gs-i-11-java.png)</a>|<a href="app-insights-java-get-started.md">Добавить пакет SDK в проект Java</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-java-get-started.md">![Мониторинг производительности и использования](./media/app-insights-get-started/appinsights-gs-r-10-java.png)</a>
+<a href="app-insights-web-track-usage.md">![JavaScript](./media/app-insights-get-started/appinsights-gs-i-02-usage.png)</a>|<a href="app-insights-web-track-usage.md">Вставить сценарий Application Insights на свои веб-страницы</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-web-track-usage.md">![просмотры страниц и производительность браузера](./media/app-insights-get-started/appinsights-gs-r-02-usage.png)</a>
+<a href="app-insights-monitor-web-app-availability.md">![Доступность](./media/app-insights-get-started/appinsights-gs-i-05-avail.png)</a>|<a href="app-insights-monitor-web-app-availability.md">Создать веб-тесты</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-web-app-availability.md">![Доступность](./media/app-insights-get-started/appinsights-gs-r-05-avail.png)</a>
+<a href="app-insights-windows-get-started.md">![Windows и Windows Phone](./media/app-insights-get-started/appinsights-gs-i-06-device.png)</a>|<a href="app-insights-windows-get-started.md">Добавить Application Insights в ваш проект приложения Windows</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-windows-get-started.md">![Данные о сбоях и использовании](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
+<a href="app-insights-platforms.md">![iOS, Android и др.](./media/app-insights-get-started/appinsights-gs-i-07-device.png)</a>|<a href="app-insights-platforms.md">Добавить Application Insights в ваше приложение iOS или Android</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-platforms.md">![Данные о сбоях и использовании](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
 
-![Создание проекта ASP.NET](./media/app-service-app-insights-get-started/appinsights-01-vsnewp1.png)
+## Поддержка и обратная связь
 
-Visual Studio создает ресурс в Application Insights, добавляет этот пакет SDK в проект и помещает ключ в файл `.config`.
-
-Если проект содержит веб-страницы, он также добавляет [пакет SDK JavaScript][client] на эталонную веб-страницу.
-
-#### ... или, если это существующий проект
-
-В обозревателе решений щелкните проект правой кнопкой мыши и выберите пункт Add Application Insights (Добавить Application Insights).
-
-![Выберите пункт Add Application Insights](./media/app-service-app-insights-get-started/appinsights-03-addExisting.png)
-
-Visual Studio создает ресурс в Application Insights, добавляет этот пакет SDK в проект и помещает ключ в файл `.config`.
-
-В этом случае он не добавляет [пакет SDK JavaScript][client] на веб-страницы — рекомендуется сделать это на следующем шаге.
-
-#### Параметры настройки
-
-Если вы делаете это впервые, вам будет предложено войти в предварительную версию Microsoft Azure или зарегистрироваться в ней. (При этом создается учетная запись, не связанная с учетной записью Visual Studio Online.)
-
-Если это приложение является частью большего приложения, можно использовать элемент **Настройка параметров**, чтобы поместить его в ту же группу ресурсов, где находятся другие компоненты.
-
-*Нет параметра для добавления Application Insights? В некоторых типах проектов вы можете использовать Application Insights, [вручную добавив пакет SDK][windows].*
-
-#### Откройте Application Insights из проекта.
-
-![Щелкните проект правой кнопкой мыши и откройте портал Azure](./media/app-service-app-insights-get-started/appinsights-04-openPortal.png)
+* Вопросы и проблемы
+ * [Устранение неполадок][qna]
+ * [Форум MSDN](https://social.msdn.microsoft.com/Forums/vstudio/ru-ru/home?forum=ApplicationInsights)
+ * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* Ошибки
+ * [Подключение](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
+* Предложения
+ * [Пользовательское мнение](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
 
 
-## <a name="run"></a> 3. Запуск проекта
 
-Запустите приложение, нажав клавишу F5, и попробуйте открывать разные страницы, чтобы создать некоторый объем данных телеметрии.
-
-В Visual Studio вы увидите число отправленных событий.
-
-![](./media/app-service-app-insights-get-started/appinsights-09eventcount.png)
-
-## <a name="monitor"></a> 4. Просмотр телеметрии
-
-Вернитесь на [портал Azure][portal] и перейдите к своему ресурсу Application Insights.
-
-Выполните поиск данных в диаграммах «Обзор». Сначала вы увидите только одну или две точки. Например:
-
-![Щелкните плитки, чтобы увидеть больше данных](./media/app-service-app-insights-get-started/12-first-perf.png)
-
-Щелкните любую диаграмму, чтобы увидеть более подробные метрики. [Дополнительные сведения о метриках.][perf]
-
-Теперь разверните свое приложение и наблюдайте за тем, как накапливаются данные.
+## <a name="video"></a>Видео
 
 
-При работе в режиме отладки телеметрия передается через конвейер, поэтому данные должны появиться в течение нескольких секунд. При развертывании приложения данные накапливаются медленнее.
+> [AZURE.VIDEO 218]
 
+> [AZURE.VIDEO usage-monitoring-application-insights]
 
-#### Данные отсутствуют?
+> [AZURE.VIDEO performance-monitoring-application-insights]
 
-* Откройте плитку [Поиск по журналу диагностики][diagnostic], чтобы просмотреть отдельные события.
-* Используйте приложение, открывая различные страницы, чтобы создать некоторый объем данных телеметрии.
-* Подождите несколько секунд и нажмите «Обновить».
-* См. раздел [Устранение неполадок][qna].
-
-
-## Дальнейшие действия
-
-Теперь, когда вы отправляете данные с серверной стороны вашего приложения на стороне сервера, можно выполнить несколько приведенных ниже действий, чтобы получить более широкое представление.
-
-* [Настройте веб-тесты][availability], которые помогут быть уверенными в том, что приложение остается работоспособным и правильно отвечает на запросы.
-* [Добавьте пакет SDK JavaScript на веб-страницы][client], которые позволяют получать браузерные данные телеметрии, такие как число просмотров страниц, время загрузки страницы, исключения скриптов, и записывать настраиваемую телеметрию в скрипты страниц.
-* Добавление отслеживания зависимостей для диагностики проблем, связанных с базами данных или другими компонентами, используемыми приложением 
- * [Добавление отслеживания зависимостей на сервер IIS][redfield]
- * [Добавление отслеживания зависимостей в Azure Web App][azure]
-* [Запись трассировки журналов][netlogs] из предпочтительной платформы ведения журналов
-* [Отслеживание пользовательских событий и метрик][api] на клиенте, на сервере или с обеих сторон для получения сведений об использовании приложения.
 
 
 <!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md
-[availability]: app-insights-monitor-web-app-availability.md
-[azure]: ../insights-perf-analytics.md
-[client]: app-insights-javascript.md
-[detect]: app-insights-detect-triage-diagnose.md
-[diagnostic]: app-insights-diagnostic-search.md
-[knowUsers]: app-insights-overview-usage.md
-[netlogs]: app-insights-asp-net-trace-logs.md
-[perf]: app-insights-web-monitor-performance.md
-[portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
-[windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

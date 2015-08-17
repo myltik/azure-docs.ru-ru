@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Как субъекты Fabric используют платформу Service Fabric"
-   description="В этой статье описано, как субъекты Fabric используют функции платформы Service Fabric. Основные понятия платформы Service Fabric рассматриваются с точки зрения разработчиков субъекта."
+   pageTitle="Использование платформы Service Fabric надежными субъектами"
+   description="В этой статье описано, как надежные субъекты используют функции платформы Service Fabric. Основные понятия платформы Service Fabric рассматриваются с точки зрения разработчиков субъекта."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="abhisram"/>
 
-# Как субъекты Fabric используют платформу Service Fabric
+# Использование платформы Service Fabric надежными субъектами
 
 ## Основные сведения о модели приложений Service Fabric для субъектов
 Субъекты используют модель приложений Service Fabric для управления жизненным циклом приложения. Каждый тип субъекта сопоставляется с [типом службы](service-fabric-application-model.md#describe-a-service) Service Fabric. Код субъекта [упаковывается](service-fabric-application-model.md#package-an-application) в виде приложения Service Fabric и [развертывается](service-fabric-deploy-remove-applications.md#deploy-an-application) в кластере.
@@ -242,4 +242,4 @@ public class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

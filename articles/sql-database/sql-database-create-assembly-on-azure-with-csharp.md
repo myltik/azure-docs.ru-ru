@@ -50,7 +50,7 @@ Converting plain text "CREATE ASSEMBLY" into a link to the MSDN topic, ms189524.
 5. Выполните инструкцию SELECT (T-SQL), чтобы вызвать и протестировать свою функцию.
 
 
-В предыдущем списке никак не упоминается...<br/> **execute sp_configure 'clr enabled', 1;**<br/> ... так как она не требуется для базы данных SQL Azure, даже если необходима для Microsoft SQL Server.
+В предыдущем списке никак не упоминается...<br/> **execute sp\_configure 'clr enabled', 1;**<br/> ... так как она не требуется для базы данных SQL Azure, даже если необходима для Microsoft SQL Server.
 
 
 Если для повторных запусков нужен код T-SQL, удаляющий функцию и сборку, используйте следующий код:
@@ -328,4 +328,4 @@ Converting plain text "CREATE ASSEMBLY" into a link to the MSDN topic, ms189524.
 
 <!-- EndOfFile -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

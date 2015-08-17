@@ -76,4 +76,4 @@
 
 [Доставка потокового контента](media-services-deliver-streaming-content.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

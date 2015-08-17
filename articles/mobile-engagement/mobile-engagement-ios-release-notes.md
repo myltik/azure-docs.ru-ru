@@ -1,28 +1,32 @@
-<properties 
-	pageTitle="Заметки о выпуске SDK для рекламных кампаний в iOS для Azure Mobile Engagement" 
+<properties
+	pageTitle="Заметки о выпуске SDK для рекламных кампаний в iOS для Azure Mobile Engagement"
 	description="Последние обновления и указания для пакета SDK для iOS для Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="MehrdadMzfr"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 #Заметки о выпуске
 
-##2.2.0 (05/21/2015)
+##3\.0.0 (06/19/2015)
+
+-   Mobile Engagement использует автоматические push-уведомления.
+
+##2\.2.0 (05/21/2015)
 
 -   В основе идентификатора устройства Mobile Engagement для устройств c версией ОС ниже iOS 6 теперь используется GUID, генерируемый во время установки.
 
-##2.1.0 (24.04.2015)
+##2\.1.0 (24.04.2015)
 
 -   Добавлена поддержка Swift.
 -   При щелчке уведомления теперь после открытия приложения вызывается URL-адрес действия.
@@ -38,6 +42,4 @@
 -   Улучшения безопасности.
 -   Удалено средство отслеживания SmartAd.
 
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -47,4 +47,4 @@
 - [Создание и изменение пользователей в Azure AD](active-directory-create-users.md)
 - [Управление группами в Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

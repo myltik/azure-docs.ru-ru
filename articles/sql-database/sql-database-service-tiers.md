@@ -89,4 +89,4 @@
 Вы узнали об уровнях служб Базы данных SQL. Теперь воспользуйтесь [бесплатной пробной версией](http://azure.microsoft.com/pricing/free-trial/) и узнайте о том, [как создать первую базу данных SQL](sql-database-get-started.md)!
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

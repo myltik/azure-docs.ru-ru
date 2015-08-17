@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
 
 # Создание веб-приложения PHP-SQL и развертывание в службе приложений App с помощью Git
 
 В этом учебном курсе рассматривается создание веб-приложения PHP в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714), которое подключается к базе данных Azure SQL, а также его развертывание с помощью Git. В этом учебнике предполагается, что на компьютере установлены [PHP][install-php], [SQL Server Express][install-SQLExpress], [драйверы Microsoft SQL Server для PHP](http://www.microsoft.com/download/en/details.aspx?id=20098), веб-сервер и [Git][install-git]. После завершения работы с этим учебником у вас будет работающее в Azure веб-приложение PHP-SQL.
 
-> [AZURE.NOTE]Для установки и настройки PHP, SQL Server Express, драйверов Майкрософт для SQL Server для PHP, а также служб IIS можно воспользоваться [Установщиком веб-платформы Майкрософт](http://www.microsoft.com/web/downloads/platform.aspx).
+> [AZURE.NOTE]Для установки и настройки PHP, SQL Server Express, драйверов Майкрософт для SQL Server для PHP, а также служб IIS можно воспользоваться [ Установщиком веб-платформы Майкрософт](http://www.microsoft.com/web/downloads/platform.aspx).
 
 Вы узнаете:
 
@@ -132,7 +132,7 @@
 
 	Обратите внимание, что в качестве значений для параметров ￼<code>$user</code> и <code>$pwd</code> необходимо ввести имя пользователя и пароль SQL Server.
 
-4. Откройте браузер и перейдите на страницу **http://localhost/registration/createtable.php**. В результате в базе данных будет создана таблица `registration_tbl`.
+4. Откройте браузер и перейдите на страницу ****http://localhost/registration/createtable.php**. В результате в базе данных будет создана таблица `registration_tbl`.
 
 5. Откройте файл **index.php** в текстовом редакторе или в интегрированной среде разработки и добавьте базовый HTML-код и CSS для страницы (PHP-код будет добавлен позднее).
 
@@ -228,7 +228,7 @@
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-Теперь можно перейти к **http://localhost/registration/index.php** для тестирования приложения.
+Теперь можно перейти к ****http://localhost/registration/index.php** для тестирования приложения.
 
 ##Публикация приложения
 
@@ -292,4 +292,4 @@
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -56,36 +56,14 @@
 2.	В меню **ФАЙЛ** выберите команду **Создать**, а затем — **Проект**.
 3.	В окне "Новый проект" введите или выберите следующие значения:
 
-	<table border="1">
-<tr>
-	<th>Имя</th>
-	<th>Значение</th>
-</tr>
-<tr>
-	<td>Группа шаблонов</td>
-	<td>Installed/Templates/Visual C#/Windows Store</td>
-</tr>
-<tr>
-	<td>Шаблон</td>
-	<td>Пустое приложение (XAML)</td>
-</tr>
-<tr>
-	<td>Имя</td>
-	<td>SSPlayer</td>
-</tr>
-<tr>
-	<td>Расположение</td>
-	<td>C:\SSTutorials</td>
-</tr>
-<tr>
-	<td>Имя решения</td>
-	<td>SSPlayer</td>
-</tr>
-<tr>
-	<td>Создать каталог для решения</td>
-	<td>(выбрано)</td>
-</tr>
-</table>
+Имя|Значение
+---|---
+Группа шаблонов|Installed/Templates/Visual C#/Windows Store
+Шаблон|Пустое приложение (XAML)
+Имя|SSPlayer
+Расположение|C:\\SSTutorials
+Имя решения|SSPlayer
+Создать каталог для решения|(выбрано)
 
 4.	Нажмите кнопку **ОК**.
 
@@ -94,23 +72,12 @@
 1.	В "Обозревателе решений" щелкните правой кнопкой мыши папку **SSPlayer** и выберите **Добавить ссылку**.
 2.	Введите или выберите следующие значения:
 
-	<table border="1">
-<tr>
-	<th>Имя</th>
-	<th>Значение</th>
-</tr>
-<tr>
-	<td>Ссылочная группа</td>
-	<td>Windows/Расширения</td>
-</tr>
-<tr>
-	<td>Справочные материалы</td>
-	<td>Выберите клиентский пакет SDK бесперебойной потоковой передачи Microsoft для Windows 8 и пакет среды выполнения Microsoft Visual C++ 
-	</td>
-</tr>
-</table>
+Имя|Значение
+---|---
+Ссылочная группа|Windows/Расширения
+Справочные материалы|Выберите клиентский пакет SDK бесперебойной потоковой передачи Microsoft для Windows 8 и пакет среды выполнения Microsoft Visual C++
 	
-3.	Нажмите кнопку **ОК**.
+3.	Нажмите кнопку **ОК**. 
 
 После добавления ссылок необходимо выбрать целевую платформу (x64 x86), добавление ссылок будет действовать не для всех конфигураций платформы ЦП. Для таких добавленных ссылок в обозревателе решений будет выведен желтый значок предупреждения.
 
@@ -228,7 +195,7 @@
 		}
 		#endregion
 
-	Здесь определяется обработчик события sliderProgress_PointerPressed. Для его запуска требуется выполнить ряд дополнительных действий, которые будут рассматриваться на следующем уроке этого учебного курса.
+	Здесь определяется обработчик события sliderProgress\_PointerPressed. Для его запуска требуется выполнить ряд дополнительных действий, которые будут рассматриваться на следующем уроке этого учебного курса.
 6.	Нажмите клавиши **CTRL+S**, чтобы сохранить файл.
 
 Готовый код файла должен выглядеть следующим образом:
@@ -320,7 +287,7 @@
 
 4.	В конце конструктора **MainPage** добавьте следующую строку для подписки на событие открытия адаптивного источника:
 	
-	adaptiveSourceManager.AdaptiveSourceOpenedEvent += new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
+	adaptiveSourceManager.AdaptiveSourceOpenedEvent += new AdaptiveSourceOpenedEventHandler(mediaElement\_AdaptiveSourceOpened);
 
 5.	Нажмите клавиши **CTRL+S**, чтобы сохранить файл.
 
@@ -352,7 +319,7 @@
 		}
 		#endregion Adaptive Source Level Events
 
-4.	В конце метода <strong>mediaElement AdaptiveSourceOpened</strong> добавьте следующий код, чтобы подписаться на события:
+4.	В конце метода **mediaElement AdaptiveSourceOpened** добавьте следующий код, чтобы подписаться на события:
 	
 		adaptiveSource.ManifestReadyEvent +=
 	                mediaElement_ManifestReady;
@@ -498,7 +465,7 @@
 		  sliderProgress.Maximum = absvalue; }); 
 		
 
-6.	В конце метода **mediaElement_AdaptiveSourceStatusUpdated** добавьте следующий код:
+6.	В конце метода **mediaElement\_AdaptiveSourceStatusUpdated** добавьте следующий код:
 	
 		setSliderStartTime(args.StartTime);
 		setSliderEndTime(args.EndTime);
@@ -762,7 +729,7 @@
 		}
 		#endregion stream selection
 
-5. Найдите метод mediaElement_ManifestReady, измените следующий код в конце функции:
+5. Найдите метод mediaElement\_ManifestReady, измените следующий код в конце функции:
 	
 		getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
@@ -788,7 +755,7 @@
 2.	Нажмите клавишу **F5** для запуска приложения.
 3.	В верхней части приложения можно выбрать URL-адрес бесперебойной потоковой передачи по умолчанию или ввести другой. 
 4.	Щелкните **Задать источник**. 
-5.	Язык по умолчанию — audio_eng. Попробуйте переключиться между audio_eng и audio_es. Каждый раз при выборе нового потока необходимо нажать кнопку "Отправить".
+5.	Язык по умолчанию — audio\_eng. Попробуйте переключиться между audio\_eng и audio\_es. Каждый раз при выборе нового потока необходимо нажать кнопку "Отправить".
 
 Вы завершили урок 3. В этом уроке были добавлены функциональные возможности для выбора потоков.
 
@@ -967,7 +934,7 @@
         }
         #endregion track selection
 
-5. Найдите метод mediaElement_ManifestReady, измените следующий код в конце функции:
+5. Найдите метод mediaElement\_ManifestReady, измените следующий код в конце функции:
 
 		getTracks(manifestObject);
 		refreshAvailableTracksListBoxItemSource();
@@ -1004,4 +971,4 @@
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -59,7 +59,7 @@
 |----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Ошибка: атрибут не поддерживается. | (user.invalidProperty -eq "Value") | (user.department -eq "value") — свойство должно соответствовать одному из свойств в приведенном выше списке поддерживаемых свойств. |
 | Ошибка: не поддерживается оператор для атрибута. | (user.accountEnabled -contains true) | (user.accountEnabled - eq true) — свойство имеет логический тип. Используйте поддерживаемые операторы (-eq и - ne) для логического типа из списка выше. |
-| Ошибка: ошибка компиляции запроса. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "\*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing") — логический оператор должен соответствовать одному из приведенного выше списка поддерживаемых свойств. (user.userPrincipalName -match ".\*@domain.ext")or(user.userPrincipalName -match "@domain.ext$") — ошибка в регулярном выражении. |
+| Ошибка: ошибка компиляции запроса. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing") — логический оператор должен соответствовать одному из приведенного выше списка поддерживаемых свойств. (user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$") — ошибка в регулярном выражении. |
 | Ошибка: неправильный формат двоичного выражения. | (user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain") — запрос содержит несколько ошибок. Скобки не в нужном месте. |
 | Ошибка: неизвестная ошибка при настройке динамического членства. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain") — запрос содержит несколько ошибок. Скобки не в нужном месте. |
 
@@ -124,7 +124,7 @@
 | passwordPolicies | None, DisableStrongPassword, DisablePasswordExpiration, DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName | Любое строковое значение или $null. | (user.physicalDeliveryOfficeName -eq "value") |
 | postalCode | Любое строковое значение или $null. | (user.postalCode -eq "value") |
-| preferredLanguage | Код ISO 639-1. | (user.preferredLanguage -eq "en-US") |
+| preferredLanguage | Код ISO 639-1. | (user.preferredLanguage -eq "ru-ru") |
 | sipProxyAddress | Любое строковое значение или $null. | (user.sipProxyAddress -eq "value") |
 | state | Любое строковое значение или $null. | (user.state -eq "value") |
 | streetAddress | Любое строковое значение или $null. | (user.streetAddress -eq "value") |
@@ -168,4 +168,4 @@
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

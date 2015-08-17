@@ -11,6 +11,6 @@
 
     ![Запрос к базе данных SQL для получения хранящихся в ней элементов](./media/mobile-services-dotnet-backend-view-sql-data/sql-azure-query.png)
 
-	Обратите внимание: таблица содержит столбцы Id, __createdAt, __updatedAt и __version. Эти столбцы поддерживают синхронизацию автономных данных и реализованы в базовом классе [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx). Дополнительную информацию см. в разделе [Приступая к работе с синхронизацией автономных данных].
+	Обратите внимание: таблица содержит столбцы Id, \_\_createdAt, \_\_updatedAt и \_\_version. Эти столбцы поддерживают синхронизацию автономных данных и реализованы в базовом классе [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx). Дополнительные сведения см. в разделе [Приступая к работе с синхронизацией автономных данных].
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

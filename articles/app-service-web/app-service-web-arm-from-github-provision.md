@@ -108,4 +108,4 @@ URL-адрес репозитория GitHub, в котором располож
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

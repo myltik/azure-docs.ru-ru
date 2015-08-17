@@ -62,4 +62,4 @@
 - Сведения о создании шаблонов диспетчера ресурсов Azure см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md). 
 - Список доступных в шаблоне функций см. в статье [Функции шаблонов в диспетчере ресурсов Azure](resource-group-template-functions.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -147,7 +147,7 @@
 
 В Windows используйте следующую команду.
 
-    cd \users\azureuser.ipython\profile_nbserver
+    cd \users\azureuser\.ipython\profile_nbserver
 
 Используйте следующую команду, чтобы создать сертификат SSL (Linux и Windows).
 
@@ -271,4 +271,4 @@ IPython Notebook предоставляет богатый возможност�
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!-------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

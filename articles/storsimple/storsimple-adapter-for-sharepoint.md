@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/17/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos" />
 
 # Адаптер StorSimple для SharePoint
@@ -230,7 +230,7 @@
 
 ## Дальнейшие действия
 
-[Дополнительные сведения о StorSimple](storsimple-overview.md) и [Компоненты StorSimple](storsimple-components.md)
+[Узнайте больше о StorSimple](storsimple-overview.md).
 
 <!--Reference links-->
 [1]: https://www.microsoft.com/download/details.aspx?id=44073
@@ -240,4 +240,4 @@
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/ru-ru/library/ff943565.aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -301,4 +301,4 @@ XML-код соответствует XML-схеме шаблона лиценз
 	  <xs:element name="ScmsRestriction" nillable="true" type="tns:ScmsRestriction" />
 	</xs:schema>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

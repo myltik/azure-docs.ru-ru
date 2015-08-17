@@ -8,4 +8,4 @@
 [Добавление мобильных служб в существующее приложение]: ../articles/mobile-services-android-get-started-data.md
 -->
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

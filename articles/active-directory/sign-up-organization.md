@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Подпишитесь на Azure как организация" 
-	description="Узнайте, как с помощью учетной записи на работе или в школе можно использовать существующие учетные записи пользователей, политики, параметры или локальные развертывания серверов для улучшения эффективного взаимодействия локальной инфраструктуры удостоверений вашей организации и Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="terrylan" 
-	editor="Lisatoft"/>
+<properties
+	pageTitle="Подпишитесь на Azure как организация"
+	description="Узнайте, как с помощью учетной записи на работе или в школе можно использовать существующие учетные записи пользователей, политики, параметры или локальные развертывания серверов для улучшения эффективного взаимодействия локальной инфраструктуры удостоверений вашей организации и Azure AD."
+	services="active-directory"
+	documentationCenter=""
+	authors="markvi"
+	manager="stevenpo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="terrylan"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/30/2015"
+	ms.author="markvi"/>
 
 
 # Подпишитесь на Azure как организация
@@ -27,13 +27,12 @@
 
 	После создания этого каталога администратор может создавать пользователей и назначить им лицензии в зависимости от необходимого доступа к подпискам на облачные службы, например на Azure.
 
-Желаете подписаться на Azure как организация? [**Зарегистрируйтесь сейчас**](http://go.microsoft.com/fwlink/?LinkId=269967)
+Желаете подписаться на Azure как организация? [**Зарегистрируйтесь сейчас**](https://azure.microsoft.com/pricing/purchase-options/)
 
 **Дополнительные ресурсы**
 
-* [Блог Microsoft Azure](http://azure.microsoft.com/blog/) 
+* [Блог Microsoft Azure](http://azure.microsoft.com/blog/)
 * [Что такое Azure AD?](active-directory-whatis.md)
 * [Использование локальной инфраструктуры удостоверений в облаке](active-directory-aadconnect.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

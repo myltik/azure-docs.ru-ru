@@ -72,8 +72,9 @@ PS C:\> MARSAgentInstaller.exe /?
 Перед регистрацией в службе резервного копирования Azure убедитесь, что соблюдены [необходимые условия](backup-azure-dpm-introduction.md). Необходимо следующее:
 
 - Действующая подписка на Azure
-- Создание хранилища архивации
+- создать хранилище архивации;
 - Скачайте учетные данные хранилища и сохраните их в удобном расположении (например, в папке *C:\Downloads*). Для удобства вы можете изменить учетные данные хранилища.
+
 Регистрация компьютера в хранилище выполняется с помощью командлета [Start-DPMCloudRegistration](https://technet.microsoft.com/library/jj612787):
 
 ```
@@ -188,7 +189,7 @@ PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
 После добавления в группу защиты источников данных необходимо указать метод защиты, воспользовавшись для этого командлетом [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725). В этом примере группа защиты будет настроена для резервного копирования на локальный диск и в облако.
 
 ```
-PS C:\> Set-DPMProtectionType -ProtectionGroup $PG -ShortTerm Disk –LongTerm Online
+PS C:\> Set-DPMProtectionType -ProtectionGroup $MPG -ShortTerm Disk –LongTerm Online
 ```
 
 ### Настройка диапазона хранения
@@ -279,4 +280,4 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 ## Дальнейшие действия
 Дополнительные сведения о службе архивации Azure для DPM см. в разделе [Общие сведения о службе архивации DPM Azure](backup-azure-dpm-introduction.md)
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

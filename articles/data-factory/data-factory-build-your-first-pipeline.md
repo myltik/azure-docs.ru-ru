@@ -37,7 +37,7 @@
 
 1.	**Подписка Azure **. Если ее нет, можно за пару минут создать бесплатную пробную учетную запись. Сведения о том, как получить такую учетную запись, см. в статье [Бесплатная пробная версия](http://azure.microsoft.com/pricing/free-trial/).
 
-2.	**Хранилище Azure**. В данном учебнике предполагается, что для хранения данных будет использоваться учетная запись хранения Azure. Если у вас ее нет, прочитайте статью [Создание учетной записи хранения](../storage/storage-create-storage-account.md/#create-a-storage-account). После создания учетной записи хранения необходимо получить ключ, используемый для доступа к хранилищу. См. статью [Просмотр, копирование и повторное создание ключей доступа к хранилищу](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys).
+2.	**Хранилище Azure**. В данном учебнике предполагается, что для хранения данных будет использоваться учетная запись хранения Azure. Если у вас ее нет, прочитайте статью [Создание учетной записи хранения](../storage-create-storage-account/#create-a-storage-account). После создания учетной записи хранения необходимо получить ключ, используемый для доступа к хранилищу. См. статью [Просмотр, копирование и повторное создание ключей доступа к хранилищу](../storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
 
 ## Что рассматривается в этом учебнике?	
 Фабрика данных Azure позволяет объединять задачи по перемещению и обработке данных в управляемый данными рабочий процесс. Вы узнаете, как построить конвейер, который использует HDInsight для ежемесячного преобразования и анализа веб-журналов.
@@ -118,7 +118,7 @@
 		partitioned by ( year int, month int)
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
 		STORED AS TEXTFILE 
-		LOCATION 'wasb://data@<storageaccountname>.blob.core.windows.net/partitioneddata';
+		LOCATION '${hiveconf:partitionedtable}';
 
 		INSERT INTO TABLE WebLogsPartitioned  PARTITION( year , month) 
 		SELECT
@@ -147,7 +147,7 @@
 	 
  
 2. Чтобы подготовить хранилище Azure для использования с учебником:
-	1. Скачайте [последнюю версию программы **AzCopy**](http://aka.ms/downloadazcopy) или [последнюю предварительную версию](http://aka.ms/downloadazcopypr). Сведения о том, как использовать AzCopy, см. в статье [AzCopy](../storage/storage-use-azcopy.md).
+	1. Скачайте [последнюю версию программы **AzCopy**](http://aka.ms/downloadazcopy) или [последнюю предварительную версию](http://aka.ms/downloadazcopypr). Инструкции по использованию этой программы вы найдете в статье [Использование AzCopy](../storage/storage-use-azcopy.md).
 	2. После установки программы AzCopy вы можете добавить путь к ней в переменную PATH, выполнив следующую команду в командной строке. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
@@ -173,4 +173,4 @@
 - Щелкните ссылку [Использование PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) вверху, чтобы пройти учебник с помощью Azure PowerShell.
 - Щелкните ссылку [Использование Visual Studio](data-factory-build-your-first-pipeline-using-vs.md), чтобы пройти учебник с помощью Visual Studio 2013. 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

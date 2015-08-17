@@ -764,4 +764,4 @@ Visual Studio обеспечивает доступ к подмножеству 
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

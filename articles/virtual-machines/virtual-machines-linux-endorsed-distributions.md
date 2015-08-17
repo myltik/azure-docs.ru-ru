@@ -31,61 +31,14 @@
 
 Агент Linux для Azure уже предварительно установлен в образах коллекции Azure и обычно доступен из репозитория пакета дистрибутива. Исходный код можно найти на сайте [GitHub](https://github.com/azure/walinuxagent).
 
-<table border="1" width="600">
-  <tr bgcolor="#E9E7E7">
-		<th>Дистрибутив</th>		
-	    <th>Версия</th>
-	    <th>Драйверы</th>
-		<th>Агент</th>
-			</tr>
-	<tr>
-		<th>  Каноническая Ubuntu </th>
-		<td> Ubuntu&#160;12.04, 14.04, 14.10 и 15.04 </td>
-		<td>В ядре</td>
-		<td>Пакет: в репозитории под именем walinuxagent <br />
-			Источник: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-			</tr>
-	<tr>
-		<th> CentOS через OpenLogic </th>
-		<td> CentOS&#160;6.3+, 7.0+</td>
-	    <td> CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">скачивание LIS</a><br/>
-	        CentOS 6.4 и более поздних версий: в ядре</td>
-		<td>Пакет: в <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">репозитории пакетов</a> под именем WALinuxAgent<br />
-			Источник: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
- 		
-	</tr>
-	<tr>
-		<th> <a href="https://coreos.com/docs/running-coreos/cloud-providers/azure/">CoreOS</a> </th>
-		<td> 494.4.0 + </td>
-        <td> В ядре </td>
-		<td> Источник: <a href="https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> Oracle Linux </th>
-		<td> 6.4+, 7.0+ </td>
-        <td>В ядре</td>
-		<td>Пакет: в репозитории под именем WALinuxAgent<br />
-			Источник: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> SUSE Linux Enterprise </th>
-		<td> SLES&#160;11 SP3+, SLES&#160;12+ и <br /> SLES для SAP&#160;11.3+ </td>
-        <td>В ядре</td>
-		<td>Пакет: в репозитории <a href="https://build.opensuse.org/project/show/Cloud:Tools">Cloud:Tools</a> под именем WALinuxAgent<br />
-			Источник: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> openSUSE </th>
-		<td> openSUSE 13.1+</td>
-		<td>В ядре</td>
-		<td>Пакет: в репозитории <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> под именем WALinuxAgent<br />
-			Исходный код: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-</table>
+Дистрибутив|Версия|Драйверы|Агент
+---|---|---|---
+Каноническая Ubuntu|Ubuntu 12.04, 14.04, 14.10 и 15.04|В ядре|Пакет: в репозитории под именем walinuxagent<p><p>Источник: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+CentOS через OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3: [скачиваемый пакет LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 и более поздних версий: в ядре|Пакет: в <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">репозитории OpenLogic под именем WALinuxAgent<p><p>Источник: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+[CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0 + |В ядре|Источник: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
+Oracle Linux| 6\.4+, 7.0+|В ядре|Пакет: в репозитоиии под именем WALinuxAgent<p><p>Источник: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+SUSE Linux Enterprise |SLES 11 с пакетом обновления 3 или более поздней версии, SLES 12 или более поздней версии и<p><p>SLES для SAP 11.3 или более поздней версии |В ядре|Пакет: в репозитории [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) под именем WALinuxAgent<p><p>Источник: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+openSUSE |openSUSE 13.1+|В ядре|Пакет: в репозитории [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) под именем WALinuxAgent<p><p>Исходный код: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 
 ## Партнеры
 
@@ -124,4 +77,4 @@ SUSE Linux Enterprise Server в Azure — проверенная платфор
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

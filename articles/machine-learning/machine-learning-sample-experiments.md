@@ -40,4 +40,4 @@
 - [Просмотрите приложения, готовые к использованию](https://datamarket.azure.com/browse?query=machine+learning)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

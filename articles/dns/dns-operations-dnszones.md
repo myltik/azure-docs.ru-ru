@@ -103,4 +103,4 @@
 
 [Автоматизация операций с помощью пакета SDK для .NET](../dns-sdk)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

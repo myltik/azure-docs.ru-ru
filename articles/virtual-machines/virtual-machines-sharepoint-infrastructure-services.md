@@ -63,4 +63,4 @@
 
 - [Развертывание службы синхронизации каталогов Office 365 (DirSync) в Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -3,7 +3,7 @@
 	description="Быстрый сброс пароля локального администратора или службы удаленных рабочих столов для виртуальных машин Windows с помощью портала предварительной версии Azure и команд PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
-	ms.author="josephd"/>
+	ms.author="dkshir"/>
 
 # Сброс пароля или службы удаленных рабочих столов для виртуальных машин Windows
 
@@ -113,4 +113,4 @@
 
 [Устранение неполадок с подключением к удаленному рабочему столу виртуальной машины Windows в службе Azure](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

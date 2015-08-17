@@ -1,9 +1,7 @@
 <properties 
 	pageTitle="Обработка аналитических данных и технология расширенного анализа данных на практике. Использование кластеров HDInsight Hadoop с набором данных Criteo объемом 1 ТБ | Azure" 
 	description="Использование обработки аналитических данных и технологии расширенного анализа данных (ADAPT) для комплексного сценария, включающего использование кластера HDInsight Hadoop для создания и развертывания модели на основе общедоступного набора данных большого объема (1 ТБ)" 
-	metaKeywords="" 
 	services="machine-learning,hdinsight" 
-	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -86,11 +84,11 @@
 
 1. Данные в этом общедоступном хранилище больших двоичных объектов содержатся в трех вложенных папках с разархивированными данными.
 		
-	1. Вложенная папка *raw/count/* содержит данные за первый 21 день — от day_00 до day_20.
-	2. Вложенная папка *raw/train* содержит данные за один день — day_21.
-	3. Вложенная папка *raw/test/* содержит данные за два дня — day_22 и day_23.
+	1. Вложенная папка *raw/count/* содержит данные за первый 21 день — от day\_00 до day\_20.
+	2. Вложенная папка *raw/train* содержит данные за один день — day\_21.
+	3. Вложенная папка *raw/test/* содержит данные за два дня — day\_22 и day\_23.
 
-2. Для тех, кому требуется начать с необработанных данных gzip, эти данные также доступны в главной папке *raw/* в виде day_NN.gz, где значение NN указано в диапазоне от 00 до 23.
+2. Для тех, кому требуется начать с необработанных данных gzip, эти данные также доступны в главной папке *raw/* в виде day\_NN.gz, где значение NN указано в диапазоне от 00 до 23.
 
 Альтернативный способ получения доступа к этим данным, их просмотра и моделирования, который не требует скачивания локальных файлов, описан далее в этом пошаговом руководстве на этапе создания таблиц Hive.
 
@@ -114,16 +112,16 @@
 
 **ВАЖНОЕ ПРИМЕЧАНИЕ.** **Выполняйте все команды Hive в этом пошаговом руководстве в командной строке каталога bin/ Hive выше. Таким образом вы сможете автоматически избежать любых проблем с путем. Термины «командная строка каталога Hive», «командная строка каталога bin/ Hive» и «командная строка Hadoop» будут использоваться на взаимозаменяемой основе.**
 
-**ВАЖНОЕ ПРИМЕЧАНИЕ 2.** **Любой запрос Hive можно всегда выполнить, использовав команду Hive **cd %hive_home%\bin.
+**ВАЖНОЕ ПРИМЕЧАНИЕ 2.** **Любой запрос Hive можно всегда выполнить, использовав команду Hive **cd %hive\_home%\\bin.
 
 После появления командной строки Hive REPL с символом hive > просто скопируйте и вставьте запрос, чтобы выполнить его.
 
 Код ниже создает базу данных criteo, а затем — 4 таблицы:
 
 
-* *таблицу для создания счетчиков*, построенную для дней с day_00 до day_20; 
-* *таблицу для использования в качестве набора данных*, построенную для дня day_21; 
-* две *таблицы для использования в качестве наборов данных теста*, построенные для дней day_22 и day_23 соответственно. 
+* *таблицу для создания счетчиков*, построенную для дней с day\_00 до day\_20; 
+* *таблицу для использования в качестве набора данных*, построенную для дня day\_21; 
+* две *таблицы для использования в качестве наборов данных теста*, построенные для дней day\_22 и day\_23 соответственно. 
 
 Тестовый набор данных был разделен на две разные таблицы, так как один из дней — праздник, и необходимо определить, может ли модель определить разницу между праздником и другим днем по коэффициенту выбора рекламного объявления.
 
@@ -234,7 +232,7 @@
 
 		hive -f C:\temp\sample_hive_count_criteo_test_day_22_table_examples.hql
 
-Наконец, мы просмотрим количество тестовых примеров в тестовом наборе данных на основе показателя day_23.
+Наконец, мы просмотрим количество тестовых примеров в тестовом наборе данных на основе показателя day\_23.
 
 Команда для выполнения этого действия похожа на команду выше (см. [sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;23&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql)):
 
@@ -261,7 +259,7 @@
 		
 ### Распределения гистограммы некоторых числовых переменных в наборе данных для обучения
 
-Можно использовать функцию Hive histogram_numeric, чтобы узнать, как выглядит распределение числовых переменных. Ниже представлено содержимое сценария [sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql):
+Можно использовать функцию Hive histogram\_numeric, чтобы узнать, как выглядит распределение числовых переменных. Ниже представлено содержимое сценария [sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql):
 
 		SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM 
 			(SELECT
@@ -299,7 +297,7 @@
 
 ### Приблизительные процентили для некоторых числовых переменных в наборе данных для обучения
 
-Кроме того, нам необходимо вычислить приблизительные процентили для числовых переменных. Функция Hive percentile_approx делает это автоматически. Ниже представлено содержимое сценария [sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql):
+Кроме того, нам необходимо вычислить приблизительные процентили для числовых переменных. Функция Hive percentile\_approx делает это автоматически. Ниже представлено содержимое сценария [sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql):
 
 		SELECT MIN(Col2) AS Col2_min, PERCENTILE_APPROX(Col2, 0.1) AS Col2_01, PERCENTILE_APPROX(Col2, 0.3) AS Col2_03, PERCENTILE_APPROX(Col2, 0.5) AS Col2_median, PERCENTILE_APPROX(Col2, 0.8) AS Col2_08, MAX(Col2) AS Col2_max FROM criteo.criteo_train;
 
@@ -382,7 +380,7 @@
 		Time taken: 12.22 seconds
 		Time taken: 298.98 seconds
 
-Сценарий [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;22&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) выполняет это действие для тестовых данных за день day_22:
+Сценарий [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;22&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) выполняет это действие для тестовых данных за день day\_22:
 
 		--- Now for test data (day_22)
 
@@ -400,7 +398,7 @@
 		Time taken: 317.66 seconds
 
 
-Сценарий [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;23&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) выполняет это действие для тестовых данных за день day_23:
+Сценарий [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;23&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) выполняет это действие для тестовых данных за день day\_23:
 
 		--- Finally test data day_23
 		CREATE TABLE criteo.criteo_test_day_23_downsample_1perc (
@@ -452,7 +450,7 @@
 Указанные выше параметры модуля **Читатель** представляют собой примеры необходимых значений. Ниже представлены общие указания по заполнению набора параметров для модуля **Читатель**.
 
 1. В поле **Источник данных** выберите пункт «Запрос Hive».
-2. В поле **Запрос базы данных Hive** достаточно просто ввести SELECT * FROM <имя_вашей_базы_данных.имя_вашей_таблицы>.
+2. В поле **Запрос базы данных Hive** достаточно просто ввести SELECT * FROM <имя\_вашей\_базы\_данных.имя\_вашей\_таблицы>.
 3. **URI сервера Hcatalog**: если используется кластер abc, введите адрес https://abc.azurehdinsight.net.
 4. **Имя учетной записи пользователя Hadoop**: имя пользователя, выбранное во время введения кластера в эксплуатацию (НЕ имя пользователя для удаленного доступа).
 5. **Пароль учетной записи пользователя Hadoop**: пароль для указанного выше имени пользователя, выбранный во время введения кластера в эксплуатацию (НЕ пароль для удаленного доступа).
@@ -540,7 +538,7 @@
 
 ![](http://i.imgur.com/91wvcwN.png)
 
-В этом простом скрипте R для установки интервала баланса между положительным и отрицательным классами используется выражение pos_neg_ratio. Это действие важно, так как устранение дисбаланса между классами положительно влияет на скорость выполнения задач классификации со скошенным распределением классов (напомним, что в нашем случае на положительный класс приходится 3,3 %, а на отрицательный — 96,7 %).
+В этом простом скрипте R для установки интервала баланса между положительным и отрицательным классами используется выражение pos\_neg\_ratio. Это действие важно, так как устранение дисбаланса между классами положительно влияет на скорость выполнения задач классификации со скошенным распределением классов (напомним, что в нашем случае на положительный класс приходится 3,3 %, а на отрицательный — 96,7 %).
 
 ##### Применение преобразования счетчика к данным
 
@@ -658,4 +656,4 @@
 
 На этом пошаговое руководство по обработке крупномасштабных наборов данных с помощью машинного обучения Azure завершается. Мы начали работу с терабайтом данных, построили модель прогнозирования и развернули ее в облаке как веб-службу.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

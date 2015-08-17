@@ -1,26 +1,37 @@
-<properties 
-	pageTitle="Процедуры обновления SDK для рекламных кампаний в iOS для Azure Mobile Engagement" 
+<properties
+	pageTitle="Процедуры обновления SDK для рекламных кампаний в iOS для Azure Mobile Engagement"
 	description="Последние обновления и указания для пакета SDK для iOS для Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="MehrdadMzfr"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 #Процедуры обновления
 
 Если вы уже интегрировали в приложение старую версию службы Engagement, при обновлении пакета SDK необходимо учитывать следующее.
 
 Для каждой новой версии пакета SDK необходимо сначала заменить (удалить и повторно импортировать в проект Хcode) папки EngagementSDK и EngagementReach.
+
+##Из версии 2.0.0 в 3.0.0
+При использовании Reach в приложении необходимо добавить значение `remote-notification` в массив `UIBackgroundModes` в файле Info.plist для получения удаленных уведомлений.
+
+Метод `application:applicationDidReceiveRemoteNotification:` должен быть заменен на `application:applicationDidReceiveRemoteNotification:fetchCompletionHandler:` в делегате приложения.
+
+Следующие методы делегата являются устаревшими, поэтому их необходимо удалить из делегата приложения:
+
+	-(void)willRetrieveLaunchMessage;
+	-(void)didFailToRetrieveLaunchMessage;
+	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
 ##От версии 1.16.0 до 2.0.0
 Ниже описан процесс переноса интеграции пакета SDK из службы Capptain от Capptain SAS в приложение на платформе Azure Mobile Engagement. При миграции с более ранней версии сначала выполните перенос на версию 1.16, как указано на веб-сайте Capptain, а затем примените следующую процедуру.
@@ -58,6 +69,5 @@
 -   Класс `CapptainTableViewController` переименовывается в `EngagementTableViewController`.
 -   Класс `CapptainUtils` переименовывается в `EngagementUtils`.
 -   Класс `CapptainViewController` переименовывается в `EngagementViewController`.
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

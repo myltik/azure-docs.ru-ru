@@ -40,4 +40,4 @@
 - [Добавление настраиваемых отчетов о работоспособности Service Fabric](service-fabric-report-health.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

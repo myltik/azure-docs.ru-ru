@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Управление рисками с помощью условного доступа" 
-	description="В разделе объясняется, как разрешить повсеместный доступ к определенному ресурсу с известных устройств, соответствующих политикам, и запретить доступ с потерянных, украденных и несоответствующих устройств." 
-	services="active-directory, virtual-network" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Управление рисками с помощью условного доступа"
+	description="В разделе объясняется, как разрешить повсеместный доступ к определенному ресурсу с известных устройств, соответствующих политикам, и запретить доступ с потерянных, украденных и несоответствующих устройств."
+	services="active-directory, virtual-network"
+	documentationCenter=""
+	authors="femila"
+	manager="stevepo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="identity" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+  ms.tgt_pltfrm="na"
+  ms.workload="identity" 
+	ms.date="07/31/2015"
+	ms.author="femila"/>
 
 
 # Управление рисками с помощью условного доступа
@@ -43,6 +43,5 @@
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

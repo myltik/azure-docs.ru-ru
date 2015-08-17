@@ -145,4 +145,4 @@ Azure CLI представляет собой набор межплатформ�
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

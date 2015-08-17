@@ -9,7 +9,7 @@
 <tags
    ms.service="operational-insights"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/21/2015"
@@ -102,13 +102,13 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 |*.ods.opinsights.azure.com|порт 443| |service.systemcenteradvisor.com|порт 443| |scadvisor.accesscontrol.windows.net|порт 443| |scadvisorservice.accesscontrol.windows.net|порт 443| |*.blob.core.windows.net/*|Порт 443|
 |data.systemcenteradvisor.com|Порт 443|
 |ods.systemcenteradvisor.com|Порт 443|
-|*.systemcenteradvisor.com|Порт 443|
+|**.systemcenteradvisor.com|Порт 443|
 
 
 |**Ресурс консоли Operations Manager и Operational Insights**|**Порты**|
 |---|---|
 |*.systemcenteradvisor.com|порт 80 и 443| |*.live.com|Порты 80 и 443|
-|*.microsoftonline.com|порты 80 и 443| |login.windows.net|порты 80 и 443|
+|**.microsoftonline.com|Порты 80 и 443| |login.windows.net|Порт 80 и 443|
 
 
 Используйте следующие процедуры для регистрации группы управления Operations Manager в службе Operational Insights. При возникновении проблем связи между группой управления и службой Operational Insights используйте процедуры проверки, чтобы устранить неполадки передачи данных в службу Operational Insights.
@@ -129,7 +129,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 3. В представлении «Подключение к оперативной аналитике» щелкните **Настройка прокси-сервера**. ![Настройка прокси-сервера для подключения к оперативной аналитике Operations Manager](./media/operational-insights-proxy-firewall/proxy-om02.png)
 
-4. В мастере настройки прокси-сервера оперативной аналитики выберите **Использовать прокси-сервер для доступа к веб-службе оперативной аналитики**, а затем введите URL-адрес с номером порта, например **http://myproxy:80**. ![Адрес прокси-сервера оперативной аналитики Operations Manager](./media/operational-insights-proxy-firewall/proxy-om03.png)
+4. В мастере настройки прокси-сервера оперативной аналитики выберите **Использовать прокси-сервер для доступа к веб-службе оперативной аналитики**, а затем введите URL-адрес с номером порта, например ****http://myproxy:80**. ![Адрес прокси-сервера оперативной аналитики Operations Manager](./media/operational-insights-proxy-firewall/proxy-om03.png)
 
 
 ### Указание учетных данных, если для прокси-сервера требуется аутентификация
@@ -144,7 +144,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 5. Чтобы настроить учетную запись для управления, выберите **Выбранный класс, группа или объект** для открытия окна поиска объектов. ![изображение мастера запуска от имени профиля](./media/operational-insights-proxy-firewall/proxyacct2-1.png)
 6. Найдите и выберите **группу серверов мониторинга Microsoft System Center Advisor**. ![изображение поля поиска объектов](./media/operational-insights-proxy-firewall/proxyacct3.png)
-7. Нажмите кнопку **ОК**, чтобы закрыть окно «Добавить запуск от имени учетной записи». ![изображение мастера запуска от имени профиля](./media/operational-insights-proxy-firewall/proxyacct4.png)
+7. Нажмите кнопку **ОК**, чтобы закрыть окно «Добавление учетной записи запуска от имени». ![изображение мастера запуска от имени профиля](./media/operational-insights-proxy-firewall/proxyacct4.png)
 8. Закройте мастер и сохраните изменения. ![изображение мастера запуска от имени профиля](./media/operational-insights-proxy-firewall/proxyacct5.png)
 
 
@@ -166,4 +166,4 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 3. Добавьте все счетчики, которые начинаются с **HTTP**. ![добавление счетчиков](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Если Operations Manager настроен правильно, вы увидите активность счетчиков управления службы работоспособности для событий и других данных для пакетов управления, которые вы добавили в оперативной аналитике и для которых настроили политику сбора данных журналов. ![Отображение активности на мониторе производительности](./media/operational-insights-proxy-firewall/sendingdata2.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

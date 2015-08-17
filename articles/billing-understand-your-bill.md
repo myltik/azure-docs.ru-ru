@@ -262,4 +262,4 @@ GUID ресурса | Идентификатор средства измерен
 
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -86,7 +86,7 @@
 	        public DateTime Date { get; set; }
     	}
 
-4. Разверните папку Models, откройте файл контекста модели данных (с именем *имя\_службы\*Context.cs) и добавьте следующее свойство, которое возвращает объект с типом **DbSet**:
+4. Разверните папку Models, откройте файл контекста модели данных (с именем *имя\_службы*Context.cs) и добавьте следующее свойство, которое возвращает типизированный **DbSet**:
 
 		public DbSet<Updates> Updates { get; set; }
 
@@ -213,7 +213,7 @@
 		    }
 		}
 
-	В приведенном выше коде необходимо заменить строки _todolistService_ и _todolistContext_ на пространство имен и DbContext загруженного проекта, т. е. *mobile&#95;service&#95;name\*Service и *mobile&#95;service&#95;name\*Context соответственно.
+	В приведенном выше коде необходимо заменить строки _todolistService_ и _todolistContext_ на пространство имен и DbContext скачанного проекта, т. е. *mobile&#95;service&#95;name*Service и *mobile&#95;service&#95;name*Context соответственно.
    	
 	В приведенном выше коде переопределяющий метод **ExecuteAsync** вызывает API запросов Твиттера с помощью сохраненных учетных данных для запроса последних твитов, содержащих хэш-тег `#mobileservices`. Повторяющиеся твиты и ответы исключаются из результатов еще до того, как они сохраняются в таблице.
 
@@ -300,4 +300,4 @@
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [Проект LINQ to Twitter CodePlex]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

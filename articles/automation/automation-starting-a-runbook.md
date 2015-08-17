@@ -232,4 +232,4 @@
 
 - [Запуск модуля Runbook из другого модуля Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

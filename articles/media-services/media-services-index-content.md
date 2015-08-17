@@ -346,4 +346,4 @@ Error — указывает, успешно ли проиндексирован
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

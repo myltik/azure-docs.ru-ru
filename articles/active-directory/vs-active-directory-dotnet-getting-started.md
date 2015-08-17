@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/22/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Приступая к работе с Azure Active Directory (проекты .NET)
 
@@ -28,9 +28,9 @@
  
 ##Добавление элементов управления SignIn и SignOut 
 
-Чтобы добавить в одно из представлений элементы управления SignIn и SignOut, можно использовать частичное представление **_LoginPartial.cshtml\*\*. Вот пример добавления такой функциональности в стандартное представление **_Layout.cshtml\*\*. (Обратите внимание на последний элемент в теге div с классом navbar-collapse):
+Чтобы добавить элементы управления SignIn и SignOut, можно использовать частичное представление **\_LoginPartial.cshtml** для добавления функций к одному из представлений. Вот пример функций, добавленных к стандартному представлению **\_Layout.cshtml** (обратите внимание на последний элемент в теге div с классом navbar-collapse):
 
-<PRE class="prettyprint">
+```
     &lt;!DOCTYPE html&gt; 
      &lt;html&gt; 
      &lt;head&gt; 
@@ -73,8 +73,8 @@
         @RenderSection("scripts", required: false) 
     &lt;/body&gt; 
     &lt;/html&gt;
-</PRE>
+```
 
 [Дополнительная информация о службе Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

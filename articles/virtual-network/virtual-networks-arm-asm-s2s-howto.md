@@ -27,11 +27,11 @@
 
 Ниже приведен обзор задач для создания VPN-подключения S2S между классической виртуальной сетью и виртуальной сетью ARM с помощью шлюзов Azure.
 
-1. [Создание VPN-шлюза для классической виртуальной сети](#Step-1:-Create-a-VPN-gateway-for-the-classic-VNet).
+1\. [Создание VPN-шлюза для классической виртуальной сети](#Step-1:-Create-a-VPN-gateway-for-the-classic-VNet).
 
-2. [Создание VPN-шлюза для виртуальной сети ARM](#Step-2:-Create-a-VPN-gateway-for-the-ARM-VNet).
+2\. [Создание VPN-шлюза для виртуальной сети ARM](#Step-2:-Create-a-VPN-gateway-for-the-ARM-VNet).
 
-3. [Создание подключения между шлюзами](#Step-3:-Create-a-connection-between-the-gateways).
+3\. [Создание подключения между шлюзами](#Step-3:-Create-a-connection-between-the-gateways).
 
 ## Шаг 1. Создание VPN-шлюза для классической виртуальной сети
 
@@ -130,4 +130,4 @@
 - Узнайте больше о [поставщике сетевых ресурсов (NRP) для ARM](../resource-groups-networking.md).
 - Создание [комплексного решения для подключения классической виртуальной сети к виртуальной сети ARM с помощью VPN-подключения S2S](../virtual-networks-arm-asm-s2s.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

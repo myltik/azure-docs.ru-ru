@@ -9,17 +9,17 @@
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
+   ms.date="08/03/2015"
    ms.author="joaoma" />
 
 # Приступая к настройке подсистемы балансировки нагрузки для Интернета с помощью диспетчера ресурсов Azure
 
 
 > [AZURE.SELECTOR]
-- [Service Manager steps](load-balancer-internet-getstarted.md)
+- [Azure Classic steps](load-balancer-internet-getstarted.md)
 - [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
 
 
@@ -251,4 +251,4 @@ PS C:\> $backendnic1
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

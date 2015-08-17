@@ -3,7 +3,7 @@
 	description="Сведения об обозревателе документов DocumentDB, средстве портала предварительной версии Azure для просмотра, изменения, создания и отправки документов JSON с помощью DocumentDB."
 	services="documentdb"
 	authors="stephbaron"
-	manager="johnmac"
+	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
 
@@ -113,7 +113,7 @@
 
 	![Снимок экрана: просмотр свойств документа в обозревателе документов](./media/documentdb-view-JSON-document-explorer/documentproperties.png)
 
-	> [AZURE.NOTE]Свойство метки времени (_ts) внутренне представлено как время эпохи, но обозреватель документов отображает значение в читаемом формате GMT.
+	> [AZURE.NOTE]Свойство метки времени (\_ts) внутренне представлено как время эпохи, но обозреватель документов отображает значение в читаемом формате GMT.
 
 ##<a id="BulkAdd"></a>Массовое добавление документов с помощью обозревателя документов##
 
@@ -140,4 +140,4 @@
 Для получения дополнительных сведений о DocumentDB щелкните [здесь](http://azure.com/docdb).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

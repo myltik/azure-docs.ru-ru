@@ -17,7 +17,7 @@
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Переименование в хранилище данных SQL
-SQL Server позволяет переименовывать объекты и базы данных с помощью хранимых процедур sp_rename и sp_renamedb соответственно.
+SQL Server позволяет переименовывать объекты и базы данных с помощью хранимых процедур sp\_rename и sp\_renamedb соответственно.
 
 В хранилище данных SQL для достижения той же цели используется синтаксис DDL. Команды DDL: RENAME OBJECT и RENAME DATABASE.
 
@@ -80,4 +80,4 @@ ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 <!--Other Web references-->
 [Azure management portal]: http://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

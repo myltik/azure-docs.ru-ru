@@ -129,8 +129,8 @@
 
 В Package.appxmanifest были обновлены следующие элементы `File Type Associations`:
 
- -   capptain_reach_content заменяется engagement_reach_content
- -   capptain_log_file заменяется engagement_log_file
+ -   capptain\_reach\_content заменяется engagement\_reach\_content
+ -   capptain\_log\_file заменяется engagement\_log\_file
 
 ### Идентификатор приложения и ключ SDK
 
@@ -169,4 +169,4 @@ Engagement использует строку подключения. При ис
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

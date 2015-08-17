@@ -80,7 +80,7 @@
 
 		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy
 		 
-Эта команда является асинхронной. После ее завершения проверьте статус выполнения операции, используя командлет [Get AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720235.aspx). В случае выполнения поле ReplicationState возвращаемого объекта будет иметь значение CATCH_UP.
+Эта команда является асинхронной. После ее завершения проверьте статус выполнения операции, используя командлет [Get AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720235.aspx). В случае выполнения поле ReplicationState возвращаемого объекта будет иметь значение CATCH\_UP.
 
 		Get-AzureSqlDatabaseCopy -ServerName "PrimaryServerName" -DatabaseName "PrimaryDatabaseName" -PartnerServer "SecondaryServerName"
 
@@ -89,7 +89,7 @@
 
 Чтобы настроить георепликацию программным способом, используйте API-команду [Запустить копирование базы данных](https://msdn.microsoft.com/library/azure/dn509576.aspx).
 
-Эта команда является асинхронной. После ее завершения проверьте статус выполнения операции, используя API-команду [Получить копию базы данных](https://msdn.microsoft.com/library/azure/dn509570.aspx). В случае выполнения поле ReplicationState в теле ответа будет иметь значение CATCH_UP.
+Эта команда является асинхронной. После ее завершения проверьте статус выполнения операции, используя API-команду [Получить копию базы данных](https://msdn.microsoft.com/library/azure/dn509570.aspx). В случае выполнения поле ReplicationState в теле ответа будет иметь значение CATCH\_UP.
 
 
 ##Как выбрать конфигурацию отработки отказа 
@@ -99,4 +99,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -107,4 +107,4 @@
 [Создание экземпляра службы управления API]: api-management-get-started.md#create-service-instance
 [использовать внешние группы в связанных с ними клиентах Azure Active Directory]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

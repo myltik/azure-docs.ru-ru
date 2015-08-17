@@ -169,9 +169,10 @@
 2. Измените файл **startup.cmd**, чтобы распаковать WAR-файл TwilioCloud.
 3. Выполните компиляцию приложения для эмулятора среды выполнения приложений.
 4. Запустите развертывание в эмуляторе среды выполнения приложений.
-5. Откройте браузер и запустите **http://localhost:8080/TwilioCloud/callform.jsp**. 6. Введите в форму значения, нажмите **Выполнить звонок** и просмотрите результаты в файле makecall.jsp.
+5. Откройте браузер и запустите ****http://localhost:8080/TwilioCloud/callform.jsp**.
+6. Введите в форму значения, нажмите **Выполнить звонок** и просмотрите результаты в файле makecall.jsp.
 
-Когда будете готовы к развертыванию в Azure, выполните повторную компиляцию для развертывания в облаке, разверните в Azure и запустите http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp в браузере (подставьте свое значение в *your_hosted_name*).
+Когда будете готовы к развертыванию в Azure, выполните повторную компиляцию для развертывания в облаке, разверните в Azure и запустите http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp в браузере (подставьте свое значение в *your\_hosted\_name*).
 
 ## Дальнейшие действия
 В этом коде демонстрируются базовые функциональные возможности службы Twilio в Java в Azure. Возможно, перед развертыванием в рабочей среде Azure потребуется добавить в него дополнительные обработчики ошибок и другие функции. Например:
@@ -198,7 +199,7 @@
 [add_ca_cert]: java-add-certificate-ca-store.md
 [azure_java_eclipse_hello_world]: http://msdn.microsoft.com/library/windowsazure/hh690944.aspx
 [howto_twilio_voice_sms_java]: partner-twilio-java-how-to-use-voice-sms.md
-[howto_blob_storage_java]: http://azure.microsoft.com/develop/java/how-to-guides/blob-storage/
+[howto_blob_storage_java]: http://www.windowsazure.com/develop/java/how-to-guides/blob-storage/
 [howto_sql_azure_java]: http://msdn.microsoft.com/library/windowsazure/hh749029.aspx
 [azure_runtime_jsp]: http://msdn.microsoft.com/library/windowsazure/hh690948.aspx
 [azure_javadoc]: http://dl.windowsazure.com/javadoc
@@ -208,4 +209,4 @@
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

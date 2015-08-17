@@ -57,4 +57,4 @@
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Этот проект содержит шаблоны для «воронок», «сит» и топологий, обеспечивающих взаимодействие с различными сервисами Azure, такими как концентраторы событий, DocumentDB и база данных SQL."
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -294,7 +294,6 @@
 -	[Язык шаблонов в диспетчере ресурсов Azure](http://msdn.microsoft.com/library/azure/dn835138.aspx)
 -	[Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md)
 -	[Функции шаблонов в диспетчере ресурсов Azure](../resource-group-template-functions.md)
--	[Расширенные операции с шаблонами](../resource-group-advanced-template.md)
 -	[Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](../resource-group-template-deploy.md)
 -	[Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md)
 -	[Устранение неполадок при развертывании групп ресурсов в Azure](../resource-group-deploy-debug.md)
@@ -304,4 +303,4 @@
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

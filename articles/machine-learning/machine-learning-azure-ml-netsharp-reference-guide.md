@@ -401,4 +401,4 @@ Net# дополнительно поддерживает определение 
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

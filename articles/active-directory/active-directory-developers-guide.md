@@ -10,7 +10,7 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="06/10/2015"
@@ -132,4 +132,4 @@ Azure Active Directory является платформой для управл
 
 - **[Azure AD в Twitter](https://twitter.com/azuread)**: объявления Azure AD в 140 символов или меньше.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

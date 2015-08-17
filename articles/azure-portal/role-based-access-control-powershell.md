@@ -165,4 +165,4 @@ RBAC работает только с диспетчером ресурсов Az
 - [Устранение неполадок управления доступом на основе ролей](role-based-access-control-troubleshooting.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

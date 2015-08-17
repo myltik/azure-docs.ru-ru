@@ -221,4 +221,4 @@
 
 Если возникли затруднения с контроллерами устройства StorSimple, которые не удается разрешить с помощью процедур, описанных в этом учебнике, [обратитесь в службу поддержки Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

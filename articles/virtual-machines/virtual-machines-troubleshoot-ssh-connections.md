@@ -3,7 +3,7 @@
 	description="Если не удается подключиться к виртуальной машине Azure под управлением Linux, выполните следующие действия, чтобы выявить источник проблемы."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
-	ms.author="josephd"/>
+	ms.author="dkshir"/>
 
 # Устранение неполадок с подключением Secure Shell (SSH) к виртуальной машине Azure под управлением Linux
 
@@ -86,7 +86,7 @@
 Если вы используете проверку подлинности на основе сертификата, убедитесь, что у вас есть следующие разрешения для папки SSH в домашнем каталоге:
 
 - Chmod 700 \~/.ssh;
-- Chmod 644 \~/.ssh/\*.pub;
+- Chmod 644 \~/.ssh/*.pub;
 - Chmod 600 \~/.ssh/id\_rsa (или другие файлы, в которых могут храниться ваши закрытые ключи);
 - Chmod 644 \~/.ssh/known\_hosts (содержит узлы, с которыми вы установили подключение по SSH-протоколу).
 
@@ -165,4 +165,4 @@
 
 [Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

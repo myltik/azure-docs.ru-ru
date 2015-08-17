@@ -139,7 +139,7 @@ PlayerRank содержит внешний ключ к Player. У каждого
 
 Контроллер наследуется из **TableController<T>**. Этот класс наследует **ApiController**, но он специализирован для мобильных служб Azure.
  
-- Маршрутизация. Маршрут по умолчанию для **TableController** — `/tables/{table_name}/{id}`, где *table_name* совпадает с именем сущности. Поэтому маршрут для контроллера Player — */tables/player/{id}*. Это соглашение о маршрутизации выполняет согласование **TableController** с [API REST](http://msdn.microsoft.com/library/azure/jj710104.aspx) мобильных служб.
+- Маршрутизация. Маршрут по умолчанию для **TableController** — `/tables/{table_name}/{id}`, где *table\_name* совпадает с именем сущности. Поэтому маршрут для контроллера Player — */tables/player/{id}*. Это соглашение о маршрутизации выполняет согласование **TableController** с [API REST](http://msdn.microsoft.com/library/azure/jj710104.aspx) мобильных служб.
 - Доступ к данным. Для операций баз данных класс **TableController** использует интерфейс **IDomainManager**, который определяет абстракцию для доступа к данным. Для формирования шаблонов используется параметр **EntityDomainManager**, который является конкретной реализацией интерфейса **IDomainManager**, заключающего в оболочку контекст EF. 
 
 Теперь добавьте второй контроллер для сущностей PlayerRank. Выполните те же действия, но выберите класс модели PlayerRank. Используйте тот же класс контекста данных, а не создавайте новый. Назовите контроллер PlayerContoller.
@@ -762,4 +762,4 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

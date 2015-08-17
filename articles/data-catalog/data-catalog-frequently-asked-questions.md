@@ -6,8 +6,7 @@
    authors="dvana"
    manager="mblythe"
    editor=""
-   tags=""/>
-<tags
+   tags=""/> <tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
@@ -158,4 +157,4 @@
 
 Перейдите на [форум каталога данных Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Ответы на вопросы, заданные на форуме, будут опубликованы здесь.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

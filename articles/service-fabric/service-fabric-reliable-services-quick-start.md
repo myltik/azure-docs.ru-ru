@@ -204,4 +204,4 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 [Справочник разработчика по надежным службам](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

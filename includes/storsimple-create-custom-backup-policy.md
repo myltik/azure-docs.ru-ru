@@ -39,4 +39,4 @@
 
     ![Настраиваемая политика резервного копирования](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

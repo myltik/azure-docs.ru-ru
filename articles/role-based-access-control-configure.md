@@ -84,7 +84,7 @@
 
 ![][3]
 
-Последовательно щелкните *имя подписки*\*\* > Reader (Читатель) > Add (Добавить)\*\*. В списке пользователей и групп выберите или введите имя группы Active Directory.
+Последовательно щелкните *имя подписки*** > Reader (Читатель) > Add (Добавить)**. В списке пользователей и групп выберите или введите имя группы Active Directory.
 
 ![][4]
 
@@ -1293,4 +1293,4 @@ $log | Format-Table
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

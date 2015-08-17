@@ -167,7 +167,7 @@
 
 Чтобы настроить это действие контроллера, выполните следующие действия.
 
-1. В папке *\Controllers* создайте новый CS-файл с именем *MemeGeneratorController.cs* и замените содержимое следующим кодом. Не забудьте заменить выделенный фрагмент путем к файлу и именем CDN.
+1. В папке *\\Controllers* создайте новый CS-файл с именем *MemeGeneratorController.cs* и замените содержимое следующим кодом. Замените путь к файлу на `~/Content/chuck.bmp`, а имя CDN — на `yourCDNName`.
 	<pre class="prettyprint">
 using System;
 using System.Collections.Generic;
@@ -217,14 +217,14 @@ namespace cdnwebapp.Controllers
             }
             else // Получить содержимое из Azure CDN
             {
-                return Redirect(string.Format("http://<mark>&lt;yourCDNName></mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}", data.Item1, data.Item2));
+                return Redirect(string.Format("http://&lt;yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}", data.Item1, data.Item2));
             }
         }
 
         [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
         public ActionResult Generate(string top, string bottom)
         {
-            string imageFilePath = HostingEnvironment.MapPath("<mark>~/Content/chuck.bmp</mark>");
+            string imageFilePath = HostingEnvironment.MapPath("~/Content/chuck.bmp");
             Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
 
             using (Graphics graphics = Graphics.FromImage(bitmap))
@@ -305,7 +305,7 @@ public ActionResult Show(string id)
     }
     else // Get content from Azure CDN
     {
-        return Redirect(string.Format(";http://<mark>&lt;yourCDNName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}";, data.Item1, data.Item2));
+        return Redirect(string.Format(";http://&lt;yourCDNName&gt;.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}";, data.Item1, data.Item2));
     }
 }
 </pre>
@@ -370,27 +370,27 @@ public ActionResult Show(string id)
 	<pre class="prettyprint">
 public static void RegisterBundles(BundleCollection bundles)
 {
-    <mark>bundles.UseCdn = true;
+    bundles.UseCdn = true;
     var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
         .GetName().Version.ToString();
-    var cdnUrl = "http://&lt;yourCDNName>.vo.msecnd.net/{0}?v=" + version;</mark>
+    var cdnUrl = "http://&lt;yourCDNName>.vo.msecnd.net/{0}?v=" + version;
 
-    bundles.Add(new ScriptBundle("~/bundles/jquery"<mark>, string.Format(cdnUrl, "bundles/jquery")</mark>).Include(
+    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
                 "~/Scripts/jquery-{version}.js"));
 
-    bundles.Add(new ScriptBundle("~/bundles/jqueryval"<mark>, string.Format(cdnUrl, "bundles/jqueryval")</mark>).Include(
+    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")).Include(
                 "~/Scripts/jquery.validate*"));
 
     // Используйте версию разработки Modernizr как основу для обучения и разработки. Когда вы будете готовы
     // к развертыванию в рабочей среде, используйте инструмент создания по адресу http://modernizr.com, что выбирать только необходимые тесты.
-    bundles.Add(new ScriptBundle("~/bundles/modernizr"<mark>, string.Format(cdnUrl, "bundles/modernizer")</mark>).Include(
+    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")).Include(
                 "~/Scripts/modernizr-*"));
 
-    bundles.Add(new ScriptBundle("~/bundles/bootstrap"<mark>, string.Format(cdnUrl, "bundles/bootstrap")</mark>).Include(
+    bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/respond.js"));
 
-    bundles.Add(new StyleBundle("~/Content/css"<mark>, string.Format(cdnUrl, "Content/css")</mark>).Include(
+    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
 }
@@ -461,7 +461,7 @@ public static void RegisterBundles(BundleCollection bundles)
 
 Класс [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) содержит свойство с именем [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx), которое позволяет настраивать резервный механизм на случай сбоя CDN. Для использования этого свойства выполните приведенные ниже действия.
 
-1. В проекте ASP.NET откройте файл *App_Start\BundleConfig.cs*, где в каждом [конструкторе Bundle](http://msdn.microsoft.com/library/jj646464.aspx) вы добавили URL-адрес CDN, и внесите следующие выделенные изменения, чтобы добавить резервный механизм в пакеты по умолчанию:  
+1. В проекте ASP.NET откройте файл *App\_Start\\BundleConfig.cs*, где в каждом [конструкторе Bundle](http://msdn.microsoft.com/library/jj646464.aspx) вы добавили URL-адрес CDN, и внесите код `CdnFallbackExpression`, чтобы добавить резервный механизм в пакеты по умолчанию:  
 	<pre class="prettyprint">
 public static void RegisterBundles(BundleCollection bundles)
 {
@@ -471,21 +471,21 @@ public static void RegisterBundles(BundleCollection bundles)
     bundles.UseCdn = true;
 
     bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
-				<mark>{ CdnFallbackExpression = "window.jquery" }</mark>
+				{ CdnFallbackExpression = "window.jquery" }
                 .Include("~/Scripts/jquery-{version}.js"));
 
     bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")) 
-				<mark>{ CdnFallbackExpression = "$.validator" }</mark>
+				{ CdnFallbackExpression = "$.validator" }
             	.Include("~/Scripts/jquery.validate*"));
 
     // Используйте версию разработки Modernizr как основу для обучения и разработки. Когда вы будете готовы
     // к развертыванию в рабочей среде, используйте инструмент создания по адресу http://modernizr.com, что выбирать только необходимые тесты.
     bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
-				<mark>{ CdnFallbackExpression = "window.Modernizr" }</mark>
+				{ CdnFallbackExpression = "window.Modernizr" }
 				.Include("~/Scripts/modernizr-*"));
 
     bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")) 	
-				<mark>{ CdnFallbackExpression = "$.fn.modal" }</mark>
+				{ CdnFallbackExpression = "$.fn.modal" }
         		.Include(
 	              		"~/Scripts/bootstrap.js",
 	              		"~/Scripts/respond.js"));
@@ -509,10 +509,10 @@ public static void RegisterBundles(BundleCollection bundles)
 
 4. В файле *App_Start\StyleFundleExtensions.cs* переименуйте пространство имен для своего приложения ASP.NET (например, **cdnwebapp**).
 
-3. Вернитесь в файл `App_Start\BundleConfig.cs` и замените последний оператор `bundles.Add` следующим выделенным кодом:
+3. Вернитесь к `App_Start\BundleConfig.cs` и измените последнюю инструкцию `bundles.Add`, как показано ниже.
 	<pre class="prettyprint">
 bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
-    <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark>
+    .IncludeFallback("~/Content/css", "sr-only", "width", "1px")
     .Include(
           "~/Content/bootstrap.css",
           "~/Content/site.css"));
@@ -524,7 +524,7 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 	<pre class="prettyprint">...
 
 	&lt;link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-<mark>&lt;script>(function() {
+&lt;script>(function() {
                 var loadFallback,
                     len = document.styleSheets.length;
                 for (var i = 0; i &lt; len; i++) {
@@ -541,23 +541,23 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
                     }
                 }
                 return true;
-            }())||document.write('&lt;script src="/Content/css">&lt;/script>');&lt;/script></mark>
+            }())||document.write('&lt;script src="/Content/css">&lt;\/script>');&lt;/script>
 
     &lt;script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474">&lt;/script>
-<mark>&lt;script>(window.Modernizr)||document.write('&lt;script src="/bundles/modernizr">&lt;/script>');&lt;/script></mark>
+&lt;script>(window.Modernizr)||document.write('&lt;script src="/bundles/modernizr">&lt;\/script>');&lt;/script>
 
 ...	
 
     &lt;script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474">&lt;/script>
-<mark>&lt;script>(window.jquery)||document.write('&lt;script src="/bundles/jquery">&lt;/script>');&lt;/script></mark>
+&lt;script>(window.jquery)||document.write('&lt;script src="/bundles/jquery">&lt;\/script>');&lt;/script>
 
     &lt;script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474">&lt;/script>
-<mark>&lt;script>($.fn.modal)||document.write('&lt;script src="/bundles/bootstrap">&lt;/script>');&lt;/script></mark>
+&lt;script>($.fn.modal)||document.write('&lt;script src="/bundles/bootstrap">&lt;\/script>');&lt;/script>
 
 ...
 </pre>Обратите внимание, что внедренный скрипт для пакета CSS по-прежнему содержит ошибочный фрагмент из свойства `CdnFallbackExpression` в следующей строке:
 
-        }())||document.write('<script src="/Content/css"></script>');</script>
+        }())||document.write('<script src="/Content/css"><\/script>');</script>
 
 	Но поскольку первая часть выражения '||' будет всегда возвращать значение true (в строке прямо над этой), функция document.write() никогда не будет выполняться.
 
@@ -575,4 +575,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 - [Использование CDN для Azure](../cdn-how-to-use.md)
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

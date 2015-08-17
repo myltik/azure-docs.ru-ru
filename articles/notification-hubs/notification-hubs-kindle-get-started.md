@@ -12,11 +12,11 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
-# Приступая к работе с концентраторами уведомлений
+# Приступая к работе с центрами уведомлений
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -79,7 +79,8 @@
 Добавьте библиотеки ADM в проект Eclipse.
 
 1. Чтобы получить библиотеку ADM, [загрузите пакет SDK]. Распакуйте ZIP-файл пакета SDK.
-2. В Eclipse щелкните правой кнопкой мыши по проекту и выберите **Свойства**. Слева выберите **Путь построения Java**, затем сверху выберите **Библиотеки **. Щелкните **Добавить внешний JAR-файл** и выберите файл `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` из каталога, в который вы распаковали пакет Amazon SDK. 3. Загрузите пакет NotificationHubs Android SDK (ссылка).
+2. В Eclipse щелкните правой кнопкой мыши по проекту и выберите **Свойства**. Слева выберите **Путь построения Java**, затем сверху выберите вкладку **Библиотеки **. Щелкните **Добавить внешний JAR-файл** и выберите файл `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` из каталога, в который вы распаковали пакет Amazon SDK.
+3. Загрузите пакет NotificationHubs Android SDK (ссылка).
 4. Извлеките содержимое пакета, а затем перетащите файл `notification-hubs-sdk.jar` в папку `libs ` в Eclipse.
 
 Изменение манифеста приложения для поддержки ADM
@@ -241,7 +242,7 @@
 
 ## Добавление ключа API в приложение
 
-1. В Eclipse создайте новый файл с именем **api_key.txt** в активах каталога проекта.
+1. В Eclipse создайте новый файл с именем **api\_key.txt** в активах каталога проекта.
 2. Откройте файл и скопируйте **Ключ API**, созданный на портале разработчика Amazon.
 
 ## Запуск приложения
@@ -281,4 +282,4 @@
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

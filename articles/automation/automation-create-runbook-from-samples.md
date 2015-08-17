@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/19/2015"
 	ms.author="bwren"/>
 
@@ -26,7 +26,7 @@
 ## Учебник
 В этом учебнике описывается процедура создания учетной записи службы автоматизации, импорта примера модуля Runbook "Hello World" в службу автоматизации Azure, запуска этого модуля и последующего просмотра результатов его выполнения.
 
-Для работы с этим учебником вам потребуется подписка Azure. Если у вас ее нет, <a href="/pricing/member-offers/msdn-benefits-details/" target="_blank">активируйте преимущества для подписчиков MSDN</a> или <a href="/pricing/free-trial/" target="_blank">зарегистрируйтесь в бесплатной пробной версии</a>.
+Для работы с этим учебником вам потребуется подписка Azure. Если у вас ее нет, [активируйте преимущества для подписчиков MSDN](../pricing/member-offers/msdn-benefits-details/) или [подпишитесь на бесплатную пробную версию](../pricing/free-trial.md)</a>.
 
 [AZURE.INCLUDE [automation-note-authentication](../../includes/automation-note-authentication.md)]
 
@@ -138,7 +138,7 @@
 
 ## Отзыв
 
-<strong>Отправляйте нам отзывы!</strong> Если вы ищете модуль интеграции или определенное решение для службы автоматизации Azure, в котором используются модули Runbook, разместите соответствующий запрос на сайте "Центр сценариев". Если вы хотите оставить отзыв или запрос на ту или иную функцию для службы автоматизации Azure, оставляйте их на сайте [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Спасибо!
+**Обратная связь!** Если вы ищете модуль интеграции или определенное решение для службы автоматизации Azure, в котором используются модули Runbook, разместите соответствующий запрос на сайте "Центр сценариев". Если вы хотите оставить отзыв или запрос на ту или иную функцию для службы автоматизации Azure, оставляйте их на сайте [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Спасибо!
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

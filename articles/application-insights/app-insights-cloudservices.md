@@ -122,12 +122,12 @@
 
 По умолчанию собираются приведенные ниже счетчики.
 
-    * \Process(??APP_WIN32_PROC??)% Processor Time
+    * \Process(??APP_WIN32_PROC??)\% Processor Time
 	* \Memory\Available Bytes
-	* .NET CLR Exceptions(??APP_CLR_PROC??)# of Exceps Thrown / sec
+	* \.NET CLR Exceptions(??APP_CLR_PROC??)# of Exceps Thrown / sec
 	* \Process(??APP_WIN32_PROC??)\Private Bytes
 	* \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
-	* \Processor(_Total)% Processor Time
+	* \Processor(_Total)\% Processor Time
 
 А здесь приведены счетчики, которые собираются для веб-ролей.
 
@@ -196,4 +196,4 @@
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

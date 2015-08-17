@@ -76,9 +76,9 @@
     ![Определение строки подключения JDBC][get_jdbc_connection_string]
 
 6. Щелкните правой кнопкой мыши по выделенному содержимому строки подключения **JDBC** и выберите пункт **Копировать**.
-7. Теперь это значение можно вставить в файл кода, чтобы создать строку подключения в следующей форме. Замените *your_server* (в двух местах) на текст, скопированный в предыдущем шаге, и замените *your_password* на значение пароля, указанное при создании учетной записи базы данных SQL. (Также замените значения, присвоенные **database=** и **user=**, если вы не использовали **gettingstarted** и **MySQLAdmin**, соответственно.) 
+7. Теперь это значение можно вставить в файл кода, чтобы создать строку подключения в следующей форме. Замените *your\_server* (в двух местах) на текст, скопированный в предыдущем шаге, и замените *your\_password* на значение пароля, указанное при создании учетной записи базы данных SQL. (Также замените значения, присвоенные **database=** и **user=**, если вы не использовали **gettingstarted** и **MySQLAdmin**, соответственно.) 
 
-    String connectionString = "jdbc:sqlserver://*your_server*.database.windows.net:1433" + ";" + "database=gettingstarted" + ";" + "user=MySQLAdmin@*ваш_сервер*" + ";" + "password=*ваш_пароль*" + ";" + "encrypt=true" + ";" + "hostNameInCertificate=*.int.mscds.com" + ";" + "loginTimeout=30";
+    String connectionString = "jdbc:sqlserver://*your_server*.database.windows.net:1433" + ";" + "database=gettingstarted" + ";" + "user=MySQLAdmin@*ваш\_сервер*" + ";" + "password=*ваш\_пароль*" + ";" + "encrypt=true" + ";" + "hostNameInCertificate=*.int.mscds.com" + ";" + "loginTimeout=30";
 
 Эта строка понадобится нам позднее, а пока важно узнать о тех действиях, которые позволяют определить строку подключения. Кроме того, в зависимости от потребностей приложения вам может не понадобиться использовать параметры **encrypt** и **hostNameInCertificate** и может потребоваться изменить параметр **loginTimeout**.
 
@@ -117,7 +117,7 @@
         import java.sql.*;
         import com.microsoft.sqlserver.jdbc.*;
 
-5. Укажите строку подключения. Ниже приведен пример. Как и раньше, замените *your_server* (в двух местах), *your_user* и *your_password* на значения для вашего сервера базы данных SQL.
+5. Укажите строку подключения. Ниже приведен пример. Как и раньше, замените *your\_server* (в двух местах), *your\_user* и *your\_password* на значения для вашего сервера базы данных SQL.
 
         String connectionString =
         	"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
@@ -726,4 +726,4 @@
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

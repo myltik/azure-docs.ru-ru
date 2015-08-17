@@ -452,4 +452,4 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 [sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [Обновление статистики]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -615,4 +615,4 @@
 
 В качестве следующего шага можно собрать клиентское приложение для доступа к службе. Дополнительные сведения см. в статье [Добавление мобильных служб в существующее приложение](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

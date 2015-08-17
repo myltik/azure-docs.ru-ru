@@ -212,4 +212,4 @@ Add-AzureTrafficManagerEndpointConfig принимает перечисленн�
 [Начало работы с командлетами Azure](https://msdn.microsoft.com/library/jj554332.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

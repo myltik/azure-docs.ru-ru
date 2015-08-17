@@ -63,7 +63,7 @@
 
 	 ![Состояние задания записной книжки Jupyter](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Job.Status.png "Состояние задания записной книжки Jupyter")
 
-4. Загрузите демонстрационные данные во временную таблицу. При подготовке кластера Spark в HDInsight файл с демонстрационными данными **hvac.csv** копируется в связанную учетную запись хранения по следующему пути: **\HdiSamples\SensorSampleData\hvac**.
+4. Загрузите демонстрационные данные во временную таблицу. При подготовке кластера Spark в HDInsight файл с демонстрационными данными **hvac.csv** копируется в связанную учетную запись хранения по следующему пути: **\\HdiSamples\\SensorSampleData\\hvac**.
 
 	Вставьте следующий фрагмент кода в пустую ячейку и нажмите клавиши **SHIFT+ВВОД**. Этот фрагмент кода регистрирует данные в таблице Hive, которая называется **hvac**.
 
@@ -205,4 +205,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

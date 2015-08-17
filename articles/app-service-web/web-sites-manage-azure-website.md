@@ -3,7 +3,7 @@
 	description="Ссылки на ресурсы, посвященные управлению веб-приложением в службе приложений Azure." 
 	services="app-service\web" 
 	documentationCenter="" 
-	authors="MikeWasson" 
+	authors="erikre" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/23/2015" 
-	ms.author="mwasson"/>
+	ms.date="07/31/2015" 
+	ms.author="erikre"/>
 
 # Управление веб-приложением в службе приложений Azure
 
@@ -103,4 +103,4 @@
 
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

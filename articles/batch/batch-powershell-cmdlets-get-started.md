@@ -53,7 +53,7 @@
 New-AzureResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-Затем создайте новую учетную запись Пакетной службы в группе ресурсов, указав имя учетной записи в < \* account\_name \* > и расположение, где доступна Пакетная служба. Создание учен=тной записи может занять несколько минут. Например:
+Затем создайте новую учетную запись пакетной службы в группе ресурсов, указав имя учетной записи в < *account\_name*> и расположение, где доступна пакетная служба. Создание учен=тной записи может занять несколько минут. Например:
 
 ```
 New-AzureBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -105,7 +105,7 @@ $context = Get-AzureBatchAccountKeys "<account_name>"
 
 ### Запрос данных
 
-Например, для поиска пулов используйте**Get AzureBatchPools**. По умолчанию этот командлет опрашивает все рабочие элементы вашей учетной записи при условии, что вы уже сохранили объект BatchAccountContext в *$context*:
+Например, для поиска пулов используйте **Get AzureBatchPools**. По умолчанию этот командлет опрашивает все рабочие элементы вашей учетной записи при условии, что вы уже сохранили объект BatchAccountContext в *$context*.
 
 ```
 Get-AzureBatchPool -BatchContext $context
@@ -156,4 +156,4 @@ Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 * [Справка по командлету Пакетной службы Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Эффективные запросы списков](batch-efficient-list-queries.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

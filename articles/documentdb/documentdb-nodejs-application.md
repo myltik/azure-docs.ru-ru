@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Создание веб-приложения Node.js с использованием DocumentDB | Azure" 
+	pageTitle="Создание веб-приложения Node.js с использованием DocumentDB | Microsoft Azure" 
 	description="Сведения об использовании Microsoft Azure DocumentDB для хранения данных и доступа к ним из веб-приложения Node.js Express, размещенного на веб-сайтах Azure." 
 	services="documentdb" 
 	documentationCenter="nodejs" 
@@ -559,4 +559,4 @@
   [Git]: http://git-scm.com/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

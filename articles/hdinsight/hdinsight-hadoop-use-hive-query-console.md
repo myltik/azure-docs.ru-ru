@@ -35,7 +35,8 @@
 
 ##<a id="run"></a> Выполнение запросов Hive с помощью консоли запросов
 
-1. Откройте веб-браузер и перейдите по адресу __https://CLUSTERNAME.azurehdinsight.net__, где __CLUSTERNAME__ — это имя вашего кластера HDInsight. При появлении соответствующего запроса введите имя пользователя и пароль, использованные при создании кластера. 
+1. Откройте веб-браузер и перейдите по адресу \_\___https://CLUSTERNAME.azurehdinsight.net__, где __CLUSTERNAME__ — это имя вашего кластера HDInsight. При появлении соответствующего запроса введите имя пользователя и пароль, использованные при создании кластера.
+
 
 2. Среди ссылок в верхней части страницы выберите **Редактор Hive**. Откроется форма, которую можно использовать для ввода операторов HiveQL, которые будут выполняться в кластере HDInsight.
 
@@ -119,4 +120,4 @@
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

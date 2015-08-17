@@ -280,4 +280,4 @@
 - [Ресурсы службы автоматизации](http://msdn.microsoft.com/library/azure/dn939988.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -167,7 +167,7 @@
 
 3. Затем выполните командлет Get-MsolDomainVerificationDns для создания запроса защиты:
 
-	Get-MsolDomainVerificationDns –DomainName *имя_вашего_домена* –Mode DnsTxtRecord
+	Get-MsolDomainVerificationDns –DomainName *имя\_вашего\_домена* –Mode DnsTxtRecord
 
 	Например:
 
@@ -185,7 +185,7 @@
 
 6. Выполните командлет Confirm-MsolDomain, чтобы подтвердить запрос защиты:
 
-	Confirm-MsolEmailVerifiedDomain -DomainName *имя_вашего_домена*
+	Confirm-MsolEmailVerifiedDomain -DomainName *имя\_вашего\_домена*
 
 	например:
 
@@ -236,4 +236,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

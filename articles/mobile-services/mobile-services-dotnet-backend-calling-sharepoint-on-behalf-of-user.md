@@ -69,11 +69,11 @@
 
     ![][3]
 
-4. Введите SP_Authority в качестве конечной точки центра для своего клиента AAD. Это значение должно совпадать со значением центра, используемым для вашего клиентского приложения. Значение будет представлено в формате https://login.windows.net/contoso.onmicrosoft.com.
+4. Введите SP\_Authority в качестве конечной точки центра для своего клиента AAD. Это значение должно совпадать со значением центра, используемым для вашего клиентского приложения. Значение будет представлено в формате https://login.windows.net/contoso.onmicrosoft.com.
 
-5. Введите SP_ClientSecret в качестве значения секрета клиента, которое вы получили ранее.
+5. Введите SP\_ClientSecret в качестве значения секрета клиента, которое вы получили ранее.
 
-6. Введите SP_SharePointURL в качестве URL-адреса для своего сайта SharePoint. Это значение должно быть представлено в формате https://contoso-my.sharepoint.com.
+6. Введите SP\_SharePointURL в качестве URL-адреса для своего сайта SharePoint. Это значение должно быть представлено в формате https://contoso-my.sharepoint.com.
 
 Эти значения можно будет получить в коде снова с помощью ApiServices.Settings.
 
@@ -219,4 +219,4 @@
 [Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

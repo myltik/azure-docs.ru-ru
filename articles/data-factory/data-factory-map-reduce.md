@@ -13,103 +13,82 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="07/31/2015" 
 	ms.author="spelluru"/>
 
 # Вызов программы MapReduce из фабрики данных
-В этой статье рассматривается, как вызывать программу **MapReduce** из конвейера фабрики данных Azure с помощью **действия HDInsight** с **преобразованием MapReduce**.
+В этой статье описан вызов программы **MapReduce** из конвейера фабрики данных Azure с помощью **действия HDInsight MapReduce**.
 
 ## Введение 
 Конвейер в фабрике данных Azure обрабатывает данные в связанной службе хранилища с помощью связанных вычислительных служб. В нем содержится последовательность действий, каждое из которых выполняет определенную операцию обработки. В этой статье описывается использование преобразования MapReduce действия HDInsight.
  
-Дополнительные сведения о запуске скриптов Pig и Hive в кластере HDInsight из конвейера фабрики данных Azure с помощью преобразований Pig и Hive действия HDInsight см. в разделе [Использование скриптов Pig и Hive в фабрике данных][data-factory-pig-hive-activities].
+Дополнительные сведения о запуске скриптов Pig и Hive в кластере HDInsight из конвейера фабрики данных Azure с помощью преобразований Pig и Hive действия HDInsight см. в статьях [Pig](data-factory-pig-activity) и [Hive](data-factory-hive-activity.md).
 
 ## JSON для действия HDInsight с использованием преобразования MapReduce 
 
 В определении JSON для действия HDInsight:
  
-1. В поле **тип** **действия** задайте параметр **HDInsightActivity**.
-2. В поле **тип** **преобразования** задайте параметр **MapReduce**.
+1. В поле **тип** для **действия** задайте значение **HDInsightActivity**.
 3. Укажите имя класса для свойства **className**.
 4. Укажите путь к JAR-файлу, включив в него имя файла для свойства **jarFilePath**.
 5. Укажите связанную службу, которая обращается к хранилищу больших двоичных объектов Azure, содержащему JAR-файл для свойства **jarLinkedService**.   
 6. Укажите необходимые аргументы для программы MapReduce в разделе **аргументы**. 
 
-   
  
 
-		{  
-		   "name":"MahoutMapReduceSamplePipeline",
-		   "properties":{  
-		      "description":"Sample Pipeline to Run a Mahout Custom Map Reduce Jar. This job calcuates an Item Similarity Matrix to determine the similarity between 2 items",
-		      "activities":[  
-		         {  
-		            "name":"MyMahoutActivity",
-		            "description":"Custom Map Reduce to generate Mahout result",
-		            "type":"HDInsightActivity",
-		            "inputs":[  
-		               {  
-		                  "Name":"MahoutInput"
-		               }
-		            ],
-		            "outputs":[  
-		               {  
-		                  "Name":"MahoutOutput"
-		               }
-		            ],
-		            "linkedServiceName":"HDInsightLinkedService",
-		            "transformation":{  
-		               "type":"MapReduce",
-		               "className":"org.apache.mahout.cf.taste.hadoop.similarity.item.ItemSimilarityJob",
-		               "jarFilePath":"<container>/Mahout/Jars/mahout-core-0.9.0.2.1.3.2-0002-job.jar",
-		               "jarLinkedService":"StorageLinkedService",
-		               "arguments":[  
-		                  "-s",
-		                  "SIMILARITY_LOGLIKELIHOOD",
-		                  "--input",
-		                  "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/input",
-		                  "--output",
-		                  "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/output/",
-		                  "--maxSimilaritiesPerItem",
-		                  "500",
-		                  "--tempDir",
-		                  "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/temp/mahout"
-		               ]
-		            },
-		            "policy":{  
-		               "concurrency":1,
-		               "executionPriorityOrder":"OldestFirst",
-		               "retry":3,
-		               "timeout":"01:00:00"
-		            }
-		         }
-		      ]
-		   }
+		{
+		  "name": "MahoutMapReduceSamplePipeline",
+		  "properties": {
+		    "description": "Sample Pipeline to Run a Mahout Custom Map Reduce Jar. This job calcuates an Item Similarity Matrix to determine the similarity between 2 items",
+		    "activities": [
+		      {
+		        "name": "MyMahoutActivity",
+		        "description": "Custom Map Reduce to generate Mahout result",
+		        "inputs": [
+		          {
+		            "Name": "MahoutInput"
+		          }
+		        ],
+		        "outputs": [
+		          {
+		            "Name": "MahoutOutput"
+		          }
+		        ],
+		        "linkedServiceName": "HDInsightLinkedService",
+		        "type": "HDInsightMapReduce",
+		        "typeProperties": {
+		          "className": "org.apache.mahout.cf.taste.hadoop.similarity.item.ItemSimilarityJob",
+		          "jarFilePath": "<container>/Mahout/Jars/mahout-core-0.9.0.2.1.3.2-0002-job.jar",
+		          "jarLinkedService": "StorageLinkedService",
+		          "arguments": [
+		            "-s",
+		            "SIMILARITY_LOGLIKELIHOOD",
+		            "--input",
+		            "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/input",
+		            "--output",
+		            "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/output/",
+		            "--maxSimilaritiesPerItem",
+		            "500",
+		            "--tempDir",
+		            "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/temp/mahout"
+		          ]
+		        },
+		        "policy": {
+		          "concurrency": 1,
+		          "executionPriorityOrder": "OldestFirst",
+		          "retry": 3,
+		          "timeout": "01:00:00"
+		        }
+		      }
+		    ]
+		  }
 		}
 
 Выполнять JAR-файлы MapReduce в кластере HDInsight можно с помощью преобразования MapReduce. В приведенном ниже образце определения конвейера JSON действие HDInsight настроено на запуск JAR-файла Mahout.
 
 ## Образец
-Вы можете загрузить образец при помощи действия HDInsight с преобразованием MapReduce из [образцов фабрики данных на GitHub][data-factory-samples].
+Вы можете загрузить образец при помощи действия HDInsight с преобразованием MapReduce из [образцов фабрики данных на GitHub](data-factory-samples.md).
 
-## См. также
-
-Статья | Описание
------- | ---------------
-[Учебник. Перемещение и обработка файлов журнала с помощью фабрики данных][adf-tutorial] | В этой статье в пошаговом руководстве показано, как при помощи фабрики данных Azure реализовать реалистичный сценарий преобразования данных файлов журнала в подробные сведения. В этом учебнике будут использоваться преобразования Pig и Hive для обработки данных. 
-[Справочник разработчика фабрики данных Azure][developer-reference] | Справочник разработчика содержит полные справочные данные по командлетам, скриптам JSON, функциям и т. п. 
-
-
-[data-factory-samples]: http://go.microsoft.com/fwlink/?LinkId=516907
-[data-factory-pig-hive-activities]: data-factory-pig-hive-activities.md
-[data-factory-copy-activity]: ..//data-factory-copy-activity
-[adf-getstarted]: data-factory-get-started.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[adf-tutorial]: data-factory-tutorial.md
-[use-custom-activities]: data-factory-use-custom-activities.md
-[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
-[troubleshoot]: data-factory-troubleshoot.md
-[data-factory-introduction]: data-factory-introduction.md
 
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
@@ -123,4 +102,4 @@
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

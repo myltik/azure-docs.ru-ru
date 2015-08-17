@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Выполнение сценариев машинного обучения Python | Microsoft Azure" 
 	description="Описываются принципы проектирования, лежащие в основе поддержки сценариев Python в Машинном обучении Azure, а также основные сценарии использования, возможности и ограничения." 
-	keywords="python machine learning,pandas,python pandas,python scripts, execute python scripts"
 	services="machine-learning"
 	documentationCenter="" 
 	authors="bradsev" 
@@ -119,7 +118,7 @@
 * Получите ось и постройте все графики по ней. 
 * Сохраните рисунок в PNG-файл. 
 
-Этот процесс показан на рис. 8 ниже. Создается матрица точечной диаграммы с помощью функции scatter_matrix в Pandas.
+Этот процесс показан на рис. 8 ниже. Создается матрица точечной диаграммы с помощью функции scatter\_matrix в Pandas.
  
 ![image1v](./media/machine-learning-execute-python-scripts/figure-v1-8.png)
 
@@ -171,4 +170,4 @@
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

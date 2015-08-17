@@ -500,4 +500,4 @@ vm-disk-utils-0.1.sh содержится в папке shared_scripts\ubuntu в
 
 Дополнительную информацию см. в разделе [Язык шаблонов диспетчера ресурсов Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
-<!-------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

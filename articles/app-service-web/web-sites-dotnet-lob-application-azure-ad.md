@@ -75,7 +75,7 @@
 
 5.	Если приложение Azure Active Directory настроено правильно и заданы соответствующие параметры в файле Web.config, вы будете перенаправлены на страницу входа. Войдите с помощью учетной записи, используемой для создания приложения Azure Active Directory на портале Azure, так как эта учетная запись является владельцем приложения Azure Active Directory по умолчанию.
 	
-	> [AZURE.NOTE]В файле Startup.Auth.cs примера проекта обратите внимание на то, что в приложении есть метод с именем <code>AddOwnerAdminClaim</code>, который используется для добавления владельца приложения в роль администратора. Это дает возможность немедленно начать управление ролями приложения в контроллере <code>Roles</code>.
+	> [AZURE.NOTE]В файле Startup.Auth.cs примера проекта обратите внимание на то, что в приложении есть метод с именем <code>AddOwnerAdminClaim</code>, который используется для добавления владельца приложения в роль администратора. Это позволяет немедленно приступить к управлению ролями приложения в контроллере <code>Roles</code>.
 	
 4.	После входа щелкните **Роли**, чтобы начать управление ролями приложения.
 
@@ -365,7 +365,7 @@ public class GroupClaimContext : DbContext
 - [Примеры и документация Microsoft Azure Active Directory](https://github.com/AzureADSamples)
 - [Блог Витторио Берточчи](http://blogs.msdn.com/b/vbertocci/)
 - [Миграция веб-проекта VS2013 из WIF в Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)
-- [Новые гибридные подключения Azure, а не родительский элемент \#hybridCloud](/documentation/videos/new-hybrid-connections-not-your-fathers-hybridcloud/)
+- [Новые гибридные подключения Azure, а не родительский элемент #hybridCloud](/documentation/videos/new-hybrid-connections-not-your-fathers-hybridcloud/)
 - [Сходства Active Directory и Azure AD](http://technet.microsoft.com/library/dn518177.aspx)
 - [DirSync с единым входом](http://technet.microsoft.com/library/dn441213.aspx)
 - [Поддерживаемые типы маркеров и утверждений](http://msdn.microsoft.com/library/azure/dn195587.aspx)
@@ -375,4 +375,4 @@ public class GroupClaimContext : DbContext
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

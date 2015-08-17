@@ -73,4 +73,4 @@
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.jpg
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

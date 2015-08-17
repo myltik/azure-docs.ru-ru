@@ -1,4 +1,4 @@
-<properties pageTitle="Создание виртуальной машины Oracle WebLogic Server 12c в Azure" description="Пошагово создайте пример образа Oracle WebLogic Server 12c под управлением Windows Server 2012 в Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties title="Creating an Oracle WebLogic Server 12c Virtual Machine in Azure" pageTitle="Создание виртуальной машины Oracle WebLogic Server 12c в Azure" description="Пошагово создайте пример образа Oracle WebLogic Server 12c под управлением Windows Server 2012 в Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Создание виртуальной машины Oracle WebLogic Server 12c в Azure
 В следующем примере показано, как можно создать в Azure виртуальную машину на основе предоставленного корпорацией Майкрософт образа Oracle WebLogic Server 12c под управлением Windows Server 2012.
@@ -98,7 +98,7 @@
 
 	Нажмите кнопку **Далее**.
 
-5.	Выберите \*\*Install this deployment as an application\*\* (Установить это развертывание как приложение) и нажмите кнопку **Next** (Далее).
+5.	Выберите **Install this deployment as an application** (Установить это развертывание как приложение) и нажмите кнопку **Next** (Далее).
 
 6.	Нажмите кнопку **Готово**
 
@@ -154,7 +154,7 @@
 
 	8.	Укажите имя правила и необязательное описание, затем нажмите кнопку **Готово**.
 
-12.	Чтобы увидеть выполнение приложения shoppingcart в Интернете, откройте в браузере URL-адрес вида `http://<<unique_domain_name>>/shoppingcart`. (Значение <<\*unique\_domain\_name\*>> можно определить на [портале Azure](https://ms.portal.azure.com/), щелкнув **Виртуальные машины** и выбрав виртуальную машину, которая используется для запуска Oracle WebLogic Server.)
+12.	Чтобы увидеть выполнение приложения shoppingcart в Интернете, откройте в браузере URL-адрес вида `http://<<unique_domain_name>>/shoppingcart`. (Значение <<*уникальное\_доменное\_имя*>> можно определить на [портале Azure](https://ms.portal.azure.com/), щелкнув **Виртуальные машины** и выбрав виртуальную машину, которая используется для запуска Oracle WebLogic Server.)
 
 
 ##Дополнительные ресурсы
@@ -168,4 +168,4 @@
 
 -	[Образы виртуальных машин Oracle для Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

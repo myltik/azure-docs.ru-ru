@@ -91,7 +91,7 @@ public MainPage()
 }
 ```
 
-- Теперь найдите метод `Search(...)`, который будет вызываться при нажатии кнопки "Поиск" в пользовательском интерфейсе приложения. Этот метод выполняет запрос GET в интерфейс Graph API службы Azure AD для запроса списка пользователей, чьи UPN начинаются с данного слова поиска. Но для отправки запросов в Graph API необходимо включить access_token в заголовок `Authorization` запроса — именно отсюда ADAL начинает свою работу.
+- Теперь найдите метод `Search(...)`, который будет вызываться при нажатии кнопки "Поиск" в пользовательском интерфейсе приложения. Этот метод выполняет запрос GET в интерфейс Graph API службы Azure AD для запроса списка пользователей, чьи UPN начинаются с данного слова поиска. Но для отправки запросов в Graph API необходимо включить access\_token в заголовок `Authorization` запроса — именно отсюда ADAL начинает свою работу.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)
@@ -127,7 +127,7 @@ public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationE
 }
 ```
 
-- Теперь настало время использовать `AuthenticationResult`, которое ADAL вернуло в ваше приложение. В обратном вызове `QueryGraph(...)` включите полученный маркер access_token в запрос GET в заголовке авторизации:
+- Теперь настало время использовать `AuthenticationResult`, которое ADAL вернуло в ваше приложение. В обратном вызове `QueryGraph(...)` включите полученный маркер access\_token в запрос GET в заголовке авторизации:
 
 ```C#
 private async void QueryGraph(AuthenticationResult result)
@@ -173,4 +173,4 @@ private void SignOut()
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

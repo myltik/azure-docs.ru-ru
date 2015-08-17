@@ -35,7 +35,13 @@
 
 > [AZURE.NOTE]Формат VHDX не поддерживается в Microsoft Azure. Можно преобразовать диск в формат VHD с помощью диспетчера Hyper-V или командлета [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx). Учебник по этому действию можно найти [здесь](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
  
- Поддерживаются следующие версии Windows Server: <P> <TABLE BORDER="1" WIDTH="600"> <TR BGCOLOR="#E9E7E7"> <TH>ОС</TH> <TH>SKU</TH> <TH>Пакет обновления</TH> <TH>Архитектура</TH> </TR> <TR> <TD>Windows Server 2012 R2</TD> <TD>Все выпуски</TD> <TD>Недоступен</TD> <TD>x64</TD> </TR> <TR> <TD>Windows Server 2012</TD> <TD>Все выпуски</TD> <TD>Недоступен</TD> <TD>x64</TD> </TR> <TR> <TD>Windows Server 2008 R2</TD> <TD>Все выпуски</TD> <TD>SP1</TD> <TD>x64</TD> </TR> </TABLE> </P>
+ Поддерживаются следующие версии Windows Server:
+
+ОС|SKU|Пакет обновления|Архитектура
+---|---|---|---
+Windows Server 2012 R2|Все выпуски|Недоступно|x64
+Windows Server 2012|Все выпуски|Недоступно|x64
+Windows Server 2008 R2|Все выпуски|SP1|x64
 
 
 Эта задача включает следующие шаги:
@@ -53,7 +59,7 @@
 
 1. Войдите в операционную систему.
 
-2. Откройте окно командной строки с правами администратора. Измените каталог на **%windir%\system32\sysprep** и запустите файл `sysprep.exe`.
+2. Откройте окно командной строки с правами администратора. Измените каталог на **%windir%\\system32\\sysprep** и запустите файл `sysprep.exe`.
 
 	![Откройте окно командной строки](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
 
@@ -211,4 +217,4 @@
 [Шаг 4. Загрузка VHD-файла]: #upload
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Что такое Hadoop в HDInsight. Анализ данных большого размера в облаке | Microsoft Azure"
 	description="Знакомство с компонентами Hadoop в облаке в HDInsight. Узнайте, как HDInsight использует кластеры Hadoop для управления, анализа и создания отчетов о данных больших размеров."
+	keywords="big data,big data analysis,hadoop,introduction to hadoop,what is hadoop"
 	services="hdinsight"
 	documentationCenter=""
 	authors="cjgronlund"
@@ -246,4 +247,4 @@ Apache YARN — это следующее поколение MapReduce (MapReduc
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -18,9 +18,12 @@
 
 # Управление Azure AD Connect 
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="Что это такое">Что это такое</a> <a href="../active-directory-aadconnect-how-it-works/" title="Как это работает">Как это работает</a> <a href="../active-directory-aadconnect-get-started/" title="Приступая к работе">Приступая к работе</a> <a href="../active-directory-aadconnect-whats-next/" title="Что дальше" class="current">Что дальше</a> <a href="../active-directory-aadconnect-learn-more/" title="Подробнее">Подробнее</a>
-</div>
+> [AZURE.SELECTOR]
+- [What is It](../active-directory-aadconnect/)
+- [How it Works](../active-directory-aadconnect-how-it-works/)
+- [Getting Started](../active-directory-aadconnect-get-started/)
+- [What's Next](../active-directory-aadconnect-whats-next/) 
+- [Learn More](../active-directory-aadconnect-learn-more/)
 
 Ниже приведены дополнительные сведения, которые помогут вам настроить Azure Active Directory Connect в соответствии с потребностями вашей организации.
 
@@ -30,13 +33,12 @@
 
 ### Назначение лицензии Azure AD Premium или Enterprise Mobility Suite
 --------------------------------------------------------------------------------
-<ol>
-<li>Войдите на портал Azure с учетной записью администратора.</li>
-<li>Выберите **Active Directory** слева.</li>
-<li>На странице "Active Directory" дважды щелкните каталог пользователей, которых вы хотите активировать.</li>
-<li>В верхней части страницы каталога выберите вкладку **Лицензии**.</li>
-<li>На странице "Лицензии" выберите "Active Directory Premium" или "Enterprise Mobility Suite", а затем нажмите кнопку **Назначить**.</li>
-<li>В диалоговом окне выберите пользователей, которым требуется назначить лицензии, и щелкните значок галочки, чтобы сохранить изменения.</li>
+1. Войдите на портал Azure с учетной записью администратора.
+2. Выберите **Active Directory** слева.
+3. На странице "Active Directory" дважды щелкните каталог пользователей, которых вы хотите активировать.
+4. В верхней части страницы каталога выберите вкладку **Лицензии**.
+5. На странице "Лицензии" выберите "Active Directory Premium" или "Enterprise Mobility Suite", а затем нажмите кнопку **Назначить**.
+6. В диалоговом окне выберите пользователей, которым требуется назначить лицензии, и щелкните значок галочки, чтобы сохранить изменения.
 
 
 ## Проверка выполнения запланированной задачи синхронизации
@@ -66,7 +68,8 @@
 
 Список задач и их краткое описание см. в следующей таблице.
 
-<center>![Join Rule](./media/active-directory-aadconnect-whats-next/addtasks.png) </center>
+![Правило присоединения](./media/active-directory-aadconnect-whats-next/addtasks.png)
+
 
 Дополнительная задача | Описание 
 ------------- | ------------- |
@@ -85,6 +88,7 @@
 ## Дополнительная документация
 Дополнительные сведения о работе с Azure AD Connect см. в следующих статьях:
 
+- [Azure AD Connect Sync: настройка параметров синхронизации](active-directory-aadconnectsync-whatis.md)
 - [Изменение используемой по умолчанию конфигурации Azure AD Connect](active-directory-aadconnect-whats-next-change-default-config.md)
 - [Использование редактора правил синхронизации Azure AD Connect](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [Использование декларативной подготовки](active-directory-aadconnect-whats-next-declarative-prov.md)
@@ -94,4 +98,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

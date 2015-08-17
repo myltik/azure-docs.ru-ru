@@ -207,4 +207,4 @@
 
 Просмотрите доступные [задачи и рабочие процессы диспетчера моментальных снимков StorSimple](storsimple-what-is-snapshot-manager.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

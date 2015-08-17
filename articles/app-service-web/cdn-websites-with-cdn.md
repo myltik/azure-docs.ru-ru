@@ -310,7 +310,7 @@ public ActionResult Show(string id)
     }
     else // Get content from Azure CDN
     {
-        return Redirect(string.Format(&quot;http://<mark>&lt;yourCDNName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}&quot;, data.Item1, data.Item2));
+        return Redirect(string.Format(";http://&lt;yourCDNName&gt;.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}";, data.Item1, data.Item2));
     }
 }
 </pre>
@@ -355,7 +355,7 @@ public ActionResult Show(string id)
 		...
     }
 
-Первая инструкция `bundles.Add()` добавляет пакет скриптов в виртуальный каталог `~/bundles/jquery`. Затем откройте файл *Views\Shared_Layout.cshtml*, чтобы просмотреть, как обрабатывается тег пакета скриптов. Вы должны найти следующую строку кода Razor:
+Первая инструкция `bundles.Add()` добавляет пакет скриптов в виртуальный каталог `~/bundles/jquery`. Затем откройте файл *Views\Shared\_Layout.cshtml*, чтобы просмотреть, как обрабатывается тег пакета скриптов. Вы должны найти следующую строку кода Razor:
 
     @Scripts.Render("~/bundles/jquery")
 
@@ -515,7 +515,7 @@ public ActionResult Show(string id)
 
 4. В файле *App_Start\StyleFundleExtensions.cs* переименуйте пространство имен для своего приложения ASP.NET (например, **cdnwebapp**).
 
-3. Вернитесь в файл `App_Start\BundleConfig.cs` и замените последний оператор `bundles.Add` следующим выделенным кодом:
+3. Вернитесь в файл `App_Start\BundleConfig.cs` и замените последний оператор `bundles.Add` следующим кодом:
 	<pre class="prettyprint">
 	bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
 	    <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark>
@@ -565,7 +565,7 @@ public ActionResult Show(string id)
 	</pre>
 	Обратите внимание, что внедренный скрипт для пакета CSS по-прежнему содержит ошибочный фрагмент из свойства `CdnFallbackExpression` в следующей строке:
 
-        }())||document.write('<script src="/Content/css"></script>');</script>
+        }())||document.write('<script src="/Content/css"><\/script>');</script>
 
 	Но поскольку первая часть выражения '||' будет всегда возвращать значение true (в строке прямо над этой), функция document.write() никогда не будет выполняться.
 
@@ -587,4 +587,4 @@ public ActionResult Show(string id)
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

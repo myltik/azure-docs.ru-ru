@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="06/09/2015"
 	ms.author="tomfitz"/>
 
@@ -212,4 +212,4 @@ Azure предоставляет три вычислительных модел�
 [Практическое руководство. Импорт параметров публикации]: /develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
 [Практическое руководство. Развертывание облачной службы в Azure]: /develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

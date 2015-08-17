@@ -18,10 +18,6 @@
 
 # Приступая к работе с мобильной аналитикой (Capptain)
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/documentation/articles/mobile-services-ios-get-started-mobile-analytics" title="iOS" class="current">iOS</a>
-</div>
-
 В этом учебнике описывается добавление возможностей мобильной аналитики в приложение с помощью [Capptain]. С помощью мобильной аналитики можно определить, как пользователи взаимодействуют с приложением и какие разделы используются чаще всего. Чтобы приступить к сбору этих данных, необходимо добавить в приложение возможность работы с пакетом SDK Capptain.
 
 
@@ -102,4 +98,4 @@
 [Мобильные службы уровня Standard]: /pricing/details/mobile-services/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -42,4 +42,4 @@
 [AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

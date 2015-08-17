@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="07/02/2015" 
 	ms.author="billmath"/>
 
@@ -61,4 +61,4 @@ Azure Multi-Factor Authentication — это простое в использо
 * [Что означает многофакторная проверка подлинности для меня?](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication в MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

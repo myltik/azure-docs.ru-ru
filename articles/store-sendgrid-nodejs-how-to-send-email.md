@@ -200,7 +200,7 @@ SendGrid поддерживает различные веб-интерфейсы
 -   Документация по интерфейсу API SendGrid: <https://sendgrid.com/docs>
 -   Специальное предложение SendGrid для клиентов Azure: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
-  [Дальнейшие действия]: http://azure.microsoft.com/develop/nodejs/how-to-guides/blob-storage/#next-steps
+  [Дальнейшие действия]: http://www.windowsazure.com/develop/nodejs/how-to-guides/blob-storage/#next-steps
   [Что такое служба электронной почты SendGrid?]: #whatis
   [Создание учетной записи SendGrid]: #createaccount
   [Ссылка на модуль Node.js SendGrid]: #reference
@@ -224,4 +224,4 @@ SendGrid поддерживает различные веб-интерфейсы
   [облачная служба электронной почты]: https://sendgrid.com/email-solutions
   [доставки электронной почты]: https://sendgrid.com/transactional-email
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

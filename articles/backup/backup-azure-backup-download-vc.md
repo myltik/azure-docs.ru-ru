@@ -6,7 +6,7 @@
    authors="Jim-Parker"
    manager="shreeshd"
    editor=""/>
-<tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt\_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+<tagsms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
 
 # Использование учетных данных хранилища для проверки подлинности в службе архивации Azure
 Перед резервным копированием данных в Azure локальный сервер (клиент Windows, сервер Windows Server или сервер SCDPM) должен пройти проверку подлинности в хранилище службы архивации. Проверка подлинности осуществляется с помощью учетных данных хранилища. Понятие «учетные данные хранилища» схоже с понятием «файл параметров публикации», которое используется в Azure PowerShell.
@@ -41,4 +41,4 @@
 ## Дальнейшие действия
 [Загрузка, регистрация и установка агента резервного копирования Azure](backup-azure-backup-download-register)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

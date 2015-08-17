@@ -110,7 +110,7 @@
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
 
-Однако если на диске C:\ в PFX-файле с именем softkey.pfx есть ключ, защищенный с помощью программного обеспечения, который нужно передать в хранилище ключей Azure, введите следующую команду, чтобы задать переменную **securepfxpwd** для пароля **123** PFX-файла:
+Однако если на диске C:\\ в PFX-файле с именем softkey.pfx есть ключ, защищенный с помощью программного обеспечения, который нужно передать в хранилище ключей Azure, введите следующую команду, чтобы задать переменную **securepfxpwd** для пароля **123** PFX-файла:
 
     $securepfxpwd = ConvertTo-SecureString –String '123' –AsPlainText –Force
 
@@ -119,7 +119,7 @@
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-Теперь созданный или переданный в хранилище ключей Azure ключ можно вызвать, используя его URI. Чтобы постоянно получать текущую версию, используйте адрес **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**, а для получения определенной версии используйте адрес **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**. 
+Теперь созданный или переданный в хранилище ключей Azure ключ можно вызвать, используя его URI. Чтобы постоянно получать текущую версию, используйте адрес ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**, а для получения данной конкретной версии используйте адрес ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**.
 
 Чтобы отобразить URI для этого ключа, введите:
 
@@ -133,7 +133,7 @@
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-Теперь пароль, добавленный в хранилище ключей Azure, можно вызвать, используя его URI. Чтобы постоянно получать текущую версию, используйте адрес **https://ContosoVault.vault.azure.net/secrets/SQLPassword**, а для получения определенной версии используйте адрес **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
+Теперь пароль, добавленный в хранилище ключей Azure, можно вызвать, используя его URI. Чтобы постоянно получать текущую версию, используйте адрес ****https://ContosoVault.vault.azure.net/secrets/SQLPassword**, а для получения данной конкретной версии используйте адрес ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**.
 
 Чтобы отобразить URI для этого секрета, введите:
 
@@ -211,7 +211,7 @@
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
-Более подробные указания по созданию пакета BYOK см. в разделе [Как создавать и передавать защищенные аппаратным модулем безопасности ключи для хранилища ключей Azure](key-vault-hsm-protected-keys.md).
+Более подробные указания по созданию пакета BYOK см. в разделе [Создание ключей, защищенных аппаратным модулем безопасности, и их передача в хранилище ключей Azure](key-vault-hsm-protected-keys.md).
 
 ## <a id="delete"></a>Удаление хранилища ключей, а также связанных ключей и секретов ##
 
@@ -241,11 +241,11 @@
 
 ## <a id="next"></a>Дальнейшие действия ##
 
-Подробный учебник по использованию хранилища ключей Azure в веб-приложении см. в разделе [Использование хранилища ключей Azure из веб-приложения](key-vault-use-from-web-application.md)
+Подробный учебник по использованию хранилища ключей Azure в веб-приложении см. в разделе [Использование хранилища ключей Azure из веб-приложения](key-vault-use-from-web-application.md).
 
 Полный список командлетов Windows PowerShell для хранилища ключей Azure см. в разделе [Командлеты для хранилища ключей Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
-Справочные материалы по программированию см. в разделе [Хранилище ключей](https://msdn.microsoft.com/library/azure/dn903625.aspx) в библиотеке документации Microsoft Azure на сайте MSDN.
+Справочные материалы по программированию см. в разделе [Хранилище ключей](https://msdn.microsoft.com/library/azure/dn903625.aspx) библиотеки документации Microsoft Azure на сайте MSDN.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

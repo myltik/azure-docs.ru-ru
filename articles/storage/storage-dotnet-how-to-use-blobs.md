@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="07/06/2015"
+	ms.date="08/04/2015"
 	ms.author="tamram"/>
 
 
@@ -25,7 +25,7 @@
 
 В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранилища больших двоичных объектов Azure. Примеры написаны на C# и используют клиентскую библиотеку службы хранилища Azure для .NET. Здесь описаны такие сценарии, как **отправка**, **перечисление**,**загрузка** и **удаление** BLOB-объектов.
 
-> [AZURE.NOTE]В этом руководстве используется клиентская библиотека хранилища Azure для .NET 2.x и выше. Рекомендуется использовать библиотеку клиента хранения 4.x, которая доступна через [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) или как часть [Пакета Azure SDK для .NET](/downloads/). Дополнительную информацию о получении клиентской библиотеки хранилища см. в разделе [Программный доступ к хранилищу больших двоичных объектов](#programmatically-access-blob-storage) ниже.
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -84,7 +84,9 @@
 
 Хранилище BLOB-объектов Azure поддерживает блочные и страничные BLOB-объекты. В большинстве случаев рекомендуется использовать блочные BLOB-объекты.
 
-Для передачи файла в блочный BLOB-объект получите ссылку на контейнер и используйте ее для получения ссылки на блочный BLOB-объект. Получив ссылку на большой двоичный объект, вы можете отправить в него любой поток данных с помощью метода **UploadFromStream**. Эта операция создает большой двоичный объект, если он не существует, или заменяет его, если он существует. В следующем примере показано, как отправить BLOB-объект в контейнер. Предполагается, что контейнер уже был создан.
+Для передачи файла в блочный BLOB-объект получите ссылку на контейнер и используйте ее для получения ссылки на блочный BLOB-объект. Получив ссылку на большой двоичный объект, вы можете отправить в него любой поток данных с помощью метода **UploadFromStream**. Эта операция создает большой двоичный объект, если он не существует, или заменяет его, если он существует.
+
+В следующем примере показано, как отправить BLOB-объект в контейнер. Предполагается, что контейнер уже был создан.
 
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -287,6 +289,53 @@
         while (continuationToken != null);
     }
 
+## Запись в расширенный большой двоичный объект
+
+Добавочный большой двоичный объект — это новый тип большого двоичного объекта, который появился в версии 5.x клиентской библиотеки хранилища Azure для .NET. Добавочный большой двоичный объект оптимизирован для операций добавления, например ведения журналов. Как и блочный BLOB-объект, добавочный большой двоичный объект состоит из блоков, но при добавлении нового блока в добавочный большой двоичный объект он всегда добавляется в конец этого объекта. Вы не можете обновить или удалить существующий блок в добавочном большом двоичном объекте. Идентификаторы блоков в добавочном большом двоичном объекте не отображаются, как в блочном BLOB-объекте.
+ 
+Каждый блок в добавочном большом двоичном объекте может иметь разный размер (не более 4 МБ), кроме того, добавочный большой двоичный объект может содержать не более 50 000 блоков. Таким образом, максимальный размер добавочного большого двоичного объекта немного превышает 195 ГБ (4 МБ X 50 000 блоков).
+
+Приведенный ниже пример создает новый добавочный большой двоичный объект и добавляет в него некоторые данные, имитируя простые операции ведение журнала.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create service client for credentialed access to the Blob service.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+    //Get a reference to a container.
+    CloudBlobContainer container = blobClient.GetContainerReference("my-append-blobs");
+
+    //Create the container if it does not already exist. 
+    container.CreateIfNotExists();
+
+    //Get a reference to an append blob.
+    CloudAppendBlob appendBlob = container.GetAppendBlobReference("append-blob.log");
+
+    //Create the append blob. Note that if the blob already exists, the CreateOrReplace() method will overwrite it.
+    //You can check whether the blob exists to avoid overwriting it by using CloudAppendBlob.Exists().
+    appendBlob.CreateOrReplace();
+
+    int numBlocks = 10;
+
+    //Generate an array of random bytes.
+    Random rnd = new Random();
+    byte[] bytes = new byte[numBlocks];
+    rnd.NextBytes(bytes);
+        
+    //Simulate a logging operation by writing text data and byte data to the end of the append blob.
+    for (int i = 0; i < numBlocks; i++)
+    {
+        appendBlob.AppendText(String.Format("Timestamp: {0} \tLog Entry: {1}{2}",
+            DateTime.Now.ToUniversalTime().ToString(), bytes[i], Environment.NewLine));
+    }
+
+    //Read the append blob to the console window.
+    Console.WriteLine(appendBlob.DownloadText());
+
+Дополнительные сведения о различиях между тремя типами больших двоичных объектов см. в разделе [Основные сведения о блочных, страничных и добавочных больших двоичных объектах](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+
 ## Дальнейшие действия
 
 Вы изучили основные сведения о хранилище BLOB-объектов. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам. <ul> <li>Подробную информацию о доступных интерфейсах API см. в справочной документации по службе BLOB-объектов: <ul> <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Справочник по клиентской библиотеке хранилища для .NET</a> </li> <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Справочник по REST API</a></li> </ul> </li> <li>Дополнительную информацию о более сложных задачах, которые можно выполнять в службе хранилища Azure, см. в разделе <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Хранение данных и получение доступа к ним в Azure</a>.</li> <li>Узнайте, как упростить код, предназначенный для работы со службой хранилища Azure, с помощью <a href="../websites-dotnet-webjobs-sdk/">пакета SDK для веб-заданий для Azure</li>. <li>Просмотрите дополнительные руководства, чтобы изучить дополнительные возможности хранения данных в Azure. <ul> <li>Использование <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">табличного хранилища</a> для хранения структурированных данных.</li> <li>Использование <a href="/documentation/articles/storage-dotnet-how-to-use-queues/">хранилища очередей</a> для хранения неструктурированных данных.</li> <li>Использование <a href="/documentation/articles/sql-database-dotnet-how-to-use/">Базы данных SQL</a> для хранения реляционных данных.</li> </ul> </li> </ul>
@@ -297,11 +346,11 @@
   [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
 
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+  [Azure Storage]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

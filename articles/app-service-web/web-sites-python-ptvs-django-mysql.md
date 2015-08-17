@@ -134,7 +134,7 @@
 
 1.  В обозревателе решений в разделе **Среды Python** щелкните правой кнопкой мыши виртуальную среду и выберите **Установить пакет Python**.
 
-1. Установите пакет `mysql-python`, используя **easy_install**.
+1. Установите пакет `mysql-python`, используя **easy\_install**.
 
   	![Диалоговое окно «Установка пакета»](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
 
@@ -211,4 +211,4 @@
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

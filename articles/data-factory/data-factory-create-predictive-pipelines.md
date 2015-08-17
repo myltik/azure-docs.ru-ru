@@ -13,20 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="08/04/2015" 
 	ms.author="spelluru"/>
 
 # Создание прогнозирующих конвейеров с помощью фабрик данных Azure и машинного обучения Azure 
-## Обзор
-Вы можете запустить в эксплуатацию опубликованные модели [машинного обучения Azure][azure-machine-learning] в конвейерах фабрики данных Azure. Такие конвейеры называются прогнозирующими конвейерами. Для создания прогнозирующего конвейера потребуется следующее.
+## Общие сведения
 
--	Ключ API опубликованной модели рабочей области и URL-адрес количественной оценки (см. рисунок ниже)
--	Хранилище больших двоичных объектов Azure размещает входной CSV-файл или базу данных SQL Azure, в которых содержатся входные данные для оценки. 
--	Хранилище больших двоичных объектов Azure, которое будет содержать CSV-файл результатов оценки, или база данных SQL Azure, которая будет содержать выходные данные. 
+Фабрика данных Azure позволяет легко создавать конвейеры, в которых для прогнозной аналитики используется опубликованная веб-служба [Машинного обучения Azure][azure-machine-learning]. Это позволит вам управлять перемещением и обработкой данных с помощью фабрики данных Azure, а затем выполнять пакетную оценку, используя Машинное обучение Azure. Для этого необходимо сделать следующее.
+
+1. Используйте действие **AzureMLBatchScoring**.
+2. Получите **универсальный код ресурса (URI) запроса** для API пакетного выполнения. URI запроса можно найти, щелкнув ссылку **ВЫПОЛНЕНИЕ ПАКЕТА** на странице веб-служб, как показано ниже.
+3. **Ключ API** для опубликованной веб-службы Машинного обучения Azure. Чтобы найти эти сведения, щелкните опубликованную веб-службу. 
 
 	![Панель мониторинга машинного обучения][machine-learning-dashboard]
-
-	URL-адрес количественной оценки для AzureMLLinkedService можно получить, как показано на рисунке выше, но без «**help**»: https://ussouthcentral.services.azureml.net/workspaces/da9e350b758e44b2812a6218d507e216/services/8c91ff373a81416f8f8e0d96a1162681/jobs/
 
 **Прогнозирующий конвейер** состоит из следующих частей.
 
@@ -42,48 +41,47 @@
 Прежде чем приступить к этому примеру, рекомендуется изучить учебник [Приступая к работе с фабрикой данных Azure][adf-getstarted] и с помощью редактора фабрики данных создать артефакты фабрики данных (связанные службы, таблицы, конвейер) для этого примера.
  
 
-1. Создание связанной службы для хранилища Azure. Если входные и выходные файлы оценки находятся в разных учетных записях хранения, то потребуются две связанные службы. Ниже приведен пример JSON:
+1. Создайте **связанную службу** для **хранилища Azure**. Если входные и выходные файлы оценки находятся в разных учетных записях хранения, то потребуются две связанные службы. Ниже приведен пример JSON:
 
 		{
-		    "name": "StorageLinkedService",
-		    "properties":
-		    {
-		        "type": "AzureStorageLinkedService",
-		        "connectionString": "DefaultEndpointsProtocol=https;AccountName=[acctName];AccountKey=[acctKey]"
+		  "name": "StorageLinkedService",
+		  "properties": {
+		    "type": "AzureStorage",
+		    "typeProperties": {
+		      "connectionString": "DefaultEndpointsProtocol=https;AccountName=[acctName];AccountKey=[acctKey]"
 		    }
+		  }
 		}
 
-2. Создание входных и выходных таблиц фабрики данных Azure. Обратите внимание, что в отличие от некоторых других таблиц фабрики данных эти таблицы должны содержать оба значения **folderPath** и **fileName**. Можно использовать секционирование для выполнения каждого пакета (каждого среза данных) для обработки или создания уникальных входных и выходных файлов. Скорее всего, потребуется включить некоторые вышестоящие действия для преобразования входных данных в формат CSV-файла и его размещения в учетной записи хранения для каждого среза. В этом случае не будут включены параметры waitOnExternal, как показано на примере ниже, и ScoringInputBlob будет выходной таблицей другого действия.
+2. Создайте **входную** **таблицу** фабрики данных Azure. Обратите внимание, что в отличие от некоторых других таблиц фабрики данных эти таблицы должны содержать оба значения **folderPath** и **fileName**. Можно использовать секционирование для выполнения каждого пакета (каждого среза данных) для обработки или создания уникальных входных и выходных файлов. Скорее всего, потребуется включить некоторые вышестоящие действия для преобразования входных данных в формат CSV-файла и его размещения в учетной записи хранения для каждого среза. В этом случае не будут включены параметры **external** и **externalData**, как показано на примере ниже, и ScoringInputBlob будет выходной таблицей другого действия.
 
-		{  
-			"name":"ScoringInputBlob",
-			"properties":
-			{  
-					"location":
-					{  
-						"type":"AzureBlobLocation",
-						"folderPath":"azuremltesting/input",
-						"fileName":"in.csv",
-						"format":
-						{ 
-							"type":"TextFormat",
-							"columnDelimiter":","
-						},
-						"linkedServiceName":"StorageLinkedService"
-					},
-					"availability":
-					{  
-						"frequency":"Day",
-						"interval":1,
-						"waitOnExternal":
-						{
-		                	"retryInterval": "00:01:00",
-		                	"retryTimeout": "00:10:00",
-		                	"maximumRetry": 3
-		            	}
-		      		}
-		   		}
-			}
+		{
+		  "name": "ScoringInputBlob",
+		  "properties": {
+		    "type": "AzureBlob",
+		    "linkedServiceName": "StorageLinkedService",
+		    "typeProperties": {
+		      "folderPath": "azuremltesting/input",
+		      "fileName": "in.csv",
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "external": true,
+		    "availability": {
+		      "frequency": "Day",
+		      "interval": 1
+		    },
+		    "policy": {
+		      "externalData": {
+		        "retryInterval": "00:01:00",
+		        "retryTimeout": "00:10:00",
+		        "maximumRetry": 3
+		      }
+		    }
+		  }
+		}
 	
 	CSV-файл количественной оценки должен иметь строку заголовков столбцов. Если вы используете **действие копирования** для создания или перемещения CSV-файла в хранилище больших двоичных объектов, следует установить для свойства **blobWriterAddHeader** приемника значение **true**. Например:
 	
@@ -94,88 +92,103 @@
 	     }
 	 
 	если CSV-файл не имеет строку заголовков, может появиться следующая ошибка: **Ошибка в действии: ошибка при чтении строки. Непредвиденный токен: StartObject. Путь '', строка 1, позиция 1**.
-3. В этом примере выходных данных используется секционирование для создания уникального выходного пути при выполнении каждого из срезов. Без этого действие перезапишет файл.
+3. Создайте **выходную таблицу** фабрики данных Azure. В этом примере используется секционирование для создания уникального выходного пути при выполнении каждого из срезов. Без этого действие перезапишет файл.
 
-		{  
-		   "name":"ScoringResultBlob",
-		   "properties":
-			{  
-		        "location":
-				{  
-		            "type":"AzureBlobLocation",
-		            "folderPath": "azuremltesting/scored/{folderpart}/",
-		            "fileName": "{filepart}result.csv",
-		            "partitionedBy": [ 
-		                 { "name": "folderpart", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMdd" } },
-		                 { "name": "filepart", "value": { "type": "DateTime", "date": "SliceStart", "format": "HHmmss" } } 
-		             ], 
-		            "format":{  
-		              "type":"TextFormat",
-		              "columnDelimiter":","
-		            },
-		            "linkedServiceName":"StorageLinkedService"
+		{
+		  "name": "ScoringResultBlob",
+		  "properties": {
+		    "type": "AzureBlob",
+		    "linkedServiceName": "StorageLinkedService",
+		    "typeProperties": {
+		      "folderPath": "azuremltesting/scored/{folderpart}/",
+		      "fileName": "{filepart}result.csv",
+		      "partitionedBy": [
+		        {
+		          "name": "folderpart",
+		          "value": {
+		            "type": "DateTime",
+		            "date": "SliceStart",
+		            "format": "yyyyMMdd"
+		          }
 		        },
-		        "availability":
-				{  
-		            "frequency":"Day",
-		            "interval":15
+		        {
+		          "name": "filepart",
+		          "value": {
+		            "type": "DateTime",
+		            "date": "SliceStart",
+		            "format": "HHmmss"
+		          }
 		        }
-		   }
+		      ],
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "availability": {
+		      "frequency": "Day",
+		      "interval": 15
+		    }
+		  }
 		}
 
-
-4. Создайте связанную службу типа **AzureMLLinkedService**, предоставляющую ключ API и URL-адрес количественной оценки модели.
+4. Создайте **связанную службу** типа **AzureMLLinkedService**, предоставляющую ключ API и URL-адрес пакетной оценки модели.
 		
 		{
-		    "name": "MyAzureMLLinkedService",
-		    "properties":
-		    {
-		        "type": "AzureMLLinkedService",
-		        "mlEndpoint":"https://[batch scoring endpoint]/jobs",
-		        "apiKey":"[apikey]"
+		  "name": "MyAzureMLLinkedService",
+		  "properties": {
+		    "type": "AzureML",
+		    "typeProperties": {
+		      "mlEndpoint": "https://[batch scoring endpoint]/jobs",
+		      "apiKey": "[apikey]"
 		    }
+		  }
 		}
-
 5. И наконец, создайте конвейер, содержащий **AzureMLBatchScoringActivity**. Он получит расположение входного файла из входных таблиц, вызовет API количественной оценки AzureML и скопирует выходные данные количественной оценки в большой двоичный объект, переданный в таблице выходных данных. В отличие от некоторых других действий фабрики данных AzureMLBatchScoringActivity может иметь только одну входную и одну выходную таблицы.
 
-		 {
-		    "name": "PredictivePipeline",
-		    "properties":
-		    {
-		        "description" : "use AzureML model",
-		        "activities":
-		        [
-		         {  
-		            "name":"MLActivity",
-		            "type":"AzureMLBatchScoringActivity",
-		            "description":"prediction analysis on batch input",
-		            "inputs": [ { "name": "ScoringInputBlob" } ],
-		            "outputs":[ { "name": "ScoringResultBlob" } ],
-		            "linkedServiceName":"MyAzureMLLinkedService",
-		            "policy":{  
-		               "concurrency":3,
-		               "executionPriorityOrder":"NewestFirst",
-		               "retry":1,
-		               "timeout":"02:00:00"
-		            }
-		         }
+		{
+		  "name": "PredictivePipeline",
+		  "properties": {
+		    "description": "use AzureML model",
+		    "activities": [
+		      {
+		        "name": "MLActivity",
+		        "type": "AzureMLBatchScoring",
+		        "description": "prediction analysis on batch input",
+		        "inputs": [
+		          {
+		            "name": "ScoringInputBlob"
+		          }
 		        ],
-
-				"start": "2015-02-13T00:00:00Z",
-        		"end": "2015-02-14T00:00:00Z"
-		    }
+		        "outputs": [
+		          {
+		            "name": "ScoringResultBlob"
+		          }
+		        ],
+		        "linkedServiceName": "MyAzureMLLinkedService",
+		        "policy": {
+		          "concurrency": 3,
+		          "executionPriorityOrder": "NewestFirst",
+		          "retry": 1,
+		          "timeout": "02:00:00"
+		        }
+		      }
+		    ],
+		    "start": "2015-02-13T00:00:00Z",
+		    "end": "2015-02-14T00:00:00Z"
+		  }
 		}
 
-	Значения даты и времени как начала (**start**), так и окончания (**end**) должны быть указаны в [формате ISO](http://en.wikipedia.org/wiki/ISO_8601). Например, 2014-10-14T16:32:41Z. Значение времени окончания (**end**) является необязательным. Если не указать значение свойства **end**, оно вычисляется по формуле "**дата начала + 48 часов**". Чтобы запустить конвейер в течение неопределенного срока, укажите значение **9999-09-09** в качестве значения свойства **окончание**. Подробную информацию о свойствах JSON см. в [Справочнике по сценариям JSON](https://msdn.microsoft.com/library/dn835050.aspx).
+	Значения даты и времени как начала (**start**), так и окончания (**end**) должны быть указаны в [формате ISO](http://en.wikipedia.org/wiki/ISO_8601). Например, 2014-10-14T16:32:41Z. Значение времени окончания (**end**) является необязательным. Если не указать значение свойства **end**, оно вычисляется по формуле **время начала + 48 часов**. Чтобы запустить конвейер в течение неопределенного срока, укажите значение **9999-09-09** в качестве значения свойства **окончание**. Подробную информацию о свойствах JSON см. в [Справочнике по сценариям JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
 ## Параметры веб-службы
 Вы можете использовать параметры веб-службы, предоставляемые опубликованной веб-службой машинного обучения Azure, в конвейерах фабрики данных Azure (ADF). Можно создать эксперимент в машинном обучении Azure и опубликовать его как веб-службу, а затем использовать эту веб-службу в нескольких конвейерах или действиях ADF, передавая различные входные данные через параметры веб-службы.
 
 ### Передача значений для параметров веб-службы
-Добавьте раздел **transformation** в раздел **AzureMLBatchScoringActivty** в конвейере JSON, чтобы указать в этом разделе значения для параметров веб-службы, как показано в следующем примере:
+Добавьте раздел **typeProperties** в раздел **AzureMLBatchScoringActivty** в JSON конвейера, чтобы указать в этом разделе значения для параметров веб-службы, как показано в приведенном ниже примере.
 
-	transformation: {
-		webServiceParameters: {
+	"typeProperties": {
+		"webServiceParameters": {
 			"Param 1": "Value 1",
 			"Param 2": "Value 2"
 		}
@@ -184,18 +197,19 @@
 
 Вы также можете использовать [функции фабрики данных](https://msdn.microsoft.com/library/dn835056.aspx) при передаче значений для параметров веб-службы, как показано в следующем примере:
 
-	transformation: {
-    	webServiceParameters: {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(SliceStart, 0))"
+	"typeProperties": {
+    	"webServiceParameters": {
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
     	}
   	}
  
 > [AZURE.NOTE]В параметрах веб-службы учитывается регистр, поэтому убедитесь, что имена, которые указываются в действии JSON, соответствуют именам, предоставляемым веб-службой.
 
-### Модули чтения и записи SQL Azure
+### Модули чтения и записи
+
 Распространенный сценарий использования параметров веб-службы заключается в использовании модулей чтения и записи SQL Azure. Модуль чтения используется для загрузки данных в эксперимент из служб управления данными за пределами Студии машинного обучения Azure, а модуль записи используется для сохранения данных из экспериментов в службах управления данными за пределами Студии машинного обучения Azure. Сведения о модулях чтения и записи больших двоичных объектов Azure и SQL Azure см. в статьях [Модуль чтения](https://msdn.microsoft.com/library/azure/dn905997.aspx) и [Модуль записи](https://msdn.microsoft.com/library/azure/dn905984.aspx) в библиотеке MSDN. В примере из предыдущего раздела используется модуль чтения и модуль записи больших двоичных объектов Azure. В этом разделе рассматривается использование модуля чтения и модуля записи SQL Azure.
 
-#### Модуль чтения SQL Azure
+#### SQL Azure как источник данных
 В Студии машинного обучения Microsoft Azure можно построить эксперимент и опубликовать веб-службу с модулем чтения SQL Azure для входных данных. Модуль чтения SQL Azure имеет свойства подключения, которые могут быть предоставлены как параметры веб-службы, что позволяет передавать значения для свойств подключения во время выполнения в запросе количественной оценки.
 
 Во время выполнения сведения из входной таблицы фабрики данных будут использоваться службой фабрики данных для заполнения параметров веб-службы. Обратите внимание, что необходимо использовать имена по умолчанию (имя сервера базы данных, имя базы данных, имя учетной записи пользователя сервера, пароль учетной записи пользователя сервера) для параметров веб-службы, чтобы интеграция со службой фабрики данных могла работать.
@@ -205,61 +219,74 @@
 Чтобы использовать модуль чтения SQL Azure через конвейер фабрики данных Azure, выполните следующее:
 
 - Создайте **связанную службу SQL Azure**. 
-- Создайте **таблицу** фабрики данных, которая использует **AzureSqlTableLocation**.
+- Создайте **таблицу** фабрики данных, использующую **AzureSqlTable**.
 - Установите эту **таблицу** фабрики данных как **входную** для **AzureMLBatchScoringActivity** в конвейере JSON. 
 
 
 
-#### Модуль записи SQL Azure
+#### SQL Azure как приемник данных
 Как и модуль чтения SQL Azure, модуль записи SQL Azure тоже может иметь свойства, предоставляемые как параметры веб-службы. Модуль записи SQL Azure использует параметры из связанной службы, сопоставленной с входной таблицей или с выходной таблицей. В следующей таблице описывается, когда используется связанная служба ввода в сравнении со связанной службой вывода.
 
 | Вывод и ввод | Ввод из SQL Azure | Ввод из большого двоичного объекта Azure |
 | ------------ | ------------------ | ------------------- |
-| Вывод в SQL Azure | <p>Служба фабрики данных использует сведения строки подключения из связанной службы ВВОДА для создания параметров веб-службы с именами Database server name, Database name, Server user account name, Server user account password. Обратите внимание, что необходимо использовать имена по умолчанию для параметров веб-службы в Студии машинного обучения Microsoft Azure.</p><p>Если модуль чтения и модуль записи SQL Azure в модели машинного обучения Azure имеют одинаковые параметры веб-службы, упомянутые выше, то все в порядке. Если они не используют одни и те же параметры веб-службы, например, если модуль записи SQL Azure использует имена параметров Database server name1, Database name1, Server user account name1, Server user account password1 (с «1» в конце), то необходимо передать значения для этих параметров веб-службы ВЫВОДА в раздел webServiceParameters JSON действия. </p><p>Вы можете передавать значения для любых других параметров веб-службы с помощью раздела webServiceParameters в JSON действия.</p> | <p>Служба фабрики данных использует сведения строки подключения из связанной службы ВЫВОДА для создания параметров веб-службы с именами Database server name, Database name, Server user account name, Server user account password. Обратите внимание, что необходимо использовать имена по умолчанию для параметров веб-службы в Студии машинного обучения Microsoft Azure. </p><p>Вы можете передавать значения для любых других параметров веб-службы с помощью раздела webServiceParameters в JSON действия. <p>Большой двоичный объект входных данных будет использоваться как расположение входных данных.</p> |
-|Вывод в большой двоичный объект Azure | Служба фабрики данных использует сведения строки подключения из связанной службы ВВОДА для создания параметров веб-службы с именами «Database server name», «Database name», «Server user account name», «ПServer user account password». Обратите внимание, что необходимо использовать имена по умолчанию для параметров веб-службы в Студии машинного обучения Microsoft Azure. | <p>Вы должны передавать значения для любых параметров веб-службы с помощью раздела WebServiceParameters в JSON действия. </p><p>Большие двоичные объекты будут использоваться как расположения для входных и выходных данных.</p> |
+| Вывод в SQL Azure | <p>Служба фабрики данных использует сведения строки подключения из связанной службы ВВОДА для создания параметров веб-службы с именами Database server name, Database name, Server user account name, Server user account password. Обратите внимание, что эти имена по умолчанию необходимо использовать для параметров веб-службы в Студии машинного обучения Microsoft Azure.</p><p>Если модуль чтения и модуль записи SQL Azure в модели машинного обучения Azure используют одни и те же параметры веб-службы, упомянутые выше, то все в порядке. В противном случае, например, если модуль записи SQL Azure использует имена параметров Database server name1, Database name1, Server user account name1, Server user account password1 (с «1» в конце), то необходимо передать значения для этих параметров веб-службы ВЫВОДА в раздел webServiceParameters JSON действия.</p><p>Вы можете передавать значения для любых других параметров веб-службы с помощью раздела webServiceParameters в JSON действия.</p> | <p>Служба фабрики данных использует сведения строки подключения из связанной службы ВЫВОДА для создания параметров веб-службы с именами Database server name, Database name, Server user account name, Server user account password. Обратите внимание, что эти имена по умолчанию необходимо использовать для параметров веб-службы в Студии машинного обучения Azure.</p><p>Вы можете передавать значения для любых других параметров веб-службы с помощью раздела webServiceParameters в JSON действия. <p>Большой двоичный объект входных данных будет использоваться как расположение входных данных.</p> |
+|Вывод в большой двоичный объект Azure | Служба фабрики данных использует сведения строки подключения из связанной службы ВВОДА для создания параметров веб-службы с именами «Database server name», «Database name», «Server user account name», «ПServer user account password». Обратите внимание, что необходимо использовать имена по умолчанию для параметров веб-службы в Студии машинного обучения Microsoft Azure. | <p>Значения для любых параметров веб-службы следует передавать с помощью раздела WebServiceParameters в JSON действия.</p><p>Большие двоичные объекты будут использоваться как расположения для входных и выходных данных.</p> |
     
 
 > [AZURE.NOTE]Модуль записи SQL Azure может столкнуться с нарушениями ключа, если он переопределяет столбец идентификаторов. Необходимо структурировать выходную таблицу, чтобы избежать такой ситуации.
 > 
 > Вы можете использовать промежуточные таблицы с действием хранимой процедуры для объединения строк или усечения данных до оценки. При использовании этого подхода установите для параметра параллелизма политики executionPolicy значение 1.
 
+#### Большой двоичный объект Azure как источник
+
+При использовании модуля чтения в эксперименте Машинного обучения Azure вы можете указать в качестве входных данных большой двоичный объект Azure. Файлы в хранилище больших двоичных объектов Azure могут представлять собой выходные файлы (например, 000000\_0), созданные с помощью сценария Pig и Hive, который выполняется в HDInsight. Модуль чтения позволяет читать файлы (без расширения), настроив свойство **Путь к контейнеру, каталогу или BLOB-объекту** модуля чтения таким образом, чтобы оно указывало контейнер или папку, содержащие файлы (см. ниже). Обратите внимание, что звездочка (*) **указывает на то, что все файлы в контейнере или папке (например, data/aggregateddata/year=2014/month-6/*)** будут читаться как часть эксперимента.
+
+![Свойства большого двоичного объекта Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
+
 ### Пример использования параметров веб-службы
 #### Конвейер с AzureMLBatchScoringActivity с параметрами веб-службы
 
 	{
-		"name": "MLWithSqlReaderSqlWriter",
-	  	"properties": {
-		    "description": "Azure ML model with sql azure reader/writer",
-		    "activities": [
-		    	{
-		    	    "name": "MLSqlReaderSqlWriterActivity",
-		    	    "type": "AzureMLBatchScoringActivity",
-		    	    "description": "test",
-		        	"inputs": [ { "name": "MLSqlInput" } ],
-		        	"outputs": [ { "name": "MLSqlOutput" } ],
-		        	"linkedServiceName": "MLSqlReaderSqlWriterScoringModel",
-		        	"policy": {
-		          		"concurrency": 1,
-			          	"executionPriorityOrder": "NewestFirst",
-			          "retry": 1,
-			          "timeout": "02:00:00"
-			        },
-			        transformation: {
-			        	webServiceParameters: {
-		            		"Database server name1": "output.database.windows.net",
-				            "Database name1": "outputDatabase",
-		            		"Server user account name1": "outputUser",
-		            		"Server user account password1": "outputPassword",
-			           		"Comma separated list of columns to be saved": "CustID, Scored Labels, Scored Probabilities",
-		    		        "Data table name": "BikeBuyerPredicted" 
-		          		}  
-		        	}
-		      	}
-	    	],
-
-			"start": "2015-02-13T00:00:00Z",
-        	"end": "2015-02-14T00:00:00Z"
-		}
+	  "name": "MLWithSqlReaderSqlWriter",
+	  "properties": {
+	    "description": "Azure ML model with sql azure reader/writer",
+	    "activities": [
+	      {
+	        "name": "MLSqlReaderSqlWriterActivity",
+	        "type": "AzureMLBatchScoring",
+	        "description": "test",
+	        "inputs": [
+	          {
+	            "name": "MLSqlInput"
+	          }
+	        ],
+	        "outputs": [
+	          {
+	            "name": "MLSqlOutput"
+	          }
+	        ],
+	        "linkedServiceName": "MLSqlReaderSqlWriterScoringModel",
+	        "policy": {
+	          "concurrency": 1,
+	          "executionPriorityOrder": "NewestFirst",
+	          "retry": 1,
+	          "timeout": "02:00:00"
+	        },
+	        "typeProperties": {
+	          "webServiceParameters": {
+	            "Database server name1": "output.database.windows.net",
+	            "Database name1": "outputDatabase",
+	            "Server user account name1": "outputUser",
+	            "Server user account password1": "outputPassword",
+	            "Comma separated list of columns to be saved": "CustID, Scored Labels, Scored Probabilities",
+	            "Data table name": "BikeBuyerPredicted"
+	          }
+	        }
+	      }
+	    ],
+	    "start": "2015-02-13T00:00:00Z",
+	    "end": "2015-02-14T00:00:00Z"
+	  }
 	}
  
 В приведенном выше примере JSON:
@@ -274,7 +301,7 @@
 - Параметры для модуля записи (те, которые имеют суффикс «1») не заполняются автоматически службой фабрики данных. Таким образом, вы должны указать значения для этих параметров в разделе **webServiceParameters** JSON действия.  
 - **Customer ID**, **scored labels** и **scored probabilities** сохраняются в виде столбцов с разделителями-запятыми. 
 - **Data table name** в этом примере соответствует таблице в базе данных выходных данных.
-- Значения даты и времени как начала (**start**), так и окончания (**end**) должны быть указаны в [формате ISO](http://en.wikipedia.org/wiki/ISO_8601). Например, 2014-10-14T16:32:41Z. Значение времени окончания (**end**) является необязательным. Если не указать значение свойства **end**, оно вычисляется по формуле "**дата начала + 48 часов**". Чтобы запустить конвейер в течение неопределенного срока, укажите значение **9999-09-09** в качестве значения свойства **окончание**. Подробную информацию о свойствах JSON см. в [Справочнике по сценариям JSON](https://msdn.microsoft.com/library/dn835050.aspx).
+- Значения даты и времени как начала (**start**), так и окончания (**end**) должны быть указаны в [формате ISO](http://en.wikipedia.org/wiki/ISO_8601). Например, 2014-10-14T16:32:41Z. Значение времени окончания (**end**) является необязательным. Если не указать значение свойства **end**, оно вычисляется по формуле **время начала + 48 часов**. Чтобы запустить конвейер в течение неопределенного срока, укажите значение **9999-09-09** в качестве значения свойства **окончание**. Подробную информацию о свойствах JSON см. в [Справочнике по сценариям JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
 
 
@@ -300,4 +327,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

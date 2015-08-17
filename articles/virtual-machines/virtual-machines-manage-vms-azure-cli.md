@@ -81,4 +81,4 @@
 Дополнительные примеры использования интерфейса командной строки Azure в режиме **ARM** см. в разделе [Использование интерфейса командной строки Microsoft Azure для Mac, Linux и Windows в режиме управления ресурсами Azure](../xplat-cli-resource-manager.md). Дополнительную информацию о ресурсах Azure и их основных понятиях см. в разделе [Обзор диспетчера ресурсов Azure](../resource-group-overview.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

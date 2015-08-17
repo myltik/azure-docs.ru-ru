@@ -38,7 +38,7 @@
 - [Настройка DNS для виртуальных сетей][hdinsight-hbase-replication-dns]
 - Настройка георепликации HBase (данный учебник)
 
-На следующей схеме показаны две виртуальные сети и сетевое подключение, созданные вами в разделах [Настройка VPN-подключения между двумя виртуальными сетями][hdinsight-hbase-geo-replication-vnet] и [Настройка DNS для виртуальных сетей][hdinsight-hbase-replication-dns]:
+На следующей схеме показаны две виртуальные сети и сетевое подключение, созданные вами в разделах [Настройка VPN-подключения между двумя виртуальными сетями][hdinsight-hbase-geo-replication-vnet] и [Настройка DNS для виртуальных сетей][hdinsight-hbase-replication-dns]\:
 
 ![Схема виртуальной сети репликации HBase в HDInsight][img-vnet-diagram]
 
@@ -311,4 +311,4 @@
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

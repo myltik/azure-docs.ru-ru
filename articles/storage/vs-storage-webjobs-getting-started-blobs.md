@@ -159,7 +159,7 @@
 
 Сообщением очереди для подозрительных больших двоичных объектов является объект JSON, содержащий следующие свойства:
 
-* FunctionId (в формате *{WebJob name}*. Functions.\* {Function name}\*, например: WebJob1.Functions.CopyBlob)
+* FunctionId (в формате *{WebJob name}*. Functions.*{Function name}*, например: WebJob1.Functions.CopyBlob);
 * BlobType (BlockBlob или PageBlob);
 * ContainerName;
 * BlobName
@@ -210,7 +210,7 @@
 
 Уведомления о получении большого двоичного объекта хранятся в контейнере с именем *azure-webjobs-hosts* в учетной записи хранения Azure, указанной в строке подключения AzureWebJobsStorage. Уведомление о получении большого двоичного объекта содержит следующую информацию:
 
-* Функция, вызванная для большого двоичного объекта (\*{WebJob name}\*.Functions.\*{Function name}\*, например WebJob1.Functions.CopyBlob);
+* функция, вызванная для большого двоичного объекта (*{WebJob name}*.Functions.*{Function name}*, например: WebJob1.Functions.CopyBlob);
 * имя контейнера;
 * тип большого двоичного объекта (BlockBlob или PageBlob);
 * имя большого двоичного объекта;
@@ -239,4 +239,4 @@
 В этом руководстве предоставлены примеры кода обработки обычных сценариев для работы с большими двоичными объектами Azure. Дополнительную информацию об использовании веб-заданий Azure и пакета SDK для веб-заданий см. в статье [Рекомендуемые ресурсы по веб-заданиям Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

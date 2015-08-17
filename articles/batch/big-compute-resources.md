@@ -146,4 +146,4 @@ Azure предлагает вычислительные экземпляры [р
 * Последние объявления см. в [блоге группы Microsoft HPC и Пакетной службы](http://blogs.technet.com/b/windowshpc/), а также в [блоге Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Следите также за лентой [новостей о Пакетной службе](http://azure.microsoft.com/updates/?service=batch) или подпишитесь на [RSS-канал](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

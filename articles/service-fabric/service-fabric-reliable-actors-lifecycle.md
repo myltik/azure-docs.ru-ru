@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Жизненный цикл субъектов Azure Service Fabric"
-   description="Описание жизненного цикла и сборки мусора для субъектов Azure Service Fabric."
+   pageTitle="Жизненный цикл надежных субъектов"
+   description="Описание жизненного цикла и сборки мусора для надежных субъектов Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/05/2015"
    ms.author="amanbha"/>
 
 
-#Жизненный цикл субъектов и сборка мусора
+# Жизненный цикл субъектов и сборка мусора
 Субъект активируется при первом вызове к нему и отключается, если он не используется в течение определенного времени (среда выполнения субъектов собирает мусор). Чтобы настроить этот период времени, ознакомьтесь с разделом о сборке мусора ниже.
 
 Что происходит при активации субъекта
@@ -89,6 +89,5 @@ class HelloActor : Actor, IHello
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

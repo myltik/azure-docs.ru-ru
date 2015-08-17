@@ -68,7 +68,7 @@
 
 Примеры отправки push-уведомлений на другие собственные клиентские платформы приведены по ссылкам в заголовке следующей таблицы.
 
-Если вместо собственной регистрации клиента используется регистрация шаблона, такое же уведомление можно отправить одним вызовом метода [SendAsync], указав в качестве аргумента объект [TemplatePushMessage]:
+Если вместо собственной регистрации клиента используется регистрация шаблона, такое же уведомление можно отправить одним вызовом метода [SendAsync], указав в качестве аргумента объект [TemplatePushMessage]\:
 
 	// Create a new template message and add the 'message' parameter.    
 	var templatePayload = new TemplatePushMessage();
@@ -208,4 +208,4 @@
 [Universal Windows app project for Azure Mobile Services using MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

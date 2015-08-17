@@ -80,7 +80,7 @@ Twilio предоставляет клиентский пакет SDK, кото�
 <a id="makecall"/>
 ## Осуществление исходящего вызова
 
-Давайте создадим простую форму, которая будет осуществлять вызов на выбранный номер. Откройте server.js и введите следующий код. Обратите внимание на поле CHANGE_ME, в котором нужно указать имя веб-сайта Azure:
+Давайте создадим простую форму, которая будет осуществлять вызов на выбранный номер. Откройте server.js и введите следующий код. Обратите внимание на поле CHANGE\_ME, в котором нужно указать имя веб-сайта Azure:
 
     // Module dependencies
     var express = require('express'), 
@@ -223,7 +223,7 @@ Twilio предоставляет клиентский пакет SDK, кото�
 [purchase_phone]: https://www.twilio.com/user/account/phone-numbers/available/local
 [twiml]: https://www.twilio.com/docs/api/twiml
 [signup]: http://ahoy.twilio.com/azure
-[azure_new_site]: http://azure.microsoft.com/develop/nodejs/tutorials/create-a-website-(mac)/
+[azure_new_site]: http://www.windowsazure.com/develop/nodejs/tutorials/create-a-website-(mac)/
 [twilio_dashboard]: https://www.twilio.com/user/account
 [npm]: http://npmjs.org
 [express]: http://expressjs.com
@@ -233,4 +233,4 @@ Twilio предоставляет клиентский пакет SDK, кото�
 [pair]: http://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
 [azure-admin-console]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

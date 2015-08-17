@@ -143,4 +143,4 @@ Azure PowerShell предоставляет *командлеты*, позвол
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

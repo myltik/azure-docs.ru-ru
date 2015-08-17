@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2015"
+   ms.date="08/05/2015"
    ms.author="jesseb"/>
 
 # Визуализация кластера с помощью обозревателя Service Fabric
@@ -26,7 +26,7 @@
 
 Убедитесь, что ваша локальная среда разработки настроена согласно инструкциям в статье о [настройке среды разработки Service Fabric](service-fabric-get-started.md).
 
-Запустите обозреватель Service Fabric по локальному пути установки (%Program Files%\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe). Средство автоматически подключится к локальному кластеру разработки при его наличии. Оно отображает следующие сведения о кластере:
+Запустите обозреватель Service Fabric по локальному пути установки (%Program Files%\\Microsoft SDKs\\Service Fabric\\Tools\\ServiceFabricExplorer\\ServiceFabricExplorer.exe). Средство автоматически подключится к локальному кластеру разработки при его наличии. Оно отображает следующие сведения о кластере:
 
 - приложения, выполняемые на кластере;
 - сведения об узлах кластера;
@@ -74,6 +74,5 @@
 [connecttocluster]: ./media/service-fabric-visualizing-your-cluster/connecttocluster.png
 [replicadetails]: ./media/service-fabric-visualizing-your-cluster/replicadetails.png
 [servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

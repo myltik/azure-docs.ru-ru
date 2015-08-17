@@ -62,4 +62,4 @@
 [Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [портал управления Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

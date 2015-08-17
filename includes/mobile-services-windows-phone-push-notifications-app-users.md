@@ -1,7 +1,7 @@
 
 Затем вам необходимо изменить способ регистрации push-уведомлений, чтобы аутентификация пользователя проводилась до попытки регистрации.
 
-1. В Visual Studio в обозревателе решений откройте файл проекта app.xaml.cs и в обработчике событий **Application_Launching** закомментируйте или удалите вызов в метод **AcquirePushChannel**. 
+1. В Visual Studio в обозревателе решений откройте файл проекта app.xaml.cs и в обработчике событий **Application\_Launching** закомментируйте или удалите вызов в метод **AcquirePushChannel**. 
  
 2. Измените доступность метода **AcquirePushChannel** с `private` на `public` и добавьте модификатор `static`.
 
@@ -14,4 +14,4 @@
             RefreshTodoItems();
         }
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

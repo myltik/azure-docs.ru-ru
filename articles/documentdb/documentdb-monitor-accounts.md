@@ -90,4 +90,4 @@
 Дополнительные сведения о емкости DocumentDB см. в разделе [Управление емкостью DocumentDB](documentdb-manage.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

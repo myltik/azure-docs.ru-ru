@@ -52,44 +52,42 @@
 
 ## Проблема: срезы входных данных постоянно находятся в состоянии PendingExecution или PendingValidation
 
-Срезы могут находиться в состоянии **PendingExecution** или **PendingValidation** по ряду причин, и одна из самых распространенных заключается в том, что свойство **waitOnExternal** не указано в разделе **availability** первой таблицы или набора данных в конвейере. Все наборы данных, созданные вне фабрики данных Azure, должны быть помечены свойством **waitOnExternal** в разделе **availability**. Это означает, что данные являются внешними и не поддерживаются какими-либо конвейерами в фабрике данных. После того как данные станут доступны в соответствующем хранилище, срезы данных помечаются флагом **Ready** (готово).
+Срезы могут находиться в состоянии **PendingExecution** или **PendingValidation** по ряду причин, и одна из самых распространенных заключается в том, что для свойства **external** не указано значение **true**. Все наборы данных, созданные вне фабрики данных Azure, должны быть помечены свойством **external**. Это означает, что данные являются внешними и не поддерживаются какими-либо конвейерами в фабрике данных. После того как данные станут доступны в соответствующем хранилище, срезы данных помечаются флагом **Ready** (готово).
 
-См. следующий пример использования свойства **waitOnExternal**. Если оставить свойство **waitOnExternal{}** пустым, будут использоваться значения по умолчанию.
+См. следующий пример использования свойства **external**. Если нужно, можно указать **externalData*** при задании значения true для external.
 
 Дополнительные сведения об этом свойстве см. в разделе «Таблицы» [справочника по сценариям JSON][json-scripting-reference].
 	
 	{
-	    "name": "CustomerTable",
-	    "properties":
-	    {
-	        "location":
-	        {
-	            "type": "AzureBlobLocation",
-	            "folderPath": "MyContainer/MySubFolder/",
-	            "linkedServiceName": "MyLinkedService",
-	            "format":
-	            {
-	                "type": "TextFormat",
-	                "columnDelimiter": ",",
-	                "rowDelimiter": ";"
-	            }
-	        },
-	        "availability":
-	        {
-	            "frequency": "Hour",
-	            "interval": 1,
-	            "waitOnExternal":
-	            {
-	                "dataDelay": "00:10:00",
-	                "retryInterval": "00:01:00",
-	                "retryTimeout": "00:10:00",
-	                "maximumRetry": 3
-	            }
-	        }
+	  "name": "CustomerTable",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "MyLinkedService",
+	    "typeProperties": {
+	      "folderPath": "MyContainer/MySubFolder/",
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";"
+	      }
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    },
+	    "policy": {
+	      "externalData": {
+	        "dataDelay": "00:10:00",
+	        "retryInterval": "00:01:00",
+	        "retryTimeout": "00:10:00",
+	        "maximumRetry": 3
+	      }
 	    }
+	  }
 	}
 
- Чтобы устранить эту ошибку, добавьте раздел **waitOnExternal** в определение JSON входной таблицы и повторно создайте эту таблицу.
+ Чтобы устранить эту ошибку, добавьте свойство **external** и дополнительный раздел **externalData** в определение JSON входной таблицы и повторно создайте эту таблицу.
 
 ## Проблема: сбой гибридной операции копирования
 Чтобы получить дополнительные сведения, выполните следующие действия.
@@ -131,7 +129,7 @@
 
 Одна из **распространенных ошибок** настраиваемого действия — ошибка при выполнении пакета с кодом выхода «1». Дополнительные сведения см. по ссылке wasb://adfjobs@storageaccount.blob.core.windows.net/PackageJobs/<guid>/<jobid>/Status/stderr.
 
-Чтобы получить дополнительные сведения об ошибках этого типа, откройте **STDERR**-файл. Здесь можно увидеть одну из распространенных ошибок, связанных с истечением времени ожидания, например INFO mapreduce.Job: Task Id : attempt_1424212573646_0168_m_000000_0, Status : FAILED AttemptID:attempt_1424212573646_0168_m_000000_0 Timed out after 600 secs.
+Чтобы получить дополнительные сведения об ошибках этого типа, откройте **STDERR**-файл. Здесь можно увидеть одну из распространенных ошибок, связанных с истечением времени ожидания, например INFO mapreduce.Job: Task Id : attempt\_1424212573646\_0168\_m\_000000\_0, Status : FAILED AttemptID:attempt\_1424212573646\_0168\_m\_000000\_0 Timed out after 600 secs.
 
 Такая же ошибка может появляться несколько раз, если, например, выполнение задания прекращалось три раза за 30 и более минут.
 
@@ -175,7 +173,7 @@
 ### Предварительные требования
 1. Выполните инструкции, приведенные в статье [Приступая к работе с фабрикой данных Azure][adfgetstarted].
 2. Убедитесь, что объект **ADFTutorialDataFactory** создает данные в таблице **emp** в базе данных SQL Azure.  
-3. Теперь удалите таблицу **emp** (**drop table emp**) из базы данных SQL Azure. Это приведет к ошибке.
+3. Теперь удалите таблицу **emp** (**drop table emp**) из Базы данных SQL Azure. Это приведет к ошибке.
 4. Выполните следующую команду в **Azure PowerShell**, чтобы обновить период активности конвейера. Она попытается записать данные в несуществующую таблицу **emp**.
 
          
@@ -386,4 +384,4 @@
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -40,4 +40,4 @@
 
 Продлите срок действия сертификата, используя инструкции из [соответствующей статьи](active-directory-aadconnect-o365-certs.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

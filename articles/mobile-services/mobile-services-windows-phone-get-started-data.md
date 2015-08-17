@@ -119,9 +119,9 @@
         private IMobileServiceTable<TodoItem> todoTable = 
 			App.MobileService.GetTable<TodoItem>();
 
-   	Этот код создает коллекцию привязок с поддержкой мобильных служб (\*\*items\*\*) и прокси-класс для таблицы базы данных SQL **TodoItem** (\*\*todoTable\*\*).
+   	Этот код создает коллекцию привязок с поддержкой мобильных служб (**items**) и прокси-класс для таблицы базы данных SQL **TodoItem** (**todoTable**).
 
-7. В методе **InsertTodoItem** удалите строку кода, которая устанавливает значение свойства **TodoItem**.\*\*Id\*\*, добавьте в метод модификатор **async** и раскомментируйте следующую строку кода:
+7. В методе **InsertTodoItem** удалите строку кода, которая устанавливает значение свойства **TodoItem**.**Id**, добавьте в метод модификатор **async** и раскомментируйте следующую строку кода:
 
         await todoTable.InsertAsync(todoItem);
 
@@ -193,4 +193,4 @@
 [примеров кода для разработчиков]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

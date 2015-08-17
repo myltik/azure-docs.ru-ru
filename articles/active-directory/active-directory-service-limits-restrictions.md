@@ -27,4 +27,4 @@
 - [Как подписки Azure связаны с Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Терминология Azure Active Directory](active-directory-terminology.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

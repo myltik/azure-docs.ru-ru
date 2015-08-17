@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
 
 # Создание веб-приложения Orchard CMS из Azure Marketplace
@@ -92,4 +92,4 @@ Marketplace предоставляет широкий выбор популяр�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

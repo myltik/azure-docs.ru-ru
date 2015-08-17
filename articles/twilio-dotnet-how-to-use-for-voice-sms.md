@@ -252,7 +252,7 @@ Twilio предоставляет набор вспомогательных би
 
 Дополнительные сведения об использовании Twilio в Azure с ASP.NET см. в разделе [Осуществление телефонных звонков с использованием Twilio в веб-роли Azure][howto_phonecall_dotnet].
 
-[AZURE.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
+[AZURE.INCLUDE [twilio\_additional\_services\_and\_next\_steps](../includes/twilio_additional_services_and_next_steps.md)]
 
 
 
@@ -279,4 +279,4 @@ Twilio предоставляет набор вспомогательных би
 [twilio_account]: https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

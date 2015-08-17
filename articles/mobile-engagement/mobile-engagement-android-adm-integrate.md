@@ -102,7 +102,7 @@
 
 ##Предоставление учетных данных OAuth для платформы Engagement
 
-Отправьте учетные данные OAuth (идентификатор и секрет клиента) в $/#application/YOUR_APPID/native-push.
+Отправьте учетные данные OAuth (идентификатор и секрет клиента) в $/#application/YOUR\_APPID/native-push.
 
 Теперь можно выбирать параметр "Any Time" (в любое время) при создании объявлений и опросов модуля обработки рекламных кампаний.
 
@@ -113,4 +113,4 @@
 [следующую процедуру]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,4 +1,6 @@
-Resource| Default limit
----|---
-Profiles per subscription | 100
-Endpoints per profile| 200
+| Ресурс | Ограничение по умолчанию
+--- | ---
+| Профилей на подписку | 100
+| Конечных точек на профиль| 200
+
+<!---HONumber=August15_HO6-->

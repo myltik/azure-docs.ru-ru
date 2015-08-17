@@ -102,4 +102,4 @@
 
 Дополнительные сведения об ExpressRoute см. в разделе [Обзор ExpressRoute](expressroute-introduction.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="NA"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/05/2015"
 	ms.author="alfran"/>
 
 # Решения в Operational Insights
@@ -24,7 +24,7 @@
 
 Это руководство содержит сведения о различных решениях и их использовании.
 
->[AZURE.NOTE]Дополнительную информацию о *добавлении* решений см. в разделе [Добавление решений](operational-insights-add-solution.md).
+>[AZURE.NOTE]Дополнительную информацию о *добавлении* решений см. в разделе [Добавление решений](operational-insights-setup-workspace.md).
 
 ## Оценка SQL
 
@@ -129,4 +129,4 @@
 - число дней с момента последнего обновления;
 - версия агента обновления Windows.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

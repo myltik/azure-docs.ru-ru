@@ -129,7 +129,7 @@
 
 1. В **DataIndexer** замените файл App.config приведенным ниже примером, указав вместо элементов [ИМЯ СЛУЖБЫ] и ]КЛЮЧ СЛУЖБЫ] значения, действительные для вашей службы.
 
-   Имя службы — это не полный URL-адрес. Например, если конечная точка службы поиска — *https://mysearchsrv.search.microsoft.net*, в файле App.config следует ввести имя службы *mysearchsrv*.
+   Имя службы — это не полный URL-адрес. Например, если конечная точка службы поиска — **https://mysearchsrv.search.microsoft.net*, в файле App.config следует ввести имя службы *mysearchsrv*.
 
 	    <?xml version="1.0" encoding="utf-8"?>
 	    <configuration>
@@ -798,4 +798,4 @@
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

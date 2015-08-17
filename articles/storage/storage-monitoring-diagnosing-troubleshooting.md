@@ -129,7 +129,7 @@
 
 ### <a name="monitoring-capacity"></a>Мониторинг мощностей
 
-В метриках емкости учитывается только служба BLOB-объектов, так как именно они обычно занимают больше всего места (на момент подготовки этой статьи метрики хранилища невозможно использовать для мониторинга емкости таблиц и очередей). Если вы включили мониторинг службы BLOB-объектов, то можете найти эти данные в таблице **$MetricsCapacityBlob**. Метрики хранилища регистрируют подобные сведения каждый день. По значению **RowKey** вы можете определить, к чему относится запись в строке: к пользовательским (значение **data**) или к аналитическим данным (значение **analytics**). Каждая сохраненная запись содержит информацию о занятом месте (показатель **Capacity в байтах**), а также о том, сколько контейнеров (**ContainerCount**) и больших двоичных объектов (**ObjectCount**) на данный момент используется в учетной записи хранения. Дополнительные сведения о метриках объема, хранящихся в таблице **$MetricsCapacityBlob**, см. в статье <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Схема таблицы метрик аналитики хранилища</a> на сайте MSDN.
+В метриках емкости учитывается только служба BLOB-объектов, так как именно они обычно занимают больше всего места (на момент подготовки этой статьи метрики хранилища невозможно использовать для мониторинга емкости таблиц и очередей). Если вы включили мониторинг службы BLOB-объектов, то можете найти эти данные в таблице **$MetricsCapacityBlob**. Метрики хранилища регистрируют подобные сведения каждый день. По значению **RowKey** вы можете определить, к чему относится запись в строке: к пользовательским (значение **data**) или к аналитическим данным (значение **analytics**). Каждая сохраненная запись содержит информацию о занятом месте (показатель **Capacity** в байтах), а также о том, сколько контейнеров (**ContainerCount**) и BLOB-объектов (**ObjectCount**) на данный момент используется в учетной записи хранилища. Дополнительные сведения о метриках объема, хранящихся в таблице **$MetricsCapacityBlob**, см. в статье <a href="http://msdn.microsoft.com/library/azure/hh343264.aspx" target="_blank">Схема таблицы метрик аналитики хранилища</a> на сайте MSDN.
 
 > [AZURE.NOTE]Рекомендуем вам отслеживать эти значения, так как они позволяют заранее определить, что в вашей учетной записи хранилища скоро будут достигнуты пределы емкости. Открыв страницу **Монитор** для своей учетной записи хранилища на портале Azure, вы можете добавить правила уведомлений о превышении установленных пороговых значений используемой емкости.
 
@@ -365,7 +365,7 @@
 
 К возможным причинам медленного ответа клиента относится ограниченное количество доступных подключений или потоков. Чтобы решить эту проблему, можно изменить код клиента, повысив его эффективность (например, с помощью асинхронных вызовов службы хранилища), или использовать виртуальную машину большего размера (с большим числом ядер или объемом памяти).
 
-Для служб таблиц и очередей алгоритм Нейгла также может приводить к высокому значению метрики **AverageE2ELatency** по сравнению с метрикой **AverageServerLatency**. Дополнительную информацию см. в записи <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Алгоритм Нейгла не ориентирован на мелкие запросы</a> в блоге группы хранилища Microsoft Azure. Вы можете отключить алгоритм Нейгла в коде с помощью класса **ServicePointManager** в пространстве имен **System.Net**. Это следует сделать до выполнения вызовов к службам таблиц или очередей в приложении, так как на открытые подключения это не распространяется. Приведенный ниже пример взят из метода **Application_Start** в рабочей роли.
+Для служб таблиц и очередей алгоритм Нейгла также может приводить к высокому значению метрики **AverageE2ELatency** по сравнению с метрикой **AverageServerLatency**. Дополнительную информацию см. в записи <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx" target="_blank">Алгоритм Нейгла не ориентирован на мелкие запросы</a> в блоге группы хранилища Microsoft Azure. Вы можете отключить алгоритм Нейгла в коде с помощью класса **ServicePointManager** в пространстве имен **System.Net**. Это следует сделать до выполнения вызовов к службам таблиц или очередей в приложении, так как на открытые подключения это не распространяется. Приведенный ниже пример взят из метода **Application\_Start** в рабочей роли.
 
     var storageAccount = CloudStorageAccount.Parse(connStr);
     ServicePoint tableServicePoint = ServicePointManager.FindServicePoint(storageAccount.TableEndpoint);
@@ -465,142 +465,17 @@
 
 Если в клиентском приложении происходят ошибки HTTP 403 (Запрещено), наиболее вероятная причина заключается в использовании клиентом подписанного URL-адреса (SAS) с истекшим сроком действия при отправке запроса к хранилищу (хотя возможны и другие причины: рассинхронизация по времени, недействительные ключи и пустые заголовки). Если причина в просроченном ключе SAS, в журнале хранилища на стороне сервера не будет никаких записей об этом. В приведенной ниже таблице показан пример этой неполадки в журнале на стороне клиента, созданном клиентской библиотекой хранилища.
 
-<table>
- <tr>
-    <td><b>Источник</b></td>
-    <td><b>Уровень детализации</b></td>
-    <td><b>Уровень детализации</b></td>
-    <td><b>Идентификатор запроса клиента</b></td>
-    <td><b>Текст операции</b></td>
- </tr>
- <tr>
-    <td>Microsoft.WindowsAzure.Storage</td>
-    <td>Информация</td>
-    <td>3</td>
-    <td>85d077ab -…</td>
-    <td>Начинается выполнение операции с расположением «Основное» в режиме расположения PrimaryOnly.</td>
- </tr>
- <tr>
-    <td>Microsoft.WindowsAzure.Storage</td>
-    <td>Информация</td>
-    <td>3</td>
-    <td>85d077ab -…</td>
-    <td>Начинается выполнение синхронного запроса к https://domemaildist.blob.core.windows.netazure<br>imblobcontainer/blobCreatedViaSAS.txt?
-	    <br>sv=2014-02-14&amp;sr=c&amp;si=mypolicy
-	    <br>&amp;sig=OFnd4Rd7z01fIvh%
-	    <br>2BmcR6zbudIH2F5Ikm%
-	    <br>2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14.</td>
- </tr>
- <tr>
-    <td>Microsoft.WindowsAzure.Storage</td>
-    <td>Информация</td>
-    <td>3</td>
-    <td>85d077ab -…</td>
-    <td>Waiting for response (Ожидание ответа).</td>
- </tr>
- <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Предупреждение 
-  </td>
-  <td>
-  2 
-  </td>
-  <td>
-  85d077ab -… 
-  </td>
-  <td>
-  При ожидании ответа возникло исключение: удаленный сервер вернул ошибку 403 (Запрещено). 
-  </td>
- </tr>
- <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Информация 
-  </td>
-  <td>
-  3 
-  </td>
-  <td>
-  85d077ab -… 
-  </td>
-  <td>
-  Response received. Код состояния = 403; идентификатор запроса = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d; Content-MD5 = ; ETag = . 
-  </td>
- </tr>
- <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Предупреждение 
-  </td>
-  <td>
-  2 
-  </td>
-  <td>
-  85d077ab -… 
-  </td>
-  <td>
-  Во время операции возникло исключение: удаленный сервер вернул ошибку 403 (Запрещено). 
-  </td>
- </tr>
- <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Информация 
-  </td>
-  <td>
-  3 
-  </td>
-  <td>
-  85d077ab -… 
-  </td>
-  <td>
-  Проверка необходимости в повторной попытке выполнения операции. Число повторных попыток = 0; код состояния HTTP = 403; исключение = удаленный сервер вернул ошибку 403 (Запрещено). 
-  </td>
- </tr>
- <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Информация 
-  </td>
-  <td>
-  3 
-  </td>
-  <td>
-  85d077ab -… 
-  </td>
-  <td>
-  Следующим установлено расположение «Основное» в соответствием с режимом расположения. 
-  </td>
- </tr>
- <tr>
-  <td>
-  Microsoft.WindowsAzure.Storage 
-  </td>
-  <td>
-  Ошибка 
-  </td>
-  <td>
-  1 
-  </td>
-  <td>
-  85d077ab -… 
-  </td>
-  <td>
-  Retry policy did not allow for a retry. Failing with The remote server returned an error: (403) Forbidden. (Политика повтора не позволила выполнить повтор. Сбой, при котором удаленный сервер вернул ошибку: (403)&#160;— запрещено.) 
-  </td>
- </tr>
-</table>
+Источник|Уровень детализации|Уровень детализации|Идентификатор запроса клиента|Текст операции
+---|---|---|---|---
+Microsoft.WindowsAzure.Storage|Информация|3|85d077ab -…|Начинается выполнение операции с расположением «Основное» в режиме расположения PrimaryOnly.
+Microsoft.WindowsAzure.Storage|Информация|3|85d077ab -…|Начало синхронного запроса по адресу https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14.
+Microsoft.WindowsAzure.Storage|Информация|3|85d077ab -…|Waiting for response (Ожидание ответа).
+Microsoft.WindowsAzure.Storage|Предупреждение|2|85d077ab -…|При ожидании ответа возникло исключение: удаленный сервер вернул ошибку 403 (Запрещено).
+Microsoft.WindowsAzure.Storage|Информация|3|85d077ab -…|Response received. Код состояния = 403; идентификатор запроса = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d; Content-MD5 = ; ETag = .
+Microsoft.WindowsAzure.Storage|Предупреждение|2|85d077ab -…|Во время операции возникло исключение: удаленный сервер вернул ошибку 403 (Запрещено).
+Microsoft.WindowsAzure.Storage|Информация|3 |85d077ab -…|Проверка необходимости в повторной попытке выполнения операции. Число повторных попыток = 0; код состояния HTTP = 403; исключение = удаленный сервер вернул ошибку 403 (Запрещено). 
+Microsoft.WindowsAzure.Storage|Информация|3|85d077ab -…|Следующим установлено расположение «Основное» в соответствием с режимом расположения.
+Microsoft.WindowsAzure.Storage|Ошибка|1|85d077ab -…|Retry policy did not allow for a retry. Failing with The remote server returned an error: (403) Forbidden. (Политика повтора не позволила выполнить повтор. Сбой, при котором удаленный сервер вернул ошибку: (403) — запрещено.)
 
 В этой ситуации вам нужно разобраться, почему срок действия маркера SAS истекает, до того как клиент отправит его серверу.
 
@@ -628,196 +503,54 @@
 
 В приведенном ниже журнале, сгенерированном клиентской библиотекой хранилища, показана проблема, связанная с тем, что клиент не может найти контейнер для создаваемого BLOB-объекта. Журнал содержит подробные данные о таких операциях хранилища:
 
-<table>
-  <tr>
-    <td>
-      <b>Идентификатор запроса</b>
-    </td>
-    <td>
-      <b>Операция</b>
-    </td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td>
-    Метод <b>DeleteIfExists</b> для удаления контейнера BLOB-объектов. Обратите внимание: эта операция включает в себя запрос <b>HEAD</b> для проверки существования контейнера.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-…</td>
-    <td>
-    Метод <b>CreateIfNotExists</b> для создания контейнера BLOB-объектов. Обратите внимание: эта операция включает в себя запрос <b>HEAD</b> для проверки существования контейнера. <b>HEAD</b> возвращает сообщение 404, но работа не прерывается.</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td>
-    Метод <b>UploadFromStream</b> для создания BLOB-объекта. <b>PUT</b> завершается сбоем с сообщением 404.</td>
-  </tr>
-</table>
+Request ID (ИД запроса)|Операция
+---|---
+07b26a5d-...|Метод **DeleteIfExists** для удаления контейнера BLOB-объектов. Обратите внимание: эта операция включает в себя запрос **HEAD**, который проверяет существование контейнера.
+e2d06d78-…|Метод **CreateIfNotExists** для создания контейнера BLOB-объектов. Обратите внимание: эта операция включает в себя запрос **HEAD** для проверки существования контейнера. **HEAD** возвращает сообщение 404, но работа не прерывается.
+de8b1c3c-...|Метод **UploadFromStream** для создания BLOB-объекта. **PUT** завершается сбоем с сообщением 404.
 
 Записи журнала:
 
-<table>
-  <tr>
-    <td>
-      <b>Идентификатор запроса</b>
-    </td>
-    <td>
-      <b>Текст операции</b>
-    </td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Starting synchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer (Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer).</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Waiting for response (Ожидание ответа).</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Response received. Status code = 200, Request ID = eeead849-...Content-MD5 = , ETag = "0x8D14D2DC63D059B".</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Response headers were processed successfully, proceeding with the rest of the operation (Заголовки ответа успешно обработаны, продолжается выполнение операции).</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Downloading response body (Загружается тело ответа).</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Operation completed successfully (Операция выполнена успешно).</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Starting synchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer (Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer).</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Waiting for response (Ожидание ответа).</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Response received. Status code = 202, Request ID = eeead849-...Content-MD5 = , ETag = . (Ответ получен. Код состояния = 202, ИД запроса = eeead849-...Content-MD5 = , ETag = .)</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Response headers were processed successfully, proceeding with the rest of the operation (Заголовки ответа успешно обработаны, продолжается выполнение операции).</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Downloading response body (Загружается тело ответа).</td>
-  </tr>
-  <tr>
-    <td>07b26a5d-...</td>
-    <td> Operation completed successfully (Операция выполнена успешно).</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Starting asynchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer (Отправка асинхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer).</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Waiting for response (Ожидание ответа).</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Starting synchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt (Отправка синхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt).</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt.</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Preparing to write request data (Подготовка к записи данных запроса).</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Exception thrown while waiting for response: The remote server returned an error: (404) Not Found. (Возникло исключение при ожидании ответа. Удаленный сервер вернул ошибку: (404)&#160;— не найдено.)</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Response received. Status code = 404, Request ID = 353ae3bc-..., Content-MD5 = , ETag = . (Ответ получен. Код состояния = 404, ИД запроса = 353ae3bc-..., Content-MD5 = , ETag = .)</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Response headers were processed successfully, proceeding with the rest of the operation (Заголовки ответа успешно обработаны, продолжается выполнение операции).</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Downloading response body (Загружается тело ответа).</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Operation completed successfully (Операция выполнена успешно).</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Starting asynchronous request to https://domemaildist.blob.core.windows.net/azuremmblobcontainer (Отправка асинхронного запроса к https://domemaildist.blob.core.windows.net/azuremmblobcontainer).</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Waiting for response (Ожидание ответа).</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Writing request data (Запись данных запроса).</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Waiting for response (Ожидание ответа).</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Exception thrown while waiting for response: The remote server returned an error: (409) Conflict. (Возникло исключение при ожидании ответа. Удаленный сервер вернул ошибку: (409)&#160;— конфликт.)</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Response received. Status code = 409, Request ID = c27da20e-..., Content-MD5 = , ETag = . (Ответ получен. Код состояния = 409, ИД запроса = c27da20e-..., Content-MD5 = , ETag = .)</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Downloading error response body (Загружается тело ответа с ошибкой).</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Exception thrown while waiting for response: The remote server returned an error: (404) Not Found. (Возникло исключение при ожидании ответа. Удаленный сервер вернул ошибку: (404)&#160;— не найдено.)</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Response received. Status code = 404, Request ID = 0eaeab3e-..., Content-MD5 = , ETag = . (Ответ получен. Код состояния = 404, ИД запроса = 0eaeab3e-..., Content-MD5 = , ETag = .)</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Exception thrown during the operation: The remote server returned an error: (404) Not Found. (Возникло исключение при выполнении операции. Удаленный сервер вернул ошибку: (404)&#160;— не найдено.)</td>
-  </tr>
-  <tr>
-    <td>de8b1c3c-...</td>
-    <td> Retry policy did not allow for a retry. Failing with The remote server returned an error: (404) Not Found. (Политика повтора не позволила выполнить повтор. Сбой, при котором удаленный сервер вернул ошибку: (404)&#160;— не найдено.)</td>
-  </tr>
-  <tr>
-    <td>e2d06d78-...</td>
-    <td> Retry policy did not allow for a retry. Failing with The remote server returned an error: (409) Conflict. (Политика повтора не позволила выполнить повтор. Сбой, при котором удаленный сервер вернул ошибку: (409)&#160;— конфликт.)</td>
-  </tr>
-</table>
+Request ID (ИД запроса) | Operation Text (Текст операции)
+---|---
+07b26a5d-...|Начало синхронного запроса по адресу https://domemaildist.blob.core.windows.net/azuremmblobcontainer.
+07b26a5d-...|StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
+07b26a5d-...|Waiting for response (Ожидание ответа).
+07b26a5d-... | Response received. Status code = 200, Request ID = eeead849-...Content-MD5 = , ETag = ";0x8D14D2DC63D059B";.
+07b26a5d-... | Response headers were processed successfully, proceeding with the rest of the operation (Заголовки ответа успешно обработаны, продолжается выполнение операции).
+07b26a5d-... | Downloading response body (Загружается тело ответа).
+07b26a5d-... | Operation completed successfully (Операция выполнена успешно).
+07b26a5d-... | Начало синхронного запроса по адресу https://domemaildist.blob.core.windows.net/azuremmblobcontainer.
+07b26a5d-... | StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
+07b26a5d-... | Waiting for response (Ожидание ответа).
+07b26a5d-... | Response received. Status code = 202, Request ID = eeead849-...Content-MD5 = , ETag = . (Ответ получен. Код состояния = 202, ИД запроса = eeead849-...Content-MD5 = , ETag = .)
+07b26a5d-... | Response headers were processed successfully, proceeding with the rest of the operation (Заголовки ответа успешно обработаны, продолжается выполнение операции).
+07b26a5d-... | Downloading response body (Загружается тело ответа).
+07b26a5d-... | Operation completed successfully (Операция выполнена успешно).
+e2d06d78-... | Начало асинхронного запроса по адресу https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td>
+e2d06d78-... | StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
+e2d06d78-...| Waiting for response (Ожидание ответа).
+de8b1c3c-... | Начало синхронного запроса по адресу https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt.
+de8b1c3c-... | StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt.
+de8b1c3c-... | Preparing to write request data (Подготовка к записи данных запроса).
+e2d06d78-... | Exception thrown while waiting for response: The remote server returned an error: (404) Not Found. (Возникло исключение при ожидании ответа. Удаленный сервер вернул ошибку: (404) — не найдено.)
+e2d06d78-... | Response received. Status code = 404, Request ID = 353ae3bc-..., Content-MD5 = , ETag = . (Ответ получен. Код состояния = 404, ИД запроса = 353ae3bc-..., Content-MD5 = , ETag = .)
+e2d06d78-... | Response headers were processed successfully, proceeding with the rest of the operation (Заголовки ответа успешно обработаны, продолжается выполнение операции).
+e2d06d78-... | Downloading response body (Загружается тело ответа).
+e2d06d78-... | Operation completed successfully (Операция выполнена успешно).
+e2d06d78-... | Начало асинхронного запроса по адресу https://domemaildist.blob.core.windows.net/azuremmblobcontainer:
+e2d06d78-...|StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
+e2d06d78-... | Waiting for response (Ожидание ответа).
+de8b1c3c-... | Writing request data (Запись данных запроса).
+de8b1c3c-... | Waiting for response (Ожидание ответа). 
+e2d06d78-... | Exception thrown while waiting for response: The remote server returned an error: (409) Conflict. (Возникло исключение при ожидании ответа. Удаленный сервер вернул ошибку: (409) — конфликт.)
+e2d06d78-... | Response received. Status code = 409, Request ID = c27da20e-..., Content-MD5 = , ETag = . (Ответ получен. Код состояния = 409, ИД запроса = c27da20e-..., Content-MD5 = , ETag = .)
+e2d06d78-... | Downloading error response body (Загружается тело ответа с ошибкой).
+de8b1c3c-... | Exception thrown while waiting for response: The remote server returned an error: (404) Not Found. (Возникло исключение при ожидании ответа. Удаленный сервер вернул ошибку: (404) — не найдено.)
+de8b1c3c-... | Response received. Status code = 404, Request ID = 0eaeab3e-..., Content-MD5 = , ETag = . (Ответ получен. Код состояния = 404, ИД запроса = 0eaeab3e-..., Content-MD5 = , ETag = .)
+de8b1c3c-...| Exception thrown during the operation: The remote server returned an error: (404) Not Found. (Возникло исключение при выполнении операции. Удаленный сервер вернул ошибку: (404) — не найдено.)
+de8b1c3c-... | Retry policy did not allow for a retry. Failing with The remote server returned an error: (404) Not Found. (Политика повтора не позволила выполнить повтор. Сбой, при котором удаленный сервер вернул ошибку: (404) — не найдено.)
+e2d06d78-... | Retry policy did not allow for a retry. Failing with The remote server returned an error: (409) Conflict. (Политика повтора не позволила выполнить повтор. Сбой, при котором удаленный сервер вернул ошибку: (409) — конфликт.)
 
 В этом примере из записей журнала видно, что клиент чередует запросы от метода **CreateIfNotExists** (идентификатор запроса — e2d06d78…) с запросами от метода **UploadFromStream** (de8b1c3c-...). Это происходит потому, что клиентское приложение вызывает эти методы асинхронно. Вы должны изменить код с асинхронными вызовами в клиенте таким образом, чтобы он создавал контейнер до того, как попытается передать какие-либо данные в BLOB-объект в этом контейнере. В идеале нужно создавать все контейнеры заранее.
 
@@ -914,53 +647,12 @@
 
 В таблице ниже показан фрагмент журнала на стороне сервера для двух операций клиента: за операцией **DeleteIfExists** сразу же следует операция **CreateIfNotExists**, в которой используется то же самое имя контейнера больших двоичных объектов. Обратите внимание: каждая операция клиента приводит к отправке на сервер двух запросов: сначала отправляется запрос **GetContainerProperties** для проверки существования контейнера, а затем — **DeleteContainer** или **CreateContainer**.
 
-<table>
-  <tr>
-    <td>
-      <b>Метка времени</b>
-    </td>
-    <td>
-      <b>Операция</b>
-    </td>
-    <td>
-      <b>Результат</b>
-    </td>
-    <td>
-      <b>Имя контейнера</b>
-    </td>
-    <td>
-      <b>Идентификатор запроса клиента</b>
-    </td>
-  </tr>
-  <tr>
-    <td>05:10:13.7167225</td>
-    <td>GetContainerProperties</td>
-    <td>200</td>
-    <td>mmcont</td>
-    <td>c9f52c89-…</td>
-  </tr>
-  <tr>
-    <td>05:10:13.8167325</td>
-    <td>DeleteContainer</td>
-    <td>202</td>
-    <td>mmcont</td>
-    <td>c9f52c89-…</td>
-  </tr>
-  <tr>
-    <td>05:10:13.8987407</td>
-    <td>GetContainerProperties</td>
-    <td>404</td>
-    <td>mmcont</td>
-    <td>bc881924-…</td>
-  </tr>
-  <tr>
-    <td>5:10:14.2147723</td>
-    <td>CreateContainer</td>
-    <td>409</td>
-    <td>mmcont</td>
-    <td>bc881924-…</td>
-  </tr>
-</table>
+Timestamp|Операция|Результат|Имя контейнера|Идентификатор запроса клиента
+---|---|---|---|---
+05:10:13.7167225|GetContainerProperties|200|mmcont|c9f52c89-…
+05:10:13.8167325|DeleteContainer|202|mmcont|c9f52c89-…
+05:10:13.8987407|GetContainerProperties|404|mmcont|bc881924-…
+5:10:14.2147723|CreateContainer|409|mmcont|bc881924-…
 
 Код клиентского приложения удаляет и сразу же снова создает контейнер больших двоичных объектов с тем же именем: метод **CreateIfNotExists** (идентификатор запроса клиента bc881924-…) завершается с ошибкой HTTP 409 (конфликт). Когда клиент удаляет контейнер BLOB-объектов, таблицу или очередь, имя удаленного элемента становится снова доступным через небольшой промежуток времени.
 
@@ -983,7 +675,7 @@
 
 Если к виртуальной машине подключено большое число виртуальных жестких дисков, относящихся к одной учетной записи хранения, то целевые показатели масштабируемости для этой учетной записи могут быть превышены, что приводит к сбою виртуальной машины. Проверьте поминутные метрики для учетной записи хранения (**TotalRequests**/**TotalIngress**/**TotalEgress**) на наличие пиковых скачков с превышением целевых показателей для такой учетной записи. Чтобы определить, производилось ли регулирование для учетной записи хранения, см. раздел [Метрики указывают на увеличение значения PercentThrottlingError].
 
-Как правило, каждая отдельная операция ввода или вывода, выполняемая виртуальной машиной с виртуальным жестким диском, преобразуется в операцию **Get Page** или **Put Page** на уровне базового страничного BLOB-объекта. Поэтому вы можете использовать предполагаемое число операций ввода-вывода в секунду, установленное для среды, для корректировки допустимого числа виртуальных жестких дисков в одной учетной записи хранения в соответствии с особенностями функционирования приложения. Мы не рекомендуем использовать в одной учетной записи более 40 дисков. Дополнительную информацию о текущих целевых показателях масштабируемости для учетных записей хранения, в частности, об общей скорости выполнения запросов и общей пропускной способности для используемого типа учетной записи хранения см. в статье <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Целевые показатели по производительности и масштабируемости для хранилища Azure</a>. Если целевые показатели масштабируемости для учетной записи хранения превышены, виртуальные жесткие диски следует распределить между несколькими учетными записями хранения, чтобы снизить интенсивность использования каждой из них.
+Как правило, каждая отдельная операция ввода или вывода, выполняемая виртуальной машиной с виртуальным жестким диском, преобразуется в операцию **Get Page** или **Put Page** на уровне базового страничного BLOB-объекта. Поэтому вы можете использовать предполагаемое число операций ввода-вывода в секунду, установленное для среды, для корректировки допустимого числа виртуальных жестких дисков в одной учетной записи хранения в соответствии с особенностями функционирования приложения. Мы не рекомендуем использовать в одной учетной записи более 40 дисков. Дополнительную информацию о текущих целевых показателях масштабируемости для учетных записей хранения, в частности об общей скорости выполнения запросов и общей пропускной способности для используемого типа учетной записи хранения см. в статье <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Целевые показатели по производительности и масштабируемости для хранилища Azure</a>. Если целевые показатели масштабируемости для учетной записи хранения превышены, виртуальные жесткие диски следует распределить между несколькими учетными записями хранения, чтобы снизить интенсивность использования каждой из них.
 
 ### <a name="your-issue-arises-from-using-the-storage-emulator"></a>Проблема связана с использованием эмулятора хранения на этапе разработки или тестирования
 
@@ -995,7 +687,7 @@
 
 #### <a name="feature-X-is-not-working"></a>Функция X не работает в эмуляторе хранения
 
-Эмулятор хранения поддерживает не все функции служб хранилища Azure, например файловой службы. Подробнее см. в статье <a href="http://msdn.microsoft.com/library/azure/gg433135.aspx" target="_blank">Различия между эмулятором хранилища и службами хранилища Azure</a> на сайте MSDN.
+Эмулятор хранения поддерживает не все функции служб хранилища Azure, например файловой службы. Подробнее см. в статье <a href="http://msdn.microsoft.com/library/azure/gg433135.aspx" target="_blank">Различия между эмулятором хранения и службами хранилища Azure</a> на сайте MSDN.
 
 Если вам нужны функции, не поддерживаемые эмулятором хранения, используйте службу хранилища Azure в облаке.
 
@@ -1121,7 +813,7 @@ Wireshark — это анализатор сетевых протоколов, 
 
 ![][10]
 
-Подробнее о трассировке "Local Link Layer" в анализаторе сообщений Майкрософт см. в статье<a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">Поставщик PEF-NDIS-PacketCapture</a> на сайте TechNet.
+Подробнее о трассировке Local Link Layer в анализаторе сообщений Майкрософт см. в статье<a href="http://technet.microsoft.com/library/jj659264.aspx" target="_blank">Поставщик PEF-NDIS-PacketCapture</a> на сайте TechNet.
 
 ### <a name="appendix-4"></a>Приложение 4. Просмотр метрик и данных журналов с помощью Excel
 
@@ -1225,4 +917,4 @@ Wireshark — это анализатор сетевых протоколов, 
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

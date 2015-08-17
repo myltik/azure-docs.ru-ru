@@ -36,7 +36,7 @@
 1. Загрузите содержащий библиотеки архив .zip из [GitHub][php-sdk-github]. Или же скопируйте репозиторий и клонируйте его на свой локальный компьютер. Для последнего варианта требуется учетная запись GitHub и наличие установленного локально Git.
 
 	
-	> [AZURE.NOTE]Клиентские библиотеки PHP Azure имеют зависимость от пакетов PEAR [HTTP_Request2](http://pear.php.net/package/HTTP_Request2), [Mail_mime](http://pear.php.net/package/Mail_mime) и [Mail_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). Чтобы устранить эти зависимости рекомендуется установить эти пакеты с помощью [диспетчера пакетов PEAR](http://pear.php.net/manual/en/installation.php).
+	> [AZURE.NOTE]Клиентские библиотеки PHP Azure имеют зависимость от пакетов PEAR [HTTP\_Request2](http://pear.php.net/package/HTTP_Request2), [Mail\_mime](http://pear.php.net/package/Mail_mime) и [Mail\_mimeDecode](http://pear.php.net/package/Mail_mimeDecode). Чтобы устранить эти зависимости рекомендуется установить эти пакеты с помощью [диспетчера пакетов PEAR](http://pear.php.net/manual/en/installation.php).
 
 
 2. Скопируйте каталог `WindowsAzure` загруженного архива в структуру каталога приложения.
@@ -49,4 +49,4 @@
 [download-SDK-PHP]: ../articles/php-download-sdk.md
 [composer-phar]: http://getcomposer.org/composer.phar
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

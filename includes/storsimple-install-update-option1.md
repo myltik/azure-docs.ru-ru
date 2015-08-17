@@ -20,7 +20,7 @@
  
         ![Просмотр корзины](./media/storsimple-install-update-option-1/HCS_InstallBasket-include.png)
 
-    6. Щелкните элемент **Загрузить**. Введите или выберите локальное расположение, в которое хотите загрузить файл. Обновление (all-hcsmdssoftwareupdate_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe) будет загружено в папку StorSimple Update 1.0 Appliance Update bundle (KB3063418) в указанном месте. Этот каталог также можно скопировать в сетевую папку, которая доступна с вашего устройства.
+    6. Щелкните элемент **Загрузить**. Введите или выберите локальное расположение, в которое хотите загрузить файл. Обновление (all-hcsmdssoftwareupdate\_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe) будет загружено в папку StorSimple Update 1.0 Appliance Update bundle (KB3063418) в указанном месте. Этот каталог также можно скопировать в сетевую папку, которая доступна с вашего устройства.
         
 2. Чтобы установить обновление для ПО, откройте интерфейс Windows PowerShell на последовательной консоли своего устройства StorSimple. Подробные инструкции см. в разделе [Использование PuTTY для подключения к последовательной консоли устройства](#use-putty-to-connect-to-the-serial-console).
 
@@ -37,7 +37,7 @@
     Пример выходных данных этой команды показан ниже.
 
         ````
-        Controller0>Start-HcsHotfix -Path \10.100.100.100\share
+        Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
         \hcsmdssoftwareupdate.exe -Credential contoso\John
       
         Confirm
@@ -97,4 +97,4 @@
 
     Для встроенного программного обеспечения должно отображаться состояние **UpToDate**.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

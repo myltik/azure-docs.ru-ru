@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/18/2015"
+   ms.date="07/24/2015"
    ms.author="elfish; v-romcal"/>
 
 # Восстановление базы данных SQL Azure с использованием географического восстановления на портале Azure
@@ -80,4 +80,4 @@
 
 [Географическое восстановление баз данных SQL Azure (блог)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

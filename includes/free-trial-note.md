@@ -4,4 +4,4 @@
   >
   > + Можно [активировать преимущества подписчика MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): подписка на MSDN каждый месяц предоставляет кредиты, которые можно использовать для платных служб Azure.
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

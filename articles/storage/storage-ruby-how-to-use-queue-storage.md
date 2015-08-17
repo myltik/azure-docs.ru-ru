@@ -153,4 +153,4 @@
 Сравнение службы очередей Azure, описанной в этой статье, и очередей Service Bus Azure, описанных в статье [Использование очередей Service Bus](/develop/ruby/how-to-guides/service-bus-queues/), см. в статье [Очереди Azure и очереди Service Bus Azure — сходство и отличия](http://msdn.microsoft.com/library/azure/hh767287.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

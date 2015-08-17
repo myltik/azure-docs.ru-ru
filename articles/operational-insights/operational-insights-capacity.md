@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # Управление емкостью инфраструктуры
@@ -25,7 +25,7 @@
 
 ## Панель мониторинга «Управление емкостью»
 
-Прежде чем использовать панель мониторинга «Управление емкостью» в Microsoft Azure Operational Insights, необходимо установить решение. Дополнительные сведения об установке решений см. в разделе [Использование коллекции решений для добавления или удаления решений](operational-insights-add-solution.md). После установки решения для планирования емкости можно просматривать ресурсы отслеживаемых серверов с помощью плитки **Планирование емкости** на странице **Обзор** в Operational Insights.
+Прежде чем использовать панель мониторинга «Управление емкостью» в Microsoft Azure Operational Insights, необходимо установить решение. Дополнительные сведения об установке решений см. в разделе [Использование коллекции решений для добавления или удаления решений](operational-insights-setup-workspace.md). После установки решения для планирования емкости можно просматривать ресурсы отслеживаемых серверов с помощью плитки **Планирование емкости** на странице **Обзор** в Operational Insights.
 
 ![image of Capacity Planning tile](./media/operational-insights-capacity/overview-cap-plan.png)
 
@@ -164,4 +164,4 @@
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

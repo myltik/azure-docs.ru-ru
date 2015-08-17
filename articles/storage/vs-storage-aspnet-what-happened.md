@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/22/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Что произошло с моим проектом?
 
@@ -22,7 +22,7 @@
 > - [Getting Started](vs-storage-aspnet-getting-started-blobs.md)
 > - [What Happened](vs-storage-aspnet-what-happened.md)
 
-###Что произошло с моим проектом?</span>
+###Что произошло с моим проектом?
 
 ##### Добавленные ссылки
 
@@ -42,4 +42,4 @@
 
 Дополнительные сведения см. в разделе [ASP.NET](http://www.asp.net).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

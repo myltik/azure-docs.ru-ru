@@ -1,19 +1,21 @@
-##Related Articles
+##Связанные статьи
 
-This article is part of a series on how to manage SaaS applications with Azure Active Directory. Below are all of the articles in the series:
+Эта статья входит в серию статей о том, как управлять приложениями SaaS с помощью Azure Active Directory. Ниже приведены все статьи из серии:
 
-- [Introduction to Single Sign-On and Managing App Access with Azure Active Directory](active-directory-appssoaccess-whatis.md)
-- [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md)
-- [Automate User Provisioning and Deprovisioning to SaaS Applications](active-directory-saas-app-provisioning.md)
-	- [Customizing Attribute Mappings for User Provisioning](active-directory-saas-customizing-attribute-mappings.md)
-	- [Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-	- [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
-	- [Account Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md)
-- [List of Tutorials on How to Integrate SaaS Apps](active-directory-saas-tutorial-list.md)
-	- [How to integrate Salesforce](active-directory-saas-salesforce-tutorial.md)
-	- [How to integrate Google Apps](active-directory-saas-google-apps-tutorial.md)
-	- [How to integrate Box](https://msdn.microsoft.com/library/azure/dn308589.aspx)
-	- [How to integrate ServiceNow](https://msdn.microsoft.com/library/azure/dn510971.aspx)
-	- [How to integrate Dropbox for Business](https://msdn.microsoft.com/en-us/library/azure/dn510978.aspx)
-	- [How to integrate Workday](https://msdn.microsoft.com/en-us/library/azure/dn510972.aspx) 
-	- [More SaaS App Tutorials...](active-directory-saas-tutorial-list.md)
+- [Введение в единый вход и управление доступом к приложениям с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md)
+- [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md)
+- [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS](active-directory-saas-app-provisioning.md)
+	- [Настройка сопоставления атрибутов для подготовки пользователей](active-directory-saas-customizing-attribute-mappings.md)
+	- [Запись выражений для сопоставления атрибутов](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+	- [Фильтры области для подготовки пользователей](active-directory-saas-scoping-filters.md)
+	- [Уведомления о подготовке учетных записей](active-directory-saas-account-provisioning-notifications.md)
+- [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
+	- [Как интегрировать Salesforce](active-directory-saas-salesforce-tutorial.md)
+	- [Как интегрировать Google Apps](active-directory-saas-google-apps-tutorial.md)
+	- [Как интегрировать Box](https://msdn.microsoft.com/library/azure/dn308589.aspx)
+	- [Как интегрировать ServiceNow](https://msdn.microsoft.com/library/azure/dn510971.aspx)
+	- [Как интегрировать Dropbox для бизнеса](https://msdn.microsoft.com/ru-ru/library/azure/dn510978.aspx)
+	- [Как интегрировать Workday](https://msdn.microsoft.com/ru-ru/library/azure/dn510972.aspx) 
+	- [Дополнительные учебники по приложениям SaaS...](active-directory-saas-tutorial-list.md)
+
+<!---HONumber=August15_HO6-->

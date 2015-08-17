@@ -90,4 +90,4 @@
   [Обзор управления развертываниями в Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

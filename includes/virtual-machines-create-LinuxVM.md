@@ -38,4 +38,4 @@
 
 Подробные сведения обо всех этих командах для управления виртуальной машиной с помощью CLI Azure см. в статье [Управление службами Azure с помощью интерфейса командной строки Azure](../articles/virtual-machines/virtual-machines-command-line-tools.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

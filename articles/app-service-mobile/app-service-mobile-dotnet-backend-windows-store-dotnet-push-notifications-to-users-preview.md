@@ -57,7 +57,7 @@
 
     Необходимо также передать некоторые операторы using в **MainPage.cs**.
 
-2. Используйте этот метод сразу после вызова **AuthenticateAsync** в **ButtonLogin_Click**.
+2. Используйте этот метод сразу после вызова **AuthenticateAsync** в **ButtonLogin\_Click**.
 
         await AuthenticateAsync();
         InitNotificationAsync();
@@ -107,4 +107,4 @@
 [шаблонов]: https://msdn.microsoft.com/ru-ru/library/dn530748.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

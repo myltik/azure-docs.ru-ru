@@ -75,4 +75,4 @@
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

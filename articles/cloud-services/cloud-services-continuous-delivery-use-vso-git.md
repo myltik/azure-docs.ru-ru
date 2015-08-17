@@ -257,4 +257,4 @@
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

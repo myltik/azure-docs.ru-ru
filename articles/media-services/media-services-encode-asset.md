@@ -78,114 +78,108 @@
 
 ###<a id="billing"></a>Индикатор выставления счетов, используемый каждым кодировщиком
 
-<table border="1">
-<tr><th>Имя обработчика мультимедиа</th><th>Применимые цены</th><th>Примечания</th></tr>
-<tr><td><b>Microsoft Azure Media Encryptor</b></td><td>КОДИРОВЩИК ПРЕЖНИХ ВЕРСИЙ</td><td>Плата за выполнение задач кодирования будет взиматься, исходя из суммарного размера входных и выходных ресурсов в гигабайтах, по тарифу, указанному <a href="http://azure.microsoft.com/pricing/details/media-services/">здесь</a> в столбце «КОДИРОВЩИК ПРЕЖНИХ ВЕРСИЙ».</td></tr>
-<tr><td><b>Azure Media Encoder</b></td><td>КОДИРОВЩИК</td><td>Плата за выполнение задач кодирования будет взиматься, исходя из размера выходного ресурса в гигабайтах, по тарифу, указанному <a href="http://azure.microsoft.com/pricing/details/media-services/">здесь</a> в столбце «КОДИРОВЩИК».</td></tr>
-<tr><td><b>Стандартный кодировщик служб мультимедиа</b></td><td>КОДИРОВЩИК</td><td>Плата за выполнение задач кодирования будет взиматься, исходя из размера выходного ресурса в гигабайтах, по тарифу, указанному <a href="http://azure.microsoft.com/pricing/details/media-services/">здесь</a> в столбце «КОДИРОВЩИК».</td></tr>
-<tr><td><b>Рабочий процесс Premium обработчика мультимедиа</b></td><td>РАСШИРЕННЫЙ КОДИРОВЩИК</td><td>Плата за выполнение задач кодирования будет взиматься, исходя из размера выходного ресурса в гигабайтах, по тарифу, указанному <a href="http://azure.microsoft.com/pricing/details/media-services/">здесь</a> в столбце «РАСШИРЕННЫЙ КОДИРОВЩИК».</td></tr>
-</table>
+Имя обработчика мультимедиа|Применимые цены|Примечания
+---|---|---
+**Microsoft Azure Media Encryptor** |КОДИРОВЩИК ПРЕЖНИХ ВЕРСИЙ|Плата за выполнение задач кодирования будет взиматься, исходя из суммарного размера входных и выходных ресурс-контейнеров в гигабайтах, по тарифу, указанному [здесь][1] в столбце «КОДИРОВЩИК ПРЕЖНИХ ВЕРСИЙ».
+**Azure Media Encoder** |КОДИРОВЩИК|Плата за выполнение задач кодирования будет взиматься, исходя из размера выходного ресурс-контейнера в гигабайтах, по тарифу, указанному [здесь][1] в столбце «КОДИРОВЩИК».
+**Стандартный кодировщик служб мультимедиа** |КОДИРОВЩИК|Плата за выполнение задач кодирования будет взиматься, исходя из размера выходного ресурс-контейнера в гигабайтах, по тарифу, указанному [здесь][1] в столбце «КОДИРОВЩИК».
+**Рабочий процесс Premium обработчика мультимедиа** |РАСШИРЕННЫЙ КОДИРОВЩИК|Плата за выполнение задач кодирования будет взиматься, исходя из размера выходного ресурс-контейнера в гигабайтах, по тарифу, указанному [здесь][1] в столбце «КОДИРОВЩИК PREMIUM».
 
 
-В этом разделе сравниваются возможности кодировщика **Azure Media Encoder**, **расширенного рабочего процесса кодировщика служб мультимедиа** и **стандартного кодировщика служб мультимедиа**.
+
+В этом разделе сравниваются возможности **кодировщика мультимедиа Azure**, **расширенного рабочего процесса кодировщика служб мультимедиа** и **стандартного кодировщика мультимедиа**.
 
 
 ###Форматы входных данных
 
 Контейнер ввода/ форматы файлов
 
-<table border="1">
-<tr><th>Контейнер ввода/ форматы файлов</th><th>Рабочий процесс Premium обработчика мультимедиа</th><th>Azure Media Encoder
-</th><th>Стандартный кодировщик служб мультимедиа</th></tr>
-<tr><td>Adobe® Flash® F4V</td><td>Да</td><td>Нет</td><td>Да</td></tr>
-<tr><td>MXF/SMPTE 377M</td><td>Да</td><td>Ограничено</td><td>Да</td></tr>
-<tr><td>GXF</td><td>Да</td><td>Нет</td><td>Да</td></tr>
-<tr><td>Транспортные потоки MPEG-2</td><td>Да</td><td>Да</td><td>Да</td></tr>
-<tr><td>Программные потоки MPEG-2</td><td>Да</td><td>Да</td><td>Да</td></tr>
-<tr><td>MPEG-4/MP4</td><td>Да</td><td>Да</td><td>Да</td></tr>
-<tr><td>Windows Media/ASF</td><td>Да</td><td>Да</td><td>Да</td></tr>
-<tr><td>AVI (без сжатия 8 бит/10 бит)</td><td>Да</td><td>Да</td><td>Да</td></tr>
-<tr><td>3GPP/3GPP2</td><td>Нет</td><td>Да</td><td>Да</td></tr>
-<tr><td>Формат файлов Smooth Streaming (PIFF 1.3)</td><td>Нет</td><td>Да</td><td>Да</td></tr>
-<tr><td><a href="https://msdn.microsoft.com/ru-ru/library/windows/desktop/dd692984(v=vs.85).aspx">Microsoft Digital Video Recording(DVR-MS)</a></td><td>Нет</td><td>Нет</td><td>Да</td></tr>
-<tr><td>Matroska/WebM</td><td>Нет</td><td>Нет</td><td>Да</td></tr></table>
+Контейнер ввода/ форматы файлов|Рабочий процесс Premium обработчика мультимедиа|Azure Media Encoder|Стандартный кодировщик служб мультимедиа
+---|---|---|---
+Adobe® Flash® F4V|Да|Нет|Да
+MXF/SMPTE 377M|Да|Ограничено|Да
+GXF|Да|Нет|Да
+Транспортные потоки MPEG-2|Да|Да|Да
+Программные потоки MPEG-2|Да|Да|Да
+MPEG-4/MP4|Да|Да|Да
+Windows Media/ASF|Да|Да|Да
+AVI (без сжатия 8 бит/10 бит)|Да|Да|Да
+3GPP/3GPP2|Нет|Да|Да
+Формат файлов Smooth Streaming (PIFF 1.3)|Нет|Да|Да
+[Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|Нет|Нет|Да
+Matroska/WebM|Нет|Нет|Да
 
 Входные видеокодеки
 
-<table border="1">
-<tr><th>Входные видеокодеки</th><th>Рабочий процесс Premium обработчика мультимедиа</th><th>Azure Media Encoder</th><th>Стандартный кодировщик служб мультимедиа</th></tr>
-<tr><td>AVC 8-разрядный/10-разрядный, до 4:2:2, включая AVCIntra</td><td>Да</td><td>Только 8-разрядный 4:2:0</td><td>8 бит 4:2:0 и 4:2:2</td></tr>
-<tr><td>Avid DNxHD (в MXF)</td><td>Да</td><td>Нет</td><td>Да</td></tr>
-<tr><td>DVCPro/DVCProHD (в MXF)</td><td>Да</td><td>Нет</td><td>Да</td></tr>
-<tr><td>JPEG2000</td><td>Да</td><td>Нет</td><td>Да</td></tr>
-<tr><td>MPEG-2 (до 422 Profile и High Level, включая такие варианты, как XDCAM, XDCAM HD, XDCAM IMX, CableLabs® и D10)</td><td>Да</td><td>До 422 Profile</td><td>До 422 Profile</td></tr>
-<tr><td>MPEG-1</td><td>Да</td><td>Да</td><td>Да</td></tr>
-<tr><td>Windows Media Video/VC-1</td><td>Да</td><td>Да</td><td>Да</td></tr>
-<tr><td>Canopus HQ/HQX</td><td>Нет</td><td>Да</td><td>Нет</td></tr>
-<tr><td>MPEG-4, часть 2</td><td>Нет</td><td>Нет</td><td>Да</td></tr>
-<tr><td><a href="https://en.wikipedia.org/wiki/Theora">Theora</a></td><td>Нет</td><td>Нет</td><td>Да</td></tr>
-</table>
+Входные видеокодеки|Рабочий процесс Premium обработчика мультимедиа|Azure Media Encoder|Стандартный кодировщик служб мультимедиа
+---|---|---|---
+AVC 8-разрядный/10-разрядный, до 4:2:2, включая AVCIntra|Да|Только 8-разрядный 4:2:0|8 бит 4:2:0 и 4:2:2
+Avid DNxHD (в MXF)|Да|Нет|Да
+DVCPro/DVCProHD (в MXF)|Да|Нет|Да
+JPEG2000|Да|Нет|Да
+MPEG-2 (до 422 Profile и High Level, включая такие варианты, как XDCAM, XDCAM HD, XDCAM IMX, CableLabs® и D10)|Да|До 422 Profile|До 422 Profile
+MPEG-1|Да|Да|Да
+Windows Media Video/VC-1|Да|Да|Да
+Canopus HQ/HQX|Нет|Да|Нет
+MPEG-4, часть 2|Нет|Нет|Да
+[Theora](https://en.wikipedia.org/wiki/Theora)|Нет|Нет|Да
 
 Входные аудиокодеки
 
-<table border="1">
-<tr><th>Входные аудиокодеки</th><th>Рабочий процесс Premium обработчика мультимедиа</th><th>Azure Media Encoder</th><th>Стандартный кодировщик служб мультимедиа</th></tr>
-<tr><td>AES (SMPTE 331M и 302M, AES3-2003)</td><td>Да</td><td>Нет</td><td>Нет</td></tr>
-<tr><td>Dolby® E</td><td>Да</td><td>Нет</td><td>Нет</td></tr>
-<tr><td>Dolby® Digital (AC3)</td><td>Да</td><td>Да</td><td>Нет</td></tr>
-<tr><td>Dolby® Digital Plus (E-AC3)</td><td>Да</td><td>Нет</td><td>Нет</td></tr>
-<tr><td>AAC (AAC-LC, AAC-HE и AAC-HEv2; до 5.1)</td><td>Да</td><td>Да</td><td>Да</td></tr>
-<tr><td>MPEG Layer 2</td><td>Да</td><td>Да</td><td>Да</td></tr>
-<tr><td>MP3 (MPEG-1 Audio Layer 3)</td><td>Да</td><td>Да</td><td>Да</td></tr>
-<tr><td>Windows Media Audio</td><td>Да</td><td>Да</td><td>Да</td></tr>
-<tr><td>WAV/PCM</td><td>Да</td><td>Да</td><td>Да</td></tr>
-<tr><td><a href="https://en.wikipedia.org/wiki/FLAC">FLAC</a></td><td>Нет</td><td>Нет</td><td>Да</td></tr>
-<tr><td><a href="https://en.wikipedia.org/wiki/Opus_(audio_format)">Opus</a></td><td>Нет</td><td>Нет</td><td>Да</td></tr>
-<tr><td><a href="https://en.wikipedia.org/wiki/Vorbis">Vorbis</a></td><td>Нет</td><td>Нет</td><td>Да</td></tr>
-</table>
+Входные аудиокодеки|Рабочий процесс Premium обработчика мультимедиа|Azure Media Encoder|Стандартный кодировщик служб мультимедиа
+---|---|---|---
+AES (SMPTE 331M и 302M, AES3-2003)|Да|Нет|Нет
+Dolby® E|Да|Нет|Нет
+Dolby® Digital (AC3)|Да|Да|Нет
+Dolby® Digital Plus (E-AC3)|Да|Нет|Нет
+AAC (AAC-LC, AAC-HE и AAC-HEv2; до 5.1)|Да|Да|Да
+MPEG Layer 2|Да|Да|Да
+MP3 (MPEG-1 Audio Layer 3)|Да|Да|Да
+Windows Media Audio|Да|Да|Да
+WAV/PCM|Да|Да|Да
+[FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|Нет|Нет|Да
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |Нет|Нет|Да
+[Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|Нет|Нет|Да
 
 ###Форматы выходных данных
 
 Контейнер вывода/ форматы файлов
 
-<table border="1">
-<tr><th>Контейнер вывода/ форматы файлов</th><th>Рабочий процесс Premium обработчика мультимедиа</th><th>Azure Media Encoder</th><th>Стандартный кодировщик служб мультимедиа</th></tr>
-<tr><td>Adobe® Flash® F4V</td><td>Да</td><td>Нет</td><td>Нет</td></tr>
-<tr><td>MXF (OP1a, XDCAM и AS02)</td><td>Да</td><td>Нет</td><td>Нет</td></tr>
-<tr><td>DPP (включая AS11)</td><td>Да</td><td>Нет</td><td>Нет</td></tr>
-<tr><td>GXF</td><td>Да</td><td>Нет</td><td>Нет</td></tr>
-<tr><td>MPEG-4/MP4</td><td>Да</td><td>Да</td><td>Да</td></tr>
-<tr><td>MPEG-TS</td><td>Да</td><td>Нет</td><td>Да</td></tr>
-<tr><td>Windows Media/ASF</td><td>Да</td><td>Да</td><td>Нет</td></tr>
-<tr><td>AVI (без сжатия 8 бит/10 бит)</td><td>Да</td><td>Нет</td><td>Нет</td></tr>
-<tr><td>Формат файлов Smooth Streaming (PIFF 1.3)</td><td>Да</td><td>Да</td><td>Нет</td></tr>
-</table>
+Контейнер вывода/ форматы файлов|Рабочий процесс Premium обработчика мультимедиа|Azure Media Encoder|Стандартный кодировщик служб мультимедиа
+---|---|---|---
+Adobe® Flash® F4V|Да|Нет|Нет
+MXF (OP1a, XDCAM и AS02)|Да|Нет|Нет
+DPP (включая AS11)|Да|Нет|Нет
+GXF|Да|Нет|Нет
+MPEG-4/MP4|Да|Да|Да
+MPEG-TS|Да|Нет|Да
+Windows Media/ASF|Да|Да|Нет
+AVI (без сжатия 8 бит/10 бит)|Да|Нет|Нет
+Формат файлов Smooth Streaming (PIFF 1.3)|Да|Да|Нет
 
 Выходные видеокодеки
 
-<table border="1">
-<tr><th>Выходные видеокодеки</th><th>Рабочий процесс Premium обработчика мультимедиа</th><th>Azure Media Encoder</th><th>Стандартный кодировщик служб мультимедиа</th></tr>
-<tr><td>AVC (H.264; 8-разрядный; до High Profile, Level 5.2; 4K Ultra HD; AVC Intra)</td><td>Да</td><td>Только 8 бит 4:2:0 до 1080p</td><td>Только 8 бит 4:2:0</td></tr>
-<tr><td>Avid DNxHD (в MXF)</td><td>Да</td><td>Нет</td><td>Нет</td></tr>
-<tr><td>DVCPro/DVCProHD (в MXF)</td><td>Да</td><td>Нет</td><td>Нет</td></tr>
-<tr><td>MPEG-2 (до 422 Profile и High Level, включая такие варианты, как XDCAM, XDCAM HD, XDCAM IMX, CableLabs® и D10)</td><td>Да</td><td>Нет</td><td>Нет</td></tr>
-<tr><td>MPEG-1</td><td>Да</td><td>Нет</td><td>Нет</td></tr>
-<tr><td>Windows Media Video/VC-1</td><td>Да</td><td>Да</td><td>Нет</td></tr>
-<tr><td>Создание эскизов JPEG</td><td>Да</td><td>Да</td><td>Нет</td></tr>
-</table>
+Выходные видеокодеки|Рабочий процесс Premium обработчика мультимедиа|Azure Media Encoder|Стандартный кодировщик служб мультимедиа
+---|---|---|---
+AVC (H.264; 8-разрядный; до High Profile, Level 5.2; 4K Ultra HD; AVC Intra)|Да|Только 8 бит 4:2:0 до 1080p|Только 8 бит 4:2:0
+Avid DNxHD (в MXF)|Да|Нет|Нет
+DVCPro/DVCProHD (в MXF)|Да|Нет|Нет
+MPEG-2 (до 422 Profile и High Level, включая такие варианты, как XDCAM, XDCAM HD, XDCAM IMX, CableLabs® и D10)|Да|Нет|Нет
+MPEG-1|Да|Нет|Нет
+Windows Media Video/VC-1|Да|Да|Нет
+Создание эскизов JPEG|Да|Да|Нет
 
 Выходные аудиокодеки
 
-<table border="1">
-<tr><th>Выходные аудиокодеки</th><th>Рабочий процесс Premium обработчика мультимедиа</th><th>Azure Media Encoder</th><th>Стандартный кодировщик служб мультимедиа</th></tr>
-<tr><td>AES (SMPTE 331M и 302M, AES3-2003)</td><td>Да</td><td>Нет</td><td>Нет</td></tr>
-<tr><td>Dolby® Digital (AC3)</td><td>Да</td><td>Да</td><td>Нет</td></tr>
-<tr><td>Dolby® Digital Plus (E-AC3) до 7.1</td><td>Да</td><td>До 5.1</td><td>Нет</td></tr>
-<tr><td>AAC (AAC-LC, AAC-HE и AAC-HEv2; до 5.1)</td><td>Да</td><td>Да</td><td>Да</td></tr>
-<tr><td>MPEG Layer 2</td><td>Да</td><td>Нет</td><td>Нет</td></tr>
-<tr><td>MP3 (MPEG-1 Audio Layer 3)</td><td>Да</td><td>Нет</td><td>Нет</td></tr>
-<tr><td>Windows Media Audio</td><td>Да</td><td>Да&lt;/td<td>Нет</td></tr>
-</table>
+Выходные аудиокодеки|Рабочий процесс Premium обработчика мультимедиа|Azure Media Encoder|Стандартный кодировщик служб мультимедиа
+---|---|---|---
+AES (SMPTE 331M и 302M, AES3-2003)|Да|Нет|Нет
+Dolby® Digital (AC3)|Да|Да|Нет
+Dolby® Digital Plus (E-AC3) до 7.1|Да|До 5.1|Нет
+AAC (AAC-LC, AAC-HE и AAC-HEv2; до 5.1)|Да|Да|Да
+MPEG Layer 2|Да|Нет|Нет
+MP3 (MPEG-1 Audio Layer 3)|Да|Нет|Нет
+Windows Media Audio|Да|Да|Нет
 
 ##Связанные статьи
 
@@ -194,5 +188,7 @@
 - [Квоты и ограничения](media-services-quotas-and-limitations.md)
 
  
+<!--Reference links in article-->
+[1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -55,7 +55,7 @@
 ## Создание ключа из существующего ключа, совместимого с OpenSSH
 В предыдущем примере описано, как создать новый ключ для использования в Azure. В некоторых случаях у вас уже могут быть открытый и закрытый ключи, совместимые с OpenSSH, и вы захотите использовать те же ключи в Azure.
 
-Закрытые ключи OpenSSH могут считываться напрямую служебной программой `openssl`. Приведенная ниже команда получает существующий закрытый ключ SSH (id_rsa в представленном ниже примере) и создает открытый ключ `.pem`, который необходим для Azure:
+Закрытые ключи OpenSSH могут считываться напрямую служебной программой `openssl`. Приведенная ниже команда получает существующий закрытый ключ SSH (id\_rsa в представленном ниже примере) и создает открытый ключ `.pem`, который необходим для Azure:
 
 	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
@@ -79,7 +79,7 @@
 ### Использование Msysgit ###
 
 1.	Загрузите и установите msysgit из следующего расположения:[http://msysgit.github.com/](http://msysgit.github.com/)
-2.	Запустите `msys` из каталога установки (например, c:\msysgit\msys.exe)
+2.	Запустите `msys` из каталога установки (например, c:\\msysgit\\msys.exe)
 3.	Перейдите в каталог `bin`, введя `cd bin`
 
 
@@ -133,14 +133,14 @@
 
 ## Создание PPK для Putty ##
 
-1. Загрузите и установите Puttygen из следующего расположения: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1. Загрузите и установите Puttygen из следующего расположения: [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 2. Puttygen, возможно, не удастся прочитать закрытый ключ, созданный ранее (`myPrivateKey.key`). Выполните следующую команду для его преобразования в закрытый ключ RSA, который распознается Puttygen:
 
 		# openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
 		# chmod 600 ./myPrivateKey_rsa
 
-	Вышеуказанная команда должна создать новый закрытый ключ с именем myPrivateKey_rsa.
+	Вышеуказанная команда должна создать новый закрытый ключ с именем myPrivateKey\_rsa.
 
 3. Запустите `puttygen.exe`
 
@@ -163,7 +163,7 @@
 
 ## Использование Putty для подключения к компьютеру Linux ##
 
-1.	Загрузите и установите putty из следующего расположения: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1.	Загрузите и установите putty из следующего расположения: [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2.	Запустите putty.exe
 3.	Заполните имя узла, используя IP с портала управления.
 
@@ -176,4 +176,4 @@
 5.	Щелкните **Открыть**, чтобы подключится к виртуальной машине.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

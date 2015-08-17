@@ -117,7 +117,7 @@
 - string или secureString: любая допустимая строка JSON;
 - int: любое допустимое целое число JSON;
 - bool: любое допустимое логическое значение JSON;
-- object: любой допустимый объект JSON;
+- object или secureObject: любой допустимый объект JSON;
 - array: любой допустимый массив JSON.
 
 
@@ -405,4 +405,4 @@
 - Подробный пример развертывания приложения см. в статье [Предсказуемая подготовка и развертывание микрослужб в Azure.](app-service-web/app-service-deploy-complex-application-predictably.md)
 - Список доступных схем см. в статье [Схемы диспетчера ресурсов Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

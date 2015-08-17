@@ -30,7 +30,7 @@
 - Все прослушивающие порты, кроме одного прослушивателя HTTP, должны быть отключены. В Tomcat сюда относятся порты завершения работы, HTTPS и AJP.
 - Контейнер должен быть настроен на использование исключительно трафика IPv4.
 - В конфигурации для приложения необходимо задать команду **startup**.
-- Приложения, которым требуются каталоги с разрешением на запись, должны находиться в каталоге контента веб-приложения Azure, которым является каталог **D:\home**. Переменная среды `HOME` ссылается на D:\home.  
+- Приложения, которым требуются каталоги с разрешением на запись, должны находиться в каталоге контента веб-приложения Azure, которым является каталог **D:\\home**. Переменная среды `HOME` ссылается на D:\\home.  
 
 При необходимости можно задать переменные среды в файле web.config.
 
@@ -46,7 +46,7 @@
     arguments="start"
     
     processPath="%JAVA_HOME\bin\java.exe"
-    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
+    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
 
 
 **processPath** — путь к исполняемому файлу или скрипту, который запустит процесс прослушивания для HTTP-запросов.
@@ -71,7 +71,7 @@
                                                                                       
 **stdoutLogEnabled** (значение по умолчанию — "true"). Если значение равно true, **stdout** и **stderr** для процесса, указанного в параметре **processPath**, будут перенаправлены в файл, указанный в **stdoutLogFile** (см. раздел **stdoutLogFile**).
                                     
-**stdoutLogFile** (значение по умолчанию — "d:\home\LogFiles\httpPlatformStdout.log"). Абсолютный путь к файлу, для которого будут регистрироваться **stdout** и **stderr** из процесса, указанного в **processPath**.
+**stdoutLogFile** (значение по умолчанию — "d:\\home\\LogFiles\\httpPlatformStdout.log"). Абсолютный путь к файлу, для которого будут регистрироваться **stdout** и **stderr** из процесса, указанного в **processPath**.
                                     
 > [AZURE.NOTE]`%HTTP_PLATFORM_PORT%` — специальный заполнитель, который должен быть указан как часть **arguments** или как часть списка **httpPlatform** **environmentVariables**. **HttpPlatformHandler** заменит это значение на сформированный системой порт, чтобы указанный в **processPath** процесс мог прослушивать этот порт.
 
@@ -125,7 +125,7 @@
 	      <add name="httppPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
 	    </handlers>
 	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" 
-	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
+	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
 	        startupTimeLimit="20"
 		  startupRetryCount="10"
 		  stdoutLogEnabled="true">
@@ -139,9 +139,9 @@
 
 В нашем тесте использовался WAR-файл Hudson 3.1.2 и экземпляр Tomcat 7.0.50 по умолчанию, но не использовался пользовательский интерфейс настройки. Поскольку Hudson представляет собой средство построения программного обеспечения, рекомендуется установить его на выделенных экземплярах, где в веб-приложении можно установить флаг **AlwaysOn**.
 
-1. В корневом каталоге веб-приложения, например **d:\home\site\wwwroot**, создайте каталог **webapps** (если он отсутствует) и поместите файл Hudson.war в каталог **d:\home\site\wwwroot\webapps**.
-2. Загрузите средство apache maven 3.0.5 (совместимо с Hudson) и поместите его в каталог **d:\home\site\wwwroot**.
-3. Создайте файл web.config в каталоге **d:\home\site\wwwroot** и вставьте в него следующее содержимое:
+1. В корневом каталоге веб-приложения, например **d:\\home\\site\\wwwroot**, создайте каталог **webapps** (если он отсутствует) и поместите файл Hudson.war в каталог **d:\\home\\site\\wwwroot\\webapps**.
+2. Загрузите средство apache maven 3.0.5 (совместимо с Hudson) и поместите его в каталог **d:\\home\\site\\wwwroot**.
+3. Создайте файл web.config в каталоге **d:\\home\\site\\wwwroot** и вставьте в него следующее содержимое:
 	
 		<?xml version="1.0" encoding="UTF-8"?>
 		<configuration>
@@ -194,7 +194,7 @@ Liferay поддерживается в веб-приложениях служб
 - Измените соединитель HTTP на `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
 - Закомментируйте соединитель AJP.
 
-В папке **liferay\tomcat-7.0.40\webapps\ROOT\WEB-INF\classes** создайте файл с именем **portal-ext.properties**. Этот файл должен содержать одну строку, как показано ниже:
+В папке **liferay\\tomcat-7.0.40\\webapps\\ROOT\\WEB-INF\\classes** создайте файл с именем **portal-ext.properties**. Этот файл должен содержать одну строку, как показано ниже:
 
     liferay.home=%HOME%/site/wwwroot/liferay
 
@@ -224,7 +224,7 @@ Liferay поддерживается в веб-приложениях служб
 
 В разделе **httpPlatform** для параметра **requestTimeout** задано значение "00:10:00". Его можно уменьшить, однако в этом случае повышается вероятность возникновения ошибок времени ожидания при начальной загрузке Liferay. При изменении этого значения следует также изменить параметр **connectionTimeout** в файле server.xml на стороне tomcat.
 
-Следует отметить, что переменная среды JRE_HOME в приведенном выше файле web.config указывает на 64-разрядную версию JDK. По умолчанию используется 32-разрядная версия, но поскольку Liferay может потребоваться большой объем памяти, рекомендуется использовать 64-разрядную версию JDK.
+Следует отметить, что переменная среды JRE\_HOME в приведенном выше файле web.config указывает на 64-разрядную версию JDK. По умолчанию используется 32-разрядная версия, но поскольку Liferay может потребоваться большой объем памяти, рекомендуется использовать 64-разрядную версию JDK.
 
 После внесения этих изменений перезапустите веб-приложения с Liferay, а затем откройте http://yourwebapp. Портал Liferay доступен из корневого каталога веб-приложения.
 
@@ -236,4 +236,4 @@ Liferay поддерживается в веб-приложениях служб
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -272,4 +272,4 @@
 [учебника по центрам уведомлений для Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

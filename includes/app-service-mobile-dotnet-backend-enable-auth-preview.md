@@ -6,4 +6,4 @@
 
 * В WebApiConfig.cs метод `UseDefaultConfiguration()` вызывается для объекта MobileAppConfiguration. Таким образом вызывается метод расширения `AddAppServiceAuthentication()`, предоставленный пакетом NuGet, упомянутым выше. Он также регистрирует ПО промежуточного слоя OWIN, необходимое для аутентификации путем вызова `app.UseAppServiceAuthentication()` при запуске OWIN.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

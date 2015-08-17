@@ -73,4 +73,4 @@
 
 3. Укажите ключ шифрования данных службы, полученный на [Шаге 2. Использование Windows PowerShell для StorSimple для изменения ключа шифрования данных службы](##to-initiate-the-service-data-encryption-key-change).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

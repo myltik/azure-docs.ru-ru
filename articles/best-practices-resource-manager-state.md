@@ -381,4 +381,4 @@ enableJumpbox | Строка из ограниченного списка (enabl
 - [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md)
 - [Функции шаблонов в диспетчере ресурсов Azure](resource-group-template-functions.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

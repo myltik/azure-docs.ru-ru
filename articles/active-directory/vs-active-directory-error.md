@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/22/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Ошибка при обнаружении проверки подлинности
 
@@ -56,45 +56,45 @@
 
 Чтобы обнаружить аутентификацию Windows в проекте MVC, мастер ищет элемент `authentication` в файле **web.config**.
 
-<PRE class="prettyprint">
+```
 	&lt;configuration&gt;
 	    &lt;system.web&gt;
 	        <span style="background-color: yellow">&lt;authentication mode="Windows" /&gt;</span>
 	    &lt;/system.web&gt;
 	&lt;/configuration&gt;
-</pre>
+```
 
 Чтобы обнаружить аутентификацию Windows в проекте веб-API, мастер ищет элемент `IISExpressWindowsAuthentication` в **CSPROJ-файле** вашего проекта.
 
-<PRE class="prettyprint">
+```
 	&lt;Project&gt;
 	    &lt;PropertyGroup&gt;
 	        <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
 	    &lt;/PropertyGroup>
 	&lt;/Project&gt;
-</PRE>
+```
 
 Чтобы обнаружить проверку подлинности индивидуальных учетных записей, мастер ищет элемент пакета в файле **Packages.config**.
 
-<PRE class="prettyprint">
+```
 	&lt;packages&gt;
 	    <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&gt;</span>
 	&lt;/packages&gt;
-</PRE>
+```
 
 Чтобы определить старый тип проверки подлинности учетной записи организации, мастер ищет в файле **web.config** следующий элемент:
 
-<PRE class="prettyprint">
+```
 	&lt;configuration&gt;
 	    &lt;appSettings&gt;
 	        <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
 	    &lt;/appSettings&gt;
 	&lt;/configuration&gt;
-</PRE>
+```
 
 Чтобы изменить тип проверки подлинности, удалите несовместимый тип и повторно запустите мастер.
 
 Дополнительные сведения см. в разделе [Сценарии проверки подлинности для Azure AD](active-directory-authentication-scenarios.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

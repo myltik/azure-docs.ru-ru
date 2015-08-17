@@ -22,6 +22,10 @@
 
 Диспетчер ресурсов Azure по умолчанию интегрирует управление доступом в платформу управления, чтобы вы могли указать, какие действия пользователь в организации может выполнять с группой ресурсов.
 
+Это все продемонстрировано в видеоролике.
+
+[AZURE.VIDEO azure-resource-manager-overview]
+
 > [AZURE.NOTE]Этот раздел описывает ресурсы, группы и шаблоны, при этом для демонстрации концепции используется портал предварительной версии. Однако вы также можете создавать, контролировать и удалять ресурсы Azure с помощью [Интерфейса командной строки Azure для Windows, Linux и Mac](virtual-machines/xplat-cli-azure-resource-manager.md) и [PowerShell](powershell-azure-resource-manager.md).
 
 ## Группы ресурсов
@@ -110,7 +114,7 @@
 
 Диспетчер ресурсов Azure предоставляет полностью совместимые операции в рамках Azure PowerShell, интерфейса командной строки Azure для Mac, Linux и Windows, портала Azure или REST API. Можно использовать тот интерфейс, который подходит вам лучше всего, и быстрого переключаться между интерфейсами безо всякой путаницы. На портале даже отображаются уведомления о действиях, выполняемых за пределами портала.
 
-Сведения о PowerShell см. в разделах [Использование Azure PowerShell с диспетчером ресурсов](./powershell-azure-resource-manager.md) и [Командлеты диспетчера ресурсов Azure](https://msdn.microsoft.com/library/azure/dn757692.aspx).
+Сведения о PowerShell см. в разделах [Использование Windows PowerShell с диспетчером ресурсов](./powershell-azure-resource-manager.md) и [Командлеты диспетчера ресурсов Azure](https://msdn.microsoft.com/library/azure/dn757692.aspx).
 
 (Информацию об интерфейсе командной строки Azure см. в разделе [Использование интерфейса командной строки Azure для Mac, Linux и Windows со средствами управления ресурсами Azure](./virtual-machines/xplat-cli-azure-resource-manager.md)￼.)
 
@@ -120,9 +124,9 @@
 
 ## Дальнейшие действия
 
-- Сведения о создании шаблонов см. в статье [Создание шаблонов](./resource-group-authoring-templates.md).
+- Сведения о создании шаблонов см. в статье [Разработка шаблонов](./resource-group-authoring-templates.md).
 - Инструкции по развертыванию созданных шаблонов см. в статье [Развертывание шаблонов](azure-portal/resource-group-template-deploy.md).
 - Сведения о том, какие функции можно использовать в шаблоне, см. в статье [Функции шаблонов](./resource-group-template-functions.md).
 - Рекомендации по разработке шаблонов см. в статье [Рекомендации по разработке шаблонов диспетчера ресурсов Azure](best-practices-resource-manager-design-templates.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

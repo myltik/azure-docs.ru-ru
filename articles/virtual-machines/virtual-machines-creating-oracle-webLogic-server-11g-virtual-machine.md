@@ -1,19 +1,5 @@
-<properties 
-	pageTitle="Создание виртуальной машины Oracle WebLogic Server 12c и Oracle Database 12c в Azure" 
-	description="Пошагово создайте пример образа Oracle WebLogic Server 12c и Oracle Database 12c под управлением Windows Server 2012 в Microsoft Azure." 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
-
+<properties title="Creating an Oracle WebLogic Server 12c and Oracle Database 12c Virtual Machine in Azure" pageTitle="Создание виртуальной машины Oracle WebLogic Server 12c и Oracle Database 12c в Azure" description="Пошагово создайте пример образа Oracle WebLogic Server 12c и Oracle Database 12c под управлением Windows Server 2012 в Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Создание виртуальной машины Oracle WebLogic Server 11g в Azure
 В следующем примере показано, как можно создать в Azure виртуальную машину на основе предоставленного корпорацией Майкрософт образа Oracle WebLogic Server 11g под управлением Windows Server 2008 R2.
 
@@ -103,7 +89,7 @@
 
 ## Установка приложения на виртуальную машину Oracle WebLogic Server 11g в Azure
 
-1. Не выходя из виртуальной машины, скопируйте на локальный компьютер пример shoppingcart.war, доступный по адресу: [http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war](http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war). Например, создайте папку с именем **c:\mywar** и сохраните WAR-файл, доступный по адресу [http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war](http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war), в **c:\mywar**.
+1. Не выходя из виртуальной машины, скопируйте на локальный компьютер пример shoppingcart.war, доступный по адресу: [http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war](http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war). Например, создайте папку с именем **c:\\mywar** и сохраните WAR-файл, доступный по адресу [http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war](http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war), в **c:\\mywar**.
 
 2. Откройте **консоль администрирования WebLogic Server**, [http://localhost:7001/console](http://localhost:7001/console). При появлении запроса укажите имя пользователя и пароль WebLogic.
 
@@ -181,4 +167,4 @@
 
 - [Образы виртуальных машин Oracle для Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

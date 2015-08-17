@@ -18,9 +18,11 @@
 
 # Azure Active Directory Connect — дополнительные сведения
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="Что это такое">Что это такое</a> <a href="../active-directory-aadconnect-how-it-works/" title="Как это работает">Как это работает</a> <a href="../active-directory-aadconnect-get-started/" title="Приступая к работе">Приступая к работе</a> <a href="../active-directory-aadconnect-whats-next/" title="Что дальше">Что дальше</a> <a href="../active-directory-aadconnect-learn-more/" title="Подробнее" class="current">Подробнее</a>
-</div>
+> [AZURE.SELECTOR]
+- [What is It](../active-directory-aadconnect.md)
+- [How it Works](../active-directory-aadconnect-how-it-works.md)
+- [Getting Started](../active-directory-aadconnect-get-started.md)
+- [What's Next](../active-directory-aadconnect-whats-next.md) - [Learn More](../active-directory-aadconnect-learn-more.md)
 
 Ниже приведен список дополнительных ресурсов для использования Azure AD Connect и интеграции локальных каталогов с Azure AD.
 
@@ -47,4 +49,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

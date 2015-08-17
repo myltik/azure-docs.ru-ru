@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2015"
+	ms.date="07/16/2015"
 	ms.author="antonba"/>
 
 # Настройка VPN-подключений в службе управления API Azure
@@ -67,4 +67,4 @@
 [Как использовать инспектор API для трассировки вызовов в службе управления API Azure]: api-management-howto-api-inspector.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

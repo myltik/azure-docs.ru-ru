@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/22/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Что произошло с моим проектом?
 
@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-aspnet5-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
-###Что произошло с моим проектом?</span>
+###Что произошло с моим проектом?
 
 ##### Добавленные ссылки
 
@@ -47,7 +47,7 @@
 #####Добавлена строка подключения к хранилищу Azure 
 В файле config.json проекта был создан элемент с ключом и строкой подключения выбранной учетной записи хранилища.
 
-Дополнительную информацию см. на [веб-сайте, посвященном ASP.NET 5](http://www.asp.net/vnext).
+Дополнительную информацию см. на веб-сайте, посвященном [ASP.NET 5](http://www.asp.net/vnext).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

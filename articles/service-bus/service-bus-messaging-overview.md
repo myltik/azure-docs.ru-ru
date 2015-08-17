@@ -38,4 +38,4 @@
 - [Использование разделов служебной шины](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

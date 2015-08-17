@@ -393,4 +393,4 @@
 [Получение доступа к сведениям Graph Azure Active Directory]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [Библиотека проверки подлинности Azure AD для .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

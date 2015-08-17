@@ -184,4 +184,4 @@
 Полный пошаговый пример использования технологии ADAPT с общедоступным набором данных см. в статье [Обработка данных в Azure на практике с использованием SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

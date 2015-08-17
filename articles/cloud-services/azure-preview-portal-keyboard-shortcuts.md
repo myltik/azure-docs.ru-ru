@@ -45,4 +45,4 @@
 Познакомьтесь с порталом Azure поближе: http://azure.microsoft.com.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

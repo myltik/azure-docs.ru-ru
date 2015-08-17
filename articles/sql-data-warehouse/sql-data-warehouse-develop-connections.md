@@ -83,12 +83,12 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 | Параметр базы данных | Значение |
 | :----------------- | :--------------------------- |
-| ANSI_NULLS | ВКЛ |
-| QUOTED_IDENTIFIERS | ВКЛ |
-| NO_COUNT | ВЫКЛ |
+| ANSI\_NULLS | ВКЛ |
+| QUOTED\_IDENTIFIERS | ВКЛ |
+| NO\_COUNT | ВЫКЛ |
 | DATEFORMAT | мдг |
 | DATEFIRST | 7 |
-| Сортировка базы данных | SQL_Latin1_General_CP1_CI_AS |
+| Сортировка базы данных | SQL\_Latin1\_General\_CP1\_CI\_AS |
 
 ## Сеансы и запросы
 Как только соединение будет установлено, а сеанс запущен, можно приступать к записи и отправке запросов в хранилище данных SQL.
@@ -158,4 +158,4 @@ WHERE   s.[session_id] <> SESSION_ID()
 
 <!--Other references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

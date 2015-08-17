@@ -4,4 +4,4 @@
 
 >* При использовании Linux или Mac установите Node.js, скачав его на сайте <a href="http://nodejs.org">http://nodejs.org</a>. Установщик Windows уже содержит Node.js.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

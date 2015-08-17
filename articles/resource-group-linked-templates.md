@@ -100,4 +100,4 @@
 - [Создание шаблонов](./resource-group-authoring-templates.md)
 - [Развертывание шаблонов](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -50,4 +50,4 @@ Azure Multi-Factor Authentication предоставляет несколько 
 * [Azure Multi-Factor Authentication в MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

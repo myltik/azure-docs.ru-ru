@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/01/2015" 
+	ms.date="08/04/2015" 
 	ms.author="jeffstok"/>
 
 #Смена учетных данных для источников входных данных и мест назначения выходных данных
@@ -193,4 +193,4 @@ Azure Stream Analytics в настоящее время не допускает 
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

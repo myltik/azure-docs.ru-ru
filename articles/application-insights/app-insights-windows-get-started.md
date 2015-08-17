@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/16/2015" 
 	ms.author="awills"/>
 
@@ -196,7 +196,7 @@
 
 ## Обновление до новой версии пакета SDK
 
-При [выпуске новой версии пакета SDK](app-insights-release-notes-windows.md): \* Щелкните правой кнопкой мыши проект и выберите «Управление пакетами NuGet». \* Выберите установленные пакеты Application Insights и выберите «Обновить».
+При [выпуске новой версии пакета SDK](app-insights-release-notes-windows.md): * Щелкните правой кнопкой мыши проект и выберите «Управление пакетами NuGet». * Выберите установленные пакеты Application Insights и выберите «Обновить».
 
 
 ## <a name="usage"></a>Дальнейшие действия
@@ -229,4 +229,4 @@
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -46,4 +46,4 @@
 
 [Настройка параметров прокси-сервера и брандмауэра (необязательно)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

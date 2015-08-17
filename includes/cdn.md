@@ -112,4 +112,4 @@ http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

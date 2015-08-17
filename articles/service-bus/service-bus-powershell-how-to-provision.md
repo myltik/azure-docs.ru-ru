@@ -184,4 +184,4 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 [API .NET для служебной шины]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

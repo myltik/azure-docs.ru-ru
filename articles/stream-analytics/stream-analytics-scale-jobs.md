@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/13/2015"
+	ms.date="08/04/2015"
 	ms.author="jeffstok"/>
 
 # Задания по масштабированию в Azure Stream Analytics для увеличения пропускной способности #
@@ -260,4 +260,4 @@
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

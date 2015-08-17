@@ -47,4 +47,4 @@ Azure RemoteApp обеспечивает пользователям доступ
 - [Политики Office 2013](https://technet.microsoft.com/library/cc178969.aspx) (включая [настройку панели инструментов Office](https://technet.microsoft.com/library/cc179143.aspx)).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

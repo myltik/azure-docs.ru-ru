@@ -84,4 +84,4 @@
 [Как войти в виртуальную машину под управлением Windows Server]: virtual-machines-log-on-windows-server.md
 [Расширения и компоненты виртуальных машин Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

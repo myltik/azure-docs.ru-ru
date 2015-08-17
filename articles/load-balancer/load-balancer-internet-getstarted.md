@@ -13,10 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="08/03/2015"
    ms.author="joaoma" />
 
 # Приступая к настройке подсистемы балансировки нагрузки, доступной в Интернете
+
+> [AZURE.SELECTOR]
+- [Azure classic steps](load-balancer-internet-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
 
 Службы балансировки нагрузки в Microsoft Azure поддерживают клиентов всех типов (IaaS или PaaS) и ОС всех версий (Windows или любые ОС на основе Linux).
 
@@ -135,4 +139,4 @@
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

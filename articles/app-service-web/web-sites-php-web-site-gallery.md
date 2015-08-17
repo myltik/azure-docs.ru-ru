@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/02/2015" 
 	ms.author="tomfitz"/>
 
@@ -31,4 +31,4 @@
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

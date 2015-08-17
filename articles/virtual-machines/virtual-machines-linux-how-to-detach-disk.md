@@ -25,4 +25,4 @@
 
 [Подключение диска данных к виртуальной машине Linux](virtual-machines-linux-how-to-attach-disk.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -161,9 +161,9 @@
 
 	Это возвращает категории, определенные в данном классе.
 
-1. Откройте файл App.xaml.cs и добавьте модификатор **async** в метод **Application_Launching**.
+1. Откройте файл App.xaml.cs и добавьте модификатор **async** в метод **Application\_Launching**.
 
-2. В методе **Application_Launching** найдите и замените код регистрации концентраторов уведомлений, добавленный в разделе [Приступая к работе с концентраторами уведомлений], с помощью следующей строки кода:
+2. В методе **Application\_Launching** найдите и замените код регистрации концентраторов уведомлений, добавленный в разделе [Приступая к работе с концентраторами уведомлений], с помощью следующей строки кода:
 
 		await notifications.SubscribeToCategories(notifications.RetrieveCategories());
 
@@ -259,4 +259,4 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

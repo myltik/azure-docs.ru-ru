@@ -63,15 +63,17 @@
 
 
 ## Дальнейшие действия
-Дополнительные сведения о [рабочей нагрузке хранилища данных].
+Дополнительные сведения о [рабочей нагрузке хранилища данных]. [Подготовьте] и загрузите [демонстрационные данные] для начала работы.
 
 <!--Image references-->
 
 <!--Article references-->
 [рабочей нагрузке хранилища данных]: ./sql-data-warehouse-overview-workload.md
+[демонстрационные данные]: ./sql-data-warehouse-get-started-load-samples.md
+[Подготовьте]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

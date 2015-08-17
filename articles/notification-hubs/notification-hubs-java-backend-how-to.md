@@ -17,10 +17,12 @@
 	ms.author="yuaxu"/>
 
 # Использование концентраторов уведомлений из Java
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
-</div>
-
+> [AZURE.SELECTOR] 
+- [Java](notification-hubs-php-backend-how-to.md)
+- [PHP](notification-hubs-python-backend-how-to.md)
+- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+		
 В этом разделе описаны основные функции нового официального и полностью поддерживаемого пакета SDK для Java для центра уведомлений Azure. Это проект с открытым исходным кодом. Вы можете просматривать весь код пакета SDK в образце [пакета SDK для Java].
 
 Вы можете обращаться ко всем функциям центров уведомлений из серверной части Java/PHP/Python/Ruby, используя интерфейс REST в соответствии с описанием в разделе MSDN [Интерфейсы API REST центров уведомлений](http://msdn.microsoft.com/library/dn223264.aspx). Пакет SDK для Java предоставляет тонкую оболочку для этих интерфейсов REST на Java.
@@ -298,12 +300,12 @@ API установки — это альтернативный механизм 
 [пакет SDK для Java]: https://github.com/Azure/azure-notificationhubs-java-backend
 [пакета SDK для Java]: https://github.com/Azure/azure-notificationhubs-java-backend
 [Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Приступая к работе с центрами уведомлений]: http://azure.microsoft.com/manage/services/notification-hubs/getting-started-windows-dotnet/
-[Отправка экстренных новостей]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-dotnet/
-[Отправка локализованных экстренных новостей]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Отправка уведомлений проверенным пользователям]: http://azure.microsoft.com/manage/services/notification-hubs/notify-users/
-[Отправка кроссплатформенных уведомлений проверенным пользователям]: http://azure.microsoft.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Приступая к работе с центрами уведомлений]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
+[Отправка экстренных новостей]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
+[Отправка локализованных экстренных новостей]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Отправка уведомлений проверенным пользователям]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
+[Отправка кроссплатформенных уведомлений проверенным пользователям]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

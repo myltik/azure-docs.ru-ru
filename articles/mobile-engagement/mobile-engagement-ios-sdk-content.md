@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Содержимое SDK для рекламных кампаний в iOS для Azure Mobile Engagement" 
+<properties
+	pageTitle="Содержимое SDK для рекламных кампаний в iOS для Azure Mobile Engagement"
 	description="Последние обновления и указания для пакета SDK для iOS для Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="MehrdadMzfr"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="02/12/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/05/2015"
 	ms.author="kapiteir" />
 
 #Содержимое пакета SDK
@@ -41,6 +41,5 @@
 Папка `src`
 
 > Контроллеры представлений службы Engagement и исходный код пакета SDK для рекламных кампаний (для опытных пользователей, которым нужно адаптировать классы Engagement для своих потребностей).
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -20,8 +20,8 @@
 События Azure позволяют получить представление о том, что происходит в ресурсах Azure. Azure регистрирует пользовательские события, когда ресурс Azure (например, фабрика данных) создается, обновляется или удаляется. При использовании фабрики данных Azure события создаются, когда:
  
 1.	создается, обновляется или удаляется фабрика данных Azure;
-2.	запускается или завершается обработка данных (которая называется выполнением);
-3.	создается и удаляется кластер HDInsight по запросу.
+2.	запускается или завершается обработка данных (которая называется циклом выполнения);
+3.	создается и удаляется кластер HDInsight по требованию.
 
 Вы можете создавать оповещения в этих пользовательских событиях и настраивать их для отправки уведомлений по электронной почте администраторам и соадминистраторам подписки. Кроме того, вы можете указать дополнительные адреса электронной почты пользователей, которые должны получать уведомления по электронной почте при выполнении определенных условий.
 
@@ -111,11 +111,11 @@
 
 | Имя операции | Состояние | Подсостояние |
 | -------------- | ------ | ---------- |
-| RunStarted | Запущено | Starting |
+| RunStarted | Started | Starting |
 | RunFinished | Сбой/успешное завершение |	<p>FailedResourceAllocation </p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p>Canceled</p><p>FailedValidation</p><p>Abandoned</p> | 
 | SliceOnTime | In Progress | Ontime |
 | SliceDelayed | In Progress | Late |
-| OnDemandClusterCreateStarted | Запущено | |
+| OnDemandClusterCreateStarted | Started | |
 | OnDemandClusterCreateSuccessful | Succeeded | | 
 | OnDemandClusterDeleted | Succeeded | |
 
@@ -126,4 +126,4 @@
 	Get-AzureResourceGroupLog –Name $ResourceGroup -All | Where-Object EventSource -eq "Microsoft.DataFactory"
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

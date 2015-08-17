@@ -1,15 +1,15 @@
-## Repeatability during Copy
+## Повторяемость во время копирования
 
-When copying data to Azure SQL/SQL Server from other data stores one needs to keep repeatability in mind to avoid unintended outcomes. 
+При копировании данных в SQL Azure или SQL Server из других хранилищ данных необходимо помнить о повторяемости, чтобы избежать незапланированных последствий.
 
-When copying data to Azure SQL Database, copy activity will by default APPEND the data set to the sink table by default. For example, when copying data from a CSV (comma separated values data) file source containing two records to Azure SQL/SQL Server Database, this is what the table looks like:
+Если данные копируются в базу данных SQL Azure, действием копирования по умолчанию будет присоединение (APPEND) набора данных к таблице-приемнику. Например, если данные копируются из CSV-файла (со значениями данных, разделенными запятой), содержащего две записи, в базу данных SQL Azure или SQL Server, таблица будет выглядеть приведенным ниже образом.
 	
 	ID	Product		Quantity	ModifiedDate
 	...	...			...			...
 	6	Flat Washer	3			2015-05-01 00:00:00
 	7 	Down Tube	2			2015-05-01 00:00:00
 
-Suppose you found errors in source file and updated the quantity of Down Tube from 2 to 4 in the source file. If you re-run the data slice for that period, you’ll find two new records appended to Azure SQL/SQL Server Database. The below assumes none of the columns in the table have the primary key constraint.
+Предположим, в исходном файле обнаружили ошибки и значение параметра Down Tube в нем было обновлено с 2 до 4. Если повторно выполнить срез данных за соответствующий период, к базе данных SQL Azure или SQL Server будут присоединены две новых записи. Ниже предполагается, что ни один из столбцов таблицы не содержит ограничения первичного ключа.
 	
 	ID	Product		Quantity	ModifiedDate
 	...	...			...			...
@@ -18,45 +18,45 @@ Suppose you found errors in source file and updated the quantity of Down Tube fr
 	6	Flat Washer	3			2015-05-01 00:00:00
 	7 	Down Tube	4			2015-05-01 00:00:00
 
-To avoid this, you will need to specify UPSERT semantics by leveraging one of the below 2 mechanisms stated below.
+Чтобы избежать такого результата, необходимо указать семантику UPSERT, воспользовавшись одним из двух описанных ниже механизмов.
 
-> [AZURE.NOTE] A slice can be re-run automatically in Azure Data Factory too as per the retry policy specified.
+> [AZURE.NOTE]Кроме того, срез может быть еще раз автоматически выполнен в фабрике данных Azure согласно указанной политике повторения попыток.
 
-### Mechanism 1
+### Механизм 1
 
-You can leverage **sqlWriterCleanupScript** property to first perform cleanup action when a slice is run. 
+С помощью свойства **sqlWriterCleanupScript** вы можете сначала выполнить действие очистки при запуске среза.
 
 	"sink":  
 	{ 
 	  "type": "SqlSink", 
-	  "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM table WHERE ModifiedDate = \\'{0:yyyy-MM-dd-HH\\'', SliceStart)"
+	  "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM table WHERE ModifiedDate = \\'{0:yyyy-MM-dd HH:mm}\\'', SliceStart)"
 	}
 
-The cleanup script would be executed first during copy for a given slice which would delete the data from the SQL Table corresponding to that slice. The copy activity will subsequently insert the data into the SQL Table. 
+Скрипт очистки будет выполнен сначала в ходе копирования для заданного среза. При этом будут удалены данные из таблицы SQL, соответствующей этому срезу. Действие копирования впоследствии вставит данные в таблицу SQL.
 
-If the slice is now re-run, then you will find the quantity is updated as desired.
+Если теперь повторно выполнить срез, нужное количество будет обновлено, как и требовалось.
 	
 	ID	Product		Quantity	ModifiedDate
 	...	...			...			...
 	6	Flat Washer	3			2015-05-01 00:00:00
 	7 	Down Tube	4			2015-05-01 00:00:00
 
-Suppose the Flat Washer record is removed from the original csv. Then re-running the slice would produce the following result: 
+Предположим, что запись Flat Washer удалена из исходного CSV-файла. В таком случае при повторном выполнении среза будет получен приведенный ниже результат.
 	
 	ID	Product		Quantity	ModifiedDate
 	...	...			...			...
 	8 	Down Tube	4			2015-05-01 00:00:00
 
-Nothing new had to be done. The copy activity ran the cleanup script to delete the corresponding data for that slice. Then it read the input from the csv (which now contained only 1 record) and inserted in into the Table. 
+Ничего нового делать не пришлось. Действие копирования выполнило скрипт очистки, удалив соответствующие данные среза. Затем входные данные были считаны из CSV-файла (который теперь содержал только 1 запись) и вставлены в таблицу.
 
-### Mechanism 2
+### Механизм 2
 
-Another mechanism to achieve repeatability is by having a dedicated column (**sliceIdentifierColumnName**) in the target Table. This column would be used by Azure Data Factory to ensure the source and destination stay synchronized. This approach works when there is flexibility in changing or defining the destination SQL Table schema. 
+Второй способ достижения повторяемости — выделение отдельного столбца (**sliceIdentifierColumnName**) в целевой таблице. Этот столбец будет использовать фабрика данных Azure, чтобы синхронизировать источник и назначение. Такой подход работает при наличии гибкости в изменении или определении целевой схемы таблицы SQL.
 
-This column would be used by Azure Data Factory for repeatability purposes and in the process Azure Data Factory will not make any schema changes to the Table. Way to use this approach:
+Этот столбец фабрика данных Azure будет использовать в целях повторяемости. При этом фабрика данных не будет вносить никаких изменений схемы в таблицу. Способ применения этого подхода:
 
-1.	Define a column of type nvarchar (100) in the destination SQL Table. There should be no constraints on this column. Let name this column as ‘ColumnForADFuseOnly’ for this example
-2.	Use it in the copy activity as follows:
+1.	Определите столбец двоичного типа (32) в целевой таблице SQL. Для этого столбца не должно быть никаких ограничений. Давайте в данном примере назовем столбец ColumnForADFuseOnly.
+2.	Он будет использоваться в действии копирования следующим образом.
 
 		"sink":  
 		{ 
@@ -64,6 +64,8 @@ This column would be used by Azure Data Factory for repeatability purposes and i
 		  "sliceIdentifierColumnName": "ColumnForADFuseOnly"
 		}
 
-Azure Data Factory will populate this column as per its need to ensure the source and destination stay synchronized. The values of this column should not be used outside of this context by the user. 
+Фабрика данных Azure будет заполнять этот столбец тогда, когда будет возникать необходимость синхронизировать источник и назначение. Значения столбца пользователю не следует использовать за пределами данного контекста.
 
-Similar to mechanism 1, Copy Activity will automatically first clean up the data for the given slice from the destination SQL Table and then run the copy activity normally to insert the data from source to destination for that slice. 
+Подобно механизму 1, действие копирования сначала автоматически очистит данные для заданного среза из целевой таблицы SQL. Затем действие копирования будет выполнено обычным образом для вставки данных из источника в место назначения для соответствующего среза.
+
+<!---HONumber=August15_HO6-->

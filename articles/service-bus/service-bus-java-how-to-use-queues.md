@@ -190,4 +190,4 @@
   [Очереди, разделы и подписки]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

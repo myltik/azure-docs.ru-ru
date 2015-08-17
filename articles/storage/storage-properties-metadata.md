@@ -1,7 +1,7 @@
 
 <properties 
-  pageTitle="Задание и получение свойств и метаданных для хранилища больших двоичных объектов | Microsoft Azure" 
-  description="Узнайте о том, как задавать и получать свойства и метаданные для контейнеров и больших двоичных объектов службы хранилища Azure." 
+  pageTitle="Задание и получение свойств и метаданных для ресурсов хранилища | Microsoft Azure" 
+  description="Узнайте, как задавать и получать свойства и метаданные для ресурсов службы хранилища Azure." 
   services="storage" 
   documentationCenter="" 
   authors="tamram" 
@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="04/21/2015" 
+  ms.date="08/04/2015" 
   ms.author="tamram"/>
 
 
@@ -22,102 +22,47 @@
 
 ## Обзор
 
-Контейнеры и BLOB-объекты поддерживают две формы связанных данных в дополнение к данным, которые они содержат.
+Помимо данных, которые они содержат, объекты в службе хранилища Azure поддерживают свойства системы и пользовательские метаданные.
 
-*   **Свойства системы.** Системные свойства существуют у каждого контейнера или BLOB-ресурса. Некоторые из них можно считать или задать, некоторые — только считать. На самом деле некоторые системные свойства соответствуют определенным стандартным заголовкам HTTP, которые поддерживает управляемая библиотека Azure.  
+*   **Свойства системы.** Свойства системы есть у каждого ресурса хранилища. Некоторые из них можно считать или задать, некоторые — только считать. На самом деле, некоторые свойства системы соответствуют определенным стандартным заголовкам HTTP. Они хранятся в клиентской библиотеке службы хранилища Azure.  
 
-*   **Определяемые пользователем метаданные.** Определяемые пользователем метаданные — это метаданные, которые можно указать для определенного ресурса в виде пары "имя-значение". Метаданные можно использовать для хранения дополнительных значений для контейнера или BLOB-объекта. Эти значения являются пользовательскими и не влияют на поведение контейнера или BLOB-объекта.
-
-> [AZURE.IMPORTANT]Получение значений свойств и метаданных ресурса выполняется в два этапа. Прежде чем можно будет считать эти значения, необходимо получить их для объектов [CloudBlobContainer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblobcontainer.aspx), [CloudBlockBlob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.aspx) или [CloudPageBlob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudpageblob.aspx). Чтобы получить свойства и метаданные синхронно, вызовите метод **FetchAttributes** для контейнера или BLOB-объекта; чтобы получить асинхронно, вызовите метод **FetchAttributesAsync**.
+*   **Определяемые пользователем метаданные.** Определяемые пользователем метаданные — это метаданные, которые можно указать для определенного ресурса в виде пары "имя-значение". Вы можете использовать метаданные для хранения дополнительных значений для ресурса хранилища. Эти значения являются пользовательскими и не влияют на поведение ресурса.
 
 ## Установка и получение свойств
 
-Контейнер имеет только свойства для чтения, а BLOB-объект — свойства только для чтения и для чтения и записи. Чтобы задать свойства для BLOB-объекта, укажите значение свойства, а затем вызовите метод [SetProperties](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.setproperties.aspx) или [SetProperties](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudpageblob.setproperties.aspx).
+Получение значений свойств и метаданных ресурса хранилища выполняется в два этапа. Прежде чем можно будет считать эти значения, необходимо получить их, вызвав метод **FetchAttributes** или **FetchAttributesAsync**.
 
-Для считывания свойства контейнера или BLOB-объекта следует вызвать метод **FetchAttributes** и затем получить значение свойства.
+> [AZURE.IMPORTANT]Значения свойств и метаданных для ресурса хранилища заполняются только при вызове одного из методов **FetchAttributes**.
 
-В следующем примере кода будет создан контейнер и BLOB-объект, а значения свойств будут выведены в окно консоли. В этом примере используется эмулятор службы хранения. Он должен быть запущен для правильной работы кода.
+Чтобы задать свойства для большого двоичного объекта, укажите значение свойства, а затем вызовите метод **SetProperties** или **SetPropertiesAsync**.
 
-	// Use the storage emulator account.
-	CloudStorageAccount storageAccount = CloudStorageAccount.DevelopmentStorageAccount;
+В следующем примере кода будет создан контейнер, а значения свойств будут выведены в окно консоли.
 
-	// As an alternative, you can create the credentials from the account name and key.
-	// string accountName = "myaccount";
-	// string accountKey = "SzlFqgzqhfkj594cFoveYqCuvo8v9EESAnOLcTBeBIo31p16rJJRZx/5vU/oY3ZsK/VdFNaVpm6G8YSD2K48Nw==";
-	// StorageCredentials credentials = new StorageCredentials(accountName, accountKey);
-	// CloudStorageAccount storageAccount = new CloudStorageAccount(credentials, true);
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	
+	//Create the service client object for credentialed access to the Blob service.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-	CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    // Retrieve a reference to a container. 
+    CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-	// Retrieve a reference to a container. 
-	CloudBlobContainer container = blobClient.GetContainerReference(<span style="color:#A31515;">"mycontainer");
+    // Create the container if it does not already exist.
+    container.CreateIfNotExists();
 
-	// Create the container if it does not already exist.
-	container.CreateIfNotExists();
+    // Fetch container properties and write out their values.
+    container.FetchAttributes();
+    Console.WriteLine("Properties for container {0}", container.StorageUri.PrimaryUri.ToString());
+    Console.WriteLine("LastModifiedUTC: {0}", container.Properties.LastModified.ToString());
+    Console.WriteLine("ETag: {0}", container.Properties.ETag);
+    Console.WriteLine();
 
-	// Fetch container properties and write out their values.
-	container.FetchAttributes();
-	Console.WriteLine(<span style="color:#A31515;">"Properties for container " + container.Uri + <span style="color:#A31515;">":");
-	Console.WriteLine(<span style="color:#A31515;">"LastModifiedUTC: " + container.Properties.LastModified);
-	Console.WriteLine(<span style="color:#A31515;">"ETag: " + container.Properties.ETag);
-	Console.WriteLine();
-
-	// Create a blob.
-	CloudBlockBlob blob = container.GetBlockBlobReference(<span style="color:#A31515;">"myblob.txt");
-
-	// Create or overwrite the "myblob.txt" blob with contents from a local file.
-	<span style="color:Blue;">using (<span style="color:Blue;">var fileStream = System.IO.File.OpenRead(<span style="color:#A31515;">@"c:\test\myblob.txt"))
-	{
-	   blob.UploadFromStream(fileStream);
-	} 
-
-	// Fetch container properties and write out their values.
-	container.FetchAttributes();
-	Console.WriteLine(<span style="color:#A31515;">"Properties for container " + container.Uri + <span style="color:#A31515;">":");
-	Console.WriteLine(<span style="color:#A31515;">"LastModifiedUTC: " + container.Properties.LastModified);
-	Console.WriteLine(<span style="color:#A31515;">"ETag: " + container.Properties.ETag);
-	Console.WriteLine();
-
-	// Create a blob.
-	Uri blobUri =<span style="color:Blue;">new UriBuilder(containerUri.AbsoluteUri + <span style="color:#A31515;">"/ablob.txt").Uri;
-	CloudPageBlob blob = <span style="color:Blue;">new CloudPageBlob(blobUri, credentials);
-	blob.Create(1024);
-				
-
-	// Set the CacheControl property.
-	blob.Properties.CacheControl = <span style="color:#A31515;">"public, max-age=31536000";
-	blob.SetProperties();
-
-	// Fetch blob attributes.
-	blob.FetchAttributes();
-
-	Console.WriteLine(<span style="color:#A31515;">"Read-only properties for blob " + blob.Uri + <span style="color:#A31515;">":");
-	Console.WriteLine(<span style="color:#A31515;">"BlobType: " + blob.Properties.BlobType);
-	Console.WriteLine(<span style="color:#A31515;">"ETag: " + blob.Properties.ETag);
-	Console.WriteLine(<span style="color:#A31515;">"LastModifiedUtc: " + blob.Properties.LastModified);
-	Console.WriteLine(<span style="color:#A31515;">"Length: " + blob.Properties.Length);
-	Console.WriteLine();
-
-	Console.WriteLine(<span style="color:#A31515;">"Read-write properties for blob " + blob.Uri + <span style="color:#A31515;">":");
-	Console.WriteLine(<span style="color:#A31515;">"CacheControl: " +
-	   (blob.Properties.CacheControl == <span style="color:Blue;">null ? <span style="color:#A31515;">"Not set" : blob.Properties.CacheControl));
-	Console.WriteLine(<span style="color:#A31515;">"ContentEncoding: " +
-	   (blob.Properties.ContentEncoding == <span style="color:Blue;">null ? <span style="color:#A31515;">"Not set" : blob.Properties.ContentEncoding));
-	Console.WriteLine(<span style="color:#A31515;">"ContentLanguage: " +
-	   (blob.Properties.ContentLanguage == <span style="color:Blue;">null ? <span style="color:#A31515;">"Not set" : blob.Properties.ContentLanguage));
-	Console.WriteLine(<span style="color:#A31515;">"ContentMD5: " +
-	   (blob.Properties.ContentMD5 == <span style="color:Blue;">null ? <span style="color:#A31515;">"Not set" : blob.Properties.ContentMD5));
-	Console.WriteLine(<span style="color:#A31515;">"ContentType: " +
-	   (blob.Properties.ContentType == <span style="color:Blue;">null ? <span style="color:#A31515;">"Not set" : blob.Properties.ContentType));
-
-	// Clean up.
-	blob.DeleteIfExists();
-	container.Delete();
 ## Установка и получение метаданных
 
 Метаданные можно указать как одну или несколько пар "имя-значение" для BLOB-ресурса или ресурса контейнера. Чтобы задать метаданные, добавьте пары "имя-значение" в коллекцию **метаданные** для ресурса, затем вызовите метод **SetMetadata** для сохранения значений в службу.
 
-> [AZURE.NOTE]: имя метаданных должно соответствовать соглашениям об именах для идентификаторов C#.
+> [AZURE.NOTE]\: имя метаданных должно соответствовать соглашениям об именах для идентификаторов C#.
  
 Для получения метаданных вызовите метод **FetchAttributes** для BLOB-объекта или контейнера, чтобы заполнить **метаданные** коллекции, затем считайте значения.
 
@@ -161,4 +106,4 @@
 - [Начало работе с хранилищем больших двоичных объектов для .NET](storage-dotnet-how-to-use-blobs.md)  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

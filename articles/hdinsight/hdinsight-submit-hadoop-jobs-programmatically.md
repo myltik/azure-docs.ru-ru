@@ -729,4 +729,4 @@ Hadoop MapReduce — это программная платформа для н
 [apache-hive]: http://hive.apache.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

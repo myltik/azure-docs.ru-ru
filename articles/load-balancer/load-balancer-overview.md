@@ -99,4 +99,4 @@
 [Приступая к работе с подсистемой балансировки нагрузки, доступной в Интернете](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

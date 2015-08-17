@@ -70,7 +70,7 @@
 
 Ниже приведен обзор файлов, которые можно найти в исходном репозитории Git. Мы клонируем его в следующем разделе.
 
-    \FlaskWebProject__init__.py
+    \FlaskWebProject\__init__.py
     \FlaskWebProject\views.py
     \FlaskWebProject\static\content\
     \FlaskWebProject\static\fonts\
@@ -401,4 +401,4 @@
 [Документация по Flask]: http://flask.pocoo.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -47,9 +47,9 @@ Apache Oozie — это система рабочих процессов и ко
 
 1. Действие Hive запускает скрипт HiveQL для извлечения записей из таблицы **hivesampletable**, входящей в состав в HDInsight. Каждая строка данных описывает посещение с определенного мобильного устройства. Формат записи таков:
 
-		8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-		23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-		23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+		8       18:54:20        ru-ru   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+		23      19:19:44        ru-ru   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+		23      19:19:46        ru-ru   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
 	Скрипт Hive, используемый в данном документе, подсчитывает общее количество посещений для каждой платформы (например, Android или iPhone) и сохраняет результаты в новой таблице Hive.
 
@@ -61,7 +61,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 ##Создайте рабочий каталог
 
-Ресурсы, необходимые для выполнения задания, должны находиться в том же каталоге. В этом примере используются **wasb:///tutorials/useoozie**. Для создания этого каталога и каталога данных, в котором будет размещаться новая таблица Hive, созданная этим рабочим процессом, воспользуйтесь следующей командой:
+Ресурсы, необходимые для выполнения задания, должны находиться в том же каталоге. В этом примере используются ****wasb:///tutorials/useoozie**. Для создания этого каталога и каталога данных, в котором будет размещаться новая таблица Hive, созданная этим рабочим процессом, воспользуйтесь следующей командой:
 
 	hadoop fs -mkdir -p /tutorials/useoozie/data
 
@@ -111,7 +111,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 2. Нажмите Ctrl-X, чтобы закрыть редактор. При появлении запроса нажмите **Y** для сохранения файла, затем нажмите **Enter** для использования имени файла **useooziewf.hql**.
 
-3. Для копирования **useooziewf.hql** в **wasb:///tutorials/useoozie/useooziewf.hql**: выполните следующие команды:
+3. Для копирования **useooziewf.hql** в ****wasb:///tutorials/useoozie/useooziewf.hql** выполните следующие команды:
 
 		hadoop fs -copyFromLocal useooziewf.hql /tutorials/useoozie/useooziewf.hql
 
@@ -192,7 +192,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 2. Нажмите Ctrl-X, затем **Y** и **Enter** для сохранения файла.
 
-3. Скопируйте файл **workflow.xml** в **wasb:///tutorials/useoozie/workflow.xml**: с помощью следующей команды:
+3. Скопируйте файл **workflow.xml** в ****wasb:///tutorials/useoozie/workflow.xml** с помощью следующей команды:
 
 		hadoop fs -copyFromLocal workflow.xml wasb:///tutorials/useoozie/workflow.xml
 
@@ -215,7 +215,7 @@ Apache Oozie — это система рабочих процессов и ко
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]Обратите внимание на имя сервера, возвращаемое этой командой (\*\* i1qwc540ts \*\* в примере выше.) Это краткое имя созданного сервера базы данных SQL. Полное доменное имя (FQDN) — **&lt;shortname&gt;.database.windows.net**. В приведенном выше примере полным доменным именем будет **i1qwc540ts.database.windows.net**.
+    > [AZURE.IMPORTANT]Обратите внимание на имя сервера, возвращаемое этой командой (**i1qwc540ts** в примере выше). Это краткое имя созданного сервера базы данных SQL. Полное доменное имя (FQDN) — **&lt;shortname&gt;.database.windows.net**. В приведенном выше примере полным доменным именем будет **i1qwc540ts.database.windows.net**.
 
 2. Для создания базы данных **oozietest** на сервере базы данных SQL выполните следующую команду:
 
@@ -283,7 +283,7 @@ Apache Oozie — это система рабочих процессов и ко
 		<name>fs.defaultFS</name>
 		<value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
 
-	Сохраните значение **wasb://mycontainer@mystorageaccount.blob.core.windows.net**, так как он будет использоваться в последующих шагах.
+	Сохраните значение ****wasb://mycontainer@mystorageaccount.blob.core.windows.net**, так как оно будет использоваться в последующих шагах.
 
 2. Воспользуйтесь следующей командой для получения полного имени домена головного узла кластера: Оно будет использовано для адреса кластера в JobTracker. Позже он будет использован в файле конфигурации.
 
@@ -482,7 +482,7 @@ Oozie REST API позволяет создавать собственные ут
 
 	* [Использование SSH с Hadoop под управлением Linux в HDInsight в Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
 
-2. После создания туннеля откройте веб-интерфейс Ambari в браузере. URI сайта Ambari следующий: **https://CLUSTERNAME.azurehdinsight.net**. Замените **CLUSTERNAME** именем своего кластера HDInsight под управлением Linux.
+2. После создания туннеля откройте веб-интерфейс Ambari в браузере. Универсальный код ресурса (URI) сайта Ambari следующий: ****https://CLUSTERNAME.azurehdinsight.net**. Замените **CLUSTERNAME** именем своего кластера HDInsight под управлением Linux.
 
 3. В левой части страницы выберите **Oozie**, затем **Quick Links** и, наконец, **Oozie Web UI**.
 
@@ -724,4 +724,4 @@ Oozie REST API позволяет создавать собственные ут
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

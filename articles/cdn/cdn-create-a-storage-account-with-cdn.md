@@ -121,4 +121,4 @@ http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

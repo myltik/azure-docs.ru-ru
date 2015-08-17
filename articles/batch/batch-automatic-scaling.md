@@ -359,8 +359,8 @@
           <li><p><b>doubleVec GetSample (double count)</b>&#160;— указывает количество выборок, которые требуются из последней выборки.</p>
 				  <p>Выборка имеет ценность для данных метрики в течение 5&#160;секунд. GetSample(1) возвращает последнюю доступную выборку, но ее нельзя будет использовать для такой метрики, как $CPUPercent, поскольку невозможно узнать момент получения выборки. Эта выборка может быть последней или, если в системе есть проблемы, гораздо более старой. Лучше использовать интервал времени, как показано ниже.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b>&#160;— указывает интервал времени для сбора данных и при необходимости указывает долю выборок (%) в соответствии с требуемым диапазоном.</p>
-          <p>Метод $CPUPercent.GetSample(TimeInterval\_Minute\*10) должен вернуть 200&#160;выборок, если все они присутствовали в журнале CPUPercent в течение последних 10&#160;минут. Если последняя минута журнала по-прежнему отсутствует, возвращаются только 180&#160;выборок.</p>
-					<p>Метод $CPUPercent.GetSample(TimeInterval\_Minute\*10, 80) выполняется успешно, а метод $CPUPercent.GetSample(TimeInterval_Minute\*10,95) не выполняется.</p></li>
+          <p>Метод $CPUPercent.GetSample(TimeInterval\_Minute*10) должен вернуть 200&#160;выборок, если все они присутствовали в журнале CPUPercent в течение последних 10&#160;минут. Если последняя минута журнала по-прежнему отсутствует, возвращаются только 180&#160;выборок.</p>
+					<p>Метод $CPUPercent.GetSample(TimeInterval\_Minute*10, 80) выполняется успешно, а метод $CPUPercent.GetSample(TimeInterval_Minute*10,95) не выполняется.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b>&#160;— задает интервал времени для сбора данных, т.&#160;е. начало и конец сбора.</p></li></ul></td>
   </tr>
   <tr>
@@ -407,9 +407,9 @@
       <li>$NetworkInBytes</li>
       <li>$NetworkOutBytes</li></ul></p>
     <p>В этом примере показана формула, которая используется для указания количества вычислительных узлов в пуле. А именно&#160;— до 110&#160;% от текущего целевого количества узлов, если минимальное среднее использование ЦП за последние 10&#160;минут превышает 70&#160;%:</p>
-    <p><b>totalTVMs = (min($CPUPercent.GetSample(TimeInterval\_Minute\*10)) > 0.7) ? ($CurrentDedicated \* 1.1) : $CurrentDedicated;</b></p>
+    <p><b>totalTVMs = (min($CPUPercent.GetSample(TimeInterval\_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;</b></p>
     <p>В этом примере показана формула, которая используется для указания количества вычислительных узлов в пуле. А именно&#160;— до 90&#160;% от текущего целевого количества узлов, если среднее использование ЦП за последние 60&#160;минут составляет менее 20&#160;%:</p>
-    <p><b>totalTVMs = (avg($CPUPercent.GetSample(TimeInterval\_Minute\*60)) &lt; 0.2) ? ($CurrentDedicated \* 0.9) : totalTVMs;</b></p>
+    <p><b>totalTVMs = (avg($CPUPercent.GetSample(TimeInterval\_Minute*60)) &lt; 0.2) ? ($CurrentDedicated * 0.9) : totalTVMs;</b></p>
     <p>В этом примере задается целевое количество выделенных вычислительных узлов, не превышающее&#160;400:</p>
     <p><b>$TargetDedicated = min(400, totalTVMs);</b></p></td>
   </tr>
@@ -424,7 +424,7 @@
       <li>$FailedTasks</li>
       <li>$CurrentDedicated</li></ul></p>
     <p>В этом примере показана формула, которая определяет, были ли записаны 70&#160;% выборок за последние 15&#160;минут. В противном случае используется последняя выборка. Формула пытается увеличить количество вычислительных узлов, чтобы оно совпадало с количеством активных задач с максимальным значением&#160;3. Она задает количество узлов в одну четверть от количества активных задач, так как для свойства MaxTasksPerVM пула установлено значение&#160;4. Она также задает параметр освобождения для действия taskcompletion, гарантируя, что компьютер будет использоваться, пока задача не будет выполнена.</p>
-    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute \* 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute \* 15))); $Cores = $TargetDedicated \* 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $TVMDeallocationOption = taskcompletion;</b></p></td>
+    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute * 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute * 15))); $Cores = $TargetDedicated * 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $TVMDeallocationOption = taskcompletion;</b></p></td>
   </tr>
 </table>
 
@@ -476,4 +476,4 @@
 	- [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) — этот командлет извлекает RDP-файл из указанного вычислительного узла и сохраняет его в указанной папке или потоке.
 2.	Некоторые приложения создают большое количество данных, которые может быть трудно обработать. Одним из способов устранения этой проблемы является использование [эффективных списков запросов](batch-efficient-list-queries.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

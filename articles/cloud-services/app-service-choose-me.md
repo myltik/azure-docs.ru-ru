@@ -34,4 +34,4 @@ Azure предоставляет разные модели размещения 
 [Виртуальные машины]: ../virtual-machines-choose-me.md
 [Облачные службы]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

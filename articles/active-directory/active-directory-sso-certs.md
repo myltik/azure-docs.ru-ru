@@ -80,4 +80,4 @@
 
 [Доступ к приложениям и единый вход в Azure AD](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

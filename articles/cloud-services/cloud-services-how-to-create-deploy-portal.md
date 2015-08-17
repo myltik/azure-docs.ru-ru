@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Создание и развертывание облачной службы — Azure"
-	description="Узнайте, как создать и развернуть облачную службу с помощью функции ";Быстрое создание"; в Azure."
+	description="Узнайте, как создать и развернуть облачную службу с помощью функции &quot;Быстрое создание&quot; в Azure."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -102,10 +102,10 @@
 
 2. В разделе **Общее** щелкните **URL-адрес сайта**, чтобы открыть облачную службу в веб-браузере.
 
-    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
+    ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

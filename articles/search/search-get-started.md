@@ -378,4 +378,4 @@
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

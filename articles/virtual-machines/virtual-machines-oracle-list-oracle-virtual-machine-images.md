@@ -1,4 +1,4 @@
-<properties 
+<properties title="List of Oracle virtual machine images"
 pageTitle="Список образов виртуальных машин Oracle"
 description="Просмотрите список образов Oracle в коллекции Azure и узнайте, как создать виртуальную машину Oracle на основе такого образа."
 services="virtual-machines"
@@ -67,4 +67,4 @@ ms.author="bbenz" />
 
 [Образы виртуальных машин Oracle. Различные рекомендации](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

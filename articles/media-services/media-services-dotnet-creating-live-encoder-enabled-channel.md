@@ -501,4 +501,4 @@
 [Работа с каналами, выполняющими динамическое кодирование односкоростного потока в мультискоростной](media-services-manage-live-encoder-enabled-channels.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

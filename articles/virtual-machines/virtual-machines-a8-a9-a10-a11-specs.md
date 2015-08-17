@@ -130,4 +130,4 @@ MPI | Версия MS-MPI 2012 R2 или более поздняя, автоно
 * Сведения о развертывании и настройке кластера на базе Linux в экземплярах A8 и A9 для доступа к сети RDMA в Azure см. в разделе[Настройка кластера Linux RDMA для выполнения приложений MPI](virtual-machines-linux-cluster-rdma.md).
 * Чтобы приступить к развертыванию и использованию экземпляров A8 и A9 с помощью пакета HPC в Windows, см. разделы [Экземпляры A8 и A9 с большим объемом вычислений: краткое руководство для пакета HPC](https://msdn.microsoft.com/library/azure/dn594431.aspx) и [Запуск приложений MPI на экземплярах A8 и A9](https://msdn.microsoft.com/library/azure/dn592104.aspx).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

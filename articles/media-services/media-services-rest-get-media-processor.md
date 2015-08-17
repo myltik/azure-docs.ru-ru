@@ -28,53 +28,15 @@
 
 В приведенной ниже таблице указаны имена и описания для всех доступных обработчиков мультимедиа.
 
-<table border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
-  <thead>
-    <tr>
-       <th>Имя обработчика мультимедиа</th>
-       <th>Описание</th>
-	<th>Дополнительные сведения</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-       <td>Azure Media Encoder</td>
-       <td>Позволяет выполнять задачи кодирования с использованием обработчика мультимедиа Azure.</td>
-       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx">Строки предустановок задачи для кодировщика службы мультимедиа Azure</a></td>
-    </tr>
-    <tr>
-       <td>Рабочий процесс Premium обработчика мультимедиа</td>
-       <td>Позволяет выполнять задачи кодирования с использованием рабочего процесса Premium обработчика мультимедиа.</td>
-       <td><a href="http://azure.microsoft.com/documentation/articles/media-services-encode-with-premium-workflow/">Кодирование с помощью расширенного рабочего процесса кодировщика мультимедиа.</a></td>
-    </tr>    
-	<tr>
-        <td>Azure Media Indexer</td>
-        <td>Позволяет сделать мультимедийные файлы и контент доступными для поиска, а также создавать дорожки и ключевые слова для субтитров.</td>
-		<td><a href="http://azure.microsoft.com/documentation/articles/media-services-index-content/">Индексирование файлов мультимедиа с помощью индексатора мультимедийных данных Azure</a>.</td>
-    </tr>
-    <tr>
-        <td>Microsoft Azure Media Packager</td>
-        <td>Позволяет преобразовать мультимедийные активы из формата MP4 в формат Smooth Streaming. Позволяет также преобразовать мультимедийные активы из формата Smooth Streaming в формат Apple HTTP Live Streaming (HLS).</td>
-		<td><a href="http://msdn.microsoft.com/library/hh973635.aspx">Строки предустановок задачи для Azure Media Packager</a></td>
-    </tr>
-    <tr>
-        <td>Microsoft Azure Media Encryptor</td>
-        <td>Позволяет шифровать мультимедийные активы с использованием PlayReady Protection.</td>
-        <td><a href=" http://go.microsoft.com/fwlink/?LinkId=613274">Строки предустановок задачи для Azure Media Packager</a></td>
-    </tr>
-	<tr>
-		<td>Azure Media Hyperlapse (предварительная версия)</td>
-		<td>Позволяет сгладить «неровности» видео с помощью стабилизации видео. Также позволяет ускорить содержимое в виде пригодного к использованию клипа.</td>
-		<td><a href="http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db">Azure Media Hyperlapse</a></td>
-	</tr>
-    <tr>
-        <td>Расшифровка хранилища</td>
-        <td>Позволяет расшифровать мультимедийные активы, которые были зашифрованы с помощью шифрования хранилища.</td>
-		<td>Недоступно</td>
-    </tr>  </tbody>
-</table>
-
-<br />
+Имя обработчика мультимедиа|Описание|Дополнительные сведения
+---|---|---
+Azure Media Encoder|Позволяет выполнять задачи кодирования с использованием обработчика мультимедиа Azure.|[Строки предустановок задачи для Azure Media Encoder](http://msdn.microsoft.com/library/jj129582.aspx)
+Рабочий процесс Premium обработчика мультимедиа|Позволяет выполнять задачи кодирования с использованием рабочего процесса Premium обработчика мультимедиа.|[Кодирование с помощью расширенного рабочего процесса кодировщика мультимедиа](media-services-encode-with-premium-workflow.md)
+Azure Media Indexer| Позволяет сделать мультимедийные файлы и контент доступными для поиска, а также создавать дорожки и ключевые слова для субтитров.|[Индексирование файлов мультимедиа с помощью индексатора мультимедийных данных Azure](media-services-index-content.md)
+ Microsoft Azure Media Packager| Позволяет преобразовать мультимедийные активы из формата MP4 в формат Smooth Streaming. Позволяет также преобразовать мультимедийные активы из формата Smooth Streaming в формат Apple HTTP Live Streaming (HLS).|
+ Microsoft Azure Media Encryptor|Позволяет шифровать мультимедийные активы с использованием PlayReady Protection.|
+ Azure Media Hyperlapse (предварительная версия)|Позволяет сгладить «неровности» видео с помощью стабилизации видео. Также позволяет ускорить содержимое в виде пригодного к использованию клипа.|		[Azure Media Hyperlapse](http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
+ Расшифровка хранилища| Позволяет расшифровать мультимедийные активы, которые были зашифрованы с помощью шифрования хранилища.|Недоступно
 
 ##Получение MediaProcessor
 
@@ -86,7 +48,7 @@
 
 
 
-Следующий вызов REST показывает, как получить экземпляр обработчика мультимедиа по имени (в данном случае это **кодировщик службы мультимедиа Azure**).
+Следующий вызов REST показывает, как получить экземпляр обработчика мультимедиа по имени (в данном случае это **кодировщик мультимедиа Azure**).
 
 	
 Запрос:
@@ -127,4 +89,4 @@
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [How to: Connect to Media Services Programmatically]: ../media-services-rest-connect_programmatically/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

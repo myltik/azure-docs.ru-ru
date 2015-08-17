@@ -18,7 +18,9 @@
 
 # Управление доступом на основе ролей с помощью интерфейса командной строки Azure (Azure CLI) #
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/role-based-access-control-powershell.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/role-based-access-control-../xplat-cli.md" title="Интерфейс командной строки Azure">Интерфейс командной строки Azure</a></div>
+> [AZURE.SELECTOR]
+- [Windows PowerShell](role-based-access-control-powershell.md)
+- [Azure CLI](/role-based-access-control-xplat-cli.md)
 
 Функция управления доступом на основе ролей (RBAC) на портале Azure и в API диспетчера ресурсов Azure позволяет управлять доступом к подписке и ресурсам на детальном уровне. С ее помощью вы можете предоставлять доступ пользователям, группам и субъектам-службам Active Directory, назначая им роли с определенной областью.
 
@@ -148,4 +150,4 @@ RBAC работает только с диспетчером ресурсов Az
 - [Устранение неполадок управления доступом на основе ролей](role-based-access-control-troubleshooting.md)
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

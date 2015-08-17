@@ -23,4 +23,4 @@
 [Мобильные службы и служба хранилища Microsoft Azure]: http://chrisrisner.com/Mobile-Services-and-Windows-Azure-Storage
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

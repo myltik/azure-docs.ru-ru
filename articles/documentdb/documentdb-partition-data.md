@@ -1,11 +1,12 @@
 <properties      
-    pageTitle="Секционирование данных в DocumentDB | Azure"      
+    pageTitle="Секционирование данных в DocumentDB | Microsoft Azure"      
     description="Узнайте, как секционировать данные в DocumentDB и когда использовать секционирование по хэшу, диапазону и подстановке."          
     services="documentdb"      
     authors="arramac"      
-    manager="johnmac"      
+    manager="jhubbard"      
     editor="monicar"      
-    documentationCenter=""/> <tags      
+    documentationCenter=""/>
+<tags      
     ms.service="documentdb"      
     ms.workload="data-services"      
     ms.tgt_pltfrm="na"      
@@ -113,4 +114,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

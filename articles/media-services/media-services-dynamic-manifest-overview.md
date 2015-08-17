@@ -163,7 +163,7 @@ URL-адрес Smooth Streaming с фильтром
 
 
 
-![livebackoff_filter][livebackoff_filter]
+![livebackoff\_filter][livebackoff_filter]
 
 
 ###Объединение нескольких правил в одном фильтре
@@ -209,4 +209,4 @@ URL-адрес Smooth Streaming с фильтром
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -35,6 +35,11 @@
    <td valign="middle"><p>1200 в час</p></td>
 </tr>
 <tr>
+   <td valign="middle"><p>Размер запроса API диспетчера ресурсов</p></td>
+   <td valign="middle"><p>4 194 304 байтов</p></td>
+   <td valign="middle"><p>4 194 304 байтов</p></td>
+</tr>
+<tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Облачные службы</a> на подписку</p></td>
    <td valign="middle"><p>Не рекомендуется<sup>3</sup></p></td>
    <td valign="middle"><p>Не рекомендуется<sup>3</sup></p></td>
@@ -52,4 +57,4 @@
 
 <sup>3</sup>Эти возможности больше не требуются для групп ресурсов Azure и диспетчера ресурсов Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Простые примеры кода клиентских приложений для работы с базой данных SQL | Microsoft Azure" 
-	description="В статье приведены ссылки на образцы кода и драйверы для Node.js в ОС Linux, Python в Mac OS, Java в Windows и много других полезных инструментов для клиентов базы данных SQL Azure."
+	description="В статье приведены ссылки на образцы кода и драйверы для Node.js в ОС Linux, Python в Mac OS, Java в Windows, Enterprise Library и много других полезных инструментов для клиентов базы данных SQL Azure."
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.date="08/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -75,7 +75,7 @@
 
 | Язык | Краткий пример | Пример повторной попытки | Относится к объекту |
 | :-- | :-- | :-- | :-- |
-| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [Пользовательский ADO.NET](sql-database-develop-csharp-retry-windows.md)<br/><br/>[ADO.NET с Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
+| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [Пользовательская среда ADO.NET](sql-database-develop-csharp-retry-windows.md)<br/><br/>[Enterprise Library](sql-database-develop-entlib-csharp-retry-windows.md) | (Entity Framework) |
 | C++ | [Драйвер ODBC](http://msdn.microsoft.com/library/azure/hh974312.aspx) | . | . |
 | Java | [Java. JDBC, JDK. Insert, Transaction, Select.](sql-database-develop-java-simple-windows.md)<br/><br/>[Java. Eclipse](sql-data-java-how-to-use-sql-database.md)<br/><br/>[Java. JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx) | . | . |
 | Node.js | [msnodesql](sql-database-develop-nodejs-simple-windows.md) | . | . |
@@ -92,5 +92,6 @@
 - [Разработка для базы данных SQL Azure: разделы практического руководства](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 - [Подключение к базе данных SQL: ссылки, рекомендации и советы по разработке](sql-database-connect-central-recommendations.md)
 - [Создание первой базы данных SQL Azure](sql-database-get-started.md)
+- [Entity Framework 6 здесь, EF 7 на GitHub](http://entityframework.codeplex.com/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

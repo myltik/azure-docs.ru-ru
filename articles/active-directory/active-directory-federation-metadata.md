@@ -39,7 +39,7 @@ Azure AD публикует метаданные федерации в файл�
 
 Для **общих конечных точек** <TenantDomainName> является **общим**. Это имя указывает, что на login.windows.net размещены только элементы метаданных федерации, которые являются общими для всех клиентов Azure AD.
 
-Примером клиентской конечной точки может быть *https://login.windows.net/contoso.onmicrosoft.comFederationMetadata/2007-06/FederationMetadata.xml*. Общая конечная точка выглядит так: *https://login.windows.net/common/FederationMetadata/2007-06/FederationMetadata.xml*.
+Примером клиентской конечной точки может быть **https://login.windows.net/contoso.onmicrosoft.comFederationMetadata/2007-06/FederationMetadata.xml*. Общая конечная точка выглядит так: **https://login.windows.net/common/FederationMetadata/2007-06/FederationMetadata.xml*.
 
 ## Содержимое метаданных федерации
 
@@ -149,4 +149,4 @@ URL-адреса входа и выхода отображаются в элем
 
 [Руководство разработчика по Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

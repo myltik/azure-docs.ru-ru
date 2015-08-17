@@ -12,9 +12,10 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="06/16/2015"
 	ms.author="wesmc"/>
+	
 # Приступая к работе с центрами уведомлений
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -94,7 +95,7 @@
         using Microsoft.Phone.Notification;
         using Microsoft.WindowsAzure.Messaging;
 
-5. При возникновении следующего кода в верхней части метода **Application_Launching** в App.xaml.cs:
+5. При возникновении следующего кода в верхней части метода **Application\_Launching** в App.xaml.cs:
 
 	    var channel = HttpNotificationChannel.Find("MyPushChannel");
         if (channel == null)
@@ -114,7 +115,7 @@
 
 	>[AZURE.NOTE]В этом учебнике на устройство отправляется всплывающее уведомление. Когда вы отправляете всплывающее уведомление, необходимо вместо этого вызвать метод **BindToShellTile** в канале. Чтобы поддерживать одновременно и всплывающие и мозаичные уведомления, следует вызвать оба метода — **BindToShellTile** и **BindToShellToast**.
 
-6. В обозревателе решений разверните меню **Свойства**, откройте файл WMAppManifest.xml, перейдите на вкладку **Возможности** и убедитесь, что установлен флажок **ID___CAP___PUSH_NOTIFICATION**.
+6. В обозревателе решений разверните меню **Свойства**, откройте файл WMAppManifest.xml, перейдите на вкладку **Возможности** и убедитесь, что установлен флажок **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION**.
 
    	![][14]
 
@@ -215,4 +216,4 @@
 [Центр уведомлений: учебник для WP Silverlight]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

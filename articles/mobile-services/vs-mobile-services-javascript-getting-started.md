@@ -92,4 +92,4 @@
 
 [Дополнительные сведения о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

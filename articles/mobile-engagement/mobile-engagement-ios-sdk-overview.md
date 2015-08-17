@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Обзор пакета SDK для рекламных кампаний в iOS для Azure Mobile Engagement" 
+<properties
+	pageTitle="Обзор пакета SDK для рекламных кампаний в iOS для Azure Mobile Engagement"
 	description="Последние обновления и указания для пакета SDK для iOS для Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="07/28/2015" 
-	ms.author="piyushjo" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 #Пакет SDK для Azure Mobile Engagement (iOS)
 
@@ -32,9 +32,9 @@
 
 ##Заметки о выпуске
 
-###2\.2.0 (05/21/2015)
+##3\.0.0 (08/05/2015)
 
--   В основе идентификатора устройства Mobile Engagement для устройств c версией ОС ниже iOS 6 теперь используется GUID, генерируемый во время установки.
+-   Mobile Engagement использует автоматические push-уведомления.
 
 Информацию о предыдущих версиях см. в [полных заметках о выпуске](mobile-engagement-ios-release-notes.md).
 
@@ -48,6 +48,5 @@
 
 ###От версии 2.0.0 до версии 2.1.0
 Нет.
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

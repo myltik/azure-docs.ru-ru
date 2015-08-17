@@ -14,7 +14,8 @@
 	ms.tgt_pltfrm="infrastructure" 
 	ms.workload="infrastructure" 
 	ms.date="07/02/2015" 
-	ms.author="rasquill" />
+	ms.author="rasquill" 
+/>
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Виртуальные машины и контейнеры в Azure
@@ -234,4 +235,4 @@ Docker в Microsoft Azure:
 [микрослужбо]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

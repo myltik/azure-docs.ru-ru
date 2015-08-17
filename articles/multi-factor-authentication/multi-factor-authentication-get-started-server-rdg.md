@@ -59,4 +59,4 @@
 
 ![Проверка подлинности RADIUS](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

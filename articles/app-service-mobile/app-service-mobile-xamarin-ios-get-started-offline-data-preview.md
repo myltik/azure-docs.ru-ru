@@ -170,4 +170,4 @@
 [Расширение Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

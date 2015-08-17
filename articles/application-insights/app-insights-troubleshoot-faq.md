@@ -213,7 +213,7 @@
 <tr><th>Что вы должны видеть</th><th>Как это получить</th><th>Для чего это нужно</th></tr>
 <tr><td>Диаграммы доступности</td><td><a href="../app-insights-monitor-web-app-availability/">Веб-тесты</a></td><td>Узнать, что ваше веб-приложение работает</td></tr>
 <tr><td>Производительность приложения на сервере: время отклика и т.д.
-</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Добавить Application Insights в свой проект</a><br/>или <br/><a href="../app-insights-monitor-performance-live-website-now/">Установить монитор состояний Application Insights на сервере</a></td><td>Выявить проблемы производительности</td></tr>
+</td><td><a href="../app-insights-start-monitoring-app-health-usage/">Добавить Application Insights в свой проект</a><br/>или <br/><a href="../app-insights-monitor-performance-live-website-now/">Установить монитор состояний Application Insights на сервере</a> (или написать собственный код для <a href="../app-insights-api-custom-events-metrics/#track-dependency">отслеживания зависимостей</a>)</td><td>Выявить проблемы производительности</td></tr>
 <tr><td>Телеметрия зависимостей</td><td><a href="../app-insights-monitor-performance-live-website-now/">Установить монитор состояний Application Insights на сервере</a></td><td>Выявить проблемы с базами данных или другими внешними компонентами</td></tr>
 <tr><td>Получение данных трассировки стека из исключений</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Вставьте вызовы TrackException в код</a> (некоторые выводятся автоматически)</td><td>Обнаружить и диагностировать исключения</td></tr>
 <tr><td>Поиск по трассировкам журнала</td><td><a href="../app-insights-search-diagnostic-logs/">Добавьте адаптер ведения журнала</a></td><td>Выявить исключения, проблемы производительности</td></tr>
@@ -239,4 +239,4 @@
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

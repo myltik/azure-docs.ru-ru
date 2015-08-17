@@ -114,4 +114,4 @@ API Management предоставляет почтовые шаблоны для
 [Начинаем работу с API Management]: api-management-get-started.md
 [Создание экземпляра службы API Management]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

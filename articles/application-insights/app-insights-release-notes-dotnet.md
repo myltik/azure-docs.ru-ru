@@ -32,6 +32,18 @@
 * Сравните файл ApplicationInsights.config со старой копией. Большинство изменений, которые отобразятся, обусловлены тем, что одни модули были удалены, а другие теперь подлежат параметризации. Возобновите использование настроек, выполненных в старом файле.
 * Перестройте свое решение.
 
+## Версия 1.2
+
+- Инициализаторы телеметрии, не имеющие зависимостей на базе библиотек ASP.NET, были перемещены из `Microsoft.ApplicationInsights.Web` в новый пакет NuGet зависимостей `Microsoft.ApplicationInsights.WindowsServer`.
+- Библиотека `Microsoft.ApplicationInsights.Web.dll` переименована в `Microsoft.AI.Web.dll`.
+- Пакет NuGet `Microsoft.Web.TelemetryChannel` переименован в `Microsoft.WindowsServer.TelemetryChannel`. Сборка `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` переименована в `Microsoft.AI.ServerTelemetryChannel.dll`. Класс `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` переименован в `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
+- Из всех пространств имен, которые являются частью пакета Web SDK, исключена часть `Extensibility`. Это касается всех инициализаторов телеметрии в файле ApplicationInsights.config и модуля `ApplicationInsightsWebTracking` в файле web.config.
+- Зависимости, собранные с помощью агента инструментирования для среды выполнения (обеспечивается монитором состояния или расширением Azure WebSite), не помечаются как асинхронные, если в потоке нет HttpContext.Current.
+- Свойство `SamplingRatio` модуля `DependencyTrackingTelemetryModule` не выполняет никаких действий и помечено как устаревшее.
+- Сборка `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector` переименована в `Microsoft.AI.PerfCounterCollector`.
+- Исправлены некоторые незначительные ошибки в Web SDK и Devices SDK.
+
+
 ## Версия 1.1
 
 - Добавлен новый тип телеметрии `DependencyTelemetry`, который можно использовать для отправки сведений о вызовах зависимостей из приложения (таких как вызовы SQL, HTTP и т. д).
@@ -42,10 +54,10 @@
 
 - Инициализаторы и модули телеметрии перемещены из отдельных вложенных пространств имен в корневое пространство имен `Microsoft.ApplicationInsights.Extensibility.Web`.
 - Из имен инициализаторов и модулей телеметрии удален префикс Web, поскольку он уже присутствует в имени пространства имен `Microsoft.ApplicationInsights.Extensibility.Web`.
-- `DeviceContextInitializer` перемещен из сборки`Microsoft.ApplicationInsights` в сборку `Microsoft.ApplicationInsights.Extensibility.Web` и преобразован в `ITelemetryInitializer`.
-- Имена пространства имен и сборок изменены с `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry` на`Microsoft.ApplicationInsights.Extensibility.DependencyCollector` для согласования с именем пакета NuGet.
-- `RemoteDependencyModule` переименован в `DependencyTrackingTelemetryModule`.
-- `CustomPerformanceCounterCollectionRequest` переименован в `PerformanceCounterCollectionRequest`.
+- `DeviceContextInitializer` перемещен из сборки `Microsoft.ApplicationInsights` в сборку `Microsoft.ApplicationInsights.Extensibility.Web` и преобразован в `ITelemetryInitializer`.
+- Имена пространств имен и сборок изменены с `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry` на `Microsoft.ApplicationInsights.Extensibility.DependencyCollector` для согласования с именем пакета NuGet.
+- Модуль `RemoteDependencyModule` переименован в `DependencyTrackingTelemetryModule`.
+- Запрос `CustomPerformanceCounterCollectionRequest` переименован в `PerformanceCounterCollectionRequest`.
 
 ## Версия 0.17
 - Удалена зависимость EventSource NuGet для приложений Framework 4.5.
@@ -74,4 +86,4 @@
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

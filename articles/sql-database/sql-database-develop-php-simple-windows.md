@@ -62,7 +62,7 @@
 
 ## Выполнение запроса и получение результирующего набора
 
-Функция [sqlsrv_query()](http://php.net/manual/en/function.sqlsrv-query.php) может использоваться для извлечения результирующего набора из запроса к базе данных SQL. Эта функция фактически принимает любой запрос и объект соединения и возвращает результирующий набор, по которому может быть выполнена итерация с использованием [sqlsrv_fetch_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
+Функция [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) может использоваться для извлечения результирующего набора из запроса к базе данных SQL. Эта функция фактически принимает любой запрос и объект соединения и возвращает результирующий набор, по которому может быть выполнена итерация с использованием [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
 	function ReadData()
 	{
@@ -180,4 +180,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

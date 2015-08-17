@@ -99,4 +99,4 @@
 [API REST зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

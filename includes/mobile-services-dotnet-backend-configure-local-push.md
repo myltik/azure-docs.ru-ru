@@ -15,10 +15,10 @@
 
 	![](./media/mobile-services-dotnet-backend-configure-local-push/notification-hub-connection-string.png)
 
-4. Откройте в проекте мобильной службы Visual Studio файл Web.config службы и замените в **connectionStrings** строку подключения для **MS_NotificationHubConnectionString** на строку подключения из предыдущего шага.
+4. Откройте в проекте мобильной службы Visual Studio файл Web.config службы и замените в **connectionStrings** строку подключения для **MS\_NotificationHubConnectionString** на строку подключения из предыдущего шага.
 
-5. В **appSettings** замените значение параметра приложения **MS_NotificationHubName** на имя центра уведомлений.
+5. В **appSettings** замените значение параметра приложения **MS\_NotificationHubName** на имя центра уведомлений.
 
 Теперь проект мобильной службы настроен для подключения к центру уведомлений в Azure при локальном запуске. Обратите внимание, что следует использовать то же имя центра уведомлений и ту же строку подключения, что и на портале, поскольку при запуске в Azure параметры проекта Web.config переопределяются параметрами портала.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -80,19 +80,19 @@ UpgradeTimeout = 3000
 
 ## Шаг 4. Подготовка приложения к обновлению
 
-Теперь приложение создано и готово для обновления. Если открыть окно PowerShell с правами администратора и ввести команду **Get-ServiceFabricApplication**, то в нем должна отобразиться информация о том, что развернуто приложение 1.0.0.0 типа **VisualObjects**. Пакет приложения хранится по следующем относительному пути в зависимости от того, куда был извлечен SDK структуры служб: *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. Следует найти папку Package в этом каталоге, где хранится пакет приложения. Проверьте временные отметки, чтобы убедиться в том, что это самая последняя версия (возможно, потребуется также изменить пути).
+Теперь приложение создано и готово для обновления. Если открыть окно PowerShell с правами администратора и ввести команду **Get-ServiceFabricApplication**, то в нем должна отобразиться информация о том, что развернуто приложение 1.0.0.0 типа **VisualObjects**. Пакет приложения хранится по следующем относительному пути в зависимости от того, куда был извлечен SDK структуры служб: *Samples\\Services\\Stateful\\VisualObjects\\VisualObjects\\obj\\x64\\Debug*. Следует найти папку Package в этом каталоге, где хранится пакет приложения. Проверьте временные отметки, чтобы убедиться в том, что это самая последняя версия (возможно, потребуется также изменить пути).
 
-Теперь давайте скопируем обновленный пакет приложения в ImageStore структуры службы (место, где структурой служб сохраняются пакеты приложения). Параметр *ApplicationPackagePathInImageStore* информирует структуру служб о том, где находится пакет приложения. Мы поместили обновленное приложение в папку VisualObjects_V2 при помощи следующей команды (возможно, снова потребуется изменить пути).
+Теперь давайте скопируем обновленный пакет приложения в ImageStore структуры службы (место, где структурой служб сохраняются пакеты приложения). Параметр *ApplicationPackagePathInImageStore* информирует структуру служб о том, где находится пакет приложения. Мы поместили обновленное приложение в папку VisualObjects\_V2 при помощи следующей команды (возможно, снова потребуется изменить пути).
 
 ```powershell
 Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package
--ImageStoreConnectionString fabric:ImageStore   -ApplicationPackagePathInImageStore "VisualObjects_V2"
+-ImageStoreConnectionString fabric:ImageStore   -ApplicationPackagePathInImageStore "VisualObjects\_V2"
 ```
 
 Следующим шагом необходимо зарегистрировать приложение в структуре служб. Это можно сделать при помощи следующей команды:
 
 ```powershell
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObjects_V2"
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObjects\_V2"
 ```
 
 Если вышеупомянутая команда не будет успешно выполнена, возможно, следует заново построить все связанные службы. Как упомянуто на шаге 2, возможно, потребуется обновить версию объекта WebService.
@@ -126,4 +126,4 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 [Поиск и устранение неисправностей при обновлении приложения](service-fabric-application-upgrade-troubleshooting.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

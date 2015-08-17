@@ -39,4 +39,4 @@
 
 <li>После этого вы войдете в систему.</li>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

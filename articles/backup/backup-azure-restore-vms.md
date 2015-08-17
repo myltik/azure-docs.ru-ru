@@ -8,14 +8,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags 
-	ms.service="backup" 
-	ms.workload="storage-backup-recovery" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/17/2015" 
-	ms.author="trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="trinadhk"; "jimpark"/>
 
 # Восстановление виртуальной машины
 С помощью операции восстановления можно восстановить виртуальную машину в новую ВМ из резервных копий, хранящихся в службе архивации Azure.
@@ -102,4 +95,4 @@
 ## Дальнейшие действия
 - [Управление виртуальными машинами](backup-azure-manage-vms)
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

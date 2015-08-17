@@ -24,8 +24,8 @@
 ## Какое перенаправление включено по умолчанию?
 Если используется удаленное приложение RemoteApp, следующие перенаправления включены по умолчанию. Информация в скобках показывает параметр протокола удаленного рабочего стола.
 
-- Воспроизведение звуков на локальном компьютере (** Воспроизвести на этом компьютере **). (audiomode:i:0)
-- Запись звука с локального компьютера и отправка записи на удаленный компьютер (** Записать с этого компьютера **). (audiocapturemode:i:1)
+- Воспроизведение звуков на локальном компьютере (**Воспроизвести на этом компьютере**). (audiomode:i:0)
+- Запись звука с локального компьютера и отправка записи на удаленный компьютер (**Записать с этого компьютера**). (audiocapturemode:i:1)
 - Печать на локальных принтерах (redirectprinters:i:1)
 - COM-порты (redirectcomports:i:1)
 - Устройства чтения смарт-карт (redirectsmartcards:i:1)
@@ -83,7 +83,7 @@
 Изменение настроек перенаправления USB на компьютере.
 
 1. Откройте редактор локальных групповых политик (GPEDIT. MSC). (Из командной строки запустите команду gpedit.msc.)
-2. Откройте папку **Computer Configuration\Policies\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Connection Client\RemoteFX USB Device Redirection**.
+2. Откройте папку **Computer Configuration\\Policies\\Administrative Templates\\Windows Components\\Remote Desktop Services\\Remote Desktop Connection Client\\RemoteFX USB Device Redirection**.
 3. Дважды щелкните **Разрешить перенаправление RDP других поддерживаемых устройств RemoteFX USB на этом компьютере**.
 4. Выберите **Включено**, а затем выберите **Администраторы и пользователи в правах доступа перенаправления RemoteFX USB**.
 5. Откройте командную строку с правами администратора и выполните следующую команду: 
@@ -97,9 +97,9 @@
 2. Откройте консоль управления групповыми политиками. (Щелкните **Пуск > Администрирование > Управление групповой политикой**).
 3. Перейдите в домен или подразделение, для которого необходимо создать политику.
 4. Щелкните правой кнопкой мыши **Политика домена по умолчанию**, а затем нажмите кнопку **Изменить**.
-5. Откройте папку **Computer Configuration\Policies\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Connection Client\RemoteFX USB Device Redirection**.
+5. Откройте папку **Computer Configuration\\Policies\\Administrative Templates\\Windows Components\\Remote Desktop Services\\Remote Desktop Connection Client\\RemoteFX USB Device Redirection**.
 6. Дважды щелкните **Разрешить перенаправление RDP других поддерживаемых устройств RemoteFX USB на этом компьютере**.
 7. Выберите **Включено**, а затем выберите **Администраторы и пользователи в правах доступа перенаправления RemoteFX USB**.
 8. Нажмите кнопку **ОК**.  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

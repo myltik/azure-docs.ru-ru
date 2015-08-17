@@ -225,4 +225,4 @@ PS D:\temp>
 [Сериализация данных](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

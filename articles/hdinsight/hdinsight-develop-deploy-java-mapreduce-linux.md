@@ -38,13 +38,13 @@
 
 Во время установки Java и JDK могут быть установлены следующие переменные среды. Однако следует убедиться, что они существуют и что они содержат правильные значения для вашей системы.
 
-* **JAVA_HOME** — эта переменная должна указывать на каталог, в который установлена среда выполнения Java (JRE). Например, в системе OS X, Unix или Linux она должна иметь примерно такое значение: `/usr/lib/jvm/java-7-oracle` В Windows значение будет приблизительно таким: `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA\_HOME** — эта переменная должна указывать на каталог, в который установлена среда выполнения Java (JRE). Например, в системе OS X, Unix или Linux она должна иметь примерно такое значение: `/usr/lib/jvm/java-7-oracle` В Windows значение будет приблизительно таким: `c:\Program Files (x86)\Java\jre1.7`
 
 * **PATH** — эта переменная должна содержать следующие пути:
 
-	* **JAVA_HOME** или эквивалентный путь;
+	* **JAVA\_HOME** или эквивалентный путь;
 
-	* **JAVA_HOME\bin** или эквивалентный путь.
+	* **JAVA\_HOME\\bin** или эквивалентный путь.
 
 	* Каталог, в который установлено ПО Maven.
 
@@ -56,13 +56,13 @@
 
 		mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
-	При этом в текущем каталоге будет создан новый каталог с именем, указанным в параметре __artifactID__ (в данном примере это **wordcountjava**). В этом каталоге будут находиться следующие элементы.
+	При этом в текущем каталоге будет создан новый каталог с именем, указанным в параметре __artifactID__ (в данном примере это **wordcountjava**). В этом каталоге будут находиться следующие элементы:
 
 	* __pom.xml__ — это [модель объекта проекта (POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html), которая содержит информацию и подробности конфигурации, использующиеся при сборке проекта;
 
-	* __src__ — каталог, содержащий каталог __main/java/org/apache/hadoop/examples__, в котором будет создаваться приложение.
+	* __src__ — каталог, содержащий каталог __main\\java\\org\\apache\\hadoop\\examples__, в котором будет разрабатываться приложение.
 
-3. Удалите файл __src/test/java/org/apache/hadoop/examples/apptest.java__, так как он не используется в этом примере.
+3. Удалите файл __src\\test\\java\\org\\apache\\hadoop\\examples\\apptest.java__, так как он не используется в этом примере.
 
 ##Добавление зависимостей
 
@@ -125,7 +125,7 @@
   		  </plugins>
 	    </build>
 
-	Первый подключаемый модуль настраивает [подключаемый модуль Maven Shade](http://maven.apache.org/plugins/maven-shade-plugin/), который используется для создания uberjar (иногда называется fatjar), который содержит зависимости, требуемые приложением. Он также предотвращает дублирование лицензий в рамках пакета JAR, которое может вызвать проблемы в некоторых системах.
+	Первый подключаемый модуль настраивает [подключаемый модуль Maven Shade](http://maven.apache.org/plugins/maven-shade-plugin/), используемый для создания uberjar (иногда называется fatjar), который содержит требуемые приложению зависимости. Он также предотвращает дублирование лицензий в рамках пакета JAR, которое может вызвать проблемы в некоторых системах.
 
 	Второй подключаемый модуль настраивает компилятор Maven, который используется для задания версии Java, необходимой для этого приложения. Версия должна совпадать с версией, используемой в кластере HDInsight.
 
@@ -133,7 +133,7 @@
 
 ##Создание приложения MapReduce
 
-1. Перейдите в каталог __wordcountjava/src/main/java/org/apache/hadoop/examples__ и измените имя файла __App.java__ на __WordCount.java__.
+1. Перейдите в каталог __wordcountjava\\src\\main\\java\\org\\apache\\hadoop\\examples__ и переименуйте файл __app.java__ в __WordCount.java__.
 
 2. Откройте файл __WordCount.java__ в текстовом редакторе и замените его содержимое на следующее:
 
@@ -212,7 +212,7 @@
 
 ##Создание приложения
 
-1. Перейдите в каталог __wordcountjava__ если вы еще не сделали это.
+1. Перейдите в каталог __wordcountjava__, если вы еще не сделали это.
 
 2. Выполните следующую команду, чтобы собрать файл JAR, содержащий приложение.
 
@@ -220,9 +220,9 @@
 
 	При этом будут удалены остатки предыдущих сборок, загружены все неустановленные на текущий момент зависимости, затем будет произведена сборка и создание пакета приложения.
 
-3. После завершения выполнения команды в каталоге __wordcountjava/target__ будет находиться файл с именем __wordcountjava-1.0-SNAPSHOT.jar__.
+3. После завершения выполнения команды в каталоге __wordcountjava\\target__ будет находиться файл с именем __wordcountjava-1.0-SNAPSHOT.jar__.
 
-	> [AZURE.NOTE]Файл __Wordcountjava-1.0-SNAPSHOT.jar__ является uberjar, который содержит не только задание WordCount, но и зависимости, необходимые для выполнения задания.
+	> [AZURE.NOTE]Файл __Wordcountjava-1.0-SNAPSHOT.jar__ является uberjar, который содержит не только задание WordCount, но и зависимости, необходимые заданию во время выполнения.
 
 
 ##<a id="upload"></a>Загрузка файла JAR
@@ -249,7 +249,7 @@
 
 		hadoop jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
 
-	Она будет использовать приложение MapReduce WordCount MapReduce, чтобы подсчитать слова в файле davinci.txt и сохранить результаты в __wasb:///example/data/wordcountout__. Файлы ввода и вывода хранятся в хранилище кластера по умолчанию.
+	Она будет использовать приложение WordCount MapReduce, чтобы подсчитать слова в файле davinci.txt и сохранить результаты в \_\___wasb:///example/data/wordcountout__. Файлы ввода и вывода хранятся в хранилище кластера по умолчанию.
 
 3. После завершения задания просмотрите результаты с помощью следующей команды.
 
@@ -297,4 +297,4 @@
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

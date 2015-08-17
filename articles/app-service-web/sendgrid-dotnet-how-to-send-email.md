@@ -240,4 +240,4 @@ SendGrid поддерживает веб-интерфейсы API и метод�
   [доставки электронной почты]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

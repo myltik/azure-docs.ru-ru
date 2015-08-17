@@ -61,4 +61,4 @@
 
 В разделе [Настройка GoldenGate Oracle для Azure](virtual-machines-configuring-oracle-goldengate.md) описаны этапы настройки базы данных и репликации.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -186,4 +186,4 @@ SQL Server 2014 SSMS с последними обновлениями предл
  
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

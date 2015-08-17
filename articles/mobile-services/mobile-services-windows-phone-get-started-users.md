@@ -80,4 +80,4 @@
 [Единый вход для приложений Windows Phone с использованием Live Connect]: mobile-services-windows-phone-single-sign-on.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

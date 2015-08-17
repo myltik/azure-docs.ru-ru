@@ -51,7 +51,7 @@
 - [\+ (Объединение строк)](https://msdn.microsoft.com/library/ms177561.aspx)
 - [\- (Отрицательное число)](https://msdn.microsoft.com/library/ms189480.aspx)
 - [\- (Вычитание)](https://msdn.microsoft.com/library/ms189518.aspx)
-- [\* (Умножение)](https://msdn.microsoft.com/library/ms176019.aspx)
+- [* (Умножение)](https://msdn.microsoft.com/library/ms176019.aspx)
 - [/ (Деление)](https://msdn.microsoft.com/library/ms175009.aspx)
 - [Остаток от деления](https://msdn.microsoft.com/library/ms190279.aspx)
 
@@ -290,4 +290,4 @@
 
 <!--MSDN references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

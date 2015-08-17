@@ -128,10 +128,10 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 Разумеется, для выполнения кода Java из предыдущего абзаца нужно заменить реальными значениями следующие заполнители:
 
 
-- your_server
-- your_database
-- your_user
-- your_password
+- your\_server
+- your\_database
+- your\_user
+- your\_password
 
 
 ## ВСТАВКА двух строк в таблицу
@@ -144,7 +144,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
  - Мы включаем параметр `Statement.RETURN_GENERATED_KEYS`, чтобы позже можно было получить значение, автоматически созданное для ключа **id**.
 2. Вызовите метод `execute` в контексте объекта `PreparedStatement`.
 3. Используя объект `PreparedStatement`, получите числовое значение, автоматически созданное для первичного ключа.
- - Оно относится к спецификации AUTO_INCREMENT столбца **id** таблицы Person.
+ - Оно относится к спецификации AUTO\_INCREMENT столбца **id** таблицы Person.
 
 
 Скопируйте и вставьте этот небольшой сегмент кода Java в приведенную выше основу кода под комментарием `// INSERT two rows into the table.`.
@@ -225,4 +225,4 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

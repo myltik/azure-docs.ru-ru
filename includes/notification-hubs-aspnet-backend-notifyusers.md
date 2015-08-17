@@ -101,7 +101,7 @@
 
 	> [AZURE.NOTE]**Примечание о безопасности**. Класс `AuthenticationTestHandler` не обеспечивает настоящую аутентификацию. Этот класс используется лишь для имитации базовой проверки подлинности и не является безопасным. В реальных приложениях и службах необходимо реализовать безопасный механизм проверки подлинности.
 
-4. Добавьте следующий код в конец метода `Register` в классе **App_Start/WebApiConfig.cs**, чтобы зарегистрировать обработчик событий:
+4. Добавьте следующий код в конец метода `Register` в классе **App\_Start/WebApiConfig.cs**, чтобы зарегистрировать обработчик событий:
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
@@ -359,4 +359,4 @@
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

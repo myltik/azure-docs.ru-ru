@@ -444,4 +444,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Дальнейшие действия
 Дополнительные сведения о службе архивации Azure для Windows Server и Client см. в разделе [Общие сведения о службе архивации Azure](backup-introduction-to-azure-backup.md)
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

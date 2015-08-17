@@ -121,7 +121,7 @@
 
 **Примечание к выпуску от 10.8.2014**:
 
-При использовании конечной точки Ambari https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname} поле *host_name* в настоящее время возвращает полное доменное имя (FQDN) узла вместо имени узла. До выпуска от 10.8.2014 этот пример просто возвращал «headnode0». После выпуска от 10.8.2014 поле возвращает полное доменное имя headnode0.{ClusterDNS}.azurehdinsight.net, как это показано в примере выше. Это изменение было продиктовано необходимостью использовать сценарии, в которых кластеры различного типа, например кластеры HBase и Hadoop, можно было бы размещать в одной виртуальной сети (VNET). Такая необходимость может возникнуть, например, при использовании HBase в качестве вспомогательной платформы для Hadoop.
+При использовании конечной точки Ambari https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname} поле *host\_name* в настоящее время возвращает полное доменное имя (FQDN) узла вместо имени узла. До выпуска от 08.10.2014 этот пример возвращал просто значение **headnode0**. После выпуска от 08.10.2014 он возвращает полное доменное имя **headnode0.{ClusterDNS}.azurehdinsight.net**, как это показано в примере выше. Это изменение было продиктовано необходимостью использовать сценарии, в которых кластеры различного типа, например кластеры HBase и Hadoop, можно было бы размещать в одной виртуальной сети (VNET). Такая необходимость может возникнуть, например, при использовании HBase в качестве вспомогательной платформы для Hadoop.
 
 ##<a id="monitor"></a>Интерфейсы Ambari API для мониторинга
 
@@ -178,4 +178,4 @@
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

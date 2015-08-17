@@ -85,7 +85,7 @@
 
 1. Войдите на [Портал управления](https://manage.windowsazure.com/) и щелкните элемент **Службы мультимедиа**. Затем щелкните имя службы мультимедиа.
 
-2. Откройте страницу КОНЕЧНЫЕ ТОЧКИ ПОТОКОВОЙ ПЕРЕДАЧИ. Затем щелкните точку, которую требуется изменить.
+2. Откройте страницу КОНЕЧНЫЕ ТОЧКИ ПОТОКОВОЙ ПЕРЕДАЧИ. Затем щелкните конечную точку, которую требуется изменить.
 
 3. Чтобы указать число единиц потоковой передачи, перейдите на вкладку МАСШТАБ и переместите ползунок **зарезервированная мощность**.
 
@@ -259,4 +259,4 @@
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

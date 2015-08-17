@@ -648,4 +648,4 @@ HDInsight использует для хранения данных хранил
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

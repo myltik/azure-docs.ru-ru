@@ -95,4 +95,4 @@
 6. Импортируйте сертификат (.pfx) на машину, на которой имеется Visual Studio с установленным пакетом Azure SDK для .NET.
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

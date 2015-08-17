@@ -93,7 +93,7 @@ HDInsight работает со множеством компонентов Hado
 	![HDI.CreateRDPUser][image-hdi-create-rpd-user]
 
 
-> [AZURE.NOTE]Можно также включить удаленный рабочий стол в кластере с помощью пакета SDK для HDInsight .NET. Используйте метод **EnableRdp** в клиентском объекте HDInsight следующим образом: **client.EnableRdp(имя_кластера, расположение, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Аналогично, чтобы отключить удаленный рабочий стол в кластере, можно использовать **client.DisableRdp(имя_кластера, расположение)**. Дополнительные сведения об этих методах см. в разделе [Справочник по пакету SDK для HDInsight .NET](http://go.microsoft.com/fwlink/?LinkId=529017). Это применимо только для кластеров HDInsight под управлением Windows.
+> [AZURE.NOTE]Можно также включить удаленный рабочий стол в кластере с помощью пакета SDK для HDInsight .NET. Используйте метод **EnableRdp** в клиентском объекте HDInsight следующим образом: **client.EnableRdp(имя\_кластера, расположение, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Аналогично, чтобы отключить удаленный рабочий стол в кластере, можно использовать **client.DisableRdp(имя\_кластера, расположение)**. Дополнительные сведения об этих методах см. в разделе [Справочник по пакету SDK для HDInsight .NET](http://go.microsoft.com/fwlink/?LinkId=529017). Это применимо только для кластеров HDInsight под управлением Windows.
 
 
 
@@ -202,4 +202,4 @@ HDInsight работает со множеством компонентов Hado
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

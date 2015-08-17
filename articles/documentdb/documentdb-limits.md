@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Ограничения и квоты DocumentDB | Azure" 
+	pageTitle="Ограничения и квоты DocumentDB| Microsoft Azure" 
 	description="Узнайте об ограничениях и квотах, установленных для DocumentDB." 
 	services="documentdb" 
 	authors="mimig1" 
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

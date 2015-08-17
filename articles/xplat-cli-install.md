@@ -125,7 +125,7 @@
 ## Выполнение команд Azure CLI
 
 После установки Azure CLI для доступа к соответствующим функциям можно использовать команду **azure** в интерфейсе командной строки (Bash, терминал, cmd.exe и т. п.). Например, чтобы выполнить команду справки (help) в Windows, запустите командную строку (cmd.exe) с правами администратора: ```
-	c:> azure help
+	C:\> azure help
 ```
 
 Теперь все готово к работе. Вы можете [подключиться к среде Azure из интерфейса Azure CLI](xplat-cli-connect.md) и приступать к использованию команд **azure**.
@@ -153,4 +153,4 @@
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

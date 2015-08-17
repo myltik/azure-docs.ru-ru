@@ -467,7 +467,7 @@ Type=PerfHourly  CounterName="% Processor Time"  InstanceName="_Total" | Measure
 
 выражение\_фильтра | команда1 | команда2 …
 
-Выражение фильтра (\*\*выражение\_фильтра\*\*) определяет условие where для запроса. Команды применяются к результатам, возвращаемым запросом. Несколько команд следует разделить символом вертикальной черты (|).
+Выражение фильтра (**filterExpression**) определяет условие where для запроса. Команды применяются к результатам, возвращаемым запросом. Несколько команд следует разделить символом вертикальной черты (|).
 
 #### Примеры общего синтаксиса
 
@@ -765,7 +765,7 @@ system "Windows Server" OR Severity:1|system AND ("Windows Server" OR Severity:1
 
 #### Measure
 
-Команда **measure** используется для применения статистических функций к необработанным результатам поиска. Иногда данные нужно представить в *сгруппированном* виде. При использовании команды **measure** Operational Insights выводит на экран таблицу с агрегированными результатами.
+Команда **measure** используется для применения статистических функций к необработанным результатам поиска. Иногда данные нужно представить в *сгруппированном* виде. При использовании команды **measure** в компоненте оперативной аналитики отображается таблица с агрегированными результатами.
 
 Синтаксис:
 
@@ -774,10 +774,10 @@ system "Windows Server" OR Severity:1|system AND ("Windows Server" OR Severity:1
 
 	measure aggregateFunction([aggregatedField])  interval interval
 
-Выполняет статистическую обработку результатов с помощью параметра **groupField** и вычисляет совокупные значения с помощью параметра **aggregatedField**.
+Осуществляет статистическую обработку результатов по **groupField** и вычисляет агрегированные значения с помощью **aggregatedField**.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Статистическая функция measure </th> <th>Описание </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>Имя агрегатной функции (без учета регистра). Поддерживаются следующие агрегатные функции:</p> <ul> <li class="unordered">COUNT<br><br></li> <li class="unordered">MAX<br><br></li> <li class="unordered">MIN<br><br></li> <li class="unordered">SUM<br><br></li> <li class="unordered">AVG<br><br></li> <li class="unordered">STDDEV<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>Поле, в котором статистическая обработка. Это поле является необязательным для агрегатной функции COUNT, но должно присутствовать в качестве числового поля для SUM, MAX, MIN, AVG или STDDEV.</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>Псевдоним (необязательный) для вычисляемого агрегатного значения. Если он не указан, имя поля будет иметь значение <em>AggregatedValue.</em></p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>Имя поля, по которому группируется результирующий набор. </p> </td> </tr> <tr> <td> <p><em>Interval</em> </p> </td> <td> <p>Интервал времени в следующем формате: </p> <p><em>nnnNAME</em>, </p> <p></p> <p>где: </p> <p>nnn является целым положительным числом</p>; <p><em>NAME</em> является именем интервала</p>. <p>К поддерживаемым именам интервала относятся следующие (с учетом регистра): </p> <ul> <li class="unordered">MILLISECOND[S]<br><br></li>, <li class="unordered">SECOND[S]<br><br></li>, <li class="unordered">MINUTE[S]<br><br></li>, <li class="unordered">HOUR[S]<br><br></li>, <li class="unordered">DAY[S]<br><br></li>, <li class="unordered">MONTH[S]<br><br></li>, <li class="unordered">YEAR[S]<br></li>. </ul> </td> </tr> </table>
+<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>Статистическая функция measure </th> <th>Описание </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>Имя агрегатной функции (без учета регистра). Поддерживаются следующие агрегатные функции:</p> <ul> <li class="unordered">COUNT<br><br></li> <li class="unordered">MAX<br><br></li> <li class="unordered">MIN<br><br></li> <li class="unordered">SUM<br><br></li> <li class="unordered">AVG<br><br></li> <li class="unordered">STDDEV<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>Поле, в котором проходит статистическая обработка. Это поле является необязательным для агрегатной функции COUNT, но должно присутствовать в качестве числового поля для SUM, MAX, MIN, AVG или STDDEV.</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>Псевдоним (необязательный) для вычисляемого агрегатного значения. Если он не указан, имя поля будет иметь значение <em>AggregatedValue.</em></p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>Имя поля, по которому группируется результирующий набор. </p> </td> </tr> <tr> <td> <p><em>Interval</em> </p> </td> <td> <p>Интервал времени в следующем формате: </p> <p><em>nnnNAME</em>, </p> <p></p> <p>где: </p> <p>nnn является целым положительным числом</p>; <p><em>NAME</em> является именем интервала</p>. <p>К поддерживаемым именам интервала относятся следующие (с учетом регистра): </p> <ul> <li class="unordered">MILLISECOND[S]<br><br></li>, <li class="unordered">SECOND[S]<br><br></li>, <li class="unordered">MINUTE[S]<br><br></li>, <li class="unordered">HOUR[S]<br><br></li>, <li class="unordered">DAY[S]<br><br></li>, <li class="unordered">MONTH[S]<br><br></li>, <li class="unordered">YEAR[S]<br></li>. </ul> </td> </tr> </table>
 
 
 
@@ -809,7 +809,7 @@ system "Windows Server" OR Severity:1|system AND ("Windows Server" OR Severity:1
 
 *Пояснение*
 
-Аналогичен предыдущему примеру, только с псевдонимом агрегированного поля (\*\*AlertsPerHour\*\*).
+Аналогичен предыдущему примеру, только с псевдонимом агрегированного поля (**AlertsPerHour**).
 
 **Пример 4**
 
@@ -2049,4 +2049,4 @@ system "Windows Server" OR Severity:1|system AND ("Windows Server" OR Severity:1
 ## Другие ресурсы
 Стефан Рос (Stefan Roth) написал удобную памятку по поиску. Ознакомьтесь с его [блогом](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/), чтобы получить дополнительные сведения и скачать эту памятку.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -66,4 +66,4 @@
 
 [Узнайте больше об изменении конфигурации устройства](storsimple-modify-device-config.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

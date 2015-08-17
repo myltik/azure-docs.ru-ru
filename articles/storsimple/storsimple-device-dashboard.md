@@ -96,4 +96,4 @@
 
 [Узнайте больше о панели мониторинга службы диспетчера StorSimple](storsimple-service-dashboard.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

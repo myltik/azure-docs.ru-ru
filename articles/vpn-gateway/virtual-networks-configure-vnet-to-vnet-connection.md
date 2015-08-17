@@ -223,4 +223,4 @@ VNet2: адресное пространство — 10.2.0.0/16; регион �
 [2]: http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Configure-the-VPN-connectivity-between-two-Azure-virtual-networks
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

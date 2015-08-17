@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/22/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Что произошло с моим проектом?
 
@@ -59,11 +59,13 @@
 
 ###Один из файлов app.config или web.config имеет новое значение конфигурации.
 
-Были добавлены следующие записи конфигурации. <pre> `<appSettings>
+Были добавлены следующие записи конфигурации. ```
+	`<appSettings>
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
     		<add key="ida:Audience" value="The App ID Uri from the wizard" />
-	</appSettings>` </pre>
+	</appSettings>` 
+```
 
 ###Создано приложение Azure AD
 
@@ -101,13 +103,17 @@
 
 ###В файл app.config или web.config внесены дополнительные изменения
 
-Были добавлены следующие дополнительные записи конфигурации. <pre> `<appSettings>
+Были добавлены следующие дополнительные записи настройки.
+
+```
+	`<appSettings>
 	    <add key="ida:Password" value="Your Azure AD App's new password" />
-	</appSettings>` </pre>
+	</appSettings>` 
+```
 
 ###Обновлено приложение Azure Active Directory
 В приложение Azure Active Directory добавлено разрешение *Чтение данных каталога*. Кроме того, создан дополнительный ключ, который затем использовался в качестве параметра *ida:Password* в файле `web.config`.
 
 [Дополнительная информация о службе Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

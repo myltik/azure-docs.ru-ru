@@ -285,4 +285,4 @@ Microsoft SharePoint Server 2010 обеспечивает большую гиб�
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

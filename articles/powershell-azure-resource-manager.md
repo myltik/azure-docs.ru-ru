@@ -372,29 +372,9 @@ PowerShell завершает имя параметра. Для цикличес
 
 
 ## Дальнейшие действия
-Приступая к работе
 
-- [Общие сведения о диспетчере ресурсов Azure](./resource-group-overview.md)
-- [Использование CLI Azure для Mac, Linux и Windows со средствами управления ресурсами Azure](./xplat-cli-azure-resource-manager.md)
-- [Управление ресурсами Azure с помощью портала Azure](./resource-group-portal.md)
+- Сведения о создании шаблонов диспетчера ресурсов см. в статье [Создание шаблонов диспетчера ресурсов Azure](./resource-group-authoring-templates.md).
+- Инструкции по развертыванию шаблонов см. в статье [Развертывание приложения с помощью шаблона диспетчера ресурсов Azure](./resource-group-template-deploy.md).
+- Подробный пример развертывания проекта см. в статье [Предсказуемое развертывание микрослужб в Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 
-Создание и развертывание приложений
-
-- [Создание шаблонов диспетчера ресурсов Azure](./resource-group-authoring-templates.md)
-- [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](./resource-group-template-deploy.md)
-- [Предсказуемое развертывание сложного приложения в Azure](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Устранение неполадок при развертывании групп ресурсов в Azure](./resource-group-deploy-debug.md)
-- [Функции шаблонов в диспетчере ресурсов Azure](./resource-group-template-functions.md)
-- [Расширенные операции с шаблонами](./resource-group-advanced-template.md)
-
-Упорядочение ресурсов
-
-- [Использование тегов для организации ресурсов в Azure](./resource-group-using-tags.md)
-
-Управление доступом и его аудит
-
-- [Управление доступом к ресурсам и его контроль](./resource-group-rbac.md)
-- [Проверка подлинности субъекта-службы в диспетчере ресурсов Azure](./resource-group-authenticate-service-principal.md)
-- [Создание нового субъекта-службы Azure с помощью классического портала Azure](./resource-group-create-service-principal-portal.md)
-
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

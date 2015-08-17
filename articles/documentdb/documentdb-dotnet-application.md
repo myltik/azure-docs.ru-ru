@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Создание веб-приложения ASP.NET MVC с использованием DocumentDB | Azure" 
+	pageTitle="Создание веб-приложения ASP.NET MVC с использованием DocumentDB | Microsoft Azure" 
 	description="Узнайте, как использовать DocumentDB с .NET для создания веб-приложения «Список дел». Вы будете хранить данные в веб-приложении ASP.NET MVC, размещенном в Azure, в этом же приложении вы будет их использовать." 
 	services="documentdb" 
 	documentationCenter=".net" 
@@ -447,7 +447,7 @@
 
 Теперь приложение ASP.NET MVC будет знать, что, если вы не указали значение в поле URL-адреса для управления поведением маршрутизации, вместо **Главный** нужно использовать **Элемент** в качестве контроллера, а пользовательский **индекс** — в качестве представления.
 
-Теперь при запуске приложения оно будет вызывать **ItemController**, который вызывает класс репозитория и метод GetItems, чтобы вывести все незавершенные элементы в представлении **Представления**\\\*\*Элемент\*\*\\\*\*Индекс\*\*.
+Теперь при запуске приложения оно будет вызывать **ItemController**, который вызывает класс репозитория и использует метод GetItems, чтобы возвратить все незавершенные элементы в представлении **Представления**\**Элемент**\**Индекс**.
 
 Если создать и запустить этот проект сейчас, отобразится примерно следующие данные.
 
@@ -650,7 +650,7 @@
 7. Теперь можно [запустить приложение локально](#_Toc395637773) и [развернуть его на веб-сайтах Azure](#_Toc395637774).
 
 
-[\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
+[*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [установщике веб-платформы Майкрософт]: http://www.microsoft.com/web/downloads/platform.aspx
 [GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
@@ -658,4 +658,4 @@
 [Основные операции CRUD в ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

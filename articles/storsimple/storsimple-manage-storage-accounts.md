@@ -150,6 +150,6 @@
 
 ## Дальнейшие действия
 
-Узнайте о больше о [безопасности StorSimple](storsimple-security.md)
+См. статью [Безопасность StorSimple](storsimple-security.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

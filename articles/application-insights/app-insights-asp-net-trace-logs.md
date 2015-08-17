@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Просмотр журналов трассировки .NET в Application Insights  
@@ -61,7 +61,7 @@ API трассировки в Application Insights можно вызывать �
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
-
+Преимуществом TrackTrace является возможность добавления в сообщения относительно длинных данных, например данных POST.
 
 
 ## Просмотр журналов
@@ -124,4 +124,4 @@ API трассировки в Application Insights можно вызывать �
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

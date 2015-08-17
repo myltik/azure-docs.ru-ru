@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/31/2015" 
 	ms.author="stefsh"/>
 
 # Введение в среду службы приложения
@@ -79,4 +79,4 @@
 
 <!-- IMAGES -->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

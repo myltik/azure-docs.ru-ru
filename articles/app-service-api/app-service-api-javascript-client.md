@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/31/2015" 
 	ms.author="bradygaster"/>
 
 # Использование приложения API Azure с помощью HTML и JavaScript
@@ -371,4 +371,4 @@
 
 В этом примере показан доступ к приложению API без проверки подлинности. Сведения о проверке подлинности в службе приложений см. в статье [Проверка подлинности для приложений API и мобильных приложений](../app-service/app-service-authentication-overview.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -12,7 +12,7 @@
 	ms.service="search"
 	ms.devlang="NA"
 	ms.workload="search"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="na"
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
@@ -131,4 +131,4 @@ API REST состоит из HTTP-запросов и ответов с соде
 
 [Использование службы поиска Azure в .NET](search-howto-dotnet-sdk.md) [Начало работы со службой поиска Azure в .NET](search-get-started-dotnet.md) [Поиск Azure: учебники, видеодемонстрации и примеры](https://msdn.microsoft.com/library/azure/dn818681.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

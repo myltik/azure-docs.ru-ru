@@ -68,4 +68,4 @@
 
 ![Инфографика архитектуры Azure](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

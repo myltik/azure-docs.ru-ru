@@ -6,4 +6,4 @@
 
 * В WebApiConfig.cs метод `UseDefaultConfiguration()` вызывается для объекта MobileAppConfiguration. Таким образом вызывается метод расширения `AddTablesWithEntityFramework()`, предоставленный пакетом NuGet, упомянутым выше.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

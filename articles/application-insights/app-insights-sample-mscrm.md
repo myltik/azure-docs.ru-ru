@@ -3,8 +3,8 @@
 	description="Получение данных телеметрии из Microsoft CRM Online с помощью Application Insights. Пошаговое руководство по настройке, получению данных, визуализации и экспорту." 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+	authors="mazharmicrosoft" 
+	manager="klin"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,12 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Пошаговое руководство. Включение телеметрии для Microsoft CRM Online с помощью Application Insights
 
 В этой статье показано, как получить данные телеметрии из службы [Microsoft CRM Online](https://www.dynamics.com/) с помощью [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/). Мы рассмотрим весь процесс добавления сценария Application Insights в приложение, сбор данных и их визуализацию.
+
+>[AZURE.NOTE] [Browse the sample code](https://dynamicsandappinsights.codeplex.com/).
 
 ## Добавление Application Insights в новый или существующий экземпляр CRM Online 
 
@@ -25,7 +27,7 @@
 
 ### Создание ресурса Application Insights в Azure
 
-1. Получите [учетную запись в Microsoft Azure](http://azure.com/pricing). 
+1. Получите [учетную запись Microsoft Azure](http://azure.com/pricing). 
 2. Войдите на [портал Azure](https://portal.azure.com) и добавьте новый ресурс Application Insights. Здесь будут обрабатываться и отображаться ваши данные.
 
     ![Щелкните значок «+» и последовательно выберите «Службы для разработчиков», Application Insights.](./media/app-insights-sample-mscrm/01.png)
@@ -36,7 +38,7 @@
 
     ![](./media/app-insights-sample-mscrm/03.png)
 
-**Не закрывайте страницу кода**, выполняя следующий шаг в другом окне браузера. Код вскоре вам понадобится.
+**Не закрывайте страницу с кодом**, выполняя следующий шаг в другом окне браузера. Код вскоре вам понадобится.
 
 ### Создание веб-ресурса JavaScript в Microsoft CRM
 
@@ -54,7 +56,7 @@
 
     ![](./media/app-insights-sample-mscrm/07.png)
 
-    Присвойте ему имя, выберите тип **Скрипт (JScript)** и откройте текстовый редактор.
+    Присвойте ему имя, выберите тип **Script (JScript)** и откройте текстовый редактор.
 
     ![](./media/app-insights-sample-mscrm/08.png)
     
@@ -139,15 +141,24 @@
 
 ![](./media/app-insights-sample-mscrm/30.png)
 
+## Пример кода
+
+[Получите пример кода](https://dynamicsandappinsights.codeplex.com/).
+
 ## Power BI
 
-Если [экспортировать данные в Microsoft Power BI](app-insights-export-power-bi.md), можно выполнить еще более подробный анализ данных.
+Если [экспортировать данные в Microsoft Power BI](app-insights-export-power-bi.md), то можно выполнить еще более подробный анализ данных.
+
+## Образец решения CRM
+
+Здесь приведен пример реализованного в CRM решения для сбора телеметрических данных. https://dynamicsandappinsights.codeplex.com/
 
 ## Подробнее
 
 * [Что такое Azure Application Insights?](app-insights-overview.md)
 * [Application Insights для веб-страниц](app-insights-javascript.md)
+* [Дополнительные примеры и пошаговые руководства](app-insights-code-samples.md)
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

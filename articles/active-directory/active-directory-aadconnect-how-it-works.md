@@ -18,9 +18,13 @@
 
 # Принципы работы Azure AD Connect
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="Что это такое">Что это такое</a> <a href="../active-directory-aadconnect-how-it-works/" title="Как это работает" class="current">Как это работает</a> <a href="../active-directory-aadconnect-get-started/" title="Приступая к работе">Приступая к работе</a> <a href="../active-directory-aadconnect-whats-next/" title="Что дальше">Что дальше</a> <a href="../active-directory-aadconnect-learn-more/" title="Подробнее">Подробнее</a>
-</div>
+ > [AZURE.SELECTOR]
+- [What is It](../active-directory-aadconnect/)
+- [How it Works](../active-directory-aadconnect-how-it-works/)
+- [Getting Started](../active-directory-aadconnect-get-started/)
+- [What's Next](../active-directory-aadconnect-whats-next/) 
+- [Learn More](../active-directory-aadconnect-learn-more/)
+
 Azure Active Directory Connect состоит из трех основных компонентов. Это службы синхронизации, службы федерации Active Directory (необязательный компонент) и компонент мониторинга, реализованный с помощью [Azure AD Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx).
 
 
@@ -48,4 +52,4 @@ Azure Active Directory Connect состоит из трех основных к�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

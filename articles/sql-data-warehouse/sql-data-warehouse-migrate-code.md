@@ -60,8 +60,8 @@
 - @@NESTLEVEL()
 - @@IDENTITY()
 - @@ROWCOUNT()
-- ROWCOUNT_BIG
-- ERROR_LINE()
+- ROWCOUNT\_BIG
+- ERROR\_LINE()
 
 Опять же, многие из этих ограничений можно обойти.
 
@@ -100,4 +100,4 @@ AND     request_id IN
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

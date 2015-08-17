@@ -255,4 +255,4 @@
 [Управление доступом в мобильных службах на основе ролей с помощью AAD]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

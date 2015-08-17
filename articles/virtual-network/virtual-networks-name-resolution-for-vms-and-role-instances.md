@@ -127,4 +127,4 @@
 
 [Схема конфигурации службы Azure](https://msdn.microsoft.com/library/azure/ee758710) [Схема конфигурации виртуальной сети](https://msdn.microsoft.com/library/azure/jj157100) [О настройке параметров виртуальной сети на портале управления](https://msdn.microsoft.com/library/azure/jj156074.aspx) [Настройка виртуальной сети с помощью файлов конфигурации сети](https://msdn.microsoft.com/library/azure/jj156097.aspx) [Задачи конфигурации виртуальной сети](https://msdn.microsoft.com/library/azure/jj156206.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

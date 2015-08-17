@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="08/04/2015" 
 	ms.author="jeffstok"/>
 
 # Эталонная архитектура: обработка событий в режиме реального времени средствами Microsoft Azure Stream Analytics
@@ -62,4 +62,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

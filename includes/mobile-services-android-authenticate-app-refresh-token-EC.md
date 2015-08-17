@@ -206,7 +206,55 @@
 
     Эта фильтр служб будет проверять каждый ответ на наличие кода состояния HTTP 401 "Не авторизован". При получении кода 401 будет запрошен новый вход в систему для получения нового маркера в потоке пользовательского интерфейса. Другие вызовы блокируются до завершения входа или 5 неудачных попыток. После получения нового токен запрос, который вызвал срабатывание по коду 401, будет запущен повторно с новым токеном, все заблокированные вызовы также будут перезапущены с новым токеном.
 
-7. В файле ToDoActivity.java обновите метод `onCreate` следующим образом:
+7. В файле ToDoActivity.java добавьте следующий код для нового класса `ProgressFilter` в классе ToDoActivity:
+		
+		/**
+		* The ProgressFilter class renders a progress bar on the screen during the time the App is waiting for the response of a previous request.
+		* the filter shows the progress bar on the beginning of the request, and hides it when the response arrived.
+		*/
+		private class ProgressFilter implements ServiceFilter {
+			@Override
+			public ListenableFuture<ServiceFilterResponse> handleRequest(ServiceFilterRequest request, NextServiceFilterCallback nextServiceFilterCallback) {
+
+				final SettableFuture<ServiceFilterResponse> resultFuture = SettableFuture.create();
+
+				runOnUiThread(new Runnable() {
+
+					@Override
+					public void run() {
+						if (mProgressBar != null) mProgressBar.setVisibility(ProgressBar.VISIBLE);
+					}
+				});
+
+				ListenableFuture<ServiceFilterResponse> future = nextServiceFilterCallback.onNext(request);
+
+				Futures.addCallback(future, new FutureCallback<ServiceFilterResponse>() {
+					@Override
+					public void onFailure(Throwable e) {
+						resultFuture.setException(e);
+					}
+
+					@Override
+					public void onSuccess(ServiceFilterResponse response) {
+						runOnUiThread(new Runnable() {
+
+							@Override
+							public void run() {
+								if (mProgressBar != null) mProgressBar.setVisibility(ProgressBar.GONE);
+							}
+						});
+
+						resultFuture.set(response);
+					}
+				});
+
+				return resultFuture;
+			}
+		}
+		
+	Этот фильтр будет отображать индикатор выполнения в начале запроса и скрывать его после получения ответа.
+	
+8. В файле ToDoActivity.java обновите метод `onCreate` следующим образом:
 
 		@Override
 	    public void onCreate(Bundle savedInstanceState) {
@@ -239,4 +287,4 @@
 
        В этом коде `RefreshTokenCacheFilter` используется в дополнение к `ProgressFilter`. Также во время `onCreate` нужно загрузить кэш маркеров. Поэтому методу `authenticate` передается значение `false`.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

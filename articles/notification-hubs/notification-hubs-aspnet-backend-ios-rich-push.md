@@ -18,15 +18,15 @@
 
 #Форматированные push-уведомления на основе концентраторов уведомлений Azure
 
-<div class="dev-center-tutorial-selector sublanding">
-        <a href="/documentation/articles/notification-hubs-aspnet-backend-ios-rich-push/" title="iOS" class="current">iOS</a>
-</div>
 
 ##Обзор
 
 Чтобы привлечь пользователей с помощью мгновенного форматированного содержимого, приложению может потребоваться не просто обычный текст. Эти уведомления улучшают уровень взаимодействия с пользователем и позволяет отображать URL-адреса, изображения, купоны, воспроизводить звуки и т. д. Этот учебник основан на разделе [Уведомление пользователей](notification-hubs-aspnet-backend-ios-notify-users.md). В нем показано, как отправлять push-уведомления с полезными данными (например, изображениями).
 
-Этот учебник подходит для iOS 7 и 8. ![][IOS1]
+
+Этот учебник совместим с iOS 7 и 8.
+
+    ![][IOS1]
 
 На высоком уровне:
 
@@ -382,4 +382,4 @@
 [IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

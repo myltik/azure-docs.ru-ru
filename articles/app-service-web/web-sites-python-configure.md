@@ -383,4 +383,4 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

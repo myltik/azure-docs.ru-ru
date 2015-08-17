@@ -1,4 +1,5 @@
-<properties pageTitle="Восстановление тома StorSimple из резервного набора данных" | Microsoft Azure description="Описание способов использования каталога резервных копий для восстановления тома StorSimple из резервного набора данных." services="storsimple" documentationCenter="NA" authors="SharS" manager="carolz" editor="" /> <tags 
+<properties pageTitle="Восстановление тома StorSimple из резервного набора данных" | Microsoft Azure description="Описание способов использования каталога резервных копий для восстановления тома StorSimple из резервного набора данных." services="storsimple" documentationCenter="NA" authors="SharS" manager="carolz" editor="" />
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -74,4 +75,4 @@
 
 Узнайте больше об [управлении томами StorSimple](storsimple-manage-volumes.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

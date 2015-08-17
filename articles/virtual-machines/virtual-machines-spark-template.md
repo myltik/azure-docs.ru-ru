@@ -57,7 +57,7 @@ Spark работает под управлением диспетчеров кл
 
 ### Шаг 1-а. Скачивание файлов шаблонов с помощью Azure PowerShell
 
-Создайте локальную папку для JSON-файлов шаблонов и других файлов (например, C:\Azure\Templates\Spark).
+Создайте локальную папку для JSON-файлов шаблонов и других файлов (например, C:\\Azure\\Templates\\Spark).
 
 Подставьте имя своей локальной папки и выполните следующие команды:
 
@@ -91,7 +91,7 @@ foreach ($file in $files)
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-После завершения найдите папку **spark-on-ubuntu** в каталоге C:\Azure\Templates.
+После завершения найдите папку **spark-on-ubuntu** в каталоге C:\\Azure\\Templates.
 
 ### Шаг 2 (необязательный). Изучение параметров шаблона
 
@@ -416,7 +416,7 @@ Remove-AzureResourceGroup -Name "<resource group name>" -Force
 
 В этом разделе содержится описание структуры файла azuredeploy.json для кластера Spark.
 
-Если вы не скачали копию файла шаблона, укажите локальную папку, куда он будет помещен (например, C:\Azure\Templates\Spark), и создайте его. Введите имя папки, а затем скопируйте его и выполните следующие команды:
+Если вы не скачали копию файла шаблона, укажите локальную папку, куда он будет помещен (например, C:\\Azure\\Templates\\Spark), и создайте его. Введите имя папки, а затем скопируйте его и выполните следующие команды:
 
 ```powershell
 $folderName="<folder name, such as C:\Azure\Templates\Spark>"
@@ -843,4 +843,4 @@ $webclient.DownloadFile($url,$filePath)
 
 [Устраняйте неполадки развертывания шаблонов](resource-group-deploy-debug.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -192,7 +192,7 @@
 
 		Server listening at port 3000
 
-2. Откройте веб-браузер и введите в адресной строке **http://localhost:3000/**. Должна открыться примерно такая страница:
+2. Откройте веб-браузер и введите в адресной строке ****http://localhost:3000/**. Вы должны увидеть страницу, аналогичную показанной ниже:
 
 	![веб-панель мониторинга](./media/hdinsight-storm-sensor-data-analysis/emptydashboard.png)
 
@@ -258,7 +258,7 @@
 
 2. Когда сайт будет создан, перейдите к нему на портале Azure и откройте вкладку **Настройка**. Включите **Подключения Web Socket** и в нижней части страницы нажмите кнопку **Сохранить**.
 
-2. Откройте файл **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts\DashboardBolt.java** и в следующей строке укажите URL-адрес опубликованной панели мониторинга.
+2. Откройте файл **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts\\DashboardBolt.java** и в следующей строке укажите URL-адрес опубликованной панели мониторинга.
 
 		socket = IO.socket("http://mywebsite.azurewebsites.net");
 
@@ -352,7 +352,7 @@
 
 	curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
 
-В возвращенных данных JSON найдите запись **"host_name"**. Здесь указаны полные доменные имена узлов в кластере. Например:
+В возвращенных данных JSON найдите запись **"host\_name"**. Здесь указаны полные доменные имена узлов в кластере. Например:
 
 	...
 	"host_name": "wordkernode0.<clustername>.b1.cloudapp.net
@@ -362,13 +362,13 @@
 
 ### Активация «сита» HBase
 
-1. Откройте файл **hdinsight-eventhub-example\TemperatureMonitor\conf\hbase-site.xml** и в указанной ниже строке замените записи `suffix` на DNS-суффикс кластера HBase. После внесения этих изменений сохраните файл.
+1. Откройте файл **hdinsight-eventhub-example\\TemperatureMonitor\\conf\\hbase-site.xml** и в указанной ниже строке замените записи `suffix` на DNS-суффикс кластера HBase. После внесения этих изменений сохраните файл.
 
 		<value>zookeeper0.suffix,zookeeper1.suffix,zookeeper2.suffix</value>
 
 	«Сито» HBase будет использовать эти сведения для обмена данными с кластером HBase.
 
-1. Откройте файл **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts** в текстовом редакторе и раскомментируйте следующие строки (удалите `//` в начале строк). После внесения этих изменений сохраните файл.
+1. Откройте файл **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts** в текстовом редакторе и раскомментируйте следующие строки (удалите `//` в начале строк). После внесения этих изменений сохраните файл.
 
 		topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
     	  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
@@ -385,7 +385,7 @@
 
 2. На рабочем столе откройте окно командной строки HDInsight и введите следующую команду.
 
-    cd %HBASE_HOME% bin\hbase shell
+    cd %HBASE\_HOME% bin\\hbase shell
 
 3. В оболочке HBase введите следующую команду, чтобы создать таблицу, в которой будут храниться данные с датчиков.
 
@@ -420,4 +420,4 @@
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

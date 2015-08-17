@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Пример кода. Экспорт в SQL из Application Insights с использованием рабочей роли
@@ -134,7 +134,7 @@
  * EntityFramework 6.1.2 или более поздней версии – мы используем его, чтобы создать схему таблицы базы данных в режиме реального времени на основе содержимого JSON-документа в большом двоичном объекте;
  * JsonFx – мы используем его, чтобы преобразовать JSON-данные в свойства класса C#.
 
-Используйте этот инструмент, чтобы создать класс C# из одного JSON-документа. Для этого необходимо внести некоторые незначительные изменения, например преобразовать JSON-массивы в единое свойство C# и один столбец в таблице базы данных (например, urlData_port).
+Используйте этот инструмент, чтобы создать класс C# из одного JSON-документа. Для этого необходимо внести некоторые незначительные изменения, например преобразовать JSON-массивы в единое свойство C# и один столбец в таблице базы данных (например, urlData\_port).
 
  * [Генератор классов C# из JSON-документов](http://jsonclassgenerator.codeplex.com/).
 
@@ -519,6 +519,7 @@
 * [Экспорт в SQL с использованием рабочей роли](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Непрерывный экспорт в Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
+* [Дополнительные примеры и пошаговые руководства](app-insights-code-samples.md)
 
 <!--Link references-->
 
@@ -530,4 +531,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

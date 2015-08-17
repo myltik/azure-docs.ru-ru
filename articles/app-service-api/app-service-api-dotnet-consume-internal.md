@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
-	ms.author="bradyg;tarcher"/>
+	ms.date="07/31/2015" 
+	ms.author="bradyg"/>
 
 # Использование внутреннего приложения API в службе приложений Azure из клиента .NET 
 
@@ -265,4 +265,4 @@
 Сведения о проверке подлинности в службе приложений см. в статье [Проверка подлинности для приложений API и мобильных приложений](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

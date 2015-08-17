@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Подключение DocumentDB к службе поиска Azure с помощью индексаторов | Azure" 
+    pageTitle="Подключение DocumentDB к службе Поиск Azure с помощью индексаторов | Microsoft Azure" 
     description="В этой статье показано, как использовать индексатор службы поиска Azure с DocumentDB в качестве источника данных."
     services="documentdb" 
     documentationCenter="" 
@@ -132,50 +132,16 @@
 
 ###Рисунок А. Сопоставление типов данных JSON и типов данных службы Поиск Azure
 
-<table style="font-size:12">
-    <tr>
-        <th>Тип данных JSON</th>
-        <th>Совместимые типы полей целевого индекса</th>
-    </tr>
-    <tr>
-        <td>Bool</td>
-        <td>Edm.Boolean, Edm.String</td>
-    </tr>
-    <tr>
-        <td>Числа, которые выглядят как целые числа</td>
-        <td>Edm.Int32, Edm.Int64, Edm.String</td>
-    </tr>
-    <tr>
-        <td>Числа, которые выглядят как числа с плавающей запятой</td>
-        <td>Edm.Double, Edm.String</td>
-    </tr>
-    <tr>
-        <td>Строка</td>
-        <td>Edm.String</td>
-    </tr>
-    <tr>
-        <td>
-            Массивы примитивных типов<br/>
-            Например, [ "a", "b", "c" ]
-        </td>
-        <td>Collection(Edm.String)</td>
-    </tr>
-    <tr>
-        <td>Строки, которые выглядят как даты</td>
-        <td>Edm.DateTimeOffset, Edm.String</td>
-    </tr>
-    <tr>
-        <td>
-            Объекты GeoJSON<br/>
-            Например, { "тип": "Точка", "координаты": [ долгота, широта ] }
-        </td>
-        <td>Edm.GeographyPoint</td>
-    </tr>
-    <tr>
-        <td>Другие объекты JSON</td>
-        <td>Недоступно</td>
-    </tr>
-</table>
+| ТИП ДАННЫХ JSON|	СОВМЕСТИМЫЕ ТИПЫ ПОЛЕЙ ЦЕЛЕВОГО ИНДЕКСА|
+|---|---|
+|Bool|Edm.Boolean, Edm.String|
+|Числа, которые выглядят как целые числа|Edm.Int32, Edm.Int64, Edm.String|
+|Числа, которые выглядят как числа с плавающей запятой|Edm.Double, Edm.String|
+|Строка|Edm.String|
+|Массивы типов-примитивов, например a, b, c |Collection(Edm.String)|
+|Строки, которые выглядят как даты| Edm.DateTimeOffset, Edm.String|
+|Например, { «тип»: «Точка», «координаты»: [ долгота, широта ] } | Edm.GeographyPoint |
+|Другие объекты JSON|Недоступно|
 
 ###<a id="CreateIndexExample"></a>Пример тела запроса
 
@@ -304,4 +270,4 @@
  - Дополнительные сведения о службе Поиск Azure можно узнать [здесь](/services/search/).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

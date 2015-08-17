@@ -114,4 +114,4 @@
 - [Функции шаблонов в диспетчере ресурсов Azure](./resource-group-template-functions.md)
 - [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

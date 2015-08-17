@@ -111,4 +111,4 @@
 [Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

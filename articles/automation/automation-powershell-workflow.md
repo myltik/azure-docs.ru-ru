@@ -249,4 +249,4 @@ InlineScript использует описанный ниже синтаксис
 
 - [Начало работы с рабочим процессом Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

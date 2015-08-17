@@ -12,7 +12,7 @@
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
+	ms.topic="article" 
 	ms.date="05/28/2015" 
 	ms.author="tamram;selcint"/>
 
@@ -107,4 +107,4 @@
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

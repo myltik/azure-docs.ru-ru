@@ -12,7 +12,7 @@
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/02/2015" 
 	ms.author="billmath"/>
 
@@ -33,11 +33,11 @@
 
 Что вы пытаетесь защитить| Multi-Factor Authentication в облаке|Сервер Multi-Factor Authentication 
 ------------- | :-------------: | :-------------: |
-Собственные приложения корпорации Майкрософт|\* |\* |
-Приложения SaaS в коллекции приложений|\* |\* |
-Приложения IIS, опубликованные через прокси приложения Azure AD|\* |\* |
-Приложения IIS, опубликованные не через прокси приложения Azure AD | |\* |
-Удаленный доступ, например VPN или RDG| |\* |
+Собственные приложения корпорации Майкрософт|* |* |
+Приложения SaaS в коллекции приложений|* |* |
+Приложения IIS, опубликованные через прокси приложения Azure AD|* |* |
+Приложения IIS, опубликованные не через прокси приложения Azure AD | |* |
+Удаленный доступ, например VPN или RDG| |* |
 
 
 
@@ -87,4 +87,4 @@ Azure AD и локальная служба AD с использованием D
 * [Для пользователей](multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication в MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

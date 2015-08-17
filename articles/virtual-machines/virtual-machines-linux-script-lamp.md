@@ -64,11 +64,11 @@
 
 **Передача**
 
-Сохраните сценарий как текстовый файл, например *lamp_install.sh*, и передайте его в хранилище Azure. Это легко сделать с помощью интерфейса CLI Azure. Приведенный ниже пример передает файл в контейнер хранилища с именем scripts. Примечание. Если контейнер не существует, необходимо сначала его создать.
+Сохраните сценарий как текстовый файл, например *lamp\_install.sh*, и передайте его в хранилище Azure. Это легко сделать с помощью интерфейса CLI Azure. Приведенный ниже пример передает файл в контейнер хранилища с именем scripts. Примечание. Если контейнер не существует, необходимо сначала его создать.
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
-Также создайте JSON-файл, в котором будет указан способ скачивания сценария из службы хранилища Azure. Сохраните его как *public_config.json* (вместо mystorage укажите имя своей учетной записи хранения):
+Также создайте JSON-файл, в котором будет указан способ скачивания сценария из службы хранилища Azure. Сохраните его как *public\_config.json* (вместо mystorage укажите имя своей учетной записи хранения):
 
     {"fileUris":["https://mystorage.blob.core.windows.net/scripts/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
 
@@ -79,7 +79,7 @@
 
     azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
 
-При этом будет скачан и выполнен сценарий *lamp_install.sh* на виртуальной машине с именем *lamp-vm*.
+При этом будет скачан и выполнен сценарий *lamp\_install.sh* на виртуальной машине с именем *lamp-vm*.
 
 Так как приложение включает в себя веб-сервер, не забудьте открыть порт прослушивания HTTP на удаленной виртуальной машине:
 
@@ -92,7 +92,7 @@
     cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
     tail -f extension.log
 
-Когда выполнение расширения CustomScript будет завершено, вы сможете перейти на созданную PHP-страницу. В нашем примере она будет находиться по следующему адресу: *http://lamp-vm.cloudapp.net/phpinfo.php*.
+Когда выполнение расширения CustomScript будет завершено, вы сможете перейти на созданную PHP-страницу. В нашем примере она будет находиться по следующему адресу: **http://lamp-vm.cloudapp.net/phpinfo.php*.
 
 ## Дополнительные ресурсы
 
@@ -107,4 +107,4 @@
 [Linux и вычисления с открытым кодом в Azure](virtual-machines-linux-opensource.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

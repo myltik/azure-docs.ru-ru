@@ -112,4 +112,4 @@ Mellanox проверила следующие подключаемые прие
 
 [Дополнительные сведения об аппаратных компонентах StorSimple](https://msdn.microsoft.com/library/azure/dn757755.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

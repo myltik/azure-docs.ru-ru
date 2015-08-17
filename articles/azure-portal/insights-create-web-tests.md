@@ -22,4 +22,4 @@
 > [AZURE.NOTE]Эта статья была перемещена. См. статью: [Отслеживание доступности и скорости реагирования любого веб-сайта](../app-insights-monitor-web-app-availability.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

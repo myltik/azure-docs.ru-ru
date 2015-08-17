@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
@@ -719,7 +719,7 @@
 		    await blobToDelete.DeleteAsync();
 		}
  
-### ContosoAdsWeb - Views\Ad\Index.cshtml и Details.cshtml
+### ContosoAdsWeb - Views\\Ad\\Index.cshtml и Details.cshtml
 
 Файл *Index.cshtml* выводит эскиз с другими данными рекламы:
 
@@ -729,7 +729,7 @@
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\Ad\Create.cshtml и Edit.cshtml
+### ContosoAdsWeb - Views\\Ad\\Create.cshtml и Edit.cshtml
 
 Файлы *Create.cshtml* и *Edit.cshtml* указывают кодирование формы, которое дает возможность контроллеру получить объект `HttpPostedFileBase`.
 
@@ -799,10 +799,13 @@
 * [Использование табличного хранилища Azure с пакетом SDK веб-заданий](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Использование служебной шины Azure с пакетом SDK для веб-заданий](websites-dotnet-webjobs-sdk-service-bus.md)
 
->[AZURE.NOTE]
->* Если ваше веб-приложение работает на нескольких виртуальных машинах, эта программа запустится на каждой машине и каждая машина будет ожидать триггеров и попытается запустить функции. В определенных ситуациях это может привести к тому, что некоторые функции обработают одни и те же данные дважды, поэтому функции должны быть идемпотентными (написанными так, что постоянный их вызов с одинаковыми входными данными не создаст повторяющиеся результаты). 
->* Сведения о нормальном завершении работы см. в разделе [Правильное завершение работы](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful). 
->* Для упрощения код в методе `ConvertImageToThumbnailJPG` (не показан) использует классы в пространстве имен `System.Drawing`. Однако классы в этом пространстве имен были спроектированы для использования с формами Windows. Они не поддерживаются в службе Windows или ASP.NET. Дополнительную информацию о параметрах обработки изображений см. в статьях [Динамическое создание образов](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) и [Особенности изменения размеров изображения](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
+> [AZURE.NOTE]
+>
+> * Если веб-приложение выполняется на нескольких виртуальных машинах, одновременно будет выполнятся несколько веб-заданий, а это в некоторых случаях может привести к многократной обработке одних и тех же данных. Такой проблемы не будет при использовании встроенной очереди, BLOB-объектов и триггеров служебной шины. Пакет SDK гарантирует, что функции для каждого сообщения или BLOB-объекта будут обрабатываться только один раз.
+>
+> * Сведения о нормальном завершении работы см. в разделе [Нормальное завершение работы](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful).
+>
+> * Для простоты код в методе `ConvertImageToThumbnailJPG` (не показан) использует классы в пространстве имен `System.Drawing`. Однако классы в этом пространстве имен были спроектированы для использования с формами Windows. Они не поддерживаются в службе Windows или ASP.NET. Дополнительную информацию о параметрах обработки изображений см. в статьях [Динамическое создание образов](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) и [Особенности изменения размеров изображения](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
 
 ### Преимущества пакета SDK веб-заданий перед рабочей ролью облачной службы без пакета SDK веб-заданий
 
@@ -828,4 +831,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 * Руководство по переходу от веб-сайтов к службе приложений см. в статье [Служба приложений Azure и существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Руководство по смене портала Azure на портал предварительной версии Azure см. в разделе [Справочная информация о навигации по предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,8 +1,7 @@
 <properties 
 	pageTitle="Добавление пользователей в эластичный пул баз данных." 
 	description="Необходимо добавить пользователя с правами доступа во все базы данных пула." 
-	services="sql-database" 
-	documentationCenter="" 
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -45,4 +44,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

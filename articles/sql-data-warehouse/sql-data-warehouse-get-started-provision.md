@@ -10,7 +10,7 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/23/2015"
@@ -153,18 +153,18 @@
 
 После успешной подготовки службы SQLDW можно продолжить и узнать, как ее использовать.
 
-Поэтому далее нужно узнать, как 1. [Подключить хранилище данных и отправлять запросы к нему][]. 2. Экспортировать данные из хранилища данных в хранилище больших двоичных объектов Azure. 3. Загружать дополнительные данные в хранилище данных.
-
+Поэтому далее нужно узнать, как 1. [Подключить хранилище данных и отправлять запросы к нему][]. 2. Загрузите [демонстрационные данные].
 
 <!--Image references-->
 
 
 <!-- Articles -->
 [Подключить хранилище данных и отправлять запросы к нему]: sql-data-warehouse-get-started-connect-query.md
+[демонстрационные данные]: ./sql-data-warehouse-get-started-load-samples.md
 
 <!--External links-->
 [бесплатной пробной версии]: https://azure.microsoft.com/ru-ru/pricing/free-trial/
 [портал Azure]: https://portal.azure.com/
 [портала Azure]: https://portal.azure.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

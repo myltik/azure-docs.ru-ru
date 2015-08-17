@@ -1,22 +1,22 @@
-<properties 
-   pageTitle="Примеры кода Azure Active Directory" 
-   description="Список примеров кода Azure Active Directory, сгруппированных по сценарию." 
-   services="active-directory" 
-   documentationCenter="dev-center-name" 
-   authors="msmbaldwin" 
-   manager="mbaldwin" 
+<properties
+   pageTitle="Примеры кода Azure Active Directory"
+   description="Список примеров кода Azure Active Directory, сгруппированных по сценарию."
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
    editor=""/>
 
 <tags
-   ms.service="azure"
+   ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="identity" 
-   ms.date="04/06/2015"
+   ms.workload="identity"
+   ms.date="07/30/2015"
    ms.author="mbaldwin"/>
 
-# Примеры кода Azure Active Directory 
+# Примеры кода Azure Active Directory
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -26,7 +26,7 @@
 
 Поделитесь своими примерами на GitHub: [Примеры Microsoft Azure Active Directory и документация](https://github.com/AzureADSamples).
 
-## Из веб-браузера в веб-приложение 
+## Из веб-браузера в веб-приложение
 
 В этих примерах показано, как создать веб-приложение, которое направляет браузер пользователя для выполнения входа в Azure AD.
 
@@ -53,9 +53,9 @@
 
 
 ## Из собственного приложения к веб-интерфейсу API
- 
+
 В этих примерах кода показано, как создавать собственные клиентские приложения, которые вызывают веб-интерфейсы API, защищенные Azure AD. Они используют [библиотеку проверки подлинности Azure AD (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) и [OAuth 2.0 в Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx).
- 
+
 | Язык или платформа | Образец | Описание
 | ----------------- | ------ | -----------
 | JavaScript | [NativeClient-MultiTarget-Cordova](https://github.com/AzureADSamples/NativeClient-MultiTarget-Cordova) | Использование подключаемого модуля ADAL для Apache Cordova для построения приложения Apache Cordova, которое вызывает веб-API и использует Azure AD для проверки подлинности.
@@ -71,7 +71,7 @@
 | C#/Xamarin | [NativeClient-MultiTarget-DotNet](http://github.com/AzureADSamples/NativeClient-MultiTarget-DotNet) | Проект Xamarin, имеющий пять целевых платформ и выполняющий вызовы веб-интерфейса API, защищенного с помощью Azure AD.
 | C#/.NET | [NativeClient-Headless-DotNet](http://github.com/AzureADSamples/NativeClient-Headless-DotNet) | Собственное приложение, имеющее пять целевых платформ и выполняющее вызовы веб-интерфейса API, защищенного с помощью Azure AD.
 
-   
+
 
 ## Из веб-приложения к веб-интерфейсу API
 
@@ -130,7 +130,7 @@
 | C#/.NET | [Авторизация на основе ролей и на основе ACL в приложении Microsoft Azure AD](http://go.microsoft.com/fwlink/?LinkId=331694) | Выполнение авторизации на основе роли (RBAC) и авторизации на основе ACL в приложении, интегрированным Azure AD.
 | C#/.NET | [AAL — приложение магазина Windows для службы REST — проверка подлинности](http://go.microsoft.com/fwlink/?LinkId=330605) | Использование библиотеки проверки подлинности [Azure AD (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) (ранее AAL) для бета-версии Магазина Windows, чтобы добавить возможности проверки подлинности пользователя в приложение Магазина Windows.
 | C#/.NET | [ADAL — собственное приложение для службы REST — проверка подлинности с помощью диалогового окна обозревателя AAD](http://go.microsoft.com/fwlink/?LinkId=259814) | Использование [библиотеки проверки подлинности Azure AD (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) для добавления возможности проверки подлинности пользователя в клиент WPF.
-| C#/.NET | [ADAL — собственное приложение для службы REST — проверка подлинности с помощью диалогового окна обозревателя ACS](http://code.msdn.microsoft.com/AAL-Native-App-to-REST-de57f2cc) | Использование [библиотеки проверки подлинности Azure AD (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) и [2.0 службы контроля доступа (ACS)](http://msdn.microsoft.com/library/azure/hh147631.aspx) для добавления возможности проверки подлинности пользователя в клиент WPF.
+| C#/.NET | [ADAL — собственное приложение для службы REST — проверка подлинности с помощью диалогового окна обозревателя ACS](http://code.msdn.microsoft.com/AAL-Native-App-to-REST-de57f2cc) | Использование [библиотеки проверки подлинности Azure AD (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) и [2\.0 службы контроля доступа (ACS)](http://msdn.microsoft.com/library/azure/hh147631.aspx) для добавления возможности проверки подлинности пользователя в клиент WPF.
 | C#/.NET | [ADAL — проверка подлинности между серверами](http://go.microsoft.com/fwlink/?LinkId=259816) | Использование библиотеки проверки подлинности [Azure AD (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) для обеспечения безопасности вызовов из серверного процесса службы веб-интерфейса API REST MVC4.
 | C#/.NET | [Добавление единого входа в веб-приложение с помощью Azure AD](https://msdn.microsoft.com/library/azure/dn151790.aspx) | Настройка приложения .NET в каталоге организации Azure AD для выполнения единого входа через Интернет.
 | C#/.NET | [Разработка мультитенантных веб-приложений с помощью Azure AD](https://msdn.microsoft.com/library/azure/dn151789.aspx) | Использование Azure AD для добавления единого входа и возможности доступа к каталогу одного приложения .NET для работы в нескольких организациях.
@@ -151,9 +151,4 @@ PHP | [Образец приложения PHP для API Graph Azure AD](http:/
 
 [Разработка современных приложений с помощью OAuth и служб федерации Active Directory](http://msdn.microsoft.com/library/dn633593.aspx)
 
-
-
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

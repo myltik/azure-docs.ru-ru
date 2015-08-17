@@ -50,7 +50,7 @@
 	    "AccountName=your_storage_account_name;" + 
 	    "AccountKey=your_storage_account_key";
 
-> [AZURE.NOTE]Замените your_storage_account_name и your_storage_account_key на фактические значения для вашей учетной записи.
+> [AZURE.NOTE]Замените your\_storage\_account\_name и your\_storage\_account\_key на фактические значения для вашей учетной записи.
 
 ## Подключение к учетной записи хранилища Azure
 
@@ -97,7 +97,7 @@
 Теперь, когда у вас имеется ссылка на корневой каталог общего ресурса, вы можете отправить туда файл с помощью следующего кода.
 
 	// Define the path to a local file.
-	final String filePath = "C:\temp\Readme.txt";
+	final String filePath = "C:\\temp\\Readme.txt";
 
 	CloudFile cloudFile = rootDir.getFileReference("Readme.txt");
 	cloudFile.uploadFromFile(filePath);
@@ -221,4 +221,4 @@
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

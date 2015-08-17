@@ -50,7 +50,7 @@
 
 - **Действия для Android и iOS**
     - Открытие веб-страницы
-    - http://[web-site-domain] 
+    - http://[web-site-domain\] 
     - Пример:http://www.azure.com
     - Отправка сообщения электронной почты
     - mailto:[e-mail-recipient]?subject=[subject]&body=[message] 
@@ -74,7 +74,7 @@
     - Пример:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Действия для Windows
     - Открытие веб-страницы
-    - http://[web-site-domain] 
+    - http://[web-site-domain\] 
     - Пример:http://www.azure.com
     - Отправка сообщения электронной почты
     - mailto:[e-mail-recipient]?subject=[subject]&body=[message] 
@@ -230,4 +230,4 @@
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

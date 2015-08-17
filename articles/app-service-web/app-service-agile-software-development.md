@@ -105,7 +105,7 @@
 
 	![](./media/app-service-agile-software-development/production-4-swap.png)
 
-7.	После завершения выполнения сценария, вернитесь, чтобы перейти по адресу внешнего интерфейса (http://ToDoApp*&lt;unique_string>\*master.azurewebsites.net/) для просмотра приложения, запущенного в рабочей среде.
+7.	После завершения выполнения сценария, вернитесь, чтобы перейти по адресу внешнего интерфейса (http://ToDoApp*&lt;unique_string>*master.azurewebsites.net/) для просмотра приложения, запущенного в рабочей среде.
  
 5.	Войдите на [портал предварительной версии Azure](https://portal.azure.com) и посмотрите на результаты.
 
@@ -279,4 +279,4 @@
 -	[Создание и изменение пользователей в Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Вики-сайт проекта Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

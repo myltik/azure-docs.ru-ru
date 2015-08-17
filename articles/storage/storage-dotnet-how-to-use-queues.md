@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="06/15/2015"
+	ms.date="08/04/2015"
 	ms.author="tamram"/>
 
 # Использование хранилища очередей из .NET
@@ -24,7 +24,7 @@
 
 В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранения очередей Azure. Примеры написаны на C#, и в них используется клиент службы хранилища Azure для .NET. Здесь описаны такие сценарии, как **вставка**, **просмотр**, **получение** и **удаление** сообщений очереди, а также **создание и удаление очередей**.
 
-> [AZURE.NOTE]В этом руководстве используется клиентская библиотека хранилища Azure для .NET 2.x и выше. Рекомендуется использовать библиотеку клиента хранения 4.x, которая доступна через [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/) или как часть [Пакета Azure SDK для .NET](/downloads/). Дополнительную информацию о получении клиентской библиотеки хранилища см. в разделе [Программный доступ к хранилищу очередей](#programmatically-access-queue-storage) ниже.
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -241,24 +241,15 @@
 
 Вы изучили основные сведения о хранилище очередей. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
-<ul>
-<li>Дополнительные сведения о доступных API-интерфейсах см. в справочной документации по службе очередей:
-  <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Справочник по клиентской библиотеке хранилища для .NET</a>
-    </li>
-    <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Справочник по REST API</a></li>
-  </ul>
-</li>
-<li>Дополнительные сведения о более сложных задачах, которые можно выполнить с хранилищем Azure, см. в статье <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Хранение данных и доступ к ним в Azure</a>.</li>
-<li>Узнайте, как упростить код, предназначенный для работы со службой хранилища Azure, с помощью <a href="../websites-dotnet-webjobs-sdk/">пакета SDK для Azure WebJobs.</li>
-<li>Просмотрите дополнительные руководства, чтобы изучить дополнительные возможности хранения данных в Azure.
-  <ul>
-    <li>Использование <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">Табличного хранилища</a> для хранения структурированных данных.</li>
-    <li>Использование <a href="/documentation/articles/storage-dotnet-how-to-use-blobs/">Хранилища Blob-объектов</a> для хранения неструктурированных данных.</li>
-    <li>Использование <a href="/documentation/articles/sql-database-dotnet-how-to-use/">Базы данных SQL</a> для хранения реляционных данных.</li>
-  </ul>
-</li>
-</ul>
+- Дополнительные сведения о доступных API-интерфейсах см. в справочной документации по службе очередей:
+    - [Справочник по клиентской библиотеке хранилища для .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    - [Справочник по REST API](http://msdn.microsoft.com/library/azure/dd179355)
+- Дополнительные сведения о более сложных задачах, которые можно выполнить со службой хранилища Azure, см. в статье [Хранение данных и доступ к ним в Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx).
+- Узнайте, как упростить код, предназначенный для работы со службой хранилища Azure, с помощью [пакета SDK для веб-заданий Azure](../websites-dotnet-webjobs-sdk/).
+- Просмотрите дополнительные руководства, чтобы изучить дополнительные возможности хранения данных в Azure.
+    - Использование [Табличного хранилища](storage-dotnet-how-to-use-tables.md) для хранения структурированных данных. 
+    - Использование [Хранилища Blob-объектов](storage-dotnet-how-to-use-blobs.md) для хранения неструктурированных данных.
+    - Использование [Базы данных SQL](sql-database-dotnet-how-to-use.md) для хранения реляционных данных.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
@@ -272,4 +263,4 @@
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -39,7 +39,7 @@
 		FROM hivesampletable 
 		group by country, state;
 
-	> [AZURE.NOTE]Чтобы использовать механизм **Tez** для выполнения запросов Hive в файле HQL, добавьте в начало файла строку \*\*set hive.execution.engine=tez\*\*;.
+	> [AZURE.NOTE]Чтобы использовать механизм **Tez** для выполнения запросов Hive в файле HQL, добавьте в начало файла строку **set hive.execution.engine=tez**.
 		
 3.  Загрузите файл **hivequery.hql** в контейнер **adftutorial** в хранилище больших двоичных объектов.
 
@@ -140,7 +140,7 @@
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
 		                    },
-		                    "scriptpath": "adftutorial\\hivequery.hql",
+		                    "scriptPath": "adftutorial\\hivequery.hql",
 						    "scriptLinkedService": "StorageLinkedService"
 						},
 						"policy":
@@ -167,7 +167,7 @@
 2. Чтобы развернуть конвейер, нажмите кнопку **Развернуть** на панели команд.
 4. См. раздел [Мониторинг наборов данных и конвейеров][adfgetstartedmonitoring] статьи [Приступая к работе с фабрикой данных][adfgetstarted]. 
 
-	> [AZURE.NOTE]В колонке **СВЕДЕНИЯ О ЦИКЛЕ ВЫПОЛНЕНИЯ ДЕЙСТВИЯ** для среза выходной таблицы (выберите на портале выходную таблицу -> срез -> действие) вы увидите ссылки на журналы, созданные кластером HDInsight. Их можно просмотреть на самом портале или скачать на компьютер.
+	> [AZURE.NOTE]В колонке **СВЕДЕНИЯ О ВЫПОЛНЕННОМ ДЕЙСТВИИ** для среза выходной таблицы (выберите на портале выходную таблицу -> срез -> действие) вы увидите ссылки на журналы, созданные кластером HDInsight. Их можно просмотреть на самом портале или скачать на компьютер.
   
 
 ## Пример JSON Pig
@@ -258,7 +258,7 @@
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
+    					"scriptPath": "adfwalkthrough\\scripts\\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
 						"defines":
 						{
@@ -277,7 +277,7 @@
 	}
 
 
-> [AZURE.NOTE]Чтобы запросы Hive обрабатывались с помощью механизма **Tez**, перед отправкой запроса выполните команду \*\*set hive.execution.engine=tez\*\*;.
+> [AZURE.NOTE]Чтобы запросы Hive обрабатывались с помощью механизма **Tez**, перед отправкой запроса выполните команду **set hive.execution.engine=tez**.
 > 
 > Подробную информацию о командлетах, схемах JSON и используемых в них свойствах см. в [справочнике разработчика](http://go.microsoft.com/fwlink/?LinkId=516908).
 
@@ -353,4 +353,4 @@
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

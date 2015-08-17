@@ -94,4 +94,4 @@
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

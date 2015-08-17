@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Как использовать приложение Chrome Postman со службой ";Поиск Azure";"
-	description="Как использовать приложение Chrome Postman со службой ";Поиск Azure";"
+	pageTitle="Как использовать приложение Chrome Postman со службой &quot;Поиск Azure&quot;"
+	description="Как использовать приложение Chrome Postman со службой &quot;Поиск Azure&quot;"
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -119,4 +119,4 @@
 [6]: ./media/search-chrome-postman/query.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

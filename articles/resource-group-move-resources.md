@@ -96,4 +96,4 @@
 - [Управление ресурсами с помощью портала Azure](azure-portal/resource-group-portal.md)
 - [Использование тегов для организации ресурсов](./resource-group-using-tags.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

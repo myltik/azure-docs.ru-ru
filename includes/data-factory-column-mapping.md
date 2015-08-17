@@ -1,22 +1,22 @@
-## Column mapping with translator rules
-Column mapping can be used to specify how columns specified in the “structure” of source table map to columns specified in the “structure” of sink table. The **columnMapping** property is available in the **typeProperties** section of the Copy activity.
+## Сопоставление столбцов с помощью правил переводчика
+Сопоставление столбцов можно использовать, чтобы указать, как столбцы, указанные в «structure» исходной схемы таблицы, сопоставляются со столбцами, указанными в «structure» таблицы-приемника. Свойство **ColumnMapping** доступно в разделе **typeProperties** действия копирования.
 
-Column mapping supports the following scenarios:
+Сопоставление столбцов применимо в следующих сценариях:
 
-1.	All columns in the source table “structure” are mapped to all columns in the sink table “structure”.
-2.	A subset of the columns in the source table “structure” are mapped to all columns in the sink table “structure”.
+1.	Все столбцы в «structure» исходной таблицы сопоставляется со всеми столбцами в «structure» таблицы-приемника.
+2.	Подмножество столбцов в «structure» исходной таблицы сопоставляется со всеми столбцами в «structure» таблицы-приемника.
 
-The following are error conditions and will result in an exception:
+Ниже приведены неправильные условия, которые приведут к порождению исключения.
 
-1.	Either fewer columns or more columns in the “structure” of sink table than specified in the mapping.
-2.	Duplicate mapping.
-3.	SQL query result does not have a column name that is specified in the mapping.
+1.	Меньше или больше столбцов в «structure» таблицы-приемника, чем указано в сопоставлении.
+2.	Повторяющееся сопоставление.
+3.	В результате запроса SQL нет имени столбца, который указан в сопоставлении.
 
-## Column mapping samples
-> [AZURE.NOTE] The samples below are for Azure SQL and Azure Blob but are applicable in the same way for any data store that supports rectangular tables. You will have to adjust dataset and linked service definitions in examples below to point to data in the relevant data source.
+## Примеры сопоставления столбцов
+> [AZURE.NOTE]Приведенные ниже примеры предназначены для Azure SQL и большого двоичного объекта Azure, но подходят для любого хранилища данных, поддерживающего прямоугольные таблицы. В этих примерах необходимо будет настроить набор данных и определения связанной службы, чтобы указать данные в соответствующем источнике данных.
 
-### Sample 1 – column mapping from Azure SQL to Azure blob
-In this sample, the input table has a structure and it points to a SQL table in an Azure SQL database.
+### Пример 1. Сопоставление столбцов из SQL Azure с большим двоичным объектом Azure
+В этом примере входная таблица имеет структуру, и она указывает на таблицу SQL в базе данных SQL Azure.
 
 	{
 	    "name": "AzureSQLInput",
@@ -47,7 +47,7 @@ In this sample, the input table has a structure and it points to a SQL table in 
 	    }
 	}
 
-In this sample, the output table has a structure and it points to a blob in an Azure blob storage.
+Выходная таблица имеет структуру, и она указывает на большой двоичный объект в хранилище больших двоичных объектов Azure.
 
 	{
 	    "name": " AzureBlobOutput",
@@ -78,7 +78,7 @@ In this sample, the output table has a structure and it points to a blob in an A
 	    }
 	}
 
-The JSON for the activity is shown below. The columns from source mapped to columns in sink (**columnMappings**) by using **Translator** property.
+Ниже приведен JSON для действия. Столбцы из источника сопоставляются со столбцами в приемнике (**columnMappings**) с помощью свойства **Translator**.
 
 	{
 	    "name": "CopyActivity",
@@ -107,12 +107,12 @@ The JSON for the activity is shown below. The columns from source mapped to colu
 	        }
 	}
 
-**Column mapping flow:**
+**Процесс сопоставления столбцов:**
 
-![Column mapping flow](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
+![Процесс сопоставления столбцов](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
 
-### Sample 2 – column mapping with SQL query from Azure SQL to Azure blob
-In this sample, a SQL query is used to extract data from Azure SQL instead of simply specifying the table name and the column names in “structure” section. 
+### Пример 2. Сопоставление столбцов из Azure SQL с большим двоичным объектом Azure с помощью SQL-запроса
+В этом примере используется SQL-запрос для извлечения данных из SQL Azure, а не просто указывается имя таблицы и имена столбцов в разделе «structure».
 
 	{
 	    "name": "CopyActivity",
@@ -143,15 +143,10 @@ In this sample, a SQL query is used to extract data from Azure SQL instead of si
 	        }
 	}
 
-In this case, the query results are first mapped to columns specified in “structure” of source. Next, the columns from source “structure” are mapped to columns in sink “structure” with rules specified in columnMappings.  Suppose the query returns 5 columns, two additional columns then those specified in the “structure” of source.
+В этом случае сначала результаты запроса сопоставляются со столбцами, указанными в «structure» источника. Затем столбцы из «structure» источника сопоставляются со столбцами в «structure» приемника посредством правил, определенных в columnMappings. Предположим, что запрос возвращает 5 столбцов, на два столбца больше, чем указано в подразделе «structure» источника.
 
-**Column mapping flow**
+**Процесс сопоставления столбцов**
 
-![Column mapping flow-2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
+![Процесс сопоставления столбцов 2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-
-
-
-
-
-
+<!---HONumber=August15_HO6-->

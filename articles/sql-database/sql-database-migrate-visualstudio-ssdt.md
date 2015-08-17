@@ -95,4 +95,4 @@
 
 ![замещающий текст](./media/sql-database-migrate-visualstudio-ssdt/13MigrateSSDT.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -148,4 +148,4 @@
 [Как создать и использовать группы для управления учетными записями разработчиков в службе управления Azure API]: api-management-howto-create-groups.md
 [Как создать и настраивать расширенные параметры продукта в службе управления Azure API]: api-management-howto-product-with-rules.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

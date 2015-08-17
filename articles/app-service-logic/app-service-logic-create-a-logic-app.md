@@ -12,7 +12,7 @@
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="get-started-article"
 	ms.date="05/23/2015"
 	ms.author="stepsic"/>
 
@@ -137,7 +137,7 @@
 
 	Это вводит значение `@first(body('twitterconnector')).TweetText` в текстовое поле. Эта функция создает значение, содержащее следующие части.
 
-Часть содержимого | Описание
+	Часть содержимого | Описание
 	------------------------------------------ | ------------
 	 `@` | Указывает, что вы ввели функцию, а не фактическое значение.
 	`actions('twitterconnector').outputs.body` | Получает твиты, извлеченные запросом соединителя Twitter.
@@ -172,4 +172,4 @@
 [Использование функций приложения логики]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

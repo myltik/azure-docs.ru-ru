@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Уровни производительности в DocumentDB | Azure" 
+	pageTitle="Уровни производительности в DocumentDB | Microsoft Azure" 
 	description="Узнайте, каким образом с помощью уровней производительности в DocumentDB можно резервировать пропускную способность для каждой коллекции." 
 	services="documentdb" 
 	authors="johnfmacintyre" 
@@ -141,4 +141,4 @@ DocumentDB предлагает широкий набор операций в б
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Общие сведения о субъектах Azure Service Fabric"
-   description="Общие сведения о модели программирования на основе субъектов Azure Service Fabric."
+   pageTitle="Обзор надежных субъектов Service Fabric"
+   description="Общие сведения о модели программирования на основе надежных субъектов Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/10/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Общие сведения о субъектах Azure Service Fabric
+# Общие сведения о надежных субъектах Service Fabric
 API надежных субъектов — это одна из двух высокоуровневых платформ, предоставляемых службой [Service Fabric](service-fabric-technical-overview.md), наряду с [API надежных служб](service-fabric-reliable-services-introduction.md).
 
 В зависимости от шаблона субъектов, API надежных субъектов обеспечивает асинхронную однопотоковую модель программирования, которая упрощает ваш код, при этом пользуясь преимуществами гарантий масштабируемости и надежности, предоставляемых службой Service Fabric.
@@ -191,11 +191,11 @@ public interface IVoicemailBoxActor : IActor
 
 [Использование платформы Service Fabric субъектами](service-fabric-reliable-actors-platform.md)
 
-[Настройка субъекта KVSActorStateProvider](../Service-Fabric/service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)
+[Настройка субъекта KVSActorStateProvider](service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)
 
 [Диагностика и мониторинг производительности субъектов](service-fabric-reliable-actors-diagnostics.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

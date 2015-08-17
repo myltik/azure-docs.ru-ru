@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="07/29/2015"
 	ms.author="dkshir"/>
 
 # Создание и передача виртуального жесткого диска с операционной системой Linux
@@ -66,6 +66,8 @@ Microsoft Azure поддерживает различные дистрибути
 
 ### При использовании CLI Azure
 
+Используйте метод Azure AD для входа:
+
 1. Откройте окно CLI Azure.
 
 2. Введите:
@@ -74,7 +76,7 @@ Microsoft Azure поддерживает различные дистрибути
 
 	При появлении запроса введите имя пользователя и пароль.
 
-**Или**, вместо этого используйте файл PublishSettings:
+**ИЛИ** вместо этого используйте PUBLISHSETTINGS-файл.
 
 1. Откройте окно CLI Azure.
 
@@ -92,8 +94,22 @@ Microsoft Azure поддерживает различные дистрибути
 
 	`<PathToFile>` — это полный путь к файлу PUBLISHSETTINGS.
 
+	Дополнительную информацию см. в статье [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](../xplat-cli-connect.md).
+
 
 ### При использовании Azure PowerShell
+
+Используйте метод Azure AD для входа:
+
+1. Откройте окно Azure PowerShell.
+
+2. Тип:
+
+	`Add-AzureAccount`
+
+	При появлении запроса введите идентификатор организации пользователя и пароль.
+
+**ИЛИ** вместо этого используйте PUBLISHSETTINGS-файл.
 
 1. Откройте окно Azure PowerShell.
 
@@ -113,6 +129,7 @@ Microsoft Azure поддерживает различные дистрибути
 
 	Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md)
 
+> [AZURE.NOTE]Мы советуем использовать новой метод Azure Active Directory для входа в подписку Azure с помощью интерфейса командной строки Azure или Azure PowerShell.
 
 ## <a id="upload"> </a>Шаг 3. Передача образа в Azure ##
 
@@ -141,4 +158,4 @@ Microsoft Azure поддерживает различные дистрибути
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

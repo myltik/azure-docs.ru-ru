@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/01/2015"
 	ms.author="piyushjo" />
 
@@ -394,4 +394,4 @@ Mobile Engagement позволяет взаимодействовать и св�
 [38]: ./media/mobile-engagement-android-get-started/campaign-create.png
 [39]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

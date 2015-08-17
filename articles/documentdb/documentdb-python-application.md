@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Создание веб-приложения Python и Flask с использованием DocumentDB | Azure"
+    pageTitle="Создание веб-приложения на базе Python и Flask с использованием DocumentDB | Microsoft Azure"
     description="Узнайте, как использовать DocumentDB для хранения и использования данных из веб-приложения Python и Flask (MVC), размещенного в Azure."
     services="documentdb"
     documentationCenter="python"
@@ -42,7 +42,7 @@
 - Средства Python для Visual Studio [отсюда][].
 - Пакет Azure SDK для Visual Studio 2013 версии 2.4 и выше доступен [здесь][1].
 - Python 2.7 [отсюда][2].
-- Компилятор Microsoft Visual C++ для Python 2.7 [отсюда][99].
+- Компилятор Microsoft Visual C++ для Python 2.7 [отсюда][3].
 
 ## Шаг 1. Создание учетной записи базы данных DocumentDB
 
@@ -345,9 +345,9 @@
   [отсюда]: http://aka.ms/ptvs
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
   [2]: https://www.python.org/downloads/windows/
-  [99]: http://aka.ms/vcpython27
+  [3]: http://aka.ms/vcpython27
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure Management Portal]: http://portal.azure.com
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

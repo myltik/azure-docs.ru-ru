@@ -206,7 +206,7 @@
 
 	- Внесите изменения в раздел **[mariadb]** и добавьте следующие данные.
 
-	> [AZURE.NOTE]Мы рекомендуем, чтобы значение **innodb_buffer_pool_size** составляло 70 % от памяти виртуальной машины. Здесь задано значение 2,45 ГБ для виртуальной машины Azure средней емкости с 3,5 ГБ ОЗУ.
+	> [AZURE.NOTE]Мы рекомендуем, чтобы значение **innodb\_buffer\_pool\_size** составляло 70 % от памяти виртуальной машины. Здесь задано значение 2,45 ГБ для виртуальной машины Azure средней емкости с 3,5 ГБ ОЗУ.
 
 	        innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70% of physical memory.
             innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash
@@ -370,4 +370,4 @@
 [другим способом кластеризации MySQL в ОС Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

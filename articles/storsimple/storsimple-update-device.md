@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/28/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos" />
 
 # Обновление устройства StorSimple
@@ -58,7 +58,7 @@
 
 Кроме того, можно использовать Windows PowerShell для StorSimple для применения обычных обновлений.
 
-> [AZURE.IMPORTANT]Вы можете устанавливать регулярные обновления с помощью Windows PowerShell для StorSimple, но мы настоятельно рекомендуем устанавливать их через портал управления. Начиная с обновления версии 1, предварительная проверка выполняется перед установкой обновлений из портала, благодаря чему устраняются сбои и обеспечивается более стабильная работа.
+> [AZURE.IMPORTANT]Вы можете устанавливать регулярные обновления с помощью Windows PowerShell для StorSimple, но мы настоятельно рекомендуем устанавливать их через портал управления. Начиная с обновления 1, предварительные проверки будут выполняться перед установкой обновлений на портале. Эти предварительные проверки устраняют сбои и обеспечивают более стабильную работу.
 
 [AZURE.INCLUDE [storsimple-install-regular-updates-powershell](../../includes/storsimple-install-regular-updates-powershell.md)]
 
@@ -119,4 +119,4 @@ Windows PowerShell для StorSimple используется, чтобы при
 Подробнее о [Windows PowerShell для StorSimple](https://msdn.microsoft.com/library/azure/dn772425.aspx).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

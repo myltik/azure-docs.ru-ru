@@ -199,7 +199,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 В этом разделе вы построите пакет приложения для Магазина Windows, чтобы устанавливать приложение на втором компьютере или виртуальной машине. Затем вы выполните приложение на обоих компьютерах, создавая конфликт записи, чтобы проверить код. Оба экземпляра приложения будут пытаться обновить свойство `text` одного и того же элемента, что потребует от пользователя разрешения конфликта.
 
 
-1. Создайте пакет приложения для Магазина Windows для установки приложения на втором компьютере или виртуальной машине. Чтобы сделать это, щелкните **Проект**-> **Магазин** -> **Создание пакетов приложений** в Visual Studio.
+1. Создайте пакет приложения для Магазина Windows для установки приложения на втором компьютере или виртуальной машине. Чтобы сделать это, нажмите **Проект**->**Магазин**->**Создание пакетов приложений** в Visual Studio.
 
 	![][0]
 
@@ -215,11 +215,11 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
    	![][11]
 
-5. Скопируйте папку пакета todolist_1.0.0.0_AnyCPU_Debug_Test на второй компьютер. На этом компьютере откройте папку пакета и щелкните правой кнопкой мыши скрипт PowerShell **Add-AppDevPackage.ps1** и нажмите кнопку **Запуск с помощью PowerShell**, как показано ниже. Следуйте инструкциям на экране для установки приложения.
+5. Скопируйте папку пакета todolist\_1.0.0.0\_AnyCPU\_Debug\_Test на второй компьютер. На этом компьютере откройте папку пакета и щелкните правой кнопкой мыши скрипт PowerShell **Add-AppDevPackage.ps1** и нажмите кнопку **Запуск с помощью PowerShell**, как показано ниже. Следуйте инструкциям на экране для установки приложения.
 
 	![][12]
   
-5. Запустите экземпляр 1 приложения в Visual Studio, щелкнув **Отладка** -> **Начать отладку**. На экране запуска второго компьютера щелкните стрелку вниз, чтобы увидеть "Приложения по имени". Затем щелкните приложение **todolist** для запуска экземпляра 2 приложения.
+5. Запустите экземпляр 1 приложения в Visual Studio, щелкнув **Отладка**->**Начать отладку**. На экране запуска второго компьютера щелкните стрелку вниз, чтобы увидеть "Приложения по имени". Затем щелкните приложение **todolist** для запуска экземпляра 2 приложения.
 
 	Экземпляр 1 приложения ![][2]
 
@@ -350,7 +350,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 <!-- URLs. -->
 [управлении оптимистичным параллелизмом]: http://go.microsoft.com/fwlink/?LinkId=330935
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
-[Учетная запись Azure]: http://azure.microsoft.com/pricing/free-trial/
+[Учетная запись Azure]: http://www.windowsazure.com/pricing/free-trial/
 [Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-dotnet
 [Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started
@@ -366,4 +366,4 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 [Системные свойства]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

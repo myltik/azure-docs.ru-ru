@@ -33,7 +33,7 @@
 - [Настройка георепликации HBase][hdinsight-hbase-geo-replication]
 
 
-На следующей схеме показаны две виртуальные сети, созданные вами в разделе [Настройка VPN-подключения между двумя виртуальными сетями][hdinsight-hbase-geo-replication-vnet]:
+На следующей схеме показаны две виртуальные сети, созданные вами в разделе [Настройка VPN-подключения между двумя виртуальными сетями][hdinsight-hbase-geo-replication-vnet]\:
 
 ![Схема виртуальной сети репликации HBase в HDInsight][img-vnet-diagram]
 
@@ -220,4 +220,4 @@ DNS-сервер в каждой виртуальной сети может ра
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

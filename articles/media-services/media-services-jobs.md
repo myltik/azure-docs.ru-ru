@@ -60,4 +60,4 @@
 [Квоты и ограничения](media-services-quotas-and-limitations.md) — описание применяемых квот и ограничений кодировщика служб мультимедиа
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

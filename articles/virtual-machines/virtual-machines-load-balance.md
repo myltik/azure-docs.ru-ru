@@ -83,4 +83,4 @@ Azure также может распределять нагрузку внутр
 
 <!-- LINKS -->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

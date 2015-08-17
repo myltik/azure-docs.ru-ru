@@ -17,10 +17,12 @@
 	ms.author="yuaxu"/>
 
 # Использование концентраторов уведомлений с Python
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
-</div>
-
+> [AZURE.SELECTOR] 
+- [Java](notification-hubs-php-backend-how-to.md)
+- [PHP](notification-hubs-python-backend-how-to.md)
+- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+		
 Вы можете обращаться ко всем функциям центров уведомлений из серверной части Java, PHP, Python или Ruby, используя интерфейс REST в соответствии с описанием в разделе MSDN [Интерфейсы API REST центров уведомлений](http://msdn.microsoft.com/library/dn223264.aspx).
 
 > [AZURE.NOTE]Это образец эталонной реализации для отправки уведомлений в Python, который не является официально поддерживаемым пакетом SDK концентраторов уведомлений Python.
@@ -222,7 +224,7 @@
 
 	hub = NotificationHub("myConnectionString", "myNotificationHubName")
 
-Затем добавьте код отправки, определяемый целевой мобильной платформой. В этом примере добавлены методы более высокого уровня, чтобы включить отправку уведомлений для определенной платформы, например send_windows_notification (для Windows), send_apple_notification (для Apple) и т. д.
+Затем добавьте код отправки, определяемый целевой мобильной платформой. В этом примере добавлены методы более высокого уровня, чтобы включить отправку уведомлений для определенной платформы, например send\_windows\_notification (для Windows), send\_apple\_notification (для Apple) и т. д.
 
 ### Магазин Windows и Windows Phone 8.1 (без Silverlight)
 
@@ -351,4 +353,4 @@
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

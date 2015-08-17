@@ -18,9 +18,11 @@
 
 #Безопасные push-уведомления посредством центров уведомлений Azure
 
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Universal" class="current">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a> <a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Universal](notification-hubs-windows-dotnet-secure-push.md)
+- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+
 
 ##Обзор
 
@@ -78,7 +80,7 @@
 
 Следующий шаг заключается в создании фонового компонента push-уведомления.
 
-1. В обозревателе решений щелкните правой кнопкой мыши узел верхнего уровня решения (в данном случае – **Solution SecurePush**), затем щелкните **Добавить** и **Создать проект**.
+1. В обозревателе решений щелкните правой кнопкой узел верхнего уровня решения (в данном случае - **Solution SecurePush**), затем нажмите кнопку **Добавить**, после чего щелкните **Создать проект**.
 
 2. Разверните пункт **Приложения Магазина**, затем щелкните **Приложения Windows Phone** и выберите **Компонент среды выполнения Windows (Windows Phone)**. Присвойте проекту имя **PushBackgroundComponent**, затем нажмите кнопку **ОК**, чтобы создать проект.
 
@@ -185,4 +187,4 @@
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

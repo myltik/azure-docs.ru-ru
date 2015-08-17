@@ -114,4 +114,4 @@
 [Image8]: ./media/attach-data-disk-centos-vm-in-portal/fdisk4.png
 [Image9]: ./media/attach-data-disk-centos-vm-in-portal/mkfs.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

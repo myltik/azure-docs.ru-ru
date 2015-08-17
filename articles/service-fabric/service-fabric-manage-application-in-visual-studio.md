@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/22/2015"
+   ms.date="08/05/2015"
    ms.author="jesseb"/>
 
 # Управление приложениями Service Fabric в Visual Studio
@@ -68,10 +68,10 @@
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Дальнейшие действия
 
-- [Модель приложений Service Fabric](../service-fabric-application-model)
-- [Развертывание приложений Service Fabric](../service-fabric-deploy-remove-applications)
-- [Отладка приложений Service Fabric](../service-fabric-debugging-your-application)
-- [Визуализация кластера с помощью обозревателя Service Fabric](../service-fabric-visualizing-your-cluster)
+- [Модель приложений Service Fabric](service-fabric-application-model.md)
+- [Развертывание приложений Service Fabric](service-fabric-deploy-remove-applications.md)
+- [Отладка приложений Service Fabric](service-fabric-debugging-your-application.md)
+- [Визуализация кластера с помощью обозревателя Service Fabric](service-fabric-visualizing-your-cluster.md)
 
 <!--Image references-->
 [addserviceproject]: ./media/service-fabric-manage-application-in-visual-studio/addserviceproject.png
@@ -79,4 +79,4 @@
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

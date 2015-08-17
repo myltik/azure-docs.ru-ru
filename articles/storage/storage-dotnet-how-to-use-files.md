@@ -12,25 +12,29 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="07/06/2015"
+      ms.date="08/04/2015"
       ms.author="tamram" />
 
 # Использование хранилища файлов Azure с помощью PowerShell и .NET
 
 ## Обзор
 
-Служба файлов Azure предоставляет общие папки с помощью стандартного протокола SMB 2.1. Приложения, запущенные в Azure, теперь могут использовать его для общего доступа к файлам виртуальными машинами, использующими стандартные и знакомые API файловых систем, например ReadFile и WriteFile. Кроме того, к файлам можно получить одновременный доступ через интерфейс REST, открывающий различные гибридные сценарии. Наконец, служба файлов Azure основана на той же технологии, что и службы BLOB-объектов, таблиц и очередей, то есть она может использовать существующие средства обеспечения доступности, надежности, масштабируемости и геоизбыточности, встроенные в нашу платформу.
+Служба файлов Azure предоставляет общие папки с помощью стандартного протокола SMB 2.1. Приложения, запущенные в Azure, теперь могут использовать его для общего доступа к файлам виртуальными машинами, использующими стандартные и знакомые API файловых систем, например ReadFile и WriteFile. Кроме того, к файлам можно получить одновременный доступ через интерфейс REST, открывающий различные гибридные сценарии. Наконец, служба файлов Azure основана на той же технологии, что и службы BLOB-объектов, таблиц и очередей, то есть она может использовать существующие средства обеспечения доступности, надежности, масштабируемости и геоизбыточности, встроенные в платформу хранилища Azure.
 
 ## О данном учебнике
 
 В этом учебнике по началу работы продемонстрированы основы использования хранилища файлов Microsoft Azure. В этом учебнике мы выполним следующее:
 
-- Воспользуемся PowerShell, чтобы создать новый файл Azure для общего доступа, добавить каталог, передать локальный файл для общего доступа и вывести список файлов в каталоге.
-- Смонтируем файлы для общего доступа из виртуальной машины Azure, так же как и любой другой общий ресурс SMB.
+- Воспользуйтесь Azure PowerShell, чтобы создать новый файл Azure для общего доступа, добавить каталог, передать локальный файл для общего доступа и вывести список файлов в каталоге.
+- Смонтируйте файлы для общего доступа из виртуальной машины Azure, так же как и любой другой общий ресурс SMB.
+- Получите доступ к общей папке из локального приложения с помощью клиентской библиотеки хранилища Azure для .NET. Создайте консольное приложение и выполните эти действия с общей папкой.
+	- Впишите содержимое файла из общей папки в консольное окно
+	- Задайте квоту (максимальный размер) для общей папки
+	- Создайте подпись общего доступа для файла, который использует политику общего доступа, определенную в общей папке
+	- Скопируйте файл в другой файл в той же учетной записи хранения
+	- Скопируйте файл в BLOB-объект в той же учетной записи хранения
 
-Для пользователей, которым может понадобиться общий доступ к файлам из локального приложения, а также из виртуальной машины или облачной службы Azure, мы покажем, как использовать клиентскую библиотеку хранилища Azure для .NET для работы с общим доступом к файлам из классического приложения.
-
-> [AZURE.NOTE]Для выполнения примеров кода .NET из этого руководства необходимо наличие клиентской библиотеки хранилища Azure для .NET версии 4.x или более поздней версии. Клиентская библиотека хранилища доступна через [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/).
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
@@ -123,14 +127,14 @@ Windows автоматически восстановит подключение
 	example :
 	net use z: \\samples.file.core.windows.net\logs
 
-> [AZURE.NOTE]Так как вы сохранили данные учетной записи хранения на предыдущем этапе, нет необходимости вводить их повторно с помощью команды `net use`. Если вы еще не сохранили данные учетной записи, добавьте их как параметр вызова команды `net use`.
+Так как вы сохранили данные учетной записи хранения на предыдущем этапе, нет необходимости вводить их повторно с помощью команды `net use`. Если вы еще не сохранили данные учетной записи, добавьте их как параметр вызова команды `net use`, как показано в этом примере.
 
     net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
 
 	example :
 	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
 
-Теперь можно работать с общим ресурсом хранилища файлов из виртуальной машины, как с обычным диском. Можно выполнять стандартные команды для работы с файлами из интерфейса командной строки, либо просматривать монтированный ресурс и его содержимое с помощью Проводника. Также вы можете запустить на виртуальной машине код, который получит доступ к общей папке с использованием стандартных интерфейсов API ввода-вывода Windows, так как они предоставляются [пространствами имен System.IO](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) в.NET Framework.
+Теперь можно работать с общим ресурсом хранилища файлов из виртуальной машины, как с обычным диском. Можно выполнять стандартные команды для работы с файлами из интерфейса командной строки, либо просматривать монтированный ресурс и его содержимое с помощью Проводника. Также можно запускать на виртуальной машине код, который получит доступ к ресурсу с использованием стандартных API ввода-вывода Windows, так как они предоставляются [пространствами имен System.IO](http://msdn.microsoft.com/library/gg145019.aspx) в .NET Framework.
 
 Также можно монтировать общий ресурс файлов из роли, запущенной в облачной службе Azure с помощью удаленного подключения к роли.
 
@@ -171,16 +175,19 @@ Windows автоматически восстановит подключение
 
 	using Microsoft.WindowsAzure;
 	using Microsoft.WindowsAzure.Storage;
+	using Microsoft.WindowsAzure.Storage.Blob;
 	using Microsoft.WindowsAzure.Storage.File;
 
 ### Получение строки подключения программным путем
 
-Вы можете получить сохраненные данные учетной записи из файла app.config с помощью класса `Microsoft.WindowsAzure.CloudConfigurationManager` или `System.Configuration.ConfigurationManager `. В примере показано, как получить свои учетные данные с помощью класса `CloudConfigurationManager` и инкапсулировать их в класс `CloudStorageAccount`. В метод `Main()` в program.cs добавьте следующий код:
+Вы можете получить сохраненные данные учетной записи из файла app.config с помощью класса `Microsoft.WindowsAzure.CloudConfigurationManager` или `System.Configuration.ConfigurationManager `. Пакет Microsoft Azure Configuration Manager, который содержит класс `Microsoft.WindowsAzure.CloudConfigurationManager`, можно найти в [Nuget](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager).
+
+В примере показано, как получить свои учетные данные с помощью класса `CloudConfigurationManager` и инкапсулировать их в класс `CloudStorageAccount`. В метод `Main()` в program.cs добавьте следующий код:
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    	CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    	CloudConfigurationManager.GetSetting("StorageConnectionString")); 
 
-### Доступ к общему ресурсу хранилища файлов программным путем
+### Доступ к общей папке программным путем
 
 Затем добавьте в метод `Main()` следующий код после ранее указанного кода, чтобы получить строку подключения. Этот код получает ссылку на ранее созданный файл и выводит его содержимое в окне консоли.
 
@@ -216,20 +223,204 @@ Windows автоматически восстановит подключение
 
 Запустите консольное приложение и получите вывод.
 
-## Подключение общей папки из виртуальной машины Azure под управлением Linux
+## Установка максимального размера для файлового ресурса
 
-При создании виртуальной машины Azure можно указать образ Ubuntu из коллекции образов дисков, чтобы обеспечить поддержку SMB 2.1. Тем не менее любой дистрибутив Linux, который поддерживает SMB 2.1, поддерживает также общие папки с файлами Azure.
+Начиная с версии 5.x клиентской библиотеки хранилища Azure можно задать значение квоты (или максимального размера) для файлового ресурса в гигабайтах. Задав квоту для файлового ресурса, можно ограничить общий размер файлов, хранящихся в общей папке.
 
-Подключение общей папки Azure в Linux см. в демонстрации [Общее хранилище для Linux в предварительной версии файлов Azure. Часть 1](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1) на сайте Channel 9.
+Если общий размер файлов в общей папке превышает квоту, установленную для этой папки, клиенты не смогут увеличить размер существующих файлов или создать новые файлы, если они не являются пустыми.
+
+В приведенном ниже примере показано, как задать квоту для существующего файлового ресурса.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Get a reference to the file share we created previously.
+    CloudFileShare share = fileClient.GetShareReference("logs");
+
+    //Ensure that the share exists.
+    if (share.Exists())
+    {
+		//Specify the maximum size of the share, in GB.
+	    share.Properties.Quota = 100;
+	    share.SetProperties();
+	}
+
+Чтобы получить значение любой существующей квоты для файлового ресурса, вызовите метод **FetchAttributes()** для извлечения свойств общей папки.
+
+## Создание подписи общего доступа для файла или файлового ресурса
+
+Начиная с версии 5.x клиентской библиотеки хранилища Azure, можно создать подпись общего доступа (SAS) для файлового ресурса или отдельного файла. Также можно создать политики общего доступа на файловом ресурсе, чтобы управлять подписями общего доступа. Создание политики общего доступа рекомендуется, так как она позволяет отменить SAS, если она скомпрометирована.
+
+В приведенном ниже примере создаются политики общего доступа в общей папке, а затем используются для обеспечения ограничения SAS для файла в общей папке.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Get a reference to the file share we created previously.
+    CloudFileShare share = fileClient.GetShareReference("logs");
+
+    //Ensure that the share exists.
+    if (share.Exists())
+    {
+        string policyName = "sampleSharePolicy" + DateTime.UtcNow.Ticks;
+
+        //Create a new shared access policy and define its constraints.
+        SharedAccessFilePolicy sharedPolicy = new SharedAccessFilePolicy()
+            {
+                SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
+                Permissions = SharedAccessFilePermissions.Read | SharedAccessFilePermissions.Write
+            };
+
+        //Get existing permissions for the share.
+        FileSharePermissions permissions = share.GetPermissions();
+
+        //Add the shared access policy to the share's policies. Note that each policy must have a unique name.
+        permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
+        share.SetPermissions(permissions);
+
+        //Generate a SAS for a file in the share and associate this access policy with it.
+        CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+        CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
+        CloudFile file = sampleDir.GetFileReference("Log1.txt");
+        string sasToken = file.GetSharedAccessSignature(null, policyName);
+        Uri fileSasUri = new Uri(file.StorageUri.PrimaryUri.ToString() + sasToken);
+
+        //Create a new CloudFile object from the SAS, and write some text to the file. 
+        CloudFile fileSas = new CloudFile(fileSasUri);
+        fileSas.UploadText("This write operation is authenticated via SAS.");
+        Console.WriteLine(fileSas.DownloadText());
+    }
+
+Дополнительные сведения о создании и использовании подписей общего доступа см. в разделах [Подписи общего доступа: общие сведения о модели SAS](storage-dotnet-shared-access-signature-part-1.md) и [Создание и использование подписи общего доступа к службе BLOB-объектов](storage-dotnet-shared-access-signature-part-2.md).
+
+## Копирование файлов
+
+Начиная с версии 5.x клиентской библиотеки хранилища Azure, можно скопировать файл в другой файл, файл в большой двоичный объект или BLOB-объект в файл. Ниже демонстрируется выполнение этих операций копирования программными средствами.
+
+AzCopy можно использовать для копирования одного файла в другой, а также копирования большого двоичного объекта в файл или наоборот. Подробнее о копировании файлов с помощью AzCopy см. в разделе [Использование AzCopy с хранилищем Microsoft Azure](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy-preview-version-only).
+
+> [AZURE.NOTE]При копировании большого двоичного объекта в файл или файла в большой двоичный объект необходимо использовать подпись общего доступа (SAS) для проверки подлинности исходного объекта, даже если копирование производится внутри одной и той же учетной записи хранения.
+
+### Копирование файла в другой файл
+
+В приведенном ниже примере файл копируется в другой файл в той же общей папке. Так как эта операция копирования осуществляет копирование между файлами в одной учетной записи хранения, для выполнения копирования можно использовать проверку подлинности Shared Key.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Get a reference to the file share we created previously.
+    CloudFileShare share = fileClient.GetShareReference("logs");
+
+    //Ensure that the share exists.
+    if (share.Exists())
+    {
+        //Get a reference to the root directory for the share.
+        CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+
+        //Get a reference to the directory we created previously.
+        CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
+
+        //Ensure that the directory exists.
+        if (sampleDir.Exists())
+        {
+            //Get a reference to the file we created previously.
+            CloudFile sourceFile = sampleDir.GetFileReference("Log1.txt");
+
+            //Ensure that the source file exists.
+            if (sourceFile.Exists())
+            {
+                //Get a reference to the destination file.
+                CloudFile destFile = sampleDir.GetFileReference("Log1Copy.txt");
+
+                //Start the copy operation.
+                destFile.StartCopy(sourceFile);
+
+                //Write the contents of the destination file to the console window.
+                Console.WriteLine(destFile.DownloadText());
+            }
+        }
+    }
+
+
+### Копирование файла в большой двоичный объект
+
+В приведенном ниже примере файл создается и копируется в большой двоичный объект в пределах одной и той же учетной записи хранения. В примере для исходного файла создается SAS, которую служба использует для проверки подлинности при доступе к исходному файлу во время операции копирования.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Create a new file share, if it does not already exist.
+    CloudFileShare share = fileClient.GetShareReference("sample-share");
+    share.CreateIfNotExists();
+
+    //Create a new file in the root directory.
+    CloudFile sourceFile = share.GetRootDirectoryReference().GetFileReference("sample-file.txt");
+    sourceFile.UploadText("A sample file in the root directory.");
+
+    //Get a reference to the blob to which the file will be copied.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
+    container.CreateIfNotExists();
+    CloudBlockBlob destBlob = container.GetBlockBlobReference("sample-blob.txt");
+
+    //Create a SAS for the file that's valid for 24 hours.
+    //Note that when you are copying a file to a blob, or a blob to a file, you must use a SAS
+    //to authenticate access to the source object, even if you are copying within the same 
+    //storage account.
+    string fileSas = sourceFile.GetSharedAccessSignature(new SharedAccessFilePolicy()
+    {
+        //Only read permissions are required for the source file.
+        Permissions = SharedAccessFilePermissions.Read,
+        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24)
+    });
+
+    //Construct the URI to the source file, including the SAS token. 
+    Uri fileSasUri = new Uri(sourceFile.StorageUri.PrimaryUri.ToString() + fileSas);
+
+    //Copy the file to the blob.
+    destBlob.StartCopy(fileSasUri);
+
+    //Write the contents of the file to the console window.
+    Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
+    Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
+
+Таким же образом можно скопировать BLOB-объект в файл. Если исходным объектом является BLOB-объект, создайте SAS для проверки подлинности доступа к BLOB-объекту во время операции копирования.
+
+## Использование хранилища файлов с Linux
+
+Чтобы создать файловый ресурс в Linux и управлять им, используйте Azure CLI. Сведения об использовании Azure CLI с хранилищем файлов см. в разделе [Использование Azure CLI с хранилищем Azure](storage-azure-cli.md#create-and-manage-file-shares).
+
+Можно подключить файловый ресурс Azure из виртуальной машины под управлением Linux. При создании виртуальной машины Azure можно указать образ Linux, который поддерживает SMB 2.1 из коллекции образов Azure, например последнюю версию Ubuntu. Тем не менее любой дистрибутив Linux, который поддерживает SMB 2.1, поддерживает также файловые ресурсы Azure.
+
+Подробнее о подключении файлового ресурса Azure в Linux см. в демонстрации [Общее хранилище для Linux в предварительной версии файлов Azure. Часть 1](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1) на сайте Channel 9.
 
 ## Дальнейшие действия
 
 Дополнительную информацию о хранилище файлов Azure см. по этим ссылкам.
 
-### Справочные материалы
+### Учебники и справочники
 
 - [Справочник по клиентской библиотеке хранилища для .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 - [Справочник по REST API службы файлов](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+- [Использование AzCopy с хранилищем Microsoft Azure](storage-use-azcopy.md)
+- [Использование Azure PowerShell со службой хранилища Azure](storage-powershell-guide-full.md)
+- [Использование интерфейса командной строки (CLI) Azure со службой хранилища Azure](storage-azure-cli.md)
 
 ### Записи блога
 
@@ -237,4 +428,4 @@ Windows автоматически восстановит подключение
 - [Сохраняемые подключения к файлам Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

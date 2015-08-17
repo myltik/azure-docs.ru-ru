@@ -6,7 +6,7 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
-<tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt\_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+<tagsms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
 
 # Загрузка, установка и регистрация агента службы архивации Azure
 После создания хранилища службы архивации Azure на каждом локальном сервере (Windows Server, клиент Windows или сервер System Center Data Protection Manager) необходимо установить агент, который позволяет выполнять резервное копирование данных и приложений в Azure. В этой статье описываются действия для настройки агента службы архивации Azure на сервере Windows Server или клиентском компьютере Windows.
@@ -56,4 +56,4 @@
 ## Дальнейшие действия
 - Изучите дополнительные сведения о резервном копировании данных и приложений в Azure в статье [Архивация по расписанию](backup-azure-backup-and-recover.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

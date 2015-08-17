@@ -188,4 +188,4 @@
 - [Ссылки на статьи по созданию графических модулей](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

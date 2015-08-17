@@ -70,4 +70,4 @@
 ## Дальнейшие действия
 Ознакомьтесь со схемой [XML определения службы](https://msdn.microsoft.com/library/azure/ee758711.aspx) и схемой [XML конфигурации службы](https://msdn.microsoft.com/library/azure/ee758710.aspx).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

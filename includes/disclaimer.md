@@ -1,3 +1,3 @@
 Чтобы использовать эту возможность, а также другие новые возможности Azure, зарегистрируйтесь для ознакомления с [бесплатной предварительной версией](https://account.windowsazure.com/PreviewFeatures).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="04/29/2015"
+	ms.date="08/03/2015"
 	ms.author="tomfitz"/>
 
 #Сайт WordPress корпоративного класса в службе приложений Azure
@@ -165,17 +165,17 @@
 
 	2. В резервной копии WordPress найдите файл **wp-config.php** и откройте его в редакторе. Замените следующие записи на сведения для новой базы данных MySQL.
 
-		* **DB_NAME** — имя пользователя базы данных.
+		* **DB\_NAME** — имя пользователя базы данных.
 
-		* **DB_USER** — имя пользователя для доступа к базе данных.
+		* **DB\_USER** — имя пользователя для доступа к базе данных.
 
-		* **DB_PASSWORD** — пароль пользователя.
+		* **DB\_PASSWORD** — пароль пользователя.
 
 		После изменения этих записей сохраните и закройте файл **wp-config.php**.
 
 	3. Используйте информацию из статьи [Развертывание веб-приложения в службе приложений Azure][deploy], чтобы включить метод развертывания, который вы хотите использовать, а затем разверните резервную копию сайта WordPress в веб-приложении в службе приложений Azure.
 
-5. После развертывания сайта WordPress вы сможете получить доступ к новому сайту (в виде веб-приложения службы приложений), используя URL-адрес *.azurewebsite.net сайта.
+5. После развертывания сайта WordPress вы сможете получить доступ к новому сайту (св виде веб-приложения службы приложений), используя URL-адрес *.azurewebsite.net сайта.
 
 ###Настройка сайта
 
@@ -184,7 +184,7 @@
 Для этого... | Используйте это...
 ------------- | -----------
 **Установка режима плана службы приложений, размера и включение масштабирования** | [Масштабирование веб-приложения в службе приложений Azure][websitescale]
-**Включение постоянных подключений к базе данных** <p>По умолчанию WordPress не использует постоянные подключения к базе данных, что может привести к регулированию подключения к базе данных через несколько подключений.</p> | <ol><li><p>Измените файл <strong>wp-includes/wp-db.php</strong>.</p></li><li><p>Найдите следующую строку.</p><code>$this->dbh = mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );</code></li><li><p>Замените предыдущую строку следующей.</p><code>$this->dbh = mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client_flags ); <br/>if ( false !== $error_reporting ) { /br/>&nbsp;&nbsp;error_reporting( $error_reporting ); <br/>} </code></li><li><p>Найдите следующую строку.</p><code>$this->dbh = @mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags ); </code></li><li><p>Замените указанную выше строку следующей.</p><code>$this->dbh = @mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client_flags ); </code></li><li><p>Сохраните файл <strong>wp-includes/wp-db.php</strong> и заново разверните сайт.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><p>Эти изменения могут быть перезаписаны при обновлении WordPress.</p><p>В WordPress по умолчанию включены автоматические обновления, которые можно отключить, отредактировав файл <strong>wp-config.php</strong> и добавив <code>define ( 'WP_AUTO_UPDATE_CORE', false );</code></p><p>Другой способ настройки обновлений — использовать веб-задание, которое будет отслеживать файл <strong>wp-db.php</strong> и выполнять указанные выше изменения при каждом его обновлении. Дополнительную информацию см. в статье <a href="http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx">Общая информация о веб-заданиях</a>.</p></div>
+**Включение постоянных подключений к базе данных** <p>По умолчанию WordPress не использует постоянные подключения к базе данных, что может привести к регулированию подключения к базе данных через несколько подключений.</p> | <ol><li><p>Измените файл <strong>wp-includes/wp-db.php</strong>.</p></li><li><p>Найдите следующую строку.</p><code>$this->dbh = mysql\_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new\_link, $client\_flags );</code></li><li><p>Замените предыдущую строку следующей.</p><code>$this->dbh = mysql\_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client\_flags ); <br/>if ( false !== $error\_reporting ) { /br/>&nbsp;&nbsp;error\_reporting( $error\_reporting ); <br/>} </code></li><li><p>Найдите следующую строку.</p><code>$this->dbh = @mysql\_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new\_link, $client\_flags ); </code></li><li><p>Замените указанную выше строку следующей.</p><code>$this->dbh = @mysql\_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client\_flags ); </code></li><li><p>Сохраните файл <strong>wp-includes/wp-db.php</strong> и заново разверните сайт.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><p>Эти изменения могут быть перезаписаны при обновлении WordPress.</p><p>В WordPress по умолчанию включены автоматические обновления, которые можно отключить, отредактировав файл <strong>wp-config.php</strong> и добавив <code>define ( 'WP\_AUTO\_UPDATE\_CORE', false );</code></p><p>Другой способ настройки обновлений — использовать веб-задание, которое будет отслеживать файл <strong>wp-db.php</strong> и выполнять указанные выше изменения при каждом его обновлении. Дополнительную информацию см. в статье <a href="http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx">Общая информация о веб-заданиях</a>.</p></div>
 **Повышение производительности** | <ul><li><p><a href="http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">Отключение ARR-файла cookie</a>. Это может повысить производительность при запуске WordPress на нескольких экземплярах веб-приложений</p></li><li><p>Включение кэширования. <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Кэш Redis</a> (предварительная версия) может использоваться в сочетании с <a href="https://wordpress.org/plugins/redis-object-cache/">подключаемым модулем кэширования объектов Redis для WordPress</a>. Или можно воспользоваться другими предложениями для кэширования из <a href="/gallery/store/">Магазина Azure</a></p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Ускорение работы WordPress с помощью Wincache.</a> Wincache по умолчанию включен для веб-приложений</p></li><li><p><a href="../web-sites-scale/">Масштабирование веб-приложения в службе приложений Azure</a>, а также <a href="http://www.cleardb.com/developers/cdbr/introduction">Маршрутизация высокой доступности ClearDB</a> или <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a></p></li></ul>
 **Использование больших двоичных объектов для хранения данных** | <ol><li><p><a href="../storage-create-storage-account/">Создайте учетную запись хранения Azure</a></p></li><li><p>Узнайте о том, как <a href="../cdn-how-to-use/">использовать сеть Content Distribution Network (CDN)</a> для географического распределения данных, хранящихся в больших двоичных объектах.</p></li><li><p>Установите и настройте <a href="https://wordpress.org/plugins/windows-azure-storage/">подключаемый модуль службы хранилища Azure для WordPress</a>.</p><p>Дополнительную информацию об установке и настройке подключаемого модуля см. в <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">руководстве пользователя</a>.</p> </li></ol>
 **Включение электронной почты** | <ol><li><p><a href="/gallery/store/sendgrid/sendgrid-azure/">Включите SendGrid с помощью Магазина Azure</a></p></li><li><p><a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">Установите подключаемый модуль SendGrid для WordPress</a></p></li></ol>
@@ -283,4 +283,4 @@
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

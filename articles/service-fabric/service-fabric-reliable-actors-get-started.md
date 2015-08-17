@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/23/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
 # Надежные субъекты: пошаговое руководство по началу работы на примере HelloWorld
@@ -146,7 +146,7 @@ fabricRuntime.RegisterActor(typeof(MyNewActor));
 
 ## Дальнейшие действия
 
-[Общие сведения о субъектах Service Fabric](service-fabric-reliable-actors-introduction.md) [Справочник по API-интерфейсам субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx) [Пример кода](https://github.com/Azure/servicefabric-samples)
+[Общие сведения о надежных субъектах Service Fabric](service-fabric-reliable-actors-introduction.md) [Справочник по API-интерфейсам субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx) [Пример кода](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -156,4 +156,4 @@ fabricRuntime.RegisterActor(typeof(MyNewActor));
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Моделирование данных в Azure DocumentDB" 
+	pageTitle="Моделирование данных в Azure DocumentDB| Microsoft Azure" 
 	description="Узнайте, как моделировать данные для такой базы данных документов NoSQL, как Azure DocumentDB." 
 	services="documentdb" 
 	authors="ryancrawcour" 
@@ -392,4 +392,4 @@
 Наконец, рекомендации по моделированию и сегментированию данных для мультитенантных приложений можно найти в статье [Масштабирование мультитенантного приложения с помощью Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

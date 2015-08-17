@@ -277,4 +277,4 @@ HTM-файлы содержат следующие разделы:
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -102,4 +102,4 @@
 [10]: ./media/app-service-logic-connector-yammer/img10.PNG
 [11]: ./media/app-service-logic-connector-yammer/img11.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

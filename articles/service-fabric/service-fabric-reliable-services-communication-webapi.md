@@ -449,7 +449,7 @@ protected override ICommunicationListener CreateCommunicationListener()
 
 ```
 
-Здесь наконец встречаются *приложение* веб-API и *хост* OWIN: *хост* (\*\*OwinCommunicationListener\*\*) получает экземпляр *приложения* (веб-API через **Startup**), а Service Fabric управляет его жизненным циклом. Такого же шаблона можно придерживаться при использовании любого стека связи.
+Здесь наконец встречаются *приложение* веб-API и *узел* OWIN: *узел* (**OwinCommunicationListener**) получает экземпляр *приложения* (веб-API через **Startup**), а Service Fabric управляет его жизненным циклом. Такого же шаблона можно придерживаться при использовании любого стека связи.
 
 ## Сборка
 
@@ -570,7 +570,7 @@ namespace WebApi
 Если это еще не сделано, [настройте среду разработки](service-fabric-get-started.md).
 
 
-Теперь можно построить и развернуть службу. Нажмите клавишу **F5** в Visual Studio, чтобы выполнить построение и развертывание приложения. В окне «События диагностики» вы увидите сообщение, указывающее, что веб-сервер открылся на **http://localhost:80/api**
+Теперь можно построить и развернуть службу. Нажмите клавишу **F5** в Visual Studio, чтобы выполнить построение и развертывание приложения. В окне «События диагностики» вы увидите сообщение, указывающее, что веб-сервер открылся на ****http://localhost:80/api**.
 
 
 ![](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
@@ -614,4 +614,4 @@ New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -Servi
 
 [Отладка приложения Service Fabric в Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/18/2015"
+   ms.date="07/24/2015"
    ms.author="elfish; v-romcal"/>
 
 # Восстановление базы данных SQL Azure с использованием восстановления на момент времени на портале Azure
@@ -74,4 +74,4 @@
 
 [Восстановление базы данных SQL Azure на определенный момент времени (блог)](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

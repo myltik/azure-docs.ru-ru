@@ -18,10 +18,11 @@
 
 #Безопасные push-уведомления посредством центров уведомлений Azure
 
-<div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS">iOS</a> <a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android" class="current">Android</a>
-</div>
-
+> [AZURE.SELECTOR]
+- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
+- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+    
 ##Обзор
 
 Поддержка push-уведомлений в Microsoft Azure позволяет получить доступ к простой в использовании, многоплатформенной и масштабируемой инфраструктуре для отправки push-уведомлений, которая значительно упрощает реализацию push-уведомлений как для индивидуальных пользователей, так и для корпоративных приложений для мобильных платформ.
@@ -131,4 +132,4 @@
 4. В пользовательском интерфейсе приложения Android нажмите **Вход**. Затем нажмите кнопку **Отправить push-уведомление**.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

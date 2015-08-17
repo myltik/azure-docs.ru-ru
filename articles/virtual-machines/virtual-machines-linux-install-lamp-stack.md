@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2015"
+	ms.date="07/29/2015"
 	ms.author="szark"/>
 
 
@@ -76,7 +76,7 @@
 
 - apache2
 - mysql
-- apache2-mod_php53
+- apache2-mod\_php53
 - php53-mysql
 
 Вы можете установить эти пакеты с помощью одной команды `zypper install`:
@@ -125,4 +125,4 @@
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

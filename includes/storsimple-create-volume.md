@@ -22,4 +22,4 @@
 
 4. Щелкните значок галочки ![значок галочки](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Будет создан том с указанными настройками.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

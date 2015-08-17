@@ -173,4 +173,4 @@
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

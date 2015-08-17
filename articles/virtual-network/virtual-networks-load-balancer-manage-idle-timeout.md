@@ -152,4 +152,4 @@ LoadBalancerDistribution может иметь значение sourceIP для 
     </LoadBalancedEndpointList>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

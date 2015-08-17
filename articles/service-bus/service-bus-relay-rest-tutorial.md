@@ -9,7 +9,7 @@
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
    ms.date="07/07/2015"
@@ -298,7 +298,7 @@ namespace Microsoft.ServiceBus.Samples
   
 	На этом шаге выполняется настройка службы, которая использует заданную ранее привязку по умолчанию **webHttpRelayBinding**. Здесь также используется значение по умолчанию **sbTokenProvider**, которое будет определено на следующем шаге.
 
-6. После элемента `<services>` создайте элемент `<behaviors>` с указанным ниже содержанием, заменив SAS_KEY на ключ *подписанного URL-адреса* (SAS), значение которого вы записали с портала управления Azure в шаге 1.
+6. После элемента `<services>` создайте элемент `<behaviors>` с указанным ниже содержанием, заменив SAS\_KEY на ключ *подписанного URL-адреса* (SAS), значение которого вы записали с портала управления Azure в шаге 1.
   
 	```xml
 	<behaviors>
@@ -568,7 +568,7 @@ namespace Microsoft.ServiceBus.Samples
 
 После построения решения выполните следующие действия, чтобы запустить приложение:
 
-1. Запустите службу из командной строки (ImageListener\bin\Debug\ImageListener.exe).
+1. Запустите службу из командной строки (ImageListener\\bin\\Debug\\ImageListener.exe).
 
 2. Скопируйте из командной строки адрес и вставьте его в браузере, чтобы увидеть изображение.
 
@@ -580,4 +580,4 @@ namespace Microsoft.ServiceBus.Samples
 
 - [Как использовать службу ретранслятора служебной шины](service-bus-dotnet-how-to-use-relay.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

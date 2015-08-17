@@ -50,7 +50,7 @@
 
 Для **URL-адреса входа** скопируйте **URL-адрес перенаправления** из раздела **Azure Active Directory** вкладки **внешних удостоверений** на портале издателя и удалите суффикс **-aad** суффикс в конце этого URL-адреса. В данном примере **URL-адрес входа** — `https://aad03.portal.current.int-azure-api.net/signin`.
 
-Для **URL-адреса ИД приложения** введите домен по умолчанию или пользовательский домен для Azure Active Directory и добавьте к нему уникальную строку. В данном примере используется домен по умолчанию **https://contoso5api.onmicrosoft.com** с указанным суффиксом **/api**.
+Для **URL-адреса ИД приложения** введите домен по умолчанию или пользовательский домен для Azure Active Directory и добавьте к нему уникальную строку. В данном примере используется домен по умолчанию ****https://contoso5api.onmicrosoft.com** с указанным суффиксом **/api**.
 
 ![Свойства нового приложения Azure Active Directory][api-management-new-aad-application-2]
 
@@ -228,4 +228,4 @@
 
 [Вход на портал разработчика с помощью учетной записи Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -484,7 +484,7 @@ ItemID | Да | Идентификатор элемента списка.
 ## Дополнительные возможности соединителя
 После создания соединителя его можно добавить в рабочий бизнес-процесс с помощью приложения логики. См. раздел [Что такое приложения логики?](app-service-logic-what-are-logic-apps.md).
 
-Можно также просматривать статистику производительности и управлять безопасностью соединителя. См. раздел [Управление приложениями API и соединителем, а также их отслеживание](../app-service-api/app-service-api-manage-in-portal.md).
+Можно также просматривать статистику производительности и управлять безопасностью соединителя. См. раздел [Управление приложениями API и соединителем, а также их отслеживание](app-service-api-manage-in-portal.md).
 
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sharepoint/image_0.png
@@ -495,4 +495,4 @@ ItemID | Да | Идентификатор элемента списка.
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

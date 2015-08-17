@@ -103,4 +103,4 @@ Azure поддерживает несколько способов создан�
 
 [Гибридные облачные тестовые среды Azure]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

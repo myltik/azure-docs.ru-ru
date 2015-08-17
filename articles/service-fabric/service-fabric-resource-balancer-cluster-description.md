@@ -192,4 +192,4 @@
 [Image6]: media/service-fabric-resource-balancer-cluster-description/Thresholds.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

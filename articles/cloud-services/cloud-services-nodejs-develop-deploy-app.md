@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="06/01/2015"
 	ms.author="mwasson"/>
 
@@ -78,7 +78,7 @@
 	> [AZURE.NOTE]Если имя роли не указано, используется имя по умолчанию. Можно ввести имя в качестве первого параметра командлета: `Add-AzureNodeWebRole MyRole`
 
 
-Приложение Node.js определяется в файле **server.js**, который находится в каталоге веб-роли (** WebRole1 по умолчанию). Ниже приведен код:
+Приложение Node.js определяется в файле **server.js**, который находится в каталоге веб-роли (по умолчанию это **WebRole1**). Ниже приведен код:
 
 	var http = require('http');
 	var port = process.env.port || 1337;
@@ -183,7 +183,7 @@
 [Обзор создания размещенной службы для Azure]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
 [A directory listing of the WebRole1 folder]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-8.png
 [The menu displayed when right-clicking the Azure emulator from the task bar.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-11.png
-[A browser window displaying http://azure.microsoft.com/ with the Free Trial link highlighted]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-12.png
+[A browser window displaying http://www.windowsazure.com/ with the Free Trial link highlighted]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-12.png
 [A browser window displaying the liveID sign in page]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-13.png
 [Internet Explorer displaying the save as dialog for the publishSettings file.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-14.png
 
@@ -192,4 +192,4 @@
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

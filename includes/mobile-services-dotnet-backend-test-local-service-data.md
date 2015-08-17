@@ -14,8 +14,8 @@
 
     ![](./media/mobile-services-dotnet-backend-test-local-service-data/local-item-checked.png)
 
-5. Чтобы в Visual Studio посмотреть изменения в базе данных, созданной для серверной службы, откройте обозреватель серверов и разверните элемент "Подключения к данным". Щелкните правой кнопкой мыши таблицу TodoItems в разделе **MS_TableConnectionString** и выберите пункт **Показать таблицу данных**.
+5. Чтобы в Visual Studio посмотреть изменения в базе данных, созданной для серверной службы, откройте обозреватель серверов и разверните элемент "Подключения к данным". Щелкните правой кнопкой мыши таблицу TodoItems в разделе **MS\_TableConnectionString** и выберите пункт **Показать таблицу данных**.
 
     ![](./media/mobile-services-dotnet-backend-test-local-service-data/vs-show-local-table-data.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

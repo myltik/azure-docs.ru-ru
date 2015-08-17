@@ -41,4 +41,4 @@ Get-help New-AzureService
     - Чтобы опубликовать проект облачной службы в Azure, используйте образец кода **PublishCloudService.ps1** из [непрерывной доставки для облачных служб в Azure](cloud-services-dotnet-continuous-delivery.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

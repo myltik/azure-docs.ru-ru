@@ -394,4 +394,4 @@
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

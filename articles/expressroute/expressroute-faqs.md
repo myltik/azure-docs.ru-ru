@@ -9,7 +9,7 @@
 <tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="get-started-article" 
+   ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="07/28/2015"
@@ -286,4 +286,4 @@ ExpressRoute Premium — это набор функций, перечислен�
 Да. Конечные точки службы Office 365 доступны через Интернет, даже если в вашей сети был настроен ExpressRoute. Если вы находитесь в расположении, в котором настроено подключение к службам Office 365 через ExpressRoute, то будете подключаться через ExpressRoute.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

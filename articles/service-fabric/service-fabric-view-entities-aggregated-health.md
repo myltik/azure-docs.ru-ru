@@ -174,7 +174,7 @@ HealthEvents            : None
 Следующие командлет PowerShell возвращает сведения о работоспособности кластера с помощью настраиваемой политики приложения. Он фильтрует результаты для возврата только приложений и узлов с состоянием "Error" или "Warning". В результате ни один узел не будет возвращен, поскольку они все работоспособны. Только приложение fabric:/WordCount соответствует условиям фильтра приложения. Поскольку по условиям настраиваемой политики предупреждение считается ошибкой для приложения fabric:/WordCount, состояние приложения, как и кластера, оценивается как "Error".
 
 ```powershell
-PS c:> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
+PS C:\> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
 $appHealthPolicy.ConsiderWarningAsError = $true
 $appHealthPolicyMap = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicyMap
 $appUri1 = New-Object -TypeName System.Uri -ArgumentList "fabric:/WordCount"
@@ -326,7 +326,7 @@ ApplicationHealth applicationHealth = fabricClient.HealthManager.GetApplicationH
 Следующий командлет возвращает сведения о работоспособности приложения fabric:/WordCount.
 
 ```powershell
-PS c:> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Warning
@@ -836,4 +836,4 @@ UpgradeReplicaSetCheckTimeout : 00:15:00
 [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

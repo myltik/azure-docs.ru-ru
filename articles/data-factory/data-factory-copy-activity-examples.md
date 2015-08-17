@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="08/03/2015" 
 	ms.author="spelluru"/>
 
 # Примеры использования действия копирования в фабрике данных Azure
@@ -33,18 +33,19 @@
 На этом шаге вы создаете связанную службу **MyOnPremisesSQLDB**, указывающий на локальную базу данных SQL Server.
 
 	{
-	    "name": "MyOnPremisesSQLDB",
-	    "properties":
-	    {
-	        "type": "OnPremisesSqlLinkedService",
-	        "connectionString": "Data Source=<servername>;Initial Catalog=<database>;Integrated Security=False;User ID=<username>;Password=<password>;",
-	        "gatewayName": "mygateway"
+	  "name": "MyOnPremisesSQLDB",
+	  "properties": {
+	    "type": "OnPremisesSqlServer",
+	    "typeProperties": {
+	      "connectionString": "Data Source=<servername>;Initial Catalog=<database>;Integrated Security=False;User ID=<username>;Password=<password>;",
+	      "gatewayName": "mygateway"
 	    }
+	  }
 	}
 
-Обратите внимание на следующее:
+Обратите внимание на следующее.
 
-- **type** присвоен тип **OnPremisesSqlLinkedService**.
+- параметр **type** имеет значение **OnPremisesSqlServer**;
 - **connectionString** присвоена строка подключения к базе данных SQL Server. 
 - **gatewayName** присвоено имя шлюза управления данными, установленного на локальном компьютере и зарегистрированного на портале службы фабрики данных Azure. 
 
@@ -54,17 +55,18 @@
 На этом шаге создается связанная служба с именем **MyAzureStorage**, которая указывает на хранилище больших двоичных объектов Azure.
 
 	{
-	    "name": "MyAzureStorage",
-	    "properties":
-	    {
-	        "type": "AzureStorageLinkedService",
-	        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>" "
+	  "name": "MyAzureStorage",
+	  "properties": {
+	    "type": "AzureStorage",
+	    "typeProperties": {
+	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
 	    }
+	  }
 	}
 
-Обратите внимание на следующее:
+Обратите внимание на следующее.
 
-- параметр **type** имеет значение **AzureStorageLinkedService**;
+- параметр **type** имеет значение **AzureBlob**;
 - в параметре **connectionString** укажите имя и ключ учетной записи для службы хранилища Azure.
 
 Подробные сведения об элементах JSON для определения связанной службы хранилища Azure см. в разделе [Связанная служба хранилища Azure](https://msdn.microsoft.com/library/dn893522.aspx).
@@ -72,112 +74,108 @@
 ### JSON входной таблицы
 Следующий скрипт JSON определяет входную таблицу, которая ссылается на таблицу SQL **MyTable** в локальной базе данных SQL Server, которую определяет связанная служба **MyOnPremisesSQLDB**. Обратите внимание, что **name** — это имя таблицы фабрики данных Azure, а **tableName** — это имя таблицы SQL в базе данных SQL Server.
 
-         
+	         
 	{
-		"name": "MyOnPremTable",
-    	"properties":
-   		{
-			"location":
-    		{
-    			"type": "OnPremisesSqlServerTableLocation",
-    			"tableName": "MyTable",
-    			"linkedServiceName": "MyOnPremisesSQLDB"
-    		},
-    		"availability":
-   			{
-    			"frequency": "Hour",
-    			"interval": 1
-   			}
- 		}
+	  "name": "MyOnPremTable",
+	  "properties": {
+	    "type": "SqlServerTable",
+	    "linkedServiceName": "MyOnPremisesSQLDB",
+	    "typeProperties": {
+	      "tableName": "MyTable"
+	    },
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    }
+	  }
 	}
 
-Обратите внимание на следующее:
+Обратите внимание на следующее.
 
-- параметр **type** имеет значение **OnPremisesSqlServerTableLocation**;
+- параметр **type** имеет значение **SqlServerTable**.
 - в параметре **tableName** задана таблица **MyTable**, которая содержит исходные данные; 
 - в параметре **linkedServiceName** задана связанная служба **MyOnPremisesSQLDB**, созданная для локальной базы данных SQL.
 
-Подробные сведения об элементах JSON для определения таблицы фабрики данных, ссылающейся на таблицу SQL Server, см. в разделе [Свойства локальной базы данных SQL](https://msdn.microsoft.com/library/dn894089.aspx#OnPremSQL) .
+Подробные сведения об элементах JSON для определения таблицы фабрики данных, ссылающейся на таблицу SQL Server, см. в разделе [Элемент TypeProperties: Локальная база данных SQL Server](https://msdn.microsoft.com/library/mt185722.aspx#OnPremSQL) .
 
 ### JSON выходной таблицы
 Следующий скрипт JSON определяет выходную таблицу **MyAzureBlob**, которая ссылается на большой двоичный объект Azure **MyBlob** в папке больших двоичных объектов **MySubFolder** в контейнере больших двоичных объектов **MyContainer**.
          
 	{
-   		"name": "MyAzureBlob",
-	    "properties":
-    	{
-    		"location":
-    		{
-        		"type": "AzureBlobLocation",
-        		"folderPath": "MyContainer/MySubFolder",
-        		"fileName": "MyBlob",
-        		"linkedServiceName": "MyAzureStorage",
-        		"format":
-        		{
-            		"type": "TextFormat",
-            		"columnDelimiter": ",",
-            		"rowDelimiter": ";",
-             		"EscapeChar": "$",
-             		"NullValue": "NaN"
-        		}
-    		},
-        	"availability":
-      		{
-       			"frequency": "Hour",
-       			"interval": 1
-      		}
-   		}
+	  "name": "MyAzureBlob",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "MyAzureStorage",
+	    "typeProperties": {
+	      "folderPath": "MyContainer/MySubFolder",
+	      "fileName": "MyBlob",
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";",
+	        "EscapeChar": "$",
+	        "NullValue": "NaN"
+	      }
+	    },
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    }
+	  }
 	}
 
-Обратите внимание на следующее:
+Обратите внимание на следующее.
  
-- параметр **type** имеет значение **AzureBlobLocation**;
+- для параметра **type** задано значение **AzureBlob**;
 - в параметре **folderPath** задан объект **MyContainer/MySubFolder**, который содержит большой двоичный объект, содержащий скопированные данные; 
 - в параметре **fileName** задан большой двоичный объект **MyBlob**, который будет содержать выходные данные;
 - в параметре **linkedServiceName** задана связанная служба **MyAzureStorge**, созданная для хранилища Azure.    
 
-Подробные сведения об элементах JSON для определения таблицы фабрики данных, ссылающейся на большой двоичный объект Azure, см. в разделе [Свойства большого двоичного объекта Azure](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob) .
+Подробные сведения об элементах JSON для определения таблицы фабрики данных, ссылающейся на большой двоичный объект Azure, см. в разделе [Элемент TypeProperties: BLOB-объект Azure](https://msdn.microsoft.com/library/mt185722.aspx#AzureBlob).
 
 ### JSON конвейера (с действием копирования)
 В этом примере конвейер **CopyActivityPipeline** определяют следующие свойства:
 
 - свойству **type** присваивается значение **CopyActivity**;
-- свойство **MyOnPremTable** определяется как входные данные (тег **inputs**);
-- свойство **MyAzureBlob** определяется как выходные данные (тег **outputs**).
+- В качестве входных данных (тэг **inputs**) указывается свойство **MyOnPremTable**;
+- Направлением передачи выходных данных (тэг **outputs**) указывается свойство **MyAzureBlob**.
 - В разделе **Transformation** есть два подраздела: **source** и **sink**. Для источника (source) задан тип **SqlSource**, а для приемника (sink) — тип **BlobSink**. **sqlReaderQuery** определяет преобразование (проекцию), которое необходимо выполнить в источнике. Подробную информацию обо всех свойствах см. в [справочнике по сценариям JSON](https://msdn.microsoft.com/library/dn835050.aspx).
 
          
 		{
-		    "name": "CopyActivityPipeline",
-    		"properties":
-    		{
-				"description" : "This is a sample pipeline to copy data from SQL Server to Azure Blob",
-        		"activities":
-        		[
-      				{
-						"name": "CopyActivity",
-						"description": "description", 
-						"type": "CopyActivity",
-						"inputs":  [ { "name": "MyOnPremTable"  } ],
-						"outputs":  [ { "name": "MyAzureBlob" } ],
-						"transformation":
-	    				{
-							"source":
-							{
-								"type": "SqlSource",
-                    			"sqlReaderQuery": "select * from MyTable"
-							},
-							"sink":
-							{
-                        		"type": "BlobSink"
-							}
-	    				}
-      				}
-        		]
-    		}
+		  "name": "CopyActivityPipeline",
+		  "properties": {
+		    "description": "This is a sample pipeline to copy data from SQL Server to Azure Blob",
+		    "activities": [
+		      {
+		        "name": "CopyActivity",
+		        "description": "description",
+		        "type": "Copy",
+		        "inputs": [
+		          {
+		            "name": "MyOnPremTable"
+		          }
+		        ],
+		        "outputs": [
+		          {
+		            "name": "MyAzureBlob"
+		          }
+		        ],
+		        "typeProperties": {
+		          "source": {
+		            "type": "SqlSource",
+		            "sqlReaderQuery": "select * from MyTable"
+		          },
+		          "sink": {
+		            "type": "BlobSink"
+		          }
+		        }
+		      }
+		    ]
+		  }
 		}
 
-В [справочнике по JSON конвейера](https://msdn.microsoft.com/library/dn834988.aspx) см. сведения об элементах JSON для определения конвейера фабрики данных, а в разделе [Поддерживаемые источники и приемники](https://msdn.microsoft.com/library/dn894007.aspx) см. свойства SqlSource (например: **sqlReaderQuery **в примере) и BlobSink. 
+В [справочнике по JSON конвейера](https://msdn.microsoft.com/library/dn834988.aspx) вы можете найти сведения об элементах JSON для определения конвейера фабрики данных, а раздел [Поддерживаемые источники и приемники](https://msdn.microsoft.com/library/dn894007.aspx) содержит информацию о свойствах SqlSource (например: **sqlReaderQuery ** в приведенном примере) и BlobSink.
 
 
 ## Копирование данных из локальной файловой системы в большой двоичный объект Azure
@@ -187,20 +185,23 @@
 В этом примере предполагается следующее:
 
 - **Host** — имя сервера, на котором размещена файловая система: **\\contoso**.
-- **Folder** — имя папки, которая содержит входные файлы: **marketingcampaign\regionaldata\{срез}, где файлы расположены в папке с именем {среза}, например 2014121112 (2014 год, 12 месяц, 11 день, 12 часов). 
-### Создание связанной службы локальной файловой системы
-Следующий пример JSON можно использовать для создания связанной службы с именем **FolderDataStore** и типом **OnPremisesFileSystemLinkedService**.
+- **Folder** — имя папки, которая содержит входные файлы: **marketingcampaign\\regionaldata\\{срез}, где файлы секционированы в папке с именем {срез}, например 2014121112 (год 2014, месяц 12, день 11, час 12).
 
-		{
-		    "name": "FolderDataStore",
-	    	"properties": {
-		        "type": "OnPremisesFileSystemLinkedService",
-		        "host": "\\\\contoso",
-	        	"userId": "username",
-	        	"password": "password",
-	        	"gatewayName": "ContosoGateway"
-	    	}
-		}
+### Создание связанной службы локальной файловой системы
+Следующий пример JSON можно использовать для создания связанной службы с именем **FolderDataStore** и типом **OnPremisesFileServer**.
+
+	{
+	  "name": "FolderDataStore",
+	  "properties": {
+	    "type": "OnPremisesFileServer",
+	    "typeProperties": {
+	      "host": "\\\\contoso",
+	      "userId": "username",
+	      "password": "password",
+	      "gatewayName": "ContosoGateway"
+	    }
+	  }
+	}
 
 > [AZURE.NOTE] Помните, что необходимо использовать escape-символ '\' для имен узлов и папок в файлы JSON. Для **\\Contoso** укажите **\\\\Contoso**.
 
@@ -210,12 +211,13 @@
 Следующий пример JSON можно использовать для создания связанной службы с именем **MyAzureStorage** и типом **AzureStorageLinkedSerivce**.
 
 	{
-	    "name": "MyAzureStorage",
-	    "properties":
-	    {
-	        "type": "AzureStorageLinkedService",
-	        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>" "
+	  "name": "MyAzureStorage",
+	  "properties": {
+	    "type": "AzureStorage",
+	    "typeProperties": {
+	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
 	    }
+	  }
 	}
 
 Подробные сведения об элементах JSON для определения связанной службы хранилища Azure см. в разделе [Связанная служба хранилища Azure](https://msdn.microsoft.com/library/dn893522.aspx).
@@ -224,85 +226,96 @@
 Следующий скрипт JSON определяет входную таблицу, которая ссылается на связанную службу локальной файловой системы, созданную ранее.
 
 	{
-	    "name": "OnPremFileSource",
-	    "properties": {
-	        "location": {
-	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\{Slice}",
-	            "partitionedBy": [
-	                { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } }
-	            ],
-	            "linkedServiceName": "FolderDataStore"
-	        },
-	        "availability": {
-	            "waitOnExternal": { },
-	            "frequency": "Hour",
-	            "interval": 24
+	  "name": "OnPremFileSource",
+	  "properties": {
+	    "type": "FileShare",
+	    "linkedServiceName": "FolderDataStore",
+	    "typeProperties": {
+	      "folderPath": "marketingcampaign\\regionaldata\\{Slice}",
+	      "partitionedBy": [
+	        {
+	          "name": "Slice",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "yyyyMMddHH"
+	          }
 	        }
+	      ]
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 24
 	    }
+	  }
 	}
 
-Подробные сведения об элементах JSON для определения таблицы фабрики данных, ссылающейся на локальную файловую систему, см. в разделе [Свойства локальной файловой системы](https://msdn.microsoft.com/library/dn894089.aspx#OnPremFileSystem).
+Подробные сведения об элементах JSON для определения таблицы фабрики данных, ссылающейся на локальную файловую систему, см. в разделе [Свойства локальной файловой системы](https://msdn.microsoft.com/library/mt185722.aspx#OnPremFileSystem).
 
 ### Создание выходной таблицы
 Следующий скрипт JSON определяет выходную таблицу **AzureBlobDest**, которая ссылается на большой двоичный объект Azure **MyBlob** в папке больших двоичных объектов **MySubFolder** в контейнере больших двоичных объектов **MyContainer**.
          
 	{
-   		"name": "AzureBlobDest",
-	    "properties":
-    	{
-    		"location":
-    		{
-        		"type": "AzureBlobLocation",
-        		"folderPath": "MyContainer/MySubFolder",
-        		"fileName": "MyBlob",
-        		"linkedServiceName": "MyAzureStorage",
-        		"format":
-        		{
-            		"type": "TextFormat",
-            		"columnDelimiter": ",",
-            		"rowDelimiter": ";",
-             		"EscapeChar": "$",
-             		"NullValue": "NaN"
-        		}
-    		},
-        	"availability":
-      		{
-       			"frequency": "Hour",
-       			"interval": 1
-      		}
-   		}
+	  "name": "AzureBlobDest",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "MyAzureStorage",
+	    "typeProperties": {
+	      "folderPath": "MyContainer/MySubFolder",
+	      "fileName": "MyBlob",
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";",
+	        "EscapeChar": "$",
+	        "NullValue": "NaN"
+	      }
+	    },
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    }
+	  }
 	}
 
-Подробные сведения об элементах JSON для определения таблицы фабрики данных, ссылающейся на большой двоичный объект Azure, см. в разделе [Свойства большого двоичного объекта Azure](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob).
+Подробные сведения об элементах JSON для определения таблицы фабрики данных, ссылающейся на большой двоичный объект Azure, см. в разделе [Элемент TypeProperties: BLOB-объект Azure](https://msdn.microsoft.com/library/mt185722.aspx#AzureBlob).
 
 ### Создание конвейера
 Следующий JSON определяет конвейер с действием копирования, которое копирует данные из локальной файловой системы в целевой большой двоичный объект Azure.
  
 	{
-	    "name": "CopyFileToBlobPipeline",
-	    "properties": {
-	        "activities": [
-	            {
-	                "name": "Ingress",
-	                "type": "CopyActivity",
-	                "inputs": [ { "name": "OnPremFileSource" } ],
-	                "outputs": [ { "name": "AzureBlobDest" } ],
-	                "transformation": {
-	                    "source": {
-	                        "type": "FileSystemSource"
-	                    },
-	                    "sink": {
-	                        "type": "BlobSink"
-	                    }
-	                },
-	                "policy": {
-	                    "concurrency": 4,
-	                    "timeout": "00:05:00"
-	                }
-	            }
-	        ]
-	    }
+	  "name": "CopyFileToBlobPipeline",
+	  "properties": {
+	    "activities": [
+	      {
+	        "name": "Ingress",
+	        "type": "Copy",
+	        "inputs": [
+	          {
+	            "name": "OnPremFileSource"
+	          }
+	        ],
+	        "outputs": [
+	          {
+	            "name": "AzureBlobDest"
+	          }
+	        ],
+	        "typeProperties": {
+	          "source": {
+	            "type": "FileSystemSource"
+	          },
+	          "sink": {
+	            "type": "BlobSink"
+	          }
+	        },
+	        "policy": {
+	          "concurrency": 4,
+	          "timeout": "00:05:00"
+	        }
+	      }
+	    ]
+	  }
 	}
 
 Конвейер в этом примере копирует содержимое в двоичном формате, без синтаксического анализа и без выполнения каких-либо преобразований. Обратите внимание, что можно использовать **параллелизм** для параллельного копирования срезов файлов. Это удобно, когда необходимо переместить срезы, уже произошедшие в прошлом.
@@ -316,167 +329,151 @@
 #### Копирование всех файлов в определенную папку
 Обратите внимание, что в примере JSON указывается только **folderPath**.
 
-	{
-	    "name": "OnPremFileSource",
-	    "properties": {
-	        "location": {
-	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\na",
-	            "linkedServiceName": "FolderDataStore"
-	        },
-	        ...
-	    }
+	"typeProperties": {
+		"folderPath": "marketingcampaign\\regionaldata\\na",
 	}
  
 #### Копирование всех CSV-файлов в определенную папку
 Обратите внимание, что для **fileFilter** задано значение ***.csv**.
 
-	{
-	    "name": "OnPremFileSource",
-	    "properties": {
-	        "location": {
-	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\na",
-	            "fileFilter": "*.csv",
-	            "linkedServiceName": "FolderDataStore"
-	        },
-	        ...
-	    }
-	}
+    "typeProperties": {
+        "folderPath": "marketingcampaign\\regionaldata\\na",
+        "fileFilter": "*.csv",
+    }
 
 #### Копирование определенного файла
 Обратите внимание, что в **fileFiter** задан определенный файл: **201501.csv**.
 
-	{
-	    "name": "OnPremFileSource",
-	    "properties": {
-	        "location": {
-	            "type": "OnPremisesFileSystemLocation",
-	            "folderPath": "marketingcampaign\regionaldata\na",
-	            "fileFilter": "201501.csv",
-	            "linkedServiceName": "FolderDataStore"
-	        },
-	        ...
-	    }
-	}
+    "typeProperties": {
+        "folderPath": "marketingcampaign\\regionaldata\\na",
+        "fileFilter": "201501.csv",
+    }
 
 ## Копирование данных из локальной базы данных Oracle в большой двоичный объект Azure
 Действие копирования можно использовать для копирования файлов из локальной базы данных Oracle в большой двоичный объект Azure.
 
 ### Создание связанной службы для локальной базы данных Oracle
-Для создания связанной службы, указывающей на локальную базу данных Oracle, используется следующий JSON. Обратите внимание, что параметр **type** имеет значение **OnPremisesOracleLinkedService**.
+Для создания связанной службы, указывающей на локальную базу данных Oracle, используется следующий JSON. Обратите внимание, что параметр **type** имеет значение **OnPremisesOracle**.
 
 	{
 	    "name": "OnPremOracleSource",
 	    "properties": {
-	        "type": "OnPremisesOracleLinkedService",
-	        "ConnectionString": "data source=ds;User Id=uid;Password=pwd;",
-	        "gatewayName": "SomeGateway"
+	        "type": "OnPremisesOracle",
+			"typeProperties": {			
+	        	"ConnectionString": "data source=ds;User Id=uid;Password=pwd;",
+	        	"gatewayName": "SomeGateway"	
+			}
 	    }
 	}
 
 Подробные сведения об элементах JSON для определения связанной службы локальной базы данных Oracle см. в разделе [Связанная служба локальной базы данных Oracle](https://msdn.microsoft.com/library/dn948537.aspx).
 
 ### Создание связанной службы для целевого большого двоичного объекта Azure
-Следующий пример JSON можно использовать для создания связанной службы с именем **MyAzureStorage** и типом **AzureStorageLinkedSerivce**.
+Следующий пример JSON можно использовать для создания связанной службы с именем **MyAzureStorage** и типом **AzureStorage**.
 
 	{
 	    "name": "AzureBlobDest",
 	    "properties":
 	    {
-	        "type": "AzureStorageLinkedService",
-	        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>" "
+	        "type": "AzureStorage",
+			"typeProperties": {
+	        	"connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>" "
+			}
 	    }
 	}
 
 Подробные сведения об элементах JSON для определения связанной службы хранилища Azure см. в разделе [Связанная служба хранилища Azure](https://msdn.microsoft.com/library/dn893522.aspx).
 
 ### Создание входной таблицы
-Следующий пример JSON можно использовать для создания таблицы фабрики данных Azure, которая ссылается на таблицу в локальной базе данных Oracle. Обратите внимание, что для **location type** задано значение **OnPremisesOracleTableLocation**.
+Следующий пример JSON можно использовать для создания таблицы фабрики данных Azure, которая ссылается на таблицу в локальной базе данных Oracle. Обратите внимание, что параметр **type** имеет значение **OracleTable**.
 
 	{
-	    "name": "TableOracle",
-	    "properties": {
-	        "location": {
-	            "type": "OnPremisesOracleTableLocation",
-	            "tableName": "LOG",
-	            "linkedServiceName": "OnPremOracleSource"
-	        },
-	        "availability": {
-	            "frequency": "Day",
-	            "interval": "1",
-	            "waitOnExternal": {}
-	        },
-	        "policy": {}
-	    }
-	} 
+	  "name": "TableOracle",
+	  "properties": {
+	    "type": "OracleTable",
+	    "linkedServiceName": "OnPremOracleSource",
+	    "typeProperties": {
+	      "tableName": "LOG"
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "Day",
+	      "interval": "1"
+	    },
+	    "policy": {}
+	  }
+	}
 
-Подробные сведения об элементах JSON для определения таблицы фабрики данных, ссылающейся на таблицу в локальной базе данных Oracle, см. в разделе [Свойства локальной базы данных Oracle](https://msdn.microsoft.com/library/dn894089.aspx#Oracle).
+Подробные сведения об элементах JSON для определения таблицы фабрики данных, ссылающейся на локальную таблицу Oracle, см. в разделе [Элемент TypeProperties: Локальная база данных Oracle](https://msdn.microsoft.com/library/mt185722.aspx#Oracle) .
 
 ### Создание выходной таблицы
 Следующий скрипт JSON определяет выходную таблицу **MyAzureBlob**, которая ссылается на большой двоичный объект Azure **MyBlob** в папке больших двоичных объектов **MySubFolder** в контейнере больших двоичных объектов **MyContainer**.
          
 	{
-   		"name": "MyAzureBlob",
-	    "properties":
-    	{
-    		"location":
-    		{
-        		"type": "AzureBlobLocation",
-        		"folderPath": "MyContainer/MySubFolder",
-        		"fileName": "MyBlob",
-        		"linkedServiceName": "AzureBlobDest",
-        		"format":
-        		{
-            		"type": "TextFormat",
-            		"columnDelimiter": ",",
-            		"rowDelimiter": ";",
-             		"EscapeChar": "$",
-             		"NullValue": "NaN"
-        		}
-    		},
-        	"availability":
-      		{
-       			"frequency": "Hour",
-       			"interval": 1
-      		}
-   		}
+	  "name": "MyAzureBlob",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "AzureBlobDest",
+	    "typeProperties": {
+	      "folderPath": "MyContainer/MySubFolder",
+	      "fileName": "MyBlob",
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";",
+	        "EscapeChar": "$",
+	        "NullValue": "NaN"
+	      }
+	    },
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    }
+	  }
 	}
 
-Подробные сведения об элементах JSON для определения таблицы фабрики данных, ссылающейся на большой двоичный объект Azure, см. в разделе [Свойства большого двоичного объекта Azure](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob).
+Подробные сведения об элементах JSON для определения таблицы фабрики данных, ссылающейся на большой двоичный объект Azure, см. в разделе [Элемент TypeProperties: BLOB-объект Azure](https://msdn.microsoft.com/library/mt185722.aspx#AzureBlob).
 
 ### Создание конвейера
 В следующем примере конвейера используется действие копирования, которое копирует данные из таблицы базы данных Oracle в большой двоичный объект службы хранилища Azure.
-
+	
 	{
-	    "name": "PipelineCopyOracleToBlob",
-	    "properties": {
-	        "activities": [
-	            {
-	                "name": "CopyActivity",
-	                "description": "copy slices of oracle records to azure blob",
-	                "type": "CopyActivity",
-	                "inputs": [ { "name": "TableOracle" } ],
-	                "outputs": [ { "name": "TableAzureBlob" } ],
-	                "transformation": {
-	                    "source": {
-	                        "type": "OracleSource",
-	                        "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date(\'{0:yyyy-MM-dd}\', \'YYYY-MM-DD\') AND "Timestamp" < to_date(\'{1:yyyy-MM-dd}\', \'YYYY-MM-DD\')', SliceStart, SliceEnd)"
-	                    },
-	                    "sink": {
-	                        "type": "BlobSink"
-	                    }
-	                },
-	                "policy": {
-	                    "concurrency": 3,
-	                    "timeout": "00:05:00"
-	                }
-	            }
+	  "name": "PipelineCopyOracleToBlob",
+	  "properties": {
+	    "activities": [
+	      {
+	        "name": "CopyActivity",
+	        "description": "copy slices of oracle records to azure blob",
+	        "type": "Copy",
+	        "inputs": [
+	          {
+	            "name": "TableOracle"
+	          }
 	        ],
-	        "start": "2015-03-01T00:00:00Z",
-	        "end": "2015-03-15T00:00:00Z",
-	        "isPaused": false
-	    }
+	        "outputs": [
+	          {
+	            "name": "TableAzureBlob"
+	          }
+	        ],
+	        "typeProperties": {
+	          "source": {
+	            "type": "OracleSource",
+	            "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date(\\'{0:yyyy-MM-dd}\\', \\'YYYY-MM-DD\\') AND "Timestamp" < to_date(\\'{1:yyyy-MM-dd}\\', \\'YYYY-MM-DD\\')', WindowStart, WindowEnd)"
+	          },
+	          "sink": {
+	            "type": "BlobSink"
+	          }
+	        },
+	        "policy": {
+	          "concurrency": 3,
+	          "timeout": "00:05:00"
+	        }
+	      }
+	    ],
+	    "start": "2015-03-01T00:00:00Z",
+	    "end": "2015-03-15T00:00:00Z",
+	    "isPaused": false
+	  }
 	}
 
 В [справочнике по JSON конвейера](https://msdn.microsoft.com/library/dn834988.aspx) см. сведения об элементах JSON для определения конвейера фабрики данных, а в разделе [Поддерживаемые источники и приемники](https://msdn.microsoft.com/library/dn894007.aspx) см. свойства OracleSource и BlobSink.
@@ -491,4 +488,4 @@
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!-------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

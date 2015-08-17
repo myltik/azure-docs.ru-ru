@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="05/01/2015"
 	ms.author="chrande"/>
 
@@ -86,7 +86,7 @@
 
 	> [AZURE.NOTE]Чтобы запустить проект в эмуляторе Android, необходимо определить как минимум одно виртуальное устройство Android (AVD). Для создания этих устройств и управления ими используйте диспетчер AVD.
 
-3. В приложении введите осмысленный текст, например _Работа с учебником_, и щелкните значок "плюс" (**+**).
+3. В приложении введите осмысленный текст, например _Работа с учебником_, и щелкните значок «плюс» (**+**).
 
 	![][10]
 
@@ -110,4 +110,4 @@
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

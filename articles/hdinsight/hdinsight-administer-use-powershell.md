@@ -279,4 +279,4 @@ Azure PowerShell не может создать контейнер больши�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

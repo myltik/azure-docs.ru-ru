@@ -70,7 +70,7 @@
 
 Ниже приведен обзор файлов, которые можно найти в исходном репозитории Git. Мы клонируем его в следующем разделе.
 
-    \app__init__.py
+    \app\__init__.py
     \app\forms.py
     \app\models.py
     \app\tests.py
@@ -84,7 +84,7 @@
     \app\templates\layout.html
     \app\templates\login.html
     \app\templates\loginpartial.html
-    \DjangoWebProject__init__.py
+    \DjangoWebProject\__init__.py
     \DjangoWebProject\settings.py
     \DjangoWebProject\urls.py
     \DjangoWebProject\wsgi.py
@@ -423,7 +423,7 @@ Django использует концепцию сбора статических
 
 Вот как можно пропустить сбор статических файлов для приложения Django:
 
-    .skipDjango
+    \.skipDjango
 
 Затем вам понадобится собрать файлы вручную на локальном компьютере:
 
@@ -515,4 +515,4 @@ Azure предоставляет службы баз данных, которы�
 [Документация по Django]: https://www.djangoproject.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

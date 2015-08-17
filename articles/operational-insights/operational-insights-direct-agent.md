@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="07/02/2015" 
 	ms.author="banders"/>
 # Прямое подключение компьютеров к Operational Insights
@@ -76,4 +76,4 @@ $healthServiceSettings.ReloadConfiguration()
 
 - [Настройка параметров прокси-сервера и брандмауэра (необязательно)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/01/2015" 
+	ms.date="08/04/2015" 
 	ms.author="jeffstok" />
 
 
@@ -206,4 +206,4 @@ Azure Stream Analytics — это полностью управляемая сл
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

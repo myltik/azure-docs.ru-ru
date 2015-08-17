@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/28/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos" />
 
 # Устранение неполадок в работающем устройстве StorSimple
@@ -63,4 +63,4 @@
 
 Если устранить проблему не удалось, [обратитесь в службу поддержки Майкрософт](https://msdn.microsoft.com/library/azure/dn757750.aspx).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

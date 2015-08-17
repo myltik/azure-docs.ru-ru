@@ -3,7 +3,7 @@
 	description="Узнайте об обозревателе скриптов DocumentDB, средстве портала предварительной версии Azure для просмотра артефактов программирования на стороне сервера DocumentDB, включая хранимые процедуры, триггеры и определяемые пользователем функции."
 	services="documentdb"
 	authors="stephbaron"
-	manager="johnmac"
+	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
 
@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="06/10/2015"
 	ms.author="stbaro"/>
 
@@ -75,11 +75,11 @@
 
 	![Снимок экрана: представление свойств скрипта в обозревателе скриптов](./media/documentdb-view-scripts/scriptproperties.png)
 
-	> [AZURE.NOTE]Свойство метки времени (_ts) внутренне представлено как время эпохи, но обозреватель скриптов отображает значение в читаемом формате GMT.
+	> [AZURE.NOTE]Свойство метки времени (\_ts) внутренне представлено как время эпохи, но обозреватель скриптов отображает значение в читаемом формате GMT.
 
 ## Дальнейшие действия
 
 Для получения дополнительных сведений о DocumentDB щелкните [здесь](http://azure.com/docdb).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

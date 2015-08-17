@@ -69,4 +69,4 @@
 - [Базовая информация о Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 - [Решение для обмена сообщениями в очереди при помощи очередей служебной шины](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

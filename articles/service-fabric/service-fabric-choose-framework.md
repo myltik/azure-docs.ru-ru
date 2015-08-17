@@ -36,4 +36,4 @@
 - [Подробнее об API Reliable Actors](service-fabric-reliable-actors-introduction.md)
 - [Подробнее об API Reliable Services](../Service-Fabric/service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

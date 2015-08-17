@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Интеграция локальных удостоверений с Azure Active Directory." 
 	description="В этой статье объясняется, что такое служба Azure AD Connect и зачем ее использовать." 
-	services="active-directory" 
+	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
+	ms.service="multi-factor-authentication" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -57,7 +57,7 @@ API-интерфейсы в пакете SDK для Multi-Factor Authentication 
 2. Выберите слева элемент Active Directory.
 3. Дважды щелкните свой экземпляр Azure AD.
 4. В верхней части экрана щелкните ссылку **Настроить**.
-5. В разделе многофакторной проверки подлинности выберите **Управление параметрами службы**.![Загрузить](./media/multi-factor-authentication-sdk/download2.png)
+5. В разделе многофакторной проверки подлинности выберите **Управление параметрами службы**. ![Загрузить](./media/multi-factor-authentication-sdk/download2.png)
 6. На странице параметров службы в нижней части экрана щелкните ссылку **Перейти на портал**.![Загрузить](./media/multi-factor-authentication-sdk/download3.png)
 7. Откроется новая страница. Слева внизу нажмите SDK.
 8. Выберите необходимый язык и щелкните одну из связанных ссылок для загрузки.
@@ -191,4 +191,4 @@ API-интерфейсы в пакете SDK для Multi-Factor Authentication 
 	    }
 	}
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

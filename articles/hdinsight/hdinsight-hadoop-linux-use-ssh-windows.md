@@ -28,7 +28,7 @@
 
 ##Предварительные требования
 
-* **PuTTY** и **PuTTYGen** для клиентов Windows. Эти служебные программы доступны по адресу [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+* **PuTTY** и **PuTTYGen** для клиентов Windows. Эти служебные программы доступны по адресу [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 * Современный веб-браузер, который поддерживает HTML5.
 
@@ -124,7 +124,7 @@ SSH — это служебная программа для входа в сис
 
 Если вы указали ключ SSH при создании учетной записи пользователя, необходимо выполнить следующие шаги, чтобы использовать закрытый ключ при аутентификации в кластере для подключения к рабочим узлам.
 
-1. Загрузите файл установки Pageant с этой страницы: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Эта служебная программа используется для кэширования ключей SSH для PuTTY.
+1. Загрузите файл установки Pageant с этой страницы: [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). Эта служебная программа используется для кэширования ключей SSH для PuTTY.
 
 2. Запустите агент Pageant. Он будет свернут в значок в области состояния. Щелкните его правой кнопкой мыши и выберите **Добавить ключ**.
 
@@ -278,4 +278,4 @@ SSH может также использоваться для туннелиро
 
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

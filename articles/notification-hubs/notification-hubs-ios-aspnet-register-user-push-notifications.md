@@ -17,9 +17,11 @@
 	ms.author="wesmc"/>
 # Регистрация текущего пользователя для push-уведомлений с помощью ASP.NET
 
-<div class="dev-center-tutorial-selector sublanding">
-    <a href="/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Магазин Windows — C#">Магазин Windows — C#</a><a href="/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Store C#](notification-hubs-windows-store-aspnet-register-user-push-notifications.md)
+- [iOS](notification-hubs-ios-aspnet-register-user-push-notifications.md)
+
+
 
 ##Обзор
 
@@ -27,7 +29,7 @@
 
 ##Обновление приложения  
 
-1. В вашем MainStoryboard_iPhone.storyboard добавьте следующие компоненты из библиотеки объектов:
+1. В вашем MainStoryboard\_iPhone.storyboard добавьте следующие компоненты из библиотеки объектов:
 
 	+ **Метка**: «Принудительно отправлять пользователю уведомления из центров уведомлений»
 	+ **Метка**: «InstallationId»
@@ -236,4 +238,4 @@
 [Приступая к работе с концентраторами уведомлений]: /manage/services/notification-hubs/get-started-notification-hubs-ios
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

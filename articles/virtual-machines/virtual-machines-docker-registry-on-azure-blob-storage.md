@@ -1,4 +1,4 @@
-<properties 
+<properties title="Deploying Your Own Private Docker Registry on Azure"
   pageTitle="Развертывание частного реестра Docker в Azure"
   description="В этой статье объясняется, как разместить образы контейнеров в службе хранилища BLOB-объектов Azure."
   services="virtual-machines"
@@ -93,4 +93,4 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Управление учетной записью DocumentDB | Azure" 
+	pageTitle="Управление учетной записью DocumentDB | Microsoft Azure" 
 	description="Сведения об управлении учетной записью DocumentDB." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/28/2015" 
 	ms.author="stbaro"/>
 
 #Управление учетной записью DocumentDB
@@ -112,4 +112,4 @@ DocumentDB поддерживает четыре четко заданных и 
  
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

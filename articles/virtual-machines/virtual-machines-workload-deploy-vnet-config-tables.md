@@ -67,4 +67,4 @@
 
 [Настройка виртуальной сети с VPN-подключением "сеть-сеть"](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="04/26/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
 # Начало работы с Visual Studio Application Insights
@@ -41,13 +41,14 @@
 <a href="app-insights-java-get-started.md">![Java](./media/app-insights-get-started/appinsights-gs-i-11-java.png)</a>|<a href="app-insights-java-get-started.md">Добавить пакет SDK в проект Java</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-java-get-started.md">![Мониторинг производительности и использования](./media/app-insights-get-started/appinsights-gs-r-10-java.png)</a>
 <a href="app-insights-web-track-usage.md">![JavaScript](./media/app-insights-get-started/appinsights-gs-i-02-usage.png)</a>|<a href="app-insights-web-track-usage.md">Вставить сценарий Application Insights на свои веб-страницы</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-web-track-usage.md">![просмотры страниц и производительность браузера](./media/app-insights-get-started/appinsights-gs-r-02-usage.png)</a>
 <a href="app-insights-monitor-web-app-availability.md">![Доступность](./media/app-insights-get-started/appinsights-gs-i-05-avail.png)</a>|<a href="app-insights-monitor-web-app-availability.md">Создать веб-тесты</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-web-app-availability.md">![Доступность](./media/app-insights-get-started/appinsights-gs-r-05-avail.png)</a>
-<a href="app-insights-windows-get-started.md">![Windows и Windows Phone](./media/app-insights-get-started/appinsights-gs-i-06-device.png)</a>|<a href="app-insights-windows-get-started.md">Добавить Application Insights в проект приложения на своем устройстве</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-windows-get-started.md">![Данные о сбоях и использовании](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
+<a href="app-insights-windows-get-started.md">![Windows и Windows Phone](./media/app-insights-get-started/appinsights-gs-i-06-device.png)</a>|<a href="app-insights-windows-get-started.md">Добавить Application Insights в ваш проект приложения Windows</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-windows-get-started.md">![Данные о сбоях и использовании](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
+<a href="app-insights-platforms.md">![iOS, Android и др.](./media/app-insights-get-started/appinsights-gs-i-07-device.png)</a>|<a href="app-insights-platforms.md">Добавить Application Insights в ваше приложение iOS или Android</a><br/>![gets](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-platforms.md">![Данные о сбоях и использовании](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
 
 ## Поддержка и обратная связь
 
 * Вопросы и проблемы
  * [Устранение неполадок][qna]
- * [Форум MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+ * [Форум MSDN](https://social.msdn.microsoft.com/Forums/vstudio/ru-ru/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Ошибки
  * [Подключение](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -73,4 +74,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

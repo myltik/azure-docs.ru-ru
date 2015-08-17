@@ -54,4 +54,4 @@ Service Fabric представляет собой платформу распр
 - [Сценарии приложений](service-fabric-application-scenarios.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

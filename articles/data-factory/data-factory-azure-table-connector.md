@@ -1,0 +1,487 @@
+<properties 
+	pageTitle="Соединитель таблиц Azure: перемещение данных из таблицы Azure и в нее" 
+	description="Сведения о соединителе таблиц Azure для службы фабрики данных, с помощью которого можно перемещать данные не только в табличное хранилище Azure, но и из него." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
+
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/29/2015" 
+	ms.author="spelluru"/>
+
+# Соединитель таблиц Azure: перемещение данных из таблицы Azure и в нее
+
+В этой статье рассказывается, как с помощью действия копирования в фабрике данных Azure можно перемещать данные в таблицу Azure из другого хранилища данных и обратно. Эта статья основана на статье о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования и поддерживаемых сочетаниях хранилищ данных.
+
+## Пример копирования данных из таблицы Azure в большой двоичный объект Azure
+
+В примере ниже показано следующее.
+
+1.	Связанная служба типа AzureStorage (используется для таблиц и больших двоичных объектов).
+2.	Входной набор данных типа AzureTable.
+3.	Выходной набор данных типа AzureBlob. 
+3.	Конвейер с действием копирования, в котором используются AzureTableSource и BlobSink. 
+
+В примере ниже данные из стандартной секции таблицы Azure копируются в большой двоичный объект каждый час. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.
+
+**Связанная служба хранилища Azure**
+
+	{
+	  "name": "StorageLinkedService",
+	  "properties": {
+	    "type": "AzureStorage",
+	    "typeProperties": {
+	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+	    }
+	  }
+	}
+
+**Входной набор данных таблицы Azure**
+
+В примере предполагается, что вы создали в таблице Azure таблицу MyTable.
+ 
+Если для параметра external задать значение true и указать политику externalData, фабрика данных будет считать эту таблицу внешней по отношению к себе и не созданной в результате какого-либо действия в фабрике данных.
+
+	{
+	  "name": "AzureTableInput",
+	  "properties": {
+	    "type": "AzureTable",
+	    "linkedServiceName": "StorageLinkedService",
+	    "typeProperties": {
+	      "tableName": "MyTable"
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    },
+	    "policy": {
+	      "externalData": {
+	        "retryInterval": "00:01:00",
+	        "retryTimeout": "00:10:00",
+	        "maximumRetry": 3
+	      }
+	    }
+	  }
+	}
+
+**Выходной набор данных BLOB-объекта Azure**
+
+Данные записываются в новый BLOB-объект каждый час (frequency: hour, interval: 1). Путь к папке BLOB-объекта вычисляется динамически на основе времени начала обрабатываемого среза. В пути к папке используется год, месяц, день и час времени начала.
+
+	{
+	  "name": "AzureBlobOutput",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "StorageLinkedService",
+	    "typeProperties": {
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+	      "partitionedBy": [
+	        {
+	          "name": "Year",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "yyyy"
+	          }
+	        },
+	        {
+	          "name": "Month",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "%M"
+	          }
+	        },
+	        {
+	          "name": "Day",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "%d"
+	          }
+	        },
+	        {
+	          "name": "Hour",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "%H"
+	          }
+	        }
+	      ],
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": "\t",
+	        "rowDelimiter": "\n"
+	      }
+	    },
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    }
+	  }
+	}
+
+**Конвейер с действием копирования**
+
+Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **AzureTableSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, указанный в свойстве **AzureTableSourceQuery**, выбирает копируемые данные из стандартной секции каждый час.
+
+	{  
+	    "name":"SamplePipeline",
+	    "properties":{  
+	    	"start":"2014-06-01T18:00:00",
+		    "end":"2014-06-01T19:00:00",
+	    	"description":"pipeline for copy activity",
+	    	"activities":[  
+				{
+	        		"name": "AzureTabletoBlob",
+	        		"description": "copy activity",
+	        		"type": "Copy",
+	        		"inputs": [
+	          			{
+		            		"name": "AzureTableInput"
+		        		}
+	        		],
+	        		"outputs": [
+	          			{
+	          	  			"name": "AzureBlobOutput"
+		          		}
+		        	],
+		        	"typeProperties": {
+		          		"source": {
+		            		"type": "AzureTableSource",
+				            "AzureTableSourceQuery": "PartitionKey eq 'DefaultPartitionKey'"
+		          		},
+		          		"sink": {
+		            		"type": "BlobSink"
+		          		}
+    	    		},
+		        	"scheduler": {
+		          		"frequency": "Hour",
+		          		"interval": 1
+		        	},				
+		        	"policy": {
+		          		"concurrency": 1,
+		          		"executionPriorityOrder": "OldestFirst",
+		          		"retry": 0,
+		          		"timeout": "01:00:00"
+		        	}
+				}
+		     ]	
+		}
+	}
+
+## Пример копирования данных из большого двоичного объекта Azure в таблицу Azure
+
+В примере ниже показано следующее.
+
+1.	Связанная служба типа AzureStorage (используется для таблиц и больших двоичных объектов).
+3.	Входной набор данных типа AzureBlob.
+4.	Выходной набор данных типа AzureTable. 
+4.	Конвейер с действием копирования, которое использует BlobSource и AzureTableSink. 
+
+В этом примере данные, относящиеся к одному временному ряду, копируются из BLOB-объекта Azure в таблицу в базе данных таблиц Azure каждый час. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.
+
+**Связанная служба хранилища Azure (для таблицы и BLOB-объекта Azure)**
+
+	{
+	  "name": "StorageLinkedService",
+	  "properties": {
+	    "type": "AzureStorage",
+	    "typeProperties": {
+	      "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+	    }
+	  }
+	}
+
+**Входной набор данных BLOB-объекта Azure**
+
+Данные берутся из нового BLOB-объекта каждый час (frequency: hour, interval: 1). Путь к папке с BLOB-объектом и имя файла вычисляются динамически на основе времени начала обрабатываемого среза. В пути к папке используется год, месяц и день начала, а в имени файла — час начала. Когда для параметра external задано значение true, служба фабрики данных считает эту таблицу внешней по отношению к себе и не созданной в результате какого-либо действия в фабрике данных.
+	
+	{
+	  "name": "AzureBlobInput",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "StorageLinkedService",
+	    "typeProperties": {
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "fileName": "{Hour}.csv",
+	      "partitionedBy": [
+	        {
+	          "name": "Year",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "yyyy"
+	          }
+	        },
+	        {
+	          "name": "Month",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "%M"
+	          }
+	        },
+	        {
+	          "name": "Day",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "%d"
+	          }
+	        },
+	        {
+	          "name": "Hour",
+	          "value": {
+	            "type": "DateTime",
+	            "date": "SliceStart",
+	            "format": "%H"
+	          }
+	        }
+	      ],
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": "\n"
+	      }
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    },
+	    "policy": {
+	      "externalData": {
+	        "retryInterval": "00:01:00",
+	        "retryTimeout": "00:10:00",
+	        "maximumRetry": 3
+	      }
+	    }
+	  }
+	}
+
+**Выходной набор данных таблицы Azure**
+
+В этом примере данные копируются в таблицу MyTable, которая создана в таблице Azure. Таблицу в таблице Azure нужно создать с тем количеством столбцов, которое должно быть в CSV-файле BLOB-объекта. Новые строки добавляются в таблицу каждый час.
+
+	{
+	  "name": "AzureTableOutput",
+	  "properties": {
+	    "type": "AzureTable",
+	    "linkedServiceName": "StorageLinkedService",
+	    "typeProperties": {
+	      "tableName": "MyOutputTable"
+	    },
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    }
+	  }
+	}
+
+**Конвейер с действием копирования**
+
+Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **BlobSource**, а для типа **sink** — значение **AzureTableSink**.
+
+
+	{  
+	    "name":"SamplePipeline",
+	    "properties":{  
+	    "start":"2014-06-01T18:00:00",
+	    "end":"2014-06-01T19:00:00",
+	    "description":"pipeline with copy activity",
+	    "activities":[  
+	      {
+	        "name": "AzureBlobtoTable",
+	        "description": "Copy Activity",
+	        "type": "Copy",
+	        "inputs": [
+	          {
+	            "name": "AzureBlobInput"
+	          }
+	        ],
+	        "outputs": [
+	          {
+	            "name": "AzureTableOutput"
+	          }
+	        ],
+	        "typeProperties": {
+	          "source": {
+	            "type": "BlobSource",
+	            "blobColumnSeparators": ","
+	          },
+	          "sink": {
+	            "type": "AzureTableSink",
+	            "writeBatchSize": 100,
+	            "writeBatchTimeout": "01:00:00"
+	          }
+	        },
+	        "scheduler": {
+	          "frequency": "Hour",
+	          "interval": 1
+	        },						
+	        "policy": {
+	          "concurrency": 1,
+	          "executionPriorityOrder": "OldestFirst",
+	          "retry": 0,
+	          "timeout": "01:00:00"
+	        }
+	      }
+	      ]
+	   }
+	}
+
+## Свойства связанной службы хранилища Azure
+
+С помощью связанной службы хранилища Azure учетную запись хранения Azure можно связать с фабрикой данных Azure. В таблице ниже приведено описание элементов JSON, которые относятся к связанной службе хранилища Azure.
+
+| Свойство | Описание | Обязательно |
+| -------- | ----------- | -------- |
+| type | Для свойства type необходимо задать значение AzureStorage. | Да |
+| connectionString | В свойстве connectionString указываются сведения, необходимые для подключения к службе хранилища Azure. ConnectionString для хранилища Azure можно получить на портале Azure. | Да |
+
+## Свойства типа «Набор данных таблицы Azure»
+
+Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Создание наборов данных](data-factory-create-datasets.md). Разделы структуры, доступности и политики JSON набора данных одинаковы для всех типов наборов данных (SQL Azure, BLOB-объекты Azure, таблицы Azure и т. д.).
+
+Раздел typeProperties во всех типах наборов данных разный. В нем содержатся сведения о расположении данных в хранилище данных. Раздел **TypeProperties** набора данных с типом **AzureTable** имеет следующие свойства.
+
+| Свойство | Описание | Обязательно |
+| -------- | ----------- | -------- |
+| tableName | Имя таблицы в экземпляре базы данных таблиц Azure, на которое ссылается связанная служба. | Да
+
+## Свойства типа «Действие копирования таблицы Azure»
+
+Полный список разделов и свойств, используемых для определения действий, см. в статье [Создание конвейеров](data-factory-create-pipelines.md). Такие свойства, как имя, описание, входные и выходные таблицы, различные политики и т. д., доступны для всех типов действий.
+
+То, какие свойства будут доступны в разделе typeProperties, зависит от типа действия, а в случае с действием копирования — еще и от типов источников и приемников.
+
+Для **AzureTableSource** в разделе typeProperties могут быть указаны следующие свойства.
+
+Свойство | Описание | Допустимые значения | Обязательно
+-------- | ----------- | -------------- | -------- 
+azureTableSourceQuery | Используйте пользовательский запрос для чтения данных. | Строка запроса таблицы Azure. Пример: **ColumnA eq ValueA** | Нет
+azureTableSourceIgnoreTableNotFound | Указывает, игнорируются ли исключения таблицы. | TRUE<br/>FALSE | Нет |
+
+Для **AzureTableSink** в разделе typeProperties могут быть указаны следующие свойства.
+
+
+Свойство | Описание | Допустимые значения | Обязательно  
+-------- | ----------- | -------------- | -------- 
+azureTableDefaultPartitionKeyValue | Значение ключа раздела по умолчанию, которое может использоваться приемником. | Строковое значение. | Нет 
+azureTablePartitionKeyName | Задаваемое пользователем имя столбца, значения которого используются в качестве ключа раздела. Если не указано, в качестве ключа раздела используется AzureTableDefaultPartitionKeyValue. | Имя столбца. | Нет |
+azureTableRowKeyName | Задаваемое пользователем имя столбца, значения которого используются в качестве ключа строки. Если имя не указано, используйте для каждой строки идентификатор GUID. | Имя столбца. | Нет  
+azureTableInsertType | Режим для вставки данных в таблицу Azure. | merge<br/>replace | Нет 
+writeBatchSize | Вставка данных в таблицу Azure при достижении writeBatchSize или writeBatchTimeout. | Целое число от 1 до 100 (единица = количество строк) | Нет (значение по умолчанию — 100) 
+writeBatchTimeout | Вставка данных в таблицу Azure при достижении writeBatchSize или writeBatchTimeout | Значение — промежуток времени. Пример: 00:20:00 (20 минут). | Нет (по умолчанию используется время ожидания, стандартное для клиента хранения — 90 секунд)
+
+[AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
+
+### Сопоставление типов для таблиц Azure
+
+Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в два этапа:
+
+1. Преобразование собственных типов источников в тип .NET.
+2. Преобразование типа .NET в собственный тип приемника.
+
+При перемещении данных в таблицу Azure или из нее типы OData таблиц Azure преобразовываются в тип .NET (и наоборот) на основе следующих [сопоставлений, определенных в службе таблиц Azure](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+
+| Тип данных OData | Тип .NET | Сведения |
+| --------------- | --------- | ------- |
+| Edm.Binary | byte | Массив байтов размером до 64 КБ. |
+| Edm.Boolean | bool | Логическое значение. |
+| Edm.DateTime | DateTime | 64-битное значение времени, выраженное в формате UTC. Допустимый диапазон времени начинается в 00:00 1 января 1601 года н. э. Англиканское летоисчисление, часовой пояс — UTC. Заканчивается диапазон 31 декабря 9999 года. |
+| Edm.Double | double | 64-битное значение с плавающей запятой. |
+| Edm.Guid | Guid | 128-битный идентификатор GUID. |
+| Edm.Int32 | Int32 или int | 32-битное целое число. |
+| Edm.Int64 | Int64 или long | 64-битное целое число. |
+| Edm.String | Строка | Значение в кодировке UTF-16. Размер строкового значения не должен превышать 64 КБ. |
+
+### Пример преобразования типов
+
+В следующем примере данные копируются из BLOB-объекта Azure в таблицу Azure с преобразованием типов.
+
+Предположим, набор данных BLOB-объекта имеет формат CSV и содержит три столбца. Один из них — это столбец даты и времени, в котором данные указаны в пользовательском формате (используются французские сокращения дней недели).
+
+Указать исходный набор данных BLOB-объекта и определить типы столбцов нужно приведенным ниже образом.
+	
+	{
+	    "name": " AzureBlobInput",
+	    "properties":
+	    {
+	         "structure": 
+	          [
+	                { "name": "userid", "type": "Int64"},
+	                { "name": "name", "type": "String"},
+	                { "name": "lastlogindate", "type": "Datetime", "culture": "fr-fr", "format": "ddd-MM-YYYY"}
+	          ],
+	        "type": "AzureBlob",
+	        "linkedServiceName": "StorageLinkedService",
+	        "typeProperties": {
+	            "folderPath": "mycontainer/myfolder",
+	            "fileName":"myfile.csv",
+	            "format":
+	            {
+	                "type": "TextFormat",
+	                "columnDelimiter": ","
+	            }
+	        },
+	        "external": true,
+	        "availability":
+	        {
+	            "frequency": "Hour",
+	            "interval": 1,
+	        },
+			"policy": {
+	            "externalData": {
+	                "retryInterval": "00:01:00",
+	                "retryTimeout": "00:10:00",
+	                "maximumRetry": 3
+	            }
+			}
+	    }
+	}
+
+Учитывая преобразование из типа OData таблицы Azure в тип .NET (см. выше), таблицу в таблице Azure нужно определить по приведенной ниже схеме.
+
+**Схема таблицы Azure**
+
+Имя столбца | Тип
+----------- | --------
+userid | Edm.Int64
+name | Edm.String 
+lastlogindate | Edm.DateTime
+
+Далее нужно определить набор данных таблицы Azure. Указывать раздел structure с информацией о типах не нужно, так как типы уже указаны в базовом хранилище данных.
+
+	{
+	  "name": "AzureTableOutput",
+	  "properties": {
+	    "type": "AzureTable",
+	    "linkedServiceName": "StorageLinkedService",
+	    "typeProperties": {
+	      "tableName": "MyOutputTable"
+	    },
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    }
+	  }
+	}
+
+При перемещении данных из BLOB-объекта в таблицу Azure фабрика данных автоматически преобразует типы (включая тип поля с датой и временем в пользовательском формате), используя язык и региональные параметры fr-fr.
+
+
+
+[AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
+
+<!---HONumber=August15_HO6-->

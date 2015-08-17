@@ -83,4 +83,4 @@
 Теперь ваше приложение API готово к развертыванию, и вы можете перейти к учебнику [Развертывание приложения API](app-service-dotnet-deploy-api-app.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

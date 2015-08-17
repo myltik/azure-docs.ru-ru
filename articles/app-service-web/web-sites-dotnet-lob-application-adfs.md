@@ -43,7 +43,7 @@
 - локальное развертывание AD FS (полное пошаговое руководство по лаборатории тестирования, которую я использую, см. в статье [Лаборатория тестирования: автономная STS c AD FS в виртуальной машине Azure (только для тестирования)](TODO));
 - разрешения для создания отношений доверия с проверяющей стороной в оснастке управления AD FS
 - Visual Studio 2013
-- [пакет SDK для Azure 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) или более поздней версии.
+- [Пакет SDK для Azure 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) или более поздней версии.
 
 <a name="bkmk_sample"></a>
 ## Использование примера приложения в качестве шаблона бизнес-приложения ##
@@ -271,10 +271,10 @@
         return View();
     }
 
-    <mark>[Authorize(Roles="Администраторы домена")]</mark>
-    public ActionResult Contact()
-    {
-        ViewBag.Message = "Ваша страница контактов.";
+<mark>[Authorize(Roles="Администраторы домена")]</mark>
+public ActionResult Contact()
+{
+    ViewBag.Message = "Ваша страница контактов.";
 
         return View();
     }
@@ -354,4 +354,4 @@
  
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

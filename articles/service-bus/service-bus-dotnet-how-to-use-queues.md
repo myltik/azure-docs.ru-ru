@@ -45,14 +45,14 @@
 
 Служебная шина использует строку подключения для хранения учетных данных и конечных точек. Строку подключения можно разместить в файле конфигурации, не задавая ее жестко в коде:
 
-- При использовании облачных служб Azure рекомендуется хранить строки подключения с помощью системы конфигурации службы Azure (файлы ***.csdef** и ***.cscfg**).
+- При использовании облачных служб Azure рекомендуется хранить строки подключения с помощью системы конфигурации службы Azure (файлы ****.csdef** и ****.cscfg**).
 - При использовании веб-сайтов Azure или виртуальных машин Azure рекомендуется сохранять строки подключения с помощью системы конфигурации .NET (например, в файле **Web.config**).
 
 В обоих случаях строку подключения можно извлечь с помощью метода `CloudConfigurationManager.GetSetting`, как показано далее в этом руководстве.
 
 ### Настройка строки подключения при использовании облачных служб
 
-Механизм настройки службы является уникальным для проектов облачных служб Azure и позволяет динамически изменять параметры конфигурации на портале управления Azure без повторного развертывания приложения. Например, добавьте метку `Setting` в файл определения службы ( ***.csdef**), как показано ниже:
+Механизм настройки службы является уникальным для проектов облачных служб Azure и позволяет динамически изменять параметры конфигурации на портале управления Azure без повторного развертывания приложения. Например, добавьте метку `Setting` в файл определения службы (****.csdef**), как показано ниже:
 
     <ServiceDefinition name="Azure1">
     ...
@@ -64,7 +64,7 @@
     ...
     </ServiceDefinition>
 
-Затем задайте значения в файле конфигурации службы (***.cscfg**):
+Затем задайте значения в файле конфигурации службы (****.cscfg**):
 
     <ServiceConfiguration serviceName="Azure1">
     ...
@@ -94,7 +94,7 @@
 
 ## Как создать очередь
 
-Операции управления для очередей служебной шины можно выполнять с помощью класса [`NamespaceManager`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Этот класс предоставляет методы для создания, перечисления и удаления очередей.
+Операции управления для очередей служебной шины можно выполнять с помощью [класса `NamespaceManager`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Этот класс предоставляет методы для создания, перечисления и удаления очередей.
 
 В этом примере объект `NamespaceManager` создается с помощью класса Azure `CloudConfigurationManager` со строкой подключения, состоящей из базового адреса пространства имен службы служебной шины и учетных данных SAS с соответствующими правами на управление. Эта строка подключения имеет вид
 
@@ -114,7 +114,7 @@
         namespaceManager.CreateQueue("TestQueue");
     }
 
-Существуют перегрузки метода [`CreateQueue`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createqueue.aspx), позволяющие настраивать свойства очереди, например задавать значение по умолчанию для "времени жизни", применяемое к сообщениям, отправленным в очередь. Эти параметры применяются с помощью класса [`QueueDescription`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx). В следующем примере показано, как создать очередь с именем TestQueue, максимальным размером 5 ГБ и временем жизни сообщения по умолчанию, равным 1 минуте:
+Существуют перегрузки метода [`CreateQueue`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.createqueue.aspx), позволяющие настраивать свойства очереди, например задавать значение по умолчанию для «срока жизни», применяемое к сообщениям, отправленным в очередь. Эти параметры применяются с помощью класса [`QueueDescription`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx). В следующем примере показано, как создать очередь с именем TestQueue, максимальным размером 5 ГБ и временем жизни сообщения по умолчанию, равным 1 минуте:
 
     // Configure queue settings
     QueueDescription qd = new QueueDescription("TestQueue");
@@ -149,7 +149,7 @@
 
     Client.Send(new BrokeredMessage());
 
-Сообщения, отправляемые в очереди служебной шины и получаемые из них — это экземпляры класса [`BrokeredMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Объекты `BrokeredMessage` имеют набор стандартных свойств (например, [`Label`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) и [`TimeToLive`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), словарь, используемый для хранения настраиваемых свойств приложения, и тело, состоящее из произвольных данных приложения. Приложение может задать текст сообщения, передав конструктору объекта [`BrokeredMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) любой сериализуемый объект, после чего для сериализации объекта будет использоваться соответствующий **DataContractSerializer**. Кроме того, может быть предоставлен **System.IO.Stream**.
+Сообщения, отправляемые в очереди служебной шины и получаемые из них, — это экземпляры класса [`BrokeredMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Объекты `BrokeredMessage` имеют набор стандартных свойств (например, [`Label`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) и [`TimeToLive`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), словарь, используемый для хранения настраиваемых свойств приложения, и тело, состоящее из произвольных данных приложения. Приложение может задать текст сообщения, передав конструктору объекта [`BrokeredMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) любой сериализуемый объект, после чего для сериализации объекта будет использоваться соответствующий **DataContractSerializer**. Кроме того, может быть предоставлен **System.IO.Stream**.
 
 В следующем примере показано, как отправить пять тестовых сообщений в очередь TestQueue объекта [`QueueClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx), полученного в предыдущем фрагменте кода:
 
@@ -166,7 +166,7 @@
        Client.Send(message);
      }
 
-Очереди служебной шины поддерживают [максимальный размер сообщения 256 кБ](service-bus-quotas.md) (максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 кБ). Ограничения на количество сообщений в очереди нет, но есть максимальный общий размер сообщений, содержащихся в очереди. Этот размер очереди, определяемый в момент ее создания, не должен превышать 5 ГБ. Если включено разделение, максимальный размер больше. Дополнительную информацию см. в разделе [Разделение сущностей обмена сообщениями](https://msdn.microsoft.com/library/azure/dn520246.aspx).
+Очереди служебной шины поддерживают [максимальный размер сообщения 256 КБ](service-bus-quotas.md) (максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 КБ). Ограничения на количество сообщений в очереди нет, но есть максимальный общий размер сообщений, содержащихся в очереди. Этот размер очереди, определяемый в момент ее создания, не должен превышать 5 ГБ. Если включено разделение, максимальный размер больше. Дополнительную информацию см. в разделе [Разделение сущностей обмена сообщениями](https://msdn.microsoft.com/library/azure/dn520246.aspx).
 
 ## Как получать сообщения из очереди
 
@@ -209,7 +209,7 @@
         }
     }, options);
 
-В этом примере выполняется настройка обратного вызова [`OnMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.onmessage.aspx) с помощью объекта [`OnMessageOptions`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). Для [`AutoComplete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) установлено **false**, что позволяет вручную управлять временем вызова [`Complete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) для полученного сообщения. Для [`AutoRenewTimeout`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) задается значение, равное 1 минуте, в результате чего клиент ожидает сообщение до одной минуты, после чего срок действия вызова истекает и клиент создает новый вызов для проверки сообщений. Значение этого свойства сокращает количество создаваемых клиентом оплачиваемых вызовов, не приводящих к получению сообщений.
+В этом примере выполняется настройка обратного вызова [`OnMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.onmessage.aspx) с помощью объекта [`OnMessageOptions`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx). Для [`AutoComplete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) установлено значение **false**, что позволяет вручную управлять временем вызова [`Complete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) для полученного сообщения. Для [`AutoRenewTimeout`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) задается значение, равное 1 минуте, в результате чего клиент ожидает сообщение до одной минуты, после чего срок действия вызова истекает и клиент создает новый вызов для проверки сообщений. Значение этого свойства сокращает количество создаваемых клиентом оплачиваемых вызовов, не приводящих к получению сообщений.
 
 ## Как обрабатывать сбои приложения и нечитаемые сообщения
 
@@ -224,8 +224,8 @@
 Вы узнали основные сведения об очередях служебной шины. Для получения дополнительных сведений используйте следующие ссылки.
 
 -   См. обзор MSDN: [Очереди, разделы и подписки][].
--   Создание работающего приложения, отправляющего сообщения в очередь служебной шины и получающего их из нее: [Учебник по управляемому обмену сообщениями служебной шины в .NET].
--   Примеры служебной шины: загрузка со страницы [Примеры Azure][] или см. обзор на сайте [MSDN][].
+-   Создание работающего приложения, отправляющего сообщения в очередь служебной шины и получающего их из нее: [Учебник по обмену сообщениями через посредника служебной шины в .NET].
+-   Примеры служебной шины: скачайте со страницы [Примеры Azure][] или просмотрите обзор на сайте [MSDN][].
 
   [What are Service Bus Queues]: #what-queues
   [Create a Service Namespace]: #create-namespace
@@ -240,9 +240,9 @@
   [Azure Management Portal]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Очереди, разделы и подписки]: http://msdn.microsoft.com/library/azure/hh367516.aspx
-  [Учебник по управляемому обмену сообщениями служебной шины в .NET]: http://msdn.microsoft.com/library/azure/hh367512.aspx
+  [Учебник по обмену сообщениями через посредника служебной шины в .NET]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [Примеры Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

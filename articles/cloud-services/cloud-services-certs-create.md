@@ -49,7 +49,7 @@
 * Содержит закрытый ключ.
 * Создано для обмена ключами (PFX-файл).
 * Имя субъекта должно совпадать с именем домена, которое используется для обращения к облачной службе.
-    > **contoso.net****contoso.cloudapp.net**
+    > Вы не можете приобрести SSL-сертификат для домена cloudapp.net (или для любого другого домена, относящегося к Azure), поэтому имя субъекта сертификата должно совпадать с пользовательским именем домена, которое используется для доступа к вашему приложению. Используйте имя вида **contoso.net**, а не **contoso.cloudapp.net**.
 * Минимум 2048-разрядное шифрование.
 * **Только сертификат службы**: клиентский сертификат должен находиться в *личном* хранилище сертификатов.
 
@@ -64,17 +64,17 @@
 
 ### Internet Information Services (IIS)
 
-В Интернете вы найдете множество информации о том, как это сделать с помощью IIS. Как мне кажется, [здесь](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) неплохо раскрыта эта тема.
+В Интернете вы найдете множество информации о том, как это сделать с помощью IIS. Как мне кажется, эта тема неплохо раскрыта на [этой странице](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html).
 
 ### Java
-Можно использовать Java для [создания сертификата](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
+Для [создания сертификата](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate) можно использовать Java.
 
 ## Дальнейшие действия
 
-[Загрузка сертификата службы на портал Azure](cloud-services-configure-ssl-certificate.md) (или [портал предварительной версии](cloud-services-configure-ssl-certificate-portal.md)) и [его настройка](cloud-services-xml-certs.md) для облачной службы.
+[Загрузите на портал Azure ](cloud-services-configure-ssl-certificate.md) (или [портал предварительной версии](cloud-services-configure-ssl-certificate-portal.md)) сертификат службы и [настройте его](cloud-services-xml-certs.md) для облачной службы.
 
-Загрузка [сертификата управления API](../azure-api-management-certs.md) на портал Azure.
+Загрузите на портал Azure [сертификат API управления](../azure-api-management-certs.md).
 
 >[AZURE.NOTE]Портал предварительной версии Azure не использует сертификаты управления для доступа к API, обращаясь вместо этого к учетным записям пользователей.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

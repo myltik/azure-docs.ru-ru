@@ -186,4 +186,4 @@ Azure PowerShell позволяет [автоматизировать созда
 
 Справочная документация клиентских библиотек Azure см. в разделе [Справочник по Azure для .NET](/documentation/api/).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

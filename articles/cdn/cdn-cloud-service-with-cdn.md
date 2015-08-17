@@ -626,4 +626,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 - [Использование CDN для Azure](cdn-how-to-use-cdn.md)
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

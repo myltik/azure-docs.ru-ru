@@ -133,4 +133,4 @@ Cloud Cruiser может по-разному использовать сведе
 [8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "Рис. 8. Планирование книги"
 [9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "Рис. 9. Образец отчета для сценария сравнения стоимости рабочей нагрузки"
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

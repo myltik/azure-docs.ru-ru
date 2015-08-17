@@ -10,7 +10,7 @@
 <tags
    ms.service="dns"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/28/2015"
@@ -72,7 +72,7 @@ DNS-клиенты на ПК или мобильных устройствах о
 
 С помощью Azure PowerShell полномочные записи NS можно получить следующим образом (имя записи "@" используется для указания на записи на вершине зоны):
 
-	PS C:\> $zone = New-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> $zone = Get-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
 	PS C:\> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
@@ -161,4 +161,4 @@ DNS-клиенты на ПК или мобильных устройствах о
 [Справочник по REST API службы Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

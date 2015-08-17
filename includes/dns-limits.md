@@ -1,7 +1,9 @@
 
-| Resource	| Default limit 
+| Ресурс | Ограничение по умолчанию 
 --- | ---
-| Zones per subscription | 50
-| Record sets per zone| 1000
-| Records per record set| 20
+| Зон на подписку | 50
+| Наборов записей на зону| 1000
+| Записей на набор записей| 20
  
+
+<!---HONumber=August15_HO6-->

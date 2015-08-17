@@ -16,7 +16,7 @@
 	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
-# Приступая к работе с концентраторами уведомлений
+# Приступая к работе с центрами уведомлений
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -390,7 +390,7 @@
 
    	![][16]
 
-2. Нажмите кнопку **Скачать распакованное расширение** и перейдите к папке, в которой вы создали файлы. Дополнительно вы можете использовать **Chrome App and Extensions Developer Tool**, который сам по себе является приложением Chrome (его необходимо будет установить из интернет-магазина Chrome) и предоставляет дополнительные возможности отладки для разработки приложений Chrome.
+2. Нажмите кнопку **Скачать распакованное расширение** и перейдите к папке, в которой вы создали файлы. Дополнительно вы можете использовать инструмент **Chrome App and Extensions Developer Tool**, который сам по себе является приложением Chrome (его необходимо будет установить из интернет-магазина Chrome) и предоставляет дополнительные возможности отладки для разработки приложений Chrome.
 
    	![][17]
 
@@ -408,7 +408,7 @@
 
 ##<a name="send"></a>Отправка уведомлений для приложения Chrome
 
-В этом учебнике рассказывается о том, как отправлять уведомления с помощью консольного приложения .NET. Тем не менее уведомления можно отправлять с помощью центра уведомлений из любой серверной части, используя <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">интерфейс REST</a>.
+В этом учебнике рассказывается о том, как отправлять уведомления с помощью консольного приложения .NET, хотя уведомления можно отправлять с помощью центра уведомлений из любой серверной части, используя <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">интерфейс REST</a>.
 
 Примеры отправки уведомлений из серверных компонентов мобильных служб Azure, интегрированных с центрами уведомлений, см. в статье **Приступая к работе с push-уведомлениями в мобильных службах** ([Серверная часть .NET](../mobile-services-javascript-backend-android-get-started-push.md) | [Серверная часть JavaScript](../mobile-services-javascript-backend-android-get-started-push.md)).  
 Пример отправки уведомлений с помощью API REST см. в статье **Использование центров уведомлений из Java/PHP/Python** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md)).
@@ -486,7 +486,7 @@
 [Образец использования центра уведомлений с приложением Chrome]: http://google.com
 [консоли Google Cloud]: http://cloud.google.com/console
 [портал управления Azure]: https://manage.windowsazure.com/
-[Обзоре центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[Обзор центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Обзор приложений Chrome]: https://developer.chrome.com/apps/about_apps
 [образце использования службы GCM для приложения Chrome]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Устанавливаемые веб-приложения]: https://developers.google.com/chrome/apps/docs/
@@ -499,4 +499,4 @@
 [Экстренные новости центров уведомлений Azure]: notification-hubs-windows-store-dotnet-send-breaking-news.md
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

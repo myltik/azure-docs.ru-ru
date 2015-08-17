@@ -54,4 +54,4 @@
 
 > [AZURE.NOTE]Вернуться к использованию команд управления службами Azure можно, введя `azure config mode asm`.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Таймеры и напоминания субъектов Azure Service Fabric"
-   description="Общие сведения о таймерах и напоминаниях для субъектов Azure Service Fabric."
+   pageTitle="Таймеры и напоминания надежных субъектов"
+   description="Общие сведения о таймерах и напоминаниях для надежных субъектов Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/05/2015"
    ms.author="amanbha"/>
 
 
@@ -114,4 +114,4 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 
 Как показано выше, метод `UnregisterReminder` принимает интерфейс `IActorReminder`. Базовый класс субъекта поддерживает метод `GetReminder`, с помощью которого можно получить интерфейс `IActorReminder`, передав имя напоминания. Это удобно, поскольку субъекту не требуется сохранять интерфейс `IActorReminder`, который был возвращен вызовом метода `RegisterReminder`.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

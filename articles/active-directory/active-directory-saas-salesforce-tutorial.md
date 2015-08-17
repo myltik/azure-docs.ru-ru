@@ -84,7 +84,7 @@
 
 	![Выберите «Единый вход Azure AD».][7]
 
-	> [AZURE.NOTE]Для получения дополнительных сведений о вариантах единого входа [щелкните здесь](https://msdn.microsoft.com/library/azure/dn308588.aspx).
+	> [AZURE.NOTE]Для получения дополнительных сведений о вариантах единого входа [щелкните здесь](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
 
 4. На странице **Настройка параметров приложения** заполните поле **URL-адрес входа**, указав URL-адрес домена Salesforce в следующем формате.
  - Учетная запись предприятия: `https://<domain>.my.salesforce.com`
@@ -220,11 +220,7 @@
 
 4. Чтобы проверить параметры единого входа, откройте панель доступа по адресу [https://myapps.microsoft.com](https://myapps.microsoft.com/), выполните вход с тестовой учетной записью и щелкните **Salesforce**.
 
-##См. также
-
-- [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
-- [Доступ к приложениям в Azure AD](https://msdn.microsoft.com/library/azure/dn308590.aspx)
-- [Общие сведения о панели доступа](https://msdn.microsoft.com/library/azure/dn308586.aspx)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 [0]: ./media/active-directory-saas-salesforce-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-salesforce-tutorial/applications-tab.png
@@ -257,4 +253,4 @@
 [28]: ./media/active-directory-saas-salesforce-tutorial/assign-confirm.png
 [29]: ./media/active-directory-saas-salesforce-tutorial/assign-sf-profile.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

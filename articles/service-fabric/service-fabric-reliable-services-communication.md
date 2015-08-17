@@ -230,4 +230,4 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 * [Написание службы с помощью интерфейса API надежных служб, использующего стек связи WebAPI](service-fabric-reliable-services-communication-webapi.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

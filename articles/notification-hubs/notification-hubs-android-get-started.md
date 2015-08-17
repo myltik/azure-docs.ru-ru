@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Приступая к работе с концентраторами уведомлений Azure" 
+	pageTitle="Приступая к работе с центрами уведомлений Azure" 
 	description="Узнайте, как использовать центры уведомлений Azure для push-уведомлений." 
 	services="notification-hubs" 
 	documentationCenter="android" 
@@ -11,11 +11,11 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="05/27/2015" 
 	ms.author="wesmc"/>
 
-# Приступая к работе с концентраторами уведомлений
+# Приступая к работе с центрами уведомлений
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -66,7 +66,7 @@
 
 ###Добавление кода
 
-1. Скачайте пакет SDK для Android для центров уведомлений <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">отсюда</a>. Извлеките содержимое ZIP-файла и скопируйте файлы **notificationhubs\notification-hubs-0.4.jar** и **notifications\notifications-1.0.1.jar** в каталог **app\libs** проекта. Это можно сделать, перетащив файлы в папку **libs** в окне представления проекта Android Studio. Обновите папку libs.
+1. Скачайте пакет SDK для Android для центров уведомлений <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">отсюда</a>. Извлеките содержимое ZIP-файла и скопируйте файлы **notificationhubs\\notification-hubs-0.4.jar** и **notifications\\notifications-1.0.1.jar** в каталог **app\\libs** проекта. Это можно сделать, перетащив файлы в папку **libs** в окне представления проекта Android Studio. Обновите папку libs.
 
 
 
@@ -106,7 +106,7 @@
 		private String HubListenConnectionString = "<Your default listen connection string>";
 
 
-	Обязательно измените три заполнителя: * **SENDER_ID**: задайте для `SENDER_ID` номер проекта, полученный ранее из проекта, созданного в [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString**: задайте для `HubListenConnectionString` строку подключения **DefaultListenAccessSignature** к центру. Можно скопировать эту строку подключения, щелкнув **Просмотреть строку подключения** на вкладке **Панель мониторинга** центра на [портале управления Azure]. * **HubName**: имя центра уведомлений, которое отображается в верхней части страницы в Azure для вашего центра (**не** полный URL-адрес). Например, `"myhub"`.
+	Обязательно измените три заполнителя: * **SENDER\_ID**: задайте для `SENDER_ID` номер проекта, полученный ранее из проекта, созданного в [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString**: задайте для `HubListenConnectionString` строку подключения **DefaultListenAccessSignature** к центру. Можно скопировать эту строку подключения, щелкнув **Просмотреть строку подключения** на вкладке **Панель мониторинга** центра на [портале управления Azure]. * **HubName**: имя центра уведомлений, которое отображается в верхней части страницы в Azure для вашего центра (**не** полный URL-адрес). Пример: `"myhub"`.
 
 
 
@@ -259,7 +259,7 @@
 
 ![][31]
 
-1. В представлении проекта Android Studio разверните **App** > **src** > **main** > **res** > **layout**. Откройте файл макета **activity_main.xml** и щелкните вкладку **Text** (Текст), чтобы обновить текстовое содержимое файла. Измените приведенный ниже код, который добавляет новые элементы управления `Button` и `EditText` для отправки уведомлений в центр уведомлений. Добавьте этот код в конец, непосредственно перед `</RelativeLayout>`.
+1. В представлении проекта Android Studio разверните **App**->**src**->**main**->**res**->**layout**. Откройте файл макета **activity\_main.xml** и щелкните вкладку **Text** (Текст), чтобы обновить текстовое содержимое файла. Измените приведенный ниже код, который добавляет новые элементы управления `Button` и `EditText` для отправки уведомлений в центр уведомлений. Добавьте этот код в конец, непосредственно перед `</RelativeLayout>`.
 
 	    <Button
         android:layout_width="wrap_content"
@@ -448,9 +448,9 @@
 ##Тестирование приложения
 
 ####Тестирование в эмуляторе
-Если требуется выполнить тестирование в эмуляторе, убедитесь, что образ эмулятора поддерживает уровень Google API, выбранный для приложения. Если образ не поддерживает интерфейсы Google API, будет порождено исключение **SERVICE_NOT_AVAILABLE**.
+Если требуется выполнить тестирование в эмуляторе, убедитесь, что образ эмулятора поддерживает уровень Google API, выбранный для приложения. Если образ не поддерживает интерфейсы Google API, будет порождено исключение **SERVICE\_NOT\_AVAILABLE**.
 
-Также убедитесь, что вы добавили учетную запись Google в запущенный эмулятор, выбрав **Settings** (Параметры) > **Accounts** (Учетные записи). В противном случае попытки регистрации в GCM могут привести к порождению исключения **AUTHENTICATION_FAILED**.
+Также убедитесь, что вы добавили учетную запись Google в запущенный эмулятор, выбрав **Параметры** > **Учетные записи**. В противном случае попытки регистрации в GCM могут привести к порождению исключения **AUTHENTICATION\_FAILED**.
 
 ####Тестирование приложения     
 
@@ -511,4 +511,4 @@
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-aspnet-backend-android-breaking-news.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -26,9 +26,9 @@
 ## Архитектурная абстракция
 Самый распространенный шаблон приложения — повторное создание таблиц с помощью инструкции CREATE TABLE AS SELECT (CTAS), после которой следует шаблон переименования объектов в процессе загрузки данных.
 
-Приведенный ниже пример добавляет новые записи даты в измерение даты. Обратите внимание, как сначала создается новый объект DimDate_New, который затем переименовывается, чтобы заменить исходную версию объекта. ``` CREATE TABLE dbo.DimDate_New WITH (DISTRIBUTION = REPLICATE , CLUSTERED INDEX (DateKey ASC) ) AS SELECT * FROM dbo.DimDate AS prod UNION ALL SELECT * FROM dbo.DimDate_stg AS stg ;
+Приведенный ниже пример добавляет новые записи даты в измерение даты. Обратите внимание, как сначала создается новый объект DimDate\_New, который затем переименовывается, чтобы заменить исходную версию объекта. ``` CREATE TABLE dbo.DimDate\_New WITH (DISTRIBUTION = REPLICATE , CLUSTERED INDEX (DateKey ASC) ) AS SELECT * FROM dbo.DimDate AS prod UNION ALL SELECT * FROM dbo.DimDate\_stg AS stg ;
 
-RENAME OBJECT DimDate TO DimDate_Old; RENAME OBJECT DimDate_New TO DimDate;
+RENAME OBJECT DimDate TO DimDate\_Old; RENAME OBJECT DimDate\_New TO DimDate;
 
 ``` Тем не менее, это может привести к появлению и исчезновению объектов таблицы в пользовательском представлении в обозревателе объектов SQL Server SSDT. Представления могут использоваться для предоставления объектам-получателям хранилища данных согласованного уровня представления данных при переименовании базовых объектов. Предоставление доступа к данным через представления означает, что пользователям не требуется видимость базовых таблиц. Это обеспечивает согласованное взаимодействие пользователей, гарантируя, что конструкторы в хранилище данных могут развивать модель данных и повышать производительность с помощью CTAS в процессе загрузки данных.
 
@@ -53,4 +53,4 @@ RENAME OBJECT DimDate TO DimDate_Old; RENAME OBJECT DimDate_New TO DimDate;
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

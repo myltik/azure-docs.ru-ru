@@ -17,9 +17,11 @@
 	ms.author="wesmc"/>
 
 # Использование концентраторов уведомлений с Node.js
-<div class="dev-center-tutorial-selector sublanding">
-    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js" class="current">Node.js</a>
-</div>
+
+> [AZURE.SELECTOR]
+- [Java](notification-hubs-java-backend-how-to.md)
+- [PHP](notification-hubs-php-backend-how-to.md)
+- [Python](notification-hubs-python-backend-how-to)
 
 ##Обзор
 
@@ -55,7 +57,7 @@
 		|-- xml2js@0.2.6 (sax@0.4.2)
 		|-- request@2.16.6 (forever-agent@0.2.0, aws-sign@0.2.0, tunnel-agent@0.2.0, oauth-sign@0.2.0, json-stringify-safe@3.0.0, cookie-jar@0.2.0, node-uuid@1.4.0, qs@0.5.5, hawk@0.10.2, form-data@0.0.7)
 
-3.  Вы можете выполнить команду **ls** или **dir** вручную, чтобы проверить создание папки **node_modules**. В этой папке найдите пакет **azure**, который содержит библиотеки для доступа к концентратору уведомлений.
+3.  Вы можете выполнить команду **ls** или **dir** вручную, чтобы проверить создание папки **node\_modules**. В этой папке найдите пакет **azure**, который содержит библиотеки для доступа к концентратору уведомлений.
 
 ### Импорт модуля
 
@@ -216,4 +218,4 @@
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -3,9 +3,9 @@
 	description="В данном разделе приводится перечень наиболее распространенных ограничений, относящихся к подписке Azure и различным службам, квот и ограничений. Сюда входит информация о том, как увеличить лимиты и максимальные значения."
 	services=""
 	documentationCenter=""
-	authors="jeffstokes72"
-	manager="paulettem"
-	editor="cgronlun"/>
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
 	ms.service="multiple"
@@ -74,6 +74,9 @@
 
 [AZURE.INCLUDE [azure-virtual-network-limits-azure-resource-manager](../includes/azure-virtual-network-limits-azure-resource-manager.md)]
 
+### Ограничения DNS
+
+[AZURE.INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ## Ограничения хранилища
 
@@ -151,6 +154,11 @@
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
 
+## Ограничения фабрики данных
+
+[AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
+
+
 ## Ограничения Stream Analytics
 
 [AZURE.INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
@@ -202,4 +210,4 @@
 
 [Размеры виртуальных машин и облачных служб для Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

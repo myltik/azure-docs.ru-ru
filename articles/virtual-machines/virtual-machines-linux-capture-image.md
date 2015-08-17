@@ -98,4 +98,4 @@ Azure воспринимает этот шаблон как образ и хра
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Создание виртуальной машины с ОС Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

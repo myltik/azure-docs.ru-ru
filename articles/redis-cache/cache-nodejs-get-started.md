@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="required"
-   ms.date="04/30/2015"
+   ms.date="08/04/2015"
    ms.author="mwasson"/>
 
 # Использование кэша Redis для Azure с Node.js
@@ -25,11 +25,11 @@
 
 ## Предварительные требования
 
-Установка [node_redis](https://github.com/mranney/node_redis).
+Установка [node\_redis](https://github.com/mranney/node_redis).
 
     npm install redis
 
-В этом учебнике используется [node_redis](https://github.com/mranney/node_redis), но можно использовать любой клиент Node.js из перечисленных на сайте [http://redis.io/clients](http://redis.io/clients).
+В этом учебнике используется [node\_redis](https://github.com/mranney/node_redis), но можно использовать любой клиент Node.js из перечисленных на сайте [http://redis.io/clients](http://redis.io/clients).
 
 ## Создание кэша Redis в Azure
 
@@ -50,7 +50,7 @@
 ## Включение конечной точки без SSL
 
 
-Щелкните ссылку в разделе **Порты** и нажмите кнопку **Нет** для параметра «Разрешить доступ только через SSL». Это включит для кэша порт без SSL. Клиент node_redis в настоящее время не поддерживает SSL.
+Щелкните ссылку в разделе **Порты** и нажмите кнопку **Нет** для параметра «Разрешить доступ только через SSL». Это включит для кэша порт без SSL. Клиент node\_redis в настоящее время не поддерживает SSL.
 
   ![][3]
 
@@ -91,4 +91,4 @@
 
 [Построение приложения для разговоров Node.js с помощью Socket.IO на веб-сайте Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

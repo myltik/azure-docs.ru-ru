@@ -81,4 +81,4 @@
 
 >[AZURE.NOTE]Начиная с версии System Center 2012 DPM с пакетом обновления 1 (SP1) и выше, в службе Azure можно создавать резервные копии рабочих нагрузок, защищенных DPM, с помощью службы архивации Microsoft Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

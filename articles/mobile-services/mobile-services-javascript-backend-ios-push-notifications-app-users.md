@@ -73,4 +73,4 @@ function insert(item, user, request) {
 [портал управления Azure]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

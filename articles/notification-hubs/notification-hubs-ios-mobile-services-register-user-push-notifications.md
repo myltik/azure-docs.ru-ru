@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="07/28/2015" 
 	ms.author="yuaxu"/>
 
 # Регистрация текущего пользователя для push-уведомлений мобильной службы
 
-<div class="dev-center-tutorial-selector sublanding">
-    <a href="/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Магазин Windows — C#">Магазин Windows — C#</a><a href="/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS" class="current">iOS</a>
-</div>
+> [AZURE.SELECTOR]
+[Windows Store C#](notification-hubs-windows-store-mobile-services-register-user-push-notifications.md)
+[Windows Store C#](notification-hubs-ios-mobile-services-register-user-push-notifications.md)
 
 В этом разделе показано, как запросить регистрацию push-уведомления с помощью концентраторов уведомлений Azure, когда регистрация выполняется с помощью мобильных служб Azure. Этот раздел расширяет учебник [Уведомление пользователей с помощью концентраторов уведомлений]. Чтобы создать прошедшую проверку подлинности мобильную службу, вы должны завершить требуемые действия в этом учебнике. Дополнительные сведения о сценарии уведомления пользователей см. в учебнике [Уведомление пользователей с помощью концентраторов уведомлений].
 
@@ -122,4 +122,4 @@
 [Get Started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

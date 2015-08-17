@@ -106,4 +106,4 @@ Dash.js — это проигрыватель видео MPEG-DASH с откр�
 
 [Репозиторий dash.js на GitHub](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="Erikre" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="07/31/2015" 
 	ms.author="erikre"/>
 
 
@@ -116,7 +116,7 @@
 
 1. В **Обозревателе решений** найдите и откройте страницу *Site.Master*.
 2. Если страница находится в представлении **Конструирование**, измените его на представление **Просмотр исходного кода**.
-3. Обновите главную страницу, изменив или добавив разметку, выделенную желтым цветом:
+3. Обновите главную страницу, изменив или добавив разметку для получения следующей разметки страницы:
 
 <pre class="prettyprint">
 &lt;%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ContactManager.SiteMaster" %>
@@ -127,7 +127,7 @@
 &lt;head runat="server">
     &lt;meta charset="utf-8" />
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    &lt;title>&lt;%: Page.Title %> - <mark>Contact Manager</mark>&lt;/title>
+    &lt;title>&lt;%: Page.Title %> - Contact Manager&lt;/title>
 
     &lt;asp:PlaceHolder runat="server">
         &lt;%: Scripts.Render("~/bundles/modernizr") %>
@@ -167,7 +167,7 @@
                         &lt;span class="icon-bar">&lt;/span>
                         &lt;span class="icon-bar">&lt;/span>
                     &lt;/button>
-                    &lt;a class="navbar-brand" runat="server" <mark>id="ContactDemoLink"</mark> href="~/<mark>Contacts/Default.aspx</mark>"><mark>Contact Demo</mark>&lt;/a>
+                    &lt;a class="navbar-brand" runat="server" id="ContactDemoLink" href="~/Contacts/Default.aspx">Contact Demo&lt;/a>
                 &lt;/div>
                 &lt;div class="navbar-collapse collapse">
                     &lt;ul class="nav navbar-nav">
@@ -199,7 +199,7 @@
             &lt;/asp:ContentPlaceHolder>
             &lt;hr />
             &lt;footer>
-                &lt;p>&amp;copy; &lt;%: DateTime.Now.Year %> - <mark>Contact Manager</mark>&lt;/p>
+                &lt;p>&amp;copy; &lt;%: DateTime.Now.Year %> - Contact Manager&lt;/p>
             &lt;/footer>
         &lt;/div>
     &lt;/form>
@@ -796,4 +796,4 @@ ASP.NET Identity — система членства, используемая �
 
  
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,3 +1,3 @@
 Обзор книг на Amazon, взятый с веб-сайта amazon.com и выполненный исследователями Пенсильванского университета (<a href="http://www.cs.jhu.edu/~mdredze/datasets/sentiment/">мнения читателей</a>). См. исследовательскую работу "Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification", John Blitzer, Mark Dredze и Fernando Pereira; Ассоциация компьютерной лингвистики (ACL), 2007.<p> </p>Исходный набор данных содержит 975 000 отзывов с оценками 1, 2, 3, 4 и 5. Отзывы написаны на английском языке и относятся к периоду 1997-2007 гг. Количество примеров отзывов в этом наборе данных уменьшено до 10 тысяч.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

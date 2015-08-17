@@ -48,7 +48,7 @@
 - 	Схема **aap-scheme** регистрируется в проекте XCode и используется для вызова из других приложений. Данные сведения можно найти в файле Info.plist (URL Types -> URL Identifier). Если вы еще не создали или не настроили хотя бы одну схему, следует сделать это.
 - 	**bundle-id** — это идентификатор пакета, который можно найти в разделе "identity" параметров проекта XCode.
 	
-Пример для рассматриваемого проекта QuickStart: ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
+Пример для рассматриваемого проекта QuickStart: ******msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## *2. Регистрация приложения DirectorySearcher*
 Чтобы приложение могло получать маркеры, сначала необходимо его зарегистрировать в клиенте Azure AD и предоставить ему разрешение на доступ к интерфейсу Graph API Azure AD:
@@ -136,7 +136,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 
 ```
 
-- Мы будем использовать этот маркер для поиска пользователей в графе. Найдите комментарий `// TODO: implement SearchUsersList`. Этот метод выполняет запрос GET в интерфейс API Graph службы Azure AD для получения списка пользователей, чьи UPN начинаются с определенного слова. Но для отправки запросов в Graph API необходимо включить access_token в заголовок `Authorization` запроса — именно отсюда ADAL начинает свою работу.
+- Мы будем использовать этот маркер для поиска пользователей в графе. Найдите комментарий `// TODO: implement SearchUsersList`. Этот метод выполняет запрос GET в интерфейс API Graph службы Azure AD для получения списка пользователей, чьи UPN начинаются с определенного слова. Но для отправки запросов в Graph API необходимо включить access\_token в заголовок `Authorization` запроса — именно отсюда ADAL начинает свою работу.
 
 ```ObjC
 +(void) searchUserList:(NSString*)searchString
@@ -225,4 +225,4 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

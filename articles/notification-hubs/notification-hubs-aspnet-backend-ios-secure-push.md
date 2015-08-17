@@ -18,9 +18,11 @@
 
 #Безопасные push-уведомления посредством центров уведомлений Azure
 
-<div class="dev-center-tutorial-selector sublanding">
-    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a> <a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
+- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+
 
 ##Обзор
 
@@ -63,6 +65,7 @@
 
 3. Затем добавьте в реализационную часть следующий код, заменив заполнитель `{back-end endpoint}` на конечную точку серверной части, которая была получена ранее:
 
+```
 		NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
 
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
@@ -107,8 +110,9 @@
 		    }];
 		    [dataTask resume];
 		}
+```
 
-	Этот метод вызывает серверную часть вашего приложения для извлечения содержимого уведомления с использованием учетных данных, хранящихся в общих настройках.
+	This method calls your app back-end to retrieve the notification content using the credentials stored in the shared preferences.
 
 4. Теперь мы обработаем входящее уведомление и используем вышеуказанный метод для извлечения содержимого и его отображения. Во-первых, мы должны создать для приложения iOS возможность работы в фоновом режиме при получении push-уведомления. В **XCode** выберите проект приложения в панели слева, затем выберите основную платформу в разделе **Targets (Платформы)** центральной панели.
 
@@ -155,4 +159,4 @@
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

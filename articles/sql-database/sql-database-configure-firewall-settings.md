@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="06/22/2015"
 	ms.author="rickbyh"/>
 
@@ -62,11 +62,11 @@
 1. Откройте окно запроса с помощью портала управления или среды SQL Server Management Studio.
 2. Убедитесь, что вы подключены к главной базе данных (master).
 3. В окне запроса можно создавать, обновлять или удалять правила брандмауэра на уровне сервера.
-4. Для создания или обновления правил брандмауэра на уровне сервера выполните хранимую процедуру sp_set_firewall_rule. В следующем примере показано, как включить диапазон IP-адресов на сервере Contoso.
+4. Для создания или обновления правил брандмауэра на уровне сервера выполните хранимую процедуру sp\_set\_firewall\_rule. В следующем примере показано, как включить диапазон IP-адресов на сервере Contoso.
 
 		EXEC sp_set_firewall_rule @name = N'ContosoFirewallRule', @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 
-	Для удаления правил брандмауэра на уровне сервера выполните хранимую процедуру sp_delete_firewall_rule. В следующем примере показано, как удалить правило с именем ContosoFirewallRule.
+	Для удаления правил брандмауэра на уровне сервера выполните хранимую процедуру sp\_delete\_firewall\_rule. В следующем примере показано, как удалить правило с именем ContosoFirewallRule.
  
 		EXEC sp_delete_firewall_rule @name = N'ContosoFirewallRule'
  
@@ -112,11 +112,11 @@
 1. После создания брандмауэра на уровне сервера для своего IP-адреса откройте окно запроса на портале управления или с помощью среды SQL Server Management Studio.
 2. Подключение к базе данных, для которой нужно создать правило брандмауэра на уровне базы данных.
 
-	Для создания нового или обновления существующего правила брандмауэра на уровне базы данных выполните хранимую процедуру sp_set_database_firewall_rule. В следующем примере показано, как создать новое правило с именем ContosoFirewallRule.
+	Для создания нового или обновления существующего правила брандмауэра на уровне базы данных выполните хранимую процедуру sp\_set\_database\_firewall\_rule. В следующем примере показано, как создать новое правило с именем ContosoFirewallRule.
  
 		EXEC sp_set_database_firewall_rule @name = N'ContosoFirewallRule', @start_ip_address = '192.168.1.11', @end_ip_address = '192.168.1.11'
  
-	Для удаления существующего правила брандмауэра на уровне базы данных выполните хранимую процедуру sp_delete_database_firewall_rule. В следующем примере показано, как удалить правило с именем ContosoFirewallRule.
+	Для удаления существующего правила брандмауэра на уровне базы данных выполните хранимую процедуру sp\_delete\_database\_firewall\_rule. В следующем примере показано, как удалить правило с именем ContosoFirewallRule.
  
 		EXEC sp_delete_database_firewall_rule @name = N'ContosoFirewallRule'
 
@@ -144,4 +144,4 @@
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

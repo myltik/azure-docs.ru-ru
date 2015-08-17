@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/14/2015" ms.author="sammehta"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/14/2015" ms.author="sammehta"; "jimpark"/>
 
 
 # Резервное копирование фермы SharePoint в Azure
@@ -226,4 +226,4 @@ DPM выполняется как локальная система и для с
 - См. [Заметки о выпуске System Center 2012 — Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 - См. [Заметки о выпуске Data Protection Manager в System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

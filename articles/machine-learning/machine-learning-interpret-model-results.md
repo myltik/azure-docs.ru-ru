@@ -55,15 +55,15 @@
 
 Пример проблемы двухклассовой классификации — классификация цветов ириса на основе их признаков. Обратите внимание, что набор данных Iris в машинном обучении Azure является поднабором популярного [набора данных Iris](http://en.wikipedia.org/wiki/Iris_flower_data_set), содержащего экземпляры только 2 видов цветов (классы 0 и 1). Для каждого цветка можно выделить четыре признака (длины чашелистика, ширина чашелистика, длина лепестка и ширина лепестка).
 
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/1.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/1.png)
 
 Рис. 1. Эксперимент задачи двухклассовой классификации цветков ириса
 
 Эксперимент для решения этой задачи проведен, как показано на рис. 1. Модель повышенного дерева принятия решений двухклассовой классификации обучена и оценена. Теперь можно представить результаты прогноза модуля [Оценка модели][score-model], щелкнув порта вывода модуля [Оценка модели][score-model], а затем выбрав команду **Показать** в раскрывшемся меню. Этак команда покажет результаты оценки, как показано на рис. 2.
 
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/1_1.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/1_1.png)
 
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/2.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/2.png)
 
 Рис. 2. Представление результатов модели оценки в двухклассовой классификации
 
@@ -75,21 +75,21 @@
 
 Если результаты прогнозирования понятны и выглядят обоснованными, эксперимент можно опубликовать как веб-службу, чтобы его можно было развертывать в различных приложениях и вызывать для получения прогноза класса для любых новых цветов ириса. Процедуру изменения эксперимента обучения в эксперименте оценки и его публикации как веб-службы см. в разделе [Публикации веб-службы машинного обучения Azure](machine-learning-walkthrough-5-publish-web-service.md). Выполнив эту процедуру, можно получить эксперимент оценки, как показано на рис. 3.
 
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/3.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/3.png)
 
 Рис. 3 Эксперимент оценки в задаче двухклассовой классификации
 
 Теперь необходимо задать входные и выходные данные для веб-службы. Очевидно, что входные данные — правый входной порт [Модели оценки][score-model], представляющий входные данные о признаках цветков ириса. Выбор выходных данных зависит от того, интересует ли нас прогнозируемый класс (метки оценки), оценка вероятности или оба значения сразу. Здесь предполагается, что нас интересуют оба значения. Чтобы выбрать нужные выходные столбцы, следует использовать модуль [Столбцы проекта][project-columns]. Щелкните модуль [Столбцы проекта][project-columns], затем щелкните **Запустить выделение столбца** в правой панели и выберите **Метки оценки** и **Оценки вероятности**. После установки выходного порта модуля [Столбцы проекта][project-columns] запустите его еще раз, чтобы получить возможность публикации эксперимента оценки как веб-служба, щелкнув кнопку **ОПУБЛИКОВАТЬ ВЕБ-СЛУЖБУ** внизу. Окончательный эксперимента выглядит как показано на рис. 4.
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/4.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/4.png)
 
 Рис. 4. Окончательный эксперимент оценки в задаче двухклассовой классификации цветков ириса
 
 После запуска веб-службы и ввода значений некоторых признаков испытательного экземпляра, результат возвращает два числа. Первое число — это метка оценки, а второе — оценка вероятности. Этот цветов с вероятностью 0,9655 относится к классу 1.
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/4_1.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/4_1.png)
 
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/5.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/5.png)
 
 Рис. 5. Результат двухклассовой классификации цветков ириса в веб-службе
 
@@ -98,15 +98,15 @@
 
 В этом эксперименте в качестве примера многоклассовой классификации будет выполнена задача распознавания букв. Классификатор попытается предсказать определенную букву (класс), учитывая некоторые значения атрибутов, извлеченных из изображений рукописных символов. В обучающих данных предусмотрено шестнадцать признаков, извлеченных из изображений рукописных букв. Двадцать шесть букв образуют двадцать шесть классов. Эксперимент настроен для обучения модели многоклассовой классификации для распознавания букв и прогнозирования этого же набора признаков для тестового набора данных, как показано на рис. 6.
 
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/5_1.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/5_1.png)
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/6.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/6.png)
 
 Рис. 6. Эксперимент распознавания букв в задаче многоклассовой классификации
 
 Отобразите результаты модуля [Модель оценки][score-model], щелкнув правой или левой кнопкой мыши номер порта вывода модуля [Модель оценки][score-model] и выбрав **Показать**; после чего должно открыться окно, как показано на рис. 7.
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/7.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/7.png)
 
 Рис. 7. Визуализация результата модели оценки в многоклассовой классификации
 
@@ -118,19 +118,19 @@
 
 На этот раз, чтобы выбрать несколько столбцов в качестве выходных для веб-службы, вместо [Столбцы проекта][project-columns] мы бы хотели получить метку оценки для каждой записи и вероятность метки оценки. Задача состоит в нахождении наибольшей вероятности среди всех оценок вероятностей. Для этого необходимо использовать модуль [Выполнить сценарий R][execute-r-script]. Код R показан на рис. 8, а эксперимент показан на рис. 9.
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/8.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/8.png)
 
 Рис. 8. Код R для извлечения меток оцени и соответствующих вероятностей меток
   
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/9.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/9.png)
 
 Рис. 9. Окончательный эксперимент оценки распознавания букв в задаче многоклассовой классификации
 
 После публикации и запуска веб-службы и ввода некоторых входных значений признаков, возвращаемый результат будет выглядеть, как показано на рис. 10. Эта рукописная буква согласно шестнадцати извлеченным признакам будет буквой «T» с вероятностью 0,9715.
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/9_1.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/9_1.png)
 
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/10.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/10.png)
 
 Рис. 10. Результат, возвращаемый веб-службой для двухклассовой классификации цветков ириса
 
@@ -142,13 +142,13 @@
 
 В нашем примере для регрессии мы используем прогноз стоимости автомобиля. Мы попытаемся спрогнозировать цену автомобиля в зависимости от его признаков, таких как год выпуска, тип топлива, тип кузова, типа привода и т. д. Этот эксперимент показан на рис. 11.
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/11.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/11.png)
 
 Рис. 11. Эксперимента регрессионной задачи для стоимости автомобиля
 
 Результаты работы модуля [Оценка модели][score-model] показаны на рис. 12.
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/12.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/12.png)
 
 Рис. 12. Визуализация оценки результатов задачи прогноза стоимости автомобиля
 
@@ -160,15 +160,15 @@
 
 Мы можем опубликовать эксперимент регрессии в веб-службе и вызывать его для прогнозирования стоимости автомобиля так же, как в случае двухклассовой классификации.
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/13.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/13.png)
 
 Рис. 13. Эксперимент оценки в задаче регрессии для стоимости автомобиля
 
 Выполняющаяся веб-служба возвращает результат, как показано на рис. 14. Прогнозируемая стоимость этого автомобиля — 15085,52.
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/13_1.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/13_1.png)
 
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/14.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/14.png)
 
 Рис. 14. Результаты веб-службы в задаче регрессии для стоимости автомобиля
 
@@ -178,7 +178,7 @@
 
 Воспользуемся набором данных Iris еще раз для построения эксперимента кластеризации. Здесь мы отфильтровать метки классов в наборе данных, чтобы в них содержались только признаки и их можно было использовать для кластеризации. В этом примере набора данных Iris давайте укажем число кластеров в процессе обучения равным 2, что означает, что нам нужна кластеризация цветков на два класса. Этот эксперимент показан на рис. 15.
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/15.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/15.png)
 
 Рис. 15. Эксперимент задачи кластеризации в классификации цветков ириса
 
@@ -186,13 +186,13 @@
 
 Первую часть результатов можно визуализировать, щелкнув левой кнопкой выходной порт модуля [Обучение модели кластеризации][train-clustering-model] и затем выбрав **Показать**. Окно представления показано на рис. 16.
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/16.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/16.png)
 
 Рис. 16. Визуализация результатов кластеризации для набора обучающих данных
 
 Вторая часть результатов, кластеризация новых записей с помощью обученной модели кластеризации, показана на рис. 17.
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/17.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/17.png)
 
 Рис. 17. Визуализация результата кластеризации нового набора данных
 
@@ -204,15 +204,15 @@
 
 Мы можем опубликовать эксперимент кластеризации в веб-службе и вызывать его для прогнозирования кластеризации так же, как и в случае двухклассовой классификации.
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/18.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/18.png)
 
 Рис. 18. Эксперимент оценки задачи кластеризации набора данных Iris
 
 Выполняющаяся веб-служба возвращает результат, как показано на рис. 19. Согласно прогнозу этот цветок относится к кластеру 0.
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/18_1.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/18_1.png)
 
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/19.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/19.png)
 
 Рис. 19. Результат, возвращаемый веб-службой для двухклассовой классификации цветков ириса
 
@@ -234,9 +234,9 @@
 
 Нужную задачу можно выбрать в меню **Тип прогнозирования системы рекомендаций** на правой панели. Здесь мы рассмотрим все четыре сценария. Типичный эксперимента машинного обучения Azure для системы рекомендаций выглядит, как показано на рис. 20. Дополнительную информацию об использовании этих модулей системы рекомендаций см. на странице справки для [Обучение системы Matchbox Recommender][train-matchbox-recommender] и [Подсистема Score Matchbox][score-matchbox-recommender].
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/19_1.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/19_1.png)
 
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/20.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/20.png)
 
 Рис. 20 Эксперимент с системой рекомендаций
 
@@ -246,7 +246,7 @@
 
 Выбрав прогноз оценки в меню **Тип прогноза системы рекомендаций**, мы узнаем у системы рекомендаций прогноз оценки для данного пользователя и объекта. Визуализация результатов работы модуля [Подсистема Score Matchbox][score-matchbox-recommender] показана на рис. 21.
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/21.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/21.png)
 
 Рис. 21. Визуализация результатов оценки системы рекомендаций. Прогноз оценки
 
@@ -256,7 +256,7 @@
 
 Выбрав **Рекомендация объекта** в меню **Тип прогноза системы рекомендаций**, мы узнаем у системы рекомендаций рекомендуемый объект для данного пользователя. В этом сценарии необходимо выбрать еще один параметр, «Выбор рекомендуемого объекта». Параметр **Из оцененных объектов (для оценки модели)** в первую очередь нужен для оценки модели в процессе обучения. На данном этапе прогноза мы выбираем **Из всех объектов**. Визуализация результатов модуля [Подсистема Score Matchbox][score-matchbox-recommender] показана на рис. 22.
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/22.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/22.png)
 
 Рис. 22. Визуализация результатов оценки системы рекомендаций. Рекомендация объекта
 
@@ -266,7 +266,7 @@
 
 Выбрав в меню «Тип прогноза системы рекомендаций» «Связанные пользователи», мы узнаем у системы рекомендаций пользователей, связанных с данным пользователем. Связанными пользователями являются пользователи с аналогичными параметрами. Существует еще один параметр, который необходимо выбрать в этом сценарии, «Выбор соответствующего пользователя». Параметр «Из пользователей. оценивших объекты (для оценки модели)» в первую очередь нужен для оценки модели в процессе обучения. На данном этапе прогнозирования мы выбираем «Из всех пользователей». Визуализация результатов модуля [Подсистема Score Matchbox][score-matchbox-recommender] показана на рис. 23.
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/23.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/23.png)
 
 Рис. 23. Визуализация результатов оценки системы рекомендаций. Связанные пользователи
 
@@ -276,7 +276,7 @@
 
 Выбрав **Связанные объекты** в меню **Тип прогноза системы рекомендаций**, мы узнаем у системы рекомендаций объекты, связанные с данным объектом. Связанные объекты — это те объекты, которые скорее всего понравятся тем же пользователям. Существует еще один параметр, который необходимо выбрать в этом сценарии, «Выбор соответствующего объекта». Параметр **Из оцененных объектов (для оценки модели)** в первую очередь нужен для оценки модели в процессе обучения. Мы выбираем **из всех элементов** на данном этапе прогноза. Визуализация результатов модуля [Подсистема Score Matchbox][score-matchbox-recommender] показана на рис. 24.
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/24.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/24.png)
 
 Рис. 24. Визуализация результатов оценки системы рекомендаций. Связанные объекты
 
@@ -286,15 +286,15 @@
 
 Сохранив обученную систему рекомендаций как обученную модели, фильтруя входные данные в столбце для одного идентификатора пользователя по запросу, мы можем подключить эксперимент, как показано на рис. 25, и опубликовать его как веб-службу.
 
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/25.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/25.png)
  
 Рис. 25. Эксперимент оценки в задаче рекомендации ресторана
 
 Выполняющаяся веб-служба возвращает результат, как показано на рис. 14. Пять ресторанов рекомендуются для пользователя U1048 — 134986, 135018, 134975, 135021 и 132862.
  
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/25_1.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/25_1.png)
 
-![screenshot_of_experiment](./media/machine-learning-interpret-model-results/26.png)
+![screenshot\_of\_experiment](./media/machine-learning-interpret-model-results/26.png)
 
 Рис. 26. Результаты веб-службы для задачи рекомендации ресторана
 
@@ -309,4 +309,4 @@
 [train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

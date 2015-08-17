@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/13/2015"
+   ms.date="07/22/2015"
    ms.author="bwren" />
 
 # Параметры модуля Runbook
@@ -60,4 +60,4 @@
 - [Выходные данные Runbook и сообщения](../automation-runbook-output-and-messages) 
 - [Создание или импорт модуля Runbook](https://msdn.microsoft.com/library/dn643637.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

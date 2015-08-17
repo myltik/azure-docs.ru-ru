@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/23/2014" 
+	ms.date="08/04/2014" 
 	ms.author="robb"/>
 
 
@@ -124,7 +124,7 @@
 2. Введите путь к большим двоичным объектам, используя шаблон **DeploymentId/RoleName/RoleInstance**, чтобы найти настройки для вашего экземпляра роли. 
 
 	![Обозреватель хранилищ Visual Studio](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioStorage.png)
-3. Скачайте файл конфигурации для экземпляра роли и обновите его, чтобы задействовать все пользовательские счетчики производительности. Например, для мониторинга *Скорости записи на диск (байт/сек)* для *диска C* добавьте следующий код в узел **PerformanceCounters\Subscriptions**
+3. Скачайте файл конфигурации для экземпляра роли и обновите его, чтобы задействовать все пользовательские счетчики производительности. Например, для мониторинга *Скорости записи на диск (байт/сек)* для *диска C* добавьте следующий код в узел **PerformanceCounters\\Subscriptions**
 
 	```xml
 	<PerformanceCounterConfiguration>
@@ -179,7 +179,7 @@
 
 - *deploymentID* — это GUID развертывания облачной службы;
 
-- *aggregation_interval* = 5M (5 мин), 1H (1 ч) или 12H (12 ч);
+- *aggregation\_interval* = 5M (5 мин), 1H (1 ч) или 12H (12 ч);
 
 - сводные данные на уровне роли = R;
 
@@ -192,4 +192,4 @@
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

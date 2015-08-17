@@ -132,4 +132,4 @@
 [portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

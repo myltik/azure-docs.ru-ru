@@ -104,7 +104,7 @@ Windows PowerShell® — оболочка командной строки на �
 
 	$VaultName = "<testvault123>"
 	$VaultGeo  = "<Southeast Asia>"
-	$OutputPathForSettingsFile = "<c:>"
+	$OutputPathForSettingsFile = "<C:\>"
 
 ```
 
@@ -125,7 +125,7 @@ Windows PowerShell® — оболочка командной строки на �
 	
 		$VaultName = "<testvault123>"
 		$VaultGeo  = "<Southeast Asia>"
-		$OutputPathForSettingsFile = "<c:>"
+		$OutputPathForSettingsFile = "<C:\>"
 	
 		$VaultSetingsFile = Get-AzureSiteRecoveryVaultSettingsFile -Location $VaultGeo -Name $VaultName -Path $OutputPathForSettingsFile;
 	
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>При наличии вопросов обращайтесь на <a href="http://go.microsoft.com/fwlink/?LinkId=313628">форум по службам восстановления Azure</a>.</LI> </UL>
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -45,4 +45,4 @@ Puppet является системой "клиент-сервер". С пом�
 [Вход в виртуальную машину под управлением ОС Linux]: virtual-machines-linux-how-to-log-on.md
 [Azure VM extensions and features]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

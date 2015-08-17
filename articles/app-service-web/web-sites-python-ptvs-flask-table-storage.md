@@ -153,7 +153,7 @@
 
   	<!-- ![Top Menu](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteTopMenu.png) -->
 
-1.  Прокрутите список вниз до раздела **Параметры приложения** и присвойте переменным **REPOSITORY_NAME**, **STORAGE_NAME** и **STORAGE_KEY** значения, описанные выше.
+1.  Прокрутите список вниз до раздела **Параметры приложения** и присвойте переменным **REPOSITORY\_NAME**, **STORAGE\_NAME** и **STORAGE\_KEY** значения, описанные выше.
 
   	<!-- ![App Settings](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png) -->
 
@@ -210,4 +210,4 @@
 [Пакет SDK для Azure для Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -206,4 +206,4 @@
 - [Схема таблицы метрик аналитики хранилища](https://msdn.microsoft.com/library/hh343264.aspx) 
 - [Операции с протоколированием и сообщения о состоянии аналитик хранилища](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

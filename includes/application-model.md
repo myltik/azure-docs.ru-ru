@@ -168,7 +168,7 @@
 
 </td>
 <td>
-~ 5 Мбит/с
+\~ 5 Мбит/с
 
 </td>
 </tr>
@@ -190,7 +190,7 @@
 
 </td>
 <td>
-~ 100 Мбит/с
+\~ 100 Мбит/с
 
 </td>
 </tr>
@@ -212,7 +212,7 @@
 
 </td>
 <td>
-~ 200 Мбит/с
+\~ 200 Мбит/с
 
 </td>
 </tr>
@@ -234,7 +234,7 @@
 
 </td>
 <td>
-~ 400 Мбит/с
+\~ 400 Мбит/с
 
 </td>
 </tr>
@@ -256,7 +256,7 @@
 
 </td>
 <td>
-~ 800 Мбит/с
+\~ 800 Мбит/с
 
 </td>
 </tr>
@@ -284,7 +284,7 @@
 
 Файл настройки службы (CSCFG) является XML-файлом, описывающим параметры, которые можно изменить без повторного развертывания приложения. Полную схему XML-файла см. здесь: [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][]. Файл CSCFG содержит элемент "Роль" для каждой роли в приложении. Ниже приведены некоторые элементы, которые можно указать в файле CSCFG:
 
--   **Версия ОС**. Этот атрибут позволяет выбрать версию операционной системы (ОС), которую нужно использовать для всех экземпляров ролей, на которых выполняется код приложения. Эта операционная система называется *гостевой ОС*; в каждую новую версию включены последние исправления безопасности и обновления, доступные на момент выпуска гостевой ОС. Если для атрибута osVersion установить значение "*", Azure будет автоматически обновлять гостевую ОС для каждого из экземпляров роли по мере появления новых версий гостевых OS. При этом можно отказаться от автоматического обновления, выбрав конкретную версию гостевой ОС. Например, если для атрибута osVersion установить значение "WA-GUEST-OS-2.8_201109-01", все экземпляры роли получат компоненты, описанные на следующей веб-странице:[http://msdn.microsoft.com/library/hh560567.aspx][]. Подробнее о версиях гостевой ОС см. в разделе [Управление обновлениями гостевой ОС Azure].
+-   **Версия ОС**. Этот атрибут позволяет выбрать версию операционной системы (ОС), которую нужно использовать для всех экземпляров ролей, на которых выполняется код приложения. Эта операционная система называется *гостевой ОС*; в каждую новую версию включены последние исправления безопасности и обновления, доступные на момент выпуска гостевой ОС. Если для атрибута osVersion установить значение "*", Azure будет автоматически обновлять гостевую ОС для каждого из экземпляров роли по мере появления новых версий гостевых OS. При этом можно отказаться от автоматического обновления, выбрав конкретную версию гостевой ОС. Например, если для атрибута osVersion установить значение "WA-GUEST-OS-2.8\_201109-01", все экземпляры роли получат компоненты, описанные на следующей веб-странице:[http://msdn.microsoft.com/library/hh560567.aspx][]. Подробнее о версиях гостевой ОС см. в разделе [Управление обновлениями гостевой ОС Azure].
 
 -   **Экземпляры**. Значение этого элемента указывает на количество экземпляров роли, выполняющих код для определенной роли. Так как в Azure можно загрузить новый файл CSCFG (без повторного развертывания приложения), вы можете максимально просто изменить значение этого элемента и загрузить новый файл CSCFG для динамического увеличения или уменьшения количества экземпляров роли, выполняющих код приложения. Это позволяет легко масштабировать приложения в сторону увеличения или в сторону уменьшения для обеспечения требований, выдвигаемых фактическими рабочими нагрузками, а также для управления платежами, начисляемыми за выполнение экземпляров роли.
 
@@ -328,22 +328,22 @@
   [0]: ./media/application-model/application-model-3.jpg
   [1]: ./media/application-model/application-model-4.jpg
   [2]: ./media/application-model/application-model-5.jpg
-  [Настройка пользовательского имени домена в Azure]: http://azure.microsoft.com/develop/net/common-tasks/custom-dns/
-  [Предлагаемые варианты хранения данных для платформы Azure]: http://azure.microsoft.com/develop/net/fundamentals/cloud-storage/
+  [Настройка пользовательского имени домена в Azure]: http://www.windowsazure.com/develop/net/common-tasks/custom-dns/
+  [Предлагаемые варианты хранения данных для платформы Azure]: http://www.windowsazure.com/develop/net/fundamentals/cloud-storage/
   [3]: ./media/application-model/application-model-6.jpg
   [4]: ./media/application-model/application-model-7.jpg
   
-  [Цены на Azure]: http://azure.microsoft.com/pricing/calculator/
+  [Цены на Azure]: http://www.windowsazure.com/pricing/calculator/
   [Managing Certificates in Azure]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
   [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
   [http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
   [Managing Upgrades to the Azure Guests OS]: http://msdn.microsoft.com/library/ee924680.aspx
   [портал управления Azure]: http://manage.windowsazure.com/
   [5]: ./media/application-model/application-model-8.jpg
-  [Развертывание и обновление приложений Azure]: http://azure.microsoft.com/develop/net/fundamentals/deploying-applications/
+  [Развертывание и обновление приложений Azure]: http://www.windowsazure.com/develop/net/fundamentals/deploying-applications/
   [Создание размещенной службы для Azure]: http://msdn.microsoft.com/library/gg432967.aspx
   [Управление размещенными службами в Azure]: http://msdn.microsoft.com/library/gg433038.aspx
   [Миграция приложений в Azure]: http://msdn.microsoft.com/library/gg186051.aspx
   [Настройка приложения в Azure]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

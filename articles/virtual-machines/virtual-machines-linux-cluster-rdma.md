@@ -339,4 +339,4 @@ private ip address2:16
 
 * Рекомендации по Intel MPI см. в [документации для библиотеки Intel MPI](https://software.intel.com/ru-ru/articles/intel-mpi-library-documentation/).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

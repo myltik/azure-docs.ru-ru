@@ -138,7 +138,7 @@ Scalding — это библиотека Scala, которая позволяе
 
     * **repositories**: репозитории, которые содержат файлы зависимостей, используемые данным проектом
 
-    * **scalding-core_2.11** и **hadoop-core**: этот проект зависит от основных пакетов Scalding и Hadoop
+    * **scalding-core\_2.11** и **hadoop-core**: этот проект зависит от основных пакетов Scalding и Hadoop
 
     * **maven-scala-plugin**: подключаемый модуль для компиляции приложений Scala
 
@@ -168,7 +168,7 @@ Scalding — это библиотека Scala, которая позволяе
 
           //Tokenizer to split sentance into words
           def tokenize(text : String) : Array[String] = {
-            text.toLowerCase.replaceAll("[^a-zA-Z0-9\s]", "").split("\s+")
+            text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
           }
         }
 
@@ -289,4 +289,4 @@ Scalding — это библиотека Scala, которая позволяе
 
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

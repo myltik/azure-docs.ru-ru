@@ -12,7 +12,7 @@
     ms.workload="operational-insights"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="get-started-article"
+    ms.topic="hero-article"
     ms.date="07/09/2015"
     ms.author="banders"/>
 
@@ -97,4 +97,4 @@ Operations Management Suite позволяет быстро искать обл�
 - Познакомьтесь с [поиском](operational-insights-search.md)
 - Используйте [панели мониторинга](operational-insights-use-dashboards.md) для сохранения и отображения настраиваемых систем поиска
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

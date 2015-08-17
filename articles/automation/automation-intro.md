@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="07/06/2015"
 	ms.author="bwren"/>
 
@@ -65,4 +65,4 @@ Runbook — это набор задач, которые выполняют ка
 
 **Да! Нам нужна обратная связь.** Если вы ищете модуль интеграции или определенное решение для службы автоматизации Azure, в котором используются модули Runbook, разместите соответствующий запрос на сайте "Центр сценариев". Если вы хотите оставить отзыв или запрос на ту или иную функцию для службы автоматизации Azure, оставляйте их на сайте [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Спасибо!
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

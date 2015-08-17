@@ -44,4 +44,4 @@
 * См. статью [Управление служебной шиной с помощью PowerShell](service-bus-powershell-how-to-provision.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -228,7 +228,7 @@ CoreOS — это небольшой оптимизированный дистр
     - [Архитектура высокой доступности MySQL в Microsoft Azure](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)
 7. MariaDB
     - [Практическое руководство. Создание кластера MariaDbs с несколькими источниками](virtual-machines-mariadb-cluster.md)
-8. [Установка Postgres с использованием corosync и pg_bouncer с помощью ILB](https://github.com/chgeuer/postgres-azure)
+8. [Установка Postgres с использованием corosync и pg\_bouncer с помощью ILB](https://github.com/chgeuer/postgres-azure)
 
 
 ## Проверка подлинности и шифрование
@@ -296,4 +296,4 @@ CoreOS — это небольшой оптимизированный дистр
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

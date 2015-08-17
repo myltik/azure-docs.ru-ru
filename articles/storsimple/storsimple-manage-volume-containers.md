@@ -66,4 +66,4 @@
 Узнайте больше об [управлении томами StorSimple](storsimple-manage-volumes.md).
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

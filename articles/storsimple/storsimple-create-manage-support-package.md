@@ -199,4 +199,4 @@
 
 Узнайте, как [использовать журналы устройства и пакеты поддержки для устранения неполадок при развертывании устройства](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

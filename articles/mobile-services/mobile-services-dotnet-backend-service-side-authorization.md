@@ -80,4 +80,4 @@
 [Добавление проверки подлинности в существующее приложение мобильных служб]: mobile-services-dotnet-backend-ios-get-started-users.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

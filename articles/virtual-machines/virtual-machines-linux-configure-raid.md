@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="07/29/2015" 
 	ms.author="szark"/>
 
 
@@ -23,7 +23,7 @@
 
 
 ## Присоединение дисков данных
-Для настройки RAID-устройства обычно требуется не менее двух пустых дисков данных. В этой статье мы не будем подробно останавливаться на том, как присоединить диски данных к виртуальной машине Linux. Подробные инструкции по присоединению пустого диска данных к виртуальной машине Linux в Azure см. в статье Windows Azure [Присоединение диска](storage-windows-attach-disk.md#attachempty).
+Для настройки RAID-устройства обычно требуется не менее двух пустых дисков данных. В этой статье мы не будем подробно останавливаться на том, как присоединить диски данных к виртуальной машине Linux. Подробные указания по подключению пустого диска данных к виртуальной машине Linux в Azure см. в разделе [Подключение диска](storage-windows-attach-disk.md#attachempty) статьи Microsoft Azure.
 
 >[AZURE.NOTE]На виртуальных машинах сверхмалого размера не поддерживается присоединение более одного диска данных. Подробные сведения о размерах виртуальных машин и поддерживаемом количестве дисков данных см. в разделе [Размеры виртуальных машин и облачных служб в Windows Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx).
 
@@ -108,20 +108,20 @@
 
 2. Создайте файловую систему на новом RAID-устройстве.
 
-	**CentOS, Oracle Linux, openSUSE и Ubuntu**
+	**CentOS, Oracle Linux, SLES 12, openSUSE и Ubuntu**
 
 		# sudo mkfs -t ext4 /dev/md127
 
-	**SLES**
+	**SLES 11**
 
 		# sudo mkfs -t ext3 /dev/md127
 
-3. **SLES и openSUSE** — включите boot.md и создайте mdadm.conf.
+3. **SLES 11 и openSUSE** — включите boot.md и создайте mdadm.conf.
 
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	>[AZURE.NOTE]После внесения этих изменений в системах SUSE может потребоваться перезагрузка.
+	>[AZURE.NOTE]После внесения этих изменений в системах SUSE может потребоваться перезагрузка. Этот шаг *не* является обязательным для SLES 12.
 
 
 ## Добавление новой файловой системы в /etc/fstab
@@ -142,7 +142,7 @@
 
 		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
 
-	В **SLES и openSUSE**:
+	Или в **SLES 11 и openSUSE**:
 
 		/dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
 
@@ -178,4 +178,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Что такое Azure Application Insights?
@@ -103,12 +103,17 @@ Application Insights может также получать данные тел�
 
 Для получения дополнительных сведений выберите тип приложения в разделе «Начало работы» на панели навигации в левой части страницы.
 
+## Примеры
+
+
+[Примеры и пошаговые руководства](app-insights-code-samples.md)
+
 
 ## Поддержка и обратная связь
 
 * Вопросы и проблемы
  * [Устранение неполадок][qna]
- * [Форум MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+ * [Форум MSDN](https://social.msdn.microsoft.com/Forums/vstudio/ru-ru/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Ошибки
  * [Подключение](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -145,4 +150,4 @@ Application Insights может также получать данные тел�
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,4 +1,4 @@
-<properties  
+<properties 
 	pageTitle="Как использовать AMQP 1.0 с Java API служебной шины в Azure" 
 	description="Узнайте, как использовать службу сообщений Java (JMS) со служебной шиной Azure и протоколом AMQP 1.0." 
 	authors="sethmanheim" 
@@ -31,11 +31,11 @@ AMQP 1.0 — это эффективный и надежный протокол 
 
 ### Загрузка клиентской библиотеки AMQP 1.0 JMS
 
-Информацию о том, где скачать последнюю версию клиентской библиотеки Apache Qpid JMS AMQP 1.0, см. на странице [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
+Информацию о том, где скачать последнюю версию клиентской библиотеки Apache Qpid JMS AMQP 1.0, см. на странице [http://people.apache.org/\~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
 
 При построении и запуске приложений JMS с использованием служебной шины необходимо добавить следующие 4 JAR-файла из архива распространения Apache Qpid JMS AMQP 1.0 в Java CLASSPATH:
 
-*    geronimo-jms_1.1_spec-1.0.jar
+*    geronimo-jms\_1.1\_spec-1.0.jar
 *    qpid-amqp-1-0-client-[version].jar
 *    qpid-amqp-1-0-client-jms-[version].jar
 *    qpid-amqp-1-0-common-[version].jar
@@ -67,12 +67,12 @@ queue.QUEUE = queue1
 connectionfactory.[jndi_name] = [ConnectionURL]
 ```
 
-где **[jndi_name]** и **[ConnectionURL]** имеют следующий смысл:
+где **[jndi\_name]** и **[ConnectionURL]** имеют следующий смысл:
 
-- **[jndi_name]**: логическое имя ConnectionFactory. Это имя, которое будет разрешено в Java-приложении с помощью метода JNDI IntialContext.lookup().
+- **[jndi\_name]**: логическое имя ConnectionFactory. Это имя, которое будет разрешено в Java-приложении с помощью метода JNDI IntialContext.lookup().
 - **[ConnectionURL]**: URL-адрес, предоставляющий библиотеке JMS сведения, необходимые брокеру AMQP.
 
-Формат **URL_подключения** выглядит следующим образом:
+Формат **URL\_подключения** выглядит следующим образом:
 
 ```
 amqps://[username]:[password]@[namespace].servicebus.windows.net
@@ -84,7 +84,7 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 - **[username]**: имя поставщика служебной шины.
 - **[password]**: ключ поставщика служебной шины с кодировкой URL.
 
-> [AZURE.NOTE]Необходимо применить URL-кодирование к паролю вручную. Полезная служебная программа URL-кодирования доступна по адресу [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> [AZURE.NOTE]Необходимо применить URL-кодирование к паролю вручную. Полезная служебная программа URL-кодирования доступна по адресу [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 #### Настройка назначений
 
@@ -99,10 +99,10 @@ queue.[jndi_name] = [physical_name]
 topic.[jndi_name] = [physical_name]
 ```
 
-где **[jndi_name]** и **[physical_name]** имеют следующий смысл:
+где **[jndi\_name]** и **[physical\_name]** имеют следующий смысл:
 
-- **[jndi_name]**: логическое имя назначения. Это имя, которое будет разрешено в Java-приложении с помощью метода JNDI IntialContext.lookup().
-- **[physical_name]**: имя сущности служебной шины, которой приложение отправляет сообщения или от которого оно получает сообщения.
+- **[jndi\_name]**: логическое имя назначения. Это имя, которое будет разрешено в Java-приложении с помощью метода JNDI IntialContext.lookup().
+- **[physical\_name]**: имя сущности служебной шины, которой приложение отправляет сообщения или от которого оно получает сообщения.
 
 > [AZURE.NOTE]При получении данных из подписки раздела Service Bus физическое имя, указанное в JNDI, должно быть именем раздела. Имя подписки предоставляется при создании устойчивой подписки в коде приложения JMS. В [руководстве разработчика Service Bus AMQP 1.0](http://msdn.microsoft.com/library/jj841071.aspx) содержатся дополнительные сведения о работе с подписками разделов Service Bus в JMS.
 
@@ -333,4 +333,4 @@ exit
 * [Использование очередей служебной шины](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

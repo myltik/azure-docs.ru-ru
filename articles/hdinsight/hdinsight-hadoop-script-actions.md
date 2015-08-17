@@ -304,4 +304,4 @@ HDInsight предоставляет несколько скриптов для 
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

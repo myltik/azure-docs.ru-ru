@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Создание и развертывание облачной службы — Azure"
-	description="Узнайте, как создать и развернуть облачную службу с помощью функции ";Быстрое создание"; в Azure."
+	description="Узнайте, как создать и развернуть облачную службу с помощью функции &quot;Быстрое создание&quot; в Azure."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="06/30/2015"
 	ms.author="adegeo"/>
 
@@ -66,9 +66,9 @@
 
 ## Практическое руководство. Создание облачной службы с помощью функции "Быстрое создание"
 
-1. Войдите на [портал управления](http://manage.windowsazure.com/) и последовательно выберите **Создать**> **Вычисление**>**Облачная служба**>**Быстрое создание**.
+1. Войдите на [Портал управления](http://manage.windowsazure.com/), последовательно выберите **Создать**>**Среда выполнения приложений**>**Облачная служба**>**Быстрое создание**.
 
-	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
+	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
 
 2. В поле **URL-адрес** введите имя поддомена для общедоступного URL-адреса, который будет использоваться для доступа к облачной службе в рабочем развертывании. URL-адрес для развертываний в рабочей среде имеет следующий формат: http://*myURL*.cloudapp.net.
 
@@ -76,20 +76,20 @@
 
 4. Выберите **Создать облачную службу**.
 
-	![CloudServices_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
+	![CloudServices\_Region](./media/cloud-services-how-to-create-deploy/CloudServices_Regionlist.png)
 
 	Состояние процесса можно контролировать с помощью области сообщений в нижней части окна.
 
 	Созданная служба откроется в области **Облачные службы**. Об успешном создании службы свидетельствует состояние "Создано".
 
-	![CloudServices_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
+	![CloudServices\_CloudServicesPage](./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png)
 
 
 ## Практическое руководство. Отправка сертификата для облачной службы
 
 1. На [Портале управления](http://manage.windowsazure.com/) щелкните **Облачные службы**, затем щелкните имя облачной службы, а после этого **Сертификаты**.
 
-	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
+	![CloudServices\_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png)
 
 
 2. Щелкните **Добавить новый сертификат** или **Отправить**.
@@ -100,11 +100,11 @@
 
 5. Нажмите кнопку **OK** (флажок).
 
-	![CloudServices_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
+	![CloudServices\_AddaCertificate](./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png)
 
 	Ход процесса отправки можно контролировать в показанной ниже области сообщений. По завершении этого процесса сертификат добавляется в таблицу. В области сообщений нажмите OK, чтобы закрыть окно сообщения.
 
-	![CloudServices_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
+	![CloudServices\_CertificateProgress](./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png)
 
 ## Практическое руководство. Развертывание облачной службы
 
@@ -127,11 +127,11 @@
 
 6. Нажмите кнопку **OK** (флажок), чтобы начать развертывание облачной службы.
 
-	![CloudServices_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
+	![CloudServices\_UploadaPackage](./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png)
 
 	Состояние развертывания можно контролировать с помощью области сообщений. Нажмите кнопку ОК, чтобы закрыть окно сообщения.
 
-	![CloudServices_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
+	![CloudServices\_UploadProgress](./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png)
 
 ## Проверка успешного завершения развертывания
 
@@ -141,10 +141,10 @@
 
 2. В разделе **Сводка** щелкните URL-адрес сайта, чтобы открыть облачную службу в веб-браузере.
 
-    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
+    ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

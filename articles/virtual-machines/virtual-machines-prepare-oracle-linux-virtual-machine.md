@@ -1,19 +1,5 @@
-<properties 
-	pageTitle="Подготовка виртуальной машины Oracle Linux для Azure" 
-	description="Выполните пошаговую настройку виртуальной машины Oracle под управлением Linux в Microsoft Azure." 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
-
+<properties title="Prepare an Oracle Linux Virtual Machine for Azure" pageTitle="Подготовка виртуальной машины Oracle Linux для Azure" description="Выполните пошаговую настройку виртуальной машины Oracle под управлением Linux в Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Подготовка виртуальной машины Oracle Linux для Azure
 -   [Подготовка виртуальной машины Oracle Linux версии 6.4 или более поздней для Azure](virtual-machines-linux-create-upload-vhd-oracle.md)
 
@@ -176,9 +162,9 @@
 		# sudo yum clean all
 		# sudo yum -y update
 
-9.  Измените строку загрузки ядра в конфигурации grub, чтобы включить дополнительные параметры ядра для Azure. Для этого откройте файл /etc/default/grub в текстовом редакторе и измените параметр GRUB_CMDLINE_LINUX, например:
+9.  Измените строку загрузки ядра в конфигурации grub, чтобы включить дополнительные параметры ядра для Azure. Для этого откройте файл /etc/default/grub в текстовом редакторе и измените параметр GRUB\_CMDLINE\_LINUX, например:
 
-		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
+		GRUB\_CMDLINE\_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
 	Это также гарантирует отправку всех сообщений консоли на первый последовательный порт, что может помочь технической поддержке Azure в плане отладки. Помимо вышесказанного, рекомендуется *удалить* следующие параметры:
 
@@ -216,4 +202,4 @@
 
 15.  В диспетчере Hyper-V выберите **Действие -> Завершение работы**. Виртуальный жесткий диск Linux готов к передаче в Azure.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -80,4 +80,4 @@
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

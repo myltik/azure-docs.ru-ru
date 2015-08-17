@@ -172,4 +172,4 @@ HDInsight предоставляет несколько скриптов для 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Этапы подготовки кластера"
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -122,4 +122,4 @@ Active Directory Premium Edition — это платный выпуск Azure A
 - [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->
