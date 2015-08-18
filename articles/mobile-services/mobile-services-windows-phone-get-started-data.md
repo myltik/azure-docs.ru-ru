@@ -40,7 +40,7 @@
 
 1. Скачайте пример проекта приложения GetStartedWithData с веб-сайта [примеров кода для разработчиков]. 
 
-	>[AZURE.NOTE]Чтобы создать приложение для Windows Phone Silverlght 8.1, в скачанном проекте приложения для Windows Phone Silverlight 8 измените целевую ОС на Windows Phone 8.1. Чтобы создать приложение для Магазина Windows Phone, при скачивании примера проекта приложения GetStartedWithData выберите версию [приложения для Магазина Windows Phone](http://go.microsoft.com/fwlink/p/?LinkId=397372).
+	>[AZURE.NOTE] Чтобы создать приложение для Windows Phone Silverlght 8.1, в скачанном проекте приложения для Windows Phone Silverlight 8 измените целевую ОС на Windows Phone 8.1. Чтобы создать приложение для Магазина Windows Phone, при скачивании примера проекта приложения GetStartedWithData выберите версию [приложения для Магазина Windows Phone](http://go.microsoft.com/fwlink/p/?LinkId=397372).
 
 2. В Visual Studio откройте скачанный проект и просмотрите файл MainPage.xaml.cs.
 
@@ -193,4 +193,4 @@
 [примеров кода для разработчиков]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

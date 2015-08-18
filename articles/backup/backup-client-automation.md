@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="aashishr"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/17/2015"
+	ms.author="aashishr"; "jimpark"/>
 
 
 # Развертывание резервного копирования в Azure для Windows Server или клиента Windows и управление им с помощью Azure PowerShell
@@ -57,7 +64,7 @@ PS C:\> MARSAgentInstaller.exe /?
 | /d | Удаляет агент служб восстановления Microsoft Azure | - |
 | /ph | Адрес узла прокси-сервера | - |
 | /po | Номер порта узла прокси-сервера | - |
-| / pu | Имя пользователя узла прокси-сервера | - |
+| /pu | Имя пользователя узла прокси-сервера | - |
 | /pw | Пароль прокси-сервера | - |
 
 
@@ -67,6 +74,7 @@ PS C:\> MARSAgentInstaller.exe /?
 - Действующая подписка на Azure
 - Создание хранилища архивации
 - Скачайте учетные данные хранилища и сохраните их в удобном расположении (например, в папке *C:\Downloads*). Для удобства вы можете изменить учетные данные хранилища.
+
 Регистрация компьютера в хранилище выполняется с помощью командлета [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx):
 
 ```
@@ -80,7 +88,7 @@ Region              : Australia East
 Machine registration succeeded.
 ```
 
-> [AZURE.IMPORTANT]Не используйте относительные пути для указания файла с учетными данными хранилища. Укажите абсолютный путь в качестве входных данных командлета.
+> [AZURE.IMPORTANT] Не используйте относительные пути для указания файла с учетными данными хранилища. Укажите абсолютный путь в качестве входных данных командлета.
 
 ### Сеть
 Если подключение компьютера под управлением Windows к Интернету осуществляется через прокси-сервер, параметры этого прокси-сервера могут сообщаться агенту. В нашем случае прокси-сервер не используется, поэтому мы явным образом удаляем все данные прокси-сервера.
@@ -105,7 +113,7 @@ PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force 
 Server properties updated successfully
 ```
 
-> [AZURE.IMPORTANT]После создания парольной фразы надежно сохраните ее и никому не сообщайте о ней. Восстановить данные из Azure без парольной фразы невозможно.
+> [AZURE.IMPORTANT] После создания парольной фразы надежно сохраните ее и никому не сообщайте о ней. Восстановить данные из Azure без парольной фразы невозможно.
 
 ## Резервное копирование файлов и папок
 Для управления всеми резервными копиями с серверов и рабочих станций Windows, которые имеются в службе резервного копирования Azure, применяется соответствующая политика. Политика состоит из трех частей:
@@ -147,7 +155,7 @@ BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName :
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
 
-> [AZURE.NOTE]В настоящее время командлеты PowerShell не поддерживают задание политик долгосрочного хранения. Для задания таких политик следует использовать консоль службы архивации Azure.
+> [AZURE.NOTE] В настоящее время командлеты PowerShell не поддерживают задание политик долгосрочного хранения. Для задания таких политик следует использовать консоль службы архивации Azure.
 
 Политику хранения следует связать с основной политикой с помощью командлета [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405):
 
@@ -444,4 +452,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Дальнейшие действия
 Дополнительные сведения о службе архивации Azure для Windows Server и Client см. в разделе [Общие сведения о службе архивации Azure](backup-introduction-to-azure-backup.md)
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

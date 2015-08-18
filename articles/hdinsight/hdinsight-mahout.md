@@ -291,7 +291,7 @@ Mahout — это библиотека [машинного обучения][ml]
 
 	![командная строка hadoop][hadoopcli]
 
-3. C помощью следующей команды сформируйте дескриптор файла (KDDTrain+.info) с использованием Mahout.
+3. C помощью следующей команды сформируйте дескриптор файла (__KDDTrain+.info__) с использованием Mahout.
 
 		hadoop jar "c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar" org.apache.mahout.classifier.df.tools.Describe -p "wasb:///example/data/KDDTrain+.arff" -f "wasb:///example/data/KDDTrain+.info" -d N 3 C 2 N C 4 N C 8 N 2 C 19 N L
 
@@ -421,4 +421,4 @@ Mahout устанавливается на кластерах HDInsight верс
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
