@@ -10,7 +10,7 @@
 
 3. В разделе **Новая учетная запись DocumentDB** укажите желаемую конфигурацию учетной записи DocumentDB.
  
-	![Снимок экрана: выноска "Создать DocumentDB"][3] 
+	![Снимок экрана: выноска "Создать DocumentDB"][88] 
 
 
 	- В поле **Идентификатор** введите имя для идентификации учетной записи DocumentDB. После проверки **идентификатора** в поле **идентификатор** отображается зеленая галочка. Значение **идентификатора** становится именем узла в URI. В **идентификаторе** могут использоваться только строчные буквы, цифры и символ "-". Его длина должна быть от 3 до 50 символов. Обратите внимание, что к выбранному вами имени конечной точки добавляется *documents.azure.com*, результатом чего станет конечная точка вашей учетной записи DocumentDB.
@@ -39,7 +39,7 @@
 <!--Image references-->
 [1]: media/documentdb-create-dbaccount/ca1.png
 [2]: media/documentdb-create-dbaccount/ca2.png
-[3]: media/documentdb-create-dbaccount/ca3.png
+[88]: media/documentdb-create-dbaccount/ca3.png
 [80]: media/documentdb-create-dbaccount/ca4.png
 [5]: media/documentdb-create-dbaccount/ca5.png
 [6]: media/documentdb-create-dbaccount/ca6.png
@@ -49,4 +49,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=August15_HO6-->
+<!--------HONumber=August15_HO6-->
