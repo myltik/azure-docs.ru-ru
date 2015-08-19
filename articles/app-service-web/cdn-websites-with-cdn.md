@@ -134,9 +134,9 @@
 С помощью интеграции Azure CDN с веб-приложением Azure вы можете указать, как статическое содержимое должно кэшироваться в конечной точке CDN. Для этого откройте файл *Web.config* из проекта ASP.NET (например, **cdnwebapp**) и добавьте элемент `<staticContent>` в `<system.webServer>`. XML, приведенный ниже, настраивает истечение срока кэша через 3 дня. 
 <pre class="prettyprint">
 &lt;system.webServer&gt;
-  <mark>&lt;staticContent&gt;
+  &lt;staticContent&gt;
     &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt;
-  &lt;/staticContent&gt;</mark>
+  &lt;/staticContent&gt;
   ...
 &lt;/system.webServer&gt;
 </pre>
@@ -400,6 +400,7 @@ public ActionResult Show(string id)
 	                &quot;~/Content/site.css&quot;));
 	}
 	</pre>
+
 	Не забудьте заменить `<yourCDNName>` своим именем Azure CDN.
 
 	Простыми словами, устанавливается `bundles.UseCdn = true` и добавляется тщательно созданный URL-адрес CDN в каждый пакет. Например, первый конструктор в коде
@@ -563,6 +564,7 @@ public ActionResult Show(string id)
 	
 	...
 	</pre>
+
 	Обратите внимание, что внедренный скрипт для пакета CSS по-прежнему содержит ошибочный фрагмент из свойства `CdnFallbackExpression` в следующей строке:
 
         }())||document.write('<script src="/Content/css"><\/script>');</script>
@@ -587,4 +589,4 @@ public ActionResult Show(string id)
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
