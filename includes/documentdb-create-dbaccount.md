@@ -24,7 +24,7 @@
 	- В поле **Расположение** укажите географическое расположение, где будет размещена учетная запись DocumentDB.
 
 4.	После настройки параметров DocumentDB нажмите кнопку **Создать**. Создание учетной записи DocumentDB может занять несколько минут. Для проверки состояния можно отслеживать прогресс на начальной панели.  
-	![Снимок экрана: плитка "Создание" для уровня Startboard – создатель базы данных в Интернете][4]
+	![Снимок экрана: плитка "Создание" для уровня Startboard – создатель базы данных в Интернете][80]  
   
 	Или вы можете наблюдать за ходом выполнения на портале "Уведомления".  
 
@@ -40,7 +40,7 @@
 [1]: media/documentdb-create-dbaccount/ca1.png
 [2]: media/documentdb-create-dbaccount/ca2.png
 [3]: media/documentdb-create-dbaccount/ca3.png
-[4]: media/documentdb-create-dbaccount/ca4.png
+[80]: media/documentdb-create-dbaccount/ca4.png
 [5]: media/documentdb-create-dbaccount/ca5.png
 [6]: media/documentdb-create-dbaccount/ca6.png
 [7]: media/documentdb-create-dbaccount/ca7.png
