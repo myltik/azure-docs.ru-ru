@@ -26,7 +26,8 @@
 В данном учебнике требуются установленные Visual Studio 2013 и пакет SDK Azure. Чтобы загрузить Visual Studio 2013, щелкните ссылку **Начните работу бесплатно** на сайте [www.visualstudio.com](http://www.visualstudio.com). Пакет SDK Azure можно установить по [этой ссылке](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 
-> [AZURE.NOTE]Для работы с этим учебником необходима учетная запись Visual Studio Online. Вы можете [бесплатно зарегистрировать учетную запись Visual Studio Online](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE]Для работы с этим учебником необходима учетная запись Visual Studio Online.
+> Вы можете [бесплатно зарегистрировать учетную запись Visual Studio Online](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Чтобы настроить облачную службу для автоматического построения и развертывания в Azure с использованием Visual Studio Online, выполните следующие действия:
 
@@ -257,4 +258,4 @@
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
  
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

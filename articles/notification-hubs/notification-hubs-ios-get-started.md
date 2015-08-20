@@ -505,11 +505,11 @@
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Использование концентраторов уведомлений для отправки push-уведомлений пользователям]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Приступая к работе с push-уведомлениями в мобильных службах]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Использование центров уведомлений для отправки push-уведомлений пользователям]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-ios-send-breaking-news.md
 
 [Руководстве по программированию локальных и push-уведомлений]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

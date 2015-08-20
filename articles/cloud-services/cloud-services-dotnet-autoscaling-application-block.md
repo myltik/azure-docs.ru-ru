@@ -28,7 +28,15 @@
 
 ## Оглавление
 
-[Что такое блок приложения автомасштабирования?][] [Основные понятия][] [Сбор данных счетчиков производительности из целевого приложения Azure][] [Настройка ведущего приложения для блока приложения автомасштабирования][] [Практическое руководство. Создание экземпляра и запуск средства автомасштабирования][] [Практическое руководство. Определение модели службы][] [Практическое руководство. Определение правил автоматического масштабирования][] [Практическое руководство. Настройка блока приложения автомасштабирования][] [Дальнейшие действия][]
+[Что такое блок приложения автомасштабирования?][]   
+[Основные понятия][]   
+[Сбор данных счетчиков производительности из целевого приложения Azure][]   
+[Настройка ведущего приложения для блока приложения автомасштабирования][]   
+[Практическое руководство. Создание экземпляра и запуск средства автомасштабирования][]   
+[Практическое руководство. Определение модели службы][]   
+[Практическое руководство. Определение правил автоматического масштабирования][]   
+[Практическое руководство. Настройка блока приложения автомасштабирования][]   
+[Дальнейшие действия][]   
 
 ## <a id="WhatIs"> </a>Что такое блок приложения автомасштабирования?
 
@@ -126,14 +134,31 @@
 
 	В следующем примере кода показан пример модели службы в файле **services.xml**:
 
-    <?xml version="1.0" encoding="utf-8" ?> <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel"> <subscriptions> <subscription name="[subscriptionname]"
+    <?xml version="1.0" encoding="utf-8" ?>
+    <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel">
+      <subscriptions>
+        <subscription name="[subscriptionname]"
                       certificateThumbprint="[managementcertificatethumbprint]"
                       subscriptionId="[subscriptionid]"
                       certificateStoreLocation="CurrentUser"
-                      certificateStoreName="My"> <services> <service dnsPrefix="[hostedservicednsprefix]" slot="Staging"> <roles> <role alias="AutoscalingApplicationRole"
+                      certificateStoreName="My">
+          <services>
+            <service dnsPrefix="[hostedservicednsprefix]" slot="Staging">
+              <roles>
+                <role alias="AutoscalingApplicationRole"
                       roleName="[targetrolename]"
-                      wadStorageAccountName="targetstorage"/> </roles> </service> </services> <storageAccounts> <storageAccount alias="targetstorage"
-              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]"> </storageAccount> </storageAccounts> </subscription> </subscriptions> </serviceModel>
+                      wadStorageAccountName="targetstorage"/>
+              </roles>
+            </service>
+          </services>
+          <storageAccounts>
+            <storageAccount alias="targetstorage"
+              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]">
+            </storageAccount>
+          </storageAccounts>
+        </subscription>
+      </subscriptions>
+    </serviceModel>
 
 Значения в квадратных скобках необходимо заменить на значения, относящиеся к вашей среде и целевому приложению. Чтобы найти многие из этих значений, придется войти на [портал управления Azure][].
 
@@ -262,23 +287,27 @@
 
 1.  Щелкните правой кнопкой мыши файл **App.config** в обозревателе решений и выберите команду **Изменить файл конфигурации**.
 
-2.  В меню **Блоки** щелкните **Добавить параметры автомасштабирования**: ![изображение](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
+2.  В меню **Блоки** щелкните **Добавить параметры автомасштабирования**:  
+	![изображение](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
   
 3.  Разверните узел **Параметры автомасштабирования** и щелкните многоточие (...) рядом с **учетной записью хранения точек данных**, добавьте **имя учетной записи** и **ключ учетной записи** для учетной записи хранения Azure, в которой блок будет хранить собранные точки данных (см. [Практическое руководство. Определение модели службы][], если вы не уверены, где можно найти эти значения), а затем нажмите кнопку **ОК**.
 
 	![изображение](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling11.png)
 
-4.  Разверните раздел **Параметры автомасштабирования**, чтобы открыть разделы **Хранилище правил** и **Хранилище сведений о службе**. По умолчанию они настроены для использования хранилища больших двоичных объектов Azure: ![изображение](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png)
+4.  Разверните раздел **Параметры автомасштабирования**, чтобы открыть разделы **Хранилище правил** и **Хранилище сведений о службе**. По умолчанию они настроены для использования хранилища больших двоичных объектов Azure:  
+	![изображение](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png)
 
 
 5.  Щелкните знак «плюс» (+) рядом с пунктом **Хранилище правил**, выберите пункт **Задать хранилище правил**, затем щелкните **Использовать локальное хранилище правил файлов** и нажмите кнопку **Да**.
 
-6.  В поле **имя файла** введите **rules.xml**. Это имя файла, который содержит правила автоматического масштабирования: ![изображение](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png)
+6.  В поле **имя файла** введите **rules.xml**. Это имя файла, который содержит правила автоматического масштабирования:  
+	![изображение](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png)
 
 
 7.  Щелкните знак «плюс» (+) рядом с пунктом **Хранилище сведений о службе**, выберите пункт **Задать хранилище сведений о службе**, затем щелкните **Использовать локальное хранилище файлов сведений о службе** и нажмите кнопку **Да**.
 
-8.  В поле **имя файла** введите **services.xml**. Это имя файла, который содержит правила автоматического масштабирования: ![изображение](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png)
+8.  В поле **имя файла** введите **services.xml**. Это имя файла, который содержит правила автоматического масштабирования:  
+	![изображение](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png)
 
 
 9.  В окне «Конфигурация библиотеки предприятия» в меню **Файл** нажмите **Сохранить**, чтобы сохранить изменения конфигурации. Затем в окне конфигурации библиотеки предприятия в меню **Файл** нажмите **Выход**.
@@ -381,4 +410,4 @@
   [Снижение затрат на размещение TechNet и MSDN и воздействия на окружающую среду с помощью автомасштабирования в среде Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=August15_HO6-->
+<!------HONumber=August15_HO6-->

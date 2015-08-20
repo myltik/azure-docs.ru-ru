@@ -70,18 +70,20 @@
 	![Обновления кода HomeController.cs](./media/app-service-web-connect-web-app-to-saas-api/5-Write-Code-Which-Leverages-Swagger-Generated-Code.png)
 
 1. Обновите представление `Contact` для отражения динамического списка контактов с помощью следующего кода:
-	<pre>// Добавьте в самое начало файла представления
-@model IList&lt;MyContactsList.Web.Models.Contact>
+	<pre>// Add to the very top of the view file
+	@model IList&lt;MyContactsList.Web.Models.Contact&gt;
+	
+	// Replace the default email addresses with the following
+    &lt;h3&gt;Public Contacts&lt;/h3&gt;
+    &lt;ul&gt;
+        @foreach (var contact in Model)
+        {
+            &lt;li&gt;&lt;a href=&quot;mailto:@contact.EmailAddress&quot;&gt;@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a&gt;&lt;/li&gt;
+        }
+    &lt;/ul&gt; 
+	</pre>
 
-// Замените электронные адреса по умолчанию на следующие
-&lt;h3>Общие контакты &lt;/h3>
-&lt;ul>
-    @foreach (var contact in Model)
-    {
-        &lt;li>&lt;a href="mailto:@contact.EmailAddress">@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a>&lt;/li>
-    }
-&lt;/ul> 
-</pre>![Обновления кода Contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
+	![Contact.cshtml Code Updates](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
 
 ## Развертывание веб-приложения в веб-приложениях в службе приложений
 
@@ -94,4 +96,4 @@
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

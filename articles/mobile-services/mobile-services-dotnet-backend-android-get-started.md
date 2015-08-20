@@ -26,7 +26,7 @@
 
 Снимок экрана завершенного приложения приведен ниже:
 
-![][0]
+![][88]
 
 Для прохождения этого учебника требуются [Средства разработчика Android][Android Studio], которые включают в себя интегрированную среду разработки Android Studio и новейшую платформу Android. Требуется Android 4.2 или более поздняя версия.
 
@@ -100,7 +100,7 @@
 [Next Steps]: #next-steps
 
 <!-- Images. -->
-[0]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png
+[88]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png
 [1]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-vs-AS.png
 [2]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-android-AS.png
 
@@ -129,4 +129,4 @@
 [портале управления]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
