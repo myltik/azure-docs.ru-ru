@@ -56,8 +56,6 @@
 
 ![Создание](./media/web-sites-dotnet-get-started/Create_App.png)
 
-![Развертывание](./media/web-sites-dotnet-get-started/Deploy_App.png)
-
 1. Откройте Visual Studio 2015 или Visual Studio 2013. 
 
 	Интерфейс Visual Studio 2013 может несколько отличаться от приведенных здесь снимков экрана, но порядок действий в целом тот же.
@@ -303,4 +301,4 @@
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->
