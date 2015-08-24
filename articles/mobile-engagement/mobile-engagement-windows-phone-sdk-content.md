@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/07/2015"
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 	
 #Содержимое пакета SDK для Windows Phone Silverlight
@@ -37,4 +37,4 @@
 - `EngagementConfiguration.xml`: файл конфигурации Mobile Engagement, в котором вы можете настроить параметры Engagement (строку подключения Engagement, сообщение о сбое и т. д.).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование очередей служебной шины (.NET) в Azure" 
+	pageTitle="Использование очередей служебной шины (Python) | Microsoft Azure" 
 	description="Узнайте, как использовать очереди служебной шины в Python." 
 	services="service-bus" 
 	documentationCenter="python" 
@@ -99,4 +99,4 @@
 [Очереди, разделы и подписки]: http://msdn.microsoft.com/library/azure/hh367516.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

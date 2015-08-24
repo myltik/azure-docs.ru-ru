@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Добавление мобильных служб в существующее приложение (Магазин Windows — JavaScript) | Центр разработчиков для мобильных устройств" 
+	pageTitle="Добавление мобильных служб в существующее приложение (Магазин Windows — JavaScript) | Microsoft Azure" 
 	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении JavaScript магазина Windows." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -141,4 +141,4 @@
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

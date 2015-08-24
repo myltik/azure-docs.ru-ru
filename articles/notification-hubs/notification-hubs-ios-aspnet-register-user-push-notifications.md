@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Регистрация текущего пользователя для push-уведомлений с помощью веб-интерфейса API — центры уведомлений" 
+	pageTitle="Регистрация текущего пользователя для push-уведомлений с помощью веб-API | Microsoft Azure" 
 	description="Узнайте, как запросить регистрацию push-уведомления в приложении iOS с помощью центров уведомлений Azure, когда регистрации выполняется через веб-API ASP.NET." 
 	services="notification-hubs" 
 	documentationCenter="ios" 
@@ -238,4 +238,4 @@
 [Приступая к работе с концентраторами уведомлений]: /manage/services/notification-hubs/get-started-notification-hubs-ios
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Приступая к работе с хранилищем больших двоичных объектов Azure и подключенными службами Visual Studio" 
-	description="Начало работы с использованием хранилища BLOB-объектов Azure в проекте облачной службы в Visual Studio" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+	pageTitle="Приступая к работе с хранилищем больших двоичных объектов Azure и подключенными службами Visual Studio"
+	description="Начало работы с использованием хранилища BLOB-объектов Azure в проекте облачной службы в Visual Studio"
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="patshea123"/>
 
 # Приступая к работе с хранилищем больших двоичных объектов Azure и подключенными службами Visual Studio
@@ -262,10 +262,10 @@
             continuationToken = resultSegment.ContinuationToken;
         }
         while (continuationToken != null);
-    }ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    }
 
 ## Дальнейшие действия
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Создание гибридных подключений и управление ими | Azure" 
+	pageTitle="Создание гибридных подключений и управление ими | Microsoft Azure" 
 	description="Узнайте, как создать гибридное подключение, управлять подключением и установить диспетчер гибридных подключений. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -146,4 +146,4 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

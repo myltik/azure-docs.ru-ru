@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Введение в Поиск Azure | Azure" 
+	pageTitle="Введение в поиск Azure | Microsoft Azure" 
 	description="Узнайте, как Поиск Azure может помочь вам создавать приложения с широкими возможностями поиска." 
 	editor="monicar" 
 	manager="mblythe" 
@@ -42,4 +42,4 @@
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">«Введение в Поиск Azure» (в формате PDF)</a>
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">"Введение в Поиск Azure" (в формате Microsoft Word)</a> 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование CDN — руководство по компонентам Azure" 
+	pageTitle="Использование CDN | Microsoft Azure" 
 	description="Узнайте, как использовать сеть доставки содержимого (CDN) Azure для доставки больших объемов контента посредством кэширования BLOB-объектов и статического контента." 
 	services="cdn" 
 	documentationCenter=".net" 
@@ -51,7 +51,7 @@
 
 ## См. также
 
-[Общие сведения о сети доставки контента (CDN) Azure](cdn-overview.md)
+[Общие сведения о сети доставки содержимого (CDN) Azure](cdn-overview.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

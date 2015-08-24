@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование Apache Spark для создания приложений машинного обучения в HDInsight | Azure" 
+	pageTitle="Использование Apache Spark для создания приложений машинного обучения в HDInsight | Microsoft Azure" 
 	description="Пошаговые инструкции по использованию записных книжек Apache Spark для создания приложений машинного обучения" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -240,4 +240,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

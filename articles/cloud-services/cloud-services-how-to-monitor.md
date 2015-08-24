@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Мониторинг облачной службы — Azure" 
+	pageTitle="Мониторинг облачной службы | Microsoft Azure" 
 	description="Узнайте, как осуществлять мониторинг облачных служб с помощью портала управления Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -192,4 +192,4 @@
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

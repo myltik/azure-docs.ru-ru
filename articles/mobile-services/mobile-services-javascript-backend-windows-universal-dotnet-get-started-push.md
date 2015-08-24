@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Добавление push-уведомлений в универсальное приложение для Windows 8.1 | Мобильные службы Azure" 
+	pageTitle="Добавление push-уведомлений в универсальное приложение для Windows 8.1 | Microsoft Azure" 
 	description="Узнайте, как отправлять push-уведомления в универсальное приложение для Windows 8.1 из мобильной службы с серверной частью JavaScript с помощью центров уведомлений Azure." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -101,4 +101,4 @@
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

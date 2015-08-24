@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Подключение мобильного приложения к корпоративному приложению SaaS | Центр разработки мобильных приложений"
+	pageTitle="Подключение мобильного приложения к корпоративному решению SaaS | Microsoft Azure"
 	description="Выполнение вызовов в корпоративные ресурсы, такие как SharePoint Online"
 	documentationCenter=""
 	authors="mattchenderson"
@@ -187,4 +187,4 @@
 [Расширение службы приложений серверной части .NET мобильных приложений]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,62 +1,48 @@
-<properties 
-   pageTitle="Storsimple SAS cabling for 8600 | Microsoft Azure"
-   description="Explains how to turn on attach the SAS cables to the StorSimple 8600 device."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/06/2015"
-   ms.author="alkohli" />
 
-#### To attach the SAS cables
+#### Чтобы присоединить кабели SAS:
 
-1. Identify the primary and the EBOD enclosures. The two enclosures can be identified by looking at their respective back planes. See the following image for guidance. 
+1. Определите, какой корпус основной, а какой EBOD. Корпуса можно идентифицировать, изучив их задние панели. Руководствуйтесь следующим рисунком. 
 
-    ![Back plane of primary and EBOD enclosures](./media/storsimple-sas-cable-8600/HCSBackplaneofprimaryandEBODenclosure.png)
+    ![Задняя панель основного корпуса и корпуса EBOD](./media/storsimple-sas-cable-8600/HCSBackplaneofprimaryandEBODenclosure.png)
 
-    **Back view of primary and EBOD enclosures**
+    **Задние панели основного корпуса и корпуса EBOD**
 
-    |Label|Description|
+    |Метка|Описание|
     |:----|:----------|
-    |1|Primary enclosure|
-    |2|EBOD enclosure|
+    |1|Основной корпус|
+    |2|Корпус EBOD|
 
-2. Locate the serial numbers on the primary and the EBOD enclosures. The serial number sticker is affixed to the back ear of each enclosure. The serial numbers must be identical on both enclosures. [Contact Microsoft Support](storsimple-contact-microsoft-support.md) immediately if the serial numbers do not match. See the following illustration to locate the serial numbers.
+2. Найдите серийные номера на основном корпусе и корпусе EBOD. Наклейка с серийным номером расположена на задней консоли каждого корпуса. Серийные номера должны быть одинаковыми на обоих корпусах. Немедленно [обратитесь в службу технической поддержки Майкрософт](storsimple-contact-microsoft-support.md), если серийные номера не совпадают. Расположение наклейки с серийным номером показано на следующем рисунке.
 
-    ![Rear view of enclosure showing serial number](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
+    ![Вид корпуса сзади (показан серийный номер)](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
 
-    **Location of serial number sticker**
+    **Расположение наклейки с серийным номером**
 
-    |Label|Description|
+    |Метка|Описание|
     |:----|:----------|
-    |1|Ear of the enclosure|
+    |1|Консоль корпуса|
 
-3. Use the provided SAS cables to connect the EBOD enclosure to the primary enclosure as follows:
+3. Используйте кабели SAS, поставляемые с устройством, для подключения корпуса EBOD к основному корпусу:
 
-    1. Identify the four SAS ports on the primary enclosure and the EBOD enclosure. The SAS ports are labeled as EBOD on the primary enclosure and CTRL on the EBOD enclosure, as shown in the SAS cabling illustration, below.
+    1. Найдите четыре порта SAS на основном корпусе и корпусе EBOD. Порты SAS помечены как EBOD на основном корпусе и CTRL на корпусе EBOD, как показано на рисунке подключения кабелей SAS ниже.
 
-    2. Use the provided SAS cables to connect the EBOD ports to the CTRL ports.
+    2. Используйте предоставленные кабели SAS для соединения портов EBOD с портами CTRL.
 
-    3. The EBOD port on controller 0 should be connected to the CTRL port on EBOD controller 0. The EBOD port on controller 1 should be connected to the CTRL port on EBOD controller 1. See the following illustration for guidance. 
+    3. Порт EBOD на контроллере 0 должен быть подключен к порту CTRL EBOD контроллера 0. Порт EBOD на контроллере 1 должен быть подключен к порту CTRL EBOD контроллера 1. Руководствуйтесь следующим рисунком.
 																	
-     ![SAS cabling for your device](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
+     ![Подключение кабелей SAS к устройству](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
 
-     **SAS cabling**
+     **Кабели SAS**
 
-    |Label|Description|
+    |Метка|Описание|
     |:----|:----------|
-    |A|Primary enclosure|
-    |B|EBOD enclosure|
-    |1|Controller 0|
-    |2|Controller 1|
-    |3|EBOD Controller 0|
-    |4|EBOD Controller 1|
-    |5, 6|SAS ports on primary enclosure (labeled EBOD)|
-    |7, 8|SAS ports on EBOD enclosure (labeled CTRL)|
+    |A|Основной корпус|
+    |B|Корпус EBOD|
+    |1|Контроллер 0|
+    |2|Контроллер 1|
+    |3|Контроллер EBOD 0|
+    |4|Контроллер EBOD 1|
+    |5, 6|Порты SAS на основном корпусе (с меткой EBOD)|
+    |7, 8|Порты SAS на корпусе EBOD (с меткой CTRL)|
+
+<!---HONumber=August15_HO7-->

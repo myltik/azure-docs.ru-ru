@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2014"
+	ms.date="08/11/2015"
 	ms.author="larryfr"/>
 
 #Использование Maven для сборки приложений Java, которые используют HBase с HDInsight (Hadoop)
@@ -591,4 +591,4 @@
 
 Используйте параметр `-showErr` для просмотра стандартной ошибки (STDERR), выдаваемой при выполнении задания.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

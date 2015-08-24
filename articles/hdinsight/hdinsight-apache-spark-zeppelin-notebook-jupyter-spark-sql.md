@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Подготовка кластера Spark в HDInsight и использование запросов Spark SQL из Zeppelin и Jupyter для интерактивного анализа | Azure" 
+	pageTitle="Подготовка кластера Spark в HDInsight и использование запросов Spark SQL из Zeppelin и Jupyter для интерактивного анализа | Microsoft Azure" 
 	description="Пошаговые инструкции по быстрой подготовке кластера Apache Spark в HDInsight и последующему использованию запросов Spark SQL из записных книжек Zeppelin и Jupyter для выполнения интерактивных запросов." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -243,4 +243,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

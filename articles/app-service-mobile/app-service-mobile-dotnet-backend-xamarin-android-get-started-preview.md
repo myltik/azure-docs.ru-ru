@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Начало работы с мобильными приложениями Azure для Xamarin Android — мобильные приложения Azure"
+	pageTitle="Начало работы с мобильными приложениями Azure для разработки приложений Xamarin для Android | Microsoft Azure"
 	description="Этот учебник поможет приступить к использованию мобильных приложений Azure для разработки приложений Xamarin Android"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
@@ -110,4 +110,4 @@
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

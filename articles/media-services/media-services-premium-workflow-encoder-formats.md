@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #Форматы и кодеки рабочего процесса Premium Media Encoder
@@ -127,4 +127,4 @@
 
 Если входящее видео не содержит скрытых субтитров, выходящий ресурс по-прежнему будет содержать пустой файл TTML.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

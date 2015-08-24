@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование блока приложений автоматического масштабирования (.NET) — Azure" 
+	pageTitle="Использование блока приложения автомасштабирования (.NET) | Microsoft Azure" 
 	description="Узнайте, как использовать блок приложений автоматического масштабирования для Azure. Примеры написаны на языке C# и используют интерфейс API .NET." 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -410,4 +410,4 @@
   [Снижение затрат на размещение TechNet и MSDN и воздействия на окружающую среду с помощью автомасштабирования в среде Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

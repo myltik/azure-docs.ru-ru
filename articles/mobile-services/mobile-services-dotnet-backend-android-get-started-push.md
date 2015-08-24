@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Приступая к работе с push-уведомлениями (Android) | Центр разработчиков мобильных устройств" 
+	pageTitle="Приступая к работе с push-уведомлениями (Android) | Центр разработчиков мобильных устройств | Microsoft Azure" 
 	description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение .NET для Android." 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
@@ -123,4 +123,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Дополнительные сведения о возможностях выпусков служб BizTalk | Azure"
+	pageTitle="Дополнительные сведения о возможностях выпусков служб BizTalk | Microsoft Azure"
 	description="Сравните возможности выпусков служб BizTalk: Free, Developer, Basic, Standard и Premium. MABS, WABS"
 	services="biztalk-services"
 	documentationCenter=""
@@ -257,4 +257,4 @@ BizTalk Server на виртуальных машинах Azure предоста
 - [Как приступить к работе с пакетом SDK для служб BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

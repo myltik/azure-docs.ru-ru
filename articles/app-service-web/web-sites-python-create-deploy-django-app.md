@@ -36,7 +36,7 @@
 - Python 2.7 или 3.4
 - setuptools, pip, virtualenv (только для Python 2.7)
 - Git
-- [Средства Python 2.1 для Visual Studio](optional)
+- [Средства Python 2.1 для Visual Studio] (необязательно).
 
 **Примечание**. Публикация TFS в настоящее время для проектов Python не поддерживается.
 
@@ -508,11 +508,11 @@ Azure предоставляет службы баз данных, которы�
 [Git для Windows]: http://msysgit.github.io/
 [GitHub для Windows]: https://windows.github.com/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[средства Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Средства Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Visual Studio]: http://www.visualstudio.com/
 [документации PTVS]: http://pytools.codeplex.com/documentation
 [Документация по средствам Python для Visual Studio]: http://pytools.codeplex.com/documentation
 [Документация по Django]: https://www.djangoproject.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

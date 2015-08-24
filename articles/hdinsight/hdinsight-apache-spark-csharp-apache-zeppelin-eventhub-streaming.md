@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование концентраторов событий Azure с Apache Spark в HDInsight для обработки потоковых данных | Azure" 
+	pageTitle="Использование концентраторов событий Azure с Apache Spark в HDInsight для обработки потоковых данных | Microsoft Azure" 
 	description="Пошаговые инструкции по отправке потока данных в концентратор событий Azure и последующее получение этих событий в Spark с помощью записной книжки Zeppelin" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -164,4 +164,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

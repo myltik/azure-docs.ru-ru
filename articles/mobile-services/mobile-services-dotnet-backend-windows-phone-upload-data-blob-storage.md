@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование мобильных служб для отправки изображений в хранилище больших двоичных объектов (Windows Phone) | Мобильные службы" 
+	pageTitle="Использование мобильных служб для отправки изображений в хранилище BLOB-объектов (Windows Phone) | Microsoft Azure" 
 	description="Узнайте, как использовать мобильные службы для отправки образов в хранилище BLOB-объектов Azure." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -81,4 +81,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

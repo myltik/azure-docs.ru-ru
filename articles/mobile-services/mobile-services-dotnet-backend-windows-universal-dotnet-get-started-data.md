@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Добавление мобильных служб в существующее приложение Магазина Windows | Мобильные службы Azure" 
+	pageTitle="Добавление мобильных служб в существующее приложение для Магазина Windows | Microsoft Azure" 
 	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении магазина Windows." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -121,4 +121,4 @@
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

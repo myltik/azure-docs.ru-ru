@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory (iOS)| Центр разработчиков для мобильных устройств" 
+	pageTitle="Проверка подлинности приложения для единого входа с помощью библиотеки проверки подлинности Active Directory (iOS) | Microsoft Azure" 
 	description="Узнайте, как аутентифицировать пользователей для единого входа с помощью ADAL в приложении iOS." 
 	documentationCenter="ios" 
 	authors="mattchenderson" 
@@ -122,4 +122,4 @@
 [библиотеку проверки подлинности Active Directory для iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

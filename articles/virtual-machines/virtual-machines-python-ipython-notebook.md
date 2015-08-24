@@ -1,5 +1,5 @@
 <properties
-	pageTitle="IPython Notebook — учебник по Azure"
+	pageTitle="IPython Notebook | Microsoft Azure"
 	description="В этом учебнике показано, как развернуть IPython Notebook в Azure с использованием виртуальных машин Linux или Windows."
 	services="virtual-machines"
 	documentationCenter="python"
@@ -113,7 +113,7 @@
 
 	* Потребуется добавить `C:\OpenSSL-Win32\bin` в переменную среды `PATH`.
 
-> [AZURE.NOTE]При установке OpenSSL используйте версию 1.0.1g или выше, так как они включают исправление для уязвимости безопасности Heartbleed.
+	> [AZURE.NOTE]При установке OpenSSL используйте версию 1.0.1g или выше, так как они включают исправление для уязвимости безопасности Heartbleed.
 
 1.  Установите IPython с помощью следующей команды:
 
@@ -164,28 +164,28 @@
     Enter password: 
     Verify password: 
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
-    
+
 Далее предстоит отредактировать файл конфигурации профиля, то есть файл `ipython_notebook_config.py` в текущей папке профиля. Возможно, этот файл не существует — создайте его. Этот файл содержит несколько полей, которые по умолчанию закомментированы. Этот файл можно открыть в любом текстовом редакторе. Необходимо убедиться, что в нем есть по крайней мере следующее содержимое:
 
     c = get_config()
-    
+
     # This starts plotting support always with matplotlib
     c.IPKernelApp.pylab = 'inline'
-    
+
     # You must give the path to the certificate file.
-    
+
     # If using a Linux VM:
     c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
-    
+
     # And if using a Windows VM:
     c.NotebookApp.certfile = r'C:\Users\azureuser\.ipython\profile_nbserver\mycert.pem'
-    
+
     # Create your own password as indicated above
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
-    
+
     # Network and browser details. We use a fixed port (9999) so it matches
     # our Azure setup, where we've allowed traffic on that port
-    
+
     c.NotebookApp.ip = '*'
     c.NotebookApp.port = 9999
     c.NotebookApp.open_browser = False
@@ -271,4 +271,4 @@ IPython Notebook предоставляет богатый возможност�
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Добавление push-уведомлений в приложение Xamarin Android|мобильные службы Android" 
+	pageTitle="Добавление push-уведомлений в приложение Xamarin для Android | Microsoft Azure" 
 	description="Вы узнаете, как настраивать push-уведомления в Google Cloud Messaging для ваших приложений Xamarin.Android с помощью мобильных служб Azure и концентраторов уведомлений Azure." 
 	documentationCenter="xamarin" 
 	authors="ggailey777" 
@@ -86,4 +86,4 @@
 [мобильные службы Azure]: http://components.xamarin.com/view/azure-mobile-services/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Доступ к SharePoint от имени пользователя | Центр разработчиков для мобильных устройств" 
+	pageTitle="Доступ к SharePoint от имени пользователя | Microsoft Azure" 
 	description="Узнайте, как осуществлять вызовы в SharePoint от имени пользователя" 
 	documentationCenter="" 
 	authors="mattchenderson" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="08/08/2015" 
 	ms.author="mahender"/>
 
 # Доступ к SharePoint от имени пользователя
@@ -219,4 +219,4 @@
 [Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

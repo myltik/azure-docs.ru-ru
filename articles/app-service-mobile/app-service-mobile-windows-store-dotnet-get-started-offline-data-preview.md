@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Использование автономных данных в мобильном приложении Azure (Магазин Windows) | Центр мобильных разработок"
+	pageTitle="Использование автономных данных в мобильном приложении Azure (Магазин Windows) | Microsoft Azure"
 	description="Дополнительные сведения об использовании мобильного приложения Azure для кэширования и синхронизации автономных данных в приложении Магазина Windows"
 	documentationCenter="windows"
 	authors="christopheranderson"
@@ -278,4 +278,4 @@
 [sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/08/2015"
+   ms.date="08/08/2015"
    ms.author="juliako"/>
 
 
@@ -102,5 +102,8 @@
 
 	Если указанные проблемы не были устранены, установите последнюю версию пакета SDK для Azure версии 2.6 для [VS 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409), [VS 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) или [VS 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
  
+##См. также
 
-<!---HONumber=August15_HO6-->
+[Сведения о поддержке и прекращении использования пакета Azure SDK для .NET и API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
+
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Отключение диска от виртуальной машины Windows | Azure"
+	pageTitle="Отключение диска от виртуальной машины Windows | Microsoft Azure"
 	description="Узнайте, как отключать диск от виртуальной машины в Azure."
 	services="virtual-machines, storage"
 	documentationCenter=""
@@ -29,4 +29,4 @@
 
 [Подключение диска данных к виртуальной машине Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

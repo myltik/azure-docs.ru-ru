@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="08/06/2015" 
 	ms.author="cephalin"/>
 
 # Обслуживание содержимого из CDN Azure в вашем веб-приложении #
@@ -218,17 +218,27 @@
 <a name="query"></a>
 ## Быстрое обслуживание нового содержимого с помощью строк запросов ##
 
-В Azure CDN можно включить поддержку строк запросов, чтобы содержимое с URL-адресов с определенными строками запросов кэшировалось отдельно. Эта функция эффективна в случае, если требуется немедленно отправить определенные обновления содержимого в клиентские браузеры, а не ждать истечения срока действия кэшированного содержимого CDN. Допустим, я публикую веб-страницу с номером версии по некоторому URL-адресу. <pre class="prettyprint"> &lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.0.0"; rel=";stylesheet";/&gt; </pre>
+В Azure CDN можно включить поддержку строк запросов, чтобы содержимое с URL-адресов с определенными строками запросов кэшировалось отдельно. Эта функция эффективна в случае, если требуется немедленно отправить определенные обновления содержимого в клиентские браузеры, а не ждать истечения срока действия кэшированного содержимого CDN. Предположим, что выполняется публикация веб-станицы с номером версии в URL-адресе.
+  
+	<link href="http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.0.0" rel="stylesheet"/>
 
-При публикации обновления CSS я использую иной номер версии в URL-адресе CSS: <pre class="prettyprint"> &lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.1.1"; rel=";stylesheet";/&gt; </pre>
+Когда я публикую обновление CSS и использую другой номер версии в URL-адресе CSS:
+
+	<link href="http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.1.1" rel="stylesheet"/>
 
 в конечной точке CDN с включенной поддержкой строк запросов, два URL-адреса являются уникальными и к веб-серверу будет отправлен новый запрос для получения нового *bootstrap.css*. в конечной точке CDN без включенной поддержки строк запросов два URL-адреса будут одинаковыми и точка просто обслужит кэшированное содержимое *bootstrap.css*.
 
-Затем нужно сделать так, чтобы номер версии обновлялся автоматически. В Visual Studio это сделать легко. В CSHTML-файле, где будет использоваться вышеуказанная ссылка, можно указать номер версии на основе номера сборки. <pre class="prettyprint"> @{ var cdnVersion = System.Reflection.Assembly.GetAssembly( typeof(MyMvcApp.Controllers.HomeController)) .GetName().Version.ToString(); }
+Затем нужно сделать так, чтобы номер версии обновлялся автоматически. В Visual Studio это сделать легко. В файле CSHTML, где будет использоваться указанная выше ссылка, можно указать номер версии на основе номера сборки.
 
-...
-
-&lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=@cdnVersion"; rel=";stylesheet";/&gt; </pre>
+	@{
+	    var cdnVersion = System.Reflection.Assembly.GetAssembly(
+	        typeof(MyMvcApp.Controllers.HomeController))
+	        .GetName().Version.ToString();
+	}
+	
+	...
+	
+	<link href="http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=@cdnVersion" rel="stylesheet"/>
 
 Если номер сборки меняется в ходе каждого цикла публикации, каждый раз при публикации веб-приложению присваивается уникальный номер версии, который сохраняется до следующего цикла публикации. Или можно настроить Visual Studio для автоматического увеличения номера версии сборки при каждом создании веб-приложения. Для этого нужно открыть файл *Properties\\AssemblyInfo.cs* в проекте Visual Studio и применить `*` в `AssemblyVersion`. Например:
 
@@ -261,4 +271,4 @@
 - [Использование CDN для Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

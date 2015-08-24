@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Приступая к работе с мобильными службами в приложениях Xamarin для Android — мобильные службы Azure" 
+	pageTitle="Приступая к работе с мобильными службами в приложениях Xamarin для Android | Microsoft Azure" 
 	description="Узнайте, как использовать мобильные службы и центры уведомлений Azure для отправки push-уведомлений в приложение Xamarin для Android." 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
@@ -75,4 +75,4 @@
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

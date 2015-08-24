@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с хранилищем ключей Azure | Обзор"
+	pageTitle="Приступая к работе с хранилищем ключей Azure | Microsoft Azure"
 	description="Этот учебник поможет вам начать работу с хранилищем ключей Azure. В нем содержится информация о создании зафиксированного контейнера (хранилища), хранении криптографических ключей и секретов, а также об управлении ими в Azure."
 	services="key-vault"
 	documentationCenter=""
@@ -248,4 +248,4 @@
 Справочные материалы по программированию см. в разделе [Хранилище ключей](https://msdn.microsoft.com/library/azure/dn903625.aspx) библиотеки документации Microsoft Azure на сайте MSDN.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Обработка конфликтов с автономными данными в мобильных службах (Windows Phone) | Центр мобильных разработок" 
+	pageTitle="Обработка конфликтов с автономными данными в мобильных службах (Windows Phone) | Microsoft Azure" 
 	description="Узнайте, как использовать возможности мобильных служб Azure для обработки конфликтов при синхронизации автономных данных в приложении Windows Phone." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -241,4 +241,4 @@
 [Get started with data]: mobile-services-windows-phone-get-started-data.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

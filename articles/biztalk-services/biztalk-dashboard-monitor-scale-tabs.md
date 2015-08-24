@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="«Панель мониторинга», «Монитор», «Масштаб», «Настройка» и «Гибридные подключения» | Azure" 
+	pageTitle="«Панель мониторинга», «Монитор», «Масштаб», «Настройка» и «Гибридные подключения» | Microsoft Azure" 
 	description="Дополнительная информация об элементах управления и наблюдении за производительностью на вкладках портала управления для служб BizTalk: панель мониторинга, монитор, масштаб, настройка и гибридные подключения. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -368,4 +368,4 @@
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

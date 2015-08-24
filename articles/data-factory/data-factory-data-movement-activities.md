@@ -24,12 +24,12 @@
 
 | **Источник** | **Приемник** |
 | ------ | ---- |
-| [BLOB-объекты Azure](data-factory-azure-blob-connector.md) | BLOB-объект Azure, таблица Azure, база данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, Azure DocumentDB |
+| [BLOB-объекты Azure](data-factory-azure-blob-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, Azure DocumentDB, локальная файловая система |
 | [Таблица Azure](data-factory-azure-table-connector.md) | BLOB-объект Azure, таблица Azure, база данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, Azure DocumentDB |
 | [База данных SQL Azure](data-factory-azure-sql-connector.md) | BLOB-объект Azure, таблица Azure, база данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, Azure DocumentDB |
 | [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | BLOB-объект Azure, таблица Azure, база данных SQL Azure |
 | [SQL Server в IaaS](data-factory-sqlserver-connector.md) | BLOB-объект Azure, таблица Azure, база данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS |
-| [Локальная файловая система](data-factory-onprem-file-system-connector.md) | BLOB-объект Azure, таблица Azure, база данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS |
+| [Локальная файловая система](data-factory-onprem-file-system-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, локальная файловая система |
 | [Локальный сервер SQL Server](data-factory-sqlserver-connector.md) | BLOB-объект Azure, таблица Azure, база данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS |
 | [Локальная база данных Oracle](data-factory-onprem-oracle-connector.md) | BLOB-объект Azure, таблица Azure, база данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS |
 | [Локальная база данных MySQL](data-factory-onprem-mysql-connector.md) | BLOB-объект Azure, таблица Azure, база данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS |
@@ -93,4 +93,4 @@
 
 Содержимое раздела **typeProperties** действия копирования зависит от типов источников и приемников. Сведения о свойствах, используемых для конкретных типов хранилищ, см. на страницах, посвященных этим типам.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Администрирование мобильной службы из командной строки | Мобильные службы Azure" 
+	pageTitle="Администрирование мобильной службы из командной строки | Microsoft Azure" 
 	description="Узнайте, как с помощью программ командной строки создать и развернуть мобильную службу Azure, а также управлять ею." 
 	services="mobile-services" 
 	documentationCenter="Mobile" 
@@ -184,4 +184,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

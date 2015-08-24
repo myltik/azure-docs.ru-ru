@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Авторизация пользователей на стороне службы в серверной мобильной службе .NET | Мобильные службы Azure"
+	pageTitle="Авторизация пользователей на стороне службы в мобильной службе .NET | Microsoft Azure"
 	description="Узнайте, как ограничить доступ для авторизации пользователей в серверной мобильной службе .NET"
 	services="mobile-services"
 	documentationCenter="windows"
@@ -80,4 +80,4 @@
 [Добавление проверки подлинности в существующее приложение мобильных служб]: mobile-services-dotnet-backend-ios-get-started-users.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

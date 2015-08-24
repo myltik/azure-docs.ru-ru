@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Начало работы с проверкой подлинности для мобильных приложений в Windows | Служба приложений Azure"
+	pageTitle="Начало работы с проверкой подлинности для мобильных приложений в Windows | Microsoft Azure"
 	description="Узнайте, как использовать мобильные приложения, чтобы выполнить аутентификацию пользователей вашего приложения для Windows с помощью разных поставщиков удостоверений, включая AAD, Google, Facebook, Твиттер и Майкрософт."
 	services="app-service\mobile"
 	documentationCenter="windows"
@@ -75,4 +75,4 @@
 [Начало работы с мобильным приложением]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

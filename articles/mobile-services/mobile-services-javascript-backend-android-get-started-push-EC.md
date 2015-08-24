@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Приступая к работе с push-уведомлениями (Android JavaScript) | Центр мобильных разработок" 
+	pageTitle="Приступая к работе с push-уведомлениями (JavaScript — Android) | Microsoft Azure" 
 	description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение JavaScript для Android." 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
@@ -212,4 +212,4 @@
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

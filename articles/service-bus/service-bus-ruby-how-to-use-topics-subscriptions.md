@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Использование разделов служебной шины (Ruby): Azure"
+	pageTitle="Использование разделов служебной шины (Ruby) | Microsoft Azure"
 	description="Узнайте, как использовать разделы и подписки служебной шины в Azure. Примеры кода написаны для приложений Ruby."
 	services="service-bus"
 	documentationCenter="ruby"
@@ -218,4 +218,4 @@
 -	Посетите репозиторий [Azure SDK для Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

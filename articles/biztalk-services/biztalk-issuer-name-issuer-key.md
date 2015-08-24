@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Имя издателя и ключ издателя в службах BizTalk | Azure" 
+	pageTitle="Имя издателя и ключ издателя в службах BizTalk | Microsoft Azure" 
 	description="Узнайте, как извлечь имя и ключ издателя для Service Bus или управления доступом (ACS) в службах BizTalk. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -86,4 +86,4 @@
 - [Службы BizTalk: регулирование](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

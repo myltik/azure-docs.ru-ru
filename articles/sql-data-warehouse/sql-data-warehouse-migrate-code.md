@@ -28,7 +28,6 @@
 - соединение ANSI join при удалении
 - инструкция merge
 - соединение join между базами данных
-- [инструкции pivot и unpivot][]
 - [курсоры][]
 - [SELECT..INTO][]
 - INSERT..EXEC
@@ -86,7 +85,7 @@ AND     request_id IN
 <!--Image references-->
 
 <!--Article references-->
-[инструкции pivot и unpivot]: sql-data-warehouse-develop-pivot-unpivot.md
+[pivot and unpivot statements]: sql-data-warehouse-develop-pivot-unpivot.md
 [курсоры]: sql-data-warehouse-develop-loops.md
 [SELECT..INTO]: sql-data-warehouse-develop-ctas.md
 [предложение группирования group by с операторами rollup, cube или grouping]: sql-data-warehouse-develop-group-by-options.md
@@ -100,4 +99,4 @@ AND     request_id IN
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

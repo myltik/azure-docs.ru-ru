@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Клонирование тома StorSimple"
+   pageTitle="Клонирование тома StorSimple | Microsoft Azure"
    description="В разделе рассматриваются разные типы клонов, ситуации их использования и клонирование отдельного тома с помощью резервного набора данных."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
+   ms.date="08/11/2015"
    ms.author="alkohli" />
 
 # Клонирование тома StorSimple
@@ -91,4 +91,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

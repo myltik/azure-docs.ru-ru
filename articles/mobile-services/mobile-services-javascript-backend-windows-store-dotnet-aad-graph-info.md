@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Доступ к сведениям в Azure Active Directory Graph (Магазин Windows) | Центр разработчиков для мобильных устройств" 
+	pageTitle="Доступ к сведениям Azure Active Directory через Graph (Магазин Windows) | Microsoft Azure" 
 	description="Узнайте, как получить доступ к информации Azure Active Directory с помощью API Graph в приложении Магазина Windows." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -182,4 +182,4 @@
 [Управление доступом в мобильных службах на основе ролей с помощью AAD]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [Блог команды разработчиков Azure Active Directory Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

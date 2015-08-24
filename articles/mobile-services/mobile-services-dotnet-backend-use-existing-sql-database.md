@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Сборка службы с использованием существующей базы данных SQL на серверной части мобильных служб .NET. Мобильные службы Azure" 
+	pageTitle="Построение службы, использующей существующую базу данных SQL в серверной части .NET мобильных служб | Microsoft Azure" 
 	description="Узнайте, как использовать существующую облачную или локальную базу данных SQL с мобильной службой на основе .NET" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -615,4 +615,4 @@
 
 В качестве следующего шага можно собрать клиентское приложение для доступа к службе. Дополнительные сведения см. в статье [Добавление мобильных служб в существующее приложение](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

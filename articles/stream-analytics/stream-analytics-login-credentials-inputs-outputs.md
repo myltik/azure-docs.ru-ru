@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Stream Analytics: смена учетных данных для источников входных данных и мест назначения выходных данных | Azure" 
+	pageTitle="Stream Analytics: смена учетных данных для источников входных данных и мест назначения выходных данных | Microsoft Azure" 
 	description="Информация о том, как обновить учетные данные для источников входных данных и мест назначения выходных данных Stream Analytics" 
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -193,4 +193,4 @@ Azure Stream Analytics в настоящее время не допускает 
 [graphic43]: ./media/stream-analytics-login-credentials-inputs-outputs/43-stream-analytics-login-credentials-inputs-outputs.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

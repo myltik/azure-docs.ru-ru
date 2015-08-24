@@ -64,14 +64,13 @@
 4. В нижней части страницы нажмите кнопку **Добавить**.<br><br> ![Приложения][3]
 5. В диалоговом окне **Что необходимо сделать** щелкните **Добавить приложение из коллекции**.<br><br> ![Приложения][4]
 6. В поле поиска введите **sciQuest spend director**.<br> ![Приложения][5]
-7. В области результатов выберите **SciQuest Spend Director** и нажмите кнопку **Завершить**, чтобы добавить приложение.<br>
-
+7. В области результатов выберите **SciQuest Spend Director** и нажмите кнопку **Завершить**, чтобы добавить приложение.<br> ![Приложения][6]
 
 
 ##  Настройка и проверка единого входа в Azure AD
 Цель этого раздела — показать вам, как настроить и проверить единый вход в Azure AD с SciQuest Spend Director с использованием тестового пользователя с именем "Britta Simon".
 
-Для работы единого входа в Azure AD необходимо знать, какой пользователь в SciQuest Spend Director соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователям Azure AD и соответствующим пользователем в SciQuest Spend Quest.<br> Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в SciQuest Spend Director.
+Для работы единого входа в Azure AD необходимо знать, какой пользователь в SciQuest Spend Director соответствует пользователю в Azure AD. Иными словами, необходимо установить связь между пользователям Azure AD и соответствующим пользователем в SciQuest Spend Director.<br> Чтобы установить эту связь, следует назначить **имя пользователя** в Azure AD в качестве значения **имени пользователя** в SciQuest Spend Director.
  
 Чтобы настроить и проверить единый вход в Azure AD в SciQuest Spend Director, вам потребуется выполнить действия в следующих блоках:
 
@@ -91,9 +90,9 @@
 
 2. На странице **Как пользователи должны входить в SciQuest Spend Director?** выберите **Единый вход Azure AD** и нажмите кнопку **Далее**.<br><br> ![Единый вход в Azure AD][9]
 
-3. На странице диалогового окна **Настройка параметров приложения** выполните следующие действия: <br><br>![Настройка параметров приложения][10]
+3. На диалоговой странице **Настройка параметров приложения** выполните следующие действия: <br><br>![Настройка параметров приложения][10]
  
-     3\.1. В текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение SciQuest Spend Director по следующей схеме: **https://.*sciquest.com/.**
+     3\.1. В текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение SciQuest Spend Director, применяя шаблон **https://.*sciquest.com/.**.
 
      3\.2. В текстовом поле **URL-адрес ответа** введите то же значение, что и в поле **URL-адрес входа**.
 
@@ -114,23 +113,23 @@
 
 **Чтобы создать тестового пользователя в Azure AD, выполните следующие действия:**
 
-1. На **портале управления Azure**, в области навигации слева, щелкните элемент **Active Directory**. <br><br>![Что такое Azure AD Connect?][100] 
+1. На **портале управления Azure** в левой области навигации щелкните **Active Directory**. <br><br>![Что такое Azure AD Connect?][100] 
 2. Из списка **Каталог** выберите каталог, для которого нужно включить интеграцию каталогов.
-3. Чтобы отобразить список пользователей, нажмите **Пользователи** в меню сверху. <br><br>![Что такое Azure AD Connect?][101] 
+3. Чтобы отобразить список пользователей, щелкните **Пользователи** в меню вверху. <br><br>![Что такое Azure AD Connect?][101] 
 4. Чтобы открыть диалоговое окно **Добавление пользователя**, нажмите кнопку **Добавить пользователя** на панели инструментов внизу. <br><br>![Что такое Azure AD Connect?][102] 
-5. На странице диалогового окна **Расскажите об этом пользователе** выполните следующие действия: <br><br>![Что такое Azure AD Connect?][103] 
+5. На диалоговой странице **Расскажите об этом пользователе** выполните следующие действия: <br><br>![Что такое Azure AD Connect?][103] 
   1. В поле **Тип пользователя** выберите значение **Новый пользователь в вашей организации**.
-  2. В текстовом поле **Имя пользователя**, введите **BrittaSimon**.
+  2. В текстовом поле **Имя пользователя** введите **BrittaSimon**.
   3. Нажмите кнопку Далее.
-6.  На странице диалогового окна **Профиль пользователя** выполните следующие действия: <br><br>![Что такое Azure AD Connect?][104] 
+6.  На диалоговой странице **Профиль пользователя** выполните следующие действия: <br><br>![Что такое Azure AD Connect?][104] 
   1. В текстовом поле **Имя** введите **Britta**.  
   2. В текстовом поле **Фамилия** введите **Simon**.
   3. В текстовом поле **Отображаемое имя** введите **Britta Simon**.
   4. В списке **Роль** выберите **Пользователь**.
   5. Нажмите кнопку **Далее**.
-7. На странице диалогового окна **Получить временный пароль** нажмите кнопку **Создать**. <br><br>![Что такое Azure AD Connect?][105]  
-8. На странице диалогового окна **Получить временный пароль** выполните следующие действия: <br><br>![Что такое Azure AD Connect?][106]   
-  1. Запишите значение в поле **Новый пароль**.
+7. На диалоговой странице **Получить временный пароль** нажмите кнопку **Создать**. <br><br>![Что такое Azure AD Connect?][105]  
+8. На диалоговой странице **Получить временный пароль** выполните следующие действия: <br><br>![Что такое Azure AD Connect?][106]   
+  1. Запишите значение поля **Новый пароль**.
   2. Нажмите **Завершено**.   
   
  
@@ -152,10 +151,10 @@
 **Чтобы назначить Britta Simon в SciQuest Spend Director, выполните следующие действия:**
 
 1. Чтобы открыть представление приложений, в представлении каталога на портале Azure нажмите **Приложения** в верхнем меню.<br> <br><br>![Что такое Azure AD Connect?][201]
-2. В списке приложений выберите **SciQuest Spend Director**. <br><br>
-1. В верхнем меню нажмите **Пользователи**.<br> <br><br>![Что такое Azure AD Connect?][202]
-1. В списке пользователей выберите **Britta Simon**. <br><br>![Что такое Azure AD Connect?][203]
-2. На панели инструментов внизу нажмите **Назначить**. <br><br>![Что такое Azure AD Connect?][204]
+2. В списке приложений выберите **SciQuest Spend Director**. <br><br>![Что такое Azure AD Connect?][202]
+1. В верхнем меню щелкните **Пользователи**.<br> <br><br>![Что такое Azure AD Connect?][203]
+1. В списке пользователей выберите **Britta Simon**. <br><br>![Что такое Azure AD Connect?][204]
+2. На панели инструментов внизу щелкните **Назначить**. <br><br>![Что такое Azure AD Connect?][205]
 
 
 
@@ -175,6 +174,7 @@
 [3]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_03.png
 [4]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_04.png
 [5]: ./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_01.png
+[6]: ./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_05.png
 [8]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_06.png
 [9]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_07.png
 [10]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_08.png
@@ -190,8 +190,9 @@
 [106]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_15.png
 [200]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_16.png
 [201]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_17.png
-[202]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_18.png
-[203]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
-[204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
+[202]: ./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_06.png
+[203]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_18.png
+[204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
+[205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

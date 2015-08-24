@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Добавление push-уведомлений в универсальное приложение для Windows 8.1 | Мобильные службы Azure" 
+	pageTitle="Добавление push-уведомлений в универсальное приложение для Windows 8.1 | Microsoft Azure" 
 	description="Информация об отправлении push-уведомлений в универсальное приложение для Windows 8.1 из мобильной службы с серверной частью .NET с помощью Центров уведомлений Azure." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -109,4 +109,4 @@
 [Использование клиента .NET для мобильных служб Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

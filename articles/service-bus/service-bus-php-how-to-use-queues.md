@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование очередей служебной шины (PHP) — Azure" 
+	pageTitle="Использование очередей служебной шины (PHP) | Microsoft Azure" 
 	description="Узнайте, как использовать очереди служебной шины в Azure. Примеры кода написаны на PHP." 
 	services="service-bus" 
 	documentationCenter="php" 
@@ -213,4 +213,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

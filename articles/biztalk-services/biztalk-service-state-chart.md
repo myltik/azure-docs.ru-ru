@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Допустимые в различных состояниях задания в службах BizTalk | Azure" 
+	pageTitle="Допустимые в различных состояниях задания в службах BizTalk | Microsoft Azure" 
 	description="Действия и операции, разрешенные в другом состоянии MABS: остановка, запуск, перезапуск, приостановка, возобновление, удаление, масштабирование, обновление конфигурации и архивация" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -267,4 +267,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,58 +1,44 @@
-<properties 
-   pageTitle="Cable your StorSimple 8600 for power | Microsoft Azure"
-   description="Explains how to attach the power cables and then turn on a StorSimple 8600 device for the first time.."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/06/2015"
-   ms.author="alkohli" />
 
-#### To cable your device for power
+#### Подключение питания к устройству
 
->[AZURE.NOTE] Both enclosures on your StorSimple device include redundant PCMs. For each enclosure, the PCMs must be installed and connected to different power sources to ensure high availability.
+>[AZURE.NOTE]Оба корпусах устройстве StorSimple имеют резервные блоки PCM. Их необходимо установить и подключить к разным источникам питания, чтобы обеспечить высокий уровень доступности.
 
-1. Make sure that the power switches on all the PCMs are in the OFF position.
+1. Убедитесь, что переключатели питания на всех блоках питания и охлаждения PCM установлены в положение OFF.
 
-2. On the primary enclosure, connect the power cords to both PCMs. The power cords are identified in red in the power cabling diagram, below.
+2. На основном корпусе подключите кабели питания к обоим блокам PCM. На схеме подключения ниже кабели питания обозначены красным цветом.
 
-3. Make sure that the two PCMs on the primary enclosure use separate power sources.
+3. Убедитесь, что для двух блоков PCM на основном корпусе используются разные источники питания.
 
-4. Attach the power cords to the power on the rack distribution units as shown in the power cabling diagram.
+4. Присоедините кабели питания к сети на распределительных блоках стойки, как показано на схеме подключения.
 
-5. Repeat steps 2 through 4 for the EBOD enclosure.
+5. Повторите шаги со 2 по 4 для корпуса EBOD.
 
-6. Turn on the EBOD enclosure by flipping the power switch on each PCM to the ON position.
+6. Включите питание корпуса EBOD, установив переключатели питания на каждом блоке PCM в положение ON.
 
-7. Verify that the EBOD enclosure is turned on by checking that the green LEDs on the back of the EBOD controller are turned ON.
+7. Проверьте питание корпуса EBOD: зеленые индикаторы на задней панели контроллера EBOD должны светиться.
 
-8. Turn on the primary enclosure by flipping each PCM switch to the ON position.
+8. Включите питание основного корпуса, установив переключатели каждого блока PCM в положение ON.
 
-9. Verify that the system is on by ensuring the device controller LEDs have turned ON.
+9. Проверьте питание системы: индикаторы контроллера устройства должны светиться.
 
-10. Make sure that the connection between the EBOD controller and the device controller is active by verifying that the four LEDs next to the SAS port on the EBOD controller are green.
+10. Проверьте активность соединения между контроллером EBOD и контроллером устройства: четыре индикатора рядом с портом SAS на контроллере EBOD должны светиться зеленым.
 
-    >[AZURE.IMPORTANT] To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram.
+    >[AZURE.IMPORTANT]Чтобы обеспечить высокий уровень доступности системы, рекомендуем строго придерживаться схемы подключения кабелей питания, показанной на следующей диаграмме.
 
-    ![Cable your 4U device for power](./media/storsimple-cable-8600-for-power/HCSCableYour4UDeviceforPower.png)
+    ![Подключите питание к устройству 4U](./media/storsimple-cable-8600-for-power/HCSCableYour4UDeviceforPower.png)
 
-    **Power cabling**
+    **кабели питания.**
 
-    |Label|Description|
+    |Метка|Описание|
     |:----|:----------|
-    |1|Primary enclosure|
+    |1|Основной корпус|
     |2|PCM 0|
     |3|PCM 1|
-    |4|Controller 0|
-    |5|Controller 1|
-    |6|EBOD controller 0|
-    |7|EBOD controller 1|
-    |8|EBOD enclosure|
-    |9|PDUs|
+    |4\.|Контроллер 0|
+    |5|Контроллер 1|
+    |6|Контроллер EBOD 0|
+    |7|Контроллер EBOD 1|
+    |8|Корпус EBOD|
+    |9|Блоки распределения питания|
+
+<!---HONumber=August15_HO7-->

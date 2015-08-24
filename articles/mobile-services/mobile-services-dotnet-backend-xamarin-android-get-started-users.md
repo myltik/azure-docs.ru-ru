@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Приступая к работе с проверкой подлинности в мобильных службах для приложений Android на Xamarin. Мобильные службы Azure" 
+	pageTitle="Приступая к работе с проверкой подлинности в мобильных службах для приложений Xamarin для Android | Microsoft Azure" 
 	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения Xamarin для Android с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
@@ -112,4 +112,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

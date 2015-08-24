@@ -251,6 +251,6 @@ private bool PutCbsToken(Connection connection, string sasToken)
 
 Дополнительные сведения о возможностях использования маркеров SAS см. в [справочнике по API REST служебной шины](https://msdn.microsoft.com/library/azure/hh780717.aspx).
 
-Дополнительные сведения о SAS см. в статье MSDN [Проверка подлинности служебной шины](https://msdn.microsoft.com/library/azure/dn155925.aspx).
+Дополнительные сведения о SAS см. в статье MSDN [Проверка подлинности служебной шины](https://msdn.microsoft.com/library/azure/dn155925.aspx). Дополнительные примеры о SAS в C# и Java Script в [блоге Дамира](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

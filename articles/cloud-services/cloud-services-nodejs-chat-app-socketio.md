@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Приложения Node.js с помощью Socket.io — Учебник Azure" 
+	pageTitle="Приложение node.js с использованием Socket.io | Microsoft Azure" 
 	description="Узнайте, как использовать socket.io в приложении Node.js, размещенном в Azure." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -158,4 +158,4 @@ Socket.IO обеспечивает связь в режиме реального
   
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

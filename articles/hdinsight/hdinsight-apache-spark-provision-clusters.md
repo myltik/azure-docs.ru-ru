@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Подготовка кластеров Apache Spark в HDInsight | Azure" 
+   pageTitle="Подготовка кластеров Apache Spark в HDInsight | Microsoft Azure" 
    description="Узнайте, как подготовить кластеры Spark для Azure HDInsight с помощью портала Azure, Azure PowerShell, командной строки или пакета SDK .NET HDInsight" 
    services="hdinsight" 
    documentationCenter="" 
@@ -502,4 +502,4 @@ HDInsight использует контейнер хранилища BLOB-объ
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Использование Sqoop вместе с HDInsight"
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

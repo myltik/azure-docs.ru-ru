@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Дополнительное кодирование с помощью рабочего процесса Premium кодировщика мультимедиа
@@ -32,9 +32,12 @@
 
 В этом разделе показаны способы кодирования с помощью обработчика мультимедиа **Media Encoder Premium Workflow** с использованием .NET.
 
+Задачи кодирования для обработчика мультимедиа **Media Encoder Premium Workflow** требуют наличия отдельного файла конфигурации, который называется файлом Workflow). Эти файл имеют расширение .workflow и создаются с помощью [Конструктора рабочих процессов](media-services-workflow-designer.md).
+
 ##Кодирование
 
 Задачи кодирования для обработчика мультимедиа **Media Encoder Premium Workflow** требуют наличия отдельного файла конфигурации, который называется файлом Workflow). Эти файл имеют расширение .workflow и создаются с помощью [Конструктора рабочих процессов](media-services-workflow-designer.md).
+
 
 Также можно получить файлы рабочего процесса с настройками по умолчанию [отсюда](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Папка также содержит описание этих файлов.
 
@@ -265,4 +268,4 @@
 
 Если входящее видео не содержит скрытых субтитров, выходящий ресурс по-прежнему будет содержать пустой файл TTML.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

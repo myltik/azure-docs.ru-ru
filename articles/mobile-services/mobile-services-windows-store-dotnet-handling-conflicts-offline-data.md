@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Обработка конфликтов с автономными данными в универсальных приложениях Windows | Мобильные службы Azure" 
+	pageTitle="Обработка конфликтов с автономными данными в универсальных приложениях Windows | Microsoft Azure" 
 	description="Узнайте, как использовать возможности мобильных служб Azure для обработки конфликтов при синхронизации автономных данных в универсальных приложениях Windows." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -164,4 +164,4 @@
 [пример мобильных служб TODO]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

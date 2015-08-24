@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование разделов служебной шины (Python) — Azure" 
+	pageTitle="Использование разделов служебной шины (Python) | Microsoft Azure" 
 	description="Узнайте, как использовать разделы и подписки служебной шины в Python." 
 	services="service-bus" 
 	documentationCenter="python" 
@@ -159,4 +159,4 @@
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

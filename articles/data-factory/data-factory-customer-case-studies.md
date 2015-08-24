@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Примеры реальных клиентов | Фабрика данных Azure" 
+	pageTitle="Примеры реальных клиентов | Microsoft Azure" 
 	description="Узнайте о том, как некоторые из наших клиентов используют фабрику данных Azure." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -48,4 +48,4 @@
 
 [Укрепление связей с клиентами благодаря облачному машинному обучению](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

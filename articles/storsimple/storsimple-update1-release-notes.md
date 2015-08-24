@@ -3,7 +3,7 @@
     description="В статье описываются новые возможности, проблемы и способы их решения для обновления 1, предназначенного для устройств серии StorSimple 8000."
     services="storsimple"
     documentationCenter="NA"
-    authors="SharS"
+    authors="alkohli"
     manager="adinah"
     editor="tysonn" />
  <tags 
@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="07/15/2015"
-    ms.author="v-sharos" />
+    ms.date="08/12/2015"
+    ms.author="alkohli" />
 
 # Заметки о выпуске, посвященные обновлению 1 для устройств серии StorSimple 8000  
 
@@ -115,4 +115,4 @@
 - [Установка обновления 1 на устройство](storsimple-install-update-1.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

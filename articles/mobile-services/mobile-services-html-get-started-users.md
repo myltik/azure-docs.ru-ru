@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Добавление проверки подлинности в приложение HTML/JavaScript | Мобильные службы Azure" 
+	pageTitle="Добавление проверки подлинности в приложение HTML/JavaScript | Microsoft Azure" 
 	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения HTML с помощью разнообразных поставщиков удостоверений, включая учетную запись Google, Facebook, Twitter и Майкрософт." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -138,4 +138,4 @@
 [Справочник принципов использования мобильных служб HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

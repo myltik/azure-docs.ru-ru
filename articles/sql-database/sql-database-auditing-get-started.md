@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Приступая к работе с аудитом базы данных SQL | Azure" 
+	pageTitle="Приступая к работе с аудитом базы данных SQL | Microsoft Azure" 
 	description="Приступая к работе с аудитом базы данных SQL" 
 	services="sql-database" 
 	documentationCenter="" 
@@ -182,4 +182,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

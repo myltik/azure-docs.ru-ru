@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Разработка служб мультимедиа с помощью .NET 
+
+[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 В этом разделе рассказывается о том, как приступить к разработке приложений служб мультимедиа с помощью .NET.
 
@@ -98,4 +100,4 @@
 На этом этапе вы готовы начать разработку приложения служб мультимедиа.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

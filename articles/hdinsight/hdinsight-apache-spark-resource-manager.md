@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование диспетчера ресурсов для выделения ресурсов для кластера Apache Spark в HDInsight | Azure" 
+	pageTitle="Использование диспетчера ресурсов для выделения ресурсов для кластера Apache Spark в HDInsight | Microsoft Azure" 
 	description="Узнайте о том, как использовать диспетчер ресурсов для кластера Spark в HDInsight для повышения производительности." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -79,4 +79,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

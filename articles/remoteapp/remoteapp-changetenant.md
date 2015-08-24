@@ -3,7 +3,7 @@
     pageTitle="Смена клиента Azure Active Directory в Azure RemoteApp"
     description="Способы смены клиента Azure Active Directory, связанного с Azure RemoteApp"
     services="remoteapp"
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap"
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/24/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
 
@@ -22,7 +22,7 @@
 
 Azure RemoteApp использует Azure Active Directory (Azure AD), чтобы разрешить доступ пользователям. Единственный клиент Azure AD, которого можно использовать, — тот, который связан с подпиской Azure. Вы можете просмотреть связанную подписку на странице «Параметры» на портале. Откройте столбец «Каталог» на вкладке «Подписки».
 
-> [AZURE.NOTE]Чтобы обеспечить успешное изменение Azure Active Directory, сначала необходимо удалить всех пользователей из существующего клиента Azure Active Directory из всех коллекций Azure RemoteApp. Чтобы сделать это, перейдите на портал Azure, выберите вкладку Azure RemoteApp и откройте каждую коллекцию Azure RemoteApp. Откройте вкладку **Пользователи** и удалите пользователей, относящихся к текущему клиенту Azure Active Directory. Повторите эту операцию для всех существующих коллекций Azure RemoteApp. Без этого вы не сможете создавать или исправлять коллекции.
+> [AZURE.NOTE]Чтобы обеспечить успешное изменение, сначала удалите всех пользователей из существующего клиента Azure Active Directory из всех коллекций Azure RemoteApp. Чтобы сделать это, перейдите на портал Azure, выберите вкладку Azure RemoteApp и откройте каждую коллекцию Azure RemoteApp. Откройте вкладку **Пользователи** и удалите пользователей, относящихся к текущему клиенту Azure Active Directory. Повторите эту операцию для всех существующих коллекций Azure RemoteApp. Без этого вы не сможете создавать или исправлять коллекции.
 
 Если вы хотите использовать другого клиента, выполните следующие действия, чтобы изменить связь с подпиской.
 
@@ -48,4 +48,4 @@ Azure RemoteApp использует Azure Active Directory (Azure AD), чтоб
 
 Теперь вы можете использовать нового клиента Azure AD для контроля доступа к подписке Azure и настройки доступа пользователей в Azure RemoteApp.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

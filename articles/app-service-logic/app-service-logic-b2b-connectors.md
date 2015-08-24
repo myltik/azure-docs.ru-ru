@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Соединители и приложения API «бизнес — бизнес» в службе приложений Microsoft Azure | Azure" 
+	pageTitle="Соединители «бизнес — бизнес» и приложения API в службе приложений Microsoft Azure | Microsoft Azure" 
 	description="Узнайте, как создать и настроить соединители EDI, EDIFACT, AS2 и TPM; архитектура микрослужб." 
 	services="app-service\logic" 
 	documentationCenter="" 
@@ -205,4 +205,4 @@ BizTalk X12 | Приложение API, которое получает и от�
 
 [Список соединителей и приложений API](app-service-logic-connectors-list.md)<br/><br/> [Что такое соединители и приложения API BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

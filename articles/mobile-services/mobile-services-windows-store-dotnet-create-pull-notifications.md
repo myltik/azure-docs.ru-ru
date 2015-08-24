@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Определение настраиваемого API с поддержкой pull-уведомлений мобильные службы — Azure" 
+	pageTitle="Определение настраиваемого интерфейса API с поддержкой pull-уведомлений | Microsoft Azure" 
 	description="Узнайте, как определить настраиваемый API, который поддерживает периодические уведомления в приложениях Магазина Windows, использующих мобильные службы Azure." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # Определение настраиваемого интерфейса API с поддержкой периодических уведомлений
-
-<div class="dev-center-tutorial-selector"> 
-	<a href="/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications/" title="Магазин Windows — C#" class="current">Магазин Windows — C#</a><a href="/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications/" title="Магазин Windows — JavaScript">Магазин Windows — JavaScript</a>
-</div>
 
 В этом разделе показано, как использовать настраиваемый интерфейс API для поддержки периодических уведомлений в приложениях Магазина Windows. Если периодические уведомления включены, Windows будет периодически обращаться к конечной точке настраиваемого интерфейса API и использовать полученный XML в формате для плиток, чтобы обновить плитку приложения в меню "Пуск". Дополнительные сведения см. в разделе [Периодические уведомления].
 
@@ -167,4 +163,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

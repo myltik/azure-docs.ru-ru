@@ -1,21 +1,20 @@
 
-<properties 
-	pageTitle="Использование группы для управления доступом к приложениям SaaS | Microsoft Azure" 
-	description="В этом разделе описывается, как можно также использовать группы в Azure AD Premium для предоставления доступа к приложениям SaaS, интегрированным с Azure AD." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="swadhwa" 
-	editor=""
-	tags="azure-classic-portal"/>
+<properties
+	pageTitle="Использование группы для управления доступом к приложениям SaaS | Microsoft Azure"
+	description="Использование групп для предоставления доступа к приложениям SaaS, интегрированным с Azure AD в Azure AD Premium или Basic."
+	services="active-directory"
+	documentationCenter=""
+	authors="femila"
+	manager="swadhwa"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
 	ms.devlang="na" identity
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="femila"/>
 
 
@@ -39,9 +38,9 @@
 4. Также вы можете узнать, какие пользователи назначены приложению, напрямую или через членство в группе. Чтобы сделать это, в раскрывающемся списке **Показать** вместо «Группы» выберите **«Все пользователи»**. Список содержит пользователей в каталоге, а также сведения о том, назначен ли пользователь приложению. В списке также указывается, назначены ли пользователи приложению напрямую (тип назначения «Прямо») или через членство в группе (тип назначения «Унаследовано»).
 
 
-> [AZURE.NOTE]Вкладка «Пользователи и группы» будет отображаться только после включения Azure AD Premium.
+> [AZURE.NOTE]Вкладка «Пользователи и группы» отображается только после включения Azure AD Premium или Azure AD Basic.
 
-Ниже приведено несколько разделов, в которых содержатся некоторые дополнительные сведения о Azure Active Directory:
+Ниже приведены некоторые разделы, содержащие дополнительные сведения в отношении Azure Active Directory.
 
 * [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
 
@@ -49,4 +48,4 @@
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

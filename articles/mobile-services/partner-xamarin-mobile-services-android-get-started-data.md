@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Добавление мобильных служб в существующее приложение (Xamarin.Android) — мобильные службы Azure" 
+	pageTitle="Добавление мобильных служб в существующее приложение (Xamarin.Android) | Microsoft Azure" 
 	description="Узнайте, как хранить данные и осуществлять доступ к ним из приложения Xamarin.Android для мобильных служб Azure." 
 	documentationCenter="xamarin" 
 	authors="ggailey777" 
@@ -283,4 +283,4 @@
 [полный пример проекта]: http://go.microsoft.com/fwlink/p/?LinkId=331302
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Добавление мобильных служб в существующее приложение (HTML 5) | Центр разработчиков для мобильных устройств" 
+	pageTitle="Добавление мобильных служб в существующее приложение (HTML 5) | Microsoft Azure" 
 	description="Узнайте, как приступить к работе с мобильными службами в существующем приложении HTML." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -257,4 +257,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

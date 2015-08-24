@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Как использовать AMQP 1.0 с Java API служебной шины в Azure" 
+	pageTitle="Как использовать AMQP 1.0 с API служебной шины Java | Microsoft Azure" 
 	description="Узнайте, как использовать службу сообщений Java (JMS) со служебной шиной Azure и протоколом AMQP 1.0." 
 	services="service-bus" 
 	documentationCenter="java" 
@@ -338,4 +338,4 @@ exit
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/01/2015"
+   ms.date="07/30/2015"
    ms.author="joaoma"/>
 
 # Управление записями DNS
+
 
 В этом руководстве показано, как управлять зоной DNS. Оно поможет вам понять последовательность операций для администрирования зоны DNS.
 
@@ -103,4 +104,4 @@
 
 [Автоматизация операций с помощью пакета SDK для .NET](../dns-sdk)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

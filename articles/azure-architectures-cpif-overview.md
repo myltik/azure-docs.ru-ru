@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Инфраструктура интеграции облачных платформ — шаблоны архитектуры Azure" 
+   pageTitle="Инфраструктура интеграции облачных платформ | Microsoft Azure" 
    description="Инфраструктура интеграции облачных платформ предоставляет руководство по интеграции рабочих нагрузок для адаптации приложений в облачном решении Майкрософт, состоящее из шаблонов архитектуры для Microsoft Azure" 
    services="" 
    documentationCenter="" 
@@ -57,6 +57,6 @@
 
 [Сети Azure](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-5e401f38)
 
-[Поиск Azure](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)
+[Поиск Azure;](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

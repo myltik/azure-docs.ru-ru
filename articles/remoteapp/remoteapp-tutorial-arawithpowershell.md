@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="07/07/2015"
+   ms.date="08/12/2015"
    ms.author="guscatal;spatnaik;elizapo"/>
 
 
@@ -25,6 +25,8 @@
 ## Загрузка командлетов 
 -------------
 Сначала необходимо загрузить командлеты PowerShell для Azure [здесь](http://go.microsoft.com/?linkid=9811175); в их состав уже входят командлеты для RemoteApp.
+
+Справочные сведения об использовании командлетов для Azure RemoteApp представлены [здесь](https://msdn.microsoft.com/library/mt428031.aspx).
 
 ## Настройка командлетов Azure для работы с подпиской
 ------------------
@@ -99,4 +101,4 @@
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

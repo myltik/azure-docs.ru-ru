@@ -1,15 +1,17 @@
-In this step, you test the availability group listener using a client application running on the same network.
+На этом шаге тестируется прослушиватель группы доступности с помощью клиентского приложения, работающего в той же сети.
 
-For client connectivity, please note the following requirements:
+Обратите внимание на следующие требования к клиентским подключениям:
 
-- Client connections to the listener must come from machines that reside in a different cloud service than the one that hosts the AlwaysOn Availability replicas.
+- Клиентские подключения к прослушивателю должны выполняться с компьютеров в другой облачной службе (не той, на которой не размещены реплики доступности AlwaysOn).
 
-- If the AlwaysOn replicas are in different subnets, clients must specify "MultisubnetFailover=True" in the connection string. This results in parallel connection attempts to replicas in the different subnets. Note that this scenario includes a cross-region AlwaysOn Availability Group deployment.
+- Если реплики AlwaysOn размещены в разных подсетях, клиенты должны указывать MultisubnetFailover=True в строке подключения. В результате будут выполняться попытки параллельного подключения к репликам в разных подсетях. Обратите внимание, что этот сценарий включает межрегиональное развертывание группы доступности AlwaysOn.
 
-One example would be to connect to the listener from one of the VMs in the same Azure VNet (but not one that hosts a replica). An easy way to complete this test is to try to connect SSMS to the availability group listener. Another simple method is to run [SQLCMD.exe](https://technet.microsoft.com/library/ms162773.aspx) as follows:
+Примером может служить подключение к прослушивателю с одной из виртуальных машин в одной виртуальной сети Azure (не той, в которой размещена реплика). Самый простой способ проверки — подключить SSMS к прослушивателю группы доступности. Другой способ — запустить файл [SQLCMD.exe](https://technet.microsoft.com/library/ms162773.aspx):
 
 	sqlcmd -S "<ListenerName>,<EndpointPort>" -d "<DatabaseName>" -Q "select @@servername, db_name()" -l 15
 
-> [AZURE.NOTE] If the EndpointPort value is 1433, it is not required to specify it in the call. The previous call also assumes that the client machine is joined to the same domain and that the caller has been granted permissions on the database using windows authentication.
+> [AZURE.NOTE]Если для параметра EndpointPort используется значение 1433, его необязательно указывать в вызове. В предыдущем вызове также предполагается, что клиентский компьютер присоединен к тому же домену и вызывающий объект имеет разрешения в базе данных с использованием проверки подлинности Windows.
 
-When testing the listener, be sure to fail over the availability group to make sure that clients can connect to the listener across failovers.
+При тестировании прослушивателя обязательно выполните отработку отказа для группы доступности, чтобы убедиться, что клиенты могут подключаться к прослушивателю при сбое.
+
+<!---HONumber=August15_HO7-->

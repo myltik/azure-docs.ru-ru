@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/28/2015" ms.author="prvijay"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="aashishr"; "jimpark"/>
 
 # Создание хранилища службы архивации
 Для резервного копирования файлов и данных из Windows Server или System Center Data Protection Manager (SCDPM) в Azure либо для резервного копирования виртуальных машин IaaS в Azure необходимо создать хранилище службы архивации в том географическом регионе, где вы хотите хранить данные.
@@ -60,7 +60,6 @@ GRS хранит шесть копий ваших данных. С GRS ваши 
 
 ## Примечание.
 
-- По состоянию на март 2015 г. у клиентов нет программного способа создания хранилища службы архивации (например, с помощью PowerShell).
 - Избыточность хранилища следует выбрать сразу после его создания и перед регистрацией в нем любых компьютеров. После регистрации элемента в хранилище параметр избыточности хранилища блокируется и в последствии не может быть изменен.
 
 <!--Image references-->
@@ -70,4 +69,4 @@ GRS хранит шесть копий ваших данных. С GRS ваши 
 [4]: ./media/backup-azure-backup-create-vault/grs.png
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Monitor, diagnose, and troubleshoot Storage | Azure" 
+	pageTitle="Мониторинг, диагностика и устранение неисправностей службы хранилища | Microsoft Azure" 
 	description="Use features such as storage analytics, client-side logging, and other third-party tools to identify, diagnose, and troubleshoot Azure Storage-related issues." 
 	services="storage" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="06/22/2015" 
 	ms.author="v-dobett"/>
 
-# Наблюдение, диагностика и устранение неисправностей службы хранилища Microsoft Azure 
+# Мониторинг, диагностика и устранение неисправностей службы хранилища Microsoft Azure 
 
 Диагностика и устранение неисправностей в распределенном приложении, размещенном в облачной среде, может представлять большую сложность в сравнении с традиционными средами. Развертывание приложений можно выполнять в инфраструктуре PaaS или IaaS, на площадке заказчика, на мобильном устройстве или в среде, в которой имеется произвольное сочетание таких устройств. Обычно сетевой трафик вашего приложения может проходить через общественные и частные сети, а ваше приложение может использовать множество технологий хранения данных, например таблицы хранения Microsoft Azure, Blob-объекты, очереди или файлы в дополнение к другим хранилищам данных, таким как реляционное и документальные базы данных.
 
@@ -917,4 +917,4 @@ Wireshark — это анализатор сетевых протоколов, 
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

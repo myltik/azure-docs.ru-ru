@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/04/2015"
+   ms.date="08/06/2015"
    ms.author="cherylmc" />
 
 # Партнеры и одноранговые расположения ExpressRoute
@@ -77,7 +77,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Поддерживаются | Не поддерживается | Сингапур |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Поддерживаются | Скоро | Амстердам, Ченнаи+, Гонконг, Лондон, Мумбаи+, Сингапур |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Поддерживаются | Не поддерживается | Мельбурн+, Сидней |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Поддерживаются | Не поддерживается | Лондон, Гонконг, Кремниевая долина, Вашингтон, округ Колумбия, Айова, США, Вирджиния, США |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Поддерживаются | Не поддерживается | Лондон, Гонконг, Кремниевая долина, Вашингтон, округ Колумбия |
 
  Знак **+** означает «скоро»
 
@@ -116,4 +116,4 @@ ExpressRoute поддерживается во всех регионах и ра
 - Если вы хотите настроить VPN-подключение «сеть — сеть» и ExpressRoute для одной и той же виртуальной сети, см. статью [Настройка подключения существующих одновременно VPN типа ExpressRoute и «сеть —-сеть»](expressroute-coexist.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

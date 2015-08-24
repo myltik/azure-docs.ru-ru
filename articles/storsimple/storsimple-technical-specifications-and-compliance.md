@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="Технические характеристики и информация о соответствии нормативным требованиям для устройства StorSimple"
-    description="Описывает технические характеристики и включает в себя информацию о соответствии нормативным стандартам для устройства StorSimple."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="alkohli"
-    manager="adinah"
-    editor="tysonn" />
+   pageTitle="Технические характеристики и информация о соответствии нормативным требованиям для устройства StorSimple | Microsoft Azure"
+   description="Описывает технические характеристики и включает в себя информацию о соответствии нормативным стандартам для устройства StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="" />
  <tags 
-    ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="06/15/2015"
-    ms.author="alkohli" />
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/12/2015"
+   ms.author="alkohli" />
 
 # Технические характеристики и информация о соответствии нормативным требованиям для устройства StorSimple
 
@@ -168,8 +168,8 @@
 
 ## Поддерживаемые сетевые кабели  
 
-Для сетевых интерфейсов 10 Гбит/с Ethernet DATA 2 и DATA 3 – это [Список поддерживаемых сетевых кабелей и модулей](https://msdn.microsoft.com/library/dn891474.aspx).
+Для сетевых интерфейсов 10 Гбит/с Ethernet DATA 2 и DATA 3 см. [список поддерживаемых сетевых кабелей и модулей](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

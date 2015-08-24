@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Использование разделов служебной шины (.NET) — Azure"
+    pageTitle="Использование разделов служебной шины (.NET) | Microsoft Azure"
     description="Узнайте, как использовать разделы и подписки служебной шины в Azure. Примеры кода написаны для приложений .NET."
     services="service-bus"
     documentationCenter=".net"
@@ -301,4 +301,4 @@
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -183,7 +183,9 @@ C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server
 	Чтобы выполнить запрос, щелкните зеленую стрелку ниже или воспользуйтесь сочетанием клавиш `CTRL`+`SHIFT`+`F5`.
 
 ## Дальнейшие действия ##
-[Load sample data.]: ./sql-data-warehouse-get-started-load-samples.md
-[Start developing code]: ./articles/sql-data-warehouse-overview-develop/
+Теперь, когда вы можете подключиться и отправить запрос, попробуйте [загрузить демонстрационные данные][] или [создать код][].
 
-<!---HONumber=August15_HO6-->
+[загрузить демонстрационные данные]: ./sql-data-warehouse-get-started-load-samples.md
+[создать код]: ./articles/sql-data-warehouse-overview-develop/
+
+<!---HONumber=August15_HO7-->

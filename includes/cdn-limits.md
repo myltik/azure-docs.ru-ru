@@ -1,7 +1,9 @@
 
-| Resource	| Soft limit 
+| Ресурс | Мягкое ограничение 
 --- | ---
-| CDN endpoints | 50
-| Custom domains per one customer| 16
+| Конечные точки сети CDN | 50
+| Личные домены на одного пользователя| 16
 
-You can request to update soft limits by opening a support ticket.
+Чтобы обновить мягкие ограничения, отправьте запрос в службу поддержки.
+
+<!---HONumber=August15_HO7-->

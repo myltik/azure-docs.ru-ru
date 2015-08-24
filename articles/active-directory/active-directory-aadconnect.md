@@ -229,6 +229,7 @@ Azure Active Directory Connect состоит из трех основных к�
 ### Дополнительная документация
 Дополнительные сведения о работе с Azure AD Connect см. в следующих статьях:
 
+- [Azure AD Connect Sync: настройка параметров синхронизации](active-directory-aadconnectsync-whatis.md) 
 - [Изменение используемой по умолчанию конфигурации Azure AD Connect](active-directory-aadconnect-whats-next-change-default-config.md)
 - [Использование редактора правил синхронизации Azure AD Connect](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [Использование декларативной подготовки](active-directory-aadconnect-whats-next-declarative-prov.md)
@@ -257,4 +258,4 @@ Azure Active Directory Connect состоит из трех основных к�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

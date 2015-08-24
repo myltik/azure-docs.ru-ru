@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с мобильными службами для универсальных приложений Windows | Центр мобильных разработок"
+	pageTitle="Приступая к работе с мобильными службами для универсальных приложений Windows | Microsoft Azure"
 	description="Следуйте указаниям этого учебника, чтобы приступить к использованию мобильных служб Azure для разработки универсального приложения Windows на C#."
 	services="mobile-services"
 	documentationCenter="windows"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="05/03/2015"
+	ms.date="08/08/2015"
 	ms.author="glenga"/>
 
 
@@ -127,4 +127,4 @@
 [Устранение неполадок серверной части в мобильных службах .NET]: mobile-services-dotnet-backend-how-to-troubleshoot.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

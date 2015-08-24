@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Управление хранилищем ключей с помощью CLI | Обзор"
+	pageTitle="Управление хранилищем ключей с помощью CLI | Microsoft Azure"
 	description="Из этого учебника вы узнаете об автоматизации основных задач в хранилище ключей с использованием CLI"
 	services="key-vault"
 	documentationCenter=""
@@ -252,4 +252,4 @@
 
 Справочные материалы по программированию см. в разделах [Справочник по REST API хранилища ключей Azure](https://msdn.microsoft.com/library/azure/dn903609.aspx) и [Справочник по API клиента C# для хранилища ключей Azure](https://msdn.microsoft.com/library/azure/dn903628.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

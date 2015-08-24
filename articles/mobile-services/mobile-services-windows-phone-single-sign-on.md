@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Проверка подлинности приложения с помощью Live Connect (Windows Phone) | Центр мобильных разработок" 
+	pageTitle="Проверка подлинности приложения с помощью Live Connect (Windows Phone) | Microsoft Azure" 
 	description="Узнайте, как использовать единый вход Live Connect в мобильных службах Azure из приложения Windows Phone." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -142,4 +142,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

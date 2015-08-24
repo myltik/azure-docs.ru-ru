@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Устранение неполадок в службах BizTalk с помощью журналов операций | Azure" 
+	pageTitle="Устранение неполадок в службах BizTalk с помощью журналов операций | Microsoft Azure" 
 	description="Устранение неполадок в службах BizTalk с помощью журналов операций. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -67,4 +67,4 @@ PurgeBackupBizTalkService | Операция удаления резервных
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

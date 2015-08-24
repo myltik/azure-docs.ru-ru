@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Отправка образов в хранилище больших двоичных объектов Azure из универсального приложения для Windows | Мобильные службы Azure" 
+	pageTitle="Отправка образов в хранилище BLOB-объектов Azure из универсального приложения для Windows | Microsoft Azure" 
 	description="Узнайте, как использовать серверную мобильную службу JavaScript для отправки образов в хранилище больших двоичных объектов Azure и доступа к ним из универсального приложения для Windows." 
 	services="mobile-services,storage" 
 	documentationCenter="windows" 
@@ -87,4 +87,4 @@
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

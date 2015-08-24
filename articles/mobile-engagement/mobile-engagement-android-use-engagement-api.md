@@ -3,8 +3,8 @@
 	description="Последний пакет Android SDK - Использование API службы Engagement в Android"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede"
+	authors="piyushjo" 
+	manager="dwrede" 
 	editor="" />
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/24/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 #Использование API службы Engagement в Android
 
@@ -298,4 +298,4 @@ API Engagement предоставляется в классе `EngagementAgent`.
 			{"expiration":"2016-12-07","status":"premium"}
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

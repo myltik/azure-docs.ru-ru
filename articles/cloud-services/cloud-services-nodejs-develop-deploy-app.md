@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Руководство по началу работы с Node.js — Учебник по Azure"
+	pageTitle="Руководство по началу работы с Node.js | Microsoft Azure"
 	description="Сведения о создании простого веб-приложения Node.js и его развертывании в облачной службе Azure."
 	services="cloud-services"
 	documentationCenter="nodejs"
@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="06/01/2015"
 	ms.author="mwasson"/>
 
@@ -192,4 +192,4 @@
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

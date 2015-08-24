@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование службы контроля доступа (Java) — руководство по компонентам Azure" 
+	pageTitle="Использование контроля доступа (.NET) | Microsoft Azure" 
 	description="Сведения об использовании службы Access Control (ACS) в приложении Azure для проверки подлинности пользователей, пытающихся получить доступ к веб-приложению." 
 	services="active-directory" 
 	documentationCenter=".net" 
@@ -402,4 +402,4 @@ Azure создает и активирует пространство имен.
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

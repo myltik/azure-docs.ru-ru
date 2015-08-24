@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="08/12/2015" 
 	ms.author="patshea"/>
 
 # Что произошло с моим проектом?
@@ -22,13 +22,11 @@
 > - [Getting Started](vs-mobile-services-cordova-getting-started.md)
 > - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
-###Что произошло с моим проектом?
-
-#####Добавленные ссылки
+##Добавленные ссылки
 
 Включен подключаемый модуль клиента мобильной службы Azure, содержащий все гибридные приложения для множественных устройств.
   
-#####Значения строк подключения для мобильных служб
+##Значения строк подключения для мобильных служб
 
 В папке `services\mobileServices\settings` создан новый файл JavaScript (JS) с объектом **MobileServiceClient**, содержащий URL-адрес и ключ приложения выбранной мобильной службы. Файл содержит код инициализации объекта клиента мобильной службы, похожий на следующий:
 
@@ -41,4 +39,4 @@
 
 [Дополнительные сведения о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

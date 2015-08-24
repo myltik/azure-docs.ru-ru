@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Использование очередей служебной шины (Java) — Azure"
+	pageTitle="Использование очередей служебной шины (Java) | Microsoft Azure"
 	description="Узнайте, как использовать очереди служебной шины в Azure. Примеры кода написаны на Java."
 	services="service-bus"
 	documentationCenter="java"
@@ -190,4 +190,4 @@
   [Очереди, разделы и подписки]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

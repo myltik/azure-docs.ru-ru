@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Шаблон разработки надежных субъектов: управление ресурсами"
-   description="Шаблон разработки, показывающий, как можно использовать надежные субъекты для моделирования приложения, которое требуется масштабировать с использованием ограниченных ресурсов"
+   pageTitle="Шаблон разработки субъектов Azure Service Fabric «Управление ресурсами»"
+   description="Шаблон разработки, показывающий, как можно использовать субъекты Service Fabric для моделирования приложения, которое требуется масштабировать с использованием ограниченных ресурсов"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # Шаблон разработки надежных субъектов: управление ресурсами
@@ -417,4 +417,4 @@ public class EventWriter : Actor<EventWriterState>, IEventWriter
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

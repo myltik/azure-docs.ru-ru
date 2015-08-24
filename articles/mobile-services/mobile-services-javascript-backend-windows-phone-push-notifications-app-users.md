@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Отправка push-уведомлений пользователям, прошедшим проверку подлинности в приложении Windows Phone Silverlight | Мобильные службы Azure" 
+	pageTitle="Отправка push-уведомлений пользователям, прошедшим проверку подлинности в приложении Windows Phone Silverlight | Microsoft Azure" 
 	description="Узнайте, как отправлять push-уведомления из мобильных служб Azure определенным пользователям приложения Windows Phone Silverlight." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -95,4 +95,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

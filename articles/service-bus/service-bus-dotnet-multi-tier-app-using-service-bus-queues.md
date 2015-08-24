@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Учебник по Azure «Многоуровневое приложение .NET»"
+	pageTitle="Многоуровневое приложение .NET | Microsoft Azure"
 	description="Учебник, посвященный разработке многоуровневого приложения в Azure, которое использует очереди Service Bus для взаимодействия между уровнями. Примеры на .NET."
 	services="service-bus"
 	documentationCenter=".net"
@@ -539,4 +539,4 @@
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

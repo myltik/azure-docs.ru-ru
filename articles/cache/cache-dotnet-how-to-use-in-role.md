@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование кэша роли (.NET) – руководство по компонентам Azure" 
+	pageTitle="Использование кэша роли (.NET) | Microsoft Azure" 
 	description="Сведения об использовании кэша роли Azure. Примеры написаны на языке C# и используют интерфейс .NET API." 
 	services="cache" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="08/11/2015" 
 	ms.author="sdanie"/>
 
 
@@ -411,4 +411,4 @@
 [Какой кэш Azure подходит мне лучше всего?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

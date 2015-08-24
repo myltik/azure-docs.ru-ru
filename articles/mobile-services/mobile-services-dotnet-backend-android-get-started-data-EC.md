@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Начало работы с данными (Android) | Центр мобильных разработок" 
+	pageTitle="Начало работы с данными (Android) | Microsoft Azure" 
 	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении Android." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="08/08/2015" 
 	ms.author="ricksal"/>
 
 # Добавление мобильных служб к существующему приложению
@@ -134,4 +134,4 @@
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

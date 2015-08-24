@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Как использовать службу электронной почты SendGrid (Java) — Azure" 
+	pageTitle="Использование службы электронной почты SendGrid (Java) | Microsoft Azure" 
 	description="Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры кода написаны на Java." 
 	services="" 
 	documentationCenter="java" 
@@ -56,6 +56,7 @@ SendGrid — это [облачная служба электронной поч
 
 1.  Укажите значения SMTP, включая SMTP-сервер, для которого SendGrid имеет значение smtp.sendgrid.net.
     
+```
         import java.util.Properties;
         import javax.activation.*;
         import javax.mail.*;
@@ -78,8 +79,9 @@ SendGrid — это [облачная служба электронной поч
            	  properties.put("mail.smtp.port", 587);
            	  properties.put("mail.smtp.auth", "true");
            	  // …
+```
 
-2.  Расширьте класс <span class="auto-style1">javax.mail.Authenticator</span>, а затем в реализации метода <span class="auto-style1">getPasswordAuthentication</span> возвратите имя пользователя и пароль SendGrid.
+2.  Расширьте класс *javax.mail.Authenticator*, а затем в реализации метода *getPasswordAuthentication* возвратите имя пользователя и пароль SendGrid.  
 
         private class SMTPAuthenticator extends javax.mail.Authenticator {
         public PasswordAuthentication getPasswordAuthentication() {
@@ -88,13 +90,13 @@ SendGrid — это [облачная служба электронной поч
            return new PasswordAuthentication(username, password);
         }
 
-3.  Создайте сеанс проверки электронной почты с помощью объекта <span class="auto-style1">javax.mail.Session</span>.
+3.  Создайте сеанс электронной почты, прошедший проверку подлинности, с помощью объекта *javax.mail.Session*.
 
         Authenticator auth = new SMTPAuthenticator();
         Session mailSession = Session.getDefaultInstance(properties, auth);
 
 4.  Создайте сообщение и назначьте значения **Кому**, **От**, **Тема** и содержимое. Это показано в разделе [Практическое руководство. Создание сообщения электронной почты](#bkmk_HowToCreateEmail).
-5.  Отправьте сообщение через объект <span class="auto-style1">javax.mail.Transport</span>. Это показано в разделе [Практическое руководство. Отправка сообщения электронной почты][How to: Send an Email].
+5.  Отправьте сообщение через объект *javax.mail.Transport*. Это показано в разделе [Практическое руководство. Отправка сообщения электронной почты][How to: Send an Email].
 
 ## <a name="bkmk_HowToCreateEmail"> </a>Практическое руководство. Создание сообщения электронной почты
 
@@ -228,4 +230,4 @@ SendGrid поддерживает различные веб-интерфейсы
   [облачная служба электронной почты]: https://sendgrid.com/email-solutions
   [доставки электронной почты]: https://sendgrid.com/transactional-email
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

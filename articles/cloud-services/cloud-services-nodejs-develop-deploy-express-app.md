@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Веб-приложения с помощью Express (Node.js) — учебник Azure" 
+	pageTitle="Веб-приложение с Express (Node.js) | Microsoft Azure" 
 	description="Этот учебник основывается на учебнике по облачным службам и демонстрирует использование модуля Express." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -135,4 +135,4 @@ Node.js включает минимальный набор функционал�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

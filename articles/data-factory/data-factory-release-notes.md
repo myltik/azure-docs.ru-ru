@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Фабрика данных – заметки о выпуске | Azure" 
+	pageTitle="Фабрика данных – заметки о выпуске | Microsoft Azure" 
 	description="Заметки о выпуске фабрики данных" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -284,7 +284,7 @@
 	-  [Свойства OnPremisesOracleTableLocation в таблице JSON](https://msdn.microsoft.com/library/dn894089.aspx#Oracle). 
 	-  [Поддерживаемые источники и приемники](https://msdn.microsoft.com/library/dn894007.aspx). См. обновленную таблицу копирования и свойства **OracleSource**.
 -  Добавлена возможность выбора кодировки для текстовых файлов в большом двоичном объекте Azure. См. сведения о новом [свойстве encodingName](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob). 
-- При копировании в приемник SQL можно вызвать хранимую процедуру с дополнительными параметрами. Подробные сведения см. в разделе [Вызов хранимой процедуры для приемника SQL][adf-copy-advanced].   
+- При копировании в приемник SQL можно вызвать хранимую процедуру с дополнительными параметрами.    
 
 Дополнительные сведения с примерами см. в сообщении блога [Обновление фабрики данных Azure: новые хранилища данных](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/).
 
@@ -299,7 +299,7 @@
 
 ### изменения
 - Обновленный пакет установки **шлюза управления данными** добавлен в [центр загрузки Майкрософт][adf-gateway-download]. Начиная с этого выпуска, новые версии шлюза управления данными для использования с фабрикой данных Azure можно будет скачивать с данного веб-сайта. Пакет установки подходит как для фабрики данных Azure, так и для Power BI для служб Office 365. Если вы используете обе службы, обратите внимание, что шлюзы для фабрики данных и Power BI должны быть установлены на разных компьютерах и настроены по-разному (см. руководство по работе с фабрикой данных и документацию по Power BI).
-- **Действие копирования** теперь поддерживает копирование данных между локальной базой данных SQL Server и базой данных SQL Azure. Подробности см. в разделе [Действие копирования][adf-copy-activity], а примеры JSON — на сайте [GitHub][adf-github-samples].
+- **Действие копирования** теперь поддерживает копирование данных между локальной базой данных SQL Server и базой данных SQL Azure. 
 - **SqlSink** поддерживает новое свойство **WriteBatchTimeout**. Это свойство позволяет указывать время ожидания для операции пакетной вставки. Чтобы использовать это свойство для операции гибридного копирования (которая задействует локальный и облачный источники данных), необходима версия шлюза не ниже 1.4. 
 - Для **связанной службы SQL Server** добавлена поддержка **проверки подлинности Windows**. 
 	- Теперь при создании связанной службы SQL Server на портале вы можете выбрать проверку подлинности Windows и использовать соответствующие учетные данные. Для этого необходима версия шлюза не ниже 1.4. 
@@ -339,9 +339,7 @@
 
 [adf-azure-ml]: data-factory-create-predictive-pipelines.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
-[adf-copy-activity]: data-factory-copy-activity.md
 [adf-editor]: data-factory-editor.md
-[adf-copy-advanced]: data-factory-copy-activity-advanced.md
 
 [adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
 [adf-editor-blog]: http://azure.microsoft.com/blog/2015/03/02/azure-data-factory-editor-a-light-weight-web-editor/
@@ -355,4 +353,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

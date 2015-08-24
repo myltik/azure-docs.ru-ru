@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование автономных данных в мобильных службах (Xamarin iOS) | Центр мобильных разработок" 
+	pageTitle="Использование автономных данных в мобильных службах (Xamarin для iOS) | Microsoft Azure" 
 	description="Узнайте, как использовать мобильные службы Azure для кэширования и синхронизации автономных данных в приложении на Xamarin для iOS" 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
@@ -183,4 +183,4 @@
 [расширением Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

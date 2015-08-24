@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Создание службы, использующей нереляционное хранилище данных | Мобильные службы Azure" 
+	pageTitle="Построение службы, использующей нереляционное хранилище данных | Microsoft Azure" 
 	description="Узнайте, как использовать хранилище нереляционных данных, например MongoDB или табличное хранилище Azure, с мобильной службой на основе .NET" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="08/08/2015" 
 	ms.author="mahender"/>
 
 # Построение серверной мобильной службы .NET, использующей MongoDB вместо Базы данных SQL
@@ -121,4 +121,4 @@
 [странице надстройки MongoLab]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

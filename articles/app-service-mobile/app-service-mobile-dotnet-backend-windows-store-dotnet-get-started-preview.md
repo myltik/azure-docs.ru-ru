@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с серверной частью мобильных приложений для приложений из Магазина Windows | Центр разработчиков для мобильных устройств"
+	pageTitle="Начало работы с серверной частью мобильных приложений для разработки приложений из Магазина Windows | Microsoft Azure"
 	description="Следуйте указаниям этой статьи, чтобы начать работу с серверной частью мобильных приложений Azure для разработки приложений Магазина Windows на C#, VB или JavaScript."
 	services="app-service\mobile"
 	documentationCenter="windows"
@@ -88,4 +88,4 @@
 [Azure Portal]: https://portal.azure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

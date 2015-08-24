@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Как использовать службу электронной почты SendGrid (Node.js) — Azure" 
+	pageTitle="Использование службы электронной почты SendGrid (Node.js) | Microsoft Azure" 
 	description="Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры написаны с использованием API Node.js." 
 	services="" 
 	documentationCenter="nodejs" 
@@ -224,4 +224,4 @@ SendGrid поддерживает различные веб-интерфейсы
   [облачная служба электронной почты]: https://sendgrid.com/email-solutions
   [доставки электронной почты]: https://sendgrid.com/transactional-email
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

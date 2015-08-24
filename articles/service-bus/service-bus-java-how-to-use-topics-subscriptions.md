@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Как использовать разделы служебной шины (Java) — Azure"
+	pageTitle="Использование разделов служебной шины (Java) | Microsoft Azure"
 	description="Узнайте, как использовать разделы и подписки служебной шины в Azure. Примеры кода написаны для приложений Java."
 	services="service-bus"
 	documentationCenter="java"
@@ -248,4 +248,4 @@
   [Очереди, разделы и подписки служебной шины]: http://msdn.microsoft.com/library/hh367516.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

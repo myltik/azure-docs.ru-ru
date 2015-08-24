@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Учебный план по фабрике данных Azure | Azure"
+	pageTitle="Учебный план по фабрике данных Azure | Microsoft Azure"
 	description="Получите наглядную карту доступных ресурсов, которые обеспечат быстрый старт в работе с фабрикой данных Azure."
 	services="data-factory"
 	documentationCenter=""
@@ -24,4 +24,4 @@
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/adf-learning-map.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

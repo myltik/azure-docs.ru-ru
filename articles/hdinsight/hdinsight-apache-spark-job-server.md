@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Сервер заданий Apache Spark в HDInsight | Azure" 
+	pageTitle="Сервер заданий Apache Spark в HDInsight | Microsoft Azure" 
 	description="Узнайте о том, как использовать сервер заданий Spark для удаленной отправки заданий в кластер Spark и управления ими." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -81,4 +81,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

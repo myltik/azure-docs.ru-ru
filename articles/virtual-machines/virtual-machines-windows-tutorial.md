@@ -12,7 +12,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="07/13/2015"
 	ms.author="kathydav"/>
 
@@ -99,6 +99,6 @@
 ## Дальнейшие действия
 
 * Использование Azure PowerShell и Azure CLI для [поиска и выбора образов виртуальных машин](resource-groups-vm-searching.md).
-* Автоматизация развертывания виртуальных машин и рабочей нагрузки и управления ими с помощью[диспетчера ресурсов Azure](virtual-machines-how-to-automate-azure-resource-manager.md) и [шаблонов диспетчера ресурсов Azure](http://azure.microsoft.com/documentation/templates/).
+* Автоматизация развертывания виртуальных машин и рабочей нагрузки и управления ими с помощью[диспетчера ресурсов Azure](virtual-machines-how-to-automate-azure-resource-manager.md) и [шаблонов диспетчера ресурсов Azure](http://azure.microsoft.com/ru-ru/documentation/templates/).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

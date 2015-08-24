@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование SQL Azure Database (Java) – руководство по компонентам Azure" 
+	pageTitle="Использование SQL Azure (Java) | Microsoft Azure" 
 	description="Узнайте, как использовать базу данных SQL Azure из кода Java." 
 	services="sql-database" 
 	documentationCenter="java" 
@@ -726,4 +726,4 @@
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Служба архивации Azure: восстановление виртуальной машины"
+	pageTitle="Служба архивации Azure: восстановление виртуальной машины | Microsoft Azure"
 	description="Сведения о восстановлении виртуальной машины Azure"
 	services="backup"
 	documentationCenter=""
@@ -8,7 +8,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="trinadhk"; "jimpark"/>
 
 # Восстановление виртуальной машины
 С помощью операции восстановления можно восстановить виртуальную машину в новую ВМ из резервных копий, хранящихся в службе архивации Azure.
@@ -93,6 +93,6 @@
 | Восстановление | Сбой восстановления из-за внутренней ошибки облака | <ol><li>В облачной службе, в которую вы пытаетесь выполнить восстановление, настроены параметры DNS. Проверьте параметр <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Если настроен адрес, это означает, что настроены параметры DNS.<br> <li>В облачной службе, в которую вы пытаетесь выполнить восстановление, настроен параметр ReservedIP, а существующие в ней виртуальные машины находятся в остановленном состоянии.<br>Проверьте, есть ли в облачной службе зарезервированный IP-адрес, используя следующие командлеты PowerShell:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
 
 ## Дальнейшие действия
-- [Управление виртуальными машинами](backup-azure-manage-vms)
+- [Управление виртуальными машинами](backup-azure-manage-vms.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

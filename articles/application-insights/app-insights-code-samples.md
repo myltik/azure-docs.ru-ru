@@ -21,6 +21,10 @@
 
 Здесь собраны примеры кода, которые показывают, как использовать [Visual Studio Application Insights](app-insights-get-started.md).
 
+## Лабораторные работы с пакетом SDK
+
+[Лабораторные работы с SDK](https://www.myget.org/gallery/applicationinsights-sdk-labs) — это коллекция экспериментальных пакетов NuGet, которые можно устанавливать и удалять в качестве дополнений к пакету SDK Application Insights. Попробуйте и напишите свои отзывы!
+
 ## Веб-службы
 
 * [Добавление телеметрии в веб- и рабочие роли Azure](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService)
@@ -49,4 +53,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

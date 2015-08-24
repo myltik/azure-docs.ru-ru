@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Управление доступностью виртуальных машин — Azure"
+	pageTitle="Управление доступностью виртуальных машин | Microsoft Azure"
 	description="Описывается, как использовать несколько виртуальных машин для обеспечения высокой доступности приложения Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -69,4 +69,4 @@
 [Избежание наличия одиночных экземпляров виртуальных машин в группах доступности]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Настройка группы доступности для виртуальных машин]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

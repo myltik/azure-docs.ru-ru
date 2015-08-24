@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Создание и восстановление резервной копии в службах BizTalk | Azure" 
+	pageTitle="Создание и восстановление резервной копии в службах BizTalk | Microsoft Azure" 
 	description="Службы BizTalk включают в себя архивацию и восстановление. Сведения о создании и восстановлении резервной копии и о том, как определить, что будет заархивировано. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -233,4 +233,4 @@
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Как использовать очереди служебной шины (.NET): Azure"
+    pageTitle="Использование очередей служебной шины (.NET) | Microsoft Azure"
     description="Узнайте, как использовать очереди служебной шины в Azure. Примеры кода написаны на C# с использованием API .NET."
     services="service-bus"
     documentationCenter=".net"
@@ -245,4 +245,4 @@
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

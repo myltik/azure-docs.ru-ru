@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="08/11/2015" 
 	ms.author="sdanie"/>
 
 # Примеры кэша Redis для Azure 
@@ -37,10 +37,6 @@
 -	использовать наборы Redis для реализации тегов.
 
 Дополнительные сведения см. в документации [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) на сайте github. Дополнительные сценарии использования см. в модульных тестах [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests).
-
-Раздел [Использование кэша Redis для Azure с Node.js](cache-nodejs-get-started.md) показывает, как приступить к работе с кэшем Redis для Azure с помощью Node.js и клиента [node\_redis](https://github.com/mranney/node_redis).
-
-Раздел [Использование кэша Redis для Azure с Java](cache-java-get-started.md) показывает, как приступить к работе с кэшем Redis для Azure с помощью Java и клиента [Jedis](https://github.com/xetorthio/jedis).
 
 Раздел [Использование кэша Redis для Azure с Python](cache-python-get-started.md) показывает, как приступить к работе с кэшем Redis для Azure с помощью Python и клиента [redis-py](https://github.com/andymccurdy/redis-py).
 
@@ -79,4 +75,4 @@
 
 Пример [Монитор пропускной способности](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) позволяет наблюдать за пропускной способностью, используемой на клиентском компьютере. Чтобы измерить пропускную способность, запустите пример на клиентском компьютере кэша, выполните вызовы кэша и отследите пропускную способность, передаваемую примером монитора пропускной способности.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

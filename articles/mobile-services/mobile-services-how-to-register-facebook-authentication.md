@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Регистрация для проверки подлинности Facebook — мобильные службы" 
+	pageTitle="Регистрация для проверки подлинности Facebook | Microsoft Azure" 
 	description="Сведения об использовании проверки подлинности в Facebook в приложении мобильных служб Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -73,4 +73,4 @@
 [мобильных службах Azure]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Шаблон мультитенантного веб-приложения в архитектуре Windows Azure"
+	pageTitle="Шаблон мультитенантного веб-приложения | Microsoft Azure"
 	description="Найдите обзоры архитектуры и шаблоны разработки, описывающие, как реализовать мультитенантное веб-приложение в Azure."
 	services=""
 	documentationCenter=".net"
@@ -95,4 +95,4 @@ Azure предоставляет ряд способов подготовки н
 [Размещение мультитенантного приложения в Azure]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

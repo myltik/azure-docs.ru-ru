@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Как использовать базу данных SQL(.NET) — руководство по компонентам Azure" 
+	pageTitle="Использование Базы данных SQL (.NET) | Microsoft Azure" 
 	description="Приступая к работе с Базой данных SQL. Узнайте, как создать экземпляр Базы данных SQL и подключиться к нему с помощью поставщика ADO.NET, ODBC и EntityClient." 
 	services="sql-database" 
 	documentationCenter=".net" 
@@ -211,4 +211,4 @@
 Ознакомившись с основами подключения к базе данных SQL, просмотрите раздел [Разработка в базе данных SQL Azure: инструкции](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

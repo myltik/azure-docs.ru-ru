@@ -1,81 +1,76 @@
-<properties 
-	pageTitle="Памятка по алгоритмам Машинного обучения Microsoft Azure | Microsoft Azure" 
+<properties
+	pageTitle="Памятка по алгоритмам Машинного обучения Microsoft Azure | Microsoft Azure"
 	description="Памятка по алгоритмам Машинного обучения Microsoft Azure для печати поможет выбрать в Студии машинного обучения Azure правильный алгоритм для модели прогнозирования."
 	services="machine-learning"
-	documentationCenter="" 
-	authors="brohrer" 
-	manager="paulettm" 
+	documentationCenter=""
+	authors="brohrer"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/18/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="brohrer;garye" />
 
 
 # Памятка по алгоритмам машинного обучения для Студии машинного обучения Microsoft Azure
 
-**Памятка по алгоритмам машинного обучения для Студии машинного обучения Microsoft Azure** поможет выбрать правильный алгоритм из библиотеки алгоритмов машинного обучения Microsoft Azure для решений прогнозной аналитики. В памятке содержатся вопросы о характере данных и проблеме, над решением которой вы работаете, а также варианты алгоритмов, которые вы можете использовать.
+**Памятка по алгоритмам машинного обучения для Студии машинного обучения Microsoft Azure** поможет выбрать правильный алгоритм из библиотеки алгоритмов машинного обучения Microsoft Azure для решений прогнозной аналитики.
 
 [Студия машинного обучения Azure](https://studio.azureml.net/) содержит множество алгоритмов машинного обучения, которые можно использовать для решений прогнозной аналитики. Эти алгоритмы делятся на общие категории машинного обучения — ***регрессию***, ***классификацию***, ***кластеризацию*** и ***обнаружение аномалий***, каждая из которых предназначена для решения отдельного типа проблем машинного обучения.
 
-
+> [AZURE.NOTE]Подробное руководство по использованию этой памятки см. в статье [Выбор алгоритмов машинного обучения Microsoft Azure](machine-learning-algorithm-choice.md).
 
 ## Загрузка памятки по алгоритмам машинного обучения
 
 Загрузите памятку по алгоритмам машинного обучения, которая поможет выбрать алгоритм машинного обучения для вашего решения. Чтобы держать памятку под рукой, напечатайте ее в формате 11 x 17 дюймов (27,94 x 43,18 см).
 
-**Скачайте памятку здесь: [Памятка по алгоритмам Машинного обучения Microsoft Azure](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v2.pdf)**.
+**Скачайте памятку здесь: [Памятка по алгоритмам Машинного обучения Microsoft Azure](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)**.
 
 ![Памятка по алгоритмам машинного обучения: как выбрать алгоритм машинного обучения?][cheat-sheet]
 
-[cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-microsoft-azure.png
+[cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/cheat-sheet-small_v_0_6-01.png
 
 
+## Дополнительная помощь с алгоритмами
 
-<!-- This is now covered in the first footnote below
-[Azure Machine Learning Studio](https://studio.azureml.net/) gives you the flexibility to experiment - 
-try one algorithm, and if you're not satisfied with the results, try another.
-Here's an example from the [Azure Machine Learning Gallery](http://gallery.azureml.net) of an experiment that tries several algorithms against the same data and compares the results:
-[Compare Multi-class Classifiers: Letter recognition](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
--->
-
-## Дополнительная помощь с алгоритмами 
-
-* Более подробное описание различных типов алгоритмов машинного обучения и того, как они используются, см. в статье [Как выбрать алгоритм в Машинном обучении Azure](machine-learning-algorithm-choice.md).
+* Более глубокое обсуждение различных типов алгоритмов машинного обучения, их использования и выбора правильного алгоритма с использованием этой памятки см. в статье [Выбор алгоритмов машинного обучения Microsoft Azure](machine-learning-algorithm-choice.md).
 * Список всех категорий алгоритмов, доступных в Студии машинного обучения, см. в разделе [Инициализация модели][initialize-model] в справке по алгоритмам и модулям Студии машинного обучения.
-* Полный список всех алгоритмов и модулей машинного обучения, доступных в Студии машинного обучения, см. в разделе [Полный список модулей Студии машинного обучения](https://msdn.microsoft.com/library/azure/dn906033.aspx) в справке по алгоритмам и модулям Студии машинного обучения.
+* Полный список всех алгоритмов и модулей машинного обучения, доступных в Студии машинного обучения, см. в разделе [Полный список модулей Студии машинного обучения][a-z-list] в справке по алгоритмам и модулям Студии машинного обучения.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Заметки и определения терминов для машинного обучения алгоритма: памятка
+<!-- This needs to be updated based on the new Choosing and Algorithm article
 
-* Рекомендации, предлагаемые в этой памятке алгоритмов, представляют собой общие правила. Некоторые можно приспособить к конкретной ситуации, а некоторые можно грубо нарушать. Они представлены в качестве отправной точки. Не бойтесь использовать несколько алгоритмов одновременно при обработке данных. Вам просто нужно понять принцип действия каждого алгоритма, а также систему, создавшую данные. 
+## Notes and terminology definitions for the machine learning algorithm cheat sheet
 
-* Каждому алгоритму машинного обучения присущ собственный стиль *индуктивного смещения*. Для решения конкретной проблемы могут подходить несколько алгоритмов, но один из них может подходить лучше других. Однако не всегда возможно узнать это заранее. В подобных случаях в памятке указано сразу несколько алгоритмов. Лучше всего будет использовать один алгоритм, и если результаты неудовлетворительные, применить другие алгоритмы. Ниже приведен пример эксперимента из [коллекции Машинного обучения Azure](http://gallery.azureml.net/), в котором используются несколько алгоритмов для одних и тех же данных, а затем сравниваются результаты: [Сравнение многоклассовых классификаторов. Распознавание букв](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
+* The suggestions offered in this algorithm cheat sheet are approximate rules-of-thumb. Some can be bent, and some can be flagrantly violated. This is intended to suggest a starting point. Don’t be afraid run a head-to-head competition between several algorithms on your data. There is simply no substitute for understanding the principles of each algorithm and understanding the system that generated your data.
 
-* Существуют три основные категории машинного обучения: **контролируемое обучение**, **неконтролируемое обучение** и **обучение с подкреплением**.
+* Every machine learning algorithm has its own style or *inductive bias*. For a specific problem, several algorithms may be appropriate and one algorithm may be a better fit than others. But knowing which will be the best fit beforehand is not always possible. In cases like these, several algorithms are listed together in the cheat sheet. An appropriate strategy would be to try one algorithm, and if the results are not yet satisfactory, try the others. Here’s an example from the [Azure Machine Learning Gallery](http://gallery.azureml.net/) of an experiment that tries several algorithms against the same data and compares the results: [Compare Multi-class Classifiers: Letter recognition](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
 
-  * В **контролируемом обучении** каждая точка данных помечается или привязывается к интересующей категории или значению. Пример категориальной метки — назначение изображению значения cat или dog. Пример метки значения — цена продажи, связанная с подержанным автомобилем. Цель контролируемого обучения заключается в изучении множества помеченных таким образом примеров, а затем в возможности прогнозирования будущих точек данных, например, чтобы правильно определить животных для новых фотографий или назначить точные цены продажи для других подержанных автомобилей. Это популярный и полезный тип машинного обучения. Все модули в Машинном обучении Azure являются алгоритмами контролируемого обучения, кроме [кластеризации К-средних][k-means-clustering].
+* There are three main categories of machine learning: **supervised learning**, **unsupervised learning**, and **reinforcement learning**.
 
-  * В **неконтролируемом обучении** точкам данных не присваиваются метки. Вместо этого цель алгоритма неконтролируемого обучения — определенное упорядочивание данных или описание их структуры. Это может означать группировку данных в кластеры, как при кластеризации К-средних, или поиск различных способов анализа сложных данных для их упрощения.
+  * In **supervised learning**, each data point is labeled or associated with a category or value of interest.  An example of a categorical label is assigning an image as either a ‘cat’ or a ‘dog’.  An example of a value label is the sale price associated with a used car. The goal of supervised learning is to study many labeled examples like these, and then to be able to make predictions about future data points - for example, to identify new photos with the correct animal or to assign accurate sale prices to other used cars. This is a popular and useful type of machine learning. All of the modules in Azure Machine Learning are supervised learning algorithms except for [K-Means Clustering][k-means-clustering].
 
-  * В **обучении с подкреплением** алгоритм выбирает действие в ответ на каждую точку данных. Это наиболее распространенный подход в робототехнике, где набор показаний датчиков в один момент времени представляет собой точку данных, а алгоритму необходимо выбрать следующее действие робота. Кроме того, он естественным образом подходит для приложений из Интернета вещей. Алгоритм обучения также вскоре получает сигнал, оповещающий об успехе, который дает понять, насколько удачно было принято решение. На основе этого алгоритм изменяет свою стратегию для достижения лучшего результата. Сейчас в Машинном обучении Azure модули алгоритмов обучения с подкреплением отсутствуют.
+  * In **unsupervised learning**, data points have no labels associated with them. Instead, the goal of an unsupervised learning algorithm is to organize the data in some way or to describe its structure. This can mean grouping it into clusters, as K-means does, or finding different ways of looking at complex data so that it appears simpler.
 
-* В **байесовских методах** делаются предположения о статистически независимых точках данных. Это означает, что несмоделированная изменчивость в одной точке данных не коррелирует с другими точками данных, то есть ее нельзя предсказать. Например, если записываемые данные представляют собой число минут до прибытия следующего поезда в метро, два измерения, полученные с разницей в один день, статистически независимые. Но два измерения, полученные с разницей в минуту, не независимы статистически, так как по одному значению можно с высокой долей вероятности спрогнозировать другое значение.
+  * In **reinforcement learning**, the algorithm gets to choose an action in response to each data point. It is a common approach in robotics, where the set of sensor readings at one point in time is a data point, and the algorithm must choose the robot’s next action. It's also a natural fit for Internet of Things applications. The learning algorithm also receives a reward signal a short time later, indicating how good the decision was. Based on this, the algorithm modifies its strategy in order to achieve the highest reward. Currently there are no reinforcement learning algorithm modules in Azure ML.
 
-* **Регрессия увеличивающегося дерева принятия решений** использует преимущества перекрытия компонентов или взаимодействия между ними. Это означает, что в любой заданной точке данных по значению одного компонента можно в некоторой степени спрогнозировать значение другого. Например, при анализе ежедневных данных по высокой и низкой температуре, зная низкую температуру за день, можно сделать правдоподобное предположение относительно высокой температуры. Информация, содержащаяся в двух компонентах, отчасти избыточна.
+* **Bayesian methods** make the assumption of statistically independent data points. This means that the unmodeled variability in one data point is uncorrelated with others, that is, it can’t be predicted. For example, if the data being recorded is the number of minutes until the next subway train arrives, two measurements taken a day apart are statistically independent. However, two measurements taken a minute apart are not statistically independent - the value of one is highly predictive of the value of the other.
 
-* Классифицировать данные на несколько категорий можно с помощью изначально многоклассового классификатора или объединив набор двухклассовых классификаторов в **множество**. При использовании множества для каждого класса есть отдельный двухклассовый классификатор, который разделяет данные на две категории — «этот класс» и «другой класс». Затем эти классификаторы выбирают правильное назначение для точки данных. Это рабочий принцип, лежащий в основе [многоклассовой классификации «один-все»][one-vs-all-multiclass].
+* **Boosted decision tree regression** takes advantage of feature overlap or interaction among features. That means that, in any given data point, the value of one feature is somewhat predictive of the value of another. For example, in daily high/low temperature data, knowing the low temperature for the day allows you to make a reasonable guess at the high. The information contained in the two features is somewhat redundant.
 
-* В некоторых методах, включая логистическую регрессию и байесовскую точечную машину, предполагаются **границы линейного класса**, то есть то, что границы между классами предположительно являются прямыми линиями (или гиперплоскостями в более общем случае). Зачастую это характеристика данных, неизвестная до того момента, пока вы не попытались выделить ее, но обычно ее можно заранее узнать с помощью визуализации. Если границы класса выглядят очень нерегулярными, воспользуйтесь деревьями принятия решений, джунглями принятия решений, методом опорных векторов или нейронными сетями.
+* Classifying data into more than two categories can be done by either using an inherently multi-class classifier, or by combining a set of two-class classifiers into an **ensemble**. In the ensemble approach, there is a separate two-class classifier for each class - each one separates the data into two categories:  “this class” and “not this class.” Then these classifiers vote on the correct assignment of the data point. This is the operational principle behind [One-vs-All Multiclass][one-vs-all-multiclass].
 
-* Нейронные сети можно использовать с категориальными переменными, создав **вспомогательную переменную** для каждой категории и задавая для нее значение 1 в случаях, где категория применяется, и 0, когда она не применяется.
+* Several methods, including logistic regression and the Bayes point machine, assume **linear class boundaries**, that is, that the boundaries between classes are approximately straight lines (or hyperplanes in the more general case). Often this is a characteristic of the data that you don’t know until after you’ve tried to separate it, but it’s something that typically can be learned by visualizing beforehand. If the class boundaries look very irregular, stick with decision trees, decision jungles, support vector machines, or neural networks.
 
+* Neural networks can be used with categorical variables by creating a **dummy variable** for each category and setting it to 1 in cases where the category applies, 0 where it doesn’t.
+
+-->
 
 <!-- This is how you can add a link to the image in HTML. Don't know how to do this in markdown.
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
@@ -84,9 +79,9 @@ Here's an example from the [Azure Machine Learning Gallery](http://gallery.azure
 -->
 
 <!-- Module References -->
+[a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
 [initialize-model]: https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

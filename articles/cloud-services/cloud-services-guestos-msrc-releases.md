@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Список обновлений для гостевой ОС Azure | Azure" 
+   pageTitle="Список обновлений для гостевой ОС Azure | Microsoft Azure" 
    description="Список обновлений для выпусков гостевой ОС" 
    services="cloud-services" 
    documentationCenter="na" 
@@ -239,4 +239,4 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

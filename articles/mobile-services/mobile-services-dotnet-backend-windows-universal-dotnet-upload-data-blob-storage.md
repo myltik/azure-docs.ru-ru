@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Отправка образов в хранилище больших двоичных объектов Azure из универсального приложения для Windows | Мобильные службы Azure" 
+	pageTitle="Отправка образов в хранилище BLOB-объектов Azure из универсального приложения для Windows | Microsoft Azure" 
 	description="Узнайте, как использовать серверную мобильную службу .NET для отправки образов в хранилище больших двоичных объектов Azure и доступа к ним из универсального приложения для Windows. приложения Windows." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -71,4 +71,4 @@
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="08/06/2015"
    ms.author="lauracr"/>
 
 # Подключение к Operational Insights из System Center Operations Manager
@@ -46,4 +46,4 @@
 
 [Настройка параметров прокси-сервера и брандмауэра (необязательно)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

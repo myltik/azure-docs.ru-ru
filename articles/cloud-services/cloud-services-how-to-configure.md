@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Настройка облачной службы — Azure" 
+	pageTitle="Настройка облачной службы | Microsoft Azure" 
 	description="Узнайте, как настроить облачные службы в Azure. Как обновить конфигурацию облачной службы и настроить удаленный доступ к экземплярам роли." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -144,4 +144,4 @@
 			
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Непрерывная доставка с использованием Visual Studio Online в Azure" 
-	description="В данном разделе приводится информация о том, как настроить командные проекты Visual Studio Online для автоматического создания и развертывания веб-приложений или облачных служб Azure." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="kempb" 
-	manager="douge" 
+<properties
+	pageTitle="Непрерывная доставка с использованием Visual Studio Online в Azure"
+	description="В данном разделе приводится информация о том, как настроить командные проекты Visual Studio Online для автоматического создания и развертывания веб-приложений или облачных служб Azure."
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="kempb"
+	manager="douge"
 	editor="tglee"/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/08/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/07/2015" 
 	ms.author="kempb"/>
 
 
@@ -306,4 +306,4 @@
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
  
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

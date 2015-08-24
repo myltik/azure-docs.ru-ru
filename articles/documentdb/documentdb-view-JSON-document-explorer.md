@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Просмотр, изменение, создание и отправка документов JSON с помощью обозревателя документов DocumentDB | Azure"
+	pageTitle="Просмотр, изменение, создание и отправка документов JSON с помощью обозревателя документов DocumentDB | Microsoft Azure"
 	description="Сведения об обозревателе документов DocumentDB, средстве портала предварительной версии Azure для просмотра, изменения, создания и отправки документов JSON с помощью DocumentDB."
 	services="documentdb"
 	authors="stephbaron"
@@ -140,4 +140,4 @@
 Для получения дополнительных сведений о DocumentDB щелкните [здесь](http://azure.com/docdb).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование средств бизнес-аналитики с Apache Spark в HDInsight | Azure" 
+	pageTitle="Использование средств бизнес-аналитики с Apache Spark в HDInsight | Microsoft Azure" 
 	description="Пошаговые инструкции по использованию записных книжек совместно с Apache Spark для создания схем на основе необработанных данных, сохранения их в виде таблиц Hive и последующего использования средств бизнес-аналитики для анализа данных в таблице Hive" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -205,4 +205,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

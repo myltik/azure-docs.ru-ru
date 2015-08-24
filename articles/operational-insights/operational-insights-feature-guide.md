@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2015"
+	ms.topic="get-started-article"
+	ms.date="08/06/2015"
 	ms.author="banders"/>
 
 # Руководство по функциям Operational Insights
@@ -33,7 +33,7 @@ Operational Insights — это служба аналитики, которая 
 |---|---|---|
 |![](./media/operational-insights-feature-guide/cap-plan.png) | [Планирование емкости](operational-insights-capacity.md) | Решение для планирования емкости в Microsoft Azure Operational Insights позволяет оценить емкость серверной инфраструктуры. |
 | ![](./media/operational-insights-feature-guide/update.png) | [Оценка системных обновлений](operational-insights-updates.md) | Решение для системных обновлений в Microsoft Azure Operational Insights позволяет применять пропущенные обновления к серверам в инфраструктуре. |
-| ![](./media/operational-insights-feature-guide/log-mgt.png) | [Управление журналами](operational-insights-search.md); | Используйте решение «Управление журналами» для сбора событий и журналы служб IIS для поиска журнала в Operational Insights. |
+| ![](./media/operational-insights-feature-guide/log-search.png) | [Поиск журнала](operational-insights-search.md) | Можно использовать функцию поиска журнала для создания запросов на трансформацию, фильтрацию результатов, а также для формирования соответствующих отчетов. Поиск использует данные события и журналы служб IIS для поиска журнала по всей службе Operational Insights. |
 | ![](./media/operational-insights-feature-guide/malware.png) | [Оценка вредоносных программ](operational-insights-antimalware.md) | Для защиты серверов от вредоносных программ можно использовать решение «Защита от вредоносных программ» в Microsoft Azure Operational Insights. |
 | ![](./media/operational-insights-feature-guide/sec-audit.png) | [Безопасность и порты](operational-insights-security-audit.md) | Используйте «Безопасность и аудит» для исчерпывающего изучения данных об информационной безопасности в вашей организации и определения важных моментов, требующих вашего внимания. |
 | ![](./media/operational-insights-feature-guide/assessment.png) | [Оценка SQL и Active Directory.](operational-insights-assessment.md) | Решения оценки можно использовать для оценки риска и работоспособности серверной среды с постоянной периодичностью. |
@@ -47,7 +47,7 @@ Operational Insights — это служба аналитики, которая 
 	- [Прямое подключение компьютеров к Operational Insights](operational-insights-direct-agent.md)
 	- [Анализ данных с серверов в Microsoft Azure](operational-insights-analyze-data-azure.md)
 - **Выполните все вышеперечисленное во время работы с мобильным приложением**
-	- Дополнительные сведения о приложении Windows Phone см. в разделе [Мобильные приложения Operational Insights](http://www.windowsphone.com/ru-ru/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
+	- Дополнительные сведения о приложении Windows Phone см. в разделе [Мобильные приложения Operational Insights](http://www.windowsphone.com/ru-ru/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865).
 
 ## Среда Operational Insights
 
@@ -72,4 +72,4 @@ Operational Insights — это служба аналитики, которая 
 ### Где находится Operational Insights?
 Microsoft Azure Operational Insights находится в США. Несмотря на то, что рабочим языком Operational Insights является английский язык, служба доступна на некоторых других рынках. Дополнительные сведения см. в разделе [Международный доступ](http://go.microsoft.com/fwlink/?LinkId=229842).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

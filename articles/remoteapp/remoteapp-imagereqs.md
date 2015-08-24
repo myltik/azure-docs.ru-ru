@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/06/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -42,5 +42,6 @@ Azure RemoteApp использует образ Windows Server 2012 R2 для р
 - Образ должен быть обработан командой SYSPREP с использованием параметров **/oobe /generalize /shutdown** (запуск при первом включении компьютера/ обобщить/ выключить) (НЕ ИСПОЛЬЗУЙТЕ параметр **/mode:vm** (Режим виртуальной машины)).
 - Отправка VHD из цепочки моментальных снимков не поддерживается.
  
+Сведения о создании образов для Azure RemoteApp см. в разделе [Создание образа Azure RemoteApp](remoteapp-imageoptions.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

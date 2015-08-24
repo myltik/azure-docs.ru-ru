@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование протокола AMQP 1.0 с .NET API служебной шины - Azure" 
+	pageTitle="Как использовать AMQP 1.0 с API .NET служебной шины | Microsoft Azure" 
 	description="Узнайте, как использовать протокол AMQP 1.0 с API .NET для служебной шины Azure." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -308,4 +308,4 @@ AMQP 1.0 — это эффективный и надежный протокол 
 * [Использование очередей служебной шины](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

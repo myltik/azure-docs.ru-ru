@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="08/11/2015" 
 	ms.author="cephalin"/>
 
 
@@ -92,7 +92,7 @@ MongoDB обеспечивает поддержку приложений C# на
 
 	![Управление пакетами NuGet][VS2013ManageNuGetPackages]
 
-2. В левой части окна **Управление пакетами NuGet** щелкните **В сети**. В расположенном справа поле **Поиск в Интернете** введите "mongocsharpdriver". Щелкните элемент **Установить**, чтобы установить драйвер.
+2. В левой части окна **Управление пакетами NuGet** щелкните **В сети**. В расположенном справа поле **Поиск в Интернете** введите "mongodb.driver". Щелкните элемент **Установить**, чтобы установить драйвер.
 
 	![Поиск драйвера C# для MongoDB][SearchforMongoDBCSharpDriver]
 
@@ -101,7 +101,7 @@ MongoDB обеспечивает поддержку приложений C# на
 4. После установки драйвера нажмите кнопку **Закрыть**. ![Драйвер C# для MongoDB установлен][MongoDBCsharpDriverInstalled]
 
 
-Теперь драйвер C# для MongoDB установлен. В проект были добавлены ссылки на библиотеки **MongoDB.Driver.dll** и **MongoDB.Bson.dll**.
+Теперь драйвер C# для MongoDB установлен. В проект были добавлены ссылки на библиотеки **MongoDB.Bson**, **MongoDB.Driver** и **MongoDB.Driver.Core**.
 
 ![Ссылки на драйвер C# для MongoDB][MongoDBCSharpDriverReferences]
 
@@ -499,4 +499,4 @@ MongoDB обеспечивает поддержку приложений C# на
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

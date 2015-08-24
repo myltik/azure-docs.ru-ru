@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Добавление мобильных служб в существующее приложение (WP8) — мобильные службы Azure" 
+	pageTitle="Добавление мобильных служб в существующее приложение (WP8) | Microsoft Azure" 
 	description="Узнайте, как приступить к использованию данных из приложения Windows Phone 8 для мобильных служб Azure." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -193,4 +193,4 @@
 [примеров кода для разработчиков]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

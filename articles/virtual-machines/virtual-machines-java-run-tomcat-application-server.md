@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Tomcat на виртуальной машине — учебник по Azure"
+	pageTitle="Tomcat на виртуальной машине | Microsoft Azure"
 	description="Узнайте, как создать виртуальную машину под управлением Windows и настроить ее для работы сервера приложений Apache Tomcat."
 	services="virtual-machines"
 	documentationCenter="java"
@@ -142,4 +142,4 @@
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

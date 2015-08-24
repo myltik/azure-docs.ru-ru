@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -221,7 +221,7 @@
 9. По завершении обработки срез перейдет в состояние **Ready** (готово). Обратите внимание, что создание кластера HDInsight по требованию, как правило, занимает некоторое время. 
 
 	![Выборка](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)	
-10. Когда срез будет в состоянии **Ready** (готово), проверьте выходные данные в папке **partitioneddata** контейнера **data** в хранилище BLOB-объектов.  
+10. Когда срез будет в состоянии **Ready** (Готово), проверьте выходные данные в папке **partitioneddata** контейнера **data** в хранилище BLOB-объектов.  
  
 
  
@@ -230,4 +230,4 @@
 В этой статье вы создали конвейер с действием преобразования (действие HDInsight), которое выполняет сценарий Hive в кластере HDInsight по требованию. Сведения о том, как копировать данные из хранилища BLOB-объектов Azure в SQL Azure с помощью действия копирования, см. в учебнике [Копирование данных из хранилища BLOB-объектов Azure в Azure SQL](./data-factory-get-started.md).
   
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

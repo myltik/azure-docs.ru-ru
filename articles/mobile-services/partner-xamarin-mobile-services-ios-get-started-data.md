@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Добавление мобильных служб в существующее приложение (Xamarin.iOS) — мобильные службы Azure"
+	pageTitle="Добавление мобильных служб в существующее приложение (Xamarin.iOS) | Microsoft Azure"
 	description="Узнайте, как хранить данные и осуществлять доступ к ним из приложения Xamarin.iOS для мобильных служб Azure."
 	documentationCenter="xamarin"
 	authors="ggailey777"
@@ -242,4 +242,4 @@
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

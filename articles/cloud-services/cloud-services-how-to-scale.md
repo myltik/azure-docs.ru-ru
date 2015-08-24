@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Масштабирование облачной службы | Azure" 
+	pageTitle="Масштабирование облачной службы | Microsoft Azure" 
 	description="Узнайте, как можно выполнить масштабирование облачной службы и связанных ресурсов в Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -227,4 +227,4 @@
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

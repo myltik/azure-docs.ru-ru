@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Добавление сертификата в хранилище ЦС Java — Azure" 
+	pageTitle="Добавление сертификата в хранилище ЦС Java | Microsoft Azure" 
 	description="Узнайте, как добавить сертификат центра сертификации (ЦС) в хранилище сертификатов (cacerts) центра сертификации Java для службы Twilio или Azure Service Bus." 
 	services="" 
 	documentationCenter="java" 
@@ -52,4 +52,4 @@
 
 Дополнительные сведения об используемых в Azure корневых сертификатах см. в статье [Перенос корневых сертификатов Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

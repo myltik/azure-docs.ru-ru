@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Начало работы с данными (Android) | Центр мобильных разработок" 
+	pageTitle="Начало работы с данными (Android) | Microsoft Azure" 
 	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении Android." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -133,4 +133,4 @@
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
    
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

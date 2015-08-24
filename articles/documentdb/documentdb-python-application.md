@@ -12,7 +12,7 @@
     ms.workload="data-management"
     ms.tgt_pltfrm="na"
     ms.devlang="python"
-    ms.topic="hero-article" 
+    ms.topic="hero-article"
     ms.date="07/07/2015"
     ms.author="ryancraw"/>
 
@@ -20,7 +20,7 @@
 
 Чтобы показать, как клиенты могут эффективно использовать Azure DocumentDB для хранения и запроса документов JSON, в настоящем документе приведен комплексный учебник по сборке веб-приложения голосования с использованием Azure DocumentDB.
 
-В этом учебнике показан пример использования службы DocumentDB, предоставляемой Azure, для хранения данных и доступа к ним из веб-приложения Python, размещенного в Azure. Предполагается, что у вас уже имеется некоторый опыт использования Python и веб-сайтов Azure.
+В этом учебнике показан пример использования службы DocumentDB, предоставляемой Azure, для хранения данных и доступа к ним из веб-приложения Python, размещенного в Azure. Этот пример предполагает, что у вас уже имеется некоторый опыт использования Python и веб-сайтов Azure.
 
 Темы, рассматриваемые в этом руководстве:
 
@@ -38,45 +38,42 @@
 
 Перед выполнением инструкций, приведенных в этой статье, следует убедиться, что установлены следующие компоненты:
 
-- [Visual Studio 2013](http://www.visualstudio.com/) или последующих версий, либо [Visual Studio Express], который является бесплатной версией.
+- [Visual Studio 2013](http://www.visualstudio.com/) или более поздней версии или Visual Studio Express (бесплатная версия Visual Studio).
 - Средства Python для Visual Studio [отсюда][].
-- Пакет Azure SDK для Visual Studio 2013 версии 2.4 и выше доступен [здесь][1].
+- Пакет SDK Azure для Visual Studio 2013 версии 2.4 и выше, который доступен [здесь][1].
 - Python 2.7 [отсюда][2].
 - Компилятор Microsoft Visual C++ для Python 2.7 [отсюда][3].
 
 ## Шаг 1. Создание учетной записи базы данных DocumentDB
 
-Начнем с создания учетной записи DocumentDB. Если у вас уже есть учетная запись, можно сразу перейти на [Шаг 2. Создание нового веб-приложения Python Flask](#Step-2:-Create-a-new-Python-Flask-Web-Application).
+Начнем с создания учетной записи DocumentDB. Если у вас уже есть учетная запись, можно сразу перейти к [Шагу 2. Создание нового веб-приложения Python Flask](#Step-2:-Create-a-new-Python-Flask-Web-Application).
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-<br/>
-Теперь мы рассмотрим создание нового веб-приложения Python Flask с нуля.
+<br/> Теперь мы рассмотрим создание нового веб-приложения Python Flask с нуля.
 
 ## Шаг 2. Создание нового веб-приложения Python Flask
 
 1. Откройте Visual Studio, выберите **Файл** -> **Новый проект** -> **Python** ->, **Веб-проект Flask** и создайте новый проект с именем **tutorial**.
 
-	Для тех, кто не знаком с Flask: это веб-фреймворк, позволяющий ускорить
-процесс создания веб-приложения в Python. [Учебники по Flask доступны здесь][].
+	Для тех, кто не знаком с Flask: это веб-фреймворк, позволяющий ускорить процесс создания веб-приложения в Python. [Учебники по Flask доступны здесь][].
 
-	![Снимок экрана: окно нового проекта в Vidual Studio с выделенным типом Python в левой части, выбранным веб-проект Flask в средней части и названием учебника в поле "Имя"](./media/documentdb-python-application/image9.png)
+	![Снимок экрана: окно нового проекта в Visual Studio с выделенным типом Python в левой части, выбранным веб-проектом Flask в центральной части и названием учебника в поле «Имя»](./media/documentdb-python-application/image9.png)
 
-2. Будет выведен запрос на установку внешних
-пакетов. Выберите вариант **Установить в виртуальной среде**. В качестве базовой среды необходимо использовать Python 2.7, поскольку PyDocumentDB не поддерживает Python 3.x. Для вашего проекта будет настроена требуемая виртуальная среда Python.
+2. Будет выведен запрос на установку внешних пакетов. Выберите вариант **Установить в виртуальной среде**. В качестве базовой среды необходимо использовать Python 2.7, поскольку PyDocumentDB на данный момент не поддерживает Python 3.x. Для вашего проекта будет настроена требуемая виртуальная среда Python.
 
 	![Снимок экрана: учебник — окно средств Python для Visual Studio](./media/documentdb-python-application/image10.png)
 
 
 ## Шаг 3. Изменение веб-приложения Python Flask
 
-### Добавление пакетов Flask в ваш проект
+### Добавление пакетов Flask к вашему проекту
 
-После выполнения настроек проекта необходимо добавить определенные пакеты Flask, которые понадобятся для проекта, включая pydocumentdb — пакет python для DocumentDB.
+После настройки параметров проекта нужно добавить к проекту ряд необходимых пакетов Flask, включая pydocumentdb — пакет Python для DocumentDB.
 
-1. Откройте файл с именем **requirements.txt** и замените его содержимое следующим.
+1. Откройте файл с именем **requirements.txt** и замените его содержимое следующим:
 
     	flask==0.9
     	flask-mail==0.7.6
@@ -90,29 +87,26 @@
     	flup
     	pydocumentdb>=1.0.0
 
-2. Щелкните правой кнопкой мыши **env** и выберите пункт **Установить из файла requirements.txt**.
+2. Нажмите правой кнопкой мыши **env** и выберите пункт **Установить из файла requirements.txt**.
 
 	![Снимок экрана: отображение env (Python 2.7) с выбранной командой "Установить из requirements.txt", выделенной в списке](./media/documentdb-python-application/image11.png)
 
-> [AZURE.NOTE]В редких случаях в окне вывода появляется ошибка. В
-этом случае проверьте, связана ли ошибка с очисткой. Иногда происходит сбой очистки, но установка по-прежнему успешно выполняется (прокрутите вверх
-окно вывода, чтобы убедиться в этом).
-<a name="verify-the-virtual-environment"></a>Если это произойдет, нажмите кнопку "ОК", чтобы продолжить.
+> [AZURE.NOTE]В редких случаях в окне вывода появляется ошибка. В этом случае проверьте, связана ли ошибка с очисткой. Иногда происходит сбой очистки, но установка все равно завершается успешно (прокрутите окно вывода вверх, чтобы убедиться в этом). <a name="verify-the-virtual-environment"></a> Если это произойдет, нажмите кнопку «ОК» для продолжения.
 
 
 ### Проверка виртуальной среды
 
-Убедимся, что выполнена корректная установка.
+Убедимся, что все установлено правильно.
 
-- Запустите веб-сайт, нажав клавишу **F5**. Запустится сервер разработки Flask и веб-браузер. Вы должны увидеть следующую страницу:
+- Запустите веб-сайт, нажав клавишу **F5**. При этом будут запущены сервер разработки Flask и веб-браузер. Вы должны увидеть следующую страницу:
 
 	![Отображение пустого проекта Flask в браузере](./media/documentdb-python-application/image12.png)
 
 ### Создание определений базы данных, коллекции и документа
 
-Теперь давайте создадим наше приложение голосования.
+Теперь создадим наше приложение для голосования.
 
-- Добавьте файл Python, щелкнув правой кнопкой мыши папку с именем **tutorial** в обозревателе решений. Присвойте файлу имя **forms.py**.  
+- Добавьте файл Python, щелкнув правой кнопкой мыши папку с именем **tutorial** в обозревателе решений. Задайте имя файла **forms.py**.  
 
     	from flask.ext.wtf import Form
     	from wtforms import RadioField
@@ -125,7 +119,7 @@
 
 ### Добавьте необходимые файлы импорта в views.py.
 
-- Добавьте следующие инструкции import в начало файла **views.py**. Они выполнят импорт пакета Python SDK и пакетов Flask в DocumentDB.
+- Добавьте следующие инструкции import в начало файла **views.py**. Они выполнят импорт пакета SDK для Python и пакетов Flask DocumentDB.
 
     	from forms import VoteForm
     	import config
@@ -134,7 +128,7 @@
 
 ### Создание базы данных, коллекции и документа
 
-- Добавьте следующий код в файл **views.py**. Он отвечает за создание базы данных, используемой формой. Не удаляйте код, существующий в файле **views.py**. Просто переместите его в конец.
+- Добавьте следующий код в файл **views.py**. Он отвечает за создание базы данных, используемой формой. Не удаляйте код, который уже есть в файле **views.py**. Просто переместите его в конец.
 
     	@app.route('/create')
     	def create():
@@ -166,7 +160,7 @@
             	year=datetime.now().year,
             	message='You just created a new database, collection, and document.  Your old votes have been deleted')
 
-> [AZURE.TIP]Метод CreateCollection получает необязательный третий параметр RequestOptionsas. Его можно использовать для указания типа предложения (Offer Type) для коллекции. Если значение offerType не указано, коллекция будет создана с использованием типа предложения по умолчанию. Дополнительные сведения о типах предложений DocumentDB см. в статье [Уровни производительности DocumentDB](documentdb-performance-levels.md)
+> [AZURE.TIP]Метод **CreateCollection** имеет третий необязательный параметр **RequestOptions**. Его можно использовать для указания типа предложения коллекции. Если значение типа предложения не указано, будет создана коллекция с использованием типа предложения по умолчанию. Дополнительные сведения о типах предложений DocumentDB см. в статье [Уровни производительности DocumentDB](documentdb-performance-levels.md).
 >
 ### Чтение базы данных, коллекции и документа и отправка формы
 
@@ -179,16 +173,16 @@
         	if form.validate_on_submit(): # is user submitted vote  
             	client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
 
-            	# Read databases and take first since id should not be duplicated.
+            	# Read databases and take the first since the id should not be duplicated.
             	db = next((data for data in client.ReadDatabases() if data['id'] == config.DOCUMENTDB_DATABASE))
 
-            	# Read collections and take first since id should not be duplicated.
+            	# Read collections and take the first since the id should not be duplicated.
             	coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.DOCUMENTDB_COLLECTION))
 
-            	# Read documents and take first since id should not be duplicated.
+            	# Read documents and take the first since the id should not be duplicated.
             	doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config.DOCUMENTDB_DOCUMENT))
 
-            	# Take the data from the deploy_preference and increment our database
+            	# Take the data from the deploy_preference and increment your database
             	doc[form.deploy_preference.data] = doc[form.deploy_preference.data] + 1
             	replaced_document = client.ReplaceDocument(doc['_self'], doc)
 
@@ -218,7 +212,7 @@
                 	form = form)
 
 
-### Создание файлов html
+### Создание HTML-файлов
 
 В папку «Шаблоны» добавьте такие HTML-файлы: create.html, results.html, vote.html.
 
@@ -256,7 +250,7 @@
     	<a class="btn btn-primary" href="{{ url_for('vote') }}">Vote again?</a>
     	{% endblock %}
 
-3. Добавьте следующий код в файл **vote.html**. Он служит для отображения опроса и принимает голоса. При регистрации голосов управление передается к views.py, где они будут учитываться и, соответственно, добавляться в документ.
+3. Добавьте следующий код в файл **vote.html**. Он служит для отображения опроса и принимает голоса. При регистрации голосов управление передается файлу views.py, в котором голоса будут учитываться и, соответственно, добавляться в документ.
 
     	{% extends "layout.html" %}
     	{% block content %}
@@ -281,7 +275,7 @@
 
 ### Добавьте файл конфигурации и измените файл \_\_init\_\_.py
 
-1. Щелкните правой кнопкой мыши имя проекта и добавьте файл **config.py**. Этот файл необходим для работы форм в Flask. Кроме того, его можно использовать для предоставления секретного ключа. В этом учебнике это не требуется.
+1. Нажмите правой кнопкой мыши по имени проекта и добавьте файл **config.py**. Этот файл необходим для работы форм в Flask. Кроме того, его можно использовать для предоставления секретного ключа. В этом учебнике секретный ключ не требуется.
 
 2. Добавьте следующий код в файл config.py. Измените значения **DOCUMENTDB\_HOST** и **DOCUMENTDB\_KEY**.
 
@@ -309,11 +303,11 @@
 
 ## Шаг 4. Локальный запуск приложения
 
-1. Нажмите клавишу F5 или кнопку запуска в Visual Studio, после чего на экране будут отображено следующее.
+1. Нажмите клавишу F5 или кнопку **Запустить** в Visual Studio, после чего на экране должно появиться следующее.
 
 	![Снимок экрана: Python + приложение для голосования DocumentDB в веб-браузере](./media/documentdb-python-application/image16.png)
 
-2. Щелкните **Создать или очистить базу данных голосования**, чтобы создать базу данных.
+2. Нажмите **Создать или очистить базу данных голосования**, чтобы создать базу данных.
 
 	![Снимок экрана: страница создания веб-приложения](./media/documentdb-python-application/image17.png)
 
@@ -328,13 +322,13 @@
 
 ## Шаг 5. Развертывание приложения на веб-сайтах Azure
 
-Теперь, когда у вас есть готовое приложение и оно корректно работает в DocumentDB, мы собираемся развернуть его на веб-сайтах Azure.
+Теперь, когда у вас есть готовое приложение и оно корректно работает в DocumentDB, мы развернем его на веб-сайтах Azure.
 
-1. Правой кнопкой мыши щелкните проект в обозревателе решений (убедитесь, что он не запущен локально) и выберите пункт "Опубликовать". Затем выберите "Веб-сайты Microsoft Azure".
+1. Правой кнопкой мыши нажмите проект в обозревателе решений (убедившись, что он не запущен локально) и выберите пункт **Опубликовать**. Затем выберите **Веб-сайты Microsoft Azure**.
 
  	![Снимок экрана: проект tutorial, выбранный в обозревателе решений и с выделенным параметром "Опубликовать"](./media/documentdb-python-application/image20.png)
 
-2. Настройте веб-сайт Azure, введя свои учетные данные и нажав кнопку **Опубликовать**.
+2. Настройте веб-сайт Azure, введя свои учетные данные, и нажмите кнопку **Опубликовать**.
 
 	![Снимок экрана: окно "Публикация веб-сайта"](./media/documentdb-python-application/image21.png)
 
@@ -344,7 +338,7 @@
 
 Поздравляем! Вы только что создали свое первое приложение на Python с помощью Azure DocumentDB и опубликовали его в службе веб-сайтов Azure.
 
-Для добавления дополнительной функциональности в приложение ознакомьтесь с доступными интерфейсами API в [пакете DocumentDB Python SDK](https://pypi.python.org/pypi/pydocumentdb).
+Для добавления дополнительной функциональности в приложение ознакомьтесь с доступными интерфейсами API в [пакете SDK для Python в DocumentDB](https://pypi.python.org/pypi/pydocumentdb).
 
   [Учебники по Flask доступны здесь]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
@@ -353,7 +347,6 @@
   [2]: https://www.python.org/downloads/windows/
   [3]: http://aka.ms/vcpython27
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-  [Azure Management Portal]: http://portal.azure.com
- 
+  [Azure portal]: http://portal.azure.com
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

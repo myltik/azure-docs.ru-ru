@@ -12,7 +12,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="06/01/2015"
+	ms.date="08/05/2015"
 	ms.author="lauraa" />
 
 # Планирование загрузки для репликации Hyper-V
@@ -239,4 +239,4 @@ c. Любой узел кластера
 - [Настройка защиты с одним сервером VMM](site-recovery-single-vmm)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

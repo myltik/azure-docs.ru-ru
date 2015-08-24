@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование ретрансляции служебной шины (.NET) — Azure" 
+	pageTitle="Использование службы ретранслятора служебной шины (.NET) | Microsoft Azure" 
 	description="Узнайте, как использовать службу ретрансляции служебной шины Azure для соединения двух приложений, размещенных в разных расположениях." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -268,4 +268,4 @@
   [MSDN]: https://msdn.microsoft.com/ru-ru/library/azure/dn194201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

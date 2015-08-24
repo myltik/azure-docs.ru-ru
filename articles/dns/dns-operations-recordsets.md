@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/01/2015"
+   ms.date="08/02/2015"
    ms.author="joaoma"/>
 
 # Управление записями DNS
+
 
 В этом руководстве показано, как управлять наборами записей и записями для зоны DNS.
 
@@ -265,4 +266,4 @@ Azure DNS поддерживает [записи с подстановочным
 [Приступить к созданию наборов записей и записей](../dns-getstarted-create-recordset)<BR> [Выполнение операций с зонами DNS](../dns-operations-dnszones)<BR> [Автоматизации операций с помощью пакета SDK для .NET](../dns-sdk)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

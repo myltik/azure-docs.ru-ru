@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Создание и развертывание облачной службы — Azure"
-	description="Узнайте, как создать и развернуть облачную службу с помощью функции &quot;Быстрое создание&quot; в Azure."
+	pageTitle="Создание и развертывание облачной службы | Microsoft Azure"
+	description="Узнайте, как создать и развернуть облачную службу с помощью функции ";Быстрое создание"; в Azure."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -147,4 +147,4 @@
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

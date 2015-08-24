@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование клиентского компонента Xamarin — руководство по функциям мобильных служб Azure" 
+	pageTitle="Использование клиентского компонента Xamarin | Microsoft Azure" 
 	description="Узнайте, как использовать клиент компонента Xamarin для мобильных служб Azure." 
 	authors="lindydonna" 
 	manager="dwrede" 
@@ -473,4 +473,4 @@
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

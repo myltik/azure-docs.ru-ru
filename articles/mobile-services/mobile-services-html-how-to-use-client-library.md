@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Как использовать клиент HTML для мобильных служб Azure" 
+	pageTitle="Использование HTML-клиента | Microsoft Azure" 
 	description="Узнайте, как использовать клиент HTML для мобильных служб Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -608,4 +608,4 @@
 [Вызов из клиента настраиваемого интерфейса API]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

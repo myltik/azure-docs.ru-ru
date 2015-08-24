@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Как использовать базу данных SQL(PHP) — руководства по компонентам Azure" 
+	pageTitle="Использование Базы данных SQL (PHP) | Microsoft Azure" 
 	description="Узнайте, как создать базу данных SQL Azure и подключиться к ней из PHP." 
 	services="sql-database" 
 	documentationCenter="php" 
@@ -130,4 +130,4 @@
 [quick-create]: ./media/sql-database-php-how-to-use/create-new-sql.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

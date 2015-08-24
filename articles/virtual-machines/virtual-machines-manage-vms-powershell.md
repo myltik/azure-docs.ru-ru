@@ -5,7 +5,8 @@
    documentationCenter="windows"
    authors="singhkay"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
    <tags
    ms.service="virtual-machines"
@@ -93,4 +94,4 @@
 - членство в существующем наборе балансировки нагрузки;
 - статический IP-адрес.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

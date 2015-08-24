@@ -10,7 +10,7 @@
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="08/04/2015" 
 	ms.author="awills"/>
@@ -329,19 +329,6 @@
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
-#### Время просмотра страницы
-
-Вызвав эту пару методов вместо trackPageView, можно проанализировать, сколько времени пользователи проводят на ваших страницах.
-
-    // At the start of a page view:
-    appInsights.startTrackPage(myPage.name);
-
-    // At the completion of a page view:
-    appInsights.stopTrackPage(myPage.name, "http://fabrikam.com/page", properties, measurements);
-
-Используйте ту же строку, что и в первом параметре, для вызовов запуска и остановки.
-
-Просмотрите метрику «Продолжительность посещения страницы» в [обозревателе метрик][metrics].
 
 
 ## Отслеживание запросов
@@ -781,4 +768,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

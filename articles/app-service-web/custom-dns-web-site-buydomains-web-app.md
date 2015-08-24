@@ -19,11 +19,14 @@
 
 # Приобретение и настройка личного домена для службы приложений Azure.
 
-<div class="dev-center-tutorial-selector sublanding">
-  <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Веб-приложения" class="current">Купить домен для веб-приложений</a> <a href="/documentation/articles/web-sites-custom-domain-name" title="Веб-приложения">Веб-приложения с внешними доменами</a> <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Веб-приложения с диспетчером трафика">Веб-приложения с диспетчером трафика</a> <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
+> [AZURE.SELECTOR]
+- [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md)
+- [Web Apps with External Domains](web-sites-custom-domain-name.md)
+- [Web Apps with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
+- [GoDaddy](web-sites-godaddy-custom-domain-name.md)
 
 
-</div>
+
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
@@ -95,4 +98,4 @@
 На этом этапе можно ввести личное доменное имя в браузере и удостовериться, что оно успешно принято вашим веб-приложением.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

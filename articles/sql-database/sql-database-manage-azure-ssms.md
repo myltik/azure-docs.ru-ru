@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Управление базой данных SQL Azure с помощью SQL Server Management Studio - Azure" 
+	pageTitle="Управление Базой данных SQL с помощью SSMS | Microsoft Azure" 
 	description="Узнайте, как использовать SQL Server Management Studio для управления серверами и базами данных Базы данных SQL." 
 	services="sql-database" 
 	documentationCenter=".net" 
@@ -186,4 +186,4 @@ SQL Server 2014 SSMS с последними обновлениями предл
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

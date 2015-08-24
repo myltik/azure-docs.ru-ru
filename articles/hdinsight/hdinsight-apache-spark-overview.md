@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Обзор Apache Spark в HDInsight | Azure" 
+	pageTitle="Обзор Apache Spark в HDInsight | Microsoft Azure" 
 	description="Общие сведения о Spark в HDInsight и сценарии использования Spark в HDInsight в приложениях." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -99,4 +99,4 @@ Spark в HDInsight также включает [драйвер ODBC](http://go.m
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

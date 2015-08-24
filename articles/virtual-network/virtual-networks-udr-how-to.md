@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="08/10/2015"
    ms.author="telmos" />
 
 # Как создать маршруты и включить IP-пересылку в Azure
 Виртуальные устройства в Azure можно использовать для обработки трафика в виртуальной сети Azure. Тем не менее, необходимо создать маршруты, позволяющие виртуальным машинам и облачным службам в виртуальной сети отправлять пакеты на виртуальное устройство, а не в место назначения пакета. Необходимо также включить IP-пересылку на виртуальную машину виртуального устройства, чтобы она могла получать и пересылать пакеты, в действительности не адресованные виртуальной машине виртуального устройства.
 
-##Как управлять маршрутами
+## Как управлять маршрутами
 Вы можете добавлять, удалять и изменять маршруты в Azure с помощью PowerShell. Прежде чем можно будет создать маршрут, необходимо создать таблицу маршрутов для размещения маршрута.
 
 ### Как создать таблицу маршрутов
@@ -144,10 +144,6 @@ Set-AzureIPForwarding -ServiceName DMZService `
 ```powershell
 Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
 	| Get-AzureIPForwarding
-```
+``` 
 
-## См. также
-
-[Обзор определяемых пользователем маршрутов и IP-пересылки](../virtual-networks-udr-overview)
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

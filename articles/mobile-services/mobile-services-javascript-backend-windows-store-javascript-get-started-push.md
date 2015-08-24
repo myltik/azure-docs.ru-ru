@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Добавление push-уведомлений в приложение мобильных служб (Магазин Windows) | Центр разработчиков для мобильных устройств" 
+	pageTitle="Добавление push-уведомлений в приложение мобильных служб (Магазин Windows) | Microsoft Azure" 
 	description="Узнайте, как использовать мобильные службы и центры уведомлений Azure для отправки push-уведомлений в приложение Магазина Windows." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -128,4 +128,4 @@
 [Send template-based notifications to subscribers]: ../notification-hubs-windows-store-javascript-send-localized-breaking-news.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

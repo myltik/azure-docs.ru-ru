@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование автономных данных в мобильных службах (Windows Phone) | Центр мобильных разработок" 
+	pageTitle="Использование автономных данных в мобильных службах (Windows Phone) | Microsoft Azure" 
 	description="Узнайте, как использовать мобильные службы Azure для синхронизации автономных данных в приложении Windows Phone" 
 	documentationCenter="mobile-services" 
 	authors="lindydonna" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="08/08/2015" 
 	ms.author="wesmc;donnam"/>
 
 # Использование автономной синхронизации данных в мобильных службах
@@ -292,4 +292,4 @@
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

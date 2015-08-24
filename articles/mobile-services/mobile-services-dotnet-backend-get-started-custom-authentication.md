@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Приступая к работе с пользовательской проверкой подлинности | Центр разработчиков для мобильных устройств" 
+	pageTitle="Приступая к работе с настраиваемой проверкой подлинности | Microsoft Azure" 
 	description="Узнайте, как аутентифицировать пользователей по имени и паролю." 
 	documentationCenter="Mobile" 
 	authors="mattchenderson" 
@@ -420,4 +420,4 @@
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

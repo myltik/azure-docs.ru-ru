@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Развертывание нескольких виртуальных машин с помощью интерфейса командной строки Azure | Azure"
+   pageTitle="Развертывание нескольких виртуальных машин с помощью интерфейса командной строки Azure | Microsoft Azure"
    description="Узнайте, как выполнить развертывание нескольких виртуальных машин с помощью интерфейса командной строки Azure"
    services="virtual-machines"
    documentationCenter="nodejs"
@@ -67,4 +67,4 @@
 * [Вход в виртуальную машину под управлением ОС Linux](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

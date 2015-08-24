@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Использование автономных данных в мобильных службах (Xamarin Android) | Центр мобильных разработок"
+	pageTitle="Использование автономных данных в мобильных службах (Xamarin для Android) | Microsoft Azure"
 	description="Узнайте, как использовать мобильные службы Azure для кэширования и синхронизации автономных данных в приложении на Xamarin для Android"
 	documentationCenter="xamarin"
 	authors="lindydonna"
@@ -172,4 +172,4 @@
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Регистрация для проверки подлинности Google: мобильные службы" 
+	pageTitle="Регистрация для проверки подлинности Google | Microsoft Azure" 
 	description="Узнайте, как зарегистрировать приложения, чтобы использовать Google для проверки подлинности с помощью мобильных служб Azure." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -62,4 +62,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Добавление проверки подлинности в универсальное приложение для Windows 8.1 | Мобильные службы Azure" 
+	pageTitle="Добавление проверки подлинности в универсальное приложение для Windows 8.1 | Microsoft Azure" 
 	description="Информация об использовании мобильных служб для проверки подлинности пользователей универсального приложения для Windows 8.1 с помощью разных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -97,4 +97,4 @@
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

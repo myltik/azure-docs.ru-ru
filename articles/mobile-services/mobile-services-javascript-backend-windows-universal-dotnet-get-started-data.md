@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Добавление мобильных служб в существующее универсальное приложение Windows | Мобильные службы Azure" 
+	pageTitle="Добавление мобильных служб в существующее универсальное приложение Windows | Microsoft Azure" 
 	description="Узнайте, как подключать существующие универсальные приложения Windows к мобильным службам Azure." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -114,4 +114,4 @@
 [класса MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

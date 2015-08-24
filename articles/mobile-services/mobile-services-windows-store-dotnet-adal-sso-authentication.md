@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Проверка подлинности приложения с помощью библиотеки проверки подлинности Active Directory с единым входом (Магазин Windows) | Центр мобильных разработок" 
+	pageTitle="Проверка подлинности приложения для единого входа с помощью библиотеки проверки подлинности Active Directory (Магазин Windows) | Microsoft Azure" 
 	description="Узнайте, как аутентифицировать пользователей для единого входа с помощью ADAL в приложении магазина Windows." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -217,4 +217,4 @@
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [панель мониторинга Центра разработки для Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

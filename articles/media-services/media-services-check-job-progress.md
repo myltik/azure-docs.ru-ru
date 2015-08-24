@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/25/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #Практическое руководство. Проверка хода выполнения задания
 
-Это одна из статей цикла [Рабочий процесс для видео по запросу в службах мультимедиа](media-services-video-on-demand-workflow.md).
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-check-job-progress.md)
+- [.NET](media-services-check-job-progress.md)
+- [REST](media-services-rest-check-job-progress.md)
 
 При выполнении заданий часто требуется способ отслеживания хода выполнения задачи. Вы можете проверить ход выполнения, [определив обработчик событий StateChanged](#statechange_event_handler) или [используя хранилище очередей Azure для наблюдения за уведомлениями о заданиях служб мультимедиа](#check_progress_with_queues). В этом разделе описаны оба способа.
 
@@ -427,4 +430,4 @@
 	
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

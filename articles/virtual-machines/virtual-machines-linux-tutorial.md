@@ -13,7 +13,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="07/13/2015"
 	ms.author="rasquill"/>
 
@@ -26,6 +26,12 @@
 Вы можете легко создать виртуальную машину (VM) Azure, работающую под управлением ОС Linux, с помощью командной строки или из портала. В этом учебнике показано, как использовать интерфейс командной строки Azure для Mac, Linux и Windows (CLI Azure), чтобы быстро создать виртуальную машину Ubuntu Server в Azure, подключиться к ней с помощью **ssh**, а также создать и подключить новый диск. (В этом разделе описывается виртуальная машина Ubuntu Server, но вы можете также создавать виртуальные машины Linux, используя [собственные образы в качестве шаблонов](virtual-machines-linux-create-upload-vhd.md).)
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
+
+## Видеоруководство
+
+Ниже приведено видео с пошаговым выполнением действий по этому учебнику.
+
+[AZURE.VIDEO building-a-linux-virtual-machine-tutorial]
 
 ## Установка Azure CLI
 
@@ -302,4 +308,4 @@
 - [Расширение виртуальных машин Docker для Linux в Azure](virtual-machines-docker-vm-extension.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

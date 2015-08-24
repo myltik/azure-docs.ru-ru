@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Устранение неполадок серверной части .NET мобильных служб - мобильные службы Azure" 
+	pageTitle="Устранение неполадок серверной части .NET мобильных служб | Microsoft Azure" 
 	description="Узнайте, как определить и устранить проблемы в работе мобильных служб, использующих серверную часть .NET" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -154,4 +154,4 @@
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="cdn" 
@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="08/06/2015" 
 	ms.author="cephalin"/>
 
-#<a name="intro"></a>Интеграция облачной службы с Azure CDN #
 
-<!-- Keeping this article pinned to the old portal because CDN is not yet lit up in the new portal -->
+#<a name="intro"></a>Интеграция облачной службы с Azure CDN #
 
 Облачную службу можно интегрировать с Azure CDN (сетью доставки содержимого), которая выдает любое содержимое из пути облачной службы `~/CDN`. Такой подход обеспечивает следующие преимущества.
 
@@ -120,18 +119,18 @@
 
 2. Вернитесь в Visual Studio 2013, откройте файл **Web.config** в проекте **WebRole1** и добавьте в тег `<system.webServer>` следующий код:
 	<pre class="prettyprint">
-&lt;system.webServer>
-  <mark>&lt;rewrite>
-    &lt;rules>
-      &lt;rule name="RewriteIncomingCdnRequest" stopProcessing="true">
-        &lt;match url="^cdn/(.*)$"/>
-        &lt;action type="Rewrite" url="{R:1}"/>
-      &lt;/rule>
-    &lt;/rules>
-  &lt;/rewrite></mark>
-  ...
-&lt;/system.webServer>
-</pre>
+	&lt;system.webServer>
+	  <mark>&lt;rewrite>
+	    &lt;rules>
+	      &lt;rule name="RewriteIncomingCdnRequest" stopProcessing="true">
+	        &lt;match url="^cdn/(.*)$"/>
+	        &lt;action type="Rewrite" url="{R:1}"/>
+	      &lt;/rule>
+	    &lt;/rules>
+	  &lt;/rewrite></mark>
+	  ...
+	&lt;/system.webServer>
+	</pre>
 
 4. Снова опубликуйте облачную службу. Щелкните правой кнопкой мыши проект облачной службы и выберите **Опубликовать**.
 
@@ -172,26 +171,26 @@
 
 Альтернатива заключается в том, чтобы определить, какое содержимое должно обслуживаться из Azure CDN на индивидуальной основе в облачной службе. В отношении этого вы уже видели, как получать доступ к отдельным файлам контента из конечной точки CDN. Я покажу, как обслуживать определенное действие контроллера посредством конечной точки CDN, в разделе [Обслуживание контента из действий контроллера посредством Azure CDN](#controller).
 
-Можно указать более ограничивающее правило переопределения URL-адреса, чтобы ограничить содержимое, доступное через конечную точку CDN. Например, чтобы ограничить переопределение URL-адреса для папки *\Scripts*, измените правило переопределения выше следующим образом:
-<pre class="prettyprint">
-&lt;rule name=&quot;RewriteIncomingCdnRequest&quot; stopProcessing=&quot;true&quot;&gt;
-  &lt;match url=&quot;^cdn/<mark>Scripts/</mark>(.*)$&quot;/&gt;
-  &lt;action type=&quot;Rewrite&quot; url=&quot;<mark>Scripts/</mark>{R:1}&quot;/&gt;
-&lt;/rule&gt;
-</pre>
+Можно указать более ограничивающее правило переопределения URL-адреса, чтобы ограничить содержимое, доступное через конечную точку CDN. Например, чтобы ограничить переопределение URL-адреса папкой *\Scripts*, измените приведенное выше правило переопределения следующим образом:
+	<pre class="prettyprint">
+	&lt;rule name=&quot;RewriteIncomingCdnRequest&quot; stopProcessing=&quot;true&quot;&gt;
+	  &lt;match url=&quot;^cdn/<mark>Scripts/</mark>(.*)$&quot;/&gt;
+	  &lt;action type=&quot;Rewrite&quot; url=&quot;<mark>Scripts/</mark>{R:1}&quot;/&gt;
+	&lt;/rule&gt;
+	</pre>
 
 <a name="caching"></a>
 ## Настройка параметров кэширования для статических файлов в облачной службе ##
 
-С помощью интеграции Azure CDN в облачной службе можно указать, как статическое содержимое должно кэшироваться в конечной точке CDN. Для этого откройте *Web.config* из проекта веб-роли (например, WebRole1) и добавьте элемент `<staticContent>` для `<system.webServer>`. XML, приведенный ниже, настраивает истечение срока кэша через 3 дня.
-<pre class="prettyprint">
-&lt;system.webServer&gt;
-  <mark>&lt;staticContent&gt;
-    &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt;
-  &lt;/staticContent&gt;</mark>
-  ...
-&lt;/system.webServer&gt;
-</pre>
+С помощью интеграции Azure CDN в облачной службе можно указать, как статическое содержимое должно кэшироваться в конечной точке CDN. Для этого откройте *Web.config* из проекта веб-роли (например, WebRole1) и добавьте элемент `<staticContent>` для `<system.webServer>`. Следующий XML настраивает истечение срока годности кэша через 3 дня.
+	<pre class="prettyprint">
+	&lt;system.webServer&gt;
+	  <mark>&lt;staticContent&gt;
+	    &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt;
+	  &lt;/staticContent&gt;</mark>
+	  ...
+	&lt;/system.webServer&gt;
+	</pre>
 
 После этого все статические файлы в облачной службе будут соблюдать то же правило в кэше CDN. Для более детального управления параметрами кэша добавьте файл *Web.config* в папку и добавьте в этом месте свои параметры. Например, добавьте файл *Web.config* в папку *\Content* и замените содержимое следующим XML:
 
@@ -234,54 +233,54 @@
 	using System.Web.Hosting;
 	using System.Web.Mvc;
 	using System.Web.UI;
-
-	пространство имен WebRole1.Controllers
+	
+	namespace WebRole1.Controllers
 	{
 	    public class MemeGeneratorController : Controller
-		    {
-        static readonly Dictionary&lt;string, Tuple&lt;string ,string>> Memes = new Dictionary&lt;string, Tuple&lt;string, string>>();
+	    {
+	        static readonly Dictionary&lt;string, Tuple&lt;string ,string&gt;&gt; Memes = new Dictionary&lt;string, Tuple&lt;string, string&gt;&gt;();
 
 	        public ActionResult Index()
 	        {
 	            return View();
 	        }
 	
-	        [HttpPost, ActionName("Index")]
-	    	public ActionResult Index_Post(string top, string bottom)
+	        [HttpPost, ActionName(&quot;Index&quot;)]
+        	public ActionResult Index_Post(string top, string bottom)
 	        {
-		            var identifier = Guid.NewGuid().ToString();
+	            var identifier = Guid.NewGuid().ToString();
 	            if (!Memes.ContainsKey(identifier))
 	            {
-	                Memes.Add(identifier, new Tuple&lt;string, string>(top, bottom));
+	                Memes.Add(identifier, new Tuple&lt;string, string&gt;(top, bottom));
 	            }
 	
-	            return Content("&lt;a href="" + Url.Action("Show", new {id = identifier}) + "">here's your meme&lt;/a>");
+	            return Content(&quot;&lt;a href=\&quot;&quot; + Url.Action(&quot;Show&quot;, new {id = identifier}) + &quot;\&quot;&gt;here&#39;s your meme&lt;/a&gt;&quot;);
 	        }
 
 
-	        [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
+	        [OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
 	        public ActionResult Show(string id)
 	        {
-	            Tuple&lt;string, string> data = null;
+	            Tuple&lt;string, string&gt; data = null;
 	            if (!Memes.TryGetValue(id, out data))
 	            {
 	                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
 	            }
-
+	
 	            if (Debugger.IsAttached) // Не изменять поведение отладки
 	            {
-	                return Redirect(string.Format("/MemeGenerator/Generate?top={0}&amp;bottom={1}", data.Item1, data.Item2));
+	                return Redirect(string.Format(&quot;/MemeGenerator/Generate?top={0}&bottom={1}&quot;, data.Item1, data.Item2));
 	            }
 	            else // Получить содержимое из Azure CDN
 	            {
-	                return Redirect(string.Format("http://<mark>&lt;yourCdnName></mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}", data.Item1, data.Item2));
+	                return Redirect(string.Format(&quot;http://<mark>&lt;yourCdnName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}&quot;, data.Item1, data.Item2));
 	            }
 	        }
 
 	        [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
 	        public ActionResult Generate(string top, string bottom)
 	        {
-	            string imageFilePath = HostingEnvironment.MapPath("<mark>~/Content/chuck.bmp</mark>");
+	            string imageFilePath = HostingEnvironment.MapPath(&quot;<mark>~/Content/chuck.bmp</mark>&quot;);
 	            Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
 	
 	            using (Graphics graphics = Graphics.FromImage(bitmap))
@@ -299,7 +298,7 @@
 	
 	            MemoryStream ms = new MemoryStream();
 	            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-	            return File(ms.ToArray(), "image/png");
+	            return File(ms.ToArray(), &quot;image/png&quot;);
 	        }
 	
 	        private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
@@ -316,7 +315,7 @@
 	                // Попробовать меньший шрифт (90 % от предыдущего размера)
 	                Font oldFont = font;
 	                font = new Font(font.Name, (float)(font.Size * .9), font.Style);
-		                oldFont.Dispose();
+	                oldFont.Dispose();
 	            }
 	        }
 	    }
@@ -345,28 +344,27 @@
 
 5. Снова опубликуйте облачную службу и перейдите в браузере по адресу **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index**.
 
-При отправке значений формы в `/MemeGenerator/Index` метод действия `Index_Post` возвращает ссылку на метод действия `Show` с соответствующим идентификатором ввода. Если щелкнуть ссылку, появляется следующий код:
-<pre class="prettyprint">
-[OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
-public ActionResult Show(string id)
-{
-    Tuple&lt;string, string&gt; data = null;
-    if (!Memes.TryGetValue(id, out data))
-    {
-        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-    }
+При отправке значений формы в `/MemeGenerator/Index` метод действия `Index_Post` возвращает ссылку на метод действия `Show` с соответствующим идентификатором ввода. Если щелкнуть ссылку, появится следующий код:
 
-    if (Debugger.IsAttached) // Preserve the debug experience
-    {
-        return Redirect(string.Format(";/MemeGenerator/Generate?top={0}&bottom={1}";, data.Item1, data.Item2));
-    }
-    else // Get content from Azure CDN
-    {
-        return Redirect(string.Format(";http://<mark>&lt;cdnName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}";, data.Item1, data.Item2));
-    }
-}
-</pre>
-
+	[OutputCache(VaryByParam = ";*";, Duration = 1, Location = OutputCacheLocation.Downstream)]
+	public ActionResult Show(string id)
+	{
+	    Tuple&lt;string, string&gt; data = null;
+	    if (!Memes.TryGetValue(id, out data))
+	    {
+	        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+	    }
+	
+	    if (Debugger.IsAttached) // Preserve the debug experience
+	    {
+	        return Redirect(string.Format(";/MemeGenerator/Generate?top={0}&bottom={1}";, data.Item1, data.Item2));
+	    }
+	    else // Get content from Azure CDN
+	    {
+	        return Redirect(string.Format(";http://<mark>&lt;cdnName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}";, data.Item1, data.Item2));
+	    }
+	}
+	
 Если подключен локальный отладчик, то вы получите обычный интерфейс отладки с локальным перенаправлением. Если отладчик работает в облачной службе, то перенаправление будет выполняться на следующий адрес:
 
 	http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
@@ -398,7 +396,7 @@ public ActionResult Show(string id)
 -	Резервный механизм на случай сбоя конечной точки CDN.
 -	Минимальное изменение кода.
 
-В проекте **WebRole1**, созданном в разделе [Развертывание облачной службы с интегрированной конечной точкой CDN](#deploy), откройте сценарий *App_Start\BundleConfig.cs* и посмотрите на вызовы метода `bundles.Add()`.
+В проекте **WebRole1**, созданном при изучении раздела [Интеграция конечной точки Azure CDN с веб-сайтом Azure и обслуживание статического содержимого на веб-страницах из Azure CDN](#deploy), откройте *App\_Start\\BundleConfig.cs* и взгляните на вызовы метода `bundles.Add()`.
 
     public static void RegisterBundles(BundleCollection bundles)
     {
@@ -479,15 +477,15 @@ public ActionResult Show(string id)
 	<pre class="prettyprint">
 	...
 
-    &lt;link href=&quot;http://az632148.vo.msecnd.net/Content/css?v=1.0.0.25449&quot; rel=&quot;stylesheet&quot;/&gt;
+    	&lt;link href=&quot;http://az632148.vo.msecnd.net/Content/css?v=1.0.0.25449&quot; rel=&quot;stylesheet&quot;/&gt;
 
-    &lt;script src=&quot;http://az632148.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
+	&lt;script src=&quot;http://az632148.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
 
 	...
 
-    &lt;script src=&quot;http://az632148.vo.msecnd.net/bundles/jquery?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
+	&lt;script src=&quot;http://az632148.vo.msecnd.net/bundles/jquery?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
 
-    &lt;script src=&quot;http://az632148.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
+	&lt;script src=&quot;http://az632148.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
 
 	...</pre>
 
@@ -525,33 +523,35 @@ public ActionResult Show(string id)
 	{
 	    var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
 	        .GetName().Version.ToString();
-	    var cdnUrl = "http://cdnurl.vo.msecnd.net/.../{0}?" + version;
-	    bundles.UseCdn = true;
+	    var cdnUrl = &quot;http://cdnurl.vo.msecnd.net/.../{0}?&quot; + version;
+		    bundles.UseCdn = true;
+		
+		bundles.Add(new ScriptBundle(&quot;~/bundles/jquery&quot;, string.Format(cdnUrl, &quot;bundles/jquery&quot;)) 
+			<mark>{ CdnFallbackExpression = &quot;window.jquery&quot; }</mark>
+	             .Include(&quot;~/Scripts/jquery-{version}.js&quot;));
 	
-	    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
-					<mark>{ CdnFallbackExpression = "window.jquery" }</mark>
-		                .Include("~/Scripts/jquery-{version}.js"));
+	    bundles.Add(new ScriptBundle(&quot;~/bundles/jqueryval&quot;, string.Format(cdnUrl, &quot;bundles/jqueryval&quot;)) 
+			<mark>{ CdnFallbackExpression = &quot;$.validator&quot; }</mark>     
+	 	.Include(&quot;~/Scripts/jquery.validate*&quot;));
 
-	    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")) 
-					<mark>{ CdnFallbackExpression = "$.validator" }</mark>
-	            	.Include("~/Scripts/jquery.validate*"));
 	
 	    // Используйте версию разработки Modernizr как основу для обучения и разработки. Когда вы будете готовы
 	    // к развертыванию в рабочей среде, используйте инструмент создания по адресу http://modernizr.com, что выбирать только необходимые тесты.
-	    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
-					<mark>{ CdnFallbackExpression = "window.Modernizr" }</mark>
-					.Include("~/Scripts/modernizr-*"));
+	    bundles.Add(new ScriptBundle(&quot;~/bundles/modernizr&quot;, string.Format(cdnUrl, &quot;bundles/modernizer&quot;)) 
+					<mark>{ CdnFallbackExpression = &quot;window.Modernizr&quot; }</mark>
+					.Include(&quot;~/Scripts/modernizr-*&quot;));
 	
-	    bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")) 	
-					<mark>{ CdnFallbackExpression = "$.fn.modal" }</mark>
+	    bundles.Add(new ScriptBundle(&quot;~/bundles/bootstrap&quot;, string.Format(cdnUrl, &quot;bundles/bootstrap&quot;)) 	
+					<mark>{ CdnFallbackExpression = &quot;$.fn.modal&quot; }</mark>
 	        		.Include(
-		              		"~/Scripts/bootstrap.js",
-		              		"~/Scripts/respond.js"));
+		              		&quot;~/Scripts/bootstrap.js&quot;,
+		              		&quot;~/Scripts/respond.js&quot;));
 	
-	    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
-	                "~/Content/bootstrap.css",
-	                "~/Content/site.css"));
+	    bundles.Add(new StyleBundle(&quot;~/Content/css&quot;, string.Format(cdnUrl, &quot;Content/css&quot;)).Include(
+	                &quot;~/Content/bootstrap.css&quot;,
+	                &quot;~/Content/site.css&quot;));
 	}</pre>
+
 
 	Когда выражение `CdnFallbackExpression` не пустое, скрипт внедряется в HTML, чтобы проверить успешность загрузки пакета, и в случае неуспешной загрузки обеспечивает доступ к пакету непосредственно на исходном веб-сервере. В этом свойстве необходимо устанавливать выражение JavaScript, проверяющее, загружен ли соответствующий пакет CDN должным образом. Выражения для проверки каждого пакета отличаются в соответствии с контентом. Для пакетов по умолчанию выше:
 	
@@ -618,16 +618,15 @@ public ActionResult Show(string id)
 	</pre>
 	Обратите внимание, что внедренный скрипт для пакета CSS по-прежнему содержит ошибочный фрагмент из свойства `CdnFallbackExpression` в следующей строке:
 
-        }())||document.write('<script src="/Content/css"></script>');</script>
+        }())||document.write('<script src="/Content/css"><\/script>');</script>
 
 	Но поскольку первая часть выражения '||' будет всегда возвращать значение true (в строке прямо над этой), функция document.write() никогда не будет выполняться.
 
 ## Дополнительные сведения ##
-- [Общие сведения о сети доставки контента (CDN) Azure](cdn-overview.md)
+- [Общие сведения о сети доставки контента (CDN) Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
 - [Обслуживание содержимого из CDN Azure в вашем веб-приложении](cdn-serve-content-from-cdn-in-your-web-application.md)
-- [Использование Azure CDN в службе приложений Azure](../cdn-websites-with-cdn.md)
+- [Интеграция веб-сайта Azure с Azure CDN](cdn-websites-with-cdn.md)
 - [Объединение и минификация ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Использование CDN для Azure](cdn-how-to-use-cdn.md)
- 
+- [Использование CDN для Azure](cdn-how-to-use.md)
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

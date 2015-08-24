@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Восстановление мобильной службы в случае аварии — мобильные службы Azure"
+	pageTitle="Восстановление мобильной службы в случае аварии | Microsoft Azure"
 	description="Узнайте, как восстановить работу мобильной службы в случае аварии."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/24/2015"
+	ms.date="08/08/2015"
 	ms.author="christopheranderson"/>
 
 # Восстановление мобильной службы в случае аварии
@@ -104,4 +104,4 @@
 [Автоматизация мобильных служб с помощью Azure CLI]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

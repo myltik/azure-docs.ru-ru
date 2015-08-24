@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Начало работы по проверке подлинности (Android) | Центр мобильных разработок" 
+	pageTitle="Приступая к работе с проверкой подлинности (Android) | Microsoft Azure" 
 	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения магазина Windows с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -86,4 +86,4 @@
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

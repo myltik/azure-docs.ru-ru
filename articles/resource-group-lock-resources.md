@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="08/10/2015" 
 	ms.author="tomfitz"/>
 
 # Блокировка ресурсов с помощью диспетчера ресурсов Azure
@@ -83,15 +83,16 @@
 
 ## Создание блокировки с помощью Azure PowerShell
 
-Вы можете заблокировать развернутые ресурсы с помощью Azure PowerShell, используя командлет **New-AzureResourceLock**, как показано ниже.
+Вы можете заблокировать развернутые ресурсы с помощью Azure PowerShell, используя командлет **New-AzureResourceLock**, как показано ниже. С помощью PowerShell вы можете только установить для **LockLevel** значение **CanNotDelete**.
 
     PS C:\> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
 
-PowerShell предоставляет другие команды для рабочих блокировок, такие как **Set-AzureResourceLock**, чтобы обновить блокировку, и **Remove-AzureResourceLock**, чтобы удалить ее.
+В PowerShell доступны другие команды для рабочих блокировок, такие как **Set-AzureResourceLock**, чтобы обновить блокировку, и **Remove-AzureResourceLock**, чтобы удалить ее.
 
 ## Дальнейшие действия
 
-- [Использование тегов для организации ресурсов](resource-group-using-tags.md)
-- [Перемещение ресурсов в новую группу ресурсов](resource-group-move-resources.md)
+- Дополнительные сведения о работе с блокировкой ресурсов см. в статье [Блокировка ресурсов Azure](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx).
+- Дополнительные сведения о логической организации ресурсов см. в статье [Использование тегов для организации ресурсов](resource-group-using-tags.md).
+- Чтобы изменить местонахождение ресурса, см. статью [Перемещение ресурсов в новую группу ресурсов](resource-group-move-resources.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

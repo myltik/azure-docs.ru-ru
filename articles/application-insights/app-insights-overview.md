@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
  
 # Что такое Azure Application Insights?
@@ -103,17 +103,19 @@ Application Insights может также получать данные тел�
 
 Для получения дополнительных сведений выберите тип приложения в разделе «Начало работы» на панели навигации в левой части страницы.
 
-## Примеры
+## Код
 
 
 [Примеры и пошаговые руководства](app-insights-code-samples.md)
+
+[Лабораторные работы SDK](https://www.myget.org/gallery/applicationinsights-sdk-labs) — это пакеты NuGet, которые можно установить (и удалить) в качестве дополнений к пакету SDK Application Insights. Попробуйте и напишите свои отзывы!
 
 
 ## Поддержка и обратная связь
 
 * Вопросы и проблемы
  * [Устранение неполадок][qna]
- * [Форум MSDN](https://social.msdn.microsoft.com/Forums/vstudio/ru-ru/home?forum=ApplicationInsights)
+ * [Форум MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Ошибки
  * [Подключение](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -150,4 +152,4 @@ Application Insights может также получать данные тел�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

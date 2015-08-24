@@ -46,7 +46,7 @@
 
 Служба фабрики данных Azure поддерживает следующие действия в конвейере.
 
-- **Действие копирования** копирует данные из одного хранилища данных в другое. Подробные сведения о том, какие хранилища данных поддерживают действие копирования, см. в разделе [Копирование данных с помощью фабрики данных Azure][copy-data-with-adf]. 
+- **Действие копирования** копирует данные из одного хранилища данных в другое.  
 - **Действие HDInsight** обрабатывает данные, запуская сценарии Hive и Pig или программы MapReduce в кластере HDInsight. Дополнительные сведения см. в статьях [Использование Pig и Hive в фабрике данных][use-pig-hive] и [Вызов программы MapReduce из фабрики данных][run-map-reduce]. 
 - **Действие количественной оценки машинного обучения Azure** вызывает API количественной оценки машинного обучения Azure. Подробные сведения см. в статье [Создание прогнозирующих конвейеров с помощью фабрик данных Azure и машинного обучения Azure][azure-ml-adf]. 
 - **Действие хранимой процедуры** вызывает хранимую процедуру в Базе данных SQL Azure. Подробные сведения см. в статье [Действие хранимой процедуры][msdn-stored-procedure-activity] в библиотеке MSDN.   
@@ -82,7 +82,6 @@
 
 [adf-faq]: data-factory-faq.md
 [adf-intro]: data-factory-introduction.md
-[copy-data-with-adf]: data-factory-copy-activity.md
 [use-pig-hive]: data-factory-pig-hive-activities.md
 [run-map-reduce]: data-factory-map-reduce.md
 [azure-ml-adf]: data-factory-create-predictive-pipelines.md
@@ -113,4 +112,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight | Azure"
+   pageTitle="Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight | Microsoft Azure"
    description="Узнайте, как обрабатывать данные службы концентраторов событий с использованием топологии C# Storm, созданной в Visual Studio с помощью средств HDInsight для Visual Studio."
    services="hdinsight,notification hubs"
    documentationCenter=""
@@ -557,4 +557,4 @@ EventHubSpout периодически передает информацию о 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

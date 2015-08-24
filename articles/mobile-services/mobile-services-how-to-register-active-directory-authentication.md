@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Регистрация для проверки подлинности в Azure Active Directory | Мобильные службы Azure" 
+	pageTitle="Регистрация для проверки подлинности Azure Active Directory | Microsoft Azure" 
 	description="Узнайте, как зарегистрироваться для использования аутентификации Azure Active Directory в приложении мобильных служб." 
 	authors="wesmc7777" 
 	services="mobile-services" 
@@ -66,4 +66,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

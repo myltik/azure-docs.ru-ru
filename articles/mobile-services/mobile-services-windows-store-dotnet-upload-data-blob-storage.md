@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование мобильных служб для загрузки изображений в хранилище больших двоичных объектов (Магазин Windows) | Мобильные службы" 
+	pageTitle="Использование мобильных служб для отправки изображений в хранилище BLOB-объектов (Магазин Windows) | Microsoft Azure" 
 	description="Узнайте, как использовать мобильные службы для передачи изображений в хранилище больших двоичных объектов Azure и получения доступа к изображениям из приложения магазина Windows." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -103,4 +103,4 @@
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Приступая к работе с проверкой подлинности (JavaScript) | Центр мобильных разработок" 
+	pageTitle="Приступая к работе с проверкой подлинности (JavaScript) | Microsoft Azure" 
 	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения JavaScript магазина Windows с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -94,4 +94,4 @@
 [Register your Windows Store app package for Microsoft authentication]: /develop/mobile/how-to-guides/register-windows-store-app-package
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

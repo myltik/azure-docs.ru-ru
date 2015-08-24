@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Общие сведения о технологиях NoSQL в Azure" 
+	pageTitle="Основные сведения о технологиях NoSQL в Azure | Microsoft Azure" 
 	description="Вы узнаете, как технологии NoSQL в HDInsight могут помочь вам с управлением данными, для хранения которых не подходят реляционные базы данных. К таким данным можно отнести неструктурированные данные большого размера, документы JSON или графы." 
 	editor="cgronlun" 
 	manager="jhubbard" 
@@ -31,4 +31,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

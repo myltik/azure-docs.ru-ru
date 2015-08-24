@@ -3,7 +3,7 @@
 	description="Группировка нескольких ресурсов в логическую группу, которая становится границей жизненного цикла для ресурсов, содержащихся в нем." 
 	services="azure-portal" 
 	documentationCenter="" 
-	authors="" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -75,4 +75,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

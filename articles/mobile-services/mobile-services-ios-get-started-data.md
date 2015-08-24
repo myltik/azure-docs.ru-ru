@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Добавление мобильных служб в существующее приложение (iOS) | Центр разработчиков для мобильных устройств"
+	pageTitle="Добавление мобильных служб в существующее приложение (iOS) | Microsoft Azure"
 	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении iOS."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -81,4 +81,4 @@
 [приложение iOS GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 [приложении iOS GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

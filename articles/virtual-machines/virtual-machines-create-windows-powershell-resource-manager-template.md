@@ -19,7 +19,7 @@
 
 # Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов
 
-Вы можете с легкостью создать виртуальную машину Azure под управлением Windows, используя шаблон диспетчера ресурсов с помощью Azure PowerShell или интерфейса командной строки Azure. Этот шаблон позволяет создать одну виртуальную машину под управлением Windows в новой виртуальной сети с единой подсетью в новой группе ресурсов.
+Вы можете легко создать виртуальную машину Azure под управлением Windows, используя шаблон диспетчера ресурсов с помощью Azure PowerShell или интерфейса командной строки Azure. Этот шаблон позволяет создать одну виртуальную машину под управлением Windows в новой виртуальной сети с единой подсетью в новой группе ресурсов.
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template/windowsvm.png)
 
@@ -29,7 +29,7 @@
 
 [AZURE.INCLUDE [xplat-getting-set-up-arm](../../includes/xplat-getting-set-up-arm.md)]
 
-## Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов с помощью Azure PowerShell
+## Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов и Azure PowerShell
 
 Выполните следующие шаги, чтобы создать виртуальную машину Windows с использованием шаблона диспетчера ресурсов в репозитории шаблонов Github с помощью Azure PowerShell.
 
@@ -75,7 +75,7 @@
                 "Windows-Server-Technical-Preview"
             ],
             "metadata": {
-                "Description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
+                "Description": "The Windows version for the virtual machine. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
             }
         }
     },
@@ -216,7 +216,7 @@
 
 ### Шаг 2. Создание виртуальной машины с помощью шаблона
 
-Введите имена развертывания Azure и группы ресурсов, а также расположение центра обработки данных Azure и выполните следующие команды.
+Введите имена развертывания Azure и группы ресурсов, а также расположение центра обработки данных Azure, после чего выполните следующие команды.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
@@ -278,7 +278,7 @@
 
 ## Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов и интерфейса командной строки Azure
 
-Выполните следующие шаги, чтобы создать виртуальную машину Windows с использованием шаблона диспетчера ресурсов в репозитории шаблонов Github с помощью команд интерфейса командной строки Azure.
+Выполните следующие шаги, чтобы создать виртуальную машину Windows с использованием шаблона диспетчера ресурсов в репозитории шаблонов Github с помощью команд интерфейса командной строки Azure (CLI).
 
 Введите имя группы ресурсов и расположение Azure (например, westsib для Западной Сибири, удалив скобки), а затем выполните следующие команды.
 
@@ -323,7 +323,7 @@
 
 [Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения Azure в диспетчере ресурсов Azure](virtual-machines-azurerm-versus-azuresm.md)
 
-[Обзор диспетчера ресурсов Azure](resource-group-overview.md)
+[Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md)
 
 [Создание виртуальной машины Windows с помощью диспетчера ресурсов Azure и PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
 
@@ -333,4 +333,4 @@
 
 [Установка и настройка Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

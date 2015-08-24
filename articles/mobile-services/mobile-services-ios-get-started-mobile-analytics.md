@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Приступая к работе с мобильной аналитикой | Центр мобильных разработок" 
+	pageTitle="Приступая к работе с мобильной аналитикой | Microsoft Azure" 
 	description="Начало работы с мобильной аналитикой." 
 	documentationCenter="ios" 
 	authors="mattchenderson" 
@@ -98,4 +98,4 @@
 [Мобильные службы уровня Standard]: /pricing/details/mobile-services/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

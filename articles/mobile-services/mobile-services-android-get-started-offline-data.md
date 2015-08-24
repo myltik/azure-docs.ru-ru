@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Добавление синхронизации автономных данных в приложение мобильных служб Android | Центр разработки для мобильных устройств"
+	pageTitle="Добавление синхронизации автономных данных в приложение мобильных служб для Android | Microsoft Azure"
 	description="Узнайте, как использовать мобильные службы Azure для кэширования и синхронизации автономных данных в приложении на Android."
 	documentationCenter="android"
 	authors="RickSaling"
@@ -221,4 +221,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [Быстрый запуск мобильных служб]: mobile-services-android-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

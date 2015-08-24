@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Обзор гибридных подключений | Azure" 
+	pageTitle="Обзор гибридных подключений | Microsoft Azure" 
 	description="Сведения о гибридных подключениях, в том числе о безопасности, TCP-портах и поддерживаемых конфигурациях. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -103,4 +103,4 @@
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

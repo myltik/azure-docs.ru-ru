@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd" 
-   ms.date="05/21/2015"
+   ms.date="08/11/2015"
    ms.author="riande"/>
 
 # Распространенные шаблоны кэширования в кэше Redis для Azure
@@ -37,4 +37,4 @@
 - [Киноприложение MVC за 15 минут с помощью кэша Redis для Azure](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/): в этой записи блога кратко описано начало использования кэша Redis для Azure в приложении ASP.NET MVC.
 - [Использование состояния сеанса ASP.NET с веб-сайтами Azure](../app-service-web/web-sites-dotnet-session-state-caching.md): в этом разделе объясняется, как использовать службу кэша Redis для Azure для хранения состояния сеанса.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

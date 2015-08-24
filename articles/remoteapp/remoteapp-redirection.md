@@ -2,17 +2,17 @@
     pageTitle="Использование перенаправления в удаленном приложении Azure RemoteApp" 
     description="Узнайте, как настроить и использовать перенаправление в удаленном приложении RemoteApp" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
-    ms.workload="tbd" 
+    ms.workload="compute" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/29/2015" 
+    ms.date="08/10/2015" 
     ms.author="elizapo" />
 
 # Использование перенаправления в удаленном приложении Azure RemoteApp
@@ -76,7 +76,9 @@
 > [AZURE.NOTE]Перенаправление USB с помощью удаленного приложения Azure RemoteApp поддерживается только на компьютерах под управлением Windows.
 
 ### Включение перенаправления USB для коллекции RemoteApp
-Используйте следующий командлет, чтобы включить перенаправление USB на уровне коллекции: Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:*"
+Чтобы включить перенаправление USB на уровне коллекции, используйте следующий командлет:
+
+    Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:*"
 
 ### Включение перенаправления USB на клиентском компьютере
 
@@ -88,7 +90,7 @@
 4. Выберите **Включено**, а затем выберите **Администраторы и пользователи в правах доступа перенаправления RemoteFX USB**.
 5. Откройте командную строку с правами администратора и выполните следующую команду: 
 
-    gpupdate/force
+		gpupdate /force
 6. Перезагрузите компьютер.
 
 Вы также можете использовать средство управления групповой политикой, чтобы создать и применить политику перенаправления USB для всех компьютеров в домене.
@@ -102,4 +104,4 @@
 7. Выберите **Включено**, а затем выберите **Администраторы и пользователи в правах доступа перенаправления RemoteFX USB**.
 8. Нажмите кнопку **ОК**.  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

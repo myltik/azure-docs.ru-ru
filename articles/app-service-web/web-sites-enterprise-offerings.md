@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/04/2015" 
-	ms.author="apwestgarth"/>
+	ms.author="anwestg"/>
 
 # Технический документ о предложениях по веб-приложениям служб приложений Azure для крупных предприятий #
 
@@ -153,4 +153,4 @@
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

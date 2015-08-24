@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="08/06/2015"
 	ms.author="tamram;selcint"/>
 
 
@@ -39,7 +39,7 @@
 
 - Хранилище Premium в настоящее время предоставляется на [портале предварительной версии Microsoft Azure](https://portal.azure.com/), и доступ к нему осуществляется с помощью следующих библиотек SDK: [API-интерфейс REST служб хранилища](http://msdn.microsoft.com//library/azure/dd179355.aspx) версии 2014-02-14 или более поздней; [API-интерфейс REST управления службами](http://msdn.microsoft.com/library/azure/ee460799.aspx) версии 2014-10-01 или более поздней; [Azure PowerShell](../install-configure-powershell.md) версии 0.8.10 или более поздней.
 
-- Хранилище класса Premium сейчас доступно в следующих регионах: Запад США, Восток США 2, Западная Европа, Восточный Китай, Юго-Восточная Азия, Западная Япония и Восточная Австралия.
+- Список регионов, которые в настоящее время поддерживают хранилище класса Premium, см. в статье [Службы Azure по регионам](http://azure.microsoft.com/regions/#services).
 
 - Хранилище Premium поддерживает только страничные BLOB-объекты Azure, которые используются для хранения постоянных дисков для виртуальных машин Azure. Сведения о страничных BLOB-объектах Azure см. в статье [Основные сведения о блочных и страничных BLOB-объектах](http://msdn.microsoft.com/library/azure/ee691964.aspx). Хранилище Premium не поддерживает блочные BLOB-объекты Azure,файлы Azure, таблицы Azure и очереди Azure.
 
@@ -262,10 +262,10 @@
 
 - Для дисков хранилища Premium с параметром кэширования «чтение и запись» барьеры должны быть включены на весь срок выполнения операции записи.
 
-Ниже перечислены дистрибутивы Linux, проверенные на предмет работоспособности с хранилищем Premium. Рекомендуем вам обновить свои виртуальные машины до одной из перечисленных ниже версий (или более поздних), чтобы добиться от хранилища Premium максимально производительной и стабильной работы. Кроме того, для некоторых из этих версий необходима последняя версия LIS (служб интеграции Linux Integration Services 4.0 для Microsoft Azure). Используйте приведенные ниже ссылки для загрузки и установки соответствующих продуктов. По мере завершения проверки мы будем дополнять этот список новыми образами. Обратите внимание, что наши проверки этих образов продемонстрировали колебания показателей производительности, которые также зависят от особенностей рабочей нагрузки и параметров образов. Различные образы лучше подходят для разных типов рабочей нагрузки. <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>Дистрибутив</strong></td> <td><strong>Версия</strong></td> <td><strong>Поддерживаемое ядро</strong></td> <td><strong>Поддерживаемый образ</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-ru-ru-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-ru-ru-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14\_10-amd64-server-20150202-ru-ru-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15\_04-amd64-server-20150422-ru-ru-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 7.0</td> <td></td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> Требуется LIS 4.0 </a> </br> *См. примечание ниже </td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> Рекомендуется LIS 4.0 </a> <br/> *См. примечание ниже </td> </tr>
+Ниже перечислены дистрибутивы Linux, проверенные на предмет работоспособности с хранилищем Premium. Рекомендуем вам обновить свои виртуальные машины до одной из перечисленных ниже версий (или более поздних), чтобы добиться от хранилища Premium максимально производительной и стабильной работы. Кроме того, для некоторых из этих версий необходима последняя версия LIS (служб интеграции Linux Integration Services 4.0 для Microsoft Azure). Используйте приведенные ниже ссылки для загрузки и установки соответствующих продуктов. По мере завершения проверки мы будем дополнять этот список новыми образами. Обратите внимание, что наши проверки этих образов продемонстрировали колебания показателей производительности, которые также зависят от особенностей рабочей нагрузки и параметров образов. Различные образы лучше подходят для разных типов рабочей нагрузки. <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>Дистрибутив</strong></td> <td><strong>Версия</strong></td> <td><strong>Поддерживаемое ядро</strong></td> <td><strong>Поддерживаемый образ</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-ru-ru-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-ru-ru-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14\_10-amd64-server-20150202-ru-ru-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15\_04-amd64-server-20150422-ru-ru-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 7.0</td> <td></td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> Требуется LIS 4.0 </a> </br> *См. примечание ниже </td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> Рекомендуется LIS 4.0 </a> <br/> *См. примечание ниже </td> </tr>
 
 <tr>
-	<td rowspan="2"><link id="138" refid="139" url="virtual-machines-oracle-azure-virtual-machines.md">Oracle</link></td>
+	<td rowspan="2"><strong>Oracle</strong></td>
 	<td>6.4</td>
 	<td></td>
 	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> Требуется LIS 4.0 </a></td>
@@ -401,4 +401,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

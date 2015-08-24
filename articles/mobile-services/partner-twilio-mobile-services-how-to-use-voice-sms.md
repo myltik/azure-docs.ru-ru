@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование Twilio для поддержки голосовых вызовов и SMS | Центр мобильных разработок" 
+	pageTitle="Использование Twilio для поддержки голосовых возможностей и SMS | Microsoft Azure" 
 	description="Узнайте, как выполнять типовые задачи с использованием API Twilio и мобильных служб Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -230,4 +230,4 @@ Twilio предоставляет библиотеку Node.js, содержащ
 [azure_twilio_howto_php]: /develop/php/how-to-guides/twilio-voice-and-sms-service/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

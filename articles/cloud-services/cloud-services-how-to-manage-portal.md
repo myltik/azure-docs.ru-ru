@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Управление облачной службой — Azure" 
+	pageTitle="Управление облачной службой | Microsoft Azure" 
 	description="Узнайте, как управлять облачными службами в портале предварительной версии Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -106,4 +106,4 @@
 
 [портале предварительной версии Azure]: https://portal.azure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

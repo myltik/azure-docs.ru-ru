@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Обзор AMQP в служебной шине — Azure" 
+	pageTitle="Обзор AMQP для служебной шины | Microsoft Azure" 
 	description="Узнайте об использовании протокола AMQP 1.0 в Azure." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -98,4 +98,4 @@ AMQP 1.0 разрабатывался с 2008 г. активной группо�
 [0]: ./media/service-bus-amqp-overview/Example1.png
 [руководстве разработчика AMQP для служебной шины]: http://msdn.microsoft.com/library/jj841071.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

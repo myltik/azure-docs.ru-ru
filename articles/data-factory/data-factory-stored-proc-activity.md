@@ -29,8 +29,8 @@
     	"outputs":  [ { "name": "outputtable" } ],
     	"typeProperties":
     	{
-        	"storedProcedureName": “”,
-        	"storedProcedureParameters": “” 
+        	"storedProcedureName": "<name of the stored procedure>",
+        	"storedProcedureParameters":  
         	{
 				"param1": "param1Value"
 				…
@@ -72,6 +72,8 @@ Datetime | Дата и время, когда был создан соответ
 	    VALUES (newid(), @DateTime)
 	END
 
+> [AZURE.NOTE]**Имя** и **регистр** параметра (в этом примере — DateTime) должны соответствовать параметру, указанному в действии JSON ниже. Убедитесь, что в определении хранимой процедуры в качестве префикса для параметра используется **@**.
+
 Вот что нужно сделать, чтобы выполнить эту хранимую процедуру в конвейере фабрики данных:
 
 1.	Создайте [связанную службу](data-factory-azure-sql-connector.md/#azure-sql-linked-service-properties) для регистрации строки подключения базы данных SQL Azure, где следует выполнить хранимую процедуру.
@@ -86,19 +88,19 @@ Datetime | Дата и время, когда был создан соответ
 		        "activities":
 		        [
 		            {
-		             "name": "SprocActivitySample",
-		             "type": " SqlServerStoredProcedure ",
-		             "outputs": [ {"name": "sprocsampleout"} ],
-		             "typeproperties":
-		              {
-		                "storedProcedureName": "sp_sample",
-		        		"storedProcedureParameters": 
-		        		{
-		            	"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
-		        		}
-				}
-		            }
-		          ]
+		            	"name": "SprocActivitySample",
+		             	"type": " SqlServerStoredProcedure",
+		             	"outputs": [ {"name": "sprocsampleout"} ],
+		             	"typeProperties":
+		              	{
+		                	"storedProcedureName": "sp_sample",
+			        		"storedProcedureParameters": 
+		        			{
+		            			"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
+		        			}
+						}
+	            	}
+		        ]
 		     }
 		}
 5.	Разверните [конвейер](data-factory-create-pipelines.md).
@@ -121,9 +123,9 @@ Datetime | Дата и время, когда был создан соответ
 	    VALUES (newid(), @DateTime, @Scenario)
 	END
 
-Чтобы выполнить это, передайте параметр Scenario и значение из действия хранимой процедуры. Раздел typeproperties в приведенном выше примере выглядит следующим образом.
+Чтобы выполнить это, передайте параметр Scenario и значение из действия хранимой процедуры. Раздел typeproperties в приведенном выше примере выглядит следующим образом:
 
-	"typeproperties":
+	"typeProperties":
 	{
 		"storedProcedureName": "sp_sample",
 	    "storedProcedureParameters": 
@@ -133,4 +135,4 @@ Datetime | Дата и время, когда был создан соответ
 		}
 	}
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

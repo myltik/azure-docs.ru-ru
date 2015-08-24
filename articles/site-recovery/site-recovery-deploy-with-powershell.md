@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="08/05/2015"
 	ms.author="lauraa"/>
 
 #  Развертывание Azure Site Recovery с использованием PowerShell
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>При наличии вопросов обращайтесь на <a href="http://go.microsoft.com/fwlink/?LinkId=313628">форум по службам восстановления Azure</a>.</LI> </UL>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

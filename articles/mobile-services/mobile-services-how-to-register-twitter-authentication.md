@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Регистрация для проверки подлинности Twitter — мобильные службы" 
+	pageTitle="Регистрация для проверки подлинности Twitter | Microsoft Azure" 
 	description="Узнайте, как использовать аутентификацию Twitter с приложением мобильных служб Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 #Регистрация приложений для входа в Twitter с помощью мобильных служб
@@ -32,25 +32,19 @@
 
 2. Введите значения **Name** (Имя), **Description** (Описание) и **Website** (Веб-сайт) для своего приложения, затем введите URL-адрес мобильной службы, к которому добавлен путь _/login/twitter_ в поле **Callback URL** (URL-адрес обратного вызова).
 
-	>[AZURE.NOTE]Для серверной мобильной службы .NET, опубликованной в Azure с помощью Visual Studio, URL-адресом перенаправления является URL-адрес вашей мобильной службы, дополненный путем _signin-twitter_ мобильной службы в качестве службы .NET, например <code>https://todolist.azure-mobile.net/signin-twitter</code>.
+	>[AZURE.NOTE]Для серверной мобильной службы на основе .NET, опубликованной в Azure с помощью Visual Studio, URL-адресом перенаправления является URL-адрес вашей мобильной службы с суффиксом _signin-twitter_. В нашем примере у мобильной службы будет URL-адрес обратного вызова ```https://todolist.azure-mobile.net/signin-twitter```.
 
    	![][2]
 
-3.  В нижней части страницы прочитайте и примите условия соглашения, введите текст проверки CAPTCHA и нажмите кнопку **Create your Twitter application** (Создать приложение для Twitter).
-
-   	![][3]
+3.  В нижней части страницы прочитайте и примите условия соглашения и нажмите кнопку **Создать приложение для Twitter**.
 
    	После этого приложение будет зарегистрировано и появятся сведения о приложении.
 
-6. Запомните значения полей **Consumer key** (Ключ клиента) и **Consumer secret** (Секрет клиента).
-
-   	![][4]
+6. Щелкните вкладку **Ключи и маркеры доступа** на панели мониторинга приложения и запишите значения параметров **Ключ клиента** и **Секрет клиента**.
 
     > [AZURE.NOTE]Секрет клиента — это важные учетные данные безопасности. Не сообщайте никому этот секрет и не распространяйте его вместе со своим приложением.
 
-7. Откройте вкладку **Settings** (Параметры), прокрутите экран вниз и установите флажок **Allow this application to be used to sign in with Twitter** (Разрешить этому приложению вход с помощью Twitter). Затем нажмите кнопку **Update this Twitter application's settings** (Обновить параметры приложения для Twitter).
-
-	![][5]
+7. Откройте вкладку **Параметры**, прокрутите страницу вниз и убедитесь, что флажок **Разрешить этому приложению вход с помощью Twitter**. Затем нажмите кнопку **Обновить параметры**.
 
 Теперь вы готовы использовать имя входа Twitter для проверки подлинности в вашем приложении, предоставляя мобильным службам ключ клиента и секрет клиента.
 
@@ -59,9 +53,6 @@
 <!-- Images. -->
 [1]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-developers.png
 [2]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app1.png
-[3]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-app2.png
-[4]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-app-details.png
-[5]: ./media/mobile-services-how-to-register-twitter-authentication/mobile-services-twitter-register-settings.png
 
 <!-- URLs. -->
 
@@ -71,4 +62,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

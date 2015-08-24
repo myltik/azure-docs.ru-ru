@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование конвейера для работы с локальными данными | Фабрика данных Azure" 
+	pageTitle="Использование конвейера для работы с локальными данными | Microsoft Azure" 
 	description="Узнайте, как зарегистрировать локальный источник данных в фабрике данных Azure и копировать данные из источника данных и в него." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -626,4 +626,4 @@
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

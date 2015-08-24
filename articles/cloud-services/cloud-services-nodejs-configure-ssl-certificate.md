@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Настройка SSL для облачной службы(Node.js) — Azure" 
+	pageTitle="Настройка SSL для облачной службы (Node.js) | Microsoft Azure" 
 	description="Установите конечную точку HTTPS для веб-роли Node.js и отправьте SSL-сертификат, чтобы обеспечить безопасность приложения." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -192,4 +192,4 @@ SSL-шифрование – это наиболее распространен�
   [Настройка SSL для приложения Node.js в рабочей роли Azure]: /develop/nodejs/common-tasks/enable-ssl-worker-role/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

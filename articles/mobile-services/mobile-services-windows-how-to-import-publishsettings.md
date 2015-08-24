@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Импорт файла параметров публикации подписки в Visual Studio 2013 | Мобильные службы" 
+	pageTitle="Импорт файла параметров публикации в Visual Studio 2013 | Microsoft Azure" 
 	description="Узнайте, как импортировать файл параметров публикации подписки для приложения мобильных служб Azure в Visual Studio 2013." 
 	documentationCenter="" 
 	services="mobile-services" 
@@ -62,4 +62,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

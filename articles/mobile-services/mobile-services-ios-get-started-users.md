@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Добавление проверки подлинности в существующее приложение мобильных служб Azure (iOS) | Центр разработчиков для мобильных устройств"
+	pageTitle="Добавление проверки подлинности в существующее приложение мобильных служб Azure (iOS) | Microsoft Azure"
 	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения iOS с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -84,4 +84,4 @@
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

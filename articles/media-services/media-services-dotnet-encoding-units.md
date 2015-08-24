@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,8 +21,12 @@
 
 #Масштабирование кодирования с помощью пакета SDK для .NET
 
-Это одна из статей цикла [Рабочий процесс для видео по запросу в службах мультимедиа](media-services-video-on-demand-workflow.md).
-  
+
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-encoding-units.md)
+- [.NET](media-services-dotnet-encoding-units.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+
 ##Обзор
 
 Учетная запись служб мультимедиа связана с типом зарезервированных единиц, который определяет скорость обработки заданий кодирования. Вы можете выбрать один из следующих типов зарезервированных единиц: Basic, Standard или Premium. Например, задание по кодированию выполняется быстрее при выборе типа зарезервированной единицы Standard по сравнению с типом Basic. Дополнительную информацию см. в блоге "Типы зарезервированных единиц кодирования" [Милана Гады (Milan Gada)](http://azure.microsoft.com/blog/author/milanga/).
@@ -70,4 +74,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

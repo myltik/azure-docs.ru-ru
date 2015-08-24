@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Работа с заданиями служб мультимедиа Azure
@@ -60,4 +60,4 @@
 [Квоты и ограничения](media-services-quotas-and-limitations.md) — описание применяемых квот и ограничений кодировщика служб мультимедиа
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

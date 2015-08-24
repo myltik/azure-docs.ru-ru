@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Работа с несколькими клиентами на одном внутреннем сервере мобильной службы | Azure Mobile" 
+	pageTitle="Работа с несколькими клиентами на одном внутреннем сервере мобильной службы | Microsoft Azure" 
 	description="Узнайте, как использовать серверную часть одной мобильной службы из нескольких клиентских приложений, предназначенных для различных мобильных платформ, включая Магазин Windows и Windows Phone." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -208,4 +208,4 @@
 [Universal Windows app project for Azure Mobile Services using MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

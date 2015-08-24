@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Service Bus — базовая информация об Azure" 
+	pageTitle="Служебная шина Azure | Microsoft Azure" 
 	description="Введение в различные способы использования Service Bus для подключения приложений Azure к другим программам." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -130,4 +130,4 @@ Service Bus — это мультитенантная облачная служ�
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

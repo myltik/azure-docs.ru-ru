@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Веб-приложение Python на Django на платформе Mac — учебник по Azure" 
+	pageTitle="Веб-приложение Python на Django (Mac) | Microsoft Azure" 
 	description="В этом учебнике описывается, как разместить веб-сайт на основе Django в Azure с помощью виртуальной машины Linux." 
 	services="virtual-machines" 
 	documentationCenter="python" 
@@ -22,7 +22,9 @@
 
 # Веб-приложение Hello World на Django (Mac и Linux)
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/develop/python/tutorials/web-app-with-django/" title="Windows">Windows</a><a href="/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac/Linux" class="current">Mac/Linux</a></div>
+> [AZURE.SELECTOR]
+- [Windows](web-app-with-django.md)
+- [Mac/Linux](django-hello-world-(maclinux).md)
 
 В этом учебнике описывается, как разместить веб-сайт на основе Django в Microsoft Azure с помощью виртуальной машины Linux. В данном учебнике предполагается, что у вас нет опыта использования платформы Azure. По завершении изучения этого учебника вы получите приложение на основе Django, выполняемое в облаке.
 
@@ -132,4 +134,4 @@
 [portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

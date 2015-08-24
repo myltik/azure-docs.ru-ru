@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Передача изображений в хранилище Azure из приложения Windows Phone Silverlight | Мобильные службы Azure" 
+	pageTitle="Передача изображений в хранилище Azure из приложения Silverlight для Windows Phone | Microsoft Azure" 
 	description="Узнайте, как использовать мобильные службы для передачи изображений из приложения Windows Phone Silverlight в хранилище больших двоичных объектов Azure." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -103,4 +103,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

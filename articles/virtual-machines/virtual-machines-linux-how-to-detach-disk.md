@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="08/11/2015"
 	ms.author="dkshir"/>
 
 # Отсоединение диска от виртуальной машины Linux
 
 
-[AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
+[AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-linux.md)]
 
 ## Дополнительные ресурсы
 
 [Подключение диска данных к виртуальной машине Linux](virtual-machines-linux-how-to-attach-disk.md)
 
-<!---HONumber=August15_HO6-->
+[Использование Azure CLI для управления службами Azure](virtual-machines-command-line-tools.md)
+
+<!---HONumber=August15_HO7-->

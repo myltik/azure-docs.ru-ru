@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Осуществление телефонных звонков из Twilio (Java) — Azure" 
+	pageTitle="Телефонные звонки из Twilio (Java) | Microsoft Azure" 
 	description="Узнайте, как выполнить телефонный звонок с веб-страницы с использованием Twilio в приложении Java в Azure." 
 	services="" 
 	documentationCenter="java" 
@@ -209,4 +209,4 @@
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/14/2015"
+	ms.date="08/05/2015"
 	ms.author="lauraa"/>
 
 # Тестирование производительности и масштабирования: перенос из локальной среды в локальную среду
@@ -208,4 +208,4 @@ Microsoft Azure Site Recovery организует репликацию данн
 - [Настройка защиты с одним сервером VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

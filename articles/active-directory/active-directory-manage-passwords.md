@@ -1,12 +1,11 @@
 <properties
 	pageTitle="Управление паролями в Azure AD | Microsoft Azure"
-	description="Раздел, в котором объясняется, как управлять паролями в Azure AD."
+	description="Управление паролями в Azure AD"
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="swadwha"
-	editor=""
-	tags="azure-classic-portal"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="08/10/2015"
 	ms.author="curtand"/>
 
 # Управление паролями в Azure AD
@@ -33,18 +32,20 @@
 
 Используйте следующие ссылки, чтобы перейти к документации, в которой вы заинтересованы больше всего.
 
-- [Общие сведения: управление паролями в Azure AD](https://msdn.microsoft.com/library/azure/dn683880.aspx)
-- [Самостоятельный сброс пароля в Azure AD: порядок включения, настройки и тестирования самостоятельного сброса паролей](https://msdn.microsoft.com/library/azure/dn683881.aspx)
-- [Самостоятельный сброс пароля в Azure AD: как настроить сброс пароля согласно своим потребностям](https://msdn.microsoft.com/library/azure/dn688249.aspx)
-- [Самостоятельный сброс пароля в Azure AD: рекомендации по развертыванию и управлению](https://msdn.microsoft.com/library/azure/dn903643.aspx)
-- [Отчеты об управлении паролями в Azure AD: как просматривать операции управления паролями в клиенте](https://msdn.microsoft.com/library/azure/dn903641.aspx)
-- [Обратная запись паролей: настройка Azure AD для управления локальными паролями](https://msdn.microsoft.com/library/azure/dn903642.aspx)
-- [Вопросы и ответы. Устранение неполадок, связанных с управлением паролями Azure AD](https://msdn.microsoft.com/library/azure/dn683878.aspx)
+- [Общие сведения: управление паролями в Azure AD](active-directory-passwords-how-it-works.md)
+- [Самостоятельный сброс пароля в Azure AD: порядок включения, настройки и тестирования самостоятельного сброса паролей](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords)
+- [Самостоятельный сброс пароля в Azure AD: как настроить сброс пароля согласно своим потребностям](active-directory-passwords-customize.md)
+- [Самостоятельный сброс пароля в Azure AD: рекомендации по развертыванию и управлению](active-directory-passwords-best-practices.md)
+- [Отчеты об управлении паролями в Azure AD: как просматривать операции управления паролями в клиенте](active-directory-passwords-get-insights.md)
+- [Обратная запись паролей: настройка Azure AD для управления локальными паролями](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords)
+- [Устранение неполадок, связанных с управлением паролями Azure AD](active-directory-passwords-troubleshoot.md)
+- [Часто задаваемые вопросы об управлении паролями Azure AD](active-directory-passwords-faq.md)
 
-## Что дальше?
+
+## Дальнейшие действия
 
 - [Администрирование Azure AD](active-directory-administer.md)
 - [Создание и изменение пользователей в Azure AD](active-directory-create-users.md)
 - [Управление группами в Azure AD](active-directory-manage-groups.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

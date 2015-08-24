@@ -381,17 +381,6 @@
  
 Чтобы выполнить задания этого учебника при помощи Azure PowerShell, см. раздел [Создание и отслеживание фабрики данных при помощи Azure PowerShell][monitor-manage-using-powershell].
 
-## Дальнейшие действия
-
-Статья | Описание
------- | ---------------
-[Копирование данных с помощью фабрики данных Azure — действие копирования][copy-activity] | В этой статье содержится подробное описание **действия копирования**, которое использовалось в этом учебнике. 
-[Использование конвейера для работы с локальными данными][use-onpremises-datasources] | В этой статье приведено пошаговое руководство, показывающее, как правильно копировать данные из **локальной базы данных SQL Server** в большой двоичный объект Azure. 
-[Учебник. Перемещение и обработка файлов журнала с помощью фабрики данных][adf-tutorial] | В этой статье представлено **полное пошаговое руководство**, показывающее, как при помощи фабрики данных Azure реализовать **реальный сценарий** преобразования данных из файлов журналов в аналитические данные.
-[Устранение неполадок фабрики данных][troubleshoot] | В этой статье описывается **устранение неполадок** при возникновении проблем в фабрике данных Azure. Вы можете использовать руководство из этой статьи на учебной фабрике данных ADFTutorialDataFactory, намеренно создав ошибки (удалив таблицу в базе данных SQL Azure). 
-[Справочник разработчика фабрики данных Azure][developer-reference] | Справочник разработчика содержит полные справочные данные по командлетам, скриптам JSON, функциям и т. п. 
-
-
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -408,11 +397,9 @@
 
 [data-factory-editor]: data-factory-editor.md
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
-[copy-activity]: data-factory-copy-activity.md
 [troubleshoot]: data-factory-troubleshoot.md
 [data-factory-introduction]: data-factory-introduction.md
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
@@ -512,4 +499,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

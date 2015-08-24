@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Действия преобразования данных | Фабрика данных Azure" 
+	pageTitle="Действия преобразования данных | Microsoft Azure" 
 	description="Узнайте о том, как вы можете использовать службу фабрики данных Azure для преобразования и анализа данных." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -33,4 +33,4 @@
 
 Прочитайте статью [связанные службы вычислений](data-factory-compute-linked-services.md), чтобы узнать о том, какие связанные службы вычислений поддерживает фабрика данных.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Добавление проверки подлинности в приложение Windows Phone Silverlight | Мобильные службы Azure" 
+	pageTitle="Добавление проверки подлинности в приложение Silverlight для Windows Phone | Microsoft Azure" 
 	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения Windows Phone Silverlight с помощью разнообразных поставщиков удостоверений, включая учетную запись Google, Facebook, Twitter и Майкрософт." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -76,4 +76,4 @@
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

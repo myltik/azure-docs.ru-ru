@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="05/10/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 #  Обзор Site Recovery
@@ -77,4 +77,4 @@ Feature|Репликация в Azure|Репликация на второсте
 После прочтения этого обзора [изучите лучшие методики](site-recovery-best-practices.md), которые помогут вам приступить к планированию развертывания.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

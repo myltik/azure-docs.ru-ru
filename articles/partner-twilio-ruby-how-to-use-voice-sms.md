@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование Twilio для поддержки голосовых вызовов и SMS (Ruby) — Azure" 
+	pageTitle="Использование Twilio для поддержки голосовых вызовов и SMS (Ruby) | Microsoft Azure" 
 	description="Узнайте, как осуществлять телефонные вызовы и отправку SMS-сообщений с помощью службы Twilio API в Azure. Примеры кода написаны на Ruby." 
 	services="" 
 	documentationCenter="ruby" 
@@ -195,4 +195,4 @@ TwiML — это набор инструкций на основе XML, кото
 [sinatra]: http://www.sinatrarb.com/
 [azure_vm_setup]: http://www.windowsazure.com/develop/ruby/tutorials/web-app-with-linux-vm/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

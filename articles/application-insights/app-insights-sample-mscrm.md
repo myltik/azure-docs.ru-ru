@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Пошаговое руководство. Отслеживание работы Microsoft CRM с помощью Application Insights" 
-	description="Получение данных телеметрии из Microsoft CRM Online с помощью Application Insights. Пошаговое руководство по настройке, получению данных, визуализации и экспорту." 
+	pageTitle="Пошаговое руководство. Отслеживание работы Microsoft Dynamics CRM с помощью Application Insights" 
+	description="Получение данных телеметрии из Microsoft Dynamics CRM Online с помощью Application Insights. Пошаговое руководство по настройке, получению данных, визуализации и экспорту." 
 	services="application-insights" 
     documentationCenter=""
 	authors="mazharmicrosoft" 
-	manager="klin"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -15,11 +15,11 @@
 	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
-# Пошаговое руководство. Включение телеметрии для Microsoft CRM Online с помощью Application Insights
+# Пошаговое руководство. Включение телеметрии для Microsoft Dynamics CRM Online с помощью Application Insights
 
-В этой статье показано, как получить данные телеметрии из службы [Microsoft CRM Online](https://www.dynamics.com/) с помощью [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/). Мы рассмотрим весь процесс добавления сценария Application Insights в приложение, сбор данных и их визуализацию.
+В этой статье показано, как получить данные телеметрии из службы [Microsoft Dynamics CRM Online](https://www.dynamics.com/) с помощью [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/). Мы рассмотрим весь процесс добавления сценария Application Insights в приложение, сбор данных и их визуализацию.
 
->[AZURE.NOTE] [Browse the sample code](https://dynamicsandappinsights.codeplex.com/).
+>[AZURE.NOTE] [Browse the sample solution](https://dynamicsandappinsights.codeplex.com/).
 
 ## Добавление Application Insights в новый или существующий экземпляр CRM Online 
 
@@ -149,9 +149,9 @@
 
 Если [экспортировать данные в Microsoft Power BI](app-insights-export-power-bi.md), то можно выполнить еще более подробный анализ данных.
 
-## Образец решения CRM
+## Образец решения Dynamics CRM
 
-Здесь приведен пример реализованного в CRM решения для сбора телеметрических данных. https://dynamicsandappinsights.codeplex.com/
+[Ниже приведен простой пример решения, реализованного в Dynamics CRM](https://dynamicsandappinsights.codeplex.com/)
 
 ## Подробнее
 
@@ -161,4 +161,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

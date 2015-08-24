@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Приступая к работе с мобильными службами для приложений для Магазина Windows | Центр мобильных разработок" 
+	pageTitle="Приступая к работе с мобильными службами для приложений для Магазина Windows | Microsoft Azure" 
 	description="Следуйте указаниям этого учебника, чтобы приступить к использованию мобильных служб Azure для разработки приложений Магазина Windows на C# или JavaScript." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -93,4 +93,4 @@
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

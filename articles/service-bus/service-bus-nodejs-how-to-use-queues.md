@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование очередей служебной шины (Node.js) - Azure" 
+	pageTitle="Использование очередей служебной шины (Node.js) | Microsoft Azure" 
 	description="Узнайте, как использовать очереди служебной шины в Azure в приложении Node.js." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
@@ -190,4 +190,4 @@
   [Веб-приложение Node.js с хранилищем]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

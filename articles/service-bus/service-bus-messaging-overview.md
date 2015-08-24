@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Обзор обмена сообщениями через Service Bus — Azure"
+	pageTitle="Обмен сообщениями через служебную шину | Microsoft Azure"
 	description="Обмен сообщениями через служебную шину: гибкая доставка данных в облаке"
 	services="service-bus"
 	documentationCenter=".net"
@@ -38,4 +38,4 @@
 - [Использование разделов служебной шины](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

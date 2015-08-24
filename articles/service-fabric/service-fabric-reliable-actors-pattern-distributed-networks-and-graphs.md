@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Шаблон разработки надежных субъектов: распределенные сети и графы"
-   description="Шаблон разработки, показывающий, как можно использовать надежные субъекты Service Fabric для моделирования приложения с помощью распределенных сетей и графов."
+   pageTitle="Шаблон разработки субъектов Azure Service Fabric: распределенные сети и графы"
+   description="Шаблон разработки, показывающий, как можно использовать субъекты Service Fabric для моделирования приложения с помощью распределенных сетей и графов."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # Шаблон разработки надежных субъектов: распределенные сети и графы
@@ -224,4 +224,4 @@ public Task PublishMessageAsync(long participantId, string message)
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

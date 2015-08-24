@@ -18,7 +18,7 @@
 
 # Дополнительные сценарии использования действия копирования в фабрике данных Azure 
 ## Обзор
-С помощью **действия копирования** в конвейере вы можете выполнять пакетное копирование данных из источника в приемник (место назначения). В этом разделе описываются сложные сценарии, которые поддерживает действие копирования. Подробное описание действия копирования и основных сценариев, которые оно поддерживает, см. в разделе [Копирование данных с помощью фабрики данных Azure][adf-copyactivity].
+С помощью **действия копирования** в конвейере вы можете выполнять пакетное копирование данных из источника в приемник (место назначения). В этом разделе описываются сложные сценарии, которые поддерживает действие копирования.
 
 
 ## Фильтрация столбцов с помощью определения структуры
@@ -265,8 +265,6 @@
 
 ## См. также
 
-- [Примеры использования действия копирования][copy-activity-examples]
-- [Копирование данных с помощью фабрики данных Azure][adf-copyactivity]
 - [Действие копирования. Справочник по скриптам JSON](https://msdn.microsoft.com/library/dn835035.aspx)
 - [Основные сведения о копировании данных с помощью фабрики данных Azure][copy-activity-video] (видео)
 
@@ -276,9 +274,7 @@
 
 
 [adfgetstarted]: data-factory-get-started.md
-[adf-copyactivity]: data-factory-copy-activity.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[copy-activity-examples]: data-factory-copy-activity-examples.md
 
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
@@ -289,4 +285,4 @@
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

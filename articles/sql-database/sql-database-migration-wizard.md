@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Мастер миграции SQL Azure | Майкрософт" 
+   pageTitle="Использование мастера миграции SQL Azure | Microsoft Azure" 
    description="База данных SQL Microsoft Azure, перенос базы данных, импорт базы данных, экспорт базы данных, мастер миграции" 
    services="sql-database" 
    documentationCenter="" 
@@ -98,4 +98,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

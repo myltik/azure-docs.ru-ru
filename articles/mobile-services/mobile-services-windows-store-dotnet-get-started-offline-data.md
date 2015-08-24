@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование автономных данных в универсальном приложении Windows | Мобильные службы Azure" 
+	pageTitle="Использование автономных данных в универсальном приложении Windows | Microsoft Azure" 
 	description="Узнайте, как использовать мобильные службы Azure для кэширования и синхронизации автономных данных в универсальном приложении Windows." 
 	documentationCenter="mobile-services" 
 	authors="lindydonna" 
@@ -283,4 +283,4 @@
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -3,7 +3,7 @@
 	description="Напишите код анализа телеметрии в Application Insights с помощью функции непрерывного экспорта." 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
@@ -305,4 +305,4 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Рассылка push-уведомлений пользователям, прошедшим проверку подлинности (универсальное приложение для Windows 8.1) | Мобильные службы Azure" 
+	pageTitle="Рассылка push-уведомлений пользователям, прошедшим проверку подлинности (универсальное приложение для Windows 8.1) | Microsoft Azure" 
 	description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений конкретному прошедшему проверку подлинности пользователю при помощи универсального приложения для Windows 8.1." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -66,4 +66,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

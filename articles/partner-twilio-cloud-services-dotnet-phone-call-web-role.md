@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Как выполнять телефонные звонки из Twilio (.NET) — Azure" 
+	pageTitle="Телефонные звонки из Twilio (.NET) | Microsoft Azure" 
 	description="Узнайте, как осуществлять телефонные вызовы и отправку SMS-сообщений с помощью службы Twilio API в Azure. Примеры программного кода написаны в .NET." 
 	services="" 
 	documentationCenter=".net" 
@@ -192,4 +192,4 @@
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

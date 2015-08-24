@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="База данных SQL — поддержка клиентов прежних версий для аудита и динамической маскировки данных |Azure" 
+	pageTitle="База данных SQL — поддержка клиентов прежних версий для аудита и динамической маскировки данных |Microsoft Azure" 
 	description="База данных SQL — поддержка клиентов прежних версий для аудита и динамической маскировки данных" 
 	services="sql-database" 
 	documentationCenter="" 
@@ -40,4 +40,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

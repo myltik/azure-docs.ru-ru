@@ -76,48 +76,12 @@ API запускает эти средства обнаружения для д�
 
 Выходные данные можно представить в виде следующей таблицы:
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Время</th>
-   <th align="left" valign="middle">Данные</th>
-   <th align="left" valign="middle">Tspike</th>
-   <th align="left" valign="middle">Zspike</th>
-   <th align="left" valign="middle">Значения martingale</th>
-   <th align="left" valign="middle">Индикатор предупреждений</th>
-   <th align="left" valign="middle">Значения martingale (2)</th>
-   <th align="left" valign="middle">Индикатор предупреждений (2)</th>
-   </tr>
-<tr>
-   <td valign="middle">21.09.2014, 11:05</td>
-   <td valign="middle">3</td>
-   <td valign="middle">0</td>
-   <td valign="middle">0</td>
-   <td valign="middle">-0,687952591</td>
-   <td valign="middle">0</td>
-   <td valign="middle">-0,687952591</td>
-   <td valign="middle">0</td>
-   </tr>
-<tr>
-<td valign="middle">21.09.2014, 11:10</td>
-   <td valign="middle">9.09</td>
-   <td valign="middle">0</td>
-   <td valign="middle">0</td>
-   <td valign="middle">-1,070304977</td>
-   <td valign="middle">0</td>
-   <td valign="middle">-0,884548154</td>
-   <td valign="middle">0</td>
-    </tr>
-<tr>
-<td valign="middle">21.09.2014, 11:15</td>
-   <td valign="middle">0</td>
-   <td valign="middle">0</td>
-   <td valign="middle">0</td>
-   <td valign="middle">-1,051862374</td>
-   <td valign="middle">0</td>
-   <td valign="middle">-1,1738002814</td>
-   <td valign="middle">0</td>
-   </tr>
-   </table>
+Время|Данные|Tspike|Zspike|Значения martingale|Индикатор предупреждений|Значения martingale (2)|Индикатор предупреждений (2)
+---|---|---|---|---|---|---|---
+21\.09.2014, 11:05|3|0|0|-0,687952591|0|-0,687952591|0|   
+21\.09.2014, 11:10|9\.09|0|0|-1,070304977|0|-0,884548154|0|    
+21\.09.2014, 11:15|0|0|0|-1,051862374|0|-1,1738002814|0|   
+   
 
 [1]: ./media/machine-learning-apps-anomaly-detection/anomaly-detection.jpg
 
@@ -125,4 +89,4 @@ API запускает эти средства обнаружения для д�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -220,14 +220,14 @@
 
 Для работы с этим учебником используется следующая структура папок HDFS:
 
-<table border="1">
-<tr><td>Папка</td><td>Примечание.</td></tr>
-<tr><td>/WordCount</td><td>Корневая папка для проекта счетчика слов. </td></tr>
-<tr><td>/WordCount/Apps</td><td>Папка исполняемых файлов программ mapper и reducer.</td></tr>
-<tr><td>/WordCount/Input</td><td>Папка исходных файлов MapReduce.</td></tr>
-<tr><td>/WordCount/Output</td><td>Папка выходных файлов MapReduce.</td></tr>
-<tr><td>/WordCount/MRStatusOutput</td><td>Выходная папка заданий.</td></tr>
-</table>
+Папка|Примечание.
+---|---
+/WordCount|Корневая папка для проекта счетчика слов. 
+/WordCount/Apps|Папка исполняемых файлов программ mapper и reducer.
+/WordCount/Input|Папка исходных файлов MapReduce.
+/WordCount/Output|Папка выходных файлов MapReduce.
+/WordCount/MRStatusOutput|Выходная папка заданий.
+
 
 В этом учебнике в качестве файлов данных используются текстовые файлы .txt, расположенные в каталоге %hadoop\_home%.
 
@@ -610,4 +610,4 @@ Azure HDInsight использует для хранения данных хра
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

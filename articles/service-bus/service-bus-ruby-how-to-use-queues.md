@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Использование очередей служебной шины (Ruby) — Azure"
+	pageTitle="Использование очередей служебной шины (Ruby) | Microsoft Azure"
 	description="Узнайте, как использовать очереди служебной шины в Azure. Примеры кода написаны на Ruby."
 	services="service-bus"
 	documentationCenter="ruby"
@@ -152,4 +152,4 @@
 Сравнение очередей служебной шины Azure, описанных в этой статье, и очередей служебной шины Azure, описанных в статье [Использование службы очередей Azure](/develop/ruby/how-to-guides/queue-service/), см. в статье [Очереди Azure и очереди служебной шины Azure — сходство и отличия](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Отправка почты с помощью SendGrid - мобильные службы Azure" 
+	pageTitle="Отправка электронной почты с помощью службы SendGrid | Microsoft Azure" 
 	description="Узнайте, как использовать службу SendGrid для отправки электронной почты из приложения мобильных служб Azure." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -136,4 +136,4 @@ SendGrid — это [облачная служба электронной поч
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

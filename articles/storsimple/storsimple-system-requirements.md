@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Требования к системе StorSimple" 
+   pageTitle="Требования к системе StorSimple | Microsoft Azure" 
    description="Описание требований к системе и рекомендаций по программному обеспечению, высокой доступности и сетям для решения Azure StorSimple." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="06/03/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli"/>
 
 # Требования к системе StorSimple
@@ -96,7 +96,7 @@
 
 - По возможности используйте MPIO на серверах, чтобы убедиться, что серверы допускают сбой ссылки, сети или интерфейса.
 
-Дополнительные сведения о настройке сетей на устройстве для высокой доступности и производительности см. в разделах [Подключение устройства 8100](https://msdn.microsoft.com/library/azure/dn757738.aspx) и [Подключение устройства 8600](https://msdn.microsoft.com/library/azure/dn757762.aspx).
+Дополнительные сведения о настройке сетей на устройстве для обеспечения высокой доступности и производительности см. в разделах [Установка устройства StorSimple 8100](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) и [Установка устройства StorSimple 8600](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
 #### SSD и HDD
 
@@ -138,7 +138,7 @@
 
 Внимательно ознакомьтесь с этими требованиями и рекомендациями, чтобы обеспечить высокую доступность узлов, подключенных к устройству StorSimple.
 
-- Настройте StorSimple с помощью [конфигураций кластера двухузлового файлового сервера](https://technet.microsoft.com/library/cc731844(v=WS.10).aspx). При удалении одиночных точек сбоя и создании избыточности на стороне узла все решение становится высокодоступным.
+- Настройте StorSimple с помощью [конфигураций кластера двухузлового файлового сервера][1]. При удалении одиночных точек сбоя и создании избыточности на стороне узла все решение становится высокодоступным.
 
 - Используйте постоянно доступные общие папки в Windows Server 2012 (SMB 3.0) для обеспечения высокой доступности во время отработки отказа контроллеров хранилища. Дополнительные сведения о настройке кластеров для файловых серверов и общих папок в Windows Server 2012 см. в этом [видео](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
@@ -184,12 +184,14 @@
 
 - Убедитесь в наличии постоянного подключения к Интернету. Прерывающееся или ненадежное подключение к Интернету на устройстве приведет к неподдерживаемой конфигурации.
 
-- Изолируйте iSCSI и облачный трафик, получив выделенные сетевые интерфейсы на устройстве для доступа к iSCSI и облаку. Дополнительные сведения см. в разделе [Настройка сетевых интерфейсов](https://msdn.microsoft.com/library/dn772371.aspx) на устройстве StorSimple.
+- Изолируйте iSCSI и облачный трафик, получив выделенные сетевые интерфейсы на устройстве для доступа к iSCSI и облаку. Дополнительные сведения см. в разделе о [модификации сетевых интерфейсов](storsimple-modify-device-config.md#modify-network-interfaces) на устройстве StorSimple.
 
 ## Дальнейшие действия
 
-- [Ограничения StorSimple](storsimple-limits.md)
-- [Развертывание решения StorSimple](storsimple-deployment-walkthrough.md)
+- Сведения об [ограничениях StorSimple](storsimple-limits.md).
+- [Развертывание решения StorSimple](storsimple-deployment-walkthrough.md).
  
+<!--Reference links-->
+[1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

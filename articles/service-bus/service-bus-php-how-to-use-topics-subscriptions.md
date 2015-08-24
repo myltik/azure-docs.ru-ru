@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование разделов служебной шины (PHP) в Azure" 
+	pageTitle="Использование разделов служебной шины (PHP) | Microsoft Azure" 
 	description="Узнайте, как использовать разделы служебной шины с помощью PHP в Azure." 
 	services="service-bus" 
 	documentationCenter="php" 
@@ -332,4 +332,4 @@
 [require-once]: http://php.net/require_once
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

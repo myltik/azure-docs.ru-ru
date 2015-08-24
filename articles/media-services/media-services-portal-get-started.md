@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="07/16/2015"
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -226,9 +226,6 @@ URL-адрес потоковой передачи имеет следующий
 ![AMSPlayer][AMSPlayer]
 
 
-##Дальнейшие действия
-
-Дополнительную информацию о создании приложений видео по запросу см. в разделе [Создание приложений видео по запросу](media-services-video-on-demand-workflow.md)
 
 ###Дополнительные ресурсы
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now! (Службы мультимедиа Azure 101. Передача видео в Интернет)</a>
@@ -256,4 +253,4 @@ URL-адрес потоковой передачи имеет следующий
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

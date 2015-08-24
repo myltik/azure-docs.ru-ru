@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Дополнительная информация о регулировании в службах BizTalk | Azure" 
+	pageTitle="Дополнительная информация о регулировании в службах BizTalk | Microsoft Azure" 
 	description="Узнайте о пороговых значениях регулирования и соответствующем поведении среды выполнения для служб BizTalk. Регулирование основывается на использовании памяти и количестве сообщений. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -70,4 +70,4 @@
 - [Службы BizTalk: имя и ключ издателя](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Хранение кода проекта в системе управления версиями: мобильные службы Azure" 
+	pageTitle="Хранение кода проекта в системе управления версиями | Microsoft Azure" 
 	description="Узнайте, как сохранить файлы серверных сценариев и модулей в локальном репозитории Git на компьютере." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -163,4 +163,4 @@
 [node-uuid]: https://npmjs.org/package/node-uuid
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

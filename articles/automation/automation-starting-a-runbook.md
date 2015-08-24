@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/19/2015"
+   ms.date="08/11/2015"
    ms.author="bwren" />
 
 # Запуск модуля Runbook в службе автоматизации Azure
@@ -232,4 +232,4 @@
 
 - [Запуск модуля Runbook из другого модуля Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

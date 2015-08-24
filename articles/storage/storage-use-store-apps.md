@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование хранилища Azure в приложениях Магазина Windows" 
+	pageTitle="Использование службы хранилища Azure в приложениях Магазина Windows | Microsoft Azure" 
 	description="Вы узнаете, как использовать BLOB-объекты Azure, очереди, таблицы для хранения данных для приложения Магазина Windows." 
 	services="storage" 
 	documentationCenter="" 
@@ -94,4 +94,4 @@
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

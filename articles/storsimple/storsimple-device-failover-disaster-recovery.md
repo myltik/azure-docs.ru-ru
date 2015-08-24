@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # Отработка отказа и аварийное восстановление для устройства StorSimple
@@ -77,7 +77,7 @@
 
 1. Создайте облачные моментальные снимки всех томов на устройстве.
 
-1. Восстановите параметры устройства по умолчанию. Выполните подробные инструкции по [восстановлению параметров по умолчанию для устройства StorSimple](https://msdn.microsoft.com/library/dn772373.aspx).
+1. Восстановите параметры устройства по умолчанию. Выполните подробные инструкции по [восстановлению параметров по умолчанию для устройства StorSimple](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
 1. Настройте устройство и снова зарегистрируйте его в службе диспетчера StorSimple.
 
@@ -142,10 +142,7 @@
 - [деактивировать устройство StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device);
 - [удалить устройство StorSimple](storsimple-deactivate-and-delete-device.md#delete-a-device);
 
-Сведения об управлении устройством с помощью службы диспетчера StorSimple см. в
-
-- [руководстве администратора](https://msdn.microsoft.com/library/dn772401.aspx).
-
+Сведения об управлении устройством с помощью службы Диспетчера StorSimple см. в разделе [Использование службы Диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/04/2015"
+	ms.date="08/13/2015"
 	ms.author="jeffstok"/>
 
 # Сравнение служб Apache Storm и Azure Stream Analytics #
@@ -123,7 +123,7 @@
                     Stream Analytics оценивается согласно объему обработанных данных и требуемому количеству единиц потоковой передачи (на каждый час выполнения задания).
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">Дополнительную информацию о ценах можно посмотреть здесь.</a>
+                    <a href="http://azure.microsoft.com/ru-ru/pricing/details/stream-analytics/">Дополнительную информацию о ценах можно посмотреть здесь.</a>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -131,7 +131,7 @@
                     Для Apache Storm в HDInsight вы платите за продолжительность работы кластера, независимо от развернутых заданий.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">Дополнительную информацию о ценах можно посмотреть здесь.</a>
+                    <a href="http://azure.microsoft.com/ru-ru/pricing/details/hdinsight/">Дополнительную информацию о ценах можно посмотреть здесь.</a>
                 </p>
             </td>
         </tr>
@@ -589,4 +589,4 @@
     </tbody>
 </table>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

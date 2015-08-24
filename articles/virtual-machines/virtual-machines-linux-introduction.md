@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Введение в Linux в Azure — учебник Azure"
+	pageTitle="Введение в Linux в Azure | Microsoft Azure"
 	description="Узнайте о том, как использовать виртуальные машины Linux в Azure."
 	services="virtual-machines"
 	documentationCenter="python"
@@ -110,4 +110,4 @@ Azure предоставляет возможность записи состо�
  - **Также см. статью** [Настройка программного RAID-массива в Linux](virtual-machines-linux-configure-raid.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

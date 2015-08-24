@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Управление данными и бизнес-аналитика — Azure" 
+	pageTitle="Управление данными и бизнес-аналитика | Microsoft Azure" 
 	description="Введение в возможности управления данными и их анализа в Azure. Описываются различные варианты для работы с реляционными и нереляционными данными." 
 	services="sql-database, storage" 
 	documentationCenter=".net" 
@@ -25,4 +25,4 @@
 [AZURE.INCLUDE [cloud-storage](../../includes/cloud-storage.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

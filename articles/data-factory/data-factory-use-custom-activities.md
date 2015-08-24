@@ -90,7 +90,10 @@
 
             Table inputTable = tables.Single(table => table.Name == activity.Inputs.Single().Name);
             inputLocation = inputTable.Properties.TypeProperties as CustomDataset;
-            inputLinkedService = linkedServices.Single(linkedService => linkedService.Name == inputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
+
+			// using First method instead of Single since we are using the same 
+			// Azure Storage linked service for input and output. 
+            inputLinkedService = linkedServices.First(linkedService => linkedService.Name == inputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
 
 
             string output = string.Empty;
@@ -158,7 +161,7 @@
 
             Table outputTable = tables.Single(table => table.Name == activity.Outputs.Single().Name);
             outputLocation = outputTable.Properties.TypeProperties as AzureBlobDataset;
-            outputLinkedService = linkedServices.Single(linkedService => linkedService.Name == outputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
+            outputLinkedService = linkedServices.First(linkedService => linkedService.Name == outputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
 
             connectionString = GetConnectionString(outputLinkedService);
             folderPath = GetFolderPath(outputTable);
@@ -209,7 +212,7 @@
 
 10. Скомпилируйте проект. В меню щелкните **Построить** и **Построить решение**.
 11. Запустите **Проводник Windows** и перейдите к папке **bin\\debug** или **bin\\release** в зависимости от типа сборки.
-12. Создайте ZIP-файл **MyDotNetActivity.zip**, который содержит все двоичные файлы из папки <project folder>\\bin\\Debug.
+12. Создайте ZIP-файл **MyDotNetActivity.zip**, который содержит все двоичные файлы из папки <project folder>\\bin\\Debug. Можно включить файл MyDotNetActivity.pdb, чтобы получить дополнительные сведения, например номер строки в исходном коде, вызвавшей ошибку, в случае сбоя. 
 13. Отправьте архив **MyDotNetActivity.zip** в качестве большого двоичного объекта в контейнер больших двоичных объектов **customactvitycontainer** из хранилища больших двоичных объектов Azure, используемого связанной службой **MyBlobStore** в **ADFTutorialDataFactory**. Создайте контейнер больших двоичных объектов **blobcustomactivitycontainer**, если он еще не создан. 
 
 
@@ -361,11 +364,12 @@
 
 	(расположение большого двоичного объекта, название большого двоичного объекта, количество строк в большом двоичном объекте, узел, на котором выполнено действие, метка даты и времени).
 
-10.	Используйте [портал Azure][azure-preview-portal] или командлеты Azure PowerShell для отслеживания состояния фабрики данных, конвейеров и наборов данных. Вы можете увидеть сообщения из **ActivityLogger** в коде для настраиваемого действия в журналах, которые можно скачать из портала или с помощью командлетов.
+10.	Используйте [портал Azure][azure-preview-portal] или командлеты Azure PowerShell для отслеживания состояния фабрики данных, конвейеров и наборов данных. Вы можете увидеть сообщения из **ActivityLogger** в коде для настраиваемого действия в журналах (а именно — user-0.log), которые можно скачать на портале или с помощью командлетов.
 
 	![скачивание журналов из настраиваемого действия][image-data-factory-download-logs-from-custom-activity]
+	
    
-См. статью [Приступая к работе с фабрикой данных Azure][adfgetstarted], чтобы просмотреть подробные шаги по мониторингу наборов данных и конвейеров.
+Подробное описание действий по мониторингу наборов данных и конвейеров см. в разделе[Мониторинг конвейеров и управление ими](data-factory-monitor-manage-pipelines.md).
 
 ## Обновление настраиваемого действия
 Если вы обновляете код для настраиваемого действия, создайте его и отправьте ZIP-файл, содержащий новые двоичные файлы, в службу хранилища больших двоичных объектов.
@@ -463,4 +467,4 @@
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Работа с каналами, выполняющими кодирование в реальном времени с помощью служб мультимедиа Azure (предварительная версия)
@@ -505,4 +505,4 @@
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

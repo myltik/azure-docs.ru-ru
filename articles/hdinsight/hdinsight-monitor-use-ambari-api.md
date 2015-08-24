@@ -43,12 +43,11 @@
 
 - **Кластер Azure HDInsight**. Указания по подготовке кластеров см. в разделе [Приступая к работе с HDInsight][hdinsight-get-started] или [Подготовка кластеров HDInsight][hdinsight-provision]. Для выполнения учебника необходимы следующие данные:
 
-	<table border="1">
-	<tr><th>Свойство кластера</th><th>Имя переменной Azure PowerShell</th><th>Значение</th><th>Описание</th></tr>
-	<tr><td>Имя кластера HDInsight.</td><td>$clusterName</td><td></td><td>Это имя вашего кластера HDInsight.</td></tr>
-	<tr><td>Имя пользователя кластера</td><td>$clusterUsername</td><td></td><td>Имя пользователя кластера, указанное при подготовке.</td></tr>
-	<tr><td>Пароль кластера</td><td>$clusterPassword</td><td></td><td>Пароль пользователя кластера.</td></tr>
-	</table>
+Свойство кластера|Имя переменной Azure PowerShell|Значение|Описание
+---|---|---|---
+Имя кластера HDInsight.|$clusterName||Это имя вашего кластера HDInsight.
+Имя пользователя кластера|$clusterUsername||Имя пользователя кластера, указанное при подготовке.
+Пароль кластера|$clusterPassword||Пароль пользователя кластера.
 
 	> [AZURE.NOTE] Введите значения в таблицу. Это будет полезно для изучения данного учебника.
 
@@ -121,28 +120,26 @@
 
 **Примечание к выпуску от 10.8.2014**:
 
-При использовании конечной точки Ambari https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname} поле *host\_name* в настоящее время возвращает полное доменное имя (FQDN) узла вместо имени узла. До выпуска от 08.10.2014 этот пример возвращал просто значение **headnode0**. После выпуска от 08.10.2014 он возвращает полное доменное имя **headnode0.{ClusterDNS}.azurehdinsight.net**, как это показано в примере выше. Это изменение было продиктовано необходимостью использовать сценарии, в которых кластеры различного типа, например кластеры HBase и Hadoop, можно было бы размещать в одной виртуальной сети (VNET). Такая необходимость может возникнуть, например, при использовании HBase в качестве вспомогательной платформы для Hadoop.
+При использовании конечной точки Ambari https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname} поле *host\_name* в настоящее время возвращает полное доменное имя (FQDN) узла вместо имени узла. До выпуска от 08.10.2014 этот пример возвращал просто значение **headnode0**. Начиная с выпуска от 08.10.2014 он возвращает полное доменное имя **headnode0.{ClusterDNS}.azurehdinsight.net**, как показано выше. Это изменение было продиктовано необходимостью использовать сценарии, в которых кластеры различного типа, например кластеры HBase и Hadoop, можно было бы размещать в одной виртуальной сети (VNET). Такая необходимость может возникнуть, например, при использовании HBase в качестве вспомогательной платформы для Hadoop.
 
 ##<a id="monitor"></a>Интерфейсы Ambari API для мониторинга
 
 В следующей таблице перечислены некоторые наиболее распространенные вызовы Ambari API для мониторинга. Дополнительную информацию об API см. в [справочнике по Ambari API][ambari-api-reference].
 
-<table border="1">
-<tr><th>Отслеживание вызова API</th><th>URI</th><th>Описание</th></tr>
-<tr><td>Получение кластеров</td><td><tt>/api/v1/clusters</tt></td><td></td></tr>
-<tr><td>Получение сведений о кластере.</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net</tt></td><td>кластеры, службы, узлы</td></tr>
-<tr><td>Получение служб</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services</tt></td><td>Службы включают в себя: hdfs, mapreduce</td></tr>
-<tr><td>Получение сведений о службах.</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services/&lt;ServiceName></tt></td><td></td></tr>
-<tr><td>Получение компонентов службы</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services/&lt;ServiceName>/components</tt></td><td>HDFS: namenode, datanode<br/>MapReduce: jobtracker; tasktracker</td></tr>
-<tr><td>Получение сведений о компонентах.</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services/&lt;ServiceName>/components/&lt;ComponentName></tt></td><td>ServiceComponentInfo, host-components, metrics</td></tr>
-<tr><td>Получение узлов</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts</tt></td><td>headnode0, workernode0</td></tr>
-<tr><td>Получение сведений об узлах.</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName>
-</td><td></td></tr>
-<tr><td>Получение компонентов узлов</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName>/host_components </tt></td><td>namenode, resourcemanager</td></tr>
-<tr><td>Получение сведений о компонентах узла.</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName>/host_components/&lt;ComponentName> </tt></td><td>HostRoles, component, host, metrics</td></tr>
-<tr><td>Получение конфигураций</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/configurations </tt></td><td>Типы настройки: core-site, hdfs-site, mapred-site, hive-site</td></tr>
-<tr><td>Получение сведений о конфигурации.</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/configurations?type=&lt;ConfigType>&amp;tag=&lt;VersionName> </tt></td><td>Типы настройки: core-site, hdfs-site, mapred-site, hive-site</td></tr>
-</table>
+Отслеживание вызова API|URI|Описание
+---|---|---
+Получение кластеров|`/api/v1/clusters`|
+Получение сведений о кластере.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net`|кластеры, службы, узлы
+Получение служб|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services`|Службы включают в себя: hdfs, mapreduce
+Получение сведений о службах.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;`|
+Получение компонентов службы|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components`|HDFS: namenode, datanode<br/>MapReduce: jobtracker; tasktracker
+Получение сведений о компонентах.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components/&lt;ComponentName&gt;`|ServiceComponentInfo, host-components, metrics
+Получение узлов|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts`|headnode0, workernode0
+Получение сведений об узлах.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;`|
+Получение компонентов узлов|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;/host_components`|namenode, resourcemanager
+Получение сведений о компонентах узла.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;/host_components/&lt;ComponentName&gt;`|HostRoles, component, host, metrics
+Получение конфигураций|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations`|Типы настройки: core-site, hdfs-site, mapred-site, hive-site
+Получение сведений о конфигурации.|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations?type=&lt;ConfigType&gt;&tag=&lt;VersionName&gt;`|Типы настройки: core-site, hdfs-site, mapred-site, hive-site
 
 
 ##<a id="nextsteps"></a>Дальнейшие действия
@@ -178,4 +175,4 @@
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

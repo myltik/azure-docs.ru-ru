@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
 
 # Application Insights в классических приложениях и службах для Windows
@@ -44,13 +44,21 @@
 
 1. В Visual Studio отредактируйте пакеты NuGet вашего проекта классического приложения. ![Щелкните проект правой кнопкой мыши и выберите пункт «Управление пакетами Nuget»](./media/app-insights-windows-desktop/03-nuget.png)
 
-2. Установите пакет API для Application Insights.
+2. Установите основной пакет API для Application Insights.
 
     ![Поиск Application Insights](./media/app-insights-windows-desktop/04-core-nuget.png)
 
-3. Укажите ключ инструментирования InstrumentationKey в коде с помощью объекта `TelemetryConfiguration.Active`.
+3. Укажите ключ InstrumentationKey в коде, например в main().
 
     `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
+
+*Почему отсутствует ApplicationInsights.config?*
+
+* Файл конфигурации не устанавливается при помощи основного пакета API, который используется только для настройки сборщиков телеметрии. Поэтому вы пишете свой собственный код, устанавливающий ключ инструментирования и отправляющий телеметрию.
+
+*Можно ли использовать другой пакет NuGet?*
+
+* Да, можно использовать пакет веб-сервера, который установит сборщики для счетчиков производительности. Для этого вам потребуется [отключить сборщик HTTP-запросов](app-insights-configuration-with-applicationinsights-config.md). Будет установлен файл конфигурации, в котором вы укажите свой ключ инструментирования.
 
 ## <a name="telemetry"></a>Вставка вызовов телеметрии
 
@@ -173,4 +181,4 @@
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Знакомство с DocumentDB — базой данных NoSQL для Microsoft Azure | Azure" 
+	pageTitle="Знакомство с DocumentDB — базой данных NoSQL для Microsoft Azure | Microsoft Azure" 
 	description="Скачайте технический документ Дэвида Чаппелла (David Chappell) о DocumentDB, управляемой базе данных NoSQL в Azure." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -31,4 +31,4 @@
 **Скачивание PDF-файла:** [Знакомство с DocumentDB — базой данных NoSQL для Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

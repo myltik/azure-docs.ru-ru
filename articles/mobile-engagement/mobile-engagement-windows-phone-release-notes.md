@@ -12,8 +12,8 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
-	ms.topic="article"
-	ms.date="04/07/2015" 
+	ms.topic="article" 
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 
 #Заметки о выпуске пакета SDK для Windows Phone Silverlight
@@ -31,4 +31,4 @@
 -   Улучшения безопасности.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -3,7 +3,7 @@
     pageTitle="Устранение неполадок с облачными коллекциями RemoteApp — создание"
     description="Устранение неполадок при сбоях создания облачной коллекции RemoteApp" 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="vkbucha" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="vikbucha" />
 
 
@@ -38,4 +38,4 @@
 Если вы видите эту ошибку, обычно это означает, что учетная запись обновлена до платной, но вы пытаетесь использовать образ, предоставленный Майкрософт, который допустим только в пробной версии службы. В этом случае попробуйте повторно создать облачную коллекцию, но обязательно укажите правильный образ.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

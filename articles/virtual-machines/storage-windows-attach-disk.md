@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Присоединение диска данных к виртуальной машине Azure"
+	pageTitle="Присоединение диска к виртуальной машине | Microsoft Azure"
 	description="Узнайте, как присоединить диск данных к виртуальной машине Azure и инициализировать, чтобы подготовить к использованию."
 	services="virtual-machines, storage"
 	documentationCenter=""
@@ -53,4 +53,4 @@
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

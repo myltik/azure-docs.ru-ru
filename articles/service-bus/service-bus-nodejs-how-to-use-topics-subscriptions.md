@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование разделов служебной шины (Node.js) — Azure" 
+	pageTitle="Использование разделов служебной шины (Node.js) | Microsoft Azure" 
 	description="Узнайте, как использовать разделы и подписки служебной шины в Azure в приложении Node.js." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
@@ -305,4 +305,4 @@
   [Веб-приложение Node.js с хранилищем]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

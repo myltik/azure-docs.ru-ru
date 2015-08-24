@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="08/06/2015" 
 	ms.author="erikre"/>
 
 
@@ -118,97 +118,97 @@
 2. Если страница находится в представлении **Конструирование**, измените его на представление **Просмотр исходного кода**.
 3. Обновите главную страницу, изменив или добавив разметку для получения следующей разметки страницы:
 
-<pre class="prettyprint">
-&lt;%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ContactManager.SiteMaster" %>
+		<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ContactManager.SiteMaster" %>
+		
+		<!DOCTYPE html>
+		
+		<html lang="en">
+		<head runat="server">
+		    <meta charset="utf-8" />
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		    <title><%: Page.Title %> - Contact Manager</title>
+		
+		    <asp:PlaceHolder runat="server">
+		        <%: Scripts.Render("~/bundles/modernizr") %>
+		    </asp:PlaceHolder>
+		    <webopt:bundlereference runat="server" path="~/Content/css" />
+		    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+		
+		</head>
+		<body>
+		    <form runat="server">
+		        <asp:ScriptManager runat="server">
+		            <Scripts>
+		                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+		                <%--Framework Scripts--%>
+		                <asp:ScriptReference Name="MsAjaxBundle" />
+		                <asp:ScriptReference Name="jquery" />
+		                <asp:ScriptReference Name="bootstrap" />
+		                <asp:ScriptReference Name="respond" />
+		                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+		                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+		                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+		                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+		                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+		                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+		                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+		                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+		                <asp:ScriptReference Name="WebFormsBundle" />
+		                <%--Site Scripts--%>
+		            </Scripts>
+		        </asp:ScriptManager>
+		
+		        <div class="navbar navbar-inverse navbar-fixed-top">
+		            <div class="container">
+		                <div class="navbar-header">
+		                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		                        <span class="icon-bar"></span>
+		                        <span class="icon-bar"></span>
+		                        <span class="icon-bar"></span>
+		                    </button>
+		                    <a class="navbar-brand" runat="server" id="ContactDemoLink" href="~/Contacts/Default.aspx">Contact Demo</a>
+		                </div>
+		                <div class="navbar-collapse collapse">
+		                    <ul class="nav navbar-nav">
+		                        <li><a runat="server" href="~/">Home</a></li>
+		                        <li><a runat="server" href="~/About">About</a></li>
+		                        <li><a runat="server" href="~/Contact">Contact</a></li>
+		                    </ul>
+		                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+		                        <AnonymousTemplate>
+		                            <ul class="nav navbar-nav navbar-right">
+		                                <li><a runat="server" href="~/Account/Register">Register</a></li>
+		                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+		                            </ul>
+		                        </AnonymousTemplate>
+		                        <LoggedInTemplate>
+		                            <ul class="nav navbar-nav navbar-right">
+		                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+		                                <li>
+		                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+		                                </li>
+		                            </ul>
+		                        </LoggedInTemplate>
+		                    </asp:LoginView>
+		                </div>
+		            </div>
+		        </div>
+		        <div class="container body-content">
+		            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+		            </asp:ContentPlaceHolder>
+		            <hr />
+		            <footer>
+		                <p>&copy; <%: DateTime.Now.Year %> - Contact Manager</p>
+		            </footer>
+		        </div>
+		    </form>
+		</body>
+		</html>
 
-&lt;!DOCTYPE html>
-
-&lt;html lang="en">
-&lt;head runat="server">
-    &lt;meta charset="utf-8" />
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    &lt;title>&lt;%: Page.Title %> - Contact Manager&lt;/title>
-
-    &lt;asp:PlaceHolder runat="server">
-        &lt;%: Scripts.Render("~/bundles/modernizr") %>
-    &lt;/asp:PlaceHolder>
-    &lt;webopt:bundlereference runat="server" path="~/Content/css" />
-    &lt;link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
-&lt;/head>
-&lt;body>
-    &lt;form runat="server">
-        &lt;asp:ScriptManager runat="server">
-            &lt;Scripts>
-                &lt;%-- Для получения дополнительной информации о связывающих скриптах в ScriptManager см. http://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                &lt;%--Framework Scripts--%>
-                &lt;asp:ScriptReference Name="MsAjaxBundle" />
-                &lt;asp:ScriptReference Name="jquery" />
-                &lt;asp:ScriptReference Name="bootstrap" />
-                &lt;asp:ScriptReference Name="respond" />
-                &lt;asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                &lt;asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                &lt;asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                &lt;asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                &lt;asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                &lt;asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                &lt;asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                &lt;asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                &lt;asp:ScriptReference Name="WebFormsBundle" />
-                &lt;%--Site Scripts--%>
-            &lt;/Scripts>
-        &lt;/asp:ScriptManager>
-
-        &lt;div class="navbar navbar-inverse navbar-fixed-top">
-            &lt;div class="container">
-                &lt;div class="navbar-header">
-                    &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        &lt;span class="icon-bar">&lt;/span>
-                        &lt;span class="icon-bar">&lt;/span>
-                        &lt;span class="icon-bar">&lt;/span>
-                    &lt;/button>
-                    &lt;a class="navbar-brand" runat="server" id="ContactDemoLink" href="~/Contacts/Default.aspx">Contact Demo&lt;/a>
-                &lt;/div>
-                &lt;div class="navbar-collapse collapse">
-                    &lt;ul class="nav navbar-nav">
-                        &lt;li>&lt;a runat="server" href="~/">Home&lt;/a>&lt;/li>
-                        &lt;li>&lt;a runat="server" href="~/About">About&lt;/a>&lt;/li>
-                        &lt;li>&lt;a runat="server" href="~/Contact">Contact&lt;/a>&lt;/li>
-                    &lt;/ul>
-                    &lt;asp:LoginView runat="server" ViewStateMode="Disabled">
-                        &lt;AnonymousTemplate>
-                            &lt;ul class="nav navbar-nav navbar-right">
-                                &lt;li>&lt;a runat="server" href="~/Account/Register">Register&lt;/a>&lt;/li>
-                                &lt;li>&lt;a runat="server" href="~/Account/Login">Log in&lt;/a>&lt;/li>
-                            &lt;/ul>
-                        &lt;/AnonymousTemplate>
-                        &lt;LoggedInTemplate>
-                            &lt;ul class="nav navbar-nav navbar-right">
-                                &lt;li>&lt;a runat="server" href="~/Account/Manage" title="Manage your account">Hello, &lt;%: Context.User.Identity.GetUserName()  %> !&lt;/a>&lt;/li>
-                                &lt;li>
-                                    &lt;asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
-                                &lt;/li>
-                            &lt;/ul>
-                        &lt;/LoggedInTemplate>
-                    &lt;/asp:LoginView>
-                &lt;/div>
-            &lt;/div>
-        &lt;/div>
-        &lt;div class="container body-content">
-            &lt;asp:ContentPlaceHolder ID="MainContent" runat="server">
-            &lt;/asp:ContentPlaceHolder>
-            &lt;hr />
-            &lt;footer>
-                &lt;p>&amp;copy; &lt;%: DateTime.Now.Year %> - Contact Manager&lt;/p>
-            &lt;/footer>
-        &lt;/div>
-    &lt;/form>
-&lt;/body>
-&lt;/html>
-</pre>
-
-Далее в этом учебнике будет добавлено формирование шаблонов веб-форм. При формировании шаблонов создается страница, на которую ссылается указанная выше ссылка “Contact Demo”.
+	Далее в этом учебнике будет добавлено формирование шаблонов веб-форм. При формировании шаблонов создается страница, на которую ссылается указанная выше ссылка “Contact Demo”.
+ 
 ###Локальный запуск приложения 
+ 
 1. В **Обозревателе решений** щелкните правой кнопкой мыши страницу *Default.aspx* и выберите **Задать как начальную страницу**. 
 2. Затем нажмите сочетание клавиш **CTRL+F5**, чтобы запустить приложение.  
 	Принятая по умолчанию страница приложения откроется в окне используемого по умолчанию браузера.
@@ -252,27 +252,26 @@ Visual Studio загрузит параметры публикации.
 2. Назовите этот новый класс *Contacts.cs*.  
 	![Диалоговое окно "Добавление нового элемента"](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13.png)  
 3. Замените код по умолчанию на приведенный ниже:  
-	<pre class="prettyprint">
-	using System.ComponentModel.DataAnnotations;
-	using System.Globalization;
-	
-	namespace ContactManager.Models
-	{
-	    public class Contacts
-	    {
-	        [ScaffoldColumn(false)]
-	        [Key]
-	        public int ContactId { get; set; }
-	        public string Name { get; set; }
-	        public string Address { get; set; }
-	        public string City { get; set; }
-	        public string State { get; set; }
-	        public string Zip { get; set; }
-	        [DataType(DataType.EmailAddress)]
-	        public string Email { get; set; }
-	    }
-	}
-	</pre>
+
+		using System.ComponentModel.DataAnnotations;
+		using System.Globalization;
+		
+		namespace ContactManager.Models
+		{
+		    public class Contacts
+		    {
+		        [ScaffoldColumn(false)]
+		        [Key]
+		        public int ContactId { get; set; }
+		        public string Name { get; set; }
+		        public string Address { get; set; }
+		        public string City { get; set; }
+		        public string State { get; set; }
+		        public string Zip { get; set; }
+		        [DataType(DataType.EmailAddress)]
+		        public string Email { get; set; }
+		    }
+		}
 
 Класс **Contacts** определяет данные, которые будут храниться для каждого контакта, а также первичный ключ (`ContactID`), необходимый для базы данных. Класс **Contacts** отражает контактные данные, которые будут отображаться. Каждый экземпляр объекта Contacts будет соответствовать ряду в таблице реляционной базы данных, а каждое свойство класса Contacts — столбцу в таблице реляционной базе данных. Далее в этом учебнике вы просмотрите контактные данные, содержащиеся в базе данных.
 
@@ -306,84 +305,85 @@ Visual Studio загрузит параметры публикации.
 1. В меню **Сервис** выберите **Диспетчер пакетов NuGet**, а затем **Консоль диспетчера пакетов**.  
 	![Диалоговое окно "Добавление страниц веб-форм"](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13c.png)  
 2. В окне "Консоль диспетчера пакетов" введите следующую команду:  
-	<pre class="prettyprint">
-	enable-migrations
-	</pre>  
+
+		enable-migrations
+ 
 	Команда enable-migrations создает папку *Migrations* и помещает в нее файл *Configuration.cs*, который можно изменять и использовать для заполнения базы данных, а также настройки миграций.  
 3. В окне **Консоль диспетчера пакетов** введите следующую команду:  
-	<pre class="prettyprint">
-	add-migration Initial
-	</pre>  
+
+		add-migration Initial
+
 	Команда `add-migration Initial` создает файл с именем <date_stamp>Initial в папке *Migrations*, который создает базу данных. Первый параметр ( Initial ) является произвольным и используется для создания имени файла. Новые файлы классов можно просмотреть в **обозревателе решений**. В классе `Initial` метод `Up` создает таблицу `Contact`, а метод `Down` (используемый при возвращении к предыдущему состоянию) удаляет эту таблицу.  
-4. Откройте файл *Migrations\Configuration.cs*. 
-5. Добавьте следующее пространство имен:  
-	<pre class="prettyprint">
-	использование ContactManager.Models;
-	</pre>
-6. Замените метод `Seed` следующим кодом:  
-	<pre class="prettyprint">
-	protected override void Seed(ContactManager.Models.ApplicationDbContext context)
-	{
-	    context.Contacts.AddOrUpdate(p => p.Name,
-	       new Contacts
-	       {
-	           ContactId = 1,
-	           Name = "Ivan Irons",
-	           Address = "One Microsoft Way",
-	           City = "Redmond",
-	           State = "WA",
-	           Zip = "10999",
-	           Email = "ivani@wideworldimporters.com",
-	       },
-	       new Contacts
-	        {
-	            ContactId = 2,
-	            Name = "Brent Scholl",
-	            Address = "5678 1st Ave W",
-	            City = "Redmond",
-	            State = "WA",
-	            Zip = "10999",
-	            Email = "brents@wideworldimporters.com",
-	        },
-	        new Contacts
-	        {
-	            ContactId = 3,
-	            Name = "Terrell Bettis",
-	            Address = "9012 State St",
-	            City = "Redmond",
-	            State = "WA",
-	            Zip = "10999",
-	            Email = "terrellb@wideworldimporters.com",
-	        },
-	        new Contacts
-	        {
-	            ContactId = 4,
-	            Name = "Jo Cooper",
-	            Address = "3456 Maple St",
-	            City = "Redmond",
-	            State = "WA",
-	            Zip = "10999",
-	            Email = "joc@wideworldimporters.com",
-	        },
-	        new Contacts
-	        {
-	            ContactId = 5,
-	            Name = "Ines Burnett",
-	            Address = "7890 2nd Ave E",
-	            City = "Redmond",
-	            State = "WA",
-	            Zip = "10999",
-	            Email = "inesb@wideworldimporters.com",
-	        }
-	        );
-	}
-	</pre>
-Этот код инициализирует базу данных с контактной информацией. Дополнительные сведения об инициализации базы данных см. в разделе [Инициализация и отладка баз данных Entity Framework (EF)](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).  
+4. Откройте файл *Migrations\\Configuration.cs*. 
+
+5. Добавьте следующее пространство имен:
+
+		using ContactManager.Models;
+
+6. Замените метод `Seed` следующим кодом:
+
+		protected override void Seed(ContactManager.Models.ApplicationDbContext context)
+		{
+		    context.Contacts.AddOrUpdate(p => p.Name,
+		       new Contacts
+		       {
+		           ContactId = 1,
+		           Name = "Ivan Irons",
+		           Address = "One Microsoft Way",
+		           City = "Redmond",
+		           State = "WA",
+		           Zip = "10999",
+		           Email = "ivani@wideworldimporters.com",
+		       },
+		       new Contacts
+		        {
+		            ContactId = 2,
+		            Name = "Brent Scholl",
+		            Address = "5678 1st Ave W",
+		            City = "Redmond",
+		            State = "WA",
+		            Zip = "10999",
+		            Email = "brents@wideworldimporters.com",
+		        },
+		        new Contacts
+		        {
+		            ContactId = 3,
+		            Name = "Terrell Bettis",
+		            Address = "9012 State St",
+		            City = "Redmond",
+		            State = "WA",
+		            Zip = "10999",
+		            Email = "terrellb@wideworldimporters.com",
+		        },
+		        new Contacts
+		        {
+		            ContactId = 4,
+		            Name = "Jo Cooper",
+		            Address = "3456 Maple St",
+		            City = "Redmond",
+		            State = "WA",
+		            Zip = "10999",
+		            Email = "joc@wideworldimporters.com",
+		        },
+		        new Contacts
+		        {
+		            ContactId = 5,
+		            Name = "Ines Burnett",
+		            Address = "7890 2nd Ave E",
+		            City = "Redmond",
+		            State = "WA",
+		            Zip = "10999",
+		            Email = "inesb@wideworldimporters.com",
+		        }
+		        );
+		}
+
+	Этот код инициализирует базу данных с контактной информацией. Дополнительные сведения об инициализации базы данных см. в разделе [Инициализация и отладка баз данных Entity Framework (EF)](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx).  
 7. В окне **Консоль диспетчера пакетов** введите команду:  
-	<pre class="prettyprint">
-	update-database
-	</pre>  
-Команда `update-database` выполняет первую миграцию, которая создает базу данных. По умолчанию база данных создается как локальная база данных SQL Server Express LocalDB.  
+
+		update-database
+
+Команда `update-database` выполняет первую миграцию, которая создает базу данных. По умолчанию база данных создается как локальная база данных SQL Server Express LocalDB. ![Консоль диспетчера пакетов](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13d.png)
 	![Консоль диспетчера пакетов](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13d.png)
 
 ###Локальный запуск приложения и отображение данных 
@@ -429,15 +429,15 @@ Secure Sockets Layer (SSL) — это протокол, позволяющие �
 
 В последующих шагах вы сможете добавить поставщика проверки подлинности Google.
 
-1. Откройте файл *App_Start\Startup.Auth.cs*. 
+1. Откройте файл *App\_Start\\Startup.Auth.cs*. 
 2. Удалите символы комментариев из метода `app.UseGoogleAuthentication()`, чтобы метод выглядел следующим образом:  
-	<pre class="prettyprint">
-	            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-	            {
-	                ClientId = "",
-	                ClientSecret = ""
-	            });
-	</pre>
+
+		app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+		{
+		    ClientId = "",
+		    ClientSecret = ""
+		});
+
 3. Перейдите к [Консоли разработчиков Google](https://console.developers.google.com/). Вам также потребуется выполнить вход со своей учетной записью электронной почты разработчика Google (gmail.com). Если отсутствует учетная запись Google, выберите ссылку **Создать учетную запись**.  
 	Далее вы ознакомитесь с **консолью разработчиков Google**.
 	![Консоль разработчиков Google](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21a.png)  
@@ -454,74 +454,75 @@ Secure Sockets Layer (SSL) — это протокол, позволяющие �
 	Этот URL-адрес является источником вашего приложения. В нашем примере вводится только тестовый URL-адрес localhost. Тем не менее, можно ввести несколько URL-адресов учетной записи для localhost и производства.  
 
 9. Задайте в поле **Авторизованный URI перенаправления** следующее значение:
-	<pre class="prettyprint">  
-	https://localhost:44300/signin-google  
-	</pre>  
-	Это значение представляет собой URI, который ASP.NET OAuth использует для обмена данными с сервером Google OAuth. Не забудьте URL-адрес SSL, который вы использовали выше (**https://localhost:44300/**, если только не создавались другие проекты SSL).  
+
+		https://localhost:44300/signin-google  
+
+	Это значение представляет собой URI, который ASP.NET OAuth использует для обмена данными с сервером Google OAuth. Не забудьте URL-адрес SSL, который вы использовали выше (****https://localhost:44300/**, если только не создавались другие проекты SSL).
+ 
 10. Нажмите кнопку **Создать идентификатор клиента**.
 11. В Visual Studio обновите метод `UseGoogleAuthentication` страницы *Startup.Auth.cs* путем копирования и вставки **AppId** и **App Secret** в метод. Значения **AppId** и **App Secret**, указанные ниже, приводятся в качестве примера и работать не будут.  
-	<pre class="prettyprint">  
-	using System;
-	using Microsoft.AspNet.Identity;
-	using Microsoft.AspNet.Identity.EntityFramework;
-	using Microsoft.AspNet.Identity.Owin;
-	using Microsoft.Owin;
-	using Microsoft.Owin.Security.Cookies;
-	using Microsoft.Owin.Security.DataProtection;
-	using Microsoft.Owin.Security.Google;
-	using Owin;
-использование ContactManager.Models;
-	
-	namespace ContactManager
-	{
-	    public partial class Startup {
 
-	        // Для получения дополнительных сведений о настройке проверки подлинности посетите страницу http://go.microsoft.com/fwlink/?LinkId=301883
-	        public void ConfigureAuth(IAppBuilder app)
-	        {
-	            // Настройте контекст базы данных и диспетчер пользователей для использования одного экземпляра на запрос
-	            app.CreatePerOwinContext(ApplicationDbContext.Create);
-	            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+		using System;
+		using Microsoft.AspNet.Identity;
+		using Microsoft.AspNet.Identity.EntityFramework;
+		using Microsoft.AspNet.Identity.Owin;
+		using Microsoft.Owin;
+		using Microsoft.Owin.Security.Cookies;
+		using Microsoft.Owin.Security.DataProtection;
+		using Microsoft.Owin.Security.Google;
+		using Owin;
+		using ContactManager.Models;
+		
+		namespace ContactManager
+		{
+		    public partial class Startup {
+		
+		        // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301883
+		        public void ConfigureAuth(IAppBuilder app)
+		        {
+		            // Configure the db context and user manager to use a single instance per request
+		            app.CreatePerOwinContext(ApplicationDbContext.Create);
+		            app.CreatePerOwinContext(ApplicationUserManager.Create);
+		
+		            // Enable the application to use a cookie to store information for the signed in user
+		            // and to use a cookie to temporarily store information about a user logging in with a third party login provider
+		            // Configure the sign in cookie
+		            app.UseCookieAuthentication(new CookieAuthenticationOptions
+		            {
+		                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+		                LoginPath = new PathString("/Account/Login"),
+		                Provider = new CookieAuthenticationProvider
+		                {
+		                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity(
+		                        validateInterval: TimeSpan.FromMinutes(20),
+		                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
+		                }
+		            });
+		            // Use a cookie to temporarily store information about a user logging in with a third party login provider
+		            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+		
+		            // Uncomment the following lines to enable logging in with third party login providers
+		            //app.UseMicrosoftAccountAuthentication(
+		            //    clientId: "",
+		            //    clientSecret: "");
+		
+		            //app.UseTwitterAuthentication(
+		            //   consumerKey: "",
+		            //   consumerSecret: "");
+		
+		            //app.UseFacebookAuthentication(
+		            //   appId: "",
+		            //   appSecret: "");
+		
+		            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+		            {
+		                ClientId = "000000000000.apps.googleusercontent.com",
+		                ClientSecret = "00000000000"
+		            });
+		        }
+		    }
+		}
 
-	            // разрешить приложению использовать файлы cookie для сохранения информации о вошедшем пользователе
-	            // и для временного хранения информации о пользователе, вошедшем с помощью стороннего поставщика входа
-	            // Настройте cookie-файл для входа
-	            app.UseCookieAuthentication(new CookieAuthenticationOptions
-	            {
-	                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-	                LoginPath = new PathString("/Account/Login"),
-	                Provider = new CookieAuthenticationProvider
-	                {
-	                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity&lt;ApplicationUserManager, ApplicationUser>(
-	                        validateInterval: TimeSpan.FromMinutes(20),
-	                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
-	                }
-	            });
-	            // использовать файлы cookie для временного хранения информации о пользователе, вошедшем со сторонним поставщиком входа
-	            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
-
-	            // Раскомментируйте следующие строки кода, чтобы разрешить вход с помощью сторонних поставщиков входа
-	            //app.UseMicrosoftAccountAuthentication(
-	            //    clientId: "",
-	            //    clientSecret: "");
-
-	            //app.UseTwitterAuthentication(
-	            //   consumerKey: "",
-	            //   consumerSecret: "");
-
-	            //app.UseFacebookAuthentication(
-	            //   appId: "",
-	            //   appSecret: "");
-
-	            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-	            {
-	                ClientId = "<mark>000000000000.apps.googleusercontent.com</mark>",
-	                ClientSecret = "<mark>00000000000</mark>"
-	            });
-	        }
-	    }
-	}
-	</pre>
 12. Нажмите **CTRL+F5**, чтобы построить и запустить приложение. Щелкните ссылку **Войти в систему**.
 13. В разделе **Использовать другую службу для входа** нажмите **Google**.  
 	![Вход](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms21d.png)  
@@ -543,54 +544,54 @@ ASP.NET Identity — система членства, используемая �
 
 1. В **Обозревателе решений** откройте файл *Configuration.cs* в папке *Migrations*.
 2. Добавьте следующие операторы `using` в пространство имен `ContactManger.Migrations`:  
-	<pre class="prettyprint">
-	using Microsoft.AspNet.Identity;
-	using Microsoft.AspNet.Identity.EntityFramework;
-	</pre>
-3. Добавьте следующий метод `AddUserAndRole` в класс `Configuration` после метода `Seed`:  
-	<pre class="prettyprint">
-    public void AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
-    {
-        IdentityResult IdRoleResult;
-        IdentityResult IdUserResult;
 
-        var roleStore = new RoleStore&lt;IdentityRole>(context);
-        var roleMgr = new RoleManager&lt;IdentityRole>(roleStore);
+		using Microsoft.AspNet.Identity;
+		using Microsoft.AspNet.Identity.EntityFramework;
 
-        if (!roleMgr.RoleExists("canEdit"))
-        {
-            IdRoleResult = roleMgr.Create(new IdentityRole { Name = "canEdit" });
-        }
+3. Добавьте следующий метод `AddUserAndRole` в класс `Configuration` после метода `Seed`:
 
-        //var userStore = new UserStore&lt;ApplicationUser>(context);
-        //var userMgr = new UserManager&lt;ApplicationUser>(userStore);
-        var userMgr = new UserManager&lt;ApplicationUser>(new UserStore&lt;ApplicationUser>(context));
+		public void AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
+		{
+		    IdentityResult IdRoleResult;
+		    IdentityResult IdUserResult;
+		
+		    var roleStore = new RoleStore<IdentityRole>(context);
+		    var roleMgr = new RoleManager<IdentityRole>(roleStore);
+		
+		    if (!roleMgr.RoleExists("canEdit"))
+		    {
+		        IdRoleResult = roleMgr.Create(new IdentityRole { Name = "canEdit" });
+		    }
+		
+		    //var userStore = new UserStore<ApplicationUser>(context);
+		    //var userMgr = new UserManager<ApplicationUser>(userStore);
+		    var userMgr = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+		
+		    var appUser = new ApplicationUser
+		    {
+		        UserName = "canEditUser@wideworldimporters.com",
+		        Email = "canEditUser@wideworldimporters.com"
+		    };
+		    IdUserResult = userMgr.Create(appUser, "Pa$$word1");
+		
+		    if (!userMgr.IsInRole(userMgr.FindByEmail("canEditUser@wideworldimporters.com").Id, "canEdit"))
+		    {
+		      //  IdUserResult = userMgr.AddToRole(appUser.Id, "canEdit");
+		        IdUserResult = userMgr.AddToRole(userMgr.FindByEmail("canEditUser@wideworldimporters.com").Id, "canEdit");
+		    }
+		}
 
-        var appUser = new ApplicationUser
-        {
-            UserName = "canEditUser@wideworldimporters.com",
-            Email = "canEditUser@wideworldimporters.com"
-        };
-        IdUserResult = userMgr.Create(appUser, "Pa$$word1");
+4. Добавьте вызов метода `AddUserAndRole` в начале метода `Seed`. Обратите внимание, что показано только начало метода `Seed`.
 
-        if (!userMgr.IsInRole(userMgr.FindByEmail("canEditUser@wideworldimporters.com").Id, "canEdit"))
-        {
-          //  IdUserResult = userMgr.AddToRole(appUser.Id, "canEdit");
-            IdUserResult = userMgr.AddToRole(userMgr.FindByEmail("canEditUser@wideworldimporters.com").Id, "canEdit");
-        }
-    }
-	</pre>
-4. Добавьте вызов метода `AddUserAndRole` в начале метода `Seed`. Обратите внимание, что показано только начало метода `Seed`.  
-	<pre class="prettyprint">
-    protected override void Seed(ContactManager.Models.ApplicationDbContext context)
-    {
-        <mark>AddUserAndRole(context);</mark>
-	</pre>
-5. После сохранения всех изменений в **консоли диспетчера пакетов** выполните следующую команду:  
-	<pre class="prettyprint">
-	Update-Database
-	</pre>
-	Этот код создает новую роль с именем `canEdit`, а также создает нового локального пользователя с адресом электронной почты canEditUser@wideworldimporters.com. Затем код добавляет canEditUser@wideworldimporters.com для роли `canEdit`. Дополнительные сведения см. на [странице ресурсов ASP.NET Identity](http://www.asp.net/identity).
+		protected override void Seed(ContactManager.Models.ApplicationDbContext context)
+		{
+		    AddUserAndRole(context);
+
+5. После сохранения всех изменений в **консоли диспетчера пакетов** выполните следующую команду:
+
+		Update-Database
+
+Этот код создает новую роль с именем `canEdit`, а также создает нового локального пользователя с адресом электронной почты canEditUser@wideworldimporters.com. Затем код добавляет canEditUser@wideworldimporters.com для роли `canEdit`. Дополнительные сведения см. на [странице ресурсов ASP.NET Identity](http://www.asp.net/identity).
 
 ###Ограничение доступа в папку администрирования 
 Примерное приложение **ContactManager** позволяет видеть контакты как анонимным, так и выполнившим вход пользователям. Однако после завершения этого раздела только пользователи, выполнившие вход и назначенные на роль "canEdit", смогут изменять контакты.
@@ -602,74 +603,74 @@ ASP.NET Identity — система членства, используемая �
 	- *Delete.aspx *и* Delete.aspx.cs*
 	- *Edit.aspx *и* Edit.aspx.cs*
 	- *Insert.aspx *и* Insert.aspx.cs*
-3. Обновите ссылки в *Contacts/Default.aspx*, добавив Admin/ перед ссылками на страницы, которые направляют на *Insert.aspx*, *Edit.aspx* и *Delete.aspx*:  
-	<pre class="prettyprint">
-	&lt;%@ Page Title=&quot;ContactsList&quot; Language=&quot;C#&quot; MasterPageFile=&quot;~/Site.Master&quot; CodeBehind=&quot;Default.aspx.cs&quot; Inherits=&quot;ContactManager.Contacts.Default&quot; ViewStateMode=&quot;Disabled&quot; %&gt;
-	&lt;%@ Register TagPrefix=&quot;FriendlyUrls&quot; Namespace=&quot;Microsoft.AspNet.FriendlyUrls&quot; %&gt;
-	
-	&lt;asp:Content runat=&quot;server&quot; ContentPlaceHolderID=&quot;MainContent&quot;&gt;
-	    &lt;h2&gt;Contacts List&lt;/h2&gt;
-	    &lt;p&gt;
-	        &lt;asp:HyperLink runat=&quot;server&quot; NavigateUrl=&quot;<mark>Admin/</mark>Insert.aspx&quot; Text=&quot;Create new&quot; /&gt;
-	    &lt;/p&gt;
-	    &lt;div&gt;
-	        &lt;asp:ListView runat=&quot;server&quot;
-	            DataKeyNames=&quot;ContactId&quot; ItemType=&quot;ContactManager.Models.Contacts&quot;
-	            AutoGenerateColumns=&quot;false&quot;
-	            AllowPaging=&quot;true&quot; AllowSorting=&quot;true&quot;
-	            SelectMethod=&quot;GetData&quot;&gt;
-	            &lt;EmptyDataTemplate&gt;
-	                There are no entries found for Contacts
-	            &lt;/EmptyDataTemplate&gt;
-	            &lt;LayoutTemplate&gt;
-	                &lt;table class=&quot;table&quot;&gt;
-	                    &lt;thead&gt;
-	                        &lt;tr&gt;
-	                            &lt;th&gt;Name&lt;/th&gt;
-	                            &lt;th&gt;Address&lt;/th&gt;
-	                            &lt;th&gt;City&lt;/th&gt;
-	                            &lt;th&gt;State&lt;/th&gt;
-	                            &lt;th&gt;Zip&lt;/th&gt;
-	                            &lt;th&gt;Email&lt;/th&gt;
-	                            &lt;th&gt;&amp;nbsp;&lt;/th&gt;
-	                        &lt;/tr&gt;
-	                    &lt;/thead&gt;
-	                    &lt;tbody&gt;
-	                        &lt;tr runat=&quot;server&quot; id=&quot;itemPlaceholder&quot; /&gt;
-	                    &lt;/tbody&gt;
-	                &lt;/table&gt;
-	            &lt;/LayoutTemplate&gt;
-	            &lt;ItemTemplate&gt;
-	                &lt;tr&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Name&quot; ID=&quot;Name&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Address&quot; ID=&quot;Address&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;City&quot; ID=&quot;City&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;State&quot; ID=&quot;State&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Zip&quot; ID=&quot;Zip&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;asp:DynamicControl runat=&quot;server&quot; DataField=&quot;Email&quot; ID=&quot;Email&quot; Mode=&quot;ReadOnly&quot; /&gt;
-	                    &lt;/td&gt;
-	                    &lt;td&gt;
-	                        &lt;a href=&quot;<mark>Admin/</mark>Edit.aspx?ContactId=&lt;%#: Item.ContactId%&gt;&quot;&gt;Edit&lt;/a&gt; | 
-	                        &lt;a href=&quot;<mark>Admin/</mark>Delete.aspx?ContactId=&lt;%#: Item.ContactId%&gt;&quot;&gt;Delete&lt;/a&gt;
-	                    &lt;/td&gt;
-	                &lt;/tr&gt;
-	            &lt;/ItemTemplate&gt;
-	        &lt;/asp:ListView&gt;
-	    &lt;/div&gt;
-	&lt;/asp:Content&gt;
-	</pre>
-4. Измените шесть ссылок кода `Response.Redirect("Default.aspx")` на `Response.Redirect("~/Contacts/Default.aspx")` для следующих трех файлов:  
+3. Обновите ссылки в *Contacts/Default.aspx*, добавив "Admin/" перед ссылками на страницы *Insert.aspx*, *Edit.aspx* и *Delete.aspx*:  
+
+		<%@ Page Title="ContactsList" Language="C#" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="ContactManager.Contacts.Default" ViewStateMode="Disabled" %>
+		<%@ Register TagPrefix="FriendlyUrls" Namespace="Microsoft.AspNet.FriendlyUrls" %>
+		
+		<asp:Content runat="server" ContentPlaceHolderID="MainContent">
+		    <h2>Contacts List</h2>
+		    <p>
+		        <asp:HyperLink runat="server" NavigateUrl="Admin/Insert.aspx" Text="Create new" />
+		    </p>
+		    <div>
+		        <asp:ListView runat="server"
+		            DataKeyNames="ContactId" ItemType="ContactManager.Models.Contacts"
+		            AutoGenerateColumns="false"
+		            AllowPaging="true" AllowSorting="true"
+		            SelectMethod="GetData">
+		            <EmptyDataTemplate>
+		                There are no entries found for Contacts
+		            </EmptyDataTemplate>
+		            <LayoutTemplate>
+		                <table class="table">
+		                    <thead>
+		                        <tr>
+		                            <th>Name</th>
+		                            <th>Address</th>
+		                            <th>City</th>
+		                            <th>State</th>
+		                            <th>Zip</th>
+		                            <th>Email</th>
+		                            <th>&nbsp;</th>
+		                        </tr>
+		                    </thead>
+		                    <tbody>
+		                        <tr runat="server" id="itemPlaceholder" />
+		                    </tbody>
+		                </table>
+		            </LayoutTemplate>
+		            <ItemTemplate>
+		                <tr>
+		                    <td>
+		                        <asp:DynamicControl runat="server" DataField="Name" ID="Name" Mode="ReadOnly" />
+		                    </td>
+		                    <td>
+		                        <asp:DynamicControl runat="server" DataField="Address" ID="Address" Mode="ReadOnly" />
+		                    </td>
+		                    <td>
+		                        <asp:DynamicControl runat="server" DataField="City" ID="City" Mode="ReadOnly" />
+		                    </td>
+		                    <td>
+		                        <asp:DynamicControl runat="server" DataField="State" ID="State" Mode="ReadOnly" />
+		                    </td>
+		                    <td>
+		                        <asp:DynamicControl runat="server" DataField="Zip" ID="Zip" Mode="ReadOnly" />
+		                    </td>
+		                    <td>
+		                        <asp:DynamicControl runat="server" DataField="Email" ID="Email" Mode="ReadOnly" />
+		                    </td>
+		                    <td>
+		                        <a href="Admin/Edit.aspx?ContactId=<%#: Item.ContactId%>">Edit</a> | 
+		                        <a href="Admin/Delete.aspx?ContactId=<%#: Item.ContactId%>">Delete</a>
+		                    </td>
+		                </tr>
+		            </ItemTemplate>
+		        </asp:ListView>
+		    </div>
+		</asp:Content>
+
+4. Измените шесть ссылок кода `Response.Redirect("Default.aspx")` на `Response.Redirect("~/Contacts/Default.aspx")` для следующих трех файлов:
 	- *Delete.aspx.cs*
 	- *Edit.aspx.cs*
 	- *Insert.aspx.cs*  
@@ -678,19 +679,18 @@ ASP.NET Identity — система членства, используемая �
 5. Чтобы ограничить доступ к папке *Admin*, в **Обозревателе решений** щелкните правой кнопкой мыши папку *Admin* м выберите **Добавить новый элемент**.
 6. Из списка веб-шаблонов Visual C# выберите **Файл веб-конфигурации** из среднего списка, примите имя по умолчанию *Web.config*, а затем выберите **Добавить**.
 7. Замените существующее XML-содержимое в файле *Web.config* на следующее:
-	<pre class="prettyprint">
-	&lt;?xml version="1.0"?>
-	&lt;configuration>
-	  &lt;system.web>
-	    &lt;authorization>
-	      &lt;allow roles="canEdit"/>
-	      &lt;deny users="*"/>
-	    &lt;/authorization>
-	  &lt;/system.web>
-	&lt;/configuration>
-	</pre>
-8. Сохраните файл *Web.config*. 
-	Файл *Web.config* указывает, что только пользователи, которым назначена роль "canEdit", могут получить доступ к страницам в папке *Admin*. 
+
+		<?xml version="1.0"?>
+		<configuration>
+		  <system.web>
+		    <authorization>
+		      <allow roles="canEdit"/>
+		      <deny users="*"/>
+		    </authorization>
+		  </system.web>
+		</configuration>
+
+8. Сохраните файл *Web.config*. Файл *Web.config* указывает, что только пользователи, которым назначена роль "canEdit", могут получить доступ к страницам в папке *Admin*.
 
 Когда пользователи, не являющиеся частью роли "canEdit", пытаются изменить данные, они перенаправляются на страницу *Вход*.
 
@@ -796,4 +796,4 @@ ASP.NET Identity — система членства, используемая �
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

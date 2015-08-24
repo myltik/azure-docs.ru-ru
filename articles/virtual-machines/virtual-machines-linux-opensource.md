@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/08/2015"
+	ms.date="08/07/2015"
 	ms.author="rasquill"/>
 
 
@@ -112,27 +112,27 @@ CoreOS — это небольшой оптимизированный дистр
 17. [Практическое руководство. Установка агента Linux для Azure](virtual-machines-linux-agent-user-guide.md)
 18. [Marketplace. Kaspersky AV для файлового сервера Linux](http://azure.microsoft.com/marketplace/partners/kaspersky-lab/kav-for-lfs-kav-for-lfs/)
 
-## Основы
+## Основные сведения
 
-1. [Основы. Интерфейс командной строки Azure (CLI Azure)](../xplat-cli.md)
-4. [Основы. Использование сертификатов и управление ими](http://msdn.microsoft.com/library/azure/gg981929.aspx)
-5. [Основы. Выбор имен пользователей Linux](virtual-machines-linux-usernames.md)
-6. [Основы. Вход на виртуальную машину Linux через портал Azure](virtual-machines-linux-how-to-log-on.md)
-7. [Основы. SSH](virtual-machines-linux-use-ssh-key.md)
-8. [Основы. Сброс пароля или свойств SSH для Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
-9. [Основы. Использование прав корневой учетной записи](virtual-machines-linux-use-root-privileges.md)
-10. [Основы. Подключение диска данных к виртуальной машине Linux](virtual-machines-linux-how-to-attach-disk.md)
-11. [Основы. Отключение диска данных от виртуальной машины Linux](virtual-machines-linux-how-to-detach-disk.md)
-12. [Блог об основах. Оптимизация хранилища, дисков и производительности с помощью Linux и Azure](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
-13. [Основы. RAID](virtual-machines-linux-configure-raid.md)
-14. [Основы. Запись виртуальной машины Linux для создания шаблона](virtual-machines-linux-capture-image.md)
-15. [Основы. Агент Linux для Azure](virtual-machines-linux-agent-user-guide.md)
-16. [Основы. Расширения и компоненты виртуальных машин Azure](http://msdn.microsoft.com/library/azure/dn606311.aspx)
-17. [Основы. Включение пользовательских данных в виртуальную машину для использования с пакетом Cloud-init](virtual-machines-how-to-inject-custom-data.md)
-18. [Блог об основах. Сборка высокодоступной системы Linux в Azure за 12 шагов](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
-19. [Блог об основах. Автоматизация подготовки Linux в Azure с помощью CLI Azure, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
+1. [Основные сведения. Интерфейс командной строки Azure (CLI Azure)](../xplat-cli.md)
+4. [Основные сведения. Использование сертификатов и управление ими](http://msdn.microsoft.com/library/azure/gg981929.aspx)
+5. [Основные сведения. Выбор имен пользователей Linux](virtual-machines-linux-usernames.md)
+6. [Основные сведения. Вход на виртуальную машину Linux через портал Azure](virtual-machines-linux-how-to-log-on.md)
+7. [Основные сведения. SSH](virtual-machines-linux-use-ssh-key.md)
+8. [Основные сведения. Сброс пароля или свойств SSH для Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
+9. [Основные сведения. Использование прав корневой учетной записи](virtual-machines-linux-use-root-privileges.md)
+10. [Основные сведения. Подключение диска данных к виртуальной машине Linux](virtual-machines-linux-how-to-attach-disk.md)
+11. [Основные сведения. Отключение диска данных от виртуальной машины Linux](virtual-machines-linux-how-to-detach-disk.md)
+12. [Блог основных сведений. Оптимизация хранилища, дисков и производительности с помощью Linux и Azure](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
+13. [Основные сведения. RAID](virtual-machines-linux-configure-raid.md)
+14. [Основные сведения. Запись виртуальной машины Linux для создания шаблона](virtual-machines-linux-capture-image.md)
+15. [Основные сведения. Агент Linux для Azure](virtual-machines-linux-agent-user-guide.md)
+16. [Основные сведения. Расширения и компоненты виртуальных машин Azure](http://msdn.microsoft.com/library/azure/dn606311.aspx)
+17. [Основные сведения. Включение пользовательских данных в виртуальную машину для использования с пакетом Cloud-init](virtual-machines-how-to-inject-custom-data.md)
+18. [Блог основных сведений. Сборка высокодоступной системы Linux в Azure за 12 шагов](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
+19. [Блог основных сведений. Автоматизация подготовки Linux в Azure с помощью CLI Azure, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
 19. [Развертывание нескольких виртуальных машин с помощью интерфейса командной строки Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli.md)
-20. [Основы. Расширение виртуальных машин Docker для Azure](virtual-machines-docker-vm-extension.md)
+20. [Основные сведения. Расширение виртуальной машины Docker для Azure](virtual-machines-docker-vm-extension.md)
 23. [Справочник по API-интерфейсу управления службами REST](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 24. [Файловая система Gluster в Azure](http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
 
@@ -235,10 +235,19 @@ CoreOS — это небольшой оптимизированный дистр
 
 Проверка подлинности и шифрование играют важную роль в разработке программного обеспечения, и в Интернете существует множество разделов, помогающих освоить и использовать соответствующие методики обеспечения безопасности. Мы приводим несколько основных принципов использования, позволяющих быстро запустить Linux и начать обработку рабочих нагрузок с открытым кодом, а также упоминаем средства для сброса или удаления компонентов удаленной безопасности в Azure. Это основные процедуры. В будущем будут добавлены более сложные сценарии.
 
-4. [Основы. Использование сертификатов и управление ими](http://msdn.microsoft.com/library/azure/gg981929.aspx)
-7. [Основы. SSH](virtual-machines-linux-use-ssh-key.md)
-8. [Основы. Сброс пароля или свойств SSH для Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
-9. [Основы. Использование прав корневой учетной записи](virtual-machines-linux-use-root-privileges.md)
+4. [Основные сведения. Использование сертификатов и управление ими](http://msdn.microsoft.com/library/azure/gg981929.aspx)
+7. [Основные сведения. SSH](virtual-machines-linux-use-ssh-key.md)
+8. [Основные сведения. Сброс пароля или свойств SSH для Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
+9. [Основные сведения. Использование прав корневой учетной записи](virtual-machines-linux-use-root-privileges.md)
+
+## Linux для высокопроизводительных вычислений (HPC)
+
+Запуск высокопроизводительных рабочих нагрузок на кластерах виртуальных машин Linux, построенных с помощью средств с открытым исходным кодом или пакета Microsoft HPC.
+
+1.	Шаблон быстрого запуска [Развертывание кластера SLURM](http://azure.microsoft.com/documentation/templates/slurm/) и [запись в блоге](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
+2.	[Шаблон быстрого запуска: развертывание кластера Torque](http://azure.microsoft.com/documentation/templates/torque-cluster/)
+3.	[Учебник: начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](virtual-machines-linux-cluster-hpcpack.md)
+4.	[Учебник: настройка кластера Linux RDMA для выполнения приложений MPI](virtual-machines-linux-cluster-rdma.md)
 
 ## Разработка, управление и оптимизация
 
@@ -294,6 +303,5 @@ CoreOS — это небольшой оптимизированный дистр
 <!--Link references--In actual articles, you only need a single period before the slash. -->
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

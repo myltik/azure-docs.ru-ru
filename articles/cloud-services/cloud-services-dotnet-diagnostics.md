@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование средств диагностики (.NET) — руководство по функциям Azure" 
+	pageTitle="Использование средств диагностики (.NET) | Microsoft Azure" 
 	description="Узнайте, как использовать в Azure диагностические данные для выполнения отладки, оценки производительности, мониторинга, анализа трафика и многого другого." 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -513,4 +513,4 @@ EventSource|Нет|Таблица|Ведет журнал событий, соз
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

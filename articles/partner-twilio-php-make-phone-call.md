@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Осуществление телефонных звонков из Twilio (PHP) — Azure" 
+	pageTitle="Телефонные звонки из Twilio (PHP) | Microsoft Azure" 
 	description="Узнайте, как осуществлять телефонные вызовы и отправку SMS-сообщений с помощью службы Twilio API в Azure. Примеры, для приложения PHP." 
 	documentationCenter="php" 
 	services="" 
@@ -143,4 +143,4 @@
 [website-webmatrix]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-webmatrix/
 [twilio_php_github]: https://github.com/twilio/twilio-php
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

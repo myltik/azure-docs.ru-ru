@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Хранение кода проекта в системе управления версиями: мобильные службы Azure" 
+	pageTitle="Хранение кода проекта в системе управления версиями | Microsoft Azure" 
 	description="Узнайте, как сохранить серверный проект .NET в локальном репозитории Git на компьютере и опубликовать его оттуда." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -103,4 +103,4 @@
 [Изменение модели данных в серверной мобильной службе для .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

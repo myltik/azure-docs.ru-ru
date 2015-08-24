@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Построение службы, использующей табличное хранилище вместо Базы данных SQL | Мобильные службы Azure" 
+	pageTitle="Построение службы, использующей табличное хранилище вместо Базы данных SQL | Microsoft Azure" 
 	description="Узнайте, как настроить таблицу Azure в серверной мобильной службе .NET." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -158,4 +158,4 @@
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

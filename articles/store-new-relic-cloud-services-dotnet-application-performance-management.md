@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование New Relic совместно с Azure — Руководства по функциям Azure" 
+	pageTitle="Использование New Relic с Azure | Microsoft Azure" 
 	description="Узнайте, как можно использовать службу New Relic для мониторинга приложений Azure и управления ими." 
 	services="" 
 	documentationCenter=".net" 
@@ -175,4 +175,4 @@ New Relic тесно интегрируется с веб-ролями и раб
  * [Мониторинг реального пользователя](https://newrelic.com/docs/features/real-user-monitoring): обзор способов, используемых RUM для подробного анализа времени, необходимого пользовательским браузерам для загрузки веб-страниц, а также получения данных о регионе пребывания пользователей и используемых браузерах.
  * [Поиск справки](https://newrelic.com/docs/site/finding-help): ресурсы, доступные через интерактивный центр справки New Relic.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

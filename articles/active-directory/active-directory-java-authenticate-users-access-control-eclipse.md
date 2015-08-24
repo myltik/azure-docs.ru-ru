@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Использование службы контроля доступа (Java) — руководство по компонентам Azure"
+    pageTitle="Использование контроля доступа (Java) | Microsoft Azure"
     description="Узнайте, как разрабатывать и применять контроль доступа с использованием Java в Azure."
 	services="active-directory" 
     documentationCenter="java"
@@ -310,4 +310,4 @@ Azure создает и активирует пространство имен. 
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

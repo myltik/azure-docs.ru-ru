@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Гибридные локальные и облачные приложения (.NET) в Azure"
+	pageTitle="Гибридные локальные и облачные приложения (.NET) | Microsoft Azure"
 	description="Узнайте, как создать приложение локальное или облачное гибридное приложение .NET с использованием ретранслятора Azure Service Bus."
 	services="service-bus"
 	documentationCenter=".net"
@@ -621,4 +621,4 @@
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

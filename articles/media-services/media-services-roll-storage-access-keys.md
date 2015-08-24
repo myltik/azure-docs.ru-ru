@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #Практическое руководство. Обновление служб мультимедиа после смены ключей доступа к хранилищу
@@ -43,7 +43,7 @@
 
 - Используйте API REST управления служб мультимедиа.
 
-	В следующем примере кода показано, как создать запрос https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key для синхронизации указанного ключа хранилища со службами мультимедиа. В данном случае используется значение дополнительного ключа хранилища. Дополнительные сведения см. в статье [Практическое руководство. Использование REST API для управления службами мультимедиа](http://msdn.microsoft.com/library/azure/dn167656.aspx).
+	В следующем примере кода показано, как создать запрос https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key для синхронизации указанного ключа хранилища со службами мультимедиа. В данном случае используется значение дополнительного ключа хранилища. Дополнительные сведения см. в статье [Практическое руководство. Использование REST API для управления службами мультимедиа](http://msdn.microsoft.com/ru-ru/library/azure/dn167656.aspx).
  
 		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
 		{
@@ -108,4 +108,4 @@
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

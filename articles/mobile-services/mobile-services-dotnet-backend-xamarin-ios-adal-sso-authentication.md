@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory (Xamarin.iOS) | Центр разработчиков для мобильных устройств" 
+	pageTitle="Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory (Xamarin.iOS) | Microsoft Azure" 
 	description="Узнайте, как аутентифицировать пользователей для единого входа с помощью ADAL в приложении Xamarin.iOS." 
 	documentationCenter="xamarin" 
 	authors="mattchenderson" 
@@ -141,4 +141,4 @@
 [расширением Xamarin]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->
