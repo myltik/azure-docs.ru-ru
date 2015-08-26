@@ -18,7 +18,8 @@
 
 # Предварительная версия модели приложений 2.0: вызов веб-API из веб-приложения .NET
 
-> [AZURE.NOTE]Эти сведения относятся к общедоступной предварительной версии конечных точек 2.0. Инструкции по интеграции с общедоступной службой Azure AD см. в статье [Руководство разработчика Azure Active Directory](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Эти сведения относятся к общедоступной предварительной версии конечных точек 2.0. Инструкции по интеграции с общедоступной службой Azure AD см. в статье [Руководство разработчика Azure Active Directory](active-directory-developers-guide.md).
 
 Модель приложений версии 2.0 позволяет быстро реализовать проверку подлинности для веб-приложения и веб-API с поддержкой личных учетных записей Майкрософт, а также рабочих и учебных учетных записей. Здесь мы выполним сборку веб-приложения MVC, которое:
 
@@ -45,7 +46,7 @@ Alternatively, you can [download the completed app as a .zip](https://github.com
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## 1\. Регистрация приложения
+## 1. Регистрация приложения
 Создайте приложение на странице [apps.dev.microsoft.com](https://apps.dev.microsoft.com) или выполните следующие [действия](active-directory-v2-app-registration.md). Не забудьте:
 
 - скопировать **идентификатор приложения**, назначенный вашему приложению (он скоро вам понадобится);
@@ -54,7 +55,7 @@ Alternatively, you can [download the completed app as a .zip](https://github.com
 - ввести правильный **URI перенаправления**. URI перенаправления сообщает Azure AD, куда следует направлять ответы проверки подлинности. Значение по умолчанию для этого учебника — `https://localhost:44326/`.
 
 
-## 2\. Вход пользователя с помощью OpenID Connect
+## 2. Вход пользователя с помощью OpenID Connect
 Здесь мы настроим промежуточный слой OWIN для использования [протокола проверки подлинности OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). Кроме всего прочего, OWIN будет использоваться для выдачи запросов входа и выхода, управления сеансом пользователя и получения сведений о пользователе.
 
 -	Для начала откройте файл `web.config` в корне проекта `TodoList-WebApp`, а затем введите значения конфигурации приложения в разделе `<appSettings>`.
@@ -123,12 +124,19 @@ public void ConfigureAuth(IAppBuilder app)
 - Now add a new method, the `OnAuthorizationCodeReceived` event handler.  This handler will use ADAL to acquire an access token to the To-Do List API, and will store the token in ADAL's token cache for later:
 
 ```C#
-private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification) { string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value; string tenantID = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value; string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenantID, string.Empty); ClientCredential cred = new ClientCredential(clientId, clientSecret);
+private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
+{
+		string userObjectId = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
+		string tenantID = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
+		string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenantID, string.Empty);
+		ClientCredential cred = new ClientCredential(clientId, clientSecret);
 
 		// Here you ask for a token using the web app's clientId as the scope, since the web app and service share the same clientId.
 		var authContext = new Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext(authority, new NaiveSessionCache(userObjectId));
 		var authResult = await authContext.AcquireTokenByAuthorizationCodeAsync(notification.Code, new Uri(redirectUri), cred, new string[] { clientId });
-} ... ```
+}
+...
+```
 
 - В веб-приложениях ADAL использует расширяемый кэш маркеров, который можно применять для хранения маркеров. В этом примере реализуется `NaiveSessionCache`, использующий хранилище сеансов HTTP для кэширования маркеров.
 
@@ -195,6 +203,8 @@ catch (AdalException ee)
 
 ## Дальнейшие действия
 
-Дополнительные ресурсы: -[Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) -[Тег StackOverflow "adal" >>](http://stackoverflow.com/questions/tagged/adal)
+Дополнительные ресурсы:
+- [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md)
+- [Тег StackOverflow "adal" >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->
