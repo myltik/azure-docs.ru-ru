@@ -477,7 +477,7 @@
 	<pre class="prettyprint">
 	...
 
-    	&lt;link href=&quot;http://az632148.vo.msecnd.net/Content/css?v=1.0.0.25449&quot; rel=&quot;stylesheet&quot;/&gt;
+    &lt;link href=&quot;http://az632148.vo.msecnd.net/Content/css?v=1.0.0.25449&quot; rel=&quot;stylesheet&quot;/&gt;
 
 	&lt;script src=&quot;http://az632148.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
 
@@ -629,4 +629,4 @@
 - [Объединение и минификация ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 - [Использование CDN для Azure](cdn-how-to-use.md)
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->
