@@ -152,7 +152,7 @@
 
 ПРИМЕЧАНИЕ. Прежде чем приступить к скачиванию и установке дополнительных пакетов, убедитесь, что система подключена к Интернету.
 
-# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+\# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 
 Эта команда скачает 15 перечисленных ниже пакетов из репозитория CentOS 6.6 и установит их.
 
@@ -188,17 +188,17 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 ПРИМЕЧАНИЕ. Если в исходной машине для корневого устройства или устройства загрузки используется файловая система Reiser или XFS, то до начала мероприятий по защите необходимо скачать указанные ниже пакеты и установить их на главный целевой сервер под управлением ОС Linux.
 
-# cd /usr/local
+\# cd /usr/local
 
-# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
+\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
+\# wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
-# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
+\# wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### Применение изменений настраиваемой конфигурации
 
@@ -214,7 +214,7 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 3. Выполните указанную ниже команду, чтобы предоставить необходимое разрешение.
 
-# **chmod 755 ./ApplyCustomChanges.sh**
+\# **chmod 755 ./ApplyCustomChanges.sh**
 
 4. Выполните указанную ниже команду, чтобы запустить необходимый сценарий.
 

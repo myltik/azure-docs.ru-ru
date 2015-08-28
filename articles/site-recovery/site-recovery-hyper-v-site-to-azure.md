@@ -144,11 +144,11 @@
 	- Если прокси-сервер по умолчанию на сервере Hyper-V требует проверку подлинности, то следует выбрать пользовательский прокси-сервер. Введите параметры прокси-сервера по умолчанию и укажите учетные данные.
 	- Если вы хотите использовать настраиваемый прокси-сервер, настройте его перед установкой поставщика. 
 	- Следующие URL-адреса должны быть доступны c узла Hyper-v:
-		- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
 
 	- Разрешите IP-адреса, перечисленные в статье [Диапазоны IP-адресов центров обработки данных Azure ](http://go.microsoft.com/fwlink/?LinkId=511094) и протоколы HTTPS (443). Необходимо разрешить диапазоны IP-адресов региона Azure, который вы планируете использовать, и Запада США.
 
@@ -306,4 +306,4 @@
 
 Настроив и запустив развертывание, см. [дополнительные сведения](site-recovery-failover.md) об обработке отказов.
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->
