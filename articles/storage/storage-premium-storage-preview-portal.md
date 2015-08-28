@@ -130,7 +130,7 @@
 </tbody>
 </table>
 
-	For the most up-to-date information, see [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). To learn about the Premium storage disks and their IOPs and throughput limits, see the table in the [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-whru-ruing-premium-storage) section in this article.
+	Для получения наиболее актуальной информации см. раздел [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Сведения о дисках, используемых в хранилищах класса Premium, их характеристиках производительности для операций ввода-вывода и ограничениях пропускной способности см. в таблице в разделе [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-when-using-premium-storage) в данной статье.
 
 > [AZURE.NOTE]Выделенная для диска пропускная способность и скорость ввода-вывода не ограничивают извлечение данных из кэша. Это означает, что при использовании на виртуальной машине серии DS диска данных, кэш которого настроен только для чтения, указанные ограничения для дисков хранилища Premium не распространяются на операции чтения данных из кэша. Это позволяет добиться очень высокой пропускной способности при работе с диском, если основная рабочая нагрузка связана с чтением. Обратите внимание на то, что для операций с кэшем действуют отдельные ограничения на скорость ввода-вывода и пропускную способность на уровне виртуальной машины в зависимости от ее размера. Для машин серии DS они составляют приблизительно 4000 операций ввода-вывода в секунду и 33 МБ в секунду на ядро для кэша и для операций с локальным SSD-накопителем.
 
@@ -401,4 +401,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

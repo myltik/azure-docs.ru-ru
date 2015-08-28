@@ -25,7 +25,7 @@
    - Шлюз
    - IP-адрес основного DNS-сервера
     
-		Note that the system is validating network settings after each step in the process.
+		Обратите внимание, что система проверяет сетевые настройки после каждого шага процесса.
    
       >[AZURE.NOTE]Возможно, необходимо будет подождать несколько минут, пока не будут применены маска подсети и настройки DNS. Если появится сообщение об ошибке "Проверьте сетевое подключение к Data 0", проверьте физическое подключение к сети на сетевом интерфейсе DATA 0 активного контроллера.
 
@@ -58,10 +58,10 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
   
-        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
+        Если состояние устройства — **Вне сети**, подождите несколько минут, чтобы устройство могло перейти в оперативный режим. 
       
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
+        Если по прошествии нескольких минут устройство все еще находится не в сети, убедитесь, что защищенная брандмауэром сеть настроена в соответствии [с требованиями к сети для вашего устройства StorSimple](https://msdn.microsoft.com/library/dn772371.aspx). Если поддержка HTTP 1.1 отсутствует, проверьте порт 9354 и убедитесь в том, что он открыт для исходящей связи. Этот порт используется для связи между службой StorSimple Manager и вашим устройством StorSimple. 
      
        
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->
