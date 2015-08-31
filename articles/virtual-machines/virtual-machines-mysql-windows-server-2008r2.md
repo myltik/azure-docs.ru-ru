@@ -34,7 +34,7 @@
 
 ## Создание виртуальной машины под управлением Windows Server
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
 ## Присоединение диска данных
 

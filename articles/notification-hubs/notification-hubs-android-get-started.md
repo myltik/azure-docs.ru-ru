@@ -62,7 +62,7 @@
 
 ###Добавление служб Google Play в проект
 
-[AZURE.INCLUDE [Добавление служб Play](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Добавление служб Play](../../includes/mobile-services-add-google-play-services.md)]
 
 ###Добавление кода
 
