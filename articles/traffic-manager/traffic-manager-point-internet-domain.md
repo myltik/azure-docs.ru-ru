@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Направление интернет-домена компании на домен диспетчера трафика"
+   pageTitle="Направление интернет-домена компании на домен диспетчера трафика | Microsoft Azure"
    description="В этой статье вы узнаете, как направить доменное имя вашей компании на доменное имя диспетчера трафика."
    services="traffic-manager"
    documentationCenter=""
@@ -12,8 +12,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Направление интернет-домена компании на домен диспетчера трафика
 
@@ -27,13 +27,15 @@
 
 >[AZURE.IMPORTANT]Нельзя направить домен второго уровня, например *contoso.com*, в домен диспетчера трафика. Это невозможно из-за того, что, согласно ограничению протокола DNS, нельзя использовать записи CNAME для доменных имен второго уровня.
 
-## См. также
+## Дальнейшие действия
 
-[Сведения о методах балансировки нагрузки диспетчера трафика](traffic-manager-load-balancing-methods.md)
+[О методах маршрутизации трафика в диспетчере трафика](traffic-manager-load-balancing-methods.md)
 
-[Задачи настройки диспетчера трафика](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Диспетчер трафика — включение, отключение или удаление профиля диспетчера трафика](disable-enable-or-delete-a-profile.md)
 
-[Обзор диспетчера трафика](traffic-manager-overview.md)
+[Диспетчер трафика — отключение и включение конечной точки диспетчера трафика](disable-or-enable-an-endpoint.md)
+
+[Что такое диспетчер трафика](traffic-manager-overview.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

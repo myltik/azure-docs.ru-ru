@@ -21,7 +21,7 @@
 
 Данная документация содержит сведения об использовании выборочной установки для Azure AD Connect. Вы можете использовать этот тип установки, если у вас есть дополнительные параметры конфигурации или вам нужны дополнительные функции, которые не входят в экспресс-установку.
 
-Информацию об экспресс-установке см. в статье [Экспресс-установка](active-directory-aadconnect/#getting-started-with-azure-ad-connect). Сведения об обновлении DirSync до Azure AD Connect см. в статье [Обновление DirSync до Azure Active Directory Connect](active-directory-aadconnect-dirsync-upgrade-get-started.md).
+Информацию об экспресс-установке см. в статье [Экспресс-установка](active-directory-aadconnect.md#getting-started-with-azure-ad-connect). Сведения об обновлении DirSync до Azure AD Connect см. в статье [Обновление DirSync до Azure Active Directory Connect](active-directory-aadconnect-dirsync-upgrade-get-started.md).
 
 
 
@@ -290,4 +290,4 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -141,7 +142,7 @@ Apache Storm работает с **топологиями**, а не задан�
 
 Кластер Storm в HDInsight поддерживает языки C#, Java и Python.
 
-### C&#35;
+### C&\#35;
 
 Средства HDInsight для Visual Studio позволяют разработчикам .NET проектировать и реализовывать топологии на языке C#. Вы также можете создавать гибридные топологии, в которых используются компоненты Java и C#.
 
@@ -206,4 +207,4 @@ Storm может обеспечить различные уровни гаран
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: ../hdinsight-storm-getting-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,7 +1,4 @@
-
-
-1. Откройте файл **QSTodoListViewController.m** и добавьте следующий метод:
-
+1. На компьютере Mac откройте файл **QSTodoListViewController.m** в Xcode и добавьте следующий метод: Измените _facebook_ на _microsoftaccount_, _twitter_, _google_ или _windowsazureactivedirectory_, если вы не используете Facebook как поставщик удостоверений.
 
         - (void) loginAndGetData
         {
@@ -15,14 +12,10 @@
             }];
         }
 
-
-    > [AZURE.NOTE]Если используется поставщик удостоверений, отличный от Facebook, измените значение, передаваемое в **loginWithProvider**. Поддерживаются такие значения: _microsoftaccount_, _facebook_, _twitter_, _google_ и _windowsazureactivedirectory_.
-
-
-2. Измените `viewDidLoad`, заменив `[self refresh]` в конце на следующий код:
+2. Замените `[self refresh]` в `viewDidLoad` следующим кодом:
 
         [self loginAndGetData];
 
-3. Нажмите кнопку **Выполнить**, чтобы запустить приложение и войти в систему с помощью выбранного поставщика удостоверений. После входа вы должны увидеть список Todo и сможете вносить изменения.
+3. Нажмите **Выполнить**, чтобы запустить приложение, и войдите в систему. После входа вы должны увидеть список Todo и сможете вносить изменения.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

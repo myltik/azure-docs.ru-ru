@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="08/18/2015" 
 	ms.author="mazha"/>
 
 
@@ -121,4 +121,4 @@ http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

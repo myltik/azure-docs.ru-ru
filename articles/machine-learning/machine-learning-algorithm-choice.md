@@ -3,7 +3,7 @@
 	description="Как выбрать алгоритмы машинного обучения Azure для контролируемого и неконтролируемого обучения в экспериментах кластеризации, классификации или регрессии."
 	services="machine-learning"
 	documentationCenter=""
-	authors="garyericson"
+	authors="brohrer"
 	manager="paulettm"
 	editor="cgronlun"
     tags=""/>
@@ -222,4 +222,4 @@
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

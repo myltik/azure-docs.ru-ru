@@ -30,8 +30,6 @@
 * [Тест проверки связи с URL-адресом](#set-up-a-url-ping-test) – простой тест, который вы можете создать на портале Azure.
 * [Многошаговый веб-тест](#multi-step-web-tests) – тест, который вы создаете в Visual Studio Ultimate или Visual Studio Enterprise и загружаете на портал.
 
-*Это веб-приложение Azure? Просто [создайте веб-тест в колонке веб-приложения][azure-availability].*
-
 
 
 ## Настройка теста проверки связи с URL-адресом
@@ -239,4 +237,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

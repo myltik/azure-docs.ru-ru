@@ -1,8 +1,7 @@
 <properties
 	pageTitle="Учебник по инструменту разбиения и объединения эластичной базы данных | Microsoft Azure"
 	description="Разбиение и объединение с помощью инструментов эластичной базы данных"
-	services="sql-database" 
-	documentationCenter=""  
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
 
@@ -12,7 +11,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="08/14/2015"
 	ms.author="sidneyh" />
 
 # Учебник по инструменту разбиения и объединения эластичной базы данных
@@ -45,7 +44,11 @@
 
 2. Откройте в текстовом редакторе файл ServiceConfiguration.cscfg. Мы рекомендуем использовать Visual Studio, так как он проверяет входные данные, например формат отпечатков сертификатов.
 
-3. Создайте новую базу данных или выберите существующую для хранения состояния операций разбиения и объединения и получите строку подключения к этой базе. Строка подключения для базы данных SQL Azure обычно выглядит следующим образом:
+3. Создайте новую базу данных или выберите существующую для хранения состояния операций разбиения и объединения и получите строку подключения к этой базе.
+
+	**Важно.** В этот момент база данных состояний должна использовать латинское сопоставление (SQL\_Latin1\_General\_CP1\_CI\_AS). Дополнительные сведения см. в разделе [Имя сопоставления Windows (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
+
+	Строка подключения для базы данных SQL Azure обычно выглядит следующим образом:
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 4.    Введите эту строку подключения в CSCFG-файл в разделы ролей **SplitMergeWeb** и **SplitMergeWorker** в параметре ElasticScaleMetadata.
@@ -329,4 +332,4 @@
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

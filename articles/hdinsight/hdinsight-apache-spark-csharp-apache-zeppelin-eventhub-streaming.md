@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Использование концентраторов событий Azure с Apache Spark в HDInsight для обработки потоковых данных | Microsoft Azure" 
-	description="Пошаговые инструкции по отправке потока данных в концентратор событий Azure и последующее получение этих событий в Spark с помощью записной книжки Zeppelin" 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
-	editor="cgronlun"/>
+	pageTitle="Использование концентраторов событий Azure с Apache Spark в HDInsight для обработки потоковых данных | Microsoft Azure"
+	description="Пошаговые инструкции по отправке потока данных в концентратор событий Azure и последующее получение этих событий в Spark с помощью записной книжки Zeppelin"
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="nitinme"/>
 
 
@@ -23,14 +24,16 @@
 
 В этом учебнике вы узнаете, как создать концентратор событий Azure, как организовать прием сообщений в концентратор событий с помощью консольного приложения на языке C#, а также параллельно извлекать их с помощью Zeppelin записной книжки Zeppelin, настроенной для Apache Spark в HDInsight.
 
+> [AZURE.NOTE]Для выполнения инструкций в этой статье необходимо использовать обе версии портала Azure. Концентратор событий будет создаваться на [портале Azure](https://manage.windowsazure.com). Для работы с кластером HDInsight Spark будет использоваться [портал предварительной версии Azure](https://ms.portal.azure.com/).
+
 **Предварительные требования:**
 
 Необходимо следующее:
 
 - Подписка Azure. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Кластер Apache Spark. Инструкции см. в разделе [Подготовка кластеров Apache Spark в Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
-- [Концентратор событий Azure](service-bus-event-hubs-csharp-ephcs-getstarted.md).
-- Рабочая станция, на которой установлено программное обеспечение Microsoft Visual Studio 2013. Инструкции см. в разделе [Установка Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx).
+- Кластер Apache Spark. Инструкции см. в статье [Подготовка кластеров Apache Spark в Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
+- [Концентратор событий Azure](service-bus-event-hubs-csharp-ephcs-getstarted.md)
+- Рабочая станция, на которой установлено программное обеспечение Microsoft Visual Studio 2013. Инструкции см. в статье [Установка Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ##<a name="createeventhub"></a>Создание концентратора событий Azure
 
@@ -40,13 +43,13 @@
 
 	![страница мастера 1](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Create.Event.Hub.png "Создание концентратора событий Azure")
 
-	> [AZURE.NOTE]Для уменьшения задержек и затрат в поле **Расположение** следует выбрать то же расположение, в котором находится кластер Apache Spark в HDInsight.
+	> [AZURE.NOTE]Для сокращения задержек и затрат в поле **Расположение** следует выбрать то же расположение, в котором находится кластер Apache Spark в HDInsight.
 
-3. В диалоговом окне **Настройка концентраторов событий** введите значения параметров **Количество разделов** и **Хранение сообщений**, а затем щелкните значок с изображением флажка. В этом примере числу разделов присвойте значение 10, а хранению сообщений — 1. Запомните количество разделов, поскольку это значение понадобится позже.
+3. В диалоговом окне **Настройка концентратора событий** введите значения в полях **Количество разделов** и **Хранение сообщений**, а затем щелкните значок с флажком. В этом примере числу разделов присвойте значение 10, а хранению сообщений — 1. Запомните количество разделов, поскольку это значение понадобится позже.
 
 	![страница мастера 2](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Create.Event.Hub2.png "Укажите размер раздела и срок хранения в днях для концентратора событий")
 
-4. Щелкните концентратор событий, который вы создали, щелкните элемент **Настройка**, а затем создайте две политики доступа для концентратора событий.
+4. Щелкните созданный концентратор событий, выберите **Настройка**, а затем создайте две политики доступа для концентратора событий.
 
 	<table>
 <tr><th>Имя</th><th>Разрешения</th></tr>
@@ -61,7 +64,7 @@
 
 	![ключи политики](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policy.Keys.png "Сохранение ключей политики")
 
-6. На странице **Панель мониторинга** в нижней части экрана щелкните элемент **Сведения о подключении**, чтобы получить и сохранить строки подключения для концентратора событий с помощью двух политик.
+6. На странице **Панель мониторинга** в нижней части экрана щелкните **Сведения о подключении**, чтобы получить и сохранить строки подключения для концентратора событий с помощью двух политик.
 
 	![ключи политики](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policy.Connection.Strings.png "Сохранение строк подключения политики")
 
@@ -71,15 +74,17 @@
 
 В этом разделе мы создадим записную книжку [Zeppelin](https://zeppelin.incubator.apache.org) для получения сообщений из концентратора событий в кластер Spark в HDInsight.
 
-1. Запустите записную книжку Zeppelin. Выберите кластер Spark на портале Azure, затем на панели задач портала в нижней части экрана щелкните элемент **Zeppelin Notebook**. При появлении запроса введите учетные данные администратора для кластера Spark. Следуйте инструкциям на открывшейся странице для запуска записной книжки.
+1. На начальной панели [портала предварительной версии Azure](https://ms.portal.azure.com/) щелкните плитку кластера Spark (если она закреплена на начальной панели). К кластеру также можно перейти, открыв **Просмотреть все** > **Кластеры HDInsight**.   
 
-2. Создайте новую записную книжку. На панели заголовка щелкните элемент **Notebook** и в раскрывающемся списке выберите пункт **Создать новую заметку**.
+2. Запустите записную книжку Zeppelin. В колонке кластера Spark щелкните **Быстрые ссылки**, затем в колонке **Панель мониторинга кластера** выберите **Записная книжка Zeppelin**. При появлении запроса введите учетные данные администратора для кластера. Следуйте инструкциям на открывшейся странице для запуска записной книжки.
+
+2. Создайте новую записную книжку. На панели заголовка щелкните **Notebook** (Записная книжка) и в раскрывающемся списке выберите пункт **Create New Note** (Создать новую заметку).
 
 	![Создание новой записной книжки Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.CreateNewNote.png "Создание новой записной книжки Zeppelin")
 
 	На той же странице под заголовком **Notebook** отобразится новая записная книжка с именем, начинающимся с **Note XXXXXXXXX**. Щелкните новую записную книжку.
 
-3. На веб-странице для новой записной книжки щелкните заголовок и при необходимости переименуйте записную книжку. Нажмите клавишу ВВОД, чтобы сохранить изменения. Кроме того, убедитесь, что в правом верхнем углу заголовка записной книжки отображается состояние **Подключено**.
+3. На веб-странице для новой записной книжки щелкните заголовок и при необходимости переименуйте записную книжку. Нажмите клавишу ВВОД, чтобы сохранить изменения. Кроме того, убедитесь, что в правом верхнем углу заголовка записной книжки отображается состояние **Connected** (Подключено).
 
 	![Состояния записной книжки Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.NewNote.Connected.png "Состояния записной книжки Zeppelin")
 
@@ -122,13 +127,14 @@
 
 3. В записной книжке Zeppelin в новом абзаце введите следующий фрагмент кода для чтения сообщений, полученных в Spark.
 
-		%sql select * from mytemptable limit 10
+		%sql 
+		select * from mytemptable limit 10
 
-	На снимке экрана ниже показаны сообщения, полученные в **mytemptable**.
+	На снимке экрана ниже отображены сообщения, полученные в **mytemptable**.
 
 	![Получение сообщений в Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Zeppelin.Output.png "Получение сообщений в записной книжке Zeppelin")
 
-4. Перезапустите интерпретатор Spark SQL, чтобы выйти из приложения. Выберите вкладку **Interpreter** (Интерпретатор) в верхней части окна, а затем для интерпретатора Spark нажмите кнопку **Restart** (Перезапустить).
+4. Перезапустите интерпретатор Spark SQL, чтобы выйти из приложения. Перейдите на вкладку **Interpreter** (Интерпретатор) в верхней части окна, а затем для интерпретатора Spark нажмите кнопку **Restart** (Перезапустить).
 
 	![Перезапуск интерпретатора Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Zeppelin.Restart.Interpreter.png "Перезапуск интерпретатора Zeppelin")
 
@@ -148,7 +154,7 @@
 
 
 * [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
-* [Краткое руководство: подготовка Apache Spark в HDInsight и выполнение интерактивных запросов с помощью Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
+* [Быстрый запуск: подготовка Apache Spark в HDInsight и выполнение интерактивных запросов с помощью Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
 * [Создание приложений машинного обучения с помощью Spark в HDInsight](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Выполнение интерактивного анализа данных с использованием Spark в HDInsight с помощью средств бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
@@ -164,4 +170,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

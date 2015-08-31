@@ -1,4 +1,11 @@
-<properties pageTitle="Операции входа из нескольких географических регионов" description="Отчет, в котором указываются пользователи, выполнившие две попытки входа из двух разных регионов, если времени между попытками входа было недостаточно для перемещения из одного региона в другой."" services="active-directory" documentationCenter="" authors="kenhoff" manager="ilanas" editor=""/>
+<properties
+	pageTitle="Операции входа из нескольких географических регионов"
+	description="В этом отчете содержится информация о пользователях, от имени которых были совершены две попытки входа из разных регионов, причем времени между этими попытками было недостаточно, чтобы пользователь мог добраться из одного региона в другой."
+	services="active-directory"
+	documentationCenter=""
+	authors="SSalahAhmed"
+	manager="gchander"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -6,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # Операции входа из нескольких географических регионов
 
@@ -17,4 +24,4 @@
 
 ![Операции входа из нескольких географических регионов](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

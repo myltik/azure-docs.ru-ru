@@ -1,39 +1,41 @@
-###In Xamarin Studio
+###В Xamarin Studio
 
-1. In Xamarin.Studio, open **Info.plist**, and update the **Bundle Identifier** with the ID that you created earlier.
+1. В Xamarin.Studio откройте **Info.plist** и обновите **Идентификатор пакета**, указав свой ранее созданный идентификатор.
 
     ![][121]
 
-2. Scroll down to **Background Modes** and check the **Enable Background Modes** box and the **Remote notifications** box. 
+2. Прокрутите вниз до раздела **Фоновые режимы** и установите флажки **Разрешить фоновые режимы** и **Удаленные уведомления**.
 
     ![][122]
 
-3. Double click your project in the Solution Panel to open **Project Options**.
+3. Дважды щелкните проект на панели решения, чтобы открыть **Параметры проекта**.
 
-4.  Choose **iOS Bundle Signing** under **Build**, and select the corresponding **Identity** and **Provisioning profile** you had just set up for this project. 
+4.  Выберите** iOS Bundle Signing** в разделе **Сборка**, выберите соответствующее **Удостоверение** и созданный для данного проекта **Профиль подготовки**.
 
     ![][120]
 
-    This ensures that the project uses the new profile for code signing. For the official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].
+    Таким образом, проект будет использовать новый профиль для подписи кода. Официальную документацию по подготовке устройств Xamarin см. в статье [Подготовка устройства Xamarin].
 
-### In Visual Studio
+### В Visual Studio
 
-1. In Visual Studio, right-click the project, and then click **Properties**.
+1. В Visual Studio щелкните правой кнопкой мыши проект и выберите пункт **Свойства**.
 
-3. In the properties pages, click the **iOS Application** tab, and update the **Identifier** with the ID that you created earlier.
+3. На страницах свойств щелкните вкладку **Приложение iOS** и обновите **идентификатор**, указав свой ранее созданный ИД.
 
     ![][123]
 
-4. In the **iOS Bundle Signing** tab, select the corresponding **Identity** and **Provisioning profile** you had just set up for this project. 
+4. На вкладке **iOS Bundle Signing** выберите соответствующее **Удостоверение** и созданный для данного проекта **Профиль подготовки**.
 
     ![][124]
 
-    This ensures that the project uses the new profile for code signing. For the official Xamarin device provisioning documentation, see [Xamarin Device Provisioning].
+    Таким образом, проект будет использовать новый профиль для подписи кода. Официальную документацию по подготовке устройств Xamarin см. в статье [Подготовка устройства Xamarin].
 
-[120]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png
-[121]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
-[122]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png
-[123]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png
-[124]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png
+[120]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png
+[121]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
+[122]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png
+[123]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png
+[124]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png
 
-[Xamarin Device Provisioning]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
+[Подготовка устройства Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
+
+<!---HONumber=August15_HO8-->

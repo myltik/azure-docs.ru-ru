@@ -1,22 +1,23 @@
-<properties 
-	pageTitle="Разработка действий сценариев с помощью HDInsight | Microsoft Azure" 
-	description="Дополнительные сведения о настройке кластеров Hadoop с помощью действия скрипта." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="mumian" 
-	manager="paulettm" 
+<properties
+	pageTitle="Разработка действий сценариев с помощью HDInsight | Microsoft Azure"
+	description="Дополнительные сведения о настройке кластеров Hadoop с помощью действия скрипта."
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
+	authors="mumian"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/16/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
-# Разработка скриптов действия сценария для HDInsight 
+# Разработка скриптов действия сценария для HDInsight
 
 Действие сценария можно использовать для установки дополнительного программного обеспечения, работающего в кластере Hadoop, или для изменения конфигурации приложений, установленных в кластере. Действия сценариев — это сценарии, выполняемые на узлах кластера во время развертывания кластеров HDInsight. Они будут выполнены, как только узлы в кластере завершат конфигурацию HDInsight. Действие сценария выполняется из учетной записи с правами системного администратора и предоставляет права полного доступа к узлам кластера. Для каждого кластера можно задать ряд действий сценария, которые будут выполнены в указанном порядке.
 
@@ -34,7 +35,7 @@ HDInsight предоставляет несколько скриптов для 
 **Установка Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. См. раздел [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
 **Установка Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. См. раздел [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
 
-Действие сценария можно развернуть из портала Azure, из пакета SDK для HDInsight .NET или Azure PowerShell. Дополнительную информацию см. в разделе [Настройка кластеров HDInsight с помощью действия сценария][hdinsight-cluster-customize].
+Действие сценария можно развернуть из портала предварительной версии Azure, из Azure PowerShell или из пакета SDK для HDInsight .NET. Дополнительную информацию см. в разделе [Настройка кластеров HDInsight с помощью действия сценария][hdinsight-cluster-customize].
 
 > [AZURE.NOTE]Примеры сценариев работают только с кластером HDInsight версии 3.1 или более поздней. Дополнительную информацию о версиях кластера HDInsight см. в статье [Новые возможности версий кластеров Hadoop, предоставляемых HDInsight](../hdinsight-component-versioning/).
 
@@ -48,11 +49,11 @@ HDInsight предоставляет несколько скриптов для 
 	    [parameter(Mandatory)][string] $Value,
 	    [parameter()][string] $Description
 	)
-	
+
 	if (!$Description) {
 	    $Description = ""
 	}
-	
+
 	$hdiConfigFiles = @{
 	    "hive-site.xml" = "$env:HIVE_HOME\conf\hive-site.xml";
 	    "core-site.xml" = "$env:HADOOP_HOME\etc\hadoop\core-site.xml";
@@ -60,16 +61,16 @@ HDInsight предоставляет несколько скриптов для 
 	    "mapred-site.xml" = "$env:HADOOP_HOME\etc\hadoop\mapred-site.xml";
 	    "yarn-site.xml" = "$env:HADOOP_HOME\etc\hadoop\yarn-site.xml"
 	}
-	
+
 	if (!($hdiConfigFiles[$ConfigFileName])) {
 	    Write-HDILog "Unable to configure $ConfigFileName because it is not part of the HDI configuration files."
 	    return
 	}
-	
+
 	[xml]$configFile = Get-Content $hdiConfigFiles[$ConfigFileName]
-	
+
 	$existingproperty = $configFile.configuration.property | where {$_.Name -eq $Name}
-	    
+
 	if ($existingproperty) {
 	    $existingproperty.Value = $Value
 	    $existingproperty.Description = $Description
@@ -80,12 +81,12 @@ HDInsight предоставляет несколько скриптов для 
 	    $newproperty.Description = $Description
 	    $configFile.configuration.AppendChild($newproperty)
 	}
-	
+
 	$configFile.Save($hdiConfigFiles[$ConfigFileName])
-	
+
 	Write-HDILog "$configFileName has been configured."
 
-Копию файла сценария можно найти на странице [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1). При вызове сценария из портала Azure можно воспользоваться следующими параметрами:
+Копию файла сценария можно найти на странице [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1). При вызове сценария из портала предварительной версии Azure можно воспользоваться следующими параметрами:
 
 	hive-site.xml hive.metastore.client.socket.timeout 90
 
@@ -126,7 +127,7 @@ HDInsight предоставляет несколько скриптов для 
 
 	Конфигурация по умолчанию для пользовательских компонентов, устанавливаемых на узлах кластера, может предполагать использование хранилища распределенной файловой системы Hadoop (HDFS). Следует изменить конфигурацию, чтобы в ней использовалось хранилище больших двоичных объектов Azure. При восстановлении кластера из образа файловая система HDFS форматируется, в результате чего будут потеряны все хранящиеся в ней данные. В случае использования хранилища больших двоичных объектов Azure эти данные будут сохранены.
 
-## Вспомогательные методы для пользовательских скриптов 
+## Вспомогательные методы для пользовательских скриптов
 
 Действие скрипта предоставляет следующие вспомогательные методы, которые можно использовать при создании пользовательских скриптов.
 
@@ -215,7 +216,7 @@ HDInsight предоставляет несколько скриптов для 
 **Установка эмулятора HDInsight**. Для выполнения действия сценария на локальном компьютере нужно установить эмулятор HDInsight. Указания по его установке см. в статье [Приступая к работе с эмулятором HDInsight](../hdinsight-get-started-emulator/).
 
 **Задание политики выполнения для Azure PowerShell**. Откройте Azure PowerShell и выполните (с правами администратора) следующую команду, чтобы задать политику выполнения *LocalMachine* и *Unrestricted*:
- 
+
 	Set-ExecutionPolicy Unrestricted –Scope LocalMachine
 
 Эта политика должна быть неограниченной, так как скрипты не подписаны.
@@ -243,44 +244,44 @@ HDInsight предоставляет несколько скриптов для 
 
 Вы также можете осуществить удаленный доступ к узлам кластера для просмотра STDOUT и STDERR для пользовательских сценариев. Журналы на каждом узле относятся только к данному конкретному узлу и хранятся в **C:\\HDInsightLogs\\DeploymentAgent.log**. В эти файлы журналов записываются все выходные данные пользовательского скрипта. Фрагмент журнала для действия сценария Spark выглядит следующим образом:
 
-	Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.; 
-	Version : 2.1.0.0; 
-	ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692; 
-	AzureVMName : HEADNODE0; 
-	IsException : False; 
-	ExceptionType : ; 
-	ExceptionMessage : ; 
-	InnerExceptionType : ; 
-	InnerExceptionMessage : ; 
+	Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.;
+	Version : 2.1.0.0;
+	ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
+	AzureVMName : HEADNODE0;
+	IsException : False;
+	ExceptionType : ;
+	ExceptionMessage : ;
+	InnerExceptionType : ;
+	InnerExceptionMessage : ;
 	Exception : ;
 	...
 
 	Starting Spark installation at: 09/04/2014 21:46:02 Done with Spark installation at: 09/04/2014 21:46:38;
-	
-	Version : 2.1.0.0; 
-	ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692; 
-	AzureVMName : HEADNODE0; 
-	IsException : False; 
-	ExceptionType : ; 
-	ExceptionMessage : ; 
-	InnerExceptionType : ; 
-	InnerExceptionMessage : ; 
+
+	Version : 2.1.0.0;
+	ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
+	AzureVMName : HEADNODE0;
+	IsException : False;
+	ExceptionType : ;
+	ExceptionMessage : ;
+	InnerExceptionType : ;
+	InnerExceptionMessage : ;
 	Exception : ;
 	...
-	
-	Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; 
-	Details : END: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.; 
-	Version : 2.1.0.0; 
-	ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692; 
-	AzureVMName : HEADNODE0; 
-	IsException : False; 
-	ExceptionType : ; 
-	ExceptionMessage : ; 
-	InnerExceptionType : ; 
-	InnerExceptionMessage : ; 
+
+	Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand;
+	Details : END: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.;
+	Version : 2.1.0.0;
+	ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
+	AzureVMName : HEADNODE0;
+	IsException : False;
+	ExceptionType : ;
+	ExceptionMessage : ;
+	InnerExceptionType : ;
+	InnerExceptionMessage : ;
 	Exception : ;
 
- 
+
 Из данных журнала следует, что действие скрипта Spark было выполнено на виртуальной машине с именем HEADNODE0 и во время выполнения исключения не возникали.
 
 В случае сбоя при выполнении, в файле журнала будут содержаться выходные данные со сведениями о нем. Информация в этих журналах может быть полезной при отладке сценария.
@@ -288,7 +289,7 @@ HDInsight предоставляет несколько скриптов для 
 
 ## См. также
 
-- [Настройка кластеров HDInsight с помощью действия сценария][hdinsight-cluster-customize] 
+- [Настройка кластеров HDInsight с помощью действия сценария][hdinsight-cluster-customize]
 - [Установка и использование Spark в кластерах HDInsight][hdinsight-install-spark]
 - [Установка и использование R в кластерах HDInsight][hdinsight-r-scripts]
 - [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
@@ -302,6 +303,5 @@ HDInsight предоставляет несколько скриптов для 
 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

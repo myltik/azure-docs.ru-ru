@@ -3,8 +3,8 @@
 	description="Отчет, содержащий пользователей, которые успешно выполнили вход после нескольких последовательных неудачных попыток входа."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
+	authors="SSalahAhmed"
+	manager="gchander"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # Операции входа после нескольких сбоев
 
@@ -24,4 +24,4 @@
 
 ![Операции входа после нескольких сбоев](./media/active-directory-reporting-sign-ins-after-multiple-failures/signInsAfterMultipleFailures.PNG)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

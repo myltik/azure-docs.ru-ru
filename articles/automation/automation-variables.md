@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Средства переменных в службе автоматизации Azure"
+   pageTitle="Ресурсы-контейнеры переменных в службе автоматизации Azure | Microsoft Azure"
    description="Средства переменных — это значения, которые доступны для всех модулей Runbook в службе автоматизации Azure. В статье подробно рассматриваются переменные и работа с ними как в текстовых, так и в графических модулях."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Средства переменных в службе автоматизации Azure
@@ -185,7 +185,7 @@
 
 ## Связанные статьи
 
-- [Ссылки на статьи по созданию графических модулей](automation-graphical-authoring-intro.md#links-and-workflow)
+- [Использование связей при создании графических модулей](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

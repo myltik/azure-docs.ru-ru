@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="nitinme" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="08/07/2015" 
 	ms.author="nitinme"/>
 
 # Использование Hive в HDInsight для анализа журналов веб-сайтов
@@ -38,7 +39,9 @@
 
 ##Запуск образца
 
-1. На портале Azure щелкните кластер, на котором необходимо запустить пример, а затем внизу щелкните **Консоль запросов**. Как вариант, консоль запросов можно открыть напрямую с помощью следующего URL-адреса:
+1. На начальной панели (если кластер закреплен на ней) [портала предварительной версии Azure](https://ms.portal.azure.com/) щелкните элемент кластера, в котором требуется запустить образец.
+
+2. В колонке кластера с заголовком **Быстрые ссылки** щелкните **Панель мониторинга кластеров**, а затем в колонке **Панель мониторинга кластеров** щелкните **Панель мониторинга кластера HDInsight**. Панель мониторинга также можно открыть напрямую с помощью следующего URL-адреса:
 
 	 	https://<clustername>.azurehdinsight.net
 	
@@ -58,4 +61,4 @@
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

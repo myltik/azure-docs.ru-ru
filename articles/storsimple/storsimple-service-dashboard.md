@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/25/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # Использование панели мониторинга службы диспетчера StorSimple
@@ -51,7 +51,7 @@
 
 Повторное создание ключа не влияет на ранее зарегистрированные устройства: оно влияет только на устройства, зарегистрированные в службе после создания нового ключа.
 
-Дополнительные сведения о просмотре и создании ключа регистрации службы см. в разделе [Получение ключа регистрации службы](storsimple-manage-service.md#get-the-service-registration-key)
+Дополнительные сведения о просмотре и создании ключа регистрации службы см. в разделе [Получение ключа регистрации службы](storsimple-manage-service.md#get-the-service-registration-key).
 
 ## Изменение ключа шифрования данных службы
 
@@ -74,6 +74,6 @@
 
 ## Дальнейшие действия
 
-Узнайте, как [устранять неполадки устройства StorSimple](storsimple-troubleshoot-operational-device.md).
+[Узнайте, как устранять неполадки устройства StorSimple](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

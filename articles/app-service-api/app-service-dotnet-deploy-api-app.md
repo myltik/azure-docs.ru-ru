@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
-	ms.author="bradyg"/>
+	ms.date="08/14/2015" 
+	ms.author="tdykstra"/>
 
 # Развертывание приложения API в службе приложений Azure 
 
@@ -34,15 +34,25 @@
 
 [AZURE.INCLUDE [app-service-api-pub-web-create](../../includes/app-service-api-pub-web-create.md)]
 
-## <a id="deploy"></a>Развертывание кода в новом приложении API
+## <a id="deploy"></a>Развертывание кода в новом приложении API Azure
 
 Для развертывания кода в новом приложении API используйте тот же мастер **публикации веб-проекта**.
 
 [AZURE.INCLUDE [app-service-api-pub-web-deploy](../../includes/app-service-api-pub-web-deploy.md)]
 
-## Просмотр приложения на портале предварительной версии Azure
+## Вызов приложения API Azure 
 
-В этом разделе вы просмотрите основные параметры, доступные для приложений API, и внесете в приложение API итеративные изменения. С каждым развертыванием на портале отражаются изменения, вносимые в приложение API.
+Если вы включили пользовательский интерфейс Swagger, согласно инструкциям предыдущего учебника, проверьте, запущено ли приложение API в Azure с помощью этого интерфейса.
+
+1. На [портале предварительной версии Azure](https://portal.azure.com) перейдите к колонке **Приложение API** для развернутого вами нового приложения API.
+
+2. Щелкните URL-адрес этого приложения API.
+
+	![Щелкните URL-адрес.](./media/app-service-dotnet-deploy-api-app/clickurl.png)
+
+	Откроется страница «Приложение API успешно создано».
+
+3. В адресной строке браузера добавьте в конец URL-адреса текст «/swagger».
 
 1. На [портале предварительной версии Azure](https://portal.azure.com) перейдите к колонке **Приложение API** для развернутого вами нового приложения API.
 
@@ -52,7 +62,9 @@
 
 	![Определение интерфейса API](./media/app-service-dotnet-deploy-api-app/29-api-definition-v3.png)
 
-5. Теперь вернитесь в проект в Visual Studio и добавьте следующий код в файл **ContactsController.cs**.
+Выполнив описанные ниже действия, вы внесете изменение в определение API и посмотрите, отобразилось ли оно на портале.
+
+5. Вернитесь к проекту в Visual Studio и добавьте следующий код в файл **ContactsController.cs**.   
 
 		[HttpPost]
 		public HttpResponseMessage Post([FromBody] Contact contact)
@@ -61,23 +73,35 @@
 			return Request.CreateResponse(HttpStatusCode.Created);
 		}
 
-	![Добавление метода Post в контроллер](./media/app-service-dotnet-deploy-api-app/30-post-method-added-v3.png)
-
 	Этот код добавляет метод **Post**, который можно использовать для отправки новых экземпляров `Contact` в API.
 
-6. В **обозревателе решений** щелкните правой кнопкой мыши проект и выберите команду **Опубликовать**.
+	Код для класса «Контакты» теперь выглядит, как в приведенном ниже примере.
 
-	![Контекстное меню публикации проекта](./media/app-service-dotnet-deploy-api-app/31-publish-gesture-v3.png)
+		public class ContactsController : ApiController
+		{
+		    [HttpGet]
+		    public IEnumerable<Contact> Get()
+		    {
+		        return new Contact[]{
+		                    new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+		                    new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+		                    new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+		                };
+		    }
+		
+		    [HttpPost]
+		    public HttpResponseMessage Post([FromBody] Contact contact)
+		    {
+		        // todo: save the contact somewhere
+		        return Request.CreateResponse(HttpStatusCode.Created);
+		    }
+		}
 
-7. Перейдите на вкладку **Параметры**.
-
-8. В раскрывающемся списке **Конфигурация** выберите элемент **Отладка**.
-
-	![Параметры публикации веб-проекта](./media/app-service-dotnet-deploy-api-app/36.5-select-debug-option-v3.png)
+7. В **обозревателе решений** щелкните правой кнопкой мыши проект и выберите команду **Опубликовать**.
 
 9. Перейдите на вкладку **Предварительный просмотр**.
 
-10. Нажмите **Начало предварительного просмотра**, чтобы просматривать изменения, которые будут внесены.
+10. Нажмите кнопку **Начать предварительный просмотр**, чтобы увидеть, какие файлы будут скопированы в Azure.
 
 	![Диалоговое окно «Публикация веб-проекта»](./media/app-service-dotnet-deploy-api-app/39-re-publish-preview-step-v2.png)
 
@@ -92,4 +116,4 @@
 Вы увидели, как возможности прямого развертывания в Visual Studio упрощают итерацию и ускоряют развертывание и проверку правильности работы API. В [следующем учебнике](../app-service-dotnet-remotely-debug-api-app.md) будет показано, как отлаживать приложение API во время его выполнения в Azure.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

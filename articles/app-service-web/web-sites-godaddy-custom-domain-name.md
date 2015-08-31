@@ -3,7 +3,7 @@
 	description="Узнайте, как использовать доменное имя из GoDaddy с веб-приложениями Azure"
 	services="app-service\web"
 	documentationCenter=""
-	authors="MikeWasson"
+	authors="erikre"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2015"
-	ms.author="mwasson"/>
+	ms.date="08/18/2015"
+	ms.author="erikre"/>
 
 # Настройка личного доменного имени в службе приложений Azure (приобретенного непосредственно у GoDaddy)
 
@@ -89,4 +89,4 @@
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

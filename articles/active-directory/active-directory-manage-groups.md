@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="08/14/2015" 
 	ms.author="femila"/>
 
 
@@ -90,6 +90,8 @@ Azure Active Directory — это комплексное решение для 
 
 * [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
 
-* [Интеграция локальных удостоверений с Azure Active Directory ](active-directory-aadconnect.md)
+* [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+* [Справочник по API Graph для групп](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
+
+<!---HONumber=August15_HO8-->

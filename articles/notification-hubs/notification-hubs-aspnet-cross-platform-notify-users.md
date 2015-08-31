@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Отправка кроссплатформенных уведомлений пользователям с помощью центров уведомлений (ASP.NET)" description="Узнайте, как использовать шаблоны центров уведомлений для отправки в одном запросе независимых от платформы уведомлений, предназначенных для всех платформ." 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Отправка кроссплатформенных уведомлений пользователям с помощью центров уведомлений (ASP.NET)" description="Узнайте, как использовать шаблоны центров уведомлений для отправки в одном запросе независимых от платформы уведомлений, предназначенных для всех платформ."
+	services="notification-hubs"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # Отправка кроссплатформенных уведомлений пользователям с помощью центров уведомлений
@@ -24,7 +24,7 @@
 
 Выполните следующие действия для отправки кроссплатформенных уведомлений с использованием шаблонов:
 
-1. В обозревателе решений в Visual Studio разверните папку **Контроллеры**, затем откройте файл RegisterController.cs. 
+1. В обозревателе решений в Visual Studio разверните папку **Контроллеры**, затем откройте файл RegisterController.cs.
 
 2. Найдите в методе **Post** блок кода, создающий новую регистрацию, и замените содержимое `switch` следующим кодом:
 
@@ -54,7 +54,7 @@
             default:
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
         }
-	
+
 	Этот код вызывает метод, используемый на конкретной платформе для регистрации шаблонов вместо собственной регистрации. Уже имеющиеся регистрации изменять не нужно, поскольку регистрация шаблонов является производной от собственной регистрации.
 
 3. В контроллере **Уведомления** замените метод **sendNotification** следующим кодом:
@@ -65,7 +65,7 @@
             var userTag = "username:" + user;
 
             var notification = new Dictionary<string, string> { { "message", "Hello, " + user } };
-            await Notifications.Instance.Hub.SendTemplateNotificationAsync(notification, userTag);   
+            await Notifications.Instance.Hub.SendTemplateNotificationAsync(notification, userTag);
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
@@ -84,7 +84,7 @@
 
 Теперь, когда вы завершили работу с данным учебником, вы можете узнать больше о центрах уведомлений и шаблонах в следующих разделах:
 
-+ **[Использование центров уведомлений для передачи экстренных новостей]** <br/>Демонстрация другого сценария для использования шаблонов. 
++ **[Использование центров уведомлений для передачи экстренных новостей]** <br/>Демонстрация другого сценария для использования шаблонов.
 
 +  В разделе **[Обзор концентраторов уведомлений Azure][Templates]**<br/>содержится более подробная информация о шаблонах.
 
@@ -110,6 +110,5 @@
 [Уведомление пользователей с помощью концентраторов уведомлений]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Инструкции по использованию концентраторов уведомлений для магазина Windows]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

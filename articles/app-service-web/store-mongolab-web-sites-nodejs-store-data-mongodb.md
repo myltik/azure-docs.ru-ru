@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="08/10/2014"
-	ms.author="mwasson"/>
+	ms.date="08/18/2015"
+	ms.author="tdykstra"/>
 
 
 
@@ -25,7 +25,7 @@
 # Создание веб-приложения Node.js в Azure с MongoDB с помощью надстройки MongoLab
 
 
-<p><em>Автор: Эрик Седор (Eric Sedor), MongoLab</em></p>
+*Автор: Эрик Седор (Eric Sedor), MongoLab*
 
 Приветствуем вас, искатели приключений! Добро пожаловать в MongoDB как услуга. Изучив данный учебник, вы научитесь:
 
@@ -575,4 +575,4 @@
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

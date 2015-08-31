@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Сертификация активов в службе автоматизации Azure"
+   pageTitle="Ресурсы-контейнеры сертификатов в службе автоматизации Azure | Microsoft Azure"
    description="Сертификаты можно безопасно сохранить в службе автоматизации Azure, чтобы к ним могли обращаться модули Runbook для прохождения аутентификации при доступе к ресурсам Azure и сторонних производителей. В этой статье подробно рассматриваются сертификаты и работа с ними при создании текстовых и графических модулей."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/14/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Сертификация активов в службе автоматизации Azure
@@ -107,4 +107,4 @@
 
 - [Использование связей при создании графических модулей](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

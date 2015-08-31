@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # Использование действий меню MMC в диспетчере моментальных снимков StorSimple
@@ -125,6 +125,6 @@
 
 ## Дальнейшие действия
 
-[Дополнительные сведения о пользовательском интерфейсе диспетчера моментальных снимков StorSimple](storsimple-use-snapshot-manager.md)
+[Дополнительные сведения о пользовательском интерфейсе диспетчера моментальных снимков StorSimple](storsimple-use-snapshot-manager.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

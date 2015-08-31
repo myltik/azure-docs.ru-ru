@@ -26,7 +26,7 @@
 	        Categories = new string[] { "@PACKAGE_NAME@" })]
 	    [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, 
         Categories = new string[] { "@PACKAGE_NAME@" })]
-        public class ToDoBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
+        public class ToDoBroadcastReceiver : GcmBroadcastReceiverBase<PushHandlerService>
         {
 	        // Set the Google app ID.
 	        public static string[] senderIDs = new string[] { "<PROJECT_NUMBER>" };
@@ -49,7 +49,7 @@
 
 	>[AZURE.NOTE]Класс **GcmServiceBase** реализует методы **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** и **OnError()**. Эти методы необходимо переопределить в классе **PushHandlerService**.
 
-5. Добавьте в класс **ToDoBroadcastReceiver** следующий код, переопределяющий обработчик событий **OnRegistered**.
+5. Добавьте приведенный ниже код в класс **PushHandlerService**, который переопределяет обработчик событий **OnRegistered**.
 
         protected override void OnRegistered(Context context, string registrationId)
         {
@@ -116,7 +116,7 @@
             }
         }
 
-12. Добавьте следующие переопределения метода для **OnUnRegistered()** и **OnError()**, необходимые для компиляции проекта.
+12. Переопределите методы **OnUnRegistered()** и **OnError()** с помощью следующего кода:
 
         protected override void OnUnRegistered(Context context, string registrationId)
         {
@@ -129,4 +129,4 @@
                 string.Format("Error occurred in the notification: {0}.", errorId));
         }
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -122,6 +122,13 @@
 7. Вот как можно получить подробную информацию о сбоях развертывания.
 
         PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+        
+### Видео
+
+Вот видео, в котором демонстрируется работа с шаблонами диспетчера ресурсов с помощью PowerShell.
+
+[AZURE.VIDEO deploy-an-application-with-azure-resource-manager-template]
+
 
 ## Развертывание с помощью интерфейса командной строки Azure для Mac, Linux и Windows
 
@@ -257,4 +264,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

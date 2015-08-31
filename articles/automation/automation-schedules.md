@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Расписания в службе автоматизации Azure"
+   pageTitle="Расписания в службе автоматизации Azure | Microsoft Azure"
    description="Расписания службы автоматизации используются для планирования автоматического выполнения модулей Runbook в службе автоматизации Azure. В этой статье рассматривается создание расписаний."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Расписания в службе автоматизации Azure
@@ -66,4 +66,4 @@
 - [Создание расписания для Runbook в службе автоматизации Azure](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

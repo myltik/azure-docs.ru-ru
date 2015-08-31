@@ -18,7 +18,7 @@
 
 # Добавление push-уведомлений к приложению мобильных служб
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-ec.md)]
 
 ##Обзор
 
@@ -28,7 +28,7 @@
 
 ##<a id="register"></a>Включение Google Cloud Messaging
 
-[AZURE.INCLUDE [Включение GCM](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [Включение GCM](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 
 ##<a id="configure"></a>Настройка мобильных служб для отправки push-запросов
@@ -99,7 +99,7 @@
 
 ###Проверка версии Android SDK
 
-[AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../../includes/mobile-services-verify-android-sdk-version-EC.md)]
+[AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../../includes/mobile-services-verify-android-sdk-version-ec.md)]
 
 
 Далее следует установить службы Google Play. Google Cloud Messaging предъявляет некоторые требования к минимальному уровню API для разработки и тестирования, которым должно удовлетворять свойство **minSdkVersion** в манифесте.
@@ -108,11 +108,11 @@
 
 ###Добавление служб Google Play в проект
 
-[AZURE.INCLUDE [Добавление служб Play](../../includes/mobile-services-add-Google-play-services-EC.md)]
+[AZURE.INCLUDE [Добавление служб Play](../../includes/mobile-services-add-google-play-services-ec.md)]
 
 ###Добавление кода
 
-[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-ec.md)]
 
 ##<a name="test-app"></a>Тестирование приложения с помощью опубликованной мобильной службы
 
@@ -237,4 +237,4 @@
 [портал управления Azure]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

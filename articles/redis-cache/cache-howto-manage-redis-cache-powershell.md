@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="multiple" 
-   ms.date="08/04/2015"
+   ms.date="08/12/2015"
    ms.author="riande"/>
 
 # Управление кэшем Redis для Azure с использованием Azure PowerShell
@@ -95,4 +95,4 @@
 - [Блог Windows PowerShell](http://blogs.msdn.com/powershell): узнайте о новых возможностях в Windows PowerShell.
 - [Блог "Hey, Scripting Блог](http://blogs.technet.com/b/heyscriptingguy/): реальные советы и рекомендации от сообщества Windows PowerShell.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -762,4 +762,4 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

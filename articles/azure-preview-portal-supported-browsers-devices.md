@@ -3,7 +3,7 @@
 	description="" 
 	services="" 
 	documentationCenter="" 
-	authors="micflan" 
+	authors="flanakin" 
 	manager="lwelicki" 
 	editor=""/>
 
@@ -32,4 +32,4 @@
 
 *Safari 6 и ниже не поддерживаются. Если используется OS X, можно использовать Chrome, Firefox или выполнить обновление до OS X Mavericks для получения Safari 7.*
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

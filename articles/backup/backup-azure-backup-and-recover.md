@@ -1,6 +1,6 @@
-<properties pageTitle="Служба архивации Azure — резервное копирование и восстановление с сервера или клиента Windows" | Microsoft Azure description="Узнайте, как выполнять резервное копирование и восстановление данных с сервера или клиента Windows. В статье также описаны способы альтернативного восстановления сервера" services="backup" documentationCenter="" authors="Jim-Parker" manager="jwhit" editor=""/>
+<properties pageTitle="Служба архивации Azure — резервное копирование и восстановление с сервера или клиента Windows" | Microsoft Azure description="Узнайте, как выполнять резервное копирование и восстановление данных с сервера или клиента Windows. The article also covers alternate server recovery" services="backup" documentationCenter="" authors="aashishr" manager="jwhit" editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="jimpark"; "aashishr"/>
 
 # Резервное копирование и восстановление c сервера Windows или клиентского компьютера Windows
 В этой статье описывается процедура резервного копирования с использованием сервера Windows и клиентского компьютера Windows. Здесь также рассматриваются шаги, необходимые для восстановления файлов из резервной копии на том же и любом другом компьютере.
@@ -111,7 +111,13 @@
 
 11. После ввода данных нажмите кнопку **Восстановить**, после чего начнется восстановление файлов из резервных копий в указанное расположение.
 
+## Видеоруководство
+
+Вот пошаговое видеоруководство для этого учебника.
+
+[AZURE.VIDEO azurebackuprestoreserverandclient]
+
 ## Дальнейшие действия
 - [Часто задаваемые вопросы о службе архивации Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

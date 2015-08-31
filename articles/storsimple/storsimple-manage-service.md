@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Развертывание службы диспетчера StorSimple"
+   pageTitle="Развертывание службы диспетчера StorSimple | Microsoft Azure"
    description="Сведения о создании и удалении службы диспетчера StorSimple на портале управления, а также об управлении ключом регистрации службы."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/12/2015"
+   ms.date="08/18/2015"
    ms.author="v-sharos" />
 
 # Развертывание службы диспетчера StorSimple
@@ -82,7 +82,7 @@
 
 Сохраните ключ регистрации в безопасном расположении. Этот ключ, а также ключ шифрования данных службы потребуется для регистрации дополнительных устройств в службе. После получения ключа регистрации службы вам потребуется настроить устройство в интерфейсе Windows PowerShell для StorSimple.
 
-Дополнительные сведения о том, как использовать этот ключ регистрации см. в разделе [Шаг 3. Настройка и регистрация устройства в Windows PowerShell для StorSimple](storsimple-deployment-walkthrough.md/#step-2:-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+Дополнительные сведения о том, как использовать этот ключ регистрации см. в разделе [Шаг 3. Настройка и регистрация устройства в Windows PowerShell для StorSimple](storsimple-deployment-walkthrough.md#step-2-configure-and-register-the-device-through-windows-powershell-for-storsimple).
 
 ## повторное создание ключа регистрации службы.
 
@@ -107,10 +107,10 @@
 
 ## Дальнейшие действия
 
-Дополнительные сведения о [процессе развертывания StorSimple](storsimple-deployment-walkthrough.md)
+Дополнительные сведения о [процессе развертывания StorSimple](storsimple-deployment-walkthrough.md).
 
-Дополнительные сведения об [управлении учетной записью хранения StorSimple](../storsimple-manage-storage-account.md)
+[Узнайте об управлении учетной записью хранения StorSimple](storsimple-manage-storage-accounts.md).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

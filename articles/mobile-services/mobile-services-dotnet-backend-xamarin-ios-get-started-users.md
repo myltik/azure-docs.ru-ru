@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Приступая к работе с проверкой подлинности в мобильных службах для приложений Xamarin для iOS | Microsoft Azure" 
-	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения Xamarin для iOS с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." 
-	services="mobile-services" 
-	documentationCenter="xamarin" 
-	authors="lindydonna" 
-	manager="dwrede" 
+<properties
+	pageTitle="Приступая к работе с проверкой подлинности в мобильных службах для приложений Xamarin для iOS | Microsoft Azure"
+	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения Xamarin для iOS с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт."
+	services="mobile-services"
+	documentationCenter="xamarin"
+	authors="lindydonna"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/13/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-ios"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="donnam"/>
 
 # Добавление проверки подлинности к приложению мобильных служб
@@ -42,7 +42,7 @@
 
 <ol start="6">
 <li><p>В Visual Studio или Xamarin Studio запустите проект клиента на устройстве или симуляторе. Убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (неавторизованный).</p>
-   
+
    	<p>Это происходит, потому что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица <em>TodoItem</em> теперь требует выполнения проверки подлинности.</p></li>
 </ol>
 
@@ -55,7 +55,7 @@
 1. В проекте клиента откройте файл **QSTodoService.cs** и добавьте следующие объявления в QSTodoService:
 
 		// Mobile Service logged in user
-		private MobileServiceUser user; 
+		private MobileServiceUser user;
 		public MobileServiceUser User { get { return user; } }
 
 2. Добавьте новый метод **Authenticate** в **QSTodoService** со следующим определением:
@@ -85,7 +85,7 @@
 			todoService.BusyUpdate += (bool busy) => {
 				if (busy)
 					activityIndicator.StartAnimating ();
-				else 
+				else
 					activityIndicator.StopAnimating ();
 			};
 
@@ -107,15 +107,16 @@
 			}
 		}
 		// rest of RefreshAsync method
-	
+
 5. Нажмите кнопку **Запустить**, чтобы создать проект и запустить приложение в симуляторе iPhone. Убедитесь, что в приложении не отображаются данные.
 
 	Обновите, потянув вниз список элементов, чтобы появился экран входа. После того, как вы успешно введете допустимые учетные данные, приложение отобразит список задач, и вы сможете обновить данные.
 
 <!-- ## <a name="next-steps"> </a>Next steps
 
-In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
+In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.
  -->
+
 <!-- Anchors. -->
 [Регистрация приложения для проверки подлинности и настройка мобильных служб]: #register
 [Предоставление разрешений на таблицу только пользователям, прошедшим проверку подлинности]: #permissions
@@ -134,6 +135,5 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

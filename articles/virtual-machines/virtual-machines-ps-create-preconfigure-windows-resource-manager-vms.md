@@ -104,9 +104,11 @@
 
 	$domName="<domain name label to test>"
 	$loc="<short name of an Azure location, for example, for West US, the short name is westus>"
-	Get-AzureCheckDnsAvailability -DomainQualifiedName $domName -Location $loc
+	Test-AzureDnsAvailability -DomainQualifiedName $domName -Location $loc
 
 Если DNSNameAvailability возвращает значение True, предложенное имя является глобально уникальным.
+
+>[AZURE.NOTE]В версиях Azure PowerShell до 0.9.5 командлет Test-AzureDnsAvailability назывался Get-AzureCheckDnsAvailability. Если используется версия 0.9.4 или более ранняя, в приведенной выше команде замените командлет Test-AzureDnsAvailability командлетом Get-AzureCheckDnsAvailability.
 
 Виртуальные машины на базе диспетчера ресурсов можно поместить в группу доступности на базе диспетчера ресурсов. При необходимости создайте для новой виртуальной машины группу доступности, используя следующие команды.
 
@@ -211,7 +213,7 @@
 	$lbName="<name of the load balancer instance>"
 	$bePoolIndex=<index of the back end pool, starting at 0>
 	$natRuleIndex=<index of the inbound NAT rule, starting at 0>
-	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
 
 Строка $nicName должна быть уникальной для группы ресурсов. В строку рекомендуется включить имя виртуальной машины, например LOB07-NIC.
@@ -230,7 +232,7 @@
 	$nicName="<name of the NIC of the VM>"
 	$lbName="<name of the load balancer instance>"
 	$bePoolIndex=<index of the back end pool, starting at 0>
-	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
 
 Затем создайте локальный объект виртуальной машины и при необходимости добавьте его в группу доступности. Скопируйте код первого или второго варианта в набор команд и введите имя и размер виртуальной машины, а также имя группы доступности.
@@ -387,4 +389,4 @@
 
 [Установка и настройка Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

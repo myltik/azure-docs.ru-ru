@@ -29,7 +29,7 @@
 - Региональные многоуровневые приложения с четкой границей изоляции 
 - Обмен данными между подписками и организациями в Azure
 
-Дополнительные сведения см. в разделе [Настройка подключения между двумя виртуальными сетями](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+Дополнительные сведения см. в разделе [Настройка подключения между двумя виртуальными сетями](https://msdn.microsoft.com/library/azure/dn690122.aspx).
 
 Для просмотра его на видео:
 
@@ -256,8 +256,7 @@
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-portal]: http://manage.windowsazure.com
-
+[azure-portal]: https://portal.azure.com
 
 [powershell-install]: ../install-configure-powershell
 
@@ -271,4 +270,4 @@
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,19 +1,21 @@
-<properties 
-	pageTitle="Разработка программ потоковой передачи Hadoop на C# для HDInsight | Microsoft Azure" 
-	description="Вы узнаете, как разработать программы потоковой передачи MapReduce на C#, а также о том, как загрузить их на платформу Azure HDInsight." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="mumian" 
-	manager="paulettm" 
+
+<properties
+	pageTitle="Разработка программ потоковой передачи Hadoop на C# для HDInsight | Microsoft Azure"
+	description="Вы узнаете, как разработать программы потоковой передачи MapReduce на C#, а также о том, как загрузить их на платформу Azure HDInsight."
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
+	authors="mumian"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="jgao"/>
 
 
@@ -29,7 +31,7 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 В этом учебнике описаны следующие процедуры.
 
 - разработать и провести тестирование программы MapReduce потоковой передачи Hadoop на C# с помощью эмулятора HDInsight для Azure;
-- выполнить то же задание MapReduce в Azure HDInsight; 
+- выполнить то же задание MapReduce в Azure HDInsight;
 - получить результаты задания MapReduce.
 
 ##<a name="prerequisites"></a>Предварительные требования
@@ -41,7 +43,7 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 - Получите подписку Azure. Инструкции см. в разделе [Варианты приобретения][azure-purchase-options], [Предложения для участников][azure-member-offers] или [Бесплатное пробное использование][azure-free-trial].
 
 
-##<a name="develop"></a>Разработка программы потоковой передачи Hadoop на C&#35; для подсчета слов
+##<a name="develop"></a>Разработка программы потоковой передачи Hadoop на C&\#35; для подсчета слов
 
 Решение для подсчета слов содержит два проекта консольного приложения: приложение сопоставления и приложение сжатия. Приложение сопоставления выполняет потоковую передачу каждого слова на консоль, а приложение сжатия подсчитывает количество слов, переданных в режиме потоковой передачи из документа. Модуль сопоставления и модуль сжатия построчно считывают символы из стандартного входного потока (stdin) и записывают данные в стандартный выходной поток (stdout).
 
@@ -51,6 +53,7 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 2. В меню **ФАЙЛ** выберите пункт **Создать**, а затем щелкните **Проект**.
 3. Введите или выберите следующие значения:
 
+
 Поле|Значение
 ---|---
 Шаблон|Visual C#/Windows/Console Application
@@ -58,7 +61,7 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 Расположение|C:\\Tutorials
 Имя решения|WordCount
 
-	
+
 4. Нажмите кнопку **ОК**, чтобы создать проект.
 
 **Создание программы сопоставления**
@@ -79,14 +82,14 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 		    {
 		        Console.SetIn(new StreamReader(args[0]));
 		    }
-		
+
 		    string line;
 		    string[] words;
-		
+
 		    while ((line = Console.ReadLine()) != null)
 		    {
 		        words = line.Split(' ');
-		
+
 		        foreach (string word in words)
 		            Console.WriteLine(word.ToLower());
 		    }
@@ -105,7 +108,7 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 Шаблон|Visual C#/Windows/Console Application
 Имя|WordCountReducer
 Расположение|C:\\Tutorials\\WordCount
-	
+
 3. Снимите флажок для того, чтобы **Создать каталог решения**, затем нажмите **OK**, чтобы создать проект.
 4. В обозревателе решений щелкните правой кнопкой мыши **Program.cs**, а затем щелкните **Переименовать**.
 5. Измените имя файла на **WordCountReducer.cs**, а затем нажмите клавишу **ВВОД**.
@@ -121,25 +124,25 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 		{
 		    string word, lastWord = null;
 		    int count = 0;
-		
+
 		    if (args.Length > 0)
 		    {
 		        Console.SetIn(new StreamReader(args[0]));
 		    }
-		
+
 		    while ((word = Console.ReadLine()) != null)
 		    {
 		        if (word != lastWord)
 		        {
 		            if(lastWord != null)
 		                Console.WriteLine("{0}[{1}]", lastWord, count);
-		
+
 		            count = 1;
 		            lastWord = word;
 		        }
 		        else
 		        {
-		            count += 1; 
+		            count += 1;
 		        }
 		    }
 		    Console.WriteLine(count);
@@ -169,7 +172,7 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 
 Папка|Примечание.
 ---|---
-\\WordCount|Корневая папка для проекта счетчика слов. 
+\\WordCount|Корневая папка для проекта счетчика слов.
 \\WordCount\\Apps|Папка исполняемых файлов программ mapper и reducer.
 \\WordCount\\Input|Папка исходных файлов MapReduce.
 \\WordCount\\Output|Папка выходных файлов MapReduce.
@@ -199,7 +202,7 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 
 		hadoop fs -ls \WordCount\Input
 
-	
+
 
 
 **Развертывание программ сопоставления и сжатия в файловой системе эмулятора**
@@ -222,11 +225,11 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 
 **Выполнение задания MapReduce с помощью Azure PowerShell**
 
-1. Откройте Azure PowerShell. Инструкции см. в разделе [Установка и настройка Azure PowerShell][powershell-install]. 
+1. Откройте Azure PowerShell. Инструкции см. в разделе [Установка и настройка Azure PowerShell][powershell-install].
 3. Выполните следующие команды, чтобы задать переменные:
 
 		$clusterName = "http://localhost:50111"
-		
+
 		$mrMapper = "WordCountMapper.exe"
 		$mrReducer = "WordCountReducer.exe"
 		$mrMapperFile = "/WordCount/Apps/WordCountMapper.exe"
@@ -250,28 +253,28 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 	Появится запрос на ввод пароля. Паролем может быть любая строка. Используйте имя пользователя hadoop.
 
 6. Выполните следующие команды, чтобы отправить задание MapReduce, и дождитесь его завершения:
-		
+
 		$mrJob = Start-AzureHDInsightJob -Cluster $clusterName -Credential $creds -JobDefinition $mrJobDef
 		Wait-AzureHDInsightJob -Credential $creds -job $mrJob -WaitTimeoutInSeconds 3600
 
 	По завершении задания вы получите выходные данные, аналогичные следующим:
 
 		StatusDirectory : /WordCount/MRStatusOutput
-		ExitCode        : 
+		ExitCode        :
 		Name            : mrWordCountStreamingJob
-		Query           : 
+		Query           :
 		State           : Completed
 		SubmissionTime  : 11/15/2013 7:18:16 PM
 		Cluster         : http://localhost:50111
 		PercentComplete : map 100%  reduce 100%
 		JobId           : job_201311132317_0034
-		
+
 	Вы можете увидеть идентификатор задания в итоговых данных. Например: *job-201311132317-0034*.
 
 **Проверка состояния задания**
 
 1. На рабочем столе щелкните **Состояние Hadoop YARN** или перейдите к файлу ****http://localhost:50030/jobtracker.jsp**.
-2. Найдите задание, используя идентификатор задания в категории **ЗАПУЩЕННЫЕ** или **ЗАВЕРШЕННЫЕ**. 
+2. Найдите задание, используя идентификатор задания в категории **ЗАПУЩЕННЫЕ** или **ЗАВЕРШЕННЫЕ**.
 3. Если задание не выполнено вследствие ошибки, вы можете найти его в категории **НЕВЫПОЛНЕННЫЕ**. В этом случае вы можете открыть сведения о задании и найти там полезную информацию для отладки.
 
 
@@ -303,10 +306,10 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 
 		# Select an Azure subscription
 		Select-AzureSubscription $subscriptionName
-		
+
 		# Create a Storage account
 		New-AzureStorageAccount -StorageAccountName $storageAccountName -location $location
-				
+
 		# Create a Blob storage container
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 		$destContext = New-AzureStorageContext –StorageAccountName $storageAccountName –StorageAccountKey $storageAccountKey  
@@ -331,17 +334,17 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 		# Get a list of the .txt files
 		$filesAll = Get-ChildItem $localFolder
 		$filesTxt = $filesAll | where {$_.Extension -eq ".txt"}
-		
+
 5. Чтобы скопировать файлы, выполните следующий фрагмент кода:
 
-		# Copy the files from the local workstation to the Blob container        
+		# Copy the files from the local workstation to the Blob container
 		foreach ($file in $filesTxt){
-		 
+
 		    $fileName = "$localFolder\$file"
 		    $blobName = "$destFolder/$file"
-		
+
 		    write-host "Copying $fileName to $blobName"
-		
+
 		    Set-AzureStorageBlobContent -File $fileName -Container $containerName -Blob $blobName -Context $destContext
 		}
 
@@ -379,9 +382,9 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 В этом разделе рассматривается сценарий Azure PowerShell, который выполняет все возможные задачи, связанные с выполнением задания MapReduce. В список заданий входят:
 
 1. Подготовка кластера HDInsight
-	
+
 	1. Создание учетной записи хранения, которая будет использоваться в качестве файловой системы по умолчанию для кластера HDInsight.
-	2. Создание контейнера хранилища BLOB-объектов 
+	2. Создание контейнера хранилища BLOB-объектов
 	3. Создание кластера HDInsight
 
 2. Отправка задания MapReduce
@@ -402,7 +405,7 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 
 1. Откройте Блокнот.
 2. Скопируйте следующий код и вставьте в Блокнот:
-		
+
 		# ====== STORAGE ACCOUNT AND HDINSIGHT CLUSTER VARIABLES ======
 		$subscriptionName = "<AzureSubscriptionName>"
 		$stringPrefix = "<StringForPrefix>"     ### Prefix to cluster, Storage account, and container names
@@ -410,9 +413,9 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 		$containerName_Data = "<TheDataBlobStorageContainerName>"
 		$location = "<MicrosoftDataCenter>"     ### Must match the data storage account location
 		$clusterNodes = 1
-		
+
 		$clusterName = $stringPrefix + "hdicluster"
-		
+
 		$storageAccountName_Default = $stringPrefix + "hdistore"
 		$containerName_Default =  $stringPrefix + "hdicluster"
 
@@ -424,52 +427,52 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 		$mrInput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/Input/"
 		$mrOutput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/Output/"
 		$mrStatusOutput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/MRStatusOutput/"
-		
+
 		Select-AzureSubscription $subscriptionName
-		
+
 		#====== CREATE A STORAGE ACCOUNT ======
 		Write-Host "Create a storage account" -ForegroundColor Green
 		New-AzureStorageAccount -StorageAccountName $storageAccountName_Default -location $location
-		
+
 		#====== CREATE A BLOB STORAGE CONTAINER ======
 		Write-Host "Create a Blob storage container" -ForegroundColor Green
 		$storageAccountKey_Default = Get-AzureStorageKey $storageAccountName_Default | %{ $_.Primary }
 		$destContext = New-AzureStorageContext –StorageAccountName $storageAccountName_Default –StorageAccountKey $storageAccountKey_Default
-		
+
 		New-AzureStorageContainer -Name $containerName_Default -Context $destContext
-		
+
 		#====== CREATE AN HDINSIGHT CLUSTER ======
 		Write-Host "Create an HDInsight cluster" -ForegroundColor Green
 		$storageAccountKey_Data = Get-AzureStorageKey $storageAccountName_Data | %{ $_.Primary }
-		
+
 		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes |
 		    Set-AzureHDInsightDefaultStorage -StorageAccountName "$storageAccountName_Default.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Default -StorageContainerName $containerName_Default |
 		    Add-AzureHDInsightStorage -StorageAccountName "$storageAccountName_Data.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Data
-		
+
 		Select-AzureSubscription $subscriptionName
 		New-AzureHDInsightCluster -Name $clusterName -Location $location -Config $config
-		
+
 		#====== CREATE A STREAMING MAPREDUCE JOB DEFINITION ======
 		Write-Host "Create a streaming MapReduce job definition" -ForegroundColor Green
-		
+
 		$mrJobDef = New-AzureHDInsightStreamingMapReduceJobDefinition -JobName mrWordCountStreamingJob -StatusFolder $mrStatusOutput -Mapper $mrMapper -Reducer $mrReducer -InputPath $mrInput -OutputPath $mrOutput
 		$mrJobDef.Files.Add($mrMapperFile)
 		$mrJobDef.Files.Add($mrReducerFile)
-		
+
 		#====== RUN A STREAMING MAPREDUCE JOB ======
 		Write-Host "Run a streaming MapReduce job" -ForegroundColor Green
 		Select-AzureSubscription $subscriptionName
-		$mrJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $mrJobDef 
-		Wait-AzureHDInsightJob -Job $mrJob -WaitTimeoutInSeconds 3600 
-		
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $mrJob.JobId -StandardError 
+		$mrJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $mrJobDef
+		Wait-AzureHDInsightJob -Job $mrJob -WaitTimeoutInSeconds 3600
+
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $mrJob.JobId -StandardError
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $mrJob.JobId -StandardOutput
-		
+
 		#====== DELETE THE HDINSIGHT CLUSTER ======
 		Write-Host "Delete the HDInsight cluster" -ForegroundColor Green
 		Select-AzureSubscription $subscriptionName
-		Remove-AzureHDInsightCluster -Name $clusterName 
-		
+		Remove-AzureHDInsightCluster -Name $clusterName
+
 		#====== DELETE THE STORAGE ACCOUNT ======
 		Write-Host "Delete the storage account" -ForegroundColor Green
 		Remove-AzureStorageAccount -StorageAccountName $storageAccountName_Default
@@ -503,9 +506,9 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 		$storageAccountName = "<TheDataStorageAccountName>"
 		$containerName = "<TheDataBlobStorageContainerName>"
 		$blobName = "WordCount/Output/part-00000"
-	
+
 3. Выполните следующие команды для создания объекта контекста службы хранилища Azure:
-		
+
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 		$storageContext = New-AzureStorageContext –StorageAccountName $storageAccountName –StorageAccountKey $storageAccountKey  
@@ -515,7 +518,7 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 		Get-AzureStorageBlobContent -Container $ContainerName -Blob $blobName -Context $storageContext -Force
 		cat "./$blobName" | findstr "there"
 
-	
+
 
 ##<a id="nextsteps"></a>Дальнейшие действия
 В этом учебнике вы узнали, как разработать задание потоковой передачи Hadoop в MapReduce, протестировать приложение в эмуляторе HDInsight, написать сценарий Azure PowerShell для подготовки кластера HDInsight и выполнения задания MapReduce в кластере. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
@@ -552,11 +555,4 @@ Hadoop предоставляет API-интерфейс для MapReduce, по�
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "Последовательность операций приложения для подсчета слов MapReduce"
 
-
-
-
-
-
- 
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

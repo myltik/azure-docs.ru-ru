@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Использование диспетчера моментальных снимков StorSimple для управления каталогом резервных копий | Microsoft Azure"
-   description="Сведения о том, как использовать оснастку консоли MMC диспетчера моментальных снимков StorSimple для создания политик архивации, которые контролируют архивацию по расписанию, и управления этими политиками."
+   description="Узнайте, как использовать оснастку консоли MMC ";Диспетчер моментальных снимков StorSimple"; для просмотра каталога резервных копий и управления ими."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # Использование диспетчера моментальных снимков StorSimple для управления каталогом резервных копий
@@ -205,6 +205,6 @@
 
 ## Дальнейшие действия
 
-Просмотрите доступные [задачи и рабочие процессы диспетчера моментальных снимков StorSimple](storsimple-what-is-snapshot-manager.md#storsimple-snapshot-manager-tasks-and-workflows).
+[Дополнительные сведения о задачах и рабочих процессах диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

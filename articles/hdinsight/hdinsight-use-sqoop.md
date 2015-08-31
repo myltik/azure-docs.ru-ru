@@ -5,6 +5,7 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"/>
 
 <tags
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/11/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 #Использование Sqoop с Hadoop в HDInsight (Windows)
@@ -132,7 +133,7 @@ HDInsight использует для хранения данных хранил
 
 > [AZURE.NOTE]Кластер HDInsight версии 3.0 поддерживает только синтаксис *wasb://*. Прежний синтаксис *asv://* поддерживается в кластерах HDInsight 2.1 и 1.6, однако не поддерживается в кластерах HDInsight 3.0.
 
-> [AZURE.NOTE]Путь *wasb://* является виртуальным. Дополнительную информацию см. в статье [Использование хранилища BLOB-объектов Azure с HDInsight][hdinsight-storage].
+> [AZURE.NOTE]Путь *wasb://* является виртуальным. Дополнительную информацию см. в статье [Использование хранилища больших двоичных объектов Azure с HDInsight][hdinsight-storage].
 
 Доступ к файлу, который хранится в большом двоичном объекте файловой системы, используемой по умолчанию, из HDInsight может осуществляться с помощью любого из следующих URI (в последующих примерах используется sample.log):
 
@@ -223,7 +224,7 @@ HDInsight использует для хранения данных хранил
 		Write-Host "Done" -ForegroundColor Green
 
 5. Для выполнения скрипта щелкните **Выполнить скрипт** или нажмите клавишу **F5**.
-6. Используйте [портал Аzure][azure-management-portal] для анализа таблиц и кластеризованных индексов.
+6. Используйте [портал предварительной версии][azure-management-portal] для анализа таблиц и кластеризованных индексов.
 
 **Для SQL Server**
 
@@ -346,7 +347,7 @@ HDInsight использует для хранения данных хранил
 		$destBlob.UploadFromStream($memStream)
 
 5. Для выполнения скрипта щелкните **Выполнить скрипт** или нажмите клавишу **F5**.
-6. Чтобы проанализировать измененный файл данных, вы можете использовать портал Azure, средство обозревателя службы хранилища Azure или Azure PowerShell. В статье [Приступая к работе с HDInsight][hdinsight-get-started] есть пример кода, где Azure PowerShell используется для скачивания файла и отображения его содержимого.
+6. Чтобы проанализировать измененный файл данных, вы можете использовать портал предварительной версии Azure, средство обозревателя хранилищ Azure или Azure PowerShell. В статье [Приступая к работе с HDInsight][hdinsight-get-started] есть пример кода, где Azure PowerShell используется для скачивания файла и отображения его содержимого.
 
 
 ##Использование PowerShell для выполнения экспорта Sqoop
@@ -411,7 +412,7 @@ HDInsight использует для хранения данных хранил
 	Обратите внимание на то, что в качестве разделителя полей используется **\0x20**, то есть пробел. Разделитель определяется в файле sample.log сценария Azure PowerShell. Чтобы узнать о **-m 1**, см. [руководство пользователя Sqoop][sqoop-user-guide-1.4.4].
 
 5. Для выполнения скрипта щелкните **Выполнить скрипт** или нажмите клавишу **F5**.
-6. Используйте [портал Azure][azure-management-portal] для анализа экспортированных данных.
+6. Используйте [портал предварительной версии][azure-management-portal] для анализа экспортированных данных.
 
 **Экспорт таблицы hivesampletable Hive**
 
@@ -462,7 +463,7 @@ HDInsight использует для хранения данных хранил
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. Для выполнения скрипта щелкните **Выполнить скрипт** или нажмите клавишу **F5**.
-6. Используйте [портал Azure][azure-management-portal] для анализа экспортированных данных.
+6. Используйте [портал предварительной версии][azure-management-portal] для анализа экспортированных данных.
 
 
 
@@ -627,7 +628,7 @@ HDInsight использует для хранения данных хранил
 
 
 
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
@@ -646,6 +647,5 @@ HDInsight использует для хранения данных хранил
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -147,7 +147,14 @@
 - double
 - doubleVec
 - string
-- Timestamp
+- timestamp. timestamp является комплексной структурой, которая содержит следующие элементы.
+	- year
+	- month (1-12)
+	- day (1-31)
+	- weekday (в виде числа. Например, 1 — это понедельник.)
+	- hour (в 24-часовом формате. Например, 13 означает 13:00.)
+	- minute (00–59)
+	- second (00–59)
 - timeInterval
 	- TimeInterval\_Zero
 	- TimeInterval\_100ns
@@ -429,7 +436,7 @@
 Рекомендуется оценивать формулу, прежде чем использовать ее в приложении. Формула оценивается путем тестового выполнения для существующего пула. Для этого можно использовать один из следующих методов.
 
 - [Метод IPoolManager.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/dn931617.aspx) или [метод IPoolManager.EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/dn931545.aspx) — для этих методов .NET требуется имя существующего пула и строка, которая содержит формулу автоматического масштабирования. Результаты вызова содержатся в экземпляре [класса AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx).
-- [Оценка формулы автоматического масштабирования](https://msdn.microsoft.com/library/azure/dn820183.aspx) — в этой операции REST имя пула указывается в URI, а формула автоматического масштабирования указывается в элементе autoScaleFormula текста запроса. Ответ операции содержит все сведения об ошибках, которые могут быть связаны с формулой.
+- [Оценка формулы автоматического масштабирования](https://msdn.microsoft.com/library/azure/dn820183.aspx) — в этой операции REST имя пула указывается в универсальном коде ресурса (URI), а формула автоматического масштабирования указывается в элементе autoScaleFormula текста запроса. Ответ операции содержит все сведения об ошибках, которые могут быть связаны с формулой.
 
 ## Создание пула со включенным автоматическим масштабированием
 
@@ -437,7 +444,7 @@
 
 - [New-AzureBatchPool](https://msdn.microsoft.com/library/azure/mt125936.aspx) — этот командлет использует параметр AutoScaleFormula для определения формулы автоматического масштабирования.
 - [Метод IPoolManager.CreatePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.ipoolmanager.createpool.aspx) — после вызова этого метода .NET для создания пула в пуле задается [свойство ICloudPool.AutoScaleEnabled](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.icloudpool.autoscaleenabled.aspx) и [свойство ICloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.icloudpool.autoscaleformula.aspx) для включения автоматического масштабирования.
-- [Добавление пула в учетную запись](https://msdn.microsoft.com/library/azure/dn820174.aspx) — в этом API REST используются элементы enableAutoScale и autoScaleFormula для настройки автоматического масштабирования для пула во время его создания.
+- [Добавление пула в учетную запись](https://msdn.microsoft.com/library/azure/dn820174.aspx) — в этом REST API используются элементы enableAutoScale и autoScaleFormula для настройки автоматического масштабирования для пула во время его создания.
 
 > [AZURE.NOTE]Если вы настроили автоматическое масштабирование во время создания с помощью ресурсов, перечисленных выше, параметр targetDedicated не будет использоваться для пула.
 
@@ -446,7 +453,7 @@
 Если вы уже настроили пул с указанным количеством вычислительных узлов с помощью параметра targetDedicated, такой пул можно обновить позднее, настроив для него автоматическое масштабирование. Это можно сделать одним из следующих способов.
 
 - [Метод IPoolManager.EnableAutoScale](https://msdn.microsoft.com/library/azure/dn931709.aspx) — для этого метода .NET требуется имя существующего пула и формула автоматического масштабирования.
-- [Включение и отключение автоматического масштабирования](https://msdn.microsoft.com/library/azure/dn820173.aspx) — для этого API REST требуется имя существующего пула в URI и формула автоматического масштабирования в тексте запроса.
+- [Включение и отключение автоматического масштабирования](https://msdn.microsoft.com/library/azure/dn820173.aspx) — для этого REST API требуется имя существующего пула в универсальном коде ресурса (URI) и формула автоматического масштабирования в тексте запроса.
 
 > [AZURE.NOTE]Значение, указанное для параметра targetDedicated во время создания пула, игнорируется во время оценки формулы автоматического масштабирования.
 
@@ -455,7 +462,37 @@
 Следует периодически проверять результаты выполнения автоматического масштабирования. Это можно сделать одним из следующих способов.
 
 - [Свойство ICloudPool.AutoScaleRun свойство](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.icloudpool.autoscalerun.aspx) — при использовании библиотеки .NET это свойство пула предоставляет экземпляр [класса AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.aspx), который предоставляет [свойство AutoScaleRun.Error](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx)[, свойство AutoScaleRun.Results](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx) и [свойство AutoScaleRun.Timestamp](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx).
-- [Получить сведения о пуле](https://msdn.microsoft.com/library/dn820165.aspx) — этот API REST возвращает сведения о пуле, содержащие результаты последнего выполнения автоматического масштабирования.
+- [Получите информацию о пуле](https://msdn.microsoft.com/library/dn820165.aspx) — этот REST API возвращает информацию о пуле, содержащую результаты последнего выполнения автоматического масштабирования.
+
+## Примеры
+
+### Пример 1
+
+Необходимо изменять размер пула по времени и дню недели.
+
+    curTime=time();
+    workhours=curTime.hour>=8 && curTime.hour <18;
+    isweekday=curTime.weekday>=1 && curTime.weekday<=5;
+    isworkingweekdayhour = workhours && isweekday;
+    $TargetDedicated=workhours?20:10;
+    
+Эта формула определяет текущее время. Если это будний день (1–5) и рабочее время (8:00– 18:00), будет задан целевой размер пула, равный 20. В противном случае размер пула нацеливается на 10.
+
+### Пример 2
+
+Другой пример настройки размера пула в зависимости от задач в очереди.
+
+    // Get pending tasks for the past 15 minutes
+    $Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15); 
+    // If we have less than 70% data points, we use the last sample point, otherwise we use the maximum of last sample point and the history average
+    $Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+    // If number of pending task is not 0, set targetVM to pending tasks, otherwise half of current dedicated
+    $TargetVMs = $Tasks > 0? $Tasks:max(0, $TargetDedicated/2);
+    // The pool size is capped at 20, if target vm value is more than that, set it to 20. This value should be adjusted according to your case.
+    $TargetDedicated = max(0,min($TargetVMs,20));
+    // optionally, set vm Deallocation mode - shrink VM after task is done.
+    $TVMDeallocationOption = taskcompletion;
+    
 
 ## Дальнейшие действия
 
@@ -463,13 +500,13 @@
 
 	- [New-AzureBatchVMUser](https://msdn.microsoft.com/library/mt149846.aspx) — этот командлет принимает имя пула, имя вычислительного узла, имя учетной записи и пароль в качестве параметров.
 	- [Метод IVM.CreateUser](https://msdn.microsoft.com/library/microsoft.azure.batch.ivm.createuser.aspx) — этот метод .NET создает экземпляр [интерфейса IUser](https://msdn.microsoft.com/library/microsoft.azure.batch.iuser.aspx), в котором для вычислительного узла можно задать имя пользователя и пароль.
-	- [Добавление учетной записи пользователя в узел](https://msdn.microsoft.com/library/dn820137.aspx) — имя пула и вычислительного узла указаны в URI, а имя учетной записи и пароль передаются узлу в тексте запроса этого API REST.
+	- [Добавление учетной записи пользователя в узел](https://msdn.microsoft.com/library/dn820137.aspx) — имя пула и вычислительного узла указаны в универсальном коде ресурса (URI), а имя учетной записи и пароль передаются узлу в тексте запроса этого REST API.
 
 		Извлечение RDP-файла.
 
 	- [Метод IVM.GetRDPFile](https://msdn.microsoft.com/library/microsoft.azure.batch.ivm.getrdpfile.aspx) — для этого метода.NET требуется создать имя RDP-файла.
-	- [Извлечение файла из узла с помощью протокола удаленного рабочего стола](https://msdn.microsoft.com/library/dn820120.aspx) — для этого API REST требуется имя пула и имя вычислительного узла. Ответ включает содержимое RDP-файла.
+	- [Извлеките файл из узла с помощью протокола удаленного рабочего стола](https://msdn.microsoft.com/library/dn820120.aspx) — для этого REST API требуется имя пула и имя вычислительного узла. Ответ включает содержимое RDP-файла.
 	- [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) — этот командлет извлекает RDP-файл из указанного вычислительного узла и сохраняет его в указанной папке или потоке.
-2.	Некоторые приложения создают большое количество данных, которые может быть трудно обработать. Одним из способов устранения этой проблемы является использование [эффективных списков запросов](batch-efficient-list-queries.md).
+2.	Некоторые приложения создают большое количество данных, которые может быть трудно обработать. Одним из способов устранения этой проблемы является использование [эффективных запросов списка](batch-efficient-list-queries.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

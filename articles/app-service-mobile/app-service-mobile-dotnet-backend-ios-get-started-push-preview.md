@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Добавление push-уведомлений в приложение iOS с помощью службы приложений Azure"
-	description="Использование службы приложений Azure для отправки push-уведомлений в приложение iOS."
+	pageTitle="Добавление push-уведомлений в приложение iOS с помощью мобильных приложений Azure"
+	description="Узнайте, как использовать мобильные приложения Azure для отправки push-уведомлений в приложение iOS."
 	services="app-service\mobile"
 	documentationCenter="ios"
 	manager="dwrede"
@@ -13,21 +13,17 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/01/2015"
+	ms.date="07/29/2015"
 	ms.author="krisragh"/>
 
 
-# Добавление push-уведомлений в приложение для iOS
+# Добавление push-уведомлений в приложение iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-В этом разделе показано, как добавить push-уведомления в [проект быстрого запуска](app-service-mobile-dotnet-backend-ios-get-started-preview.md), чтобы ваша мобильная служба отправляла push-уведомление при каждой вставке записи. Сначала необходимо выполнить действия, описанные в разделе [Приступая к работе с мобильными приложениями].
+В этом учебнике описывается добавление push-уведомлений в проект, составленный при изучении учебника по [быстрому запуску iOS], которое предусматривает отправку push-уведомления при вставке каждой новой записи. Этот учебник составлен на основе учебника по [быстрому запуску iOS], который необходимо пройти в первую очередь. [Симулятор iOS не поддерживает push-уведомления](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), поэтому для работы с данным учебником вам потребуется физическое устройство iOS и [участие в программе для разработчиков Apple](https://developer.apple.com/programs/ios/).
 
-> [AZURE.NOTE][Симулятор iOS не поддерживает push-уведомления](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), поэтому необходимо использовать физическое устройство под управлением iOS. Вам также необходимо оплатить подписку для [участия в программе разработки решений для Apple](https://developer.apple.com/programs/ios/).
-
-##<a name="review"></a>Проверка конфигурации сервера проекта (необязательное действие)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
+## <a id="register"></a>Регистрация приложения для работы с push-уведомлениями
 
 [AZURE.INCLUDE [Включение push-уведомлений Apple](../../includes/enable-apple-push-notifications.md)]
 
@@ -35,36 +31,23 @@
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../../includes/app-service-mobile-apns-configure-push-preview.md)]
 
-##<a id="update-server"></a>Обновление кода серверной части для отправки push-уведомлений
+##<a name="review"></a>Проверка конфигурации сервера проекта (необязательное действие)
 
-* Загрузите проект Visual Studio с кодом серверной части. На портале выберите **Обзор** > имя приложения > **Добавить клиент** > **iOS** (Objective-C или Swift) > **Загрузить и запустить серверный проект**. Откройте **Контроллеры** > TodoItemController.cs и добавьте следующие операторы using:
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
 
-```
-			using Microsoft.Azure.Mobile.Server.Config;
-			using Microsoft.Azure.NotificationHubs;
-```
+##<a id="update-server"></a>Обновление серверного проекта для отправки push-уведомлений
 
-* Добавьте приведенный ниже код в элемент `PostTodoItem` после вызова `InsertAsync`. При вставке элемента списка дел этот код отправляет push-уведомление с текстом вставленного элемента.
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
-```
-        // get Notification Hubs credentials associated with this Mobile App
-        string notificationHubName = this.Services.Settings.NotificationHubName;
-        string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
-
-        // connect to notification hub
-        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
-
-        // iOS payload
-        var appleNotificationPayload = "{"aps":{"alert":"" + item.Text + ""}}";
-
-        await Hub.SendAppleNativeNotificationAsync(appleNotificationPayload);
-```
-
-## <a name="publish-the-service"></a>Публикация мобильной службы в Azure
+## <a name="publish-the-service"></a>Развертывание серверного проекта в Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
+## <a id="add-push"></a>Добавление push-уведомлений в приложение
+
 [AZURE.INCLUDE [Добавление push-уведомлений в приложение](../../includes/app-service-add-push-notifications-to-app.md)]
+
+## <a id="test"></a>Тестирование push-уведомлений в приложении
 
 [AZURE.INCLUDE [Тестирование push-уведомлений в приложении](../../includes/test-push-notifications-in-app.md)]
 
@@ -116,15 +99,16 @@
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
 <!-- URLs. -->
+[быстрому запуску iOS]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Azure Mobile App iOS SDK]: https://go.microsoft.com/fwLink/?LinkID=529823
 [Azure Notification Hubs Nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-ios-get-started.md
-[Приступая к работе с мобильными приложениями]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[Get Started with Mobile Apps]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

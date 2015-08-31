@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/17/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 
@@ -85,9 +85,9 @@ http://www.digwebinterface.com — сайт, аналогичный сайту w
 ## Дальнейшие действия
 
 
-[Сведения о методах балансировки нагрузки диспетчера трафика](traffic-manager-load-balancing-methods.md)
+[О методах маршрутизации трафика в диспетчере трафика](traffic-manager-load-balancing-methods.md)
 
-[Обзор диспетчера трафика](../traffic-manmager-overview.md)
+[Что такое диспетчер трафика](../traffic-manmager-overview.md)
 
 [Облачные службы](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -98,4 +98,4 @@ http://www.digwebinterface.com — сайт, аналогичный сайту w
 [Командлеты для диспетчера трафика Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

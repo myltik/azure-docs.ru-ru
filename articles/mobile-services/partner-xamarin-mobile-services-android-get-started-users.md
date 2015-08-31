@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Приступая к работе с аутентификацией (Xamarin.Android) — мобильные службы" 
-	description="Узнайте, как использовать аутентификацию в приложении мобильных служб Azure для Xamarin.Android." 
-	services="mobile-services" 
-	documentationCenter="xamarin" 
-	manager="dwrede" 
-	authors="lindydonna" 
+<properties
+	pageTitle="Приступая к работе с аутентификацией (Xamarin.Android) — мобильные службы"
+	description="Узнайте, как использовать аутентификацию в приложении мобильных служб Azure для Xamarin.Android."
+	services="mobile-services"
+	documentationCenter="xamarin"
+	manager="dwrede"
+	authors="lindydonna"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/14/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="donnam"/>
 
 # Добавление проверки подлинности к приложению мобильных служб
@@ -42,7 +42,7 @@
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-3. В Eclipse откройте проект, созданный после прохождения учебника [Приступая к работе с мобильными службами]. 
+3. В Eclipse откройте проект, созданный после прохождения учебника [Приступая к работе с мобильными службами].
 
 4. В меню **Запуск** щелкните **Запуск**, чтобы запустить приложение; убедитесь, что после запуска приложения возникает необработанное исключение с кодом состояния 401 (Не санкционировано).
 
@@ -85,7 +85,7 @@
 
         private async Task CreateTable()
         {
-            
+
             await InitLocalStoreAsync();
 
             // Get the Mobile Service Table instance to use
@@ -136,6 +136,5 @@
 [Авторизация пользователей с помощью скриптов]: mobile-services-javascript-backend-service-side-authorization.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [полный пример проекта]: http://go.microsoft.com/fwlink/p/?LinkId=331328
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

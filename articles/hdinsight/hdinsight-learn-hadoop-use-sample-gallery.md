@@ -3,6 +3,7 @@
    description="С помощью коллекции для начала работы с HDInsight вы можете быстро изучить Hadoop, запуская примеры приложений. Можно использовать как предоставленный пример данных или как собственный."
    services="hdinsight"
    documentationCenter=""
+   tags="azure-portal"
    authors="mumian"
    manager="paulettm"
    editor="cgronlun"/>
@@ -12,7 +13,7 @@
    ms.workload="big-data"
    ms.tgt_pltfrm="na"
    ms.devlang="na"
-   ms.topic="get-started-article" 
+   ms.topic="get-started-article"
    ms.date="07/09/2015"
    ms.author="jgao"/>
 
@@ -29,20 +30,24 @@
 	- Анализ журнала веб-сайта
 	- Рекомендации по фильмам с использованием Mahout
 
+[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+
+* [Изучение Hadoop с помощью коллекции для начала работы с HDInsight](hdinsight-learn-hadoop-use-sample-gallery-v1.md)
+
 ![Решения из коллекции для начала работы с HDInsight Hadoop, Storm и HBase, включая примеры данных.][hdinsight.sample.gallery]
 
 В следующем видеоролике показано, как запустить пример анализа тенденций Twitter:
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
+Доступ к панели мониторинга можно получить на странице http://<YourHDInsightClusterName>.azurehdinsight.net/ или на портале предварительной версии Azure.
 
 **Запуск примера из коллекции для начала работы**
 
-1.	Войдите на [портал Azure][azure.portal].
-2.	В меню слева щелкните **HDInsight**. Появится список существующих кластеров HDInsight, в том числе Hadoop, Storm и HBase.
-3.	Щелкните кластер, в котором вы хотите запустить пример.
-4.	В нижней части страницы щелкните **КОНСОЛЬ ЗАПРОСОВ**.
-5.	Введите имя пользователя и пароль Hadoop для кластера.
+1. Войдите на [портал предварительной версии Azure][azure.portal].
+2. Щелкните **Просмотреть все** в меню слева, щелкните **Кластеры HDInsight** и выберите имя кластера.
+3. В меню вверху щелкните **Панель мониторинга**.
+4. Укажите имя и пароль пользователя HTTP (его также называют пользователем кластера).
 6.	В верхней части страницы щелкните **Коллекция для начала работы**.
 7.	Выберите один из примеров. К каждому примеру прилагаются подробные указания по его запуску. На следующем рисунке приведен пример анализа тенденций Twitter:
 
@@ -61,7 +66,6 @@ HDInsight можно также изучить другими способами
 <!--Link references-->
 [hdinsight.learn.map]: hdinsight-learn-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
-[azure.portal]: https://manage.windowsazure.com
- 
+[azure.portal]: https://portal.azure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

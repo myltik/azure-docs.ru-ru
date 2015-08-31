@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/27/2015"
+   ms.date="08/17/2015"
    ms.author="alkohli" />
 
 # Поддерживаемое оборудование для сетевых интерфейсов 10 GbE на устройстве StorSimple
@@ -110,6 +110,6 @@ Mellanox проверила следующие подключаемые прие
 
 ## Дальнейшие действия
 
-[Дополнительные сведения об аппаратных компонентах StorSimple](https://msdn.microsoft.com/library/azure/dn757755.aspx)
+[Дополнительные сведения об аппаратных компонентах и состоянии StorSimple](storsimple-monitor-hardware-status.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

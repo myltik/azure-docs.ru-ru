@@ -107,11 +107,11 @@
 
 ### Операции входа после нескольких сбоев
 
-Сведения об этом отчете см. в разделе [Операции входа после нескольких сбоев](active-directory-sign-ins-after-multiple-failures.md).
+Сведения об этом отчете см. в разделе [Операции входа после нескольких сбоев](active-directory-reporting-sign-ins-after-multiple-failures.md).
 
 ### Операции входа из нескольких географических регионов
 
-Сведения об этом отчете см. в разделе [Операции входа из нескольких географических регионов](active-directory-sign-ins-from-multiple-geographies.md).
+Сведения об этом отчете см. в разделе [Операции входа из нескольких географических регионов](active-directory-reporting-sign-ins-from-multiple-geographies.md).
 
 ### Операции входа с IP-адресов с подозрительными действиями
 
@@ -302,4 +302,4 @@
 - [Начало работы с Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Добавление фирменной символики компании на страницах входа и панели доступа](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

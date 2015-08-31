@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Начало работы с мобильными приложениями в Xamarin iOS"
-	description="Начало работы с Xamarin iOS для создания мобильного приложения Azure с помощью служб приложений Azure."
+	pageTitle="Приступая к работе с мобильными приложениями Azure для приложений Xamarin.iOS"
+	description="Этот учебник поможет приступить к использованию мобильных приложений Azure в разработке для Xamarin.iOS."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="christopheranderson"
+	authors="normesta"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,72 +13,73 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/24/2015"
-	ms.author="chrande"/>
+	ms.date="08/12/2015"
+	ms.author="normesta"/>
 
 
-# <a name="getting-started"> </a>Создание приложения Xamarin iOS
+#Создание приложения Xamarin.iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-В этом учебнике показано, как с помощью мобильных служб Azure добавить облачную серверную службу в приложение Xamarin iOS. В этом учебнике будет создана новая служба .NET и простое приложение _Список заданий_, которое хранит данные приложения в серверной службе .NET
+##Обзор
+
+В этом учебнике рассказывается, как добавить облачную серверную службу в мобильное приложение Xamarin.iOS с помощью серверной части мобильного приложения Azure. Вы создадите новую серверную часть мобильного приложения и простое приложение Xamarin.iOS _Todo list_, в котором в Azure хранятся данные приложения.
+
+Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными мобильным приложениям для приложений Xamarin.Android.
+ 
+##Предварительные требования
 
 Для работы с этим учебником требуется:
 
 * Активная учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных приложений, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/).
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>.
+ 
+* [Visual Studio Community 2013] или более поздняя версия. В случае установки Visual Studio Community 2013 устанавливайте [Xamarin] отдельно. При установке Visual Studio 2015 можно установить инструменты Xamarin.
 
+* Компьютер Mac установленным ПО [Xcode] 7.0 или более поздней версии и [Xamarin Studio].
+ 
+     >[AZURE.NOTE]Если вы планируете создать приложение на компьютере Windows с помощью Visual Studio, для этого все равно нужен компьютер Mac с доступом к сети.
+ 
 >[AZURE.NOTE]Если вы хотите ознакомиться со службой приложений Azure до создания учетной записи, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), где вы можете быстро создать краткосрочное начальное мобильное приложение в службе приложений. Никаких кредитных карт и обязательств.
 
-## Создание серверной части мобильного приложения
+## Создание серверной части мобильного приложения Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
-## Создание нового приложения Xamarin iOS
+## Скачивание проекта сервера
 
-Создав серверную часть мобильного приложения, с помощью простых инструкций на портале Azure создайте новое приложение (или измените существующее) и подключите его к серверной части своего мобильного приложения.
+1. На компьютере откройте [портал Azure]. Последовательно выберите пункты **Просмотреть все** > **Мобильные приложения**, а затем только что созданную серверную часть мобильного приложения.
 
-В этом разделе предстоит скачать новое приложение Xamarin iOS и проект службы для серверной части мобильной службы.
-
-1. На портале Azure щелкните **Мобильное приложение**, а затем щелкните только что созданную серверную часть мобильного приложения.
-
-2. В верхней части колонки нажмите кнопку **Добавить клиент** и разверните **Xamarin iOS**.
-
-	![][6]
-
-	После этого будут показаны три простых шага для создания приложения Xamarin iOS, подключенного к серверной части вашего мобильного приложения.
-
-3. Если вы еще не сделали этого, скачайте и установите <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> на локальном компьютере или виртуальной машине.
-
-4. Скачайте и установите [Xcode] v4.4 или более позднюю версию и [Xamarin Studio]. Вы также можете использовать Xamarin для Visual Studio.
-
-5. В разделе **Скачивание и публикация службы в облаке** щелкните элемент **Скачать**.
-
- Загрузится решение, содержащее проекты для серверной части мобильной службы и примера приложения _Список заданий_, которое подключается к серверной части вашей мобильной службы. Сохраните сжатый файл проекта на локальном компьютере и запомните путь к нему.
-
-6. Скачайте профиль публикации, сохраните скачанный файл на локальный компьютер и запомните путь к нему.
-
-## Тестирование серверной части мобильного приложения
+2. В колонке мобильного приложения щелкните **Параметры**, а затем в разделе **Мобильное приложение** последовательно выберите **Быстрый запуск** > **Xamarin.iOS**.
+ 
+3. В разделе **Загрузка и запуск серверного проекта** щелкните **Загрузить**. Извлеките сжатые файлы проекта на компьютер и откройте решение в Visual Studio.
+ 
+## Локальное тестирование серверного проекта
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-preview](../../includes/app-service-mobile-dotnet-backend-test-local-service-preview.md)]
 
-## Публикация серверной части мобильного приложения
+## Публикация серверного проекта в Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## Запуск приложения Xamarin iOS
+## Скачивание и запуск приложения Xamarin.iOS
 
-Последний раздел учебника — построение и выполнение нового приложения.
+1. На компьютере Mac откройте [портал Azure] в окне браузера.
 
-1. Перейдите к проекту клиента в решении серверной части мобильной службы в Visual Studio или Xamarin Studio.
+>[AZURE.NOTE]Проще всего запустить приложение Xamarin.iOS на компьютере Mac. Запустить приложение Xamarin.iOS можно в Visual Studio на компьютере Windows, если хотите, но это немного сложнее, так как необходимо подключиться к компьютеру Mac с доступом к сети. Если вам это интересно, см. раздел [Установка Xamarin.iOS в Windows].
 
-	![][8]
+2. В разделе **Загрузка и запуск проекта Xamarin.iOS** нажмите кнопку **Загрузить**.
+
+  	Будет скачан проект, содержащий клиентское приложение, подключенное к вашему мобильному приложению. Сохраните сжатый файл проекта на локальном компьютере и запомните путь к нему.
+
+3. Извлеките скачанный проект и откройте его в Xamarin Studio (или Visual Studio).
 
 	![][9]
 
-2. Нажмите кнопку **Запустить**, чтобы создать проект клиента и запустить приложение в эмуляторе iPhone.
+	![][8]
 
-3. В приложении введите осмысленный текст, например _Работа с учебником_, и щелкните значок «плюс» (**+**).
+4. Нажмите клавишу **F5**, чтобы выполнить сборку проекта и запустить приложение в эмуляторе iPhone.
+
+5. В приложении введите содержательный текст, например _Изучение Xamarin_, и нажмите кнопку **+**.
 
 	![][10]
 
@@ -86,6 +87,11 @@
 
 >[AZURE.NOTE]Код, который обращается к серверной части вашей мобильной службы для запроса и вставки данных, можно просмотреть в файле C# QSTodoService.cs.
 
+##Дальнейшие действия
+
+* [Добавление аутентификации в приложение](app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md) <br/>Узнайте, как аутентифицировать пользователей приложения с помощью поставщика удостоверений.
+
+* [Добавление push-уведомлений в приложение](app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md) <br/>Узнайте, как отправлять в приложение простейшие push-уведомления.
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]: #getting-started
@@ -106,15 +112,16 @@
 [Get started with push notifications]: ../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview-push.md
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Azure Portal]: https://portal.azure.com/
+[портал Azure]: https://portal.azure.com/
 [JavaScript backend version]: ../partner-xamarin-mobile-services-ios-get-started.md
 [Get started with data in app services using Visual Studio 2012]: ../app-service-mobile-windows-store-dotnet-get-started-data-vs2012-preview.md
 [Troubleshoot a mobile app .NET backend]: ../app-service-mobile-dotnet-backend-how-to-troubleshoot-preview.md
 
 
 [Xamarin Studio]: http://xamarin.com/download
-[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
+[Xamarin]: http://xamarin.com/download
+[Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
- 
+[Установка Xamarin.iOS в Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

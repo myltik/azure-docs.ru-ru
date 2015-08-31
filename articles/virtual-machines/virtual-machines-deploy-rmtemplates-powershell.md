@@ -18,6 +18,12 @@
 
 # Развертывание виртуальных машин и управление ими с использованием шаблонов диспетчера ресурсов Azure и PowerShell
 
+> [AZURE.SELECTOR]
+- [Azure preview portal](virtual-machines-windows-tutorial.md)
+- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
+
 В этой статье рассказывается, как с помощью PowerShell и шаблонов диспетчера ресурсов Azure автоматизировать стандартные задачи по развертыванию виртуальных машин Azure и управлению ими. Дополнительные шаблоны см. в статье [Шаблоны быстрого запуска Azure](http://azure.microsoft.com/documentation/templates/) и в разделе [Платформы приложений](virtual-machines-app-frameworks.md).
 
 - [Развертывание виртуальной машины Windows](#windowsvm)
@@ -48,7 +54,7 @@
 - вести аудит операций;
 - отмечать ресурсы с помощью дополнительных метаданных для более точного отслеживания.
 
-Дополнительную информацию о диспетчере ресурсов Azure см. [здесь](virtual-machines-azurerm-versus-azuresm.md). Если вас интересует разработка шаблонов, см. раздел [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
+Дополнительную информацию о диспетчере ресурсов Azure см. [здесь](virtual-machines-azurerm-versus-azuresm.md). Если вас интересует разработка шаблонов, см. статью [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 
 ## <a id="windowsvm"></a>ЗАДАЧА: развертывание виртуальной машины Windows
 
@@ -796,7 +802,7 @@
 
 ## <a id="logon"></a>ЗАДАЧА: вход в виртуальную машину под управлением ОС Windows
 
-Пошаговые указания см. в разделе [Вход в виртуальную машину под управлением Windows Server](virtual-machines-log-on-windows-server.md).
+Пошаговые указания см. в статье [Вход в виртуальную машину под управлением Windows Server](virtual-machines-log-on-windows-server.md).
 
 ## <a id="displayvm"></a>ЗАДАЧА: отображение информации о виртуальной машине
 
@@ -956,4 +962,4 @@
 
 [Установка и настройка Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

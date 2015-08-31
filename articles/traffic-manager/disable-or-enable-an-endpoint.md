@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Отключение и включение конечной точки диспетчера трафика"
+   pageTitle="Отключение и включение конечной точки диспетчера трафика | Microsoft Azure"
    description="Эта статья поможет вам отключить или включить конечные точки профиля диспетчера трафика."
    services="traffic-manager"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # Отключение и включение конечной точки диспетчера трафика
@@ -38,9 +38,9 @@
 
 ## Дальнейшие действия
 
-[Задачи настройки диспетчера трафика](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[Диспетчер трафика — включение, отключение или удаление профиля диспетчера трафика](disable-enable-or-delete-a-profile.md)
 
-[Обзор диспетчера трафика](../traffic-manager.md)
+[Что такое диспетчер трафика](../traffic-manager.md)
 
 [Облачные службы](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -50,4 +50,4 @@
 [Операции с диспетчером трафика (справочник по REST API)](http://go.microsoft.com/fwlink/?LinkId=313584)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

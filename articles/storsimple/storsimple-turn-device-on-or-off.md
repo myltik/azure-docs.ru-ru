@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/06/2015"
+   ms.date="08/19/2015"
    ms.author="alkohli" />
 
 # Включение и выключение устройства StorSimple 
@@ -28,7 +28,7 @@
 |Включение нового устройства|[Включение нового устройства:](#turn-on-a-new-device)<ul><li>[Новое устройство только с основным корпусом.](#new-device-with-primary-enclosure-only)</li><li>[Новое устройство с корпусом EBOD.](#new-device-with-ebod-enclosure)</li></ul>|
 |Включение устройства после завершения работы|[Включение нового устройства после завершения работы:](#turn-on-a-device-after-shutdown)<ul><li>[Устройство только с основным корпусом.](#device-with-primary-enclosure-only)</li><li>[Устройство с корпусом EBOD.](#device-with-ebod-enclosure)</li></ul>|
 |Включение устройства после отключения питания|[Включение нового устройства после отключения питания:](#turn-on-a-device-after-a-power-loss)<ul><li>[Устройство только с основным корпусом.](#8100)</li><li>[Устройство с корпусом EBOD.](#8600)</li></ul>|
-|Включение устройства после прерывания подключения между основным корпусом и корпусом EBOD|[Включение устройства после прерывания подключения между основным корпусом и корпусом EBOD](turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
+|Включение устройства после прерывания подключения между основным корпусом и корпусом EBOD|[Включение устройства после прерывания подключения между основным корпусом и корпусом EBOD](#turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
 |Завершение работы устройства|[Завершение работы устройства:](#turn-off-a-running-device)<ul><li>[Устройство только с основным корпусом.](#8100a)</li><li>[Устройство с корпусом EBOD.](#8600a)</li></ul>|
 
 ## Включение нового устройства
@@ -37,7 +37,7 @@
 
 - [Новое устройство только с основным корпусом](#new-device-with-primary-enclosure-only)
 
-- [Новое устройство с корпусом EBOD](#new-device-with-EBOD-enclosure)
+- [Новое устройство с корпусом EBOD](#new-device-with-ebod-enclosure)
 
 ### Новое устройство только с основным корпусом
 
@@ -241,4 +241,4 @@
 
 Если у вас возникнут проблемы после включения или завершения работы устройства StorSimple, [обратитесь в службу поддержки Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

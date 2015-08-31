@@ -62,12 +62,11 @@
 
 		CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
 
-		CREATE CREDENTIAL ElasticDBQueryCred ON DATABASE
+		CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
 		WITH IDENTITY = '<username>',
 		SECRET = '<password>';
 
 	"имя пользователя" и "пароль" должны быть идентичны имени и паролю, используемым на шаге 6 [Загрузка и запуск примера приложения](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools) в разделе [Приступая к работе с инструментами эластичной базы данных](sql-database-elastic-scale-get-started.md).
-
 
 ### Внешние источники данных
 
@@ -143,4 +142,4 @@
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

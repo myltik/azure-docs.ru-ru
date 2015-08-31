@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Хранение кода проекта в системе управления версиями | Microsoft Azure" 
-	description="Узнайте, как сохранить файлы серверных сценариев и модулей в локальном репозитории Git на компьютере." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Хранение кода проекта в системе управления версиями | Microsoft Azure"
+	description="Узнайте, как сохранить файлы серверных сценариев и модулей в локальном репозитории Git на компьютере."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="ggailey777"/>
 
 # Хранение кода проекта в системе управления версиями
@@ -32,7 +32,7 @@
 
 ##<a name="clone-repo"></a>Установка Git и создание локального репозитория
 
-1. Установите Git на локальном компьютере. 
+1. Установите Git на локальном компьютере.
 
 	Действия, необходимые для установки Git, отличаются в разных операционных системах. Сведения о дистрибутивах для разных операционных систем и руководство по установке см. в разделе [Установка Git].
 
@@ -76,13 +76,13 @@
 		    request.execute();
 		    console.log(JSON.stringify(item, null, 4));
 		}
-	
+
 	Этот код просто записывает вставленный элемент в журнал. Если этот файл уже содержит код, просто добавьте в файл допустимый код JavaScript, например вызов `console.log()`, и сохраните изменения.
 
 3. В командной строке Git введите следующую команду, чтобы запустить отслеживание нового файла сценария:
 
 		$ git add .
-	
+
 
 4. Введите следующую команду, чтобы сохранить изменения:
 
@@ -91,7 +91,7 @@
 5. Введите следующую команду, чтобы передать изменения в удаленный репозиторий:
 
 		$ git push origin master
-	
+
 	Вы увидите ряд команд, который указывает, что фиксация развертывается в мобильной службе.
 
 6. На портале управления откройте вкладку **Данные**, щелкните таблицу **TodoItem**, затем — элемент **Скрипт** и выберите операцию **Вставить**.
@@ -126,7 +126,7 @@
 		$ git add .
 		$ git commit -m "added node-uuid module"
 		$ git push origin master
-		
+
 	Это добавляет новый файл, фиксирует изменения, а также отправляет новый модуль node-uuid и изменения скрипта todoitem.insert.js в вашу мобильную службу.
 
 ## <a name="next-steps"> </a>Дальнейшие действия
@@ -161,6 +161,5 @@
 [Вызов из клиента настраиваемого интерфейса API]: mobile-services-ios-call-custom-api.md
 [Модули]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

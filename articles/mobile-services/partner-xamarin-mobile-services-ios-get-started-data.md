@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/24/2015"
+	ms.date="08/18/2015"
 	ms.author="ggailey777"/>
 
 # Добавление мобильных служб к существующему приложению
@@ -240,6 +240,5 @@
 
 [полный пример проекта]: http://go.microsoft.com/fwlink/p/?LinkId=331302
 [Xamarin.iOS]: http://xamarin.com/download
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

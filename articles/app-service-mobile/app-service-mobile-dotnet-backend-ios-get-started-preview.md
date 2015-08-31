@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Начало работы с мобильными приложениями для iOS службы приложений Azure"
-	description="Следуйте указаниям этого учебника, чтобы приступить к использованию службы приложений Azure для разработки приложений для iOS."
+	pageTitle="Создание приложения iOS в мобильных приложениях Azure"
+	description="Изучите этот учебник, чтобы начать работу с серверным частями мобильных приложений Azure для разработки приложений iOS в Objective-C или Swift"
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="ysxu"
+	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,60 +13,50 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="06/18/2015"
-	ms.author="yuaxu"/>
+	ms.date="08/11/2015"
+	ms.author="krisragh"/>
 
-# <a name="getting-started"> </a>Создание приложения для iOS
+#Создание приложения iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-preview](../../includes/app-service-mobile-selector-get-started-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-В этом учебнике показано, как создать приложение для iOS с использованием мобильных приложений службы приложений Azure. Будет создана новая серверная часть мобильного приложения и простое приложение _To do list_, которое хранит данные приложения. Учебник использует .NET и Visual Studio для логики на стороне сервера.
+##Обзор
+
+В этом учебнике рассказывается, как добавить облачную серверную службу в мобильное приложение iOS с помощью серверной части мобильного приложения Azure. Будет создана новая серверная часть мобильного приложения и простое приложение iOS _To do list_, в котором в Azure хранятся данные приложения.
+
+Изучение этого учебника является необходимым условием для работы со всеми остальными учебниками, посвященными приложениям iOS.
+
+##Предварительные требования
 
 Для работы с этим учебником требуется:
 
 * Активная учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных приложений, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/).
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>.
+ 
+* [Visual Studio Community 2013] или более поздняя версия.
 
->[AZURE.NOTE]Если вы хотите ознакомиться со службой приложений Azure до создания учетной записи, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), где вы можете быстро создать краткосрочное начальное мобильное приложение в службе приложений. Никаких кредитных карт и обязательств.
+* Компьютер Mac с Xcode версии 7.0 или более поздней.
 
-## <a name="create-new-service"> </a>Создание серверной части мобильного приложения
+>[AZURE.NOTE]Если вы хотите ознакомиться со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), где вы можете быстро создать краткосрочное начальное мобильное приложение в службе приложений. Никаких кредитных карт и обязательств.
+
+## Создание серверной части мобильного приложения Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
-## Создание нового приложения для iOS
+## Загрузка проекта сервера
 
-После создания серверной части мобильного приложения вы можете следовать простым шагам быстрого запуска на портале предварительной версии Azure, чтобы создать новое приложение или изменить существующее приложение и подключить его к серверной части вашего мобильного приложения.
+1. На компьютере откройте [портал Azure]. Последовательно выберите пункты **Просмотреть все** > **Мобильные приложения**, а затем только что созданную серверную часть мобильного приложения.
+ 
+2. В колонке "Мобильное приложение" нажмите **Параметры**, а затем в разделе **Мобильное приложение** последовательно выберите пункты **Быстрый запуск** > **iOS (Objective-C)**. Если вы предпочитаете Swift, выберите вместо этого пункты **Быстрый запуск** > **iOS (Swift)**.
+ 
+3. В разделе **загрузить и запустить серверный проект** нажмите **Загрузить**. Извлеките сжатые файлы проекта на компьютер и откройте решение в Visual Studio.
 
-1. На портале Azure щелкните **Мобильное приложение**, а затем щелкните только что созданную серверную часть мобильного приложения.
-
-2. В верхней части колонки нажмите кнопку "Добавить клиент" и разверните iOS.
-
-	![][6]
-
-	Здесь показаны шаги для создания приложения для iOS, подключенного к серверной части вашего мобильного приложения.
-
-3. Если вы еще не сделали этого, скачайте и установите <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> на локальном компьютере или виртуальной машине.
-
-4. Скачайте и установите [Xcode] 4.4 или более поздней версии и [Xamarin Studio]. Вы также можете использовать Xamarin для Visual Studio.
-
-5. В разделе **Скачивание и публикация службы в облаке** щелкните элемент **Скачать**.
-
- Загрузится решение, содержащее проекты для серверной части мобильной службы и примера приложения _Список заданий_, которое подключается к серверной части вашей мобильной службы. Сохраните сжатый файл проекта на локальном компьютере и запомните путь к нему.
-
-6. Скачайте профиль публикации, сохраните скачанный файл на локальный компьютер и запомните путь к нему.
-
-## Тестирование мобильного приложения
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-preview](../../includes/app-service-mobile-dotnet-backend-test-local-service-preview.md)]
-
-## Публикация мобильного приложения
+## Публикация серверного проекта в Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## Запуск приложения для iOS
+## Загрузка и запуск приложения iOS
 
 [AZURE.INCLUDE [app-service-mobile-ios-run-app-preview](../../includes/app-service-mobile-ios-run-app-preview.md)]
-
 
 
 <!-- Images. -->
@@ -82,8 +72,9 @@
 [11]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-data-tab.png
 [12]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-data-browse.png
 
-[Management Portal]: https://manage.windowsazure.com/
+[портал Azure]: https://portal.azure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
  
+[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

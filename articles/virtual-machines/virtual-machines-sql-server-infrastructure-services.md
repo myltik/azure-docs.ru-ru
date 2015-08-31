@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SQL Server на виртуальных машинах Azure" 
+	pageTitle="Обзор. SQL Server на виртуальных машинах Azure" 
 	description="В этой статье приводятся общие сведения о размещении SQL Server на виртуальных машинах Azure (IaaS). Также включены ссылки на более подробное содержимое." 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -13,69 +13,54 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services" 
-	ms.date="07/17/2015"
+	ms.date="08/18/2015"
 	ms.author="jroth"/>
 
-# SQL Server на виртуальных машинах Azure
+# Обзор. SQL Server на виртуальных машинах Azure
 
 ## Обзор
-Вы можете разместить [SQL Server на виртуальных машинах Azure][sqlvmlanding] в различных конфигурациях, от одного сервера базы данных до мультикомпьютерных конфигураций с использованием групп доступности AlwaysOn и виртуальной сети Azure.
+Вы можете разместить [SQL Server на виртуальных машинах Azure](http://azure.microsoft.com/services/virtual-machines/sql-server/) в различных конфигурациях, от одного сервера базы данных до мультикомпьютерных конфигураций с использованием групп доступности AlwaysOn и виртуальной сети Azure. В этом разделе рассматриваются некоторые ресурсы, которые целесообразно использовать при первом запуске SQL Server на виртуальной машине Azure.
 
-> [AZURE.NOTE]Выполнение SQL Server на виртуальной машине Azure — один из вариантов хранения реляционных данных в Azure. Можно также использовать службу базы данных SQL Azure. Дополнительную информацию см. в разделе [Общее представление о базе данных SQL Azure и SQL Server в виртуальных машинах Azure][sqldbcompared].
+>[AZURE.NOTE]Выполнение SQL Server на виртуальной машине Azure — один из вариантов хранения реляционных данных в Azure. Можно также использовать службу базы данных SQL Azure. Дополнительную информацию см. в разделе [Общее представление о базе данных SQL Azure и SQL Server в виртуальных машинах Azure](../sql-database/data-management-azure-sql-database-and-sql-server-iaas.md).
  
 ## Развертывание экземпляра SQL Server на одной виртуальной машине
-После того, как вы [создали виртуальную машину Azure с помощью портала Azure][createvmportal] или автоматически, на нее можно установить любой экземпляр SQL Server, для которого у вас имеется лицензия. Тем не менее, необходимо выполнить дополнительные шаги, чтобы [настроить подключение][setupconnectivity] между компьютером SQL Server и другими клиентскими компьютерами.
- 
-Вы можете также установить один из многих различных образов виртуальных машин SQL Server из коллекции. Эти образы содержат лицензии на использование SQL Server, стоимость которых включена в цену виртуальной машины. Дополнительную информацию и пошаговое описание подключения см. в разделе [Подготовка виртуальной машины SQL Server в Azure][provisionsqlvm].
 
-После запуска виртуальной машины SQL Server может потребоваться перенести существующие базы данных на нее. Дополнительную информацию о миграции баз данных см. в разделе [Миграция базы данных в SQL Server на виртуальной машине Azure](virtual-machines-migrate-onpremises-database.md).
+Самый простой способ развернуть виртуальную машину SQL Server в Azure — [подготовить образ коллекции машин SQL Server на портале управления Azure](virtual-machines-provision-sql-server.md). Эти образы содержат лицензии на использование SQL Server, стоимость которых включена в цену виртуальной машины.
+
+Однако вы также можете [создать виртуальную машину Azure](virtual-machines-windows-tutorial.md) без предварительной установки SQL Server. Можно установить любой экземпляр SQL Server с действующей лицензией.
+
+На этих ранних этапах подготовки и настройки выполняются следующие общие задачи:
+
+- [анализ рекомендаций по оптимизации производительности SQL Server в виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx);
+- [анализ рекомендаций по безопасности SQL Server в виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/dn133147.aspx);
+- [настройка соединения](virtual-machines-sql-server-connectivity.md).
 
 ## Развертывание высокодоступной конфигурации с несколькими виртуальными машинами
-Можно достичь высокого уровня доступности SQL Server с помощью группы доступности AlwaysOn SQL Server. Это подразумевает использование нескольких виртуальных машин Azure в виртуальной сети. На портале предварительной версии Azure есть шаблон, который настраивает эту конфигурацию. Дополнительную информацию см. в разделе [Предложения AlwaysOn SQL Server в коллекции портала Microsoft Azure][sqlalwaysonportal]. Или можно [вручную настроить группу доступности AlwaysOn][sqlalwaysonmanual]. Дополнительные рекомендации по обеспечению высокого уровня доступности см. в разделе [Высокий уровень доступности и аварийное восстановление для SQL Server в виртуальных машинах Azure][sqlhadr].
+
+Можно достичь высокого уровня доступности SQL Server с помощью группы доступности AlwaysOn SQL Server. Это подразумевает использование нескольких виртуальных машин Azure в виртуальной сети. На портале предварительной версии Azure есть шаблон, который настраивает эту конфигурацию. Дополнительную информацию см. в разделе [Предложения AlwaysOn SQL Server в коллекции портала Microsoft Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
+
+Если вы хотите вручную настроить группу доступности и связанный прослушиватель, см. следующие статьи.
+
+- [Настройка групп доступности AlwaysOn в Azure (графический пользовательский интерфейс)](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
+- [Расширение локальных групп доступности AlwaysOn в Azure](virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups.md)
+
+Дополнительные рекомендации по обеспечению высокого уровня доступности см. в разделе [Высокий уровень доступности и аварийное восстановление для SQL Server в виртуальных машинах Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
 
 ## Выполнение бизнес-аналитики, хранение данных и рабочие нагрузки OLTP в Azure   
-Вы можете выполнять общие рабочие нагрузки SQL Server на виртуальных машинах Azure. Для SQL Server есть несколько оптимизированных образов виртуальных машин, которые доступны в коллекции. Это образы для [бизнес-аналитики][sqlbi], [хранения данных][sqldw] и [OLTP][sqloltp].
+Вы можете выполнять общие рабочие нагрузки SQL Server на виртуальных машинах Azure. Для SQL Server есть несколько оптимизированных образов виртуальных машин, которые доступны в коллекции. К ним относятся образы для следующих компонентов:
+
+- [бизнес-аналитика](https://msdn.microsoft.com/library/azure/jj992719.aspx);
+- [хранилища данных](https://msdn.microsoft.com/library/azure/dn387396.aspx);
+- [OLTP](https://msdn.microsoft.com/library/azure/dn387396.aspx).
 
 ## Перенос данных
-После запуска виртуальной машины SQL Server может потребоваться перенести существующие базы данных на нее. Существует несколько методов, но для большинства сценариев хорошо подходит мастер развертывания в SQL Server Management Studio. Учебник по мастеру и обсуждение сценариев см. в разделе [Миграция базы данных в SQL Server на виртуальной машине Azure](virtual-machines-migrate-onpremises-database.md).
+
+После запуска виртуальной машины SQL Server может потребоваться перенести существующие базы данных на нее. Существует несколько методов, но для большинства сценариев хорошо подходит мастер развертывания в SQL Server Management Studio. Учебник по мастеру и обсуждение сценариев см. в статье [Миграция базы данных в SQL Server на виртуальной машине Azure](virtual-machines-migrate-onpremises-database.md).
 
 ## Архивация и восстановление
-Для локальных баз данных Azure может действовать как дополнительный центр обработки данных для хранения файлов резервных копий SQL Server. [Резервное копирование SQL Server на URL-адрес][backupurl] сохраняет файлы резервных копий Azure в хранилище больших двоичных объектов. [Управляемое резервное копирование SQL Server][managedbackup] позволяет планировать резервное копирование и хранение данных в Azure. Эти службы могут использоваться с локальными экземплярами SQL Server или SQL Server на виртуальных машинах Azure. Виртуальные машины Azure могут также использовать преимущества [автоматического резервного копирования][autobackup] и [автоматического обновления путем частичной замены][autopatching] для SQL Server. Дополнительную информацию см. в разделе [Задачи управления SQL Server на виртуальных машинах Azure][managementtasks].
+Для локальных баз данных Azure может действовать как дополнительный центр обработки данных для хранения файлов резервных копий SQL Server. Обзор параметров резервного копирования и восстановления см. в статье [Резервное копирование и восстановление SQL Server в виртуальных машинах Azure](virtual-machines-sql-server-backup-and-restore.md).
 
-## Ресурсы:
-[SQL Server на виртуальных машинах Azure][sqlmsdnlanding]
+[Резервное копирование SQL Server на URL-адрес](https://msdn.microsoft.com/library/dn435916.aspx) сохраняет файлы резервных копий Azure в хранилище больших двоичных объектов. [Управляемое резервное копирование SQL Server](https://msdn.microsoft.com/library/dn449496.aspx) позволяет планировать резервное копирование и хранение данных в Azure. Эти службы могут использоваться с локальными экземплярами SQL Server или SQL Server на виртуальных машинах Azure. Виртуальные машины Azure могут также использовать преимущества [автоматического резервного копирования](virtual-machines-sql-server-automated-backup.md) и [автоматического обновления путем частичной замены](virtual-machines-sql-server-automated-patching.md) для SQL Server.
 
-[Подготовка виртуальной машины SQL Server в Azure][provisionsqlvm]
-
-[Приступая к работе с SQL Server на виртуальных машинах Azure][sqlvmgetstarted]
-
-[Миграция базы данных в SQL Server на виртуальной машине Azure](virtual-machines-migrate-onpremises-database.md)
-
-[Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure][sqlperf]
-
-[Вопросы безопасности SQL Server в виртуальных машинах Azure][sqlsecurity]
-
-  [sqlvmlanding]: http://azure.microsoft.com/services/virtual-machines/sql-server/
-  [sqldbcompared]: http://azure.microsoft.com/documentation/articles/data-management-azure-sql-database-and-sql-server-iaas
-  [createvmportal]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
-  [setupconnectivity]: https://msdn.microsoft.com/library/azure/dn133152.aspx
-  [provisionsqlvm]: http://azure.microsoft.com/documentation/articles/virtual-machines-provision-sql-server/
-  [sqlalwaysonportal]: http://go.microsoft.com/fwlink/?LinkId=526941
-  [sqlalwaysonmanual]: https://msdn.microsoft.com/library/azure/dn249504.aspx
-  [sqlhadr]: https://msdn.microsoft.com/library/azure/jj870962.aspx
-  [sqlbi]: https://msdn.microsoft.com/library/azure/jj992719.aspx
-  [sqldw]: https://msdn.microsoft.com/library/azure/dn387396.aspx
-  [sqloltp]: https://msdn.microsoft.com/library/azure/eb0188e2-5569-48ff-b92c-1f6c0bf79620#about
-  [migratesql]: https://msdn.microsoft.com/library/azure/dn133142.aspx
-  [backupurl]: https://msdn.microsoft.com/library/dn435916(v=sql.120).aspx
-  [managedbackup]: https://msdn.microsoft.com/library/dn449496.aspx
-  [autobackup]: https://msdn.microsoft.com/library/azure/dn906091.aspx
-  [autopatching]: https://msdn.microsoft.com/library/azure/dn961166.aspx
-  [managementtasks]: https://msdn.microsoft.com/library/azure/dn906886.aspx
-  [sqlmsdnlanding]: https://msdn.microsoft.com/library/azure/jj823132.aspx
-  [sqlvmgetstarted]: https://msdn.microsoft.com/library/azure/dn133151.aspx
-  [sqlperf]: https://msdn.microsoft.com/library/azure/dn133149.aspx
-  [sqlsecurity]: https://msdn.microsoft.com/library/azure/dn133147.aspx
-  [technicalarticles]: https://msdn.microsoft.com/library/azure/dn248435.aspx
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

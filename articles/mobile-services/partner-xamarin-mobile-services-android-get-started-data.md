@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Добавление мобильных служб в существующее приложение (Xamarin.Android) | Microsoft Azure" 
-	description="Узнайте, как хранить данные и осуществлять доступ к ним из приложения Xamarin.Android для мобильных служб Azure." 
-	documentationCenter="xamarin" 
-	authors="ggailey777" 
-	manager="dwrede" 
-	services="mobile-services" 
+<properties
+	pageTitle="Добавление мобильных служб в существующее приложение (Xamarin.Android) | Microsoft Azure"
+	description="Узнайте, как хранить данные и осуществлять доступ к ним из приложения Xamarin.Android для мобильных служб Azure."
+	documentationCenter="xamarin"
+	authors="ggailey777"
+	manager="dwrede"
+	services="mobile-services"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="ggailey777"/>
 
 # Добавление мобильных служб к существующему приложению
@@ -26,7 +26,7 @@
 
 В этом учебнике рассматриваются следующие основные действия:
 
-1. [Скачивание проекта приложения Xamarin.Android][GitHub] 
+1. [Скачивание проекта приложения Xamarin.Android][GitHub]
 2. [Создание мобильной службы]
 3. [Добавление таблицы для хранения данных]
 4. [Обновление приложения для использования мобильных служб]
@@ -42,7 +42,7 @@
 
 Этот учебник основан на приложении [GetStartedWithData][GitHub], которое является приложением Xamarin.Android. Пользовательский интерфейс этого приложения совпадает с интерфейсом приложения, созданного при быстром запуске мобильных служб Android. Отличие заключается в том, что добавленные элементы хранятся локально в памяти.
 
-1. Скачайте пример приложения `GetStartedWithData` и распакуйте файлы на свой компьютер. 
+1. Скачайте пример приложения `GetStartedWithData` и распакуйте файлы на свой компьютер.
 
 2. В Xamarin Studio последовательно выберите в меню пункты **Файл** и **Открыть**, перейдите к каталогу, в который вы распаковали пример приложения GetStartedWithData, выберите **XamarinTodoQuickStart.Android.sln** и откройте его.
 
@@ -53,7 +53,7 @@
 5. В меню **Запуск** нажмите **Запуск без отладки**; после этого вам будет предложено выбрать эмулятор или подключенное устройство USB Android.
 
 	> [AZURE.IMPORTANT]Можно запустить этот проект с помощью Android-телефона или с помощью эмулятора Android. Чтобы работать с Android-телефоном, необходимо загрузить USB-драйвер для конкретного телефона.
-	> 
+	>
 	> Чтобы запустить проект в эмуляторе Android, необходимо определить как минимум одно виртуальное устройство на платформе Android (AVD). Для создания этих устройств и управления ими используйте диспетчер AVD.
 
 6. В приложении введите содержательный текст, например _Завершение работы с учебником_, и нажмите кнопку **Добавить**.
@@ -113,7 +113,7 @@
 3. В окне **Решение** откройте класс **TodoActivity** и раскомментируйте следующую строку кода:
 
 		using Microsoft.WindowsAzure.MobileServices;
- 
+
 4. Мы удалим расположенный в памяти список, используемый приложением в данный момент, чтобы заменить его мобильной службой. В классе **TodoActivity** раскомментируйте следующую строку кода, которая определяет существующий список **todoItemList**.
 
 		public List<TodoItem> todoItemList = new ArrayList<TodoItem>();
@@ -123,7 +123,7 @@
 6. Теперь следует добавить мобильную службу. Раскомментируйте следующие строки кода:
 
         private MobileServiceClient client; // Mobile Service Client references
-        private IMobileServiceTable<TodoItem> todoTable; // Mobile Service Table used to access data   
+        private IMobileServiceTable<TodoItem> todoTable; // Mobile Service Table used to access data
 
 7. На портале управления щелкните **Мобильные службы** и выберите только что созданную мобильную службу.
 
@@ -137,7 +137,7 @@
 
         public const string ApplicationURL = @"AppUrl";
         public const string ApplicationKey = @"AppKey";
-        
+
 10. Замените **AppUrl** и **AppKey** в вышеуказанных переменных на значения, полученные на портале управления.
 
 11. В методе **OnCreate** раскомментируйте следующие строки кода, в которых определяется переменная **MobileServiceClient**:
@@ -149,7 +149,7 @@
 			Constants.ApplicationKey).WithFilter(filter);
 
 		// Get the Mobile Service Table instance to use
-		todoTable = client.GetTable<TodoItem>();    
+		todoTable = client.GetTable<TodoItem>();
 
   	Код создает экземпляр MobileServiceClient, используемый для доступа к мобильной службе. Также будет создан экземпляр MobileServiceTable, который используется для хранения данных прокси-сервера в мобильной службе.
 
@@ -166,21 +166,21 @@
 		}
 
    	В мобильную службу будет отправлено обновление элемента. Элементы, отмеченные флажками, будут удалены из адаптера.
-    
+
 14. Раскомментируйте следующие строки метода **AddItem**:
-	
-		try 
+
+		try
 		{
 			// Insert the new item
 			await todoTable.InsertAsync(item);
 
-			if (!item.Complete) 
-				adapter.Add(item);			
-		} 
-		catch (Exception e) 
+			if (!item.Complete)
+				adapter.Add(item);
+		}
+		catch (Exception e)
 		{
 			CreateAndShowDialog(e, "Error");
-		}   		
+		}
 
   	Этот код создает новый элемент и вставляет его в таблицу в удаленной мобильной службе.
 
@@ -194,14 +194,14 @@
 
 			foreach (TodoItem current in list)
 				adapter.Add(current);
-		} 
-        catch (Exception e) 
+		}
+        catch (Exception e)
         {
 			CreateAndShowDialog(e, "Error");
 		}
 
 	При этом будет создан запрос к мобильной службе и будут возвращены все элементы, которые не помечены как завершенные. Элементы добавляются к адаптеру для привязки.
-		
+
 
 Теперь, когда приложение обновлено для хранения данных на сервере с использованием мобильных служб, настало время протестировать приложение на работу с мобильными службами.
 
@@ -220,7 +220,7 @@
 4. Откройте вкладку **Данные**, а затем щелкните **Обзор**.
 
    	![][9]
-  
+
    	Обратите внимание, что таблица **TodoItem** теперь содержит данные со значениями идентификаторов, которые созданы мобильными службами, и в таблицу были автоматически добавлены столбцы, соответствующие классу TodoItem в приложении.
 
 Это заключительный шаг учебника **Приступая к работе с данными** для Xamarin.Android.
@@ -281,6 +281,5 @@
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
 [полный пример проекта]: http://go.microsoft.com/fwlink/p/?LinkId=331302
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

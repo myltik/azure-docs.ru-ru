@@ -351,8 +351,8 @@ DocumentDB поддерживает следующие встроенные фу
 Теперь, когда вы ознакомились с предварительными сведениями о поддержке геопространственных данных в DocumentDB, вы можете сделать следующее.
 
 - Начните программировать с помощью [Примеров кода для работы с геопространственными данными с помощью .NET на Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.Spatial).
-- Освойте запросы к геопространственным данным на [Игровой площадке запросов DocumentDB](www.documentdb.com/sql/demo).
+- Освойте геопространственные запросы на [Игровой площадке запросов DocumentDB](http://www.documentdb.com/sql/demo#geospatial)
 - Узнайте подробнее о [Запросах в DocumentDB](documentdb-sql-query.md).
 - Узнайте подробнее о [Политиках индексирования DocumentDB](documentdb-indexing-policies.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Проверка подлинности приложения для единого входа с помощью библиотеки проверки подлинности Active Directory (Магазин Windows) | Microsoft Azure" 
-	description="Узнайте, как аутентифицировать пользователей для единого входа с помощью ADAL в приложении магазина Windows." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Проверка подлинности приложения для единого входа с помощью библиотеки проверки подлинности Active Directory (Магазин Windows) | Microsoft Azure"
+	description="Узнайте, как аутентифицировать пользователей для единого входа с помощью ADAL в приложении магазина Windows."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory
@@ -37,7 +37,7 @@
 * Visual Studio 2013 в Windows 8.1.
 * Изучение учебника [Приступая к работе с мобильными службами] или [Приступая к работе с данными].
 * Пакет NuGet пакета SDK мобильных служб Microsoft Azure
-* Пакет NuGet библиотеки проверки подлинности Active Directory 
+* Пакет NuGet библиотеки проверки подлинности Active Directory
 
 [AZURE.INCLUDE [mobile-services-dotnet-adal-register-service](../../includes/mobile-services-dotnet-adal-register-service.md)]
 
@@ -134,12 +134,12 @@
 
 5. Добавьте следующий фрагмент кода в класс MainPage, объявляющий метод `AuthenticateAsync`.
 
-        private MobileServiceUser user; 
+        private MobileServiceUser user;
         private async Task AuthenticateAsync()
         {
             string authority = "<INSERT-AUTHORITY-HERE>";
             string resourceURI = "<INSERT-RESOURCE-URI-HERE>";
-            string clientID = "<INSERT-CLIENT-ID-HERE>"; 
+            string clientID = "<INSERT-CLIENT-ID-HERE>";
             while (user == null)
             {
                 string message;
@@ -155,11 +155,11 @@
                 catch (InvalidOperationException)
                 {
                   message = "You must log in. Login Required";
-                } 
+                }
                 var dialog = new MessageDialog(message);
                 dialog.Commands.Add(new UICommand("OK"));
                 await dialog.ShowAsync();
-            } 
+            }
         }
 
 6. В коде для метода `AuthenticateAsync` выше замените **INSERT-AUTHORITY-HERE** именем клиента, в котором приложение подготавливалось к работе, используя формат https://login.windows.net/tenant-name.onmicrosoft.com. Это значение можно скопировать со вкладки "Домен" в Azure Active Directory на [портале управления Azure].
@@ -217,4 +217,4 @@
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [панель мониторинга Центра разработки для Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

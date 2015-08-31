@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -37,7 +38,7 @@
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE]Microsoft Excel используется для визуализации данных с помощью [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US).
+	> [AZURE.NOTE]Microsoft Excel используется для визуализации данных с помощью [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=ru-ru&rs=ru-ru&ad=US).
 
 * [Драйвер Microsoft Hive ODBC](http://www.microsoft.com/download/details.aspx?id=40886).
 
@@ -53,4 +54,4 @@
 
 3. Следуйте инструкциям, представленным на веб-странице, чтобы закончить образец.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

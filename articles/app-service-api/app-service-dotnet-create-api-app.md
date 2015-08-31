@@ -13,25 +13,24 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="05/19/2015"
-	ms.author="bradyg;tarcher"/>
+	ms.date="08/14/2015"
+	ms.author="tdykstra"/>
 
 # Создание приложения API ASP.NET в службе приложений Azure
 
 > [AZURE.SELECTOR]
-- [Visual Studio 2013](app-service-dotnet-create-api-app.md)
-- [Visual Studio 2015 RC](app-service-dotnet-create-api-app-vs2015.md)
+- [Visual Studio 2015 or 2013](app-service-dotnet-create-api-app.md)
 - [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
 
 ## Обзор
 
-В этом учебнике показано, как создать проект веб-интерфейса API ASP.NET с помощью шаблона Visual Studio 2013, который позволяет настроить проект для развертывания в облаке в качестве [приложения API](app-service-api-apps-why-best-platform.md) в [службе приложений Azure](../app-service/app-service-value-prop-what-is.md). Информацию о настройке существующего проекта веб-API для развертывания в качестве приложения API см. в статье [Настройка проекта веб-API как приложения API](app-service-dotnet-create-api-app-visual-studio.md).
+В этом учебнике показывается, как создать проект веб-API ASP.NET и настроить его для развертывания в облаке в виде [приложения API в службе приложений Azure](app-service-api-apps-why-best-platform.md). Информацию о настройке существующего проекта веб-API для развертывания в качестве приложения API см. в статье [Настройка проекта веб-API как приложения API](app-service-dotnet-create-api-app-visual-studio.md).
 
 В последующих учебниках из этой серии показывается, как [развертывать](app-service-dotnet-deploy-api-app.md) и [отлаживать](../app-service-dotnet-remotely-debug-api-app.md) проект приложения API, который будет создаваться в этом учебнике.
 
-[AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
 
-Для этого учебника требуется пакет SDK Azure для .NET версии 2.5.1 или более поздней.
+Для этого учебника требуется пакет SDK Azure для .NET версии 2.6 или более поздней.
 
 ## Создание проекта приложения API
 
@@ -50,4 +49,4 @@
 Теперь ваше приложение API готово к развертыванию, и вы можете перейти к учебнику [Развертывание приложения API](app-service-dotnet-deploy-api-app.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -3,8 +3,8 @@
 	description="Отчет, в котором указываются попытки входа, выполненные с устройств, на которых могут выполняться вредоносные программы."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
+	authors="SSalahAhmed"
+	manager="gchander"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # Операции входа с возможно инфицированных устройств
 
@@ -24,4 +24,4 @@
 
 ![Операции входа с возможно инфицированных устройств](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

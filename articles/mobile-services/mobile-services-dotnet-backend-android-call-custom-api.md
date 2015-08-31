@@ -62,4 +62,4 @@
 [Хранение серверных сценариев в системе управления версиями]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

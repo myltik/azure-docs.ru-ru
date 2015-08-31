@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="Blackmist" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="08/04/2015" 
 	ms.author="larryfr"/>
 
 #Анализ данных о задержке рейсов с помощью Hive в HDInsight
 
 Узнайте, как анализировать данные о задержке рейсов с помощью Hive в HDInsight под управлением Linux (предварительная версия), а затем экспортировать эти данные в базу данных SQL Azure с помощью Sqoop.
 
-> [AZURE.NOTE]Хотя отдельные части этой статьи можно использовать для кластеров HDInsight под управлением Windows (Python и Hive, например), многие действия в этом документе относятся к кластерам под управлением Linux. Подробнее о действиях для кластеров на основе Windows см. в статье [Анализ данных о задержке рейсов с помощью Hive в HDInsight](hdinsight-analyze-flight-delay-data.md).
+> [AZURE.NOTE]Хотя отдельные части этого документа можно использовать для кластеров HDInsight под управлением Windows (например, Python и Hive), многие действия относятся к кластерам под управлением Linux. Подробнее о действиях для кластеров на основе Windows см. в статье [Анализ данных о задержке рейсов с помощью Hive в HDInsight](hdinsight-analyze-flight-delay-data.md).
 
 ###Предварительные требования
 
@@ -304,4 +305,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

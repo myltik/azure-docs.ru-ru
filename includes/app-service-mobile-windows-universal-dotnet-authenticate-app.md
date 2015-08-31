@@ -1,9 +1,5 @@
 
-1. Откройте общий файл проекта MainPage.cs и добавьте следующий оператор using:
-
-        using Windows.UI.Popups;
-
-2. Добавьте в класс MainPage следующий фрагмент кода:
+1. Откройте файл общего проекта MainPage.xaml.cs и добавьте следующий фрагмент кода в класс MainPage:
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -35,13 +31,11 @@
             }
         }
 
-    Этот пользователь прошел проверку подлинности с именем для входа в Facebook. Если используется поставщик удостоверений, отличный от Facebook, измените значение **MobileServiceAuthenticationProvider** выше на значение для вашего поставщика.
+    Этот код выполняет проверку подлинности пользователя с помощью имени входа в Facebook. Если используется поставщик удостоверений, отличный от Facebook, измените значение **MobileServiceAuthenticationProvider** выше на значение для вашего поставщика.
 
 3. Закомментируйте или удалите вызов метода **RefreshTodoItems** в существующем переопределении метода **OnNavigatedTo**.
 
-	Это позволяет предотвратить загрузку данных до того, как пользователь прошел проверку подлинности.
-
-	>[AZURE.NOTE]Для успешной проверки подлинности из приложения Магазина Windows Phone 8.1 необходимо вызвать метод LoginAsync после вызова метода **OnNavigated** и создания события **Loaded** для страницы. В этом учебнике для этого в приложение добавлена кнопка **Вход**.
+	Это позволяет предотвратить загрузку данных до того, как пользователь прошел проверку подлинности. Затем добавьте кнопку **Вход** в приложение, которое запускает проверку подлинности.
 
 4. Добавьте в класс MainPage следующий фрагмент кода:
 
@@ -60,16 +54,12 @@
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. В проекте приложения для Магазина Windows Phone после элемента **TextBlock** на панели **ContentPanel** добавьте указанный ниже элемент**Button**:
+6. В проекте приложения для Магазина Windows Phone после элемента **TextBox** на панели **ContentPanel** добавьте указанный ниже элемент **Button**:
 
         <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
         	Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
 
-7. Откройте общий файл проекта App.xaml.cs и добавьте следующий оператор using (если его еще нет):
-
-        using Microsoft.WindowsAzure.MobileServices;  
- 
-8. В файле проекта App.xaml.cs добавьте следующий код:
+8. Откройте общий файл проекта App.xaml.cs и добавьте следующий код:
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
@@ -94,4 +84,4 @@
 
 10. Щелкните правой кнопкой мыши проект приложения Магазина Windows Phone, выберите пункт **Назначить запускаемым проектом**, а затем повторите предыдущий шаг, чтобы проверить, правильно ли запускается приложение Магазина Windows Phone.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

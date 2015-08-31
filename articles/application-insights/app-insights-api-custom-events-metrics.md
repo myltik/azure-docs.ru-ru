@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/18/2015" 
 	ms.author="awills"/>
 
 # API Application Insights для пользовательских событий и метрик 
@@ -52,7 +52,7 @@
 
 * В программный код устройства или веб-сервера необходимо добавить:
 
-    *C#:* `using Microsoft.ApplicationInsights;`
+    *C\#:* `using Microsoft.ApplicationInsights;`
 
     *VB:* `Imports Microsoft.ApplicationInsights`
 
@@ -62,7 +62,7 @@
 
 Создайте экземпляр TelemetryClient (за исключением JavaScript на веб-страницах):
 
-*C#:*
+*C\#:*
 
     private TelemetryClient telemetry = new TelemetryClient();
 
@@ -92,7 +92,7 @@
 
     appInsights.trackEvent("WinGame");
 
-*C#*
+*C\#*
     
     telemetry.TrackEvent("WinGame");
 
@@ -148,7 +148,7 @@
          {Score: currentGame.score, Opponents: currentGame.opponentCount}
          );
 
-*C#*
+*C\#*
 
     // Set up some properties and metrics:
     var properties = new Dictionary <string, string> 
@@ -238,7 +238,7 @@
 Иногда требуется отобразить на диаграмме продолжительность выполнения некоторых действий. Например, может понадобиться определить, сколько времени требуется пользователю для выбора решения в игре. Это полезный пример использования параметра измерения.
 
 
-*C#*
+*C\#*
 
     var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
@@ -271,7 +271,7 @@
 
     appInsights.trackMetric("Queue", queue.Length);
 
-*C#*
+*C\#*
 
     telemetry.TrackMetric("Queue", queue.Length);
 
@@ -285,7 +285,7 @@
 
 На самом деле это можно выполнить в фоновом потоке:
 
-*C#*
+*C\#*
 
     private void Run() {
      var appInsights = new TelemetryClient();
@@ -316,7 +316,7 @@
 
     appInsights.trackPageView("tab1");
 
-*C#*
+*C\#*
 
     telemetry.TrackPageView("GameReviewPage");
 
@@ -337,7 +337,7 @@
 
 Его можно также вызвать самостоятельно, чтобы смодулировать запросы в контексте, в котором отсутствует выполняющийся модуль веб-службы.
 
-*C#*
+*C\#*
 
     // At start of processing this request:
 
@@ -358,7 +358,7 @@
 
 Отправляйте исключения в Application Insights, чтобы [вычислить их количество][metrics], что может указывать на частоту возникновения проблемы, и чтобы[проверить отдельные вхождения][diagnostic]. Отчеты содержат данные по трассировкам стеков.
 
-*C#*
+*C\#*
 
     try
     {
@@ -381,7 +381,7 @@
 [Адаптеры журнала][trace] используют этот API для отправки журналов сторонних производителей на портал.
 
 
-*C#*
+*C\#*
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
@@ -415,7 +415,7 @@
 
 Если требуется задать значения свойств по умолчанию для некоторых создаваемых пользовательских событий, это можно сделать в классе TelemetryClient. Они прикреплены к каждому элементу телеметрии, отправляемой из этого клиента.
 
-*C#*
+*C\#*
 
     using Microsoft.ApplicationInsights.DataContracts;
 
@@ -451,7 +451,7 @@
 
 ## <a name="ikey"></a> Установка ключа инструментирования для выбранной пользовательской телеметрии
 
-*C#*
+*C\#*
     
     var telemetry = new TelemetryClient();
     telemetry.Context.InstrumentationKey = "---my key---";
@@ -467,7 +467,7 @@
 **Определение инициализатора**
 
 
-*C#*
+*C\#*
 
 ```C#
 
@@ -520,7 +520,7 @@
 
 *Другой способ* — создать экземпляр инициализатора в коде.
 
-*C#*
+*C\#*
 
 ```C#
 
@@ -552,7 +552,7 @@
 
 **Определение инициализатора**
 
-*C#*
+*C\#*
 
 ```C#
 
@@ -624,7 +624,7 @@
 
 Вместо получения ключа инструментирования из файла конфигурации можно задать его в коде. Задайте ключ в методе инициализации, таком как global.aspx.cs, в службе ASP.NET:
 
-*C#*
+*C\#*
 
     protected void Application_Start()
     {
@@ -660,7 +660,7 @@
 
 Обычно пакет SDK отправляет данные в момент времени выбранный, чтобы свести влияние на пользователя к минимуму. Однако в некоторых случаях может потребоваться очистить буфер, например, при использовании пакета SDK в приложении, которое завершает работу.
 
-*C#*
+*C\#*
 
     telemetry.Flush();
 
@@ -680,7 +680,7 @@
 Во время отладки полезно передавать телеметрию через конвейер, чтобы результаты можно было увидеть немедленно. Кроме того, вы можете получать дополнительные сообщения, которые помогают трассировать любые проблемы с телеметрией. Отключите этот режим в рабочей среде, так как он может замедлить работу приложения.
 
 
-*C#*
+*C\#*
     
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 
@@ -728,12 +728,25 @@
 * [Справочник по ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Справочник по Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
 * [Справочник по JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
+* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
+
+
+## Код пакета SDK
+
+* [Базовый пакет SDK для ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
+* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
+* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
+* [Пакет SDK для Java](https://github.com/Microsoft/ApplicationInsights-Java)
+* [Пакет SDK для JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
+* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
+* [Все платформы](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
 ## Вопросы
 
-* *Могут ли создаваться исключения при вызове отслеживания*?*
+* *Могут ли создаваться исключения при вызовах Track\_()?*
     
-    Нет. Вам не нужно помещать их в оболочку предложений перехвата.
+    Нет. Вам не нужно помещать их в предложения try-catch. Если пакет SDK сталкивается с проблемами, он добавляет в журнал сообщения, которые отображаются в консоли отладки и, если сообщения проходят, — в диагностическом поиске.
 
 
 
@@ -768,4 +781,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -2,7 +2,7 @@
 
 Предварительные требования:
 
-1. Windows 7, Windows 8, Windows Server 2008 или Windows Server 2012. (Недоступно для Mac и Linux.)
+1. Windows 7, Windows 8, Windows Server 2008 или Windows Server 2012.
 2. Eclipse Indigo или более поздняя версия.
 
 Действия по установке:
@@ -13,4 +13,4 @@
 
 Этот подключаемый модуль использует последнюю версию пакета SDK для Azure. Ее можно скачать с помощью установщика веб-платформы (WebPI) в <http://go.microsoft.com/fwlink/?LinkID=252838>. Но даже если она не установлена, при создании первого проекта развертывания Azure подключаемый модуль Azure для Eclipse с Java (от Microsoft Open Technologies) автоматически установит соответствующую версию пакета SDK для Azure.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

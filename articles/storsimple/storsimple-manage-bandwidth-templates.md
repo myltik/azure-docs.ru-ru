@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="Управление шаблонами пропускной способности StorSimple"
+   pageTitle="Управление шаблонами пропускной способности StorSimple | Microsoft Azure"
    description="Управление шаблонами пропускной способности StorSimple, предоставляющее возможность использования пропускной способности элементов управления."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/10/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # Управление шаблонами пропускной способности StorSimple
@@ -176,4 +176,4 @@
 
 Дополнительные сведения о [компонентах StorSimple](storsimple-components.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

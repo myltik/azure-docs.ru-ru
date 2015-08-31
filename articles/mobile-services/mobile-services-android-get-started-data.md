@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/15/2015" 
+	ms.date="08/18/2015" 
 	ms.author="ricksal"/>
 
 # Добавление мобильных служб в существующее приложение Android
@@ -101,7 +101,7 @@
 
 ## Более ранние версии кода
 
-Чтобы просмотреть версию этого учебника для Eclipse, перейдите к следующей статье: [Приступая к работе с данными в Eclipse](mobile-services-android-get-started-data-EC.md).
+Чтобы просмотреть версию этого учебника для Eclipse, перейдите к следующей статье: [Приступая к работе с данными в Eclipse](mobile-services-android-get-started-data-ec.md).
 
 Чтобы просмотреть полную версию исходного кода в проекте Eclipse, перейдите <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">сюда</a>.
 
@@ -156,4 +156,4 @@
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

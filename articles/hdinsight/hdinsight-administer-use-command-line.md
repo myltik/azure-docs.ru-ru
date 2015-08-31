@@ -5,6 +5,7 @@
 	editor="cgronlun"
 	manager="paulettm"
 	authors="mumian"
+	tags="azure-portal"
 	documentationCenter=""/>
 
 <tags
@@ -17,6 +18,8 @@
 	ms.author="jgao"/>
 
 # Управление кластерами Hadoop в HDInsight с использованием интерфейса командной строки Azure (CLI Azure)
+
+[AZURE.INCLUDE [селектор](../../includes/hdinsight-portal-management-selector.md)]
 
 Узнайте, как использовать CLI Azure для управления кластерами Hadoop в Azure HDInsight. Интерфейс командной строки (CLI) Azure реализован в Node.js. Его можно использовать на любой платформе, которая поддерживает Node.js, включая Windows, Mac и Linux.
 
@@ -52,7 +55,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 > [AZURE.NOTE]Учетная запись хранения должна находиться вместе с HDInsight в том же центре обработки данных.
 
 
-Сведения о создании учетной записи хранения Azure на портале Azure см. в статье [Создание и удаление учетной записи хранения, а также управление ею][azure-create-storageaccount].
+Сведения о создании новой учетной записи хранения Azure с помощью портала предварительной версии Azure см. в статье [Создание и удаление учетной записи хранения, а также управление ею][azure-create-storageaccount].
 
 Если у вас уже есть учетная запись хранения, но вы не знаете имени и ключа учетной записи, можно использовать следующие команды для получения нужных сведений:
 
@@ -63,7 +66,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 	-- Lists the keys for a Storage account
 	azure account storage keys list <StorageAccountName>
 
-Дополнительные сведения о получении данных с помощью портала Azure см. в разделе «Просмотр, копирование и повторное создание ключей доступа к хранилищу» статьи [Создание и удаление учетной записи хранения, а также управление ею][azure-create-storageaccount].
+Дополнительные сведения о получении данных с помощью портала предварительной версии Azure см. в разделе «Просмотр, копирование и повторное создание ключей доступа к хранилищу» статьи [Создание и удаление учетной записи хранения, а также управление ею][azure-create-storageaccount].
 
 
 Команда **azure hdinsight cluster create** создает контейнер, если таковой еще не существует. Если контейнер создан заранее, можно использовать следующую команду:
@@ -135,7 +138,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 ##Дальнейшие действия
 В этой статье вы узнали, как выполнять различные административные задачи в кластере HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
-* [Администрирование HDInsight с помощью портала Azure][hdinsight-admin-portal]
+* [Администрирование HDInsight с помощью портала предварительной версии Azure][hdinsight-admin-portal]
 * [Администрирование HDInsight с помощью Azure PowerShell][hdinsight-admin-powershell]
 * [Приступая к работе с Azure HDInsight][hdinsight-get-started]
 * [Использование CLI Azure][azure-command-line-tools]
@@ -156,6 +159,5 @@ HDInsight использует контейнер хранилища BLOB-объ
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Отображение кластеров"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

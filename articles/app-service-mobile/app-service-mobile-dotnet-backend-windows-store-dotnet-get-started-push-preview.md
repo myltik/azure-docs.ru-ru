@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Добавление push-уведомлений в универсальное приложение Windows с помощью службы приложений Azure" 
-	description="Использование службы приложений Azure для отправки push-уведомлений в универсальное приложение Windows." 
-	services="app-service\mobile" 
+	pageTitle="Добавление push-уведомлений в универсальное приложение среды выполнения Windows 8.1 | Мобильные приложения Azure" 
+	description="Узнайте, как использовать мобильные приложения службы приложений Azure и центры уведомлений Azure для отправки push-уведомлений в приложение для Windows." 
+	services="app-service\mobile,notification-hubs" 
 	documentationCenter="windows" 
-	authors="ysxu" 
+	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,118 +13,122 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
-	ms.author="yuaxu"/>
+	ms.date="08/14/2015" 
+	ms.author="glenga"/>
 
-# Добавление push-уведомлений в приложение Магазина Windows
+# Добавление push-уведомлений в универсальное приложение среды выполнения Windows 8.1
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-В этом разделе показано, как отправлять push-уведомления в универсальное приложение Windows с внутреннего сервера .NET, используя службу приложений Azure. По завершении вы отправите push-уведомления с внутреннего сервера .NET во все зарегистрированные универсальные приложения Windows при вставке записи.
+##Обзор
 
-В этом учебнике рассматриваются следующие основные шаги для включения push-уведомлений:
+В этом разделе показано, как отправлять push-уведомления в универсальное приложение среды выполнения Windows 8.1 с помощью мобильных приложений службы приложений Azure и центров уведомлений Azure. В этом сценарии при добавлении нового элемента серверная часть мобильного приложения отправляет push-уведомление всем приложениям для Windows, которые зарегистрированы в службе уведомлений Windows (WNS).
 
-1. [Регистрация приложения для получения push-уведомлений](#register)
-2. [Настройка](#configure)
-3. [Обновление службы для отправки push-уведомлений](#update-service)
-4. [Добавление push-уведомлений в приложение](#add-push)
-5. [Тестирование push-уведомлений в приложении](#test)
+Этот учебник создан на основе краткого руководства по мобильным приложениям службы приложений. Перед началом работы с этим учебником необходимо изучить краткое руководство [Создание приложения Windows](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md):
 
-Этот учебник создан на основе краткого руководства по мобильным приложениям службы приложений. Перед тем как начать этот учебник, необходимо сначала пройти учебник [Начало работы с мобильными приложениями службы приложений].
+##Предварительные требования
 
 Для работы с этим учебником требуется:
 
 * активная [учетная запись Microsoft Store](http://go.microsoft.com/fwlink/p/?LinkId=280045);
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>.
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934);
+* завершение [краткого руководства](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md).
 
-##<a name="review"></a>Проверка конфигурации сервера проекта (необязательное действие)
+##<a name="review"></a>Проверка конфигурации серверного проекта (необязательно)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
 
-##<a id="register"></a>Регистрация приложения для получения push-уведомлений
+##<a name="create-gateway"></a>Создание центра уведомлений
 
-Для отправки push-уведомлений в универсальные приложения в службе приложений Azure необходимо отправить приложение в Магазин Windows. Затем следует интегрировать учетные данные службы push-уведомлений мобильного приложения с WNS.
+Выполните следующие действия, чтобы создать новый центр уведомлений для обработки push-уведомлений. Если у вас уже есть центр в этой группе ресурсов, вам не нужно выполнять действия, описанные в этом разделе.
 
-1. Если вы еще не зарегистрировали свое приложение, перейдите к разделу <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">Отправить страницу приложения</a> в центре разработчиков для приложений для Магазина Windows, выполните вход с использованием своей учетной записи Майкрософт и затем щелкните **Имя приложения**.
+1. Войдите на [портал Azure]. Щелкните **Просмотреть все** > **Мобильные приложения** и выберите только что созданную серверную часть приложения. Щелкните **Параметры** > **Мобильный** > **Push-уведомления**. 
 
-    ![][0]
+2. Выполните процесс создания центра уведомлений. Необходимо будет создать новое пространство имен, если оно отсутствует в текущей группе ресурсов. Щелкните **Создать** после настройки всех параметров.
 
-2. Введите имя приложения в поле **Имя приложения**, щелкните **Зарезервировать имя приложения** и затем щелкните **Сохранить**.
+Далее этот центр уведомлений будет использован для включения push-уведомлений для вашего приложения.
 
-    ![][1]
+##Регистрация приложения для работы с push-уведомлениями
 
-    При этом создается новая регистрация в Магазине Windows для вашего приложения.
+Прежде чем вы сможете отправлять push-уведомления в приложения для Windows из Azure, необходимо отправить приложение в Магазин Windows. Затем можно будет настроить серверный проект для интеграции с WNS.
 
-4. В обозревателе решений щелкните правой кнопкой мыши проект приложения для Магазина Windows, щелкните **Магазин** и затем щелкните **Связать приложение с Магазином...**.
+1. В обозревателе решений Visual Studio щелкните правой кнопкой мыши проект приложения Магазина Windows, щелкните **Магазин**, а затем — **Связать приложение с Магазином…**. 
 
     ![][3]
+    
+2. В окне мастера щелкните **Далее**, выполните вход с помощью учетной записи Майкрософт, введите имя приложения в поле **Зарезервировать новое имя приложения** и нажмите кнопку **Зарезервировать**.
 
-    Откроется мастер **Свяжите свое приложение с Магазином Windows**.
+3. После успешного создания регистрации приложения выберите новое имя приложения, нажмите кнопку **Далее**, а затем нажмите кнопку **Связать**. Это добавляет необходимые регистрационные данные Магазина Windows в манифест приложения.
 
-5. В окне мастера щелкните **Вход** и затем войдите в систему, используя свою учетную запись Майкрософт.
+7. Повторите шаги 1 и 3 для проекта приложения Магазина Windows Phone, используя регистрацию, созданную ранее для приложения Магазина Windows.
 
-6. Выберите приложение, зарегистрированное на шаге 2, щелкните **Далее** и затем щелкните **Связать**.
+7. Перейдите в [Центр разработки для Windows](https://dev.windows.com/ru-ru/overview), войдите с помощью учетной записи Майкрософт, щелкните «Регистрация нового приложения» в области **Мои приложения**, затем разверните **Службы** > **Push-уведомления**.
 
-    ![][4]
+8. На странице **Push-уведомления** в разделе **Мобильные службы Microsoft Azure** щелкните **Сайт служб Live**.
 
-    Это добавляет необходимые регистрационные данные Магазина Windows в манифест приложения.
-
-7. (Необязательно.) Для проекта приложения для Windows Phone повторите шаги с 4 по 6.
-
-7. На странице Центра разработчиков Windows для нового приложения щелкните **Службы**.
-
-    ![][5]
-
-8. На странице **Службы** в разделе **Мобильные службы Microsoft Azure** щелкните **Сайт служб Live**.
-
-    ![][17]
-
-9. Откройте вкладку **Параметры приложений** и запишите значения полей **Секрет клиента** и **Идентификатор безопасности пакета**.
+9. Запишите значения полей **Секрет клиента** и **ИД безопасности пакета** на вкладке **Параметры приложений**.
 
     ![][6]
 
-    > [AZURE.NOTE]**Примечание о безопасности.** Секрет клиента и идентификатор безопасности пакета — это важные учетные данные для безопасного доступа. Не сообщайте никому эти значения и не распространяйте их вместе со своим приложением.
+    > [AZURE.IMPORTANT]Секрет клиента и ИД безопасности пакета — это важные учетные данные для безопасного доступа. Не сообщайте никому эти значения и не распространяйте их вместе со своим приложением.
 
-##<a id="configure"></a>Настройка мобильного приложения для отправки push-уведомлений
+##Настройка мобильного приложения для отправки push-уведомлений
 
-1. Войдите на [портал предварительной версии Azure], последовательно выберите **Обзор**, **Мобильное приложение**, а затем выберите свое приложение и откройте службы push-уведомлений.
+1. Войдите на [портал Azure], последовательно выберите **Обзор**, **Мобильное приложение**, а затем выберите свое приложение и щелкните **Службы push-уведомлений**.
 
-2. В службе уведомлений Windows введите **секрет клиента** и **идентификатор безопасности пакета (SID)**, а затем сохраните эту настройку.
+2. На странице **Служба уведомлений Windows** введите **ключ безопасности** (секрет клиента) и **ИД безопасности пакета**, полученные на сайте служб Live, затем нажмите кнопку **Сохранить**.
 
-Мобильное приложение службы приложений теперь настроено для работы с WNS.
+Теперь серверная часть мобильного приложения настроена для работы с WNS.
 
-<!-- URLs. -->
-[портал предварительной версии Azure]: https://portal.azure.com/
-
-##<a id="update-service"></a>Обновление службы для отправки push-уведомлений
+##<a id="update-service"></a>Обновление сервера для отправки push-уведомлений
 
 После включения push-уведомлений в приложении необходимо обновить внутренний сервер приложения так, чтобы он отправлял push-уведомления.
 
-1. В Visual Studio щелкните правой кнопкой мыши решение, а затем щелкните **Управление пакетами NuGet**.
+1. В Visual Studio щелкните правой кнопкой мыши серверный проект и щелкните **Управление пакетами NuGet**, найдите `Microsoft.Azure.NotificationHubs` и нажмите кнопку **Установить**. Будет установлена клиентская библиотека центров уведомлений.
 
-2. Выполните поиск **Microsoft.Azure.NotificationHubs** и нажмите кнопку **Установить** для всех проектов в решении.
+3. В серверном проекте откройте **Контроллеры** > **TodoItemController.cs** и добавьте следующие инструкции using:
 
-3. В обозревателе решений Visual Studio разверните папку **Контроллеры** в проекте мобильного внутреннего сервера. Откройте файл TodoItemController.cs. Добавьте следующие операторы `using` в начало файла:
+		using System.Collections.Generic;
+		using Microsoft.Azure.NotificationHubs;
+		using Microsoft.Azure.Mobile.Server.Config;
+	
 
-        using System.Collections.Generic;
-        using Microsoft.Azure.NotificationHubs;
-        using Microsoft.Azure.Mobile.Server.Config;
+2. В метод **PostTodoItem** добавьте следующий код после вызова **InsertAsync**:
 
-4. Добавьте следующий фрагмент в метод `PostTodoItem` после вызова **InsertAsync**:
+        // Get the settings for the server project.
+        HttpConfiguration config = this.Configuration;
+        MobileAppSettingsDictionary settings = 
+			this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+        
+        // Get the Notification Hubs credentials for the Mobile App.
+        string notificationHubName = settings.NotificationHubName;
+        string notificationHubConnection = settings
+            .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
-        // get Notification Hubs credentials associated with this Mobile App
-        string notificationHubName = this.Services.Settings.NotificationHubName;
-        string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
+        // Create a new Notification Hub client.
+        NotificationHubClient hub = NotificationHubClient
+        .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-        // connect to notification hub
-        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
+		// Define a WNS payload
+		var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" 
+                                + item.Text + @"</text></binding></visual></toast>";
 
-        // windows payload
-        var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" + item.Text + @"</text></binding></visual></toast>";
+        try
+        {
+			// Send the push notification and log the results.
+            var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
 
-        await Hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
+            // Write the success result to the logs.
+            config.Services.GetTraceWriter().Info(result.State.ToString());
+        }
+        catch (System.Exception ex)
+        {
+            // Write the failure result to the logs.
+            config.Services.GetTraceWriter()
+                .Error(ex.Message, null, "Push.SendAsync Error");
+        }
 
-    Этот код заставляет Центр уведомлений, связанный с этим мобильным приложением, отправить push-уведомление после вставки элемента задачи.
+    Этот код заставляет центр уведомлений отправить push-уведомление после вставки элемента задачи.
 
 
 ## <a name="publish-the-service"></a>Публикация мобильного внутреннего сервера в Azure
@@ -137,31 +141,35 @@
 
     При этом отобразится диалоговое окно "Управление пакетами NuGet".
 
-2. Выполните поиск пакета SDK для клиента мобильного приложения службы приложений для управляемых приложений, нажмите кнопку **Установить**, выберите все проекты в решении и примите условия использования.
+2. Выполните поиск пакета SDK для клиента мобильного приложения службы приложений для управляемых приложений, нажмите кнопку **Установить**, выберите все клиентские проекты в решении и примите условия использования.
 
-    При этом выполняется загрузка, установка и добавление во всех проектах ссылки на библиотеку мобильных push-уведомлений Azure для Windows.
+    Будет выполнено скачивание, установка и добавление во все клиентские проекты ссылки на библиотеку мобильных push-уведомлений Azure для Windows.
 
-3. Откройте файл проекта **App.xaml.cs** и добавьте следующие инструкции `using`:
+3. Откройте общий файл проекта **App.xaml.cs** и добавьте следующие инструкции `using`:
 
-        using Windows.Networking.PushNotifications;
-        using Microsoft.WindowsAzure.MobileServices;
-
-    В проекте универсального приложения этот файл находится в папке `<project_name>.Shared`.
+		using System.Threading.Tasks;  
+        using Windows.Networking.PushNotifications;       
 
 4. В том же файле добавьте следующее определение метода **InitNotificationsAsync** в класс **App**:
     
-        private async void InitNotificationsAsync()
+        private async Task InitNotificationsAsync()
         {
-            var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-            
-            await MobileService.GetPush().RegisterAsync(channel.Uri);
+            var channel = await PushNotificationChannelManager
+                .CreatePushNotificationChannelForApplicationAsync();
+
+            await App.MobileService.GetPush().RegisterAsync(channel.Uri);
         }
     
     Этот код возвращает ChannelURI для приложения из WNS, а затем регистрирует ChannelURI в мобильном приложении службы приложений.
     
-5. В верхней части обработчика событий **OnLaunched** в файле **App.xaml.cs** добавьте следующий вызов нового метода **InitNotificationsAsync**:
+5. В верхней части обработчика событий **OnLaunched** в файле **App.xaml.cs** добавьте в определение метода модификатор **async**, а в новый метод **InitNotificationsAsync** добавьте следующий вызов (как в приведенном примере):
 
-        InitNotificationsAsync();
+        protected async override void OnLaunched(LaunchActivatedEventArgs e)
+        {
+            await InitNotificationsAsync();
+
+			// ...
+		}
 
     Это обеспечит регистрацию кратковременного ChannelURI при каждом запуске приложения.
 
@@ -169,18 +177,17 @@
 
     В меню **Файл** выберите **Сохранить все**.
 
-7. (Необязательно.) Для проекта приложения для Windows Phone повторите предыдущий шаг.
-
-8. Нажмите клавишу **F5**, чтобы запустить приложения.
+7. Для проекта приложения Магазина Windows Phone повторите предыдущий шаг.
 
 Теперь приложение готово к получению всплывающих уведомлений.
 
 ##<a id="test"></a>Тестирование push-уведомлений в приложении
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-windows-universal-test-push-preview](../../includes/app-service-mobile-dotnet-backend-windows-universal-test-push-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-windows-universal-test-push-preview](../../includes/app-service-mobile-windows-universal-test-push-preview.md)]
 
 <!-- Anchors. -->
-
+<!-- URLs. -->
+[портал Azure]: https://portal.azure.com/
 <!-- Images. -->
 [0]: ./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-submit-win8-app.png
 [1]: ./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-win8-app-name.png
@@ -195,4 +202,4 @@
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

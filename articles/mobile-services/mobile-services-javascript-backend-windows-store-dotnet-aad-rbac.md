@@ -285,4 +285,4 @@
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Получение доступа к сведениям Graph Azure Active Directory]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

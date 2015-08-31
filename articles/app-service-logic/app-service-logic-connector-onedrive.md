@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/19/2015"
 	ms.author="andalmia"/>
 
 # Использование соединителя OneDrive в приложении логики #
@@ -78,6 +78,13 @@
 
 9. Дополнительную информацию об интерфейсах API см. в разделе [Определение API OneDrive].
 
+## Дополнительные возможности соединителя
+После создания соединителя его можно добавить в рабочий бизнес-процесс с помощью приложения логики. См. раздел [Что такое приложения логики?](app-service-logic-what-are-logic-apps.md).
+
+Справку по API REST Swagger см. в статье [Справочные материалы по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+Можно также просматривать статистику производительности и управлять безопасностью соединителя. См. статью [Управление встроенными приложениями API и соединителями, а также их мониторинг](app-service-logic-monitor-your-connectors.md).
+
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-onedrive/img1.PNG
 [2]: ./media/app-service-logic-connector-onedrive/img2.PNG
@@ -89,6 +96,6 @@
 
 <!-- Links -->
 [созданию приложения логики]: app-service-logic-create-a-logic-app.md
-[Определение API OneDrive]: https://msdn.microsoft.com/ru-ru/library/dn974227.aspx
+[Определение API OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

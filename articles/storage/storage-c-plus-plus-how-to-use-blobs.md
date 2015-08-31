@@ -234,8 +234,7 @@
 -	[Использование хранилища очередей из C++](storage-c-plus-plus-how-to-use-queues.md)
 -	[Использование табличного хранилища из C++](storage-c-plus-plus-how-to-use-tables.md)
 -	[Перечисление ресурсов хранилища Azure в C++](storage-c-plus-plus-enumeration.md)
--	[Клиентская библиотека хранилища для C++](https://msdn.microsoft.com/library/azure/gg433040.aspx) 
--	[Справочник MSDN хранилища Azure](https://msdn.microsoft.com/library/azure/gg433040.aspx)
+-	[Справочник по клиентской библиотеке хранилища для C++](http://azure.github.io/azure-storage-cpp)
 -	[Документация по хранилищу Azure](http://azure.microsoft.com/documentation/services/storage/)
 
 
@@ -243,4 +242,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

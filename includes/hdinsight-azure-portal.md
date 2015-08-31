@@ -1,5 +1,7 @@
-##Azure portal and Azure preview portal
+##Портал Azure и портал предварительной версии Azure
 
-> [AZURE.IMPORTANT] The steps in this document use the Azure portal. Microsoft recommends using the Azure preview portal when creating new services. For an explanation of the advantages of the preview portal, see [DevOps just got a whole lot more awesome](http://azure.microsoft.com/overview/preview-portal/). 
+> [AZURE.IMPORTANT]Действия, описанные в этом документе, выполняются на портале Azure. Для создания служб корпорация Майкрософт рекомендует использовать портал предварительной версии Azure. Преимущества портала предварительной версии рассматриваются в статье [о расширении возможностей разработки и операций](http://azure.microsoft.com/overview/preview-portal/).
 
-For a version of this document that uses the Azure preview portal, see the following link:
+Вариант документа с описанием действий для портала предварительной версии Azure можно найти по следующей ссылке:
+
+<!---HONumber=August15_HO8-->

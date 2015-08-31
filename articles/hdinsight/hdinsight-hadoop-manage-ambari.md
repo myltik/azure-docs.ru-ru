@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -250,4 +251,4 @@ Ambari предоставляет множество предупреждени�
 
 Полный справочник по REST API см. в статье [Справочник по API Ambari версии 1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

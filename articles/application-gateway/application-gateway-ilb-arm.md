@@ -60,14 +60,14 @@
 
 ### Шаг 1
 
-    PS C:\> Switch-AzureMode -Name AzureResourceManager
+    Switch-AzureMode -Name AzureResourceManager
 
 ### Шаг 2
 
 Войдите в свою учетную запись Azure.
 
 
-    PS C:\> Add-AzureAccount
+    Add-AzureAccount
 
 Вам будет предложено указать свои учетные данные для проверки подлинности.
 
@@ -76,7 +76,7 @@
 
 Выберите подписку Azure.
 
-    PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
+    Select-AzureSubscription -SubscriptionName "MySubscription"
 
 Чтобы просмотреть перечень доступных подписок, воспользуйтесь командлетом Get-AzureSubscription.
 
@@ -85,7 +85,7 @@
 
 Создайте группу ресурсов (пропустите этот шаг, если вы используете существующую группу).
 
-    PS C:\> New-AzureResourceGroup -Name appgw-rg -location "West US"
+    New-AzureResourceGroup -Name appgw-rg -location "West US"
 
 Диспетчер ресурсов Azure требует, чтобы все группы ресурсов указывали расположение. Оно используется в качестве расположения по умолчанию для всех ресурсов данной группы. Убедитесь, что во всех командах для создания шлюза приложений используется одна группа ресурсов.
 
@@ -118,13 +118,13 @@
  
 ### Шаг 2
 
-	$pool = New-AzureApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
+	$pool = New-AzureApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.0.0.10,10.0.0.11,10.0.0.12
 
-На этом этапе будет выполнена настройка серверной части пула IP-адресов под именем pool01 с IP-адресами 134.170.185.46, 134.170.188.221, 134.170.185.50. Эти адреса будут использоваться для получения сетевого трафика от конечной точки внешнего IP-адреса. Вы замените вышеуказанные IP-адреса и добавите конечные точки IP-адресов вашего приложения.
+На этом этапе будет выполнена настройка серверной части пула IP-адресов pool01 с IP-адресами 10.0.0.10, 10.0.0.11, 10.0.0.12. Эти адреса будут использоваться для получения сетевого трафика от конечной точки внешнего IP-адреса. Вы замените вышеуказанные IP-адреса и добавите конечные точки IP-адресов вашего приложения.
 
 ### Шаг 3
 
-	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol HTTP -CookieBasedAffinity Disabled
+	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 
 Настройка параметров шлюза приложений poolsetting01 для обеспечения сбалансированного по нагрузке сетевого трафика в пуле серверной части.
 
@@ -136,21 +136,21 @@
 
 ### Шаг 5
 
-	$fipconfig = New-AzureApplicationGatewayFrontendIPConfig -Name $fipconfigName -Subnet $subnet
+	$fipconfig = New-AzureApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 
-Создание IP-конфигурации интерфейсной части, связывающей частный IP-адрес и текущую подсеть виртуальной сети.
+Создание конфигурации IP интерфейсной части fipconfig01 и связывание с частным IP-адресом из текущей подсети виртуальной сети.
 
 ### Шаг 6
 
-	$listener = New-AzureApplicationGatewayHttpListener -Name $listenerName  -Protocol http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
+	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
-Создание прослушивателя, связывающего порт интерфейсной части с IP-конфигурацией интерфейсной части.
+Создание прослушивателя listener01 и связывание порта интерфейсной части с конфигурацией IP интерфейсной части.
 
 ### Шаг 7 
 
-	$rule = New-AzureApplicationGatewayRequestRoutingRule -Name $ruleName -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
+	$rule = New-AzureApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
-Создание правила маршрутизации для подсистемы балансировки нагрузки, настраивая таким образом поведение подсистемы балансировки нагрузки.
+Создание правила маршрутизации rule01 для подсистемы балансировки нагрузки для настройки ее поведения.
 
 ### Шаг 8
 
@@ -158,11 +158,11 @@
 
 Настройка размера экземпляра шлюза приложений
 
->[AZURE.NOTE]Значение параметра *InstanceCount* (Количество экземпляров) по умолчанию — 2 (максимальное значение — 10). Значение *GatewaySize* (Размер шлюза) по умолчанию — Medium. Можно выбрать размер Small (Малый), Medium (Средний) или Large (Большой).
+>[AZURE.NOTE]Значение параметра *InstanceCount* (Количество экземпляров) по умолчанию — 2 (максимальное значение — 10). Значение *GatewaySize* (Размер шлюза) по умолчанию — Medium. Можно выбрать Standard\_Small, Standard\_Medium или Standard\_Large.
 
 ## Создание шлюза приложений при помощи New-AzureApplicationGateway
 
-	$appgw = New-AzureApplicationGateway -Name appgwtest -ResourceGroupName $rgname -Location $location -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+	$appgw = New-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
 Создание шлюза приложений со всеми элементами конфигурации, описанными выше. В этом примере шлюз приложений называется appgwtest.
 
@@ -176,14 +176,14 @@
 
 **Примечание.** Выполнение командлета `Start-AzureApplicationGateway` занимает до 15–20 минут.
 
-В приведенном далее примере шлюз приложений называется appgwtest, а группа ресурсов называется app-rg.
+В приведенном далее примере шлюз приложений называется appgwtest, а группа ресурсов называется appgw-rg:
 
 
 ### Шаг 1
 
 Получение объекта шлюза приложений и связывание его с переменной $getgw.
  
-	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName app-rg
+	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ### Шаг 2
 	 
@@ -283,4 +283,4 @@
 - [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Диспетчер трафика Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

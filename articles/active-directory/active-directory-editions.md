@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Выпуски Azure Active Directory"
+	pageTitle="Выпуски Azure Active Directory | Microsoft Azure"
 	description="Раздел с описанием бесплатного и платного выпусков Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="TerryLan"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2015"
+	ms.date="08/14/2015"
 	ms.author="curtand"/>
 
 # Выпуски Azure Active Directory
@@ -66,6 +66,7 @@ Active Directory Premium Edition — это платный выпуск Azure A
 
 - **Сброс пароля с обратной записью** — самостоятельно сбрасываемый пароль можно записывать обратно в локальные каталоги.
 
+- [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx): наблюдение за работоспособностью локальной инфраструктуры Active Directory и получение аналитических данных об использовании.
 
 
 
@@ -98,6 +99,7 @@ Active Directory Premium Edition — это платный выпуск Azure A
 - Расширенные отчеты об использовании приложений
 - Служба многофакторной проверки подлинности для пользователей облака
 - Служба многофакторной проверки подлинности для локальных пользователей
+- Azure Active Directory Connect Health
 
 ## Текущие возможности общедоступной предварительной версии
 
@@ -105,7 +107,6 @@ Active Directory Premium Edition — это платный выпуск Azure A
 
 - [Административные единицы](https://msdn.microsoft.com/library/azure/dn832057.aspx): новый контейнер ресурсов Azure Active Directory, которые можно использовать для делегирования административных разрешений подмножествам пользователей и применения политик к подмножествам пользователей.
 - [Добавление своих приложений SaaS](https://msdn.microsoft.com/library/azure/dn893637.aspx) в Azure Active Directory.
-- [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx): наблюдение за работоспособностью локальной инфраструктуры Active Directory и получение аналитических данных об использовании.
 - Смена пароля для Facebook, Twitter и LinkedIn. Дополнительные сведения см. в [этой статье](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx).
 - Динамическое членство в группах. Дополнительные сведения см. в [этой статье](https://msdn.microsoft.com/library/azure/dn913807.aspx).
 - [Условный доступ](https://msdn.microsoft.com/library/azure/dn906877.aspx): многофакторная проверка подлинности для каждого приложения.
@@ -120,6 +121,5 @@ Active Directory Premium Edition — это платный выпуск Azure A
 - [Начало работы с Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Добавление фирменной символики компании на страницах входа и панели доступа](active-directory-add-company-branding.md)
 - [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

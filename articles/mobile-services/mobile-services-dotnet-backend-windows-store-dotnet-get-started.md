@@ -127,4 +127,4 @@
 [Устранение неполадок серверной части в мобильных службах .NET]: mobile-services-dotnet-backend-how-to-troubleshoot.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

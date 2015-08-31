@@ -6,7 +6,7 @@
 Указать исходный набор данных большого двоичного объекта и определить типы столбцов нужно так:
 
 	{
-	    "name": " AzureBlobTypeSystemInput",
+	    "name": "AzureBlobTypeSystemInput",
 	    "properties":
 	    {
 	         "structure": 
@@ -30,7 +30,7 @@
 	        "availability":
 	        {
 	            "frequency": "Hour",
-	            "interval": 1,
+	            "interval": 1
 	        },
 			"policy": {
 	            "externalData": {
@@ -69,4 +69,4 @@
 
 При перемещении данных из большого двоичного объекта в SQL Azure фабрика данных автоматически преобразует типы (в том числе тип поля с датой и временем в пользовательском формате), используя язык и региональные параметры fr-fr.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

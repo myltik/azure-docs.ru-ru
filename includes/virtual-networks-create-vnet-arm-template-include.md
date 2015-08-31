@@ -1,140 +1,50 @@
-## How to create a VNet using PowerShell
+## Создание виртуальной сети с помощью PowerShell
 
-To create a VNet by using PowerShell, follow the steps below.
+Чтобы создать виртуальную сеть с помощью PowerShell, выполните указанные ниже действия.
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
-2. From an Azure PowerShell prompt, run the  **Switch-AzureMode** cmdlet to switch to Resource Manager mode, as shown below.
+1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md). Войдите в Azure и выберите подписку.
+2. В командной строке Azure PowerShell выполните командлет **Switch-AzureMode**, чтобы включить режим диспетчера ресурсов, как показано ниже.
 
 	Switch-AzureMode AzureResourceManager
 
-	WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
+	ПРЕДУПРЕЖДЕНИЕ. Командлет Switch-AzureMode является устаревшим и будет удален в следующих версиях.
 
-	>[AZURE.WARNING] The Switch-AzureMode cmdlet will be deprecated soon. When that happens, all Resource Manager cmdlets will be renamed.
+	>[AZURE.WARNING]Командлет Switch-AzureMode является устаревшим. По этой причине все командлеты диспетчера ресурсов вскоре будут переименованы.
 	
-3. If necessary, run the **New-AzureResourceGroup** cmdlet to create a new resource group, as shown below. For our scenario, create a resource group named *RG1*.
+3. При необходимости выполните командлет **New-AzureResourceGroup**, чтобы создать новую группу ресурсов, как показано ниже. В нашем сценарии необходимо создать группу ресурсов с именем *RG1*.
 
 	New-AzureResourceGroup -Name RG1 -Location centralus
 
-	ResourceGroupName : RG1
-	Location          : centralus
-	ProvisioningState : Succeeded
-	Tags              :
-	Permissions       :
-	                    Actions  NotActions
-	                    =======  ==========
-	                    *
+	ResourceGroupName : RG1 Location : centralus ProvisioningState : Succeeded Tags : Permissions : Actions NotActions ======= ========== *
 	
-	ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1	
+	ResourceId : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1
 
-4. Run the **New-AzureVirtualNetwork** cmdlet to create a new VNet, as shown below.
+4. Выполните командлет **New-AzureVirtualNetwork**, чтобы создать виртуальную сеть, как показано ниже.
 
-	New-AzureVirtualNetwork -ResourceGroupName RG1 -Name TestVNet `
-		-AddressPrefix 192.168.0.0/16 -Location centralus	
+	New-AzureVirtualNetwork -ResourceGroupName RG1 -Name TestVNet ` -AddressPrefix 192.168.0.0/16 -Location centralus
 	
-	Name              : TestVNet
-	ResourceGroupName : RG1
-	Location          : centralus
-	Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Microsoft.Network/virtualNetworks/TestVNet
-	Etag              : W/"5b89894f-db7f-4634-9870-f9b97e209510"
-	ProvisioningState : Succeeded
-	Tags              :
-	AddressSpace      : {
-	                      "AddressPrefixes": [
-	                        "192.168.0.0/16"
-	                      ]
-	                    }
-	DhcpOptions       : {
-	                      "DnsServers": null
-	                    }
-	NetworkInterfaces : null
-	Subnets           : []
+	Name : TestVNet ResourceGroupName : RG1 Location : centralus Id : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Microsoft.Network/virtualNetworks/TestVNet Etag : W/"5b89894f-db7f-4634-9870-f9b97e209510" ProvisioningState : Succeeded Tags : AddressSpace : { "AddressPrefixes": [ "192.168.0.0/16" ] } DhcpOptions : { "DnsServers": null } NetworkInterfaces : null Subnets :
 
-5. Run the **Get-AzureVirtualNetwork** cmdlet to store the virtual network object in a variable, as shown below.
+5. Выполните командлет **Get-AzureVirtualNetwork**, чтобы сохранить объект виртуальной сети в переменной, как показано ниже.
 
 	$vnet = Get-AzureVirtualNetwork -ResourceGroupName RG1 -Name TestVNet
 
-	>[AZURE.TIP] You can combine steps 4 and 5 by running **$vnet = New-AzureVirtualNetwork -ResourceGroupName RG1 -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
+	>[AZURE.TIP]Можно объединить шаги 4 и 5, выполнив команду **$vnet = New-AzureVirtualNetwork -ResourceGroupName RG1 -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
 
-6. Run the **Add-AzureVirtualNetworkSubnetConfig** cmdlet to add a subnet to the new VNet, as shown below.
+6. Выполните командлет **Add-AzureVirtualNetworkSubnetConfig**, чтобы добавить подсеть в новую виртуальную сеть, как показано ниже.
 
-	Add-AzureVirtualNetworkSubnetConfig -Name FrontEnd `
-		-VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
+	Add-AzureVirtualNetworkSubnetConfig -Name FrontEnd ` -VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
 	
-	Name              : TestVNet
-	ResourceGroupName : RG1
-	Location          : centralus
-	Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Microsoft.Network/virtualNetworks/TestVNet
-	Etag              : W/"5b89894f-db7f-4634-9870-f9b97e209510"
-	ProvisioningState : Succeeded
-	Tags              :
-	AddressSpace      : {
-	                      "AddressPrefixes": [
-	                        "192.168.0.0/16"
-	                      ]
-	                    }
-	DhcpOptions       : {
-	                      "DnsServers": null
-	                    }
-	NetworkInterfaces : null
-	Subnets           : [
-	                      {
-	                        "Name": "FrontEnd",
-	                        "Etag": null,
-	                        "Id": null,
-	                        "AddressPrefix": "192.168.1.0/24",
-	                        "IpConfigurations": null,
-	                        "NetworkSecurityGroup": null,
-	                        "RouteTable": null,
-	                        "ProvisioningState": null
-	                      }
-	                    ]
+	Name : TestVNet ResourceGroupName : RG1 Location : centralus Id : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Microsoft.Network/virtualNetworks/TestVNet Etag : W/"5b89894f-db7f-4634-9870-f9b97e209510" ProvisioningState : Succeeded Tags : AddressSpace : { "AddressPrefixes": [ "192.168.0.0/16" ] } DhcpOptions : { "DnsServers": null } NetworkInterfaces : null Subnets : [ { "Name": "FrontEnd", "Etag": null, "Id": null, "AddressPrefix": "192.168.1.0/24", "IpConfigurations": null, "NetworkSecurityGroup": null, "RouteTable": null, "ProvisioningState": null } ]
 
-7. Repeat step 6 above for each subnet you want to create. The command below creates the *BackEnd* subnet for our scenario.
+7. Повторите шаг 6 выше для каждой подсети, которую необходимо создать. Приведенная ниже команда создает подсеть *BackEnd* для нашего сценария.
 
-	Add-AzureVirtualNetworkSubnetConfig -Name BackEnd `
-		-VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
+	Add-AzureVirtualNetworkSubnetConfig -Name BackEnd ` -VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
 
-8. Although you create subnets, they currently only exist in the local variable used to retrieve the VNet you create in step 4 above. To save the changes to Azure, run the **Set-AzureVirtualNetwork** cmdlet, as shown below.
+8. Несмотря на создание подсетей, в настоящее время они существуют только в локальной переменной, используемой для получения виртуальной сети, созданной на шаге 4. Чтобы сохранить изменения в Azure, выполните командлет **Set-AzureVirtualNetwork**, как показано ниже.
 
-	Set-AzureVirtualNetwork -VirtualNetwork $vnet	
+	Set-AzureVirtualNetwork -VirtualNetwork $vnet
 	
-	Name              : TestVNet
-	ResourceGroupName : RG1
-	Location          : centralus
-	Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Microsoft.Network/virtualNetworks/TestVNet
-	Etag              : W/"2d3496d8-2b85-4238-bde2-377fe660aa4a"
-	ProvisioningState : Succeeded
-	Tags              :
-	AddressSpace      : {
-	                      "AddressPrefixes": [
-	                        "192.168.0.0/16"
-	                      ]
-	                    }
-	DhcpOptions       : {
-	                      "DnsServers": []
-	                    }
-	NetworkInterfaces : null
-	Subnets           : [
-	                      {
-	                        "Name": "FrontEnd",
-	                        "Etag": "W/\"2d3496d8-2b85-4238-bde2-377fe660aa4a\"",
-	                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Micro
-	                    soft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-	                        "AddressPrefix": "192.168.1.0/24",
-	                        "IpConfigurations": [],
-	                        "NetworkSecurityGroup": null,
-	                        "RouteTable": null,
-	                        "ProvisioningState": "Succeeded"
-	                      },
-	                      {
-	                        "Name": "BackEnd",
-	                        "Etag": "W/\"2d3496d8-2b85-4238-bde2-377fe660aa4a\"",
-	                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Micro
-	                    soft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
-	                        "AddressPrefix": "192.168.2.0/24",
-	                        "IpConfigurations": [],
-	                        "NetworkSecurityGroup": null,
-	                        "RouteTable": null,
-	                        "ProvisioningState": "Succeeded"
-	                      }
-	                    ]
+	Name : TestVNet ResourceGroupName : RG1 Location : centralus Id : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Microsoft.Network/virtualNetworks/TestVNet Etag : W/"2d3496d8-2b85-4238-bde2-377fe660aa4a" ProvisioningState : Succeeded Tags : AddressSpace : { "AddressPrefixes": [ "192.168.0.0/16" ] } DhcpOptions : { "DnsServers": } NetworkInterfaces : null Subnets : [ { "Name": "FrontEnd", "Etag": "W/"2d3496d8-2b85-4238-bde2-377fe660aa4a"", "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Micro soft.Network/virtualNetworks/TestVNet/subnets/FrontEnd", "AddressPrefix": "192.168.1.0/24", "IpConfigurations": , "NetworkSecurityGroup": null, "RouteTable": null, "ProvisioningState": "Succeeded" }, { "Name": "BackEnd", "Etag": "W/"2d3496d8-2b85-4238-bde2-377fe660aa4a"", "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/RG1/providers/Micro soft.Network/virtualNetworks/TestVNet/subnets/BackEnd", "AddressPrefix": "192.168.2.0/24", "IpConfigurations": , "NetworkSecurityGroup": null, "RouteTable": null, "ProvisioningState": "Succeeded" } ]
+
+<!---HONumber=August15_HO8-->

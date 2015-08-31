@@ -1,24 +1,24 @@
 <properties
-   pageTitle="Использование кэша Redis для Azure с Python"
-   description="Приступая к работе с кэшем Redis для Azure с использованием Python"
-   services="redis-cache"
-   documentationCenter=""
-   authors="MikeWasson"
-   manager="wpickett"
-   editor=""/>
+	pageTitle="Использование кэша Redis для Azure с Python | Microsoft Azure"
+	description="Приступая к работе с кэшем Redis для Azure с использованием Python"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
+	editor="v-lincan"/>
 
 <tags
-   ms.service="cache"
-   ms.devlang="python"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="required"
-   ms.date="08/04/2015"
-   ms.author="mwasson"/>
+	ms.service="cache"
+	ms.devlang="python"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="08/17/2015"
+	ms.author="sdanie"/>
 
 # Использование кэша Redis для Azure с Python
 
-В этом разделе показано, как приступить к работе с кэшем Redis для Azure с использованием Python.
+В этой статье показано, как приступить к работе с кэшем Redis для Azure, используя Python.
 
 
 ## Предварительные требования
@@ -36,7 +36,7 @@
 
   ![][2]
 
-После создания кэша щелкните его на портале для просмотра параметров кэша. Вам потребуются следующие значения.
+Создав кэш, щелкните его на портале Azure, чтобы просмотреть параметры кэша. Вам потребуются следующие значения.
 
 - **Имя узла.** Это имя, введенное при создании кэша.
 - **Порт.** Щелкните ссылку в разделе **Порты** для просмотра портов. Используйте порт SSL.
@@ -59,4 +59,4 @@
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

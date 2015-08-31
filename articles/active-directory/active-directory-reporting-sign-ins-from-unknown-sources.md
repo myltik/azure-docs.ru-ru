@@ -3,8 +3,8 @@
 	description="Отчет, в котором указываются пользователи, успешно выполнившие вход в каталог, используя анонимный IP-адрес прокси-сервера."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
+	authors="SSalahAhmed"
+	manager="gchander"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # Операции входа из неизвестных источников
 
@@ -24,4 +24,4 @@
 
 ![Операции входа из неизвестных источников](./media/active-directory-reporting-sign-ins-from-unknown-sources/signInsFromUnknownSources.PNG)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

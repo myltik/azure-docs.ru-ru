@@ -12,9 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
-
 
 
 
@@ -207,9 +206,9 @@ Add-AzureTrafficManagerEndpointConfig принимает перечисленн�
 
 ## См. также
 
-[Обзор диспетчера трафика](traffic-manager-overview.md)
+[Что такое диспетчер трафика](traffic-manager-overview.md)
 
 [Начало работы с командлетами Azure](https://msdn.microsoft.com/library/jj554332.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

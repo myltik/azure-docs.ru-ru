@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/05/2015"
+   ms.date="07/29/2015"
    ms.author="jgao"/>
 
 # Использование Apache Phoenix и SQuirreL с кластерами HBase в HDinsight  
@@ -212,7 +212,7 @@
 
 **Установка SQuirreL**
 
-1. Загрузите jar-файл SQL-клиента SQuirreL с сайта [http://squirrel-sql.sourceforge.net/#installation](http://squirrel-sql.sourceforge.net/#installation).
+1. Загрузите jar-файл SQL-клиента SQuirreL с сайта [http://squirrel-sql.sourceforge.net/\#installation](http://squirrel-sql.sourceforge.net/#installation).
 2. Откройте/запустите jar-файл. Для него требуется среда [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
 3. Нажмите кнопку **Далее** дважды.
 4. Укажите путь, для которого у вас есть разрешения на запись, и нажмите кнопку **Далее**.
@@ -285,7 +285,7 @@ JAR-файл драйвера phoenix находится в кластере HBa
 - [Настройка репликации HBase в HDInsight](hdinsight-hbase-geo-replication.md): узнайте, как настроить репликацию HBase между двумя центрами обработки данных Azure. 
 - [Анализ мнений Twitter с помощью HBase в HDInsight][hbase-twitter-sentiment]\: узнайте, как выполнять [анализ мнений](http://en.wikipedia.org/wiki/Sentiment_analysis) в режиме реального времени на основе больших данных, используя HBase в кластере Hadoop в HDInsight.
 
-[azure-portal]: https://manage.windowsazure.com
+[azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
 [hdinsight-versions]: hdinsight-component-versioning.md
@@ -306,4 +306,4 @@ JAR-файл драйвера phoenix находится в кластере HBa
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

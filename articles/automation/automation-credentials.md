@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Ресурсы учетных данных в службе автоматизации Azure"
+   pageTitle="Ресурсы-контейнеры учетных данных в службе автоматизации Azure | Microsoft Azure"
    description="Ресурсы учетных данных службы автоматизации Azure содержат учетные данные безопасности, которые могут использоваться для аутентификации при доступе к ресурсам из Runbook. В этой статье описывается, как создать ресурсы учетных данных и использовать их в Runbook."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Ресурсы учетных данных в службе автоматизации Azure
@@ -103,4 +103,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -25,9 +25,9 @@
 ##Из версии 2.0.0 в 3.0.0
 При использовании Reach в приложении необходимо добавить значение `remote-notification` в массив `UIBackgroundModes` в файле Info.plist для получения удаленных уведомлений.
 
-Метод `application:applicationDidReceiveRemoteNotification:` должен быть заменен на `application:applicationDidReceiveRemoteNotification:fetchCompletionHandler:` в делегате приложения.
+Метод `application:didReceiveRemoteNotification:` необходимо заменить на `application:didReceiveRemoteNotification:fetchCompletionHandler:` в делегате приложения.
 
-Следующие методы делегата являются устаревшими, поэтому их необходимо удалить из делегата приложения:
+«AEPushDelegate.h» — нерекомендуемый интерфейс, поэтому все ссылки на него необходимо удалить. Это в частности подразумевает удаление метода `[[EngagementAgent shared] setPushDelegate:self]` и метода делегата из делегата приложения:
 
 	-(void)willRetrieveLaunchMessage;
 	-(void)didFailToRetrieveLaunchMessage;
@@ -70,4 +70,4 @@
 -   Класс `CapptainUtils` переименовывается в `EngagementUtils`.
 -   Класс `CapptainViewController` переименовывается в `EngagementViewController`.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -208,4 +208,4 @@
 [Universal Windows app project for Azure Mobile Services using MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
@@ -62,12 +62,18 @@
 
 5.	Теперь можно использовать соединитель POP3 в потоке. Выберите триггер "Получение электронной почты" и укажите частоту и интервал. Можно использовать адрес электронной почты, извлеченный из триггера POP3, для других действий в потоке.
 		 
-	
+
 	![][5]
 	![][6]
+## Дополнительные возможности соединителя
+После создания соединителя его можно добавить в рабочий бизнес-процесс с помощью приложения логики. См. раздел [Что такое приложения логики?](app-service-logic-what-are-logic-apps.md).
+
+Справку по API REST Swagger см. в статье [Справочные материалы по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+
+Можно также просматривать статистику производительности и управлять безопасностью соединителя. См. статью [Управление встроенными приложениями API и соединителями, а также их мониторинг](app-service-logic-monitor-your-connectors.md).
 
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-pop3/img1.PNG
 [2]: ./media/app-service-logic-connector-pop3/img2.PNG
 [3]: ./media/app-service-logic-connector-pop3/img3.png
@@ -75,4 +81,4 @@
 [5]: ./media/app-service-logic-connector-pop3/img5.PNG
 [6]: ./media/app-service-logic-connector-pop3/img6.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

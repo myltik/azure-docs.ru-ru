@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Обновление среды разработки Service Fabric"
+   pageTitle="Обновление среды разработки Service Fabric | Microsoft Azure"
    description="Обновляйте среду разработки Service Fabric и пользуйтесь новейшей средой выполнения, пакетом SDK и инструментами."
    services="service-fabric"
    documentationCenter=".net"
@@ -53,4 +53,4 @@
 
  [1]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Ссылка WebPI"
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

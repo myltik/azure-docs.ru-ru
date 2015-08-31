@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Проверка подлинности приложения для единого входа с помощью библиотеки проверки подлинности Active Directory (iOS) | Microsoft Azure" 
-	description="Узнайте, как аутентифицировать пользователей для единого входа с помощью ADAL в приложении iOS." 
-	documentationCenter="ios" 
-	authors="mattchenderson" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Проверка подлинности приложения для единого входа с помощью библиотеки проверки подлинности Active Directory (iOS) | Microsoft Azure"
+	description="Узнайте, как аутентифицировать пользователей для единого входа с помощью ADAL в приложении iOS."
+	documentationCenter="ios"
+	authors="mattchenderson"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="mahender"/>
 
 # Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory
@@ -120,6 +120,5 @@
 [портале управления Azure]: https://manage.windowsazure.com/
 [Active Directory для iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 [библиотеку проверки подлинности Active Directory для iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

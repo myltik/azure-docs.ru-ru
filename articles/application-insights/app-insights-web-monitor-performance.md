@@ -102,11 +102,16 @@ HTTP-запросы включают в себя все запросы GET и PO
 
 Выбор любой метрики отключит остальные, и они не будут отображаться на этой диаграмме.
 
-## Добавление дополнительных счетчиков производительности
+## Счетчики производительности системы
 
 Некоторые метрики, доступные для выбора, представляют собой [счетчики производительности](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). Windows содержит много таких счетчиков. Вы можете также определить свой счетчик.
 
-Если требующиеся счетчики отсутствуют в списке, их можно добавить в набор, который собирает пакет SDK. Откройте файл ApplicationInsights.config и измените директиву сборщика данных производительности:
+В этом примере показаны счетчики производительности, доступные по умолчанию. Мы [добавили отдельную диаграмму](app-insights-metrics-explorer.md#editing-charts-and-grids) для каждого счетчика и присвоили имена этим диаграммам, [сохранив их в избранное](app-insights-metrics-explorer.md#editing-charts-and-grids):
+
+![](./media/app-insights-web-monitor-performance/sys-perf.png)
+
+
+Если требующиеся счетчики отсутствуют в списке свойств, их можно добавить в набор, который собирает пакет SDK. Откройте файл ApplicationInsights.config и измените директиву сборщика данных производительности:
 
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
       <Counters>
@@ -115,7 +120,7 @@ HTTP-запросы включают в себя все запросы GET и PO
       </Counters>
     </Add>
 
-Используется следующий формат: `\Category(instance)\Counter"`, а для категорий без экземпляров — просто `\Category\Counter`.
+Используется следующий формат: `\Category(instance)\Counter"`, а для категорий без экземпляров — просто `\Category\Counter`. Чтобы выяснить, какие счетчики доступны в системе, прочитайте [это введение](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters).
 
 `ReportAs` требуется для имен счетчиков, которые содержат символы, отличные от букв, круглых скобок, косой черты, дефисов, символов подчеркивания, пробелов и точек.
 
@@ -178,4 +183,4 @@ HTTP-запросы включают в себя все запросы GET и PO
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

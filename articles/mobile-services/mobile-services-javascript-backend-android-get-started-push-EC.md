@@ -18,7 +18,7 @@
 
 # Добавление push-уведомлений к приложению мобильных служб
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-ec.md)]
 
 В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Android с помощью Google Cloud Messaging (GCM). В этом учебнике объясняется включение push-уведомлений с помощью концентраторов уведомлений Azure в проекте быстрого запуска. По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
 
@@ -35,11 +35,11 @@
 
 ##Предварительные требования
 
-[AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites-ec.md)]
 
 ##<a id="register"></a>Включение Google Cloud Messaging
 
-[AZURE.INCLUDE [Включение GCM](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [Включение GCM](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>Настройка мобильных служб для отправки push-запросов
 
@@ -49,7 +49,7 @@
 
 ###Проверка версии Android SDK
 
-[AZURE.INCLUDE [Проверка пакета SDK](../../includes/mobile-services-verify-android-sdk-version-EC.md)]
+[AZURE.INCLUDE [Проверка пакета SDK](../../includes/mobile-services-verify-android-sdk-version-ec.md)]
 
 Далее следует установить службы Google Play. Google Cloud Messaging предъявляет некоторые требования к минимальному уровню API для разработки и тестирования, которым должно удовлетворять свойство **minSdkVersion** в манифесте.
 
@@ -57,11 +57,11 @@
 
 ###Добавление служб Google Play в проект
 
-[AZURE.INCLUDE [Добавление служб Play](../../includes/mobile-services-add-Google-play-services-EC.md)]
+[AZURE.INCLUDE [Добавление служб Play](../../includes/mobile-services-add-google-play-services-ec.md)]
 
 ###Добавление кода
 
-[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-ec.md)]
 
 
 ##<a id="update-scripts"></a>Обновление зарегистрированных скриптов вставки на портале управления
@@ -212,4 +212,4 @@
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

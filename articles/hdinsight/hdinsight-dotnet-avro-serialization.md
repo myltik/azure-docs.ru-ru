@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Сериализация данных с помощью библиотеки Microsoft Avro | Microsoft Azure" 
-	description="Узнайте, как HDInsight с помощью Avro выполняет сериализацию данных большого размера." 
-	services="hdinsight" 
-	documentationCenter="" 
+<properties
+	pageTitle="Сериализация данных с помощью библиотеки Microsoft Avro | Microsoft Azure"
+	description="Узнайте, как HDInsight с помощью Avro выполняет сериализацию данных большого размера."
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian" 
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2015"
 	ms.author="jgao"/>
 
 
@@ -27,14 +28,14 @@
 
 Сериализованное представление объекта в системе Avro состоит из двух частей: схемы и фактического значения. Схема Avro описывает независимую от языка модель сериализованных данных с помощью JSON. Она существует параллельно с двоичным представлением данных. Наличие отдельной от двоичного представления схемы позволяет записывать каждый объект без нагрузок в зависимости от значения, что ускоряет сериализацию и обеспечивает небольшой размер представления.
 
-##<a name="hadoopScenario"></a>Сценарий Hadoop 
+##<a name="hadoopScenario"></a>Сценарий Hadoop
 Формат сериализации Apache Avro широко используется в Azure HDInsight и других средах Apache Hadoop. Это удобный способ для представления сложных структур данных в заданиях Hadoop MapReduce. Формат файлов Avro (файлов контейнера объектов Avro) был разработан для поддержки распределенной модели программирования MapReduce. Основная особенность, которая обеспечивает распределение, состоит в «делимости» файлов в том смысле, что можно отыскать любую точку в файле и начать чтение с определенного блока.
- 
+
 ##<a name="serializationMAL"></a>Сериализация в библиотеке Microsoft Avro
 Библиотека .NET для Avro поддерживает два типа сериализации объектов:
 
-- **отражение** — схема JSON для типов создается автоматически с учетом атрибутов контракта данных типов .NET, которые необходимо сериализовать; 
-- **универсальная запись** — схема JSON задается явно в записи, представленной классом [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx), когда отсутствуют типы .NET для описания схемы, чтобы сериализовать данные. 
+- **отражение** — схема JSON для типов создается автоматически с учетом атрибутов контракта данных типов .NET, которые необходимо сериализовать;
+- **универсальная запись** — схема JSON задается явно в записи, представленной классом [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx), когда отсутствуют типы .NET для описания схемы, чтобы сериализовать данные.
 
 Когда схема известна для модулей записи и чтения потока, данные могут передаваться без схемы. В случаях, когда используется файл контейнера объектов Avro, схема хранится в этом файле. Могут задаваться и другие параметры, такие как кодек для сжатия данных. Эти сценарии рассматриваются более подробно ниже и проиллюстрированы с помощью примеров кода.
 
@@ -42,7 +43,7 @@
 ##<a name="prerequisites"></a> Предварительные требования для библиотеки Microsoft Avro
 
 - <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
-- <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 или более поздней версии) 
+- <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 или более поздней версии)
 
 Обратите внимание, что зависимость Newtonsoft.Json.dll загружается автоматически вместе с установкой библиотеки Microsoft Avro. Эта процедура предоставлена в следующем разделе.
 
@@ -51,17 +52,17 @@
 
 1. Перейдите на вкладку **Проект** -> **Управление пакетами NuGet...**
 2. Найдите Microsoft.Hadoop.Avro в поле **Поиск в Интернете**.
-3. Нажмите кнопку **Установить** рядом с пунктом **Библиотека Microsoft Azure HDInsight Avro**. 
+3. Нажмите кнопку **Установить** рядом с пунктом **Библиотека Microsoft Azure HDInsight Avro**.
 
 Обратите внимание, что зависимость Newtonsoft.Json.dll (>=6.0.4) также скачивается автоматически вместе с библиотекой Microsoft Avro.
 
 Заметки о текущем выпуске см. на <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">домашней странице библиотеки Microsoft Avro</a>.
- 
+
 ##<a name="sourceCode"></a>Исходный код библиотеки Microsoft Avro
 
 Исходный код библиотеки Microsoft Avro доступен на <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">домашней странице библиотеки Microsoft Avro</a>.
 
-##<a name="compiling"></a>Компиляция схемы с помощью библиотеки Microsoft Avro 
+##<a name="compiling"></a>Компиляция схемы с помощью библиотеки Microsoft Avro
 
 Библиотека Microsoft Avro содержит служебную программу создания кода, которая позволяет создавать типы C# автоматически на основе ранее определенной схемы JSON. Эта служебная программа создания кода не распространяется в виде двоичного исполняемого файла, но ее можно легко построить с помощью следующей процедуры.
 
@@ -111,7 +112,7 @@
  * <a href="#Scenario6">** Использование Avro для отправки данных для службы Microsoft Azure HDInsight **</a> — этот пример показывает, как сериализация Avro взаимодействует со службой HDInsight. Для выполнения этого примера требуется активная подписка Azure и доступ к кластеру Azure HDInsight.
 
 ###<a name="Scenario1"></a>Пример 1. Сериализация с помощью отражения
- 
+
 Схема JSON для типов может создаваться автоматически библиотекой Microsoft Avro с использованием отражения атрибутов контракта данных объектов C#, которые необходимо сериализовать. Библиотека Microsoft Avro создает сериализатор [**IAvroSeralizer<T>**](http://msdn.microsoft.com/library/dn627341.aspx) для определения сериализуемых полей.
 
 В этом примере объекты (класс **SensorData** c членом структуры **Location**) сериализуются в поток в памяти, а этот поток, в свою очередь, десериализуется. Далее результат сравнивается с исходным экземпляром для подтверждения, что объект **SensorData** был восстановлен в полном соответствии с оригиналом.
@@ -170,7 +171,7 @@
                 //Create a memory stream buffer
                 using (var buffer = new MemoryStream())
                 {
-                    //Create a data set by using sample class and struct 
+                    //Create a data set by using sample class and struct
                     var expected = new SensorData { Value = new byte[] { 1, 2, 3, 4, 5 }, Position = new Location { Room = 243, Floor = 1 } };
 
                     //Serialize the data to the specified stream
@@ -225,7 +226,7 @@
             }
         }
     }
-    // The example is expected to display the following output: 
+    // The example is expected to display the following output:
     // SERIALIZATION USING REFLECTION
     //
     // Serializing Sample Data Set...
@@ -276,8 +277,8 @@
                                 ""name"":""Microsoft.Hadoop.Avro.Specifications.SensorData"",
                                 ""fields"":
                                     [
-                                        { 
-                                            ""name"":""Location"", 
+                                        {
+                                            ""name"":""Location"",
                                             ""type"":
                                                 {
                                                     ""type"":""record"",
@@ -349,7 +350,7 @@
         }
     }
 	}
-    // The example is expected to display the following output: 
+    // The example is expected to display the following output:
     // SERIALIZATION USING GENERIC RECORD
     //
     // Defining the Schema and creating Sample Data Set...
@@ -600,7 +601,7 @@
     // For Pair 2 result of Data Set Identity Comparison is True
     // ----------------------------------------
     // Press any key to exit.
-  
+
 
 ###<a name="Scenario4"></a>Пример 4. Сериализация с помощью файлов контейнеров объектов и сериализация с помощью универсальной записи
 
@@ -644,8 +645,8 @@
                                 ""name"":""Microsoft.Hadoop.Avro.Specifications.SensorData"",
                                 ""fields"":
                                     [
-                                        { 
-                                            ""name"":""Location"", 
+                                        {
+                                            ""name"":""Location"",
                                             ""type"":
                                                 {
                                                     ""type"":""record"",
@@ -873,7 +874,7 @@
 [Спецификация Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) позволяет использовать дополнительные кодеки сжатия (помимо **Null** и **Deflate**, которые используются по умолчанию). В этом примере не реализуется абсолютно новый кодек, такой как Snappy (который упоминается как поддерживаемый дополнительный кодек в [спецификации Avro](http://avro.apache.org/docs/current/spec.html#snappy)). Здесь показано, как использовать реализацию .NET Framework 4.5 кодека [**Deflate**][deflate-110], которая обеспечивает лучший алгоритм сжатия на основе библиотеки сжатия [zlib](http://zlib.net/), чем используемая по умолчанию версия .NET Framework 4.
 
 
-    // 
+    //
     // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
     // to ensure the desired implementation of the Deflate compression algorithm is used.
     // Ensure your C# project is set up accordingly.
@@ -916,7 +917,7 @@
         #endregion
 
         #region Defining custom codec based on .NET Framework V.4.5 Deflate
-        //Avro.NET codec class contains two methods, 
+        //Avro.NET codec class contains two methods,
         //GetCompressedStreamOver(Stream uncompressed) and GetDecompressedStreamOver(Stream compressed),
         //which are the key ones for data compression.
         //To enable a custom codec, one needs to implement these methods for the required codec.
@@ -926,7 +927,7 @@
         //cannot be directly used for Avro because it does not support vital operations like Seek.
         //Thus one needs to implement two classes inherited from stream
         //(one for compressed and one for decompressed stream)
-        //that use Deflate compression and implement all required features. 
+        //that use Deflate compression and implement all required features.
         internal sealed class CompressionStreamDeflate45 : Stream
         {
             private readonly Stream buffer;
@@ -1128,7 +1129,7 @@
 
         #region Define modified Codec Factory
         //Define modified codec factory to be used in the reader.
-        //It will catch the attempt to use "Deflate" and provide  a custom codec. 
+        //It will catch the attempt to use "Deflate" and provide  a custom codec.
         //For all other cases, it will rely on the base class (CodecFactory).
         internal sealed class CodecFactoryDeflate45 : CodecFactory
         {
@@ -1386,8 +1387,8 @@
 
 Прежде чем запустить образец, введите всю информацию, изложенную в требованиях, в файл конфигурации образца. Это можно осуществить двумя путями:
 
-* отредактировать файл app.config в корневом каталоге данного образца, а затем собрать образец; 
-* сначала собрать образец, а затем отредактировать файл AvroHDISample.exe.config в каталоге сборки. 
+* отредактировать файл app.config в корневом каталоге данного образца, а затем собрать образец;
+* сначала собрать образец, а затем отредактировать файл AvroHDISample.exe.config в каталоге сборки.
 
 В обоих случаях все изменения необходимо вносить в разделе параметров **<appSettings>**. Следуйте указаниям в файле. Чтобы запустить образец, необходимо выполнить следующую команду из командной строки (предполагается, что ZIP-файл, предоставляемый с образцом, извлечен в папку C:\\AvroHDISample; в противном случае используйте соответствующий путь к файлу):
 
@@ -1403,7 +1404,4 @@
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

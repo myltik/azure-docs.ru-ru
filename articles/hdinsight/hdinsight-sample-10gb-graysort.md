@@ -4,6 +4,7 @@
 	description="Узнайте, как выполнять сортировку graysort общего назначения для очень больших объемов данных, обычно не менее 100 ТБ, на Hadoop HDInsight с использованием Azure PowerShell."
 	editor="cgronlun"
 	manager="paulettm"
+	tags="azure-portal"
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"/>
@@ -433,4 +434,4 @@
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

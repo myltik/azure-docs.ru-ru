@@ -23,7 +23,7 @@
 
 - два веб-сервера;
 - два сервера баз данных;
-- один сервер узла большинства в кластере;
+- Один сервер узла большинства кластера
 - два контроллера домена.
 
 Вот схема конфигурации (для каждого сервера указаны шаблонные имена):
@@ -64,4 +64,6 @@
 
 [Руководство по реализации служб инфраструктуры Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO7-->
+[Рабочая нагрузка служб инфраструктуры Azure: ферма SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
+
+<!---HONumber=August15_HO8-->

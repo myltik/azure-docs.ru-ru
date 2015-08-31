@@ -4,7 +4,7 @@
    services="storsimple" 
    documentationCenter="NA" 
    authors="alkohli" 
-   manager="AdinaH" 
+   manager="carolz" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/12/2015"
+   ms.date="08/17/2015"
    ms.author="alkohli"/>
 
 # Требования к системе StorSimple
@@ -188,10 +188,10 @@
 
 ## Дальнейшие действия
 
-- Сведения об [ограничениях StorSimple](storsimple-limits.md).
-- [Развертывание решения StorSimple](storsimple-deployment-walkthrough.md).
+- [Сведения о системных ограничениях StorSimple](storsimple-limits.md).
+- [Узнайте о развертывании решения StorSimple](storsimple-deployment-walkthrough.md).
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

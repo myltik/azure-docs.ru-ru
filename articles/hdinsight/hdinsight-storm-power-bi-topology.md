@@ -5,7 +5,8 @@
  documentationCenter=""
  authors="Blackmist"
  manager="paulettm"
- editor="cgronlun"/>
+ editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
@@ -54,9 +55,9 @@
 
 ## Регистрация приложения Power BI
 
-1. Следуйте указаниям в [кратком руководстве по Power BI](https://msdn.microsoft.com/en-US/library/dn931989.aspx) для регистрации в Power BI.
+1. Следуйте указаниям в [кратком руководстве по Power BI](https://msdn.microsoft.com/ru-ru/library/dn931989.aspx) для регистрации в Power BI.
 
-2. Создайте регистрацию приложения, выполнив инструкции в статье [Регистрация приложения](https://msdn.microsoft.com/en-US/library/dn877542.aspx). Она будет использоваться при доступе к API REST Power BI.
+2. Создайте регистрацию приложения, выполнив инструкции в статье [Регистрация приложения](https://msdn.microsoft.com/ru-ru/library/dn877542.aspx). Она будет использоваться при доступе к API REST Power BI.
 
     > [AZURE.IMPORTANT]Сохраните **идентификатор клиента** для регистрации приложения.
 
@@ -138,4 +139,4 @@
 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

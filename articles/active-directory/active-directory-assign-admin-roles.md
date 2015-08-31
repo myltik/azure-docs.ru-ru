@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Назначение ролей администратора в Azure AD" 
-	description="В этом разделе, объясняется, какие роли администратора доступны в Azure AD и как их назначить." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Назначение ролей администратора в Azure AD"
+	description="В этом разделе, объясняется, какие роли администратора доступны в Azure AD и как их назначить."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand" 
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/14/2015"
+	ms.author="curtand"/>
 
 # Назначение ролей администратора в Azure AD
 
@@ -85,7 +85,4 @@
 - [Управление паролями](active-directory-manage-passwords.md)
 - [Управление группами](active-directory-manage-groups.md)
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

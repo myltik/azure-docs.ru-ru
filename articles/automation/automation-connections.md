@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Ресурсы подключений в службе автоматизации Azure"
+   pageTitle="Ресурсы-контейнеры подключений в службе автоматизации Azure | Microsoft Azure"
    description="Ресурсы подключений в службе автоматизации Azure содержат данные, необходимые для подключения к внешней службе или приложению из Runbook. В статье подробно рассматриваются подключения и работа с ними как в текстовых, так и в графических модулях."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Ресурсы подключений в службе автоматизации Azure
@@ -120,4 +120,4 @@
 - [Использование связей при создании графических модулей](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

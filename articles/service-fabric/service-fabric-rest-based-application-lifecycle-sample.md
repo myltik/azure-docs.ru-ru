@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/06/2015"
+   ms.date="08/17/2015"
    ms.author="ryanwi"/>
 
 # Пример жизненного цикла приложения на основе REST
@@ -49,7 +49,7 @@
 
 Чтобы создать пакеты приложений и скопировать их в ImageStore, выполните следующие действия.
 
-1. Скопируйте C:\\Samples\\Services\\VS2015\\WordCountUpgrade\\WordCount\\pkg\\Debug в папку C:\\Temp\\WordCount. Будет создан пакет приложения WordCount. 
+1. Скопируйте C:\\Samples\\Services\\VS2015\\WordCountUpgrade\\WordCount\\pkg\\Debug в папку C:\\Temp\\WordCount. Будет создан пакет приложения WordCount.
 2. Скопируйте C:\\Temp\\WordCount в папку C:\\Temp\\WordCountUpgrade. Будет создан пакет приложения WordCountUpgrade.
 3. Откройте файл C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml в текстовом редакторе.
 4. В элементе ApplicationManifest измените атрибут ApplicationTypeVersion на "1.1.0.0". Будет обновлен номер версии приложения.
@@ -710,6 +710,4 @@ namespace ServiceFabricRestCaller
 
 [Жизненный цикл приложения Service Fabric](service-fabric-application-lifecycle.md)
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -5,15 +5,16 @@
 	manager="paulettm"
 	services="hdinsight"
 	authors="nitinme"
-	documentationCenter=""/>
+	documentationCenter=""
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="05/07/2015"
+	ms.topic="article" 
+	ms.date="08/07/2015"
 	ms.author="nitinme"/>
 
 # Начало работы в экосистеме Hadoop с эмулятором HDInsight, изолированной средой Hadoop
@@ -195,7 +196,7 @@
 
 ###<a name="scenarios"></a>Сценарии данных журнала IIS W3C
 
-Сценарий W3C создает и импортирует наборы данных журнала IIS W3C трех размеров в HDFS или хранилище больших двоичных объектов Azure: 1 МБ (небольшой), 500 МБ (средний) и 2 ГБ (большой). Он предоставляет три типа заданий и реализует каждое из них на C#, Java, Pig и Hive.
+Сценарий W3C создает и импортирует наборы данных журнала IIS W3C трех размеров в HDFS или хранилище больших двоичных объектов Azure: 1 МБ (небольшой), 500 МБ (средний) и 2 ГБ (большой). Он предоставляет три типа заданий и реализует каждое из них на C\#, Java, Pig и Hive.
 
 - **totalhits** — вычисление общего числа запросов для конкретной страницы.
 - **avgtime** — вычисление среднего времени (в секундах) для запроса на страницу.
@@ -240,7 +241,7 @@
 
 ###<a name="javamapreduce"></a>Выполнение заданий MapReduce на Java
 
-MapReduce — основной механизм вычислений для Hadoop. По умолчанию он реализован на языке Java, но существуют также примеры, в которых используются .NET и Hadoop Streaming, использующие C#. Синтаксис для выполнения задания MapReduce :
+MapReduce — основной механизм вычислений для Hadoop. По умолчанию он реализован на языке Java, но существуют также примеры, в которых используются .NET и Hadoop Streaming, использующие C\#. Синтаксис для выполнения задания MapReduce :
 
 	hadoop jar <jarFileName>.jar <className> <inputFiles> <outputFolder>
 
@@ -395,13 +396,17 @@ The samples currently contain all the required binaries, so building is not requ
 
 **Создание контейнера**
 
-1. Войдите на [портал Azure][azure-management-portal].
-2. Нажмите кнопку **ХРАНИЛИЩЕ** в левой части окна. Отобразится список учетных записей хранения для этой подписки.
-3. Выберите в списке учетную запись хранения, где требуется создать контейнер.
-4. Нажмите кнопку **КОНТЕЙНЕРЫ** в верхней части страницы.
-5. В нижней части страницы нажмите кнопку **ДОБАВИТЬ**.
-6. Введите значение в поле **ИМЯ** и выберите **ДОСТУП**. Можно использовать любой из трех уровней доступа. Значение по умолчанию — **Частный**.
-7. Нажмите кнопку **Сохранить**, чтобы сохранить изменения. На портале будет выведен новый контейнер.
+1. Выполните вход на [портал предварительной версии Azure](https://ms.portal.azure.com/).
+2. Щелкните **СОЗДАТЬ** слева, щелкните **Данные+хранилище**, а затем — **Хранилище**.
+3. В колонке учетной записи хранения настройте свойства, как показано на снимке экрана ниже.
+	
+	![Создание учетной записи хранения](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.storage.png)
+
+	Выберите **Закрепить на начальной панели** и нажмите кнопку **Создать**.
+4. Создав учетную запись хранения, в колонке новой учетной записи щелкните **Контейнеры** чтобы открыть колонку контейнеров, и нажмите кнопку **Добавить**.
+5. Введите имя контейнера и нажмите кнопку **Выбрать**.
+
+	![Создание контейнера](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.container.png)
 
 Для доступа к учетной записи хранения Azure необходимо добавить имя этой учетной записи и соответствующий ключ в файл конфигурации.
 
@@ -448,7 +453,7 @@ The samples currently contain all the required binaries, so building is not requ
 	$hdinsightJob = <JobDefinition>
 	Start-AzureHDInsightJob -Cluster http://localhost:50111 -Credential $creds -JobDefinition $hdinsightJob
 
-Будет выведен запрос при вызове Get-Credential. Необходимо использовать **hadoop** в качестве имени пользователя. Паролем может быть любая строка. Имя кластера — всегда ****http://localhost:50111**.
+Будет выведен запрос при вызове Get-Credential. Необходимо использовать **hadoop** в качестве имени пользователя. Паролем может быть любая строка. Имя кластера — всегда ****http://localhost:50111**.
 
 Дополнительную информацию об отправке заданий Hadoop см. в статье [Отправка заданий Hadoop программным способом](hdinsight-submit-hadoop-jobs-programmatically.md). Дополнительную информацию о командлетах Azure PowerShell для HDInsight см. в разделе [Справочная документация по командлетам PowerShell для HDInsight][hdinsight-powershell-reference].
 
@@ -492,4 +497,4 @@ The samples currently contain all the required binaries, so building is not requ
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

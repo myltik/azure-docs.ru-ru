@@ -3,6 +3,7 @@
 	description="Набор интерфейсов API для Apache Ambari используется для подготовки, отслеживания кластеров Apache Hadoop и управления ими. Сложность организации Hadoop компенсируется интуитивным дизайном средств управления пользователя и интерфейсов API."
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	editor="cgronlun"
 	manager="paulettm"/>
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 # Отслеживание кластеров Hadoop в HDInsight с помощью интерфейса Ambari API
@@ -146,7 +147,7 @@
 
 Теперь вы узнали, как использовать Ambari API для мониторинга. Дополнительные сведения см. на следующих ресурсах:
 
-- [Управление кластерами HDInsight с помощью портала управления][hdinsight-admin-portal]
+- [Управление кластерами HDInsight с помощью портала предварительной версии Azure][hdinsight-admin-portal]
 - [Управление кластерами HDInsight с помощью Azure PowerShell][hdinsight-admin-powershell]
 - [Управление кластерами HDInsight с помощью интерфейса командной строки][hdinsight-admin-cli]
 - [Документация по HDInsight][hdinsight-documentation]
@@ -173,6 +174,5 @@
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

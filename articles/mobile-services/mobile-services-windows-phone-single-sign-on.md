@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Проверка подлинности приложения с помощью Live Connect (Windows Phone) | Microsoft Azure" 
-	description="Узнайте, как использовать единый вход Live Connect в мобильных службах Azure из приложения Windows Phone." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Проверка подлинности приложения с помощью Live Connect (Windows Phone) | Microsoft Azure"
+	description="Узнайте, как использовать единый вход Live Connect в мобильных службах Azure из приложения Windows Phone."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/09/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # Управляемая клиентом проверка подлинности приложения Windows Phone с использованием учетной записи Майкрософт
@@ -30,11 +30,11 @@
 + Microsoft Visual Studio 2013 с обновлением 3 или более поздней версии
 + Предварительное выполнение заданий учебника [Добавление мобильных служб в существующее приложение]
 
-##Регистрация приложения для использования учетной записи Майкрософт 
+##Регистрация приложения для использования учетной записи Майкрософт
 
 Чтобы иметь возможность проверять подлинность пользователей, необходимо зарегистрировать свое приложение в центре разработчиков учетных записей Майкрософт. Затем зарегистрированное приложение необходимо подключить к своей мобильной службе. Выполните действия, указанные в следующем разделе, чтобы зарегистрировать приложение для использования учетной записи Майкрософт и подключить его к своей мобильной службе.
 
-+ [Регистрация приложения для входа с использованием учетной записи Майкрософт](mobile-services-how-to-register-microsoft-authentication.md) 
++ [Регистрация приложения для входа с использованием учетной записи Майкрософт](mobile-services-how-to-register-microsoft-authentication.md)
 
 ##<a name="permissions"></a>Предоставление разрешений только пользователям, прошедшим проверку подлинности
 
@@ -54,10 +54,10 @@
 
 5. Откройте файл проекта mainpage.xaml.cs и добавьте следующие инструкции using:
 
-        using Microsoft.Live;      
+        using Microsoft.Live;
 
 6. Добавьте в класс MainPage следующий фрагмент кода:
-	
+
         private LiveConnectSession session;
         private static string clientId = "<microsoft-account-client-id>";
         private async System.Threading.Tasks.Task AuthenticateAsync()
@@ -107,12 +107,12 @@
             this.ButtonLogin.Visibility = System.Windows.Visibility.Collapsed;
             RefreshTodoItems();
         }
-		
+
 7. В проекте приложения откройте файл проекта MainPage.xaml и добавьте следующий элемент **Button** в **TitlePanel** после элемента **TextBlock**:
 
-		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
+		<Button Name="ButtonLogin" Click="ButtonLogin_Click"
                         Visibility="Visible">Sign in</Button>
-		
+
 9. Нажмите клавишу F5, чтобы запустить приложение, и войдите в систему с помощью учетной записи Майкрософт.
 
    После успешного входа в систему приложение должно работать без ошибок, а вы должны быть в состоянии выполнять запросы мобильных служб и обновлять данные.
@@ -140,6 +140,5 @@
 [Авторизация пользователей с помощью скриптов]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

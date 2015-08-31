@@ -83,6 +83,8 @@
 Вы можете написать [Сценарий PowerShell](app-insights-powershell-script-create-resource.md) для автоматического создания ресурса.
 
 
+
+
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
@@ -92,4 +94,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

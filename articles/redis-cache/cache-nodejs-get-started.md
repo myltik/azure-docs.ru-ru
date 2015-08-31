@@ -1,26 +1,26 @@
 <properties
-   pageTitle="Использование кэша Redis для Azure с Node.js"
-   description="Начните работу с кэшем Redis для Azure с использованием Node.js и node_redis."
-   services="redis-cache"
-   documentationCenter=""
-   authors="MikeWasson"
-   manager="wpickett"
-   editor=""/>
+	pageTitle="Использование кэша Redis для Azure с Node.js | Microsoft Azure"
+	description="Начните работу с кэшем Redis для Azure с использованием Node.js и node_redis."
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
+	editor="v-lincan"/>
 
 <tags
-   ms.service="cache"
-   ms.devlang="nodejs"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="required"
-   ms.date="08/04/2015"
-   ms.author="mwasson"/>
+	ms.service="cache"
+	ms.devlang="nodejs"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="08/17/2015"
+	ms.author="sdanie"/>
 
 # Использование кэша Redis для Azure с Node.js
 
 Кэш Redis для Azure дает доступ к защищенному выделенному кэшу Redis, управляемому Майкрософт. Кэш доступен из любого приложения в Microsoft Azure.
 
-В этом разделе показано, как приступить к работе с кэшем Redis для Azure с использованием Node.js. Другой пример использования кэша Redis для Azure с Node.js см. в разделе [Построение приложения для разговоров Node.js с помощью Socket.IO на веб-сайте Azure][].
+В этой статье показано, как приступить к работе с кэшем Redis для Azure, используя Node.js. Еще один пример использования кэша Redis для Azure с Node.js см. в разделе [Создание приложения для разговоров на Node.js с использованием Socket.IO в службе приложений Azure][].
 
 
 ## Предварительные требования
@@ -42,7 +42,7 @@
   ![][2]
 
 
-После создания кэша щелкните его на портале для просмотра параметров кэша. Щелкните ссылку в разделе **Ключи** и скопируйте первичный ключ. Он потребуется для проверки подлинности запросов.
+Создав кэш, щелкните его на портале Azure, чтобы просмотреть параметры кэша. Щелкните ссылку в разделе **Ключи** и скопируйте первичный ключ. Он потребуется для проверки подлинности запросов.
 
   ![][4]
 
@@ -59,7 +59,7 @@
 
 	var redis = require("redis");
 
-    // Put in your cache name and access key.
+    // Add your cache name and access key.
 	var client = redis.createClient(6379,'<name>.redis.cache.windows.net', {auth_pass: '<key>' });
 
 	client.set("foo", "bar", function(err, reply) {
@@ -79,7 +79,7 @@
 
 ## Дальнейшие действия
 
-- [Включите диагностику кэша](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics), чтобы можно было [наблюдать](https://msdn.microsoft.com/library/azure/dn763945.aspx) за работоспособностью кэша.
+- [Включите диагностику кэша](cache-how-to-monitor.md#enable-cache-diagnostics), чтобы можно было [наблюдать](cache-how-to-monitor.md) за работоспособностью кэша.
 - Прочитайте официальную [документацию Redis](http://redis.io/documentation).
 
 
@@ -89,6 +89,6 @@
 [3]: ./media/cache-nodejs-get-started/cache03.png
 [4]: ./media/cache-nodejs-get-started/cache04.png
 
-[Построение приложения для разговоров Node.js с помощью Socket.IO на веб-сайте Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
+[Создание приложения для разговоров на Node.js с использованием Socket.IO в службе приложений Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

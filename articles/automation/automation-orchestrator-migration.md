@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Миграция модулей Runbook и пакетов интеграции для Orchestrator"
+   pageTitle="Миграция из Orchestrator в службу автоматизации Azure | Microsoft Azure"
    description="Описывает способ миграции пакетов Runbook и пакетов интеграции из System Center Orchestrator в службу автоматизации Azure."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/22/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 
@@ -81,4 +81,4 @@ Orchestrator содержит набор [стандартных действи�
 - [Стандартные действия Orchestrator](http://technet.microsoft.com/library/hh403832.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

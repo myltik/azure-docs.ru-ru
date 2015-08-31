@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -13,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="08/05/2015"
 	ms.author="larryfr"/>
 
 # Анализ данных Twitter с помощью Hive в HDInsight
 
 В этом документе вы будете получать твиты с использованием API потоковой передачи Twitter, а затем использовать Apache Hive в кластере HDInsight под управлением Linux (предварительная версия) для обработки данных в формате JSON. Результатом будет список пользователей Twitter, отправивших большинство твитов, которые содержат определенное слово.
 
-> [AZURE.NOTE]Действия, описанные в этой статье, можно применять только к кластерам HDInsight на основе Linux. Описание действий для кластеров на основе Windows см. в статье [Анализ данных Twitter с помощью Hive в HDInsight](hdinsight-analyze-twitter-data.md).
+> [AZURE.NOTE]Хотя отдельные части этого документа можно использовать для кластеров HDInsight под управлением Windows (например, Python и Hive), многие действия относятся к кластерам HDInsight под управлением Linux. Описание действий для кластеров на основе Windows см. в статье [Анализ данных Twitter с помощью Hive в HDInsight](hdinsight-analyze-twitter-data.md).
 
 ###Предварительные требования
 
@@ -318,4 +319,4 @@ Twitter позволяет получать [данные для каждого 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

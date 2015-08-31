@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Импорт файла параметров публикации в Visual Studio 2013 | Microsoft Azure" 
-	description="Узнайте, как импортировать файл параметров публикации подписки для приложения мобильных служб Azure в Visual Studio 2013." 
-	documentationCenter="" 
-	services="mobile-services" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Импорт файла параметров публикации в Visual Studio 2013 | Microsoft Azure"
+	description="Узнайте, как импортировать файл параметров публикации подписки для приложения мобильных служб Azure в Visual Studio 2013."
+	documentationCenter=""
+	services="mobile-services"
+	manager="dwrede"
+	editor=""
 	authors="ggailey777"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/13/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # Импорт файла параметров публикации подписки в Visual Studio 2013
@@ -22,7 +22,7 @@
 
 >[AZURE.NOTE]Начиная с обновления 2 для Visual Studio 2013, вам больше не нужно использовать файл параметров публикации. Visual Studio может подключиться к Azure напрямую с помощью учетных данных, предоставляемых вами.
 
-1. В Visual Studio 2013 откройте обозреватель решений, щелкните правой кнопкой проект, затем выберите команду **Добавить** и **Подключенная служба...** 
+1. В Visual Studio 2013 откройте обозреватель решений, щелкните правой кнопкой проект, затем выберите команду **Добавить** и **Подключенная служба...**
 
 	![добавление подключенной службы](./media/mobile-services-windows-how-to-import-publishsettings/mobile-add-connected-service.png)
 
@@ -60,6 +60,5 @@
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-users-js/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Использование центров уведомлений для передачи экстренных новостей (Windows Phone)" 
-	description="Использование центров уведомлений Azure для применения тегов в регистрациях, чтобы передавать экстренные новости в приложение Windows Phone." 
-	services="notification-hubs" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Использование центров уведомлений для передачи экстренных новостей (Windows Phone)"
+	description="Использование центров уведомлений Azure для применения тегов в регистрациях, чтобы передавать экстренные новости в приложение Windows Phone."
+	services="notification-hubs"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # Использование концентраторов уведомлений для передачи экстренных новостей
@@ -36,7 +36,7 @@
 Прежде всего необходимо добавить элементы пользовательского интерфейса для имеющейся главной страницы, позволяющие пользователю выбирать категории для регистрации. Выбранные пользователем категории хранятся на устройстве. При запуске приложения в центре уведомлений создается регистрация устройства с выбранными категориями, представленными в форме тегов.
 
 1. Откройте файл проекта MainPage.xaml, а затем замените элементы **Grid** с именами `TitlePanel` и `ContentPanel` следующим кодом:
-			
+
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="Breaking News" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
             <TextBlock Text="Categories" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
@@ -76,7 +76,7 @@
 		{
 		    hub = new NotificationHub("<hub name>", "<connection string with listen access>");
 		}
-		
+
 		public async Task StoreCategoriesAndSubscribe(IEnumerable<string> categories)
 		{
 		    var categoriesAsString = string.Join(",", categories);
@@ -90,21 +90,21 @@
 		        settings["categories"] = categoriesAsString;
 		    }
 		    settings.Save();
-		
+
 		    await SubscribeToCategories(categories);
 		}
-		
+
 		public async Task SubscribeToCategories(IEnumerable<string> categories)
 		{
 		    var channel = HttpNotificationChannel.Find("MyPushChannel");
-		
+
 		    if (channel == null)
 		    {
 		        channel = new HttpNotificationChannel("MyPushChannel");
 		        channel.Open();
 		        channel.BindToShellToast();
 		    }
-		
+
 		    await hub.RegisterNativeAsync(channel.ChannelUri.ToString(), categories);
 		}
 
@@ -135,12 +135,12 @@
 		    if (TechnologyCheckBox.IsChecked == true) categories.Add("Technology");
 		    if (ScienceCheckBox.IsChecked == true) categories.Add("Science");
 		    if (SportsCheckBox.IsChecked == true) categories.Add("Sports");
-		
+
 		    await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
-		
+
 		    MessageBox.Show("Subscribed to: " + string.Join(",", categories));
 		}
-	
+
 	Этот метод создает список категорий и использует класс **Notifications** класс для хранения списка в локальном хранилище и регистрации соответствующих тегов в концентраторе уведомлений. При изменении категорий регистрация создается заново с новыми категориями.
 
 Ваше приложение теперь может сохранять набор категорий в локальном хранилище на устройстве и регистрироваться в центре уведомлений всякий раз, когда пользователь изменяет выбранные категории.
@@ -174,7 +174,7 @@
 		protected override void OnNavigatedTo(NavigationEventArgs e)
 		{
 		    var categories = ((App)Application.Current).notifications.RetrieveCategories();
-		
+
 		    if (categories.Contains("World")) WorldCheckBox.IsChecked = true;
 		    if (categories.Contains("Politics")) PoliticsCheckBox.IsChecked = true;
 		    if (categories.Contains("Business")) BusinessCheckBox.IsChecked = true;
@@ -223,7 +223,7 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
 + [Use Notification Hubs to broadcast localized breaking news]
 
-	Learn how to expand the breaking news app to enable sending localized notifications. 
+	Learn how to expand the breaking news app to enable sending localized notifications.
 
 + [Notify users with Notification Hubs]
 
@@ -254,9 +254,4 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-
-
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

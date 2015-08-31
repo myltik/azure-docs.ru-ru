@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Управление записями системы контроля доступа в StorSimple"
+   pageTitle="Управление записями системы контроля доступа в StorSimple | Microsoft Azure"
    description="Описывает, как использовать записи контроля доступа (ACR), чтобы определить, какие узлы могут подключаться к тому на устройстве StorSimple."
    services="storsimple"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/10/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # Управление записями системы контроля доступа в StorSimple
@@ -94,4 +94,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

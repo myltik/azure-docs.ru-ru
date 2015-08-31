@@ -13,30 +13,33 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="07/24/2015"
+   ms.date="08/14/2015"
    ms.author="tomfitz"/>
 
 # Проверка подлинности субъекта-службы в диспетчере ресурсов Azure
 
 В этом разделе показано, как разрешить субъекту-службе (например, автоматизированному процессу, приложению или службе) получать доступ к другим ресурсам в вашей подписке. Диспетчер ресурсов Azure позволяет использовать управление доступом на основе ролей для предоставления разрешений субъекту-службе и его проверки подлинности. В этом разделе показано, как использовать PowerShell и CLI Azure для назначения роли субъекту-службе и его проверки подлинности.
 
+Здесь рассматривается осуществление проверки подлинности либо по имени пользователя и паролю, либо по сертификату.
+
+Можно использовать Azure PowerShell или Azure CLI для Mac, Linux и Windows. Если вы еще не установили Azure PowerShell, см. статью [Как установить и настроить Azure PowerShell](./powershell-install-configure.md). Если у вас не установлен интерфейс CLI Azure для Mac, Linux или Windows, см. статью [Установка и настройка CLI Azure](xplat-cli-install.md).
 
 ## Основные понятия
 1. Azure Active Directory (AAD) — это служба управления удостоверениями и доступом, созданная для облака. Дополнительные сведения см. в статье [Служба Azure Active Directory](active-directory/active-directory-whatis.md).
 2. Субъект-служба — это экземпляр приложения в каталоге, которому требуется доступ к другим ресурсам.
 3. Приложение AD — запись в каталоге, которая связывает некоторое приложение со службой AAD. Дополнительные сведения см. в статье [Проверка подлинности в службе Azure AD: основы](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
 
-## Предоставление доступа и проверка подлинности субъекта-службы с помощью PowerShell
+## Проверка подлинности субъекта-службы по паролю: PowerShell
 
-Если вы еще не установили Azure PowerShell, см. статью [Как установить и настроить Azure PowerShell](./powershell-install-configure.md).
-
-Для начала нужно создать субъект-службу. Для этого необходимо создать приложение в каталоге. В данном разделе приводятся инструкции по созданию приложения в каталоге.
+В этом разделе вы выполните действия, необходимые для создания субъекта-службы Azure Active Directory, назначите роль субъекту-службе и пройдете проверку подлинности, используя идентификатор приложения и пароль.
 
 1. Создайте приложение AAD, выполнив команду **New-AzureADApplication**. Укажите отображаемое имя для вашего приложения, URI страницы, описывающей его (ссылка не проверяется), коды URI, идентифицирующие приложение, и пароль для его удостоверения.
 
         PS C:\> $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password "<Your_Password>"
 
-     Возвращается приложение Azure AD. Свойство **ApplicationId** требуется для создания субъектов-служб, назначения ролей и получения токенов JWT. Сохраните выходные данные или передайте их переменной.
+     Проверьте новый объект приложения. Свойство **ApplicationId** требуется для создания субъектов-служб, назначения ролей и получения токенов JWT.
+
+        PS C:\> $azureAdApplication
 
         Type                    : Application
         ApplicationId           : a41acfda-d588-47c9-8166-d659a335a865
@@ -44,10 +47,9 @@
         AvailableToOtherTenants : False
         AppPermissions          : {{
                             "claimValue": "user_impersonation",
-                            "description": "Allow the application to access My
-                              Application on behalf of the signed-in user.",
+                            "description": "Allow the application to access <Your Application Display Name> on behalf of the signed-in user.",
                             "directAccessGrantTypes": [],
-                            "displayName": "Access <<Your Application Display Name>>",
+                            "displayName": "Access <Your Application Display Name>",
                             "impersonationAccessGrantTypes": [
                               {
                                 "impersonated": "User",
@@ -56,12 +58,10 @@
                             ],
                             "isDisabled": false,
                             "origin": "Application",
-                            "permissionId":
-                            "b866ef28-9abb-4698-8c8f-eb4328533831",
+                            "permissionId": "b866ef28-9abb-4698-8c8f-eb4328533831",
                             "resourceScopeType": "Personal",
-                            "userConsentDescription": "Allow the application
-                             to access <<Your Application Display Name>> on your behalf.",
-                            "userConsentDisplayName": "Access <<Your Application Display Name>>",
+                            "userConsentDescription": "Allow the application to access <Your Application Display Name> on your behalf.",
+                            "userConsentDisplayName": "Access <Your Application Display Name>",
                             "lang": null
                           }}
 
@@ -99,9 +99,111 @@
      После этого субъект-служба для приложения AAD, которое вы создали, пройдет проверку.
 
 
-## Предоставление доступа субъекту-службе и проверка его подлинности с помощью CLI Azure
+## Проверка подлинности субъекта-службы по сертификату: PowerShell
 
-Если у вас не установлен интерфейс CLI Azure для Mac, Linux или Windows, см. статью [Установка и настройка CLI Azure](xplat-cli-install.md).
+В этом разделе вы выполните действия, необходимые для создания субъекта-службы Azure Active Directory, назначите роль субъекту-службе и пройдете проверку подлинности, используя сертификат. В этом разделе предполагается, что вы уже выдали сертификат.
+
+Здесь демонстрируются два способа работы с сертификатами: учетные данные ключа и значения ключа. Вы можете использовать любой из этих подходов.
+
+Для начала задайте в PowerShell определенные значения, которые потребуются вам позднее при создании приложении.
+
+1. Для обоих подходов создайте объект X509Certificate из сертификата и извлеките значение ключа. Используйте путь сертификата и соответствующий пароль.
+
+        $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate("C:\certificates\examplecert.pfx", "yourpassword")
+        $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
+
+2. Если вы используете учетные данные ключа, создайте объект учетных данных ключа и присвойте ему значение `$keyValue` из предыдущего шага.
+
+        $currentDate = Get-Date
+        $endDate = $currentDate.AddYears(1)
+        $keyId = [guid]::NewGuid()
+        $keyCredential = New-Object  Microsoft.Azure.Commands.Resources.Models.ActiveDirectory.PSADKeyCredential
+        $keyCredential.StartDate = $currentDate
+        $keyCredential.EndDate= $endDate
+        $keyCredential.KeyId = $keyId
+        $keyCredential.Type = "AsymmetricX509Cert"
+        $keyCredential.Usage = "Verify"
+        $keyCredential.Value = $keyValue
+
+3. Создайте приложение в каталоге. Первая команда показывает, как использовать значения ключа.
+
+        $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -KeyValue $keyValue -KeyType AsymmetricX509Cert       
+        
+    Второй пример демонстрирует назначение учетных данных ключа.
+
+         $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -KeyCredentials $keyCredential
+
+    Проверьте новый объект приложения. Свойство **ApplicationId** требуется для создания субъектов-служб, назначения ролей и получения токенов JWT.
+
+        PS C:\> $azureAdApplication
+
+        Type                    : Application
+        ApplicationId           : 76fa8d97-f07e-4b9a-b871-a57a7acd777a
+        ApplicationObjectId     : c36b7b57-a949-4401-b381-18a5210aff10
+        AvailableToOtherTenants : False
+        AppPermissions          : {{
+                            "claimValue": "user_impersonation",
+                            "description": "Allow the application to access <Your Application Display Name> on behalf of the signed-in
+                          user.",
+                            "directAccessGrantTypes": [],
+                            "displayName": "Access <Your Application Display Name>",
+                            "impersonationAccessGrantTypes": [
+                              {
+                                "impersonated": "User",
+                                "impersonator": "Application"
+                              }
+                            ],
+                            "isDisabled": false,
+                            "origin": "Application",
+                            "permissionId": "9f13c6c6-35ba-43d6-b8b3-6a87aa641388",
+                            "resourceScopeType": "Personal",
+                            "userConsentDescription": "Allow the application to access <Your Application Display Name> on your behalf.",
+                            "userConsentDisplayName": "Access <Your Application Display Name>",
+                            "lang": null
+                          }}
+
+4. Создайте субъект-службу для своего приложения.
+
+        PS C:\> New-AzureADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+
+    Вы создали субъект-службу в каталоге, но службе не назначены разрешения и область. Необходимо явным образом предоставить субъекту-службе разрешения на выполнение операций в некоторой области.
+
+5. Предоставьте субъекту-службе разрешения на вашу подписку. В этом примере вы предоставите субъекту-службе разрешение на чтение всех ресурсов в подписке. Для параметра **ServicePrincipalName** укажите значение **ApplicationId** или **IdentifierUris**, которое использовалось при создании приложения. Дополнительные сведения об управлении доступом на основе ролей см. в статье [Управление доступом к ресурсам и его аудит](azure-portal/resource-group-rbac.md).
+
+        PS C:\> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
+
+6. Для проверки подлинности из приложения, добавьте следующий код. После извлечения клиента вы сможете получить доступ к ресурсам в подписке.
+
+        string clientId = "<Client ID for your AAD app>"; 
+        var subscriptionId = "<Your Azure SubscriptionId>"; 
+        string tenant = "<AAD tenant name>.onmicrosoft.com"; 
+
+        var authContext = new AuthenticationContext(string.Format("https://login.windows.net/{0}", tenant)); 
+
+        X509Certificate2 cert = null; 
+        X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser); 
+        string certName = "examplecert"; 
+        try 
+        { 
+            store.Open(OpenFlags.ReadOnly); 
+            var certCollection = store.Certificates; 
+            var certs = certCollection.Find(X509FindType.FindBySubjectName, certName, false); 
+            cert = certs[0]; 
+        } 
+        finally 
+        { 
+            store.Close(); 
+        }        
+
+        var certCred = new ClientAssertionCertificate(clientId, cert); 
+        var token = authContext.AcquireToken("https://management.core.windows.net/", certCred); 
+        var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken); 
+        var client = new ResourceManagementClient(creds); 
+        
+
+## Проверка подлинности субъекта-службы по паролю: CLI Azure
+
+Для начала нужно создать субъект-службу. Для этого необходимо создать приложение в каталоге. В данном разделе приводятся инструкции по созданию приложения в каталоге.
 
 1. Создайте приложение AAD, выполнив команду **azure ad app create**. Укажите отображаемое имя для вашего приложения, URI страницы, описывающей его (ссылка не проверяется), коды URI, идентифицирующие приложение, и пароль для его удостоверения.
 
@@ -158,4 +260,4 @@
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Проверка параметров диспетчера трафика
 
@@ -54,7 +54,7 @@
 
 ## См. также
 
-[Информация о методах балансировки нагрузки диспетчера трафика](../about-traffic-manager-balancing-methods.md) [Задачи по настройке диспетчера трафика](https://msdn.microsoft.com/library/azure/hh744830.aspx) [Диспетчер трафика](../traffic-manager.md)
+[О методах маршрутизации трафика в диспетчере трафика](../about-traffic-manager-balancing-methods.md) [Диспетчер трафика](../traffic-manager.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

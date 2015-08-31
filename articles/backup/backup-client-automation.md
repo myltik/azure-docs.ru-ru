@@ -7,28 +7,33 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/17/2015"
-	ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="aashishr"; "jimpark"/>
 
 
-# Развертывание резервного копирования в Azure для Windows Server или клиента Windows и управление им с помощью Azure PowerShell
-В этой статье описано, как использовать Azure PowerShell для настройки службы архивации Azure на сервере Windows Server или клиенте Windows и для управления резервным копированием и восстановлением данных.
+# Развертывание резервного копирования в Azure для Windows Server или клиента Windows и управление им с помощью PowerShell
+В этой статье описано, как использовать PowerShell для настройки службы архивации Azure на сервере Windows Server или клиенте Windows и для управления резервным копированием и восстановлением данных.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## Настройка и регистрация
-С помощью Azure PowerShell можно автоматизировать указанные ниже задачи по настройке и регистрации:
+С помощью PowerShell можно автоматизировать указанные ниже задачи по настройке и регистрации.
 
 - создать хранилище архивации;
 - Установка агента службы архивации Azure.
 - Регистрация в службе архивации Azure
-- Сеть
+- Параметры сети
+- Параметры шифрования
+
+### создать хранилище архивации;
+Можно создать новое хранилище архивов с помощью командлета **New-AzureBackupVault**. Хранилище архивов представляет собой ресурс ARM, поэтому вам потребуется разместить его в группе ресурсов. В консоли Azure PowerShell с повышенными привилегиями выполните следующие команды:
+
+```
+PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
+PS C:\> $backupvault = New-AzureBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+```
+
+Вы можете получить список всех хранилищ архивов в данной подписке при помощи командлета **Get-AzureBackupVault**.
+
 
 ### Установка агента службы архивации Azure.
 Прежде чем устанавливать агент службы архивации Azure, необходимо загрузить установщик и разместить его в системе Windows Server. Последнюю версию установщика можно загрузить в [центре загрузки Майкрософт](http://aka.ms/azurebackup_agent) или на странице панели мониторинга хранилища архивов. Сохраните установщик в удобном для вас месте, например в папке *C:\\Downloads*.
@@ -73,8 +78,9 @@ PS C:\> MARSAgentInstaller.exe /?
 Перед регистрацией в службе резервного копирования Azure убедитесь, что соблюдены [необходимые условия](backup-try-azure-backup-in-10-mins.md). Необходимо следующее:
 
 - Действующая подписка на Azure
-- Создание хранилища архивации
-- Скачайте учетные данные хранилища и сохраните их в удобном расположении (например, в папке *C:\Downloads*). Для удобства вы можете изменить учетные данные хранилища.
+- Хранилище архивов
+
+Чтобы загрузить учетные данные хранилища, запустите командлет **Get-AzureBackupVaultCredentials** в консоли Azure PowerShell и сохраните их в удобном месте, например в папке *C:\\Загрузки*.
 
 ```
 PS C:\> $credspath = "C:"
@@ -86,7 +92,7 @@ f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.Vaul
 Регистрация компьютера в хранилище выполняется с помощью командлета [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx):
 
 ```
-PS C:\> $cred = $credspath + $credsfilename 
+PS C:\> $cred = $credspath + $credsfilename
 PS C:\> Start-OBRegistration -VaultCredentials $cred -Confirm:$false
 
 CertThumbprint      : 7a2ef2caa2e74b6ed1222a5e89288ddad438df2
@@ -303,17 +309,35 @@ Microsoft Azure Backup Are you sure you want to remove this backup policy? This 
 ```
 PS C:\> Set-OBPolicy -Policy $newpolicy
 Microsoft Azure Backup Do you want to save this backup policy ? [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
-BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : {DataSource DatasourceId:4508156004108672185 Name:C:\ FileSpec:FileSpec FileSpec:C:\ IsExclude:False IsRecursive:True ,FileSpec FileSpec:C:\windows IsExclude:True IsRecursive:True ,FileSpec FileSpec:C:\temp IsExclude:True IsRecursive:True
-              , DataSource
-              DatasourceId:4508156005178868542
-              Name:D:\
-              FileSpec:FileSpec
-              FileSpec:D:\
-              IsExclude:False
-              IsRecursive:True
+BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s)
+DsList : {DataSource
+         DatasourceId:4508156004108672185
+         Name:C:\
+         FileSpec:FileSpec
+         FileSpec:C:\
+         IsExclude:False
+         IsRecursive:True,
 
-              }
-PolicyName : c2eb6568-8a06-49f4-a20e-3019ae411bac RetentionPolicy : Retention Days : 7
+         FileSpec
+         FileSpec:C:\windows
+         IsExclude:True
+         IsRecursive:True,
+
+         FileSpec
+         FileSpec:C:\temp
+         IsExclude:True
+         IsRecursive:True,
+
+         DataSource
+         DatasourceId:4508156005178868542
+         Name:D:\
+         FileSpec:FileSpec
+         FileSpec:D:\
+         IsExclude:False
+         IsRecursive:True
+	}
+PolicyName : c2eb6568-8a06-49f4-a20e-3019ae411bac
+RetentionPolicy : Retention Days : 7
               WeeklyLTRSchedule :
               Weekly schedule is not set
 
@@ -329,39 +353,39 @@ State : Existing PolicyState : Valid
 
 ```
 PS C:\> Get-OBPolicy | Get-OBSchedule
-SchedulePolicyName : 71944081-9950-4f7e-841d-32f0a0a1359a 
-ScheduleRunDays : {Saturday, Sunday} 
-ScheduleRunTimes : {16:00:00} 
+SchedulePolicyName : 71944081-9950-4f7e-841d-32f0a0a1359a
+ScheduleRunDays : {Saturday, Sunday}
+ScheduleRunTimes : {16:00:00}
 State : Existing
 
 PS C:\> Get-OBPolicy | Get-OBRetentionPolicy
-RetentionDays : 7 
-RetentionPolicyName : ca3574ec-8331-46fd-a605-c01743a5265e 
+RetentionDays : 7
+RetentionPolicyName : ca3574ec-8331-46fd-a605-c01743a5265e
 State : Existing
 
 PS C:\> Get-OBPolicy | Get-OBFileSpec
-FileName : * 
-FilePath : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\ 
-FileSpec : D:\ 
-IsExclude : False 
+FileName : *
+FilePath : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\
+FileSpec : D:\
+IsExclude : False
 IsRecursive : True
 
-FileName : * 
-FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\ 
-FileSpec : C:\ 
-IsExclude : False 
+FileName : *
+FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\
+FileSpec : C:\
+IsExclude : False
 IsRecursive : True
 
-FileName : * 
-FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\windows 
-FileSpec : C:\windows 
-IsExclude : True 
+FileName : *
+FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\windows
+FileSpec : C:\windows
+IsExclude : True
 IsRecursive : True
 
-FileName : * 
-FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\temp 
-FileSpec : C:\temp 
-IsExclude : True 
+FileName : *
+FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\temp
+FileSpec : C:\temp
+IsExclude : True
 IsRecursive : True
 ```
 
@@ -370,13 +394,13 @@ IsRecursive : True
 
 ```
 PS C:\> Get-OBPolicy | Start-OBBackup
-Taking snapshot of volumes... 
-Preparing storage... 
-Estimating size of backup items... 
-Estimating size of backup items... 
-Transferring data... 
-Verifying backup... 
-Job completed. 
+Taking snapshot of volumes...
+Preparing storage...
+Estimating size of backup items...
+Estimating size of backup items...
+Transferring data...
+Verifying backup...
+Job completed.
 The backup operation completed successfully.
 ```
 
@@ -393,13 +417,13 @@ The backup operation completed successfully.
 
 ```
 PS C:\> $source = Get-OBRecoverableSource
-PS C:\> $source 
-FriendlyName : C:\ 
-RecoverySourceName : C:\ 
+PS C:\> $source
+FriendlyName : C:\
+RecoverySourceName : C:\
 ServerName : myserver.microsoft.com
 
-FriendlyName : D:\ 
-RecoverySourceName : D:\ 
+FriendlyName : D:\
+RecoverySourceName : D:\
 ServerName : myserver.microsoft.com
 ```
 
@@ -408,26 +432,26 @@ ServerName : myserver.microsoft.com
 
 ```
 PS C:\> $rps = Get-OBRecoverableItem -Source $source[1]
-IsDir : False 
-ItemNameFriendly : D:\ 
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\ 
-LocalMountPoint : D:\ 
-MountPointName : D:\ 
-Name : D:\ 
-PointInTime : 18-Jun-15 6:41:52 AM 
-ServerName : myserver.microsoft.com 
-ItemSize : 
+IsDir : False
+ItemNameFriendly : D:\
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\
+LocalMountPoint : D:\
+MountPointName : D:\
+Name : D:\
+PointInTime : 18-Jun-15 6:41:52 AM
+ServerName : myserver.microsoft.com
+ItemSize :
 ItemLastModifiedTime :
 
-IsDir : False 
-ItemNameFriendly : D:\ 
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\ 
-LocalMountPoint : D:\ 
-MountPointName : D:\ 
-Name : D:\ 
-PointInTime : 17-Jun-15 6:31:31 AM 
-ServerName : myserver.microsoft.com 
-ItemSize : 
+IsDir : False
+ItemNameFriendly : D:\
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\
+LocalMountPoint : D:\
+MountPointName : D:\
+Name : D:\
+PointInTime : 17-Jun-15 6:31:31 AM
+ServerName : myserver.microsoft.com
+ItemSize :
 ItemLastModifiedTime :
 ```
 Объект ```$rps``` представляет собой массив точек резервного копирования. Первый элемент является последней точкой, а n-й элемент — самой старой. Чтобы выбрать последнюю точку, мы будем использовать ```$rps[0]```.
@@ -439,40 +463,40 @@ ItemLastModifiedTime :
 
 ```
 PS C:\> $filesFolders = Get-OBRecoverableItem $rps[0]
-PS C:\> $filesFolders 
-IsDir : True 
-ItemNameFriendly : D:\MyData\ 
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\ 
-LocalMountPoint : D:\ 
-MountPointName : D:\ 
-Name : MyData 
-PointInTime : 18-Jun-15 6:41:52 AM 
-ServerName : myserver.microsoft.com 
-ItemSize : 
+PS C:\> $filesFolders
+IsDir : True
+ItemNameFriendly : D:\MyData\
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\
+LocalMountPoint : D:\
+MountPointName : D:\
+Name : MyData
+PointInTime : 18-Jun-15 6:41:52 AM
+ServerName : myserver.microsoft.com
+ItemSize :
 ItemLastModifiedTime : 15-Jun-15 8:49:29 AM
 
 PS C:\> $filesFolders = Get-OBRecoverableItem $filesFolders[0]
-PS C:\> $filesFolders 
-IsDir : False 
-ItemNameFriendly : D:\MyData\screenshot.oxps 
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\screenshot.oxps 
-LocalMountPoint : D:\ 
-MountPointName : D:\ 
-Name : screenshot.oxps 
-PointInTime : 18-Jun-15 6:41:52 AM 
-ServerName : myserver.microsoft.com 
-ItemSize : 228313 
+PS C:\> $filesFolders
+IsDir : False
+ItemNameFriendly : D:\MyData\screenshot.oxps
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\screenshot.oxps
+LocalMountPoint : D:\
+MountPointName : D:\
+Name : screenshot.oxps
+PointInTime : 18-Jun-15 6:41:52 AM
+ServerName : myserver.microsoft.com
+ItemSize : 228313
 ItemLastModifiedTime : 21-Jun-14 6:45:09 AM
 
-IsDir : False 
-ItemNameFriendly : D:\MyData\finances.xls 
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\finances.xls 
-LocalMountPoint : D:\ 
-MountPointName : D:\ 
-Name : finances.xls 
-PointInTime : 18-Jun-15 6:41:52 AM 
-ServerName : myserver.microsoft.com 
-ItemSize : 96256 
+IsDir : False
+ItemNameFriendly : D:\MyData\finances.xls
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\finances.xls
+LocalMountPoint : D:\
+MountPointName : D:\
+Name : finances.xls
+PointInTime : 18-Jun-15 6:41:52 AM
+ServerName : myserver.microsoft.com
+ItemSize : 96256
 ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
 ```
 
@@ -492,12 +516,12 @@ PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -Over
 Теперь запустите восстановление с помощью команды [Start-OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) для выбранного ```$item``` из выходных данных командлета ```Get-OBRecoverableItem```:
 
 ```
-PS C:\> Start-OBRecovery -RecoverableItem $item -RecoveryOption $recover_option 
-Estimating size of backup items... 
-Estimating size of backup items... 
-Estimating size of backup items... 
-Estimating size of backup items... 
-Job completed. 
+PS C:\> Start-OBRecovery -RecoverableItem $item -RecoveryOption $recover_option
+Estimating size of backup items...
+Estimating size of backup items...
+Estimating size of backup items...
+Estimating size of backup items...
+Job completed.
 The recovery operation completed successfully.
 ```
 
@@ -556,4 +580,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Дальнейшие действия
 Дополнительные сведения о службе архивации Azure для Windows Server и Client см. в разделе [Общие сведения о службе архивации Azure](backup-introduction-to-azure-backup.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

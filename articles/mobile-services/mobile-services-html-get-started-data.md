@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/02/2015" 
+	ms.date="08/16/2015" 
 	ms.author="glenga"/>
 
 # Добавление мобильных служб к существующему приложению
@@ -133,7 +133,7 @@
 
    	Этот код создает прокси-объект (**todoItemTable**) для базы данных SQL **TodoItem**.
 
-7. Замените обработчик событий **$('#add-item').submit** следующим кодом:
+7. Замените обработчик событий **$('\#add-item').submit** следующим кодом:
 
 		$('#add-item').submit(function(evt) {
 			var textbox = $('#new-item-text'),
@@ -257,4 +257,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -3,7 +3,7 @@
 	description="Узнайте, как настроить проект веб-API как приложение API с помощью Visual Studio 2013." 
 	services="app-service\api" 
 	documentationCenter=".net" 
-	authors="tdykstra" 
+	authors="bradygaster" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
-	ms.author="bradyg;tarcher"/>
+	ms.date="08/14/2015" 
+	ms.author="tdykstra"/>
 
 # Настройка проекта веб-API как приложения API
 
@@ -24,17 +24,17 @@
 
 Сведения о приложениях API см. в разделе [Что такое приложения API?](app-service-api-apps-why-best-platform.md).
 
-[AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
 
-Для этого учебника требуется пакет SDK Azure для .NET версии 2.5.1 или более поздней.
+Для этого учебника требуется пакет SDK Azure для .NET версии 2.6 или более поздней.
 
 ## Настройка проекта веб-API 
 
 В этом разделе показано, как настроить существующий проект веб-API как приложение API. Мы начнем с создания проекта веб-API с помощью шаблона проекта веб-API, а будем настраивать его как приложение API.
 
-1. Откройте Visual Studio 2013.
+1. Откройте Visual Studio 2015 или Visual Studio 2013.
 
-2. Выберите **Файл -> Новый проект**.
+2. Щелкните **Файл > Создать проект**.
 
 3. Выберите шаблон **Веб-приложение ASP.NET**.
 
@@ -83,4 +83,4 @@
 Теперь ваше приложение API готово к развертыванию, и вы можете перейти к учебнику [Развертывание приложения API](app-service-dotnet-deploy-api-app.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

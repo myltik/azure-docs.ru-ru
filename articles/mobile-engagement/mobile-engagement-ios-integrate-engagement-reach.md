@@ -116,9 +116,13 @@
 		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
 	}
 
-> [AZURE.NOTE]Описанный выше метод впервые появился в iOS 7. Если вы ориентируетесь на более старую платформу по сравнению с iOS 7, обязательно реализуйте метод `application:applicationDidReceiveRemoteNotification:` в делегате приложения и вызовите метод `applicationDidReceiveRemoteNotification` для EngagementAgent, передав nil вместо аргумента `handler`:
+> [AZURE.NOTE]Описанный выше метод впервые появился в iOS 7. Если вы ориентируетесь на более старую платформу по сравнению с iOS 7, обязательно реализуйте метод `application:didReceiveRemoteNotification:` в делегате приложения и вызовите метод `applicationDidReceiveRemoteNotification` для EngagementAgent, передав nil вместо аргумента `handler`:
 
-	[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
+	- (void)application:(UIApplication*)application
+	didReceiveRemoteNotification:(NSDictionary*)userInfo
+	{
+		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
+	}
 
 > [AZURE.IMPORTANT]По умолчанию completionHandler управляется Engagement Reach. Если вы хотите вручную отреагировать на блок `handler`в коде, можно передать nil для аргумента `handler` и управлять блоком завершения самостоятельно. Список возможных значений см. в описании типа `UIBackgroundFetchResult`.
 
@@ -412,4 +416,4 @@
 
 	@end
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

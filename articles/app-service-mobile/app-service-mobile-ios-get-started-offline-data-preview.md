@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Включение автономной синхронизации для мобильного приложения (iOS)"
+	pageTitle="Включение автономной синхронизации для мобильного приложения Azure (iOS)"
 	description="Использование мобильных приложений службы приложений для кэширования и синхронизации автономных данных в приложении iOS"
 	documentationCenter="ios"
-	authors="lindydonna"
+	authors="krisragh"
 	manager="dwrede"
 	editor=""
 	services="app-service\mobile"/>
@@ -13,40 +13,30 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="donnam"/>
+	ms.date="08/11/2015"
+	ms.author="krisragh"/>
 
 # Включение автономной синхронизации для мобильного приложения iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-В этом учебнике рассматривается функция автономной синхронизации мобильных приложений для iOS. Автономная синхронизация позволяет конечным пользователям взаимодействовать с мобильным приложением — просматривать, добавлять или изменять данные — даже при отсутствии подключения к сети. Изменения хранятся в локальной базе данных; после подключения устройства к сети эти изменения синхронизируются с удаленным внутренним сервером.
+## Обзор
 
-Автономная синхронизация может применяться в следующих случаях:
+В этом учебнике рассматривается функция автономной синхронизации мобильных приложений Azure для iOS. Автономная синхронизация позволяет конечным пользователям взаимодействовать с мобильным приложением — просматривать, добавлять или изменять данные — даже при отсутствии подключения к сети. Изменения хранятся в локальной базе данных; после подключения устройства к сети эти изменения синхронизируются с удаленным внутренним сервером.
 
-* Повышение скорости реагирования приложений путем локального кэширования данных сервера в устройстве
-* Защита приложений от потери сетевой связности
-* Предоставление конечным пользователям возможности создания и изменения данных даже в том случае, когда отсутствует сетевой доступ, поддерживая сценарии с минимальной связностью или при отсутствии связности
-* Синхронизация данных между несколькими устройствами и обнаружение конфликтов, когда два устройства изменяют одну и ту же запись
+Если вы впервые работаете с мобильными приложениями Azure, сначала пройдите учебник [Создание приложения iOS].
 
-Если вы первый раз работаете с мобильными приложениями, сначала пройдите учебник [Создание приложения iOS].
+Дополнительные сведения о функции автономной синхронизации см. в статье [Автономная синхронизация данных в мобильных приложениях Azure].
 
-##<a name="review"></a>Проверка конфигурации сервера проекта (необязательное действие)
+##<a name="review"></a>Проверка конфигурации серверного проекта (необязательное действие)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
 
-## <a name="get-app"></a>Получить пример автономного приложения списка дел
+## <a name="review-sync"></a>Просмотр кода синхронизации клиента 
 
-В разделе [Пример репозитория мобильных приложений на GitHub] клонируйте репозиторий и откройте проект [Пример автономного приложения iOS] в Xcode.
+Клиентский проект, загруженный для изучения учебника [Создание приложения iOS], уже содержит код, который поддерживает автономную синхронизацию с использованием локальной базы данных Core Data. В этом разделе приводится краткое содержание материала, уже включенного в код учебника. Общие сведения об этой функции см. в статье [Автономная синхронизация данных в мобильных приложениях Azure].
 
-### Бета-версия пакета SDK
-Чтобы добавить поддержку автономной работы в существующее приложение, получите последнюю версию [бета-версии пакета SDK для iOS](http://aka.ms/gc6fex).
-
-## <a name="review-sync"></a>Обзор кода синхронизации мобильных приложений
-
-Автономная синхронизация мобильных приложений позволяет конечным пользователям взаимодействовать с локальной базой данных, если сеть недоступна. Для использования этих возможностей в приложении необходимо инициализировать контекст синхронизации `MSClient` и указать ссылку на локальное хранилище. Затем укажите ссылку на таблицу с помощью интерфейса `MSSyncTable`.
-
-В этом разделе рассматривается представленный в примере код автономной синхронизации.
+Функция автономной синхронизации данных в мобильных приложениях Azure позволяет конечным пользователям взаимодействовать с локальной базой данных в случае, когда сеть недоступна. Для использования этих возможностей в приложении необходимо инициализировать контекст синхронизации `MSClient` и указать ссылку на локальное хранилище. Затем укажите ссылку на таблицу с помощью интерфейса `MSSyncTable`.
 
 1. Обратите внимание, что в **QSTodoService.m** элемент `syncTable` имеет тип `MSSyncTable`. Автономная синхронизация использует этот интерфейс таблицы синхронизации вместо `MSTable`. При использовании таблицы синхронизации все операции направляются в локальное хранилище и синхронизируются только с удаленным внутренним сервером с явными push-уведомлениями и операциями получения.
 
@@ -119,7 +109,7 @@
       * MS\_TableConfig: для отслеживания времени последнего обновления у последней операции синхронизации для всех операций Pull.
       * TodoItem: для хранения элементов списка дел. Системные столбцы **ms\_createdAt**, **ms\_updatedAt** и **ms\_version** представляют собой необязательные системные свойства.
 
->[AZURE.NOTE]Пакет SDK для мобильных приложений резервирует имена столбцов, начинающиеся с «**`ms_`**». Не следует использовать этот префикс где-либо, кроме системных столбцов, в противном случае при использовании удаленного внутреннего сервера имена таких столбцов будут изменены.
+>[AZURE.NOTE]Пакет SDK для мобильных приложений Azure резервирует имена столбцов, начинающиеся с "**`ms_`**". Не следует использовать этот префикс где-либо, кроме системных столбцов, в противном случае при использовании удаленного внутреннего сервера имена таких столбцов будут изменены.
 
 - При использовании функции автономной синхронизации необходимо определить системные таблицы, как показано ниже.
 
@@ -169,7 +159,7 @@
 
     | Атрибут | Тип | Примечание. |
     |-----------   |  ------ | -------------------------------------------------------|
-    | id | Строка | первичный ключ в удаленном хранилище |
+    | id | Строка, помеченная как обязательная | первичный ключ в удаленном хранилище |
     | complete | Логический | поле элемента todo |
     | text | Строка | поле элемента todo |
     | ms\_createdAt | Дата | (необязательно) сопоставляется с системным свойством createdAt | | ms\_updatedAt | Дата | (необязательно) сопоставляется с системным свойством updatedAt | | ms\_version | Строка | (необязательно) используется для обнаружения конфликтов, сопоставляется с версией |
@@ -218,7 +208,7 @@
 
 При использовании локального хранилища Core Data необходимо определить несколько таблиц с помощью [правильных системных свойств](#review-core-data).
 
-Обычные операции CRUD для мобильных приложений работают так, как если бы приложение по-прежнему было подключено, но все операции выполнялись в локальном хранилище.
+Обычные операции CRUD для мобильных приложений Azure работают так, как если бы приложение по-прежнему было подключено, но все операции выполнялись в локальном хранилище.
 
 Когда мы хотели синхронизировать локальное хранилище с сервером, то использовали методы `MSSyncTable.pullWithQuery` и `MSClient.syncContext.pushWithCompletion`.
 
@@ -241,45 +231,23 @@
 
 ## Дополнительные ресурсы
 
-* [Облачное покрытие: автономная синхронизация в мобильных службах Azure]
+* [Автономная синхронизация данных в мобильных приложениях Azure]
 
-* [Azure Friday: приложения с поддержкой автономной работы в мобильных службах Azure]. (Примечание. Демонстрации предназначены для операционной системы Windows, однако обсуждение функций справедливо для всех платформ.)
+* [Облачное покрытие: автономная синхронизация в мобильных службах Azure] (примечание: видео рассказывает о мобильных службах, однако точно так же автономная синхронизация работает в мобильных службах Azure)
 
 <!-- URLs. -->
 
-[Создание приложения iOS]: ../app-service-mobile-dotnet-backend-ios-get-started.md
 
-[core-data-1]: ./media/mobile-services-ios-get-started-offline-data/core-data-1.png
-[core-data-2]: ./media/mobile-services-ios-get-started-offline-data/core-data-2.png
-[core-data-3]: ./media/mobile-services-ios-get-started-offline-data/core-data-3.png
-[defining-core-data-main-screen]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-main-screen.png
-[defining-core-data-model-editor]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-model-editor.png
+[Создание приложения iOS]: ../app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[Автономная синхронизация данных в мобильных приложениях Azure]: ../app-service-mobile-offline-data-sync-preview.md
+
 [defining-core-data-tableoperationerrors-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-tableoperationerrors-entity.png
 [defining-core-data-tableoperations-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-tableoperations-entity.png
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-todoitem-entity.png
-[update-framework-1]: ./media/mobile-services-ios-get-started-offline-data/update-framework-1.png
-[update-framework-2]: ./media/mobile-services-ios-get-started-offline-data/update-framework-2.png
-
-[Core Data Model Editor Help]: https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html
-[Creating an Outlet Connection]: https://developer.apple.com/library/mac/recipes/xcode_help-interface_builder/articles-connections_bindings/CreatingOutlet.html
-[Build a User Interface]: https://developer.apple.com/library/mac/documentation/ToolsLanguages/Conceptual/Xcode_Overview/Edit_User_Interfaces/edit_user_interface.html
-[Adding a Segue Between Scenes in a Storyboard]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html#//apple_ref/doc/uid/TP40014225-CH25-SW1
-[Adding a Scene to a Storyboard]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardScene.html
-
-[Core Data]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
-[Download the preview SDK here]: http://aka.ms/Gc6fex
-[How to use the Mobile Services client library for iOS]: ../mobile-services-ios-how-to-use-client-library.md
-[Пример автономного приложения iOS]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
-[Пример репозитория мобильных приложений на GitHub]: https://github.com/Azure/mobile-services-samples
-
-[Get started with Mobile Services]: ../mobile-services-ios-get-started.md
-[Get started with data]: ../mobile-services-ios-get-started-data.md
-[Handling conflicts with offline support for Mobile Services]: ../mobile-services-ios-handling-conflicts-offline-data.md
-[Soft Delete]: ../mobile-services-using-soft-delete.md
 
 [Облачное покрытие: автономная синхронизация в мобильных службах Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: приложения с поддержкой автономной работы в мобильных службах Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

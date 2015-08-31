@@ -22,8 +22,8 @@
 > [AZURE.SELECTOR]
 - [Azure preview portal](virtual-machines-windows-tutorial.md)
 - [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell - Resource management](virtual-machines-deploy-rmtemplates-powershell.md)
-- [PowerShell - Service management](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 
 В этом учебнике показано, насколько просто на портале Azure можно создать виртуальную машину Azure. Мы будем использовать в качестве примера образ Windows Server, но это лишь один из многих образов, предлагаемых в Azure. Обратите внимание, что доступные образы зависят от подписки. Например, подписчикам MSDN могут быть доступны образы рабочих столов.
@@ -44,7 +44,7 @@
 
 > [AZURE.NOTE]На [портале предварительной версии Azure](https://portal.azure.com) тоже можно создавать виртуальные машины, применять расширенные функции мониторинга и диагностики виртуальных машин, использовать хранилище класса Premium и многое другое. Этот портал имеет больше функциональных возможностей и поддается дополнительной настройке. Доступные параметры конфигурации виртуальных машин на двух порталах в значительной степени одинаковы, но не полностью. Например, на портале предварительной версии можно настроить виртуальную машину с хранилищем класса Premium.
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
 ## Дальнейшие действия
 
@@ -56,4 +56,4 @@
 
 Дополнительные сведения о том, что можно настроить для виртуальной машины и когда это можно сделать, см. в статье [О параметрах конфигурации ВМ Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

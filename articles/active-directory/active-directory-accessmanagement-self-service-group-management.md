@@ -1,12 +1,20 @@
-<properties pageTitle="Настройка Azure AD для управления самостоятельным доступом к приложениям | Microsoft Azure" description="В этом разделе объясняется, как управлять группами в Azure AD." services="active-directory" documentationCenter="" authors="femila" manager="swadhwa"" editor="" tags="azure-classic-portal"/>
+<properties
+	pageTitle="Настройка Azure AD для управления самостоятельным доступом к приложениям Microsoft Azure"
+	description="В этом разделе объясняется, как управлять группами в Azure AD."
+	services="active-directory"
+	documentationCenter=""
+    authors="femila"
+	manager="swadhwa" 
+	editor=""
+	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/13/2015"
 	ms.author="femila"/>
 
 #Настройка Azure AD для управления самостоятельным доступом к приложениям
@@ -41,4 +49,4 @@
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

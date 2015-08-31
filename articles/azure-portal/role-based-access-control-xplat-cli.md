@@ -3,8 +3,8 @@
 	description="Управление доступом на основе ролей с помощью интерфейса командной строки Azure"
 	services="azure-portal"
 	documentationCenter="na"
-	authors="Justinha"
-	manager="terrylan"
+	authors="IHenkel"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
-	ms.author="justinha"/>
+	ms.date="08/14/2015"
+	ms.author="inhenk"/>
 
 # Управление доступом на основе ролей с помощью интерфейса командной строки Azure (Azure CLI) #
 
@@ -66,7 +66,7 @@ RBAC работает только с диспетчером ресурсов Az
 
 Дополнительную информацию см. в статье [Установка и настройка интерфейса командной строки Azure](../xplat-cli.md).
 
-## <a id="check"></a>Проверка существующих назначений ролей ##
+## <a id="check">Проверка существующих назначений ролей</a> ##
 
 Теперь давайте проверим, какие назначения ролей уже есть в подписке. Введите:
 
@@ -94,13 +94,15 @@ RBAC работает только с диспетчером ресурсов Az
 
 - Кому вы хотите назначить роль? Для просмотра пользователей, групп и субъектов-служб, имеющихся в каталоге, можно использовать следующие командлеты Azure Active Directory:
 
-    `azure ad user list
-    azure ad user show
-    azure ad group list
-    azure ad group show
-    azure ad group member list
-    azure ad sp list
-    azure ad sp show`
+    ```
+    azure ad user list  
+    azure ad user show  
+    azure ad group list  
+    azure ad group show  
+    azure ad group member list  
+    azure ad sp list  
+    azure ad sp show  
+    ```
 
 - Какую роль вы хотите назначить? Для просмотра поддерживаемых определений ролей можно использовать следующий командлет:
 
@@ -148,6 +150,5 @@ RBAC работает только с диспетчером ресурсов Az
 - [Блог Azure](http://blogs.msdn.com/windowsazure): узнайте о новых возможностях в Azure.
 - [Настройка управления доступом на основе ролей с помощью Windows PowerShell](role-based-access-control-powershell.md)
 - [Устранение неполадок управления доступом на основе ролей](role-based-access-control-troubleshooting.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

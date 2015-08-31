@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,14 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/13/2015"
+   ms.date="08/04/2015"
    ms.author="larryfr"/>
 
 #Разработка программ потоковой передачи на Python для HDInsight
 
 Hadoop предоставляет API-интерфейс для MapReduce, позволяющий создавать функции map и reduce на языках, отличных от Java. В этой статье вы узнаете, как использовать Python для выполнения операций MapReduce.
 
-> [AZURE.NOTE]Эта статья основана на информации и примерах, опубликованных Майклом Ноллом (Michael Noll) на странице [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/] ("Написание программы Hadoop MapReduce в Python").
+> [AZURE.NOTE]Хотя код Python, приведенный в этом документе, можно использовать с кластером HDInsight для Windows, описанные здесь действия касаются кластеров под управлением Linux.
+
+Эта статья основана на информации и примерах, опубликованных Майклом Ноллом (Michael Noll) на странице [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/] ("Написание программы Hadoop MapReduce в Python").
 
 ##Предварительные требования
 
@@ -133,7 +136,7 @@ Python позволяет с легкостью выполнить эти тре
 
 ##Передача файлов
 
-Для запуска файлов **mapper.py** и **reducer.py** оба они должны быть на головном узле кластера. Проще всего будет передать их с помощью **scp** (**pscp** при использовании клиента Windows).
+Для запуска файлов **mapper.py** и **reducer.py** оба они должны быть на головном узле кластера. Проще всего будет передать их с помощью **scp** (**pscp**, если вы используете клиент Windows).
 
 Используйте в клиенте следующую команду в том же каталоге, в котором расположены файлы **mapper.py** и **reducer.py**. Замените **username** именем пользователя SSH, а **clustername** — именем кластера.
 
@@ -202,4 +205,4 @@ Python позволяет с легкостью выполнить эти тре
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

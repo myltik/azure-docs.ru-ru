@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Начало работы с проверкой подлинности для мобильных приложений в iOS"
-	description="Использование мобильных приложений для проверки подлинности пользователей приложения iOS с помощью разных поставщиков удостоверений, включая AAD, Google, Facebook, Twitter и Майкрософт."
+	pageTitle="Добавление проверки подлинности на iOS с помощью мобильных приложений Azure"
+	description="Узнайте, как использовать мобильные приложения для проверки подлинности пользователей приложения iOS с помощью разных поставщиков удостоверений, включая AAD, Google, Facebook, Twitter и Майкрософт."
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="mattchenderson" 
+	authors="krisragh" 
 	manager="dwrede"
 	editor=""/>
 
@@ -13,24 +13,24 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
-	ms.author="mahender"/>
+	ms.date="08/12/2015"
+	ms.author="krisragh"/>
 
-# Добавление проверки подлинности в приложение iOS
+# Проверка подлинности iOS с помощью мобильных приложений Azure
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
-
-В этом разделе показано, как выполнить проверку подлинности пользователей мобильного приложения службы приложений из клиентского приложения. В этом учебнике вы добавите проверку подлинности в проект краткого руководства, используя поставщик удостоверений, поддерживаемый службой приложений. После успешной проверки подлинности и авторизации мобильным приложением отображается значение идентификатора пользователя.
-
-Этот учебник создан на основе краткого руководства по мобильным приложениям. Необходимо также сначала пройти учебник [Создание приложения iOS].
+В этом учебнике описывается добавление проверки подлинности в проект, составленный при изучении учебника по [быстрому запуску iOS], с помощью поддерживаемого поставщика удостоверений. Этот учебник составлен на основе учебника по [быстрому запуску iOS], который необходимо пройти в первую очередь.
 
 ##<a name="review"></a>Проверка конфигурации сервера проекта (необязательное действие)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
 
-##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка служб приложений
+##<a name="create-gateway"></a>Создание шлюза службы приложений
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway-preview](../../includes/app-service-mobile-dotnet-backend-create-gateway-preview.md)]
+
+##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка службы приложений
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
@@ -38,28 +38,18 @@
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-<ol start="5">
-<li><p>Откройте проект в Xcode. Нажмите кнопку <b>Выполнить</b>, чтобы открыть приложение. Убедитесь, что после запуска приложения возникло исключение с кодом состояния 401 (неавторизованный доступ).</p>
-
-   	<p>Это происходит потому, что приложение пытается получить доступ к коду мобильного приложения от имени пользователя, не прошедшего проверку подлинности, но таблице <em>TodoItem</em> теперь требуется проверка подлинности.</p></li>
-</ol>
-
-Далее вы обновите приложение, чтобы оно выполняло проверку подлинности пользователей перед запросом ресурсов из службы приложений.
+В Xcode нажмите кнопку **Выполнить**, чтобы запустить приложение. Будет создано исключение, поскольку приложение попытается получить доступ к серверной части как пользователь, не прошедший проверку подлинности, в то время как таблица _TodoItem_ требует проверки подлинности.
 
 ##<a name="add-authentication"></a>Добавление проверки подлинности в приложение
 
 [AZURE.INCLUDE [app-service-mobile-ios-authenticate-app](../../includes/app-service-mobile-ios-authenticate-app.md)]
 
-##<a name="store-authentication"></a>Хранение токенов проверки подлинности в приложении
-
-[AZURE.INCLUDE [app-service-mobile-ios-authenticate-app-with-token](../../includes/app-service-mobile-ios-authenticate-app-with-token.md)]
-
 
 <!-- URLs. -->
 
-[Создание приложения iOS]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[быстрому запуску iOS]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

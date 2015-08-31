@@ -30,7 +30,7 @@
 
 Для Ubuntu просто введите:
      
-    #sudo apt-get install waagent
+    #sudo apt-get install walinuxagent
 
 Для CentOS введите:
 
@@ -52,26 +52,52 @@
 
 ## Скачивание последней версии
 
-Откройте [выпуск агента Linux для Azure в Github](https://github.com/Azure/WALinuxAgent/releases) на веб-странице и узнайте номер последней версии (например, 2.0.12). (Номер текущей версии можно узнать, введя `#waagent --version`.)
+Откройте [выпуск агента Linux для Azure в Github](https://github.com/Azure/WALinuxAgent/releases) на веб-странице и узнайте номер последней версии. (Номер текущей версии можно узнать, введя `#waagent --version`.)
+
+###Для версии 2.0.x введите:
 
     #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-[version]/waagent  
 
-В следующей строке используется версия 2.0.12 в качестве примера:
+   В следующей строке используется версия 2.0.14 в качестве примера:
 
-    #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.12/waagent  
+    #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent  
 
-## Создание исполняемого файла waagent
+###Для версии 2.1.x или более поздней введите:
+  
+    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip 
+    #unzip WALinuxAgent-[version].zip
+    #cd WALinuxAgent-[version]
+
+   В следующей строке используется версия 2.1.0 в качестве примера:
+
+    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-2.1.0.zip
+    #unzip WALinuxAgent-2.1.0.zip  
+    #cd WALinuxAgent-2.1.0
+
+##Установка агента для Linux
+
+###Для версии 2.0.x используйте:
+
+ Создание исполняемого файла waagent
 
     #chmod +x waagent
 
-## Копирование нового исполняемого файла в /usr/sbin/
-    
-    #sudo cp waagent /usr/sbin
+ Копирование нового исполняемого файла в /usr/sbin/
+   
+  Для большинства дистрибутивов Linux используйте:
+         
+      #sudo cp waagent /usr/sbin
 
-Для CoreOS используйте:
+  Для CoreOS используйте:
 
     #sudo cp waagent /usr/share/oem/bin/
  
+###Для версии 2.1.x используйте:
+
+Возможно, сначала потребуется установить пакет `setuptools`, ознакомьтесь с информацией [здесь](https://pypi.python.org/pypi/setuptools). Затем выполните следующее:
+
+    #sudo python setup.py install
+
 ## Перезапуск службы waagent
 
 Для большинства дистрибутивов Linux:
@@ -100,4 +126,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

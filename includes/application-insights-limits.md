@@ -1,22 +1,24 @@
- Limits depend on the [pricing tier](http://azure.microsoft.com/pricing/details/application-insights/) that you choose.
+ Ограничения зависят от выбранной [ценовой категории](http://azure.microsoft.com/pricing/details/application-insights/).
 
-**Resource** | **Default Limit** | **Maximum Limit**
+**Ресурс** | **Ограничение по умолчанию** | **Максимальное ограничение**
 -------- | ------------- | -------------
-Session data points<sup>1</sup> per month | unlimited | unlimited
-Other data points per month | 5 million | 50 million<sup>2</sup>
-Trace or Log data rate | 200 dp/s | 500 dp/s
-Exception data rate | 50 dp/s | 50 dp/s
-Other telemetry data rate | 200 dp/s | 500 dp/s
-Raw  data retention |7 days| 30 days
-Aggregated data retention | 13 months | unlimited
-Property name count across the app | 100 | 100
-Property name length | 100 | 100
-Property value length | 1000 | 1000
-Trace and Exception message length | 10000 | 10000
-Metric name length |  100 | 100
+Точек данных сеанса<sup>1</sup> в месяц | без ограничений | без ограничений
+Других точек данных в месяц | 5 млн | 50 млн<sup>2</sup>
+Скорость трассировки или передачи данных журнала | 200 точек данных в секунду | 500 точек данных в секунду
+Скорость передачи данных исключения | 50 точек данных в секунду | 50 точек данных в секунду
+Скорость передачи других данных телеметрии | 200 точек данных в секунду | 500 точек данных в секунду
+Хранение необработанных данных |7 дней| 30 дней
+Хранение объединенных данных | 13 месяцев | без ограничений
+Количество имен свойств в приложении | 100 | 100
+Длина имени свойства | 100 | 100
+Длина значения свойства | 1000 | 1000
+Длина сообщения трассировки и исключения | 10 000 | 10 000
+Длина имени метрики | 100 | 100
 
-<sup>1</sup> A data point is an individual metric value or event, with attached properties and measurements.
+<sup>1</sup> Точка данных — отдельное значение или событие метрики с прикрепленными свойствами и данными измерений.
 
-<sup>2</sup> You can purchase additional capacity beyond 50 million.
+<sup>2</sup> Можно приобрести дополнительную емкость свыше 50 миллионов точек данных.
  
-[About pricing and quotas in Application Insights](app-insights-pricing.md)
+[Цены и квоты для Application Insights](app-insights-pricing.md)
+
+<!---HONumber=August15_HO8-->

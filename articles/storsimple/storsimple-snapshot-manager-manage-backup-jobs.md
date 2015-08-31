@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Просмотр заданий архивации и управление ими с помощью диспетчера моментальных снимков StorSimple | Microsoft Azure"
-   description="Узнайте, как использовать оснастку консоли MMC &quot;Диспетчер моментальных снимков StorSimple&quot; для просмотра запланированных, выполняющихся и завершенных заданий архивации, а также управления ими."
+   description="Узнайте, как использовать оснастку консоли MMC ";Диспетчер моментальных снимков StorSimple"; для просмотра запланированных, выполняющихся и завершенных заданий архивации, а также управления ими."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 
@@ -108,7 +108,7 @@
 
 ## Дальнейшие действия
 
-[Использование диспетчера моментальных снимков StorSimple для управления каталогом резервных копий](storsimple-snapshot-manager-manage-backup-catalog.md)
+[Использование диспетчера моментальных снимков StorSimple для управления каталогом резервных копий](storsimple-snapshot-manager-manage-backup-catalog.md).
 
 
 
@@ -129,4 +129,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,5 +1,7 @@
-##Azure portal and Azure preview portal
+##Портал Azure и портал предварительной версии Azure
 
-> [AZURE.IMPORTANT] The steps in this document use the Azure preview portal. Microsoft recommends using the Azure preview portal when creating new services. For an explanation of the advantages of the preview portal, see [DevOps just got a whole lot more awesome](http://azure.microsoft.com/overview/preview-portal/). 
+> [AZURE.IMPORTANT]Действия, описанные в этом документе, выполняются на портале предварительной версии Azure. Для создания служб корпорация Майкрософт рекомендует использовать портал предварительной версии Azure. Преимущества портала предварительной версии рассматриваются в статье [о расширении возможностей разработки и операций](http://azure.microsoft.com/overview/preview-portal/).
 > 
-> Services and resources created in the Azure preview portal are not visible in the Azure portal, as they use a new resource model.
+> Службы и ресурсы, созданные на портале предварительной версии Azure, не отображаются на портале Azure, так в них используется новая модель ресурсов.
+
+<!---HONumber=August15_HO8-->
