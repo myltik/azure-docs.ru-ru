@@ -480,7 +480,6 @@
 
 ## См. также
 
-- [Копирование данных с помощью фабрики данных Azure][adf-copyactivity]
 - [Действие копирования. Справочник по скриптам JSON](https://msdn.microsoft.com/library/dn835035.aspx)
 - [Основные сведения о копировании данных с помощью фабрики данных Azure][copy-activity-video] (видео)
 
@@ -488,4 +487,4 @@
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->
