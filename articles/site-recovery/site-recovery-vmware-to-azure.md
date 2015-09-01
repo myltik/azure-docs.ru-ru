@@ -761,14 +761,14 @@ Standard DS4 | 1 диск (1 * 1023 ГБ) | 1 диск (1 * 1023 ГБ) | 15 ди
 
 ## Уведомления и сведения о стороннем программном обеспечении
 
-Не подлежит переводу и локализации
+Do Not Translate or Localize
 
-Программное обеспечение и встроенное ПО, выполняющееся в продуктах или службах Майкрософт, основано на или включает материалы из проектов, перечисленных ниже (собирательно — «сторонний код»). Корпорация Майкрософт не является автором стороннего кода. Исходные уведомления об авторских правах и лицензии, в рамках которых корпорация Майкрософт получила такой сторонний код, приведены ниже.
+The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”).  Microsoft is the not original author of the Third Party Code.  The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
 
-Сведения в разделе А относятся к компонентам стороннего кода из проектов, перечисленных ниже. Такие лицензии и сведения приводятся только в информационных целях. Этот сторонний код предоставляется вам в рамках повторной лицензии Майкрософт согласно условиям лицензирования программного обеспечения Майкрософт для продуктов или служб Майкрософт.
+The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only.  This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.  
 
-Сведения в разделе B относятся к компонентам стороннего кода, предоставляемым вам корпорацией Майкрософт в рамках первоначальной лицензии.
+The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
-Полный файл можно найти в [центре загрузки Майкрософт](http://go.microsoft.com/fwlink/?LinkId=529428). Корпорация Майкрософт оставляет за собой все права, не предоставленные явно в настоящем документе, косвенно, в силу конклюдентных действий или иным образом.
+The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
 <!---HONumber=August15_HO7-->
