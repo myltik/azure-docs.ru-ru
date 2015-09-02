@@ -34,28 +34,29 @@
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
-The completed app is provided at the end of this tutorial as well.
+Готовое приложение также приводится в конце этого руководства.
 
 
-## 1. Register an App
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+## 1. Регистрация приложения
+Создайте приложение на сайте [apps.dev.microsoft.com](https://apps.dev.microsoft.com) или выполните инструкции, приведенные в [этой статье](active-directory-v2-app-registration.md). Обязательно сделайте вот что:
 
-- Copy down the **Application Id** assigned to your app, you'll need it soon.
+- запишите назначенный вашему приложению **идентификатор**. Он вскоре вам понадобится.
 
-This visual studio solution also contains a "TodoListClient", which is a simple WPF app.  The TodoListClient is used to demonstrate how a user signs-in and how a client can issue requests to your Web API.  In this case, both the TodoListClient and the TodoListService are represented by the same app.  To configure the TodoListClient, you should also:
+В этом решении Visual Studio также содержится клиент TodoListClient, который представляет собой простое приложение WPF. TodoListClient используется для того, чтобы показать, как пользователь входит в систему и как клиент может отправлять запросы к вашему веб-API. В этом случае и TodoListClient, и TodoListService представлены одним приложением. Чтобы настроить TodoListClient, вам нужно также:
 
-- Add the **Mobile** platform for your app.
-- Copy down the **Redirect URI** from the portal. You must use the default value of `urn:ietf:wg:oauth:2.0:oob`.
+- добавить для своего приложения **мобильную** платформу;
+- записать **URI перенаправления** с портала. Необходимо использовать стандартное значение `urn:ietf:wg:oauth:2.0:oob`.
 
 
-## 2. Set up your app to use the OWIN authentication pipeline
+## 2. Настройка в приложении проверки подлинности OWIN
 
-Now that you’ve registered an app, you need to set up your app to communicate with the v2.0 endpoint in order to validate incoming requests & tokens.
+Зарегистрировав приложение, вам нужно настроить в нем обмен данными с конечной точкой v2.0. Это позволит проверять входящие запросы и маркеры.
 
--	To begin, open the solution and add the OWIN middleware NuGet packages to the TodoListService project using the Package Manager Console.
+-	Сначала откройте решение и добавьте к проекту TodoListService пакеты NuGet ПО промежуточного слоя OWIN при помощи консоли диспетчера пакетов.
 
 ```
-PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService ```
+PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService 
+```
 
 -	Добавьте класс OWIN Startup в проект TodoListService под именем `Startup.cs`. Щелкните правой кнопкой мыши проект и выберите в контекстном меню **Добавить**, затем **Новый элемент** и найдите OWIN. При запуске приложения промежуточный слой OWIN вызовет метод `Configuration(…)`.
 -	Замените объявление класса на `public partial class Startup` — часть этого класса уже была реализована в другом файле. В методе `Configuration(…)` добавьте вызов ConfgureAuth(...), чтобы настроить проверку подлинности для веб-приложения.
@@ -155,4 +156,4 @@ public IEnumerable<TodoItem> Get()
 
 Дополнительные ресурсы: -[Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) -[Тег StackOverflow "azure active directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

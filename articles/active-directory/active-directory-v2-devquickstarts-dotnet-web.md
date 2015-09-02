@@ -20,9 +20,13 @@
 
 Модель приложений версии 2.0 позволяет быстро реализовать проверку подлинности для веб-приложения с поддержкой личных учетных записей Майкрософт, а также рабочих и учебных учетных записей. В веб-приложениях ASP.NET это можно делать с помощью ПО промежуточного уровня OWIN корпорации Microsoft, включенного в .NET Framework 4.5.
 
-  >[AZURE.NOTE]Эти сведения относятся к общедоступной предварительной версии модели приложений 2.0. Инструкции по интеграции с общедоступной службой Azure AD см. в статье [Руководство разработчика Azure Active Directory](active-directory-developers-guide.md).
+  >[AZURE.NOTE]
+	Эти сведения относятся к общедоступной предварительной версии модели приложений 2.0. Инструкции по интеграции с общедоступной службой Azure AD см. в статье [Руководство разработчика Azure Active Directory](active-directory-developers-guide.md).
 
- Здесь мы будем использовать OWIN: 1) для входа пользователя в приложение с помощью Azure AD и модели приложений 2.0; 2) отображения некоторых сведений о пользователе; 3) выхода пользователя из приложения.
+ Здесь мы будем использовать OWIN:
+-	1) для входа пользователя в приложение с помощью Azure AD и модели приложений 2.0; 
+-	2) отображения некоторых сведений о пользователе; 
+-	3) выхода пользователя из приложения.
 
 Для этого необходимо:
 
@@ -35,26 +39,29 @@
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
 
-The completed app is provided at the end of this tutorial as well.
+Готовое приложение также приводится в конце этого руководства.
 
-## 1. Register an App
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+## 1. Регистрация приложения
+Создайте приложение на странице [apps.dev.microsoft.com](https://apps.dev.microsoft.com) или выполните следующие [действия](active-directory-v2-app-registration.md).  Не забудьте:
 
-- Copy down the **Application Id** assigned to your app, you'll need it soon.
-- Add the **Web** platform for your app.
-- Enter the correct **Redirect URI**. The redirect uri indicates to Azure AD where authentication responses should be directed - the default for this tutorial is `https://localhost:44326/`.
+- скопировать **идентификатор приложения**, назначенный вашему приложению (он скоро вам понадобится);
+- добавить **веб-платформу** для приложения;
+- ввести правильный **URI перенаправления**.  URI перенаправления сообщает Azure AD, куда следует направлять ответы проверки подлинности. Значение по умолчанию для этого учебника — `https://localhost:44326/`.
 
-## 2. Set up your app to use the OWIN authentication pipeline
-Here, we'll configure the OWIN middleware to use the OpenID Connect authentication protocol.  OWIN will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+## 2. установить приложение для использования проверки подлинности OWIN
+Здесь мы настроим промежуточный слой OWIN для использования протокола проверки подлинности OpenID Connect.  Кроме всего прочего, OWIN будет использоваться для выдачи запросов входа и выхода, управления сеансом пользователя и получения сведений о пользователе.
 
--	To begin, open the `web.config` file in the root of the project, and enter your app's configuration values in the `<appSettings>` section.
-    -	The `ida:ClientId` is the **Application Id** assigned to your app in the registration portal.
-    -	The `ida:RedirectUri` is the **Redirect Uri** you entered in the portal.
+-	Для начала откройте файл `web.config` в корне проекта, а затем введите значения конфигурации приложения в разделе `<appSettings>`.
+    -	`ida:ClientId`— это **идентификатор приложения**, назначенный приложению на портале регистрации.
+    -	`ida:RedirectUri`— это **URI перенаправления**, который был введен на портале.
 
--	Next, add the OWIN middleware NuGet packages to the project using the Package Manager Console.
+-	Затем с помощью консоли диспетчера пакетов добавьте в проект пакеты NuGet ПО промежуточного слоя OWIN.
 
 ```
-PM> Install-Package Microsoft.Owin.Security.OpenIdConnect PM> Install-Package Microsoft.Owin.Security.Cookies PM> Install-Package Microsoft.Owin.Host.SystemWeb ```
+PM> Install-Package Microsoft.Owin.Security.OpenIdConnect 
+PM> Install-Package Microsoft.Owin.Security.Cookies 
+PM> Install-Package Microsoft.Owin.Host.SystemWeb 
+```
 
 -	Добавьте "Стартовый класс OWIN" в проект с именем `Startup.cs`. Щелкните проект правой кнопкой мыши и последовательно выберите **Добавить**, **Новый элемент**. Выполните поиск "OWIN". При запуске вашего приложения промежуточный слой OWIN вызовет метод `Configuration(...)`.
 -	Замените объявление класса на `public partial class Startup` — часть этого класса уже была реализована в другом файле. В методе `Configuration(...)` вызовите метод ConfgureAuth(...), чтобы настроить проверку подлинности для веб-приложения.  
@@ -199,6 +206,8 @@ public ActionResult About()
 
 [Защита веб-API с помощью модели приложения версии 2.0 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-Дополнительные ресурсы: -[Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) -[Тег StackOverflow "azure active directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Дополнительные ресурсы: 
+- [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) 
+- [Тег StackOverflow "azure active directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

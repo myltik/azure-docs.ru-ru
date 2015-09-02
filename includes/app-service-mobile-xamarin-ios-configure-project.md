@@ -30,12 +30,12 @@
 
     Таким образом, проект будет использовать новый профиль для подписи кода. Официальную документацию по подготовке устройств Xamarin см. в статье [Подготовка устройства Xamarin].
 
-[120]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png
-[121]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
-[122]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png
-[123]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png
-[124]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png
+[120]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png
+[121]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
+[122]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png
+[123]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png
+[124]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png
 
 [Подготовка устройства Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->
