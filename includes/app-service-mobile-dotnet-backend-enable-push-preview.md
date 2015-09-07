@@ -1,9 +1,4 @@
-В проекте сервера, скачанном с портала, уже включены push-уведомления.
 
-В проекте ASP.NET можно проверить следующее:
+>[AZURE.TIP]Пакет расширений для push-уведомлений включен в пакет расширений для быстрого запуска. В проекте сервера, загруженном с портала, push-уведомления уже включены. Узнайте, как установить и инициализировать push-уведомления без использования расширения быстрого запуска, в статье [Практическое руководство. Добавление push-уведомлений в серверный проект](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-push-notifications-to-a-server-project).
 
-* Пакет NuGet `Microsoft.Azure.Mobile.Server.Notifications` установлен.
-
-* В WebApiConfig.cs метод `UseDefaultConfiguration()` вызывается для объекта MobileAppConfiguration. Таким образом вызывается метод расширения `AddPushNotifications()`, предоставленный пакетом NuGet, упомянутым выше.
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

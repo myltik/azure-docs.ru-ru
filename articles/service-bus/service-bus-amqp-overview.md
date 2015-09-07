@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Обзор AMQP для служебной шины | Microsoft Azure" 
-	description="Узнайте об использовании протокола AMQP 1.0 в Azure." 
-	services="service-bus" 
-	documentationCenter=".net" 
-	authors="sethmanheim" 
-	manager="timlt" 
+	pageTitle="Обзор AMQP для служебной шины | Microsoft Azure"
+	description="Узнайте об использовании протокола AMQP 1.0 в Azure."
+	services="service-bus"
+	documentationCenter=".net"
+	authors="sethmanheim"
+	manager="timlt"
 	editor="mattshel"/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.service="service-bus"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="07/21/2015"
 	ms.author="sethm"/>
 
 
@@ -77,7 +77,7 @@ AMQP 1.0 разрабатывался с 2008 г. активной группо�
 | C | Apache Qpid Proton-C |
 | PHP | Apache Qpid Proton-PHP |
 | Python | Apache Qpid Proton-Python |
-
+| C# | AMQP .Net Lite |
 
 **Рисунок 2. Таблица клиентских библиотек AMQP 1.0**
 
@@ -98,4 +98,4 @@ AMQP 1.0 разрабатывался с 2008 г. активной группо�
 [0]: ./media/service-bus-amqp-overview/Example1.png
 [руководстве разработчика AMQP для служебной шины]: http://msdn.microsoft.com/library/jj841071.aspx
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

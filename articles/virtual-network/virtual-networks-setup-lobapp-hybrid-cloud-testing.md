@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Настройка веб бизнес-приложения в гибридном облаке для тестирования" 
-	description="Научитесь создавать веб бизнес-приложения в гибридной облачной среде для ИТ-специалистов или тестирования разработки." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Тестовая среда бизнес-приложений | Microsoft Azure"
+	description="Научитесь создавать веб бизнес-приложения в гибридной облачной среде для ИТ-специалистов или тестирования разработки."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # Настройка веб бизнес-приложения в гибридном облаке для тестирования
@@ -80,7 +80,7 @@
 3.	При появлении запроса на открытие SQL1.rdp щелкните **Открыть**.
 4.	При появлении запроса в окне сообщений «Подключение к удаленному рабочему столу» щелкните **Подключиться**.
 5.	При появлении запроса используйте следующие учетные данные:
-	- имя: **SQL1\**[имя учетной записи локального администратора];
+	- имя: **SQL1**[имя учетной записи локального администратора];
 	- Пароль: [пароль учетной записи локального администратора]
 6.	После появления запроса, ссылающегося на сертификаты, в окне сообщений «Подключение к удаленному рабочему столу» щелкните **Да**.
 
@@ -196,4 +196,4 @@
 [Руководство по реализации служб инфраструктуры Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

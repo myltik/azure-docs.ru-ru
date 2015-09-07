@@ -1,20 +1,20 @@
 
 <properties 
-	pageTitle="Использование редактора правил синхронизации Azure AD Connect" 
-	description="Сведения о том, как использовать редактор правил синхронизации Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Использование редактора правил синхронизации Azure AD Connect"
+	description="Сведения о том, как использовать редактор правил синхронизации Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Редактор правил синхронизации Azure AD Connect
@@ -74,4 +74,4 @@
 Раздел преобразования велик, и он обеспечивает большую часть настраиваемой конфигурации, которая возможна для Azure AD Connect. Настраиваемая конфигурация не рассматривается в этом обзорном документе, но мы рассмотрим некоторые дополнительные потоки атрибутов далее в этом документе.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

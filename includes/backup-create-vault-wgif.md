@@ -1,44 +1,46 @@
-## Create a Backup Vault
-To back up files and data from your Windows Server or System Center Data Protection Manager (SCDPM) to Azure or when backing up IaaS VMs to Azure, you must create a backup vault in the geographic region where you want to store the data.
+## Создание хранилища службы архивации
+Для резервного копирования файлов и данных из Windows Server или System Center Data Protection Manager (SCDPM) в Azure либо для резервного копирования виртуальных машин IaaS в Azure необходимо создать хранилище службы архивации в том географическом регионе, где вы хотите хранить данные.
 
-This article will walk you through the creation of the vault you will use to store backups.
+В этой статье мы расскажем, как создать хранилище, в котором будут храниться резервные копии.
 
-## Video walkthrough
+## Видеоруководство
 
-Here's a quick video of the process.
+Краткая видеозапись процесса.
 
 [AZURE.VIDEO azure-backup-vault-creation]
 
-The following steps will walk you through the creation of the vault used to store backups.
+Ниже описаны действия по созданию хранилища, используемого для хранения резервных копий.
 
-### Creating a backup vault
-1. Sign in to the [Management Portal](https://manage.windowsazure.com/)
-2. Click **New** > **Data Services** > **Recovery Services** > **Backup Vault** and choose **Quick Create**.
-3. For the **Name** parameter, enter a friendly name to identify the backup vault. This needs to be unique for each subscription.
-4. For the **Region** parameter, select the geographic region for the backup vault. The choice determines the geographic region to which your backup data is sent. By choosing a geographic region close to your location, you can reduce the network latency when backing up to Azure.
-5. Click on **Create Vault** to complete the workflow. It can take a while for the backup vault to be created. To check the status, you can monitor the notifications at the bottom of the portal.
+### Создание резервного хранилища
+1. Войдите на [портал управления](https://manage.windowsazure.com/).
+2. Последовательно выберите пункты **Создать**, **Службы данных**, **Службы восстановления**, **Хранилище архивации** и **Быстрое создание**.
+3. В поле **Имя** укажите понятное имя для идентификации хранилища. Это имя должно быть уникальным для каждой подписки.
+4. В поле **Регион** выберите географический регион хранилища. Этот выбор определяет географический регион, в который будут отправляться архивируемые данные. Выбрав географический регион, который находится недалеко от вашего расположения, можно уменьшить задержки в сети при архивации данных в Azure.
+5. Для завершения процесса выберите команду **Создать хранилище**. Для создания резервного хранилища может потребоваться некоторое время. Для проверки состояния можно отслеживать уведомления в нижней части портала.
 
-    ![Creating Vault](./media/backup-create-vault-wgif/create-vault-wgif.gif)
+    ![Создание хранилища](./media/backup-create-vault-wgif/create-vault-wgif.gif)
 
-6. After the backup vault has been created, a message tells you the vault has been successfully created. The vault is also listed in the resources for Recovery Services as **Active**.
-
-
+6. После создания хранилища архивации отобразится сообщение о том, что оно успешно создано. Кроме того, это хранилище отобразится в списке ресурсов служб восстановления с состоянием **Активное**.
 
 
-### Azure Backup - Storage Redundancy Options
 
-The best time to identify your storage redundancy option is right after vault creation, and before any machines are registered to the vault. Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
 
-Your business needs would determine the storage redundancy of the Azure Backup backend storage. If you are using Azure as a primary backup storage endpoint (e.g. you are backing up to Azure from a Windows Server), you should consider picking (the default) Geo-Redundant storage option. This is seen under the **Configure** option of your Backup vault.
+### Служба архивации Azure и параметры избыточности хранилища
+
+Наилучшее время для определения параметров избыточности хранилища — сразу после его создания и перед регистрацией в нем любых компьютеров. После регистрации элемента в хранилище параметр избыточности хранилища блокируется и в последствии не может быть изменен.
+
+Избыточность серверного хранилища службы архивации Azure определяется бизнес-потребностями. Если Azure используется как основная конечная точка хранилища резервных копий (например, резервное копирование в Azure выполняется с Windows Server), рекомендуем выбрать параметр геоизбыточного хранилища (значение по умолчанию). Этот параметр находится в разделе **Настройка** хранилища архивации.
 
 ![GRS](./media/backup-create-vault/grs.png)
 
-#### Geo-Redundant Storage (GRS)
-GRS maintains six copies of your data. With GRS, your data is replicated three times within the primary region, and is also replicated three times in a secondary region hundreds of miles away from the primary region, providing the highest level of durability. In the event of a failure at the primary region, by storing data in GRS, Azure Backup ensures that your data is durable in two separate regions.
+#### Геоизбыточное хранилище (GRS)
+GRS хранит шесть копий ваших данных. С GRS ваши данные реплицируются три раза в первичном регионе, а также три раза во вторичном регионе, который находится с сотнях километров от первичного, для самого высокого уровня устойчивости. При сохранении данных в геоизбыточном хранилище служба архивации Azure хранит данные в двух разных регионах на случай, если хранилище в основном регионе станет недоступным.
 
-#### Locally Redundant Storage (LRS)
-Loclly redundant storage (LRS) maintains three copies of your data. LRS is replicated three times within a single facility in a single region. LRS protects your data from normal hardware failures, but not from the failure of an entire Azure facility.
+#### Локально избыточное хранилище (LRS)
+Локально избыточное хранилище (LRS) обслуживает три копии ваших данных. LRS реплицируется три раза в рамках одного помещения одного региона. LRS защищает ваши данные от стандартных сбоев оборудования, но не от сбоев всего комплекса Azure.
 
-If you are using Azure as a tertiary backup storage endpoint (e.g. you are using SCDPM to have a local backup copy on-premises & using Azure for your long term retention needs), you should consider choosing Locally Redundant Storage from the **Configure** option of your Backup vault. This brings down the cost of storing data in Azure, while providing a lower level of durability for your data that might be acceptable for tertiary copies.
+При использовании Azure как конечной точки хранилища резервных копий третьего уровня (например, вы используете SCDPM, чтобы иметь локальную резервную копию, и используете Azure для длительного хранения) для параметра **Настройка** в хранилище службы архивации следует выбрать локально избыточное хранилище. Это снизит затраты на хранение данных в Azure, но при этом также снизится уровень устойчивости данных, что может быть допустимо для копий третьего уровня.
 
 ![LRS](./media/backup-create-vault/lrs.png)
+
+<!---HONumber=August15_HO9-->

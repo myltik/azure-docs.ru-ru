@@ -1,20 +1,20 @@
 <properties
    pageTitle="Секционирование служб структуры служб"
-   description="Описывает процесс выполнения разделения служб в структуре служб"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+	description="Описывает процесс выполнения разделения служб в структуре служб"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="appi101"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/13/2015"
-   ms.author="aprameyr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="aprameyr"/>
 
 # Секционирование служб структуры служб
 Структура служб упрощает создание масштабируемых служб с отслеживанием состояния за счет поддержки секционирования состояния службы и обеспечения работы каждого раздела на встроенном наборе общего состояния. Каждый раздел становится [высокодоступной](service-fabric-availability-services.md) единицей. Реплики разделов распределяются по узлам в кластере, и для них выполняется балансировка нагрузки.
@@ -54,4 +54,4 @@
 - [Масштабируемость служб структуры служб](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

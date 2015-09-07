@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Форматы и кодеки стандартного кодировщика служб мультимедиа" 
-	description="В этом разделе приведен обзор кодеков и форматов стандартного кодировщика служб мультимедиа." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Форматы и кодеки стандартного кодировщика служб мультимедиа"
+	description="В этом разделе приведен обзор кодеков и форматов стандартного кодировщика служб мультимедиа."
+	services="media-services"
+	documentationCenter=""
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
@@ -27,7 +27,7 @@
 [Форматы экспорта в кодировщике служб мультимедиа](#export_formats)
 
 
-##<a id="import_formats"></a>Форматы импорта в кодировщике служб мультимедиа 
+##<a id="import_formats"></a>Форматы импорта в стандартном кодировщике мультимедиа 
 
 В следующем разделе перечислены кодеки и форматы файлов, поддерживаемые для импорта.
 
@@ -69,7 +69,7 @@ GXF|.gxf
 WAVE/WAV |.wav
 
 
-##<a id="export_formats"></a>Форматы экспорта в кодировщике мультимедиа
+##<a id="export_formats"></a>Форматы экспорта в стандартном кодировщике мультимедиа
 
 В следующей таблице перечислены кодеки и форматы файлов, поддерживаемые для экспорта.
 
@@ -83,4 +83,4 @@ MPEG2-TS |H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC
 
 [Кодирование содержимого по запросу с помощью служб мультимедиа Azure](media-services-encode-asset.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

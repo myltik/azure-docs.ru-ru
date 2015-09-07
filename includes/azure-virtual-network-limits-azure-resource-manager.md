@@ -4,7 +4,7 @@
    <th align="left" valign="middle">Ограничение по умолчанию</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">Виртуальных сетей</a> на подписку<sup>1</sup></p></td>
+   <td valign="middle"><p><a href="../virtual-network/virtual-networks-overview.md">Виртуальных сетей</a> на подписку<sup>1</sup></p></td>
    <td valign="middle"><p>50 на регион<sup>1</sup></p></td>
 </tr>
 <tr>
@@ -51,4 +51,4 @@
 
 <sup>1</sup>Ограничение можно увеличить, обратившись в службу поддержки.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Ферма SharePoint в интрасети, этап 3: настройка инфраструктуры SQL Server"
-	description="На третьем этапе развертывания фермы SharePoint 2013 в интрасети с группами доступности AlwaysOn для SQL Server на базе служб инфраструктуры Azure создаются компьютеры кластера SQL Server и сам кластер."
+	pageTitle="Ферма SharePoint Server 2013, этап 3 | Microsoft Azure"
+	description="На третьем этапе развертывания SharePoint Server 2013 в Azure создайте компьютеры и кластер SQL Server и включите группы доступности."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -44,7 +44,7 @@
 	$vmSize="<Table M – Item 3 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
 	$availSet="<Table A – Item 2 – Availability set name column>"
 
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Enterprise on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
 
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first SQL Server computer."
@@ -143,7 +143,7 @@
 
 Выйдите из учетной записи локального администратора на виртуальных машинах серверов SQL Server.
 
-Дополнительные сведения см. в статье [Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx). Для повышения скорости ввода-вывода также можно отключить геоизбыточное хранилище (GRS) для учетной записи хранения фермы SharePoint и использовать пространство в хранилищах.
+Дополнительные сведения см. в статье [Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure](virtual-machines-sql-server-performance-best-practices.md). Для повышения скорости ввода-вывода также можно отключить геоизбыточное хранилище (GRS) для учетной записи хранения фермы SharePoint и использовать пространство в хранилищах.
 
 ## Настройка сервера узла большинства кластера
 
@@ -228,4 +228,4 @@
 
 [Службы инфраструктуры Azure: высокодоступное бизнес-приложение](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

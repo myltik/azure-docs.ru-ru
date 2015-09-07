@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="Требования к системе StorSimple | Microsoft Azure" 
-   description="Описание требований к системе и рекомендаций по программному обеспечению, высокой доступности и сетям для решения Azure StorSimple." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="alkohli" 
-   manager="carolz" 
-   editor=""/>
+   pageTitle="Требования к системе StorSimple | Microsoft Azure"
+	description="Описание требований к системе и рекомендаций по программному обеспечению, высокой доступности и сетям для решения Azure StorSimple."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/17/2015"
-   ms.author="alkohli"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="alkohli"/>
 
-# Требования к системе StorSimple
+# Программное обеспечение StorSimple, высокий уровень доступности и требования к сети
 
 ## Обзор
 
@@ -194,4 +194,4 @@
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

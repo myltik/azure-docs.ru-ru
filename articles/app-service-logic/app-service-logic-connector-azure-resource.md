@@ -1,23 +1,23 @@
 <properties
-   pageTitle="Соединитель ресурсов Azure"
-   description="Соединитель ресурсов Azure"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="stepsic-microsoft-com"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Использование соединителя ресурсов Azure в приложениях логики | Служба приложений Microsoft Azure"
+	description="Как создать и настроить соединитель ресурсов Azure или приложение API и использовать его в приложении логики в службе приложений Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="stepsic-microsoft-com"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="stepsic"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="stepsic"/>
 
-# Соединитель ресурсов Azure
-Соединитель ресурсов Azure предоставляет удобный способ управления ресурсами Azure в приложениях логики.
+# Приступая к работе с соединителем ресурсов Azure: добавление в приложение логики 
+Используйте соединитель ресурсов Azure, чтобы легко управлять ресурсами Azure в приложении логики.
 
 ## Создание соединителя ресурсов Azure
 Чтобы использовать приложение API соединителя ресурсов Azure, необходимо сначала создать его экземпляр. Это можно сделать как при создании приложения логики, так и путем выбора приложения API соединителя ARM в Azure Marketplace.
@@ -96,4 +96,4 @@
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

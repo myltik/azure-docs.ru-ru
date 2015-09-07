@@ -1,20 +1,20 @@
 <properties
    pageTitle="Доступность служб структуры служб"
-   description="Описание процессов обнаружения сбоев, отработки отказа, восстановления для служб"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+	description="Описание процессов обнаружения сбоев, отработки отказа, восстановления для служб"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="appi101"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/13/2015"
-   ms.author="aprameyr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="aprameyr"/>
 
 # Доступность служб структуры служб
 Службы структуры служб могут располагать отслеживанием состояния или нет. Настоящая статья предоставляет обзор способа, который используется в структуре служб для поддержания доступности службы в случае сбоев.
@@ -51,4 +51,4 @@
 - [Определение состояния и управление им](service-fabric-concepts-state.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

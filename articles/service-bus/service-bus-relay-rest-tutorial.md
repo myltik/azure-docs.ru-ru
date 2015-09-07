@@ -1,23 +1,23 @@
-<properties 
-   pageTitle="Учебник по REST в служебной шине"
-   description="Создание простого хост-приложения служебной шины, которое предоставляет интерфейс на основе REST."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
-<tags 
+<properties
+   pageTitle="Учебник по REST в служебной шине | Microsoft Azure"
+	description="Создание простого хост-приложения служебной шины, которое предоставляет интерфейс на основе REST."
+	services="service-bus"
+	documentationCenter="na"
+	authors="sethmanheim"
+	manager="timlt"
+	editor=""/>
+<tags
    ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/07/2015"
-   ms.author="sethm" />
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="07/07/2015"
+	ms.author="sethm"/>
 
 # Учебник по REST в служебной шине
 
-В этом разделе описано, как создать простое хост-приложение служебной шины, которое предоставляет интерфейс на основе REST. REST позволяет веб-клиенту, например веб-браузеру, получить доступ к интерфейсу API служебной шины с помощью HTTP-запросов.
+В этом учебнике описано, как создать простое хост-приложение служебной шины, предоставляющее интерфейс на основе REST. REST позволяет веб-клиенту, например веб-браузеру, получить доступ к интерфейсу API служебной шины с помощью HTTP-запросов.
 
 В этом учебнике для создания службы REST в служебной шине используется модель программирования REST Windows Communication Foundation (WCF). Дополнительные сведения см. в разделе [Модель программирования REST WCF](https://msdn.microsoft.com/library/bb412169.aspx) и [Разработка и реализация служб](https://msdn.microsoft.com/library/ms729746.aspx) в документации по WCF.
 
@@ -27,9 +27,9 @@
 
 ### Создание пространства имен службы и получение ключа SAS
 
-1. Чтобы создать пространство имен на портале управления Azure, выполните действия, описанные в разделе [Практическое руководство. Создание или изменение пространства имен службы служебной шины](https://msdn.microsoft.com/library/hh690931.aspx).
+1. Чтобы создать пространство имен на портале Azure, выполните действия, описанные в разделе [Практическое руководство. Создание или изменение пространства имен службы служебной шины](https://msdn.microsoft.com/library/hh690931.aspx).
 
-2. В главном окне портала управления Azure щелкните имя пространства имен службы, созданного на предыдущем шаге.
+2. В главном окне портала Azure щелкните имя пространства имен службы, созданного на предыдущем шаге.
 
 3. Щелкните **Настройка**, чтобы просмотреть политики общего доступа для пространства имен.
 
@@ -43,15 +43,17 @@
 
 ### Создание контракта служебной шины с помощью интерфейса
 
-1. Откройте Visual Studio с правами администратора, щелкнув программу правой кнопкой мыши в меню "Пуск" и выбрав **Запуск от имени администратора**.
+1. Откройте Visual Studio с правами администратора, щелкнув программу правой кнопкой мыши в меню **Пуск** и выбрав **Запуск от имени администратора**.
 
 2. Создайте новый проект консольного приложения. В меню **Файл** выберите **Создать**, а затем **Проект**. В диалоговом окне **Новый проект** выберите **Visual C#** (если **Visual C#** не отображается, откройте список **Другие языки**). Выберите шаблон **Консольное приложение** и назовите его **ImageListener**. Используйте **расположение** по умолчанию. Нажмите кнопку **ОК**, чтобы создать проект.
 
 3. Для проекта C# в Visual Studio создается файл с именем `Program.cs`. Этот класс содержит пустой метод `Main()`, необходимый для правильного создания проекта консольного приложения.
 
-4. Добавьте в проект ссылку на **System.ServiceModel.dll**:
-	1. В **обозревателе решений** в папке проекта щелкните правой кнопкой мыши папку **Ссылки** и выберите **Добавить ссылку**. 
-	2. В диалоговом окне **Добавить ссылку** перейдите на вкладку **.NET** и прокрутите вниз до **System.ServiceModel**. Выберите, а затем нажмите кнопку **ОК**.
+4. Добавьте в проект ссылку на файл **System.ServiceModel.dll**:
+
+	а. В **обозревателе решений** в папке проекта щелкните правой кнопкой мыши папку **Ссылки** и выберите **Добавить ссылку**.
+
+	b. В диалоговом окне **Добавить ссылку** перейдите на вкладку **.NET** и прокрутите вниз до элемента **System.ServiceModel**. Выберите его, а затем нажмите кнопку **ОК**.
 
 5. Повторите предыдущий шаг, чтобы добавить ссылку на сборку **System.ServiceModel.Web.dll**.
 
@@ -64,7 +66,7 @@
   	using System.IO;
 	```
 
-	[System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) — это пространство имен, которое предоставляет программный доступ к основным функциям WCF. Служебная шина использует множество объектов и атрибутов WCF для определения контрактов службы. Это пространство имен будет использоваться в большинстве приложений ретранслятора служебной шины. Аналогичным образом [System.ServiceModel.Channels](https://msdn.microsoft.com/ru-ru/library/system.servicemodel.channels.aspx) помогает определить канал, т. е. объект, посредством которого служебная шина взаимодействует с веб-браузером клиента. Наконец, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) содержит типы, которые позволяют создавать веб-приложения.
+	[System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) — это пространство имен, которое предоставляет программный доступ к основным функциям WCF. Служебная шина использует множество объектов и атрибутов WCF для определения контрактов службы. Это пространство имен будет использоваться в большинстве приложений ретранслятора служебной шины. Аналогичным образом [System.ServiceModel.Channels](https://msdn.microsoft.com/ru-RU/library/system.servicemodel.channels.aspx) помогает определить канал, то есть объект, посредством которого служебная шина взаимодействует с веб-браузером клиента. Наконец, [System.ServiceModel.Web](https://msdn.microsoft.com/library/system.servicemodel.web.aspx) содержит типы, позволяющие создавать веб-приложения.
 
 7. Переименуйте пространство имен для программы, заданное в Visual Studio по умолчанию, на **Microsoft.ServiceBus.Samples**.
 
@@ -74,7 +76,7 @@
 		...
 	```
 
-8. Сразу после объявления пространства имен определите новый интерфейс с именем **IImageContract** и примените к нему атрибут **ServiceContractAttribute** со значением `http://samples.microsoft.com/ServiceModel/Relay/`. Значение пространства имен отличается от пространства имен, которое используется во всей области кода. Значение пространства имен служит в качестве уникального идентификатора для данного контракта и должно содержать сведения о версии. Дополнительные сведения см. в разделе [Управление версиями службы](http://go.microsoft.com/fwlink/?LinkID=180498). Явное указание пространства позволяет предотвратить добавление значение пространства имен по умолчанию к имени контракта.
+8. Сразу после объявления пространства имен определите новый интерфейс с именем **IImageContract** и примените к нему атрибут **ServiceContractAttribute** со значением `http://samples.microsoft.com/ServiceModel/Relay/`. Значение пространства имен отличается от пространства имен, которое используется во всей области кода. Значение пространства имен служит в качестве уникального идентификатора для данного контракта и должно содержать сведения о версии. Дополнительные сведения можно найти в разделе [Управление версиями службы](http://go.microsoft.com/fwlink/?LinkID=180498). Явное указание пространства позволяет предотвратить добавление значение пространства имен по умолчанию к имени контракта.
 
 	```c
 	[ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
@@ -105,8 +107,8 @@
 
 	Это позволит служебной шине перенаправлять запросы HTTP GET в **GetImage** и преобразовывать возвращаемые значения **GetImage** в ответ HTTP GETRESPONSE. Далее в этом учебнике для доступа к этому методу и отображения изображения в браузере будет использоваться веб-браузер.
 
-11. Сразу после определения `IImageContract` объявите канал, который наследует от интерфейсов `IImageContract` и `IClientChannel`:
-		
+11. Сразу после определения `IImageContract` объявите канал, наследующий от интерфейсов `IImageContract` и `IClientChannel`:
+
 	```c
 	[ServiceContract(Name = "IImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
 	public interface IImageContract
@@ -114,7 +116,7 @@
 		[OperationContract, WebGet]
 		Stream GetImage();
 	}
-  
+
 	public interface IImageChannel : IImageContract, IClientChannel { }
 	```
 
@@ -135,19 +137,19 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Web;
 using System.IO;
-	
+
 namespace Microsoft.ServiceBus.Samples
 {
-	
+
     [ServiceContract(Name = "IImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IImageContract
     {
         [OperationContract, WebGet]
         Stream GetImage();
     }
-	
+
     public interface IImageChannel : IImageContract, IClientChannel { }
-	
+
     class Program
     {
         static void Main(string[] args)
@@ -165,7 +167,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ### Реализация контракта REST служебной шины
 
-1. Создайте новый класс с именем **ImageService** сразу после определения интерфейса **IImageContract**. Класс **ImageService** реализует интерфейс **IImageContract**. 
+1. Создайте новый класс с именем **ImageService** сразу после определения интерфейса **IImageContract**. Класс **ImageService** реализует интерфейс **IImageContract**.
 
 	```c
 	class ImageService : IImageContract
@@ -183,15 +185,15 @@ namespace Microsoft.ServiceBus.Samples
 	}
 	```
 
-	Как упоминалось ранее, это пространство имен не является обычным. Оно является частью архитектуры WCF, которая идентифицирует контракт. Дополнительные сведения см. в разделе [Имена контрактов данных](https://msdn.microsoft.com/library/ms731045.aspx) в документации по WCF.
+	Как упоминалось ранее, это пространство имен не является обычным. Оно является частью архитектуры WCF, которая идентифицирует контракт. Дополнительные сведения можно найти в разделе [Имена контрактов данных](https://msdn.microsoft.com/library/ms731045.aspx) в документации по WCF.
 
 3. Добавьте в проект изображение в формате JPG.
 
 	Это рисунок, отображаемый службой в браузере-получателе. Щелкните проект правой кнопкой мыши и выберите **Добавить**. Затем выберите **Существующий элемент**. В диалоговом окне **Добавить существующий элемент** найдите необходимый файл в формате JPG и нажмите кнопку **Добавить**.
-    
+
 	При добавлении файла убедитесь, что в раскрывающемся списке рядом с полем **Имя файла:** выбран пункт **Все файлы**. Далее в этом учебнике предполагается, что изображение называется image.jpg. При использовании другого файла необходимо переименовать изображение или изменить код соответствующим образом.
 
-4. Чтобы убедиться, что запущенная служба может найти файл изображения, в обозревателе решений щелкните правой кнопкой мыши файл изображения. На панели **Свойства** задайте для параметра **Копировать в выходной каталог** значение **Копировать, если новее**.
+4. Чтобы убедиться, что запущенная служба может найти файл изображения, в **обозревателе решений** щелкните правой кнопкой мыши файл изображения. На панели **Свойства** задайте для параметра **Копировать в выходной каталог** значение **Копировать, если новее**.
 
 5. Добавьте в проект ссылки на сборки **System.Drawing.dll**, **System.Runtime.Serialization.dll** и **Microsoft.ServiceBus.dll**, а также следующие связанные операторы `using`:
 
@@ -208,9 +210,9 @@ namespace Microsoft.ServiceBus.Samples
 	class ImageService : IImageContract
 	{
 		const string imageFileName = "image.jpg";
-  
+
 		Image bitmap;
-  
+
 		public ImageService()
 		{
 			this.bitmap = Image.FromFile(imageFileName);
@@ -225,14 +227,14 @@ namespace Microsoft.ServiceBus.Samples
 	{
 		MemoryStream stream = new MemoryStream();
 		this.bitmap.Save(stream, ImageFormat.Jpeg);
-  
+
 		stream.Position = 0;
 		WebOperationContext.Current.OutgoingResponse.ContentType = "image/jpeg";
-  
+
 		return stream;
 	}
 	```
-  
+
 	Эта реализация использует класс **MemoryStream** для извлечения изображения и его подготовки к потоковой передаче в браузер. Он начинает позицию потока с нуля, объявляет содержимое потока как jpeg и передает информацию.
 
 8. В меню **Сборка** выберите **Построить решение**.
@@ -241,31 +243,31 @@ namespace Microsoft.ServiceBus.Samples
 
 1. Щелкните правой кнопкой мыши проект **ImageListener**. Выберите **Добавить**, а затем **Новый элемент**.
 
-2. В обозревателе решений дважды щелкните файл **App.config**, который на данный момент содержит следующие XML-элементы:
+2. В **обозревателе решений** дважды щелкните файл **App.config**, который на данный момент содержит следующие XML-элементы:
 
 	```xml
 	<?xml version="1.0" encoding="utf-8" ?>
 	<configuration>
 	</configuration>
 	```
-  
+
 	Файл конфигурации похож на файл конфигурации WCF и включает имя службы, конечную точку (то есть местоположение, которое служебная шина предоставляет клиентам и узлам для взаимодействия) и привязку (тип протокола, используемый для обмена данными). Основное различие состоит в том, что настроенная конечная точка службы ссылается на привязку [WebHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.webhttprelaybinding.aspx), которая не является частью платформы .NET Framework. Дополнительные сведения о настройке приложения служебной шины см. в разделе [Настройка службы WCF для регистрации в служебной шине](https://msdn.microsoft.com/library/ee173579.aspx).
-  
+
 
 3. Добавьте XML-элемент `<system.serviceModel>` в файл App.config. Это элемент WCF, который определяет одну или несколько служб. Здесь он используется для определения имени службы и конечной точки.
-  
+
 	```xml
 	<?xml version="1.0" encoding="utf-8" ?>
 	<configuration>
 		<system.serviceModel>
-      
+
 		</system.serviceModel>
-    
+
 	</configuration>
 	```
 
 4. В элементе `system.serviceModel` добавьте элемент `<bindings>` с указанным ниже содержанием. Оно определяет привязки, используемые в приложении. Можно определить несколько привязок, но в этом учебнике определяется только одна.
-  
+
 	```xml
 	<bindings>
 		<!-- Application Binding -->
@@ -276,11 +278,11 @@ namespace Microsoft.ServiceBus.Samples
 		</webHttpRelayBinding>
 	</bindings>
 	```
-  
+
 	На этом шаге определяется привязка служебной шины [WebHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.webhttprelaybinding.aspx), в которой для **relayClientAuthenticationType** установлено значение **None**. Этот параметр указывает, что для конечной точки, использующей эту привязку, не требуются учетные данные клиента.
 
 5. После элемента `<bindings>` добавьте элемент `<services>`. Как и в случае с привязками, в одном файле конфигурации можно определить несколько служб. Но в этом учебнике определяется только одна.
-  
+
 	```xml
 	<services>
 		<!-- Application Service -->
@@ -295,11 +297,11 @@ namespace Microsoft.ServiceBus.Samples
 		</service>
 	</services>
 	```
-  
+
 	На этом шаге выполняется настройка службы, которая использует заданную ранее привязку по умолчанию **webHttpRelayBinding**. Здесь также используется значение по умолчанию **sbTokenProvider**, которое будет определено на следующем шаге.
 
-6. После элемента `<services>` создайте элемент `<behaviors>` с указанным ниже содержанием, заменив SAS\_KEY на ключ *подписанного URL-адреса* (SAS), значение которого вы записали с портала управления Azure в шаге 1.
-  
+6. После элемента `<services>` создайте элемент `<behaviors>` с указанным ниже содержанием, заменив "SAS\_KEY" на ключ *подписанного URL-адреса* (SAS), значение которого вы взяли на портале управления Azure в шаге 1.
+
 	```xml
 	<behaviors>
 		<endpointBehaviors>
@@ -318,7 +320,7 @@ namespace Microsoft.ServiceBus.Samples
 			</serviceBehaviors>
 	</behaviors>
 	```
-  
+
 7. Из меню **Построение** выберите **Построить решение**, чтобы построить все решение полностью.
 
 ### Пример
@@ -341,7 +343,7 @@ using Microsoft.ServiceBus.Web;
 
 namespace Microsoft.ServiceBus.Samples
 {
-    
+
 
     [ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IImageContract
@@ -373,7 +375,7 @@ namespace Microsoft.ServiceBus.Samples
             WebOperationContext.Current.OutgoingResponse.ContentType = "image/jpeg";
 
             return stream;
-        }    
+        }
     }
 
     class Program
@@ -456,7 +458,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ### Создание и настройка узла веб-службы
 
-1. Создайте узел веб-службы с помощью URI-адреса, созданного на предыдущем шаге.
+- Создайте узел веб-службы с помощью URI-адреса, созданного на предыдущем шаге.
 
 	```c
 	WebServiceHost host = new WebServiceHost(typeof(ImageService), address);
@@ -490,7 +492,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## Пример
 
-В следующем примере показаны контракт и реализация службы, созданные на предыдущих шагах, а также размещение службы в консольном приложении. Скомпилируйте следующий код в исполняемый файл с именем **ImageListener.exe**:
+В следующем примере показаны контракт и реализация службы, созданные на предыдущих шагах, а также размещение службы в консольном приложении. Скомпилируйте следующий код в исполняемый файл с именем "ImageListener.exe":
 
 ```c
 using System;
@@ -508,7 +510,7 @@ using Microsoft.ServiceBus.Web;
 
 namespace Microsoft.ServiceBus.Samples
 {
-    
+
     [ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/")]
     public interface IImageContract
     {
@@ -539,7 +541,7 @@ namespace Microsoft.ServiceBus.Samples
             WebOperationContext.Current.OutgoingResponse.ContentType = "image/jpeg";
 
             return stream;
-        }    
+        }
     }
 
     class Program
@@ -574,10 +576,10 @@ namespace Microsoft.ServiceBus.Samples
 
 ## Дальнейшие действия
 
-Вы научились создавать приложение, которое использует службу ретранслятора служебной шины. Дополнительные сведения об обмене сообщениями с ретрансляцией см. в следующие разделах:
+Вы научились создавать приложение, которое использует службу ретранслятора служебной шины. Дополнительные сведения об обмене сообщениями с ретрансляцией можно найти в следующих статьях:
 
 - [Обзор архитектуры служебной шины Azure](fundamentals-service-bus-hybrid-solutions.md#relays)
 
 - [Как использовать службу ретранслятора служебной шины](service-bus-dotnet-how-to-use-relay.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

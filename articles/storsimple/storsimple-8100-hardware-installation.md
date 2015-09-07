@@ -1,21 +1,21 @@
 <properties 
    pageTitle="Установка устройства StorSimple 8100 | Microsoft Azure"
-   description="Описывается, как распаковать, установить в стойку и подключить устройство StorSimple 8100."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Описывается процедура распаковки, установки в стойку и подключения устройства StorSimple 8100 перед развертыванием и настройкой программного обеспечения."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/06/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="alkohli"/>
 
-# Установка устройства StorSimple 8100
+# Распаковка, установка в стойку и подключение устройства StorSimple 8100
 
 ## Обзор
 
@@ -275,4 +275,4 @@ Microsoft Azure StorSimple 8100 представляет собой единый
 Теперь вы готовы к [Развертыванию и настройке локального устройства StorSimple](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

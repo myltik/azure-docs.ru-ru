@@ -291,7 +291,7 @@
 <a name="resources"></a>
 ## Дополнительные ресурсы ##
 
--	[Язык шаблонов в диспетчере ресурсов Azure](http://msdn.microsoft.com/library/azure/dn835138.aspx)
+-	[Язык шаблонов в диспетчере ресурсов Azure](../resource-group-authoring-templates.md)
 -	[Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md)
 -	[Функции шаблонов в диспетчере ресурсов Azure](../resource-group-template-functions.md)
 -	[Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](../resource-group-template-deploy.md)
@@ -303,4 +303,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

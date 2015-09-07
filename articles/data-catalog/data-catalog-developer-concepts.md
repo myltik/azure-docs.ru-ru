@@ -1,6 +1,6 @@
 <properties
    pageTitle="Концепции каталога данных Azure для разработчиков"
-	description="Концепции каталога данных Azure для разработчиков: каталог, пользователи, ресурсы, совместная работа."
+	description="Введение в основные понятия концептуальной модели каталога данных Azure, предоставляемой через каталог REST API."
 	services="data-catalog"
 	documentationCenter=""
 	authors="dvana"
@@ -231,4 +231,4 @@
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

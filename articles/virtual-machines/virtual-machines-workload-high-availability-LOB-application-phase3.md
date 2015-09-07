@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Третий этап развертывания бизнес-приложений: настройка инфраструктуры SQL Server" 
-	description="На третьем этапе развертывания высокодоступного бизнес-приложения в интрасети на базе служб инфраструктуры Azure создаются компьютеры кластера SQL Server и сам кластер." 
+	pageTitle="Бизнес-приложение, этап 3 | Microsoft Azure"
+	description="На третьем этапе развертывания бизнес-приложения в Azure создайте компьютеры и кластер SQL Server и включите группы доступности."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Третий этап развертывания бизнес-приложений: настройка инфраструктуры SQL Server
@@ -177,7 +177,7 @@
 
 Выйдите из учетной записи локального администратора на виртуальных машинах с SQL Server.
 
-Дополнительные сведения см. в статье [Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx). Для повышения скорости ввода-вывода также можно отключить геоизбыточное хранилище (GRS) для учетной записи хранения бизнес-приложения и использовать пространство в хранилищах.
+Дополнительные сведения см. в статье [Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure](virtual-machines-sql-server-performance-best-practices.md). Для повышения скорости ввода-вывода также можно отключить геоизбыточное хранилище (GRS) для учетной записи хранения бизнес-приложения и использовать пространство в хранилищах.
 
 ## Настройка сервера узла большинства кластера
 
@@ -268,4 +268,4 @@
 
 [Рабочая нагрузка служб инфраструктуры Azure: ферма SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

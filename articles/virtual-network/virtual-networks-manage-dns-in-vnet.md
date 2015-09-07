@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Управление DNS-серверами, используемыми виртуальной сетью"
-   description="Узнайте, как добавлять и удалять DNS-серверы в виртуальной сети (VNet)."
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="Узнайте, как добавлять и удалять DNS-серверы в виртуальной сети (VNet)."
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/08/2015"
+	ms.author="telmos"/>
 
 # Управление DNS-серверами, используемыми виртуальной сетью
 
@@ -49,11 +49,11 @@
 
 Чтобы изменить список DNS-серверов с помощью файла конфигурации сети, сначала на портале управления экспортируйте параметры конфигурации. Затем измените файл конфигурации сети и импортируйте его обратно через портал управления. Ниже приведен краткий список действий для выполнения этой процедуры.
 
-1. Экспортируйте параметры виртуальной сети в файл конфигурации. Дополнительные сведения об экспортировании параметров конфигурации сети и соответствующие инструкции см. в статье [Экспорт параметров виртуальной сети в файл конфигурации сети](https://msdn.microsoft.com/library/azure/dn133804.aspx).
+1. Экспортируйте параметры виртуальной сети в файл конфигурации. Дополнительные сведения об экспортировании параметров конфигурации сети и соответствующие инструкции см. в статье [Экспорт параметров виртуальной сети в файл конфигурации сети](virtual-networks-using-network-configuration-file.md).
 
-1. Укажите данные DNS-сервера для виртуальной сети. Дополнительные сведения об определении DNS-сервера см. в статье [Задание параметров DNS в файле конфигурации виртуальной сети](https://msdn.microsoft.com/library/windowsazure/jj156098.aspx). Дополнительные сведения о файлах конфигурации сети см. в статьях [Схема конфигурации виртуальной сети Windows Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx) и [Настройка виртуальной сети с помощью файлов конфигурации](https://msdn.microsoft.com/library/azure/jj156097.aspx).
+1. Укажите данные DNS-сервера для виртуальной сети. Дополнительные сведения об определении DNS-сервера см. в статье [Задание параметров DNS в файле конфигурации виртуальной сети](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md). Дополнительные сведения о файлах конфигурации сети см. в статьях [Схема конфигурации виртуальной сети Windows Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx) и [Настройка виртуальной сети с помощью файлов конфигурации](virtual-networks-using-network-configuration-file.md).
 
-1. Импортируйте файл конфигурации сети. Дополнительные сведения об импортировании файла конфигурации сети и соответствующие инструкции см. в статье [Импорт файла конфигурации сети](https://msdn.microsoft.com/library/azure/jj156213.aspx).
+1. Импортируйте файл конфигурации сети. Дополнительные сведения об импортировании файла конфигурации сети и соответствующие инструкции см. в статье [Импорт файла конфигурации сети](virtual-networks-using-network-configuration-file.md).
 
 1. Перезапустите виртуальные машины в виртуальной сети, чтобы они приняли новые параметры DNS.
 
@@ -65,4 +65,4 @@
 
 [Удаление виртуальной сети](../virtual-networks-delete-vnet)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

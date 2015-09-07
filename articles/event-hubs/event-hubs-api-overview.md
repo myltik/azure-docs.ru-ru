@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Общие сведения об API концентраторов событий"
-   description="Сводные сведения о некоторых ключевых клиентских API .NET концентраторов событий."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+	description="Сводные сведения о некоторых ключевых клиентских API .NET концентраторов событий."
+	services="event-hubs"
+	documentationCenter="na"
+	authors="sethmanheim"
+	manager="timlt"
+	editor=""/>
 <tags 
    ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/10/2015"
-   ms.author="sethm" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="07/10/2015"
+	ms.author="sethm"/>
 
 # Общие сведения об API концентраторов событий
 
@@ -186,6 +186,5 @@ public class SimpleEventProcessor : IEventProcessor
 
 - [Справочник по служебной шине и API .NET концентраторов событий](https://msdn.microsoft.com/library/jj933424.aspx)
 - [Справочник по API узла обработчика событий](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
-- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

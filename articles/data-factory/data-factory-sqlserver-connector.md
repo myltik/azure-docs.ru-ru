@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Соединитель SQL Server: перемещение данных на SQL Server и обратно" 
-	description="Сведения о соединителе SQL Server для службы фабрики данных, который используется для перемещения данных из базы данных SQL Server и обратно на локальных компьютерах и виртуальных машинах Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Перемещение данных в базу данных SQL Server и обратно | Фабрика данных Azure"
+	description="Узнайте, как с помощью фабрики данных Azure перемещать данные в базу данных SQL Server и обратно на локальных компьютерах и виртуальных машинах Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Соединитель SQL Server: перемещение данных в базу данных SQL Server и обратно на локальных компьютерах и виртуальных машинах Azure IaaS
+# Перемещение данных в базу данных SQL Server и обратно на локальных компьютерах и виртуальных машинах Azure IaaS с помощью фабрики данных Azure
 
 Эта статья содержит сведения о том, как в фабрике данных Azure с помощью действия копирования перемещать данные на SQL Server из другого хранилища данных и обратно. Эта статья основана на статье о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования и поддерживаемых сочетаниях хранилищ данных.
 
@@ -32,15 +32,15 @@
 
 В примере ниже показано следующее.
 
-1.	Связанная служба типа OnPremisesSqlServer.
-2.	Связанная служба типа AzureStorage.
-3.	Входной набор данных типа SqlServerTable. 
-4.	Выходной набор данных типа AzureBlob.
-4.	Конвейер с действием копирования, в котором используются SqlSource и BlobSink.
+1.	Связанная служба типа [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
+2.	Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Входной [набор данных](data-factory-create-datasets.md) типа [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties). 
+4.	Выходной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	[Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 В этом примере данные, относящиеся к одному временному ряду, из таблицы в базе данных SQL Server копируются в большой двоичный объект каждый час. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.
 
-Сначала настройте шлюз управления данными. Инструкции, как это сделать, см. в статье [Перемещение данных между локальными и облачными ресурсами](data-factory-move-data-between-onprem-and-cloud.md).
+Сначала настройте шлюз управления данными. Инструкции, как это сделать, см. в статье [Перемещение данных между локальными источниками и облаком при помощи шлюза управления данными](data-factory-move-data-between-onprem-and-cloud.md).
 
 **Связанная служба SQL Server**
 
@@ -183,7 +183,7 @@
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -208,11 +208,11 @@
 
 В примере ниже показано следующее.
 
-1.	Связанная служба типа OnPremisesSqlServer.
-2.	Связанная служба типа AzureStorage.
-3.	Входной набор данных типа AzureBlob.
-4.	Выходной набор данных типа SqlServerTable.
-4.	Конвейер с действием копирования, которое использует BlobSource и SqlSink.
+1.	Связанная служба типа [OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties).
+2.	Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Входной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Выходной [набор данных](data-factory-create-datasets.md) типа [SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties).
+4.	[Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) и [SqlSink](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties).
 
 В примере данные, относящиеся к одному временному ряду, каждый час копируются из BLOB-объекта Azure в базу данных SQL Server. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.
 
@@ -388,6 +388,10 @@
 | Имя пользователя | При использовании проверки подлинности Windows укажите имя пользователя. | Нет |
 | пароль | Введите пароль для учетной записи пользователя, указанной для выбранного имени пользователя. | Нет |
 
+Вы можете зашифровать учетные данные с помощью командлета **New-AzureDataFactoryEncryptValue** и использовать их в строке подключения, как показано в следующем примере (свойство **EncryptedCredential**).
+
+	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+
 ### Примеры
 
 **JSON для использования проверки подлинности SQL**
@@ -417,6 +421,8 @@
 	         "gatewayName": "<gateway name>" 
 	     } 
 	}
+
+Дополнительную информацию о настройке учетных данных для источника данных SQL Server см. в разделе [Настройка учетных данных и безопасность](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
 
 ## Свойства типа набора данных для SQL Server
 
@@ -462,7 +468,7 @@
 
 ### Сопоставление типов SQL Server и SQL Azure
 
-Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в два этапа:
+Как упоминалось в [статье о действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в два следующих этапа.
 
 1. Преобразование собственных типов источников в тип .NET.
 2. Преобразование типа .NET в собственный тип приемника.
@@ -512,4 +518,4 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

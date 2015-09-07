@@ -34,7 +34,7 @@ Azure AD облегчает разработчикам реализацию вх
 
 Для создания полного рабочего приложения необходимо:
 
-2. Зарегистрировать приложение в Azure AD.
+2. зарегистрировать свое приложение в Azure AD;
 3. Установить библиотеку ADAL и настроить одностраничное приложение (SPA).
 5. Использовать библиотеку ADAL для защиты страниц в SPA.
 
@@ -151,4 +151,4 @@ $scope.logout = function () {
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

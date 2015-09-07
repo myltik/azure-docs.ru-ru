@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure AD Connect Sync: атрибуты, синхронизируемые с Azure Active Directory"
+	pageTitle="Службы синхронизации Azure AD Connect: атрибуты, синхронизируемые с Azure Active Directory | Microsoft Azure"
 	description="В этой статье перечислены атрибуты, которые синхронизируются с Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,37 +13,34 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
-	ms.author="markusvi"/>
+	ms.date="08/24/2015"
+	ms.author="markusvi;andkjell"/>
 
 
-# Azure AD Connect Sync: атрибуты, синхронизируемые с Azure Active Directory
+# Службы синхронизации Azure AD Connect: атрибуты, синхронизируемые с Azure Active Directory
 
-В этой статье перечислены атрибуты, которые синхронизируются при помощи службы Azure AD Connect Sync.<br> Атрибуты сгруппированы по соответствующим приложениям Azure AD.
- 
-
-
+В этой статье перечислены атрибуты, которые синхронизируются при помощи служб синхронизации Azure AD Connect.<br> Атрибуты сгруппированы по соответствующим приложениям Azure AD.
 
 
 ## Office 365 профессиональный плюс.
 
 | Имя атрибута| Пользователь| Комментарий |
 | --- | :-: | --- |
-| AccountEnabled| X| Производный от userAccountControl|
+| AccountEnabled| X| Определяет, включена ли учетная запись.|
 | cn| X| |
 | displayName| X| |
-| objectSID| X| |
-| pwdLastSet| X| |
-| sourceAnchor| X| Настройка атрибута, используемого для пользователей, описана в руководстве по установке.|
-| usageLocation| X| msExchUsageLocation в доменных службах Active Directory|
-| userPrincipalName| X| |
+| objectSID| X| Механическое свойство. Идентификатор пользователя AD, используемый для обеспечения синхронизации между Azure AD и AD.|
+| pwdLastSet| X| Механическое свойство. Используется, чтобы определить, когда необходимо сделать недействительными уже выданные маркеры. Используется как в синхронизации паролей, так и в федерации.|
+| sourceAnchor| X| Механическое свойство. Неизменяемый идентификатор для поддержания связи между доменными службами Active Directory и Azure AD.|
+| usageLocation| X| Механическое свойство. Страна пользователя. Используется для назначения лицензии.|
+| userPrincipalName| X| Имя участника-пользователя является именем для входа. Чаще всего соответствует значению [mail].|
 
 
 ## Exchange Online
 
 | Имя атрибута| Пользователь| Контакт| Группа| Комментарий |
 | --- | :-: | :-: | :-: | --- |
-| AccountEnabled| X| | | Производный от userAccountControl|
+| AccountEnabled| X| | | Определяет, включена ли учетная запись.|
 | assistant| X| X| | |
 | authOrig| X| X| X| |
 | c| X| X| | |
@@ -132,7 +129,7 @@
 | msExchTeamMailboxSharePointUrl| X| | | |
 | msExchUserHoldPolicies| X| | | |
 | msOrg-IsOrganizational| | | X| |
-| objectSID| X| | X| |
+| objectSID| X| | X| Механическое свойство. Идентификатор пользователя AD, используемый для обеспечения синхронизации между Azure AD и AD.|
 | oOFReplyToOriginator| | | X| |
 | otherFacsimileTelephone| X| X| | |
 | otherHomePhone| X| X| | |
@@ -142,12 +139,12 @@
 | postalCode| X| X| | |
 | proxyAddresses| X| X| X| |
 | publicDelegates| X| X| X| |
-| pwdLastSet| X| | | |
+| pwdLastSet| X| | | Механическое свойство. Используется, чтобы определить, когда необходимо сделать недействительными уже выданные маркеры. Используется как в синхронизации паролей, так и в федерации.|
 | reportToOriginator| | | X| |
 | reportToOwner| | | X| |
 | securityEnabled| | | X| Производный от groupType|
 | sn| X| X| | |
-| sourceAnchor| X| X| X| Настройка атрибута, используемого для пользователей, описана в руководстве по установке.|
+| sourceAnchor| X| X| X| Механическое свойство. Неизменяемый идентификатор для поддержания связи между доменными службами Active Directory и Azure AD.|
 | st| X| X| | |
 | streetAddress| X| X| | |
 | targetAddress| X| X| | |
@@ -156,18 +153,19 @@
 | thumbnailphoto| X| X| | |
 | title| X| X| | |
 | unauthOrig| X| X| X| |
-| usageLocation| X| | | msExchUsageLocation в доменных службах Active Directory|
+| usageLocation| X| | | Механическое свойство. Страна пользователя. Используется для назначения лицензии.|
 | userCertificate| X| X| | |
-| userPrincipalName| X| | | |
+| userPrincipalName| X| | | Имя участника-пользователя является именем для входа. Чаще всего соответствует значению [mail].|
 | userSMIMECertificates| X| X| | |
 | wWWHomePage| X| X| | |
+
 
 
 ## SharePoint Online
 
 | Имя атрибута| Пользователь| Контакт| Группа| Комментарий |
 | --- | :-: | :-: | :-: | --- |
-| AccountEnabled| X| | | Производный от userAccountControl|
+| AccountEnabled| X| | | Определяет, включена ли учетная запись.|
 | authOrig| X| X| X| |
 | c| X| X| | |
 | cn| X| | X| |
@@ -213,7 +211,7 @@
 | msExchTeamMailboxOwners| X| | | |
 | msExchTeamMailboxSharePointLinkedBy| X| | | |
 | msExchTeamMailboxSharePointUrl| X| | | |
-| objectSID| X| | X| |
+| objectSID| X| | X| Механическое свойство. Идентификатор пользователя AD, используемый для обеспечения синхронизации между Azure AD и AD.|
 | oOFReplyToOriginator| | | X| |
 | otherFacsimileTelephone| X| X| | |
 | otherHomePhone| X| X| | |
@@ -227,12 +225,12 @@
 | postOfficeBox| X| X| | |
 | preferredLanguage| X| | | |
 | proxyAddresses| X| X| X| |
-| pwdLastSet| X| | | |
+| pwdLastSet| X| | | Механическое свойство. Используется, чтобы определить, когда необходимо сделать недействительными уже выданные маркеры. Используется как в синхронизации паролей, так и в федерации.|
 | reportToOriginator| | | X| |
 | reportToOwner| | | X| |
 | securityEnabled| | | X| Производный от groupType|
 | sn| X| X| | |
-| sourceAnchor| X| X| X| Настройка атрибута, используемого для пользователей, описана в руководстве по установке.|
+| sourceAnchor| X| X| X| Механическое свойство. Неизменяемый идентификатор для поддержания связи между доменными службами Active Directory и Azure AD.|
 | st| X| X| | |
 | streetAddress| X| X| | |
 | targetAddress| X| X| | |
@@ -242,15 +240,15 @@
 | title| X| X| | |
 | unauthOrig| X| X| X| |
 | url| X| X| | |
-| usageLocation| X| | | msExchUsageLocation в доменных службах Active Directory|
-| userPrincipalName| X| | | |
+| usageLocation| X| | | Механическое свойство. Страна пользователя. Используется для назначения лицензии.|
+| userPrincipalName| X| | | Имя участника-пользователя является именем для входа. Чаще всего соответствует значению [mail].|
 | wWWHomePage| X| X| | |
 
 ## Lync Online
 
 | Имя атрибута| Пользователь| Контакт| Группа| Комментарий |
 | --- | :-: | :-: | :-: | --- |
-| AccountEnabled| X| | | Производный от userAccountControl|
+| AccountEnabled| X| | | Определяет, включена ли учетная запись.|
 | c| X| X| | |
 | cn| X| | X| |
 | co| X| X| | |
@@ -277,23 +275,23 @@
 | msRTCSIP-OwnerUrn| X| | | |
 | msRTCSIP-PrimaryUserAddress| X| X| | |
 | msRTCSIP-UserEnabled| X| X| | |
-| objectSID| X| | X| |
+| objectSID| X| | X| Механическое свойство. Идентификатор пользователя AD, используемый для обеспечения синхронизации между Azure AD и AD.|
 | otherTelephone| X| X| | |
 | physicalDeliveryOfficeName| X| X| | |
 | postalCode| X| X| | |
 | preferredLanguage| X| | | |
 | proxyAddresses| X| X| X| |
-| pwdLastSet| X| | | |
+| pwdLastSet| X| | | Механическое свойство. Используется, чтобы определить, когда необходимо сделать недействительными уже выданные маркеры. Используется как в синхронизации паролей, так и в федерации.|
 | securityEnabled| | | X| Производный от groupType|
 | sn| X| X| | |
-| sourceAnchor| X| X| X| Настройка атрибута, используемого для пользователей, описана в руководстве по установке.|
+| sourceAnchor| X| X| X| Механическое свойство. Неизменяемый идентификатор для поддержания связи между доменными службами Active Directory и Azure AD.|
 | st| X| X| | |
 | streetAddress| X| X| | |
 | TelephoneNumber| X| X| | |
 | thumbnailphoto| X| X| | |
 | title| X| X| | |
-| usageLocation| X| | | msExchUsageLocation в доменных службах Active Directory|
-| userPrincipalName| X| | | |
+| usageLocation| X| | | Механическое свойство. Страна пользователя. Используется для назначения лицензии.|
+| userPrincipalName| X| | | Имя участника-пользователя является именем для входа. Чаще всего соответствует значению [mail].|
 | wWWHomePage| X| X| | |
 
 
@@ -319,7 +317,7 @@
 
 | Имя атрибута| Пользователь| Контакт| Группа| Комментарий |
 | --- | :-: | :-: | :-: | --- |
-| AccountEnabled| X| | | Производный от userAccountControl|
+| AccountEnabled| X| | | Определяет, включена ли учетная запись.|
 | c| X| X| | |
 | cn| X| | X| |
 | description| X| X| X| |
@@ -327,20 +325,21 @@
 | mail| X| X| X| |
 | mailnickname| X| X| X| |
 | member| | | X| |
-| objectSID| X| | X| |
+| objectSID| X| | X| Механическое свойство. Идентификатор пользователя AD, используемый для обеспечения синхронизации между Azure AD и AD.|
 | proxyAddresses| X| X| X| |
-| pwdLastSet| X| | | |
+| pwdLastSet| X| | | Механическое свойство. Используется, чтобы определить, когда необходимо сделать недействительными уже выданные маркеры. Используется как в синхронизации паролей, так и в федерации.|
 | securityEnabled| | | X| Производный от groupType|
-| sourceAnchor| X| X| X| Настройка атрибута, используемого для пользователей, описана в руководстве по установке.|
-| usageLocation| X| | | msExchUsageLocation в доменных службах Active Directory|
-| userPrincipalName| X| | | |
+| sourceAnchor| X| X| X| Механическое свойство. Неизменяемый идентификатор для поддержания связи между доменными службами Active Directory и Azure AD.|
+| usageLocation| X| | | Механическое свойство. Страна пользователя. Используется для назначения лицензии.|
+| userPrincipalName| X| | | Имя участника-пользователя является именем для входа. Чаще всего соответствует значению [mail].|
+
 
 
 ## Dynamics CRM
 
 | Имя атрибута| Пользователь| Контакт| Группа| Комментарий |
 | --- | :-: | :-: | :-: | --- |
-| AccountEnabled| X| | | Производный от userAccountControl|
+| AccountEnabled| X| | | Определяет, включена ли учетная запись.|
 | c| X| X| | |
 | cn| X| | X| |
 | co| X| X| | |
@@ -355,27 +354,66 @@
 | manager| X| X| | |
 | member| | | X| |
 | mobile| X| X| | |
-| objectSID| X| | X| |
+| objectSID| X| | X| Механическое свойство. Идентификатор пользователя AD, используемый для обеспечения синхронизации между Azure AD и AD.|
 | physicalDeliveryOfficeName| X| X| | |
 | postalCode| X| X| | |
 | preferredLanguage| X| | | |
-| pwdLastSet| X| | | |
+| pwdLastSet| X| | | Механическое свойство. Используется, чтобы определить, когда необходимо сделать недействительными уже выданные маркеры. Используется как в синхронизации паролей, так и в федерации.|
 | securityEnabled| | | X| Производный от groupType|
 | sn| X| X| | |
-| sourceAnchor| X| X| X| Настройка атрибута, используемого для пользователей, описана в руководстве по установке.|
+| sourceAnchor| X| X| X| Механическое свойство. Неизменяемый идентификатор для поддержания связи между доменными службами Active Directory и Azure AD.|
 | st| X| X| | |
 | streetAddress| X| X| | |
 | TelephoneNumber| X| X| | |
 | title| X| X| | |
-| usageLocation| X| | | msExchUsageLocation в доменных службах Active Directory|
-| userPrincipalName| X| | | |
+| usageLocation| X| | | Механическое свойство. Страна пользователя. Используется для назначения лицензии.|
+| userPrincipalName| X| | | Имя участника-пользователя является именем для входа. Чаще всего соответствует значению [mail].|
+
+## Сторонние приложения
+Ниже приведены атрибуты, которые можно использовать, если каталог Azure AD не используется для поддержки Office 365, Dynamics или Intune. Это небольшой набор основных атрибутов.
+
+| Имя атрибута| Пользователь| Контакт| Группа| Комментарий |
+| --- | :-: | :-: | :-: | --- |
+| AccountEnabled| X| | | Определяет, включена ли учетная запись.|
+| cn| X| | X| |
+| displayName| X| X| X| |
+| givenName| X| X| | |
+| mail| X| | X| |
+| managedBy| | | X| |
+| mailNickName| X| X| X| |
+| member| | | X| |
+| objectSID| X| | | Механическое свойство. Идентификатор пользователя AD, используемый для обеспечения синхронизации между Azure AD и AD.|
+| proxyAddresses| X| X| x| |
+| pwdLastSet| X| | | Механическое свойство. Используется, чтобы определить, когда необходимо сделать недействительными уже выданные маркеры. Используется как в синхронизации паролей, так и в федерации.|
+| sn| X| X| | |
+| sourceAnchor| X| X| X| Механическое свойство. Неизменяемый идентификатор для поддержания связи между доменными службами Active Directory и Azure AD.|
+| usageLocation| X| | | Механическое свойство. Страна пользователя. Используется для назначения лицензии.|
+| userPrincipalName| X| | | Имя участника-пользователя является именем для входа. Чаще всего соответствует значению [mail].|
+
+
+## Гибридная обратная запись Exchange
+Эти атрибуты записываются обратно из Azure AD в локальную службу Active Directory при активации гибридного развертывания Exchange. В зависимости от установленной версии Exchange может синхронизироваться меньшее количество атрибутов.
+
+| Имя атрибута| Пользователь| Контакт| Группа| Комментарий |
+| --- | :-: | :-: | :-: | --- |
+| msDS-ExternalDirectoryObject| X| | | Производный от cloudAnchor в Azure AD.|
+| msExchArchiveStatus| X| | | Серверный архив: позволяет клиентам архивировать почту.|
+| msExchBlockedSendersHash| X| | | Фильтрация: записывает обратно данные локальной фильтрации и сетевые данные о безопасных и заблокированных отправителях от клиентов.|
+| msExchSafeRecipientsHash| X| | | Фильтрация: записывает обратно данные локальной фильтрации и сетевые данные о безопасных и заблокированных отправителях от клиентов.|
+| msExchSafeSendersHash| X| | | Фильтрация: записывает обратно данные локальной фильтрации и сетевые данные о безопасных и заблокированных отправителях от клиентов.|
+| msExchUCVoiceMailSettings| X| | | Включение единой системы обмена сообщениями (сетевая голосовая почта): используется при интеграции сервера Microsoft Lync Server, указывая локальному серверу Lync Server, что у пользователя в онлайн-службах есть голосовая почта.|
+| msExchUserHoldPolicies| X| | | Хранение для судебного разбирательства: позволяет облачным службам определять, на каких пользователей действует хранение для судебного разбирательства.|
+| proxyAddresses| X| X| X| Вставляется только адрес x500 из Exchange Online.|
+
+## Примечания об атрибутах
+- Если используется альтернативный идентификатор, локальный атрибут userPrincipalName будет синхронизирован с атрибутом Azure AD onPremisesUserPrincipalName. Атрибут «Альтернативный идентификатор», например почта, будет синхронизирован с атрибутом Azure AD userPrincipalName.
 
 
 ## Дополнительные ресурсы
 
-* [Azure AD Connect Sync: настройка параметров синхронизации](active-directory-aadconnectsync-whatis.md)
+* [Службы синхронизации Azure AD Connect: настройка параметров синхронизации](active-directory-aadconnectsync-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
- 
+
 <!--Image references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

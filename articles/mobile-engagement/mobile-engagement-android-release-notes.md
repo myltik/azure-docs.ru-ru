@@ -1,30 +1,37 @@
 <properties 
-	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement" 
+	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement"
 	description="Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo"/>
 
 
 #Заметки о выпуске
+
+##4\.1.0 (25.08.2015)
+
+- Обработка новой модели разрешений для Android M.
+- Возможность настройки характеристик расположения в среде выполнения, а не с помощью `AndroidManifest.xml`.
+- Исправление ошибки разрешений: если используется `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` больше не требуется.
+- Улучшение стабильности.
 
 ##4\.0.0 (07/06/2015)
 
 -   Внутренние изменения протокола для повышения надежности аналитики и push-уведомлений.
 -   Системные push-уведомления (GCM/ADM) теперь также используются для уведомлений из приложений, поэтому их учетные данные необходимо задавать для всех типов кампаний push-уведомлений.
 -   Исправлены ошибки общих уведомлений: ранее они отображались только 10 секунд.
--   Исправлена ошибка, связанная с возможностью выбора используемого по умолчанию URL-адреса действия в веб-объявлении.
+-   Исправлена ошибка веб-представления: щелчок по ссылке также приводил к открытию URL-адреса действия по умолчанию.
 -   Исправлена ошибка, связанная с редкими сбоями при управлении локальным хранилищем.
 -   Исправлена ошибка, связанная с динамическим управлением строкой конфигурации.
 -   Обновлено лицензионное соглашение с пользователем.
@@ -40,4 +47,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

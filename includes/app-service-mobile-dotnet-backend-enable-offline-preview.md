@@ -1,9 +1,4 @@
-В проекте сервера, скачанном с портала, уже включены функции обработки данных.
 
-В проекте ASP.NET вы увидите следующее:
+>[AZURE.TIP]Пакеты расширений для обработки данных входят в пакет расширений для быстрого запуска. В серверном проекте, загруженном с портала, доступ к данным с использованием Entity Framework уже включен. Узнайте, как установить и инициализировать Entity Framework для доступа к данным без использования расширения для быстрого запуска, в статье [Практическое руководство. Определение контроллера таблиц](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller).
 
-* Пакеты NuGet `Microsoft.Azure.Mobile.Server.Tables` и `Microsoft.Azure.Mobile.Server.Entity` установлены.
-
-* В WebApiConfig.cs метод `UseDefaultConfiguration()` вызывается для объекта MobileAppConfiguration. Таким образом вызывается метод расширения `AddTablesWithEntityFramework()`, предоставленный пакетом NuGet, упомянутым выше.
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

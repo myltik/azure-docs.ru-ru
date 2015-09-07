@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Использование кэша Redis для Azure с Java"
+   pageTitle="Использование кэша Redis для Azure с Java | Microsoft Azure"
 	description="Приступая к работе с кэшем Redis для Azure с использованием Java"
 	services="redis-cache"
 	documentationCenter=""
@@ -13,14 +13,14 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/17/2015"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Использование кэша Redis для Azure с Java
 
-Кэш Redis для Azure дает доступ к защищенному выделенному кэшу Redis, управляемому Майкрософт. Кэш доступен из любого приложения в Microsoft Azure.
+Кэш Redis для Azure дает доступ к выделенному кэшу Redis, управляемому Майкрософт. Кэш доступен из любого приложения в Microsoft Azure.
 
-В этом разделе показано, как приступить к работе с кэшем Redis для Azure с использованием Java.
+В этом разделе показано, как приступить к работе с кэшем Redis для Azure, используя Java.
 
 
 ## Предварительные требования
@@ -32,7 +32,7 @@
 
 ## Создание кэша Redis в Azure
 
-В [предварительной версии портала управления Azure](http://go.microsoft.com/fwlink/?LinkId=398536) щелкните **Создать**, **Данные + хранение** и выберите **Кэш Redis**.
+На [портале предварительной версии Azure](http://go.microsoft.com/fwlink/?LinkId=398536) щелкните **Создать**, **Данные + хранилище** и выберите **Кэш Redis**.
 
   ![][1]
 
@@ -41,7 +41,7 @@
   ![][2]
 
 
-После создания кэша щелкните его на портале для просмотра параметров кэша. Щелкните ссылку в разделе **Ключи** и скопируйте первичный ключ. Он потребуется для проверки подлинности запросов.
+Создав кэш, щелкните его на портале предварительной версии, чтобы просмотреть параметры кэша. Щелкните ссылку в разделе **Ключи** и скопируйте первичный ключ. Он потребуется для проверки подлинности запросов.
 
   ![][4]
 
@@ -49,7 +49,7 @@
 ## Включение конечной точки без SSL
 
 
-Щелкните ссылку в разделе **Порты** и нажмите кнопку **Нет** для параметра «Разрешить доступ только через SSL». Это включит для кэша порт без SSL. Клиент Jedis в настоящее время не поддерживает SSL.
+Щелкните ссылку в разделе **Порты** и нажмите кнопку **Нет** для параметра "Разрешить доступ только через SSL". Это включит для кэша порт без SSL. Клиент Jedis в настоящее время не поддерживает SSL.
 
   ![][3]
 
@@ -60,7 +60,7 @@
 	import redis.clients.jedis.Jedis;
 	import redis.clients.jedis.JedisShardInfo;
 
-	/* Make sure your turn on non SSL port in Azure Redis using the Configuration section in the Azure portal */
+	/* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the preview portal */
 	public class App
 	{
 	  public static void main( String[] args )
@@ -87,4 +87,4 @@
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

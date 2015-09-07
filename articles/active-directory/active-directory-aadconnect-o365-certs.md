@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Руководство по обновлению сертификатов для пользователей Office 365 и Azure AD." 
-	description="В этой статье рассматриваются способы устранения проблем с сообщениями электронной почты, уведомляющими пользователей Office 365 о необходимости обновления сертификата." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Руководство по обновлению сертификатов для пользователей Office 365 и Azure AD."
+	description="В этой статье рассматриваются способы устранения проблем с сообщениями электронной почты, уведомляющими пользователей Office 365 о необходимости обновления сертификата."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -85,4 +85,4 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 >[AZURE.NOTE]Если требуется поддержка нескольких доменов верхнего уровня, например contoso.com и fabrikam.com, необходимо использовать параметр SupportMultipleDomain с любыми командлетами. Дополнительные сведения см. в статье, описывающей поддержку нескольких доменов верхнего уровня. Наконец, убедитесь, что на всех серверах с прокси-службой веб-приложения установлен накопительный пакет обновления для [Windows Server за май 2014 г.](http://support.microsoft.com/kb/2955164). Иначе прокси-серверы могут не обновиться с помощью нового сертификата, что приведет к простою в работе.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,12 +1,12 @@
-<properties pageTitle="Развертывание ресурсов Azure с помощью шаблона" description="Узнайте, как использовать доступные в библиотеке управления ресурсами Azure клиенты для развертывания виртуальной машины, виртуальной сети и учетной записи хранения" services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
+<properties pageTitle="Развертывание ресурсов Azure с помощью шаблона" description="Узнайте, как использовать доступные в библиотеке управления ресурсами Azure клиенты для развертывания виртуальной машины, виртуальной сети и учетной записи хранения" services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager"/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-resource-manager"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na" 
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # Развертывание ресурсов Azure с использованием библиотек .NET и шаблона
@@ -75,7 +75,7 @@
             "contentVersion": "1.0.0.0",
         }
 
-6. [Параметры](https://msdn.microsoft.com/library/azure/dn835138.aspx#parameters) не всегда обязательны, но они упрощают управление шаблонами. Они описывают тип значения, значение по умолчанию (если требуется) и, возможно, допустимые значения параметра. В этом учебнике параметры, которые используются для создания виртуальной машины, учетной записи хранения и виртуальной сети, добавлены в шаблон.
+6. [Параметры](../resource-group-authoring-templates.md#parameters) не всегда обязательны, но они упрощают управление шаблонами. Они описывают тип значения, значение по умолчанию (если требуется) и, возможно, допустимые значения параметра. В этом учебнике параметры, которые используются для создания виртуальной машины, учетной записи хранения и виртуальной сети, добавлены в шаблон.
 
     Добавьте элемент parameters и его дочерние элементы после элемента contentVersion:
 
@@ -106,7 +106,7 @@
           },
         }
 
-7.	[Переменные](https://msdn.microsoft.com/library/azure/dn835138.aspx#variables) в шаблоне можно использовать для указания значений, которые могут часто изменяться, или значений, которые должны быть созданы из сочетания значений параметров.
+7.	[Переменные](../resource-group-authoring-templates.md#variables) в шаблоне можно использовать для указания значений, которые могут часто изменяться, или значений, которые должны быть созданы из сочетания значений параметров.
 
     Добавьте элемент variables после раздела parameters:
 
@@ -142,7 +142,7 @@
           },
         }
 
-8.	Далее в шаблоне определяются [ресурсы](https://msdn.microsoft.com/library/azure/dn835138.aspx#resources), например виртуальная машина, виртуальная сеть и учетная запись хранения.
+8.	Далее в шаблоне определяются [ресурсы](../resource-group-authoring-templates.md#resources), например виртуальная машина, виртуальная сеть и учетная запись хранения.
 
     Добавьте раздел resources после раздела variables:
 
@@ -443,4 +443,4 @@
 
 	![Создание приложения AD](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

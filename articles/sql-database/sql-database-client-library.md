@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Создание Базы данных SQL и управление ею с помощью C#" 
-   description="В этой статье показано, как создавать Базы данных SQL Azure и управлять ими с помощью C# и библиотеки Базы данных SQL Azure для .NET." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jeffreyg" 
-   editor=""/>
+   pageTitle="Создание Базы данных SQL и управление ею с помощью C#"
+	description="В этой статье показано, как создавать Базы данных SQL Azure и управлять ими с помощью C# и библиотеки Базы данных SQL Azure для .NET."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
+	editor=""/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="08/07/2015"
-   ms.author="sstein"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="data-management"
+	ms.date="08/25/2015"
+	ms.author="sstein"/>
 
 # Создание Базы данных SQL и управление ею с помощью C&#x23;
 
@@ -335,6 +335,8 @@
 
 ## Перемещение существующей базы данных в пул эластичных баз данных
 
+*Кроме того, после создания пула можно использовать Transact-SQL для перемещения существующих баз данных в пул и из него. Дополнительные сведения см. в разделе [Справочник по пулам эластичных баз данных — Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+
 Чтобы переместить существующую базу данных в пул:
 
     
@@ -364,6 +366,8 @@
 
 
 ## Создание новой базы данных внутри пула эластичных баз данных
+
+*Кроме того, после создания пула можно использовать Transact-SQL для создания эластичных баз данных в пуле. Дополнительные сведения см. в разделе [Справочник по пулам эластичных баз данных — Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 Чтобы создать новую базу данных непосредственно в пуле:
 
@@ -780,7 +784,7 @@
 
 [API управления ресурсами](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-
+[Справочник по пулам эластичных баз данных](sql-database-elastic-pool-reference.md).
 
 
 <!--Image references-->
@@ -794,4 +798,4 @@
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

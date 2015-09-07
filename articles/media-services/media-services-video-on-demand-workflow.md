@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Доставка мультимедиа по запросу с помощью служб мультимедиа Azure" 
-	description="В этом разделе рассказывается об общих сценариях доставки мультимедиа по запросу с помощью служб мультимедиа Azure." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Доставка мультимедиа по запросу с помощью служб мультимедиа Azure"
+	description="В этом разделе рассказывается об общих сценариях доставки мультимедиа по запросу с помощью служб мультимедиа Azure."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -27,7 +27,7 @@
 
 На следующей диаграмме показаны основные части платформы служб мультимедиа, участвующих в рабочем процессе для видео по запросу. ![Рабочий процесс для видео по запросу][vod-overview]
 
-##<a id="vod_scenarios"></a>Общие сценарии. Доставка мультимедиа по запросу. 
+##<a id="vod_scenarios"></a>Распространенные сценарии. Доставка мультимедиа по запросу
 
 ###Защита содержимого в хранилище и доставка потокового мультимедиа в незашифрованном виде
 
@@ -220,4 +220,4 @@
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,9 +1,9 @@
-## How to create a classic VNet using Azure CLI
+## Создание классической виртуальной сети с помощью интерфейса командной строки Azure
 
-You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX. To create a VNet by using the Azure CLI, follow the steps below.
+Интерфейс командной строки Azure можно использовать для управления ресурсами Azure из командной строки с любого компьютера под управлением Windows, Linux или OSX. Чтобы создать виртуальную сеть с помощью интерфейса командной строки Azure, выполните указанные ниже действия.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure network vnet create** command to create a VNet and a subnet, as shown below. Notice the output from the CLI command. The list shown after the output explains the parameters used.
+1. Если вы еще не пользовались интерфейсом командной строки Azure, см. статью [Установка и настройка интерфейса командной строки Azure](xplat-cli.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
+2. Выполните команду **azure network vnet create**, чтобы создать виртуальную сеть и подсеть, как показано ниже. Обратите внимание на результат выполнения команды интерфейса командной строки. В списке, который откроется после выполнения команды, будут указаны используемые параметры.
 
 			azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
 	
@@ -13,15 +13,15 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 			+ Setting network configuration
 			info:    network vnet create command OK
 
-	- **--vnet**. Name of the VNet to be created. For our scenario, *TestVNet*
-	- **-e (or --address-space)**. VNet address space. For our scenario, *192.168.0.0*
-	- **-i (or -cidr)**. Network mask in CIDR format. For our scenario, *16*.
-	- **-n (or --subnet-name**). Name of the first subnet. For our scenario, *FrontEnd*.
-	- **-p (or --subnet-start-ip)**. Starting IP address for subnet, or subnet address space. For our scenario, *192.168.1.0*.
-	- **-r (or --subnet-cidr)**. Network mask in CIDR format for subnet. For our scenario, *24*.
-	- **-l (or --location)**. Azure region where the VNet will be created. For our scenario, *Central US*.
+	- **--vnet**. Имя виртуальной сети, которую нужно будет создать. В данном сценарии это *TestVNet*.
+	- **-e (или --address-space)**. Адресное пространство виртуальной сети. В нашем сценарии это *192.168.0.0*
+	- **-i (или - cidr)**. Маска подсети в формате CIDR. В нашем сценарии это *16*.
+	- **-n (или --subnet-name**). Имя первой подсети. В нашем сценарии это *FrontEnd*.
+	- **-p (или --subnet-start-ip)**. Начальный IP-адрес для подсети или адресное пространство подсети. В нашем сценарии это *192.168.1.0*.
+	- **-r (или --subnet-cidr)**. Маска подсети в формате CIDR для подсети. В нашем сценарии это *24*.
+	- **-l (или --location)**. Регион Azure, в котором будет создана виртуальная сеть. В данном сценарии это *Центральная часть США*.
 
-3. Run the **azure network vnet subnet create** command to create a subnet as shown below. Notice the output of the command. The list shown after the output explains the parameters used.
+3. Выполните команду **azure network vnet subnet create**, чтобы создать подсеть, как показано ниже. Обратите внимание на результат выполнения команды. В списке, который откроется после выполнения команды, будут указаны используемые параметры.
 
 			azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
 	
@@ -35,11 +35,11 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 			data:    Address prefix                  : 192.168.2.0/24
 			info:    network vnet subnet create command OK
 
-	- **-t (or --vnet-name**. Name of the VNet where the subnet will be created. For our scenario, *TestVNet*.
-	- **-n (or --name)**. Name of the new subnet. For our scenario, *BackEnd*.
-	- **-a (or --address-prefix)**. Subnet CIDR block. Four our scenario, *192.168.2.0/24*.
+	- **-t (или --vnet-name**. Имя виртуальной сети, в которой будет создана подсеть. В данном сценарии это *TestVNet*.
+	- **-n (или --name)**. Имя новой подсети. В нашем сценарии это *BackEnd*.
+	- **-a (или --address-prefix)**. Блок подсети CIDR. В нашем сценарии это *192.168.2.0/24*.
 
-4. Run the **azure network vnet show** command to view the properties of the new vnet, as shown below.
+4. Выполните команду **azure network vnet show**, чтобы просмотреть свойства новой виртуальной сети, как показано ниже.
 
 			azure network vnet show
 
@@ -58,3 +58,5 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 			data:      Address prefix                : 192.168.2.0/24
 			data:
 			info:    network vnet show command OK
+
+<!---HONumber=August15_HO9-->

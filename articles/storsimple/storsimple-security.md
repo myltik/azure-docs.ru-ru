@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="Безопасность StorSimple | Microsoft Azure" 
-   description="Описание функций безопасности и конфиденциальности, которые защищают службу, устройство и данные StorSimple." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="SharS" 
-   manager="AdinaH" 
-   editor=""/>
+   pageTitle="Безопасность StorSimple | Microsoft Azure"
+	description="Описание функций обеспечения безопасности и конфиденциальности, защищающих службу, устройство и данные StorSimple как локально, так и в облаке."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="Carolz"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/17/2015"
-   ms.author="v-sharos"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="v-sharos"/>
 
-# Безопасность StorSimple 
+# Защита устройства StorSimple и данных
 
 ## Обзор
 
@@ -253,4 +253,4 @@ StorSimple использует следующие алгоритмы шифро
 [Развертывание устройства StorSimple](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

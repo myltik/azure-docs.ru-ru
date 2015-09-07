@@ -1,20 +1,20 @@
 <properties
    pageTitle="Структура служб Microsoft Azure Обмен данными со службами"
-   description="В настоящей статье представлен способ подключения и обмена данными со службами в приложениях структуры служб."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="kunaldsingh"
-   manager="timlt"
-   editor=""/>
+	description="В настоящей статье представлен способ подключения и обмена данными со службами в приложениях структуры служб."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="kunaldsingh"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/29/2015"
-   ms.author="kunalds"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/21/2015"
+	ms.author="kunalds"/>
 
 
 # Обмен данными со службами
@@ -56,6 +56,5 @@ API обмена данными структуры служб использую
 * [Модель обмена данными Reliable Services](service-fabric-reliable-services-communication.md)
 * [Начало работы со службами Web API структуры служб Microsoft Azure с собственным хостом OWIN](service-fabric-reliable-services-communication-webapi.md)
 * [Стек обмена данными WCF для Reliable Services](service-fabric-reliable-services-communication-wcf.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Отчеты Azure Multi-Factor Authentication" 
-	description="Эта статья содержит информацию о том, как использовать функцию отчетов службы Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Отчеты Azure Multi-Factor Authentication"
+	description="Эта статья содержит информацию о том, как использовать функцию отчетов службы Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Отчеты в службе Azure Multi-Factor Authentication
@@ -50,4 +50,4 @@ Azure Multi-Factor Authentication предоставляет несколько 
 * [Azure Multi-Factor Authentication в MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

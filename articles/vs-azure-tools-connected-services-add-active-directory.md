@@ -1,12 +1,13 @@
 <properties 
-   pageTitle="Добавление Azure Active Directory с помощью подключенных служб в Visual Studio"
-   description="Добавление Azure Active Directory с помощью диалогового окна ";Добавление подключенных служб"; в Visual Studio"
-   services="visual-studio-online"
-   documentationCenter="n/a"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
-<tags  ms.service="visual-studio-online"" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="na" ms.date="08/12/2015" ms.author="patshea" />
+   pageTitle="Добавление Azure Active Directory с помощью подключенных служб в Visual Studio | Microsoft Azure"
+	description="Добавление Azure Active Directory с помощью диалогового окна Добавление подключенных служб в Visual Studio"
+	services="visual-studio-online"
+	documentationCenter="na"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
+
+<tags  ms.service="visual-studio-online"" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="visual-studio-online" ms.date="08/12/2015" ms.author="patshea"/>
 
 # Добавление Azure Active Directory с помощью подключенных служб в Visual Studio 
 
@@ -48,9 +49,7 @@ Azure Active Directory (Azure AD) позволяет обеспечить еди
 
 1. Нажмите кнопку **Готово**. Диалоговое окно добавляет код конфигурации и ссылки, необходимые для включения проверки подлинности Azure AD в вашем проекте. Домен AD появится на портале Azure.
 
-    ![Найдите домен на портале управления Azure](./media/vs-azure-tools-connected-services-add-active-directory/IC765882.png)
-
-1. На открывшейся в браузере странице "Начало работы" вы найдете идеи по дальнейшей работе и узнаете, какие изменения произошли в вашем проекте. Если вы хотите убедиться в том, что все работает правильно, откройте один из измененных файлов конфигурации и проверьте, содержит ли он параметры, указанные в разделе "Что произошло". Например, в основной файл web.config проекта ASP.NET MVC будут добавлены следующие параметры:
+1. Просмотрите открывшуюся в браузере страницу «Приступая к работе». Здесь приведена информация о дальнейших действиях. Сведения о том, какие изменения внесены в ваш проект, приведены в статье «Что произошло». Если вы хотите убедиться, что все сработало, откройте один из измененных файлов конфигурации и убедитесь, что в нем есть все параметры, упомянутые в статье «Что произошло». Например, в основной файл web.config проекта ASP.NET MVC будут добавлены следующие параметры:
 
         <appSettings> 
             <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
@@ -62,7 +61,7 @@ Azure Active Directory (Azure AD) позволяет обеспечить еди
 
 ## Какие изменения произойдут в проекте
 
-При запуске мастера Visual Studio добавляет в проект Azure AD и соответствующие ссылки. В файлы конфигурации и файлы кода в проекте вносятся изменения, обеспечивающие поддержку Azure AD. Конкретные изменения, производимые Visual Studio, зависят от типа вашего проекта. Подробные сведения о том, как изменяются проекты ASP.NET MVC, см. в статье [Что произошло — проекты MVC](http://go.microsoft.com/fwlink/p/?LinkID=513809). В случае проектов веб-API см. статью [Что произошло — проекты веб-API](http://go.microsoft.com/fwlink/p/?LinkId=513810).
+При запуске мастера Visual Studio добавляет в проект Azure AD и соответствующие ссылки. В файлы конфигурации и файлы кода в проекте вносятся изменения, обеспечивающие поддержку Azure AD. Конкретные изменения, производимые Visual Studio, зависят от типа вашего проекта. Подробные сведения о том, как изменяются проекты ASP.NET MVC, см. в статье [Что произошло: проекты MVC](http://go.microsoft.com/fwlink/p/?LinkID=513809). Эти же сведения о проектах веб-API см. в статье [Что произошло: проекты веб-API](http://go.microsoft.com/fwlink/p/?LinkId=513810).
 
 ##Дальнейшие действия
 
@@ -74,4 +73,4 @@ Azure Active Directory (Azure AD) позволяет обеспечить еди
 
  - [Записи блога: общие сведения об Azure AD](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

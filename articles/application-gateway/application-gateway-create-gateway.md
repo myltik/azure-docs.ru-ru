@@ -1,52 +1,52 @@
-<properties 
+<properties
    pageTitle="Создание, запуск или удаление шлюза приложений | Microsoft Azure"
-   description="На этой странице приводятся инструкции по созданию, настройке, запуску и удалению шлюза приложений Azure."
-   documentationCenter="na"
-   services="application-gateway"
-   authors="joaoma"
-   manager="jdial"
-   editor="tysonn"/>
-<tags 
+	description="На этой странице приводятся инструкции по созданию, настройке, запуску и удалению шлюза приложений Azure."
+	documentationCenter="na"
+	services="application-gateway"
+	authors="joaoma"
+	manager="jdial"
+	editor="tysonn"/>
+<tags
    ms.service="application-gateway"
-   ms.devlang="na"
-   ms.topic="hero-article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="07/29/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/29/2015"
+	ms.author="joaoma"/>
 
 # Создание, запуск или удаление шлюза приложений
 
+Данный выпуск позволяет создать шлюз приложения, используя PowerShell или вызовы API REST. Портал Azure и поддержка CLI будут реализованы в предстоящем выпуске. В этой статье рассказывается, как создать и настроить, запустить и удалить шлюз приложений.
 
 > [AZURE.SELECTOR]
 - [Azure classic steps](application-gateway-create-gateway.md)
 - [Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
 
 
-Данный выпуск позволяет создать шлюз приложения, используя PowerShell или вызовы API REST. Портал и поддержка CLI будут реализованы в следующем выпуске. В этой статье рассказывается, как создать и настроить, запустить и удалить шлюз приложений.
 
 ## Перед началом работы
 
-1. Используя установщик веб-платформы, установите последнюю версию командлетов Azure PowerShell. Вы можете скачать ее в разделе **Windows PowerShell** на [странице загрузки](http://azure.microsoft.com/downloads/), а затем установить.
+1. Установите последнюю версию командлетов Azure PowerShell, используя установщик веб-платформы. Вы можете скачать ее в разделе **Windows PowerShell** на [странице загрузки](http://azure.microsoft.com/downloads/), а затем установить.
 2. Убедитесь, что у вас есть рабочая виртуальная сеть с действительной подсетью. Убедитесь, что подсеть не используется виртуальной машиной или облачным развертыванием. Сам шлюз приложений должен располагаться в подсети виртуальной сети.
 3. Для использования шлюза приложений настраиваются либо существующие серверы, либо серверы, для которых в виртуальной сети созданы конечные точки или назначен открытый или виртуальный IP-адрес.
 
 ## Что необходимо для создания шлюза приложений?
- 
 
-При использовании команды New-AzureApplicationGateway для создания шлюза приложений настройки не задаются, и только что созданный ресурс нужно настраивать с помощью XML-файла или объекта конфигурации.
+
+При использовании команды **New-AzureApplicationGateway** для создания шлюза приложений настройки не задаются, и только что созданный ресурс нужно настраивать с помощью XML-файла или объекта конфигурации.
 
 
 Доступны следующие значения.
 
-- **Пул внутренних серверов.** Список IP-адресов внутренних серверов. Указанные IP-адреса должны относиться к подсети виртуальной сети либо представлять собой общедоступные или виртуальные IP-адреса. 
+- **Пул внутренних серверов.** Список IP-адресов внутренних серверов. Указанные IP-адреса должны относиться к подсети виртуальной сети либо представлять собой общедоступные или виртуальные IP-адреса.
 - **Параметры пула внутренних серверов.** Каждый пул имеет такие параметры, как порт, протокол и сходство на основе файлов cookie. Эти параметры привязываются к пулу и применяются ко всем серверам в этом пуле.
-- **Внешний порт.** Общедоступный порт, открытый в шлюзе приложений. Трафик поступает в этот порт, а затем перенаправляется на один из внутренних серверов.
-- **Прослушиватель.** Прослушиватель имеет внешний порт, протокол (HTTP или HTTPS, с учетом регистра) и имя SSL-сертификата (если настраивается разгрузка SSL). 
+- **Внешний порт.** Общий порт, открытый в шлюзе приложений. Трафик поступает в этот порт, а затем перенаправляется на один из внутренних серверов.
+- **Прослушиватель.** Прослушиватель имеет внешний порт, протокол (HTTP или HTTPS, с учетом регистра) и имя SSL-сертификата (если настраивается разгрузка SSL).
 - **Правило.** Правило связывает прослушиватель и пул внутренних серверов и определяет, в какой пул внутренних серверов должен направляться трафик, попадающий в определенный прослушиватель. Сейчас поддерживается только *основное* правило. *Основное* правило предусматривает циклическое распределение нагрузки.
 
 
- 
+
 ## Создание нового шлюза приложений
 
 Чтобы создать шлюз приложений, необходимо выполнить действия в определенном порядке:
@@ -57,16 +57,16 @@
 
 ### Создание ресурса шлюза приложений
 
-**Для создания шлюза** используйте командлет `New-AzureApplicationGateway`, подставив в него свои значения. Обратите внимание, что выставление счетов для шлюза начинается не на данном этапе, а позднее, после успешного запуска шлюза.
+Для создания шлюза используйте командлет `New-AzureApplicationGateway`, подставив в него свои значения. Обратите внимание, что выставление счетов для шлюза начинается не на данном этапе, а позднее, после успешного запуска шлюза.
 
-В следующем примере показано создание нового шлюза приложений с использованием виртуальной сети testvnet1 и подсети subnet-1.
+В следующем примере создается новый шлюз приложений с использованием виртуальной сети testvnet1 и подсети subnet-1.
 
-    
+
 	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
-	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
+	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
+	Name       HTTP Status Code     Operation ID                             Error
 	----       ----------------     ------------                             ----
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
@@ -81,7 +81,7 @@
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest
 	Name          : AppGwTest
-	Description   : 
+	Description   :
 	VnetName      : testvnet1
 	Subnets       : {Subnet-1}
 	InstanceCount : 2
@@ -97,15 +97,15 @@
 
 ## Настройка шлюза приложений
 
-Шлюз приложений можно настроить с помощью XML-файла или объекта конфигурации.
+Можно настроить шлюз приложений с помощью XML-файла или объекта конфигурации.
 
-## Настройка шлюза приложений с помощью XML-файла 
+## Настройка шлюза приложений с помощью XML-файла
 
 В следующем примере все параметры шлюза приложений настраиваются и применяются к ресурсу шлюза приложений при помощи XML-файла.
 
-### Шаг 1.  
+### Шаг 1  
 
-Скопируйте приведенный ниже текст и вставьте его в блокнот.
+Скопируйте следующий текст в Блокнот.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -154,7 +154,7 @@
 
 >[AZURE.IMPORTANT]В элементе протокола HTTP или HTTPS учитывается регистр.
 
-В приведенном ниже примере показано, как использовать файл конфигурации при настройке шлюза приложений, чтобы сбалансировать нагрузку HTTP-трафика на общем порте 80 и направить сетевой трафик на внутренний порт 80 между двумя IP-адресами.
+В приведенном ниже примере показано, как использовать файл конфигурации для настройки шлюза приложений, чтобы сбалансировать нагрузку HTTP-трафика на общем порте 80 и направить сетевой трафик на внутренний порт 80 между двумя IP-адресами.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -203,16 +203,16 @@
 
 
 
-### Шаг 2.
+### Шаг 2
 
 Теперь шлюз приложений необходимо настроить. Используйте командлет `Set-AzureApplicationGatewayConfig` с XML-файлом конфигурации.
 
 
 	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 
-	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
+	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
-	Name       HTTP Status Code     Operation ID                             Error 
+	Name       HTTP Status Code     Operation ID                             Error
 	----       ----------------     ------------                             ----
 	Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
 
@@ -222,57 +222,64 @@
 
 >[AZURE.NOTE]Прежде чем присваивать значения каждому объекту конфигурации, необходимо определить, в каком типе объекта PowerShell он будет храниться. Первая строка для создания отдельных элементов определяет, какое имя объекта Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(имя объекта) будет использоваться.
 
-### Шаг 1.
+### Шаг 1
 
 Создайте все отдельные элементы конфигурации.
 
-Создайте внешний порт:
-	
-	PS C:\> $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort 
-	PS C:\> $fep.Name = "fep1" 
+Создайте внешний IP-адрес, как показано в следующем примере.
+
+	PS C:\> $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration
+	PS C:\> $fip.Name = "fip1"
+	PS C:\> $fip.Type = "Private"
+	PS C:\> $fip.StaticIPAddress = "10.0.0.5"
+
+Создайте внешний порт, как показано в следующем примере.
+
+	PS C:\> $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
+	PS C:\> $fep.Name = "fep1"
 	PS C:\> $fep.Port = 80
-	
+
 Создайте пул внутренних серверов.
 
- Определите IP-адреса, которые будут добавлены в пул внутренних серверов:
+ Определите IP-адреса, которые будут добавлены в пул внутренних серверов, как показано в следующем примере.
 
 
-	PS C:\> $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection 
-	PS C:\> $servers.Add("10.0.0.1") 
+	PS C:\> $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
+	PS C:\> $servers.Add("10.0.0.1")
 	PS C:\> $servers.Add("10.0.0.2")
 
- С помощью объекта $server добавьте значения для объекта пула внутренних серверов ($pool):
+ С помощью объекта $server добавьте значения для объекта пула внутренних серверов ($pool).
 
-	PS C:\> $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool 
-	PS C:\> $pool.BackendServers = $servers 
+	PS C:\> $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool
+	PS C:\> $pool.BackendServers = $servers
 	PS C:\> $pool.Name = "pool1"
 
 Создайте параметр пула внутренних серверов:
 
-	PS C:\> $setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings 
-	PS C:\> $setting.Name = "setting1" 
-	PS C:\> $setting.CookieBasedAffinity = "enabled" 
-	PS C:\> $setting.Port = 80 
+	PS C:\> $setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings
+	PS C:\> $setting.Name = "setting1"
+	PS C:\> $setting.CookieBasedAffinity = "enabled"
+	PS C:\> $setting.Port = 80
 	PS C:\> $setting.Protocol = "http"
 
 Создайте прослушиватель:
 
-	PS C:\> $listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener 
-	PS C:\> $listener.Name = "listener1" 
-	PS C:\> $listener.FrontendPort = "fep1" 
-	PS C:\> $listener.FrontendIP = "fip1" 
-	PS C:\> $listener.Protocol = "http" 
+	PS C:\> $listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener
+	PS C:\> $listener.Name = "listener1"
+	PS C:\> $listener.FrontendPort = "fep1"
+	PS C:\> $listener.FrontendIP = "fip1"
+	PS C:\> $listener.Protocol = "http"
 	PS C:\> $listener.SslCert = ""
 
 Создайте правило:
 
-	PS C:\> $rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule 
-	PS C:\> $rule.Name = "rule1" 
-	PS C:\> $rule.Type = "basic" 
-	PS C:\> $rule.BackendHttpSettings = "setting1" 
-	PS C:\> $rule.Listener = "listener1" 
+	PS C:\> $rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule
+	PS C:\> $rule.Name = "rule1"
+	PS C:\> $rule.Type = "basic"
+	PS C:\> $rule.BackendHttpSettings = "setting1"
+	PS C:\> $rule.Listener = "listener1"
 	PS C:\> $rule.BackendAddressPool = "pool1"
- 
+
 ### Шаг 2.
 
 Назначьте все отдельные элементы конфигурации объекту конфигурации шлюза приложений ($appgwconfig):
@@ -280,38 +287,38 @@
 Добавьте к конфигурации внешний IP-адрес:
 
 	PS C:\> $appgwconfig = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.ApplicationGatewayConfiguration
-	PS C:\> $appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration]" 
+	PS C:\> $appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration]"
 	PS C:\> $appgwconfig.FrontendIPConfigurations.Add($fip)
- 
+
 Добавьте к конфигурации внешний порт:
 
-	PS C:\> $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]" 
+	PS C:\> $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]"
 	PS C:\> $appgwconfig.FrontendPorts.Add($fep)
 
 Добавьте к конфигурации пул внутренних серверов:
 
-	PS C:\> $appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]" 
+	PS C:\> $appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]"
 	PS C:\> $appgwconfig.BackendAddressPools.Add($pool)  
 
 Добавьте к конфигурации параметр пула внутренних серверов:
 
-	PS C:\> $appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]" 
-	PS C:\> $appgwconfig.BackendHttpSettingsList.Add($setting) 
+	PS C:\> $appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]"
+	PS C:\> $appgwconfig.BackendHttpSettingsList.Add($setting)
 
 Добавьте к конфигурации прослушиватель:
 
-	PS C:\> $appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]" 
+	PS C:\> $appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]"
 	PS C:\> $appgwconfig.HttpListeners.Add($listener)
 
 Добавьте к конфигурации правило:
 
-	PS C:\> $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]" 
-	PS C:\> $appgwconfig.HttpLoadBalancingRules.Add($rule) 
+	PS C:\> $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]"
+	PS C:\> $appgwconfig.HttpLoadBalancingRules.Add($rule)
 
 ### Шаг 3
 
-Примените объект конфигурации к ресурсу шлюза приложений с помощью командлета `Set-AzureApplicationGatewayConfig`:
- 
+Примените объект конфигурации к ресурсу шлюза приложений с помощью командлета `Set-AzureApplicationGatewayConfig`.
+
 	Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 
 ## Запуск шлюза
@@ -319,87 +326,87 @@
 Настроив шлюз, запустите его с помощью командлета `Start-AzureApplicationGateway`. Выставление счетов для шлюза приложений начинается после запуска шлюза.
 
 
-**Примечание.** Выполнение командлета `Start-AzureApplicationGateway` занимает 15–20 минут.
+> [AZURE.NOTE]Выполнение командлета `Start-AzureApplicationGateway` занимает до 15–20 минут.
 
 
 
-	PS C:\> Start-AzureApplicationGateway AppGwTest 
+	PS C:\> Start-AzureApplicationGateway AppGwTest
 
-	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
+	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
+	Name       HTTP Status Code     Operation ID                             Error
 	----       ----------------     ------------                             ----
 	Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
 
 ## Проверка состояния шлюза
 
-Проверить состояние шлюза можно с помощью командлета `Get-AzureApplicationGateway`. Если командлет *Start-AzureApplicationGateway* в предыдущем шаге был выполнен успешно, параметр State должен получить значение *Running* (Работает), а параметры Vip и DnsName — допустимые значения.
+Проверить состояние шлюза можно с помощью командлета `Get-AzureApplicationGateway`. Если командлет *Start-AzureApplicationGateway* на предыдущем этапе был выполнен успешно, параметр «Состояние» должен иметь значение *Работает*, а параметры виртуального IP-адреса и DnsName — действительные значения.
 
-В этом примере показан работающий шлюз приложений, готовый к приему трафика, отправляемого по адресу `http://<generated-dns-name>.cloudapp.net`.
+В следующем примере показан рабочий шлюз приложений, готовый к приему трафика, отправляемого по адресу `http://<generated-dns-name>.cloudapp.net`.
 
-	PS C:\> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest
 
-	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
+	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway
 	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
-	Name          : AppGwTest 
-	Description   : 
-	VnetName      : testvnet1 
-	Subnets       : {Subnet-1} 
-	InstanceCount : 2 
-	GatewaySize   : Medium 
-	State         : Running 
-	Vip           : 138.91.170.26 
+	Name          : AppGwTest
+	Description   :
+	VnetName      : testvnet1
+	Subnets       : {Subnet-1}
+	InstanceCount : 2
+	GatewaySize   : Medium
+	State         : Running
+	Vip           : 138.91.170.26
 	DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 
 
 ## Удаление шлюза приложений
 
-Чтобы удалить шлюз приложений, выполните указанные ниже действия.
+Удаление шлюза приложений:
 
-1. Остановите шлюз с помощью командлета `Stop-AzureApplicationGateway`. 
+1. Остановите шлюз с помощью командлета `Stop-AzureApplicationGateway`.
 2. Удалите шлюз с помощью командлета `Remove-AzureApplicationGateway`.
 3. Проверьте, удален ли шлюз, с помощью командлета `Get-AzureApplicationGateway`.
 
-В этом примере в первой строке показан командлет `Stop-AzureApplicationGateway`, а затем выходные данные.
+В следующем примере командлет `Stop-AzureApplicationGateway` показан в первой строке, а за ним следуют выходные данные.
 
-	PS C:\> Stop-AzureApplicationGateway AppGwTest 
+	PS C:\> Stop-AzureApplicationGateway AppGwTest
 
-	VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway 
+	VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway
 	VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
+	Name       HTTP Status Code     Operation ID                             Error
 	----       ----------------     ------------                             ----
 	Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 
-Когда шлюз перейдет в состояние Stopped (Остановлен), удалите службу с помощью командлета `Remove-AzureApplicationGateway`.
+Когда шлюз перейдет в состояние «Остановлен», удалите службу с помощью командлета `Remove-AzureApplicationGateway`.
 
 
-	PS C:\> Remove-AzureApplicationGateway AppGwTest 
+	PS C:\> Remove-AzureApplicationGateway AppGwTest
 
-	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway 
+	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway
 	VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
+	Name       HTTP Status Code     Operation ID                             Error
 	----       ----------------     ------------                             ----
 	Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
 Проверьте, удалена ли служба, с помощью командлета `Get-AzureApplicationGateway`. Этот шаг не является обязательным.
 
 
-	PS C:\> Get-AzureApplicationGateway AppGwTest 
+	PS C:\> Get-AzureApplicationGateway AppGwTest
 
-	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway 
+	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
 
-	Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist. 
+	Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 	.....
 
 ## Дальнейшие действия
 
 Инструкции по настройке разгрузки SSL см. в статье [Настройка шлюза приложений для разгрузки SSL](application-gateway-ssl.md).
 
-Инструкции по настройке шлюза приложений для использования с ILB см. в статье [Создание шлюза приложений с внутренней подсистемой балансировщика нагрузки (ILB)](application-gateway-ilb.md).
+Указания по настройке шлюза приложений для использования с ILB см. в статье [Создание шлюза приложений с внутренней подсистемой балансировки нагрузки (ILB)](application-gateway-ilb.md).
 
 Дополнительные сведения о параметрах балансировки нагрузки в целом см. в статьях:
 
-- [Подсистема балансировки нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
+- [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

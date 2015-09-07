@@ -1,36 +1,36 @@
-<properties 
-	pageTitle="Application Insights: платформы" 
-	description="Можно ли использовать Application Insights с...?" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+<properties
+	pageTitle="Application Insights: языки и платформы | Microsoft Azure"
+	description="Доступные языки и платформы для Application Insights"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/05/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/05/2015"
 	ms.author="awills"/>
- 
-# Application Insights: платформы
+
+# Application Insights: языки и платформы
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 
 ## Языки
 
-+ [C\#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
-+ [C\#|VB (Магазин Windows)](app-insights-windows-get-started.md)
++ [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
++ [C#|VB (Магазин Windows)](app-insights-windows-get-started.md)
 + [C++ (Магазин Windows)](app-insights-windows-cpp.md)
 + [Java](app-insights-java-get-started.md)
 + [Веб-страницы JavaScript](app-insights-web-track-usage.md)
 + [Objective-C](app-insights-ios.md)
 + [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
-+ [Ruby](https://rubygems.org/gems/application_insights) 
++ [Ruby](https://rubygems.org/gems/application_insights)
 + [Другие варианты](#projects)
 
 ## Платформы
@@ -41,7 +41,7 @@
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Веб-приложения и виртуальные машины Azure](../insights-perf-analytics.md)
-+ [Облачные службы Azure](app-insights-cloudservices.md), рабочие и веб-роли
++ [Облачные службы Azure](app-insights-cloudservices.md) &#151; рабочие и веб-роли
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE — уже работает](app-insights-java-live.md)
@@ -50,7 +50,7 @@
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [SharePoint](app-insights-sharepoint.md)
-+ [C\#|VB для Магазина Windows](app-insights-windows-get-started.md)
++ [C#|VB для Магазина Windows](app-insights-windows-get-started.md)
 + [C++ для Магазина Windows](app-insights-windows-cpp.md)
 + [Классические приложения, службы и рабочие роли Windows](app-insights-windows-desktop.md)
 + [WordPress](https://wordpress.org/plugins/application-insights/)
@@ -61,7 +61,7 @@
 
 +	[Log4Net, NLog или System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java, Log4J или Logback](app-insights-java-trace-logs.md)
-+   [Семантическое ведение журнала](https://github.com/fidmor89/SLAB_AppInsights) — интегрируется с [блоком приложения для семантического ведения журнала](https://msdn.microsoft.com/library/dn440729.aspx)
++   [Семантическое ведение журнала](https://github.com/fidmor89/SLAB_AppInsights) &#151; интегрируется с [блоком приложения для семантического ведения журнала](https://msdn.microsoft.com/library/dn440729.aspx)
 +   [Облачное нагрузочное тестирование](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 
 ## <a name="projects"></a> Создание собственного пакета SDK
@@ -77,4 +77,4 @@
 
 <!--Link references-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

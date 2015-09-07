@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect — вход пользователя" 
-	description="Вход пользователя в Azure AD с пользовательскими настройками." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect — вход пользователя"
+	description="Вход пользователя в Azure AD с пользовательскими настройками."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -64,4 +64,4 @@
 	- Условный доступ к локальным и облачным ресурсам с помощью регистрации устройств, присоединения к Azure AD или политик Intune MDM.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

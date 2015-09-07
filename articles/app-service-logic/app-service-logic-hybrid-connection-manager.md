@@ -1,23 +1,23 @@
 <properties 
-	pageTitle="Использование диспетчера гибридных подключений в службе приложений Azure" 
-	description="Установка и настройка диспетчера гибридных подключений в службе приложений Azure; архитектура микрослужб" 
-	services="app-service\logic" 
+	pageTitle="Использование диспетчера гибридных подключений | Служба приложений Microsoft Azure"
+	description="Установка и настройка диспетчера гибридных подключений и подключение к локальным соединителям, размещенным в службе приложений Azure"
+	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/23/2015"
 	ms.author="mandia"/>
 
-# Использование диспетчера гибридных подключений в службе приложений Azure
-Некоторые соединители способны подключаться к локальным системам, таким как SQL Server, SAP, SharePoint и т. д. Для работы с локальной системой служба приложений Azure использует диспетчер гибридных подключений.
+# Подключение к локальным соединителям, размещенным в службе приложений Azure, с помощью диспетчера гибридных подключений
+Для работы с локальной системой служба приложений Azure использует диспетчер гибридных подключений. Некоторые соединители способны подключаться к локальным системам, таким как SQL Server, SAP, SharePoint и т. д.
 
 Диспетчер гибридных подключений (HCM) представляет собой удобный установщик, который устанавливается на сервере IIS в пределах сети за брандмауэром. С помощью ретранслятора служебной шины Azure HCM выполняет проверку подлинности локальной системы с соединителем в среде Azure.
 
@@ -133,4 +133,4 @@ TCP-порт | Назначение
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

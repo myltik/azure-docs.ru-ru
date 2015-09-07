@@ -1,109 +1,119 @@
 <properties 
-	pageTitle="Форматы и кодеки кодировщика служб мультимедиа Azure" 
-	description="В этом разделе приведен обзор кодеков и форматов кодировщика служб мультимедиа Azure." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Форматы и кодеки кодировщика служб мультимедиа Azure"
+	description="В этом разделе приведен обзор кодеков и форматов кодировщика служб мультимедиа Azure."
+	services="media-services"
+	documentationCenter=""
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="juliako"/>
 
 #Форматы и кодеки кодировщика служб мультимедиа Azure
 
-Кодировщики сжимают мультимедиа с помощью кодеков. Обычно кодировщики имеют различные параметры, которые позволяют указать свойства создаваемых данных мультимедиа, например используемые кодеки, формат файла, разрешение и скорость. Форматы файлов являются контейнерами, в которых хранится сжатое видео, а также сведения о кодеках, использованных для сжатия этого видео.
-
-Кодеки имеют два компонента: один для сжатия цифровых файлов мультимедиа для передачи, а другой для распаковки цифровых файлов мультимедиа для воспроизведения. Аудиокодеки сжимают и распаковывают аудио, а видеокодеки сжимают и распаковывают видео. Кодеки могут использовать сжатие без потерь или сжатие с потерями. Кодеки со сжатием без потерь сохраняют все сведения при сжатии. Распакованный файл идентичен входному файлу мультимедиа, поэтому кодеки со сжатием без потерь хорошо подходят для архивирования и хранения. Кодеки со сжатием с потерями теряют часть сведений при кодировании, уменьшая файл (по сравнению с исходным) за счет качества. Они хорошо подходят для потоковой передачи через Интернет. В кодировщике служб мультимедиа для кодирования используются два основных кодека: H.264 и VC-1. Другие кодеки доступны в нашей партнерской экосистеме кодировщиков.
-
-Важно понимать разницу между кодеками и форматами файлов. Кодеки — это программное обеспечение, которое реализует алгоритмы сжатия и распаковки, тогда как форматы файлов являются контейнерами, в которых хранится сжатое видео. Дополнительные сведения см. в статье [Сравнение кодирования и упаковки](http://blog-ndrouin.azurewebsites.net/streaming-media-terminology-explained/).
-
-Этот документ содержит список наиболее распространенных форматов для импорта и экспорта файлов, которые можно использовать в кодировщике служб мультимедиа Azure.
+Этот документ содержит список наиболее распространенных форматов входных и выходных файлов и кодеков, которые можно использовать в кодировщике мультимедиа Azure.
 
 
-[Форматы импорта в кодировщике служб мультимедиа Azure](#import_formats)
-
-[Форматы экспорта в кодировщике служб мультимедиа Azure](#export_formats)
-
-
-##<a id="import_formats"></a>Форматы импорта в кодировщике служб мультимедиа Azure 
-
-В следующем разделе перечислены кодеки и форматы файлов, поддерживаемые для импорта.
-
-###Видеокодеки
-
-- H.264 (профили Baseline, Mai и High)
-- MPEG-1 (включая MPEG-PS)
-- MPEG-2 (профили Simple и Main, а также 4:2:2)
-- MPEG-4 v2 (профили Simple Visual и Advanced Simple)
-- VC-1 (профили Simple, Main и Advanced)
-- Windows Media Video (профили Simple, Main и Advanced)
-- DV (DVC, DVHD, DVSD, DVSL)
-- Grass Valley HQ/HQX
+##Форматы входных видеофайлов (контейнеры)
  
-###Аудиокодеки
+Формат файла (расширения файлов)|Поддерживаются
+---|---
+3GPP, 3GPP2 (.3gp, .3g2, .3gp2) |Да
+Advanced Systems Format (ASF) (.asf) |Да
+Advanced Video Coding High Definition (AVCHD) [транспортный поток MPEG-2] (.mts, .m2ts) |Да
+Audio-Video Interleaved (AVI) (.avi) |Да
+MPEG-2 для цифровых видеокамер (MOD) (.mod) |Да
+Файл транспортного потока (TS) DVD (.ts) |Да
+Файл видеообъекта DVD (VOB) (.vob) |Да
+Файл Expression Encoder Screen Capture Codec (.xesc) |Да
+MP4 (.mp4) |Да
+Системный поток MPEG-1 (.mpeg, .mpg) |Да
+Видеофайл MPEG-2 (.m2v) |Да
+Формат файлов Smooth Streaming (PIFF 1.3) (.ismv) |Да
+Windows Media Video (WMV) (.wmv) |Да
+Adobe® Flash® F4V |Нет		
+MXF/SMPTE 377M |Ограничено 
+GXF |Нет		 
+[Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|Нет
+Matroska/WebM |Нет
 
-- AC-3 (звук Dolby Digital)
-- AAC (AAC-LC, HE-AAC v1 с базовым профилем AAC-LC и HE-AAC v2 с базовым профилем AAC-LC)
-- MP3
-- Windows Media Audio 9 (Windows Media Audio Standard, Windows Media Audio Professional и Windows Media Audio Lossless)
+Поддерживается несколько форматов без сжатия. Дополнительные сведения см. в разделе [Поддерживаемые форматы видео без сжатия](#uncompressed).
 
-###Форматы видеофайлов
+##Форматы входных аудиофайлов
+
+Формат файла (расширения файлов)|Поддерживаются
+---|---
+Звук AC-3 (Dolby Digital) (.ac3)|Да
+Audio Interchange File Format (AIFF) (.aiff)|Да
+Broadcast Wave Format (.bwf)|Да
+MP3 (MPEG-1 Audio Layer 3) (.mp3)|Да
+Звук MP4 (.m4A)|Да
+Аудиокнига MPEG-4 (.m4b)|Да
+Файл WAVE (.wav)|Да
+Windows Media Audio (.wma)|Да
+
+
+##Входные видеокодеки
+
+Входные видеокодеки|Поддерживаются
+---|--- 
+H.264 (профили Baseline, Mai и High) |Да
+AVC 8-разрядный/10-разрядный, до 4:2:2, включая AVCIntra |Только 8-разрядный 4:2:0
+Avid DNxHD (в MXF) |Нет
+DVCPro/DVCProHD (в MXF) |Нет
+JPEG2000 |Нет
+MPEG-2 (профили Simple и Main, а также 4:2:2) |До 4:2:2 Profile
+MPEG-1 (включая MPEG-PS) |Да
+Windows Media Video/VC-1 |Да
+Canopus HQ/HQX |Да
+MPEG-4 v2 (профили Simple Visual и Advanced Simple) |Да
+[Theora](https://en.wikipedia.org/wiki/Theora) |Нет
+VC-1 (профили Simple, Main и Advanced) |Да
+Windows Media Video (профили Simple, Main и Advanced) |Да
+DV (DVC, DVHD, DVSD, DVSL) |Да
+Grass Valley HQ/HQX |Да
  
-Формат файла|Расширения файлов
+
+##Входные аудиокодеки
+
+Входные аудиокодеки|Поддерживаются
 ---|---
-3GPP, 3GPP2|3GP, 3G2, 3GP2
-Advanced Systems Format (ASF)|.asf
-Advanced Video Coding High Definition (AVCHD) [транспортный поток MPEG-2]|MTS, M2TS
-Audio-Video Interleaved (AVI)|.avi
-MPEG-2 для цифровых видеокамер (MOD)|.mod
-Файл транспортного потока (TS) DVD|.ts
-Файл видеообъекта DVD (VOB)|.vob
-Файл Expression Encoder Screen Capture Codec|.xesc
-MP4|.mp4
-Системный поток MPEG-1|MPEG, MPG
-Видеофайл MPEG-2|.m2v
-Формат файлов Smooth Streaming (PIFF 1.3)|.ismv
-Windows Media Video (WMV)|.wmv
+AES (SMPTE 331M и 302M, AES3-2003) |Нет
+Dolby® E |Нет
+Dolby® Digital (AC3) |Да
+Dolby® Digital Plus (E-AC3) |Нет
+AAC (AAC-LC, HE-AAC v1 с базовым профилем AAC-LC и HE-AAC v2 с базовым профилем AAC-LC; до 5.1)|Да
+MPEG Layer 2|Да|Да|Да
+MP3 (MPEG-1 Audio Layer 3)|Да
+Windows Media Audio 9 (Windows Media Audio Standard, Windows Media Audio Professional и Windows Media Audio Lossless) |Да
+WAV/PCM|Да
+[FLAC](https://en.wikipedia.org/wiki/FLAC)|Нет
+[Opus] (https://en.wikipedia.org/wiki/Opus_(audio_format) |Нет
+[Vorbis](https://en.wikipedia.org/wiki/Vorbis)|Нет
 
 
-Поддерживается несколько форматов без сжатия. Дополнительные сведения см. в разделе [Поддерживаемые форматы видео без сжатия](#uncompressed)
+##Форматы входных файлов изображений
 
-###Форматы аудиофайлов
-
-Формат файла|Расширения файлов
+Формат файла (расширения файлов) | Поддерживаются
 ---|---
-Звук AC-3 (Dolby Digital)|.ac3
-Audio Interchange File Format (AIFF)|.aiff
-Broadcast Wave Format|.bwf
-MP3 (MPEG-1 Audio Layer 3)|.mp3
-Звук MP4|.m4A
-Аудиокнига MPEG-4|.m4b
-Файл WAVE|.wav
-Windows Media Audio|.wma
-
-###Форматы файлов изображений
-
-Формат файла|Расширения файлов
----|---
-Растровое изображение|.bmp
-GIF, анимационный GIF|.gif
-JPEG|GPEG, JPG
-PNG|.png
-TIFF|.tif
-WPF Canvas XAML|.xaml
+Растровое изображение (.bmp) | Да
+GIF, анимационный GIF (.gif)| Да
+JPEG (.jpeg, .jpg)| Да
+PNG (.png)| Да
+TIFF (.tif)| Да
+WPF Canvas XAML (.xaml)| Да
 
 
-##<a id="export_formats"></a>Форматы экспорта в кодировщике мультимедиа Azure
+##Выходные форматы и кодеки
 
 В следующей таблице перечислены кодеки и форматы файлов, поддерживаемые для экспорта.
-
 
 Формат файла|Видеокодек|Аудиокодек
 ---|---|---
@@ -111,7 +121,7 @@ Windows Media (WMV; WMA)|VC-1 (профили Advanced, Main и Simple)|Windows 
 MP4 (MP4)|H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC v2, Dolby Digital Plus
 Формат файлов Smooth Streaming (PIFF 1.1) (ISMV; ISMA)|VC-1 (профиль Advanced)<p>H.264 (профили High, Main и Baseline) |Windows Media Audio Standard, Windows Media Audio Professional<p><p>AAC-LC, HE-AAC v1, HE-AAC v2
 
-Сведения о дополнительных поддерживаемых кодеках и фильтрах в службах мультимедиа см. в статье [Фильтры DirectShow Windows](https://msdn.microsoft.com/library/windows/desktop/dd375464.aspx).
+Сведения о дополнительных поддерживаемых кодеках и фильтрах в службах мультимедиа см. в разделе [Фильтры DirectShow Windows](https://msdn.microsoft.com/library/windows/desktop/dd375464.aspx).
 
 ##<a id="uncompressed"></a>Поддерживаемые форматы видео без сжатия 
 
@@ -131,4 +141,4 @@ MP4 (MP4)|H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC
 Формат Cirrus Logic Jr YUV 411|Формат Cirrus Logic Jr YUV 411 с менее чем 8 битами на выборку Y, U и V. Выборка по Y в каждом пикселе, выборка по U и V в каждом четвертом пикселе по горизонтали в каждом ряду; выборка каждого вертикального ряда.
 Формат YVU9 Indeo|Формат YVU9 Indeo с дополнительной информацией об отличиях от последнего кадра. 9,5 бит на пиксель, однако в показаниях отображается значение 9.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

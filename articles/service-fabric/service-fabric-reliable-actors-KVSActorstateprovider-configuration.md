@@ -1,20 +1,20 @@
 <properties
    pageTitle="Общие сведения о конфигурации KVSActorStateProvider при использовании надежных субъектов Service Fabric"
-   description="Информация о настройке субъектов Service Fabric с отслеживанием состояния и типом KVSActorStateProvider."
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="sumukhs"
-   manager="vipulm"
-   editor=""/>
+	description="Информация о настройке субъектов Service Fabric с отслеживанием состояния и типом KVSActorStateProvider."
+	services="Service-Fabric"
+	documentationCenter=".net"
+	authors="sumukhs"
+	manager="anuragg"
+	editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/20/2015"
-   ms.author="sumukhs"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="sumukhs"/>
 
 # Конфигурация надежных субъектов — KVSActorStateProvider
 Используемую по умолчанию конфигурацию KVSActorStateProvider можно изменить. Для этого нужно обновить файл settings.xml, созданный в папке Config конкретного субъекта в корневом каталоге пакета Visual Studio.
@@ -84,4 +84,4 @@
 Параметр BatchAcknowledgementInterval управляет задержкой репликации. Значение 0 обеспечивает минимальную возможную задержку за счет уменьшения скорости репликации (потому что необходимо отправлять и обрабатывать большее количество сообщений с подтверждениями, каждое из которых содержит меньше подтверждений). По мере увеличения значения BatchAcknowledgementInterval увеличивается общая скорость репликации и задержка операций. Значение этого параметра напрямую влияет на задержку фиксации транзакций.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

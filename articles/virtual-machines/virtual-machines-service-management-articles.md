@@ -46,7 +46,7 @@
 
 [Руководство по реализации служб инфраструктуры Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[Нужна ли мне виртуальная сеть?](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[Нужна ли мне виртуальная сеть?](../virtual-network/virtual-networks-overview.md)
 
 ## Создание
 
@@ -150,4 +150,4 @@
 
 [Управление службами Azure с помощью интерфейса командной строки Azure на компьютерах Mac, а также на компьютерах с ОС Linux и Windows](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

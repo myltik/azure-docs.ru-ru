@@ -1,31 +1,31 @@
 <properties 
-   pageTitle="Управление торговыми партнерами BizTalk" 
-   description="Управление торговыми партнерами BizTalk" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="Использование соединителя BizTalk Trading Partner Management в приложениях логики | Служба приложений Microsoft Azure"
+	description="Как создать и настроить соединитель BizTalk Trading Partner Management или приложение API и использовать его в приложении логики в службе приложений Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
 
-#Управление торговыми партнерами BizTalk
-Служба TPM от Microsoft Azure позволяет определять и сохранять отношения между компаниями, такие как партнеры и соглашения, вместе с различными объектами, такими как схемы и сертификаты. Эти отношения затем можно использовать с помощью связанных служб API, таких как AS2, Edifact и X12.
+# Приступая к работе с BizTalk Trading Partner Management: добавление в приложение логики
+Служба TPM позволяет определять и сохранять отношения между компаниями, такие как партнеры и соглашения, вместе с различными объектами, такими как схемы и сертификаты. Эти отношения затем можно использовать с помощью связанных служб API, таких как AS2, Edifact и X12.
 
-Это приложение API TPM является базовым требованием соединителя AS2, а также приложений API X12 и EDIFACT.
+Это приложение API TPM является базовым требованием соединителя AS2, приложений API X12 и EDIFACT. BizTalk Trading Partner Management можно добавить в рабочий процесс компании и обрабатывать данные в рамках рабочего процесса «бизнес-бизнес» в приложении логики.
 
-##Предварительные требования
+## Предварительные требования
 - Пустая база данных SQL Azure. Необходимо сначала создать пустую базу данных SQL Azure, прежде чем создавать новое приложение API TPM.
 
-##Основные сведения о партнерах, соглашениях и профилях
-Чтобы получить дополнительные сведения о соглашении торговых партнеров, щелкните [здесь][1].
+## Основные сведения о партнерах, соглашениях и профилях
+Чтобы получить дополнительную информацию о соглашении торговых партнеров, щелкните [здесь][1].
 
 ## Дополнительные возможности соединителя
 После создания соединителя его можно добавить в рабочий бизнес-процесс с помощью приложения логики. См. раздел [Что такое приложения логики?](app-service-logic-what-are-logic-apps.md).
@@ -37,4 +37,4 @@
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

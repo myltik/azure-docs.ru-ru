@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Масштабирование кэша Redis для Azure" 
-	description="Узнайте, как масштабировать экземпляры кэша Redis для Azure" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="Масштабирование кэша Redis для Azure"
+	description="Узнайте, как масштабировать экземпляры кэша Redis для Azure"
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.service="cache"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="cache-redis"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Масштабирование кэша Redis для Azure
 
 >[AZURE.NOTE]Функция масштабирования кэша Redis для Azure предоставляется в предварительной версии.
 
-Кэш Redis для Azure предлагает разные варианты кэша, которые обеспечивают гибкость в выборе размера и функций кэша. Если требования вашего приложения изменятся после создания кэша, можно масштабировать размер кэша, используя колонку **изменения ценовой категории** на [портале Azure](https://portal.azure.com).
+Кэш Redis для Azure предлагает разные варианты кэша, которые обеспечивают гибкость в выборе размера и функций кэша. Если требования вашего приложения изменятся после создания кэша, можно масштабировать размер кэша, используя колонку **изменения ценовой категории** на [портале предварительной версии Azure](https://portal.azure.com).
 
 >[AZURE.NOTE]При масштабировании кэша Redis для Azure можно изменить размер, но нельзя перейти с уровня Standard на Basic и наоборот.
 
@@ -38,7 +38,7 @@
 Если выяснилось, что ваш кэш больше не удовлетворяет требованиям приложения, можно перейти в более высокую или низкую ценовую категорию кэша, которая подходит для вашего приложения. Дополнительные сведения о выборе ценовой категории кэша см. в разделе [Выбор варианта и размера кэша Redis](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
 
 ## Масштабирование кэша
-Для масштабирования кэша [перейдите к кэшу](https://msdn.microsoft.com/library/azure/dn793612.aspx#RedisCacheConfiguration) на [портале Azure](https://portal.azure.com) и выберите уровень **Standard** или **Basic** в колонке **Кэш Redis**.
+Для масштабирования кэша [перейдите к кэшу](cache-configure.md#configure-redis-cache-settings) на [портале предварительной версии](https://portal.azure.com) и выберите уровень **Standard** или **Basic** в колонке **Кэш Redis**.
 
 ![Ценовой уровень][redis-cache-pricing-tier-part]
 
@@ -58,12 +58,12 @@
 
 ## Автоматизация операции масштабирования
 
-Кроме масштабирования вашего экземпляра кэша Redis для Azure на портале Azure существует возможность масштабирования с помощью [библиотек управления Microsoft Azure (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Чтобы масштабировать кэш, вызовите метод `IRedisOperations.CreateOrUpdate` и передайте новый размер для `RedisProperties.SKU.Capacity`.
+Кроме масштабирования вашего экземпляра кэша Redis для Azure, на портале предварительной версии существует возможность масштабирования с помощью [библиотек управления Microsoft Azure (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/). Чтобы масштабировать кэш, вызовите метод `IRedisOperations.CreateOrUpdate` и передайте новый размер для `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {
         // For instructions on getting the access token, see
-        // https://msdn.microsoft.com/ru-ru/library/azure/dn790557.aspx#bk_portal
+        // https://azure.microsoft.com/documentation/articles/cache-configure/#access-keys
         string token = GetAuthorizationHeader();
 
         TokenCloudCredentials creds = new TokenCloudCredentials(subscriptionId,token);
@@ -120,7 +120,7 @@
 
 ## Как узнать, когда масштабирование завершено?
 
-На портале вы увидите, как выполняется операция масштабирования. После завершения масштабирования состояние кэша изменяется на **Работает**.
+На портале предварительной версии вы увидите, как выполняется операция масштабирования. После завершения масштабирования состояние кэша изменяется на **Работает**.
 
 ## Почему эта функция предоставляется в предварительной версии?
 
@@ -138,4 +138,4 @@
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

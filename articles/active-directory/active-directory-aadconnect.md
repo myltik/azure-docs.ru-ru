@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Интеграция локальных удостоверений с Azure Active Directory." 
-	description="В этой статье объясняется, что такое служба Azure AD Connect и зачем ее использовать." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Интеграция локальных удостоверений с Azure Active Directory."
+	description="В этой статье объясняется, что такое служба Azure AD Connect и зачем ее использовать."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/13/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Интеграция локальных удостоверений с Azure Active Directory
@@ -249,7 +249,7 @@ Azure Active Directory Connect состоит из трех основных к�
 - [Использование редактора правил синхронизации Azure AD Connect](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [Использование декларативной подготовки](active-directory-aadconnect-whats-next-declarative-prov.md)
 
-Часть документации, разработанной для службы синхронизации Azure AD Sync, актуальна и для Azure AD Connect. Хотя мы прикладываем все усилия, чтобы перенести эту документацию на сайт Azure.com, ее часть по-прежнему находится в библиотеке с областью MSDN. Дополнительную документацию см. в разделе [Azure Connect AD на портале MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) и [Служба синхронизации Azure AD Sync на портале MSDN](https://msdn.microsoft.com/library/azure/dn790204.aspx).
+Часть документации, разработанной для службы синхронизации Azure AD Sync, актуальна и для Azure AD Connect. Хотя мы прикладываем все усилия, чтобы перенести эту документацию на сайт Azure.com, ее часть по-прежнему находится в библиотеке с областью MSDN. Дополнительную документацию см. в разделе [Azure Connect AD на портале MSDN](active-directory-aadconnect.md) и [Служба синхронизации Azure AD Sync на портале MSDN](https://msdn.microsoft.com/library/azure/dn790204.aspx).
 
 
 **Дополнительные ресурсы**
@@ -273,4 +273,4 @@ Azure Active Directory Connect состоит из трех основных к�
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

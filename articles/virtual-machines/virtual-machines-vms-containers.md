@@ -1,21 +1,20 @@
 <properties 
-	pageTitle="Виртуальные машины и контейнеры в Azure" 
-	description="Описываются виртуальные машины, контейнеры Docker и Linux, а также их использование в группах в Azure, включая преимущества каждого из них и сценарии, в которых лучше всего работает соответствующий подход." 
-	services="virtual-machines" 
-	documentationCenter="virtual-machines" 
-	authors="squillace" 
-	manager="timlt" />
+	pageTitle="Виртуальные машины и контейнеры в Azure"
+	description="Описываются виртуальные машины, контейнеры Docker и Linux, а также их использование в группах в Azure, включая преимущества каждого из них и сценарии, в которых лучше всего работает соответствующий подход."
+	services="virtual-machines"
+	documentationCenter="virtual-machines"
+	authors="squillace"
+	manager="timlt"/>
 	
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="infrastructure" 
-	ms.workload="infrastructure" 
-	ms.date="07/02/2015" 
-	ms.author="rasquill" 
-/>
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="infrastructure"
+	ms.workload="infrastructure"
+	ms.date="07/02/2015"
+	ms.author="rasquill"/>
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Виртуальные машины и контейнеры в Azure
@@ -122,7 +121,7 @@ Azure предлагает отличные облачные решения на
 
 ### Шаблоны групп ресурсов Azure
 
-Недавно для Azure выпущен интерфейс REST API [управления ресурсами Azure](virtual-machines-azurerm-versus-azuresm.md) и обновленные инструменты интерфейса командной строки Azure и PowerShell, которыми легко пользоваться. С помощью [шаблонов диспетчера ресурсов Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx) и API управления ресурсами Azure можно выполнять развертывание, изменение или повторное развертывание топологий всего приложения, используя:
+Недавно для Azure выпущен интерфейс REST API [управления ресурсами Azure](virtual-machines-azurerm-versus-azuresm.md) и обновленные инструменты интерфейса командной строки Azure и PowerShell, которыми легко пользоваться. С помощью [шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md) и API управления ресурсами Azure можно выполнять развертывание, изменение или повторное развертывание топологий всего приложения, используя:
 
 - [портал предварительной версии Azure с помощью шаблонов](https://github.com/Azure/azure-quickstart-templates) (подсказка: используйте кнопку DeployToAzure);
 - [интерфейс командной строки Azure](virtual-machines-deploy-rmtemplates-azure-cli.md);
@@ -235,4 +234,4 @@ Docker в Microsoft Azure:
 [микрослужбо]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

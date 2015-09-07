@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Веб-приложение .NET в службе приложений Azure с управлением производительностью приложения от New Relic" 
-	description="Узнайте, как использовать средство мониторинга производительности для приложений ASP.NET, работающих в службе приложений Azure." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	pageTitle="Веб-приложение .NET в службе приложений Azure с управлением производительностью приложения от New Relic"
+	description="Узнайте, как использовать средство мониторинга производительности для приложений ASP.NET, работающих в службе приложений Azure."
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="cephalin"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/30/2015"
 	ms.author="stepsic"/>
 
 
@@ -46,7 +46,7 @@ New Relic тесно интегрируется с веб-ролями и раб
 
 ## Шаг 1. Создание учетной записи New Relic
 
-1. Войдите на [портал предварительной версии Azure](https://portal.azure.com) и нажмите кнопку **Создать** в левом нижнем углу.
+1. Войдите на [портал предварительной версии Azure](https://portal.azure.com) и нажмите кнопку **Создать** в углу.
 3. Щелкните **Developer services** (Службы для разработчиков) > **New Relic APM**.
 4. Настройте учетную запись New Relic, заполнив следующие поля, а затем нажмите кнопку **Создать**.
 	- **Имя**
@@ -77,7 +77,7 @@ New Relic тесно интегрируется с веб-ролями и раб
 
 ## Шаг 3. Публикация веб-приложения ASP.NET
 
-Опубликуйте свое веб-приложение с помощью Visual Studio или WebMatrix. Если вы уже публиковали свое веб-приложение, заново опубликуйте его, чтобы экземпляр веб-приложения добавил необходимые пакеты NuGet New Relic для активации мониторинга New Relic.
+Опубликуйте свое веб-приложение с помощью Visual Studio. Если вы уже публиковали свое веб-приложение, заново опубликуйте его, чтобы экземпляр веб-приложения добавил необходимые пакеты NuGet New Relic для активации мониторинга New Relic.
 
 ## Шаг 4. Проверка производительности приложения в New Relic
 
@@ -167,7 +167,6 @@ New Relic тесно интегрируется с веб-ролями и раб
 * Руководство по смене портала Azure на портал предварительной версии Azure см. в статье [Краткий справочник по навигации на портале Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 
-[webmatrixwebsite]: web-sites-dotnet-using-webmatrix.md
 [vswebsite]: web-sites-dotnet-get-started.md
 
 [wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png
@@ -179,4 +178,4 @@ New Relic тесно интегрируется с веб-ролями и раб
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

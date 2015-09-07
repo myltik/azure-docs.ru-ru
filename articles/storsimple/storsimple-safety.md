@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="Безопасность устройства StorSimple"
-   description="Ознакомьтесь с рекомендациями по обеспечению безопасности при развертывании и эксплуатации устройства StorSimple"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="tysonn" />
+   pageTitle="Обновление устройства StorSimple | Microsoft Azure"
+	description="Описание соглашений, правил и рекомендаций в области безопасности, а также безопасная установка и эксплуатация устройства StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/26/2015"
+	ms.author="alkohli"/>
 
-# Безопасность устройства
+# Безопасная установка и эксплуатация устройства StorSimple
 
 ![Значок "Внимание!"](./media/storsimple-safety/IC740879.png) ![Значок "Рекомендации по безопасности"](./media/storsimple-safety/IC740885.png) **ОЗНАКОМЬТЕСЬ С ИНФОРМАЦИЕЙ О МЕРАХ ПРЕДОСТОРОЖНОСТИ**
 
@@ -179,4 +179,4 @@
 
 - Для устройства 8600 перейдите к разделу [Установите ваше устройство StorSimple 8600](storsimple-8600-hardware-installation.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

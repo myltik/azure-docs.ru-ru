@@ -100,36 +100,8 @@
 
 
 ## Отчеты об аномальных действиях
+В отчетах об аномальных событиях при входе содержится информация о подозрительных событиях при входе на портал управления Azure, панель доступа Azure AD, Office 365, Sharepoint Online, Dynamics CRM Online и другие службы Microsoft Online Services независимо от поставщика федерации. <p>Доступны следующие отчеты: </p><ul> <li>[Операции входа из неизвестных источников](active-directory-reporting-sign-ins-from-unknown-sources.md);</li> <li>[Операции входа после нескольких сбоев](active-directory-reporting-sign-ins-after-multiple-failures.md);</li> <li>[Операции входа из нескольких географических регионов](active-directory-reporting-sign-ins-from-multiple-geographies.md);</li> <li>[Входы с IP-адресов с подозрительными действиями](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md);</li> <li>[Нестандартные действия при входе](active-directory-reporting-irregular-sign-in-activity.md);</li> <li>[Попытки входа с возможно инфицированных устройств](active-directory-reporting-sign-ins-from-possibly-infected-devices.md);</li> <li>[Пользователи с аномальными событиями при входе](active-directory-reporting-users-with-anomalous-sign-in-activity.md);</li> <li>Пользователи с утерянными учетными данными</li>.</ul>
 
-### Операции входа из неизвестных источников
-
-Сведения об этом отчете см. в разделе [Операции входа из неизвестных источников](active-directory-reporting-sign-ins-from-unknown-sources.md).
-
-### Операции входа после нескольких сбоев
-
-Сведения об этом отчете см. в разделе [Операции входа после нескольких сбоев](active-directory-reporting-sign-ins-after-multiple-failures.md).
-
-### Операции входа из нескольких географических регионов
-
-Сведения об этом отчете см. в разделе [Операции входа из нескольких географических регионов](active-directory-reporting-sign-ins-from-multiple-geographies.md).
-
-### Операции входа с IP-адресов с подозрительными действиями
-
-Сведения об этом отчете см. в разделе [Операции входа с IP-адресов с подозрительными действиями](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).
-
-### Нестандартные действия при входе
-
-Сведения об этом отчете см. в разделе [Нестандартные действия при входе](active-directory-reporting-irregular-sign-in-activity.md).
-
-### Операции входа с возможно инфицированных устройств
-
-Сведения об этом отчете см. в разделе [Операции входа с возможно инфицированных устройств](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).
-
-### Пользователи с аномальными событиями при входе
-
-Сведения об этом отчете см. в разделе [Пользователи с аномальными событиями при входе](active-directory-reporting-users-with-anomalous-sign-in-activity.md).
-
-<!-- Users with leaked credentials goes here -->
 
 
 
@@ -254,7 +226,7 @@
 | Операции входа в пользовательское бизнес-приложение, добавленное в каталог | Нет (ожидается вскоре) |
 | Операции входа в добавленное в каталог прокси-приложение для приложений Azure AD | Нет (ожидается вскоре) |
 
-> Примечание. Чтобы уменьшить количество ненужной информации в этом отчете, операции входа в собственное приложение [Lync или Skype для бизнеса](http://products.office.com/ru-ru/skype-for-business/online-meetings) и те, которые выполняются [помощником по входу в Microsoft Online Services](http://community.office365.com/ru-ru/w/sso/534.aspx), не отображаются.
+> Примечание. Чтобы уменьшить количество ненужной информации в этом отчете, операции входа в собственное приложение [Lync или Skype для бизнеса](http://products.office.com/ru-RU/skype-for-business/online-meetings) и те, которые выполняются [помощником по входу в Microsoft Online Services](http://community.office365.com/ru-RU/w/sso/534.aspx), не отображаются.
 
 
 
@@ -295,11 +267,11 @@
 
 ## Автоматические уведомления по электронной почте
 
-Дополнительные сведения об уведомлениях функции отчетности Azure AD см. в статье [Уведомления функции отчетности Azure Active Directory](active-directory-reporting-notifications.md).
+Дополнительную информацию об уведомлениях отчетов Azure AD см. в статье [Уведомления отчетов Azure Active Directory](active-directory-reporting-notifications.md).
 
 ## Что дальше?
 
 - [Начало работы с Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Добавление фирменной символики компании на страницах входа и панели доступа](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

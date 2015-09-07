@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Развертывание высокодоступных бизнес-приложений в Azure" 
-	description="Вы можете развернуть высокодоступное специализированное веб-приложение в Azure с группами доступности AlwaysOn для SQL Server в пять этапов." 
+	pageTitle="Развертывание бизнес-приложения, размещенного в Azure | Microsoft Azure"
+	description="Высокодоступное специализированное веб-приложение с группами доступности AlwaysOn для SQL Server разворачивается в Azure в пять этапов."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Развертывание высокодоступных бизнес-приложений в Azure
@@ -66,4 +66,4 @@
 
 [Рабочая нагрузка служб инфраструктуры Azure: ферма SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

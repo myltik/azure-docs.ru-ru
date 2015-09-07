@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Соединитель хранилища данных SQL Azure. Перемещение данных в хранилище данных SQL Azure и из него" 
-	description="Сведения о соединителе хранилища данных SQL Azure для службы фабрики данных, с помощью которого данные можно перемещать не только в хранилище SQL Azure, но и из него." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Перемещение данных в хранилище данных Azure SQL и из него | Фабрика данных Azure"
+	description="Узнайте, как переместить данные в хранилище данных SQL Azure и из него с помощью фабрики данных Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Соединитель хранилища данных SQL Azure. Перемещение данных в хранилище данных SQL Azure и из него 
+# Перемещение данных в хранилище данных Azure SQL и из него с помощью фабрики данных Azure
 
 В этой статье рассказывается, как с помощью действия копирования в фабрике данных можно перемещать данные в хранилище данных SQL Azure из другого хранилища данных и обратно. Эта статья основана на статье о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования и поддерживаемых сочетаниях хранилищ данных.
 
@@ -24,11 +24,11 @@
 
 В примере ниже показано следующее.
 
-1. Связанная служба типа AzureSqlDW.
-2. Связанная служба типа AzureStorage. 
-3. Входной набор данных типа AzureSqlDWTable. 
-4. Выходной набор данных типа AzureBlob.
-4. Конвейер с действием копирования, в котором используются SqlDWSource и BlobSink.
+1. Связанная служба типа [AzureSqlDW](#azure-sql-data-warehouse-linked-service-properties).
+2. Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
+3. Входной набор данных [dataset](data-factory-create-datasets.md) типа [AzureSqlDWTable](#azure-sql-data-warehouse-dataset-type-properties). 
+4. Выходной набор данных [dataset](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4. Конвейер [pipeline](data-factory-create-pipelines.md) с действием копирования, в котором используются [SqlDWSource](#azure-sql-data-warehouse-copy-activity-type-properties) и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 В этом примере данные, относящиеся к одному временному ряду, из таблицы в базе данных хранилища SQL Azure каждый час копируются в BLOB-объект. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.
 
@@ -172,7 +172,7 @@
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlDWSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -197,11 +197,12 @@
 
 В примере ниже показано следующее.
 
-1.	Связанная служба типа AzureSqlDWDatabase.
-2.	Связанная служба типа AzureStorage.
-3.	Входной набор данных типа AzureBlob.
-4.	Выходной набор данных типа AzureSqlDWTable.
-4.	Конвейер с действием копирования, которое использует BlobSource и SqlDWSink.
+1.	Связанная служба типа [AzureSqlDW](#azure-sql-data-warehouse-linked-service-properties).
+2.	Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Набор данных [dataset](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Набор данных [dataset](data-factory-create-datasets.md) типа [AzureSqlDWTable](#azure-sql-data-warehouse-dataset-type-properties).
+4.	Конвейер [pipeline](data-factory-create-pipelines.md) с действием копирования, которое использует [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) и [SqlDWSink](#azure-sql-data-warehouse-copy-activity-type-properties).
+
 
 В этом примере данные, относящиеся к одному временному ряду, копируются из BLOB-объекта Azure в таблицу в базе данных хранилища данных SQL Azure каждый час. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.
 
@@ -373,7 +374,7 @@
 type | Для свойства type необходимо задать значение **AzureSqlDW**. | Да
 **connectionString** | В свойстве connectionString указываются сведения, необходимые для подключения к экземпляру базы данных SQL Azure. | Да
 
-Примечание. Вам нужно настроить [брандмауэр базы данных SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure), а на сервере базы данных — [разрешить службам Azure доступ к серверу](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Кроме того, когда вы с помощью шлюза фабрики данных копируете данные в хранилище данных SQL Azure из внешнего по отношению к Azure источника, в том числе из локальных источников данных, необходимо настроить соответствующий диапазон IP-адресов для компьютера, который отправляет данные в хранилище данных SQL Azure.
+Примечание. Вам надо настроить [брандмауэр базы данных SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). А на сервере базы данных — [разрешить службам Azure доступ к серверу](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Кроме того, когда вы с помощью шлюза фабрики данных копируете данные в хранилище данных SQL Azure из внешнего по отношению к Azure источника, в том числе из локальных источников данных, необходимо настроить соответствующий диапазон IP-адресов для компьютера, который отправляет данные в хранилище данных SQL Azure.
 
 ## Свойства типа «Набор данных хранилища данных SQL Azure»
 
@@ -387,19 +388,19 @@ type | Для свойства type необходимо задать значе
 
 ## Свойства типа «Действие копирования хранилища данных SQL Azure»
 
-Полный список разделов и свойств, доступных для определения действий, см. в статье [Создание конвейеров](data-factory-create-pipelines.md). Такие свойства, как имя, описание, входные и выходные таблицы, различные политики и т. д., доступны для всех типов действий.
+Полный список разделов и свойств, используемых для определения действий, см. в статье [Создание конвейеров](data-factory-create-pipelines.md). Такие свойства, как имя, описание, входные и выходные таблицы, различные политики и т. д., доступны для всех типов действий.
 
-**Примечание**. Действие копирования принимает только один набор входных данных и возвращает только один набор выходных.
+**Примечание**. Действие копирования принимает только один входной набор данных и возвращает только один выходной набор данных.
 
 То, какие свойства будут доступны в разделе typeProperties, зависит от типа действия, а в случае с действием копирования — еще и от типов источников и приемников.
 
-В случае действия копирования, когда источник относится к типу **SqlDWSource**, в разделе **typeProperties** доступны следующие свойства.
+В случае действия копирования, когда источник относится к типу **SqlDWSource**, в разделе **typeProperties** доступны следующие свойства:
 
 | Свойство | Описание | Допустимые значения | Обязательно |
 | -------- | ----------- | -------------- | -------- |
 | sqlReaderQuery | Используйте пользовательский запрос для чтения данных. | Строка запроса SQL. Например, select * from MyTable. Если не указано другое, выполняется инструкция SQL select from MyTable. | Нет |
 
-**SqlDWSink** поддерживает следующие свойства.
+**SqlDWSink** поддерживает следующие свойства:
 
 | Свойство | Описание | Допустимые значения | Обязательно |
 | -------- | ----------- | -------------- | -------- |
@@ -466,4 +467,4 @@ type | Для свойства type необходимо задать значе
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

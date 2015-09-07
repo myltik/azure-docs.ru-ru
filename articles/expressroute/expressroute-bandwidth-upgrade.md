@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Динамическое обновление пропускной способности ExpressRoute | Microsoft Azure"
-   description="Динамическое увеличение пропускной способности канала ExpressRoute без простоя."
-   services="expressroute"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+	description="Динамическое увеличение пропускной способности канала ExpressRoute без простоя."
+	services="expressroute"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/03/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # Обновите пропускную способность канала ExpressRoute динамически и без простоя
 
@@ -85,4 +85,4 @@ Windows PowerShell — это полнофункциональная среда 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

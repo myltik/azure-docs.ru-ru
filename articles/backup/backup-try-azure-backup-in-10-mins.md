@@ -1,16 +1,16 @@
 <properties
    pageTitle="Служба архивации Azure за 10 минут | Microsoft Azure"
-   description="Начните работу со службой архивации Azure всего за 10 минут."
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="shreeshd"
-   editor=""/>
+	description="Начните работу со службой архивации Azure всего за 10 минут."
+	services="backup"
+	documentationCenter=""
+	authors="Jim-Parker"
+	manager="shreeshd"
+	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="07/06/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="08/20/2015" ms.author="aashishr"; "jimpark"/>
 
 # О службе архивации Azure за 10 минут
-Настроить службу архивации Azure очень легко. Следующие видеоинструкции помогут вам быстро приступить к работе.
+Настроить службу архивации Azure очень легко. Следующие обучающие видео помогут вам быстро приступить к работе.
 
 ## Шаг 1. Оформление подписки Azure
 - Если у вас нет подписки Azure, можно начать с бесплатной пробной версии, которая дает доступ ко всем функциям службы Azure. Дополнительные сведения см. по ссылке [http://azure.microsoft.com/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial).
@@ -42,7 +42,8 @@
 > [AZURE.VIDEO getting-started-with-azure-backup-3-of-3-start-backing-up-your-production-server]
 
 ## Дальнейшие действия
-- Дополнительную информацию о службе архивации Azure см. в разделе [Общие сведения о резервном копировании Azure](backup-introduction-to-azure-backup.md).
+- Дополнительную информацию о службе архивации Azure см. в статье [Обзор службы архивации Azure](backup-introduction-to-azure-backup.md).
+- [Резервное копирование Windows Server](backup-azure-backup-windows-server.md)
 - Посетите [форум о службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

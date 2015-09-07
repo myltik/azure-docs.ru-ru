@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Четвертый этап развертывания бизнес-приложений: настройка веб-серверов" 
-	description="На этом этапе развертывания высокодоступного бизнес-приложения на базе служб инфраструктуры Azure создаются веб-серверы, на которых обрабатывается нагрузка вашего бизнес-приложения." 
+	pageTitle="Бизнес-приложение, этап 4 | Microsoft Azure"
+	description="На четвертом этапе развертывания бизнес-приложения в Azure создайте веб-серверы и нагрузите бизнес-приложение."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Четвертый этап развертывания бизнес-приложений: настройка веб-серверов
@@ -168,4 +168,4 @@ IP-адрес можно использовать, если в поле **IsAvai
 
 [Рабочая нагрузка служб инфраструктуры Azure: ферма SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

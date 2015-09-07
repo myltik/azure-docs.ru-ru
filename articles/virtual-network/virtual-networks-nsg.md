@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Группа безопасности сети"
-   description="Узнайте, что собой представляют группы безопасности сети (NSG)."
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="Узнайте, что собой представляют группы безопасности сети (NSG)."
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/13/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/13/2015"
+	ms.author="telmos"/>
 
 # Группа безопасности сети
 
@@ -23,7 +23,7 @@
 
 Группу NSG можно связать с виртуальной машиной или подсетью виртуальной сети. Если группа NSG связана с виртуальной машиной, ее правила применяются ко всему входящему и исходящему трафику экземпляра виртуальной машины. Если группа связана с подсетью виртуальной сети, правила действуют по отношению ко всему входящему и исходящему трафику ВСЕХ экземпляров виртуальных машин в подсети. Виртуальную машину или подсеть можно связать только с одной группой NSG, при этом каждая группа может содержать не более 200 правил. В одной подписке может быть не более 100 групп NSG.
 
->[AZURE.NOTE]На одном экземпляре виртуальной машины нельзя одновременно использовать списки ACL для конечных точек и группы NSG. Если вам нужна группа NSG, но у вас уже есть список ACL для конечных точек, сначала удалите этот список. Сведения о том, как это сделать, см. в статье [Управление списками управления доступом для конечных точек с помощью PowerShell](https://msdn.microsoft.com/library/azure/dn376543.aspx).
+>[AZURE.NOTE]На одном экземпляре виртуальной машины нельзя одновременно использовать списки ACL для конечных точек и группы NSG. Если вам нужна группа NSG, но у вас уже есть список ACL для конечных точек, сначала удалите этот список. Сведения о том, как это сделать, см. в статье [Управление списками управления доступом для конечных точек с помощью PowerShell](virtual-networks-acl-powershell.md).
 
 ## Как работает группа безопасности сети
 
@@ -249,4 +249,4 @@
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

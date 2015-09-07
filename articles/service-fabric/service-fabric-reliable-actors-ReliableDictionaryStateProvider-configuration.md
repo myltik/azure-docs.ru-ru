@@ -1,20 +1,20 @@
 <properties
    pageTitle="Общие сведения о конфигурации ReliableDictionaryActorStateProvider при использовании надежных субъектов Service Fabric"
-   description="Информация о настройке субъектов Service Fabric с отслеживанием состояния и типом ReliableDictionaryActorStateProvider."
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="sumukhs"
-   manager="vipulm"
-   editor=""/>
+	description="Информация о настройке субъектов Service Fabric с отслеживанием состояния и типом ReliableDictionaryActorStateProvider."
+	services="Service-Fabric"
+	documentationCenter=".net"
+	authors="sumukhs"
+	manager="anuragg"
+	editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/20/2015"
-   ms.author="sumukhs"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="sumukhs"/>
 
 # Настройка надежных субъектов — ReliableDictionaryActorStateProvider
 Конфигурацию ReliableDictionaryActorStateProvider по умолчанию можно изменить. Для этого нужно обновить файл settings.xml, созданный в папке Config корневого каталога пакета Visual Studio конкретного субъекта.
@@ -88,4 +88,4 @@
 Параметры SharedLogId и SharedLogPath всегда используются совместно и позволяют службе использовать отдельный общий журнал из установленного по умолчанию общего журнала для узла. Для достижения наилучшей эффективности один и тот же общий журнал следует указывать в как можно большем количестве служб. Общие файлы журналов следует размещать на дисках, которые используются исключительно для хранения общих журналов. Это позволяет уменьшить конфликты перемещения головок. Изменять этот параметр требуется только в редких случаях.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

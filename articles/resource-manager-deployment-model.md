@@ -1,20 +1,20 @@
 <properties
    pageTitle="Основные сведения о различиях между классической моделью развертывания и моделью развертывания диспетчера ресурсов"
-   description="Описывает различия между моделью развертывания диспетчера ресурсов и классической моделью развертывания (или моделью управления службами)."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="Описывает различия между моделью развертывания диспетчера ресурсов и классической моделью развертывания (или моделью управления службами)."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/20/2015"
+	ms.author="tomfitz"/>
 
 # Общие сведения о развертывании диспетчера ресурсов и классическом развертывании
 
@@ -151,9 +151,11 @@
 
 Дополнительные сведения о процессе перехода вычислительных, сетевых ресурсов и ресурсов хранения см. в статье [Поставщики вычислительных, сетевых ресурсов и ресурсов хранения в диспетчере ресурсов Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
+Сведения о подключении виртуальных сетей с помощью различных моделей развертывания см. в статье [Подключение классических виртуальных сетей к новым виртуальным сетям](./virtual-network/virtual-networks-arm-asm-s2s.md).
+
 ## Дальнейшие действия
 
 - Сведения о создании декларативных шаблонов развертывания см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
-- Инструкции по развертыванию шаблонов см. в статье [Развертывание приложения с помощью шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
+- Команды для развертывания шаблонов см. в статье [Развертывание приложения с помощью шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

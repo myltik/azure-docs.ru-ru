@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Управление параметрами многофакторной проверки подлинности Azure" 
-	description="Этот документ предоставляет пользователям информацию о способах управления параметрами многофакторной проверки подлинности Azure." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Управление параметрами многофакторной проверки подлинности Azure"
+	description="Этот документ предоставляет пользователям информацию о способах управления параметрами многофакторной проверки подлинности Azure."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Изменение параметров многофакторной проверки подлинности Azure
@@ -24,10 +24,51 @@
 
 Способ использования многофакторной проверки подлинности|Описание
 :------------- | :------------- | 
-[Я использую ее в службе Office 365](multi-factor-authentication-end-user-manage-o365.md)| Это означает, что изменять параметры вы будете на портале Office 365.
-[Я использую ее в службе Microsoft Azure](multi-factor-authentication-end-user-manage-azure.md)| Это означает, что изменять параметры вы будете на портале Azure.
-[Я не знаю](multi-factor-authentication-end-user-manage-myapps.md)|Это означает, что вам потребуется войти в систему на странице [http://myapps.microsoft.com](http://myapps.microsoft.com) и там изменить параметры.
+[Я использую ее в службе Office 365](#changing-your-settings-with-office-365)| Это означает, что изменять параметры вы будете на портале Office 365.
+[Я не знаю](#changing-your-settings-with-the-myapps-portal)|Это означает, что вам потребуется войти в систему на странице [http://myapps.microsoft.com](http://myapps.microsoft.com) и там изменить параметры.
+[Я использую ее в службе Microsoft Azure](#changing-your-settings-with-microsoft-azure)| Это означает, что изменять параметры вы будете на портале Azure.
+
+
+ 
+## Изменение параметров с помощью Office 365
+
+
+При использовании многофакторной проверки подлинности в службе Office 365 вам потребуется управлять дополнительными параметрами проверки безопасности через портал Office 365.
+
+### Изменение параметров на портале Office 365
+
+1. Войдите на [портал Office 365](https://login.microsoftonline.com/).
+2. В правом верхнем углу выберите мини-приложение и щелкните "Параметры Office 365".
+3. Щелкните "Дополнительная проверка безопасности".
+4. Справа щелкните ссылку **Обновить мои телефонные номера, используемые для обеспечения безопасности учетной записи**.![Настройка](./media/multi-factor-authentication-end-user-manage/o365a.png)
+5. После этого вы перейдете на страницу, на которой можно изменить параметры. ![Облако](./media/multi-factor-authentication-end-user-manage/o365b.png)
+
+
+## Изменение параметров с помощью портала Myapps
+
+Если вы не уверены, как использовать многофакторную проверку подлинности, можно всегда изменить параметры на портале Myapps.
+
+### Изменение параметров на портале Myapps
+
+1. Войдите на портал [https://myapps.microsoft.com](https://myapps.microsoft.com)	
+2. Вверху выберите профиль.
+3. Выберите "Дополнительная проверка безопасности". ![Облако](./media/multi-factor-authentication-end-user-manage/myapps1.png)
+4. После этого вы перейдете на страницу, на которой можно изменить параметры.
+
+![Настройка](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
+
+## Изменение параметров с помощью Microsoft Azure
+
+Если вы пользуетесь многофакторной проверкой подлинности в Azure, вам необходимо будет изменять параметры на портале Azure.
+
+### Получение доступа к параметрам дополнительной проверки безопасности на портале Azure
+
+
+1. Войдите на портал Azure.
+2. В верхней части портала Azure щелкните свое имя пользователя. Появится окно раскрывающегося списка.
+3. В раскрывающемся списке выберите "Дополнительная проверка безопасности". ![Настройка](./media/multi-factor-authentication-end-user-manage/azure1.png)
+4. После этого вы перейдете на страницу, на которой можно изменить параметры. ![Настройка](./media/multi-factor-authentication-end-user-manage-azure/proofup.png)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

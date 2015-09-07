@@ -75,7 +75,7 @@ PS C:\> MARSAgentInstaller.exe /?
 
 
 ### Регистрация в службе архивации Azure
-Перед регистрацией в службе резервного копирования Azure убедитесь, что соблюдены [необходимые условия](backup-try-azure-backup-in-10-mins.md). Необходимо следующее:
+Перед регистрацией в службе резервного копирования Azure убедитесь, что соблюдены [необходимые условия](backup-configure-vault.md). Необходимо следующее:
 
 - Действующая подписка на Azure
 - Хранилище архивов
@@ -578,6 +578,9 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ```
 
 ## Дальнейшие действия
-Дополнительные сведения о службе архивации Azure для Windows Server и Client см. в разделе [Общие сведения о службе архивации Azure](backup-introduction-to-azure-backup.md)
+Дополнительная информация о службе архивации Azure для сервера или клиента Windows
 
-<!---HONumber=August15_HO8-->
+- [Общие сведения о службе архивации Azure](backup-introduction-to-azure-backup.md)
+- [Резервное копирование серверов Windows](backup-azure-backup-windows-server.md)
+
+<!---HONumber=August15_HO9-->

@@ -1,25 +1,24 @@
 <properties
-   pageTitle="Соединитель QuickBooks"
-   description="Использование соединителя QuickBooks"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Использование соединителя QuickBooks в приложениях логики | Служба приложений Microsoft Azure"
+	description="Как создать и настроить соединитель QuickBooks или приложение API и использовать его в приложении логики в службе приложений Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-#Использование соединителя QuickBooks в приложении логики#
-
-Приложения логики могут запускаться на основе разных источников данных и предлагать соединители для получения и обработки данных в рамках потока. Соединитель QuickBooks позволяет создавать и изменять различные сущности QuickBooks. Ниже приведен список сущностей QuickBooks, поддерживаемых соединителем QuickBooks.
+# Приступая к работе с соединителем QuickBooks: добавление в приложение логики
+Соединитель QuickBooks позволяет создавать и изменять различные сущности QuickBooks. В следующей таблице перечислены поддерживаемые сущности.
 
 Сущности|Описание
 ---|---
@@ -31,7 +30,7 @@
 Элемент|Элемент — это предмет, который приобретает, продает или перепродает ваша компания, например продукты, накладные расходы, скидки и налоги (если применимо). Элемент отображается строкой в счете или другой форме продажи.
 Товарный чек|Эта сущность представляет собой чек, выдаваемый клиенту.
 
-
+Приложения логики могут запускаться на основе разных источников данных и предлагать соединители для получения и обработки данных в рамках потока. Соединитель QuickBooks можно добавить в рабочий процесс компании и обрабатывать данные в рамках этого процесса в приложении логики.
 
 ##Действия QuickBooks ##
 Ниже перечислены различные действия, доступные в соединителе QuickBooks.
@@ -122,7 +121,7 @@
 ## Дополнительные возможности соединителя
 После создания соединителя его можно добавить в рабочий бизнес-процесс с помощью приложения логики. См. раздел [Что такое приложения логики?](app-service-logic-what-are-logic-apps.md).
 
-Справку по API REST Swagger см. в статье [Справочные материалы по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Справку по REST API Swagger см. в статье [Справочник по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Можно также просматривать статистику производительности и управлять безопасностью соединителя. См. статью [Управление встроенными приложениями API и соединителями, а также их мониторинг](app-service-logic-monitor-your-connectors.md).
 
@@ -141,4 +140,4 @@
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

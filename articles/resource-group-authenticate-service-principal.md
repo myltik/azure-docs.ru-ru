@@ -1,20 +1,20 @@
 <properties
    pageTitle="Проверка подлинности субъекта-службы в диспетчере ресурсов Azure"
-   description="В статье объясняется, как предоставить доступ субъекту-службе с помощью управления доступом на основе ролей, а также проверить его подлинность. Показано, как выполнять эти задачи с помощью PowerShell и CLI Azure."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="В статье объясняется, как предоставить доступ субъекту-службе с помощью управления доступом на основе ролей, а также проверить его подлинность. Показано, как выполнять эти задачи с помощью PowerShell и CLI Azure."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="multiple"
-   ms.workload="na"
-   ms.date="08/14/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/25/2015"
+	ms.author="tomfitz"/>
 
 # Проверка подлинности субъекта-службы в диспетчере ресурсов Azure
 
@@ -32,6 +32,11 @@
 ## Проверка подлинности субъекта-службы по паролю: PowerShell
 
 В этом разделе вы выполните действия, необходимые для создания субъекта-службы Azure Active Directory, назначите роль субъекту-службе и пройдете проверку подлинности, используя идентификатор приложения и пароль.
+
+1. Переключитесь в режим диспетчера ресурсов Azure и войдите учетную запись.
+
+        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:\> Add-AzureAccount
 
 1. Создайте приложение AAD, выполнив команду **New-AzureADApplication**. Укажите отображаемое имя для вашего приложения, URI страницы, описывающей его (ссылка не проверяется), коды URI, идентифицирующие приложение, и пароль для его удостоверения.
 
@@ -98,6 +103,24 @@
 
      После этого субъект-служба для приложения AAD, которое вы создали, пройдет проверку.
 
+7. Для проверки подлинности из приложения добавьте следующий код .NET. После получения токена вы сможете использовать ресурсы в подписке.
+
+        public static string GetAToken()
+        {
+          var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
+          var credential = new ClientCredential(clientId: "{application id}", clientSecret: {application password}");
+          var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
+
+          if (result == null) {
+            throw new InvalidOperationException("Failed to obtain the JWT token");
+          }
+
+          string token = result.AccessToken;
+
+          return token;
+        }
+
+
 
 ## Проверка подлинности субъекта-службы по сертификату: PowerShell
 
@@ -106,6 +129,11 @@
 Здесь демонстрируются два способа работы с сертификатами: учетные данные ключа и значения ключа. Вы можете использовать любой из этих подходов.
 
 Для начала задайте в PowerShell определенные значения, которые потребуются вам позднее при создании приложении.
+
+1. Переключитесь в режим диспетчера ресурсов Azure и войдите учетную запись.
+
+        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:\> Add-AzureAccount
 
 1. Для обоих подходов создайте объект X509Certificate из сертификата и извлеките значение ключа. Используйте путь сертификата и соответствующий пароль.
 
@@ -172,11 +200,11 @@
 
         PS C:\> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
-6. Для проверки подлинности из приложения, добавьте следующий код. После извлечения клиента вы сможете получить доступ к ресурсам в подписке.
+6. Для проверки подлинности из приложения добавьте следующий код .NET. После извлечения клиента вы сможете получить доступ к ресурсам в подписке.
 
-        string clientId = "<Client ID for your AAD app>"; 
+        string clientId = "<Application ID for your AAD app>"; 
         var subscriptionId = "<Your Azure SubscriptionId>"; 
-        string tenant = "<AAD tenant name>.onmicrosoft.com"; 
+        string tenant = "<Tenant id or tenant name>"; 
 
         var authContext = new AuthenticationContext(string.Format("https://login.windows.net/{0}", tenant)); 
 
@@ -205,7 +233,12 @@
 
 Для начала нужно создать субъект-службу. Для этого необходимо создать приложение в каталоге. В данном разделе приводятся инструкции по созданию приложения в каталоге.
 
-1. Создайте приложение AAD, выполнив команду **azure ad app create**. Укажите отображаемое имя для вашего приложения, URI страницы, описывающей его (ссылка не проверяется), коды URI, идентифицирующие приложение, и пароль для его удостоверения.
+1. Переключитесь в режим диспетчера ресурсов Azure и войдите учетную запись.
+
+        azure config mode arm
+        azure login
+
+2. Создайте приложение AAD, выполнив команду **azure ad app create**. Укажите отображаемое имя для вашего приложения, URI страницы, описывающей его (ссылка не проверяется), коды URI, идентифицирующие приложение, и пароль для его удостоверения.
 
         azure ad app create --name "<Your Application Display Name>" --home-page "<https://YourApplicationHomePage>" --identifier-uris "<https://YouApplicationUri>" --password <Your_Password>
         
@@ -221,7 +254,7 @@
         ...
         info:    ad app create command OK
 
-2. Создайте субъект-службу для своего приложения. Укажите идентификатор приложения, который был возвращен в предыдущем шаге.
+3. Создайте субъект-службу для своего приложения. Укажите идентификатор приложения, который был возвращен в предыдущем шаге.
 
         azure ad sp create b57dd71d-036c-4840-865e-23b71d8098ec
         
@@ -236,15 +269,15 @@
 
     Вы создали субъект-службу в каталоге, но службе не назначены разрешения и область. Необходимо явным образом предоставить субъекту-службе разрешения на выполнение операций в некоторой области.
 
-3. Предоставьте субъекту-службе разрешения на вашу подписку. В этом примере вы предоставите субъекту-службе разрешение на чтение всех ресурсов в подписке. Для параметра **ServicePrincipalName** укажите значение **ApplicationId** или **IdentifierUris**, которое использовалось при создании приложения. Дополнительные сведения об управлении доступом на основе ролей см. в статье [Управление доступом к ресурсам и его аудит](azure-portal/resource-group-rbac.md).
+4. Предоставьте субъекту-службе разрешения на вашу подписку. В этом примере вы предоставите субъекту-службе разрешение на чтение всех ресурсов в подписке. Для параметра **ServicePrincipalName** укажите значение **ApplicationId** или **IdentifierUris**, которое использовалось при создании приложения. Дополнительные сведения об управлении доступом на основе ролей см. в статье [Управление доступом к ресурсам и его аудит](azure-portal/resource-group-rbac.md).
 
         azure role assignment create --objectId 47193a0a-63e4-46bd-9bee-6a9f6f9c03cb -o Reader -c /subscriptions/{subscriptionId}/
 
-4. Определите **TenantId** клиента, к которому относится назначение роли субъекта-службы, путем вывода списка учетных записей и поиска в нем свойства **TenantId**.
+5. Определите **TenantId** клиента, к которому относится назначение роли субъекта-службы, путем вывода списка учетных записей и поиска в нем свойства **TenantId**.
 
         azure account list
 
-5. Войдите, используя имя субъекта-службы в качестве удостоверения. В качестве имени пользователя используйте значение **ApplicationId**, которое применялось при создании приложения. Укажите пароль, который вы задали при создании учетной записи.
+6. Войдите, используя имя субъекта-службы в качестве удостоверения. В качестве имени пользователя используйте значение **ApplicationId**, которое применялось при создании приложения. Укажите пароль, который вы задали при создании учетной записи.
 
         azure login -u "<ApplicationId>" -p "<password>" --service-principal --tenant "<TenantId>"
 
@@ -260,4 +293,4 @@
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

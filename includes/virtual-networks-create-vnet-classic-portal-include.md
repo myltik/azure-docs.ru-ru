@@ -1,35 +1,37 @@
-## How to create a VNet in the Azure portal
+## Создание виртуальной сети на портале Azure
 
-To create a VNet based on the scenario above, follow the steps below.
+Чтобы создать виртуальную сеть по описанному выше сценарию, выполните описанные ниже действия.
 
-1. From a browser, navigate to http://manage.windowsazure.com and, if necessary, sign in with your Azure account.
-2. Click **NEW** > **NETWORK SERVICES** > **VIRTUAL NETWORK** > **CUSTOM CREATE** as shown in the figure below.
+1. В браузере откройте страницу http://manage.windowsazure.com и при необходимости войдите в свою учетную запись Azure.
+2. Последовательно выберите пункты **СОЗДАТЬ** > **СЕТЕВЫЕ СЛУЖБЫ** > **ВИРТУАЛЬНАЯ СЕТЬ** > **НАСТРАИВАЕМОЕ СОЗДАНИЕ**, как показано ниже.
 
-	![Create VNet in portal](./media/virtual-networks-create-vnet-classic-portal-include/vnet-create-portal-figure1.gif)
+	![Создание виртуальной сети в портале](./media/virtual-networks-create-vnet-classic-portal-include/vnet-create-portal-figure1.gif)
 
-3. On the **Virtual Network Details** page, type the **NAME** of the VNet, select its **LOCATION**, and then click on the arrow on the bottom right hand corner of the page to advance to step 2. The figure below shows the settings for our scenario.
+3. На странице **Сведения о виртуальной сети** введите **ИМЯ** виртуальной сети, выберите его **РАСПОЛОЖЕНИЕ**, а затем щелкните стрелку в правом нижнем углу страницы, чтобы перейти к шагу 2. Ниже показаны параметры для этого сценария.
 
-	![Virtual network details page](./media/virtual-networks-create-vnet-classic-portal-include/vnet-create-portal-figure2.png)
+	![Страница «Подробности о виртуальной сети»](./media/virtual-networks-create-vnet-classic-portal-include/vnet-create-portal-figure2.png)
 
-4. On the **DNS Servers and VPN Connectivity** page, specify the name and IP address for up to 9 DNS servers to use. If you do not specify a DNS server, your VNet will use the internal naming resolution resolution provided by Azure. For our scenario, we will not configure DNS servers.
-5. If you want to provide point-to-site VPN access to your VNet, enable the **Configure a point-to-site VPN** checkbox. If you do not configure a point-to-site VPN, you can add it to your VNet at any time after creation. For our scenario, we will not configure a point-to-site VPN.
-6. If you want to provide site-to-site VPN connectivity between your VNet and another VNet or your on-premises network, enable the **Configure a site-to-site VPN** checkbox and specify if you want to use **ExpressRoute** or note, and the name of the network to connect to. If you do not configure a site-to-site VPN, you can add it to your VNet at any time after creation. For our scenario, we will not configure a site-to-site VPN.
-7. Click on the arrow on the bottom right hand corner of the page to advance to step 3.The figure below shows the settings for our scenario.
+4. На странице **DNS-серверы и подключение VPN** укажите имена и IP-адреса до 9 DNS-серверов, которые будете использовать. Если сервер DNS не указан, виртуальная сеть будет использовать соглашение о внутреннем именовании, предоставляемое Azure. В нашем сценарии серверы DNS на настраиваются.
+5. Если вы хотите предоставить свой виртуальной сети VPN-доступ типа "точка — сеть", установите флажок **Настройка VPN-подключения типа "точка — сеть"**. Если VPN-подключение типа "точка — сеть" не настроено, вы можете добавить его в виртуальную сеть в любой момент после ее создания. В нашем сценарии VPN-подключение типа "точка — сеть" не настраивается.
+6. Для предоставления VPN-подключения типа "сеть — сеть" между вашей виртуальной сетью и другой виртуальной или локальной сетью установите флажок **Настройка VPN типа "сеть — сеть"** и укажите, следует ли использовать **ExpressRoute**, а также имя сети, подключение к которой нужно установить. Если VPN-подключение типа "сеть — сеть" не настроено, вы можете добавить его в виртуальную сеть в любой момент после ее создания. В нашем сценарии VPN-подключение типа "сеть — сеть" не настраивается.
+7. Щелкните стрелку в правом нижнем углу страницы, чтобы перейти к шагу 3. Ниже показаны параметры для данного сценария.
 
-	![DNS Servers and VPN connectivity page](./media/virtual-networks-create-vnet-classic-portal-include/vnet-create-portal-figure3.png)
+	![Страница "DNS-серверы и VPN-подключение"](./media/virtual-networks-create-vnet-classic-portal-include/vnet-create-portal-figure3.png)
 
-8. On the **Virtual Network Address Spaces** page, under **STARTING IP**, click on *10.0.0.0* to change the VNet address space, and then type the starting address space you want to use. For our scenario, type *192.168.0.0*. 
-9. Under **CIDR (ADDRESS COUNT)** select the number of bits for the subnet mask. For our scenario, select *16 (65536)*.
-10. Under **SUBNETS**, click *Subnet-1* and rename the subnet if necessary. For our scenario, rename it to *FrontEnd*.
+8. На странице **Адресные пространства виртуальной сети** в разделе **НАЧАЛЬНЫЙ IP-АДРЕС**, щелкните *10.0.0.0*, чтобы изменить адресное пространство виртуальной сети, а затем введите начальное адресное пространство, которое хотите использовать. В данном сценарии введите *192.168.0.0*.
+9. В разделе **CIDR (ЧИСЛО АДРЕСОВ)** выберите количество битов для маски подсети. В данном сценарии выберите *16 (65536)*.
+10. В разделе **ПОДСЕТИ** щелкните *Подсеть-1* и при необходимости переименуйте подсеть. В данном сценарии измените имя подсети на *FrontEnd*.
 
-	>[AZURE.NOTE] If you click outside the name textbox for a subnet you will not be able to edit the name if the subnet again. To fix that, you need to remove the subnet by clicking on the X button to its right, then add a new subnet as described in step 13 below.
+	>[AZURE.NOTE]Щелкнув за пределами текстового поля для имени подсети, вы не сможете изменить имя подсети еще раз. Чтобы исправить эту ошибку, необходимо удалить подсеть, нажав кнопку X справа, а затем добавить новую подсеть, как описано ниже в шаге 13.
 
-11. Under **STARTING IP** for the first subnet, specify the starting IP address for the subnet. For our scenario, type *192.168.1.0*.
-12. Under **CIDR (ADDRESS COUNT)** select the number of bits for the subnet mask for the first subnet. For our scenario, select *24 (256)*.
-13. Click **add subnet** to add a new subnet, if necessary. For our scenario, add a subnet and repeat steps 10 to 12 to configure the VNet as shown in the figure below.
+11. В разделе **НАЧАЛЬНЫЙ IP-АДРЕС** укажите начальный IP-адрес для первой подсети. В данном сценарии введите *192.168.1.0*.
+12. В разделе **CIDR (ЧИСЛО АДРЕСОВ)** выберите количество битов для маски первой подсети. В данном сценарии выберите *24 (256)*.
+13. При необходимости щелкните **добавить подсеть**, чтобы добавить новую подсеть. В данном сценарии добавьте подсеть и повторите шаги 10–12 для настройки виртуальной сети, как показано ниже.
 
-	![Virtual network address spaces page](./media/virtual-networks-create-vnet-classic-portal-include/vnet-create-portal-figure4.png)
+	![Страница «Адресное пространство виртуальной сети»](./media/virtual-networks-create-vnet-classic-portal-include/vnet-create-portal-figure4.png)
 
-14. Click on the check mark button on the bottom right hand corner of the page to create the VNet. After a few seconds your VNet will be shown in the list of available VNets, as shown in the figure below.
+14. Нажмите на кнопку с флажком в правом нижнем углу страницы, чтобы создать виртуальную сеть. Через несколько секунд виртуальная сеть появится в списке доступных виртуальных сетей, как показано ниже.
 
-	![New virtual network](./media/virtual-networks-create-vnet-classic-portal-include/vnet-create-portal-figure5.png)
+	![Новая виртуальная сеть](./media/virtual-networks-create-vnet-classic-portal-include/vnet-create-portal-figure5.png)
+
+<!---HONumber=August15_HO9-->

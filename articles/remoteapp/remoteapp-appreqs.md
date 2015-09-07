@@ -1,27 +1,27 @@
 
 <properties 
     pageTitle="Требования к приложениям для Azure RemoteApp"
-    description="Узнайте подробнее о требованиях для приложений, которые вы хотите использовать в Azure RemoteApp" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" />
+	description="Узнайте подробнее о требованиях для приложений, которые вы хотите использовать в Azure RemoteApp"
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"/>
 
 <tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
-    ms.author="elizapo" />
+    ms.service="remoteapp"
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/12/2015"
+	ms.author="elizapo"/>
 
 
 
 # Требования к приложениям
 Azure RemoteApp поддерживает потоковую передачу 32-разрядных или 64-разрядных приложений Windows из образа Windows Server 2012 R2. Большинство существующих 32-разрядных или 64-разрядных приложений Windows выполняются "как есть" в среде Azure RemoteApp (службы удаленных рабочих столов, прежнее название — службы терминалов). Однако есть разница между выполнением и правильной работой: некоторые приложения работают правильно, тогда как другие — нет. Ниже приведены рекомендации по разработке приложений в среде служб удаленных рабочих столов и тестированию для обеспечения совместимости.
 
-Подсказка. Мы работаем над созданием рабочих примеров приложений. Будут опубликованы новые разделы со сведениями об использовании Microsoft Access, QuickBooks и App-V в RemoteApp.
+Подсказка. Мы работаем над созданием рабочих примеров приложений. Появятся новые разделы со сведениями об использовании Microsoft Access, QuickBooks и App-V в RemoteApp.
 
 ## Требования
 При выполнении этих трех требований приложение будет правильно работать в RemoteApp:
@@ -56,4 +56,4 @@ Azure RemoteApp поддерживает потоковую передачу 32-
 - Чтобы оптимизировать производительность, рекомендуется [определить](https://msdn.microsoft.com/library/aa380798.aspx) для приложений, выполняются ли они в сеансе клиента. 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

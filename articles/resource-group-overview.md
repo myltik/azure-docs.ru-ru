@@ -1,20 +1,20 @@
 <properties
    pageTitle="Общие сведения о диспетчере ресурсов Azure"
-   description="Описывает, как использовать диспетчер ресурсов Azure для развертывания, контроля ресурсов в Azure и управления доступом к ним."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="Описывает, как использовать диспетчер ресурсов Azure для развертывания, контроля ресурсов в Azure и управления доступом к ним."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/20/2015"
+	ms.author="tomfitz"/>
 
 # Общие сведения о диспетчере ресурсов Azure
 
@@ -22,7 +22,9 @@
 
 Диспетчер ресурсов Azure по умолчанию интегрирует управление доступом в платформу управления, чтобы вы могли указать, какие действия пользователь в организации может выполнять с группой ресурсов.
 
-Это все продемонстрировано в видеоролике.
+Диспетчер ресурсов предоставляет новый способ развертывания ваших решений и управления ими. Сведения об изменениях в этой модели развертывания см. в разделе [Общие сведения о развертывании с помощью диспетчера ресурсов и классическом развертывании](resource-manager-deployment-model.md).
+
+Краткий обзор диспетчера ресурсов также представлен в этом видео:
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
@@ -129,4 +131,4 @@
 - Сведения о том, какие функции можно использовать в шаблоне, см. в статье [Функции шаблонов](./resource-group-template-functions.md).
 - Рекомендации по разработке шаблонов см. в статье [Рекомендации по разработке шаблонов диспетчера ресурсов Azure](best-practices-resource-manager-design-templates.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

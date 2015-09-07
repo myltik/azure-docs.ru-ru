@@ -1,27 +1,26 @@
 <properties
-   pageTitle="Приложение API соединителя Chatter"
-   description="Использование соединителя Chatter"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Использование соединителя Chatter в приложениях логики | Служба приложений Microsoft Azure"
+	description="Как создать и настроить соединитель Chatter или приложение API и использовать его в приложении логики в службе приложений Azure"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# Использование соединителя Chatter в приложении логики
+# Приступая к работе с соединителем Chatter: добавление в приложение логики 
+Подключитесь к Chatter, чтобы опубликовать сообщение или найти канал. Например, можно выполнить поиск по каналу Chatter и при обнаружении конкретного результата опубликовать это сообщение из Chatter в группу продаж.
 
-Соединитель Chatter позволяет подключаться к Chatter и выполнять распространенные задачи, например публикацию сообщений. Например, можно выполнить поиск по каналу Chatter и при обнаружении конкретного результата опубликовать это сообщение из Chatter в группу продаж.
-
-Соединитель Chatter можно добавить в рабочий процесс компании и обрабатывать данные в рамках этого процесса.
+Соединитель Chatter можно добавить в рабочий процесс компании и обрабатывать данные в рамках этого процесса в приложении логики.
 
 ## Триггеры и действия
 
@@ -106,5 +105,4 @@
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-
-<!-----------HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

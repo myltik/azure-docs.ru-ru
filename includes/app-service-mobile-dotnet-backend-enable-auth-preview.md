@@ -1,9 +1,4 @@
-В проекте сервера, скачанном с портала, уже включена аутентификация.
 
-В проекте ASP.NET вы увидите следующее:
+>[AZURE.TIP]Пакет расширений для проверки подлинности включается в пакет расширений для быстрого запуска. В проекте сервера, загруженном с портала, проверка сервера уже включена. Узнайте, как установить и инициализировать проверку подлинности без использования расширения быстрого запуска, в статье [Практическое руководство. Добавление push-уведомлений в серверный проект](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-authentication-to-a-server-project).
 
-* Пакет NuGet `Microsoft.Azure.Mobile.Server.Authentication` установлен.
-
-* В WebApiConfig.cs метод `UseDefaultConfiguration()` вызывается для объекта MobileAppConfiguration. Таким образом вызывается метод расширения `AddAppServiceAuthentication()`, предоставленный пакетом NuGet, упомянутым выше. Он также регистрирует ПО промежуточного слоя OWIN, необходимое для аутентификации путем вызова `app.UseAppServiceAuthentication()` при запуске OWIN.
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Использование расширения Custom Script с шаблонами диспетчера ресурсов Azure"
-   description="Автоматизация задач настройки виртуальной машины Azure с помощью расширения Custom Script и шаблонов диспетчера управления ресурсами Azure"
-   services="virtual-machines"
-   documentationCenter=""
-   authors="kundanap"
-   manager="madhana"
-   editor=""/>
+	description="Автоматизация задач настройки виртуальной машины Azure с помощью расширения Custom Script и шаблонов диспетчера управления ресурсами Azure"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="kundanap"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/01/2015"
-   ms.author="kundanap"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/01/2015"
+	ms.author="kundanap"/>
 
 # Использование расширения Custom Script с шаблонами диспетчера ресурсов Azure
 
@@ -97,4 +97,4 @@
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Расширение Custom Script на виртуальной машине Linux</a> </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Расширение Custom Script на виртуальной машине Windows</a>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

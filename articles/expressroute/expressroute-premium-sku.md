@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Включение и отключение надстройки ExpressRoute Premium | Microsoft Azure"
-   description="Включение и отключение надстройки ExpressRoute Premium для канала ExpressRoute ExpressRoute Premium позволяет добавить к каналу ExpressRoute до 10 000 маршрутов для общедоступных и частных сеансов и до 10 виртуальных сетей. Можно также связать виртуальную сеть в одном регионе с каналом ExpressRoute в другом."
-   services="expressroute"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+	description="Включение и отключение надстройки ExpressRoute Premium для канала ExpressRoute ExpressRoute Premium позволяет добавить к каналу ExpressRoute до 10 000 маршрутов для общедоступных и частных сеансов и до 10 виртуальных сетей. Можно также связать виртуальную сеть в одном регионе с каналом ExpressRoute в другом."
+	services="expressroute"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/02/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # Настройка надстройки ExpressRoute Premium для канала ExpressRoute
 
@@ -172,9 +172,9 @@ Windows PowerShell — это полнофункциональная среда 
 		Sku                              : Premium
 		Status                           : Standard
 
-	Теперь надстройка ExpressRoute Premium для вашего канала выключена.
+	Теперь надстройка Premium для вашего канала выключена.
 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

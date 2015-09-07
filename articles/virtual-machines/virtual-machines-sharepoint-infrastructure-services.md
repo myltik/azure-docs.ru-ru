@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Фермы SharePoint, размещенные в службах инфраструктуры Azure"
-	description="Ознакомьтесь с основными статьями, в которых описывается настройка фермы SharePoint 2013 для разработки и тестирования или работы в службах инфраструктуры Azure."
+	pageTitle="Фермы SharePoint Server 2013 в Azure | Microsoft Azure"
+	description="Поиск статей, в которых описывается настройка среды разработки и тестирования или рабочая ферма SharePoint Server 2013 в Microsoft Azure."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -63,4 +63,4 @@
 
 - [Развертывание службы синхронизации каталогов Office 365 (DirSync) в Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

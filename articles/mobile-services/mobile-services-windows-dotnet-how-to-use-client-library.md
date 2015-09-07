@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="glenga"/>
 
 # Как использовать клиент .NET для мобильных служб Azure
@@ -22,7 +22,7 @@
 
 ##Обзор
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием клиента .NET для мобильных служб Azure в приложениях для Магазина Windows и Windows Phone. В сценарии входят запрос данных, вставка, обновление и удаление данных, проверка подлинности пользователей и обработка ошибок. Если вы еще не работали с мобильными службами, сначала мы рекомендуем ознакомиться с [кратким руководством по мобильным службам]() или учебником [Добавление мобильных служб в существующее приложение]().
+В этом руководстве показано, как реализовать типичные сценарии с использованием клиента .NET для мобильных служб Azure в приложениях для Магазина Windows и Windows Phone. В сценарии входят запрос данных, вставка, обновление и удаление данных, проверка подлинности пользователей и обработка ошибок. Если вы еще не работали с мобильными службами, сначала мы рекомендуем ознакомиться с [кратким руководством по мобильным службам](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) или учебником [Добавление мобильных служб в существующее приложение](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -700,4 +700,4 @@
 [Вызов из клиента настраиваемого интерфейса API]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Часто задаваемые вопросы о каталоге данных Azure"
-	description="Каталог данных Azure: каталог часто задаваемых вопросов"
+	description="Часто задаваемые вопросы о предварительной версии каталога данных Azure, включая возможности для обнаружения источников данных, создания заметок и управления."
 	services="data-catalog"
 	documentationCenter=""
 	authors="steelanddata"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="08/19/2015"
+	ms.date="08/21/2015"
 	ms.author="maroche"/>
 
 # Часто задаваемые вопросы о каталоге данных Azure
@@ -160,4 +160,4 @@
 
 Перейдите на [форум каталога данных Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Ответы на вопросы, заданные на форуме, будут опубликованы здесь.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

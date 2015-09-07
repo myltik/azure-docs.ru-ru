@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Управление веб-приложением в службе приложений Azure" 
-	description="Ссылки на ресурсы, посвященные управлению веб-приложением в службе приложений Azure." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="erikre" 
-	manager="wpickett" 
+	pageTitle="Управление веб-приложением в службе приложений Azure"
+	description="Ссылки на ресурсы, посвященные управлению веб-приложением в службе приложений Azure."
+	services="app-service\web"
+	documentationCenter=""
+	authors="erikre"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="erikre"/>
 
 # Управление веб-приложением в службе приложений Azure
@@ -22,7 +22,7 @@
 
 На различных этапах существования веб-приложения вам придется выполнять разные задачи управления, от первоначального развертывания до обычной эксплуатации, обслуживания и применения обновлений.
 
-Многие задачи, связанные с управлением веб-приложением, можно выполнять на портале Azure. Дополнительные сведения см. в разделе [Управление веб-приложениями с помощью портала Azure](web-sites-manage.md).
+Многие задачи, связанные с управлением веб-приложением, можно выполнять на портале Azure.
 
 ## Перед развертыванием веб-приложения в рабочей среде
 
@@ -103,4 +103,4 @@
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

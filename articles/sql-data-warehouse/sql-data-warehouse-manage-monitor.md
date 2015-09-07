@@ -1,20 +1,20 @@
 <properties
    pageTitle="Мониторинг рабочей нагрузки с помощью динамических административных представлений | Microsoft Azure"
-   description="Узнайте о том, как организовать отслеживание рабочей нагрузки с помощью динамических административных представлений."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sahaj08"
-   manager="barbkess"
-   editor=""/>
+	description="Узнайте о том, как организовать отслеживание рабочей нагрузки с помощью динамических административных представлений."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sahaj08"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/06/2015"
-   ms.author="sahajs"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="08/06/2015"
+	ms.author="sahajs"/>
 
 # Мониторинг рабочей нагрузки с помощью динамических административных представлений
 
@@ -135,7 +135,11 @@ ORDER BY step_index;
 
 Сохраните индекс самого длительного этапа.
 
-Перейдите к столбцу *operation\_type* этапа запроса, который выполняется дольше всего: — перейдите к шагу 4a для **операций SQL**: OnOperation, RemoteOperation, ReturnOperation — перейдите к шагу 4b для **операций перемещения данных**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation
+Перейдите к столбцу *operation\_type* самого долго выполняющегося этапа запроса:
+
+- Перейдите к шагу 4a для **операций SQL**: OnOperation, RemoteOperation, ReturnOperation.
+- Перейдите к шагу 4b для **операций перемещения данных**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
+
 
 
 
@@ -198,19 +202,19 @@ DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
 ```
 
 
-Результат этого запроса содержит сведения о количестве строк таблицы, которое хранится в каждом из 60 распределений базы данных. Для достижения оптимальной производительности строки в распределенной таблице должны быть равномерно распределены по всем распределениям. Дополнительные сведения см. в разделе, посвященном [конструктору таблиц][].
+Результат этого запроса содержит сведения о количестве строк таблицы, которое хранится в каждом из 60 распределений базы данных. Для достижения оптимальной производительности строки в распределенной таблице должны быть равномерно распределены по всем распределениям. Дополнительные сведения можно найти в разделе, посвященном [конструктору таблиц][].
 
 
 
 ## Дальнейшие действия
-Дополнительные советы по управлению хранилищем данных SQL см. в разделе [Общие сведения об управлении][].
+Дополнительные советы по управлению хранилищем данных SQL можно найти в разделе [сведений о средствах управления][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Общие сведения об управлении]: sql-data-warehouse-overview-manage.md
+[сведений о средствах управления]: sql-data-warehouse-overview-manage.md
 [конструктору таблиц]: sql-data-warehouse-develop-table-design.md
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

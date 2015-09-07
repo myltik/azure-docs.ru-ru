@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Устранение неполадок и ответы на вопросы по Application Insights" 
-	description="Что-то в Visual Studio Application Insights непонятно или не работает? Попробуйте здесь." 
-	services="application-insights" 
-    documentationCenter=".net"
-	authors="alancameronwills" 
+	pageTitle="Устранение неполадок и ответы на вопросы по Application Insights"
+	description="Что-то в Visual Studio Application Insights непонятно или не работает? Попробуйте здесь."
+	services="application-insights"
+	documentationCenter=".net"
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.service="application-insights"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="awills"/>
  
 # Устранение неполадок и ответы на вопросы по Application Insights для ASP.NET
@@ -217,9 +217,9 @@
 <tr><td>Телеметрия зависимостей</td><td><a href="../app-insights-monitor-performance-live-website-now/">Установить монитор состояний Application Insights на сервере</a></td><td>Выявить проблемы с базами данных или другими внешними компонентами</td></tr>
 <tr><td>Получение данных трассировки стека из исключений</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Вставьте вызовы TrackException в код</a> (некоторые выводятся автоматически)</td><td>Обнаружить и диагностировать исключения</td></tr>
 <tr><td>Поиск по трассировкам журнала</td><td><a href="../app-insights-search-diagnostic-logs/">Добавьте адаптер ведения журнала</a></td><td>Выявить исключения, проблемы производительности</td></tr>
-<tr><td>Основная информация об использовании клиента: просмотр страниц, сеансы и т.&#160;д.</td><td><a href="../app-insights-start-monitoring-app-health-usage/#webclient">Инициализатор JavaScript на веб-страницах</a></td><td>Аналитика использования</td></tr>
-<tr><td>Настраиваемые метрики клиента</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Трассировка вызовов на веб-страницах</a></td><td>Расширить возможности для пользователя</td></tr>
-<tr><td>Настраиваемые метрики сервера</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">Отслеживание вызовов в коде сервера</a></td><td>Бизнес-аналитика</td></tr>
+<tr><td>Основная информация об использовании клиента: просмотр страниц, сеансы и т.&#160;д.</td><td><a href="../app-insights-javascript/">Инициализатор JavaScript на веб-страницах</a></td><td>Аналитика использования</td></tr>
+<tr><td>Настраиваемые метрики клиента</td><td><a href="../app-insights-api-custom-events-metrics/">Трассировка вызовов на веб-страницах</a></td><td>Расширить возможности для пользователя</td></tr>
+<tr><td>Настраиваемые метрики сервера</td><td><a href="../app-insights-api-custom-events-metrics/">Отслеживание вызовов в коде сервера</a></td><td>Бизнес-аналитика</td></tr>
 </table>
 
 Если ваша веб-служба работает на виртуальной машине Azure, вы можете [получить данные диагностики][azurediagnostic] здесь.
@@ -239,4 +239,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Обзор Azure DNS | Microsoft Azure" 
-   description="Общие сведения о службах размещения Azure DNS в Microsoft Azure и запуск размещения вашего домена в Microsoft Azure" 
-   services="dns" 
-   documentationCenter="na" 
-   authors="joaoma" 
-   manager="adinah" 
-   editor=""/>
+   pageTitle="Обзор Azure DNS | Microsoft Azure"
+	description="Общие сведения о службах размещения Azure DNS в Microsoft Azure и запуск размещения вашего домена в Microsoft Azure"
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="05/01/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/12/2015"
+	ms.author="joaoma"/>
 
 # Обзор Azure DNS
 
@@ -31,7 +31,7 @@ Azure DNS является службой размещения для домен
 
 [Приступая к созданию зон DNS](dns-getstarted-create-dnszone.md)
 
-[Автоматизация операций Azure с помощью пакета SDK для .NET](../dns-sdk)
+[Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)
 
 [Справочник по REST API службы Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
@@ -40,4 +40,4 @@ Azure DNS является службой размещения для домен
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

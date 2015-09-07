@@ -1,22 +1,20 @@
 <properties 
    pageTitle="Управление: режим распределения балансировщика нагрузки (соответствие исходному IP-адресу)"
-   description="Функции управления для режима распределения балансировщика нагрузки Azure" 
-   services="virtual-network" 
-   documentationCenter="" 
-   authors="telmosampaio" 
-   manager="carolz" 
-   editor=""
-   />
+	description="Функции управления для режима распределения балансировщика нагрузки Azure"
+	services="virtual-network"
+	documentationCenter=""
+	authors="telmosampaio"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="telmos"
-   />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/21/2015"
+	ms.author="telmos"/>
    
 # Управление виртуальной сетью: режим распределения балансировщика нагрузки (соответствие исходному IP-адресу)
 **Соответствие исходному IP-адресу** (также используется термин **соответствие сеансу** или **соответствие клиентскому IP-адресу**) — специальный режим распределения балансировщика нагрузки Azure, который привязывает подключения одного клиента к одному серверу, размещенному в Azure, а не динамически распределяет клиентские подключения по разным серверам, размещенным в Azure (режим работы балансировщика нагрузки по умолчанию).
@@ -32,7 +30,7 @@
 Соответствие исходному IP-адресу можно настроить для:
 
 * [Конечные точки виртуальных машин](../virtual-machines/virtual-machines-set-up-endpoints.md)
-* [Настройка комплекта балансировки нагрузки](http://msdn.microsoft.com/library/azure/dn655055.aspx)
+* [Настройка комплекта балансировки нагрузки](../load-balancer/load-balancer-overview.md)
 * [Веб-роли](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [Рабочие роли](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 
@@ -161,4 +159,4 @@ LoadBalancerDistribution может иметь значение sourceIP для 
     Date: Thu, 16 Oct 2014 22:49:21 GMT
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

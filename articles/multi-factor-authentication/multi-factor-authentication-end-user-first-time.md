@@ -1,21 +1,20 @@
 <properties 
-	pageTitle="Первый вход в службу Azure Multi-Factor Authentication" 
-	description="Эта страница описывает первый вход пользователя в службу." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Первый вход в службу Azure Multi-Factor Authentication"
+	description="Эта страница описывает первый вход пользователя в службу."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
-
 # Первоначальная настройка службы Azure Multi-Factor Authentication
 
  Параметры дополнительной проверки безопасности используются в том случае, если администратор настроил учетную запись таким образом, что для проверки личности требуется пароль и ответ с телефона. Если администратор настроил учетную запись на выполнение дополнительной проверки безопасности, **войти не удастся до завершения процесса автоматической регистрации**.
@@ -37,4 +36,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

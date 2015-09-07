@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Сетевой список управления доступом"
-   description="Дополнительные сведения о списках ACL"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="Дополнительные сведения о списках ACL"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/08/2015"
+	ms.author="telmos"/>
 
 # Сетевые списки управления доступом
 
@@ -21,7 +21,7 @@
 
 > [AZURE.IMPORTANT]При любой возможности вместо списков ACL рекомендуется использовать группы безопасности сети (NSG). Дополнительные сведения об NSG см. в статье [Что такое группа безопасности сети](../virtual-networks-nsg).
 
-Списки ACL можно настраивать с помощью PowerShell или портала управления. Сведения о настройке ACL с помощью PowerShell см. в статье [Управление списками управления доступом (ACL) для конечных точек с помощью PowerShell](https://msdn.microsoft.com/library/azure/dn376543.aspx). Сведения о настройке списков ACL с помощью портала управления см. в статье [Настройка конечных точек виртуальной машины](../virtual-machines-set-up-endpoints/).
+Списки ACL можно настраивать с помощью PowerShell или портала управления. Сведения о настройке ACL с помощью PowerShell см. в статье [Управление списками управления доступом (ACL) для конечных точек с помощью PowerShell](virtual-networks-acl-powershell.md). Сведения о настройке списков ACL с помощью портала управления см. в статье [Настройка конечных точек виртуальной машины](../virtual-machines-set-up-endpoints/).
 
 Сетевые списки ACL позволяют:
 
@@ -99,4 +99,4 @@ ACL — это объект, содержащий список правил. П
 
 [Управление списками управления доступом для конечных точек с помощью PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

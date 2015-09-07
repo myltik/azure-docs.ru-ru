@@ -1,26 +1,27 @@
-<properties 
- pageTitle="Обзор агента и расширений виртуальной машины | Microsoft Azure" 
- description="Статья описывает агент, расширения и способы установки агента." 
- services="virtual-machines" 
- documentationCenter="" 
- authors="squillace" 
- manager="timlt" 
- editor=""/>
-<tags 
-ms.service="virtual-machines" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="vm-multiple" 
- ms.workload="infrastructure-services"
- ms.date="03/10/2015" 
- ms.author="kathydav"/>
+<properties
+ pageTitle="Обзор агента и расширений виртуальной машины | Microsoft Azure"
+	description="Статья описывает агент, расширения и способы установки агента."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
+<tags
+ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.workload="infrastructure-services"
+	ms.date="03/10/2015"
+	ms.author="rasquill"/>
+ 
 #Обзор агента и расширений виртуальной машины
 Агент виртуальной машины Azure (агент ВМ) используется для установки, настройки, управления и запуска расширений виртуальной машины Azure (расширений ВМ). Расширения ВМ предоставляют динамические функции, предлагаемые Майкрософт и сторонними производителями. Агент и расширения обычно добавляются на портале управления, но для их добавления и настройки можно использовать также командлеты [Powershell](../install-configure-powershell.md) и интерфейс [xplat-cli](virtual-machines-command-line-tools.md). Агент и расширения добавляются в новую виртуальную машину во время создания или в существующую. Расширения ВМ поддерживают [удаленную отладку в Visual Studio](https://msdn.microsoft.com/library/y7f5zaaa.aspx), [System Center 2012](http://social.technet.microsoft.com/wiki/contents/articles/18274.system-center-2012-r2-virtual-machine-role-authoring-guide-resource-extension-package.aspx), [службу диагностики Microsoft Azure](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/), [Docker](virtual-machines-docker-vm-extension.md), а также многое другое.
 
 Расширения ВМ можно использовать в следующих целях.
 
--   Изменение функций безопасности и идентификации, в том числе сброс значений учетных записей и использование защиты от вредоносных программ. 
--   Запуск, остановка и настройка функций мониторинга и диагностики. 
+-   Изменение функций безопасности и идентификации, в том числе сброс значений учетных записей и использование защиты от вредоносных программ.
+-   Запуск, остановка и настройка функций мониторинга и диагностики.
 -   Сброс или установка функций подключения, например RDP и SSH.
 -   Диагностика и мониторинг виртуальных машин, а также управление ими.
 
@@ -58,4 +59,4 @@ ms.service="virtual-machines"
 
 Дополнительные сведения об этих задачах см. в статье [Добавление, поиск, обновление и удаление расширений ВМ Azure](https://msdn.microsoft.com/library/dn850373.aspx).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

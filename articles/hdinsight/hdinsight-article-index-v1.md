@@ -63,11 +63,11 @@
 * [Использование определяемых пользователем функций C# при потоковой передаче Hive и Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 * [Разработка программ потоковой передачи Hadoop на C# для HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
-## HBase: аналитика NoSQL
+## HBase: база данных NoSQL
 
 * [Настройка георепликации HBase](hdinsight-hbase-geo-replication.md)
 * [Использование Maven для сборки приложений Java, которые используют HBase](hdinsight-hbase-build-java-maven.md)
-* [Анализ мнений пользователей Twitter в режиме реального времени с использованием HBase](hdinsight-hbase-analyze-twitter-sentiment.md)
+* [Анализ мнений пользователей службы "Твиттер" в режиме реального времени в HBase](hdinsight-hbase-analyze-twitter-sentiment.md)
 
 ## Apache Storm: потоковый запрос
 
@@ -132,4 +132,4 @@
 * [Значение сообщений об ошибках](hdinsight-debug-jobs.md)
 * [Получить помощь на форуме](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

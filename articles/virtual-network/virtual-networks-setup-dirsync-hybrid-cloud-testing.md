@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Настройка синхронизации каталогов (DirSync) Office 365 в гибридном облаке для тестирования" 
-	description="Узнайте, как настроить сервер синхронизации каталогов (DirSync)Office 365 в гибридном облаке для ИТ-специалистов или тестирования разработки." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Тестовая среда Office 365 DirSync | Microsoft Azure"
+	description="Узнайте, как настроить сервер синхронизации каталогов (DirSync)Office 365 в гибридном облаке для ИТ-специалистов или тестирования разработки."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # Настройка синхронизации каталогов (DirSync) Office 365 в гибридном облаке для тестирования
@@ -197,4 +197,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

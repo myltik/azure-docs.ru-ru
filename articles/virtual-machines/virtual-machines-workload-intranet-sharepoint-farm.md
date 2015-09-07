@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Службы инфраструктуры Azure: интрасетевая ферма SharePoint"
-	description="Из этой статьи вы узнаете о преимуществах развернутой в Azure интрасетевой фермы SharePoint. Вы также узнаете, как настраивать среду разработки и тестирования и развертывать высокодоступную рабочую конфигурацию."
+	pageTitle="Ферма SharePoint Server 2013 в Azure | Microsoft Azure"
+	description="Определение полезности фермы SharePoint Server 2013 в Azure, настройка тестовой среды и развертывание конфигурации высокого уровня доступности."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -124,4 +124,4 @@
 
 [Службы инфраструктуры Azure: высокодоступное бизнес-приложение](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

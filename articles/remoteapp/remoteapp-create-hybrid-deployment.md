@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Создание гибридной коллекции для Azure RemoteApp" 
-	description="Узнайте, как создать развертывание удаленного приложения RemoteApp, которое подключается к внутренней сети." 
-	services="remoteapp" 
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" 
+	pageTitle="Создание гибридной коллекции для Azure RemoteApp"
+	description="Узнайте, как создать развертывание удаленного приложения RemoteApp, которое подключается к внутренней сети."
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"
 	editor=""/>
 
 <tags 
-	ms.service="remoteapp" 
-	ms.workload="compute" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.service="remoteapp"
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/12/2015"
 	ms.author="elizapo"/>
 
 # Создание гибридной коллекции для Azure RemoteApp
@@ -53,9 +53,9 @@
 
 ### Создание виртуальной сети Azure и ее присоединение к развернутой системе Active Directory
 
-Сначала создайте [виртуальную сеть](https://msdn.microsoft.com/library/azure/dn631643.aspx). Это можно сделать на вкладке **Сеть** на портале управления Azure. Виртуальную сеть необходимо подключить к развернутой системе Active Directory, синхронизированной с вашим клиентом Azure Active Directory.
+Сначала создайте [виртуальную сеть](../virtual-network/virtual-networks-create-vnet.md). Это можно сделать на вкладке **Сеть** на портале управления Azure. Виртуальную сеть необходимо подключить к развернутой системе Active Directory, синхронизированной с вашим клиентом Azure Active Directory.
 
-Дополнительные сведения см. в статье [Параметры виртуальной сети на портале управления](https://msdn.microsoft.com/library/azure/jj156074.aspx).
+Дополнительные сведения см. в статье [Параметры виртуальной сети на портале управления](../virtual-network/virtual-networks-settings.md).
 
 ### Проверка готовности использования виртуальной сети с RemoteApp
 Перед созданием коллекции RemoteApp убедитесь, что ваша новая виртуальная сеть готова к работе. Для этого выполните следующие действия.
@@ -136,4 +136,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

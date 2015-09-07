@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Введение в ExpressRoute | Microsoft Azure"
-   description="На этой странице дается обзор службы ExpressRoute с описанием способа подключения ExpressRoute, работы с поставщиками Exchange и поставщиками сетевых услуг, а также общедоступного пиринга, частного пиринга и пиринга Майкрософт для ExpressRoute."
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="adinah"
-   editor="tysonn"/>
+	description="На этой странице дается обзор службы ExpressRoute с описанием способа подключения ExpressRoute, работы с поставщиками Exchange и поставщиками сетевых услуг, а также общедоступного пиринга, частного пиринга и пиринга Майкрософт для ExpressRoute."
+	documentationCenter="na"
+	services="expressroute"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="06/15/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # Технический обзор ExpressRoute
 
@@ -110,4 +110,4 @@ Microsoft Azure ExpressRoute позволяет создавать частны�
 - Найти поставщика услуг. См. раздел [Поставщики услуг и расположения ExpressRoute](expressroute-locations.md)
 - Настройте подключение ExpressRoute. См. инструкции в разделе [Настройка подключения ExpressRoute через поставщика сетевых услуг](expressroute-configuring-nsps.md) или [Настройка подключения ExpressRoute через поставщика Exchange](expressroute-configuring-exps.md). 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

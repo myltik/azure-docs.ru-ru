@@ -1,20 +1,20 @@
 <properties
    pageTitle="Развертывание приложения с использованием шаблона диспетчера ресурсов Azure"
-   services="azure-resource-manager"
-   description="Развертывание приложения в Azure с использованием диспетчера ресурсов Azure. Шаблон — это JSON-файл, который можно использовать с помощью портала, PowerShell, интерфейса командной строки Azure для Mac, Linux и Windows или REST."
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	services="azure-resource-manager"
+	description="Развертывание приложения в Azure с использованием диспетчера ресурсов Azure. Шаблон — это JSON-файл, который можно использовать с помощью портала, PowerShell, интерфейса командной строки Azure для Mac, Linux и Windows или REST."
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/20/2015"
+	ms.author="tomfitz"/>
 
 # Развертывание приложения с использованием шаблона диспетчера ресурсов Azure
 
@@ -256,12 +256,14 @@
        }
     }
 
+Размер файла параметров не может быть более 64 КБ.
+
 ## Дальнейшие действия
-- Пример развертывания ресурсов с помощью клиентской библиотеки .NET см. в статье [Развертывание ресурсов с использованием библиотек .NET и шаблона](../arm-template-deployment.md).
-- Подробный пример развертывания приложения см. в статье [Предсказуемая подготовка и развертывание микрослужб в Azure.](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- Дополнительные сведения о разделах в шаблоне диспетчера ресурсов Azure см. в статье [Создание шаблонов](../resource-group-authoring-templates.md).
+- Пример развертывания ресурсов через клиентскую библиотеку .NET см. в статье [Развертывание ресурсов с использованием библиотек .NET и шаблона](../arm-template-deployment.md).
+- Подробный пример развертывания приложения см. в статье [Предсказуемая подготовка и развертывание микрослужб в Azure](../app-service-web/app-service-deploy-complex-application-predictably.md).
+- Дополнительную информацию о разделах в шаблоне диспетчера ресурсов Azure см. в статье [Создание шаблонов](../resource-group-authoring-templates.md).
 - Список функций, которые можно использовать в шаблоне диспетчера ресурсов Azure, см. в статье [Функции шаблонов](../resource-group-template-functions.md).
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Настройка статического внутреннего частного IP-адреса"
-   description="Основные сведения о статических внутренних IP-адресах (DIP) и управлении ими"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="adinah"
-   editor="tysonn" />
+	description="Основные сведения о статических внутренних IP-адресах (DIP) и управлении ими"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/17/2015"
+	ms.author="telmos"/>
 
 # Настройка статического внутреннего частного IP-адреса
 В большинстве случаев для виртуальной машины не нужно указывать статический внутренний IP-адрес. Виртуальные машины в виртуальной сети будут автоматически получать внутренний IP-адрес из указанного вами диапазона. Однако в некоторых случаях указание статического IP-адреса для конкретной виртуальной машины имеет смысл. Например, если на виртуальной машине планируется запускать DNS или она будет контроллером домена.
@@ -31,7 +31,7 @@
 	OperationId          : fd3097e1-5f4b-9cac-8afa-bba1e3492609
 	OperationStatus      : Succeeded
 
->[AZURE.NOTE]Если требуется протестировать указанную выше команду в защищенной среде, следуйте инструкциям из раздела [Создание виртуальной сети](https://msdn.microsoft.com/library/azure/dn631643.aspx), чтобы создать виртуальную сеть с именем *TestVnet* и убедиться в том, что она использует адресное пространство *10.0.0.0/8*.
+>[AZURE.NOTE]Если требуется протестировать указанную выше команду в защищенной среде, следуйте инструкциям из раздела [Создание виртуальной сети](../virtual-network/virtual-networks-create-vnet.md), чтобы создать виртуальную сеть с именем *TestVnet* и убедиться в том, что она использует адресное пространство *10.0.0.0/8*.
 
 ## Указание статического внутреннего IP-адреса при создании виртуальной машины
 Приведенный ниже сценарий PowerShell создает новую облачную службу с именем *TestService*, затем получает образ из Azure, после чего создает виртуальную машину с именем *TestVM* в новой облачной службе с использованием полученного образа, задает для этой ВМ нахождение в подсети с именем *Subnet-1* и устанавливает *10.0.0.7* статическим внутренним IP-адресом виртуальной машины:
@@ -99,4 +99,4 @@
 [API REST зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

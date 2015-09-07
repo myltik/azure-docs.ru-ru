@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Несколько виртуальных IP-адресов для облачной службы"
-   description="Обзор данных об использовании нескольких виртуальных IP-адресов и установке нескольких виртуальных IP-адресов для облачной службы"
-   services="load-balancer"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
-   editor="tysonn" />
+	description="Обзор данных об использовании нескольких виртуальных IP-адресов и установке нескольких виртуальных IP-адресов для облачной службы"
+	services="load-balancer"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/23/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/23/2015"
+	ms.author="joaoma"/>
 
 # Несколько виртуальных IP-адресов для облачной службы
 Доступ к облачным службам Azure через общедоступное подключение к Интернету можно получить с помощью IP-адреса, предоставляемого Azure. Этот общедоступный IP-адрес называется виртуальным IP-адресом, так как он привязан к подсистеме балансировки нагрузки Azure, а не к экземплярам виртуальной машины в облачной службе. Доступ к любому экземпляру виртуальной машины в облачной службе можно получить с помощью одного виртуального IP-адреса.
@@ -150,9 +150,9 @@
 
 [Приступая к работе с подсистемой балансировки нагрузки, доступной в Интернете](load-balancer-internet-getstarted.md)
 
-[Обзор виртуальной сети](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[Обзор виртуальной сети](../virtual-network/virtual-networks-overview.md)
 
 [API REST зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

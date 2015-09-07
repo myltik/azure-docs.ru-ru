@@ -1,12 +1,14 @@
-## Scenario
+## Сценарий
 
-To better illustrate how to create a VNet and subnets, this document will use the scenario below.
+Чтобы лучше проиллюстрировать процесс создания виртуальной сети и подсетей, в этом документе будет использоваться представленный ниже сценарий.
 
-![VNet scenario](./media/virtual-networks-create-vnet-scenario-include/vnet-scenario.png)
+![Сценарий виртуальной сети](./media/virtual-networks-create-vnet-scenario-include/vnet-scenario.png)
 
-In this scenario you will create a VNet named **TestVNet** with a reserved CIDR block of **192.168.0.0./16**. Your VNet will contain the following subnets: 
+В этом сценарии вы создадите виртуальную сеть с именем **TestVNet** и зарезервированным блоком CIDR **192.168.0.0./16**. Ваша виртуальная сеть будет содержать следующие подсети.
 
-- **FrontEnd**, using **192.168.1.0/24** as its CIDR block.
-- **BackEnd**, using **192.168.2.0/24** as its CIDR block.
+- **FrontEnd** с блоком **192.168.1.0/24** в качестве блока CIDR.
+- **BackEnd** с блоком **192.168.2.0/24** в качестве блока CIDR.
 
  
+
+<!---HONumber=August15_HO9-->

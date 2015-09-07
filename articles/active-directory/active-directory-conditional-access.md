@@ -1,19 +1,19 @@
 <properties
 	pageTitle="Управление рисками с помощью условного доступа"
-	description="В разделе объясняется, как разрешить повсеместный доступ к определенному ресурсу с известных устройств, соответствующих политикам, и запретить доступ с потерянных, украденных и несоответствующих устройств."
+	description="Разрешайте повсеместный доступ к определенному ресурсу в корпоративной сети с известных устройств, соответствующих политикам, и запрещайте доступ с потерянных, украденных и несоответствующих устройств."
 	services="active-directory, virtual-network"
 	documentationCenter=""
 	authors="femila"
-	manager="stevepo"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
 	ms.service="active-directory"
 	ms.devlang="na"
 	ms.topic="article"
-  ms.tgt_pltfrm="na"
-  ms.workload="identity" 
-	ms.date="07/31/2015"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/19/2015"
 	ms.author="femila"/>
 
 
@@ -35,13 +35,13 @@
 
 В следующих статьях рассматриваются различные механизмы для задания политик условного доступа в организации:
 
-- [Общие сведения о регистрации устройств Azure Active Directory](https://msdn.microsoft.com/library/azure/dn903763.aspx)
-- [Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory](https://msdn.microsoft.com/library/azure/dn788908.aspx)
-- [Политики условного доступа к Office 365 с устройств](https://msdn.microsoft.com/library/azure/dn903766.aspx)
-- [Предварительная версия Azure условного доступа для приложений SaaS](https://msdn.microsoft.com/library/azure/dn906877.aspx)
+- [Общие сведения о регистрации устройств Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
+- [Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory](active-directory-conditional-access-on-premises-setup.md)
+- [Политики условного доступа к Office 365 с устройств](active-directory-conditional-access-device-policies.md)
+- [Предварительная версия Azure условного доступа для приложений SaaS](active-directory-conditional-access-azuread-connected-apps.md)
 
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

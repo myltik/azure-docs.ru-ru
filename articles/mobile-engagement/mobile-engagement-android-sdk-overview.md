@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement" 
+	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement"
 	description="Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo"/>
 
 
 #Пакет Android SDK для Azure Mobile Engagement
@@ -35,87 +35,17 @@
 
 ##Заметки о выпуске
 
-###4\.0.0 (07/06/2015)
+##4\.1.0 (25.08.2015)
 
--   Внутренние изменения протокола для повышения надежности аналитики и push-уведомлений.
--   Системные push-уведомления (GCM/ADM) теперь также используются для уведомлений из приложений, поэтому их учетные данные необходимо задавать для всех типов кампаний push-уведомлений.
--   Исправлены ошибки общих уведомлений: ранее они отображались только 10 секунд.
--   Исправлена ошибка, связанная с возможностью выбора используемого по умолчанию URL-адреса действия в веб-объявлении.
--   Исправлена ошибка, связанная с редкими сбоями при управлении локальным хранилищем.
--   Исправлена ошибка, связанная с динамическим управлением строкой конфигурации.
--   Обновлено лицензионное соглашение с пользователем.
+- Обработка новой модели разрешений для Android M.
+- Возможность настройки характеристик расположения в среде выполнения, а не с помощью `AndroidManifest.xml`.
+- Исправление ошибки разрешений: если используется `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` больше не требуется.
+- Улучшение стабильности.
 
 Информацию о предыдущих версиях см. в [полных заметках о выпуске](mobile-engagement-android-release-notes.md).
 
 ##Процедуры обновления
 
-Если вы уже интегрировали в приложение старую версию пакета SDK, при обновлении пакета SDK необходимо учитывать следующее.
+Если вы уже интегрировали более старую версию нашего пакета SDK в свое приложение, обратитесь к разделу [Процедуры обновления](mobile-engagement-android-upgrade-procedure.md).
 
-Если вы пропустили несколько версий пакета SDK, вам понадобиться выполнить ряд процедур. См. полную версию статьи [Процедуры обновления](mobile-engagement-android-upgrade-procedure.md). Например, при миграции с версии 1.4.0 на версию 1.6.0 необходимо сначала выполнить процедуру «Из версии 1.4.0 в 1.5.0», а затем процедуру «Из версии 1.5.0 в 1.6.0».
-
-Независимо от того, с какой версии выполняется обновление, необходимо заменить `mobile-engagement-VERSION.jar` на новую версию.
-
-###С версии 3.0.0 до версии 4.0.0
-
-#### Системные push-уведомления
-
-Системные push-уведомления (GCM/ADM) теперь также используются для уведомлений из приложений, поэтому их учетные данные необходимо задавать для всех типов кампаний push-уведомлений.
-
-Если вы еще не сделали этого, следуйте [этой процедуре](mobile-engagement-android-integrate-engagement-reach.md#native-push).
-
-#### AndroidManifest.xml
-
-Возможности интеграции с Reach были изменены в ``AndroidManifest.xml``.
-
-Замените это:
-
-    <receiver
-      android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
-      android:exported="false">
-      <intent-filter>
-        <action android:name="android.intent.action.BOOT_COMPLETED"/>
-        <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
-        <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
-        <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
-        <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
-        <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
-        <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
-      </intent-filter>
-    </receiver>
-
-на
-
-    <receiver
-      android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
-      android:exported="false">
-      <intent-filter>
-        <action android:name="android.intent.action.BOOT_COMPLETED"/>
-        <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
-        <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
-        <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
-        <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
-        <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
-      </intent-filter>
-    </receiver>
-    <receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
-      <intent-filter>
-        <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
-      </intent-filter>
-    </receiver>
-
-Теперь при выборе объявления (текстового или с веб-содержимым) или опроса может отображаться экран загрузки. Чтобы кампании работали в версии 4.0.0, необходимо добавить этот код:
-
-    <activity
-      android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity"
-      android:theme="@android:style/Theme.Dialog">
-      <intent-filter>
-        <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
-        <category android:name="android.intent.category.DEFAULT"/>
-      </intent-filter>
-    </activity>
-
-#### Ресурсы
-
-Внедрите новый файл `res/layout/engagement_loading.xml` в проект.
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

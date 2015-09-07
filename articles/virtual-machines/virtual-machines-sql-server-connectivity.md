@@ -1,22 +1,22 @@
 <properties 
    pageTitle="Подключение к виртуальной машине SQL Server в Azure"
-   description="В этом разделе показано, как подключиться к системе SQL Server, выполняемой на виртуальной машине в Azure. Сценарии различаются в зависимости от конфигурации сети и расположения клиента."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar" />
+	description="В этом разделе показано, как подключиться к системе SQL Server, выполняемой на виртуальной машине в Azure. Сценарии различаются в зависимости от конфигурации сети и расположения клиента."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 <tags 
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
-   ms.author="jroth" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="08/18/2015"
+	ms.author="jroth"/>
 
 # Подключение к виртуальной машине SQL Server в Azure
-
+ 
 ## Обзор
 
 Процедура настройки подключения к системе SQL Server, выполняющейся на виртуальной машине Azure, не сильно отличается от действий, которые нужно выполнить с локальным экземпляром SQL Server. Вам снова потребуется настроить брандмауэр, проверку подлинности и вход в базу данных.
@@ -79,8 +79,8 @@
 
 Если вы также планируете использовать группы доступности AlwaysOn для обеспечения высокого уровня доступности и аварийного восстановления, следует реализовать прослушиватель. Клиенты баз данных подключаются к прослушивателю, а не непосредственно к одному из экземпляров SQL Server. Прослушиватель направляет клиентов к первичной реплике в группе доступности. Дополнительные сведения см. в [статье, в которой рассматривается настройка прослушивателя внутренней подсистемы балансировки нагрузки для групп доступности AlwaysOn в Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md).
 
-Важно просмотреть все рекомендации по обеспечению безопасности для системы SQL Server, выполняемой на виртуальной машине Azure. Дополнительные сведения см. в статье [Рекомендации по безопасности SQL Server на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/dn133147.aspx).
+Важно просмотреть все рекомендации по обеспечению безопасности для системы SQL Server, выполняемой на виртуальной машине Azure. Дополнительные сведения см. в статье [Рекомендации по безопасности SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-security-considerations.md).
 
 Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, см. в статье [SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

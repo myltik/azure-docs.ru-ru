@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Для чего нужна учетная запись администратора предприятия" 
-	description="Описание пользовательских параметров." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Для чего нужна учетная запись администратора предприятия"
+	description="Описание пользовательских параметров."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Почему при настройке Azure AD Connect необходимо указывать учетную запись администратора предприятия для подключения к AD DS
@@ -31,6 +31,6 @@
 
 * [Дополнительные сведения об учетных записях и разрешениях Azure AD Connect](active-directory-aadconnect-account-summary.md)
 * [Выборочная установка Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-* [Azure AD Connect на портале MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
+* [Azure AD Connect на портале MSDN](active-directory-aadconnect.md) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

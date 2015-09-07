@@ -89,7 +89,7 @@
 
 5. Щелкните **Создать**.
 
-По умолчанию виртуальная сеть использует внутренний сервер доменных имен (DNS), предоставленный Azure. Более продвинутые сетевые конфигурации с другими DNS-серверами также поддерживаются. Подробные указания см. в статье [Разрешение имен (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+По умолчанию виртуальная сеть использует внутренний сервер доменных имен (DNS), предоставленный Azure. Более продвинутые сетевые конфигурации с другими DNS-серверами также поддерживаются. Подробные указания см. в статье [Разрешение имен (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 **Добавление виртуальной машины DNS-сервера в виртуальную сеть (необязательно)**
 
@@ -98,7 +98,7 @@ DNS-сервер является необязательным, но в неко
 1. добавить виртуальную машину Azure в виртуальную сеть;
 2. задать статический IP-адрес для виртуальной машины;
 3. добавить роль DNS-сервера для виртуальной машины;
-4. назначить DNS-сервер в виртуальную сеть. 
+4. назначить DNS-сервер в виртуальную сеть.
 
 **Подготовка кластера HBase с помощью портала Azure**
 
@@ -139,7 +139,7 @@ DNS-сервер является необязательным, но в неко
 ##Подключение к подготовленному в виртуальной сети кластеру HBase с помощью интерфейсов API удаленного вызова процедур (RPC) Java для HBase
 
 1.	Подготовьте виртуальную машину IaaS в той же виртуальной сети Azure и той же подсети. Поэтому виртуальная машина и кластер HBase будут использовать один и тот же внутренний сервер DNS для разрешения имен узлов. Чтобы сделать это, необходимо выбрать параметр **Из коллекции** и выбрать виртуальную сеть вместо центра обработки данных. Инструкции см. в разделе [Создание виртуальной машины под управлением Windows Server](../virtual-machines-windows-tutorial.md). Достаточно стандартного образа Windows Server 2012 с виртуальной машиной небольшого размера.
-	
+
 2.	При использовании Java-приложения для удаленного подключения к HBase необходимо использовать полное доменное имя (FQDN). Чтобы определить это, вам необходимо получить DNS-суффикс кластера HBase. Для этого воспользуйтесь Curl, чтобы создать запрос к Ambari, или удаленным рабочим столом, чтобы подключиться к кластеру.
 
 	* **Curl** — используйте следующую команду:
@@ -172,7 +172,7 @@ DNS-сервер является необязательным, но в неко
 				)
 			{
 			<#
-			    .SYNOPSIS 
+			    .SYNOPSIS
 			     Displays information to facilitate an HDInsight cluster-to-cluster scenario within the same virtual network.
 				.Description
 				 This command shows the following 4 properties of an HDInsight cluster:
@@ -197,13 +197,13 @@ DNS-сервер является необязательным, но в неко
 			     Get-ClusterDetail -ClusterDnsName {clusterDnsName} -Username {username} -Password {password} -PropertyName FQDNSuffix
 			     This command shows the FQDN suffix of hosts in the cluster.
 			#>
-			
+
 				$DnsSuffix = ".azurehdinsight.net"
-				
+
 				$ClusterFQDN = $ClusterDnsName + $DnsSuffix
 				$webclient = new-object System.Net.WebClient
 				$webclient.Credentials = new-object System.Net.NetworkCredential($Username, $Password)
-			
+
 				if($PropertyName -eq "ZookeeperQuorum")
 				{
 					$Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.quorum"
@@ -224,7 +224,7 @@ DNS-сервер является необязательным, но в неко
 					$Response1 = $webclient.DownloadString($Url1)
 					$JsonObject1 = $Response1 | ConvertFrom-Json
 					$PortNumber = $JsonObject1.items[0].properties.'hbase.rest.port'
-					
+
 					$Url2 = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/hbase/components/hbrest"
 					$Response2 = $webclient.DownloadString($Url2)
 					$JsonObject2 = $Response2 | ConvertFrom-Json
@@ -257,18 +257,18 @@ DNS-сервер является необязательным, но в неко
 	> ![hdinsight.hbase.dns.surffix][img-dns-surffix]
 
 
-<!-- 
-3.	Change the primary DNS suffix configuration of the virtual machine. This enables the virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to workernode0 of the HBase cluster. 
+<!--
+3.	Change the primary DNS suffix configuration of the virtual machine. This enables the virtual machine to automatically resolve the host name of the HBase cluster without explicit specification of the suffix. For example, the *workernode0* host name will be correctly resolved to workernode0 of the HBase cluster.
 
 	To make the configuration change:
 
-	1. RDP into the virtual machine. 
+	1. RDP into the virtual machine.
 	2. Open **Local Group Policy Editor**. The executable is gpedit.msc.
-	3. Expand **Computer Configuration**, expand **Administrative Templates**, expand **Network**, and then click **DNS Client**. 
-	- Set **Primary DNS Suffix** to the value obtained in step 2: 
+	3. Expand **Computer Configuration**, expand **Administrative Templates**, expand **Network**, and then click **DNS Client**.
+	- Set **Primary DNS Suffix** to the value obtained in step 2:
 
 		![hdinsight.hbase.primary.dns.suffix][img-primary-dns-suffix]
-	4. Click **OK**. 
+	4. Click **OK**.
 	5. Reboot the virtual machine.
 -->
 
@@ -281,7 +281,7 @@ DNS-сервер является необязательным, но в неко
     	<value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
 	</property>
 
-> [AZURE.NOTE]Для получения дополнительной информации о разрешении имен в виртуальных сетях Azure, а также об использовании своего​ собственного DNS-сервера см. раздел [Разрешение имен (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+> [AZURE.NOTE]Для получения дополнительной информации о разрешении имен в виртуальных сетях Azure, а также об использовании своего​ собственного DNS-сервера см. раздел [Разрешение имен (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ##Подготовка кластера HBase с помощью Azure PowerShell
 
@@ -328,8 +328,8 @@ DNS-сервер является необязательным, но в неко
 В этом учебнике вы узнали, как подготовить к работе кластер HBase. Дополнительные сведения см. на следующих ресурсах:
 
 - [Приступая к работе с HDInsight](../hdinsight-get-started.md)
-- [Настройка репликации HBase в HDInsight](hdinsight-hbase-geo-replication.md) 
-- [Подготовка кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md) 
+- [Настройка репликации HBase в HDInsight](hdinsight-hbase-geo-replication.md)
+- [Подготовка кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md)
 - [Приступая к работе с HBase с Hadoop в HDInsight](../hdinsight-hbase-get-started.md)
 - [Анализ мнений пользователей Twitter с использованием HBase в HDInsight](../hdinsight-hbase-twitter-sentiment.md)
 - [Обзор виртуальной сети][vnet-overview]
@@ -341,7 +341,7 @@ DNS-сервер является необязательным, но в неко
 
 [hbase-get-started]: ../hdinsight-hbase-get-started.md
 [hbase-twitter-sentiment]: ../hdinsight-hbase-twitter-sentiment.md
-[vnet-overview]: http://msdn.microsoft.com/library/azure/jj156007.aspx
+[vnet-overview]: ../virtual-network/virtual-networks-overview.md
 [vm-create]: ../virtual-machines-windows-tutorial.md
 
 [azure-portal]: https://portal.azure.com
@@ -379,4 +379,4 @@ DNS-сервер является необязательным, но в неко
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Подготовка сведений для нового кластера HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Использование действия сценария для настройки кластера HBase"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

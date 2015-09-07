@@ -1,20 +1,20 @@
 
 <properties 
-	pageTitle="Вход в мобильное приложение с помощью кода подтверждения службы Azure Multi-Factor Authentication" 
-	description="На этой странице описана процедура входа пользователей с помощью кода подтверждения мобильного приложения при использовании службы Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Вход в мобильное приложение с помощью кода подтверждения службы Azure Multi-Factor Authentication"
+	description="На этой странице описана процедура входа пользователей с помощью кода подтверждения мобильного приложения при использовании службы Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Вход в мобильное приложение с помощью кода подтверждения службы Azure Multi-Factor Authentication
@@ -39,4 +39,4 @@
 
 <li>После этого вы войдете в систему.</li>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

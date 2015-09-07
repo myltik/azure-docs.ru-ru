@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Соединитель SQL Azure: перемещение данных в базу данных SQL Azure и из нее" 
-	description="Сведения о соединителе SQL Azure для службы фабрики данных, с помощью которого можно перемещать данные в базу данных SQL Azure и из нее." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Перемещение данных в базу данных SQL Azure и из нее | Фабрика данных Azure"
+	description="Узнайте, как переместить данные в базу данных SQL Azure и из нее с помощью фабрики данных Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Соединитель SQL Azure: перемещение данных в базу данных SQL Azure и из нее
+# Перемещение данных в базу данных SQL Azure и из нее с помощью фабрики данных Azure
 
 В этой статье рассказывается, как с помощью действия копирования в фабрике данных Azure можно перемещать данные в базу данных SQL Azure из другого хранилища данных и обратно. Эта статья основана на статье о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования и поддерживаемых сочетаниях хранилищ данных.
 
@@ -24,11 +24,11 @@
 
 В примере ниже показано следующее.
 
-1. Связанная служба типа AzureSqlDatabase.
-2. Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md/#LinkedService). 
-3. Входной набор данных типа AzureSqlTable. 
-4. Выходной набор данных типа [AzureBlob](data-factory-azure-blob-connector.md/#Dataset).
-4. Конвейер с действием копирования, в котором используются SqlSource и [BlobSink](data-factory-azure-blob-connector.md/#CopyActivity).
+1. Связанная служба типа [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
+2. Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
+3. Входной [набор данных](data-factory-create-datasets.md) типа [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties). 
+4. Выходной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4. [Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 В этом примере данные, относящиеся к одному временному ряду, каждый час копируются из таблицы в базе данных SQL Azure в BLOB-объект. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.
 
@@ -145,7 +145,7 @@
 
 **Конвейер с действием копирования**
 
-Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **SqlSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, указанный для свойства **SqlReaderQuery**, выбирает для копирования данные за последний час.
+Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **SqlSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, указанный для свойства **SqlReaderQuery**, выбирает для копирования данные за последний час.
 
 	{  
 	    "name":"SamplePipeline",
@@ -171,7 +171,7 @@
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -196,11 +196,11 @@
 
 В примере ниже показано следующее.
 
-1.	Связанная служба типа AzureSqlDatabase.
-2.	Связанная служба типа AzureStorage.
-3.	Входной набор данных типа AzureBlob.
-4.	Выходной набор данных типа AzureSqlTable.
-4.	Конвейер с действием копирования, в котором используются BlobSource и SqlSink.
+1.	Связанная служба типа [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
+2.	Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Входной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	Выходной [набор данных](data-factory-create-datasets.md) типа [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
+4.	[Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) и [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties).
 
 В этом примере данные, относящиеся к одному временному ряду, каждый час копируются из BLOB-объекта Azure в таблицу в базе данных SQL Azure. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.
 
@@ -317,7 +317,7 @@
 
 **Конвейер с действием копирования**
 
-Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **BlobSource**, а для типа **sink** — значение **SqlSink**.
+Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **BlobSource**, а для типа **sink** — значение **SqlSink**.
 
 	{  
 	    "name":"SamplePipeline",
@@ -373,7 +373,7 @@
 | type | Для свойства type необходимо задать значение AzureSqlDatabase. | Да |
 | connectionString | В свойстве connectionString указываются сведения, необходимые для подключения к экземпляру базы данных SQL Azure. | Да |
 
-**Примечание.** Вам нужно настроить [брандмауэр базы данных SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure), а на сервере базы данных — [разрешить службам Azure доступ к серверу](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Кроме того, при копировании данных в SQL Azure из внешнего по отношению к Azure источника, включая локальные источники данных, с помощью шлюза фабрики данных, необходимо настроить соответствующий диапазон IP-адресов для компьютера, который отправляет данные в SQL Azure .
+**Примечание.** Вам нужно настроить [брандмауэр базы данных SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure), а на сервере базы данных — [разрешить службам Azure доступ к серверу](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Кроме того, при копировании данных в SQL Azure из внешнего по отношению к Azure источника, включая локальные источники данных, с помощью шлюза фабрики данных, необходимо настроить соответствующий диапазон IP-адресов для компьютера, который отправляет данные в SQL Azure .
 
 ## Свойства типа «Набор данных Azure SQL»
 
@@ -387,7 +387,7 @@
 
 ## Свойства типа «Действие копирования SQL Azure»
 
-Полный список разделов и свойств, доступных для определения действий, см. в статье [Создание конвейеров](data-factory-create-pipelines.md). Такие свойства, как имя, описание, входные и выходные таблицы, различные политики и т. д., доступны для всех типов действий.
+Полный список разделов и свойств, используемых для определения действий, см. в статье [Создание конвейеров](data-factory-create-pipelines.md). Такие свойства, как имя, описание, входные и выходные таблицы, различные политики и т. д., доступны для всех типов действий.
 
 > [AZURE.NOTE]Действие копирования принимает только один набор входных данных и возвращает только один набор выходных.
 
@@ -418,7 +418,7 @@
 
 ### Сопоставление типов SQL Server и SQL Azure
 
-Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в два этапа:
+Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в 2 этапа:
 
 1. Преобразование собственных типов источников в тип .NET.
 2. Преобразование типа .NET в собственный тип приемника.
@@ -430,36 +430,36 @@
 | Тип ядра СУБД SQL Server | Тип .NET Framework |
 | ------------------------------- | ------------------- |
 | bigint | Int64 |
-| binary | Byte |
+| binary; | Byte |
 | bit | Логический |
-| char | String, Char |
+| char; | String, Char |
 | дата | DateTime |
 | Datetime | DateTime |
-| datetime2 | DateTime |
+| datetime2; | DateTime |
 | Datetimeoffset | DateTimeOffset |
 | Decimal | Decimal |
 | Атрибут FILESTREAM (varbinary(max)) | Byte |
 | Float | Double |
 | изображение | Byte | 
 | int | Int32 | 
-| money | Decimal |
-| nchar | String, Char |
+| money; | Decimal |
+| nchar; | String, Char |
 | ntext | String, Char |
 | numeric | Decimal |
-| nvarchar | String, Char |
-| real | Single |
+| nvarchar; | String, Char |
+| real; | Single |
 | rowversion | Byte |
-| smalldatetime | DateTime |
-| smallint | Int16 |
-| smallmoney | Decimal | 
+| smalldatetime; | DateTime |
+| smallint; | Int16 |
+| smallmoney; | Decimal | 
 | sql\_variant | Object * |
 | text | String, Char |
 | Twitter в режиме реального | TimeSpan |
 | Timestamp | Byte |
-| tinyint | Byte |
+| tinyint; | Byte |
 | uniqueidentifier | Guid |
-| varbinary | Byte |
-| varchar | String, Char |
+| varbinary; | Byte |
+| varchar. | String, Char |
 | xml | Xml |
 
 
@@ -471,4 +471,4 @@
 
 	 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

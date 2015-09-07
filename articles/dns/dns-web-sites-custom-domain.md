@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Создание пользовательских записей DNS для веб-приложения | Microsoft Azure" 
-   description="Как создать пользовательские записи DNS для веб-приложения с помощью Azure DNS. Пошаговые инструкции для проверки владельца домена с помощью записи CNAME или A" 
-   services="dns" 
-   documentationCenter="na" 
-   authors="joaoma" 
-   manager="carolz" 
-   editor=""/>
+   pageTitle="Создание пользовательских записей DNS для веб-приложения | Microsoft Azure"
+	description="Как создать пользовательские записи DNS для веб-приложения с помощью Azure DNS. Пошаговые инструкции для проверки владельца домена с помощью записи CNAME или A"
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="05/20/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/23/2015"
+	ms.author="joaoma"/>
 
 # Создание записи DNS для веб-приложения в пользовательском домене
 
@@ -165,4 +165,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

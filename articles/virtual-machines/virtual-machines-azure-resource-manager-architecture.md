@@ -1,20 +1,20 @@
 <properties
    pageTitle="Архитектура диспетчера ресурсов Azure"
-   description="Узнайте об архитектуре диспетчера ресурсов и связях между поставщиками вычислительных, сетевых ресурсов и ресурсов хранения."
-   services="virtual-machines"
-   documentationCenter=""
-   authors="davidmu1"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+	description="Узнайте об архитектуре диспетчера ресурсов и связях между поставщиками вычислительных, сетевых ресурсов и ресурсов хранения."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="azure-resource-manager"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # Архитектура диспетчера ресурсов Azure
@@ -79,4 +79,4 @@
 
 [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

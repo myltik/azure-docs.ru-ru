@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Просмотр и изменение имен узлов"
-   description="Описание"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="jdial"
-   editor="tysonn" />
+	description="Описание"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="jdial"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/28/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="joaoma"/>
 
 # Просмотр и изменение имен узлов
 
@@ -51,7 +51,7 @@
 
 1. Задайте запись заголовка с именем x-ms-version и значением 2013-11-01.
 
-1. Отправьте запрос в следующем формате: https://management.core.windows.net/\<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true.
+1. Отправьте запрос в следующем формате: https://management.core.windows.net/<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true.
 
 1. Найдите элемент **HostName** для каждого элемента **RoleInstance**.
 
@@ -61,14 +61,14 @@
 
 Вы можете изменить имя узла для любой виртуальной машины или экземпляра роли, отправив измененный файл конфигурации службы или переименовав компьютер из сеанса удаленного рабочего стола.
 
-## См. также
+## Дальнейшие действия
 
-[Разрешение имен (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx)
+[Разрешение имен (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 [Схема конфигурации службы Azure (CSCFG-файл)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
 
 [Схема конфигурации виртуальной сети Windows Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
 
-[Настройка виртуальной сети с помощью файлов конфигурации сети](http://go.microsoft.com/fwlink/?LinkId=248094)
+[Укажите параметры DNS с помощью файлов конфигурации сети](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

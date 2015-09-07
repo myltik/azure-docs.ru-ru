@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Использование мобильного приложения для связи при работе со службой Azure MFA" 
-	description="На этой странице пользователи могут узнать, как использовать мобильное приложение в качестве основного способа связи при работе со службой Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Использование мобильного приложения для связи при работе со службой Azure MFA"
+	description="На этой странице пользователи могут узнать, как использовать мобильное приложение в качестве основного способа связи при работе со службой Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Использование мобильного приложения для связи при работе со службой Azure Multi-Factor Authentication
@@ -73,4 +73,4 @@
 >[AZURE.NOTE]Если отображается параметр «Добавить рабочую учетную запись», он относится к присоединению к рабочему месту, а не к многофакторной проверке подлинности. Не обращайте на него внимания.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

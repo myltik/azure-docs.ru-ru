@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Приложение Azure Authenticator для мобильных телефонов" 
-	description="Узнайте, как выполнить обновление до последней версии Azure Authenticatior." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
-	editor="curtand"/>
+	pageTitle="Приложение Azure Authenticator для мобильных телефонов"
+	description="Узнайте, как выполнить обновление до последней версии Azure Authenticatior."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
 
 # Переход к новому приложению Azure Authenticator
 
-После выпуска приложение Azure Authenticator для [Windows Phone](http://www.windowsphone.com/ru-ru/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) и [iOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458) заменит старое приложение Multi-Factor Authentication. Вы можете продолжать использовать приложение Multi-Factor Authentication. Сведения в этой статье помогут вам, когда вы решите перейти к новому приложению Azure Authenticator.
+После выпуска приложение Azure Authenticator для [Windows Phone](http://www.windowsphone.com/ru-RU/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) и [iOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458) заменит старое приложение Multi-Factor Authentication. Вы можете продолжать использовать приложение Multi-Factor Authentication. Сведения в этой статье помогут вам, когда вы решите перейти к новому приложению Azure Authenticator.
 
 
 ## Переход к использованию нового приложения Azure Authenticator 
@@ -33,9 +33,9 @@
 
 Прежде всего убедитесь, что у вас вводимый вручную QR-код или код и URL-адрес для учетной записи, которую нужно добавить в приложение.
 
-> [AZURE.NOTE]Не знаете как получить QR-код? Обратитесь к администратору за помощью.
+> [AZURE.NOTE]Не знаете как получить QR-код? Обратитесь в службу поддержки.
 > 
-> Не получается активировать свою учетную запись в новом приложении? Обратитесь к администратору.
+> Не получается активировать свою учетную запись в новом приложении? Обратитесь в службу поддержки.
 >
 
 
@@ -64,6 +64,6 @@
 **Дополнительные ресурсы**
 
 * [Azure Multi-Factor Authentication в MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
-* Приложение Azure Authenticator для [Windows Phone](http://www.windowsphone.com/ru-ru/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) и [iOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+* Приложение Azure Authenticator для [Windows Phone](http://www.windowsphone.com/ru-RU/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) и [iOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

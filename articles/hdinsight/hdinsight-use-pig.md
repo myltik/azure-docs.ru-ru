@@ -1,21 +1,21 @@
 <properties
    pageTitle="Использование Hadoop Pig в HDInsight | Microsoft Azure"
-   description="Научитесь использовать Pig с Hadoop в HDInsight."
-   services="hdinsight"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"
+	description="Научитесь использовать Pig с Hadoop в HDInsight."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/06/2015"
-   ms.author="larryfr"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/21/2015"
+	ms.author="larryfr"/>
 
 # Использование Pig с Hadoop в HDInsight
 
@@ -53,7 +53,7 @@ Pig Latin также поддерживает пользовательские �
 
 	2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
 
-В предыдущем примере уровень журнала имеет значение ERROR («ошибка»).
+В предыдущем примере уровень журнала имеет значение ERROR ("ошибка").
 
 > [AZURE.NOTE]Вы также можете создать файл log4j с помощью средства ведения журнала [Apache Log4j](http://en.wikipedia.org/wiki/Log4j), а затем отправить этот файл в большой двоичный объект. См. раздел [Отправка данных в HDInsight](hdinsight-upload-data.md) для получения более подробной информации. Дополнительные сведения о том, каким образом большие двоичные объекты в службе хранилища Azure используются с HDInsight, см. в статье [Использование хранилища BLOB-объектов Azure с HDInsight](../hdinsight-use-blob-storage.md).
 
@@ -94,6 +94,19 @@ HDInsight может запускать задания Pig Latin с помощь
 | [Windows PowerShell](hdinsight-hadoop-use-pig-powershell.md) | &nbsp; | ✔ | Linux или Windows | Windows |
 | [Удаленный рабочий стол](hdinsight-hadoop-use-pig-remote-desktop.md) | ✔ | ✔ | Windows | Windows |
 
+
+## Выполнение заданий Pig в Azure HDInsight с помощью локальных служб интеграции SQL Server Integration Services
+
+С помощью служб SQL Server Integration Services (SSIS) также можно выполнить задание Pig. Пакет дополнительных компонентов Azure для служб SSIS предоставляет следующие компоненты, которые работают с заданиями Pig в HDInsight.
+
+
+- [Задача Pig в Azure HDInsight][pigtask]
+- [Диспетчер подключений по подпискам Azure][connectionmanager]
+
+
+Узнать больше о пакете дополнительных компонентов Azure для служб SSIS можно [здесь][ssispack].
+
+
 ##<a id="nextsteps"></a>Дальнейшие действия
 
 Теперь, когда вы узнали, как использовать Pig в HDInsight, воспользуйтесь следующими ссылками, чтобы изучить другие способы работы с Azure HDInsight.
@@ -107,6 +120,9 @@ HDInsight может запускать задания Pig Latin с помощь
 [apachepig-home]: http://pig.apache.org/
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: http://curl.haxx.se/
+[pigtask]: http://msdn.microsoft.com/ru-RU/library/mt146781(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/ru-RU/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/ru-RU/library/mt146770(v=sql.120).aspx
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -128,4 +144,4 @@ HDInsight может запускать задания Pig Latin с помощь
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

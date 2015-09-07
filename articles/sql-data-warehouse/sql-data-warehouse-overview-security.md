@@ -1,20 +1,20 @@
 <properties
    pageTitle="Защита базы данных в хранилище данных SQL | Microsoft Azure"
-   description="Советы по защите базы данных в хранилище данных SQL для разработки решений."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sahaj08"
-   manager="barbkess"
-   editor=""/>
+	description="Советы по защите базы данных в хранилище данных SQL для разработки решений."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sahaj08"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/22/2015"
-   ms.author="sahajs"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/22/2015"
+	ms.author="sahajs"/>
 
 # Защита базы данных в хранилище данных SQL
 
@@ -58,6 +58,28 @@ ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 Управление базами данных и логическими серверами на портале управления Azure или с помощью API-интерфейса диспетчера ресурсов Azure контролируется путем назначения ролей для учетной записи пользователя портала. Дополнительные сведения об этой теме см. в статье [Контроль доступа на основе ролей в предварительной версии портала Azure][].
 
 
+
+## Шифрование
+
+Хранилище данных SQL Azure может помочь защитить ваши данные путем их шифрования, когда они находятся на хранении или хранятся в файлах базы данных и в ее резервных копиях, с помощью [прозрачного шифрования данных][]. Для шифрования базы данных подключитесь к ней в качестве владельца базы данных и выполните следующую команду:
+
+
+```
+
+ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
+
+```
+
+Прозрачное шифрование данных также можно включить из параметров базы данных на [портале Azure][].
+
+
+
+## Аудит
+
+Аудит и отслеживание событий базы данных может помочь в постоянном обеспечении соответствия нормативным требованиям и обнаружении подозрительных действий. Аудит хранилища данных SQL позволяет фиксировать события, происходящие в базе данных, в журнале аудита в вашей учетной записи хранения Azure. Кроме того, благодаря интеграции аудита хранилища данных SQL с Microsoft Power BI обеспечиваются упрощенное создание подробных отчетов и проведение детализированного анализа. Дополнительные сведения см. в статье [Приступая к работе с аудитом Базы данных SQL][].
+
+
+
 ## Дальнейшие действия
 Дополнительные советы по разработке см. в статье [Общие сведения о разработке][].
 
@@ -73,9 +95,11 @@ ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 [Управление базами данных и именами пользователей в базе данных SQL Azure]: https://msdn.microsoft.com/library/ee336235.aspx
 [Разрешения]: https://msdn.microsoft.com/library/ms191291.aspx
 [Хранимые процедуры]: https://msdn.microsoft.com/library/ms190782.aspx
-[Transparent Data Encryption]: http://go.microsoft.com/fwlink/?linkid=526242&clcid=0x409
+[прозрачного шифрования данных]: http://go.microsoft.com/fwlink/?LinkId=526242
+[Приступая к работе с аудитом Базы данных SQL]: sql-database-auditing-get-started.md
+[портале Azure]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Контроль доступа на основе ролей в предварительной версии портала Azure]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

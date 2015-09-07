@@ -1,25 +1,25 @@
 <properties
    pageTitle="Направление интернет-домена компании на домен диспетчера трафика | Microsoft Azure"
-   description="В этой статье вы узнаете, как направить доменное имя вашей компании на доменное имя диспетчера трафика."
-   services="traffic-manager"
-   documentationCenter=""
-   authors="joaoma"
-   manager="adinah"
-   editor="tysonn" />
+	description="В этой статье вы узнаете, как направить доменное имя вашей компании на доменное имя диспетчера трафика."
+	services="traffic-manager"
+	documentationCenter=""
+	authors="joaoma"
+	manager="adinah"
+	editor="tysonn"/>
 <tags
    ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/19/2015"
+	ms.author="joaoma"/>
 
-# Направление интернет-домена компании на домен диспетчера трафика
+# Указание домена Traffic Manager для интернет-домена компании
 
 Чтобы направить имя домена вашей компании на доменное имя диспетчера трафика, замените запись ресурса DNS на интернет-сервере DNS на тип записи CNAME, в результате чего доменное имя компании будет сопоставляться с доменным именем профиля диспетчера трафика. Доменное имя диспетчера трафика указывается в разделе **Общие** на странице конфигурации в профиле диспетчера трафика.
 
-Например, чтобы направить доменное имя компании **www.contoso.com** на доменное имя диспетчера трафика **contoso.trafficmanager.net**, измените запись ресурса DNS следующим образом:
+Например, чтобы направить доменное имя компании www.contoso.com на доменное имя диспетчера трафика contoso.trafficmanager.net, обновите запись ресурса DNS на следующую:
 
     www.contoso.com IN CNAME contoso.trafficmanager.net
 
@@ -36,6 +36,5 @@
 [Диспетчер трафика — отключение и включение конечной точки диспетчера трафика](disable-or-enable-an-endpoint.md)
 
 [Что такое диспетчер трафика](traffic-manager-overview.md)
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

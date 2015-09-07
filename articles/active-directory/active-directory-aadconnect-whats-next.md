@@ -1,29 +1,24 @@
 <properties 
-	pageTitle="Управление Azure AD Connect" 
-	description="Узнайте, как расширить конфигурацию по умолчанию и операционные задачи для Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Управление Azure AD Connect"
+	description="Узнайте, как расширить конфигурацию по умолчанию и операционные задачи для Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Управление Azure AD Connect 
 
-> [AZURE.SELECTOR]
-- [What is It](../active-directory-aadconnect/)
-- [How it Works](../active-directory-aadconnect-how-it-works/)
-- [Getting Started](../active-directory-aadconnect-get-started/)
-- [What's Next](../active-directory-aadconnect-whats-next/) 
-- [Learn More](../active-directory-aadconnect-learn-more/)
+
 
 Ниже приведены дополнительные сведения, которые помогут вам настроить Azure Active Directory Connect в соответствии с потребностями вашей организации.
 
@@ -36,8 +31,8 @@
 1. Войдите на портал Azure с учетной записью администратора.
 2. Выберите **Active Directory** слева.
 3. На странице "Active Directory" дважды щелкните каталог пользователей, которых вы хотите активировать.
-4. В верхней части страницы каталога выберите вкладку **Лицензии**.
-5. На странице "Лицензии" выберите "Active Directory Premium" или "Enterprise Mobility Suite", а затем нажмите кнопку **Назначить**.
+4. В верхней части страницы каталога выберите **Лицензии**.
+5. На странице «Лицензии» выберите «Active Directory Premium» или «Enterprise Mobility Suite», а затем щелкните **Назначить**.
 6. В диалоговом окне выберите пользователей, которым требуется назначить лицензии, и щелкните значок галочки, чтобы сохранить изменения.
 
 
@@ -93,9 +88,9 @@
 - [Использование редактора правил синхронизации Azure AD Connect](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [Использование декларативной подготовки](active-directory-aadconnect-whats-next-declarative-prov.md)
 
-Часть документации, разработанной для службы синхронизации Azure AD Sync, актуальна и для Azure AD Connect. Хотя мы прикладываем все усилия, чтобы перенести эту документацию на сайт Azure.com, ее часть по-прежнему находится в библиотеке с областью MSDN. Дополнительную документацию см. в разделе [Azure Connect AD на портале MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) и [Служба синхронизации Azure AD Sync на портале MSDN](https://msdn.microsoft.com/library/azure/dn790204.aspx).
+Часть документации, разработанной для службы синхронизации Azure AD Sync, актуальна и для Azure AD Connect. Хотя мы прикладываем все усилия, чтобы перенести эту документацию на сайт Azure.com, ее часть по-прежнему находится в библиотеке с областью MSDN. Дополнительную документацию см. в разделе [Azure Connect AD на портале MSDN](active-directory-aadconnect.md) и [Служба синхронизации Azure AD Sync на портале MSDN](https://msdn.microsoft.com/library/azure/dn790204.aspx).
 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

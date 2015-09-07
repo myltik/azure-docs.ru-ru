@@ -3,7 +3,7 @@
 	description="Узнайте, как отправлять, перечислять, скачивать и удалять большие двоичные объекты с помощью хранилища больших двоичных объектов Azure из Python."
 	services="storage"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="emgerner-msft"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/11/2015"
-	ms.author="huvalo"/>
+	ms.date="08/25/2015"
+	ms.author="emgerner"/>
 
 # Использование хранилища больших двоичных объектов Azure из Python
 
@@ -22,7 +22,7 @@
 
 ## Обзор
 
-В этой статье описано, как реализовать типичные сценарии с использованием хранилища больших двоичных объектов. Примеры написаны на Python и используют [пакет Azure для Python][]. Здесь описаны такие сценарии, как отправка, перечисление, скачивание и удаление больших двоичных объектов.
+В этой статье описано, как реализовать типичные сценарии с использованием хранилища больших двоичных объектов. Примеры написаны на Python и используют пакет [Хранилище Azure для Python][]. Здесь описаны такие сценарии, как отправка, перечисление, скачивание и удаление больших двоичных объектов.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -34,7 +34,7 @@
 
 Объект **BlobService** позволяет работать с контейнерами и BLOB-объектами. Следующий код создает объект **BlobService**. Добавьте следующий код в начало любого файла Python, из которого планируется получать доступ к службе хранилища Azure программным способом.
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 
 Следующий код создает объект **BlobService**, используя имя и ключ доступа учетной записи. Замените myaccount и mykey фактическими значениями учетной записи и ключа.
 
@@ -112,5 +112,6 @@
 [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [блог команды разработчиков хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [пакет Azure для Python]: https://pypi.python.org/pypi/azure
+[Хранилище Azure для Python]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

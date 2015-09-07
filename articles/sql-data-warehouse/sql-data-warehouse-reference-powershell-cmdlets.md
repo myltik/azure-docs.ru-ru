@@ -1,20 +1,20 @@
 <properties
    pageTitle="Начало работы с командлетами в хранилище данных SQL"
-   description="Приостановка и перезапуск хранилища данных SQL с помощью командлетов PowerShell"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sidneyh"
-   manager="jhubbard"
-   editor=""/>
+	description="Приостановка и перезапуск хранилища данных SQL с помощью командлетов PowerShell"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sidneyh"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/29/2015"
-   ms.author="sidneyh;barbkess"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/29/2015"
+	ms.author="sidneyh;barbkess"/>
 
 # Начало работы с командлетами хранилища данных Azure и интерфейсами REST API
 
@@ -90,6 +90,10 @@ RestorePointCreationDate |Время создания моментального
 	$restorePoints = $database | Get-AzureSqlDatabaseRestorePoints
 
 
+
+> [AZURE.NOTE]Обратите внимание, что если вашим сервером является foo.database.windows.net, в командлетах PowerShell в качестве -ServerName используйте значение "foo".
+
+
 ## Дальнейшие действия
 Дополнительные справочные сведения см. в обзоре [Общие справочные сведения о хранилище данных SQL][].
 
@@ -106,4 +110,4 @@ RestorePointCreationDate |Время создания моментального
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

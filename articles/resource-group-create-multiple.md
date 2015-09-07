@@ -1,26 +1,26 @@
 <properties
-   pageTitle="Создание нескольких экземпляров ресурса"
-   description="В этом разделе описывается, как использовать операцию копирования в шаблоне диспетчера ресурсов Azure для выполнения нескольких итераций при развертывании ресурсов."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   pageTitle="Развертывание нескольких экземпляров ресурсов | Microsoft Azure"
+	description="Использование операции копирования и массивов в шаблоне диспетчера ресурсов Azure для выполнения нескольких итераций при развертывании ресурсов."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/14/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/21/2015"
+	ms.author="tomfitz"/>
 
 # Создание нескольких экземпляров ресурсов в диспетчере ресурсов Azure
 
 В этом разделе показано, как выполнить итерацию в шаблоне диспетчера ресурсов Azure для создания нескольких экземпляров ресурса.
 
-## Объект copy и функция copyIndex()
+## copy, copyIndex и length
 
 Чтобы создать несколько экземпляров ресурса, можно определить объект **copy**, указывающий количество итераций. Объект copy имеет следующий формат:
 
@@ -32,6 +32,13 @@
 Вы можете получить доступ к текущему значению итерации с помощью функции **copyIndex()**, как показано ниже с использованием функции concat.
 
     [concat('examplecopy-', copyIndex())]
+
+При создании нескольких ресурсов из массива значений можно использовать функцию **length**, чтобы задать их количество. В качестве параметра функции length используется массив.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
 
 ## Использование значения индекса в имени
 
@@ -89,11 +96,7 @@
              "Fabrikam", 
              "Coho" 
           ] 
-      },
-      "count": { 
-         "type": "int", 
-         "defaultValue": 3 
-      } 
+      }
     }, 
     "resources": [ 
       { 
@@ -103,15 +106,15 @@
           "apiVersion": "2014-06-01",
           "copy": { 
              "name": "websitescopy", 
-             "count": "[parameters('count')]" 
+             "count": "[length(parameters('org'))]" 
           }, 
           "properties": {} 
       } 
     ]
 
 ## Дальнейшие действия
-- [Создание шаблонов диспетчера ресурсов Azure](./resource-group-authoring-templates.md)
-- [Функции шаблонов в диспетчере ресурсов Azure](./resource-group-template-functions.md)
-- [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](azure-portal/resource-group-template-deploy.md)
+- Сведения о разделах шаблона см. в статье [Создание шаблонов диспетчера ресурсов](./resource-group-authoring-templates.md).
+- Список функций, которые можно использовать в шаблоне, см. в статье [Функции шаблонов в диспетчере ресурсов Azure](./resource-group-template-functions.md).
+- Инструкции по развертыванию шаблонов см. в статье [Развертывание приложения с помощью шаблона диспетчера ресурсов Azure](azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

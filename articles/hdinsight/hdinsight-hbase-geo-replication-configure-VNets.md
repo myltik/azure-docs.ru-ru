@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Настройка VPN-подключения между двумя виртуальными сетями Azure | Microsoft Azure" 
-   description="Узнайте, как настроить VPN-подключения между двумя виртуальными сетями Azure, как настроить разрешения доменных имен между двумя виртуальными сетями, а также о настройке географической репликации HBase." 
-   services="hdinsight,virtual-network" 
-   documentationCenter="" 
-   authors="mumian" 
-   manager="paulettm" 
-   editor="cgronlun"/>
+   pageTitle="Настройка VPN-подключения между двумя виртуальными сетями Azure | Microsoft Azure"
+	description="Узнайте, как настроить VPN-подключения между двумя виртуальными сетями Azure, как настроить разрешения доменных имен между двумя виртуальными сетями, а также о настройке географической репликации HBase."
+	services="hdinsight,virtual-network"
+	documentationCenter=""
+	authors="mumian"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="07/08/2015"
-   ms.author="jgao"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="07/08/2015"
+	ms.author="jgao"/>
 
 # Настройка VPN-подключения между двумя виртуальными сетями Azure  
 
@@ -29,7 +29,7 @@
 - Региональные многоуровневые приложения с четкой границей изоляции 
 - Обмен данными между подписками и организациями в Azure
 
-Дополнительные сведения см. в разделе [Настройка подключения между двумя виртуальными сетями](https://msdn.microsoft.com/library/azure/dn690122.aspx).
+Дополнительные сведения см. в разделе [Настройка подключения между двумя виртуальными сетями](../virtual-network/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 Для просмотра его на видео:
 
@@ -83,7 +83,7 @@
 
 	- **DNS-СЕРВЕР**: (оставьте пустым) 
 	
-		Вам потребуется DNS-сервер для разрешения имен в виртуальных сетях. Дополнительные сведения об использовании разрешения имен Azure и когда следует использовать собственный DNS-сервер смотрите в разделе [Разрешение имен (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx). Инструкции по настройке разрешений имен между виртуальными сетями вы можете найти в разделе [Настройка DNS между двумя виртуальными сетями Azure][hdinsight-hbase-dns].
+		Вам потребуется DNS-сервер для разрешения имен в виртуальных сетях. Дополнительные сведения об использовании разрешения имен Azure и когда следует использовать собственный DNS-сервер смотрите в разделе [Разрешение имен (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Инструкции по настройке разрешений имен между виртуальными сетями вы можете найти в разделе [Настройка DNS между двумя виртуальными сетями Azure][hdinsight-hbase-dns].
   
 	- **Настроить VPN между точкой и сайтом**: (флажок не установлен)
 
@@ -270,4 +270,4 @@
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

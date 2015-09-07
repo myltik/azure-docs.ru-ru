@@ -1,22 +1,27 @@
 <properties 
-   pageTitle="Управление наборами записей и записями DNS в Azure DNS | Microsoft Azure" 
-   description="Управляйте наборами записей и записями DNS в службе Azure DNS при размещении вашего домена в Azure DNS. Все команды PowerShell для операций с наборами записей и записями." 
-   services="dns" 
-   documentationCenter="na" 
-   authors="joaoma" 
-   manager="Adinah" 
-   editor=""/>
+   pageTitle="Управление наборами записей и записями DNS в Azure DNS | Microsoft Azure"
+	description="Управляйте наборами записей и записями DNS в службе Azure DNS при размещении вашего домена в Azure DNS. Все команды PowerShell для операций с наборами записей и записями."
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="Adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="en"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="08/02/2015"
-   ms.author="joaoma"/>
+	ms.devlang="en"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/02/2015"
+	ms.author="joaoma"/>
 
 # Управление записями DNS
+
+
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-operations-recordsets-cli.md)
+- [Azure Powershell](dns-operations-recordsets.md)
 
 
 В этом руководстве показано, как управлять наборами записей и записями для зоны DNS.
@@ -29,7 +34,7 @@
 
 >[AZURE.NOTE]Имя набора записей должно быть относительным, т. е. не содержать имя зоны. Например, имя набора записей www в зоне contoso.com создаст наборе запись с полным именем www.contoso.com.
 
->В качестве имени набора записей в вершине зоны используйте «@», включая кавычки. Тогда полное имя набора записей будет идентично имени зоны (в этом случае «contoso.com»).
+>В качестве имени набора записей в вершине зоны используйте "@", включая кавычки. Тогда полное имя набора записей будет идентично имени зоны (в этом случае "contoso.com").
 
 Служба Azure DNS поддерживает следующие типы записей: A, AAAA, CNAME, MX, NS, SOA, SRV, TXT. Наборы записей типа SOA создаются автоматически вместе с каждой зоной, их невозможно создать отдельно.
 
@@ -110,7 +115,7 @@ Azure DNS поддерживает [записи с подстановочным
 	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
 
 ### Создание набора записей MX с одной записью
-Чтобы создать запись MX на вершине зоны (например, «contoso.com»), в этом примере мы используем имя набора записей «@». Так обычно и делается при создании записей MX.
+Чтобы создать запись MX на вершине зоны (например, "contoso.com"), в этом примере мы используем имя набора записей "@". Так обычно и делается при создании записей MX.
 
 	PS C:\> $rs = New-AzureDnsRecordSet -Name "@" -RecordType MX -Zone $zone -Ttl 60
 	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Exchange "mail.contoso.com" -Preference 5
@@ -123,7 +128,7 @@ Azure DNS поддерживает [записи с подстановочным
 	PS C:\> Set-AzureDnsRecordSet -RecordSet $rs
 ### Создание набора записей SRV с одной записью
 
-При создании записи SRV в корне зоны просто укажите \_service и \_protocol в имени записи — включать «.@» в имя записи не нужно.
+При создании записи SRV в корне зоны просто укажите \_service и \_protocol в имени записи — включать ".@" в имя записи не нужно.
 
 	PS C:\> $rs = New-AzureDnsRecordSet -Name "_sip._tls" -RecordType SRV -Zone $zone -Ttl 60
 	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs –Priority 0 –Weight 5 –Port 8080 –Target "sip.contoso.com"
@@ -266,4 +271,4 @@ Azure DNS поддерживает [записи с подстановочным
 [Приступить к созданию наборов записей и записей](../dns-getstarted-create-recordset)<BR> [Выполнение операций с зонами DNS](../dns-operations-dnszones)<BR> [Автоматизации операций с помощью пакета SDK для .NET](../dns-sdk)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

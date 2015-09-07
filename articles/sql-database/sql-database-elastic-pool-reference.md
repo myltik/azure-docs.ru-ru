@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Справка по эластичному пулу баз данных SQL Azure" 
-	description="Этот справочник содержит краткие сведения о статьях, посвященных эластичному пулу баз данных, и ссылки на них, а также информацию по программированию." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+	pageTitle="Справка по эластичному пулу баз данных SQL Azure"
+	description="Этот справочник содержит краткие сведения о статьях, посвященных эластичному пулу баз данных, и ссылки на них, а также информацию по программированию."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/13/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
+	ms.date="08/25/2015"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -33,7 +33,9 @@
 
 
 - Пулы эластичных баз данных доступны только для серверов Базы данных SQL Azure версии 12.   
-- Создание пулов эластичных баз данных и управление ими возможно только с помощью [портала предварительной версии](https://portal.azure.com), PowerShell и клиентской библиотеки .NET (оболочка для API REST) только в диспетчере ресурсов Azure. [Портал](https://manage.windowsazure.com/) и команды управления службами не поддерживаются. 
+- Создание пулов эластичных баз данных и управление ими возможно только с помощью [портала предварительной версии](https://portal.azure.com), PowerShell и клиентской библиотеки .NET (оболочка для API REST) только в диспетчере ресурсов Azure. [Портал](https://manage.windowsazure.com/) и команды управления службами не поддерживаются.
+- Кроме того, создание эластичных баз данных и перенос существующих баз данных в пулы эластичных баз данных и из них поддерживается с помощью Transact-SQL.
+
 
 
 ## Рекомендации относительно текущей предварительной версии
@@ -74,7 +76,7 @@
 Пул эластичных баз данных — это ресурс ARM типа "ElasticPool" в Базе данных SQL Microsoft Azure.
 
 - **namespace**: Microsoft.Sql/ElasticPool
-- **management-endpoint** для API REST вызывает (диспетчер ресурсов Azure): https://management.azure.com
+- **management-endpoint** для вызовов REST API (диспетчер ресурсов): https://management.azure.com
 
 
 
@@ -109,7 +111,7 @@
 
 Значения по умолчанию выделены **полужирным** шрифтом.
 
-*единицами измерения в API являются МБ, а не ГБ
+** единицами измерения в API являются МБ, а не ГБ.
 
 
 
@@ -143,32 +145,31 @@
 
 
 
-## Командлеты PowerShell и команды API REST для эластичного пула баз данных (только для диспетчера ресурсов Azure)
+## PowerShell, REST API и клиентская библиотека .NET
 
-Для создания эластичных пулов и управления ими доступны следующие командлеты PowerShell и команды API REST:
+Для создания эластичных пулов и управления ими доступны несколько командлетов PowerShell и команд API REST: Дополнительные сведения и примеры кода можно найти в разделе [Создание пула эластичных баз данных для Базы данных SQL и управление им с помощью PowerShell](sql-database-elastic-pool-powershell.md) и [Создание Базы данных SQL и управление ею с помощью C#](sql-database-client-library.md).
 
-| [Командлеты PowerShell](https://msdn.microsoft.com/library/mt125356.aspx) | [Команды API REST](https://msdn.microsoft.com/library/azure/mt163571.aspx) |
+
+
+| [Командлеты PowerShell](https://msdn.microsoft.com/library/mt163521.aspx) | [Команды API REST](https://msdn.microsoft.com/library/mt163571.aspx) |
 | :-- | :-- |
-| Get-AzureSqlDatabase | Получить базу данных SQL Azure |
-| Get-AzureSqLElasticPool | Получить эластичный пул баз данных для Базы данных SQL Azure |
-| Get-AzureSqlElasticPoolActivity | Получить операции эластичного пула баз данных для Базы данных SQL Azure |
-| Get-AzureSqlElasticPoolDatabase | Получить эластичную базу данных для Базы данных SQL Azure |
-| Get-AzureSqlElasticPoolDatabaseActivity | Получить операции эластичной базы данных для Базы данных SQL Azure |
-| Get-AzureSqlServer | Получить сервер Базы данных SQL Azure |
-| Get-AzureSqlServerFirewallRule | Получить правило брандмауэра для сервера Базы данных SQL Azure |
-| Get-AzureSqlServerServiceObjective | Получить цель для службы сервера Базы данных SQL Azure |
-| New-AzureSqlDatabase | Создать базу данных SQL Azure |
-| New-AzureSqlElasticPool | Создать эластичный пул баз данных для Базы данных SQL Azure |
-| New-AzureSqlServer | Создать сервер Базы данных SQL Azure |
-| New-AzureSqlServerFirewallRule | Создать правило брандмауэра для сервера Базы данных SQL Azure |
-| Remove-AzureSqlDatabase | Удалить базу данных SQL Azure |
-| Remove-AzureSqlElasticPool | Удалить эластичный пул баз данных для Базы данных SQL Azure |
-| Remove-AzureSqlServer | Удалить сервер Базы данных SQL Azure |
-| Set-AzureSqlDatabase | Установить базу данных SQL Azure |
-| Set-AzureSqlElasticPool | Установить эластичный пул баз данных для Базы данных SQL Azure |
-| Set-AzureSqlServer | Установить сервер Базы данных SQL Azure |
-| Set-AzureSqlServerFirewallRule | Установить правило брандмауэра для сервера Базы данных SQL Azure |
-| Get-Metrics | Получить показатели |
+| [New-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125987.aspx) | [Создание пула эластичных баз данных](https://msdn.microsoft.com/library/mt163596.aspx) |
+| [Set-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125994.aspx) | [Задание параметров производительности для пула эластичных баз данных](https://msdn.microsoft.com/library/mt163641.aspx) |
+| [Remove-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt125830.aspx) | [Удаление пула эластичных баз данных](https://msdn.microsoft.com/library/mt163672.aspx) |
+| [Get-AzureSqlElasticPool](https://msdn.microsoft.com/library/mt126017.aspx) | [Получение пулов эластичных баз данных и значений их свойств](https://msdn.microsoft.com/ru-RU/library/mt163646.aspx) |
+| [Get-AzureSqlElasticPoolActivity](https://msdn.microsoft.com/library/mt125837.aspx) | [Получение состояния операций пула эластичных баз данных](https://msdn.microsoft.com/library/mt163669.aspx) |
+| [Get-AzureSqlElasticPoolDatabase](https://msdn.microsoft.com/library/mt125960.aspx) | [Получение баз данных в пуле эластичных баз данных](https://msdn.microsoft.com/library/mt163646.aspx) |
+| [Get-AzureSqlElasticPoolDatabaseActivity](https://msdn.microsoft.com/library/mt125973.aspx) | [Получение состояния операций перемещения баз данных в пул и из него](https://msdn.microsoft.com/library/mt163669.aspx) |
+
+## Transact-SQL
+
+Transact-SQL можно использовать для выполнения задач по управлению эластичными базами данных:
+
+| Задача | Сведения |
+| :-- | :-- |
+| Создать эластичную базу данных (непосредственно в пуле) | [CREATE DATABASE (База данных SQL Azure)](https://msdn.microsoft.com/library/dn268335.aspx) |
+| Переместить существующие базы данных в пул и из него | [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/ms174269.aspx) |
+| Получить статистику использования ресурсов пула | [sys.elastic\_pool\_resource\_stats (База данных SQL Azure)](https://msdn.microsoft.com/library/mt280062.aspx) |
 
 
 ## Информация о счетах и ценах
@@ -180,7 +181,7 @@
 - Если размер пула эластичных БД изменен на новое значение eDTU, то оплата пула согласно этому новому значению eDTU начисляется только после завершения операции по изменению размера. Используется та же схема, как при изменении уровня производительности автономных баз данных. 
 
 
-- Цена пула эластичных БД основывается на количестве eDTU пула и количестве баз данных в пуле.
+- Цена пула эластичных БД основывается на количестве eDTU пула и количестве баз данных в пуле. Стоимость пула эластичных БД не зависит от использования эластичных баз данных в нем.
 - Цена вычисляется по формуле (количество eDTU пула) x (цена за единицу eDTU) + (количество баз данных) x (цена за единицу для баз данных)
 
 Цена за единицу eDTU для пула эластичных БД выше, чем цена за единицу eDTU для автономной базы данных того же уровня служб. Подробнее об этом можно узнать в статье [Стоимость использования Базы данных SQL](http://azure.microsoft.com/pricing/details/sql-database/).
@@ -210,4 +211,4 @@
 | 40891 | EX_USER | Минимальное число DTU на базу данных (%d) не может превышать максимального числа DTU на базу данных (%d). | Минимальное число DTU на базу данных; максимальное число DTU на базу данных. | Попытка задать минимальное число DTU на каждую базу данных, превышающее максимальное число DTU на каждую базу данных. | Убедитесь, что минимальное число DTU на базу данных не превышает максимального числа DTU на базу данных. |
 | ПОДЛЕЖИТ УТОЧНЕНИЮ | EX_USER | Размер хранилища для отдельной базы данных в эластичном пуле не может превышать максимальный размер, допустимый уровнем служб эластичного пула '%.*ls'. | уровень служб эластичного пула | Максимальный размер базы данных превышает максимальный размер, допустимый уровнем служб эластичного пула. | Укажите максимальный размер базы данных, который находится в пределах ограничений на максимальный размер, допустимый уровнем служб эластичного пула. |
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

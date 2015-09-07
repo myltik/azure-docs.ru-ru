@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Часто задаваемые вопросы об Azure AD Connect Health" 
-	description="Эта статья содержит ответы на часто задаваемые вопросы об Azure AD Connect Health. Здесь предоставлена информация об использовании службы, в частности о модели выставления счетов, возможностях, ограничениях и поддержке." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Часто задаваемые вопросы об Azure AD Connect Health"
+	description="Эта статья содержит ответы на часто задаваемые вопросы об Azure AD Connect Health. Здесь предоставлена информация об использовании службы, в частности о модели выставления счетов, возможностях, ограничениях и поддержке."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/12/2015"
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/14/2015"
 	ms.author="billmath"/>
 
 
@@ -71,7 +71,6 @@
 Найдите файл machine.config. Он расположен по адресу in%windir%\\Microsoft.NET\\Framework64[version]\\config\\machine.config</li>.
 
 Добавьте следующую запись в элемент <configuration></configuration> в файле machine.config.
- 
 		
 	<system.net>  
 			<defaultProxy useDefaultCredentials="true">
@@ -84,7 +83,7 @@
 
  
 
-Дополнительную <defaultProxy> информацию см. [здесь](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110).aspx).
+Дополнительную <defaultProxy> информацию см. [здесь](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110)).
 
 Этот параметр настраивает приложения на платформе .NET во всей системе для использования необходимого явно заданного прокси-сервера при отправке HTTP-запросов .NET. Мы не советуем изменять каждый отдельный файл app.config, так как эти изменения будут отменены во время автоматического обновления. Вам нужно изменить всего один файл, и это изменение сохранится при обновлениях, если вы измените файл machine.config.
 
@@ -128,4 +127,11 @@
 
 Чтобы агент Azure AD Connect Health мог взаимодействовать с конечными точками службы Azure AD Health, вам необходимо открыть порты TCP/UDP 80 и 443.
 
-<!---HONumber=August15_HO6-->
+## Связанные ссылки
+
+* [Azure AD Connect Health](active-directory-aadconnect-health.md)
+* [Установка агента Azure AD Connect Health для AD FS](active-directory-aadconnect-health-agent-install-adfs.md)
+* [Использование Azure AD Connect Health с AD FS](active-directory-aadconnect-health-adfs.md)
+* [Операции Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
+
+<!---HONumber=August15_HO9-->

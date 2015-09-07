@@ -1,25 +1,24 @@
 <properties 
-   pageTitle="Использование эмулятора Emulator Express для запуска и отладки облачной службы в локальной среде"
-   description="Использование эмулятора Emulator Express для запуска и отладки облачной службы в локальной среде"
-   services="visual-studio-online"
-   documentationCenter="n/a"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="Использование Emulator Express для запуска и отладки облачной службы на локальном компьютере | Microsoft Azure"
+	description="Использование Emulator Express для запуска и отладки облачной службы на локальном компьютере"
+	services="visual-studio-online"
+	documentationCenter="n/a"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/14/2015"
+	ms.author="patshea"/>
 
-# Использование эмулятора Emulator Express для запуска и отладки облачной службы в локальной среде
 
-##Обзор
+# Использование Emulator Express для запуска и отладки облачной службы на локальном компьютере
 
-Emulator Express позволяет протестировать и отладить облачную службу, не запуская Visual Studio от имени администратора. В зависимости от требований облачной службы параметры проекта можно задать таким образом, чтобы использовался либо Emulator Express, либо полный эмулятор. Дополнительные сведения о полном эмуляторе см. в статье [Запуск приложения Azure в эмуляторе вычислений]http://go.microsoft.com/fwlink/p/?LinkId=623050). Emulator Express впервые появился в пакете Azure SDK 2.1, а начиная с пакета Azure SDK 2.3 стал эмулятором по умолчанию.
+Emulator Express позволяет протестировать и отладить облачную службу, не запуская Visual Studio от имени администратора. В зависимости от требований облачной службы параметры проекта можно задать таким образом, чтобы использовался либо Emulator Express, либо полный эмулятор. Дополнительные сведения о полном эмуляторе см. в статье [Запуск приложения Azure в эмуляторе вычислений](https://msdn.microsoft.com/library/azure/hh403990.aspx). Emulator Express впервые появился в пакете Azure SDK 2.1, а начиная с пакета Azure SDK 2.3 стал эмулятором по умолчанию.
 
 ## Использование Emulator Express в интегрированной среде разработки Visual Studio
 
@@ -29,9 +28,9 @@ Emulator Express позволяет протестировать и отлади
 
 1. В контекстном меню проекта Azure выберите пункт **Свойства** и откройте вкладку **Веб**.
 
-1. В разделе **Локальный сервер разработки** установите переключатель **Использовать IIS Express**. Emulator Express несовместим с веб-сервером IIS.
+1. В разделе **Локальный сервер Development Server** выберите параметр **Использовать IIS Express**. Emulator Express несовместим с веб-сервером IIS.
 
-1. В разделе **Эмулятор** установите переключатель **Использовать Emulator Express**.
+1. В разделе **Эмулятор** выберите параметр **Использовать Emulator Express**.
 
     ![Emulator Express](./media/vs-azure-tools-emulator-express-debug-run/IC673363.gif)
 
@@ -53,6 +52,6 @@ Emulator Express позволяет протестировать и отлади
 
 ## Дальнейшие действия
 
-[Отладка облачных служб](http://go.microsoft.com/fwlink/p/?LinkId=623041)
+[Отладка облачных служб](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

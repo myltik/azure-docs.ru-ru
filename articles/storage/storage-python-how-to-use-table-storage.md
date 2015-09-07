@@ -3,7 +3,7 @@
 	description="Узнайте, как создать, удалить, вставить и запросить таблицу с помощью службы таблиц в Python."
 	services="storage"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="emgerner-msft"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="03/11/2015"
-	ms.author="huvalo"/>
+	ms.date="08/25/2015"
+	ms.author="emgerner"/>
 
 
 # Использование табличного хранилища из Python
@@ -23,7 +23,7 @@
 
 ## Обзор
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранилища таблиц Azure. Примеры написаны на Python и используют [пакет Azure для Python][]. Здесь описаны такие сценарии, как создание и удаление таблицы, а также вставка и запрос сущностей в таблице.
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранилища таблиц Azure. Примеры написаны на Python и используют пакет [Хранилище Azure для Python][]. Здесь описаны такие сценарии, как создание и удаление таблицы, а также вставка и запрос сущностей в таблице.
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -36,7 +36,7 @@
 
 Объект **TableService** позволяет работать со службами таблиц. Следующий код создает объект **TableService**. Добавьте этот код в начало любого файла Python, из которого планируется получать доступ к службе хранилища Azure программным способом:
 
-	from azure.storage import TableService, Entity
+	from azure.storage.table import TableService, Entity
 
 Следующий код создает объект **TableService**, используя имя и ключ доступа учетной записи хранения. Замените myaccount и mykey фактическими значениями учетной записи и ключа.
 
@@ -139,5 +139,6 @@
 [Хранилище Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [блог команды разработчиков службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [пакет Azure для Python]: https://pypi.python.org/pypi/azure
+[Хранилище Azure для Python]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

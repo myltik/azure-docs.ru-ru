@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Первый этап развертывания бизнес-приложений: настройка Azure" 
-	description="На первом этапе развертывания высокодоступного бизнес-приложения в интрасети на базе служб инфраструктуры Azure создается виртуальная сеть и другие элементы инфраструктуры Azure." 
+	pageTitle="Бизнес-приложение, этап 1 | Microsoft Azure"
+	description="На первом этапе развертывания бизнес-приложения в Azure создайте виртуальную сеть и другие элементы инфраструктуры Azure."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Первый этап развертывания бизнес-приложений: настройка Azure
@@ -60,7 +60,7 @@
 
 **Таблица S: подсети виртуальной сети**
 
-> [AZURE.NOTE]Для простоты в этой готовой архитектуре используется одна подсеть. Чтобы эмулировать изоляцию подсетей с помощью набора перекрывающихся фильтров трафика, воспользуйтесь [группами безопасности сети](https://msdn.microsoft.com/library/azure/dn848316.aspx) Azure.
+> [AZURE.NOTE]Для простоты в этой готовой архитектуре используется одна подсеть. Чтобы эмулировать изоляцию подсетей с помощью набора перекрывающихся фильтров трафика, воспользуйтесь [группами безопасности сети](virtual-networks-nsg.md) Azure.
 
 Заполните таблицу D для двух локальных DNS-серверов, которые планируете использовать на этапе начальной настройки контроллеров домена виртуальной сети. Задайте для каждого из них понятное имя и один IP-адрес. Понятное имя не обязано совпадать с именем узла или компьютера DNS-сервера. В списке предлагаются две записи, однако их число можно увеличить. Составьте его вместе со специалистами своего ИТ-отдела.
 
@@ -248,4 +248,4 @@
 
 [Рабочая нагрузка служб инфраструктуры Azure: ферма SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

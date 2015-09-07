@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Ферма SharePoint в интрасети, этап 4: настройка серверов SharePoint"
-	description="На четвертом этапе развертывания фермы SharePoint 2013 в интрасети создаются виртуальные машины с серверами SharePoint и новая ферма SharePoint."
+	pageTitle="Ферма SharePoint Server 2013, этап 4 | Microsoft Azure"
+	description="На четвертом этапе развертывания фермы SharePoint Server 2013 в Azure создайте виртуальные машины SharePoint Server и новую ферму SharePoint."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -193,4 +193,4 @@
 
 [Службы инфраструктуры Azure: высокодоступное бизнес-приложение](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

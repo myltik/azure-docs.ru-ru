@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Перемещение ресурсов в новую группу ресурсов" 
-	description="Перемещайте ресурсы в новую группу ресурсов для диспетчера ресурсов Azure с помощью Azure PowerShell или REST API." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+	pageTitle="Перемещение ресурсов в новую группу ресурсов"
+	description="Перемещайте ресурсы в новую группу ресурсов для диспетчера ресурсов Azure с помощью Azure PowerShell или REST API."
+	services="azure-resource-manager"
+	documentationCenter=""
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="azure-resource-manager"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="tomfitz"/>
 
 # Перемещение ресурсов в новую группу ресурсов или подписку
@@ -55,6 +55,11 @@
 
 - Виртуальные сети
 
+При работе с веб-приложениями невозможно переместить только план службы приложения. Варианты перемещения веб-приложений:
+
+- Переместите все ресурсы из одной группы ресурсов в другую, если в целевой группе нет ресурсов Microsoft.Web.
+- Переместите веб-приложения в другую группу ресурсов, но сохраните план службы приложений в исходной группе.
+
 ## Перемещение ресурсов с помощью PowerShell
 
 Чтобы переместить существующие ресурсы в другую группу ресурсов или подписку, используйте команду **Move-AzureResource**.
@@ -69,7 +74,7 @@
     PS C:\> $plan = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
     PS C:\> Move-AzureResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
 
-Чтобы переместить ресурс в новую подписку, добавьте значение для параметра **DestinationSubscriptionId**.
+Чтобы переместить ресурс в новую подписку, добавьте значение параметра **DestinationSubscriptionId**.
 
 ## Перемещение ресурсов с помощью REST API
 
@@ -77,7 +82,7 @@
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-Замените **{source-subscription-id}** и **{source-resource-group-name}** подпиской и группой ресурсов, содержащими ресурсы, которые нужно переместить. Используйте **2015-01-01** для {api-version}.
+Замените **{source-subscription-id}** и **{source-resource-group-name}** подпиской и группой ресурсов, содержащими ресурсы, которые нужно переместить. В качестве {api-version} используйте **2015-01-01**.
 
 В запросе включите объект JSON, который определяет целевую группу ресурсов и ресурсы, которые нужно переместить.
 
@@ -96,4 +101,4 @@
 - [Управление ресурсами с помощью портала Azure](azure-portal/resource-group-portal.md)
 - [Использование тегов для организации ресурсов](./resource-group-using-tags.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

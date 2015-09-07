@@ -1,9 +1,11 @@
 
-| TIER: | FREE | BASIC | STANDARD |
+| УРОВЕНЬ | БЕСПЛАТНЫЙ | BASIC | СТАНДАРТ |
 |----|----|----|----|
-| Included Pushes | 1 Million | 10 Million | 10 Million |
-| Active Devices | 500 | Unlimited | Unlimited |
-| Broadcast Tag Size | 10K | 10K | Unlimited |
-| # of tags (broadcast groups) | 3K | 3K unless broadcasted to less than 5 devices | Unlimited |
+| Включенные отправки | 1 млн | 10 млн | 10 млн |
+| Количество активных устройств | 500 | Без ограничений | Без ограничений |
+| Размер широковещательных тегов | 10K | 10K | Без ограничений |
+| Кол-во тегов (широковещательных групп) | 3 КБ | 3 КБ при передаче меньше чем на 5 устройств | Без ограничений |
 
-For additional details on these limits and for information on pricing, see [Notification Hubs Pricing](http://azure.microsoft.com/pricing/details/notification-hubs/). 
+Дополнительные сведения об этих ограничениях и ценах см. в статье [Цены на использование центров уведомлений](http://azure.microsoft.com/pricing/details/notification-hubs/).
+
+<!---HONumber=August15_HO9-->

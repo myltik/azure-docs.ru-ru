@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Соединитель MySQL: перемещение данных из MySQL" 
-	description="Сведения о соединителе MySQL для службы фабрики данных, с помощью которого можно перемещать данные из базы данных MySQL." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Перемещение данных из базы данных MySQL | Фабрика данных Azure"
+	description="Узнайте, как перемещать данные из базы данных MySQL с использованием фабрики данных Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Соединитель MySQL: перемещение данных из MySQL
+# Перемещение данных из MySQL с помощью фабрики данных Azure
 
 В этой статье описано использование действия копирования в фабрике данных Azure для перемещения данных из MySQL в другое хранилище данных. Эта статья основана на статье о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования и поддерживаемых сочетаниях хранилищ данных.
 
@@ -33,15 +33,15 @@
 
 В примере ниже показано следующее.
 
-1.	Связанная служба типа OnPremisesMySql.
-2.	Связанная служба типа AzureStorage.
-3.	Входной набор данных типа RelationalTable.
-4.	Выходной набор данных типа AzureBlob.
-4.	Конвейер с действием копирования, в котором используются RelationalSource и BlobSink.
+1.	Связанная служба типа [OnPremisesMySql](data-factory-onprem-mysql-connector.md#mysql-linked-service-properties).
+2.	Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Входной [набор данных](data-factory-create-datasets.md) типа [RelationalTable](data-factory-onprem-mysql-connector.md#mysql-dataset-type-properties).
+4.	Выходной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	[Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [RelationalSource](data-factory-onprem-mysql-connector.md#mysql-copy-activity-type-properties) и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 В примере данные из результата выполнения запроса к базе данных MySQL каждый час копируются в BLOB-объект. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.
 
-Сначала настройте шлюз управления данными. Инструкции, как это сделать, см. в статье [Перемещение данных между локальными и облачными ресурсами](data-factory-move-data-between-onprem-and-cloud.md).
+Сначала настройте шлюз управления данными. Указания, как это сделать, см. в статье [Перемещение данных между локальными и облачными ресурсами](data-factory-move-data-between-onprem-and-cloud.md).
 
 **Связанная служба MySQL**
 
@@ -165,7 +165,7 @@
 
 **Конвейер с действием копирования**
 
-Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **RelationalSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, указанный для свойства **query**, выбирает для копирования данные за последний час.
+Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **RelationalSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, указанный для свойства **query**, выбирает для копирования данные за последний час.
 	
 	{
 	    "name": "CopyMySqlToBlob",
@@ -177,7 +177,7 @@
 	                "typeProperties": {
 	                    "source": {
 	                        "type": "RelationalSource",
-	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
+	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \'{0:yyyy-MM-ddTHH:mm:ss}\' AND timestamp < \'{1:yyyy-MM-ddTHH:mm:ss}\'', WindowStart, WindowEnd)"
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink",
@@ -224,15 +224,17 @@
 | database | Имя базы данных MySQL. | Да | 
 | schema | Имя схемы в базе данных. | Нет | 
 | authenticationType | Тип проверки подлинности, используемый для подключения к базе данных MySQL. Возможными значениями являются: анонимная, обычная и Windows. | Да | 
-| username | При использовании обычной проверки подлинности или проверки подлинности Windows укажите имя пользователя. | Нет | 
-| password | Введите пароль для учетной записи пользователя, указанной для выбранного имени пользователя. | Нет | 
+| Имя пользователя | При использовании обычной проверки подлинности или проверки подлинности Windows укажите имя пользователя. | Нет | 
+| пароль | Введите пароль для учетной записи пользователя, указанной для выбранного имени пользователя. | Нет | 
 | gatewayName | Имя шлюза, который следует использовать службе фабрики данных для подключения к локальной базе данных MySQL. | Да |
+
+Дополнительную информацию о настройке учетных данных для локального источника данных MySQL см. в разделе [Настройка учетных данных и безопасность](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
 
 ## Свойства типа «Набор данных MySQL»
 
 Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Создание наборов данных](data-factory-create-datasets.md). Разделы структуры, доступности и политики JSON набора данных одинаковы для всех типов наборов данных (SQL Azure, BLOB-объекты Azure, таблицы Azure и т. д.).
 
-Раздел **typeProperties** во всех типах наборов данных разный. В нем содержатся сведения о расположении данных в хранилище данных. Раздел typeProperties набора данных с типом **RelationalTable** (который включает набор данных MySQL) имеет следующие свойства.
+Раздел **typeProperties** во всех типах наборов данных разный. В нем содержится информация о расположении данных в хранилище данных. Раздел typeProperties набора данных с типом **RelationalTable** (который включает набор данных MySQL) имеет следующие свойства.
 
 | Свойство | Описание | Обязательно |
 | -------- | ----------- | -------- |
@@ -254,7 +256,7 @@
 
 ### Сопоставление типов для MySQL
 
-Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в два этапа:
+Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в 2 этапа:
 
 1. Преобразование собственных типов источников в тип .NET.
 2. Преобразование типа .NET в собственный тип приемника.
@@ -308,4 +310,4 @@
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

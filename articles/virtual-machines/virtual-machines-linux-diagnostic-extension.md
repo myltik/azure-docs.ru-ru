@@ -1,3 +1,144 @@
-	<properties		pageTitle="Using linux diagnostic extension to monitor linux vm’s performance and diagnostic data"		description="Learn how to linux diagnostic extension to monitor linux vm’s performance and diagnostic data."		services="virtual-machines"		documentationCenter=""    	authors="Ning"		manager="timlt"		editor=""    	tags=""/>	<tags		ms.service="virtual-machines"		ms.workload="infrastructure-services"		ms.tgt_pltfrm="vm-linux"		ms.devlang="na"		ms.topic="article"		ms.date="06/04/2015"		ms.author="Ning"/>#Использование диагностического расширения Linux для мониторинга данных о состоянии и производительности виртуальных машин под управлением Linux##Введение Диагностическое расширение Linux помогает отслеживать состояние виртуальных машин под управлением Linux, работающих на платформе Azure, позволяя пользователям:1.	собирать с виртуальных машин под управлением Linux данные о производительности, работоспособности, а также данные системного журнала и отправлять их в свою таблицу хранилища;2.	настраивать метрики данных, которые нужно собирать и передавать;	3.	загружать определенные файлы журналов в отдельную таблицу хранилища.В версии 2.0 собираемые данные включают:1.	все журналы Rsyslog Linux, включая системный журнал, журналы безопасности и приложений;2.	все системные данные, перечисленные в этом [документе](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation "документ");3.	файлы журналов, выбранные пользователем.##Как включить расширение Расширение можно включить с помощью портала управления Azure, Azure PowerShell или сценариев Azure CLI.Чтобы просмотреть и настроить данные о производительности и состоянии системы непосредственно на [портале управления Azure](https://ms.portal.azure.com/#), выполните [эти инструкции](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL-адрес блога Windows"). В данной статье основное внимание уделяется включению и настройке расширения с помощью команд Azure CLI. Они позволяют просматривать данные напрямую из таблицы хранилища.##Предварительные требования1. Агент Linux для Microsoft Azure 2.0.6 или более поздней версии. Большинство образов коллекции виртуальных машин под управлением Linux для Azure содержат версию 2.0.6 или выше. Чтобы узнать, какая версия установлена на виртуальной машине, можно выполнить команду WAAgent -version. Если на виртуальной машине используется версия до 2.0.6, обновите ее, следуя этим [инструкциям](https://github.com/Azure/WALinuxAgent "инструкции").2.  [Интерфейс командной строки Azure (Azure CLI)](./xplat-cli.md "Инфраструктура CLI Azure"). Чтобы настроить среду Azure CLI, используйте [это руководство](./xplat-cli-install.md "это руководство"). После установки Azure CLI вы сможете выполнять команды Azure CLI, используя команду azure в интерфейсе командной строки (Bash, терминал, командная строка). Например, команда azure vm extension set --help позволяет просмотреть подробные сведения об использовании, azure login — войти в Azure, azure vm list — вывести список всех ваших виртуальных машин в Azure.3. Учетная запись хранения для хранения данных. Для загрузки данных в хранилище вам потребуется имя предварительно созданной учетной записи хранения и ключ доступа к ней.##Включение диагностического расширения Linux с помощью команды Azure CLI ###  Сценарий 1. Включение расширения с набором данных по умолчаниюВ версии 2.0 и выше по умолчанию собираются следующие данные: 1. все данные Rsyslog (включая системный журнал, журналы безопасности и приложений),  2. основной набор данных базовой системы (весь набор данных перечислен в этом [документе](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation "документ")). Если вы хотите включить дополнительные данные, выполните действия, описанные в сценариях 2 и 3.Шаг 1. Создайте файл PrivateConf.json со следующим содержимым:	{     	"storageAccountName":"the storage account to receive data",     	"storageAccountKey":"the key of the account"	}Шаг 2. Выполните команду azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json.###   Сценарий 2. Настройка метрик мониторинга производительности  Если вы хотите настроить таблицу данных о производительности и работоспособности, выполните следующие действия.Шаг 1. Создайте файл PrivateConfig.json со следующим содержимым и укажите данные, которые вы хотите собирать.Список всех поддерживаемых поставщиков и переменных см. в этом [документе](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation "документ"). Вы можете выполнять несколько запросов и хранить их результаты в нескольких таблицах. Для этого дополнительные запросы нужно добавить в сценарий.Обратите внимание, что по умолчанию данные Rsyslog собираются всегда.	{     	"storageAccountName":"storage account to receive data",     	"storageAccountKey":"key of the account",      	"perfCfg":[           	{"query":"SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation","table":"LinuxMemory"           	}             ]	}Шаг 2. Выполните команду azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json.###   Сценарий 3. Загрузка собственных файлов журналаЕсли вы хотите собирать определенные файлы журнала и передавать их в учетную запись хранения, выполните следующие действия. Укажите путь к файлу журнала и имя таблицы, в которой он должен храниться. Вы можете указать несколько файлов журналов, добавив в сценарий несколько записей для файлов или таблиц.Шаг 1. Создайте файл PrivateConf.json со следующим содержимым:	{     	"storageAccountName":"the storage account to receive data",     	"storageAccountKey":"key of the account",      	"fileCfg":[           	{"file":"/var/log/mysql.err",             "table":"mysqlerr"           	}           ]	}Шаг 2. Выполните команду azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json.###   Сценарий 4. Отключение диагностического расширения LinuxШаг 1. Создайте файл PrivateConf.json со следующим содержимым:	{     	"storageAccountName":"the storage account to receive data",     	"storageAccountKey":"the key of the account",     	“perfCfg”:[],     	“enableSyslog”:”False”	}Шаг 2. Выполните команду azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json.##Просмотр данныхДанные о производительности и работоспособности хранятся в таблице хранилища Azure. Сведения о том, как получить доступ к данным в таблице хранилища, используя сценарии Azure CLI, см. в [этой статье](./storage-ruby-how-to-use-table-storage.md "эта статья").Для доступа к данным также можно использовать следующие инструменты.1.	Обозреватель серверов в Visual Studio. Войдите в свою учетную запись хранения. Примерно через пять минут после запуска виртуальной машины вы увидите таблицы по умолчанию: LinuxCpu, LinuxDisk, LinuxMemory, Linuxsyslog. Дважды щелкните имя таблицы, чтобы просмотреть данные. 2.	[Обозреватель хранилищ Azure](https://azurestorageexplorer.codeplex.com/ "Обозреватель хранилищ Azure"). ![изображение](./media/virtual-machines-linux-diagnostic-extension/no1.png)Если вы включили fileCfg или perfCfg в сценариях 2 и 3, то с помощью данных инструментов сможете также увидеть данные, которые не относятся к данным по умолчанию.##Известные проблемы1. В версии 2.0 доступ к данным Rsyslog и файлам журнала, указанным клиентом, можно получить только с помощью сценариев.2. Если вы используете версию 2.0 и включили диагностическое расширение Linux с помощью сценария, то не сможете просматривать данные на портале. Если вы включили расширение с помощью портала, то сценарии будут работать.Ожидается, что обе проблемы будут устранены в следующем выпуске. 
 
-<!---HONumber=August15_HO7-->
+<properties
+		pageTitle="Использование диагностического расширения Linux для мониторинга данных о состоянии и производительности виртуальных машин под управлением Linux | Microsoft Azure"
+	description="Узнайте, как использовать диагностическое расширение Linux для мониторинга данных о состоянии и производительности виртуальных машин под управлением Linux."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="NingKuang"
+	manager="timlt"
+	editor=""
+	tags=""/>
+
+<tags
+		ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/20/2015"
+	ms.author="Ning"/>
+
+
+# Использование диагностического расширения Linux для мониторинга данных о состоянии и производительности виртуальных машин под управлением Linux
+
+## Введение
+
+Диагностическое расширение Linux помогает отслеживать состояние виртуальных машин под управлением Linux, работающих на платформе Azure, позволяя пользователям:
+
+- собирать с виртуальных машин под управлением Linux данные о производительности, работоспособности, а также данные системного журнала и отправлять их в свою таблицу хранилища;
+- настраивать метрики данных, которые нужно собирать и передавать;
+- загружать определенные файлы журналов в отдельную таблицу хранилища.
+
+В версии 2.0 собираемые данные включают:
+
+- все журналы Rsyslog Linux, включая системный журнал, журналы безопасности и приложений;
+- все системные данные, перечисленные в этом [документе](https://scx.codeplex.com/wikipage?title=xplatproviders");
+- файлы журналов, выбранные пользователем.
+
+## Как включить расширение
+Расширение можно включить с помощью [портала Azure](https://ms.portal.azure.com/#), Azure PowerShell или сценариев интерфейса командной строки Azure.
+
+Чтобы просмотреть и настроить данные о состоянии и производительности непосредственно на портале Azure, выполните эти [инструкции](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "URL-адрес блога Windows").
+
+
+В данной статье основное внимание уделяется включению и настройке расширения с помощью команд интерфейса командной строки Azure. Они позволяют просматривать данные напрямую из таблицы хранилища.
+
+
+## Предварительные требования
+- Агент Linux для Microsoft Azure 2.0.6 или более поздней версии. Обратите внимание на то, что большинство образов в коллекции виртуальных машин Azure на базе Linux включает версию 2.0.6 или более позднюю. Узнать, какая версия установлена на виртуальной машине, можно с помощью команды **WAAgent -version**. Если на виртуальной машине используется версия до 2.0.6, обновите ее, следуя этим [инструкциям](https://github.com/Azure/WALinuxAgent "инструкции").
+- [Интерфейс командной строки Azure](./xplat-cli.md) Чтобы настроить среду интерфейса командной строки Azure, воспользуйтесь [этим руководством](./xplat-cli-install.md). После установки интерфейса командной строки Azure для доступа к соответствующим функциям можно использовать команду **azure** в интерфейсе командной строки (Bash, терминал, командная строка). Например, команда **azure vm extension set --help** позволяет получить подробную справку о работе с программой, команда **azure login** — войти в Azure, а команда **azure vm list** — получить список всех виртуальных машин, доступных в Azure.
+- Учетная запись хранения для хранения данных. Для загрузки данных в хранилище вам потребуется имя предварительно созданной учетной записи хранения и ключ доступа к ней.
+
+
+## Включение диагностического расширения Linux с помощью команды интерфейса командной строки Azure
+
+###  Сценарий 1. Включение расширения с набором данных по умолчанию
+В версии 2.0 и выше по умолчанию собираются следующие данные:
+
+- все данные Rsyslog (включая системный журнал, журналы безопасности и приложений);  
+- основной набор данных базовой системы (весь набор данных перечислен в этом [документе](https://scx.codeplex.com/wikipage?title=xplatproviders)). Если вы хотите включить дополнительные данные, выполните действия, описанные в сценариях 2 и 3.
+
+Шаг 1. Создайте файл PrivateConfig.json со следующим содержимым:
+
+	{
+     	"storageAccountName":"the storage account to receive data",
+     	"storageAccountKey":"the key of the account"
+	}
+
+Шаг 2. Выполните команду **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+
+
+###   Сценарий 2. Настройка метрик мониторинга производительности  
+В этом разделе описывается настройка таблицы данных о состоянии и производительности.
+
+Шаг 1. Создайте файл с именем PrivateConfig.json и содержимым, представленным в приведенном ниже примере. Укажите, какие данные вы хотите собирать.
+
+Список всех поддерживаемых поставщиков и переменных см. в этом [документе](https://scx.codeplex.com/wikipage?title=xplatproviders). Можно создать несколько запросов и сохранять данные в разные таблицы, добавив дополнительные запросы в сценарий.
+
+По умолчанию данные Rsyslog собираются всегда.
+
+	{
+     	"storageAccountName":"storage account to receive data",
+     	"storageAccountKey":"key of the account",
+      	"perfCfg":[
+           	{"query":"SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation","table":"LinuxMemory"
+           	}
+          ]
+	}
+
+
+Шаг 2. Выполните команду **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+
+
+###   Сценарий 3. Передача файлов журнала
+В этом разделе описан порядок сбора и передачи определенных файлов журнала в учетную запись хранения. Необходимо указать путь к файлу журнала и имя таблицы для хранения журналов. Вы можете указать несколько файлов журналов, добавив в сценарий несколько записей для файлов или таблиц.
+
+Шаг 1. Создайте файл PrivateConfig.json со следующим содержимым:
+
+	{
+     	"storageAccountName":"the storage account to receive data",
+     	"storageAccountKey":"key of the account",
+      	"fileCfg":[
+           	{"file":"/var/log/mysql.err",
+             "table":"mysqlerr"
+           	}
+          ]
+	}
+
+
+Шаг 2. Выполните команду **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+
+
+###   Сценарий 4. Отключение расширения монитора Linux
+Шаг 1. Создайте файл PrivateConfig.json со следующим содержимым:
+
+	{
+     	"storageAccountName":"the storage account to receive data",
+     	"storageAccountKey":"the key of the account",
+     	“perfCfg”:[],
+     	“enableSyslog”:”False”
+	}
+
+
+Шаг 2. Выполните команду **azure vm extension set vm\_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**.
+
+
+## Просмотр данных
+Данные о состоянии и производительности хранятся в таблице хранилища Azure. Прочтите [эту статью](storage-ruby-how-to-use-table-storage.md), чтобы узнать, как получить доступ к данным в таблице хранилища с помощью сценариев интерфейса командной строки Azure.
+
+Для доступа к данным также можно использовать следующие инструменты.
+
+1.	Обозреватель серверов в Visual Studio. Войдите в свою учетную запись хранения. Примерно через 5 минут после запуска виртуальной машины должны появиться четыре стандартные таблицы: LinuxCpu, LinuxDisk, LinuxMemory и Linuxsyslog. Дважды щелкните имя таблицы, чтобы просмотреть данные.
+2.	[Обозреватель хранилищ Azure](https://azurestorageexplorer.codeplex.com/ "Обозреватель хранилищ Azure").
+
+![изображение](./media/virtual-machines-linux-diagnostic-extension/no1.png)
+
+Если вы включили fileCfg или perfCfg, указанные в сценариях 2 и 3, для просмотра данных, не собираемых по умолчанию, можно использовать предыдущие инструменты.
+
+
+
+## Известные проблемы
+- В версии 2.0 доступ к данным Rsyslog и файлам журнала, указанным клиентом, можно получить только с помощью сценариев.
+- Если в версии 2.0 диагностическое расширение Linux будет сначала включено в сценарии, данные с портала Azure отображаться не будут. Если расширение будет сначала включено на портале, сценарии будут работать по-прежнему.
+
+<!---HONumber=August15_HO9-->

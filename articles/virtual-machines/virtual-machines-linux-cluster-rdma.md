@@ -1,19 +1,19 @@
 <properties
  pageTitle="Настройка кластера Linux RDMA для выполнения приложений MPI | Microsoft Azure"
- description="Узнайте, как создать кластер Linux с виртуальными машинами A8 или A9, чтобы использовать RDMA для запуска приложений MPI."
- services="virtual-machines"
- documentationCenter=""
- authors="dlepow"
- manager="timlt"
- editor=""/>
+	description="Узнайте, как создать кластер Linux с виртуальными машинами A8 или A9, чтобы использовать RDMA для запуска приложений MPI."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 <tags
 ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-linux"
- ms.workload="infrastructure-services"
- ms.date="07/17/2015"
- ms.author="danlep"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="07/17/2015"
+	ms.author="danlep"/>
 
 # Настройка кластера Linux RDMA для выполнения приложений MPI
 
@@ -137,7 +137,7 @@ $ ssh-keygen
 $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 
-Измените или создайте файл ssh\_config в каталоге \~/.ssh. Укажите диапазон IP-адресов частной сети, которая будет использоваться в Azure:
+Измените или создайте файл ssh\_config в каталоге ~/.ssh. Укажите диапазон IP-адресов частной сети, которая будет использоваться в Azure:
 
 ```
 host 10.32.0.*
@@ -190,7 +190,7 @@ azure vm capture -t <vm-name> <image-name>
 ### Select a region where A8 and A9 VMs are available, such as West US
 ### See Azure Pricing pages for prices and availability of A8 and A9 VMs
 
-azure network vnet create -l "West US" –e 10.32.0.0 <network-name>
+azure network vnet create -l "West US" -e 10.32.0.0 <network-name>
 
 ### Create a cloud service. All the A8 and A9 instances need to be in the same cloud service for Linux RDMA to work across InfiniBand.
 ### Note: The current maximum number of VMs in a cloud service is 50. If you need to provision more than 50 VMs in the same cloud service in your cluster, contact Azure Support.
@@ -339,4 +339,4 @@ private ip address2:16
 
 * Рекомендации по Intel MPI см. в [документации для библиотеки Intel MPI](https://software.intel.com/ru-ru/articles/intel-mpi-library-documentation/).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

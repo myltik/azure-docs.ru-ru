@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Пример кода: логика повторов в C# для подключения к базе данных SQL | Microsoft Azure" 
-	description="Пример кода на языке C# включает надежную логику повторных попыток для взаимодействия с базой данных SQL Azure." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	pageTitle="Пример кода: логика повторов в C# для подключения к базе данных SQL | Microsoft Azure"
+	description="Пример кода на языке C# включает надежную логику повторных попыток для взаимодействия с базой данных SQL Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jeffreyg"
 	editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="genemi"/>
 
 
@@ -174,7 +174,7 @@ Dx  4d7936fd-341c-4a37-8796-25e385ae6c5b
 	        {
 	            int connectionTimeoutSeconds = 30;  // Default of 15 seconds is too short over the Internet, sometimes.
 	            int maxCountTriesConnectAndQuery = 3;  // You can adjust the various retry count values.
-	            int secondsBetweenRetries = 4;  // Simple retry strategy.
+	            int secondsBetweenRetries = 6;  // Simple retry strategy.
 	
 	            // [A.1] Prepare the connection string to Azure SQL Database.
 	            this.scsBuilder = new C.SqlConnectionStringBuilder();
@@ -496,4 +496,4 @@ Dx  4d7936fd-341c-4a37-8796-25e385ae6c5b
 
 - [Простые примеры кода клиентских приложений для работы с Базой данных SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

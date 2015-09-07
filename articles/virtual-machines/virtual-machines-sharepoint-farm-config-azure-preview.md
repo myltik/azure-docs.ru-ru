@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Сведения о конфигурации фермы серверов SharePoint"
-	description="В этой статье описывается стандартная конфигурация ферм SharePoint, где используется функция ферм SharePoint портала предварительной версии Azure."
+	pageTitle="Конфигурация фермы серверов SharePoint | Microsoft Azure"
+	description="Дополнительные сведения о стандартной конфигурации ферм SharePoint, где используется функция SharePoint Server Farm портала предварительной версии Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -139,4 +139,4 @@
 
 [Настройка фермы SharePoint интрасети в гибридном облаке для тестирования](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

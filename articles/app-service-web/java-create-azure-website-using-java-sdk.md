@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Создание веб-приложения в службе приложений Azure с использованием пакета SDK для Azure для Java" 
-	description="Узнайте, как программным путем создать веб-приложение в службе приложений Azure, используя пакет SDK для Azure для Java." 
+	pageTitle="Создание веб-приложения в службе приложений Azure с использованием пакета SDK для Azure для Java"
+	description="Узнайте, как программным путем создать веб-приложение в службе приложений Azure, используя пакет SDK для Azure для Java."
 	tags="azure-classic-portal"
-	services="app-service\web" 
-	documentationCenter="Java" 
-	authors="donntrenton" 
-	manager="wpickett" 
+	services="app-service\web"
+	documentationCenter="Java"
+	authors="donntrenton"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="04/24/2015"
 	ms.author="v-donntr"/>
 
 
@@ -438,7 +438,6 @@
 
 Дополнительную информацию о развертывании в веб-приложения службы приложений с использованием FTP см. в следующих разделах:
 
-- [Управление веб-приложениями с помощью портала Azure: развертывание](web-sites-manage.md/#deployment)
 - [Развертывание с помощью служебной программы FTP](web-sites-deploy.md)
 
 
@@ -590,4 +589,4 @@
   [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

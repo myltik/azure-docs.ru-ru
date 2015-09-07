@@ -1,20 +1,20 @@
 <properties
    pageTitle="Приступая к работе с командлетами PowerShell Пакетной службы Azure | Microsoft Azure"
-   description="Предоставляет командлеты Azure PowerShell, используемые для управления Пакетной службой Azure"
-   services="batch"
-   documentationCenter=""
-   authors="dlepow"
-   manager="timlt"
-   editor=""/>
+	description="Предоставляет командлеты Azure PowerShell, используемые для управления Пакетной службой Azure"
+	services="batch"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="batch"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="big-compute"
-   ms.date="08/07/2015"
-   ms.author="danlep"/>
+	ms.devlang="NA"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="big-compute"
+	ms.date="08/07/2015"
+	ms.author="danlep"/>
 
 # Приступая к работе с командлетами Azure PowerShell
 В этой статье представлено краткое введение в командлеты Azure PowerShell, которые можно использовать для управления учетными записями Пакетной службы и получения сведений о заданиях, задачах Пакетной службы и других сведений.
@@ -41,6 +41,12 @@
     Switch-AzureMode -Name AzureResourceManager
     ```
 
+* **Регистрация пространства имен поставщика пакетной службы (одноразовая операция)**. Чтобы управлять учетными записями пакетной службы, зарегистрируйте пространство имен поставщика пакетной службы. Эту операцию нужно выполнять один раз для каждой подписки.
+
+    ```
+    Register-AzureProvider -ProviderNamespace Microsoft.Batch
+    ```
+
 ## Управление учетными записями пакетной службы и ключами
 
 Чтобы создавать и управлять учетными записями пакетной службы и ключами, можно использовать командлеты Azure PowerShell.
@@ -53,7 +59,7 @@
 New-AzureResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-Затем создайте новую учетную запись пакетной службы в группе ресурсов, указав имя учетной записи в < *account\_name*> и расположение, где доступна пакетная служба. Создание учен=тной записи может занять несколько минут. Например:
+Затем создайте новую учетную запись пакетной службы в группе ресурсов, указав имя учетной записи в <*account\_name*> и расположение, где доступна пакетная служба. Создание учен=тной записи может занять несколько минут. Например:
 
 ```
 New-AzureBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -156,4 +162,4 @@ Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 * [Справка по командлету Пакетной службы Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Эффективные запросы списков](batch-efficient-list-queries.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

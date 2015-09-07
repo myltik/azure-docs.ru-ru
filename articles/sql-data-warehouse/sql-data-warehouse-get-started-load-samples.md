@@ -1,20 +1,20 @@
 <properties
    pageTitle="Загрузка образца данных в хранилище данных SQL | Microsoft Azure"
-   description="Загрузка достаточных данных в хранилище данных SQL"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""/>
+	description="Загрузка достаточных данных в хранилище данных SQL"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="lodipalm"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/05/2015"
-   ms.author="lodipalm;barbkess"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="08/05/2015"
+	ms.author="lodipalm;barbkess"/>
 
 #Загрузка образца данных в хранилище данных SQL
 
@@ -24,7 +24,18 @@
 
 2. После загрузки файла извлеките содержимое файла AdventureWorksPDW2012.zip и откройте новую папку AdventureWorksPDW2012.
 
-3. Измените файл aw\_create.bat и задайте следующие значения в верхней части файла: a. **Сервер**: полное имя сервера хранилища данных SQL находится на b. **Пользователь**: пользователь указанного выше сервера c. **Пароль**: пароль для указанного имени входа на сервер d. **База данных**: имя экземпляра хранилища данных SQL, куда необходимо загрузить данные
+3. Измените файл aw\_create.bat и задайте следующие значения в верхней части файла:
+
+   а. **Сервер**: полное имя сервера, на котором находится ваше хранилище данных SQL.
+
+   b. **Пользователь**: пользователь указанного выше сервера.
+   
+   c. **Пароль**: пароль для указанного имени входа на сервер.
+   
+   г) **База данных**: имя экземпляра хранилища данных SQL, куда необходимо загрузить данные.
+   
+   Убедитесь, что пробелы между «=» и этими параметрами отсутствуют.
+   
 
 4. Запустите aw\_create.bat из каталога, в котором он находится. Это создаст схему и загрузит данные во все таблицы с помощью программы BCP.
 
@@ -60,16 +71,16 @@
 <!--Image references-->
 
 <!--Article references-->
-[переносить]: https://azure.microsoft.com/ru-ru/documentation/articles/sql-data-warehouse-overview-migrate/
-[разрабатывать]: https://azure.microsoft.com/ru-ru/documentation/articles/sql-data-warehouse-overview-develop/
-[загружать]: https://azure.microsoft.com/ru-ru/documentation/articles/sql-data-warehouse-overview-load/
-[подключению и запросам]: https://azure.microsoft.com/ru-ru/documentation/articles/sql-data-warehouse-get-started-connect-query/
-[Перенос кода]: https://azure.microsoft.com/ru-ru/documentation/articles/sql-data-warehouse-migrate-code/
+[переносить]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-migrate/
+[разрабатывать]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-develop/
+[загружать]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-load/
+[подключению и запросам]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-get-started-connect-query/
+[Перенос кода]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-migrate-code/
 
 <!--MSDN references-->
-[программы командной строки Microsoft для SQL Server]: http://www.microsoft.com/ru-ru/download/details.aspx?id=36433
+[программы командной строки Microsoft для SQL Server]: http://www.microsoft.com/ru-RU/download/details.aspx?id=36433
 
 <!--Other Web references-->
 [образцы сценариев данных]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

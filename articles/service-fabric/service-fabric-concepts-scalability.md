@@ -1,20 +1,20 @@
 <properties
    pageTitle="Масштабирование служб структуры служб"
-   description="Описывает процесс выполнения служб структурой служб"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+	description="Описывает процесс выполнения служб структурой служб"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="appi101"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/23/2015"
-   ms.author="aprameyr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="aprameyr"/>
 
 # Масштабирование приложений структуры служб
 Структура служб упрощает создание масштабируемых приложений с использованием служб балансировки нагрузки, разделов и реплик на всех узлах кластера. Это позволяет добиться максимально эффективного использования ресурсов.
@@ -61,4 +61,4 @@
 - [Определение состояния и управление им](service-fabric-concepts-state.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

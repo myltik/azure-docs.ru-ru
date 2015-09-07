@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Изменение используемой по умолчанию конфигурации Azure AD Connect" 
-	description="Узнайте, как изменить конфигурацию по умолчанию для Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Изменение используемой по умолчанию конфигурации Azure AD Connect"
+	description="Узнайте, как изменить конфигурацию по умолчанию для Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Изменение используемой по умолчанию конфигурации Azure AD Connect 
@@ -27,4 +27,4 @@
 - Экспортируйте настраиваемые правила синхронизации с помощью редактора правил синхронизации. Так вы получите скрипт PowerShell, который позволяет легко создать их заново для сценария аварийного восстановления.
 - Если вам необходимо изменить область или параметр присоединения в стандартном правиле синхронизации, задокументируйте это и повторно примените изменение после обновления до новой версии Azure AD Connect. 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

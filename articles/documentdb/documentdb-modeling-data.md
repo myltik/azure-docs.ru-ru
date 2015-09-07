@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Моделирование данных в Azure DocumentDB| Microsoft Azure" 
-	description="Узнайте, как моделировать данные для такой базы данных документов NoSQL, как Azure DocumentDB." 
-	services="documentdb" 
-	authors="ryancrawcour" 
-	manager="jhubbard" 
-	editor="mimig1" 
+	pageTitle="Моделирование данных в Azure DocumentDB| Microsoft Azure"
+	description="Узнайте, как моделировать данные для такой базы данных документов NoSQL, как Azure DocumentDB."
+	services="documentdb"
+	authors="ryancrawcour"
+	manager="jhubbard"
+	editor="mimig1"
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="ryancraw"/>
 
 #Моделирование данных в DocumentDB#
@@ -392,4 +392,4 @@
 Наконец, рекомендации по моделированию и сегментированию данных для мультитенантных приложений можно найти в статье [Масштабирование мультитенантного приложения с помощью Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

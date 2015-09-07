@@ -1,22 +1,28 @@
 <properties
    pageTitle="Приступая к работе с Azure DNS | Microsoft Azure"
-   description="Узнайте, как создавать зоны DNS для Azure DNS. В этом пошаговом руководстве вы узнаете, как создать вашу первую зону DNS для размещения домена DNS."
-   services="dns"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
-   editor=""/>
+	description="Узнайте, как создавать зоны DNS для Azure DNS. В этом пошаговом руководстве вы узнаете, как создать вашу первую зону DNS для размещения домена DNS."
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/20/2015"
+	ms.author="joaoma"/>
 
 # Приступая к работе с Azure DNS
+
+
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-getstarted-create-dnszone-cli.md)
+- [Azure Powershell steps](dns-getstarted-create-dnszone.md)
+
 Домен contoso.com может содержать несколько записей DNS, например mail.contoso.com (для почтового сервера) и www.contoso.com (для веб-сайта). Зона DNS используется для размещения DNS-записей для определенного домена.<BR><BR> Для размещения вашего домена сначала необходимо создать зону DNS. Любые записи DNS, созданные для определенного домена, будут расположены в зоне DNS этого домена.<BR><BR> В данных инструкциях используется Microsoft Azure PowerShell. Обновитесь до последней версии Azure PowerShell, чтобы использовать командлеты Azure DNS. Те же действия можно также выполнить с помощью интерфейса командной строки Microsoft Azure, API-интерфейса REST или SDK.<BR><BR>
 
 ## Настройка PowerShell для Azure DNS
@@ -24,7 +30,7 @@
 Для управления Azure DNS с помощью Azure PowerShell необходимо выполнить следующие действия.
 
 ### Шаг 1.
- Azure DNS использует диспетчер ресурсов Azure (ARM). Убедитесь, что выбран режим PowerShell для использования командлетов ARM. Подробнее: [Использование Windows Powershell с диспетчером ресурсов](../powershell-azure-resource-manager).<BR><BR>
+ Azure DNS использует диспетчер ресурсов Azure (ARM). Убедитесь, что выбран режим PowerShell для использования командлетов ARM. Подробнее: [Использование Windows Powershell с диспетчером ресурсов](powershell-azure-resource-manager.md).<BR><BR>
 
 		PS C:\> Switch-AzureMode -Name AzureResourceManager
 
@@ -55,7 +61,7 @@
 
 Служба Azure DNS управляется поставщиком ресурсов Microsoft.Network. Вашу подписку Azure необходимо зарегистрировать, чтобы использовать этот поставщик ресурсов, прежде чем работать с Azure DNS. Это однократная операция для каждой подписки.
 
-	PS C:\> Register-AzureProvider -ProviderNamespace Microsoft.Network
+	PS c:> Register-AzureProvider -ProviderNamespace Microsoft.Network
 
 
 
@@ -91,7 +97,7 @@
 
 
 - Запись SOA. Она находится в корне каждой зоны DNS.
-- Полномочные записи серверов имен (NS). Они показывают, на каких серверах размещается зона. Azure DNS использует пул серверов имен, поэтому разным зонам в Azure DNS могут быть назначены различные серверы имен. Подробнее: [Делегирование домена Azure DNS](../dns-domain-delegation).<BR>
+- Полномочные записи серверов имен (NS). Они показывают, на каких серверах размещается зона. Azure DNS использует пул серверов имен, поэтому разным зонам в Azure DNS могут быть назначены различные серверы имен. Подробнее: [Делегирование домена Azure DNS](dns-domain-delegation.md).<BR>
 
 Для просмотра этих записей используйте командлет Get AzureDnsRecordSet:
 
@@ -147,4 +153,4 @@
 [Приступая к созданию наборов записей и записей](dns-getstarted-create-recordset.md)<BR> [Управление зонами DNS](dns-operations-dnszones.md)<BR> [Управление DNS-записями](dns-operations-recordsets.md)<BR> [Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)<BR> [Справочник по API REST для службы Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

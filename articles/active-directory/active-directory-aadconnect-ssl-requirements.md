@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Служба Azure AD Connect — требования к сертификатам SSL" 
-	description="Служба Azure AD Connect — требования к сертификатам SSL для использования с AD FS." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Служба Azure AD Connect — требования к сертификатам SSL"
+	description="Служба Azure AD Connect — требования к сертификатам SSL для использования с AD FS."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Служба Azure AD Connect — требования к сертификатам SSL
@@ -32,4 +32,4 @@
 Поддерживаются групповые сертификаты.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -114,6 +114,8 @@
 	ops@ubuntuvm:~$
 
 
+> [AZURE.NOTE]Кроме того, вы можете настроить полное доменное имя (FQDN) для своей виртуальной машины на портале. Дополнительные сведения о полном доменном имени см. [здесь](virtual-machines-create-fqdn-on-portal.md).
+
 ## Дальнейшие действия
 
 Чтобы узнать больше о Linux в Azure, см. следующие статьи:
@@ -126,4 +128,4 @@
 
 - [Расширение виртуальных машин Docker для Linux в Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

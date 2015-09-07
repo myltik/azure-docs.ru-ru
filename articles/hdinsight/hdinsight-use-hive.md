@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/06/2015"
+	ms.date="08/21/2015"
 	ms.author="larryfr"/>
 
 # Использование Hive и HiveQL с Hadoop в HDInsight для анализа примера файла Apache log4j
@@ -45,7 +45,7 @@ Hive понимает, как работать со структурирован
 
 	2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
 
-В предыдущем примере уровень журнала имеет значение ERROR («ошибка»).
+В предыдущем примере уровень журнала имеет значение ERROR ("ошибка").
 
 > [AZURE.NOTE]Вы также можете создать файл log4j с помощью средства ведения журнала [Apache Log4j](http://en.wikipedia.org/wiki/Log4j), а затем отправить этот файл в контейнер BLOB-объектов. См. раздел [Отправка данных в HDInsight](hdinsight-upload-data.md) для получения более подробной информации. Дополнительные сведения о том, каким образом хранилище BLOB-объектов Azure используется с HDInsight, см. в разделе [Использование хранилища BLOB-объектов Azure с HDInsight](../hdinsight-use-blob-storage.md).
 
@@ -119,13 +119,26 @@ HDInsight может выполнять задания HiveQL, использу�
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) | &nbsp; | ✔ | Linux или Windows | Windows |
 | [Удаленный рабочий стол](hdinsight-hadoop-use-hive-remote-desktop.md) | ✔ | ✔ | Windows | Windows |
 
+## Выполнение заданий Hive в Azure HDInsight с помощью локальных служб интеграции SQL Server Integration Services
+
+С помощью служб SQL Server Integration Services (SSIS) также можно выполнить задание Hive. Пакет дополнительных компонентов Azure для служб SSIS предоставляет следующие компоненты, которые работают с заданиями Hive в HDInsight.
+
+
+- [Задача Hive в Azure HDInsight][hivetask]
+- [Диспетчер подключений по подпискам Azure][connectionmanager]
+
+
+Узнать больше о пакете дополнительных компонентов Azure для служб SSIS можно [здесь][ssispack].
+
+
 ##<a id="nextsteps"></a>Дальнейшие действия
 
 Теперь, когда вы знаете, что такое инфраструктура Hive и как ее использовать с Hadoop в HDInsight, воспользуйтесь следующими ссылками, чтобы изучить другие способы работы с Azure HDInsight.
 
-* [Отправка данных в HDInsight][hdinsight-upload-data]
-* [Использование Pig с HDInsight][hdinsight-use-pig]
-* [Использование заданий MapReduce с HDInsight][hdinsight-use-mapreduce]
+
+- [Отправка данных в HDInsight][hdinsight-upload-data]
+- [Использование Pig с HDInsight][hdinsight-use-pig]
+- [Использование заданий MapReduce с HDInsight][hdinsight-use-mapreduce]
 
 [check]: ./media/hdinsight-use-hive/hdi.checkmark.png
 
@@ -142,6 +155,9 @@ HDInsight может выполнять задания HiveQL, использу�
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[hivetask]: http://msdn.microsoft.com/ru-RU/library/mt146771(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/ru-RU/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/ru-RU/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -163,4 +179,4 @@ HDInsight может выполнять задания HiveQL, использу�
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

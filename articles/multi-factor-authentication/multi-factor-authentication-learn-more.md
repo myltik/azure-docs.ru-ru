@@ -1,23 +1,22 @@
 <properties 
-	pageTitle="Библиотека Azure Multi-Factor Authentication — дополнительные сведения" 
-	description="На этой странице приведены ссылки на дополнительные материалы для службы Azure Multi-Factor Authentication. Здесь доступны дополнительные темы, касающиеся службы Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Библиотека Azure Multi-Factor Authentication — дополнительные сведения"
+	description="На этой странице приведены ссылки на дополнительные материалы для службы Azure Multi-Factor Authentication. Здесь доступны дополнительные темы, касающиеся службы Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Дополнительные сведения о службе Azure Multi-Factor Authentication
-[Сведения о службе](multi-factor-authentication.md)<br> [Принцип работы](multi-factor-authentication-how-it-works.md)<br> [Приступая к работе](multi-factor-authentication-get-started.md)<br> [Следующие шаги](multi-factor-authentication-whats-next.md)<br> [Дополнительные сведения](multi-factor-authentication-learn-more.md)
 
 
 Ниже приводится набор дополнительных ресурсов, благодаря которым вы сможете воспользоваться преимуществами всех доступных функций службы Azure Multi-Factor Authentication.
@@ -39,4 +38,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

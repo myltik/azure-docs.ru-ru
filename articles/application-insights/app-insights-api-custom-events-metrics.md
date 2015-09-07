@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="API Application Insights для пользовательских событий и метрик" 
-	description="Вставьте несколько строк кода в устройство или классическое приложение, на веб-страницу или в службу, чтобы отслеживать использование приложения и диагностировать проблемы." 
+	pageTitle="API Application Insights для пользовательских событий и метрик"
+	description="Вставьте несколько строк кода в устройство или классическое приложение, на веб-страницу или в службу, чтобы отслеживать использование приложения и диагностировать проблемы."
 	services="application-insights"
-    documentationCenter="" 
-	authors="alancameronwills" 
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
  
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="awills"/>
 
 # API Application Insights для пользовательских событий и метрик 
@@ -52,7 +52,7 @@
 
 * В программный код устройства или веб-сервера необходимо добавить:
 
-    *C\#:* `using Microsoft.ApplicationInsights;`
+    *C#:* `using Microsoft.ApplicationInsights;`
 
     *VB:* `Imports Microsoft.ApplicationInsights`
 
@@ -62,7 +62,7 @@
 
 Создайте экземпляр TelemetryClient (за исключением JavaScript на веб-страницах):
 
-*C\#:*
+*C#:*
 
     private TelemetryClient telemetry = new TelemetryClient();
 
@@ -92,7 +92,7 @@
 
     appInsights.trackEvent("WinGame");
 
-*C\#*
+*C#*
     
     telemetry.TrackEvent("WinGame");
 
@@ -148,7 +148,7 @@
          {Score: currentGame.score, Opponents: currentGame.opponentCount}
          );
 
-*C\#*
+*C#*
 
     // Set up some properties and metrics:
     var properties = new Dictionary <string, string> 
@@ -238,7 +238,7 @@
 Иногда требуется отобразить на диаграмме продолжительность выполнения некоторых действий. Например, может понадобиться определить, сколько времени требуется пользователю для выбора решения в игре. Это полезный пример использования параметра измерения.
 
 
-*C\#*
+*C#*
 
     var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
@@ -271,7 +271,7 @@
 
     appInsights.trackMetric("Queue", queue.Length);
 
-*C\#*
+*C#*
 
     telemetry.TrackMetric("Queue", queue.Length);
 
@@ -285,7 +285,7 @@
 
 На самом деле это можно выполнить в фоновом потоке:
 
-*C\#*
+*C#*
 
     private void Run() {
      var appInsights = new TelemetryClient();
@@ -316,7 +316,7 @@
 
     appInsights.trackPageView("tab1");
 
-*C\#*
+*C#*
 
     telemetry.TrackPageView("GameReviewPage");
 
@@ -337,7 +337,7 @@
 
 Его можно также вызвать самостоятельно, чтобы смодулировать запросы в контексте, в котором отсутствует выполняющийся модуль веб-службы.
 
-*C\#*
+*C#*
 
     // At start of processing this request:
 
@@ -358,7 +358,7 @@
 
 Отправляйте исключения в Application Insights, чтобы [вычислить их количество][metrics], что может указывать на частоту возникновения проблемы, и чтобы[проверить отдельные вхождения][diagnostic]. Отчеты содержат данные по трассировкам стеков.
 
-*C\#*
+*C#*
 
     try
     {
@@ -381,7 +381,7 @@
 [Адаптеры журнала][trace] используют этот API для отправки журналов сторонних производителей на портал.
 
 
-*C\#*
+*C#*
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
@@ -411,11 +411,41 @@
 
 Чтобы отключить стандартный модуль отслеживания зависимостей, измените [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) и удалите ссылку на `DependencyCollector.DependencyTrackingTelemetryModule`.
 
+
+## Прошедшие проверку пользователи
+
+В веб-приложении пользователи по умолчанию идентифицируются файлом cookie. Пользователь может быть учтен более одного раза при доступе к приложению с другого компьютера или браузера либо при удалении файлов cookie.
+
+Но если пользователи входят в ваше приложение, можно узнать их более точное количество, указав идентификатор пользователя, прошедшего аутентификацию, в коде браузера:
+
+*JavaScript*
+
+```JS
+    // Called when my app has identified the user.
+    function Authenticated(signInId) {
+      var validatedId = signInId.replace(/[,;=| ]+/g, "_");
+      appInsights.setAuthenticatedUserContext(validatedId);
+      ...
+    }
+```
+
+Нет необходимости использовать фактическое учетное имя пользователя. Нужен только уникальный идентификатор этого пользователя. Он не должен содержать пробелы или какой-либо из этих знаков: `,;=|`.
+
+Идентификатор пользователя также задается в файле cookie сеанса и отправляется на сервер. Если установлен серверный пакет SDK, идентификатор пользователя, прошедшего аутентификацию, будет отправляться как часть свойств контекста телеметрии клиента и сервера, что позволяет выполнять фильтрацию и поиск.
+
+Если приложение группирует пользователей по учетным записям, вы также можете передать идентификатор учетной записи (с аналогичными ограничениями знаков).
+
+
+      appInsights.setAuthenticatedUserContext(validatedId, accountId);
+
+В [обозревателе метрик](app-insights-metrics-explorer.md) можно создать диаграмму **прошедших проверку пользователей** и **учетных записей**.
+
+
 ## <a name="defaults"></a>Установка значений по умолчанию для выбранной пользовательской телеметрии
 
 Если требуется задать значения свойств по умолчанию для некоторых создаваемых пользовательских событий, это можно сделать в классе TelemetryClient. Они прикреплены к каждому элементу телеметрии, отправляемой из этого клиента.
 
-*C\#*
+*C#*
 
     using Microsoft.ApplicationInsights.DataContracts;
 
@@ -443,15 +473,17 @@
     context.getProperties().put("Game", currentGame.Name);
     
     gameTelemetry.TrackEvent("WinGame");
+
+
     
 Вызовы отдельных данных телеметрии могут переопределить значения по умолчанию в словарях свойства.
 
-
+**Для веб-клиентов JavaScript** [используйте инициализаторы телеметрии JavaScript](#js-initializer).
 
 
 ## <a name="ikey"></a> Установка ключа инструментирования для выбранной пользовательской телеметрии
 
-*C\#*
+*C#*
     
     var telemetry = new TelemetryClient();
     telemetry.Context.InstrumentationKey = "---my key---";
@@ -467,7 +499,7 @@
 **Определение инициализатора**
 
 
-*C\#*
+*C#*
 
 ```C#
 
@@ -520,7 +552,7 @@
 
 *Другой способ* — создать экземпляр инициализатора в коде.
 
-*C\#*
+*C#*
 
 ```C#
 
@@ -540,7 +572,10 @@
     TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
 ```
 
-Сейчас в веб-клиенте JavaScript нет возможности задавать свойства по умолчанию.
+
+### Веб-клиенты JavaScript
+
+Для веб-клиентов JavaScript [используйте инициализаторы телеметрии для задания значений по умолчанию](#js-initializer).
 
 ## Инициализаторы телеметрии
 
@@ -552,7 +587,7 @@
 
 **Определение инициализатора**
 
-*C\#*
+*C#*
 
 ```C#
 
@@ -618,13 +653,62 @@
 
 [Дополнительную информацию см. здесь.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
+<a name="js-initializer"></a>
+### Инициализаторы телеметрии JavaScript
+
+*JavaScript*
+
+Вставьте инициализатор телеметрии сразу после кода инициализации, полученного на портале:
+
+```JS
+
+    <script type="text/javascript">
+        // ... initialization code
+        ...({
+            instrumentationKey: "your instrumentation key"
+        });
+        window.appInsights = appInsights;
+
+
+        // Adding telemetry initializer.
+        // This is called whenever a new telemetry item
+        // is created.
+
+        appInsights.queue.push(function () {
+            appInsights.context.addTelemetryInitializer(function (envelope) {
+                var telemetryItem = envelope.data.baseData;
+
+                // To check the telemetry item’s type - for example PageView:
+                if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
+                    // this statement removes url from all page view documents
+                    telemetryItem.url = "URL CENSORED";
+                }
+
+                // To set custom properties:
+                telemetryItem.properties = telemetryItem.properties || {};
+                telemetryItem.properties["globalProperty"] = "boo";
+
+                // To set custom metrics:
+                telemetryItem.measurements = telemetryItem.measurements || {};
+                telemetryItem.measurements["globalMetric"] = 100;
+            });
+        });
+
+        // End of inserted code.
+
+        appInsights.trackPageView();
+    </script>
+```
+
+Сводку по ненастраиваемым свойствам, доступным в telemetryItem, см. в разделе о [модели данных](app-insights-export-data-model.md/#lttelemetrytypegt).
+
 ## <a name="dynamic-ikey"></a> Динамический ключ инструментирования
 
 Во избежание смешивания телеметрии из среды разработки, тестовой и рабочей среды вы можете [создавать отдельные ресурсы Application Insights][create] и менять их ключи в зависимости от среды.
 
 Вместо получения ключа инструментирования из файла конфигурации можно задать его в коде. Задайте ключ в методе инициализации, таком как global.aspx.cs, в службе ASP.NET:
 
-*C\#*
+*C#*
 
     protected void Application_Start()
     {
@@ -660,7 +744,7 @@
 
 Обычно пакет SDK отправляет данные в момент времени выбранный, чтобы свести влияние на пользователя к минимуму. Однако в некоторых случаях может потребоваться очистить буфер, например, при использовании пакета SDK в приложении, которое завершает работу.
 
-*C\#*
+*C#*
 
     telemetry.Flush();
 
@@ -680,7 +764,7 @@
 Во время отладки полезно передавать телеметрию через конвейер, чтобы результаты можно было увидеть немедленно. Кроме того, вы можете получать дополнительные сообщения, которые помогают трассировать любые проблемы с телеметрией. Отключите этот режим в рабочей среде, так как он может замедлить работу приложения.
 
 
-*C\#*
+*C#*
     
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = true;
 
@@ -704,7 +788,7 @@
  * **SyntheticSource** — если эта строка не пустая и не имеет значение null, она указывает, что источник запроса было определен как программа-робот или веб-тест. По умолчанию она будет исключена из вычислений в обозревателе метрик.
 * **Properties** — свойства, которые отправляются со всеми данными телеметрии. Это значение можно переопределить в отдельных вызовах отслеживания*.
 * **Session** — определяет сеанс пользователя. Для Id задается созданное значение, которое изменяется, если пользователь был неактивным в течение некоторого времени.
-* **User** — позволяет подсчитать пользователей. В веб-приложении идентификатор пользователя берется из файла cookie. Если такой файл отсутствует, создается новый идентификатор. Если пользователям требуется войти в приложение, вы можете использовать аутентифицированный идентификатор в качестве идентификатора, чтобы предоставить более надежный счетчик, который остается верным, даже если пользователь выполняет вход с другого компьютера. 
+* **User** — информация о пользователе. 
 
 
 
@@ -781,4 +865,4 @@
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

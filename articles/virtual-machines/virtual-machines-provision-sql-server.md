@@ -1,22 +1,28 @@
 <properties 
-	pageTitle="Подготовка виртуальной машины SQL Server в Azure" 
-	description="В этом учебнике показано, как создать и настроить виртуальную машину SQL Server в Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="rothja" 
-	manager="jeffreyg" 
+	pageTitle="Подготовка виртуальной машины SQL Server в Azure"
+	description="В этом руководстве объясняется, как создавать и настраивать виртуальные машины SQL Server в Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="rothja"
+	manager="jeffreyg"
 	editor="monicar"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows-sql-server" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="jroth"/>
 
-# Подготовка виртуальной машины SQL Server в Azure #
+# Подготовка виртуальной машины SQL Server в Azure
+
+> [AZURE.SELECTOR]
+- [Portal](virtual-machines-provision-sql-server.md)
+- [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
+
+## Обзор
 
 Коллекция виртуальных машин в Azure включает в себя несколько образов, содержащих Microsoft SQL Server. Можно выбрать один из образов виртуальных машин из коллекции и несколькими щелчками подготовить виртуальную машину в среде Azure.
 
@@ -37,11 +43,11 @@
 
 	![Выбор образа](./media/virtual-machines-provision-sql-server/choose-sql-vm.png)
 
-Самую последнюю информацию о поддерживаемых образах SQL Server в Azure см. в статье [Приступая к работе с SQL Server в среде виртуальной машины Azure](http://go.microsoft.com/fwlink/p/?LinkId=294720).
+Самую последнюю информацию о поддерживаемых образах SQL Server в Azure см. в статье [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md).
 
 >[AZURE.NOTE]Виртуальную машину, созданную с помощью ознакомительной версии образа платформы SQL Server, нельзя обновить в коллекции до образа с поминутной оплатой. Можно выбрать один из двух вариантов:
 >
-> - Вы можете создать новую виртуальную машину с помощью выпуска SQL Server с поминутной оплатой из коллекции и перенести файлы базы данных на эту новую виртуальную машину, выполнив шаги, описанные в разделе [Миграция базы данных в SQL Server на виртуальной машине Azure](virtual-machines-migrate-onpremises-database)
+> - Вы можете создать новую виртуальную машину с помощью выпуска SQL Server с поминутной оплатой из коллекции и перенести файлы базы данных на эту новую виртуальную машину, выполнив шаги, описанные в разделе [Миграция базы данных в SQL Server на виртуальной машине Azure](virtual-machines-migrate-onpremises-database).
 > - Либо вы можете обновить существующий экземпляр пробной версии SQL Server до другой версии SQL Server в рамках соглашения [Перемещение лицензий в рамках программы Software Assurance в Azure](http://azure.microsoft.com/pricing/license-mobility/), следуя процедуре, описанной в статье [Обновление до другой версии SQL Server](https://msdn.microsoft.com/library/cc707783.aspx). Сведения о покупке лицензионной копии SQL Server см. в разделе [Как приобрести SQL Server](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx).
 
 4. На первой странице **Конфигурация виртуальной машины** укажите следующие сведения:
@@ -61,7 +67,7 @@
     > - При использовании SQL Server Enterprise Edition выберите размер «А3» и выше.
    	> - При использовании образов SQL Server 2012 или 2014 Enterprise, оптимизированного для транзакционных рабочих нагрузок, выберите размер "A4" или выше.  
    	> - При использовании образов SQL Server 2012 или 2014 Enterprise, оптимизированного для рабочих нагрузок хранилища данных, выберите размер "A7" или выше. 
-   	> - Для оптимальной работы хранилища класса Premium используйте DS2 или DS3. Дополнительные сведения см. в статье [Рекомендации по оптимизации производительности SQL Server на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/dn133149.aspx).
+   	> - Для оптимальной работы хранилища класса Premium используйте DS2 или DS3. Дополнительные сведения см. в статье [Рекомендации по оптимизации производительности SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-performance-best-practices.md).
    	> - Выбранный размер ограничивает количество дисков данных, которые можно настроить. Самую последнюю информацию о доступных размерах виртуальных машин и о количестве дисков данных, которые можно присоединить к виртуальной машине, см. в разделе [Размеры виртуальных машин для Azure](virtual-machines-size-specs.md).
 
 5. После ввода сведений о конфигурации вашей виртуальной машины нажмите стрелку "Далее" в правом нижнем углу страницы, чтобы продолжить.
@@ -70,7 +76,7 @@
 	- В окне **Облачная служба** выберите **Создать новую облачную службу**.
 	- В поле **DNS-имя облачной службы** укажите первую часть выбранного DNS-имени таким образом, чтобы общее имя соответствовало формату **TESTNAME.cloudapp.net** 
 	- Выберите значение в поле **ПОДПИСКА**, если у вас имеется выбор из нескольких подписок. Этот выбор определяет доступные **учетные записи хранения**.
-	- В поле **РЕГИОН, ТЕРРИТОРИАЛЬНАЯ ГРУППА, ВИРТУАЛЬНАЯ СЕТЬ** выберите регион, где будет размещаться этот виртуальный образ.
+- В поле **РЕГИОН, ТЕРРИТОРИАЛЬНАЯ ГРУППА, ВИРТУАЛЬНАЯ СЕТЬ** выберите регион, где будет размещаться этот виртуальный образ.
 	- В окне **Учетная запись хранения** создайте учетную запись автоматически или выберите ее из списка. Измените значение **ПОДПИСКА** для просмотра дополнительных учетных записей. 
 	- В поле **ГРУППА ДОСТУПНОСТИ** выберите **(нет)**.
 	- Прочтите и примите условия.
@@ -124,30 +130,30 @@
 
 Теперь вы знаете, как создавать и настраивать SQL Server на виртуальной машине Azure с помощью образа платформы. Во многих случаях следующим этапом является миграция баз данных на новую виртуальную машину SQL. Руководство по миграции баз данных см. в статье [Миграция базы данных в SQL Server на виртуальной машине Azure](virtual-machines-migrate-onpremises-database.md).
 
-В дополнение к этим ресурсам рекомендуем ознакомиться с [другими разделами, связанными с запуском SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md). В следующем списке представлены несколько конкретных рекомендаций.
+Ниже перечислены дополнительные источники информации об SQL Server на виртуальных машинах Azure.
 
 ### Рекомендуемые ресурсы по работе SQL Server на виртуальных машинах Azure:
-- [Приступая к работе с SQL Server на виртуальных машинах Azure](http://go.microsoft.com/fwlink/p/?LinkId=294720)
+- [Обзор. SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md)
 
-- [Рекомендации по подключению SQL Server на виртуальных машинах Azure](http://go.microsoft.com/fwlink/p/?LinkId=294723)
+- [Подключение к виртуальной машине SQL Server в Azure](virtual-machines-sql-server-connectivity.md)
 
-- [Рекомендации по оптимизации производительности SQL Server на виртуальных машинах Azure](http://go.microsoft.com/fwlink/?LinkId=294724)
+- [Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure](virtual-machines-sql-server-performance-best-practices.md)
 
-- [Вопросы безопасности SQL Server на виртуальных машинах Azure](http://go.microsoft.com/fwlink/p/?LinkId=294725)
+- [Вопросы безопасности SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-security-considerations.md)
 
 ### Высокая доступность и аварийное восстановление:
-- [Высокий уровень доступности и аварийное восстановление для SQL Server на виртуальных машинах Azure](http://go.microsoft.com/fwlink/p/?LinkId=294727)
+- [Высокий уровень доступности и аварийное восстановление для SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)
 
-- [Резервное копирование и восстановление SQL Server на виртуальных машинах Azure](http://go.microsoft.com/fwlink/p/?LinkId=294728)
+- [Резервное копирование и восстановление SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-backup-and-restore.md)
 
 ### Рабочие нагрузки SQL Server в Azure:
-- [SQL Server Business Intelligence на виртуальных машинах Azure](http://go.microsoft.com/fwlink/p/?LinkId=294729)
+- [SQL Server Business Intelligence на виртуальных машинах Azure](virtual-machines-sql-server-business-intelligence.md)
 
-- [Хранение данных SQL Server и рабочих нагрузок операций на виртуальных машинах Azure](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
+- [Хранение данных SQL Server и рабочих нагрузок операций на виртуальных машинах Azure](virtual-machines-sql-server-dw-and-oltp-workloads.md)
 
 ### Технические документы:
 - [Общее представление о Базе данных SQL Azure и SQL Server на виртуальных машинах Azure](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
-- [Шаблоны приложений и стратегии разработки для SQL Server на виртуальных машинах Azure](http://msdn.microsoft.com/library/azure/dn574746.aspx)
+- [Шаблоны приложений и стратегии разработки для SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

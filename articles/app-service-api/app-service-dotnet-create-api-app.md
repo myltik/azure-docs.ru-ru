@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Создание приложения API ASP.NET в службе приложений Azure"
-	description="Узнайте, как создать приложение API в службе приложений Azure с помощью Visual Studio 2013."
+	pageTitle="Создание приложения API ASP.NET в службе приложений Azure | Microsoft Azure"
+	description="Узнайте, как создать приложение API ASP.NET в службе приложений Azure с помощью Visual Studio 2013."
 	services="app-service\api"
 	documentationCenter=".net"
 	authors="bradygaster"
@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="08/14/2015"
 	ms.author="tdykstra"/>
 
@@ -34,7 +34,7 @@
 
 ## Создание проекта приложения API
 
-Когда вам будет предложено ввести имя для проекта, введите *ContactsList*.
+Когда вам будет предложено ввести имя проекта, введите **ContactsList**.
 
 [AZURE.INCLUDE [app-service-api-create](../../includes/app-service-api-create.md)]
 
@@ -47,6 +47,5 @@
 ## Дальнейшие действия
 
 Теперь ваше приложение API готово к развертыванию, и вы можете перейти к учебнику [Развертывание приложения API](app-service-dotnet-deploy-api-app.md).
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Отладка облачных служб"
-   description="Отладка облачных служб"
-   services="visual-studio-online"
-   documentationCenter="n/a"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="Отладка облачных служб Azure | Microsoft Azure"
+	description="Отладка облачных служб Azure"
+	services="visual-studio-online"
+	documentationCenter="n/a"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.workload="na"
-   ms.tgt_pltfrm="na"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/14/2015"
+	ms.author="patshea"/>
 
 # Отладка облачных служб
 
@@ -27,4 +27,4 @@
 
 - Удаленную отладку облачной службы можно включить при развертывании облачной службы в Visual Studio. Если для развертывания выбрана удаленная отладка, службы удаленной отладки будут установлены на все виртуальные машины, где выполняются экземпляры роли. Такие службы (например, msvsmon.exe) не влияют на производительность и не требуют дополнительных расходов. Дополнительные сведения см. в статье [Отладка облачной службы или виртуальной машины в Visual Studio](http://go.microsoft.com/fwlink/p/?LinkID=623018)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

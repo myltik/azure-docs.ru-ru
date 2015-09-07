@@ -7,14 +7,7 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2015"
-	ms.author="jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2015" ms.author="jimpark"; "aashishr"/>
 
 # Настройка службы архивации Azure для подготовки к резервному копированию Windows Server
 
@@ -26,9 +19,9 @@
 
 - **Создание хранилища службы архивации**. Создайте хранилище в консоли службы архивации Azure.
 - **Скачивание учетных данных хранилища**. В службе архивации Azure загрузите в хранилище созданные вами сертификаты управления.
-- **Установите агент службы архивации Azure и зарегистрируйте сервер**. Используйте службу архивации Azure для установки агента и регистрации сервера в хранилище резервных копий.
+- **Установите агент службы архивации Azure и зарегистрируйте сервер**. В службе архивации Azure установите агент и зарегистрируйте сервер в хранилище архивации.
 
-[AZURE.INCLUDE [backup-create-vault](../../includes/backup-create-vault.md)]
+[AZURE.INCLUDE [backup-create-vault-wgif](../../includes/backup-create-vault-wgif.md)]
 
 [AZURE.INCLUDE [backup-download-credentials](../../includes/backup-download-credentials.md)]
 
@@ -41,4 +34,4 @@
 - [Часто задаваемые вопросы о службе архивации Azure](backup-azure-backup-faq.md)
 - [Форум по службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

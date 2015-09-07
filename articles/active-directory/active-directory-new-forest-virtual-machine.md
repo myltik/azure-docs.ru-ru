@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Установка леса Active Directory в виртуальной сети Azure" 
-	description="В этом учебнике объясняется, как создать новый лес Active Directory на виртуальной машине (ВМ) в виртуальной сети Windows Azure." 
-	services="active-directory, virtual-network" 
-	documentationCenter="" 
-	authors="markusvi" 
-	manager="TerryLan" 
+	pageTitle="Установка леса Active Directory в виртуальной сети Azure"
+	description="В этом учебнике объясняется, как создать новый лес Active Directory на виртуальной машине (ВМ) в виртуальной сети Windows Azure."
+	services="active-directory, virtual-network"
+	documentationCenter=""
+	authors="markusvi"
+	manager="TerryLan"
 	editor="LisaToft"
 	tags="azure-classic-portal"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="identity" 
-	ms.date="07/23/2015" 
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="07/23/2015"
 	ms.author="markusvi"/>
 
 
 # Установка нового леса Active Directory в виртуальной сети Azure
 
-В этом разделе показано, как создать новую среду Windows Server Active Directory на виртуальной машине (ВМ) в [виртуальной сети Azure](https://msdn.microsoft.com/library/azure/jj156007.aspx). В данном случае виртуальная сеть Azure не соединена с локальной сетью.
+В этом разделе показано, как создать новую среду Windows Server Active Directory на виртуальной машине (ВМ) в [виртуальной сети Azure](../virtual-network/virtual-networks-overview.md). В данном случае виртуальная сеть Azure не соединена с локальной сетью.
 
 Вас также могут заинтересовать следующие связанные разделы:
 
@@ -32,8 +32,7 @@
 
 В этом сценарии внешним пользователям требуется доступ к приложениям, работающим на серверах, входящих в домен. Виртуальные машины, в которых работают серверы приложений, и виртуальные машины, в которых работают контроллеры домена, устанавливаются в своих облачных службах в виртуальной сети Azure. Для повышения отказоустойчивости их также включает в себя группа доступности.
 
-![][1]
-
+![][1] 7
 ## В чем отличие от локальной версии?
 
 Этот процесс не сильно отличается от установки контроллера домена в локальной версии Azure. Основные различия показаны в приведенной ниже таблице.
@@ -120,12 +119,12 @@
 
 -  [Установка нового леса Active Directory в виртуальной сети Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 -  [Рекомендации по развертыванию Windows Server Active Directory на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
--  [Настройка виртуальной сети только для облака](https://msdn.microsoft.com/library/dn631643.aspx)
+-  [Настройка виртуальной сети только для облака](../virtual-network/virtual-networks-create-vnet.md)
 -  [Настроить VPN типа «сеть-сеть»](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 -  [Установка реплики контроллера домена Active Directory в виртуальной сети Azure](../virtual-networks-install-replica-active-directory-domain-controller.md)
 -  [Microsoft Azure IaaS для профессионалов в сфере IT. (01) Основная информация о виртуальных машинах](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IaaS для профессионалов в сфере IT. (05) Создание виртуальных сетей и подключений между организациями](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
--  [Обзор виртуальной сети](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+-  [Обзор виртуальной сети](../virtual-network/virtual-networks-overview.md)
 -  [Установка и настройка Azure PowerShell](../powershell-install-configure.md)
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 -  [Справка по командлетам Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
@@ -139,4 +138,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

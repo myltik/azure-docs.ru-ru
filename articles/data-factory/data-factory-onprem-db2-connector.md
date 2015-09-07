@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Соединитель DB2: перемещение данных из DB2" 
-	description="Сведения о соединителе DB2 для службы фабрики данных, с помощью которого можно перемещать данные из базы данных DB2." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Перемещение данных из DB2 | Фабрика данных Azure"
+	description="Узнайте, как перемещать данные из базы данных DB2 с использованием фабрики данных Azure"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Соединитель DB2: перемещение данных из DB2
+# Перемещение данных из DB2 с помощью фабрики данных Azure
 В этой статье описано использование действия копирования в фабрике данных Azure для перемещения данных из DB2 в другое хранилище данных. Эта статья основана на статье о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования и поддерживаемых сочетаниях хранилищ данных.
 
 Фабрика данных поддерживает подключение к локальным источникам DB2 с помощью шлюза управления данными. В статье [Перемещение данных между локальными и облачными ресурсами](data-factory-move-data-between-onprem-and-cloud.md) приведены сведения о шлюзе управления данными и пошаговые инструкции по его настройке.
@@ -35,15 +35,15 @@
 
 В примере ниже показано следующее.
 
-1.	Связанная служба типа OnPremisesDb2.
-2.	Связанная служба типа AzureStorage. 
-3.	Входной набор данных типа RelationalTable.
-4.	Выходной набор данных типа AzureBlob. 
-5.	Конвейер с действием копирования, в котором используются RelationalSource и BlobSink. 
+1.	Связанная служба типа [OnPremisesDb2](data-factory-onprem-db2-connector.md#db2-linked-service-properties).
+2.	Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
+3.	Входной [набор данных](data-factory-create-datasets.md) типа [RelationalTable](data-factory-onprem-db2-connector.md#db2-dataset-type-properties).
+4.	Выходной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
+5.	[Конвейер](data-factory-create-pipelines.md) с действием копирования, в котором используются [RelationalSource](data-factory-onprem-db2-connector.md#db2-copy-activity-type-properties) и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
 В примере данные из результата выполнения запроса к базе данных DB2 каждый час копируются в BLOB-объект. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.
 
-Сначала настройте шлюз управления данными. Инструкции, как это сделать, см. в статье [Перемещение данных между локальными и облачными ресурсами](data-factory-move-data-between-onprem-and-cloud.md).
+Сначала настройте шлюз управления данными. Указания, как это сделать, см. в статье [Перемещение данных между локальными и облачными ресурсами](data-factory-move-data-between-onprem-and-cloud.md).
 
 **Связанная служба DB2**
 
@@ -80,7 +80,7 @@
 
 В примере предполагается, что таблица MyTable уже создана в DB2 и содержит столбец с именем timestamp для данных временных рядов.
 
-Если для параметра external задать значение true и указать политику externalData, фабрика данных будет считать эту таблицу внешней по отношению к себе и не созданной в результате какого-либо действия в фабрике данных. Обратите внимание, что для **типа** установлено значение **RelationalTable**.
+Если для параметра external задать значение true и указать политику externalData, фабрика данных будет считать эту таблицу внешней по отношению к себе и не созданной в результате какого-либо действия в фабрике данных. Обратите внимание, что для параметра **type** установлено значение **RelationalTable**.
 
 	{
 	    "name": "Db2DataSet",
@@ -164,7 +164,7 @@
 
 **Конвейер с действием копирования**
 
-Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **RelationalSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, заданный для свойства **query**, выбирает данные из таблицы Orders.
+Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **RelationalSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, заданный для свойства **query**, выбирает данные из таблицы Orders.
 
 	{
 	    "name": "CopyDb2ToBlob",
@@ -224,6 +224,9 @@
 | пароль | Введите пароль для учетной записи пользователя, указанной для выбранного имени пользователя. | Нет |
 | gatewayName | Имя шлюза, который следует использовать службе фабрики данных для подключения к локальной базе данных DB2. | Да |
 
+Дополнительную информацию о настройке учетных данных для локального источника данных DB2 см. в разделе [Настройка учетных данных и безопасность](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
+
+
 ## Свойства типа «Набор данных DB2»
 
 Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Создание наборов данных](data-factory-create-datasets.md). Разделы структуры, доступности и политики JSON набора данных одинаковы для всех типов наборов данных (SQL Azure, BLOB-объекты Azure, таблицы Azure и т. д.).
@@ -250,7 +253,7 @@
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ## Сопоставление типов для DB2
-Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в два этапа:
+Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в 2 этапа:
 
 1. Преобразование собственных типов источников в тип .NET.
 2. Преобразование типа .NET в собственный тип приемника.
@@ -306,4 +309,4 @@ Char | Строка
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

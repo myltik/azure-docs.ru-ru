@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect: вопросы и ответы" 
-	description="На этой странице изложены часто задаваемые вопросы об Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect: вопросы и ответы"
+	description="На этой странице изложены часто задаваемые вопросы об Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure Active Directory Connect: вопросы и ответы
@@ -40,4 +40,4 @@
 
 Продлите срок действия сертификата, используя инструкции из [соответствующей статьи](active-directory-aadconnect-o365-certs.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

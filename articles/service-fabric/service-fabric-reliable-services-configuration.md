@@ -1,20 +1,20 @@
 <properties
    pageTitle="Настройка надежных служб с отслеживанием состояния"
-   description="Сведения о настройке надежных служб с отслеживанием состояния в Service Fabric."
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="sumukhs"
-   manager="vipulm"
-   editor=""/>
+	description="Сведения о настройке надежных служб с отслеживанием состояния в Service Fabric."
+	services="Service-Fabric"
+	documentationCenter=".net"
+	authors="sumukhs"
+	manager="anuragg"
+	editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/24/2015"
-   ms.author="sumukhs"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="sumukhs"/>
 
 # Настройка надежных служб с отслеживанием состояния
 Чтобы изменить конфигурацию по умолчанию надежных служб с отслеживанием состояния, нужно изменить файл settings.xml, созданный в корне пакета Visual Studio в папке Config каждой программной службы.
@@ -91,4 +91,4 @@ ReplicatorConfig
 Параметры SharedLogId и SharedLogPath всегда используются совместно и позволяют службе использовать отдельный общий журнал из установленного по умолчанию общего журнала для узла. Для достижения наилучшей эффективности один и тот же общий журнал следует указывать в как можно большем количестве служб. Общие файлы журналов следует размещать на дисках, которые используются исключительно для хранения общих журналов. Это позволяет уменьшить конфликты перемещения головок. Изменять этот параметр требуется только в редких случаях.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

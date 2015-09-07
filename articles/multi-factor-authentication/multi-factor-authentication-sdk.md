@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Интеграция локальных удостоверений с Azure Active Directory." 
-	description="В этой статье объясняется, что такое служба Azure AD Connect и зачем ее использовать." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Интеграция локальных удостоверений с Azure Active Directory."
+	description="В этой статье объясняется, что такое служба Azure AD Connect и зачем ее использовать."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Построение Multi-Factor Authentication в пользовательских приложениях (SDK)
@@ -191,4 +191,4 @@ API-интерфейсы в пакете SDK для Multi-Factor Authentication 
 	    }
 	}
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

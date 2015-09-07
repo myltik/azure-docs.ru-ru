@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Перемещение и обработка файлов журнала с помощью фабрики данных Azure" 
-	description="В этом расширенном учебнике описывается сценарий, близкий к реальному, и реализуется сценарий использования службы фабрики данных Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Перемещение и обработка файлов журнала с помощью фабрики данных Azure"
+	description="В этом расширенном учебнике описывается сценарий, близкий к реальному, и реализуется сценарий использования службы фабрики данных Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
 # Руководство: перемещение и обработка файлов журнала с помощью фабрики данных [PowerShell]
@@ -296,7 +296,7 @@ Contoso — это компания, которая создает игры дл
 
 ### Создание таблиц
 
-1.	В Azure PowerShell перейдите к папке **Tables** (**C:\\ADFWalkthrough\\Tables\\**) из расположения, в которое вы извлекли примеры файлов.
+1.	В Azure PowerShell перейдите к папке **Tables** (**C:\\ADFWalkthrough\\Tables\**) из расположения, в которое вы извлекли примеры файлов.
 2.	Воспользуйтесь командлетом **New-AzureDataFactoryTable**, чтобы создать таблицы для файла **RawGameEventsTable.json**, как показано далее.	
 
 
@@ -466,8 +466,7 @@ Contoso — это компания, которая создает игры дл
 
 [adfgetstarted]: data-factory-get-started.md
 [adfintroduction]: data-factory-introduction.md
-[useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
-[usepigandhive]: data-factory-pig-hive-activities.md
+[usepigandhive]: data-factory-data-transformation-activities.md
 [tutorial-onpremises-using-powershell]: data-factory-tutorial-extend-onpremises-using-powershell.md
 [download-azure-powershell]: ../powershell-install-configure.md
 
@@ -559,4 +558,4 @@ Contoso — это компания, которая создает игры дл
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

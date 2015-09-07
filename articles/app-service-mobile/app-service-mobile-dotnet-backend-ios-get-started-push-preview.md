@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/29/2015"
+	ms.date="08/22/2015"
 	ms.author="krisragh"/>
 
 
@@ -21,7 +21,9 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-В этом учебнике описывается добавление push-уведомлений в проект, составленный при изучении учебника по [быстрому запуску iOS], которое предусматривает отправку push-уведомления при вставке каждой новой записи. Этот учебник составлен на основе учебника по [быстрому запуску iOS], который необходимо пройти в первую очередь. [Симулятор iOS не поддерживает push-уведомления](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), поэтому для работы с данным учебником вам потребуется физическое устройство iOS и [участие в программе для разработчиков Apple](https://developer.apple.com/programs/ios/).
+В этом учебнике описывается добавление push-уведомлений в проект, составленный при изучении учебника по [быстрому запуску iOS], которое предусматривает отправку push-уведомления при вставке каждой новой записи. Этот учебник составлен на основе учебника по [быстрому запуску iOS], который необходимо пройти в первую очередь. Если вы не используете скачанный проект сервера быстрого запуска, в проект необходимо добавить пакет расширений для push-уведомлений. Дополнительную информацию о пакетах расширений для сервера см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+
+[Симулятор iOS не поддерживает push-уведомления](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), поэтому для работы с данным учебником вам потребуется физическое устройство iOS и [участие в программе для разработчиков Apple](https://developer.apple.com/programs/ios/).
 
 ## <a id="register"></a>Регистрация приложения для работы с push-уведомлениями
 
@@ -30,10 +32,6 @@
 ## Настройка Azure для отправки push-уведомлений
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../../includes/app-service-mobile-apns-configure-push-preview.md)]
-
-##<a name="review"></a>Проверка конфигурации сервера проекта (необязательное действие)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
 
 ##<a id="update-server"></a>Обновление серверного проекта для отправки push-уведомлений
 
@@ -111,4 +109,4 @@
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

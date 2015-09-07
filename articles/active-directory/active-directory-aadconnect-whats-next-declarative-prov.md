@@ -1,21 +1,21 @@
 
 
 <properties 
-	pageTitle="Использование декларативной подготовки Azure AD Connect" 
-	description="Узнайте, как использовать декларативную подготовку Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Использование декларативной подготовки Azure AD Connect"
+	description="Узнайте, как использовать декларативную подготовку Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Декларативная подготовка Azure AD Connect
@@ -28,4 +28,4 @@
 
 Дополнительные сведения о языке выражений см. в статье [Общие сведения о выражениях декларативной подготовки](https://msdn.microsoft.com/library/azure/dn801048.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

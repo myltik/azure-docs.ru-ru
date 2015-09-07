@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Второй этап развертывания бизнес-приложений: настройка контроллеров домена" 
-	description="На втором этапе создаются и настраиваются два контроллера домена Active Directory." 
+	pageTitle="Бизнес-приложение, этап 2 | Microsoft Azure"
+	description="На втором этапе развертывания бизнес-приложения в Azure создайте и настройте два контроллера доменов реплик Active Directory."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Второй этап развертывания бизнес-приложений: настройка контроллеров домена
@@ -206,4 +206,4 @@
 
 [Рабочая нагрузка служб инфраструктуры Azure: ферма SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

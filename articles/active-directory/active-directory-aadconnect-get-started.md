@@ -1,26 +1,23 @@
 <properties 
-	pageTitle="Приступая к работе с Azure AD Connect" 
-	description="Узнайте, как скачать, установить и запустить мастер установки Azure AD Connect." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Приступая к работе с Azure AD Connect"
+	description="Узнайте, как скачать, установить и запустить мастер установки Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Приступая к работе с Azure AD Connect
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="Что это такое">Что это такое</a> <a href="../active-directory-aadconnect-how-it-works/" title="Как это работает">Как это работает</a> <a href="../active-directory-aadconnect-get-started/" title="Приступая к работе" class="current">Приступая к работе</a> <a href="../active-directory-aadconnect-whats-next/" title="Что дальше">Что дальше</a> <a href="../active-directory-aadconnect-learn-more/" title="Подробнее">Подробнее</a>
-</div>
 
 
 Следующая документация поможет вам приступить к работе с Azure Active Directory Connect. В ней рассматривается экспресс-установка Azure AD Connect. Сведения о выборочной установке см. в статье [Выборочная установка Azure AD Connect](active-directory-aadconnect-get-started-custom.md). Сведения об обновлении DirSync до Azure AD Connect см. в статье [Обновление DirSync до Azure Active Directory Connect](active-directory-aadconnect-dirsync-upgrade-get-started.md).
@@ -114,4 +111,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

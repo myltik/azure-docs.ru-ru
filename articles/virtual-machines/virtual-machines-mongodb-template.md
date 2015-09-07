@@ -1,20 +1,20 @@
 <properties
   pageTitle="Создание кластера MongoDB в системе Ubuntu на основе шаблона диспетчера ресурсов Azure"
-  description="Создание кластера MongoDB в системе Ubuntu на основе шаблона диспетчера ресурсов Azure с использованием Azure PowerShell или интерфейса командной строки Azure"
-  services="virtual-machines"
-  documentationCenter=""
-  authors="karthmut"
-  manager="timlt"
-  editor="tysonn"/>
+	description="Создание кластера MongoDB в системе Ubuntu на основе шаблона диспетчера ресурсов Azure с использованием Azure PowerShell или интерфейса командной строки Azure"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="karthmut"
+	manager="timlt"
+	editor="tysonn"/>
 
 <tags
   ms.service="virtual-machines"
-  ms.workload="multiple"
-  ms.tgt_pltfrm="vm-windows"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.date="04/29/2015"
-  ms.author="karthmut"/>
+	ms.workload="multiple"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/29/2015"
+	ms.author="karthmut"/>
 
 # Создание кластера MongoDB в системе Ubuntu на основе шаблона диспетчера ресурсов Azure
 
@@ -688,6 +688,6 @@ MongoDB — это база данных документов с открыты
 -	создать специальные шаблоны для одинаковых элементов группы ресурсов (узлы в кластере и т. д.), которые используют циклическое создание ресурсов для развертывания нескольких экземпляров с уникальными свойствами;
 -	Использовать расширения для развертывания сценариев и создать сценарии для каждой из технологий для всех задач, выполняемых после развертывания (например, установка продукта, конфигурация и т. д.).
 
-Дополнительную информацию см. в разделе [Язык шаблонов диспетчера ресурсов Azure](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+Дополнительную информацию см. в разделе [Язык шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

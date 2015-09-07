@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Сведения о настройке сети для работы с Express Route" 
-	description="Сведения о настройке сети для выполнения сред службы приложений в виртуальных сетях, подключенных к каналу ExpressRoute." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="stefsch" 
-	manager="nirma" 
+	pageTitle="Сведения о настройке сети для работы с Express Route"
+	description="Сведения о настройке сети для выполнения сред службы приложений в виртуальных сетях, подключенных к каналу ExpressRoute."
+	services="app-service\web"
+	documentationCenter=""
+	authors="stefsch"
+	manager="nirma"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="stefsch"/>
 
 # Сведения о конфигурации сети для сред службы приложений с ExpressRoute 
@@ -34,7 +34,7 @@
 
 Требования DNS можно выполнить при помощи правильной настройки DNS для виртуальной сети.
 
-Чтобы выполнить требования к входящему сетевому доступу, необходимо настроить [группу сетевой безопасности][NetworkSecurityGroups] в подсети среды службы приложений. Дополнительную информацию о предоставлении необходимого доступа см. в этой [статье][requiredports].
+Чтобы выполнить требования к входящему сетевому доступу, необходимо настроить [группу безопасности сети][NetworkSecurityGroups] в подсети среды службы приложений. Дополнительную информацию о предоставлении необходимого доступа см. в этой [статье][requiredports].
 
 ## Активация исходящего сетевого подключения для среды службы приложений##
 По умолчанию только что созданный канал ExpressRoute объявляет основной маршрут, который позволяет создавать исходящее подключение к Интернету. С такой конфигурацией среда службы приложений сможет подключаться к другим конечным точкам Azure.
@@ -77,7 +77,7 @@
     Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 9' -AddressPrefix 191.0.0.0/8 -NextHopType Internet
 
 
-Полный обновленный список диапазонов CIDR, которые использует Azure, можно загрузить в виде XML-файла, содержащего все диапазоны, из [Центра загрузки Майкрософт][DownloadCenterAddressRanges].
+Полный обновленный список диапазонов CIDR, которые использует Azure, можно скачать в виде XML-файла, содержащего все диапазоны, в [Центре загрузки Майкрософт][DownloadCenterAddressRanges].
 
 **Примечание.** С некоторого времени в параметре *AddressPrefix* можно будет использовать сокращение CIDR 0.0.0.0/0. Это сокращение обозначает «все интернет-адреса». Вместо этого сейчас разработчикам приходится использовать широкий набор диапазонов CIDR для охвата всех возможных диапазонов адресов Azure, используемых в регионе, где развернута среда службы приложений.
 
@@ -113,12 +113,12 @@
 [UDRHowTo]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/
 [HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [AzureDownloads]: http://azure.microsoft.com/downloads/
-[DownloadCenterAddressRanges]: http://www.microsoft.com/ru-ru/download/details.aspx?id=41653
-[NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
+[DownloadCenterAddressRanges]: http://www.microsoft.com/download/details.aspx?id=41653
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [IntroToAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
  
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

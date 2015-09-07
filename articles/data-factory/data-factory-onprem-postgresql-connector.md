@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Соединитель PostgreSQL: перемещение данных из PostgreSQL" 
-	description="Сведения о соединителе PostgreSQL для службы фабрики данных, с помощью которого можно перемещать данные из базы данных PostgreSQL." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Перемещение данных из PostgreSQL | Фабрика данных Azure"
+	description="Узнайте, как перемещать данные из базы данных PostgreSQL с использованием фабрики данных Azure"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Соединитель PostgreSQL: перемещение данных из PostgreSQL с помощью фабрики данных Azure
+# Перемещение данных из PostgreSQL с помощью фабрики данных Azure
 
 В этой статье описано использование действия копирования в фабрике данных Azure для перемещения данных из PostgreSQL в другое хранилище данных. Эта статья основана на статье о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования и поддерживаемых сочетаниях хранилищ данных.
 
@@ -34,15 +34,15 @@
 
 В примере ниже показано следующее.
 
-1.	Связанная служба типа OnPremisesPostgreSql.
-2.	Связанная служба типа AzureStorage.
-3.	Входной набор данных типа RelationalTable.
-4.	Выходной набор данных типа BlobSink.
-4.	Конвейер с действием копирования, которое использует RelationalSource и BlobSink. 
+1.	Связанная служба типа [OnPremisesPostgreSql](data-factory-onprem-postgresql-connector.md#postgresql-linked-service-properties).
+2.	Связанная служба типа [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+3.	Входной [набор данных](data-factory-create-datasets.md) типа [RelationalTable](data-factory-onprem-postgresql-connector.md#postgresql-dataset-type-properties).
+4.	Выходной [набор данных](data-factory-create-datasets.md) типа [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4.	[Конвейер](data-factory-create-pipelines.md) с действием копирования, которое использует [RelationalSource](data-factory-onprem-postgresql-connector.md#postgresql-copy-activity-type-properties) и [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
 
 В примере данные из результата выполнения запроса к базе данных PostgreSQL каждый час копируются в BLOB-объект. Используемые в этих примерах свойства JSON описаны в разделах, следующих за примерами.
 
-Сначала настройте шлюз управления данными согласно инструкциям в статье [Перемещение данных между локальными и облачными ресурсами](data-factory-move-data-between-onprem-and-cloud.md).
+Сначала настройте шлюз управления данными согласно указаниям в статье [Перемещение данных между локальными и облачными ресурсами](data-factory-move-data-between-onprem-and-cloud.md).
 
 **Связанная служба PostgreSQL**
 
@@ -163,7 +163,7 @@
 
 **Действие копирования**
 
-Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **RelationalSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, заданный для свойства **query**, выбирает данные из таблицы public.usstates в базе данных PostgreSQL.
+Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **RelationalSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, заданный для свойства **query**, выбирает данные из таблицы public.usstates в базе данных PostgreSQL.
 	
 	{
 	    "name": "CopyPostgreSqlToBlob",
@@ -219,9 +219,11 @@ server | Имя сервера, PostgreSQL. | Да
 database | Имя базы данных PostgreSQL. | Да 
 schema | Имя схемы в базе данных. | Нет 
 authenticationType | Тип проверки подлинности, используемый для подключения к базе данных PostgreSQL. Возможными значениями являются: анонимная, обычная и Windows. | Да 
-username | При использовании обычной проверки подлинности или проверки подлинности Windows укажите имя пользователя. | Нет 
-password | Введите пароль для учетной записи пользователя, указанной для выбранного имени пользователя. | Нет 
+Имя пользователя | При использовании обычной проверки подлинности или проверки подлинности Windows укажите имя пользователя. | Нет 
+пароль | Введите пароль для учетной записи пользователя, указанной для выбранного имени пользователя. | Нет 
 gatewayName | Имя шлюза, который следует использовать службе фабрики данных для подключения к локальной базе данных PostgreSQL. | Да 
+
+Дополнительную информацию о настройке учетных данных для локального источника данных PostgreSQL см. в разделе [Настройка учетных данных и безопасность](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security).
 
 ## Свойства типа «Набор данных PostgreSQL»
 
@@ -249,7 +251,7 @@ tableName | Имя таблицы в экземпляре базы данных 
 
 ## Сопоставление типов для PostgreSQL
 
-Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в два этапа:
+Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в 2 этапа:
 
 1. Преобразование собственных типов источников в тип .NET.
 1. Преобразование типа .NET в собственный тип приемника.
@@ -304,4 +306,4 @@ text | | Строка
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

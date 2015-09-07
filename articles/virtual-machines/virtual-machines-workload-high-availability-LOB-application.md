@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Службы инфраструктуры Azure: высокодоступное бизнес-приложение" 
-	description="Из этой статьи вы узнаете, какие преимущества дает развернутое в Azure специализированное веб-приложение, как настроить среду для разработки и тестирования, а также как развернуть высокодоступную рабочую конфигурацию." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Бизнес-приложение в Azure | Microsoft Azure"
+	description="Определение полезности бизнес-приложения в Azure, настройка тестовой среды и развертывание конфигурации высокого уровня доступности."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Службы инфраструктуры Azure: высокодоступное бизнес-приложение
@@ -103,4 +103,4 @@
 
 [Рабочая нагрузка служб инфраструктуры Azure: ферма SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

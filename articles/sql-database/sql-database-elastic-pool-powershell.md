@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Создание эластичного пула баз данных для Базы данных SQL и управление им с помощью PowerShell" 
-   description="Создание эластичного пула баз данных для Базы данных SQL Azure и управление им с помощью PowerShell" 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jeffreyg" 
-   editor=""/>
+   pageTitle="Создание эластичного пула баз данных для Базы данных SQL и управление им с помощью PowerShell"
+	description="Создание эластичного пула баз данных для Базы данных SQL Azure и управление им с помощью PowerShell"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
+	editor=""/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="08/12/2015"
-   ms.author="adamkr; sstein"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="data-management"
+	ms.date="08/25/2015"
+	ms.author="adamkr; sstein"/>
 
 # Создание эластичного пула баз данных для Базы данных SQL и управление им с помощью PowerShell
 
@@ -105,6 +105,7 @@
 
 Пул, созданный на предыдущем шаге, пуст, в нем не содержится ни одной эластичной базы данных. В следующих разделах рассказывается, как создавать эластичные базы данных в пуле, а также о том, как добавлять уже существующие базы данных в пул.
 
+*Кроме того, после создания пула можно использовать Transact-SQL для создания новых эластичных баз данных в пуле и перемещения существующих баз данных в пул и из него. Дополнительные сведения можно найти в разделе [Справочник по пулу эластичных баз данных — Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 ### Создание эластичной базы данных внутри пула эластичных баз данных
 
@@ -239,4 +240,4 @@
 
 Дополнительные сведения об эластичных базах данных и их пулах, включая интерфейс API и сведения об ошибках, можно узнать в статье [Справка по эластичным пулам баз данных](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

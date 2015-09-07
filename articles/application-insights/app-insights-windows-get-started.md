@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Application Insights для приложений Windows Phone и Магазина Windows" 
-	description="Анализ использования и производительности приложения для устройства Windows с помощью Application Insights." 
-	services="application-insights" 
-    documentationCenter="windows"
-	authors="alancameronwills" 
+<properties
+	pageTitle="Application Insights для приложений Windows Phone и Магазина Windows | Microsoft Azure"
+	description="Анализ использования и производительности приложения для устройства Windows с помощью Application Insights."
+	services="application-insights"
+	documentationCenter="windows"
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="06/16/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="06/16/2015"
 	ms.author="awills"/>
 
 # Application Insights для приложений Windows Phone и Магазина Windows
@@ -23,8 +23,8 @@
 
 С помощью Visual Studio Application Insights можно отслеживать следующие показатели опубликованного приложения.
 
-* [**Использование**][windowsUsage] — узнайте, сколько пользователей у вас есть и что они делают с вашим приложением.
-* [**Сбои**][windowsCrash] — получайте диагностические отчеты о сбоях и исследуйте их влияние на пользователей.
+* [**Использование**][windowsUsage] &#151; узнайте, сколько пользователей у вас есть и что они делают с вашим приложением.
+* [**Сбои**][windowsCrash] &#151; получайте диагностические отчеты о сбоях и исследуйте их влияние на пользователей.
 
 ![](./media/app-insights-windows-get-started/appinsights-d018-oview.png)
 
@@ -35,7 +35,7 @@
 * подписка на [Microsoft Azure][azure];
 * Visual Studio 2013 или более поздняя версия.
 
-## 1\. Создание ресурса Application Insights 
+## 1\. Создание ресурса Application Insights
 
 На [портале Azure][portal] создайте новый ресурс Application Insights.
 
@@ -45,7 +45,7 @@
 
 #### Копирование ключа инструментирования
 
-Этот ключ идентифицирует ресурс. Он скоро потребуется вам, чтобы настроить пакет SDK для отправки данных в ресурс.
+Этот ключ идентифицирует ресурс. Он потребуется вам, чтобы настроить пакет SDK для отправки данных в ресурс.
 
 ![Откройте раскрывающуюся панель Essentials и выберите ключ инструментирования](./media/app-insights-windows-get-started/02-props.png)
 
@@ -76,7 +76,7 @@
 	```
 
     Задайте для файла ApplicationInsights.config такие свойства: **Действие при построении** == **Содержимое**, **Копировать в выходной каталог** == **Копировать всегда**.
-	
+
 	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
 
 5. Добавьте приведенный ниже код инициализации. Рекомендуем добавить этот код в конструктор `App()`. Если выполнить это действие в другом месте, можно пропустить автоматический сбор сведений о первых просмотрах страниц.
@@ -84,9 +84,9 @@
 ```C#
 	public App()
 	{
-	   // Add this initilization line. 
+	   // Add this initilization line.
 	   WindowsAppInitializer.InitializeAsync();
-	
+
 	   this.InitializeComponent();
 	   this.Suspending += OnSuspending;
 	}  
@@ -120,7 +120,7 @@
 
 ![Щелкните плитки, чтобы увидеть больше данных](./media/app-insights-windows-get-started/appinsights-26-devices-01.png)
 
-Нажмите кнопку «Обновить» через несколько секунд, если ожидаете дополнительные данные.
+Если вам требуется больше данных, нажмите кнопку **Обновить** через несколько секунд.
 
 Щелкните любую диаграмму, чтобы просмотреть более подробные сведения.
 
@@ -138,7 +138,7 @@
     WindowsAppInitializer.InitializeAsync( "00000000-0000-0000-0000-000000000000",
        WindowsCollectors.Metadata
        | WindowsCollectors.PageView
-       | WindowsCollectors.Session 
+       | WindowsCollectors.Session
        | WindowsCollectors.UnhandledException);
 
 #### Отправка собственных данных телеметрии
@@ -165,7 +165,7 @@
 
 ```
 
-Дополнительные сведения см. в статье [API Application Insights для пользовательских событий и метрик][api].
+Дополнительную информацию см. в статье [Пользовательские события и метрики][api].
 
 ## Что дальше?
 
@@ -178,16 +178,16 @@
 
 Если вы предпочитаете использовать Visual Studio для выполнения шагов настройки, это можно сделать с приложениями Windows Phone, Магазина Windows и многими другими типами приложений.
 
-###<a name="new"></a> Если создается новый проект приложения Windows...
+### <a name="new"></a> Если создается новый проект приложения Windows...
 
-Выберите Application Insights в диалоговом окне создания проекта.
+Выберите **Application Insights** в диалоговом окне **Создание проекта**.
 
 Если появляется запрос на вход, используйте учетные данные для своей учетной записи Azure (которая отличается от учетной записи Visual Studio Online).
 
 ![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
 
 
-###<a name="existing"></a> Или если это существующий проект...
+### <a name="existing"></a>Или если это существующий проект...
 
 Добавьте Application Insights из обозревателя решений.
 
@@ -196,7 +196,7 @@
 
 ## Обновление до новой версии пакета SDK
 
-При [выпуске новой версии пакета SDK](app-insights-release-notes-windows.md): * Щелкните правой кнопкой мыши проект и выберите «Управление пакетами NuGet». * Выберите установленные пакеты Application Insights и выберите «Обновить».
+При [выпуске новой версии пакета SDK](app-insights-release-notes-windows.md): * щелкните правой кнопкой мыши проект и выберите «Управление пакетами NuGet»; * выберите установленные пакеты Application Insights и выберите **Обновить**.
 
 
 ## <a name="usage"></a>Дальнейшие действия
@@ -227,6 +227,4 @@
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

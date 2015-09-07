@@ -1,21 +1,21 @@
 <properties
    pageTitle="Руководство по мониторингу и диагностике | Microsoft Azure"
-   description="Рекомендации по мониторингу распределенных приложений в облаке."
-   services=""
-   documentationCenter="na"
-   authors="dragon119"
-   manager="masimms"
-   editor=""
-   tags=""/>
+	description="Рекомендации по мониторингу распределенных приложений в облаке."
+	services=""
+	documentationCenter="na"
+	authors="dragon119"
+	manager="masimms"
+	editor=""
+	tags=""/>
 
 <tags
    ms.service="best-practice"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="04/28/2015"
-   ms.author="masashin"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="04/28/2015"
+	ms.author="masashin"/>
 
 # Руководство по мониторингу и диагностике
 
@@ -608,8 +608,8 @@ _Рис. 6. Секционирование данных в соответств�
 - Страница [Настройка диагностики для виртуальных машин и облачных служб Azure](https://msdn.microsoft.com/library/azure/dn186185.aspx) на веб-сайте корпорации Майкрософт.
 - Страницы [Кэш Redis для Azure](http://azure.microsoft.com/services/cache/), [Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) и [HDInsight](http://azure.microsoft.com/services/hdinsight/) на веб-сайте корпорации Майкрософт.
 - Страница [Использование очередей служебной шины](http://azure.microsoft.com/) на веб-сайте корпорации Майкрософт.
-- Статья [Бизнес-аналитика SQL Server в виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/jj992719.aspx) на веб-сайте корпорации Майкрософт.
+- Статья [Бизнес-аналитика SQL Server в виртуальных машинах Azure](./virtual-machines/virtual-machines-sql-server-business-intelligence.md) на веб-сайте корпорации Майкрософт.
 - Страница [Основные сведения об оповещениях мониторинга и уведомлениях в Azure](https://msdn.microsoft.com/library/azure/dn306639.aspx) на веб-сайте корпорации Майкрософт.
 - Страница [Application Insights](app-insights-get-started/) на веб-сайте корпорации Майкрософт.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

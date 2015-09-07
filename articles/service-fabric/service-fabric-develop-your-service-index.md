@@ -1,20 +1,20 @@
 <properties
    pageTitle="Разработка службы Service Fabric"
-   description="Тематические статьи и учебники, помогающие научиться разрабатывать службы Service Fabric с использованием моделей программирования на основе надежных субъектов и служб."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor=""/>
+	description="Тематические статьи и учебники, помогающие научиться разрабатывать службы Service Fabric с использованием моделей программирования на основе надежных субъектов и служб."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="rwike77"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="05/14/2015"
-   ms.author="ryanwi"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/20/2015"
+	ms.author="ryanwi"/>
 
 # Разработка службы Service Fabric
 На этой странице приведены ссылки на общие сведения и тематические статьи и справочные разделы, которые помогут вам глубже изучить разработку служб Service Fabric. Платформа Service Fabric предлагает две высокоуровневые модели программирования для создания служб: интерфейсы API надежных субъектов и надежных служб. Хотя обе модели основаны на одних и тех же принципах Service Fabric, они характеризуются разным соотношением простоты и гибкости с точки зрения параллельной работы, секционирования и обмена данными. Полезно изучить обе модели, чтобы выбрать ту из них, которая лучше всего подходит для разработки конкретной службы приложения.
@@ -53,7 +53,7 @@
 - [События и счетчики производительности, связанные с параллелизмом](service-fabric-reliable-actors-diagnostics.md)
 - [Реентерабельность субъектов](service-fabric-reliable-actors-reentrancy.md)
 - [Таймеры субъектов](service-fabric-reliable-actors-timers-reminders.md)
- 
+
 Сведения о настройках надежных субъектов можно найти здесь:
 
 - [Настройка KVSActorStateProvider](../Service-Fabric/service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)  
@@ -86,6 +86,5 @@
 Для надежных служб предусмотрены события и счетчики производительности, которые можно использовать для мониторинга и диагностики работоспособности вашей службы:
 
 - [Диагностика надежных служб с отслеживанием состояния](service-fabric-reliable-services-diagnostics.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

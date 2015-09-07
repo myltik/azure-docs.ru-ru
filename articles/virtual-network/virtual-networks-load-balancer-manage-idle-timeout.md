@@ -1,22 +1,20 @@
 <properties 
-   authors="danielceckert" 
-   documentationCenter="dev-center-name" 
-   editor=""
-   manager="jefco" 
-   pageTitle="Управление: время ожидания простоя балансировщика нагрузки" 
-   description="Функции управления для времени ожидания простоя балансировщика нагрузки Azure" 
-   services="virtual-network" 
-   />
+   authors="danielceckert"
+	documentationCenter="dev-center-name"
+	editor=""
+	manager="jefco"
+	pageTitle="Управление: время ожидания простоя балансировщика нагрузки"
+	description="Функции управления для времени ожидания простоя балансировщика нагрузки Azure"
+	services="virtual-network"/>
 
 <tags
    ms.author="danecke"
-   ms.date="05/27/2015"
-   ms.devlang="na"
-   ms.service="virtual-network"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   />
+	ms.date="05/27/2015"
+	ms.devlang="na"
+	ms.service="virtual-network"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"/>
    
 # Управление виртуальной сетью: время ожидания простоя TCP балансировщика нагрузки
 
@@ -34,8 +32,8 @@
 
 Можно настроить время ожидания простоя TCP для:
 
-* [общедоступных IP-адресов на уровне экземпляра;](http://msdn.microsoft.com/library/azure/dn690118.aspx)
-* [наборов балансировки нагрузки для конечных точек;](http://msdn.microsoft.com/library/azure/dn655055.aspx)
+* [общедоступных IP-адресов на уровне экземпляра;](virtual-networks-instance-level-public-ip.md)
+* [наборов балансировки нагрузки для конечных точек;](../load-balancer/load-balancer-overview.md)
 * [конечных точек виртуальных машин;](../virtual-machines/virtual-machines-set-up-endpoints.md)
 * [веб-ролей;](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [рабочих ролей.](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
@@ -152,4 +150,4 @@ LoadBalancerDistribution может иметь значение sourceIP для 
     </LoadBalancedEndpointList>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

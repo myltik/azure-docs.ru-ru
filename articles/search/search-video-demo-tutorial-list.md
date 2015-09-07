@@ -50,34 +50,35 @@
 Пошаговое руководство|Описание
 -----------|-----------
 [Использование службы поиска Azure с D3.js для создания интерактивной визуализации данных](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/)|Запись в блоге и пример кода, в которых описывается включение возможностей наглядного поиска в пользовательское приложение.
-[Начало работы со службой поиска Azure в .NET](search-get-started-dotnet.md)|Учебник, описывающий принципы работы со службой поиска Azure в управляемом коде.
-[Начало работы с Поиском Azure на NodeJS](search-get-started-nodejs.md)|Учебник, описывающий принципы работы со службой поиска Azure в NodeJS.
+[Начало работы со службой поиска Azure в .NET](search-get-started-dotnet.md)|Узнайте о том, как работать со службой "Поиск Azure" в управляемом коде.
+[Начало работы с Поиском Azure на NodeJS](search-get-started-nodejs.md)|Узнайте о том, как работать со службой "Поиск Azure" в NodeJS.
 [Начало работы с Поиском Azure в Java](search-get-started-java.md)|Учебник для программистов Java. В нем описывается использование среды разработки Eclipse и сервера Apache Tomcat для создания и запуска примеров приложений, использующих службу поиска Azure.
 [Сценарии и возможности службы поиска Azure](http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/)|Запись в блоге, в которой рассматриваются основные сценарии, поддерживаемые текущими функциями.
-[Как использовать Поиск Azure в приложении .NET](search-howto-dotnet-sdk.md)|Руководство по настройке и запуску примера веб-приложения Visual Studio, интегрированного со службой поиска Azure.
+[Как использовать Поиск Azure в приложении .NET](search-howto-dotnet-sdk.md)|Настройка и запуск примера веб-приложения Visual Studio, интегрированного со службой "Поиск Azure".
 [Включение предложений в приложения поиска](http://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/)|Сведения о реализации функции предложений, также называемой функцией автозаполнения. В этой демонстрации рассматривается ряд следующих тем: создание приложений MVC4, использующих предложения службы поиска Azure; использование библиотеки typeahead.js Twitter для создания компонента эффективного автозаполнения в JavaScript; использование нечетких совпадений для отображения предложения, даже если пользователь вводит слово с ошибкой.
 [Виртуальная лаборатория TechNet: создание приложения поиска Microsoft Azure](http://go.microsoft.com/?linkid=9874663)|Виртуальная лаборатория, предоставляющая среду разработки, инструментарий, документацию и данные. Для выполнения лабораторной работы вам потребуется учетная запись Azure (в рамках пробной или персональной подписки Azure).
 [Разработка приложения для геопространственного поиска с помощью службы поиска Azure](search-create-geospatial.md)|Руководство по использованию карт и системы координат Bing для поддержки геопространственного поиска.
 [Синхронизация данных SQL Server со службой поиска Azure](http://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/)|Запись в блоге, в которой описывается загрузка данных из реляционных баз данных SQL Server в индекс службы поиска Azure.
 [Учебник по созданию профиля повышения](search-get-started-scoring-profiles.md)|Тестовый выпуск профиля повышения с помощью консольного приложения.
-[Учебник по API REST управления службой поиска Azure](search-get-started-management-api.md)|Руководство по использованию API REST управления для подготовки и настройки службы.
+[Учебник по API REST управления службой поиска Azure](search-get-started-management-api.md)|Как использовать API REST управления для подготовки службы и управления ключами API администрирования или запросов.
 
 ##Примеры кода
 
 [****https://github.com/AzureSearch**](https://github.com/AzureSearch) — это репозиторий GitHub для Поиска Azure, содержащий примеры кода от команды разработчиков службы поиска Azure. Вы можете перейти в репозиторий, чтобы ознакомиться со всем содержимым. Или же можно воспользоваться ссылками ниже, чтобы сразу перейти к конкретным примерам.
 
-- [**JavaIndexerDemo**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) в репозитории GitHub.
-- [**NodeJSIndexerDemo**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo) в репозитории GitHub.
-- [**.NET-2015-02-28-Sample**](https://github.com/AzureSearch/.NET-2015-02-28-Sample) в репозитории GitHub.
-- [**Учебные материалы Microsoft Virtual Academy об использовании службы поиска Azure**](https://github.com/MicrosoftLearning/AzureSearch-MVA) в репозитории GitHub.
+- [**JavaIndexerDemo**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)
+- [**NodeJSIndexerDemo**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)
+- [**. NET-2015-02-28-образец**](https://github.com/AzureSearch/.NET-2015-02-28-Sample) — это приложение ASP.NET MVC 5, использующее клиентскую библиотеку .NET для операций поиска.
+
+[**Учебные материалы Microsoft Virtual Academy об использовании службы "Поиск Azure"**](https://github.com/MicrosoftLearning/AzureSearch-MVA) в отдельном репозитории GitHub. Он включает несколько примеров, используемых в курсе в части 7.
 
 На сайте CodePlex доступны несколько примеров, опубликованных в ходе тестирования общедоступной предварительной версии. Эти примеры все еще актуальны для текущей версии.
 
-- [**Демоверсия API REST управления**](https://azuresearchmgmtapi.codeplex.com/) на сайте CodePlex.
-- [**Демоверсия AdventureWorks**](https://azuresearchadventureworksdemo.codeplex.com/) на сайте CodePlex.
-- [**Демоверсия функции предложений**](https://azsearchsuggestions.codeplex.com/SourceControl/latest) на сайте CodePlex.
-- [**Пример использования функции геопространственного поиска**](https://azuresearchgeospatial.codeplex.com/) на сайте CodePlex.
-- [**Пример синхронизации SQL Server со службой поиска Azure**](http://sqlserver2azuresearch.codeplex.com/) на сайте CodePlex.
-- [**Демоверсия профилей повышения**](https://azuresearchscoringprofiles.codeplex.com/) на сайте CodePlex.
+- [**Демоверсия API REST управления**](https://azuresearchmgmtapi.codeplex.com/) представляет собой консольное приложение Windows, использующее API REST управления.
+- [**AdventureWorks Demo**](https://azuresearchadventureworksdemo.codeplex.com/) — это приложение ASP.NET MVC 4.
+- [**Демоверсия функции предложений**](https://azsearchsuggestions.codeplex.com/SourceControl/latest) — это приложение ASP.NET MVC 4.
+- [**Пример использования функции геопространственного поиска**](https://azuresearchgeospatial.codeplex.com/) — это приложение ASP.NET MVC 4.
+- [**Пример синхронизации SQL Server со службой "Поиск Azure"**](http://sqlserver2azuresearch.codeplex.com/) представляет собой консольное приложение Windows, которое загружает набор строк SQL Server из внедренной локальной базы данных.
+- [**Демоверсия профилей оценки**](https://azuresearchscoringprofiles.codeplex.com/) представляет собой консольное приложение Windows, которое определяет, выполняет и обновляет профиль оценки для настройки результатов поиска.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

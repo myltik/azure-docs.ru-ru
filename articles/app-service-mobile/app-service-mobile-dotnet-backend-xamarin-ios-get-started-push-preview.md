@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Добавление push-уведомлений в приложение Xamarin.iOS с помощью службы приложений Azure" 
-	description="Использование службы приложений Azure для отправки push-уведомлений в приложение Xamarin.iOS" 
-	services="app-service\mobile" 
-	documentationCenter="xamarin" 
+	pageTitle="Добавление push-уведомлений в приложение Xamarin.iOS с помощью службы приложений Azure"
+	description="Использование службы приложений Azure для отправки push-уведомлений в приложение Xamarin.iOS"
+	services="app-service\mobile"
+	documentationCenter="xamarin"
 	authors="normesta"
-	manager="dwrede" 
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-mobile" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
-	ms.devlang="dotnet" 
+	ms.service="app-service-mobile"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-ios"
+	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="07/29/2015" 
+	ms.date="08/22/2015"
 	ms.author="yuaxu"/>
 
 # Добавление push-уведомлений в приложение Xamarin.iOS
@@ -22,33 +22,25 @@
 
 ##Обзор
 
-В этом учебнике описывается добавление push-уведомлений в проект, составленный при изучении учебника по [быстрому запуску Xamarin.iOS], которое предусматривает отправку push-уведомления при вставке каждой новой записи. Этот учебник составлен на основе учебника по [быстрому запуску Xamarin.iOS], который необходимо пройти в первую очередь. [Симулятор iOS не поддерживает push-уведомления](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), поэтому необходимо использовать физическое устройство под управлением iOS. Вам также необходимо зарегистрироваться для [участия в программе разработки решений для Apple](https://developer.apple.com/programs/ios/).
+В этом учебнике описывается добавление push-уведомлений в проект, составленный при изучении учебника по [быстрому запуску Xamarin.iOS], которое предусматривает отправку push-уведомления при вставке каждой новой записи. Этот учебник составлен на основе учебника по [быстрому запуску Xamarin.iOS], который необходимо пройти в первую очередь. Если вы не используете скачанный проект сервера быстрого запуска, в проект необходимо добавить пакет расширений для push-уведомлений. Дополнительную информацию о пакетах расширений для сервера см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+
+[Симулятор iOS не поддерживает push-уведомления](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), поэтому необходимо использовать физическое устройство под управлением iOS. Вам также необходимо зарегистрироваться для [участия в программе разработки решений для Apple](https://developer.apple.com/programs/ios/).
 
 ##Предварительные требования
 
 Для работы с этим учебником требуется:
 
-* Активная учетная запись Azure.
+* Активная учетная запись Azure. Если у вас еще нет учетной записи, зарегистрируйтесь для использования пробной версии Azure и получите до 10 бесплатных мобильных приложений. Вы сможете использовать их даже после окончания срока действия пробной версии. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-    Если у вас еще нет учетной записи, зарегистрируйтесь для использования пробной версии Azure и получите до 10 бесплатных мобильных приложений. Вы сможете использовать их даже после окончания срока действия пробной версии. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/).
+* Компьютер Mac с установленным программным обеспечением [Xamarin Studio] и [Xcode] 4.4 или более поздней версии. Учтите, что проще всего запустить приложение Xamarin.iOS на компьютере Mac с помощью Xamarin Studio. Запустить приложение Xamarin.iOS можно в Visual Studio на компьютере Windows, если хотите, но это немного сложнее, так как необходимо подключиться к компьютеру Mac с доступом к сети. Если вам это интересно, см. раздел [Установка Xamarin.iOS в Windows].
 
-    >[AZURE.NOTE]Если вы хотите приступить к работе с мобильными приложениями до регистрации для получения учетной записи Azure, перейдите на страницу [Пробное использование службы приложения](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). Вы можете немедленно создать кратковременное начальное мобильное приложение. Никаких кредитных карт и обязательств.
+* Физическое устройство iOS.
 
-* Компьютер Mac с установленным ПО [Xamarin Studio] и [Xcode] 4.4 или более поздней версии.
-
-    >[AZURE.NOTE]Проще всего запустить приложение Xamarin.iOS на компьютере Mac с помощью Xamarin Studio. Запустить приложение Xamarin.iOS можно в Visual Studio на компьютере Windows, если хотите, но это немного сложнее, так как необходимо подключиться к компьютеру Mac с доступом к сети. Если вам это интересно, см. раздел [Установка Xamarin.iOS в Windows].
-
-* Физическое устройство iOS
-
-* Завершение [краткого руководства](../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md)
+* Завершение [краткого учебника](../app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md).
 
 ## <a id="register"></a>Регистрация приложения для работы с push-уведомлениями
 
 [AZURE.INCLUDE [Включение push-уведомлений Apple](../../includes/enable-apple-push-notifications.md)]
-
-##<a name="review"></a>Проверка конфигурации серверного проекта (необязательно)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
 
 ## Настройка Azure для отправки push-уведомлений
 
@@ -81,7 +73,7 @@
             }
         }
 
-1. Добавьте следующую инструкцию `using` в верхнюю часть файла **AppDelegate.cs**:
+1. Добавьте следующий оператор `using` в верхнюю часть файла **AppDelegate.cs**:
 
         using Microsoft.WindowsAzure.MobileServices;
 
@@ -139,7 +131,7 @@
 	
 	> [AZURE.NOTE]Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
 
-2. В приложении введите задачу, затем щелкните значок «плюс» (**+**).
+2. В приложении введите задачу, а затем щелкните значок «Плюс» (**+**).
 
 3. Убедитесь, что уведомление получено, а затем нажмите кнопку **ОК**, чтобы закрыть его.
 
@@ -200,12 +192,12 @@
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Get started with Mobile Services]: /ru-ru/develop/mobile/tutorials/get-started-xamarin-ios
-[Get started with data]: /ru-ru/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Get started with authentication]: /ru-ru/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Get started with push notifications]: /ru-ru/develop/mobile/tutorials/get-started-with-push-xamarin-ios
-[Push notifications to app users]: /ru-ru/develop/mobile/tutorials/push-notifications-to-users-ios
-[Authorize users with scripts]: /ru-ru/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Get started with Mobile Services]: /ru-RU/develop/mobile/tutorials/get-started-xamarin-ios
+[Get started with data]: /ru-RU/develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[Get started with authentication]: /ru-RU/develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[Get started with push notifications]: /ru-RU/develop/mobile/tutorials/get-started-with-push-xamarin-ios
+[Push notifications to app users]: /ru-RU/develop/mobile/tutorials/push-notifications-to-users-ios
+[Authorize users with scripts]: /ru-RU/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 [Xamarin Device Provisioning]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 [Установка Xamarin.iOS в Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
@@ -217,4 +209,4 @@
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

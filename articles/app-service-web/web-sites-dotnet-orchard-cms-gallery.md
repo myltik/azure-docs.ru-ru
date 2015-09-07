@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Создание веб-приложения Orchard CMS из Azure Marketplace" 
-	description="Учебник, в котором показано, как создать новое веб-приложение в Azure и использовать портал Azure для запуска веб-приложений и управления ими." 
+	pageTitle="Создание веб-приложения Orchard CMS из Azure Marketplace"
+	description="Учебник, в котором показано, как создать новое веб-приложение в Azure и использовать портал Azure для запуска веб-приложений и управления ими."
 	tags="azure-portal"
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/03/2015"
 	ms.author="tomfitz"/>
 
 # Создание веб-приложения Orchard CMS из Azure Marketplace
@@ -73,7 +73,6 @@ Marketplace предоставляет широкий выбор популяр�
 
 ## Дальнейшие действия
 
-* [Разработка и развертывание веб-приложения с помощью Microsoft WebMatrix](web-sites-dotnet-using-webmatrix.md) — узнайте, как редактировать веб-приложения службы Azure в WebMatrix. 
 * [Создание приложения ASP.NET MVC с проверкой подлинности и базой данных SQL и развертывание в службу приложений Azure](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) — узнайте, как создать новое веб-приложение в службе приложений Azure из Visual Studio.
 
 ## Изменения
@@ -92,4 +91,4 @@ Marketplace предоставляет широкий выбор популяр�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

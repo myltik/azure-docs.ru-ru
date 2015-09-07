@@ -1,20 +1,20 @@
 <properties
    pageTitle="Анализ полученных с датчиков данных с помощью Apache Storm и HBase | Microsoft Azure"
-   description="В этой статье вы узнаете, как подключить к Apache Storm к виртуальной сети. Используйте Storm с HBase для обработки данных датчиков из концентратора событий и их визуализации с помощью D3.js."
-   services="hdinsight"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
+	description="В этой статье вы узнаете, как подключить к Apache Storm к виртуальной сети. Используйте Storm с HBase для обработки данных датчиков из концентратора событий и их визуализации с помощью D3.js."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="java"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/06/2015"
-   ms.author="larryfr"/>
+	ms.devlang="java"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="07/06/2015"
+	ms.author="larryfr"/>
 
 # Анализ полученных с датчиков данных с использованием Apache Storm, концентратора событий и базы данных HBase в службе HDInsight (Hadoop)
 
@@ -300,7 +300,7 @@
 
 	- **Расположение**.Расположение должно совпадать с расположением кластера HBase, который вы создадите.
 
-	- **DNS-сервер**. В этой статье используется внутренний DNS-сервер, предоставляемый службой Azure. Поэтому вы можете выбрать вариант **Нет**. Более продвинутые сетевые конфигурации с другими DNS-серверами также поддерживаются. Подробные инструкции см. в статье [Разрешение имен (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+	- **DNS-сервер**. В этой статье используется внутренний DNS-сервер, предоставляемый службой Azure. Поэтому вы можете выбрать вариант **Нет**. Более продвинутые сетевые конфигурации с другими DNS-серверами также поддерживаются. Подробные инструкции см. в статье [Разрешение имен (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 4. Щелкните **Создать виртуальную сеть**. В списке появится имя новой виртуальной сети. Подождите, пока в столбце «Состояние» не появится значение **Создано**.
 
@@ -420,4 +420,4 @@
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Проверка подлинности RADIUS и сервер Azure Multi-Factor Authentication" 
-	description="Это страница Azure Multi-Factor Authentication, которая будет полезна при развертывании проверки подлинности RADIUS для сервера Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Проверка подлинности RADIUS и сервер Azure Multi-Factor Authentication"
+	description="Это страница Azure Multi-Factor Authentication, которая будет полезна при развертывании проверки подлинности RADIUS для сервера Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -56,4 +56,4 @@
 - Используйте тот же общий секретный ключ, который был настроен выше. 
 - Для времени ожидания RADIUS установите значение в диапазоне 30–60 секунд, чтобы оставалось время на проверку учетных данных пользователя, выполнение двухфакторной проверки подлинности, получение ответа и отправку ответа на запрос на доступ RADIUS.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

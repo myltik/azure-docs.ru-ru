@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Microsoft Azure AD Connect — обновление средства синхронизации Windows Azure AD (DirSync)" 
-   description="Узнайте, как обновить DirSync до Azure AD Connect. В этой статье описывается процедура обновления текущего средства синхронизации Windows Azure AD (DirSync) до Azure AD Connect." 
-   services="active-directory" 
-   documentationCenter="" 
-   authors="shoatman" 
-   manager="terrylanfear" 
-   editor="billmath"/>
+   pageTitle="Microsoft Azure AD Connect — обновление средства синхронизации Windows Azure AD (DirSync)"
+	description="Узнайте, как обновить DirSync до Azure AD Connect. В этой статье описывается процедура обновления текущего средства синхронизации Windows Azure AD (DirSync) до Azure AD Connect."
+	services="active-directory"
+	documentationCenter=""
+	authors="shoatman"
+	manager="terrylanfear"
+	editor="billmath"/>
 
 <tags 
-   ms.service="active-directory" 
-   ms.workload="identity" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="05/26/2015" 
-   ms.author="shoatman"/>
+   ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/26/2015"
+	ms.author="shoatman"/>
 
 # Обновление службы синхронизации Azure Active Directory sync (DirSync) до Azure Active Directory Connect
 
@@ -203,7 +203,7 @@
 * [Принципы работы Azure AD Connect](active-directory-aadconnect-how-it-works.md)
 * [Что дальше с Azure AD Connect](active-directory-aadconnect-whats-next.md)
 * [Подробнее](active-directory-aadconnect-learn-more.md)
-* [Azure AD Connect на портале MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+* [Azure AD Connect на портале MSDN](active-directory-aadconnect.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Управление параметрами Azure MFA на портале Myapps в службе Office 365" 
-	description="На этой странице пользователи узнают, где на портале Myapps в службе Office 365 можно управлять параметрами Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Управление параметрами Azure MFA на портале Myapps в службе Office 365"
+	description="На этой странице пользователи узнают, где на портале Myapps в службе Office 365 можно управлять параметрами Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Управление параметрами Azure Multi-Factor Authentication на портале Myapps
@@ -33,4 +33,4 @@
 
 <center>![Setup](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)</center>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

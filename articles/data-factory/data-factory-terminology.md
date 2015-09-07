@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Фабрика данных Azure — терминология" 
-	description="В этой статье разъясняется терминология, используемая при создании фабрик данных с помощью службы фабрики данных Azure" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Фабрика данных Azure — терминология"
+	description="В этой статье разъясняется терминология, используемая при создании фабрик данных с помощью службы фабрики данных Azure"
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="spelluru"/>
 
 #Фабрика данных Azure — терминология
@@ -47,7 +47,7 @@
 Служба фабрики данных Azure поддерживает следующие действия в конвейере.
 
 - **Действие копирования** копирует данные из одного хранилища данных в другое.  
-- **Действие HDInsight** обрабатывает данные, запуская сценарии Hive и Pig или программы MapReduce в кластере HDInsight. Дополнительные сведения см. в статьях [Использование Pig и Hive в фабрике данных][use-pig-hive] и [Вызов программы MapReduce из фабрики данных][run-map-reduce]. 
+- **Действие HDInsight** обрабатывает данные, запуская сценарии Hive и Pig или программы MapReduce в кластере HDInsight.  
 - **Действие количественной оценки машинного обучения Azure** вызывает API количественной оценки машинного обучения Azure. Подробные сведения см. в статье [Создание прогнозирующих конвейеров с помощью фабрик данных Azure и машинного обучения Azure][azure-ml-adf]. 
 - **Действие хранимой процедуры** вызывает хранимую процедуру в Базе данных SQL Azure. Подробные сведения см. в статье [Действие хранимой процедуры][msdn-stored-procedure-activity] в библиотеке MSDN.   
 
@@ -82,8 +82,6 @@
 
 [adf-faq]: data-factory-faq.md
 [adf-intro]: data-factory-introduction.md
-[use-pig-hive]: data-factory-pig-hive-activities.md
-[run-map-reduce]: data-factory-map-reduce.md
 [azure-ml-adf]: data-factory-create-predictive-pipelines.md
 [adf-common-scenarios]: data-factory-common-scenarios.md
 [create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md
@@ -112,4 +110,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

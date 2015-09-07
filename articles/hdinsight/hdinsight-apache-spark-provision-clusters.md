@@ -33,7 +33,7 @@
 
 В процессе настройки вам необходимо задать учетную запись хранилища больших двоичных объектов Azure и контейнер по умолчанию. Кластер будет использовать эти данные для обозначения месторасположения контейнера по умолчанию. При желании можно также указать дополнительную учетную запись хранения Azure, которая будет связана с кластером.
 
->[AZURE.NOTE] Не используйте один контейнер хранилища больших двоичных объектов для нескольких кластеров. Это не поддерживается.
+>[AZURE.NOTE]Не используйте один контейнер хранилища больших двоичных объектов для нескольких кластеров. Это не поддерживается.
 
 Дополнительную информацию об использовании дополнительных хранилищ больших двоичных объектов см. в разделе [Использование хранилища больших двоичных объектов Azure с HDInsight](hdinsight-use-blob-storage.md).
 
@@ -66,7 +66,7 @@ Spark позволяет определить схему и таблицы Hive 
 
 	![Диаграмма конфигурации соединения "клиент-сервер"](./media/hdinsight-apache-spark-provision-clusters/hdinsight-vnet-point-to-site.png)
 
-Для получения более подробной информации о характеристиках, преимуществах и возможностях виртуальной сети Azure см. раздел [Обзор характеристик виртуальной сети Azure](http://msdn.microsoft.com/library/azure/jj156007.aspx).
+Для получения более подробной информации о характеристиках, преимуществах и возможностях виртуальной сети Azure см. раздел [Обзор характеристик виртуальной сети Azure](../virtual-network/virtual-networks-overview.md).
 
 > [AZURE.NOTE]Виртуальную сеть Azure необходимо создавать до подготовки кластера. Дополнительную информацию см. в статье [Создание виртуальной сети](virtual-networks-create-vnet.md).
 >
@@ -83,7 +83,7 @@ Spark позволяет определить схему и таблицы Hive 
 1. Выполните вход на [портал предварительной версии Azure](https://portal.azure.com).
 2. Выберите последовательно **СОЗДАТЬ**, **Анализ данных**, а затем — **HDInsight**.
 
-	![Создание нового кластера на портале предварительной версии Azure](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.1.png "Создание нового кластера на портале предварительной версии Azure")
+    ![Создание нового кластера на портале предварительной версии Azure](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.1.png "Создание нового кластера на портале предварительной версии Azure")
 
 3. Введите **Имя кластера**, выберите **Hadoop** в качестве **Типа кластера**, а в раскрывающемся списке **Операционная система кластера** выберите **Windows Server 2012 R2 Datacenter**. Если имя кластера доступно, рядом с ним появится зеленый флажок.
 
@@ -137,7 +137,7 @@ Spark позволяет определить схему и таблицы Hive 
 
 		Для параметра **Использовать существующую базу данных SQL для метаданных Hive** выберите **Да**, укажите базу данных SQL, а затем введите имя пользователя и пароль для базы данных. Повторите эти шаги, если вы хотите **Использовать существующую базу данных SQL для метаданных Oozie**. Щелкайте **Выбрать**, пока не перейдете в колонку **Необязательная конфигурация**.
 
-    >[AZURE.NOTE] База данных Azure SQL, используемая в качестве хранилища метаданных, должна обеспечивать подключение к другим службам Azure, в том числе Azure HDInsight. На панели мониторинга базы данных SQL Azure в правой части щелкните имя сервера. Это сервер, на котором работает экземпляр базы данных SQL. В представлении сервера щелкните **Настройка**, а затем **Службы Azure**, **Да** и **Сохранить**.
+		>[AZURE.NOTE]База данных Azure SQL, используемая в качестве хранилища метаданных, должна обеспечивать подключение к другим службам Azure, в том числе Azure HDInsight. На панели мониторинга базы данных SQL Azure в правой части щелкните имя сервера. Это сервер, на котором работает экземпляр базы данных SQL. В представлении сервера щелкните **Настройка**, а затем **Службы Azure**, **Да** и **Сохранить**.
 
 	* Щелкните **Действия сценария**, если вы хотите использовать настраиваемый сценарий для настройки кластера во время его создания. Дополнительную информацию о действиях сценариев см. в статье [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster.md). В колонке «Действия сценария» введите данные, как показано на снимке экрана.
 
@@ -177,11 +177,11 @@ Spark позволяет определить схему и таблицы Hive 
 
 	* **Быстрый запуск** (![значок облака и молнии = быстрый запуск](./media/hdinsight-apache-spark-provision-clusters/quickstart.png)) — отображает сведения, необходимые для начала работы с HDInsight.
 
-	* **Пользователи** (![значок пользователей](./media/hdinsight-apache-spark-provision-clusters/users.png)) — здесь можно указать разрешения на доступ к _порталу управления_ этого кластера для других пользователей в своей подписке Azure.
+	* **Пользователи** (![значок «пользователи»](./media/hdinsight-apache-spark-provision-clusters/users.png)) — здесь можно указать разрешения на доступ к _порталу управления_ этого кластера для других пользователей в своей подписке Azure.
 
 		> [AZURE.IMPORTANT]Этот параметр влияет _только_ на доступ и разрешения для этого кластера на портале предварительной версии Azure. Он не определяет пользователей, которые могут подключаться к кластеру HDInsight или отправлять в него задания.
 
-	* **Теги** (![значок тега](./media/hdinsight-apache-spark-provision-clusters/tags.png)) — теги позволяют задавать пары «ключ — значение» для определения пользовательской таксономии облачных служб. Например, можно создать ключ с именем __project__, а затем использовать общее значение для всех служб, связанных с определенным проектом.
+	* **Теги** (![значок «теги»](./media/hdinsight-apache-spark-provision-clusters/tags.png)) — теги позволяют задавать пары «ключ — значение» для определения пользовательской таксономии облачных служб. Например, можно создать ключ с именем __project__, а затем использовать общее значение для всех служб, связанных с определенным проектом.
 
 	* **Панель мониторинга кластера** — открывает колонку панели мониторинга кластера, откуда можно запустить саму панель мониторинга кластера или записные книжки Zeppelin и Jupyter.
 
@@ -193,7 +193,7 @@ Azure PowerShell — это полнофункциональная среда с
 
 Для подготовки кластера HDInsight с помощью Azure PowerShell необходимы следующие процедуры:
 
-- Создание группы ресурсов Azure
+- создание группы ресурсов Azure;
 - Создание учетной записи хранения Azure
 - Создание контейнера BLOB-объектов Azure
 - Создание кластера HDInsight
@@ -246,8 +246,8 @@ Azure PowerShell — это полнофункциональная среда с
 		$clusterNodes = <ClusterSizeInNodes>    		# The number of nodes in the HDInsight cluster
 		$credentials = Get-Credential
 
-        # The location of the HDInsight cluster. It must be in the same data center as the Storage account.
-        $location = Get-AzureStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName | %{$_.Location}
+		# The location of the HDInsight cluster. It must be in the same data center as the Storage account.
+		$location = Get-AzureStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName | %{$_.Location}
 
 		# Create a new HDInsight cluster
 		New-AzureHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $credentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Spark
@@ -286,8 +286,8 @@ Azure PowerShell — это полнофункциональная среда с
 
 5. В меню **Сервис** выберите **Диспетчер пакетов Nuget**, затем выберите **Управление пакетами Nuget для решений**. В диалоговом окне введите в поле поиска в запрос **HDInsight**. Установите следующие компоненты из результатов поиска:
 
-	 * Microsoft.Azure.Management.HDInsight
-	 * Microsoft.Azure.Management.HDInsight.Job
+	 * Microsoft.Azure.Management.HDInsight;
+	 * Microsoft.Azure.Management.HDInsight.Job.
 
 	Выполните поиск по запросу «Проверка подлинности Azure» и установите **Microsoft.Azure.Common.Authentication** из результатов поиска.
 
@@ -437,4 +437,4 @@ Azure PowerShell — это полнофункциональная среда с
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Использование Sqoop вместе с HDInsight"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

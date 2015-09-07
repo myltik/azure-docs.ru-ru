@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Список обновлений для гостевой ОС Azure | Microsoft Azure" 
-   description="Список обновлений для выпусков гостевой ОС" 
-   services="cloud-services" 
-   documentationCenter="na" 
-   authors="yuemlu" 
-   manager="markkie" 
-   editor=""/>
+   pageTitle="Список обновлений для гостевой ОС Azure | Microsoft Azure"
+	description="Список обновлений для выпусков гостевой ОС"
+	services="cloud-services"
+	documentationCenter="na"
+	authors="yuemlu"
+	manager="markkie"
+	editor=""/>
 
 <tags
    ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd" 
-   ms.date="04/17/2015"
-   ms.author="adegeo"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="08/24/2015"
+	ms.author="yuemlu"/>
 
 # Гостевая ОС Azure 
 
@@ -32,7 +32,6 @@
 | MS15-088 | [3082458] | Небезопасная передача параметра командной строки может привести к раскрытию информации. | 4\.23, 3.30, 2.42 | 11 августа 2015 г. |
 | MS15-089 | [3060716] | Уязвимости в Microsoft Windows могут привести к несанкционированному повышению привилегий. | 4\.23, 3.30, 2.42 | 11 августа 2015 г. |
 | MS15-090 | [3076949] | Уязвимость в WebDAV может привести к раскрытию информации. | 4\.23, 3.30, 2.42 | 11 августа 2015 г. |
-| MS15-092 | [3086251] | Уязвимости в .NET Framework могут привести к несанкционированному повышению привилегий | 4\.23, 3.30, 2.42 | 11 августа 2015 г. |
 
 
 ## Июльская гостевая ОС
@@ -265,4 +264,4 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

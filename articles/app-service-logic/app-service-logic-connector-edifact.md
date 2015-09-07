@@ -1,23 +1,25 @@
 <properties 
-   pageTitle="Соединитель BizTalk Edifact" 
-   description="Соединитель BizTalk Edifact" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="Использование соединителя BizTalk Edifact в приложениях логики | Служба приложений Microsoft Azure"
+	description="Как создать и настроить соединитель BizTalk Edifact или приложение API и использовать его в приложении логики в службе приложений Azure "
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
 
-# Соединитель BizTalk Edifact
-Служба Microsoft Azure Edifact позволяет получать и отправлять сообщения в соответствии с протоколом Edifact между компаниями. EDIFACT также часто называют ASC Edifact или "комитет аккредитованных стандартов Edifact". Протокол широко используется в разных отраслях.
+# Приступая к работе с соединителем BizTalk Edifact: добавление в приложение логики  
+Служба Edifact позволяет получать и отправлять сообщения по протоколу Edifact между компаниями. Протокол Edifact также известен как ASC Edifact (Edifact уполномоченного комитета по стандартам) и широко используется в различных отраслях.
+
+Соединитель BizTalk Edifact можно добавить в рабочий процесс компании и обрабатывать данные в рамках этого процесса приложения логики.
 
 ## Предварительные требования
 - Модуль TPM для приложения API. Перед созданием соединителя Edifact необходимо создать [соединитель BizTalk TPM][1].
@@ -76,7 +78,7 @@ Escape-символ|строка|Escape-символ
 ## Дополнительные возможности соединителя
 После создания соединителя его можно добавить в бизнес-процесс с помощью приложения логики. См. раздел [Что такое приложения логики?](app-service-logic-what-are-logic-apps.md).
 
-Справку по API REST Swagger см. в статье [Справочные материалы по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Справку по REST API Swagger см. в статье [Справочные материалы по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Можно также просматривать статистику производительности и управлять безопасностью соединителя. См. раздел [Управление приложениями API и соединителем, а также их отслеживание](../app-service-api/app-service-api-manage-in-portal.md).
 
@@ -93,4 +95,4 @@ Escape-символ|строка|Escape-символ
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

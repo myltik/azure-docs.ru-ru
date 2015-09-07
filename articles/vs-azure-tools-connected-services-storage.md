@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Добавление хранилища Azure с использованием подключенных служб в Visual Studio"
-   description="Добавление хранилища Azure в приложение с помощью диалогового окна ";Добавление подключенных служб"; в Visual Studio"
-   services="visual-studio-online"
-   documentationCenter="na"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="Добавление хранилища Azure с использованием подключенных служб в Visual Studio | Microsoft Azure"
+	description="Добавление хранилища Azure в приложение с помощью диалогового окна Добавление подключенных служб в Visual Studio"
+	services="visual-studio-online"
+	documentationCenter="na"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="mobile"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="mobile"
+	ms.date="08/12/2015"
+	ms.author="patshea"/>
 
 # Добавление хранилища Azure с использованием подключенных служб Visual Studio
 
@@ -38,13 +38,13 @@ Visual Studio 2015 позволяет подключить любую облач
 
 ## Подключение к хранилищу Azure с помощью диалогового окна подключенных служб
 
-1. Убедитесь в наличии учетной записи Azure. Если у вас нет учетной записи, вы можете воспользоваться [бесплатной пробной версией](http://go.microsoft.com/fwlink/?LinkId=518146). Располагая учетной записью Azure, вы сможете создавать учетные записи хранения и мобильные службы, а также настраивать Azure Active Directory.
+1. Убедитесь в наличии учетной записи Azure. Если у вас ее нет, вы можете зарегистрироваться и получить [бесплатную пробную версию](http://go.microsoft.com/fwlink/?LinkId=518146). Создав учетную запись Azure, вы сможете создавать учетные записи хранения и мобильные службы, а также настраивать Azure Active Directory.
 
 1. Откройте проект в Visual Studio, откройте контекстное меню для узла **Ссылки** в обозревателе решений и выберите пункт **Добавление подключенной службы**.
 
     ![Добавление подключенной службы](./media/vs-azure-tools-connected-services-storage/IC796702.png)
 
-1. В диалоговом окне **Добавление подключенной службы** выберите **Хранилище Azure** и нажмите кнопку **Настроить**. Если вы еще не выполнили вход в Azure, вам будет предложено это сделать.
+1. В окне **Добавить подключенную службу** выберите **Хранилище Azure** и нажмите кнопку **Настроить**. Может потребоваться войти в Azure, если это еще не сделано.
 
     ![Диалоговое окно "Добавление подключенной службы": хранилище](./media/vs-azure-tools-connected-services-storage/IC796703.png)
 
@@ -79,7 +79,7 @@ Visual Studio 2015 позволяет подключить любую облач
  - В случае проектов ASP.NET см. статью [Что произошло: проекты ASP.NET](http://go.microsoft.com/fwlink/p/?LinkId=513126). 
  - В случае проектов ASP.NET 5 см. статью [Что произошло: проекты ASP.NET 5](http://go.microsoft.com/fwlink/p/?LinkId=513124). 
  - В случае проектов облачной службы (веб-ролей и рабочих ролей) см. статью [Что произошло: проекты облачной службы](http://go.microsoft.com/fwlink/p/?LinkId=516965). 
- - В случае проектов WebJob см. статью [Что произошло: проекты WebJob](storage/vs-storage-webjobs-what-happened/).
+ - В случае проектов WebJob см. статью [Что произошло: проекты WebJob](vs-storage-webjobs-what-happened/).
 
 ## Дальнейшие действия
 
@@ -94,4 +94,4 @@ Visual Studio 2015 позволяет подключить любую облач
 
      - [Хранилище документации на сайте azure.microsoft.com](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

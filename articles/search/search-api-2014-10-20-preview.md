@@ -1,8 +1,8 @@
-<properties pageTitle="API REST службы поиска Azure, версия 2014-10-20-Preview" description="API REST службы поиска Azure, версия 2014-10-20-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor="" />
+<properties pageTitle="API REST службы поиска Azure, версия 2014-10-20-Preview" description="API REST службы поиска Azure, версия 2014-10-20-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/22/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/25/2015" ms.author="heidist"/>
 
-# API REST службы поиска Azure: версия 2014-10-20-Preview #
+#API REST службы поиска Azure: версия 2014-10-20-Preview
 
 В этом документе описывается предварительная версия API REST службы поиска Azure **2014-10-20-Preview**, выпущенная как обновление первой общедоступной предварительной версии службы поиска Azure. Поскольку поддержка этой версии в скором времени будет прекращена, настоятельно рекомендуем вместо нее использовать общедоступную версию. Инструкции по переносу кода см. в статье [Переход с предварительной на общедоступную версию API](search-transition-from-preview.md).
 
@@ -12,7 +12,7 @@
 
 Документацию к текущей общедоступной версии API REST службы поиска Azure можно найти в MSDN. Дополнительные сведения см. в статье [Интерфейс API REST службы поиска Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-##Об интерфейсе API REST службы##
+##Об интерфейсе API REST службы
 
 Поиск Azure — это облачная служба, с помощью которой можно создавать собственные поисковые приложения. В Поиске Azure реализованы концепции *служб поиска* и *индексов* (служба поиска содержит один или несколько индексов). Служба поиска идентифицируется уникальным образом с помощью полного доменного имени (например, `mysearchservice.search.windows.net`). При подготовке службы к работе формируется ключ API, который затем используется для проверки подлинности запросов к службе поиска Azure.
 
@@ -126,7 +126,7 @@ ________________________________________
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
       {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer: "fr.lucene"},
+	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
       {"name": "hotelName", "type": "Edm.String"},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
@@ -649,7 +649,7 @@ ________________________________________
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
+	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer"="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -1455,4 +1455,4 @@ URI запроса содержит параметр [index name] и [key], ко
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&suggesterName=sg&api-version=2014-10-20-Preview
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Сценарии Testability Service Fabric: взаимодействие между службами" 
-   description="Взаимодействие между службами — критически важная точка интеграции приложения Service Fabric. В этой статье обсуждаются вопросы разработки и методы тестирования." 
-   services="service-fabric" 
-   documentationCenter=".net" 
-   authors="vturecek" 
-   manager="timlt" 
-   editor=""/>
+   pageTitle="Сценарии Testability Service Fabric: взаимодействие между службами"
+	description="Взаимодействие между службами — критически важная точка интеграции приложения Service Fabric. В этой статье обсуждаются вопросы разработки и методы тестирования."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="vturecek"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA" 
-   ms.date="04/17/2015"
-   ms.author="vturecek"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/25/2015"
+	ms.author="vturecek"/>
 
 # Сценарии Testability Service Fabric: взаимодействие между службами
 
@@ -101,4 +101,4 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 [Дополнительные сведения о сценариях Testability](service-fabric-testability-scenarios.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

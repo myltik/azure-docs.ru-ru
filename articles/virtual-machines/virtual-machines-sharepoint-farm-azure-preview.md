@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Ферма серверов SharePoint"
-	description="Можно быстро создать новую ферму SharePoint Server 2013 с помощью функции SharePoint Server Farm на портале предварительной версии Azure."
+	pageTitle="Ферма серверов SharePoint | Microsoft Azure"
+	description="Быстро создавайте базовые или высокодоступные фермы SharePoint Server 2013, используя функцию SharePoint Server Farm портала предварительной версии Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -95,4 +95,4 @@
 
 [Фермы SharePoint, размещенные в службах инфраструктуры Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

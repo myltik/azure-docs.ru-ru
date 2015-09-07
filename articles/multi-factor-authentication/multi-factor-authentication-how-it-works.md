@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Принципы работы Azure Multi-Factor Authentication" 
-	description="Azure Multi-Factor Authentication помогает защитить доступ к данным и приложениям, при этом не усложняя процесс входа пользователя в систему. Эта служба предлагает дополнительную защиту за счет дополнительного способа проверки подлинности и, используя ряд простых способов проверки подлинности, обеспечивает строгую проверку." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Принципы работы Azure Multi-Factor Authentication"
+	description="Azure Multi-Factor Authentication помогает защитить доступ к данным и приложениям, при этом не усложняя процесс входа пользователя в систему. Эта служба предлагает дополнительную защиту за счет дополнительного способа проверки подлинности и, используя ряд простых способов проверки подлинности, обеспечивает строгую проверку."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 #Принципы работы службы Azure Multi-Factor Authentication
@@ -102,4 +102,4 @@ Multi-Factor Authentication для локальных приложений, ис
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

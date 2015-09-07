@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Почему для настройки средства Azure AD Connect нужна учетная запись глобального администратора Azure AD" 
-	description="Описание причин, по которым при использовании пользовательских параметров нужна учетная запись глобального администратора." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Почему для настройки средства Azure AD Connect нужна учетная запись глобального администратора Azure AD"
+	description="Описание причин, по которым при использовании пользовательских параметров нужна учетная запись глобального администратора."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Почему для настройки средства Azure AD Connect нужна учетная запись глобального администратора Azure AD
@@ -32,6 +32,5 @@
 
 * [Дополнительные сведения об учетных записях и разрешениях Azure AD Connect](active-directory-aadconnect-account-summary.md)
 * [Выборочная установка Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
-* [Azure AD Connect на портале MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,34 +1,36 @@
 <properties
-   pageTitle="Кодировщик JSON BizTalk"
-   description="Кодировщик JSON BizTalk"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="rajeshramabathiran"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="Использование кодировщика JSON BizTalk в приложениях логики | Служба приложений Microsoft Azure"
+	description="Как создать и настроить кодировщик JSON BizTalk или приложение API и использовать его в приложении логики в службе приложений Azure "
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
 
-# Кодировщик JSON BizTalk
+# Приступая к работе с кодировщиком JSON BizTalk: добавление в приложение логики 
 Соединитель для кодирования и декодирования позволяет вашему приложению взаимодействовать с данными JSON и XML. Он может преобразовать экземпляр JSON в XML, и наоборот.
+
+Кодировщик JSON BizTalk можно добавить в рабочий процесс компании и обрабатывать данные в рамках этого процесса в приложении логики.
 
 ## Использование кодировщика JSON BizTalk
 Чтобы использовать кодировщик JSON BizTalk, необходимо сначала создать экземпляр приложения API для кодировщика JSON BizTalk. Это можно сделать либо в процессе, при создании приложения логики, либо выбрав приложение API для кодировщика JSON BizTalk на сайте Azure Marketplace.
 
 ## Использование кодировщика JSON BizTalk в области конструктора приложений логики
-Выполните шаги из раздела [Создание приложения логики]. Кодировщик JSON BizTalk можно использовать как действие. У него нет никаких триггеров.
+Выполните шаги из статьи [Создание приложения логики]. Кодировщик JSON BizTalk можно использовать как действие. У него нет никаких триггеров.
 
 ### Действие
 - На правой панели щелкните кодировщик JSON BizTalk.
 
-	![Параметры действия][3]
+	![Настройки действия][3]
 - Щелкните ->
 
 	![Список действий][4]
@@ -49,7 +51,7 @@
 ## Дополнительные возможности соединителя
 После создания соединителя его можно добавить в бизнес-процесс с помощью приложения логики. См. раздел [Что такое приложения логики?](app-service-logic-what-are-logic-apps.md).
 
-Справку по API REST Swagger см. в статье [Справочные материалы по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+Справку по REST API Swagger см. в статье [Справочник по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Можно также просматривать статистику производительности и управлять безопасностью соединителя. См. раздел [Управление приложениями API и соединителем, а также их отслеживание](../app-service-api/app-service-api-manage-in-portal.md).
 
@@ -64,4 +66,4 @@
 <!--Links -->
 [Создание приложения логики]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

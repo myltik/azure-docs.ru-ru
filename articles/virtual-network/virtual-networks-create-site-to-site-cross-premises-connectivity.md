@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Руководство по созданию виртуальной сети для подключений между организациями по типу «сеть-сеть»" 
-	description="Узнайте в этом учебнике, как создать виртуальную сеть Azure с подключениями между локальными сетями." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="cherylmc" 
-	manager="adinah" 
+	pageTitle="Руководство по созданию виртуальной сети для подключений между организациями по типу «сеть-сеть»"
+	description="Узнайте в этом учебнике, как создать виртуальную сеть Azure с подключениями между локальными сетями."
+	services="virtual-network"
+	documentationCenter=""
+	authors="cherylmc"
+	manager="adinah"
 	editor="tysonn"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/17/2015"
 	ms.author="cherylmc"/>
 
 
@@ -24,7 +24,7 @@
 
 Если вы хотите создать виртуальную сеть только для облака, ознакомьтесь со статьей [Учебник. Создание в Azure виртуальной сети только для облака](../virtual-machines/create-virtual-network.md). Если требуется создать VPN-подключение "точка-сеть" с использованием сертификатов и VPN-клиента, см. раздел [Настройка VPN-подключения "точка-сеть" на портале управления](http://go.microsoft.com/fwlink/p/?LinkId=296653).
 
-В данном учебнике предполагается, что у вас нет опыта использования платформы Azure. Целью учебника является помощь вам для ознакомления с шагами, необходимыми для создания примера виртуальной сети с целью подключения между организациями. Если вам нужны сценарии разработки и дополнительная информация о виртуальных сетях, см. раздел [Обзор виртуальной сети Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
+В данном учебнике предполагается, что у вас нет опыта использования платформы Azure. Целью учебника является помощь вам для ознакомления с шагами, необходимыми для создания примера виртуальной сети с целью подключения между организациями. Если вам нужны сценарии разработки и дополнительная информация о виртуальных сетях, см. раздел [Обзор виртуальной сети Azure](../virtual-network/virtual-networks-overview.md).
 
 Выполнив указания из этого учебника, вы создадите виртуальную сеть для подключений между организациями. На следующем рисунке приведены подробные сведения на основе примера параметров в этом учебнике.
 
@@ -252,9 +252,9 @@
 
 ## См. также
 
--  [Общие сведения о виртуальных сетях](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
+-  [Общие сведения о виртуальных сетях](../virtual-network/virtual-networks-overview.md)
 
--  [Вопросы по виртуальным сетям](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
+-  [Вопросы по виртуальным сетям](virtual-networks-faq.md)
 
 -  [Настройка виртуальной сети с помощью файла конфигурации сети](virtual-networks-using-network-configuration-file.md)
 
@@ -271,4 +271,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

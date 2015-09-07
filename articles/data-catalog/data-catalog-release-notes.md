@@ -1,20 +1,20 @@
 <properties
    pageTitle="Заметки о выпуске каталога данных Azure"
-   description="Заметки о выпуске каталога данных Azure от 13 июля 2015 г."
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/>
+	description="Заметки о выпуске для общедоступной предварительной версии каталога данных Azure от 13 июля 2015 г."
+	services="data-catalog"
+	documentationCenter=""
+	authors="dvana"
+	manager="mblythe"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="07/13/2015"
+	ms.author="derrickv"/>
 
 # Заметки о выпуске каталога данных Azure от 13 июля 2015 г.
 
@@ -35,7 +35,7 @@
 
 При открытии ресурсов данных в Microsoft Excel на портале каталога данных Azure пользователям может быть отображено диалоговое окно **Уведомление безопасности Microsoft Excel**. Это стандартное ожидаемое поведение, и пользователи могут выбрать **Включить** для продолжения.
 
-Дополнительные сведения см. в разделе [Включение или отключение предупреждений системы безопасности о ссылках и файлах с подозрительных веб-сайтов](https://support.office.com/ru-ru/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
+Дополнительные сведения см. в разделе [Включение или отключение предупреждений системы безопасности о ссылках и файлах с подозрительных веб-сайтов](https://support.office.com/ru-RU/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE).
 
 ## Столбцы больших двоичных объектов и определяемых пользователем типов, отсутствующие в предварительном просмотре
 
@@ -67,4 +67,4 @@
 
 Чтобы найти файл RegistrationTool.exe.config, запустите средство регистрации и откройте программу диспетчера задач Windows. На вкладке «Сведения» в диспетчере задач щелкните правой кнопкой мыши RegistrationTool.exe и выберите во всплывающем меню «Открыть расположение файла».
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->
