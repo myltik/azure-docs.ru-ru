@@ -1,6 +1,18 @@
-<properties pageTitle="Создание виртуальной машины базы данных Oracle в Azure" description="Воспользуйтесь примером для пошагового создания виртуальной машины Oracle в Microsoft Azure и создания в ней базы данных Oracle." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties
+	pageTitle="Создание виртуальной машины базы данных Oracle в Azure"
+	description="Воспользуйтесь примером для пошагового создания виртуальной машины Oracle в Microsoft Azure и создания в ней базы данных Oracle."
+	services="virtual-machines"
+	authors="bbenz"
+	documentationCenter=""/>
 
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz"/>
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
+	ms.author="bbenz"/>
 
 #Создание виртуальной машины базы данных Oracle в Azure
 В следующем примере показано, как создать в Azure виртуальную машину на основе предоставленного корпорацией Майкрософт образа базы данных Oracle под управлением Windows Server 2012. Этот процесс состоит из двух этапов. Сначала необходимо создать виртуальную машину, а затем — базу данных Oracle в виртуальной машине. В приведенном примере используется база данных Oracle версии 12c, но шаги для версии 11g практически идентичны.
@@ -161,7 +173,7 @@
 ##Включение удаленного доступа Oracle Database Enterprise Manager
 Если вы хотите разрешить удаленный доступ к Oracle Database Enterprise Manager, откройте в брандмауэре порт 5500 и создайте конечную точку виртуальной машины для порта 5500 в портале Azure (следуя описанным выше указаниям по открытию порта 1521 и созданию конечной точки для порта 1521). Затем, чтобы запустить Oracle Enterprise Manager с удаленного компьютера, откройте в браузере URL-адрес вида `http://<<unique_domain_name>>:5500/em`.
 
-> [AZURE.NOTE](Значение *<< unique\_domain\_name >>* можно определить на [портале Azure](https://ms.portal.azure.com/), щелкнув **Виртуальные машины** и выбрав виртуальную машину, которая используется для запуска базы данных Oracle.)
+> [AZURE.NOTE]\(Значение *\<\<unique\_domain\_name\>\>* можно определить на [портале Azure](https://ms.portal.azure.com/), щелкнув **Виртуальные машины** и выбрав виртуальную машину, которая используется для запуска базы данных Oracle.)
 
 ##Настройка пакетов Popular Options и Advanced Options
 Если вы выбрали пакет **Oracle Database with Popular Options** или **Oracle Database with Advanced Options**, следующим шагом будет настройка дополнительных функций в установке Oracle. Указания по их настройке в Windows см. в документации по Oracle, так как конфигурации могут сильно отличаться в зависимости от потребностей каждого отдельного компонента.
@@ -183,4 +195,4 @@
 
 -	[Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->
