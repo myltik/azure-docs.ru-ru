@@ -88,7 +88,7 @@
 
     Второй параметр для `pullWithQuery` — это идентификатор запроса, который используется для *добавочной синхронизации*. Добавочная синхронизация извлекает только те записи, которые были изменены с момента последней синхронизации, используя для этого метку времени `UpdatedAt` записи (в локальном хранилище она называется `ms_updatedAt`). Идентификатор запроса должен быть описательной строкой, уникальной для каждого логического запроса в приложении. Чтобы явно отказаться от добавочной синхронизации, передайте `nil` в качестве идентификатора запроса. Помните, что это может привести к снижению производительности, поскольку при каждой операции принудительного получения будут извлекаться все записи.
 
-	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
+	<!--     >[AZURE.NOTE] Чтобы удалить записи из локального хранилища устройства, если они удалены из базы данных мобильной службы, вам следует включить [Обратимое удаление]. В противном случае приложение должно периодически вызывать {MSSyncTable.purgeWithQuery} для очистки локального хранилища
  -->
 
 5. В классе `QSTodoService` метод `syncData` вызывается после операций, которые изменяют данные, — `addItem` и `completeItem`. Он также вызывается из `QSTodoListViewController.refresh`, поэтому пользователь получает последние данные при каждом выполнении жеста обновления. Приложение также выполняет синхронизацию при запуске, поскольку `QSTodoListViewController.init` вызывает `refresh`.
@@ -224,7 +224,7 @@
 
     Если вы хотите явно отказаться от добавочной синхронизации, передайте `nil` в качестве идентификатора запроса. В этом случае при каждом вызове `pullWithQuery` будут извлекаться все записи, что может снижать уровень производительности.
 
-<!-- * To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
+<!-- * Чтобы удалить записи из локального хранилища устройства, если они удалены из базы данных мобильной службы, вам следует включить [Обратимое удаление]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
  -->
 
 ## Дополнительные ресурсы
@@ -248,4 +248,4 @@
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=August15_HO9-->
+<!-----HONumber=August15_HO9-->

@@ -18,7 +18,9 @@
 
 # Включение автономной синхронизации для мобильного приложения Xamarin.iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 ## Обзор
 
@@ -65,7 +67,10 @@
     В представленном коде запрашиваются все записи из удаленной таблицы `TodoItem`, однако их можно также отфильтровать путем передачи идентификатора запроса и запроса в `PushAsync`. Дополнительные сведения см. в подразделе *Добавочная синхронизация* раздела [Автономная синхронизация данных в мобильных приложениях Azure].
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
--->	// QSTodoService.cs
+ 	-->
+
+
+		// QSTodoService.cs
 
         public async Task SyncAsync()
         {
@@ -168,4 +173,4 @@
  
 [Облачное покрытие: автономная синхронизация в мобильных службах Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=August15_HO9-->
+<!-----HONumber=August15_HO9-->
