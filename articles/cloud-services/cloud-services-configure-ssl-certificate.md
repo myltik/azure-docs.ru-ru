@@ -152,4 +152,4 @@ SSL-шифрование — это наиболее распространен
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!----HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

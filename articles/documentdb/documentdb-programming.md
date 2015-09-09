@@ -920,4 +920,4 @@ __.chain()
 -	[Сервис-ориентированная архитектура баз данных](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Размещение среды выполнения .NET на Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!-----HONumber=August15_HO8-->
+<!------HONumber=August15_HO8-->

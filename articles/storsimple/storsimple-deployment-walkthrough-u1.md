@@ -238,7 +238,8 @@
 
 ## Проверка наличия обновлений и их применение
 
-Обновление устройства может занять несколько часов. Выполните следующие действия, чтобы проверить наличие обновлений и применить их на своем устройстве. <!-- > can take 1-4 hours-->
+Обновление устройства может занять несколько часов. Выполните следующие действия, чтобы проверить наличие обновлений и применить их на своем устройстве.
+<!-- > can take 1-4 hours-->
 
 <!-- > [AZURE.NOTE] If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
@@ -286,4 +287,4 @@ MPIO представляет собой дополнительный компо
 Для управления устройством StorSimple используется [служба Диспетчера StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=August15_HO9-->
+<!------HONumber=August15_HO9-->

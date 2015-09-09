@@ -155,4 +155,4 @@ SSL-шифрование — это наиболее распространен
 
 [Azure Portal]: http://portal.azure.com/
 
-<!----HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->
