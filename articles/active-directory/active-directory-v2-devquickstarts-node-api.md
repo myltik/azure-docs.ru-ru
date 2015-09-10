@@ -34,56 +34,70 @@
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
-The completed application is provided at the end of this tutorial as well.
+Готовое приложение также приводится в конце этого руководства.
 
 
-## 1. Register an App
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+## 1. Регистрация приложения
+Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Не забудьте:
 
-- Copy down the **Application Id** assigned to your app, you'll need it soon.
-- Add the **Mobile** platform for your app.
-- Copy down the **Redirect URI** from the portal. You must use the default value of `urn:ietf:wg:oauth:2.0:oob`.
+- скопировать **идентификатор приложения**, назначенный вашему приложению (он скоро вам понадобится);
+- Добавьте к приложению **мобильную** платформу.
+- Скопируйте с портала **Redirect URI**. Необходимо использовать значение по умолчанию `urn:ietf:wg:oauth:2.0:oob`.
 
 
-## 2: Download node.js for your platform
-To successfully use this sample, you must have a working installation of Node.js.
+## 2: Загрузка node.js для своей платформы
+Чтобы успешно использовать этот пример, необходимо иметь рабочую установку Node.js.
 
 Install Node.js from [http://nodejs.org](http://nodejs.org).
 
-## 3: Install MongoDB on to your platform
+## 3: Установка MongoDB на вашей платформе
 
-To successfully use this sample, you must have a working installation of MongoDB. We will use MongoDB to make our REST API persistant across server instances.
+Чтобы успешно использовать этот пример, необходимо иметь рабочую установку MongoDB. Мы будем использовать MongoDB, чтобы сделать наш интерфейс REST API постоянным для экземпляров сервера.
 
 Install MongoDB from [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE] This walkthrough assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is: mongodb://localhost
+> [AZURE.NOTE] Данное пошаговое руководство предполагает, что вы используете заданные по умолчанию установку и конечные точки сервера для MongoDB, которыми на момент написания этой статьи являются: mongodb://localhost
 
-## 4: Install the Restify modules in to your Web API
+## 4: Установка модулей Restify для вашего веб-интерфейса API
 
-We will be using Resitfy to build our REST API. Restify is a minimal and flexible Node.js application framework derived from Express that has a robust set of features for building REST APIs on top of Connect.
+Мы будем использовать Resitfy для построения нашего интерфейса REST API. Restify представляет собой минимальную и гибкую платформу приложений Node.js, полученную на основе Express, которая имеет широкий набор возможностей, позволяющих создавать интерфейсы REST API поверх Connect.
 
-### Install Restify
+### Установка Restify
 
-From the command-line, change directories to the azuread directory. If the **azuread** directory does not exist, create it.
+В командной строке перейдите в каталог azuread. Если каталог **azuread** не существует, создайте его.
 
 `cd azuread` - or- `mkdir azuread;`
 
-Type the following command:
+Введите следующую команду:
 
 `npm install restify`
 
-This command installs Restify.
+Эта команда устанавливает Restify.
 
-#### Did you get an error?
+#### Вы получили сообщение об ошибке?
 
-When using npm on some operating systems, you may receive an error of Error: EPERM, chmod '/usr/local/bin/..' and a request to try running the account as an administrator. If this occurs, use the sudo command to run npm at a higher privilege level.
+При использовании npm в некоторых операционных системах может появиться сообщение об ошибке Error: EPERM, chmod '/usr/local/bin/..' и предложение попробовать использовать учетную запись с правами администратора. В этом случае необходимо с помощью команды sudo запустить npm с более высоким уровнем привилегий.
 
-#### Did you get an error regarding DTrace?
+#### Вы получили сообщение об ошибке, которая относится к DTRACE?
 
-You may see something like this when installing Restify:
+При установке Restify может появиться примерно следующее сообщение:
 
 ```Shell
-clang: error: no such file or directory: 'HD/azuread/node\_modules/restify/node\_modules/dtrace-provider/libusdt' make: *** [Release/DTraceProviderBindings.node] Error 1 gyp ERR! build error gyp ERR! stack Error: `make` failed with exit code: 2 gyp ERR! stack at ChildProcess.onExit (/usr/local/lib/node\_modules/npm/node\_modules/node-gyp/lib/build.js:267:23) gyp ERR! stack at ChildProcess.EventEmitter.emit (events.js:98:17) gyp ERR! stack at Process.ChildProcess.\_handle.onexit (child\_process.js:789:12) gyp ERR! System Darwin 13.1.0 gyp ERR! command "node" "/usr/local/lib/node\_modules/npm/node\_modules/node-gyp/bin/node-gyp.js" "rebuild" gyp ERR! cwd /Volumes/Development HD/azuread/node\_modules/restify/node\_modules/dtrace-provider gyp ERR! node -v v0.10.11 gyp ERR! node-gyp -v v0.10.0 gyp ERR! not ok npm WARN optional dep failed, continuing dtrace-provider@0.2.8 ```
+clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
+make: *** [Release/DTraceProviderBindings.node] Error 1
+gyp ERR! build error
+gyp ERR! stack Error: `make` failed with exit code: 2
+gyp ERR! stack     at ChildProcess.onExit (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/build.js:267:23)
+gyp ERR! stack     at ChildProcess.EventEmitter.emit (events.js:98:17)
+gyp ERR! stack     at Process.ChildProcess._handle.onexit (child_process.js:789:12)
+gyp ERR! System Darwin 13.1.0
+gyp ERR! command "node" "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+gyp ERR! cwd /Volumes/Development HD/azuread/node_modules/restify/node_modules/dtrace-provider
+gyp ERR! node -v v0.10.11
+gyp ERR! node-gyp -v v0.10.0
+gyp ERR! not ok
+npm WARN optional dep failed, continuing dtrace-provider@0.2.8
+```
 
 
 Restify предоставляет мощный механизм для трассировки вызовов REST с помощью DTrace. Однако во многих операционных системах DTrace отсутствует. Эти ошибки можно игнорировать.
