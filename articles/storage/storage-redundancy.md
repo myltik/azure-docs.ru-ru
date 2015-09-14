@@ -7,7 +7,8 @@
 	manager="adinah"
 	editor=""/>
 
-<tagsms.service="storage"
+<tags
+	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -102,4 +103,4 @@
 - [Эмулятор хранения Microsoft Azure 3.1 с RA-GRS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Документ SOSP службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->
