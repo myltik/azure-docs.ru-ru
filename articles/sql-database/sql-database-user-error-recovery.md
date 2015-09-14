@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Восстановление Базы данных SQL после ошибок пользователей" 
-   description="Вы узнаете, как выполнить восстановление базы данных после ошибки пользователя, случайного повреждения данных или удаления с помощью функции восстановления на момент времени (PITR) Базы данных SQL Azure." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="elfisher" 
-   manager="jeffreyg" 
-   editor="monicar"/>
+   pageTitle="Восстановление Базы данных SQL после ошибок пользователей"
+	description="Вы узнаете, как выполнить восстановление базы данных после ошибки пользователя, случайного повреждения данных или удаления с помощью функции восстановления на момент времени (PITR) Базы данных SQL Azure."
+	services="sql-database"
+	documentationCenter=""
+	authors="elfisher"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="07/23/2015"
-   ms.author="elfish"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-management"
+	ms.date="07/23/2015"
+	ms.author="elfish"/>
 
 # Восстановление базы данных SQL Azure после ошибки пользователя
 
@@ -31,6 +31,8 @@
 
 Срок хранения баз данных уровня Basic составляет 7 дней, Standard — 14 дней, а Premium — 35 дней. Подробнее о хранении баз данных можно прочесть в статье [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md).
 
+> [AZURE.NOTE]При восстановлении базы данных создается новая база данных. Важно убедиться, что на целевом сервере восстановления есть достаточный объем DTU для новой базы данных. Можно [обратиться в службу поддержки](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/) с просьбой увеличить квоту.
+
 ###Портал Azure
 1. Войдите на [портал Azure](https://portal.Azure.com).
 2. В левой части экрана выберите **ОБЗОР**, а затем — **Базы данных SQL**.
@@ -43,7 +45,7 @@
 ###PowerShell
 Используйте PowerShell для программного восстановления базы данных.
 
-Чтобы восстановить базу данных до точки во времени, используйте командлет [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Пошаговую инструкцию см. в [видеоинструкции](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
+Чтобы восстановить базу данных на момент времени, используйте командлет [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Пошаговую инструкцию см. в [видеоинструкции](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
 
 		$Database = Get-AzureSqlDatabase -ServerName "YourServerName" –DatabaseName “YourDatabaseName”
 		$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –PointInTime “2015-01-01 06:00:00”
@@ -66,6 +68,8 @@
 Если база данных удалена, База данных SQL Azure позволяет восстановить ее на момент удаления. База данных SQL Azure хранит резервную копию удаленной базы данных в течение срока хранения.
 
 Срок хранения удаленной базы данных определяется в зависимости от уровня службы базы данных во время ее существования или от количества дней, в течение которых существовала база данных. Выбирается меньшее значение. Подробнее о хранении баз данных можно прочесть в статье [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md).
+
+> [AZURE.NOTE]При восстановлении базы данных создается новая база данных. Важно убедиться, что на целевом сервере восстановления есть достаточный объем DTU для новой базы данных. Можно [обратиться в службу поддержки](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/) с просьбой увеличить квоту.
 
 ###Портал Azure
 1. Войдите на [портал Azure](https://portal.Azure.com).
@@ -109,4 +113,4 @@
 После завершения восстановления вы можете настроить восстановленную базу данных. Для этого следуйте инструкциям руководства [Завершение восстановленной базы данных](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

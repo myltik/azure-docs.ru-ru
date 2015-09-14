@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Заметки о выпуске Application Insights" 
-	description="Последние обновления." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Заметки о выпуске Application Insights для Windows"
+	description="Последние обновления."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/18/2015"
 	ms.author="sergkanz"/>
  
 # Заметки о выпуске для пакета SDK Application Insights для Windows Phone и Магазина Windows
@@ -77,4 +77,4 @@
 
 Для более старых версий заметки о выпуске не доступны.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

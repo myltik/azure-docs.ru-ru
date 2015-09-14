@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Лексический анализ мнений | Microsoft Azure" 
-	description="Анализ мнений на основе словаря" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="Лексический анализ мнений | Microsoft Azure"
+	description="Анализ мнений на основе словаря"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="jaymathe"/>
 
 
@@ -153,4 +153,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

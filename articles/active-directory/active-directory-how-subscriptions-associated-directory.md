@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/14/2015" 
+	ms.date="08/14/2015"
 	ms.author="curtand"/>
 
 # Как подписки Azure связаны с Azure AD
@@ -88,7 +88,7 @@
 
 ![][3]
 
-У вас есть учетные записи пользователей с одним и тем же именем: одна в Azure AD, а другая — в системе учетных записей потребителей Майкрософт. Выберите учетную запись, связанную с подпиской Azure, которую вы хотите использовать. Если появляется сообщение об ошибке с информацией о том, что для данного пользователя подписка отсутствует, вероятно, вы выбрали неправильный вариант. Выйдите из системы и повторите попытку. Дополнительные сведения об ошибках при входе см. в разделе [Устранение ошибок «Не удалось найти подписки, связанные с учетной записью»](https://social.msdn.microsoft.com/Forums/ru-ru/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
+У вас есть учетные записи пользователей с одним и тем же именем: одна в Azure AD, а другая — в системе учетных записей потребителей Майкрософт. Выберите учетную запись, связанную с подпиской Azure, которую вы хотите использовать. Если появляется сообщение об ошибке с информацией о том, что для данного пользователя подписка отсутствует, вероятно, вы выбрали неправильный вариант. Выйдите из системы и повторите попытку. Дополнительные сведения об ошибках при входе см. в разделе [Устранение ошибок «Не удалось найти подписки, связанные с учетной записью»](https://social.msdn.microsoft.com/Forums/ru-RU/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement).
 
 ## Управление каталогом для подписки Office 365 в Azure
 
@@ -124,4 +124,4 @@
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

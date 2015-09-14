@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Использование панели мониторинга устройств службы StorSimple Manager | Microsoft Azure"
-   description="Описание панели мониторинга устройств StorSimple Manager и ее использования для просмотра метрик хранилища и подключенных инициаторов, а также поиска серийного номера и IQN устройства."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Использование панели мониторинга устройств диспетчера StorSimple | Microsoft Azure"
+	description="Описание панели мониторинга устройств диспетчера StorSimple и ее использования для просмотра метрик хранилища и подключенных инициаторов, а также поиска серийного номера и IQN."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
 # Использование панели мониторинга устройств диспетчера StorSimple
 
@@ -99,4 +99,4 @@
 
 [Дополнительные сведения о панели мониторинга службы StorSimple Manager](storsimple-service-dashboard.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

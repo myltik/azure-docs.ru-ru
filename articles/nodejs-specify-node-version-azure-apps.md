@@ -1,6 +1,6 @@
 <properties pageTitle="Указание версии Node.js" description="Узнайте, как указать версию Node.js, используемую веб-сайтами и облачными службами Azure." services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="02/19/2015" ms.author="mwasson"/>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/31/2015" ms.author="mwasson"/>
 
 
 
@@ -40,9 +40,11 @@
 
 В случае размещения приложения в облачной службе и при использовании для развертывания Azure PowerShell, версию Node.js по умолчанию можно переопределить с помощью командлета **Set-AzureServiceProjectRole**. Например:
 
-	Set-AzureServiceProjectRole WebRole1 node 0.8.4
+	Set-AzureServiceProjectRole WebRole1 Node 0.8.4
 
-Можно также использовать **Get-AzureServiceProjectRoleRuntime** для получения списка версий Node.js, доступных для приложений, размещенных в виде облачной службы.
+Обратите внимание, что в параметрах в инструкции выше учитывается регистр. Можно проверить, выбрана ли правильная версия Node.js, выбрав свойство **engines** в **package.json** вашей роли.
+
+Можно также использовать **Get-AzureServiceProjectRoleRuntime** для получения списка версий Node.js, доступных для приложений, размещенных в виде облачной службы. Всегда проверяйте, есть ли версия Node.js, от которой зависит ваш проект, в этом списке.
 
 ##Использование настраиваемой версии с веб-сайтами Azure
 
@@ -93,4 +95,4 @@
 [работать с модулями]: nodejs-use-node-modules-azure-apps.md
 [строить и развертывать веб-сайт Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

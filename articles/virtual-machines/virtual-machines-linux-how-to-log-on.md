@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2015"
+	ms.date="08/25/2015"
 	ms.author="rasquill"/>
 
 
@@ -53,4 +53,4 @@
 <!-- LINKS -->
 [Как сбросить пароль или ключ SSH в виртуальных машинах Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

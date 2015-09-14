@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Безопасные push-уведомления посредством центров уведомлений Azure" 
-	description="Узнайте, как отправлять безопасные push-уведомления в приложение Android из Azure. Примеры кода написаны на Java и C#." 
-	documentationCenter="android" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Безопасные push-уведомления посредством центров уведомлений Azure"
+	description="Узнайте, как отправлять безопасные push-уведомления в приложение Android из Azure. Примеры кода написаны на Java и C#."
+	documentationCenter="android"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="notification-hubs"/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 #Безопасные push-уведомления посредством центров уведомлений Azure
@@ -22,7 +22,7 @@
 - [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
 - [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
 - [Android](notification-hubs-aspnet-backend-android-secure-push.md)
-    
+
 ##Обзор
 
 Поддержка push-уведомлений в Microsoft Azure позволяет получить доступ к простой в использовании, многоплатформенной и масштабируемой инфраструктуре для отправки push-уведомлений, которая значительно упрощает реализацию push-уведомлений как для индивидуальных пользователей, так и для корпоративных приложений для мобильных платформ.
@@ -64,10 +64,10 @@
     		EditText password = (EditText) findViewById(R.id.passwordText);
     		String basicAuthHeader = username.getText().toString()+":"+password.getText().toString();
     		basicAuthHeader = Base64.encodeToString(basicAuthHeader.getBytes("UTF-8"), Base64.NO_WRAP);
-    	
+
     		SharedPreferences sp = getSharedPreferences(NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
     		sp.edit().putString(AUTHORIZATION_HEADER_PROPERTY, basicAuthHeader).commit();
-    	
+
     		return basicAuthHeader;
 		}
 
@@ -80,7 +80,7 @@
 4. В классе **MyHandler** измените метод `OnReceive()`, добавив в него код:
 
 		public void onReceive(Context context, Bundle bundle) {
-	    	ctx = context;   
+	    	ctx = context;
 	    	String secureMessageId = bundle.getString("secureId");
 	    	retrieveNotification(secureMessageId);
 		}
@@ -90,7 +90,7 @@
 		private void retrieveNotification(final String secureMessageId) {
 			SharedPreferences sp = ctx.getSharedPreferences(MainActivity.NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
     		final String authorizationHeader = sp.getString(MainActivity.AUTHORIZATION_HEADER_PROPERTY, null);
-		
+
 			new AsyncTask<Object, Object, Object>() {
 				@Override
 				protected Object doInBackground(Object... params) {
@@ -113,7 +113,7 @@
 				}
 			}.execute(null, null, null);
 		}
-		
+
 
 Этот метод обращается в серверной части приложения, чтобы получить содержимое уведомления, используя учетные данные, хранящиеся в общих настройках, и отображает его как обычное уведомление. Для пользователя приложения уведомление ничем не отличается от других уведомлений.
 
@@ -130,6 +130,5 @@
 3. В пользовательском интерфейсе приложения Android введите имя пользователя и пароль. Это могут быть любые совпадающие строки.
 
 4. В пользовательском интерфейсе приложения Android нажмите **Вход**. Затем нажмите кнопку **Отправить push-уведомление**.
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

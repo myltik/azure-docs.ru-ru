@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Вызов пользовательского API из клиента Android | Microsoft Azure" 
-	description="Узнайте, как определить настраиваемый API и вызывать его из приложения Android, которое использует мобильные службы Azure." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Вызов пользовательского API из клиента Android | Microsoft Azure"
+	description="Узнайте, как определить настраиваемый API и вызывать его из приложения Android, которое использует мобильные службы Azure."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/01/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="ricksal"/>
 
 # Вызов из клиента настраиваемого интерфейса API
@@ -67,6 +67,5 @@
 [Get started with push notifications]: ../mobile-services-android-get-started-push.md
 
 [Хранение серверных сценариев в системе управления версиями]: mobile-services-store-scripts-source-control.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Создание и отправка виртуального жесткого диска FreeBSD в Azure" 
-   description="Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему FreeBSD." 
-   services="virtual-machines" 
-   documentationCenter="" 
-   authors="KylieLiang" 
-   manager="timlt" 
-   editor=""/>
+   pageTitle="Создание и отправка виртуального жесткого диска FreeBSD в Azure"
+	description="Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему FreeBSD."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KylieLiang"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services" 
-   ms.date="05/19/2015"
-   ms.author="kyliel"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="05/19/2015"
+	ms.author="kyliel"/>
 
 # Создание и отправка виртуального жесткого диска FreeBSD в Azure 
 
@@ -23,7 +23,7 @@
 ##Предварительные требования##
 В данной статье предполагается, что у вас есть следующие элементы:
 
-- **Подписка Azure ** — если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Подробную информацию см. в разделе [Создание учетной записи Azure](../php-create-account.md). 
+- **Подписка Azure ** — если у вас ее нет, то можно создать учетную запись, что займет всего лишь несколько минут. При наличии подписки MSDN см. статью [Преимущество Azure для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). В противном случае см. статью о том, как [создать бесплатную пробную учетную запись](http://azure.microsoft.com/pricing/free-trial/).  
 
 - **Средства Azure PowerShell.** У вас уже установлен модуль Microsoft Azure PowerShell, настроенный на использование вашей подписки. Информацию о скачивании модуля см. в разделе [Загрузки Azure](http://azure.microsoft.com/downloads/). Учебник по установке и настройке модуля вы найдете здесь. Для передачи VHD-файла вы будете использовать командлет из раздела [Загрузки Azure](http://azure.microsoft.com/downloads/).
 
@@ -137,13 +137,13 @@
 
 	![Имя контейнера](./media/virtual-machines-freebsd-create-upload-vhd/storageaccount_containervalues.png)
 
-    > [AZURE.NOTE]По умолчанию доступ к контейнеру предоставляется только владельцу учетной записи. Чтобы разрешить общий доступ на чтение для больших двоичных объектов в контейнере, но не к свойствам и метаданным контейнера, используйте параметр «Общедоступный BLOB-объект». Чтобы разрешить полный общий доступ на чтение для контейнера и больших двоичных объектов, используйте параметр «Общедоступный контейнер».
+    > [AZURE.NOTE]По умолчанию доступ к контейнеру предоставляется только владельцу учетной записи. Чтобы разрешить общий доступ на чтение для больших двоичных объектов в контейнере, но не к свойствам и метаданным контейнера, используйте параметр "Общедоступный BLOB-объект". Чтобы разрешить полный общий доступ на чтение для контейнера и больших двоичных объектов, используйте параметр "Общедоступный контейнер".
 
 ## Шаг 3. Подготовка подключения к Microsoft Azure ##
 
 Перед загрузкой файла VHD необходимо установить безопасное соединение между компьютером и вашей подпиской в Azure. Это можно сделать, используя метод Microsoft Azure Active Directory или метод сертификатов.
 
-<h3>Использование Microsoft Azure AD</h3>
+###Использование Microsoft Azure AD
 
 1. Откройте консоль Azure PowerShell.
 
@@ -155,7 +155,7 @@
 
 3. Azure выполняет проверку подлинности и сохраняет учетные данные, а затем закрывает окно.
 
-<h3>Использование сертификата</h3>
+###Использование сертификата
 
 1. Откройте консоль Azure PowerShell. 
 
@@ -206,4 +206,4 @@
 	![образ FreeBSD в Azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

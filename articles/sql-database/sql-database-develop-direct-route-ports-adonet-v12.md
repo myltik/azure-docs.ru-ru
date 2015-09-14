@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Порты кроме 1433 для ADO.NET 4.5, ODBC 11 и версии 12 базы данных SQL | Microsoft Azure"
-	description="Клиентские подключения к версии 12 базы данных SQL Azure иногда обходят прокси-сервер и взаимодействуют непосредственно с базой данных. Порты, отличные от 1433, становятся важными."
+	pageTitle="Порты, кроме 1433, для ADO.NET 4.5 и Базы данных SQL версии 12 | Microsoft Azure"
+	description="Клиентские подключения к версии 12 Базы данных SQL Azure иногда обходят прокси-сервер и взаимодействуют непосредственно с базой данных. Порты, отличные от 1433, становятся важными."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
-	editor="" />
+	editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="genemi"/>
 
 
-# Порты кроме 1433 для ADO.NET 4.5, ODBC 11 и базы данных SQL версии 12
+# Порты, кроме 1433, для ADO.NET 4.5 и Базы данных SQL версии 12
 
 
 В этом разделе описываются изменения, которые версия 12 базы данных SQL привносит в поведение подключения клиентов, использующих ADO.NET 4.5 или более поздней версии.
@@ -122,13 +122,17 @@
 
 - [Новые возможности Базы данных SQL версии 12](sql-database-v12-whats-new.md)
 
-- Вопросы логики повторных попыток см. в [разделе "В версии 12 шлюз больше не предоставляет логику повторных попыток" статьи "Подключение к Базе данных SQL: ссылки, рекомендации и советы по разработке"](sql-database-connect-central-recommendations.md#gatewaynoretry)
+
+- [Подключение к базе данных SQL: ссылки, рекомендации и советы по разработке](sql-database-connect-central-recommendations.md)
+
 
 - 20 июля 2015 г. был выпущен ADO.NET 4.6. Объявления в блоге группы разработчиков .NET доступно [здесь](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
+
 
 - 15 августа 2012 г. был выпущен ADO.NET 4.5. Объявления в блоге группы разработчиков .NET доступно [здесь](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
  - Запись блога о ADO.NET 4.5.1 доступна [здесь](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 
+
 - [Список версий протокола TDS](http://www.freetds.org/userguide/tdshistory.htm)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Развертывание локального устройства StorSimple на портале государственных организаций | Microsoft Azure"
-	description="Действия по развертыванию обновления 1 устройства и службы StorSimple и рекомендуемые методы работы на портале Azure для государственных организаций."
+   pageTitle="Развертывание устройства StorSimple на портале государственных организаций | Microsoft Azure"
+	description="В статье описываются действия и рекомендации по развертыванию устройства StorSimple с обновлением 1 и службы на портале государственных организаций Azure."
 	services="storsimple"
 	documentationCenter="NA"
 	authors="SharS"
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="TBD"
-	ms.date="08/21/2015"
+	ms.date="09/02/2015"
 	ms.author="v-sharos"/>
 
 # Развертывание локального устройства StorSimple на портале государственных организаций
@@ -277,4 +277,4 @@ MPIO представляет собой дополнительный компо
 Для управления устройством StorSimple используется [служба Диспетчера StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx).
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

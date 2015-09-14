@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Отправка пользовательского веб-приложения Java в Azure" 
-	description="В этом учебнике объясняется, как отправить пользовательское веб-приложение Java в веб-приложения службы приложений Azure." 
-	services="app-service\web" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="Отправка пользовательского веб-приложения Java в Azure"
+	description="В этом учебнике объясняется, как отправить пользовательское веб-приложение Java в веб-приложения службы приложений Azure."
+	services="app-service\web"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # Отправка пользовательского веб-приложения Java в Azure
 
-В этом разделе объясняется, как отправить пользовательское веб-приложение Java в веб-приложения [службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Информация, приведенная здесь, применима к любому веб-сайту или веб-приложению Java, также даны несколько примеров для конкретных приложений.
+В этом разделе объясняется, как отправить пользовательское веб-приложение Java в веб-приложения [службы приложений Azure]. Информация, приведенная здесь, применима к любому веб-сайту или веб-приложению Java, также даны несколько примеров для конкретных приложений.
 
 Обратите внимание, что Azure предоставляет средства для создания веб-приложений Java с помощью пользовательского интерфейса настройки портала предварительной версии Azure, как описано в разделе [Создание веб-приложения Java в службе приложений Azure](web-sites-java-get-started.md). Этот учебник предназначен для ситуаций, в которых не требуется использовать пользовательский интерфейс настройки портала или Azure Marketplace.
 
@@ -46,11 +46,10 @@
     arguments="start"
     
     processPath="%JAVA_HOME\bin\java.exe"
-    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
+    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
 
 
 **processPath** — путь к исполняемому файлу или скрипту, который запустит процесс прослушивания для HTTP-запросов.
-
 
 Примеры:
 
@@ -84,7 +83,7 @@
 Для следующих приложений в качестве примера приводится файл web.config и конфигурация приложения, чтобы показать, как обеспечить работу приложений Java в веб-приложениях службы приложений.
 
 ### Tomcat
-Хотя существует два варианта Tomcat, поставляемых с веб-приложениями службы приложений, по-прежнему доступна возможность отправки экземпляров, настроенных для определенного клиента. Ниже приведен пример установки Tomcat с другой JVM.
+Хотя существует два варианта Tomcat, поставляемых с веб-приложениями службы приложений, по-прежнему доступна возможность отправки экземпляров, настроенных для определенного клиента. Ниже приведен пример установки Tomcat с другой виртуальной машиной Java (JVM).
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<configuration>
@@ -125,7 +124,7 @@
 	      <add name="httppPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
 	    </handlers>
 	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" 
-	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
+	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
 	        startupTimeLimit="20"
 		  startupRetryCount="10"
 		  stdoutLogEnabled="true">
@@ -235,5 +234,7 @@ Liferay поддерживается в веб-приложениях служб
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
  
+<!-- External Links -->
+[службы приложений Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

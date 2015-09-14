@@ -10,10 +10,10 @@
 <tags
 	ms.service="cloud-services"
 	ms.workload="tbd"
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
-	ms.date="06/01/2015"
+	ms.date="08/31/2015"
 	ms.author="mwasson"/>
 
 
@@ -41,7 +41,7 @@
 > [AZURE.NOTE]В этом учебнике используется Azure PowerShell, для которого требуется операционная система Windows.
 
 - Установите и настройте [Azure PowerShell](../install-configure-powershell.md).
-- Загрузите и установите [пакет SDK для Azure для .NET 2.5](http://go.microsoft.com/fwlink/?linkid=518091). В параметрах установки выберите:
+- Скачайте и установите [пакет SDK для Azure для .NET 2.7](http://www.microsoft.com/ru-RU/download/details.aspx?id=48178). В параметрах установки выберите:
     - MicrosoftAzureAuthoringTools
     - MicrosoftAzureComputeEmulator
 
@@ -53,7 +53,8 @@
 
 1. Запустите **Azure PowerShell** от имени администратора. (В меню **Пуск** или на **Начальном экране** найдите **Azure PowerShell**).
 
-2.  Введите следующий командлет PowerShell, чтобы создать проект:
+2.  [Подключите PowerShell](powershell-install-configure.md#how-to-connect-to-your-subscription) к своей подписке.
+3.  Введите следующий командлет PowerShell, чтобы создать проект:
 
         New-AzureServiceProject helloworld
 
@@ -116,11 +117,12 @@
 
 ### Публикация приложения
 
-Чтобы опубликовать, запустите командлет **Publish-AzureServiceProject** следующим образом.
+Для публикации выполните следующие команды.
 
-    Publish-AzureServiceProject -ServiceName NodeHelloWorld -Location "East US" -Launch
+  	$ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
+	Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
-- **-ServiceName** указывает имя для развертывания. Это должно быть уникальное имя, в противном случае произойдет сбой в процессе публикации.
+- **-ServiceName** указывает имя для развертывания. Это должно быть уникальное имя, в противном случае произойдет сбой в процессе публикации. Команда **Get-Date** добавляет к строке дату и время, чтобы сделать имя уникальным.
 
 - **-Location** указывает центр обработки данных, в котором будет размещаться приложение. Чтобы просмотреть список доступных центров обработки данных, используйте командлет **Get-AzureLocation**.
 
@@ -192,4 +194,4 @@
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

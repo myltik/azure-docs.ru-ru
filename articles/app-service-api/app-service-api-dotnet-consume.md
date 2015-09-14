@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Использование приложения API в службе приложений Azure из клиента .NET" 
-	description="Узнайте, как использовать приложение API из клиента .NET с помощью пакета SDK службы приложений." 
-	services="app-service\api" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="Использование приложения API в службе приложений Azure из клиента .NET"
+	description="Узнайте, как использовать приложение API из клиента .NET с помощью пакета SDK службы приложений."
+	services="app-service\api"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="dotnet"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="tdykstra"/>
 
 # Использование приложения API в службе приложений Azure из клиента .NET 
@@ -37,7 +37,7 @@
 
 - [Создание приложения API](app-service-dotnet-create-api-app.md)
 - [Развертывание приложения API](app-service-dotnet-deploy-api-app.md)
-- [Защита приложения API](../app-service-dotnet-add-authentication.md)
+- [Защита приложения API](../app-service-api-dotnet-add-authentication.md)
 
 [AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
 
@@ -205,4 +205,4 @@
 Сведения об использовании проверки подлинности в приложениях API см. в статье [Проверка подлинности для приложений API и мобильных приложений в службе приложений Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

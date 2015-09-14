@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Работа с несколькими клиентами на одном внутреннем сервере мобильной службы | Microsoft Azure" 
-	description="Узнайте, как использовать серверную часть одной мобильной службы из нескольких клиентских приложений, предназначенных для различных мобильных платформ, включая Магазин Windows и Windows Phone." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Работа с несколькими клиентами на одном внутреннем сервере мобильной службы | Microsoft Azure"
+	description="Узнайте, как использовать серверную часть одной мобильной службы из нескольких клиентских приложений, предназначенных для различных мобильных платформ, включая Магазин Windows и Windows Phone."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor="mollybos"/>
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Поддержка нескольких платформ устройств с помощью одной мобильной службы
- 
+
 Одно из основных преимуществ мобильных служб Microsoft Azure при разработке мобильных приложений — возможность использовать единую серверную службу, в которой обеспечивается поддержка приложений на нескольких клиентских платформах. В эти мобильные службы встроены клиентские библиотеки всех основных платформ устройств, что упрощает разработку приложений за счет использования единой серверной службы и кроссплатформенных средств разработчика. В этом разделе рассматриваются вопросы выполнения приложения на нескольких клиентских платформах с помощью одной серверной части мобильной службы.
 
 ##<a id="push"></a>Кроссплатформенные push-уведомления
@@ -25,7 +25,7 @@
 
 + Службы push-уведомлений Apple (APNS) для приложений iOS
 + Служба отправки облачных сообщений Google (GCM) для приложений Android
-+ служба уведомлений Windows (WNS) для приложений Магазина Windows, приложений Магазина Windows Phone 8.1 и универсальных приложений Windows; 
++ служба уведомлений Windows (WNS) для приложений Магазина Windows, приложений Магазина Windows Phone 8.1 и универсальных приложений Windows;
 + Служба push-уведомлений Microsoft (MPNS) для приложений Windows Phone Silverlight
 
 >[AZURE.NOTE]Концентраторы уведомлений на данный момент не поддерживают использование WNS для отправки push-уведомлений в приложения Windows Phone Silverlight 8.1. Для отправки уведомлений в приложения Silverlight и Windows Phone 8.0 и 7.0 необходимо использовать службу MPNS.
@@ -34,8 +34,8 @@
 
 Регистрации клиентов создаются функцией регистрации в специализированной платформенной клиентской библиотеке мобильных служб или с помощью программных интерфейсов API REST для мобильных служб. В центрах уведомлений поддерживается регистрация устройств двух видов.
 
-+ **Собственная регистрация**<br/>Каждая собственная регистрация соответствует определенной службе уведомлений, специализированной для той или иной платформы. При отправке уведомлений на устройства, зарегистрированные с помощью собственной регистрации, необходимо вызвать на мобильном устройстве специализированный программный интерфейс соответствующей платформы, а при отправке на устройства на нескольких платформах — несколько специализированных программных интерфейсов.   
-  
++ **Собственная регистрация**<br/>Каждая собственная регистрация соответствует определенной службе уведомлений, специализированной для той или иной платформы. При отправке уведомлений на устройства, зарегистрированные с помощью собственной регистрации, необходимо вызвать на мобильном устройстве специализированный программный интерфейс соответствующей платформы, а при отправке на устройства на нескольких платформах — несколько специализированных программных интерфейсов.
+
 + **Регистрация шаблона**<br/>В центрах уведомлений также поддерживается специализированная платформенная регистрация шаблонов. При регистрации этого типа можно отправить уведомление в приложение, которое работает на любой зарегистрированной платформе, вызвав один программный интерфейс. Дополнительные сведения см. в разделе [Отправка пользователям уведомлений между различными платформами].
 
 >[AZURE.NOTE]Ошибка возникает при попытке отправить сообщения на исходную платформу устройства, для которой не существует регистрации устройства. При отправке шаблонных уведомлений подобная ошибка не возникает.
@@ -53,7 +53,7 @@
 В приведенном ниже коде отправляется push-уведомление из серверной службы .NET на все зарегистрированные устройства iOS и Магазина Windows:
 
 	// Define a push notification for APNS.
-	ApplePushMessage apnsMessage = new ApplePushMessage(item.Text, TimeSpan.FromHours(1));    
+	ApplePushMessage apnsMessage = new ApplePushMessage(item.Text, TimeSpan.FromHours(1));
 
 	// Define a push notification for WNS.
 	WindowsPushMessage wnsMessage = new WindowsPushMessage();
@@ -61,8 +61,8 @@
                          @"<toast><visual><binding template=""ToastText01"">" +
                          @"<text id=""1"">" + item.Text + @"</text>" +
                          @"</binding></visual></toast>";
-    
-	// Send push notifications to all registered iOS and Windows Store devices. 
+
+	// Send push notifications to all registered iOS and Windows Store devices.
     await Services.Push.SendAsync(apnsMessage);
 	await Services.Push.SendAsync(wnsMessage);
 
@@ -70,13 +70,13 @@
 
 Если вместо собственной регистрации клиента используется регистрация шаблона, такое же уведомление можно отправить одним вызовом метода [SendAsync], указав в качестве аргумента объект [TemplatePushMessage]\:
 
-	// Create a new template message and add the 'message' parameter.    
+	// Create a new template message and add the 'message' parameter.
 	var templatePayload = new TemplatePushMessage();
     templatePayload.Add("message", item.Text);
 
 	// Send a push notification to all template registrations.
-    await Services.Push.SendAsync(templatePayload); 
- 
+    await Services.Push.SendAsync(templatePayload);
+
 ###Серверная часть JavaScript
 
 В мобильной серверной службе JavaScript для отправки уведомления нужно вызвать метод **send** специализированного объекта платформы, полученного из глобального [объекта push] (см. таблицу ниже).
@@ -88,20 +88,20 @@
 Следующий код обеспечивает отправку push-уведомления на все регистрации Android и Windows Phone:
 
 	// Define a push notification for GCM.
-	var gcmPayload = 
+	var gcmPayload =
     '{"data":{"message" : item.text }}';
 
 	// Define the payload for a Windows Phone toast notification.
 	var mpnsPayload = '<?xml version="1.0" encoding="utf-8"?>' +
     '<wp:Notification xmlns:wp="WPNotification"><wp:Toast>' +
-    '<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text + 
+    '<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text +
     '</wp:Text2></wp:Toast></wp:Notification>';
 
-	// Send push notifications to all registered Android and Windows Phone 8.0 devices. 
+	// Send push notifications to all registered Android and Windows Phone 8.0 devices.
 	push.mpns.send(null, mpnsPayload, 'toast', 22, {
             success: function(pushResponse) {
                 // Push succeeds.
-                },              
+                },
                 error: function (pushResponse) {
                     // Push fails.
                     }
@@ -109,7 +109,7 @@
     push.gcm.send(null, gcmPayload, {
             success: function(pushResponse) {
                 // Push succeeds.
-                },              
+                },
                 error: function (pushResponse) {
                     // Push fails.
                     }
@@ -119,18 +119,18 @@
 
 Если вместо собственной регистрации клиента используется регистрация шаблона, такое же уведомление можно отправить одним вызовом функции **send** глобального [объекта push], указав в качестве аргумента содержательную часть сообщения:
 
-	// Create a new template message with the 'message' parameter.    
+	// Create a new template message with the 'message' parameter.
 	var templatePayload = { "message": item.text };
 
 	// Send a push notification to all template registrations.
     push.send(null, templatePayload, {
             success: function(pushResponse) {
                 // Push succeeds.
-                },              
+                },
                 error: function (pushResponse) {
                     // Push fails.
                     }
-                }); 
+                });
 
 ##<a id="xplat-app-dev"></a>Разработка кроссплатформенных приложений
 Чтобы разрабатывать собственные приложения для всех основных платформ мобильных устройств, необходим опыт работы хотя бы с одним из следующих языков программирования: Objective-C, Java, C# или JavaScript. Из-за разнообразия платформ некоторые разработчики предпочитают создавать полностью браузерные приложения, Однако такие веб-приложения не могут получить доступ к большинству исходных источников, предоставляющих более богатые возможности, чем пользователи ожидают получить при работе с мобильными устройствами.
@@ -138,9 +138,9 @@
 В распоряжении разработчиков имеются кроссплатформенные инструменты, которые позволяют гораздо эффективнее использовать ресурсы любого мобильного устройства на основе одного и того же кода (обычно — JavaScript). Мобильные службы упрощают создание серверных служб для платформ разработки кроссплатформенных приложений и управление этими службами. Это возможно благодаря кратким учебникам для следующих платформ разработки:
 
 + [**Appcelerator**](http://go.microsoft.com/fwlink/p/?LinkId=509987)<br/>Appcelerator позволяет разработать на JavaScript единое приложение, которое после компиляции будет работать на всех платформах мобильных устройств как собственное. Это дает возможность обеспечить эффективное взаимодействие с пользователем через пользовательский интерфейс, получить доступ ко всем ресурсам устройства и создать высокопроизводительное приложение. Дополнительную информацию см. в [учебнике по платформе Appcelerator][Appcelerator].
- 
+
 + [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)** или **[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap (распространение проекта Apache Cordova) — бесплатная платформа с открытым исходным кодом. Позволяет использовать стандартизированные веб-API, HTML и JavaScript для разработки единого приложения, которое будет работать на устройствах под управлением Android, iOS и Windows. PhoneGap обладает пользовательским интерфейсом, основанным на веб-представлениях. Взаимодействие с пользователем в этой платформе улучшается за счет ускорения собственных ресурсов устройства, таких как push-уведомления, датчик ускорения, камера, память, функция определения географического положения и встроенный в приложение браузер. Дополнительную информацию см. в [кратком учебнике по платформе PhoneGap][PhoneGap].
-	
+
 	Теперь Visual Studio также позволяет строить кросс-платформенные приложения Cordova, используя расширение гибридных приложений для нескольких устройств для Visual Studio, что является предварительной версией ПО. Дополнительную информацию см. в статье [Getting Started with Multi-Device Hybrid Apps Using HTML and JavaScript](http://msdn.microsoft.com/library/dn771545.aspx) (Приступая к работе с расширением Multi-Device Hybrid Apps с помощью HTML и JavaScript).
 
 + [**Sencha Touch**](http://go.microsoft.com/fwlink/p/?LinkId=509988)<br/>В платформе Sencha Touch разработчику предоставляется набор элементов управления, оптимизированных для сенсорных экранов. Это позволяет писать код приложений на HTML и JavaScript для различных устройств, который по эффективности был бы близок к машинному. Sencha Touch можно использовать совместно с библиотеками PhoneGap или Cordova, чтобы предоставлять пользователям доступ к собственным ресурсам устройств. Дополнительную информацию см. в [кратком учебнике по платформе Sencha Touch][Sencha].
@@ -206,6 +206,5 @@
 [What's next for Windows Phone 8 developers]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
 [Разработка универсальных приложений для Windows для всех устройств с Windows]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Universal Windows app project for Azure Mobile Services using MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

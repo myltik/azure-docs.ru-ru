@@ -1,22 +1,21 @@
 <properties 
-	pageTitle="Создание веб-приложений с помощью Flask в Azure" 
-	description="В учебнике описывается, как запустить веб-приложение на языке Python в Azure." 
-	services="app-service\web" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+	pageTitle="Создание веб-приложений с помощью Flask в Azure"
+	description="В учебнике описывается, как запустить веб-приложение на языке Python в Azure."
+	services="app-service\web"
+	documentationCenter="python"
+	tags="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="08/30/2015"
 	ms.author="huguesv"/>
-
-
 
 
 # Создание веб-приложений с помощью Flask в Azure
@@ -35,7 +34,7 @@
 - Python 2.7 или 3.4
 - setuptools, pip, virtualenv (только для Python 2.7)
 - Git
-- [Средства Python 2.1 для Visual Studio](optional)
+- [Инструменты Python для Visual Studio][] (PTVS) (необязательно).
 
 **Примечание**. Публикация TFS в настоящее время для проектов Python не поддерживается.
 
@@ -45,7 +44,7 @@
 
 Для Git рекомендуется использовать [Git для Windows] или [GitHub для Windows]. При использовании Visual Studio можно использовать интегрированную поддержку Git.
 
-Мы также рекомендуем установить [средства Python 2.1 для Visual Studio]. Это необязательно, но, если у вас есть [Visual Studio], например бесплатная версия Visual Studio Community 2013 или Visual Studio Express 2013 для Web, вы получите отличную интегрированную среду разработки Python.
+Мы также рекомендуем установить [инструменты Python 2.2 для Visual Studio]. Это необязательно, но, если у вас есть [Visual Studio], например бесплатная версия Visual Studio Community 2013 или Visual Studio Express 2013 для Web, вы получите отличную интегрированную среду разработки Python.
 
 ### Mac/Linux
 
@@ -89,7 +88,7 @@
     \FlaskWebProject.pyproj
     \FlaskWebProject.sln
 
-Файлы проекта для использования со [средствами Python для Visual Studio](http://pytools.codeplex.com).
+Файлы проекта для использования со [средствами Python для Visual Studio].
 
     \ptvs_virtualenv_proxy.py
 
@@ -161,7 +160,7 @@
 
 ![](./media/web-sites-python-create-deploy-flask-app/windows-browser-flask.png)
 
-Можно установить точки останова в источниках, использовать окна контрольных значений и т. д. Дополнительные сведения о различных функциях см. в [документации PTVS].
+Можно установить точки останова в источниках, использовать окна контрольных значений и т. д. Дополнительные сведения о различных функциях см. в [документации по инструментам Python для Visual Studio].
 
 ### Внесение изменений
 
@@ -375,8 +374,8 @@
 
 Дополнительную информацию об использовании табличного хранилища Azure и MongoDB см. в следующих статьях:
 
-- [Использование Flask и MongoDB в Azure с помощью инструментов Python 2.1 для Visual Studio]
-- [Использование Flask и табличного хранилища Azure с помощью инструментов Python 2.1 для Visual Studio]
+- [Использование Flask и MongoDB в Azure с помощью инструментов Python для Visual Studio]
+- [Flask и хранилище таблиц Azure с использованием инструментов Python Tools для Visual Studio]
 
 ## Изменения
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -384,8 +383,8 @@
 
 
 <!--Link references-->
-[Использование Flask и MongoDB в Azure с помощью инструментов Python 2.1 для Visual Studio]: web-sites-python-ptvs-flask-mongodb.md
-[Использование Flask и табличного хранилища Azure с помощью инструментов Python 2.1 для Visual Studio]: web-sites-python-ptvs-flask-table-storage.md
+[Использование Flask и MongoDB в Azure с помощью инструментов Python для Visual Studio]: https://github.com/microsoft/ptvs/wiki/Flask-and-MongoDB-on-Azure
+[Flask и хранилище таблиц Azure с использованием инструментов Python Tools для Visual Studio]: web-sites-python-ptvs-flask-table-storage.md
 
 <!--External Link references-->
 [пакет SDK для Azure для Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
@@ -393,12 +392,13 @@
 [python.org]: http://www.python.org/
 [Git для Windows]: http://msysgit.github.io/
 [GitHub для Windows]: https://windows.github.com/
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
-[средства Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Инструменты Python для Visual Studio]: http://aka.ms/ptvs
+[средствами Python для Visual Studio]: http://aka.ms/ptvs
+[инструменты Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
-[документации PTVS]: http://pytools.codeplex.com/documentation
-[Документация по средствам Python для Visual Studio]: http://pytools.codeplex.com/documentation
+[Документация по средствам Python для Visual Studio]: http://aka.ms/ptvsdocs
+[документации по инструментам Python для Visual Studio]: http://aka.ms/ptvsdocs
 [Документация по Flask]: http://flask.pocoo.org/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

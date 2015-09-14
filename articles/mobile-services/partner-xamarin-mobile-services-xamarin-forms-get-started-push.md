@@ -2,8 +2,8 @@
 	pageTitle="Добавление push-уведомлений в приложение мобильных служб (Xamarin.Forms) — мобильные службы"
 	description="Узнайте, как использовать push-уведомления в приложениях Xamarin.Forms с помощью мобильных служб Azure."
 	documentationCenter="xamarin"
-	authors="normesta"
-	manager="stevenpo"
+	authors="wesmc7777"
+	manager="dwrede"
 	services="mobile-services"
 	editor=""/>
 
@@ -293,7 +293,7 @@ APNS использует сертификаты для аутентификац
             const string template = "{"aps":{"alert":"$(message)"}}";
 
             var expiryDate = DateTime.Now.AddDays(90).ToString
-                (System.Globalization.CultureInfo.CreateSpecificCulture("en-US"));
+                (System.Globalization.CultureInfo.CreateSpecificCulture("ru-RU"));
 
             var push = client.GetPush();
 
@@ -847,4 +847,4 @@ APNS использует сертификаты для аутентификац
 [Готовый образец push-уведомления Azure для приложения Xamarin.Forms ]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

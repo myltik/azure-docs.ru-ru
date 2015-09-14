@@ -171,7 +171,7 @@
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -375,7 +375,7 @@
 
 **Примечание.** Вам нужно настроить [брандмауэр базы данных SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure), а на сервере базы данных — [разрешить службам Azure доступ к серверу](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Кроме того, при копировании данных в SQL Azure из внешнего по отношению к Azure источника, включая локальные источники данных, с помощью шлюза фабрики данных, необходимо настроить соответствующий диапазон IP-адресов для компьютера, который отправляет данные в SQL Azure .
 
-## Свойства типа «Набор данных Azure SQL»
+## Свойства типа "Набор данных Azure SQL"
 
 Полный список разделов и свойств, используемых для определения наборов данных, см. в статье [Создание наборов данных](data-factory-create-datasets.md). Разделы структуры, доступности и политики JSON набора данных одинаковы для всех типов наборов данных (SQL Azure, BLOB-объекты Azure, таблицы Azure и т. д.).
 
@@ -385,7 +385,7 @@
 | -------- | ----------- | -------- |
 | tableName | Имя таблицы в экземпляре базы данных SQL Azure, на которое ссылается связанная служба. | Да |
 
-## Свойства типа «Действие копирования SQL Azure»
+## Свойства типа "Действие копирования SQL Azure"
 
 Полный список разделов и свойств, используемых для определения действий, см. в статье [Создание конвейеров](data-factory-create-pipelines.md). Такие свойства, как имя, описание, входные и выходные таблицы, различные политики и т. д., доступны для всех типов действий.
 
@@ -467,8 +467,11 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
+## Отправить отзыв
+Мы будем весьма признательны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-sql-connector.md).
+
 
 
 	 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

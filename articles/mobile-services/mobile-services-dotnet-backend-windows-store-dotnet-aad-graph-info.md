@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Доступ к сведениям Azure Active Directory через Graph (Магазин Windows) | Microsoft Azure" 
-	description="Узнайте, как получить доступ к информации Azure Active Directory с помощью API Graph в приложении Магазина Windows." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Доступ к сведениям Azure Active Directory через Graph (Магазин Windows) | Microsoft Azure"
+	description="Узнайте, как получить доступ к информации Azure Active Directory с помощью API Graph в приложении Магазина Windows."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Получение доступа к сведениям Graph Azure Active Directory
@@ -34,7 +34,7 @@
 
 
 
-##Предварительные требования 
+##Предварительные требования
 
 Перед началом работы с этим учебником необходимо изучить следующие учебники по мобильным службам.
 
@@ -84,7 +84,7 @@
 	        public String postalCode { get; set; }
 	        public String mail { get; set; }
 	        public String[] otherMails { get; set; }
-	
+
 	        public override string ToString()
 	        {
 	            return "displayName : " + displayName + "\n" +
@@ -206,7 +206,7 @@
         }
 
 9. Сохраните изменения и создайте службу для проверки отсутствия ошибок в синтаксисе.
-10. Опубликуйте проект мобильной службы в учетной записи Azure. 
+10. Опубликуйте проект мобильной службы в учетной записи Azure.
 
 
 ## <a name="update-app"></a>Обновление приложения для использования GetUserInfo
@@ -214,7 +214,7 @@
 В этом разделе предстоит обновить метод `AuthenticateAsync`, реализованный в учебнике [Добавление проверки подлинности в приложение], для вызова настраиваемого API и возвращения дополнительных сведений о пользователе из AAD.
 
 [AZURE.INCLUDE [mobile-services-aad-graph-info-update-app](../../includes/mobile-services-aad-graph-info-update-app.md)]
-  
+
 
 
 ## <a name="test-app"></a>Тестирование приложения
@@ -253,6 +253,5 @@
 [Блог команды разработчиков Azure Active Directory Graph]: http://go.microsoft.com/fwlink/?LinkId=510536
 [Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [Управление доступом в мобильных службах на основе ролей с помощью AAD]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

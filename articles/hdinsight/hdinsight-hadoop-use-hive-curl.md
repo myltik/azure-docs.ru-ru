@@ -1,21 +1,21 @@
 <properties
    pageTitle="Использование Hadoop Hive с Curl в HDInsight | Microsoft Azure"
-   description="Информация об удаленной отправке заданий Pig в HDInsight с помощью Curl."
-   services="hdinsight"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"
+	description="Информация об удаленной отправке заданий Pig в HDInsight с помощью Curl."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/06/2015"
-   ms.author="larryfr"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/28/2015"
+	ms.author="larryfr"/>
 
 #Выполнение запросов Hive с Hadoop в HDInsight с помощью Curl
 
@@ -68,7 +68,7 @@ Curl используется для демонстрации возможнос
 
 2. Используйте следующую команду, чтобы создать новую таблицу с именем **log4jLogs**:
 
-        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'wasb:///example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+GROUP+BY+t4;" -d statusdir="wasb:///example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
+        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'wasb:///example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="wasb:///example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
 
     Ниже приведены параметры, используемые в этой команде.
 
@@ -84,7 +84,7 @@ Curl используется для демонстрации возможнос
 
     * **DROP TABLE**: удаление таблицы и файла данных, если таблица уже существует.
 
-    * **CREATE EXTERNAL TABLE**: создание новой «внешней» таблицы в Hive. Внешние таблицы хранят только определение таблицы в Hive. Данные остаются в исходном расположении.
+    * **CREATE EXTERNAL TABLE**: создание новой "внешней" таблицы в Hive. Внешние таблицы хранят только определение таблицы в Hive. Данные остаются в исходном расположении.
 
 		> [AZURE.NOTE]Внешние таблицы необходимо использовать в тех случаях, когда ожидается, что исходные данные будут обновляться внешним источником, таким как автоматизированный процесс передачи данных или другой операцией MapReduce, при этом нужно, чтобы запросы Hive использовали самые последние данные.
 		>
@@ -98,6 +98,10 @@ Curl используется для демонстрации возможнос
 
     > [AZURE.NOTE]Обратите внимание, что при использовании Curl пробелы между операторами HiveQL заменяются знаком `+`. Заключенные в кавычки значения, содержащие пробелы в качестве разделителя, заменять на `+` не нужно.
 
+    * **INPUT\_\_FILE\_\_NAME LIKE '%25.log'**: поиск будет ограничен только файлами с расширением LOG. Если этот параметр отсутствует, Hive будет выполнять поиск по всем файлам в этом каталоге и подкаталогах, включая файлы, которые не соответствуют схеме столбца, определенной для этой таблицы.
+
+    > [AZURE.NOTE]Обратите внимание, что %25 — это % в кодировке URL, поэтому фактическим условием является `like '%.log'`. Символ % должен быть в кодировке URL, поскольку в URL-адресах он рассматривается как специальный символ.
+
     Эта команда должна возвращать идентификатор задания, который может использоваться для проверки состояния задания.
 
         {"id":"job_1415651640909_0026"}
@@ -110,7 +114,7 @@ Curl используется для демонстрации возможнос
 
     > [AZURE.NOTE]Этот запрос Curl возвращает документ нотации объектов JavaScript с информацией о задании. При этом jq используется только для получения значения состояния.
 
-4. После изменения состояния задания на **SUCCEEDED** результаты задания можно получить из хранилища больших двоичных объектов Azure. Параметр `statusdir`, передаваемый с помощью запроса, содержит расположение выходного файла. В данном случае это ****wasb:///example/curl**. При использовании этого адреса выходные данные задания сохраняются в каталоге **example/curl** в контейнере хранилища, используемом по умолчанию кластером HDInsight.
+4. После изменения состояния задания на **SUCCEEDED** результаты задания можно получить из хранилища больших двоичных объектов Azure. Параметр `statusdir`, передаваемый с помощью запроса, содержит расположение выходного файла. В нашем случае это ****wasb:///example/curl**. При использовании этого адреса выходные данные задания сохраняются в каталоге **example/curl** в контейнере хранилища, используемом по умолчанию кластером HDInsight.
 
     Можно вывести список этих файлов и скачать их с помощью [CLI Azure для Mac, Linux и Windows](xplat-cli.md). Например, для просмотра списка файлов в **example/curl** можно использовать следующую команду:
 
@@ -120,11 +124,11 @@ Curl используется для демонстрации возможнос
 
 		azure storage blob download <container-name> <blob-name> <destination-file>
 
-	> [AZURE.NOTE]Необходимо либо указать имя учетной записи хранения, содержащей большой двоичный объект, с помощью параметров `-a` и `-k`, либо задать переменные среды **AZURE\\\_STORAGE\\\_ACCOUNT** и **AZURE\\\_STORAGE\\\_ACCESS\\\_KEY**. См. также: <a href="hdinsight-upload-data.md" target="\_blank".
+	> [AZURE.NOTE]Необходимо либо указать имя учетной записи хранения, содержащей большой двоичный объект, с помощью параметров `-a` и `-k`, либо задать переменные среды **AZURE\\_STORAGE\\_ACCOUNT** и **AZURE\\_STORAGE\\_ACCESS\\_KEY**. См. также: <a href="hdinsight-upload-data.md" target="\_blank".
 
-6. Используйте следующие операторы, чтобы создать новую «внутреннюю» таблицу с именем **errorLogs**.
+6. Используйте следующие операторы, чтобы создать новую "внутреннюю" таблицу с именем **errorLogs**.
 
-        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="CREATE+TABLE+IF+NOT+EXISTS+errorLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+STORED+AS+ORC;INSERT+OVERWRITE+TABLE+errorLogs+SELECT+t1,t2,t3,t4,t5,t6,t7+FROM+log4jLogs+WHERE+t4+=+'[ERROR]';SELECT+*+from+errorLogs;" -d statusdir="wasb:///example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
+        curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="CREATE+TABLE+IF+NOT+EXISTS+errorLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+STORED+AS+ORC;INSERT+OVERWRITE+TABLE+errorLogs+SELECT+t1,t2,t3,t4,t5,t6,t7+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log';SELECT+*+from+errorLogs;" -d statusdir="wasb:///example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
 
     Эти инструкции выполняют следующие действия.
 
@@ -133,7 +137,7 @@ Curl используется для демонстрации возможнос
 		> [AZURE.NOTE]В отличие от внешних таблиц, удаление внутренних таблиц приводит также к удалению данных.
 
     * **STORED AS ORC** — сохраняет данные в формате Optimized Row Columnar (ORC). Это высокооптимизированный и эффективный формат для хранения данных Hive.
-    * **INSERT OVERWRITE ... SELECT**: из таблицы **log4jLogs** будут выбраны строки, которые содержат значение **[ERROR]**, а затем данные будут вставлены в таблицу **errorLogs**.
+    * **INSERT OVERWRITE ... SELECT**: из таблицы **log4jLogs** выбираются строки, которые содержат значение **[ERROR]**, а затем вставляются в таблицу **errorLogs**.
     * **SELECT** — выбираются все строки из новой таблицы **errorLogs**.
 
 7. Используйте идентификатор задания, возвращаемый для проверки состояния задания. После его успешного выполнения используйте Azure CLI для Mac, Linux и Windows, как было описано ранее, чтобы скачать и просмотреть результаты. Выходные данные должны содержать три строки, в каждой из которых должен быть текст **[ERROR]**.
@@ -190,4 +194,4 @@ Curl используется для демонстрации возможнос
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

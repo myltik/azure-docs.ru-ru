@@ -1,5 +1,7 @@
 <properties pageTitle="Учебник. Интеграция Azure Active Directory с Panopto | Microsoft Azure" description="Узнайте, как использовать Panopto с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi"/>
+
 #Учебник. Интеграция Azure Active Directory с Panopto
 >[AZURE.TIP]Чтобы оставить отзыв, щелкните [здесь](http://go.microsoft.com/fwlink/?LinkId=524766).
   
@@ -40,7 +42,7 @@
 
 5.  В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
 
-    ![Добавление приложения из коллекции](./media/active-directory-saas-panopto-tutorial/IC749322.png "Добавление приложения из коллекции")
+    ![Добавить приложение из коллекции](./media/active-directory-saas-panopto-tutorial/IC749322.png "Добавление приложения из коллекции")
 
 6.  В **поле поиска** введите **Panopto**.
 
@@ -116,7 +118,7 @@
 
 2.  На странице интеграции с приложением **Panopto** щелкните **Назначить пользователей**.
 
-    ![Назначение пользователей](./media/active-directory-saas-panopto-tutorial/IC777675.png "Назначение пользователей")
+    ![Назначить пользователей](./media/active-directory-saas-panopto-tutorial/IC777675.png "Назначить пользователей")
 
 3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да** для подтверждения назначения.
 
@@ -124,4 +126,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

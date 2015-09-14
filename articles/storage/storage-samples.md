@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Примеры службы хранилища Azure | Microsoft Azure"
-   description="Просматривайте, загружайте и пробуйте примеры для службы хранилища Azure. Воспользуйтесь примерами для начала работы с BLOB-объектами, очередями, таблицами и файлами с помощью клиентских библиотек хранилища .NET, Java, Node.js и C++."
-   services="storage"
-   documentationCenter="na"
-   authors="tamram"
-   manager="na"
-   editor="na" />
+	description="Просматривайте, загружайте и пробуйте примеры для службы хранилища Azure. Воспользуйтесь примерами для начала работы с BLOB-объектами, очередями, таблицами и файлами с помощью клиентских библиотек хранилища .NET, Java, Node.js и C++."
+	services="storage"
+	documentationCenter="na"
+	authors="tamram"
+	manager="na"
+	editor="na"/>
 <tags 
    ms.service="storage"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage"
-   ms.date="05/27/2015"
-   ms.author="tamram" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="storage"
+	ms.date="09/01/2015"
+	ms.author="tamram"/>
 
 # Примеры службы хранилища Azure
 
@@ -81,4 +81,4 @@
 - [Исходный код для клиентской библиотеки хранилища C++](https://github.com/Azure/azure-storage-cpp)
 - [Справочник по клиентской библиотеке C++](http://azure.github.io/azure-storage-cpp/) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -4,7 +4,7 @@
 
 Для использования класса [EventProcessorHost] необходимо настроить [учетную запись хранения Azure].
 
-1. Войдите на [портал управления Azure] и щелкните **СОЗДАТЬ** в нижней части экрана.
+1. Войдите на [портал Azure] и нажмите **СОЗДАТЬ** в нижней части экрана.
 
 2. Выберите **Службы данных**, **Хранилище**, **Быстрое создание**, а затем введите имя для своей учетной записи хранения. Выберите нужный регион и нажмите кнопку **Создать учетную запись хранения**.
 
@@ -28,7 +28,7 @@
 
     ![][13]
 
-	Будет скачана, установлена и добавлена ссылка на <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">пакет концентратора событий служебной шины Azure — EventProcessorHost NuGet</a> со всеми его зависимостями.
+	Будет скачана, установлена и добавлена ссылка на [пакет концентратора событий служебной шины Azure — EventProcessorHost NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) со всеми его зависимостями.
 
 7. Щелкните правой кнопкой мыши проект **Получатель**, выберите пункт **Добавить**, а затем **Класс**. Присвойте классу имя **SimpleEventProcessor**, а затем нажмите кнопку **ОК**, чтобы создать класс.
 
@@ -112,12 +112,12 @@
 > [AZURE.NOTE]В данном учебнике используется один экземпляр [EventProcessorHost]. Чтобы увеличить пропускную способность, рекомендуется запустить несколько экземпляров [EventProcessorHost], как показано в примере [Обработка масштабированного события]. В этом случае различные экземпляры автоматически координируются друг с другом для распределения нагрузки полученных событий. Если каждый из нескольких получателей должен обрабатывать *все* события, то необходимо использовать понятие **ConsumerGroup**. При получении события от разных компьютеров может оказаться полезным указать имена экземпляров [EventProcessorHost] в компьютерах (или ролях), где они развернуты. Дополнительные сведения об этих темах см. в разделах [Общие сведения о концентраторах событий] и [Руководство по программированию концентраторов событий].
 
 <!-- Links -->
-[Общие сведения о концентраторах событий]: http://azure.microsoft.com/documentation/articles/event-hubs-overview/
+[Общие сведения о концентраторах событий]: event-hubs-overview.md
 [Обработка масштабированного события]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [обработки масштабируемого события]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
-[учетную запись хранения Azure]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+[учетную запись хранения Azure]: storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[портал управления Azure]: http://manage.windowsazure.com
+[портал Azure]: http://manage.windowsazure.com
 
 <!-- Images -->
 
@@ -126,8 +126,8 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Руководство по программированию концентраторов событий]: http://azure.microsoft.com/documentation/articles/event-hubs-programming-guide/
+[Руководство по программированию концентраторов событий]: event-hubs-programming-guide.md
 [Async Await in Console Apps]: http://blogs.msdn.com/b/pfxteam/archive/2012/01/20/10259049.aspx
 [AsyncPump.cs]: http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-components-postattachments/00-10-25-90-49/AsyncPump_2E00_cs
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

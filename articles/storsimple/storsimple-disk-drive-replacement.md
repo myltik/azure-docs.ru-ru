@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Замена диска на устройстве StorSimple | Microsoft Azure"
-   description="Объясняется, как заменить диск в основном корпусе или корпусе EBOD устройства StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Замена диска на устройстве StorSimple | Microsoft Azure"
+	description="В статье объясняется, как заменить диск на основном устройстве StorSimple или в корпусе EBOD."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Замена диска на устройстве StorSimple
 
@@ -124,4 +124,4 @@
 
 Узнайте больше о [Замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

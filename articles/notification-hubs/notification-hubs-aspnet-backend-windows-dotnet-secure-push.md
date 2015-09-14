@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Безопасные push-уведомления посредством центров уведомлений Azure" 
-	description="Узнайте, как отправлять безопасные push-уведомления в Azure. Примеры кода написаны на C# с использованием API .NET." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Безопасные push-уведомления посредством центров уведомлений Azure"
+	description="Узнайте, как отправлять безопасные push-уведомления в Azure. Примеры кода написаны на C# с использованием API .NET."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="notification-hubs"/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 #Безопасные push-уведомления посредством центров уведомлений Azure
@@ -75,7 +75,7 @@
 		using Windows.ApplicationModel.Background;
 
 4. В меню **Файл** Visual Studio выберите пункт **Сохранить все**.
-		
+
 ## Создайте фоновый компонент push-уведомления
 
 Следующий шаг заключается в создании фонового компонента push-уведомления.
@@ -96,11 +96,11 @@
         		public string Payload { get; set; }
         		public bool Read { get; set; }
     		}
-    
+
 		    public sealed class PushBackgroundTask : IBackgroundTask
     		{
         		private string GET_URL = "{back-end endpoint}/api/notifications/";
-		
+
         		async void IBackgroundTask.Run(IBackgroundTaskInstance taskInstance)
 		        {
         		    // Store the content received from the notification so it can be retrieved from the UI.
@@ -161,7 +161,7 @@
 	![][3]
 
 13. Находясь в **Package.appxmanifest**, откройте меню **Объявления** вверху. В раскрывающемся списке **Доступные объявления** щелкните **Фоновые задачи** и затем нажмите кнопку **Добавить**.
- 
+
 14. В **Package.appxmanifest** в разделе **Свойства** включите параметр **Push-уведомление**.
 
 15. В **Package.appxmanifest** в области **Параметры приложения** введите **PushBackgroundComponent.PushBackgroundTask** в поле **Точка входа**.
@@ -185,6 +185,5 @@
 [3]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

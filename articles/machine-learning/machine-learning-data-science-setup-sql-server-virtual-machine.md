@@ -3,9 +3,9 @@
 	description="Настройте виртуальную машину для обработки данных с использованием SQL Server и IPython Server."
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab" 
+	authors="msolhab"
 	manager="paulettm"
-	editor="cgronlun" />
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="mohabib;xibingao;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="mohabib;xibingao;bradsev"/>
 
 # Настройка SQL Server на виртуальной машине Azure как сервера IPython Notebook для расширенной аналитики
 
@@ -298,4 +298,4 @@
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

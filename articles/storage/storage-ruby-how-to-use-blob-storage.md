@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Использование хранилища больших двоичных объектов из Ruby | Microsoft Azure" 
-	description="Узнайте, как использовать службу BLOB-объектов Azure для отправки, загрузки, отображения и удаления содержимого больших двоичных объектов. Примеры кода написаны на Ruby." 
-	services="storage" 
-	documentationCenter="ruby" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+<properties
+	pageTitle="Использование хранилища больших двоичных объектов из Ruby | Microsoft Azure"
+	description="Узнайте, как использовать службу BLOB-объектов Azure для отправки, загрузки, отображения и удаления содержимого больших двоичных объектов. Примеры кода написаны на Ruby."
+	services="storage"
+	documentationCenter="ruby"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="05/11/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="tomfitz"/>
 
 
@@ -59,18 +59,18 @@
 
 Для получения этих значений:
 
-1. Выполните вход в [Портал управления Azure](https://manage.windowsazure.com/).
+1. Выполните вход на [портал управления Azure](https://manage.windowsazure.com/).
 2. Перейдите к учетной записи хранения, которая будет использоваться.
 3. Щелкните **УПРАВЛЕНИЕ КЛЮЧАМИ** в нижней части области навигации.
 4. В открывшемся диалоговом окне вы увидите имя учетной записи хранения, первичный ключ доступа и вторичный ключ доступа. В качестве ключа доступа можно использовать либо первичный, либо вторичный ключ.
 
-## Практическое руководство. Создание контейнера
+## Создание контейнера
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
 Объект **Azure::BlobService** позволяет работать с контейнерами и BLOB-объектами. Чтобы создать контейнер, используйте метод **create\_container()**.
 
-В следующем примере создается контейнер или выводится ошибка, если она возникла.
+В следующем примере кода создается контейнер или выводится ошибка, если она возникла.
 
 	azure_blob_service = Azure::BlobService.new
 	begin
@@ -83,7 +83,7 @@
 
 Вы можете просто изменить вызов <strong>create\_container()</strong>, чтобы передавать параметр **:public\_access\_level**:
 
-	container = azure_blob_service.create_container("test-container", 
+	container = azure_blob_service.create_container("test-container",
 	  :public_access_level => "<public access level>")
 
 
@@ -94,25 +94,25 @@
 * **container:** общий доступ на чтение для больших двоичных объектов. Данные BLOB-объектов в этом контейнере можно считать с помощью анонимного запроса, но данные контейнера недоступны. Клиенты не могут перечислять BLOB-объекты внутри с помощью анонимного запроса.
 
 Кроме того, можно изменить уровень общего доступа к контейнеру, используя метод **set\_container\_acl()** для определения уровня общего доступа.
- 
-В следующем примере уровень общего доступа изменяется на **container**:
+
+В следующем примере кода уровень общего доступа изменяется на **container**:
 
 	azure_blob_service.set_container_acl('test-container', "container")
 
-## Практическое руководство. Отправка BLOB-объекта в контейнер
+## Отправка BLOB-объекта в контейнер
 
 Для передачи содержимого в BLOB-объект используйте метод **create\_block\_blob()** для создания BLOB-объекта, а в качестве содержимого объекта используйте файл или строку.
 
-Следующий код отправляет файл **test.png** как новый BLOB-объект с именем "image-blob" в контейнер.
+Следующий код отправляет файл **test.png** как новый большой двоичный объект с именем "image-blob" в контейнер.
 
 	content = File.open("test.png", "rb") { |file| file.read }
 	blob = azure_blob_service.create_block_blob(container.name,
 	  "image-blob", content)
 	puts blob.name
 
-## Практическое руководство. Перечисление BLOB-объектов в контейнере
+## Перечисление BLOB-объектов в контейнере
 
-Для перечисления контейнеров используйте метод **list\_containers()**. Для перечисления больших двоичных объектов в контейнере используйте метод **list\\\_blobs()**.
+Для перечисления контейнеров используйте метод **list\_containers()**. Для перечисления больших двоичных объектов в контейнере используйте метод **list\\_blobs()**.
 
 Этот пример выводит URL-адреса всех BLOB-объектов во всех контейнерах учетной записи.
 
@@ -124,27 +124,26 @@
 	  end
 	end
 
-## Практическое руководство. Загрузка BLOB-объектов
+## Скачивание больших двоичных объектов
 
 Чтобы загрузить BLOB-объекты, используйте метод **get\_blob()** для извлечения содержимого.
 
-В следующем примере показано, как использовать метод **get\_blob()**, чтобы загрузить содержимое "image-blob" и записать его в локальный файл.
+В следующем примере кода показано, как использовать метод **get\_blob()**, чтобы загрузить содержимое "image-blob" и записать его в локальный файл.
 
 	blob, content = azure_blob_service.get_blob(container.name,"image-blob")
 	File.open("download.png","wb") {|f| f.write(content)}
 
-## Практическое руководство. Удаление BLOB-объекта
-Наконец, для удаления BLOB-объекта используйте метод **delete\_blob()**. В следующем примере показано, как удалить BLOB-объект.
+## Удаление BLOB-объекта
+Наконец, для удаления BLOB-объекта используйте метод **delete\_blob()**. В следующем примере кода показано, как удалить большой двоичный объект.
 
 	azure_blob_service.delete_blob(container.name, "image-blob")
 
 ## Дальнейшие действия
 
-Вы изучили основные сведения о хранилище BLOB-объектов. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
+Дополнительную информацию о выполнении более сложных задач хранения см. по указанным ниже ссылкам.
 
-- См. справочник MSDN: [Служба хранилища Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-- Посетите [блог команды разработчиков хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/).
-- Посетите репозиторий [Azure SDK для Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub
- 
+- Справочник MSDN: [хранилище Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- [Блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+- Репозиторий [пакетов SDK Azure для Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

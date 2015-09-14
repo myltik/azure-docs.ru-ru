@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Документация по интерфейсу API рекомендаций для машинного обучения | Microsoft Azure" 
-	description="Документация по интерфейсу API рекомендаций для машинного обучения Azure, предназначенная для системы рекомендаций, доступной в Microsoft Azure Marketplace." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="AharonGumnik" 
-	manager="paulettm" 
+	pageTitle="Документация по интерфейсу API рекомендаций для машинного обучения | Microsoft Azure"
+	description="Документация по интерфейсу API рекомендаций для машинного обучения Azure, предназначенная для системы рекомендаций, доступной в Microsoft Azure Marketplace."
+	services="machine-learning"
+	documentationCenter=""
+	authors="AharonGumnik"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/10/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="LuisCa"/>
 
 #Документация по интерфейсу API рекомендаций по Машинному обучению Azure
@@ -1586,7 +1586,7 @@ OData XML
 
 | Метод HTTP | URI |
 |:--------|:--------|
-|ПОЛУЧЕНИЕ |`<rootURI>/GetModelFeatures?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&rankBuildId=%27<rankBuildId>%27&apiVersion=%271.0%27`<br><br>Пример:<br>`<rootURI>/GetModelFeatures?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&rankBuildId=%271000551%27&apiVersion=%271.0%27`
+|ПОЛУЧЕНИЕ |`<rootURI>/GetModelFeatures?modelId=%27<modelId>%27&samplingSize=%27<samplingSize>%27&rankBuildId=<rankBuildId>&apiVersion=%271.0%27`<br><br>Пример:<br>`<rootURI>/GetModelFeatures?modelId=%271c1110f8-7d9f-4c64-a807-4c9c5329993a%27&samplingSize=10%27&rankBuildId=1000551&apiVersion=%271.0%27`
 
 | Имя параметра |	Допустимые значения |
 |:--------			|:--------			|
@@ -2861,4 +2861,4 @@ OData XML
 Данный документ предоставляется "как есть". Сведения и мнения, содержащиеся в этом документе, включая URL-адреса и другие ссылки на веб-сайты, могут быть изменены без предварительного уведомления.<br><br> Некоторые примеры, содержащиеся в данном документе, являются вымышленными и приводятся исключительно в демонстрационных целях. Никакой реальной связи нет и не предполагается.<br><br> Настоящий документ не предоставляет юридических прав на интеллектуальную собственность в отношении продуктов корпорации Майкрософт. Вы можете скопировать и использовать данный документ для внутренних справочных целей.<br><br> © Корпорация Майкрософт (Microsoft Corporation), 2015 г. Все права защищены.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

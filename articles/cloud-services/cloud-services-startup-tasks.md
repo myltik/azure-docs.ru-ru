@@ -29,7 +29,7 @@ ms.service="cloud-services"
 
 Переменные среды передают информацию в задачу запуска, а локальное хранилище можно использовать для передачи информации из задачи запуска. Например, в переменной среды можно указать путь к программе, которую вы хотите установить, и файлы могут быть записаны в локальное хранилище, чтобы позже их могла считать роль.
 
-Задача запуска может записывать информацию и ошибки в журнал в каталоге, заданном переменной среды **TEMP**. Во время выполнения задачи запуска в облаке переменная среды **TEMP** сопоставляется с каталогом *C:\\Resources\\temp\[guid].[имя\_роли]\\RoleTemp*.
+Задача запуска может записывать информацию и ошибки в журнал в каталоге, заданном переменной среды **TEMP**. Во время выполнения задачи запуска в облаке переменная среды **TEMP** сопоставляется с каталогом *C:\\Resources\\temp\\[guid].[имя\_роли]\\RoleTemp*.
 
 Кроме того, задачи запуска могут выполняться несколько раз между перезагрузками. Например, задача запуска будет выполняться при каждом перезапуске роли, что не всегда подразумевает перезагрузку. Задачи запуска следует составлять таким способом, чтобы их можно было без проблем запускать несколько раз.
 
@@ -68,9 +68,9 @@ ms.service="cloud-services"
 ```xml
 <Startup>
     <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple" >
-    <Environment>
-        <Variable name="MyVersionNumber" value="1.0.0.0" />
-    </Environment>
+        <Environment>
+            <Variable name="MyVersionNumber" value="1.0.0.0" />
+        </Environment>
     </Task>
 </Startup>
 ```
@@ -132,24 +132,24 @@ EXIT /B 0
 ```xml
 <Startup>
     <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple">
-    <Environment>
-
-        <!-- Create the environment variable that informs the startup task whether it is running
-            in the Compute Emulator or in the cloud. "%ComputeEmulatorRunning%"=="true" when
-            running in the Compute Emulator, "%ComputeEmulatorRunning%"=="false" when running
-            in the cloud. -->
-
-        <Variable name="ComputeEmulatorRunning">
-            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
-        </Variable>
-
-    </Environment>
+        <Environment>
+    
+            <!-- Create the environment variable that informs the startup task whether it is running
+                in the Compute Emulator or in the cloud. "%ComputeEmulatorRunning%"=="true" when
+                running in the Compute Emulator, "%ComputeEmulatorRunning%"=="false" when running
+                in the cloud. -->
+    
+            <Variable name="ComputeEmulatorRunning">
+                <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+            </Variable>
+    
+        </Environment>
     </Task>
 </Startup>
 ```
 
 ## Дальнейшие действия
-Узнайте, как выполнять некоторые [стандартные задачи запуска](cloud-services-common-startup-tasks.md) с помощью облачной службы.
+Узнайте, как выполнять некоторые [стандартные задачи запуска](cloud-services-startup-tasks-common.md) с помощью облачной службы.
 
 [Упакуйте](cloud-services-model-and-package.md) облачную службу.
 
@@ -163,4 +163,4 @@ EXIT /B 0
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

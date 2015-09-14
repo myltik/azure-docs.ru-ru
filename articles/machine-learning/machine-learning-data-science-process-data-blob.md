@@ -1,24 +1,27 @@
 <properties 
-	pageTitle="Обработка больших двоичных данных Azure с применением методов расширенного анализа | Microsoft Azure" 
-	description="Обработка данных в хранилище больших двоичных объектов Azure." 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Обработка больших двоичных данных Azure с применением методов расширенного анализа | Microsoft Azure"
+	description="Обработка данных в хранилище больших двоичных объектов Azure."
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev"/>
 
 #<a name="heading"></a>Обработка больших двоичных данных Azure с применением методов расширенного анализа
 
-Этот документ содержит сведения о работе с данными в хранилище больших двоичных объектов Azure и создании характеристик на их основе. Для этого нужно загрузить данные из большого двоичного объекта в локальный файл. Затем для просмотра данных и управления ими вы можете передать этот файл в блок данных Pandas. Вот какие действия нужно выполнить:
+Этот документ содержит сведения о работе с данными в хранилище больших двоичных объектов Azure и создании характеристик на их основе.
+
+## Загрузка данных во фрейм данных Pandas
+Для просмотра набора данных и управления им набор необходимо скачать из источника больших двоичных объектов в локальный файл, который в последствии можно загрузить во фрейм данных Pandas. Ниже приведен порядок выполнения данной процедуры.
 
 1. Скачайте данные из большого двоичного объекта Azure с помощью службы BLOB-объектов. Для этого воспользуйтесь приведенным ниже примером кода Python. Замените переменные этого кода своими значениями. 
 
@@ -185,4 +188,4 @@
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

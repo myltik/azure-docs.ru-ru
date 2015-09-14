@@ -1,21 +1,21 @@
 <properties 
    pageTitle="Управление записями системы контроля доступа в StorSimple | Microsoft Azure"
-   description="Описывает, как использовать записи контроля доступа (ACR), чтобы определить, какие узлы могут подключаться к тому на устройстве StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="tysonn" />
+	description="Описывает, как использовать записи контроля доступа (ACR), чтобы определить, какие узлы могут подключаться к тому на устройстве StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# Управление записями системы контроля доступа в StorSimple
+# Использование службы диспетчера StorSimple для управления записями контроля доступа
 
 ## Обзор
 
@@ -34,7 +34,7 @@
 
 ## Добавление записи контроля доступа
 
-Добавление записей контроля доступа выполняется на странице **Настройка** на портале управления. Как правило, одной записи контроля доступа соответствует один том.
+Для добавления записей контроля доступа используется страница **Настройка** службы диспетчера StorSimple. Как правило, одной записи контроля доступа соответствует один том.
 
 Выполните следующие действия для добавления записи контроля доступа
 
@@ -94,4 +94,4 @@
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

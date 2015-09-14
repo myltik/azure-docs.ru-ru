@@ -1,21 +1,21 @@
 <properties 
    pageTitle="Просмотр заданий StorSimple и управление ими | Microsoft Azure"
-   description="Описывает страницу заданий службы диспетчера StorSimple и способы ее использования для отслеживания недавних, текущих и запланированных заданий."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor=""/>
+	description="Описывает страницу заданий службы диспетчера StorSimple и способы ее использования для отслеживания недавних, текущих и запланированных заданий."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# Просмотр заданий StorSimple и управление ими
+# Использование службы управления StorSimple для просмотра заданий StorSimple и управления ими
 
 ## Обзор
 
@@ -89,4 +89,4 @@
 
 [Узнайте, как управлять политиками резервного копирования StorSimple](storsimple-manage-backup-policies.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

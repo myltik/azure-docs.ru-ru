@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Создание приложений, работающих в режиме реального времени, с помощью Pusher (iOS) — мобильные службы" 
-	description="Узнайте, как с помощью Pusher отправлять уведомления в приложение служб мультимедиа Azure в iOS." 
-	services="mobile-services" 
-	documentationCenter="ios" 
-	authors="lindydonna" 
-	manager="dwrede" 
+<properties
+	pageTitle="Создание приложений, работающих в режиме реального времени, с помощью Pusher (iOS) — мобильные службы"
+	description="Узнайте, как с помощью Pusher отправлять уведомления в приложение служб мультимедиа Azure в iOS."
+	services="mobile-services"
+	documentationCenter="ios"
+	authors="lindydonna"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/05/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="donnam"/>
 
 
@@ -439,6 +439,5 @@ Pusher — это облачная служба, которая, как и мо�
 [портал управления Azure]: https://manage.windowsazure.com/
 
 [справочнике по серверным скриптам мобильных служб]: http://go.microsoft.com/fwlink/p/?LinkId=262293
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

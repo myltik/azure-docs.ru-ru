@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Краткое руководство: API рекомендаций для машинного обучения | Microsoft Azure" 
-	description="Рекомендации по Машинному обучению Azure. Краткое руководство по началу работы" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="Краткое руководство: API рекомендаций для машинного обучения | Microsoft Azure"
+	description="Рекомендации по Машинному обучению Azure. Краткое руководство по началу работы"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/12/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="luisca"/>
 
 # Краткое руководство по API рекомендаций для машинного обучения
@@ -673,4 +673,4 @@ OData XML
 Данный документ предоставляется "как есть". Сведения и мнения, представленные в данном документе, включая URL-адреса и ссылки на другие веб-сайты, могут быть изменены без предварительного уведомления. Некоторые примеры, содержащиеся в данном документе, являются вымышленными и приводятся исключительно в демонстрационных целях. Любое сходство с реальными ситуациями случайно. Настоящий документ не предоставляет юридических прав на интеллектуальную собственность в отношении продуктов корпорации Майкрософт. Вы можете скопировать и использовать данный документ для внутренних справочных целей. © Корпорация Майкрософт, 2014. Все права защищены.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

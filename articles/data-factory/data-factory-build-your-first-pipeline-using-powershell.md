@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Создание конвейера с помощью фабрики данных Azure | Microsoft Azure"
-	description="В этом учебнике показано, как создать конвейер, преобразующий демонстрационные данные с помощью Azure HDInsight и Azure PowerShell."
+	pageTitle="Построение конвейера фабрики данных Azure с помощью Azure PowerShell"
+	description="В этом учебнике вы создадите образец конвейера фабрики данных Azure с помощью Azure PowerShell."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -263,4 +263,7 @@
 ## Дальнейшие действия
 В этой статье описывается создание конвейера с помощью действия преобразования (действие HDInsight), которое по требованию выполняет сценарий Hive в кластере Azure HDInsight. Сведения о том, как копировать данные из хранилища BLOB-объектов Azure в SQL Azure с помощью действия копирования, см. в учебнике [Копирование данных из хранилища BLOB-объектов Azure в Azure SQL](./data-factory-get-started.md).
 
-<!---HONumber=August15_HO8-->
+## Отправить отзыв
+Мы будем весьма признательны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md).
+
+<!---HONumber=September15_HO1-->

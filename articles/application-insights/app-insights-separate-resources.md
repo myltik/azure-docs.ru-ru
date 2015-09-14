@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Создание нового ресурса Application Insights" 
-	description="Настройте новое приложение и получите ключ инструментирования. Application Insights выполняет мониторинг производительности и использования живых приложений." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Отдельные ресурсы Application Insights для разработки, тестирования и эксплуатации"
+	description="Отслеживание производительности и использования приложения на разных этапах разработки"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="awills"/>
 
-# Создание нового ресурса Application Insights
+# Отдельные ресурсы Application Insights для разработки, тестирования и эксплуатации
 
 
 Чтобы данные телеметрии, передаваемые отладочными, тестовыми и рабочими версиями вашего приложения, не смешивались друг с другом, создайте отдельный ресурс [Application Insights][start] для получения данных из каждой версии.
@@ -98,4 +98,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

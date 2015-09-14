@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-services"
-	ms.date="06/29/2015"
-	ms.author="sidneyh;barbkess"/>
+	ms.date="08/28/2015"
+	ms.author="twounder;sidneyh;barbkess"/>
 
 # Начало работы с командлетами хранилища данных Azure и интерфейсами REST API
 
@@ -27,8 +27,8 @@
 ## Получение и запуск командлетов Azure PowerShell
 
 1. Чтобы загрузить модуль Azure PowerShell, запустите [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). 
-2. 2. Чтобы запустить модуль, введите в окне запуска **Microsoft Azure PowerShell**.
-3. Если ваша учетная запись не добавлена на компьютер, запустите приведенный ниже командлет. (Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](powershell-install-configure/)).
+2. Чтобы запустить модуль, введите в окне запуска **Microsoft Azure PowerShell**.
+3. Если ваша учетная запись не добавлена на компьютер, запустите приведенный ниже командлет. (Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell]()).
 
 		Add-AzureAccount
 3. Переключите режим с помощью приведенного ниже командлета.
@@ -101,6 +101,7 @@ RestorePointCreationDate |Время создания моментального
 
 <!--Article references-->
 [Общие справочные сведения о хранилище данных SQL]: sql-data-warehouse-overview-reference.md
+[How to install and configure Azure PowerShell]: powershell-install-configure.md
 
 <!--MSDN references-->
 
@@ -110,4 +111,4 @@ RestorePointCreationDate |Время создания моментального
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

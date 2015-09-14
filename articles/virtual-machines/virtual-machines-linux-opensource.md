@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="08/07/2015"
+	ms.date="09/02/2015"
 	ms.author="rasquill"/>
 
 
@@ -246,8 +246,11 @@ CoreOS — это небольшой оптимизированный дистр
 
 1.	Шаблон быстрого запуска [Развертывание кластера SLURM](http://azure.microsoft.com/documentation/templates/slurm/) и [запись в блоге](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 2.	[Шаблон быстрого запуска: развертывание кластера Torque](http://azure.microsoft.com/documentation/templates/torque-cluster/)
-3.	[Учебник: начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](virtual-machines-linux-cluster-hpcpack.md)
-4.	[Учебник: настройка кластера Linux RDMA для выполнения приложений MPI](virtual-machines-linux-cluster-rdma.md)
+3.	[Шаблон краткого руководства: создание кластера HPC с вычислительными узлами Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
+4.	[Учебник: начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](virtual-machines-linux-cluster-hpcpack.md)
+5.	[Учебник: запуск NAMD с пакетом Microsoft HPC на вычислительных узлах Linux в Azure](virtual-machines-linux-cluster-hpcpack-namd.md)
+6.	[Учебник: настройка кластера Linux RDMA для выполнения приложений MPI](virtual-machines-linux-cluster-rdma.md)
+
 
 ## Разработка, управление и оптимизация
 
@@ -304,4 +307,4 @@ CoreOS — это небольшой оптимизированный дистр
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

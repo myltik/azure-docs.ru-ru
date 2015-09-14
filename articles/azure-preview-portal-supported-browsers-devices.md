@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Поддерживаемые браузеры и устройства" 
-	description="" 
-	services="" 
-	documentationCenter="" 
-	authors="flanakin" 
-	manager="lwelicki" 
+	pageTitle="Поддерживаемые браузеры и устройства"
+	description=""
+	services=""
+	documentationCenter=""
+	authors="flanakin"
+	manager="lwelicki"
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/23/2015"
 	ms.author="micflan"/>
 
 #Поддерживаемые браузеры и устройства
@@ -25,11 +25,12 @@
 ### Поддерживаемые браузеры
 Поддерживаются последние версии следующих браузеров:
 
+- Edge (последняя версия);
 - Internet Explorer (версии 11 и более поздней версии);
-- Safari (7 и выше)
-- Chrome (последняя)
-- Firefox (последняя)
+- Safari (7 и выше);
+- Chrome (последняя версия);
+- Firefox (последняя версия).
 
 *Safari 6 и ниже не поддерживаются. Если используется OS X, можно использовать Chrome, Firefox или выполнить обновление до OS X Mavericks для получения Safari 7.*
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

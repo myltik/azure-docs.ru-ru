@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Перенос данных из локального SQL Server в SQL Azure с фабрикой данных Azure | Azure" 
-	description="Настройка конвейера ADF, который объединяет два действия миграции данных, которые ежедневно перемещают данные между локальными базами данных и в облаке." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="fashah" 
-	manager="jacob.spoelstra" 
-	editor="" />
+	pageTitle="Перенос данных из локального SQL Server в SQL Azure с фабрикой данных Azure | Azure"
+	description="Настройка конвейера ADF, который объединяет два действия миграции данных, которые ежедневно перемещают данные между локальными базами данных и в облаке."
+	services="machine-learning"
+	documentationCenter=""
+	authors="fashah"
+	manager="jacob.spoelstra"
+	editor=""/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="fashah;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="fashah;bradsev"/>
 
 
 # Перенос данных из локального SQL Server в SQL Azure с фабрикой данных Azure
@@ -299,4 +299,4 @@ ADF стоит использовать в том случае, когда да�
 
 Обратите внимание, что мы не используем возможность поэтапного поступления данных в конвейер, предоставляемую ADF. Дополнительные сведения об этой и других возможностях ADF см. в [документации ADF](http://azure.microsoft.com/services/data-factory/).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

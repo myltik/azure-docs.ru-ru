@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/12/2015"
-	ms.author="jroth" />
+	ms.author="jroth"/>
 
 # Настройка групп доступности AlwaysOn в Azure (графический пользовательский интерфейс)
 
 В этом комплексном учебнике вы научитесь реализовывать группы доступности с помощью SWL Server AlwaysOn на виртуальных машинах Azure.
 
->[AZURE.NOTE]На портале управления Azure находится новое средство настройки для групп доступности AlwaysOn с прослушивателем. Оно автоматически настраивает все необходимые параметры для групп доступности AlwaysOn. Дополнительную информацию см. в разделе [Предложения AlwaysOn SQL Server в коллекции портала Microsoft Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Инструкции по использованию PowerShell см. в учебнике по тому же сценарию в разделе [Учебник. Группы доступности AlwaysOn в Azure (PowerShell)](https://msdn.microsoft.com/library/azure/jj870963.aspx).
+>[AZURE.NOTE]На портале управления Azure находится новое средство настройки для групп доступности AlwaysOn с прослушивателем. Оно автоматически настраивает все необходимые параметры для групп доступности AlwaysOn. Дополнительную информацию см. в разделе [Предложения AlwaysOn SQL Server в коллекции портала Microsoft Azure](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx). Инструкции по использованию PowerShell см. в учебнике по тому же сценарию в разделе [Настройка групп доступности AlwaysOn в Azure с помощью PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md).
 
 В конце учебника ваше решение SQL Server AlwaysOn в Azure будет состоять из следующих элементов:
 
@@ -534,4 +534,4 @@
 
 Дополнительные сведения об использовании SQL Server в Azure см. в разделе [SQL Server на виртуальных машинах Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

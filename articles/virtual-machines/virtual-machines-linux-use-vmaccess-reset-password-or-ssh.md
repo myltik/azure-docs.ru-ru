@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/07/2015"
+	ms.date="08/28/2015"
 	ms.author="kathydav"/>
 
 # Как сбросить пароль или ключ SSH в виртуальных машинах Linux #
 
-Если вы не можете подключиться к виртуальной машине Linux из-за забытого пароля, неверного ключа Secure Shell (SSH) или проблем с конфигурацией SSH, воспользуйтесь порталом предварительной версии Azure или расширением VMAccessForLinux, чтобы сбросить пароль или ключ SSH либо исправить конфигурацию SSH.
+Если вы не можете подключиться к виртуальной машине Linux из-за забытого пароля, неверного ключа Secure Shell (SSH) или проблем с конфигурацией SSH, воспользуйтесь порталом предварительной версии Azure или расширением VMAccessForLinux, чтобы сбросить пароль или ключ SSH либо исправить конфигурацию SSH. Обратите внимание, что сведения в этой статье применимы к виртуальным машинам, созданным с использованием **классической** модели развертывания.
 
 ## Портал предварительной версии Azure
 
@@ -68,7 +69,7 @@
 	"expiration":"2016-01-01",
 	}
 
-Шаг 2. Запустите эту команду, подставив имя вашей виртуальной машины вместо «vmname».
+Шаг 2. Запустите эту команду, подставив имя вашей виртуальной машины вместо "vmname".
 
 	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
 
@@ -81,7 +82,7 @@
 	"ssh_key":"contentofsshkey",
 	}
 
-Шаг 2. Запустите эту команду, подставив имя вашей виртуальной машины вместо «vmname».
+Шаг 2. Запустите эту команду, подставив имя вашей виртуальной машины вместо "vmname".
 
 	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
@@ -95,7 +96,7 @@
 	"password":"newpassword",
 	}
 
-Шаг 2. Запустите эту команду, подставив имя вашей виртуальной машины вместо «vmname».
+Шаг 2. Запустите эту команду, подставив имя вашей виртуальной машины вместо "vmname".
 
 	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
@@ -111,7 +112,7 @@
 
 ### <a name="sshconfigresetcli"></a>Сброс конфигурации SSH
 
-Если конфигурация SSH нарушена, вы можете потерять доступ к виртуальной машине. Чтобы сбросить конфигурацию до состояния по умолчанию, вы можете использовать расширение VMAccess. Для этого вам необходимо просто установить ключ «reset\_ssh» в значение «True». Расширение перезапускает SSH-сервер, открывает порт SSH в вашей виртуальной машине и сбрасывает настройки SSH до значений по умолчанию. Учетная запись пользователя (имя, пароль или ключи SSH) останется без изменений.
+Если конфигурация SSH нарушена, вы можете потерять доступ к виртуальной машине. Чтобы сбросить конфигурацию до состояния по умолчанию, вы можете использовать расширение VMAccess. Для этого вам необходимо просто установить ключ "reset\_ssh" в значение "True". Расширение перезапускает SSH-сервер, открывает порт SSH в вашей виртуальной машине и сбрасывает настройки SSH до значений по умолчанию. Учетная запись пользователя (имя, пароль или ключи SSH) останется без изменений.
 
 > [AZURE.NOTE]Файл конфигурации SSH расположен по следующему пути: /etc/ssh/sshd\_config.
 
@@ -121,7 +122,7 @@
 	"reset_ssh":"True",
 	}
 
-Шаг 2. Запустите эту команду, подставив имя вашей виртуальной машины вместо «vmname».
+Шаг 2. Запустите эту команду, подставив имя вашей виртуальной машины вместо "vmname".
 
 	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
@@ -135,7 +136,7 @@
 	"remove_user":"usernametoremove",
 	}
 
-Шаг 2. Запустите эту команду, подставив имя вашей виртуальной машины вместо «vmname».
+Шаг 2. Запустите эту команду, подставив имя вашей виртуальной машины вместо "vmname".
 
 	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
@@ -261,6 +262,5 @@
 [Установка и настройка Azure PowerShell]: ../install-configure-powershell.md
 [Расширения и компоненты виртуальных машин Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Подключение к виртуальной машине Azure с помощью RDP или SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties
     pageTitle="Использование подключаемого модуля Azure на сервере непрерывной интеграции Hudson"
-    description="Описано использование подчиненного подключаемого модуля Azure на сервере непрерывной интеграции Hudson"
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="jimbe" />
+	description="Описано использование подчиненного подключаемого модуля Azure на сервере непрерывной интеграции Hudson"
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor="jimbe"/>
 
 <tags
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="v-dedomi"/>
 
 #Использование подключаемого модуля Azure на сервере непрерывной интеграции Hudson
@@ -213,4 +213,4 @@
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

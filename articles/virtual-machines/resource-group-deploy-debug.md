@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="command-line-interface"
 	ms.workload="infrastructure"
-	ms.date="04/25/2015"
+	ms.date="08/26/2015"
 	ms.author="rasquill"/>
 
 # Устранение неполадок при развертывании групп ресурсов в Azure
@@ -223,7 +223,7 @@
     data:    Cores  Count  0             4
     info:    vm list-usage command OK
 
-Если попытаться развернуть шаблон, который создает более 4 ядер в регионе «Западная часть США» для указанной выше подписки, произойдет ошибка развертывания, которая может выглядеть следующим образом (на портале или при проверке журналов развертывания):
+Если попытаться развернуть шаблон, который создает более 4 ядер в регионе "Западная часть США" для указанной выше подписки, произойдет ошибка развертывания, которая может выглядеть следующим образом (на портале или при проверке журналов развертывания):
 
     statusCode:Conflict
     serviceRequestId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -231,7 +231,25 @@
 
 В таких случаях следует перейти на портал и зарегистрировать проблему в службе поддержки, чтобы поднять свою квоту для региона, в котором требуется осуществить развертывание.
 
-> [AZURE.NOTE]Следует помнить, что для групп ресурсов квоты устанавливаются для каждого отдельного региона, а не для всей подписки. Если необходимо развернуть 30 ядер в западной части США, необходимо запросить 30 ядер управления ресурсами в этом регионе. Если необходимо развернуть 30 ядер в любом из регионов, к которым у вас есть доступ, следует запросить 30 ядер управления ресурсами во всех регионах. <!-- --> Чтобы точно указать ядра, можно, например, проверить регионы, для которых следует запросить соответствующее значение квоты, воспользовавшись следующей командой, которая передает данные в **jq** для анализа JSON. <!-- --> azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
+> [AZURE.NOTE] Следует помнить, что для групп ресурсов квоты устанавливаются для каждого отдельного региона, а не для всей подписки. Если необходимо развернуть 30 ядер в западной части США, необходимо запросить 30 ядер управления ресурсами в этом регионе. Если необходимо развернуть 30 ядер в любом из регионов, к которым у вас есть доступ, следует запросить 30 ядер управления ресурсами во всех регионах.
+<!-- -->
+Чтобы точно указать ядра, можно, например, проверить регионы, для которых следует запросить соответствующее значение квоты, воспользовавшись следующей командой, которая передает данные в **jq** для анализа JSON.
+<!-- -->
+        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
+        {
+          "name": "virtualMachines",
+          "apiVersions": [
+            "2015-05-01-preview",
+            "2014-12-01-preview"
+          ],
+          "locations": [
+            "East US",
+            "West US",
+            "West Europe",
+            "East Asia",
+            "Southeast Asia"
+          ]
+        }
 
 
 ## Проблемы режимов CLI Azure и PowerShell
@@ -376,14 +394,7 @@
 Чтобы освоить создание шаблонов, прочтите статью [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md) и найдите развертываемые примеры в [репозитории AzureRMTemplates](https://github.com/azurermtemplates/azurermtemplates). Примеры свойства **dependsOn** приведены в [шаблоне подсистемы балансировки нагрузки с правилом NAT для входящего трафика](https://github.com/azurermtemplates/azurermtemplates/blob/master/101-create-internal-loadbalancer/azuredeploy.json).
 
 <!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
-[8]: ./media/markdown-template-for-new-articles/copytemplate.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[gog]: http://google.com/
-[yah]: http://search.yahoo.com/
-[msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Обзор подсистемы балансировки нагрузки | Microsoft Azure"
-   description="Обзор функций подсистемы балансировки нагрузки Azure, ее архитектуры и реализации. Эта статья помогает понять принципы работы подсистемы балансировки нагрузки и использовать ее в облаке."
-   services="load-balancer"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
-   editor="tysonn" />
+	description="Обзор функций подсистемы балансировки нагрузки Azure, ее архитектуры и реализации. Эта статья помогает понять принципы работы подсистемы балансировки нагрузки и использовать ее в облаке."
+	services="load-balancer"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/10/2015"
+	ms.author="joaoma"/>
 
 
 # Обзор подсистемы балансировки нагрузки 
@@ -21,7 +21,7 @@
  
 Ее можно настроить для выполнения таких функций:
 
-- балансировка нагрузки входящего интернет-трафика виртуальных машин. Мы называем это [балансировкой нагрузки с доступом к Интернету](load-balancer-overview.md);
+- балансировка нагрузки входящего интернет-трафика виртуальных машин. Мы называем это [балансировкой нагрузки с доступом к Интернету](load-balancer-internet-overview.md);
 - балансировка нагрузки трафика между виртуальными машинами в виртуальной сети, между виртуальными машинами в облачных службах или между локальными компьютерами и виртуальными машинами в распределенной виртуальной сети. Мы называем это [внутренней балансировкой нагрузки (ILB)](load-balancer-internal-overview.md);
 - 	перенаправление внешнего трафика к определенному экземпляру виртуальной машины.
 
@@ -99,4 +99,4 @@
 [Приступая к работе с подсистемой балансировки нагрузки, доступной в Интернете](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

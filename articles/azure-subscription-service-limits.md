@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="08/29/2015"
 	ms.author="jroth"/>
 
 # Подписка Azure, границы, квоты и ограничения службы
@@ -34,8 +34,43 @@
 <!-- -->
 В результате может быть полезно проанализировать, какие квоты группы ресурсов Azure потребуется для вашей рабочей нагрузки в каждом регионе, и запросить эти ресурсы в регионах, где выполняется развертывание. Подробные сведения об определении текущих квот для конкретных регионов см. в разделе [Устранение неполадок развертывания](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues).
 
-## Ограничения подписки
+## Ограничения определенных служб
 
+- [Active Directory](#active-directory-limits)
+- [Управление API](#api-management-limits)
+- [Служба приложений](#app-service-limits)
+- [Application Insights](#application-insights-limits)
+- [кэш Azure Redis](#azure-redis-cache-limits)
+- [Azure RemoteApp](#azure-remoteapp-limits)
+- [Архивация](#backup-limits)
+- [Пакетная служба](#batch-limits)
+- [CDN](#cdn-limits)
+- [Облачные службы](#cloud-services-limits)
+- [Фабрика данных](#data-factory-limits)
+- [DocumentDB](#documentdb-limits)
+- [хранилище ключей;](#key-vault-limits)
+- [Службы мультимедиа](#media-services-limits)
+- [Mobile Engagement;](#mobile-engagement-limits)
+- [Мобильные службы](#mobile-services-limits)
+- [Multi-Factor Authentication](#multi-factor-authentication)
+- [Сеть](#networking-limits)
+- [Служба концентратора уведомлений](#notification-hub-service-limits)
+- [Operational Insights;](#operational-insights-limits)
+- [Группа ресурсов](#resource-group-limits)
+- [Планировщик](#scheduler-limits)
+- [Поиск](#search-limits)
+- [Служебная шина](#service-bus-limits)
+- [Site Recovery](#site-recovery-limits)
+- [База данных SQL](#sql-database-limits)
+- [Хранилище](#storage-limits)
+- [StorSimple System](#storsimple-system-limits)
+- [Анализ потока](#stream-analytics-limits)
+- [Подписка](#subscription-limits)
+- [Виртуальные машины](#virtual-machines-limits)
+
+
+### Ограничения подписки
+#### Ограничения подписки
 [AZURE.INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 ### Ограничения подписки — диспетчер ресурсов Azure
@@ -51,7 +86,7 @@
 
 
 ## Ограничения виртуальных машин
-
+#### Ограничения виртуальной машины
 [AZURE.INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 
@@ -63,7 +98,7 @@
 
 
 ## Ограничения сети
-
+#### Ограничения сети
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
 ### Ограничения диспетчера трафика
@@ -98,7 +133,8 @@
 [AZURE.INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 
-## Ограничения службы приложений: веб-приложения, мобильные приложения, приложения API, приложения логики
+## Ограничения службы приложений
+Следующие ограничения службы приложения включают ограничения для веб-приложений, мобильных приложений, приложений API и приложений логики.
 
 [AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
@@ -127,18 +163,7 @@
 
 Дополнительные сведения об ограничениях поиска Azure см. в разделе [Ограничения](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
-## Ограничения базы данных SQL
-
-[AZURE.INCLUDE [azure-sql-database-limits](../includes/azure-sql-database-limits.md)]
-
-Дополнительную информацию об ограничениях Базы данных SQL см. в следующих разделах:
-
- - [Уровни служб баз данных SQL Azure (выпуски)](http://msdn.microsoft.com/library/azure/dn741340.aspx)
- - [Уровни служб и уровни производительности в базе данных SQL Azure](http://msdn.microsoft.com/library/azure/dn741336.aspx)
- - [Квоты пропускной способности базы данных (DTU)](http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs)
- - [Лимиты ресурсов базы данных SQL](sql-database/sql-database-resource-limits.md)
-
-## Ограничения служб мультимедиа
+### Ограничения служб мультимедиа
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
@@ -150,7 +175,7 @@
 
 [AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-## Ограничения служб концентратора уведомлений
+### Ограничения служб концентратора уведомлений
 
 [AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
 
@@ -194,7 +219,7 @@
 
 [AZURE.INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
 
-## Ограничения Application Insights
+### Ограничения Application Insights
 
 [AZURE.INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
@@ -213,10 +238,14 @@
 ## Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
+### Ограничения базы данных SQL
+
+Сведения об ограничениях базы данных SQL см. в разделе [Ограничения ресурсов базы данных SQL](sql-database/sql-database-resource-limits.md).
+
 ## См. также
 
 [Основные сведения о лимитах Azure и их увеличении](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
 [Размеры виртуальных машин и облачных служб для Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

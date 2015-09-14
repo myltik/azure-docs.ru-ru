@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Регистрация для проверки подлинности Google | Microsoft Azure" 
-	description="Узнайте, как зарегистрировать приложения, чтобы использовать Google для проверки подлинности с помощью мобильных служб Azure." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="ggailey777" 
-	manager="dwrede" 
+	pageTitle="Регистрация для проверки подлинности Google | Microsoft Azure"
+	description="Узнайте, как зарегистрировать приложения, чтобы использовать Google для проверки подлинности с помощью мобильных служб Azure."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/27/2015"
 	ms.author="glenga"/>
 
 # Регистрация приложений для входа в мобильные службы с помощью Google
@@ -26,27 +26,21 @@
 
 Чтобы выполнить процедуру, описанную в этом разделе, необходимо иметь учетную запись Google с проверенным адресом электронной почты. Чтобы создать новую учетную запись Google, перейдите по ссылке <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
-1. Перейдите на веб-сайт <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a>, войдите с учетными данными Google, выберите **Create Project** (Создать проект), укажите имя проекта в поле **Project name** (Имя проекта), а затем нажмите кнопку **Create** (Создать).
+3. Перейдите на веб-сайт [Google apis](http://go.microsoft.com/fwlink/p/?LinkId=268303), войдите с учетными данными Google, выберите **Create Project** (Создать проект), укажите имя проекта в поле **Project name** (Имя проекта), а затем нажмите кнопку **Create** (Создать).
 
-   	![Новый проект Google API](./media/mobile-services-how-to-register-google-authentication/mobile-services-google-new-project.png)
+4. На панели навигации слева щелкните **API & Auth** (API и авторизация Auth), а затем в разделе **Social APIs** (API социальных сетей) щелкните **Google+ API** (API Google+) > **Enable API** (Включить API).
 
-2. Щелкните **Consent screen** (Экран разрешения), выберите **Email Address** (Адрес электронной почты), введите **Product Name** (Название продукта) и нажмите кнопку **Save** (Сохранить).
+5. Щелкните **API & Auth** (API и авторизация) > **Credentials** (Учетные данные) > **OAuth consent screen** (Экран согласия OAuth), а затем выберите **Email address** (Электронный адрес), заполните поле **Product Name** (Имя продукта) и нажмите кнопку **Save** (Сохранить).
 
-3. Щелкните **API & Auth** (API и проверка подлинности) > **Credentials** (Учетные данные) > **Create new Client ID** (Создать ИД нового клиента).
+6. На вкладке **Credentials** (Учетные данные) щелкните **Add credentials** (Добавить учетные данные) > **OAuth 2.0 client ID** (Идентификатор клиента OAuth 2.0), а затем выберите **Web application** (Веб-приложение).
 
-   	![Создание нового идентификатора клиента](./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client.png)
-
-4. Выберите **Web application** (Веб-приложение), введите URL-адрес мобильной службы в поле **Authorized JavaScript Origins** (Авторизованные источники JavaScript), замените созданный URL-адрес в поле **Authorized Redirect URI** (Авторизованный универсальный код ресурса (URI) перенаправления) на URL-адрес мобильной службы, к которому добавлен путь `/login/google`, а затем нажмите кнопку **Create client ID** (Создать идентификатор клиента).
+7. Введите URL-адрес мобильной службы в поле **Authorized JavaScript Origins** (Авторизованные источники JavaScript), замените созданный URL-адрес в поле **Authorized Redirect URI** (Авторизованный универсальный код ресурса (URI) перенаправления) на URL-адрес мобильной службы, к которому добавлен путь `/login/google`, а затем нажмите кнопку **Create client ID** (Создать идентификатор клиента).
 
 	>[AZURE.NOTE]Для серверной мобильной службы .NET, опубликованной в Azure с помощью Visual Studio, URL-адресом перенаправления является URL-адрес вашей мобильной службы, дополненный путем _signin-google_ мобильной службы в качестве службы .NET, например `https://todolist.azure-mobile.net/signin-google`.
+	
+8. На следующем экране запишите идентификатор и секрет клиента.
 
-   	![](./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client2.png)
-
-5. В разделе **Client ID for web applications** (Идентификатор клиента для веб-приложений) запишите значения полей **Client ID** (Идентификатор клиента) и **Client secret** (Секрет клиента).
-
-   	![Учетные данные клиента](./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client3.png)
-
-    >[AZURE.IMPORTANT]Секрет клиента — это важные учетные данные безопасности. Не сообщайте никому этот секрет и не распространяйте его вместе со своим приложением.
+    > [AZURE.IMPORTANT]Секрет клиента — это важные учетные данные безопасности. Не сообщайте этот секрет никому и не раскрывайте его в клиентском приложении.
 
 Теперь вы можете настроить в своей мобильной службе использование проверки подлинности Google для входа в приложение.
 
@@ -62,4 +56,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

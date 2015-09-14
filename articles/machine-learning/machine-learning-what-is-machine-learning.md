@@ -1,20 +1,20 @@
 <properties
     pageTitle="Что такое машинное обучение в Microsoft Azure? | Microsoft Azure"
-    description="Здесь описываются основные понятия полностью управляемой службы машинного обучения, облачные технологии, которые можно использовать для создания, развертывания решения и получения от него прибыли."
+	description="Здесь описываются основные понятия полностью управляемой службы машинного обучения, облачные технологии, которые можно использовать для создания, развертывания решения и получения от него прибыли."
 	services="machine-learning"
-    documentationCenter=""
-    authors="cjgronlund"
-    manager="neerajkh"
-    editor="cgronlun"/>
+	documentationCenter=""
+	authors="cjgronlund"
+	manager="neerajkh"
+	editor="cgronlun"/>
 
 <tags
     ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="06/23/2015"
-    ms.author="cgronlun;tedway;olgali"/>
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
+	ms.author="cgronlun;tedway;olgali"/>
 
 
 # Введение в машинное обучение в Microsoft Azure
@@ -47,12 +47,12 @@
 
 Создавайте прогнозные модели в веб-средстве [Студия машинного обучения](machine-learning-what-is-ml-studio.md), перетаскивая, удаляя и подключая модули.
 
-![Что такое прогнозная аналитика: пример эксперимента прогнозной аналитики в студии машинного обучения Azure](./media/machine-learning-what-is-machine-learning/AzureMLStudio.png)
+![Что такое прогнозная аналитика: пример эксперимента прогнозной аналитики в студии машинного обучения Azure](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
 * Используйте обширную библиотеку [алгоритмов и модулей машинного обучения](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) в студии машинного обучения для быстрого создания прогнозной модели. Вам доступна библиотека примеров экспериментов, пакеты R и Python и лучшие в классе алгоритмы от таких подразделений Майкрософт, как Xbox и Bing. Расширяйте модули студии собственными сценариями [R](machine-learning-r-quickstart.md) и [Python](machine-learning-execute-python-scripts.md).
 * [Коллекция сообщества машинного обучения](machine-learning-gallery-how-to-use-contribute-publish.md) поможет вам начать работу со службой машинного обучения Azure и учиться у других членов сообщества. Изучайте эксперименты, созданные другими пользователями, задавайте вопросы, оставляйте комментарии об экспериментах или публикуйте собственные эксперименты. Вы также можете делиться ссылками на интересные эксперименты через социальные сети, такие как LinkedIn и Твиттер.  
 
-	![Попробуйте образцы прогностических экспериментов или представьте свои в коллекции машинного обучения Azure](./media/machine-learning-what-is-machine-learning/AzureMLGallery.png)
+	![Попробуйте образцы прогностических экспериментов или представьте свои в коллекции машинного обучения Azure](./media/machine-learning-what-is-machine-learning/azure-machine-learning-gallery-resources.png)
 
 ### Ввод прогнозных решений в эксплуатацию: приобретение веб-служб или публикация собственной веб-службы
 
@@ -115,4 +115,4 @@
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

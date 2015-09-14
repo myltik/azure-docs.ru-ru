@@ -3,7 +3,7 @@
 	description="Этот учебник поможет приступить к использованию мобильных приложений в разработке для Xamarin.iOS."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="normesta"
+	authors="wesmc7777"
 	manager="dwrede"
 	editor=""/>
 
@@ -124,4 +124,4 @@
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [Установка Xamarin.iOS в Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -3,9 +3,9 @@
 	description="Этот учебник поможет приступить к использованию мобильных приложений Azure для разработки приложений Xamarin Android"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="normesta"
+	authors="wesmc7777"
 	manager="dwrede"
-	editor="" />
+	editor=""/>
 
 <tags
 	ms.service="app-service-mobile"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="08/12/2015"
-	ms.author="normesta" />
+	ms.author="normesta"/>
 
 #Создание приложения Xamarin.Android
 
@@ -101,4 +101,4 @@
  
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

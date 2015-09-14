@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Использование хранилища очередей из Java | Microsoft Azure" 
-	description="Вы узнаете, как использовать службы очередей Azure для создания и удаления очередей, вставки, получения и удаления сообщений. Примеры кода написаны на Java." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="Использование хранилища очередей из Java | Microsoft Azure"
+	description="Вы узнаете, как использовать службы очередей Azure для создания и удаления очередей, вставки, получения и удаления сообщений. Примеры кода написаны на Java."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # Использование хранилища очередей из Java
@@ -379,12 +379,12 @@
 
 Вы изучили основные сведения о хранилище очередей. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
-- [Пакет SDK для службы хранилища Azure для Java]
-- [Справочник по пакету SDK для клиента хранилища Azure]
-- [REST API службы хранилища Azure]
-- [Блог рабочей группы службы хранилища Azure]
+- [Пакет SDK для службы хранилища Azure для Java][]
+- [Справочник по пакету SDK для клиента хранилища Azure][]
+- [REST API службы хранилища Azure][]
+- [Блог рабочей группы службы хранилища Azure][]
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Пакет SDK для службы хранилища Azure для Java]: https://github.com/azure/azure-storage-java
 [Пакет SDK хранилища Azure для Java]: https://github.com/azure/azure-storage-java
 [Пакет SDK хранилища Azure для Android]: https://github.com/azure/azure-storage-android
@@ -392,6 +392,5 @@
 [справочнике по пакету SDK для клиента хранилища Azure]: http://dl.windowsazure.com/storage/javadoc/
 [REST API службы хранилища Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

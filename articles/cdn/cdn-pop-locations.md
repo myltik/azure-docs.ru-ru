@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Расположение узлов POP сети доставки содержимого Azure (CDN)" 
-	description="В этом разделе перечислены точки присутствия сети доставки содержимого (CDN) Azure" 
-	services="cdn" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Расположение узлов POP сети доставки содержимого Azure (CDN)"
+	description="В этом разделе перечислены точки присутствия сети доставки содержимого (CDN) Azure"
+	services="cdn"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.service="cdn"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="juliako"/>
 
 
@@ -71,4 +71,4 @@
 - Мельбурн
 - Сидней 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

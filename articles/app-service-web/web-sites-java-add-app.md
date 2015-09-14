@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Добавление приложения Java в веб-приложения службы приложений Azure" 
-	description="В этом учебнике показано, как добавить страницу или приложение в экземпляр веб-приложений службы приложений Azure, который уже настроен на использование Java." 
-	services="app-service\web" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="Добавление приложения Java в веб-приложения службы приложений Azure"
+	description="В этом учебнике показано, как добавить страницу или приложение в экземпляр веб-приложений службы приложений Azure, который уже настроен на использование Java."
+	services="app-service\web"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # Добавление приложения Java в веб-приложения службы приложений Azure
 
-После инициализации веб-приложения в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714), как описано в разделе [Создание веб-приложения Java в службе приложений Azure](web-sites-java-get-started.md), приложение можно передать, поместив WAR-файл в папку **webapps**.
+После инициализации веб-приложения в [службе приложений Azure][], как описано в разделе [Создание веб-приложения Java в службе приложений Azure](web-sites-java-get-started.md), приложение можно передать, поместив WAR-файл в папку **webapps**.
 
 Путь к папке **webapps** зависит от настроек экземпляра веб-приложений.
 
@@ -32,7 +32,8 @@
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
- 
- 
 
-<!---HONumber=August15_HO6-->
+<!-- External Links -->
+[службе приложений Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
+
+<!---HONumber=September15_HO1-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Построение первого конвейера с помощью фабрики данных Azure"
-	description="В этом учебнике показано, как создать конвейер, преобразующий данные с помощью Azure HDInsight, используя редактор фабрики данных."
+	description="В этом учебнике показано, как создать конвейер, преобразующий данные с помощью Azure HDInsight."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -173,4 +173,7 @@
 - Щелкните ссылку [Использование PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) вверху, чтобы пройти учебник с помощью Azure PowerShell.
 - Щелкните ссылку [Использование Visual Studio](data-factory-build-your-first-pipeline-using-vs.md), чтобы пройти учебник с помощью Visual Studio 2013. 
 
-<!---HONumber=August15_HO7-->
+## Отправить отзыв
+Мы будем весьма признательны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
+
+<!---HONumber=September15_HO1-->

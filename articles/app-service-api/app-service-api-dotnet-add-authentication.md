@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Защита приложения API Azure" 
-	description="Обеспечение защиты приложения API Azure с помощью Visual Studio." 
-	services="app-service\api" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="Защита приложения API Azure"
+	description="Обеспечение защиты приложения API Azure с помощью Visual Studio."
+	services="app-service\api"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="dotnet"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/05/2015"
 	ms.author="tdykstra"/>
 
 # Защита приложения API: добавление проверки подлинности Azure Active Directory или поставщика социальных сетей
@@ -229,7 +229,11 @@
 	* twitter;
 	* facebook. 
 
-2. В файле *ContactsController.cs* замените код в методе `Get` следующим кодом.
+3. Добавьте оператор `using` в верхней части файла *ContactsController.cs*.
+
+		using Microsoft.Azure.AppService.ApiApps.Service;
+
+2. Замените код в методе `Get` следующим кодом.
 
 		var runtime = Runtime.FromAppSettings(Request);
 		var user = runtime.CurrentUser;
@@ -269,4 +273,4 @@
 [портал предварительной версии Azure]: https://portal.azure.com/
 [портале предварительной версии Azure]: https://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

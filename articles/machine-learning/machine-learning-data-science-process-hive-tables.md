@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm" 
-	editor="cgronlun"  />
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="hangzh;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="hangzh;bradsev"/>
 
 #<a name="heading"></a> Отправка запросов Hive в кластеры HDInsight Hadoop: процесс и технология расширенного анализа 
 
 В этом документе указаны разные способы, с помощью которых вы можете отправить запросы Hive в кластеры Hadoop, которыми управляет служба HDInsight в Azure. Эта задача является частью процесса обработки аналитических данных и технологии расширенного анализа (ADAPT) в рамках машинного обучения Azure. Приведены несколько задач по выпасу данных: это просмотр данных и создание признаков. Общие запросы Hive, на примере которых показано, как просматривать данные и создавать признаки с помощью Hive в кластере Azure HDInsight Hadoop. Эти запросы Hive используют внедренные признаки, определяемые пользователем (они предоставлены).
 
-Кроме того, в <a href="https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts" target="_blank">репозитории Github</a> приведены примеры запросов, которые используются для сценариев, похожих на <a href="http://chriswhong.com/open-data/foil_nyc_taxi/" target="_blank">Данные о поездках в такси по Нью-Йорку</a>. Для этих запросов уже задана схема данных, и они готовы к отправке и запуску.
+Кроме того, в [репозитории Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) приведены примеры запросов, использующихся для сценариев наподобие [Данные о поездках такси по Нью-Йорку](http://chriswhong.com/open-data/foil_nyc_taxi/). Для этих запросов уже задана схема данных, и они готовы к отправке и запуску.
 
 В последнем разделе рассматриваются параметры, настроив которые можно повысить производительность запросов Hive.
 
@@ -319,4 +319,4 @@
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

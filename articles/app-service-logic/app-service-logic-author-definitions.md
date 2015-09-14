@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Создание определений приложений логики" 
-	description="Узнайте, как создать определение JSON для приложения логики." 
-	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	pageTitle="Создание определений приложений логики"
+	description="Узнайте, как создать определение JSON для приложения логики."
+	authors="stepsic-microsoft-com"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2015"
+	ms.date="06/16/2015"
 	ms.author="stepsic"/>
 	
 #Создание определений приложений логики
@@ -99,7 +99,7 @@
         "destinationMap": {
             "defaultValue": {
                 "science": "http://www.nasa.gov",
-                "microsoft": "https://www.microsoft.com/ru-ru/default.aspx",
+                "microsoft": "https://www.microsoft.com/ru-RU/default.aspx",
                 "google": "https://www.google.com",
                 "robots": "https://en.wikipedia.org/wiki/Robot",
                 "NSA": "https://www.nsa.gov/"
@@ -234,7 +234,7 @@
 }
 ```
 
-Вы можете прочитать о [действии типа приложения логики на сайте MSDN](https://msdn.microsoft.com/en-US/library/azure/dn948511.aspx).
+Вы можете прочитать о [действии типа приложения логики на сайте MSDN](https://msdn.microsoft.com/ru-RU/library/azure/dn948511.aspx).
 
 >[AZURE.NOTE]Конструктор приложений логики не поддерживает действия типа приложения логики, поэтому вам потребуется вручную изменить определение.
 
@@ -250,7 +250,7 @@
     "parameters": {
         "dataFeeds": {
             "defaultValue": [
-                "https://www.microsoft.com/ru-ru/default.aspx",
+                "https://www.microsoft.com/ru-RU/default.aspx",
                 "https://gibberish.gibberish/"
             ],
             "type": "Array"
@@ -306,7 +306,7 @@
     "parameters": {
         "dataFeeds": {
             "defaultValue": [
-                "https://www.microsoft.com/ru-ru/default.aspx",
+                "https://www.microsoft.com/ru-RU/default.aspx",
                 "https://office.live.com/start/default.aspx"
             ],
             "type": "Array"
@@ -688,4 +688,4 @@ Content-type: application/json
 
 Затем в каждой среде можно предоставить другое значение для параметра `connection`. В [документации по интерфейсу API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) описаны все параметры для создания приложений логики и управления ими.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

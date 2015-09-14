@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/14/2015"
-	ms.author="jroth" />
+	ms.author="jroth"/>
 
 # Настройка группы доступности AlwaysOn в Azure (PowerShell)
 
@@ -528,7 +528,7 @@
 		$svc2.Start(); 
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
-1. Загрузите файл **CreateAzureFailoverCluster.ps1** из раздела [Создание WSFC-кластера для групп доступности AlwaysOn на виртуальной машине Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) в локальный рабочий каталог. Этот скрипт поможет создать рабочий WSFC-кластер. Важные сведения о взаимодействии WSFC-кластера с сетью Azure см. в разделе [Высокий уровень доступности и аварийное восстановление для SQL Server на виртуальных машинах Azure](https://msdn.microsoft.com/ru-ru/library/azure/jj870962.aspx).
+1. Загрузите файл **CreateAzureFailoverCluster.ps1** из раздела [Создание WSFC-кластера для групп доступности AlwaysOn на виртуальной машине Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) в локальный рабочий каталог. Этот скрипт поможет создать рабочий WSFC-кластер. Важные сведения о взаимодействии WSFC-кластера с сетью Azure см. в разделе [Высокий уровень доступности и аварийное восстановление для SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
 
 1. Измените рабочий каталог и создайте WSFC-каталог с помощью загруженного скрипта.
 
@@ -623,4 +623,4 @@
 
 Дополнительные сведения об использовании SQL Server в Azure см. в разделе [SQL Server на виртуальных машинах Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Устранение неполадок в работающем устройстве StorSimple | Microsoft Azure"
-   description="Описывает, как установить причины и устранить ошибки, возникающие в работающем устройстве StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+   pageTitle="Устранение неполадок в работе развернутого устройства StorSimple | Microsoft Azure"
+	description="Описание способов диагностики и устранения ошибок, возникающих в работе развернутого устройства StorSimple."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/19/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="v-sharos"/>
 
 # Устранение неполадок в работающем устройстве StorSimple
 
 ## Обзор
 
-В этой статье приведены полезные рекомендации по устранению неполадок с конфигурацией, которые могут возникнуть после развертывания и запуска устройства StorSimple. Здесь описаны типичные проблемы, возможные причины и рекомендуемые действия для устранения проблем, которые могут возникнуть при использовании StorSimple. Эти сведения актуальны как для локального физического устройства StorSimple, так и для виртуального устройства StorSimple.
+В этой статье приведены полезные рекомендации по устранению неполадок с конфигурацией, которые могут возникнуть после развертывания и запуска устройства StorSimple. Здесь описаны типичные проблемы, возможные причины и рекомендуемые действия для устранения проблем, которые могут возникнуть при использовании Microsoft Azure StorSimple. Эти сведения актуальны как для локального физического устройства StorSimple, так и для виртуального устройства StorSimple.
 
 В конце этой статьи вы найдете список кодов ошибок, которые могут возникнуть во время работы Microsoft Azure StorSimple, а также действия, которые необходимо предпринять для устранения ошибок.
 
@@ -64,7 +64,7 @@
 Если устранить проблему не удалось, [обратитесь в службу технической поддержки Майкрософт](storsimple-contact-microsoft-support.md).
 
 
-[1]: https://technet.microsoft.com/ru-ru/%5Clibrary/Dn688135(v=WPS.630).aspx
-[2]: https://technet.microsoft.com/ru-ru/%5Clibrary/Dn715782(v=WPS.630).aspx
+[1]: https://technet.microsoft.com/ru-RU/%5Clibrary/Dn688135(v=WPS.630).aspx
+[2]: https://technet.microsoft.com/ru-RU/%5Clibrary/Dn715782(v=WPS.630).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

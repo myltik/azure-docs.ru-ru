@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Построение службы, использующей существующую базу данных SQL в серверной части .NET мобильных служб | Microsoft Azure" 
-	description="Узнайте, как использовать существующую облачную или локальную базу данных SQL с мобильной службой на основе .NET" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Построение службы, использующей существующую базу данных SQL в серверной части .NET мобильных служб | Microsoft Azure"
+	description="Узнайте, как использовать существующую облачную или локальную базу данных SQL с мобильной службой на основе .NET"
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 
@@ -39,7 +39,7 @@
             {
                 [Key]
                 public int CustomerId { get; set; }
-                
+
                 public string Name { get; set; }
 
                 public virtual ICollection<Order> Orders { get; set; }
@@ -48,7 +48,7 @@
         }
 
 3. Создайте файл **Order.cs** внутри папки **Models** и используйте следующую реализацию:
-    
+
         using System.ComponentModel.DataAnnotations;
 
         namespace ShoppingService.Models
@@ -65,7 +65,7 @@
                 public bool Completed { get; set; }
 
                 public int CustomerId { get; set; }
-              
+
                 public virtual Customer Customer { get; set; }
 
             }
@@ -144,7 +144,7 @@
     Свойство отношения **Customer** было заменено именем **Customer** и свойством **MobileCustomerId**, которое может использоваться для ручного модулирования отношения на стороне клиента. Пока можно не обращать внимания на свойство **CustomerId**, оно будет использовано позже.
 
 3. Возможно, вы заметили, что в дополнение к системным свойствам базового класса **EntityData** у наших DTO теперь больше свойств, чем у типов модели. Нужно место для хранения этих свойств, поэтому добавим несколько столбцов в исходную базу данных. При этом изменяется база данных, но не нарушится работа существующих приложений, поскольку изменения только добавочные (в схему добавляются новые столбцы). Для этого добавьте следующие инструкции в начало файлов **Customer.cs** и **Order.cs**:
-    
+
         using System.ComponentModel.DataAnnotations.Schema;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.ComponentModel.DataAnnotations;
@@ -174,7 +174,7 @@
         public byte[] Version { get; set; }
 
 4. Системные свойства только что добавили встроенное поведение (например, автоматическое обновление времени создания и обновления), прозрачное для работы базы данных. Чтобы включить это поведение, нужно внести изменения в **ExistingContext.cs**. В начале файла добавьте следующее:
-    
+
         using System.Data.Entity.ModelConfiguration.Conventions;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.Linq;
@@ -188,7 +188,7 @@
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
 
             base.OnModelCreating(modelBuilder);
-        } 
+        }
 
 5. Заполним базу данных образцовыми данными. Откройте файл **WebApiConfig.cs**. Создайте новый [**IDatabaseInitializer**](http://msdn.microsoft.com/library/gg696323.aspx) и настройте его в методе **Register**, как показано ниже.
 
@@ -227,11 +227,11 @@
 
                     List<Customer> customers = new List<Customer>
                     {
-                        new Customer { CustomerId = 1, Name = "John", Orders = new Collection<Order> { 
+                        new Customer { CustomerId = 1, Name = "John", Orders = new Collection<Order> {
                             orders[0]}, Id = Guid.NewGuid().ToString()},
-                        new Customer { CustomerId = 2, Name = "Paul", Orders = new Collection<Order> { 
+                        new Customer { CustomerId = 2, Name = "Paul", Orders = new Collection<Order> {
                             orders[1]}, Id = Guid.NewGuid().ToString()},
-                        new Customer { CustomerId = 3, Name = "Ringo", Orders = new Collection<Order> { 
+                        new Customer { CustomerId = 3, Name = "Ringo", Orders = new Collection<Order> {
                             orders[2]}, Id = Guid.NewGuid().ToString()},
                     };
 
@@ -318,7 +318,7 @@
                 {
                     return (T)(object)GetKey(mobileCustomerId, this.context.Customers, this.Request);
                 }
-                
+
                 public override SingleResult<MobileCustomer> Lookup(string mobileCustomerId)
                 {
                     int customerId = GetKey<int>(mobileCustomerId);
@@ -605,7 +605,7 @@
             public DateTimeOffset? UpdatedAt { get; set; }
 
             public bool Deleted { get; set; }
-            
+
             [Version]
             public string Version { get; set; }
 
@@ -615,4 +615,4 @@
 
 В качестве следующего шага можно собрать клиентское приложение для доступа к службе. Дополнительные сведения см. в статье [Добавление мобильных служб в существующее приложение](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

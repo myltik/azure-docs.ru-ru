@@ -119,4 +119,4 @@ IP-адреса в Azure делятся на две категории: дина
 
 - Ознакомьтесь с информацией о [REST API зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Пошаговое руководство. Отслеживание работы Microsoft Dynamics CRM с помощью Application Insights" 
-	description="Получение данных телеметрии из Microsoft Dynamics CRM Online с помощью Application Insights. Пошаговое руководство по настройке, получению данных, визуализации и экспорту." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="mazharmicrosoft" 
+	pageTitle="Пошаговое руководство. Отслеживание работы Microsoft Dynamics CRM с помощью Application Insights"
+	description="Получение данных телеметрии из Microsoft Dynamics CRM Online с помощью Application Insights. Пошаговое руководство по настройке, получению данных, визуализации и экспорту."
+	services="application-insights"
+	documentationCenter=""
+	authors="mazharmicrosoft"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="awills"/>
  
 # Пошаговое руководство. Включение телеметрии для Microsoft Dynamics CRM Online с помощью Application Insights
@@ -151,7 +151,7 @@
 
 ## Образец решения Dynamics CRM
 
-[Ниже приведен простой пример решения, реализованного в Dynamics CRM](https://dynamicsandappinsights.codeplex.com/)
+[Ниже приведен простой пример решения, реализованного в Dynamics CRM](https://dynamicsandappinsights.codeplex.com/).
 
 ## Подробнее
 
@@ -161,4 +161,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

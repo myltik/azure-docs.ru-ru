@@ -13,10 +13,11 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="07/28/2015"
+	ms.date="09/02/2015"
 	ms.author="joaoma"/>
 
 # Приступая к работе с Azure DNS
+
 
 
 > [AZURE.SELECTOR]
@@ -38,6 +39,9 @@
 
 	Azure network
 
+
+>[AZURE.IMPORTANT]Для выполнения команд DNS требуется интерфейс Azure CLI версии 0.9.8 или более поздней. Введите команду `azure -v`, чтобы узнать, какая версия Azure CLI установлена на этом компьютере.
+ 
 ### Шаг 2
 
 Azure DNS использует диспетчер ресурсов Azure. Обязательно переключите интерфейс командной строки (CLI) в режим использования команд arm и DNS.
@@ -77,13 +81,13 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
 
 Теги отличаются от Etag. Теги — это собой список пар "имя-значение", которые используются диспетчером ресурсов Azure для отметки ресурсов в целях выставления счетов или группировки. Дополнительные сведения о тегах см. в статье [Использование тегов для организации ресурсов Azure](resource-group-using-tags.md). Интерфейс командной строки для Azure DNS поддерживает теги для зон и наборов записей. Эти теги задаются с помощью параметра -Tag. В следующем примере демонстрируется создание зоны DNS с двумя тегами, "project = demo" и "env = test":
 
-	Azure network dns-zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+	Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
 ## Создание зоны DNS
 
-Для создания зоны DNS используется команда azure network dns-zone create. В примере ниже вы создадите зону DNS contoso.com в группе ресурсов MyResourceGroup.
+Зона DNS создается с помощью команды `azure network dns zone create`. В примере ниже вы создадите зону DNS contoso.com в группе ресурсов MyResourceGroup.
 
-    Azure network dns-zone create -n contoso.com -g myresourcegroup
+    Azure network dns zone create -n contoso.com -g myresourcegroup
 
 
 >[AZURE.NOTE]В Azure DNS имена зон следует указывать без конечной точки ("."), например "contoso.com", а не "contoso.com.".
@@ -96,13 +100,13 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
 
 Для вывода этих записей используйте команду azure network dns-record-set show.
 
-	Usage: network dns-record-set show <resource-group> <dns-zone-name> <name> <type>
+	Usage: network dns record-set show <resource-group> <dns-zone-name> <name> <type>
 
 
 В следующем примере при выполнении команды с группой ресурсов myresourcegroup, именем набора записей "@" (для корневой записи) и типом SOA будут получены следующие выходные данные.
  
 
-	azure network dns-record-set show myresourcegroup "contoso.com" "@" SOA
+	azure network dns record-set show myresourcegroup "contoso.com" "@" SOA
 	info:    Executing command network dns-record-set show
 	+ Looking up the DNS record set "@"
 	data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/SOA/@
@@ -120,7 +124,7 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
 	data:                                    :
 <BR> Чтобы просмотреть созданные записи NS, используйте следующую команду:
 
-	azure network dns-record-set show myresourcegroup "contoso.com" "@" NS
+	azure network dns record-set show myresourcegroup "contoso.com" "@" NS
 	info:    Executing command network dns-record-set show
 	+ Looking up the DNS record set "@"
 	data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@
@@ -169,4 +173,4 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
 
 [Приступая к созданию наборов записей и записей](dns-getstarted-create-recordset-cli.md)<BR> [Управление зонами DNS](dns-operations-dnszones-cli.md)<BR> [Управление DNS-записями](dns-operations-recordsets-cli.md)<BR> [Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)<BR> [Справочник по API REST для службы Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

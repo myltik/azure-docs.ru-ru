@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Построение первого конвейера с помощью фабрики данных Azure"
-	description="В этом учебнике показано, как создать конвейер, преобразующий данные с помощью Azure HDInsight, используя редактор фабрики данных."
+	pageTitle="Создание первого конвейера фабрики данных Azure с помощью редактора фабрики данных"
+	description="В этом учебнике вы создадите образец конвейера фабрики данных Azure с помощью редактора фабрики данных на портале Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -12,11 +12,11 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
-# Построение первого конвейера с помощью фабрики данных Azure
+# Построение первого конвейера фабрики данных Azure с помощью редактора фабрики данных (на портале Azure)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -39,9 +39,9 @@
 	2.	Щелкните **Аналитика данных** в колонке **Создание**.
 	3.	Щелкните **Фабрика данных** в колонке **Аналитика данных**.
 
-		![Колонка «Создание»](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
+		![Колонка "Создание"](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
 
-2.	В колонке **Создание фабрики данных** введите **DataFactoryMyFirstPipeline** в поле «Имя».
+2.	В колонке **Создание фабрики данных** введите **DataFactoryMyFirstPipeline** в поле "Имя".
 
 	![Создать колонку "Фабрика данных"](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
@@ -65,12 +65,12 @@
 Из следующих разделов учебника вы узнаете, как создать связанные службы, наборы данных и конвейер.
 
 ## Шаг 2. Создание связанных служб и наборов данных
-На этом этапе вы свяжете учетную запись хранения Azure и кластер Azure HDInsight по требованию с фабрикой данных, а затем создадите набор данных, представляющий результаты выполнения сценария Hive.
+На этом этапе учетная запись хранения Azure и кластер Azure HDInsight по требованию будут связаны с фабрикой данных. После чего будет создан набор данных, представляющий результаты выполнения сценария Hive.
 
 ### Создание связанной службы хранения Azure
 1.	Щелкните плитку **Создание и развертывание** в колонке **ФАБРИКА ДАННЫХ** для **DataFactoryFirstPipeline**. Откроется редактор фабрики данных. 
 	 
-	![Плитка «Создание и развертывание»](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
+	![Плитка "Создание и развертывание"](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
 2.	Щелкните **Создать хранилище данных** и выберите **Хранилище Azure**.
 	
 	![Связанная служба хранения Azure](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
@@ -79,7 +79,7 @@
 4. Замените **accountname** на имя вашей учетной записи хранения Azure, а **accountkey** — на ключ доступа к учетной записи хранения. Сведения о том, как получить ключ доступа к хранилищу, см. в статье [Просмотр, копирование и повторное создание ключей доступа к хранилищу](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys).
 5. Чтобы развернуть эту службу, нажмите кнопку **Развернуть** на панели команд.
 
-	![Кнопка «Развернуть»](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
+	![Кнопка "Развернуть"](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
 ### Создание связанной службы Azure HDInsight
 Теперь вы создадите связанную службу для кластера HDInsight по требованию, который будет использоваться для выполнения сценария Hive.
@@ -154,7 +154,7 @@
 
 1. В **редакторе фабрики данных** щелкните **значок многоточия (...)**, а затем выберите команду **Создать конвейер**.
 	
-	![Кнопка «Создать конвейер»](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
+	![Кнопка "Создать конвейер"](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. Вставьте приведенный ниже фрагмент JSON в окно Draft-1.
 
 	> [AZURE.IMPORTANT] Замените в нем **storageaccountname** на имя вашей учетной записи хранения.
@@ -211,7 +211,7 @@
 5. Поздравляем! Вы создали свой первый конвейер!
 6. Щелкните **X**, чтобы закрыть колонки редактора фабрики данных и вернуться в колонку фабрики данных, а затем щелкните плитку **Диаграмма**.
   
-	![Плитка «Схема»](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
+	![Плитка "Схема"](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
 7. В представлении диаграммы вы увидите все конвейеры и наборы данных, используемые в этом учебнике.
 	
 	![Представление схемы](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png) 
@@ -221,7 +221,7 @@
 9. По завершении обработки срез перейдет в состояние **Ready** (готово). Обратите внимание, что создание кластера HDInsight по требованию, как правило, занимает некоторое время. 
 
 	![Выборка](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)	
-10. Когда срез будет в состоянии **Ready** (Готово), проверьте выходные данные в папке **partitioneddata** контейнера **data** в хранилище BLOB-объектов.  
+10. Когда срез будет в состоянии **Ready** (готово), проверьте выходные данные в папке **partitioneddata** контейнера **data** в хранилище BLOB-объектов.  
  
 
  
@@ -230,4 +230,7 @@
 В этой статье вы создали конвейер с действием преобразования (действие HDInsight), которое выполняет сценарий Hive в кластере HDInsight по требованию. Сведения о том, как копировать данные из хранилища BLOB-объектов Azure в SQL Azure с помощью действия копирования, см. в учебнике [Копирование данных из хранилища BLOB-объектов Azure в Azure SQL](./data-factory-get-started.md).
   
 
-<!---HONumber=August15_HO7-->
+## Отправить отзыв
+Мы будем весьма признательны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md).
+
+<!---HONumber=September15_HO1-->

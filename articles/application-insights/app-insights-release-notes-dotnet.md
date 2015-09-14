@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Заметки о выпуске Application Insights" 
-	description="Последние обновления." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Заметки о выпуске Application Insights для .NET"
+	description="Последние обновления."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/06/2015"
 	ms.author="sergkanz"/>
  
 # Заметки о выпуске пакета SDK Application Insights для .NET
@@ -86,4 +86,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

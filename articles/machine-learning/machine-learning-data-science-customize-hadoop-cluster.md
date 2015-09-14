@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Настройка кластеров Hadoop для обработки аналитических данных и технологии расширенного анализа | Microsoft Azure" 
+	pageTitle="Настройка кластеров Hadoop для обработки аналитических данных и технологии расширенного анализа | Microsoft Azure"
 	description="Популярные модули Python становятся доступными в настраиваемых кластерах Azure HDInsight Hadoop."
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="hangzh-msft" 
-	manager="paulettm" 
-	editor="cgronlun"  />
+	services="machine-learning"
+	documentationCenter=""
+	authors="hangzh-msft"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="hangzh;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="hangzh;bradsev"/>
 
 # Настройка кластеров Azure HDInsight Hadoop для обработки аналитических данных и технологии расширенного анализа
 
@@ -98,4 +98,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

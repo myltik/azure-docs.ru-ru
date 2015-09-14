@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Удаленное подключение к устройству StorSimple | Microsoft Azure"
-   description="Объясняются способы использования удаленного взаимодействия Windows PowerShell и HTTP или HTTPS для удаленного подключения к устройству StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Объясняется, как настроить устройство для удаленного управления, а затем подключиться к Windows PowerShell для StorSimple по протоколу HTTP или HTTPS."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/28/2015"
+	ms.author="alkohli"/>
 
 # Удаленное подключение к устройству StorSimple
 
@@ -81,7 +81,7 @@
 
 5. Убедитесь, что значение поля **RemoteManagementMode** равно **HttpsAndHttpEnabled**. На следующем рисунке показаны эти параметры в PuTTY.
 
-     ![Последовательные Https и Http включены](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
+     ![Последовательный HTTPS и HTTP включены](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
 
 ### Подготовка клиента для удаленного подключения
 
@@ -172,7 +172,7 @@
 
     Убедитесь, что значение поля **RemoteManagementMode** равно **Https Enabled**. На следующем рисунке показаны эти параметры в PuTTY.
 
-     ![Последовательные Https включены](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
+     ![Последовательный HTTPS включен](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
 
 4. Из вывода команды `Get-HcsSystem` скопируйте серийный номер устройства и сохраните его для последующего использования.
 
@@ -184,9 +184,9 @@
 
     Появится сертификат, похожий на показанный ниже:
 
-    ![Получение удаленного сертификата управления](./media/storsimple-remote-connect/HCS_GetRemoteManagementCertificate.png)
+    ![Получение сертификата удаленного управления](./media/storsimple-remote-connect/HCS_GetRemoteManagementCertificate.png)
 
-5. Скопируйте информацию из сертификата от **-----BEGIN CERTIFICATE-----** до **-----END CERTIFICATE-----** в текстовый редактор, например в «Блокнот», и сохраните файл с расширением .cer. (При подготовке удаленного узла этот файл будет необходимо скопировать на этот узел.)
+5. Скопируйте информацию из сертификата от **-----BEGIN CERTIFICATE-----** до **-----END CERTIFICATE-----** в текстовый редактор, например в "Блокнот", и сохраните файл с расширением .cer. (При подготовке удаленного узла этот файл будет необходимо скопировать на этот узел.)
 
     >[AZURE.NOTE]Чтобы создать новый сертификат, используйте командлет `Set-HcsRemoteManagementCert`.
 
@@ -218,13 +218,13 @@
 
 #### Добавление серийных номеров устройства в удаленный узел
 
-1. Откройте «Блокнот» от имени администратора и откройте файл hosts, расположенный в папке \\Windows\\System32\\Drivers\\etc.
+1. Откройте "Блокнот" от имени администратора и откройте файл hosts, расположенный в папке \\Windows\\System32\\Drivers\\etc.
 
 2. Добавьте следующие три следующие записи в файл hosts: **IP-адрес данных 0**, **Фиксированный IP-адрес контроллера 0** и **Фиксированный IP-адрес контроллера 1**.
 
 3. Введите серийный номер устройства, сохраненный ранее. Сопоставьте его с IP-адресом, как показано на следующем рисунке. Для контроллера 0 и контроллера 1 добавьте **Controller0** и **Controller1** в конце серийного номера (CN-имени).
 
-    ![Добавление имени CN в файл Hosts](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
+    ![Добавление имени CN в файл hosts](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
 
 4. Сохраните файл hosts.
 
@@ -270,4 +270,4 @@
 
 [Узнайте подробнее об использовании Windows PowerShell для администрирования устройства StorSimple](storsimple-windows-powershell-administration.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

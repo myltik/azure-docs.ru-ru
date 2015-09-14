@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Набор веб-служб нормального распределения | Microsoft Azure" 
-	description="Набор веб-служб нормального распределения" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="Набор веб-служб нормального распределения | Microsoft Azure"
+	description="Набор веб-служб нормального распределения"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="jaymathe"/>
 
 #Набор нормального распределения
@@ -265,4 +265,4 @@
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

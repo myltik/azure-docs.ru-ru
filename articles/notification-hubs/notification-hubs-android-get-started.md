@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="05/27/2015"
+	ms.date="09/01/2015"
 	ms.author="wesmc"/>
 
 # Приступая к работе с центрами уведомлений
@@ -104,6 +104,7 @@
 		private NotificationHub hub;
     	private String HubName = "<Enter Your Hub Name>";
 		private String HubListenConnectionString = "<Your default listen connection string>";
+	    private static Boolean isVisible = false;
 
 
 	Обязательно измените три заполнителя: * **SENDER\_ID**: задайте для `SENDER_ID` номер проекта, полученный ранее из проекта, созданного в [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString**: задайте для `HubListenConnectionString` строку подключения **DefaultListenAccessSignature** к центру. Можно скопировать эту строку подключения, щелкнув **Просмотреть строку подключения** на вкладке **Панель мониторинга** центра на [портале Azure]. * **HubName**: имя центра уведомлений, которое отображается в верхней части страницы в Azure для вашего центра (**не** полный URL-адрес). Например, используйте `"myhub"`.
@@ -139,6 +140,21 @@
     	}
 
 
+7. Добавьте в действие метод **DialogNotify** для отображения уведомления, когда приложение запущено и отображается. Кроме того, переопределите параметры **onStart** и **onStop** для указания того, видимо ли действие для отображения диалогового окна.
+
+	    @Override
+	    protected void onStart() {
+	        super.onStart();
+	        isVisible = true;
+	    }
+	
+	    @Override
+	    protected void onStop() {
+	        super.onStop();
+	        isVisible = false;
+	    }
+
+
 		/**
 		  * A modal AlertDialog for displaying a message on the UI thread
 		  * when there's an exception or message to report.
@@ -148,6 +164,9 @@
 		  */
     	public void DialogNotify(final String title,final String message)
     	{
+	        if (isVisible == false)
+	            return;
+
         	final AlertDialog.Builder dlg;
         	dlg = new AlertDialog.Builder(this);
 
@@ -170,7 +189,7 @@
         	});
     	}
 
-7. Поскольку Android не отображает уведомлений, необходимо написать собственный приемник. В файле **AndroidManifest.xml** добавьте следующий элемент в середину элемента `<application>`.
+8. Поскольку Android не отображает уведомлений, необходимо написать собственный приемник. В файле **AndroidManifest.xml** добавьте следующий элемент в середину элемента `<application>`.
 
 	> [AZURE.NOTE]Замените заполнитель на имя своего пакета.
 
@@ -183,14 +202,14 @@
         </receiver>
 
 
-8. В представлении проекта разверните **app** > **src** > **main** > **java**. Щелкните правой кнопкой мыши папку пакета в **java**, щелкните **New** (Создать) и выберите **Java Class** (Класс Java).
+9. В представлении проекта разверните узел **app** > **src** > **main** > **java**. Щелкните правой кнопкой мыши папку пакета в **java**, щелкните **New** (Создать) и выберите **Java Class** (Класс Java).
 
 	![][6]
 
-9. В поле **Name** (Имя) для нового класса введите **MyHandler**, затем нажмите кнопку **ОК**.
+10. В поле **Name** (Имя) для нового класса введите **MyHandler** и нажмите кнопку **ОК**.
 
 
-10. Добавьте следующие операторы import в начало файла **MyHandler.java**:
+11. Добавьте следующие операторы import в начало файла **MyHandler.java**:
 
 		import android.app.NotificationManager;
 		import android.app.PendingIntent;
@@ -201,12 +220,12 @@
 		import com.microsoft.windowsazure.notifications.NotificationsHandler;
 
 
-11. Измените объявление класса следующим образом, чтобы сделать `MyHandler` подклассом `com.microsoft.windowsazure.notifications.NotificationsHandler`, как показано ниже.
+12. Обновите объявление класса следующим образом, чтобы сделать `MyHandler` подклассом `com.microsoft.windowsazure.notifications.NotificationsHandler`, как показано ниже.
 
 		public class MyHandler extends NotificationsHandler {
 
 
-12. Добавьте в класс `MyHandler` следующий код:
+13. Добавьте в класс `MyHandler` следующий код:
 
 	Этот код переопределяет метод `OnReceive` таким образом, чтобы обработчик показывал `AlertDialog` для отображения полученных уведомлений. Обработчик также отправляет уведомление в диспетчер уведомлений Android с помощью метода `sendNotification()`.
 
@@ -245,7 +264,7 @@
 			mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 		}
 
-13. В Android Studio в строке меню щелкните **Build** (Сборка) > **Rebuild Project** (Повторить сборку проекта), чтобы убедиться в отсутствии ошибок.
+14. В Android Studio в строке меню щелкните **Build** (Сборка) > **Rebuild Project** (Повторить сборку проекта), чтобы убедиться в отсутствии ошибок.
 
 ##Отправка уведомлений
 
@@ -259,7 +278,7 @@
 
 ![][31]
 
-1. В представлении проекта Android Studio разверните **App** > **src** > **main** > **res** > **layout**. Откройте файл макета **activity\_main.xml** и щелкните вкладку **Text** (Текст), чтобы обновить текстовое содержимое файла. Измените приведенный ниже код, который добавляет новые элементы управления `Button` и `EditText` для отправки уведомлений в центр уведомлений. Добавьте этот код в конец, непосредственно перед `</RelativeLayout>`.
+1. В представлении проекта Android Studio разверните узел **App** > **src** > **main** > **res** > **layout**. Откройте файл макета **activity\_main.xml** и щелкните вкладку **Text** (Текст), чтобы обновить текстовое содержимое файла. Добавьте приведенный ниже код, который добавляет новые элементы управления `Button` и `EditText` для отправки уведомлений в центр уведомлений. Добавьте этот код в конец, непосредственно перед `</RelativeLayout>`.
 
 	    <Button
         android:layout_width="wrap_content"
@@ -279,7 +298,7 @@
         android:layout_marginBottom="42dp"
         android:hint="@string/notification_message_hint" />
 
-2. В представлении проекта Android Studio разверните **App** > **src** > **main** > **res** > **values**. Откройте файл **strings.xml** и добавьте строковые значения, на которые ссылаются новые элементы управления `Button` и `EditText`. Добавьте их в конец файла, непосредственно перед `</resources>`.
+2. В представлении проекта Android Studio разверните узел **App** > **src** > **main** > **res** > **values**. Откройте файл **strings.xml** и добавьте строковые значения, на которые ссылаются новые элементы управления `Button` и `EditText`. Добавьте их в конец файла, непосредственно перед `</resources>`.
 
         <string name="send_button">Send Notification</string>
         <string name="notification_message_hint">Enter notification message text</string>
@@ -304,7 +323,7 @@
 
 3. В файле **MainActivity.java** в начало класса `MainActivity` добавьте следующие члены:
 
-	Введите имя своего центра для `HubName` (не пространства имен). Например, введите "myhub". Также введите строку подключения **DefaultFullSharedAccessSignature**. Эту строку подключения можно скопировать на [портале Azure], щелкнув **Просмотреть строку подключения** на вкладке **Панель мониторинга** для центра уведомлений.
+	Введите имя своего центра для `HubName` (не пространства имен). Например, введите "myhub". Кроме того, введите строку подключения **DefaultFullSharedAccessSignature**. Эту строку подключения можно скопировать на [портале Azure], щелкнув **Просмотреть строку подключения** на вкладке **Панель мониторинга** для центра уведомлений.
 
 	    private String HubEndpoint = null;
 	    private String HubSasKeyName = null;
@@ -394,7 +413,7 @@
         }
 
 
-6. В **MainActivity.java** добавьте в класс `MainActivity` следующий метод для обработки кнопки **Send Notification** и отправки уведомления в центр с помощью API REST.
+6. В **MainActivity.java** добавьте в класс `MainActivity` следующий метод для обработки нажатия кнопки **Send Notification** и отправки уведомления в центр с помощью API REST.
 
         /**
          * Send Notification button click handler. This method parses the
@@ -451,7 +470,7 @@
 
 Если требуется выполнить тестирование в эмуляторе, убедитесь, что образ эмулятора поддерживает уровень API Google, выбранный для приложения. Если образ не поддерживает API Google, будет создано исключение **SERVICE\_NOT\_AVAILABLE**.
 
-Также убедитесь, что вы добавили учетную запись Google в запущенный эмулятор, выбрав **Параметры** > **Учетные записи**. В противном случае попытки регистрации в GCM могут привести к порождению исключения **AUTHENTICATION\_FAILED**.
+Кроме того, убедитесь, что вы добавили учетную запись Google в запущенный эмулятор, выбрав **Параметры** > **Учетные записи**. В противном случае попытки регистрации в GCM могут привести к порождению исключения **AUTHENTICATION\_FAILED**.
 
 ####Тестирование приложения
 
@@ -511,4 +530,4 @@
 [Использование концентраторов уведомлений для отправки push-уведомлений пользователям]: notification-hubs-aspnet-backend-android-notify-users.md
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

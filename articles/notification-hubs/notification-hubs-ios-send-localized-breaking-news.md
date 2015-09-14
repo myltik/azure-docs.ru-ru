@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Передача локализованных экстренных новостей на устройства iOS с помощью центров уведомлений" 
-	description="Узнайте, как использовать центры уведомлений Azure Service Bus для отправки уведомлений о локализованных экстренных новостях (iOS)." 
-	services="notification-hubs" 
-	documentationCenter="ios" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Передача локализованных экстренных новостей на устройства iOS с помощью центров уведомлений"
+	description="Узнайте, как использовать центры уведомлений Azure Service Bus для отправки уведомлений о локализованных экстренных новостях (iOS)."
+	services="notification-hubs"
+	documentationCenter="ios"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 # Использование концентраторов уведомлений для вещания локализованных экстренных новостей на устройства iOS
 
@@ -221,6 +221,5 @@
 [Руководстве по использованию концентраторов уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Руководство по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Инструкции по использованию концентраторов уведомлений для iOS]: http://msdn.microsoft.com/library/jj927168.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

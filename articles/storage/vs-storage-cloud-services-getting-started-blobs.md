@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Приступая к работе с хранилищем больших двоичных объектов Azure и подключенными службами Visual Studio"
+<properties
+	pageTitle="Начало работы с хранилищем BLOB-объектов Azure и подключенными службами Visual Studio | Microsoft Azure"
 	description="Начало работы с использованием хранилища BLOB-объектов Azure в проекте облачной службы в Visual Studio"
 	services="storage"
 	documentationCenter=""
@@ -7,7 +7,7 @@
 	manager="douge"
 	editor="tglee"/>
 
-<tags 
+<tags
 	ms.service="storage"
 	ms.workload="web"
 	ms.tgt_pltfrm="vs-getting-started"
@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-cloud-services-getting-started-queues.md)
 > - [Tables](vs-storage-cloud-services-getting-started-tables.md)
 
-##Обзор
+## Обзор
 
 В этой статье описывается, как приступить к использованию хранилища больших двоичных объектов Azure после создания учетной записи хранения Azure с помощью диалогового окна **Добавление подключенных служб** в проекте облачных служб Visual Studio. Мы покажем, как получить доступ к контейнерам больших двоичных объектов и как создавать их, а также как выполнять общие задачи, такие как отправка, перечисление и скачивание больших двоичных объектов. Примеры написаны на C# и используют [клиентскую библиотеку службы хранилища Azure для .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
@@ -38,9 +38,9 @@
 - Дополнительные сведения о выполнении программных операций с большими двоичными объектами см. в статье [Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md).
 - Общие сведения о службе хранилища Azure см. в [документации по службе хранилища](https://azure.microsoft.com/documentation/services/storage/).
 - Общие сведения об облачных службах Azure см. в [документации по облачным службам](http://azure.microsoft.com/documentation/services/cloud-services/).
-- Дополнительную информацию о программировании для ASP.NET см. в разделе [ASP.NET](http://www.asp.net).
+- Дополнительные сведения о программировании для приложений ASP.NET см. в разделе [ASP.NET](http://www.asp.net).
 
-##Доступ к контейнерам больших двоичных объектов в коде
+## Доступ к контейнерам больших двоичных объектов в коде
 
 Для программного доступа к большим двоичным объектам в проектах облачных служб необходимо добавить следующие элементы, если они еще не существуют.
 
@@ -57,7 +57,6 @@
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
-
 3. Получите объект `CloudBlobClient`, который ссылается на существующий контейнер в вашей учетной записи хранения.
 
 		// Create a blob client.
@@ -68,11 +67,11 @@
         // Get a reference to a container named “mycontainer.”
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-**ПРИМЕЧАНИЕ.** Вставьте весь код, представленный выше, перед кодом из следующих разделов.
+> [AZURE.NOTE]Вставьте весь код, показанный в предыдущей процедуре, перед кодом, показанным в следующих разделах.
 
-##Создание контейнера в коде
+## Создание контейнера в коде
 
-**ПРИМЕЧАНИЕ.** Некоторые интерфейсы API, которые выполняют вызовы в хранилище Azure в ASP.NET, являются асинхронными. Дополнительные сведения см. в статье [Асинхронное программирование с использованием ключевых слов Async и Await](http://msdn.microsoft.com/library/hh191443.aspx). В приведенном ниже коде предполагается, что используются асинхронные методы программирования.
+> [AZURE.NOTE]Некоторые интерфейсы API, которые выполняют вызовы в хранилище Azure в ASP.NET, являются асинхронными. Дополнительные сведения см. в статье [Асинхронное программирование с использованием ключевых слов Async и Await](http://msdn.microsoft.com/library/hh191443.aspx). Код в приведенном ниже примере предполагает, что вы используете асинхронные методы программирования.
 
 Чтобы создать контейнер в учетной записи хранения, необходимо всего лишь добавить вызов `CreateIfNotExistsAsync`, как в следующем коде:
 
@@ -80,7 +79,7 @@
     // as described in the "Access blob containers in code" section.
 
     // If “mycontainer” doesn’t exist, create it.
-    await container.CreateIfNotExistsAsync();    
+    await container.CreateIfNotExistsAsync();
 
 
 Чтобы сделать файлы в контейнере доступными для всех пользователей, сделайте контейнер общедоступным с помощью следующего примера кода.
@@ -95,11 +94,11 @@
 
 ## Отправка BLOB-объекта в контейнер
 
-Хранилище больших двоичных объектов Azure поддерживает блочные и страничные большие двоичные объекты. В большинстве случаев рекомендуется использовать блочные BLOB-объекты.
+Хранилище BLOB-объектов Azure поддерживает блочные и страничные BLOB-объекты. В большинстве случаев рекомендуется использовать блочные BLOB-объекты.
 
 Для передачи файла в блочный BLOB-объект получите ссылку на контейнер и используйте ее для получения ссылки на блочный BLOB-объект. Получив ссылку на большой двоичный объект, вы можете отправить в него любой поток данных с помощью метода `UploadFromStream`. Эта операция создает большой двоичный объект, если он не существует, или заменяет его, если он существует. В следующем примере показано, как отправить BLOB-объект в контейнер. Предполагается, что контейнер уже был создан.
 
-	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in 
+	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
 
     // Retrieve a reference to a blob named "myblob".
@@ -109,15 +108,14 @@
     using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
     {
         blockBlob.UploadFromStream(fileStream);
-    } 
+    }
 
 ## Перечисление BLOB-объектов в контейнере
 
 Для перечисления BLOB-объектов в контейнере сначала необходимо получить ссылку на контейнер. После этого вы сможете считывать из контейнера большие двоичные объекты и (или) каталоги с помощью метода `ListBlobs`. Для доступа к широкому набору свойств и методов возвращаемого объекта `IListBlobItem` необходимо преобразовать его в объект `CloudBlockBlob`, `CloudPageBlob` или `CloudBlobDirectory`. Если тип неизвестен, можно использовать проверку типов, чтобы определить нужный тип. Следующий код демонстрирует, как получить и вывести URI каждого элемента в контейнере `photos`:
 
-	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in 
+	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
-
 	// Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, false))
 	{
@@ -126,7 +124,7 @@
 			CloudBlockBlob blob = (CloudBlockBlob)item;
 
 			Console.WriteLine("Block blob of length {0}: {1}", blob.Properties.Length, blob.Uri);
-                                        
+
 		}
 		else if (item.GetType() == typeof(CloudPageBlob))
 		{
@@ -138,12 +136,12 @@
 		else if (item.GetType() == typeof(CloudBlobDirectory))
 		{
 			CloudBlobDirectory directory = (CloudBlobDirectory)item;
-			
+
 			Console.WriteLine("Directory: {0}", directory.Uri);
 		}
 	}
 
-Как показано выше, служба BLOB-объектов также использует концепцию каталогов внутри контейнеров. Таким образом, можно организовать BLOB-объекты в структуре, похожей на папки. Например, рассмотрим следующий набор блочных BLOB-объектов в контейнере с именем `photos`:
+Как показано в предыдущем примере кода, служба BLOB-объектов также использует концепцию каталогов внутри контейнеров. Таким образом, можно организовать BLOB-объекты в структуре, похожей на папки. Например, рассмотрим следующий набор блочных BLOB-объектов в контейнере с именем `photos`:
 
 	photo1.jpg
 	2010/architecture/description.txt
@@ -154,14 +152,14 @@
 	2011/architecture/description.txt
 	2011/photo7.jpg
 
-При вызове метода `ListBlobs` в контейнере (как в примере выше) возвращаемая коллекция будет содержать объекты `CloudBlobDirectory` и `CloudBlockBlob`, представляющие каталоги и большие двоичные объекты верхнего уровня. Здесь результатом будет:
+При вызове метода `ListBlobs` в контейнере (как в примере выше) возвращаемая коллекция будет содержать объекты `CloudBlobDirectory` и `CloudBlockBlob`, представляющие каталоги и большие двоичные объекты верхнего уровня. В результате получается следующее:
 
 	Directory: https://<accountname>.blob.core.windows.net/photos/2010/
 	Directory: https://<accountname>.blob.core.windows.net/photos/2011/
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-При необходимости можно установить для параметра `UseFlatBlobListing` метода `ListBlobs` значение `true`. Это приведет к возвращению каждого большого двоичного объекта в виде `CloudBlockBlob` независимо от каталога. Здесь вызывается метод `ListBlobs`:
+При необходимости можно установить для параметра `UseFlatBlobListing` метода `ListBlobs` значение `true`. Это приведет к возвращению каждого большого двоичного объекта в виде `CloudBlockBlob` независимо от каталога. Это — вызов метода `ListBlobs`:
 
     // Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -169,7 +167,7 @@
 	   ...
 	}
 
-а здесь результатом будет:
+А это — результат:
 
 	Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
 	Block blob of length 314618: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo3.jpg
@@ -186,7 +184,7 @@
 
 Для загрузки больших двоичных объектов сначала необходимо получить ссылку на большой двоичный объект, а затем вызвать метод `DownloadToStream`. В следующем примере метод `DownloadToStream` используется для переноса содержимого большого двоичного объекта в объект stream, который затем можно сохранить в локальном файле.
 
-	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in 
+	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
 
     // Get a reference to a blob named "photo1.jpg".
@@ -196,11 +194,11 @@
     using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
     {
         blockBlob.DownloadToStream(fileStream);
-    } 
+    }
 
 Можно также использовать метод `DownloadToStream`, чтобы скачать содержимое большого двоичного объекта как текстовую строку.
 
-	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in 
+	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
 
 	// Get a reference to a blob named "myblob.txt"
@@ -217,14 +215,14 @@
 
 Для удаления большого двоичного объекта сначала необходимо получить ссылку на него, а затем вызвать метод `Delete`.
 
-	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in 
+	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
 
     // Get a reference to a blob named "myblob.txt".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");
 
     // Delete the blob.
-    blockBlob.Delete(); 
+    blockBlob.Delete();
 
 
 ## Асинхронное перечисление BLOB-объектов в страницах
@@ -237,19 +235,19 @@
 
     async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer container)
     {
-        //List blobs to the console window, with paging.
+        // List blobs to the console window, with paging.
         Console.WriteLine("List blobs in pages:");
 
         int i = 0;
         BlobContinuationToken continuationToken = null;
         BlobResultSegment resultSegment = null;
 
-        //Call ListBlobsSegmentedAsync and enumerate the result segment returned, while the continuation token is non-null.
-        //When the continuation token is null, the last page has been returned and execution can exit the loop.
+        // Call ListBlobsSegmentedAsync and enumerate the result segment returned, while the continuation token is non-null.
+        // When the continuation token is null, the last page has been returned and execution can exit the loop.
         do
         {
-            //This overload allows control of the page size. You can return all remaining results by passing null for the maxResults parameter, 
-            //or by calling a different overload.
+            // This overload allows control of the page size. You can return all remaining results by passing null for the maxResults parameter,
+            // or by calling a different overload.
             resultSegment = await container.ListBlobsSegmentedAsync("", true, BlobListingDetails.All, 10, continuationToken, null, null);
             if (resultSegment.Results.Count<IListBlobItem>() > 0) { Console.WriteLine("Page {0}:", ++i); }
             foreach (var blobItem in resultSegment.Results)
@@ -268,4 +266,4 @@
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

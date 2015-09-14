@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Использование пакета SDK веб-заданий для работы с хранилищем очередей Azure" 
-	description="Информация об использовании хранилища очередей Azure с пакетом SDK для WebJob Создание и удаление очередей; вставка, обзор, получение и удаление сообщений очереди, а также многое другое." 
-	services="app-service\web, storage" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="Использование пакета SDK веб-заданий для работы с хранилищем очередей Azure"
+	description="Информация об использовании хранилища очередей Azure с пакетом SDK для WebJob Создание и удаление очередей; вставка, обзор, получение и удаление сообщений очереди, а также многое другое."
+	services="app-service\web, storage"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/29/2015"
 	ms.author="tdykstra"/>
 
 # Использование пакета SDK веб-заданий для работы с хранилищем очередей Azure
@@ -538,7 +538,12 @@
 
 Выходные данные консоли отображаются на панели мониторинга, только если программа запущена в задании Azure WebJob, а не локально или в другой среде.
 
-Можно отключить ведение журнала, [присвоив строке подключения к панели мониторинга значение null](#config).
+Отключите ведение журнала панели мониторинга для сценариев с высокой пропускной способностью. По умолчанию SDK записывает журналы в хранилище, и это действие может привести к снижению производительности при обработке большого числа сообщений. Чтобы отключить ведение журнала, задайте для строки подключения мониторинга значение null, как показано в следующем примере.
+
+		JobHostConfiguration config = new JobHostConfiguration();       
+		config.DashboardConnectionString = “”;        
+		JobHost host = new JobHost(config);
+		host.RunAndBlock();
 
 В следующем примере показано несколько способов записи журналов:
 
@@ -581,4 +586,4 @@
 В этом руководстве предоставлены примеры кода обработки обычных сценариев для работы с очередями Azure. Дополнительную информацию об использовании веб-заданий Azure и пакета SDK для веб-заданий см. в статье [Рекомендуемые ресурсы по веб-заданиям Azure](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

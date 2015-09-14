@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Могут ли облачные службы Azure предоставить вам необходимые параметры вычислений?" 
-	description="Узнайте о размещении параметров вычислений Azure и их работе: службе приложений, облачных службах и виртуальных машинах" 
+	pageTitle="Могут ли облачные службы Azure предоставить вам необходимые параметры вычислений?"
+	description="Узнайте о размещении параметров вычислений Azure и их работе: службе приложений, облачных службах и виртуальных машинах"
 	services="cloud-services"
-    documentationCenter=""
-	authors="Thraka" 
+	documentationCenter=""
+	authors="Thraka"
 	manager="timlt"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="adegeo"/>
 
 # Стоит ли сделать выбор в пользу облачных служб?
@@ -36,4 +36,4 @@ Azure предоставляет разные модели размещения 
 [Виртуальные машины]: ../virtual-machines-choose-me.md
 [Облачные службы]: #tellmecs
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

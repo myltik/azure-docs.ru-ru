@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="Планирование серверных задач с помощью планировщика | Microsoft Azure" 
-	description="Использование планировщика мобильных служб Azure для планирования заданий для мобильного приложения." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Планирование серверных задач с помощью планировщика | Microsoft Azure"
+	description="Использование планировщика мобильных служб Azure для планирования заданий для мобильного приложения."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
-# Планирование повторяющихся заданий в мобильных службах 
+# Планирование повторяющихся заданий в мобильных службах
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
 - [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 - [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
- 
+
 В этом разделе показано, как использовать функциональные возможности планировщика заданий на портале управления для определения кода серверного сценария, который выполняется на основе определенного расписания. В этом случае сценарий периодически проверяет удаленную службу (в данном случае Twitter) и сохраняет результаты в новой таблице. В число других периодических задач, которые могут быть запланированы, входят следующие:
 
 + Архивация старых или повторяющихся записей.
@@ -46,7 +46,7 @@
 
 Теперь можно создать запланированное задание, которое получает доступ к Twitter и сохраняет данные твитов в новой таблице Updates.
 
-2. Щелкните вкладку **Планировщик**, а затем нажмите кнопку **+Создать**. 
+2. Щелкните вкладку **Планировщик**, а затем нажмите кнопку **+Создать**.
 
     >[AZURE.NOTE]При работе в вашей мобильной службе на <em>бесплатном</em> уровне вы можете выполнять одновременно только одно запланированное задание. На оплачиваемых уровнях можно выполнять одновременно до десяти запланированных заданий.
 
@@ -62,23 +62,23 @@
 
 		// Get the service configuration module.
 		var config = require('mobileservice-config');
-		
-		// Get the stored Twitter consumer key and secret. 
+
+		// Get the stored Twitter consumer key and secret.
 		var consumerKey = config.twitterConsumerKey,
 		    consumerSecret = config.twitterConsumerSecret
-		// Get the Twitter access token from app settings.    
+		// Get the Twitter access token from app settings.
 		var accessToken= config.appSettings.TWITTER_ACCESS_TOKEN,
 		    accessTokenSecret = config.appSettings.TWITTER_ACCESS_TOKEN_SECRET;
-		
-		function getUpdates() {   
+
+		function getUpdates() {
 		    // Check what is the last tweet we stored when the job last ran
 		    // and ask Twitter to only give us more recent tweets
 		    appendLastTweetId(
-		        twitterUrl, 
-		        function twitterUrlReady(url){            
+		        twitterUrl,
+		        function twitterUrlReady(url){
 		            // Create a new request with OAuth credentials.
 		            request.get({
-		                url: url,                
+		                url: url,
 		                oauth: {
 		                    consumer_key: consumerKey,
 		                    consumer_secret: consumerSecret,
@@ -89,7 +89,7 @@
 		                if (!error && response.statusCode == 200) {
 		                    var results = JSON.parse(body).statuses;
 		                    if(results){
-		                        console.log('Fetched ' + results.length + ' new results from Twitter');                       
+		                        console.log('Fetched ' + results.length + ' new results from Twitter');
 		                        results.forEach(function (tweet){
 		                            if(!filterOutTweet(tweet)){
 		                                var update = {
@@ -101,12 +101,12 @@
 		                                updatesTable.insert(update);
 		                            }
 		                        });
-		                    }            
-		                } else { 
+		                    }
+		                } else {
 		                    console.error('Could not contact Twitter');
 		                }
 		            });
-		
+
 		        });
 		 }
 		// Find the largest (most recent) tweet ID we have already stored
@@ -117,13 +117,13 @@
 		    .orderByDescending('twitterId')
 		    .read({success: function readUpdates(updates){
 		        if(updates.length){
-		            callback(url + '&since_id=' + (updates[0].twitterId + 1));           
+		            callback(url + '&since_id=' + (updates[0].twitterId + 1));
 		        } else {
 		            callback(url);
 		        }
 		    }});
 		}
-		
+
 		function filterOutTweet(tweet){
 		    // Remove retweets and replies
 		    return (tweet.text.indexOf('RT') === 0 || tweet.to_user_id);
@@ -165,6 +165,5 @@
 [Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

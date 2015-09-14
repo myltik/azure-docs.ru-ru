@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Вызов пользовательского API-интерфейса из клиента Магазина Windows — мобильные службы" 
-	description="Узнайте, как определить настраиваемый API и вызывать его из приложения магазина Windows, которое использует мобильные службы Azure." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Вызов пользовательского API-интерфейса из клиента Магазина Windows — мобильные службы"
+	description="Узнайте, как определить настраиваемый API и вызывать его из приложения магазина Windows, которое использует мобильные службы Azure."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Вызов из клиента настраиваемого интерфейса API
@@ -55,6 +55,5 @@
 [Добавление мобильных служб к существующему приложению]: mobile-services-javascript-backend-windows-universal-dotnet-get-started-data.md
 [Define a custom API that supports periodic notifications]: mobile-services-windows-store-dotnet-create-pull-notifications.md
 [Хранение серверных сценариев в системе управления версиями]: mobile-services-store-scripts-source-control.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

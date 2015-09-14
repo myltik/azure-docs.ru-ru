@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="08/21/2015"
+	ms.date="08/25/2015"
 	ms.author="maroche"/>
 
 # Часто задаваемые вопросы о каталоге данных Azure
@@ -69,6 +69,8 @@
 - представление базы данных Oracle;
 - Большой двоичный объект хранилища Azure
 - Каталог хранилища Azure
+- Файл HDFS
+- Каталог HDSF
 
 ## Вопрос. Как запросить поддержку для другого источника данных?
 
@@ -160,4 +162,4 @@
 
 Перейдите на [форум каталога данных Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Ответы на вопросы, заданные на форуме, будут опубликованы здесь.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

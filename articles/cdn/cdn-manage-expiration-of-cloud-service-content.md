@@ -1,19 +1,19 @@
 <properties 
- pageTitle="Управление сроком действия содержимого облачных служб в сети доставки содержимого (CDN) Azure" 
- description="" 
- services="cdn" 
- documentationCenter=".NET" 
- authors="zhangmanling" 
- manager="dwrede" 
- editor=""/>
+ pageTitle="Управление сроком действия содержимого облачных служб в сети доставки содержимого (CDN) Azure"
+	description=""
+	services="cdn"
+	documentationCenter=".NET"
+	authors="zhangmanling"
+	manager="dwrede"
+	editor=""/>
 <tags 
- ms.service="cdn" 
- ms.workload="media" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="04/25/2015" 
- ms.author="mazha"/>
+ ms.service="cdn"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="mazha"/>
 
 #Управление сроком действия содержимого облачных служб в сети доставки содержимого (CDN) Azure
 
@@ -50,4 +50,4 @@
 
 [Управление сроком действия содержимого BLOB-объекта в сети доставки содержимого (CDN) Azure](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

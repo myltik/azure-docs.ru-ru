@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Политика кэширования CDN в расширении служб мультимедиа" 
-	description="В этом разделе приведен обзор политики кэширования в сети CDM в расширении служб мультимедиа." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="Политика кэширования CDN в расширении служб мультимедиа"
+	description="В этом разделе приведен обзор политики кэширования в сети CDM в расширении служб мультимедиа."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="juliako"/>
 
 #Политика кэширования CDN в расширении служб мультимедиа
@@ -43,4 +43,4 @@
 3. По умолчанию для манифеста динамической потоковой передачи (списка воспроизведения) используются 2-секундные заголовки кэша независимо от конфигурации мультимедиа Azure или службы хранилища Azure, и переопределить это значение невозможно.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

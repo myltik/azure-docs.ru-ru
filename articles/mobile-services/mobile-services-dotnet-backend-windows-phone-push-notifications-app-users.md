@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Рассылка push-уведомлений проверенным пользователям" 
-	description="Узнайте, как отправлять push-уведомления для конкретного адресата" 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Рассылка push-уведомлений проверенным пользователям"
+	description="Узнайте, как отправлять push-уведомления для конкретного адресата"
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Рассылка push-уведомлений проверенным пользователям
@@ -24,7 +24,7 @@
 
 Этот учебник поддерживает приложения Silverlight Windows Phone 8.0 и Windows Phone 8.1. Для приложений Магазина Windows Phone 8.1 см. [версию этой статьи для Магазина Windows](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
-##Предварительные требования 
+##Предварительные требования
 
 Перед началом работы с этим учебником необходимо изучить следующие учебники по мобильным службам.
 
@@ -60,6 +60,5 @@
 [Добавление push-уведомлений к приложению мобильных служб]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

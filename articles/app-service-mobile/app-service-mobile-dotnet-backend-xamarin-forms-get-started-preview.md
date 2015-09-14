@@ -3,7 +3,7 @@
 	description="Этот учебник поможет приступить к использованию мобильных приложений Azure в разработке для Xamarin.Forms."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="normesta"
+	authors="wesmc7777"
 	manager="dwrede"
 	editor=""/>
 
@@ -174,4 +174,4 @@
 [Установка Xamarin.iOS в Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

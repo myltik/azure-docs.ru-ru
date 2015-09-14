@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Просмотр и изменение имен узлов"
-	description="Описание"
+   pageTitle="Просмотр и изменение имен узлов | Microsoft Azure"
+	description="Просмотр и изменение имен узлов для виртуальных машин Azure, веб- и рабочих ролей для разрешения имен"
 	services="virtual-network"
 	documentationCenter="na"
 	authors="joaoma"
@@ -51,7 +51,7 @@
 
 1. Задайте запись заголовка с именем x-ms-version и значением 2013-11-01.
 
-1. Отправьте запрос в следующем формате: https://management.core.windows.net/<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true.
+1. Отправьте запрос в следующем формате: https://management.core.windows.net/\<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true.
 
 1. Найдите элемент **HostName** для каждого элемента **RoleInstance**.
 
@@ -71,4 +71,4 @@
 
 [Укажите параметры DNS с помощью файлов конфигурации сети](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

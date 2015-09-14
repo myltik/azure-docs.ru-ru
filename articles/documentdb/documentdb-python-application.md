@@ -1,20 +1,20 @@
 <properties
     pageTitle="Создание веб-приложения на базе Python и Flask с использованием DocumentDB | Microsoft Azure"
-    description="Узнайте, как использовать DocumentDB для хранения и использования данных из веб-приложения Python и Flask (MVC), размещенного в Azure."
-    services="documentdb"
-    documentationCenter="python"
-    authors="ryancrawcour"
-    manager="jhubbard"
-    editor="cgronlun"/>
+	description="Узнайте, как использовать DocumentDB для хранения и использования данных из веб-приложения Python и Flask (MVC), размещенного в Azure."
+	services="documentdb"
+	documentationCenter="python"
+	authors="ryancrawcour"
+	manager="jhubbard"
+	editor="cgronlun"/>
 
 <tags
     ms.service="documentdb"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="python"
-    ms.topic="hero-article"
-    ms.date="07/07/2015"
-    ms.author="ryancraw"/>
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="hero-article"
+	ms.date="09/03/2015"
+	ms.author="ryancraw"/>
 
 # Создание веб-приложения Python и Flask (MVC) с использованием DocumentDB
 
@@ -31,7 +31,7 @@
 
 В ходе учебника вы создадите простое веб-приложение для голосования, позволяющее проводить голосование на выборах.
 
-![Снимок экрана: веб-приложение «Список дел», созданное с помощью этого учебника](./media/documentdb-python-application/image1.png)
+![Снимок экрана: веб-приложение "Список дел", созданное с помощью этого учебника](./media/documentdb-python-application/image1.png)
 
 
 ## Предварительные требования
@@ -60,7 +60,7 @@
 
 	Для тех, кто не знаком с Flask: это веб-фреймворк, позволяющий ускорить процесс создания веб-приложения в Python. [Учебники по Flask доступны здесь][].
 
-	![Снимок экрана: окно нового проекта в Visual Studio с выделенным типом Python в левой части, выбранным веб-проектом Flask в центральной части и названием учебника в поле «Имя»](./media/documentdb-python-application/image9.png)
+	![Снимок экрана: окно нового проекта в Visual Studio с выделенным типом Python в левой части, выбранным веб-проектом Flask в центральной части и названием учебника в поле "Имя"](./media/documentdb-python-application/image9.png)
 
 2. Будет выведен запрос на установку внешних пакетов. Выберите вариант **Установить в виртуальной среде**. В качестве базовой среды необходимо использовать Python 2.7, поскольку PyDocumentDB на данный момент не поддерживает Python 3.x. Для вашего проекта будет настроена требуемая виртуальная среда Python.
 
@@ -91,7 +91,7 @@
 
 	![Снимок экрана: отображение env (Python 2.7) с выбранной командой "Установить из requirements.txt", выделенной в списке](./media/documentdb-python-application/image11.png)
 
-> [AZURE.NOTE]В редких случаях в окне вывода появляется ошибка. В этом случае проверьте, связана ли ошибка с очисткой. Иногда происходит сбой очистки, но установка все равно завершается успешно (прокрутите окно вывода вверх, чтобы убедиться в этом). <a name="verify-the-virtual-environment"></a> Если это произойдет, нажмите кнопку «ОК» для продолжения.
+> [AZURE.NOTE]В редких случаях в окне вывода появляется ошибка. В этом случае проверьте, связана ли ошибка с очисткой. Иногда происходит сбой очистки, но установка все равно завершается успешно (прокрутите окно вывода вверх, чтобы убедиться в этом). <a name="verify-the-virtual-environment"></a> Если это произойдет, нажмите кнопку "ОК" для продолжения.
 
 
 ### Проверка виртуальной среды
@@ -214,7 +214,7 @@
 
 ### Создание HTML-файлов
 
-В папку «Шаблоны» добавьте такие HTML-файлы: create.html, results.html, vote.html.
+В папку "Шаблоны" добавьте такие HTML-файлы: create.html, results.html, vote.html.
 
 1. Добавьте следующий код в файл **create.html**. Он служит для отображения сообщения о создании новой базы данных, коллекции и документа.
 
@@ -338,7 +338,9 @@
 
 Поздравляем! Вы только что создали свое первое приложение на Python с помощью Azure DocumentDB и опубликовали его в службе веб-сайтов Azure.
 
-Для добавления дополнительной функциональности в приложение ознакомьтесь с доступными интерфейсами API в [пакете SDK для Python в DocumentDB](https://pypi.python.org/pypi/pydocumentdb).
+Нам важно знать, насколько этот учебник оказался полезен для вас. Оцените его содержимое с помощью кнопок голосования в начале или конце раздела. Данный раздел активно обновляется, поэтому для нас важны ваши отзывы о том, как улучшить его. Если вы хотите, чтобы мы связались с вами, укажите ваш адрес электронной почты в своих комментариях.
+
+Для добавления дополнительной функциональности в приложение ознакомьтесь с доступными интерфейсами API в [пакете SDK Python для DocumentDB](https://pypi.python.org/pypi/pydocumentdb).
 
   [Учебники по Flask доступны здесь]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
@@ -349,4 +351,4 @@
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Использование центров уведомлений для передачи экстренных новостей (Универсальное приложение Windows)" 
-	description="Использование центров уведомлений Azure с тегами в регистрации для передачи экстренных новостей в универсальное приложение для Windows." 
-	services="notification-hubs" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Использование центров уведомлений для передачи экстренных новостей (Универсальное приложение Windows)"
+	description="Использование центров уведомлений Azure с тегами в регистрации для передачи экстренных новостей в универсальное приложение для Windows."
+	services="notification-hubs"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Использование концентраторов уведомлений для передачи экстренных новостей
@@ -38,7 +38,7 @@
 Прежде всего необходимо добавить элементы пользовательского интерфейса для имеющейся главной страницы, позволяющие пользователю выбирать категории для регистрации. Выбранные пользователем категории хранятся на устройстве. При запуске приложения в концентраторе уведомлений создается регистрация устройства с выбранными категориями, представленными в форме тегов.
 
 1. Откройте файл проекта MainPage.xam и скопируйте следующий код в элемент **Grid**:
-			
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -137,7 +137,7 @@
             dialog.Commands.Add(new UICommand("OK"));
             await dialog.ShowAsync();
         }
-	
+
 	Этот метод создает список категорий и использует класс **Notifications** класс для хранения списка в локальном хранилище и регистрации соответствующих тегов в концентраторе уведомлений. При изменении категорий регистрация создается заново с новыми категориями.
 
 Ваше приложение теперь может сохранять набор категорий в локальном хранилище на устройстве и регистрироваться в центре уведомлений всякий раз, когда пользователь изменяет выбранные категории.
@@ -241,10 +241,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-
-
-
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

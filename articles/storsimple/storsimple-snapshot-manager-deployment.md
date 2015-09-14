@@ -1,21 +1,21 @@
 <properties 
    pageTitle="Развертывание диспетчера моментальных снимков StorSimple | Microsoft Azure"
-   description="Сведения о том, как скачать и установить диспетчер моментальных снимков StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="Узнайте, как скачать и установить диспетчер моментальных снимков StorSimple, который представляет собой оснастку MMC для управления функциями защиты и резервного копирования данных StorSimple."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/17/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="v-sharos"/>
 
-# Развертывание диспетчера моментальных снимков StorSimple
+# Развертывание оснастки консоли управления диспетчера моментальных снимков StorSimple (необязательно)
 
 ## Обзор
 
@@ -35,9 +35,7 @@
 
 Далее приводится общий обзор задач настройки, которые необходимо выполнить перед установкой диспетчера моментальных снимков StorSimple. Подробные сведения о конфигурации и настройке Microsoft Azure StorSimple, включая информацию о требованиях к системе и пошаговые инструкции, см. в статье [Развертывание локального устройства StorSimple](storsimple-deployment-walkthrough.md).
 
->[AZURE.IMPORTANT]Перед началом работы ознакомьтесь с разделами [Контрольный список предварительных операций перед установкой](storsimple-deployment-walkthrough.md#pre-installation-checklist)
-> и [Предварительные условия для развертывания](storsimple-deployment-walkthrough.md#deployment-prerequisites) статьи [Развертывание локального устройства StorSimple](storsimple-deployment-walkthrough.md).
-<br>
+>[AZURE.IMPORTANT]Перед началом работы ознакомьтесь с разделами [Контрольный список настройки развертывания](storsimple-deployment-walkthrough.md#deployment-configuration-checklist) и [Предварительные условия для развертывания](storsimple-deployment-walkthrough.md#deployment-prerequisites) статьи [Развертывание локального устройства StorSimple](storsimple-deployment-walkthrough.md). <br>
  
 ### Перед установкой диспетчера моментальных снимков StorSimple
 
@@ -255,4 +253,4 @@
 
 Чтобы узнать больше о пользовательском интерфейсе диспетчера моментальных снимков StorSimple, см. статью [Пользовательский интерфейс диспетчера моментальных снимков StorSimple](storsimple-use-snapshot-manager.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

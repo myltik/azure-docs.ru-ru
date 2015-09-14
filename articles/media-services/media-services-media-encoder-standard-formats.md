@@ -22,54 +22,59 @@
 Этот документ содержит список наиболее распространенных форматов для импорта и экспорта файлов, которые можно использовать со стандартным кодировщиком служб мультимедиа.
 
 
-[Форматы импорта в кодировщике служб мультимедиа ](#import_formats)
+##Контейнер ввода/ форматы файлов
 
-[Форматы экспорта в кодировщике служб мультимедиа](#export_formats)
-
-
-##<a id="import_formats"></a>Форматы импорта в стандартном кодировщике мультимедиа 
-
-В следующем разделе перечислены кодеки и форматы файлов, поддерживаемые для импорта.
-
-
-##Видеокодеки:
-
-- MPEG-2
-- H.264
-- YUV420 без сжатия или мезонинный файл
-- DNxHD
-- VC-1/WMV9
-- MPEG-4, часть 2
-- JPEG 2000
-- Theora
-
-###Аудиокодеки
-
-- PCM
-- AAC (AAC-LC, AAC-HE и AAC-HEv2)
-- WMA9/Pro
-- MP3 (MPEG-1 Audio Layer 3)
-- FLAC
-- Opus
-- Vorbis
+Форматы файлов (расширения файлов)|Поддерживаются
+---|---|---|---
+FLV (с кодеками H.264 и AAC) (.flv) |Да 
+MXF (.mxf) |Да 
+GXF (.gxf) |Да 
+MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp) |Да 
+Windows Media Video (WMV)/ASF (.wmv, .asf) |Да 
+AVI (без сжатия 8 бит/10 бит) (.avi)|Да 
+MP4/ISMV (.ismv)|Да 
+[Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Да 
+Matroska/WebM (.mkv) |Да 
+WAVE/WAV (.wav) |Да 
  
-###Форматы
 
-Формат файла|Расширения файлов
----|---
-FLV (с кодеками H.264 и AAC) |.flv
-MP4/ISMV|* .ismv
-MPEG2-PS, MPEG2-TS, 3GP|.ts, .ps, .3gp
-MXF|.mxf
-WMV/ASF|.mwv, .asf
-DVR-MS|.dvr-ms 
-AVI|.avi
-Matroska|.mkv
-GXF|.gxf
-WAVE/WAV |.wav
+##Входные видеокодеки
+
+Входные видеокодеки|Поддерживаются
+---|---|---|---
+AVC 8-разрядный/10-разрядный, до 4:2:2, включая AVCIntra |8 бит 4:2:0 и 4:2:2 
+Avid DNxHD (в MXF) |Да 
+DVCPro/DVCProHD (в MXF) |Да 
+JPEG 2000 |Да 
+MPEG-2 (до 422 Profile и High Level, включая такие варианты, как XDCAM, XDCAM HD, XDCAM IMX, CableLabs® и D10)|До 422 Profile 
+MPEG-1 |Да 
+VC-1/WMV9 |Да 
+Canopus HQ/HQX |Нет 
+MPEG-4, часть 2 |Да 
+[Theora](https://en.wikipedia.org/wiki/Theora) |Да 
+YUV420 без сжатия или мезонинный файл |Да
 
 
-##<a id="export_formats"></a>Форматы экспорта в стандартном кодировщике мультимедиа
+##Входные аудиокодеки
+
+Входные аудиокодеки|Поддерживаются
+---|---|---|---
+AAC (AAC-LC, AAC-HE и AAC-HEv2; до 5.1)|Да 
+MPEG Layer 2|Да 
+MP3 (MPEG-1 Audio Layer 3)|Да 
+Windows Media Audio|Да 
+WAV/PCM|Да 
+[FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|Да 
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |Да 
+[Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|Да 
+AMR (adaptive multi-rate)|Да
+AES (SMPTE 331M и 302M, AES3-2003) |Нет 
+Dolby® E |Нет 
+Dolby® Digital (AC3) |Нет 
+Dolby® Digital Plus (E-AC3) |Нет 
+
+
+##Выходные форматы и кодеки
 
 В следующей таблице перечислены кодеки и форматы файлов, поддерживаемые для экспорта.
 
@@ -83,4 +88,6 @@ MPEG2-TS |H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC
 
 [Кодирование содержимого по запросу с помощью служб мультимедиа Azure](media-services-encode-asset.md)
 
-<!---HONumber=August15_HO9-->
+[Кодирование с помощью стандартного кодировщика мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md)
+
+<!---HONumber=September15_HO1-->

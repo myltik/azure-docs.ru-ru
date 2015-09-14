@@ -1,26 +1,30 @@
 <properties 
-	pageTitle="Как с помощью инспектора API отслеживать вызовы в управлении Azure API" 
-	description="Сведения о трассировке вызовов с помощью инспектора API в службе управления API Azure." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="Как с помощью инспектора API отслеживать вызовы в управлении Azure API"
+	description="Сведения о трассировке вызовов с помощью инспектора API в службе управления API Azure."
+	services="api-management"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="api-management"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="sdanie"/>
 
 # Как с помощью инспектора API отслеживать вызовы в управлении Azure API
 
-Служба управления содержит инспектор API, которое позволяет выполнять отладку и устранять неполадки интерфейсов API. Инспектор API может использоваться на программном уровне из ваших приложений, а также прямо из портала разработчика. Это руководство содержит пошаговые инструкции по использованию инспектора API.
+Служба управления содержит инспектор API, которое позволяет выполнять отладку и устранять неполадки интерфейсов API. Инспектор API может использоваться на программном уровне, а также напрямую из портала разработчика.
 
->[AZURE.NOTE]Помимо операций трассировки, инспектор API также отслеживает оценку [выражений политики](https://msdn.microsoft.com/library/azure/dn910913.aspx). Демонстрацию см. в видеоролике [Cloud Cover, эпизод 177: возможности управления API с Владом Виноградским](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (перемотайте до 21:00).
+Помимо операций трассировки, инспектор API также отслеживает оценку [выражений политики](https://msdn.microsoft.com/library/azure/dn910913.aspx). Демонстрацию см. в видеоролике [Cloud Cover, эпизод 177: возможности управления API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) (перемотайте до 21:00).
+
+Это руководство содержит пошаговые инструкции по использованию инспектора API.
+
+>[AZURE.NOTE]Трассировки инспектора API доступны только для [администраторов](api-management-howto-create-groups.md) экземпляра службы управления API. Трассировки инспектора API возвращаются только при вызове [защищенного продукта](api-management-howto-add-products.md), для которого требуется ключ подписки.
 
 ## <a name="trace-call"> </a> Использование инспектора API для трассировки вызова
 
@@ -226,7 +230,7 @@
 ## <a name="next-steps"> </a>Дальнейшие действия
 
 -	Просмотрите другие разделы в руководстве [Приступая к работе с расширенными параметрами API][].
--	Посмотрите демонстрацию выражений политики трассировки: [Cloud Cover, эпизод 177: возможности управления API с Владом Виноградским](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Перемотайте демонстрацию до 21:00.
+-	Посмотрите демонстрацию выражений политики трассировки: [Cloud Cover, эпизод 177: возможности управления API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Перемотайте демонстрацию до 21:00.
 
 >[AZURE.VIDEO episode-177-more-api-management-features-with-vlad-vinogradsky]
 
@@ -257,4 +261,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

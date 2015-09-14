@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.date="08/28/2015"
 	ms.author="awills"/>
 
 # API Application Insights для пользовательских событий и метрик 
@@ -124,7 +124,7 @@
 
 ## <a name="properties"></a>Фильтрация, поиск и сегментация данных с помощью свойств
 
-Вы можете прикрепить свойства и результаты измерений к своим событиям, а также метрикам, просмотрам страниц и другим данным телеметрии.
+Вы можете прикрепить свойства и результаты измерений к своим событиям, а также метрикам, просмотрам страниц, исключениям и другим данным телеметрии.
 
 **Свойства** — это строковые значения, которые можно использовать для фильтрации телеметрии в отчетах об использовании. Например, если приложение содержит несколько игр, имеет смысл к каждому событию присоединять имя игры, чтобы видеть, какие игры наиболее популярны.
 
@@ -140,13 +140,22 @@
 
 *JavaScript*
 
-    appInsights.trackEvent // or trackPageView, trackMetric, ...
+    appInsights.trackEvent
       ("WinGame",
          // String properties:
          {Game: currentGame.name, Difficulty: currentGame.difficulty},
          // Numeric metrics:
          {Score: currentGame.score, Opponents: currentGame.opponentCount}
          );
+
+    appInsights.trackPageView
+        ("page name", "http://fabrikam.com/pageurl.html",
+          // String properties:
+         {Game: currentGame.name, Difficulty: currentGame.difficulty},
+         // Numeric metrics:
+         {Score: currentGame.score, Opponents: currentGame.opponentCount}
+         );
+          
 
 *C#*
 
@@ -341,9 +350,10 @@
 
     // At start of processing this request:
 
-    // Operation Id is attached to all telemetry and helps you identify
+    // Operation Id and Name are attached to all telemetry and help you identify
     // telemetry associated with one request:
     telemetry.Context.Operation.Id = Guid.NewGuid().ToString();
+    telemetry.Context.Operation.Name = requestName;
     
     var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
@@ -353,6 +363,8 @@
     telemetryClient.TrackRequest(requestName, DateTime.Now,
        stopwatch.Elapsed, 
        "200", true);  // Response code, success
+
+
 
 ## Отслеживание исключений
 
@@ -369,7 +381,30 @@
        telemetry.TrackException(ex);
     }
 
-В мобильных приложениях для Windows пакет SDK перехватывает необработанные исключения, поэтому вам не нужно их регистрировать. В ASP.NET можно [написать код для автоматического перехвата исключений][exceptions].
+*JavaScript*
+
+    try
+    {
+       ...
+    }
+    catch (ex)
+    {
+       appInsights.trackException(ex);
+    }
+
+Пакеты SDK перехватывают многие исключения автоматически, поэтому не всегда нужно явно вызвать метод TrackException.
+
+* ASP.NET: [написание кода для перехвата исключений](app-insights-asp-net-exceptions.md)
+* J2EE: [исключения перехватываются автоматически](app-insights-java-get-started.md#exceptions-and-request-failures)
+* Приложения Windows: [сбои перехватываются автоматически](app-insights-windows-crashes.md)
+* JavaScript: перехватываются автоматически. Если вы хотите отключить автоматический сбор, добавьте строку в фрагмент кода, который вставляется на веб-страницы:
+
+    ```
+    ({
+      instrumentationKey: "your key"
+      , disableExceptionTracking: true
+    })
+    ```
 
 
 ## Отслеживание трассировки 
@@ -490,96 +525,10 @@
     // ...
 
 
-## <a name="default-properties"></a>Инициализаторы контекста: настройка свойств по умолчанию для всей телеметрии
-
-Можно настроить универсальный инициализатор, чтобы все новые клиенты телеметрии TelemetryClient автоматически использовали ваш контекст. Сюда входит стандартная телеметрия, отправляемая модулями телеметрии платформы, например данные по отслеживанию запросов веб-сервера.
-
-Как правило, идентифицируется телеметрия из разных версий или компонентов приложения. На портале вы можете фильтровать или группировать результаты по свойству «Версия приложения».
-
-**Определение инициализатора**
-
-
-*C#*
-
-```C#
-
-    using System;
-    using Microsoft.ApplicationInsights.Channel;
-    using Microsoft.ApplicationInsights.DataContracts;
-    using Microsoft.ApplicationInsights.Extensibility;
-
-    namespace MyNamespace
-    {
-      // Context initializer class
-      public class MyContextInitializer : IContextInitializer
-      {
-        public void Initialize (TelemetryContext context)
-        {
-            if (context == null) return;
-
-            context.Component.Version = "v2.1";
-        }
-      }
-    }
-```
-
-*Java*
-
-```Java
-
-    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
-    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
-
-    public class MyContextInitializer implements ContextInitializer {
-      @Override
-      public void initialize(TelemetryContext context) {
-        context.Component.Version = "2.1";
-      }
-    }
-```
-
-**Загрузка инициализатора**
-
-В ApplicationInsights.config.:
-
-    <ApplicationInsights>
-      <ContextInitializers>
-        <!-- Fully qualified type name, assembly name: -->
-        <Add Type="MyNamespace.MyContextInitializer, MyAssemblyName"/> 
-        ...
-      </ContextInitializers>
-    </ApplicationInsights>
-
-*Другой способ* — создать экземпляр инициализатора в коде.
-
-*C#*
-
-```C#
-
-    protected void Application_Start()
-    {
-        // ...
-        TelemetryConfiguration.Active.ContextInitializers
-        .Add(new MyContextInitializer());
-    }
-```
-
-*Java*
-
-```Java
-
-    // load the context initializer
-    TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
-```
-
-
-### Веб-клиенты JavaScript
-
-Для веб-клиентов JavaScript [используйте инициализаторы телеметрии для задания значений по умолчанию](#js-initializer).
 
 ## Инициализаторы телеметрии
 
-Используйте инициализаторы телеметрии, чтобы переопределить выбранное поведение модулей стандартной телеметрии.
+Используйте инициализаторы телеметрии, чтобы определить глобальные свойства, которые передаются со всеми данными телеметрии, и переопределить выбранное поведение стандартных модулей телеметрии.
 
 Например, пакет Application Insights for Web собирает данные телеметрии о HTTP-запросах. По умолчанию любой запрос с кодом ответа > = 400 он помечает как неудавшийся. Если вам нужно, чтобы значение 400 считалось успешным, задайте инициализатор телеметрии, в котором можно настроить свойство «Успех».
 
@@ -702,6 +651,8 @@
 
 Сводку по ненастраиваемым свойствам, доступным в telemetryItem, см. в разделе о [модели данных](app-insights-export-data-model.md/#lttelemetrytypegt).
 
+Вы можете добавить любое количество инициализаторов по своему усмотрению.
+
 ## <a name="dynamic-ikey"></a> Динамический ключ инструментирования
 
 Во избежание смешивания телеметрии из среды разработки, тестовой и рабочей среды вы можете [создавать отдельные ресурсы Application Insights][create] и менять их ключи в зависимости от среды.
@@ -774,7 +725,9 @@
 
 ## Класс TelemetryContext
 
-Класс TelemetryClient включает свойство Context, содержащее несколько значений, которые отправляются вместе со всеми данными телеметрии. Как правило, их задают модули стандартной телеметрии, но их также можно задать самостоятельно.
+Класс TelemetryClient включает свойство Context, содержащее несколько значений, которые отправляются вместе со всеми данными телеметрии. Как правило, их задают модули стандартной телеметрии, но их также можно задать самостоятельно. Например:
+
+    telemetryClient.Context.Operation.Name = “MyOperationName”;
 
 Если задать эти значения самостоятельно, мы советуем удалить соответствующую строку из файла [ApplicationInsights.config][config], чтобы не перепутать собственные значения и стандартные значения.
 
@@ -784,11 +737,96 @@
 * **Location** — определяет географическое расположение устройства.
 * **Operation** — текущий HTTP-запрос в веб-приложениях. В приложениях других типов для этого значения можно задать значение «Группировать события совместно».
  * **Id** — созданное значение, которое сопоставляет различные события, чтобы при проверке любого события в колонке «Поиск в журнале диагностики» можно было найти «Связанные элементы».
- * **Name** — URL-адрес HTTP-запроса.
+ * **Name**: идентификатор, обычно URL-адрес HTTP-запроса. 
  * **SyntheticSource** — если эта строка не пустая и не имеет значение null, она указывает, что источник запроса было определен как программа-робот или веб-тест. По умолчанию она будет исключена из вычислений в обозревателе метрик.
 * **Properties** — свойства, которые отправляются со всеми данными телеметрии. Это значение можно переопределить в отдельных вызовах отслеживания*.
 * **Session** — определяет сеанс пользователя. Для Id задается созданное значение, которое изменяется, если пользователь был неактивным в течение некоторого времени.
-* **User** — информация о пользователе. 
+* **User**: информация о пользователе. 
+
+
+## <a name="default-properties"></a>Инициализаторы контекста: настройка свойств по умолчанию для всей телеметрии
+
+Можно настроить универсальный инициализатор, чтобы все новые клиенты телеметрии TelemetryClient автоматически использовали ваш контекст. Сюда входит стандартная телеметрия, отправляемая модулями телеметрии платформы, например данные по отслеживанию запросов веб-сервера.
+
+Как правило, идентифицируется телеметрия из разных версий или компонентов приложения. На портале вы можете фильтровать или группировать результаты по свойству «Версия приложения».
+
+В общем случае [рекомендуется использовать инициализаторы телеметрии, а не инициализаторы контекста](http://apmtips.com/blog/2015/06/09/do-not-use-context-initializers/).
+
+#### Определение инициализатора контекста
+
+
+*C#*
+
+```C#
+
+    using System;
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.ApplicationInsights.Extensibility;
+
+    namespace MyNamespace
+    {
+      // Context initializer class
+      public class MyContextInitializer : IContextInitializer
+      {
+        public void Initialize (TelemetryContext context)
+        {
+            if (context == null) return;
+
+            context.Component.Version = "v2.1";
+        }
+      }
+    }
+```
+
+*Java*
+
+```Java
+
+    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
+    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
+
+    public class MyContextInitializer implements ContextInitializer {
+      @Override
+      public void initialize(TelemetryContext context) {
+        context.Component.Version = "2.1";
+      }
+    }
+```
+
+#### Загрузка инициализатора контекста
+
+В ApplicationInsights.config.:
+
+    <ApplicationInsights>
+      <ContextInitializers>
+        <!-- Fully qualified type name, assembly name: -->
+        <Add Type="MyNamespace.MyContextInitializer, MyAssemblyName"/> 
+        ...
+      </ContextInitializers>
+    </ApplicationInsights>
+
+*Другой способ* — создать экземпляр инициализатора в коде.
+
+*C#*
+
+```C#
+
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.ContextInitializers
+        .Add(new MyContextInitializer());
+    }
+```
+
+*Java*
+
+```Java
+
+    // load the context initializer
+    TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
+```
 
 
 
@@ -865,4 +903,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

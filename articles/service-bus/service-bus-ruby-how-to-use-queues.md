@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="08/31/2015"
 	ms.author="tomfitz"/>
 
 
@@ -57,7 +57,7 @@
 
 ![Копирование ключа](./media/service-bus-ruby-how-to-use-queues/defaultkey.png)
 
-> [AZURE.NOTE]Этот ключ можно также найти при входе на [портал управления Azure](http://manage.windowsazure.com/) и перейти к сведениям о подключении для пространства имен вашей служебной шины.
+> [AZURE.NOTE]Этот ключ можно также найти на [портале Azure](http://manage.windowsazure.com/), в разделе сведений о подключении для пространства имен вашей служебной шины.
 
 ## Создание приложения Ruby
 
@@ -152,4 +152,4 @@
 Сравнение очередей служебной шины Azure, описанных в этой статье, и очередей служебной шины Azure, описанных в статье [Использование службы очередей Azure](/develop/ruby/how-to-guides/queue-service/), см. в статье [Очереди Azure и очереди служебной шины Azure — сходство и отличия](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

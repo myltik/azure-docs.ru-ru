@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="Создание пакетов поддержки и управление ими | Microsoft Azure"
-   description="Узнайте, как создавать, расшифровывать и изменять содержимое пакетов поддержки для устройства StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Создание пакетов поддержки StorSimple и управление ими | Microsoft Azure"
+	description="Узнайте, как создавать, расшифровывать и изменять содержимое пакетов поддержки для устройства StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 
-# Создание пакетов поддержки и управление ими
+# Создание пакетов поддержки StorSimple и управление ими
 
 ## Обзор
 
@@ -198,4 +198,4 @@
 
 Узнайте, как [использовать пакеты поддержки и журналы устройства для устранения неполадок при развертывании устройства](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

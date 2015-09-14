@@ -103,7 +103,7 @@ azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location
 
 >[AZURE.IMPORTANT]В настоящее время мы не рекомендуем применять обновления ядра, которые могут вызвать проблемы с драйверами Linux RDMA.
 
-**Intel MPI** — скачайте и установите среду выполнения библиотеки Intel MPI 5.0 с [сайта Intel.com](https://software.intel.com/ru-ru/intel-mpi-library/). После регистрации на сайте Intel перейдите по ссылке в письме с подтверждением на соответствующую веб-страницу и скопируйте ссылку для скачивания TGZ-файла для соответствующей версии Intel MPI.
+**Intel MPI** — скачайте и установите среду выполнения библиотеки Intel MPI 5.0 с [сайта Intel.com](https://software.intel.com/ru-RU/intel-mpi-library/). После регистрации на сайте Intel перейдите по ссылке в письме с подтверждением на соответствующую веб-страницу и скопируйте ссылку для скачивания TGZ-файла для соответствующей версии Intel MPI.
 
 Выполните следующему команду, чтобы установить Intel MPI на виртуальной машине:
 
@@ -190,7 +190,7 @@ azure vm capture -t <vm-name> <image-name>
 ### Select a region where A8 and A9 VMs are available, such as West US
 ### See Azure Pricing pages for prices and availability of A8 and A9 VMs
 
-azure network vnet create -l "West US" -e 10.32.0.0 <network-name>
+azure network vnet create -l "West US" -e 10.32.0.0 -i 16 <network-name>
 
 ### Create a cloud service. All the A8 and A9 instances need to be in the same cloud service for Linux RDMA to work across InfiniBand.
 ### Note: The current maximum number of VMs in a cloud service is 50. If you need to provision more than 50 VMs in the same cloud service in your cluster, contact Azure Support.
@@ -208,7 +208,7 @@ portnumber=101
 ### In this cluster there will be 8 size A9 nodes, named cluster11 to cluster18. Specify your captured image in <image-name>.
 
 for (( i=11; i<19; i++ )); do
-        azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i <image-name>
+        azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i -w <network-name> -b Subnet-1 <image-name>
 done
 
 ### Save this script and run it at the CLI prompt to provision your cluster
@@ -337,6 +337,6 @@ private ip address2:16
 
 * Попробуйте развернуть и запустить приложения MPI в кластере Linux.
 
-* Рекомендации по Intel MPI см. в [документации для библиотеки Intel MPI](https://software.intel.com/ru-ru/articles/intel-mpi-library-documentation/).
+* Рекомендации по Intel MPI см. в [документации для библиотеки Intel MPI](https://software.intel.com/ru-RU/articles/intel-mpi-library-documentation/).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Добавление мобильных служб в существующее приложение (Магазин Windows — JavaScript) | Microsoft Azure" 
-	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении JavaScript магазина Windows." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Добавление мобильных служб в существующее приложение (Магазин Windows — JavaScript) | Microsoft Azure"
+	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении JavaScript магазина Windows."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 
@@ -26,14 +26,14 @@
 
 Для работы с этим учебником требуется:
 
-* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F).
+* Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F).
 * Набор Visual Studio 2013, который вы будете использовать для подключения проекта приложения Магазина Windows к мобильным службам.
 
 ##Загрузка пакета GetStartedWithData
 
 Этот учебник основан на приложении [GetStartedWithMobileServices][Developer Code Samples site], представляющим собой проект приложения Магазина Windows в Visual Studio 2013. Пользовательский интерфейс для этого приложения совпадает с интерфейсом приложения, созданного в кратком руководстве по использованию мобильных служб. Отличие заключается в том, что добавленные элементы хранятся локально в памяти.
 
-1. Скачайте версию примера приложения GetStartedWithData, созданную на JavaScript , с веб-сайта [примеров кода для разработчиков]. 
+1. Скачайте версию примера приложения GetStartedWithData, созданную на JavaScript , с веб-сайта [примеров кода для разработчиков].
 
 2. Откройте загруженный проект в Visual Studio, разверните папку **js** и ознакомьтесь с файлом default.js.
 
@@ -52,7 +52,7 @@
 [AZURE.INCLUDE [mobile-services-create-new-service-vs2013](../../includes/mobile-services-create-new-service-vs2013.md)]
 
 <ol start="7">
-<li><p>В обозревателе решений разверните папки **services**, **mobile services**, **&lt;ваша_служба>**, откройте файл сценария service.js и обратите внимание на новую глобальную переменную, которая выглядит, как в следующем примере:</p> 
+<li><p>В обозревателе решений разверните папки **services**, **mobile services**, **&lt;ваша_служба>**, откройте файл сценария service.js и обратите внимание на новую глобальную переменную, которая выглядит, как в следующем примере:</p>
 
 		<pre><code>var todolistClient = new WindowsAzure.MobileServiceClient(
                 "https://todolist.azure-mobile.net/",
@@ -81,7 +81,7 @@
 3. На [Портале управления] щелкните **Мобильные службы**, затем щелкните свою мобильную службу.
 
 4. Откройте вкладку **Данные**, а затем щелкните **Обзор**.
-  
+
    	Обратите внимание, что таблица **TodoItem** теперь содержит данные со значениями идентификаторов, которые созданы мобильными службами, и в таблицу были автоматически добавлены столбцы, соответствующие классу TodoItem в приложении.
 
 5. В приложении отметьте один из элементов списка, а затем вернитесь на вкладку "Обзор" на портале и нажмите кнопку **Обновить**
@@ -90,14 +90,14 @@
 
 6. В файле проекта default.js замените существующую функцию **RefreshTodoItems** следующим кодом, который будет отфильтровывать завершенные элементы:
 
-        var refreshTodoItems = function () {                     
-            // More advanced query that filters out completed items. 
+        var refreshTodoItems = function () {
+            // More advanced query that filters out completed items.
             todoTable.where({ complete: false })
                .read()
                .done(function (results) {
                    todoItems = new WinJS.Binding.List(results);
                    listItems.winControl.itemDataSource = todoItems.dataSource;
-               });            
+               });
         };
 
 7. В приложении отметьте другой элемент в списке, затем нажмите кнопку **Обновить**.
@@ -139,6 +139,5 @@
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [примеров кода для разработчиков]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

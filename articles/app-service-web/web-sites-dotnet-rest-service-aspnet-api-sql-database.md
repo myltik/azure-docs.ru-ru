@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Создание службы REST в службе приложений Azure с помощью веб-API ASP.NET и базы данных SQL" 
-	description="Учебник, в котором показано развертывание приложения, использующего веб-API ASP.NET, в веб-приложении Azure с помощью Visual Studio." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="Rick-Anderson" 
-	manager="wpickett" 
+	pageTitle="Создание службы REST в службе приложений Azure с помощью веб-API ASP.NET и базы данных SQL"
+	description="Учебник, в котором показано развертывание приложения, использующего веб-API ASP.NET, в веб-приложении Azure с помощью Visual Studio."
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="Rick-Anderson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="riande"/>
 
 # Создание службы REST в службе приложений Azure с помощью веб-API ASP.NET и базы данных SQL
@@ -810,4 +810,4 @@ Visual Studio начнет процесс копирования файлов в
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

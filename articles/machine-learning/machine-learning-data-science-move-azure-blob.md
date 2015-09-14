@@ -1,37 +1,37 @@
 <properties 
-	pageTitle="Перемещение данных в хранилище больших двоичных объектов Azure и из него | Microsoft Azure" 
-	description="Перемещение данных в хранилище больших двоичных объектов Azure и из него" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Перемещение данных в хранилище больших двоичных объектов Azure и из него | Microsoft Azure"
+	description="Перемещение данных в хранилище больших двоичных объектов Azure и из него"
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="sunliangms;sachouks;mohabib;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="sunliangms;sachouks;mohabib;bradsev"/>
 
 # Перемещение данных в хранилище больших двоичных объектов Azure и из него
 
-Статья [Процесс обработки и анализа данных в облаке в Машинном обучении Azure](../machine-learning-data-science-plan-sample-scenarios.md) помогает определить ресурсы, необходимые для различных процедур обработки и анализа данных в рамках расширенного аналитического процесса. Если вам необходимо переместить данные в хранилище больших двоичных объектов Azure или из него, основываясь на сценарии, используйте один из следующих методов:
+В этом разделе описаны три способа перемещения данных в хранилище больших двоичных объектов Azure и из него:
 
 - [Использование обозревателя хранилищ Azure](#explorer)
 - [Использование служебной программы командной строки AzCopy](#AzCopy)
 - [Использование пакета SDK для Azure на языке Python](#PythonSDK)
 
+Выбор метода зависит от сценария. Статья [Процесс обработки и анализа данных в облаке в Машинном обучении Azure](../machine-learning-data-science-plan-sample-scenarios.md) помогает определить ресурсы, необходимые для различных процедур обработки и анализа данных в рамках расширенного аналитического процесса.
 
 > [AZURE.TIP]В качестве альтернативы можно воспользоваться [фабрикой данных Azure](https://azure.microsoft.com/ru-ru/services/data-factory/), чтобы создать и назначить канал для загрузки данных из хранилища больших двоичных объектов Azure, их передачи в опубликованную службу машинного обучения Azure, получения прогнозных аналитических результатов и их отправки обратно в хранилище. Дополнительные сведения см. в статье [Создание прогнозирующих конвейеров с помощью фабрик данных Azure и машинного обучения Azure](../data-factory/data-factory-create-predictive-pipelines.md).
 
-<para></para>
 
 > [AZURE.NOTE]Полное описание базовых принципов использования хранилища больших двоичных объектов Azure см. в статьях [Основы использования больших двоичных объектов Azure](../storage-dotnet-how-to-use-blobs.md) и [Основные понятия службы BLOB-объектов](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
-Чтобы отправлять и скачивать данные, необходимо знать имя учетной записи хранения Azure и ее ключ. Инструкции по получению этой информации см. в разделе «Практическое руководство. Просмотр, копирование и повторное создание ключей доступа к хранилищу» статьи [Управление учетными записями хранения](../storage-create-storage-account.md). Для выполнения указаний в этом документе у вас должна быть учетная запись хранения Azure и соответствующие ключи.
+Чтобы отправлять и скачивать данные, необходимо знать имя учетной записи хранения Azure и ее ключ. Инструкции по получению этой информации см. в разделе "Практическое руководство. Просмотр, копирование и повторное создание ключей доступа к хранилищу" статьи [Управление учетными записями хранения](../storage-create-storage-account.md). Для выполнения указаний в этом документе у вас должна быть учетная запись хранения Azure и соответствующие ключи.
 
 
 <a id="explorer"></a>
@@ -181,4 +181,4 @@ API на языке Python, предоставляемый с пакетом SDK
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

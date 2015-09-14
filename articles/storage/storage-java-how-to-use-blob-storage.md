@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # Использование хранилища BLOB-объектов из Java
@@ -253,12 +253,12 @@
 
 Вы изучили основную информацию о хранилище больших двоичных объектов. Дополнительную информацию о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
-- [Пакет SDK для службы хранилища Azure для Java]
-- [Справочник по пакету SDK для клиента хранилища Azure]
-- [REST API службы хранилища Azure]
-- [Блог рабочей группы службы хранилища Azure]
+- [Пакет SDK для службы хранилища Azure для Java][]
+- [Справочник по пакету SDK для клиента хранилища Azure][]
+- [REST API службы хранилища Azure][]
+- [Блог рабочей группы службы хранилища Azure][]
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Пакет SDK для службы хранилища Azure для Java]: https://github.com/azure/azure-storage-java
 [Пакет SDK хранилища Azure для Java]: https://github.com/azure/azure-storage-java
 [Пакет SDK хранилища Azure для Android]: https://github.com/azure/azure-storage-android
@@ -268,4 +268,4 @@
 [REST API службы хранилища Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

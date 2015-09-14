@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Замена модуля контроллера на устройстве StorSimple | Microsoft Azure"
-   description="В этом учебнике объясняется, как снять и заменить один или оба модуля контроллера на устройстве StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Замена контроллера на устройстве StorSimple | Microsoft Azure"
+	description="В этом учебнике объясняется, как снять и заменить один или оба модуля контроллера на устройстве StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Замена модуля контроллера на устройстве StorSimple
 
@@ -266,4 +266,4 @@
 
 Узнайте больше о [Замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

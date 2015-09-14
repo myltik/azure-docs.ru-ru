@@ -24,6 +24,8 @@
 
 ## Как войти в систему
 
+[AZURE.VIDEO logging-on-to-vm-running-windows-server-on-azure]
+
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
 ## Советы по устранению неполадок
@@ -36,4 +38,4 @@
 
 Если это не сработает, необходимо выполнить более масштабные действия по устранению неполадок. Инструкции см. в статье [Устранение неполадок с подключением к удаленному рабочему столу виртуальной машины Windows в службе Azure](virtual-machines-troubleshoot-remote-desktop-connections.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

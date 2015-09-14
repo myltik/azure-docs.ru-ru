@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Стандартные операции в API рекомендаций для машинного обучения | Microsoft Azure" 
-	description="Пример приложения для рекомендаций по Машинному обучению Azure" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="Стандартные операции в API рекомендаций для машинного обучения | Microsoft Azure"
+	description="Пример приложения для рекомендаций по Машинному обучению Azure"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/15/2015" 
-	ms.author="luiscabrer"/>
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="luisca"/>
 
 
 # Стандартные операции в API рекомендаций для машинного обучения
@@ -89,4 +89,4 @@
 Пример приложения не предназначен для использования в рабочей среде. В каталоге содержится очень маленький объем данных, на основе чего нельзя создать информативную модель рекомендаций. Эти данные предоставлены для демонстрации.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

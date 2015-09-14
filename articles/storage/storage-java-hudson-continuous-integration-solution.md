@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Вы узнаете, как использовать Hundson со службой BLOB-объектов для хранилища Microsoft Azure" 
-	description="В данном уроке подробно описывается использование Hudson с хранилищем BLOB-объектов Azure в качестве хранилища артефактов построения." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="Вы узнаете, как использовать Hundson со службой BLOB-объектов для хранилища Microsoft Azure"
+	description="В данном уроке подробно описывается использование Hudson с хранилищем BLOB-объектов Azure в качестве хранилища артефактов построения."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="robmcm"/>
 
 #Использование хранилища Azure с решением непрерывной интеграции Hudson
@@ -168,4 +168,4 @@ Hudson обеспечивает непрерывную интеграцию пр
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

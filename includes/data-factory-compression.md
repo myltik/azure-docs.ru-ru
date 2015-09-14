@@ -1,7 +1,7 @@
-### Compression support  
-Processing large data sets can cause I/O and network bottlenecks. Therefore, compressed data in stores can not only speed up data transfer across the network and save disk space, but also bring significant performance improvements in processing big data. At this time, compression is supported for file-based data stores such as Azure Blob or On-premises File System.  
+### Поддержка сжатия  
+Обработка больших наборов данных может привести к возникновению узких мест ввода-вывода и сети. Поэтому использование сжатых данных в хранилищах может не только ускорить передачу данных по сети и освободить место на диске, но также обеспечить и значительное повышение производительности при обработке больших данных. В настоящее время сжатие поддерживается для файловых хранилищ данных, таких как хранилище больших двоичных объектов Azure или локальная файловая система.
 
-To specify compression for a dataset, use the **compression** property in the dataset JSON as in the following example:   
+Чтобы указать сжатие для набора данных, используйте свойство **compression** в наборе данных JSON, как показано в следующем примере:
 
 	{  
 		"name": "AzureBlobDataSet",  
@@ -23,19 +23,21 @@ To specify compression for a dataset, use the **compression** property in the da
 	  	}  
 	}  
  
-Note that the **compression** section has two properties:  
+Обратите внимание, что раздел **compression** содержит два свойства:
   
-- **Type:** the compression codec, which can be **GZIP**, **Deflate** or **BZIP2**.  
-- **Level:** the compression ratio, which can be **Optimal** or **Fastest**. 
-	- **Fastest:** The compression operation should complete as quickly as possible, even if the resulting file is not optimally compressed. 
-	- **Optimal**: The compression operation should be optimally compressed, even if the operation takes a longer time to complete. 
+- **Type:** кодек сжатия, который может иметь значение **GZIP**, **Deflate** или **BZIP2**.  
+- **Level:** коэффициент сжатия, который может иметь значение **Optimal** или **Fastest**. 
+	- **Fastest:** операция сжатия должна выполняться как можно быстрее, даже если итоговый файл сжимается не оптимально. 
+	- **Optimal**: операция сжатия должна выполняться оптимально, даже если для ее завершения требуется больше времени. 
 	
-	See [Compression Level](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) topic for more information. 
+	Дополнительные сведения см. в разделе [Уровень сжатия](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx).
 
-Suppose the above sample dataset is used as the output of a copy activity, the copy activity will compresses the output data with GZIP codec using optimal ratio and then write the compressed data into a file named pagecounts.csv.gz in the Azure Blob Storage.   
+Предположим, что приведенный выше пример набора данных используется в качестве результата операции копирования; эта операция сжимает выходные данные с использованием кодека GZIP и оптимального коэффициента сжатия, а затем записывает сжатые данные в файл с именем pagecounts.csv.gz в хранилище больших двоичных объектов Azure.
 
-When you specify compression property in an input dataset JSON, the pipeline can read compressed data from the source and when you specify the property in an output dataset JSON, the copy activity can write compressed data to the destination. Here are a few sample scenarios: 
+При задании свойства "compression" во входном наборе входных данных JSON конвейер может считывать сжатые данные из источника, а при задании этого свойства в результирующем наборе данных JSON операция копирования может записывать сжатые данные в место назначения. Ниже приведено несколько примеров сценариев:
 
-- Read GZIP compressed data from an Azure blob, decompress it, and write result data to an Azure SQL database. You define the input Azure Blob dataset with the compression JSON property in this case. 
-- Read data from a plain-text file from on-premises File System, compress it using GZip format, and write the compressed data to an Azure blob. You define an output Azure Blob dataset with the compression JSON property in this case.  
-- Read a GZIP-compressed data from an Azure blob, decompress it, compress it using BZIP2, and write result data to an Azure blob. You define the input Azure Blob dataset with compression type set to GZIP and the output dataset with compression type set to BZIP2 in this case.   
+- Считайте сжатые с помощью кодека GZIP данные из BLOB-объекта Azure, распакуйте их и запишите результирующие данные в Базу данных SQL Azure. В этом случае вы определяете входной набор данных BLOB-объекта Azure с помощью свойства "compression" JSON. 
+- Считайте данные из обычного текстового файла в локальной файловой системе, сожмите их в формате GZip и запишите сжатые данные в BLOB-объект Azure. В этом случае вы определяете выходной набор данных BLOB-объекта Azure с помощью свойства "compression" JSON.  
+- Считайте сжатые с помощью кодека GZIP данные из BLOB-объекта Azure, распакуйте их и сожмите с помощью BZIP2, а затем запишите результирующие данные в BLOB-объект Azure. В этом случае вы определяете входной набор данных BLOB-объекта Azure, установив для типа сжатия значение GZIP, и результирующий набор данных, установив для типа сжатия значение BZIP2.   
+
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Отключение и удаление устройства StorSimple | Microsoft Azure"
-   description="Описание процедуры вывода устройства StorSimple из эксплуатации путем его отключения и последующего удаления."
-   services="storsimple"
-   documentationCenter=""
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="Описание процедуры вывода устройства StorSimple из эксплуатации путем его отключения и последующего удаления."
+	services="storsimple"
+	documentationCenter=""
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="v-sharos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="v-sharos"/>
 
 # Отключение и удаление устройства StorSimple
 
@@ -91,4 +91,4 @@
 
 Чтобы получить техническую поддержку, [обратитесь в службу поддержки Майкрософт](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

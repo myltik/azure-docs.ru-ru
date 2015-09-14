@@ -1,20 +1,20 @@
 <properties
    pageTitle="Стек связи на основе WCF, предоставляемый интерфейсом API надежных служб"
-   description="В этой статье описывается стек связи на основе WCF, предоставляемый интерфейсом API надежных служб."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="BharatNarasimman"
-   manager="vipulm"
-   editor=""/>
+	description="В этой статье описывается стек связи на основе WCF, предоставляемый интерфейсом API надежных служб."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="BharatNarasimman"
+	manager="vipulm"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required"
-   ms.date="04/13/2015"
-   ms.author="bharatn@microsoft.com"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="required"
+	ms.date="08/27/2015"
+	ms.author="bharatn@microsoft.com"/>
 
 # Стек связи на основе WCF для надежных служб
 Платформа надежных служб позволяет разработчикам служб решать, какой стек связи следует использовать в службе. Они могут подключить выбранный стек связи посредством объекта `ICommunicationListener`, возвращаемого методом [`CreateCommunicationListener`](../service-fabric-reliable-service-communication.md). Платформа предоставляет реализацию стека связи на основе WCF для разработчиков служб, которым требуется использовать связь на основе WCF.
@@ -114,4 +114,4 @@ var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
 ```
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

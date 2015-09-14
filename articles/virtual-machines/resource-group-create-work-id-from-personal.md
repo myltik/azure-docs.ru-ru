@@ -1,20 +1,20 @@
 <properties
    pageTitle="Создание рабочего или школьного удостоверения в Azure Active Directory"
-   description="Узнайте, как создать рабочее или школьное удостоверение на основе личного удостоверения для использования с шаблонами групп ресурсов в соответствии с ролями, помимо других функций."
-   services="virtual-machines"
-   documentationCenter=""
-   authors="squillace"
-   manager="timlt"
-   editor=""/>
+	description="Узнайте, как создать рабочее или школьное удостоверение на основе личного удостоверения для использования с шаблонами групп ресурсов в соответствии с ролями, помимо других функций."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure"
-   ms.date="05/05/2015"
-   ms.author="rasquill"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure"
+	ms.date="09/01/2015"
+	ms.author="rasquill"/>
 
 # Создание рабочего или школьного удостоверения в Azure Active Directory
 
@@ -140,4 +140,4 @@
     data:
     info:    group create command OK
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

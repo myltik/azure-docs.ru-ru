@@ -149,11 +149,9 @@
 ### Рабочие нагрузки SQL Server в Azure:
 - [SQL Server Business Intelligence на виртуальных машинах Azure](virtual-machines-sql-server-business-intelligence.md)
 
-- [Хранение данных SQL Server и рабочих нагрузок операций на виртуальных машинах Azure](virtual-machines-sql-server-dw-and-oltp-workloads.md)
-
 ### Технические документы:
 - [Общее представление о Базе данных SQL Azure и SQL Server на виртуальных машинах Azure](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
 - [Шаблоны приложений и стратегии разработки для SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

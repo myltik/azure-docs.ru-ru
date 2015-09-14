@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Использование Django и базы данных SQL в Azure с помощью инструментов Python 2.1 для Visual Studio" 
-	description="Информация о том, как создать веб-приложение Django, которое хранит данные в экземпляре базы данных SQL, с помощью инструментов Python для Visual Studio и развернуть его в веб-приложениях службы приложений Azure." 
-	services="app-service\web" 
+	pageTitle="Использование Django и базы данных SQL в Azure с помощью инструментов Python 2.2 для Visual Studio"
+	description="Информация о том, как создать веб-приложение Django, которое хранит данные в экземпляре базы данных SQL, с помощью инструментов Python для Visual Studio и развернуть его в веб-приложениях службы приложений Azure."
+	services="app-service\web"
 	tags="python"
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
 
 
 
-# Использование Django и базы данных SQL в Azure с помощью инструментов Python 2.1 для Visual Studio 
+# Использование Django и базы данных SQL в Azure с помощью инструментов Python 2.2 для Visual Studio 
 
 В этом учебнике мы используем [Средства Python для Visual Studio], чтобы создать простое веб-приложение опросника с помощью шаблонов PTVS. Также доступна [видеоверсия](https://www.youtube.com/watch?v=ZwcoGcIeHF4) этого учебника.
 
@@ -30,10 +30,10 @@
 
 ## Предварительные требования
 
- - Visual Studio 2012 или 2013
- - [Средства Python 2.1 для Visual Studio]
- - [Образцы VSIX средств Python 2.1 для Visual Studio]
- - [Пакет инструментов SDK Azure для VS 2013] или [Пакет инструментов SDK Azure для VS 2012]
+ - Visual Studio 2013 или 2015
+ - [Инструменты Python 2.2 для Visual Studio]
+ - [Образцы VSIX средств Python 2.2 для Visual Studio]
+ - [Пакет инструментов SDK Azure для VS 2013] или [пакет инструментов SDK Azure для VS 2015]
  - [Python 2.7 (32-разрядная версия)]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -208,17 +208,16 @@
 <!--External Link references-->
 [портал Azure]: https://portal.azure.com
 [Средства Python для Visual Studio]: http://aka.ms/ptvs
-[Средства Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Образцы VSIX средств Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Инструменты Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Образцы VSIX средств Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Пакет инструментов SDK Azure для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Пакет инструментов SDK Azure для VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[пакет инструментов SDK Azure для VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 (32-разрядная версия)]: http://go.microsoft.com/fwlink/?LinkId=517190
-[Документация по средствам Python для Visual Studio]: http://pytools.codeplex.com/documentation
-[Удаленная отладка в Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
-[Веб-проекты]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[Проекты для облачной службы]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Документация по средствам Python для Visual Studio]: http://aka.ms/ptvsdocs
+[Удаленная отладка в Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
+[Веб-проекты]: http://go.microsoft.com/fwlink/?LinkId=624027
+[Проекты для облачной службы]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Документация по Django]: https://www.djangoproject.com/
 [База данных SQL]: /documentation/services/sql-database/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-	 pageTitle="Сопоставление содержимого сети доставки содержимого (CDN) с личным доменом" 
-	 description="В этом разделе показано, как сопоставить содержимое CDN с личным доменом." 
-	 services="cdn" 
-	 documentationCenter="" 
-	 authors="zhangmanling" 
-	 manager="dwrede" 
-	 editor=""/>
+	 pageTitle="Сопоставление содержимого сети доставки содержимого (CDN) с личным доменом"
+	description="В этом разделе показано, как сопоставить содержимое CDN с личным доменом."
+	services="cdn"
+	documentationCenter=""
+	authors="zhangmanling"
+	manager="dwrede"
+	editor=""/>
 <tags 
-	 ms.service="cdn" 
-	 ms.workload="media" 
-	 ms.tgt_pltfrm="na" 
-	 ms.devlang="na" 
-	 ms.topic="article" 
-	 ms.date="07/07/2015" 
-	 ms.author="mazha"/>
+	 ms.service="cdn"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="mazha"/>
 
 #Как сопоставить личный домен с конечной точкой сети доставки содержимого (CDN)
 
@@ -90,4 +90,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

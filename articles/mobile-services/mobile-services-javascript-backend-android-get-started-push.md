@@ -1,20 +1,20 @@
 
-<properties 
-	pageTitle="Приступая к работе с push-уведомлениями (JavaScript — Android) | Microsoft Azure" 
-	description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение JavaScript для Android." 
-	services="mobile-services, notification-hubs" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Приступая к работе с push-уведомлениями (JavaScript — Android) | Microsoft Azure"
+	description="Узнайте, как использовать мобильные службы Azure для отправки push-уведомлений в приложение JavaScript для Android."
+	services="mobile-services, notification-hubs"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/01/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="ricksal"/>
 
 
@@ -25,10 +25,6 @@
 ## Сводка
 
 В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Android с помощью Google Cloud Messaging (GCM). Вы добавите push-уведомления в проект быстрого запуска, что является необходимым условием для этого учебника. Push-уведомления включаются с помощью центра уведомлений Azure, который включен мобильную службу. По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
-
-<!-- [AZURE.NOTE] If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/androidStudio/GettingStartedWithPush/AndroidStudio" target="_blank">here</a>.
--->
-
 
 ## Предварительные требования
 
@@ -176,6 +172,5 @@ To see a completed version of the source code in an Eclipse project, go <a href=
 [Что такое концентраторы уведомлений?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

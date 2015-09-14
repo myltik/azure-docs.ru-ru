@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Хранение кода проекта в системе управления версиями | Microsoft Azure" 
-	description="Узнайте, как сохранить серверный проект .NET в локальном репозитории Git на компьютере и опубликовать его оттуда." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Хранение кода проекта в системе управления версиями | Microsoft Azure"
+	description="Узнайте, как сохранить серверный проект .NET в локальном репозитории Git на компьютере и опубликовать его оттуда."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Хранение кода проекта в системе управления версиями
@@ -32,7 +32,7 @@
 
 ##<a name="clone-repo"></a>Установка Git и создание локального репозитория
 
-1. Установите Git на локальном компьютере. 
+1. Установите Git на локальном компьютере.
 
 	Действия, необходимые для установки Git, отличаются в разных операционных системах. Сведения о дистрибутивах для разных операционных систем и руководство по установке см. в разделе [Установка Git].
 
@@ -67,11 +67,11 @@
 2. Удалите все папки пакета NuGet, оставив файл packages.config.
 
 	Мобильные службы автоматически восстановят пакеты NuGet на основе файла packages.config. А с помощью файла .gitignore можно задать каталоги, которые не войдут в пакет.
- 
+
 3. В командной строке Git введите следующую команду, чтобы запустить отслеживание нового файла сценария:
 
 		$ git add .
-	
+
 4. Введите следующую команду, чтобы сохранить изменения:
 
 		$ git commit -m "adding the .NET backend service project"
@@ -79,7 +79,7 @@
 5. Введите такую команду, чтобы передать изменения в удаленный репозиторий, и введите свои учетные данные:
 
 		$ git push origin master
-	
+
 	Вы увидите несколько команд, подтверждающих, что проект развернут в мобильных службах, пакеты добавлены, а служба перезапущена.
 
 6. Перейдя по URL-адресу серверной мобильной службы для .NET, вы увидите такое сообщение:
@@ -101,6 +101,5 @@
 [портал управления Azure]: https://manage.windowsazure.com/
 [Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
 [Изменение модели данных в серверной мобильной службе для .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

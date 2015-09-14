@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Веб-приложение с табличным хранилищем (Node.js) — Microsoft Azure" 
-	description="В этом коротком уроке вы научитесь создавать веб-приложение посредством добавления служб хранилища Azure и модуля Azure." 
-	services="cloud-services, storage" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Веб-приложение с табличным хранилищем (Node.js) — Microsoft Azure"
+	description="В этом коротком уроке вы научитесь создавать веб-приложение посредством добавления служб хранилища Azure и модуля Azure."
+	services="cloud-services, storage"
+	documentationCenter="nodejs"
+	authors="TomArcher"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="02/25/2015" 
-	ms.author="mwasson"/>
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="tarcher"/>
 
 
 
@@ -50,7 +50,7 @@
 
 1.  Если этот еще не сделано, запустите PowerShell Azure из меню **Пуск**, развернув пункты **Все программы, Azure**, щелкнув правой кнопкой мыши элемент **Azure PowerShell** и выбрав **Запуск от имени администратора**.
 
-2.  Перейдите к папке, содержащей ваше приложение. Например, C:\\node\\tasklist\\\\WebRole1.
+2.  Перейдите к папке, содержащей ваше приложение. Например, C:\\node\\tasklist\\\WebRole1.
 
 3.  В окне Azure Powershell введите следующий командлет, чтобы получить сведения об учетной записи хранения:
 
@@ -408,4 +408,4 @@
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

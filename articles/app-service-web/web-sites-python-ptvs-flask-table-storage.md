@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Flask и хранилище таблиц Azure с использованием средств Python Tools 2.1 для Visual Studio" 
-	description="Информация о том, как создать веб-приложение Flask, которое хранит данные в табличном хранилище Azure, с помощью инструментов Python для Visual Studio и развернуть его в веб-приложениях службы приложений Azure." 
+	pageTitle="Flask и хранилище таблиц Azure с использованием инструментов Python 2.2 для Visual Studio"
+	description="Информация о том, как создать веб-приложение Flask, которое хранит данные в табличном хранилище Azure, с помощью инструментов Python для Visual Studio и развернуть его в веб-приложениях службы приложений Azure."
 	services="app-service\web"
 	tags="python"
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
 
 
 
-# Flask и хранилище таблиц Azure с использованием средств Python Tools 2.1 для Visual Studio 
+# Flask и хранилище таблиц Azure с использованием инструментов Python 2.2 для Visual Studio 
 
 В этом учебнике мы используем [Средства Python для Visual Studio], чтобы создать простое веб-приложение опросника с помощью шаблонов PTVS. Также доступна [видеоверсия](https://www.youtube.com/watch?v=qUtZWtPwbTk) этого учебника.
 
@@ -32,10 +32,10 @@
 
 ## Предварительные требования
 
- - Visual Studio 2012 или 2013
- - [Средства Python 2.1 для Visual Studio]
- - [Образцы VSIX средств Python 2.1 для Visual Studio]
- - [Пакет инструментов SDK Azure для VS 2013] или [Пакет инструментов SDK Azure для VS 2012]
+ - Visual Studio 2013 или 2015
+ - [Инструменты Python 2.2 для Visual Studio]
+ - [Образцы VSIX средств Python 2.2 для Visual Studio]
+ - [Пакет инструментов SDK Azure для VS 2013] или [пакет инструментов SDK Azure для VS 2015]
  - [Python 2.7 (32-разрядный)] или [Python 3.4 (32-разрядный)]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -195,19 +195,19 @@
 [Azure Management Portal]: https://portal.azure.com
 [SDK для Azure для .NET]: http://azure.microsoft.com/downloads/
 [Средства Python для Visual Studio]: http://aka.ms/ptvs
-[Средства Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Образцы VSIX средств Python 2.1 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Инструменты Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Образцы VSIX средств Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Пакет инструментов SDK Azure для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Пакет инструментов SDK Azure для VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[пакет инструментов SDK Azure для VS 2015]: http://go.microsoft.com/fwlink/?linkid=518003
 [Python 2.7 (32-разрядный)]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 (32-разрядный)]: http://go.microsoft.com/fwlink/?LinkId=517191
-[Документация по средствам Python для Visual Studio]: http://pytools.codeplex.com/documentation
+[Документация по средствам Python для Visual Studio]: http://aka.ms/ptvsdocs
 [Документация по Flask]: http://flask.pocoo.org/
-[Удаленная отладка в Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
-[Веб-проекты]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[Проекты для облачной службы]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Удаленная отладка в Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
+[Веб-проекты]: http://go.microsoft.com/fwlink/?LinkId=624027
+[Проекты для облачной службы]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Хранилище Azure]: http://azure.microsoft.com/documentation/services/storage/
 [Пакет SDK для Azure для Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

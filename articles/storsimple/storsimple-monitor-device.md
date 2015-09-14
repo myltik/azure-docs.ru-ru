@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Использование службы StorSimple Manager для мониторинга устройства StorSimple | Microsoft Azure"
+   pageTitle="Мониторинг устройства StorSimple | Microsoft Azure"
 	description="Описание применения службы StorSimple Manager для мониторинга производительности ввода-вывода, использования емкости, пропускной способности сети и производительности устройств."
 	services="storsimple"
 	documentationCenter="NA"
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="TBD"
-	ms.date="08/25/2015"
+	ms.date="09/02/2015"
 	ms.author="alkohli"/>
 
 # Использование службы StorSimple Manager для мониторинга устройства StorSimple 
@@ -93,4 +93,4 @@
 
 [Сведения об использовании панели мониторинга устройств службы StorSimple Manager](storsimple-device-dashboard.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

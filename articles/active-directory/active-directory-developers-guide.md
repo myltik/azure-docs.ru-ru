@@ -1,20 +1,20 @@
 <properties
    pageTitle="Руководство разработчика по Azure Active Directory | Microsoft Azure"
-   description="Данная статья содержит полное руководство по ориентированным на разработчиков ресурсам для Azure Active Directory"
-   services="active-directory"
-   documentationCenter="dev-center-name"
-   authors="msmbaldwin"
-   manager="mbaldwin"
-   editor=""/>
+	description="Данная статья содержит полное руководство по ориентированным на разработчиков ресурсам для Azure Active Directory"
+	services="active-directory"
+	documentationCenter="dev-center-name"
+	authors="msmbaldwin"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="08/12/2015"
-   ms.author="mbaldwin"/>
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/12/2015"
+	ms.author="mbaldwin"/>
 
 
 # Руководство разработчика по Azure Active Directory
@@ -40,19 +40,24 @@ Azure Active Directory является платформой для управл
 
 Эти учебники предназначены для нескольких платформ и помогут вам быстро приступить к разработке приложений с помощью Azure Active Directory. Для обучения требуется [клиент Azure Active Directory](active-directory-howto-tenant.md).
 
-### Руководства по быстрому запуску мобильных приложений или приложений для ПК
+### Руководства по быстрому запуску мобильных приложений и приложений для ПК
 
 |[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)| [![Windows Phone](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsphone.md)|[![Магазин Windows](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)|[![Cordova;](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:
 |[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Phone](active-directory-devquickstarts-windowsphone.md)|[Магазин Windows](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)
 
 
-### Руководства по быстрому запуску веб-приложений или веб-API
+### Руководства по быстрому запуску веб-приложений и веб-API
 
 |[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)|[![JavaScript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)
 |:--:|:--:|:--:|:--:
 |[Веб-приложение .NET](active-directory-devquickstarts-webapp-dotnet.md)|[Веб-интерфейс API .NET](active-directory-devquickstarts-webapi-dotnet.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-webapi-nodejs.md)
 
+### Руководства по быстрому запуску запросов каталога
+
+| [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md)|
+|:--:|
+|[Graph API](active-directory-graph-api-quickstart.md)|
 
 ## Инструкции
 
@@ -112,7 +117,7 @@ Azure Active Directory является платформой для управл
 - [Разработка современных приложений в машинном коде с помощью Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)
 
 ### Azure Friday
-[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) — это еженедельные 10–15-минутные пятничные видеоинтервью со специалистами по различным связанным с Azure вопросам. Используйте функцию фильтра служб на странице, чтобы просмотреть все видео Azure Active Directory.
+[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) — это еженедельные пятничные видеоинтервью со специалистами длительностью 10–15 минут по различным связанным с Azure вопросам. Используйте функцию фильтра служб на странице, чтобы просмотреть все видео Azure Active Directory.
 
 - [Удостоверение Azure 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)
 - [Удостоверение Azure 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
@@ -124,8 +129,8 @@ Azure Active Directory является платформой для управл
 
 - [Блог группы Azure Active Directory Graph](http://blogs.msdn.com/b/aadgraphteam): информация об Azure Active Directory, которая относится к API Graph.
 
-- [Облачная идентификация](http://www.cloudidentity.net): соображения насчет "управления удостоверениями как служба" от главного руководителя программы Azure Active Directory.
+- [Облачная идентификация](http://www.cloudidentity.net): соображения об управлении удостоверениями как услуге от главного руководителя программы Azure Active Directory.
 
 - [Azure Active Directory в Twitter](https://twitter.com/azuread): объявления Azure Active Directory длиной 140 символов и меньше.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

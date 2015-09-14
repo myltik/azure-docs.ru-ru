@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Использование CDN | Microsoft Azure" 
-	description="Узнайте, как использовать сеть доставки содержимого (CDN) Azure для доставки больших объемов контента посредством кэширования BLOB-объектов и статического контента." 
-	services="cdn" 
-	documentationCenter=".net" 
-	authors="zhangmanling" 
-	manager="dwrede" 
+	pageTitle="Использование CDN | Microsoft Azure"
+	description="Узнайте, как использовать сеть доставки содержимого (CDN) Azure для доставки больших объемов контента посредством кэширования BLOB-объектов и статического контента."
+	services="cdn"
+	documentationCenter=".net"
+	authors="zhangmanling"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mazha"/>
 
 
@@ -113,7 +113,7 @@ http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 [How to Register a Custom Subdomain Name for Accessing Blobs in Azure]: ../storage-custom-domain-name.md
 [Создание территориальной группы в Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
 [Overview of the Azure CDN]: cdn-overview.md
-[Практическое руководство. Управление учетными записями хранения для подписки Azure]: https://msdn.microsoft.com/ru-ru/library/azure/hh531793.aspx
+[Практическое руководство. Управление учетными записями хранения для подписки Azure]: https://msdn.microsoft.com/ru-RU/library/azure/hh531793.aspx
 [Сопоставление содержимого CDN с пользовательским доменом]: cdn-map-content-to-custom-domain.md
 
 
@@ -121,4 +121,4 @@ http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

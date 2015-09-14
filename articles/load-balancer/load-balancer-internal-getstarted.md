@@ -1,19 +1,19 @@
 <properties
    pageTitle="Приступая к работе с внутренней подсистемой балансировки нагрузки | Microsoft Azure"
-   description="Настройка внутренней подсистемы балансировки нагрузки и способы ее реализации для виртуальных машин и облачных развертываний"
-   services="load-balancer"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
-   editor="tysonn" />
+	description="Настройка внутренней подсистемы балансировки нагрузки и способы ее реализации для виртуальных машин и облачных развертываний"
+	services="load-balancer"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor="tysonn"/>
 <tags
    ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/01/2015"
+	ms.author="joaoma"/>
 
 # Приступая к настройке внутренней подсистемы балансировки нагрузки
 
@@ -21,7 +21,7 @@
 - [Azure Classic steps](load-balancer-internal-getstarted.md)
 - [Resource Manager Powershell steps](load-balancer-internal-arm-powershell.md)
 
-Внутренняя балансировка нагрузки Azure обеспечивает балансировку нагрузки между виртуальными машинами, которые размещены в облачной службе или региональной виртуальной сети. Информацию об использовании и настройке региональных виртуальных сетей см. в разделе [Региональные виртуальные сети](../regional-virtual-networks.md) в блоге Azure. В имеющихся виртуальных сетях, настроенных для территориальной группы, невозможно использовать внутреннюю балансировку нагрузки.
+Внутренняя балансировка нагрузки Azure обеспечивает балансировку нагрузки между виртуальными машинами, которые размещены в облачной службе или региональной виртуальной сети. Информацию об использовании и настройке региональных виртуальных сетей см. в разделе [Региональные виртуальные сети](virtual-networks-migrate-to-regional-vnet.md) в блоге Azure. В имеющихся виртуальных сетях, настроенных для территориальной группы, невозможно использовать внутреннюю балансировку нагрузки.
 
 
 
@@ -335,4 +335,4 @@
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

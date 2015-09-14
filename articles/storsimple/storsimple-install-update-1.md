@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Установка обновления 1 на устройство StorSimple | Microsoft Azure"
-   description="Описание процедуры установки обновления 1 для устройств серии StorSimple 8000."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
+	description="Описание процедуры установки обновления 1 для устройств серии StorSimple 8000."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="adinah"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Установка обновления 1 на устройство StorSimple
 
@@ -100,4 +100,4 @@
 
 Дополнительные сведения о [Microsoft Azure StorSimple](storsimple-overview.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

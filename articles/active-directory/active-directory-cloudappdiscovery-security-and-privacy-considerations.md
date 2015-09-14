@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
-	editor="lisatoft"/>
+	manager="msStevenPo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="09/03/2015"
 	ms.author="markusvi"/>
 
 # Вопросы безопасности и конфиденциальности Cloud App Discovery
@@ -177,4 +177,4 @@ Cloud App Discovery Endpoint Agent собирает только сведени�
 
 * [Как обнаруживать несанкционированные облачные приложения, которые используются в моей организации](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="07/29/2015"
+	ms.date="09/02/2015"
 	ms.author="joaoma"/>
 
 
@@ -61,9 +61,9 @@ Azure DNS поддерживает все общие типы DNS-записей
 
 Создайте набор записей с помощью интерфейса командной строки:
 
-	Usage: network dns-record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
+	Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
 
-	azure network dns-record-set create myresourcegroup  contoso.com  www A  60
+	azure network dns record-set create myresourcegroup  contoso.com  www A  60
 
 Относительное имя набора записей в зоне DNS "contoso.com" — "www", поэтому полным доменным именем записей будет "www.contoso.com". Тип записи — "A", а срока жизни составляет 60 секунд.
 
@@ -75,15 +75,15 @@ Azure DNS поддерживает все общие типы DNS-записей
 
 Добавьте записи A (IPv4) в набор записей "www" с помощью следующей команды:
 
-	Usage: network dns-record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>
+	Usage: network dns record-set add-record <resource-group> <dns-zone-name> <record-set-name> <type>
 
-	azure network dns-record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
+	azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
 	
 
 Изменения завершены. Вы можете получить набор записей из Azure DNS с помощью команды azure network dns-record-set show:
 
 
-	azure network dns-record-set show myresourcegroup "contoso.com" www A
+	azure network dns record-set show myresourcegroup "contoso.com" www A
 	
 	info:    Executing command network dns-record-set show
 	+ Looking up the DNS record set "www"
@@ -95,7 +95,7 @@ Azure DNS поддерживает все общие типы DNS-записей
 	data:    A records:
 	data:        IPv4 address                : 134.170.185.46
 	data:
-	info:    network dns-record-set show command OK
+	info:    network dns record-set show command OK
 
 
 Можно также использовать программу nslookup или другие средства DNS для запроса нового набора записей.
@@ -122,4 +122,4 @@ Azure DNS поддерживает все общие типы DNS-записей
 [Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Действие Pig" 
-	description="Узнайте, как с помощью действия Pig в фабрике данных Azure выполнять запросы Pig к собственному кластеру HDInsight или к кластеру HDInsight по требованию." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Действие Pig"
+	description="Узнайте, как с помощью действия Pig в фабрике данных Azure выполнять запросы Pig к собственному кластеру HDInsight или к кластеру HDInsight по требованию."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/26/2015"
 	ms.author="spelluru"/>
 
 # Действие Pig
@@ -61,15 +61,15 @@
 
 Свойство | Описание | Обязательно
 -------- | ----------- | --------
-name | Имя действия | Да
+name | Имя действия. | Да
 description | Текст, описывающий, для чего используется действие | Нет
 type | HDinsightPig | Да
 inputs | Входные данные, используемые действием Pig. | Нет
 outputs | Выходные данные, используемые действием Pig. | Да
-linkedServiceName (имя связанной службы) | Ссылка на кластер HDInsight, указанный в качестве связанной службы в фабрике данных. | Да
+linkedServiceName (имя связанной службы) | Ссылка на кластер HDInsight, зарегистрированный в качестве связанной службы в фабрике данных. | Да
 script | Указывается встроенный сценарий Pig. | Нет
 script path | Путь к файлу сценария Pig в хранилище BLOB-объектов Azure. Можно использовать либо свойство script, либо свойство scriptPath, но не оба сразу. | Нет
-defines | Параметры в виде пары «ключ — значение», ссылки на которые указываются в сценарии Pig. | Нет
+defines | Параметры в виде пары "ключ — значение", ссылки на которые указываются в сценарии Pig. | Нет
 
 ## Пример
 
@@ -166,8 +166,8 @@ defines | Параметры в виде пары «ключ — значени
 		          		"scriptPath": "adfwalkthrough\\scripts\\samplepig.hql",
 		          		"scriptLinkedService": "StorageLinkedService",
 		          		"defines": {
-		            		"Input": "$Text.Format('wasb: //adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0: yyyy}/monthno={0: %M}/dayno={0: %d}/',SliceStart)",
-				            "Output": "Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
+		            		"Input": "$$Text.Format('wasb: //adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0: yyyy}/monthno={0: %M}/dayno={0: %d}/',SliceStart)",
+				            "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
 		          		}
 		        	},
        				"scheduler": {
@@ -188,5 +188,7 @@ defines | Параметры в виде пары «ключ — значени
 
 
  
+## Отправить отзыв
+Мы будем весьма признательны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-pig-activity.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

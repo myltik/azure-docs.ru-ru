@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/08/2015"
+	ms.date="09/01/2015"
 	ms.author="tdykstra"/>
 
 # Начало работы с облачными службами Azure и ASP.NET
@@ -399,7 +399,7 @@
 
 12. В левой области щелкните **Обновления**.
 
-13. Найдите пакет *Служба хранилища Azure*, а если его нет в списке, щелкните **Обновить** для получения последней версии клиентской библиотеки хранилища.
+13. Найдите пакет *WindowsAzure.Storage*, а если его нет в списке, щелкните **Обновить** для получения последней версии клиентской библиотеки хранилища.
 
 	![Обновление SCL](./media/cloud-services-dotnet-get-started/updstg.png)
 
@@ -409,9 +409,11 @@
 
 16. Найдите пакет NuGet *EntityFramework* и установите его во все проекты.
 
+17. Найдите пакет NuGet *Microsoft.WindowsAzure.ConfigurationManager* и установите его в проект рабочей роли.
+
 ### Установите ссылки проекта
 
-10. Задайте в проекте ContosoAdsWeb ссылку на проект ContosoAdsCommon. Щелкните правой кнопкой мыши проект ContosoAdsWeb и выберите пункты **Ссылки** — **Добавить ссылку**. В диалоговом окне **Диспетчер ссылок** выберите пункты **Решение — Проекты** на панели слева, выберите **ContosoAdsCommon** и затем нажмите **ОК**.
+10. Задайте в проекте ContosoAdsWeb ссылку на проект ContosoAdsCommon. Щелкните правой кнопкой мыши проект ContosoAdsWeb и выберите пункты **Ссылки** — **Добавить ссылку**. В диалоговом окне **Диспетчер ссылок** выберите пункты **Решение — Проекты** на панели слева, выберите **ContosoAdsCommon**, а затем нажмите **ОК**.
 
 11. Задайте в проекте ContosoAdsWorker ссылку на проект ContosoAdsCommon.
 
@@ -798,7 +800,7 @@
 Есть несколько примеров приложений облачной службы, которые демонстрируют более жизненные примеры кодирования — от менее сложных к более сложным:
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Похоже на Contoso Ads, но реализует больше функций и больше примеров реального кода.
-* [Многоуровневое облачное приложение Azure с таблицами, квотами, и большими двоичными объектами](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Описывает таблицы службы хранилища Azure наряду с большими двоичными объектами и очередями, поставляется с [пошаговым руководством](../cloud-services-dotnet-multi-tier-app-storage-1-overview.md).
+* [Многоуровневое облачное приложение Azure с таблицами, квотами, и большими двоичными объектами](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Описание таблицы службы хранилища Azure наряду с большими двоичными объектами и очередями, поставляется с [пошаговым руководством](../cloud-services-dotnet-multi-tier-app-storage-1-overview.md).
 * [Основы облачных служб в Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Полный пример для демонстрации широкого набора приемов, применяемых группой Microsoft Patterns and Practices.
 
 Общую информацию об облачной разработке см. в разделе [Разработка реальных облачных приложений в Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
@@ -811,4 +813,4 @@
 * [Управление облачными службами](cloud-services-how-to-manage.md)
 * [Хранилище Azure](/documentation/services/storage/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

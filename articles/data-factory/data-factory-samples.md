@@ -1,19 +1,19 @@
 <properties 	
-	pageTitle="Фабрика данных Azure — примеры" 
-	description="Подробное описание примеров, поставляемых со службой фабрики данных Azure." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Фабрика данных Azure — примеры"
+	description="Подробное описание примеров, поставляемых со службой фабрики данных Azure."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/21/2015"
 	ms.author="spelluru"/>
 
 # Фабрика данных Azure — примеры
@@ -24,11 +24,11 @@
 1. Создайте или откройте существующую фабрику данных. Информацию о создании фабрики данных см. в статье [Приступая к работе с фабрикой данных Azure][data-factory-get-started].
 2. В колонке **ФАБРИКА ДАННЫХ** для этой фабрики данных щелкните плитку **Примеры конвейеров**.
 
-	![Плитка «Примеры конвейеров»](./media/data-factory-samples/SamplePipelinesTile.png)
+	![Плитка "Примеры конвейеров"](./media/data-factory-samples/SamplePipelinesTile.png)
 
 2. В колонке **Примеры конвейеров** выберите **пример**, который хотите развернуть.
 	
-	![Колонка «Примеры конвейеров»](./media/data-factory-samples/SampleTile.png)
+	![Колонка "Примеры конвейеров"](./media/data-factory-samples/SampleTile.png)
 
 3. Задайте параметры конфигурации для этого примера. Например, вы можете указать имя и ключ вашей учетной записи хранения Azure, имя сервера Azure SQL, базу данных, идентификатор пользователя, пароль и т. д.
 
@@ -54,6 +54,9 @@
 ## Примеры на GitHub
 В [репозитории GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) предлагается несколько примеров, которые помогут вам быстро приступить к работе со службой фабрики данных Azure или настроить сценарии для использования в собственном приложении. Папка Samples\\JSON содержит фрагменты JSON для распространенных сценариев.
 
+## Отправить отзыв
+Мы будем весьма признательны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-samples.md).
+
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

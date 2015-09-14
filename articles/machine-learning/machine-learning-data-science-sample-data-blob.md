@@ -1,25 +1,26 @@
 <properties 
-	pageTitle="Выборка данных в хранилище больших двоичных объектов Azure| Microsoft Azure" 
-	description="Выборка данных в хранилище BLOB-объектов Azure" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Выборка данных в хранилище больших двоичных объектов Azure| Microsoft Azure"
+	description="Выборка данных в хранилище BLOB-объектов Azure"
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev"/>
 
 #<a name="heading"></a>Выборка данных в хранилище больших двоичных объектов Azure
 
 Этот документ описывает выборку данных, содержащихся в хранилище BLOB-объектов Azure, путем их программной загрузки и последующей выборки с помощью образца кода на языке Python. Для этого необходимо выполнить следующие шаги:
 
+## Скачать данные и уменьшить выборку данных
 1. Загрузить данные из хранилища BLOB-объектов Azure с помощью службы BLOB-объектов и следующего образца кода на языке Python: 
 
 	    from azure.storage import BlobService
@@ -45,7 +46,7 @@
 	    #directly ready from file on disk
     	dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Создать выборку данных с помощью `random.choice` `numpy`:
+3. Уменьшить выборку данных с помощью `random.choice` `numpy`:
 
 	    # A 1 percent sample
     	sample_ratio = 0.01 
@@ -55,7 +56,7 @@
 
 	Теперь можно работать с указанным выше фреймом данных, содержащим 1-процентную выборку, для дальнейшего просмотра и создания характеристик.
 
-##<a name="heading"></a>Подключение к службе машинного обучения Azure
+##<a name="heading"></a>Передача данных и их передача в службу машинного обучения Azure
 
 С помощью следующего образца кода можно уменьшить выборку данных и использовать их непосредственно в Azure ML:
 
@@ -96,4 +97,4 @@
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

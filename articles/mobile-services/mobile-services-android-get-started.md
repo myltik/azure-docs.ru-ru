@@ -12,25 +12,19 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
-	ms.topic="article" 
-	ms.date="06/03/2015"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="ricksal"/>
 
 # Приступая к работе с мобильными службами
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
+В этом учебнике показано, как добавить облачную серверную службу в приложение Android с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение **To do list**, хранящее данные приложения в новой мобильной службе.
 
+> [AZURE.VIDEO android-support-in-windows-azure-mobile-services]
 
-<p>В этом учебнике показано, как добавить облачную серверную службу в приложение Android с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение <em>To do list</em>, хранящее данные приложения в новой мобильной службе.</p>
-<p>Снимок экрана завершенного приложения приведен ниже:</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">Просмотр учебника</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-get-started-android-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Воспроизведение видео</span></a><span class="time">7:26:00</span></div>
-</div>
-
-![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
+Снимок экрана завершенного приложения приведен ниже: ![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
 
 ## Предварительные требования
 
@@ -81,7 +75,7 @@
 Просмотреть исходный код завершенного приложения можно [здесь](https://github.com/RickSaling/mobile-services-samples/tree/androidStudio/GettingStarted/AndroidStudio).
 
 
-Чтобы просмотреть версию этого учебника для Eclipse, перейдите к следующей статье: [Приступая к работе (Eclipse)](mobile-services-android-get-started-EC.md).
+Чтобы просмотреть версию этого учебника для Eclipse, перейдите к следующей статье: [Приступая к работе (Eclipse)](mobile-services-android-get-started-ec.md).
 
 ## <a name="next-steps"> </a>Дальнейшие действия
 Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах:
@@ -113,7 +107,7 @@
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Get started (Eclipse)]: mobile-services-android-get-started-EC.md
+[Get started (Eclipse)]: mobile-services-android-get-started-ec.md
 [Приступая к работе с данными ]: mobile-services-android-get-started-data.md
 [Приступая к работе с проверкой подлинности ]: mobile-services-android-get-started-users.md
 [Приступая к работе с push-уведомлениями]: mobile-services-javascript-backend-android-get-started-push.md
@@ -122,6 +116,5 @@
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

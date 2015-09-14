@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Построение первого конвейера с помощью фабрики данных Azure"
-	description="В этом учебнике показано, как, используя Visual Studio, создать конвейер, преобразующий данные с помощью Azure HDInsight."
+	pageTitle="Создание первого конвейера фабрики данных Azure с помощью Visual Studio"
+	description="В этом учебнике вы создадите образец конвейера фабрики данных Azure с помощью Visual Studio."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,7 +16,7 @@
 	ms.date="08/18/2015"
 	ms.author="spelluru"/>
 
-# Построение первого конвейера с помощью фабрики данных Azure
+# Создание первого конвейера фабрики данных Azure с помощью Visual Studio
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -39,9 +39,9 @@
 	2.	Щелкните **Аналитика данных** в колонке **Создание**.
 	3.	Щелкните **Фабрика данных** в колонке **Аналитика данных**.
 
-		![Колонка «Создание»](./media/data-factory-build-your-first-pipeline-using-vs/create-blade.png)
+		![Колонка "Создание"](./media/data-factory-build-your-first-pipeline-using-vs/create-blade.png)
 
-2.	В колонке **Создание фабрики данных** введите **DataFactoryMyFirstPipeline** в поле «Имя».
+2.	В колонке **Создание фабрики данных** введите **DataFactoryMyFirstPipeline** в поле "Имя".
 
 	![Создать колонку "Фабрика данных"](./media/data-factory-build-your-first-pipeline-using-vs/new-data-factory-blade.png)
 
@@ -77,7 +77,7 @@
 1. Запустите **Visual Studio 2013**. Щелкните **Файл**, наведите указатель мыши на пункт **Создать** и щелкните **Проект**. Откроется диалоговое окно **Новый проект**.  
 2. В диалоговом окне **Новый проект** выберите шаблон **DataFactory** и щелкните **Пустой проект фабрики данных**. Если вы не видите шаблон DataFactory, закройте Visual Studio, установите пакет SDK Azure для Visual Studio 2013 и снова откройте Visual Studio.  
 
-	![Диалоговое окно «Новый проект»](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
+	![Диалоговое окно "Новый проект"](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
 
 3. Введите **имя** проекта, **расположение** и имя для **решения**, а затем нажмите кнопку **ОК**.
 
@@ -168,10 +168,10 @@
 3. Замените фрагмент **JSON** на следующий код и укажите вместо **storageaccountname** имя вашей учетной записи хранения.
 
 		{
-			"name": "MyFirstPipeline",
-			"properties": {
-			"description": "My first Azure Data Factory pipeline",
-		 	"activities": [
+		    "name": "MyFirstPipeline",
+		    "properties": {
+		    "description": "My first Azure Data Factory pipeline",
+		    "activities": [
 		      {
 		            "type": "HDInsightActivity",
 		            "transformation": {
@@ -186,7 +186,7 @@
 		                "policy": {  
 		                    "concurrency": 1,
 		                    "retry": 3
-						},
+		                },
 		                "name": "RunSampleHiveActivity",
 		                "linkedServiceName": "HDInsightOnDemandLinkedService"
 		            }
@@ -205,7 +205,7 @@
 	Период активности конвейера задается с помощью свойств **start** и **end**.
 
 	В JSON действия указывается, что сценарий Hive будет выполняться с использованием ресурса, указанного связанной службой **HDInsightOnDemandLinkedService**.
-3. Сохраните файл **HiveActivity1.json**. 
+3. Сохраните файл **HiveActivity1.json**.
 
 ### Добавление partitionweblogs.hql в качестве зависимости 
 
@@ -251,5 +251,7 @@
 ## Дальнейшие действия
 В этой статье вы создали конвейер с действием преобразования (действие HDInsight), которое выполняет сценарий Hive в кластере HDInsight по требованию. Сведения о том, как копировать данные из хранилища BLOB-объектов Azure в SQL Azure с помощью действия копирования, см. в учебнике [Копирование данных из хранилища BLOB-объектов Azure в Azure SQL](data-factory-get-started.md).
   
+## Отправить отзыв
+Мы будем весьма признательны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Управление доступом в мобильных службах с помощью Azure Active Directory на основе ролей (Магазин Windows) | Microsoft Azure" 
-	description="Узнайте, как управлять доступом на основе ролей Azure Active Directory в приложении Магазина Windows." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Управление доступом в мобильных службах с помощью Azure Active Directory на основе ролей (Магазин Windows) | Microsoft Azure"
+	description="Узнайте, как управлять доступом на основе ролей Azure Active Directory в приложении Магазина Windows."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Управление доступом на основе ролей в мобильных службах и Azure Active Directory
@@ -36,7 +36,7 @@
 * Visual Studio 2013 в Windows 8.1.
 * Завершение учебника [Добавление проверки подлинности в приложение] с помощью поставщика проверки подлинности Azure Active Directory.
 
- 
+
 
 
 ##Создание ключа для встроенного приложения
@@ -56,7 +56,7 @@
 
 
 
-##Создание пользовательского атрибута авторизации в мобильной службе 
+##Создание пользовательского атрибута авторизации в мобильной службе
 
 В этом разделе предстоит создать пользовательский атрибут авторизации, который можно использовать для выполнения проверок доступа в операциях мобильной службы. Атрибут будет искать группу Active Directory в соответствии с переданным именем роли. Затем он выполнит проверки доступа на основе членства этой группы.
 
@@ -101,18 +101,18 @@
             private bool isInitialized;
             private bool isHosted;
 	        private ApiServices services = null;
-	
+
 	        // Constants used with ADAL and the Graph REST API for AAD
 	        private const string AadInstance = "https://login.windows.net/{0}";
 	        private const string GraphResourceId = "https://graph.windows.net/";
 	        private const string APIVersion = "?api-version=2013-04-05";
-	
+
 	        // App settings pulled from the Mobile Service
 	        private string tenantdomain;
 	        private string clientid;
 	        private string clientkey;
 	        private Dictionary<int, string> groupIds = new Dictionary<int, string>();
-	
+
 	        private string token = null;
 
             public AuthorizeAadRole(AadRoles role)
@@ -128,13 +128,13 @@
 
             public AadRoles Role { get; private set; }
 
-            // Generate a local dictionary for the role group ids configured as 
+            // Generate a local dictionary for the role group ids configured as
             // Mobile Service app settings
             private void InitGroupIds()
             {
             }
 
-            // Use ADAL and the authentication app settings from the Mobile Service to 
+            // Use ADAL and the authentication app settings from the Mobile Service to
             // get an AAD access token
             private string GetAADToken()
             {
@@ -253,7 +253,7 @@
 
             services = new ApiServices(actionContext.ControllerContext.Configuration);
 
-            // Check whether we are running in a mode where local host access is allowed 
+            // Check whether we are running in a mode where local host access is allowed
             // through without authentication.
             if (!this.isInitialized)
             {
@@ -393,4 +393,4 @@
 [Получение доступа к сведениям Graph Azure Active Directory]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [Библиотека проверки подлинности Azure AD для .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

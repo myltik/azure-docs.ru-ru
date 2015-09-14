@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Создание приложения с мобильным и веб-клиентом в службе приложений Azure"
+	pageTitle="Создание приложения с мобильным и веб-клиентом в службе приложений Azure | Microsoft Azure"
 	description="Создание многоканального приложения с клиентом веб-сайта и мобильным клиентом в службе приложений Azure."
 	services="app-service\web"
 	documentationCenter=".net"
@@ -20,4 +20,4 @@
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-web-and-mobile](../../includes/app-service-mobile-dotnet-backend-web-and-mobile.md)]
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

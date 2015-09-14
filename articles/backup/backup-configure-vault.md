@@ -7,7 +7,7 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2015" ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="08/21/2015" ms.author="jimpark"; "aashishr"/>
 
 # Настройка службы архивации Azure для подготовки к резервному копированию Windows Server
 
@@ -34,4 +34,4 @@
 - [Часто задаваемые вопросы о службе архивации Azure](backup-azure-backup-faq.md)
 - [Форум по службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="" 
-	description="Как приступить к работе с мобильными службами Azure в проекте Visual Studio .NET" 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+<properties
+	pageTitle=""
+	description="Как приступить к работе с мобильными службами Azure в проекте Visual Studio .NET"
+	services="mobile-services"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/22/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="patshea123"/>
 
 # Приступая к работе с мобильными службами (проекты .NET)
@@ -47,22 +47,22 @@
 
 Чтобы эти примеры работали, необходимо установить уровень разрешений таблицы на **Кто угодно с ключом приложения**. Если изменить разрешения для повышения безопасности мобильного устройства, необходимо будет добавить поддержку проверки подлинности пользователей. См. [Начало работы с проверкой подлинности](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
 
-#####Добавление элемента таблицы 
+#####Добавление элемента таблицы
 
 Вставьте новый элемент в таблицу данных.
 
 	TodoItem todoItem = new TodoItem() { Text = "My first to do item", Complete = false };
 	await todoTable.InsertAsync(todoItem);
 
-#####Чтение таблицы и отправка к ней запросов 
+#####Чтение таблицы и отправка к ней запросов
 
 Следующий код позволяет выполнить запрос ко всем элементам таблицы. Обратите внимание, возвращается только первая страница данных, которая по умолчанию содержит 50 элементов. Вы можете передать любой размер страницы, так как это дополнительный параметр.
 
     List<TodoItem> items;
     try
     {
-        // Query that returns all items.   
-        items = await todoTable.ToListAsync();             
+        // Query that returns all items.
+        items = await todoTable.ToListAsync();
     }
     catch (MobileServiceInvalidOperationException e)
     {
@@ -85,4 +85,4 @@
 
 [Дополнительные сведения о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

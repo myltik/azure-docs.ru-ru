@@ -1,20 +1,20 @@
 <properties
    pageTitle="Установка .NET для роли облачной службы"
-   description="В этой статье описывается, как вручную установить платформу .NET Framework для веб-роли и рабочей роли облачной службы."
-   services="cloud-services"
-   documentationCenter=".net"
-   authors="sbtron"
-   manager="timlt"
-   editor=""/>
+	description="В этой статье описывается, как вручную установить платформу .NET Framework для веб-роли и рабочей роли облачной службы."
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="sbtron"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="cloud-services"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/03/2015"
-   ms.author="saurabh"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/03/2015"
+	ms.author="saurabh"/>
 
 # Установка .NET для роли облачной службы 
 
@@ -86,7 +86,7 @@
 	set timehour=%time:~0,2%
 	set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2%
 	set startuptasklog=%PathToInstallLogs%startuptasklog-%timestamp%.txt
-	set netfxinstallerlog = %PathToInstallLogs%NetFXInstallerLog-%timestamp%
+	set netfxinstallerlog=%PathToInstallLogs%NetFXInstallerLog-%timestamp%
 	echo Logfile generated at: %startuptasklog% >> %startuptasklog%
 	
 	REM ***** Check if .NET is installed *****
@@ -142,4 +142,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Учебник по работе с PolyBase в хранилище данных SQL | Microsoft Azure"
-   description="Узнайте, что такое средство PolyBase и как его использовать в сценариях работы с хранилищем данных."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
-   editor="jrowlandjones"/>
+	description="Узнайте, что такое средство PolyBase и как его использовать в сценариях работы с хранилищем данных."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="barbkess"
+	manager="jhubbard"
+	editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="05/09/2015"
-   ms.author="sahajs;barbkess"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="05/09/2015"
+	ms.author="sahajs;barbkess"/>
 
 
 # Загрузка данных с помощью PolyBase
@@ -58,7 +58,7 @@ SELECT * FROM sys.database_credentials;
 -- Create a database scoped credential
 CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
 WITH IDENTITY = 'joe'
-,    Secret = 'myazurestoragekey=='
+,    Secret = '<azure_storage_account_key>'
 ;
 ```
 
@@ -318,13 +318,13 @@ $write.Dispose()
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 
-[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/ru-ru/library/mt146367.aspx
-[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/ru-ru/library/mt146379.aspx
-[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/ru-ru/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/ru-RU/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/ru-RU/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/ru-RU/library/mt130698.aspx
 
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[СОЗДАНИЕ ГЛАВНОГО КЛЮЧА (Transact-SQL)]: https://msdn.microsoft.com/ru-ru/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ru-ru/library/ms189522.aspx
-[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ru-ru/library/ms189450.aspx
+[СОЗДАНИЕ ГЛАВНОГО КЛЮЧА (Transact-SQL)]: https://msdn.microsoft.com/ru-RU/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ru-RU/library/ms189522.aspx
+[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ru-RU/library/ms189450.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

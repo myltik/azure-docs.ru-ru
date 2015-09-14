@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Настройка веб-приложений в службе приложений Azure" 
-	description="Настройка веб-приложения в службе приложений Azure" 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Настройка веб-приложений в службе приложений Azure"
+	description="Настройка веб-приложения в службе приложений Azure"
+	services="app-service\web"
+	documentationCenter=""
+	authors="erikre"
+	manager="wpickett"
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
-	ms.author="mwasson"/>
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
+	ms.author="erikre"/>
 
 
 # Настройка веб-приложений в службе приложений Azure #
@@ -176,4 +176,4 @@
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

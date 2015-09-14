@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Вызов настраиваемого API из HTML-клиента. Мобильные службы" 
-	description="Узнайте, как определить настраиваемый интерфейс API и вызывать его из приложения iOS, которое использует мобильные службы Azure." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="bureado"  
-	manager="dwrede" 
+<properties
+	pageTitle="Вызов настраиваемого API из HTML-клиента. Мобильные службы"
+	description="Узнайте, как определить настраиваемый интерфейс API и вызывать его из приложения iOS, которое использует мобильные службы Azure."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-html" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-html"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # Вызов настраиваемого API из приложения HTM
@@ -32,9 +32,9 @@
 
 ##<a name="update-app"></a>Обновление приложения для вызова настраиваемого интерфейса API
 
-1. С помощью текстового редактора откройте файл index.html, найдите элемент **button** с именем `buttonRefresh` и добавьте сразу после него следующий новый элемент: 
+1. С помощью текстового редактора откройте файл index.html, найдите элемент **button** с именем `buttonRefresh` и добавьте сразу после него следующий новый элемент:
 
-		<button id="buttonCompleteAll">Complete All</button> 
+		<button id="buttonCompleteAll">Complete All</button>
 
 	Это приведет к добавлению на страницу новой кнопки.
 
@@ -92,4 +92,4 @@
 [Добавление мобильных служб к существующему приложению]: mobile-services-html-get-started-data.md
 [Хранение серверных сценариев в системе управления версиями]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Приступая к работе с Application Insights в веб-проекте Java" 
-	description="Мониторинг производительности и использования веб-сайта Java с помощью Application Insights" 
-	services="application-insights" 
-    documentationCenter="java"
-	authors="alancameronwills" 
+<properties
+	pageTitle="Приступая к работе с Application Insights в веб-проекте Java | Microsoft Azure"
+	description="Мониторинг производительности и использования веб-сайта Java с помощью Application Insights"
+	services="application-insights"
+	documentationCenter="java"
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="06/30/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="06/30/2015"
 	ms.author="awills"/>
- 
+
 # Приступая к работе с Application Insights в веб-проекте Java
 
 *Доступна только предварительная версия компонента Application Insights.*
@@ -37,8 +37,8 @@
 
 ## 1\. Получение ключа инструментирования Application Insights
 
-1. Войдите в [портал Microsoft Azure](https://portal.azure.com).
-2. Создайте новый ресурс Application Insights
+1. Войдите на [портал Microsoft Azure](https://portal.azure.com).
+2. Создайте новый ресурс Application Insights.
 
     ![Нажмите кнопку "+" и выберите пункт "Application Insights"](./media/app-insights-java-get-started/01-create.png)
 3. Задайте тип приложения: веб-приложение Java.
@@ -58,9 +58,9 @@
 
 #### Если вы используете Maven...
 
-Если проект уже настроен для сборки с использованием Maven, добавьте следующий фрагмент кода в файл pom.xml.
+Если проект уже настроен для сборки с использованием Maven, добавьте следующий код в файл pom.xml.
 
-Затем обновите зависимости проекта, чтобы загрузить двоичные файлы.
+Затем обновите зависимости проекта, чтобы скачать двоичные файлы.
 
     <repositories>
        <repository>
@@ -80,15 +80,14 @@
     </dependencies>
 
 
-* *Ошибки проверки сборки или контрольной суммы? Попробуйте указать конкретную версию, например * `<version>1.0.n</version>`. Информацию о последней версии см. в статье [Заметки о выпуске пакета SDK](app-insights-release-notes-java.md) или в [артефактах репозитория Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
-* *Обновление пакета SDK до новой версии*
- * Обновите зависимости проекта.
+* *Ошибки проверки сборки или контрольной суммы?* Попробуйте указать конкретную версию, например `<version>1.0.n</version>`. Информацию о последней версии см. в статье [Заметки о выпуске пакета SDK](app-insights-release-notes-java.md) или в [артефактах репозитория Maven](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
+* *Требуется обновить пакет SDK до новой версии?* Обновите зависимости проекта.
 
 #### Если вы используете Gradle...
 
 Если проект уже настроен для сборки с использованием Gradle, добавьте следующий фрагмент кода в файл build.gradle.
 
-Затем обновите зависимости проекта, чтобы загрузить двоичные файлы.
+Затем обновите зависимости проекта, чтобы скачать двоичные файлы.
 
     repositories {
       mavenCentral()
@@ -99,7 +98,7 @@
       // or applicationinsights-core for bare API
     }
 
-* *Ошибки проверки сборки или контрольной суммы? Попробуйте указать конкретную версию, например * `version:'1.0.n'`. *Информацию о последней версии см. в статье [Заметки о выпуске пакета SDK](app-insights-release-notes-java.md).* 
+* *Ошибки проверки сборки или контрольной суммы? Попробуйте указать конкретную версию, например * `version:'1.0.n'`. *Информацию о последней версии см. в статье [Заметки о выпуске пакета SDK](app-insights-release-notes-java.md).*
 * *Обновление пакета SDK до новой версии*
  * Обновите зависимости проекта.
 
@@ -226,16 +225,16 @@
 В колонке обзора появятся данные HTTP-запросов. (Если данные отсутствуют, подождите несколько секунд и нажмите кнопку обновления).
 
 ![пример данных](./media/app-insights-java-get-started/5-results.png)
- 
+
 
 Щелкните любую диаграмму, чтобы увидеть более подробные метрики.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
- 
+
 
 При просмотре свойств запроса можно увидеть события телеметрии, связанные с ним, такие как запросы и исключения.
- 
+
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 
@@ -270,7 +269,7 @@
 
 ## Счетчики производительности
 
-Щелкните плитку "Серверы", и вы увидите ряд счетчиков производительности.
+Щелкните плитку **Серверы**, и вы увидите ряд счетчиков производительности.
 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
@@ -306,7 +305,7 @@
 
 
 
-#### Счетчики производительности Windows 
+#### Счетчики производительности Windows
 
 Каждый [счетчик производительности Windows](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) входит в состав категории (аналогично поле является членом класса). Категория может быть глобальной либо иметь пронумерованные или именованные экземпляры.
 
@@ -371,6 +370,4 @@
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

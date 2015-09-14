@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Замена резервного аккумулятора на устройстве StorSimple | Microsoft Azure"
-   description="Описывает процедуры снятия, замены и обслуживания модуля резервного аккумулятора на устройстве StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Замена аккумулятора на устройстве StorSimple | Microsoft Azure"
+	description="Описывает процедуры снятия, замены и обслуживания модуля резервного аккумулятора на устройстве StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/05/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Замена резервного аккумулятора на устройстве StorSimple
 
@@ -27,7 +27,7 @@
 - Установка нового модуля резервного аккумулятора
 - Обслуживание модуля резервного аккумулятора
 
->[AZURE.IMPORTANT]Перед снятием и заменой модуля резервного аккумулятора ознакомьтесь со сведениями о безопасности в разделе [Замена компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT]Перед извлечением и заменой модуля резервного аккумулятора ознакомьтесь с мерами предосторожности в разделе [Общие сведения о замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md).
 
 ## Снятие модуля резервного аккумулятора
 
@@ -115,4 +115,4 @@
 
 Узнайте больше о [Замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

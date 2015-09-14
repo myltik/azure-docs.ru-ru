@@ -162,4 +162,4 @@ Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 * [Справка по командлету Пакетной службы Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Эффективные запросы списков](batch-efficient-list-queries.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

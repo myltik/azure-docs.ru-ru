@@ -36,7 +36,7 @@
 
 - подписка на Microsoft Azure. Если у вас нет подписки, вы можете зарегистрироваться для использования [бесплатной пробной версии](../../../../pricing/free-trial);
 - Azure PowerShell версии 0.9.1 или более поздней. Чтобы установить последнюю версию и связать ее со своей подпиской Azure, см. статью [Как установить и настроить Azure PowerShell](../powershell-install-configure.md);
-- приложение, для которого вы будете настраивать использование ключа или пароля, созданного по этому учебнику. Пример приложения доступен в [Центре загрузки Майкрософт](http://www.microsoft.com/ru-ru/download/details.aspx?id=45343). Указания см. в сопутствующем файле Readme.
+- приложение, для которого вы будете настраивать использование ключа или пароля, созданного по этому учебнику. Пример приложения доступен в [Центре загрузки Майкрософт](http://www.microsoft.com/ru-RU/download/details.aspx?id=45343). Указания см. в сопутствующем файле Readme.
 
 
 Этот учебник предназначен для начинающих пользователей Windows PowerShell, но предполагается, что вы знакомы с основными понятиями, такими как модули, командлеты и сеансы. Дополнительные сведения о Windows PowerShell см. в статье [Начало работы с Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
@@ -179,6 +179,11 @@
 
 
 	Set-AzureKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
+	
+Если этому же приложению необходимо разрешить читать секретные данные в хранилище, выполните следующую команду:
+
+
+	Set-AzureKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 
 ## <a id="HSM"></a>Использование аппаратного модуля безопасности ##
 
@@ -194,7 +199,7 @@
 
 
 
-В это хранилище можно добавлять ключи с программной защитой (как показано выше) и ключи, защищенные аппаратным модулем безопасности. Чтобы создать ключ, защищенный аппаратным модулем безопасности, задайте значение «HSM» для параметра **-Destination**:
+В это хранилище можно добавлять ключи с программной защитой (как показано выше) и ключи, защищенные аппаратным модулем безопасности. Чтобы создать ключ, защищенный аппаратным модулем безопасности, задайте значение HSM для параметра **Destination**:
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
 
@@ -207,7 +212,7 @@
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
-Подробные указания по созданию пакета BYOK см. в статье [Создание ключей, защищенных аппаратным модулем безопасности, и их передача в хранилище ключей Azure](key-vault-hsm-protected-keys.md).
+Подробные инструкции по созданию пакета BYOK см. в статье [Создание ключей, защищенных аппаратным модулем безопасности, и их передача в хранилище ключей Azure](key-vault-hsm-protected-keys.md).
 
 ## <a id="delete"></a>Удаление хранилища ключей, а также связанных ключей и секретов ##
 
@@ -237,6 +242,6 @@
 
 Полный список командлетов Windows PowerShell для хранилища ключей Azure см. в разделе [Командлеты для хранилища ключей Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
-Справочные материалы по программированию см. в статье [Хранилище ключей](https://msdn.microsoft.com/library/azure/dn903625.aspx) библиотеки документации Microsoft Azure на сайте MSDN.
+Справочные материалы по программированию см. в статье [Хранилище ключей](https://msdn.microsoft.com/library/azure/dn903625.aspx) библиотеки документации по Microsoft Azure на сайте MSDN.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

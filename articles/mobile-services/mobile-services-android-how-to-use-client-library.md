@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Работа с клиентской библиотекой Android мобильных служб" 
-	description="Узнайте, как использовать клиент Android для мобильных служб Azure." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Работа с клиентской библиотекой Android мобильных служб"
+	description="Узнайте, как использовать клиент Android для мобильных служб Azure."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="ricksal"/>
 
 
@@ -44,7 +44,7 @@
 		private String text;
 		private Boolean complete;
 	}
-	
+
 Если динамическая схема включена, мобильные службы Azure автоматически создают новые столбцы на основе объекта в запросе вставки или обновления. Дополнительные сведения см. в разделе [Динамическая схема](http://go.microsoft.com/fwlink/p/?LinkId=296271).
 
 ##<a name="create-client"></a>Практическое руководство. Создание клиента мобильных служб
@@ -52,7 +52,7 @@
 
 		MobileServiceClient mClient = new MobileServiceClient(
 				"MobileServiceUrl", // Replace with the above Site URL
-				"AppKey", 			// replace with the Application Key 
+				"AppKey", 			// replace with the Application Key
 				this)
 
 В приведенном выше коде замените `MobileServiceUrl` и `AppKey` на URL-адрес мобильной службы и ключ приложения соответственно. Оба эти варианты доступны на портале управления Azure: выберите свою мобильную службу и щелкните *Панель управления*.
@@ -130,7 +130,7 @@
             @Override
             protected Void doInBackground(Void... params) {
                 try {
-                    final MobileServiceList<ToDoItem> result = 
+                    final MobileServiceList<ToDoItem> result =
 						mToDoTable.where().field("complete").eq(false).execute().get();
 					for (ToDoItem item : result) {
                 		Log.i(TAG, "Read object with ID " + item.id);  
@@ -206,12 +206,12 @@
 
 		mToDoTable.select("complete", "text").execute().get();
 
-	
+
 Здесь параметры функции select являются строковыми именами столбцов таблицы, которые требуется вернуть.
 
 Метод [**select**](http://go.microsoft.com/fwlink/p/?LinkId=290689) должен следовать за такими методами, как [**where**](http://go.microsoft.com/fwlink/p/?LinkId=296296) и [**orderBy**](http://go.microsoft.com/fwlink/p/?LinkId=296313), если они используются. После него можно вызывать такие методы, как [**top**](http://go.microsoft.com/fwlink/p/?LinkId=298731).
 
-### <a name="chaining"></a>Практическое руководство. Объединение методов запросов 
+### <a name="chaining"></a>Практическое руководство. Объединение методов запросов
 
 Методы, используемые в таблицах мобильных служб с поддержкой запросов, могут быть объединены. Это позволяет, например, выбирать определенные столбцы или фильтрованные строки, которые сортируются и разбиваются на страницы. Можно создавать весьма сложные логические фильтры.
 
@@ -223,7 +223,7 @@
 						.and().startsWith("text", "PRI0")
 						.or().field("duration").gt(10)
 					.select("id", "complete", "text", "duration")
-					.orderBy(duration, QueryOrder.Ascending).top(20)				
+					.orderBy(duration, QueryOrder.Ascending).top(20)
 					.execute().get();
 
 Главное требование при объединении методов состоит в том, что метод *where* и предикаты должны идти первыми. После этого можно вызвать последующие методы в том порядке, который лучше всего соответствует требованиям вашего приложения.
@@ -238,12 +238,12 @@
 		ToDoItem mToDoItem = new ToDoItem();
 		mToDoItem.text = "Test Program";
 		mToDoItem.complete = false;
-		
+
  Затем введите следующий код:
 
 		// Insert the new item
 	    new AsyncTask<Void, Void, Void>() {
-	
+
 	        @Override
 	        protected Void doInBackground(Void... params) {
 	            try {
@@ -313,9 +313,9 @@
 	    if (mClient == null) {
 	        return;
 	    }
-	
+
 	    new AsyncTask<Void, Void, Void>() {
-	
+
 	        @Override
 	        protected Void doInBackground(Void... params) {
 	            try {
@@ -347,7 +347,7 @@
 
 		// Set the item as completed and update it in the table
 		item.setComplete(true);
-		
+
 		new AsyncTask<Void, Void, Void>() {
 
             @Override
@@ -461,7 +461,7 @@
 		item.addProperty("complete", false);
 
 Следующий шаг — вставка объекта. Функция обратного вызова, которая передается методу [**insert**](http://go.microsoft.com/fwlink/p/?LinkId=298535) — это экземпляр класса [**TableJsonOperationCallback**](http://go.microsoft.com/fwlink/p/?LinkId=298532). Обратите внимание на то, что параметр метода *insert* — JsonObject.
-		 
+
         // Insert the new item
         new AsyncTask<Void, Void, Void>() {
 
@@ -492,7 +492,7 @@
 
 
 Вы также можете удалить экземпляр напрямую с помощью идентификатора:
-		
+
 		 mToDoTable.delete(ID);
 
 
@@ -551,7 +551,7 @@
 Два компонента соединяются адаптером, который в этом коде является расширением класса *ArrayAdapter&lt;ToDoItem&gt;*.
 
 ### <a name="layout"></a>Практическое руководство. Определение макета
- 
+
 Макет определяется несколькими фрагментами XML-кода. Учитывая существующий макет, предположим, что следующий код представляет объект **ListView**, который требуется заполнить данными с сервера.
 
     <ListView
@@ -560,7 +560,7 @@
         android:layout_height="wrap_content"
         tools:listitem="@layout/row_list_to_do" >
     </ListView>
-	
+
 
 В приведенном выше коде атрибут *listitem* указывает идентификатор макета для отдельной строки в списке. Вот код, который определяет флажок и связанный с ним текст. Экземпляр создается один раз для каждого элемента в списке. В более сложном макете указываются дополнительные поля. Этот код находится в файле *row\_list\_to\_do.xml*.
 
@@ -568,17 +568,17 @@
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
-	    android:orientation="horizontal">		    
+	    android:orientation="horizontal">
 	    <CheckBox
 	        android:id="@+id/checkToDoItem"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/checkbox_text" />
 	</LinearLayout>
-		
+
 
 ### <a name="adapter"></a>Практическое руководство. Определение адаптера
-	
+
 Так как источник данных для представления — это массив объектов *ToDoItem*, мы создадим адаптер как подкласс класса *ArrayAdapter&lt;ToDoItem&gt;*. Этот подкласс будет создавать представление для каждого объекта *ToDoItem* с помощью макета *row\_list\_to\_do*.
 
 В нашем коде мы определим следующий класс, который расширяет класс *ArrayAdapter&lt;E&gt;*:
@@ -590,21 +590,21 @@
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View row = convertView;
-	
+
 		final ToDoItem currentItem = getItem(position);
-	
+
 		if (row == null) {
 			LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
 			row = inflater.inflate(R.layout.row_list_to_do, parent, false);
 		}
-	
+
 		row.setTag(currentItem);
-	
+
 		final CheckBox checkBox = (CheckBox) row.findViewById(R.id.checkToDoItem);
 		checkBox.setText(currentItem.getText());
 		checkBox.setChecked(false);
 		checkBox.setEnabled(true);
-	
+
 		return row;
 	}
 
@@ -668,7 +668,7 @@
 - Учетная запись Майкрософт
 - Facebook
 - Twitter
-- Google 
+- Google
 - Azure Active Directory
 
 Можно задать разрешения таблиц, чтобы предоставить доступ к определенным операциям только пользователям, прошедшим проверку подлинности. Также можно использовать идентификатор пользователя, прошедшего проверку, чтобы изменять запросы.
@@ -690,24 +690,24 @@
 		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
 2. Добавьте в метод **onCreate** класса действия следующую строку после кода, который создает объект `MobileServiceClient`: предполагается, что ссылка на объект `MobileServiceClient` представляет собой *mClient*.
-	
+
 	    // Login using the Google provider.
-	    
+
 		ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
 
     	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
     		@Override
     		public void onFailure(Throwable exc) {
     			createAndShowDialog((Exception) exc, "Error");
-    		}   		
+    		}
     		@Override
     		public void onSuccess(MobileServiceUser user) {
     			createAndShowDialog(String.format(
                         "You are now logged in - %1$2s",
                         user.getUserId()), "Success");
-    			createTable();	
+    			createTable();
     		}
-    	}); 
+    	});
 
     Этот код выполняет проверку подлинности пользователя с помощью имени входа Google. Открывается диалоговое окно, в котором отображается идентификатор пользователя, прошедшего проверку подлинности. Без успешной проверки подлинности продолжение невозможно.
 
@@ -732,38 +732,38 @@
 		}
 		else
 		{
-			    // Login using the Google provider.    
+			    // Login using the Google provider.
 				ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
-		
+
 		    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
 		    		@Override
 		    		public void onFailure(Throwable exc) {
 		    			createAndShowDialog("You must log in. Login Required", "Error");
-		    		}   		
+		    		}
 		    		@Override
 		    		public void onSuccess(MobileServiceUser user) {
 		    			createAndShowDialog(String.format(
 		                        "You are now logged in - %1$2s",
 		                        user.getUserId()), "Success");
 		    			cacheUserToken(mClient.getCurrentUser());
-		    			createTable();	
+		    			createTable();
 		    		}
 		    	});		}
-	}	
+	}
 
 
 	private boolean LoadCache()
 	{
 		SharedPreferences prefs = getSharedPreferences("temp", Context.MODE_PRIVATE);
-		String tmp1 = prefs.getString("tmp1", "undefined"); 
+		String tmp1 = prefs.getString("tmp1", "undefined");
 		if (tmp1 == "undefined")
 			return false;
-		String tmp2 = prefs.getString("tmp2", "undefined"); 
+		String tmp2 = prefs.getString("tmp2", "undefined");
 		if (tmp2 == "undefined")
 			return false;
 		MobileServiceUser user = new MobileServiceUser(tmp1);
 		user.setAuthenticationToken(tmp2);
-		mClient.setCurrentUser(user);		
+		mClient.setCurrentUser(user);
 		return true;
 	}
 
@@ -793,7 +793,7 @@
 
         @Override
         public ListenableFuture<ServiceFilterResponse> handleRequest(
-                	ServiceFilterRequest request, 
+                	ServiceFilterRequest request,
 					NextServiceFilterCallback next) {
 
             runOnUiThread(new Runnable() {
@@ -843,7 +843,7 @@
 
 	@com.google.gson.annotations.SerializedName("complete")
 	private boolean mComplete;
- 
+
 	@com.google.gson.annotations.SerializedName("duration")
 	private String mDuration;
 
@@ -873,12 +873,12 @@
 	            }
 	        })
 	        .setPrettyPrinting());
-	
+
 
 
 Этот код должен быть выполнен перед вызовом всех методов клиентского объекта мобильных служб.
 
-### <a name="complex"></a>Практическое руководство. Сохранение свойства объекта или массива в таблице 
+### <a name="complex"></a>Практическое руководство. Сохранение свойства объекта или массива в таблице
 
 На данный момент все наши примеры сериализации использовали простые типы, такие как целые числа и строки, которые легко сериализуются в формат JSON и в таблицу мобильных служб. Предположим, что нам необходимо добавить сложный объект в клиентский тип, который не сериализуется автоматически в формат JSON и таблицу. Например, может потребоваться добавить в клиентский объект массив строк. Теперь мы должны указать способ сериализации и сохранения массива в таблице мобильных служб.
 
@@ -926,6 +926,5 @@
 <!-- URLs. -->
 [Приступая к работе с мобильными службами]: mobile-services-android-get-started.md
 [Управляющие коды ASCII C0 и C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

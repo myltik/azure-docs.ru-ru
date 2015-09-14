@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Поддерживаемое оборудование для сетевых интерфейсов 10 GbE на устройстве StorSimple"
-   description="Описаны поддерживаемые приемопередатчики, кабели и коммутаторы для сетевых интерфейсов 10 Гбит/с на устройстве StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Оборудование для интерфейсов 10 GbE устройства StorSimple | Microsoft Azure"
+	description="Описаны поддерживаемые подключаемые приемопередатчики небольшого размера (SFP), кабели и коммутаторы для сетевых интерфейсов 10 GbE на устройстве StorSimple."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/17/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="alkohli"/>
 
 # Поддерживаемое оборудование для сетевых интерфейсов 10 GbE на устройстве StorSimple
 
@@ -112,4 +112,4 @@ Mellanox проверила следующие подключаемые прие
 
 [Дополнительные сведения об аппаратных компонентах и состоянии StorSimple](storsimple-monitor-hardware-status.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

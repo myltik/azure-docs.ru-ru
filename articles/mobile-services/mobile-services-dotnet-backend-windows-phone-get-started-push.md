@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Использование мобильных служб и центры уведомлений Azure для отправки уведомлений в приложение Windows Phone." 
-	description="Дополнительные сведения об использовании концентраторов уведомлений с мобильными службами Azure для отправки push-уведомлений в приложение Windows Phone." 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Использование мобильных служб и центры уведомлений Azure для отправки уведомлений в приложение Windows Phone."
+	description="Дополнительные сведения об использовании концентраторов уведомлений с мобильными службами Azure для отправки push-уведомлений в приложение Windows Phone."
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Добавление push-уведомлений к приложению мобильных служб
@@ -38,8 +38,8 @@
 
 2. Добавьте следующий метод `AcquirePushChannel` в класс `App`:
 
-        public static HttpNotificationChannel CurrentChannel { get; private set; }	
-        
+        public static HttpNotificationChannel CurrentChannel { get; private set; }
+
         private void AcquirePushChannel()
         {
             CurrentChannel = HttpNotificationChannel.Find("MyPushChannel");
@@ -68,13 +68,13 @@
                     {
                         Deployment.Current.Dispatcher.BeginInvoke(() =>
                         {
-                            MessageBox.Show(exception.Message, 
+                            MessageBox.Show(exception.Message,
                                             "Registering for Push Notifications",
                                             MessageBoxButton.OK);
                         });
                     }
             });
-            CurrentChannel.ShellToastNotificationReceived += 
+            CurrentChannel.ShellToastNotificationReceived +=
                 new EventHandler<NotificationEventArgs>((o, args) =>
                 {
                     string message = "";
@@ -90,7 +90,7 @@
         }
 
     Этот код извлекает URI канала для приложения, если он существует. В противном случае он будет создан. Затем URI канала открывается и привязывается для всплывающих уведомлений. После полного открытия универсального кода ресурса (URI) канала вызывается обработчик для метода `ChannelUriUpdated`, и канал регистрируется для получения push-уведомлений. В случае сбоя регистрации канал закрывается, так что при последующих выполнениях приложения можно повторить попытку регистрации. Обработчик `ShellToastNotificationReceived` настроен таким образом, что приложение во время выполнения может получать и обрабатывать push-уведомления.
-    
+
 4. В обработчике событий `Application_Launching` в файле App.xaml.cs добавьте в новый метод `AcquirePushChannel` следующий вызов:
 
         AcquirePushChannel();
@@ -98,7 +98,7 @@
 	Это гарантирует, что регистрация запрашивается каждый раз при загрузке приложения. В вашем приложении можно сделать так, чтобы эта регистрация выполнялась только время от времени для гарантии актуальности регистрации.
 
 5. Нажмите клавишу **F5**, чтобы запустить приложение. Отображается всплывающее диалоговое окно с ключом регистрации.
-  
+
 6. В Visual Studio откройте файл Package.appxmanifest и убедитесь, что на вкладке **Пользовательский интерфейс приложения** для параметра **Всплывающие уведомления** задано значение **Да**.
 
    	![][1]
@@ -202,6 +202,5 @@
 [Справочник принципов использования мобильных служб .NET]: mobile-services-html-how-to-use-client-library.md
 [Приложения для Windows Phone Silverlight 8.1]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [портал управления Azure]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

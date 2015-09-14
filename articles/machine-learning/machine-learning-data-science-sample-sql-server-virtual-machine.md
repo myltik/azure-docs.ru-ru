@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Выборка данных на сервере SQL Server в Azure| Microsoft Azure" 
-	description="Выборка данных на сервере SQL Server в Azure" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="fashah" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Выборка данных на сервере SQL Server в Azure| Microsoft Azure"
+	description="Выборка данных на сервере SQL Server в Azure"
+	services="machine-learning"
+	documentationCenter=""
+	authors="fashah"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="fashah;garye;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="fashah;garye;bradsev"/>
 
 #<a name="heading"></a>Выборка данных на сервере SQL Server в Azure
 
@@ -45,8 +45,7 @@
 	FROM <table_name> 
 	TABLESAMPLE (10 PERCENT)
 
-**Примечание**.
-> Можно просматривать данные этой выборки и создавать характеристики, сохранив ее в новой таблице
+>[AZURE.NOTE]Можно просматривать данные этой выборки и создавать характеристики, сохранив ее в новой таблице
 
 
 ###<a name="sql-aml"></a>Подключение к службе машинного обучения Azure
@@ -115,4 +114,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

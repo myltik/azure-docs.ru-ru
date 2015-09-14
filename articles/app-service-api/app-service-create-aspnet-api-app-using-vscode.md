@@ -1,26 +1,25 @@
 <properties
    pageTitle="Создание приложения API ASP.NET 5 в Visual Studio Code"
-   description="В этом учебнике показано, как создать приложение API ASP.NET 5 с помощью Visual Studio Code."
-   services="app-service\api"
-   documentationCenter=".net"
-   authors="erikre"
-   manager="wpickett"
-   editor="jimbe"/>
+	description="В этом учебнике показано, как создать приложение API ASP.NET 5 с помощью Visual Studio Code."
+	services="app-service\api"
+	documentationCenter=".net"
+	authors="erikre"
+	manager="wpickett"
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="dotnet"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="erikre"/>
 
 # Создание приложения API ASP.NET 5 в Visual Studio Code
 
 > [AZURE.SELECTOR]
-- [Visual Studio 2013](app-service-dotnet-create-api-app.md)
-- [Visual Studio 2015 RC](app-service-dotnet-create-api-app-vs2015.md)
+- [Visual Studio 2015 or 2013](app-service-dotnet-create-api-app.md)
 - [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
 
 ## Обзор
@@ -463,4 +462,4 @@ Git является распределенной системой управл�
 В этом учебнике вы узнали, как создать приложение API в Visual Studio Code. Дополнительную информацию о Visual Studio Code см. в разделе [Visual Studio Code](https://code.visualstudio.com/Docs/). Информацию о приложениях API см. в разделе [Что такое приложения API?](app-service-api-apps-why-best-platform.md).
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

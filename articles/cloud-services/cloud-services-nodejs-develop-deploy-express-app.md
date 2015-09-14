@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Веб-приложение с Express (Node.js) | Microsoft Azure" 
-	description="Этот учебник основывается на учебнике по облачным службам и демонстрирует использование модуля Express." 
-	services="cloud-services" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Веб-приложение с Express (Node.js) | Microsoft Azure"
+	description="Этот учебник основывается на учебнике по облачным службам и демонстрирует использование модуля Express."
+	services="cloud-services"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
 
 
@@ -43,9 +43,9 @@ Node.js включает минимальный набор функционал�
 
 		PS C:\node> New-AzureServiceProject expressapp
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
-		PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 node 0.10.21
+		PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
 
-	> [AZURE.NOTE]По умолчанию **Add-AzureNodeWebRole** использует предыдущую версию Node.js. Показанная выше инструкция **Set-AzureServiceProjectRole** предписывает Azure использовать Node v0.10.21.
+	> [AZURE.NOTE]По умолчанию **Add-AzureNodeWebRole** использует предыдущую версию Node.js. Показанная выше инструкция **Set-AzureServiceProjectRole** предписывает Azure использовать Node v0.10.21. Обратите внимание, что параметры зависят от регистра. Можно проверить, выбрана ли правильная версия Node.js, выбрав свойство **engines** в **WebRole1\\package.json**.
 
 ##Установка модуля Express
 
@@ -88,7 +88,7 @@ Node.js включает минимальный набор функционал�
 
 	Это необходимо сделать, так как мы перенесли файл (ранее **bin/www**) в тот же каталог, в котором должен находиться файл приложения. После внесения изменений сохраните файл **server.js**.
 
-8.  Выполнив следующую команду, запустите приложение в эмуляторе Microsoft Azure:
+8.  Выполнив следующую команду, запустите приложение в эмуляторе Azure:
 
         PS C:\node\expressapp\WebRole1> Start-AzureEmulator -launch
 
@@ -135,4 +135,4 @@ Node.js включает минимальный набор функционал�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

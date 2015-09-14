@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Использование службы диспетчера StorSimple для администрирования устройства StorSimple"
-   description="Управляйте устройством StorSimple с помощью службы диспетчера StorSimple на портале управления Azure."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="tysonn" />
+   pageTitle="Администрирование с помощью службы диспетчера StorSimple | Microsoft Azure"
+	description="Узнайте, как управлять устройством StorSimple с помощью службы диспетчера StorSimple на портале управления Azure."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
 # Использование службы диспетчера StorSimple для администрирования устройства StorSimple
 
@@ -104,9 +104,8 @@
 - [Устранение неполадок в работающем устройстве](storsimple-troubleshoot-operational-device.md)
 - [Использование индикаторов мониторинга StorSimple](storsimple-monitoring-indicators.md)
 
-
 Если вы не можете устранить проблемы и необходимо создать запрос на обслуживание, см.:
 
 -  [Обращение в службу поддержки Майкрософт](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

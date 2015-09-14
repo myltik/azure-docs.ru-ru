@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Учебник. Копирование данных из хранилища BLOB-объектов Azure в Azure SQL"
-	description="В этом учебнике показано, как создать пример конвейера данных, который копирует данные из большого двоичного объекта в экземпляр базы данных SQL Azure."
+	pageTitle="Учебник. Использование действия копирования в конвейере фабрики данных Azure"
+	description="В этом учебнике показано, как использовать действие копирования в конвейере фабрики данных Azure для копирования данных из больших двоичных объектов Azure в базу данных SQL Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -100,6 +100,9 @@
 - Щелкните ссылку [Использование Visual Studio](data-factory-get-started-using-vs.md) вверху, чтобы пройти учебник с помощью Visual Studio 2013.
  
 
+## Отправить отзыв
+Мы будем весьма признательны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started.md).
+
 <!--Link references-->
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-preview-portal]: https://portal.azure.com/
@@ -110,4 +113,4 @@
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

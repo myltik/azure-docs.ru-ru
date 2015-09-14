@@ -1,23 +1,23 @@
 <properties 
    pageTitle="Обращение в службу поддержки Майкрософт | Microsoft Azure"
-   description="Узнайте, как создать запрос на обслуживание и запустить сеанс поддержки на устройстве StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Узнайте, как создать запрос на обслуживание и запустить сеанс поддержки на устройстве StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Обращение в службу поддержки Майкрософт
 
-Если у вас возникли проблемы с решением Microsoft Azure StorSimple, вы можете создать запрос на обслуживание к технической поддержке. В онлайн-сеансе со специалистом технической поддержки также может потребоваться запуск сеанса поддержки на устройстве StorSimple. В этой статье описывается процесс создания запроса на обслуживание и запуска сеанса поддержки в интерфейсе Windows PowerShell устройства StorSimple.
+Если у вас возникли проблемы с решением Microsoft Azure StorSimple, можно обратиться за помощью в службу технической поддержки. В ходе общения со специалистом технической поддержки также может потребоваться запустить сеанс поддержки на устройстве StorSimple. В этой статье описывается процесс создания запроса на обслуживание и запуска сеанса поддержки в интерфейсе Windows PowerShell устройства StorSimple.
 
 ## Создание запроса на обслуживание
 
@@ -71,4 +71,4 @@
 
 > [AZURE.IMPORTANT]Сеанс поддержки можно отключить, выполнив команду `Disable-HcsSupportAccess`. Устройство StorSimple также попытается отключить сеанс поддержки на 8 часов после запуска сеанса. Лучше всего изменить учетные данные устройства StorSimple после установления сеанса поддержки.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
-	editor="cgronlun"  />
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="mohabib;xibingao;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="mohabib;xibingao;bradsev"/>
 
 # Настройка виртуальной машины Azure как сервера IPython Notebook для расширенной аналитики
 
@@ -143,4 +143,4 @@ Chrome: ![Создание рабочей области][21]
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

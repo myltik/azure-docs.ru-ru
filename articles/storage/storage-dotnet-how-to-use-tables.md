@@ -21,9 +21,9 @@
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
-## Общие сведения
+## Обзор
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы табличного хранилища Azure. Примеры написаны на C#, и в них используется библиотека клиента службы хранилища Azure для .NET. Здесь описаны такие сценарии, как **создание и удаление таблицы**, а также **работа с сущностями таблиц**.
+В этой статье объясняется, как реализовать типовые сценарии с использованием службы хранения таблиц Azure. Примеры написаны на C#, и в них используется библиотека клиента службы хранилища Azure для .NET. Здесь описаны такие сценарии, как создание и удаление таблицы, а также работа с сущностями таблиц.
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -38,7 +38,7 @@
 [AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
 
 ### Объявления пространств имен
-Добавляйте следующие объявления пространств имен кода в начало каждого файла C#, в котором вы собираетесь обращаться к службе хранилища Azure программным способом.
+Добавьте следующие объявления пространств имен кода в начало любого файла C#,в котором вы собираетесь получать доступ к хранилищу Azure программным способом.
 
     using Microsoft.WindowsAzure.Storage;
 	using Microsoft.WindowsAzure.Storage.Auth;
@@ -50,7 +50,7 @@
 
 ## Создание таблицы
 
-Объект **CloudTableClient** позволяет ссылаться на объекты таблиц и сущностей. Следующий код создает объект **CloudTableClient** и использует его для создания новой таблицы. Во всем коде этого руководства предполагается, что приложение создается как проект облачной службы Azure и использует строку подключения к хранилищу, хранящуюся в конфигурации службы приложения Azure.
+Объект **CloudTableClient** позволяет ссылаться на объекты таблиц и сущностей. Следующий код создает объект **CloudTableClient** и использует его для создания новой таблицы. Во всем коде в этой статье предполагается, что приложение создается как проект облачной службы Azure и использует строку подключения к хранилищу, хранящуюся в конфигурации службы приложения Azure.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -82,7 +82,7 @@
         public string PhoneNumber { get; set; }
     }
 
-Табличные операции, включающие сущности, выполняются с использованием объекта **CloudTable**, созданного в разделе "Создание таблицы". Выполняемая операция представляется объектом**TableOperation**. В следующем примере кода показано создание объекта **CloudTable** и объекта **CustomerEntity**. Чтобы подготовить операцию, создается объект **TableOperation** для вставки сущности customer в таблицу. Наконец, операция выполняется путем вызова **CloudTable.Execute**.
+Табличные операции, включающие сущности, выполняются с использованием объекта **CloudTable**, созданного ранее в разделе "Создание таблицы". Выполняемая операция представляется объектом**TableOperation**. В следующем примере кода показано создание объекта **CloudTable** и объекта **CustomerEntity**. Чтобы подготовить операцию, создается объект **TableOperation** для вставки сущности customer в таблицу. Наконец, операция выполняется путем вызова **CloudTable.Execute**.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -182,7 +182,7 @@
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    //Create the CloudTable object that represents the "people" table.
+    // Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
 	// Create the table query.
@@ -316,7 +316,7 @@
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    //Create the CloudTable that represents the "people" table.
+    // Create the CloudTable that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
     // Define the query, and select only the Email property.
@@ -341,7 +341,7 @@
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    //Create the CloudTable that represents the "people" table.
+    // Create the CloudTable that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
     // Create a retrieve operation that expects a customer entity.
@@ -378,7 +378,7 @@
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    //Create the CloudTable that represents the "people" table.
+    // Create the CloudTable that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
     // Delete the table it if exists.
@@ -452,4 +452,4 @@
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

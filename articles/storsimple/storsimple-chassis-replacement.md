@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Замена корпуса устройства StorSimple | Microsoft Azure"
-   description="Описывает снятие и установку основного корпуса или корпуса EBOD устройства StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="Замена корпуса устройства StorSimple | Microsoft Azure"
+	description="Описывает снятие и установку основного корпуса или корпуса EBOD устройства StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/05/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # Замена корпуса устройства StorSimple
 
 ## Общие сведения
 
-В этом учебнике объясняется, как снять и заменить корпус устройства StorSimple. Модель 8100 — однокорпусное устройство (с одним корпусом), а модель 8600 — двухкорпусное устройство (с двумя корпусами). В модели 8600 неисправность может возникнуть в двух корпусах: в основном корпусе и в корпусе EBOD.
+В этом учебнике объясняется, как снять и заменить корпус устройства StorSimple. Модель StorSimple 8100 — устройство в отдельном корпусе (один корпус), тогда как модель 8600 состоит из двух корпусов (два корпуса). В модели 8600 неисправность может возникнуть в двух корпусах: в основном корпусе и в корпусе EBOD.
 
 В любом случае корпус, предоставляемый корпорацией Майкрософт для замены, будет пустым. В комплект поставки не входят блоки питания и охлаждения (БПО), модули контроллера, твердотельные дисковые накопители (SSD), жесткие диски (HDD) и модули EBOD.
 
@@ -63,4 +63,4 @@
 
 Узнайте больше о [Замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

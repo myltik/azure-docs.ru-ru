@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Заметки о выпуске Application Insights" 
-	description="Последние обновления." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Заметки о выпуске Application Insights для Java"
+	description="Последние обновления."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/18/2015"
 	ms.author="awills"/>
  
 # Заметки о выпуске пакета SDK Application Insights для Java
@@ -37,6 +37,14 @@
  
 Сравните старый и новый файлы ApplicationInsights.xml. Многие изменения, которые вы видите, обусловлены тем, что мы одни модули добавили, а другие удалили. Возобновите использование выполненных вами настроек.
 
+## Версия 1.0.1
+- Агент Java поддерживает сбор сведения о зависимостях для следующих компонентов:
+	- вызовы HTTP через HttpClient, OkHttp и RestTemplate (Spring);
+	- вызовы Redis через клиент Jedis; при превышении настраиваемого порогового значения пакет SDK также получает аргументы вызова;
+	- вызовы JDBC в клиентах Oracle DB и Apache Derby DB.
+	- поддержка типа запроса executeBatch для подготовленных инструкций — SDK отобразит инструкцию с количество пакетов;
+	- указание плана запросов для клиентов JDBC, которые поддерживают этот параметр (MySql, PostgreSql) — план запроса извлекается только при превышении настраиваемого порогового значения.
+
 ## Версия 1.0.0
 - Добавлена поддержка подключаемого модуля записи Application Insights для CollectD.
 - Добавлена поддержка агента Application Insights для Java.
@@ -60,4 +68,4 @@
 - Возможность отметить элемент телеметрии как искусственный, добавив свойство ```SyntheticSource``` к элементу отчета.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

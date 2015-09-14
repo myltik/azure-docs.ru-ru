@@ -1,20 +1,20 @@
 <properties
    pageTitle="Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight | Microsoft Azure"
-   description="Узнайте, как обрабатывать данные службы концентраторов событий с использованием топологии C# Storm, созданной в Visual Studio с помощью средств HDInsight для Visual Studio."
-   services="hdinsight,notification hubs"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
+	description="Узнайте, как обрабатывать данные службы концентраторов событий с использованием топологии C# Storm, созданной в Visual Studio с помощью средств HDInsight для Visual Studio."
+	services="hdinsight,notification hubs"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/24/2015"
-   ms.author="larryfr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="09/02/2015"
+	ms.author="larryfr"/>
 
 # Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (C#)
 
@@ -237,14 +237,14 @@
 
 Сито службы концентраторов событий ожидает одно строковое значение, которое перенаправит в концентратор событий. В следующем примере вы измените файл **Spout.cs** по умолчанию, чтобы получить строку JSON.
 
-1. В **обозревателе решений** щелкните правой кнопкой мыши проект **EventHubWriter** и выберите пункт **Управление пакетами NuGet**. Найдите пакет **Json.NET**, а затем добавьте его в решение. Это позволяет легко создавать данные JSON, которые будут отправлены в службу концентраторов событий с помощью сита.
-
-1. Откройте файл **Spout.cs** и добавьте в его начало файла:
+1. В **обозревателе решений** откройте файл **Spout.cs** и добавьте следующий код в его начало:
 
 		using Newtonsoft.Json;
 		using Newtonsoft.Json.Linq;
 
 	Это упростит работу с данными JSON.
+    
+    > [AZURE.NOTE]Должен быть уже установлен пакет JSON.NET, поскольку он необходим для платформы SCP.NET, которая используется для топологий C# Storm.
 
 3. Найдите следующий код:
 
@@ -420,9 +420,7 @@
 
 ### Изменение сита
 
-1. В **обозревателе решений** щелкните правой кнопкой мыши проект **EventHubReader** и выберите пункт **Управление пакетами NuGet**. Найдите пакет **Json.Net**, а затем добавьте его в решение. Это позволит нам легко обрабатывать данные JSON, полученные из воронки. Кроме того, добавьте пакет хранилища **Microsoft Azure**, который позволит выполнять запись в табличное хранилище.
-
-1. Откройте файл **Bolt.cs** и добавьте в его начало следующего файла:
+1. В **обозревателе решений** разверните проект **EventHubReader** и откройте файл **Bolt.cs**. Добавьте следующий код в начало файла.
 
 		using Newtonsoft.Json.Linq;
 		using Microsoft.WindowsAzure.Storage;
@@ -557,4 +555,4 @@ EventHubSpout периодически передает информацию о 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

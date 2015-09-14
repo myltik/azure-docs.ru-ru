@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Приложение node.js с использованием Socket.io | Microsoft Azure" 
-	description="Узнайте, как использовать socket.io в приложении Node.js, размещенном в Azure." 
-	services="cloud-services" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Приложение node.js с использованием Socket.io | Microsoft Azure"
+	description="Узнайте, как использовать socket.io в приложении Node.js, размещенном в Azure."
+	services="cloud-services"
+	documentationCenter="nodejs"
+	authors="TomArcher"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="02/25/2015" 
-	ms.author="mwasson"/>
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="tarcher"/>
 
 
 
@@ -28,6 +28,14 @@ Socket.IO обеспечивает связь в режиме реального
 
 ![Окно браузера со службой, размещенной в Azure][completed-app]
 
+## Предварительные требования
+
+Убедитесь, что следующие продукты и версии установлены для успешного завершения примера, описанного в этой статье.
+
+* Установите [Visual Studio 2013](https://www.visualstudio.com/ru-RU/downloads/download-visual-studio-vs.aspx).
+* Установите [Node.js](https://nodejs.org/download/).
+* Установите [Python версии 2.7.10](https://www.python.org/).
+
 ## Создание проекта облачной службы
 
 Ниже описаны действия, в результате которых создается проект облачной службы, в которой будет размещаться приложение Socket.IO.
@@ -36,11 +44,15 @@ Socket.IO обеспечивает связь в режиме реального
 
 	![Значок Azure PowerShell][powershell-menu]
 
-	[AZURE.INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
+2. Сначала создайте каталог **c:\\node**.
+ 
+		PS C:\> md node
 
+3. Перейдите в каталог **c:\\node**.
+ 
+		PS C:\> cd node
 
-
-2. Перейдите в каталог **c:\\node**, а затем введите указанные ниже команды для создания нового решения с именем **chatapp** и рабочей роли с именем **WorkerRole1**.
+4. Введите указанные ниже команды для создания нового решения с именем **chatapp** и рабочей роли с именем **WorkerRole1**.
 
 		PS C:\node> New-AzureServiceProject chatapp
 		PS C:\Node> Add-AzureNodeWorkerRole
@@ -57,7 +69,7 @@ Socket.IO обеспечивает связь в режиме реального
 
     ![Окно браузера со страницей https://github.com/LearnBoost/socket.io/tree/master/examples/chat с подсвеченным значком загрузки ZIP.][chat-example-view]
 
-3.  Перемещайтесь по структуре каталога локального репозитория, пока не доберетесь до каталога **examples\\\\chat**. Скопируйте содержимое этого каталога в ранее созданный каталог **C:\\node\\chatapp\\WorkerRole1**.
+3.  Перемещайтесь по структуре каталога локального репозитория, пока не доберетесь до каталога **examples\\\chat**. Скопируйте содержимое этого каталога в ранее созданный каталог **C:\\node\\chatapp\\WorkerRole1**.
 
     ![Обозреватель с извлеченным из архива содержимым каталога examples\\chat][chat-contents]
 
@@ -69,7 +81,7 @@ Socket.IO обеспечивает связь в режиме реального
 
 Прежде чем тестировать приложение в эмуляторе Azure, необходимо внести небольшие изменения. Выполните следующие действия над файлом server.js:
 
-1.  Откройте файл server.js в Блокноте или другом текстовом редакторе.
+1.  Откройте файл **server.js** в Visual Studio или в любом текстовом редакторе.
 
 2.  Найдите раздел **Зависимости модуля** в начале файла server.js и измените строку **sio = require('..//..//lib//socket.io')** на **sio = require('socket.io')**, как показано ниже.
 
@@ -87,7 +99,7 @@ Socket.IO обеспечивает связь в режиме реального
 		  console.log('   app listening on http://' + addr.address + ':' + addr.port);
 		});
 
-Сохранив изменения в server.js, выполните следующие действия, чтобы установить необходимые модули, а затем проверьте приложение в эмуляторе Azure:
+Сохранив изменения в **server.js**, выполните следующие действия, чтобы установить необходимые модули, а затем проверьте приложение в эмуляторе Azure:
 
 1.  Используя **Azure PowerShell**, перейдите в каталог **C:\\node\\chatapp\\WorkerRole1** и выполните следующую команду для установки необходимых приложению модулей:
 
@@ -107,7 +119,9 @@ Socket.IO обеспечивает связь в режиме реального
 
         PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
 
-2.  В открывшемся окне браузера введите псевдоним, а затем нажмите клавишу ВВОД. Это все, что вам потребуется для отправки сообщений в качестве конкретного псевдонима. Чтобы проверить многопользовательскую функциональность, откройте дополнительные окна браузера, используя тот же URL-адрес, и введите разные псевдонимы.
+2.  Откройте веб-браузер и перейдите по адресу ****http://127.0.0.1**.
+
+3.  В открывшемся окне браузера введите псевдоним, а затем нажмите клавишу ВВОД. Это все, что вам потребуется для отправки сообщений в качестве конкретного псевдонима. Чтобы проверить многопользовательскую функциональность, откройте дополнительные окна браузера, используя тот же URL-адрес, и введите разные псевдонимы.
 
     ![Два окна браузера с сообщениями разговора от пользователей User1 и User2](./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png)
 
@@ -158,4 +172,4 @@ Socket.IO обеспечивает связь в режиме реального
   
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2015"
-	ms.author="brohrer;garye" />
+	ms.author="brohrer;garye"/>
 
 
 # Памятка по алгоритмам машинного обучения для Студии машинного обучения Microsoft Azure
@@ -33,7 +33,7 @@
 
 ![Памятка по алгоритмам машинного обучения: как выбрать алгоритм машинного обучения?][cheat-sheet]
 
-[cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/cheat-sheet-small_v_0_6-01.png
+[cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
 
 ## Дополнительная помощь с алгоритмами
@@ -84,4 +84,4 @@
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,21 +1,21 @@
 <properties
  pageTitle="Сопоставление событий в динамике по времени с помощью Storm и HBase в HDInsight"
- description="Узнайте, как сопоставлять события, поступающие в разное время, с помощью Storm и HBase в HDInsight."
- services="hdinsight"
- documentationCenter=""
- authors="Blackmist"
- manager="paulettm"
- editor="cgronlun"
+	description="Узнайте, как сопоставлять события, поступающие в разное время, с помощью Storm и HBase в HDInsight."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
- ms.devlang="dotnet"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="big-data"
- ms.date="06/05/2015"
- ms.author="larryfr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="09/02/2015"
+	ms.author="larryfr"/>
 
 # Сопоставление событий в динамике по времени с помощью Storm и HBase в HDInsight
 
@@ -198,4 +198,4 @@
 Другие примеры топологий для Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

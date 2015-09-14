@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Использование Twilio для поддержки голосовых возможностей и SMS | Microsoft Azure" 
-	description="Узнайте, как выполнять типовые задачи с использованием API Twilio и мобильных служб Azure." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="devinrader" 
-	manager="twilio" 
+<properties
+	pageTitle="Использование Twilio для поддержки голосовых возможностей и SMS | Microsoft Azure"
+	description="Узнайте, как выполнять типовые задачи с использованием API Twilio и мобильных служб Azure."
+	services="mobile-services"
+	documentationCenter=""
+	authors="devinrader"
+	manager="twilio"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="devinrader"/>
 
 
@@ -84,7 +84,7 @@ Twilio предоставляет библиотеку Node.js, содержащ
 2. После настройки системы управления версиями для мобильной службы откройте репозиторий на локальном компьютере, перейдите во вложенную папку `\services`, откройте в текстовом редакторе файл package.json и добавьте к объекту **dependencies** следующее поле:
 
 		"twilio": "~1.7.0"
- 
+
 3. После добавления к объекту **dependencies** ссылки на пакет Twilio файл package.json должен выглядеть так:
 
 		{
@@ -96,7 +96,7 @@ Twilio предоставляет библиотеку Node.js, содержащ
 		    "node": ">= 0.8.19"
 		  },
 		  "dependencies": {
-			"twilio": "~1.7.0" 
+			"twilio": "~1.7.0"
 		  },
 		  "devDependencies": {},
 		  "scripts": {},
@@ -105,12 +105,12 @@ Twilio предоставляет библиотеку Node.js, содержащ
 		  "keywords":[]
 		}
 
-	>[AZURE.NOTE]Зависимость для Twilio необходимо добавить в следующем виде: `"twilio": "~1.7.0"` с символом тильды (\~). Ссылка со вставкой (^) не поддерживается.
+	>[AZURE.NOTE]Зависимость для Twilio необходимо добавить в следующем виде: `"twilio": "~1.7.0"` с символом тильды (~). Ссылка со вставкой (^) не поддерживается.
 
 4. Зафиксируйте обновление этого файла и принудительно отправьте обновление обратно в мобильную службу.
 
 	Это обновление к файлу package.json перезапустит мобильную службу.
-	
+
 Мобильная служба теперь устанавливает и загружает пакет Twilio, чтобы можно было ссылаться на библиотеку Twilio в собственных API и скриптах таблицы.
 
 ## <a id="howto_make_call"></a>Практическое руководство. Осуществление исходящего вызова
@@ -123,12 +123,12 @@ Twilio предоставляет библиотеку Node.js, содержащ
         var client = new twilio.RestClient('[ACCOUNT_SID]', 'AUTH_TOKEN');
 
         client.makeCall({
-            to:'+16515556677', 
+            to:'+16515556677',
             from: '+14506667788',
-            url: 'http://www.example.com/twiml.php' 
+            url: 'http://www.example.com/twiml.php'
 
         }, function(err, responseData) {
-            console.log(responseData.from); 
+            console.log(responseData.from);
             response.send(200, '');
         });
     };
@@ -145,13 +145,13 @@ Twilio предоставляет библиотеку Node.js, содержащ
     exports.post = function(request, response) {
 
         var client = new twilio.RestClient('[ACCOUNT_SID]', 'AUTH_TOKEN');
- 
+
         client.sendSms({
             to:'[]',
             from:'[]',
             body:'ahoy hoy! Testing Twilio and node.js'
         }, function(error, message) {
-    
+
             // The "error" variable will contain error information, if any.
             // If the request was successful, this value will be "false"
             if (!error) {
@@ -188,7 +188,7 @@ Twilio предоставляет библиотеку Node.js, содержащ
 Дополнительные сведения о TwiML см. по следующему адресу: [https://www.twilio.com/docs/api/twiml](https://www.twilio.com/docs/api/twiml).
 
 После того как вы настроили процесс предоставления ответов TwiML, вы можете передать этот URL-адрес в метод **client.makeCall**, как показано в следующем примере кода:
-    
+
     var twilio = require('twilio');
 
     exports.post = function(request, response) {
@@ -196,9 +196,9 @@ Twilio предоставляет библиотеку Node.js, содержащ
         var client = new twilio.RestClient('[ACCOUNT_SID]', 'AUTH_TOKEN');
 
         client.makeCall({
-            to:'+16515556677', 
+            to:'+16515556677',
             from: '+14506667788',
-            url: 'http://<your_mobile_service>.azure-mobile.net/api/makeCall' 
+            url: 'http://<your_mobile_service>.azure-mobile.net/api/makeCall'
 
         }, function(err, responseData) {
 
@@ -228,6 +228,5 @@ Twilio предоставляет библиотеку Node.js, содержащ
 [azure_twilio_howto_ruby]: /develop/ruby/how-to-guides/twilio-voice-and-sms-service/
 [azure_twilio_howto_python]: /develop/python/how-to-guides/twilio-voice-and-sms-service/
 [azure_twilio_howto_php]: /develop/php/how-to-guides/twilio-voice-and-sms-service/
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

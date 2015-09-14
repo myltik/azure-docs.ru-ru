@@ -1,20 +1,20 @@
 <properties
    pageTitle="Обзор модели взаимодействия со службами"
-   description="В этой статье описаны основы модели взаимодействия, поддерживаемой интерфейсом API надежных служб."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="BharatNarasimman"
-   manager="vipulm"
-   editor=""/>
+	description="В этой статье описаны основы модели взаимодействия, поддерживаемой интерфейсом API надежных служб."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="BharatNarasimman"
+	manager="vipulm"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required"
-   ms.date="04/13/2015"
-   ms.author="bharatn@microsoft.com"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="required"
+	ms.date="08/27/2015"
+	ms.author="bharatn@microsoft.com"/>
 
 # Модель взаимодействия со службами
 
@@ -70,7 +70,7 @@ var port = codePackageActivationContext.GetEndpoint("ServiceEndpoint").Port;
 
 ```
 
-> [AZURE.NOTE]Ресурсы конечных точек являются общими для всего пакета служб и выделяются Service Fabric при активации пакета служб. (Для получения дополнительных сведений посетите страницу [Модель службы Service Fabric](../service-fabric-service-model.md).) Таким образом, все реплики, размещенные на одном и том же объекте ServiceHost, используют один и тот же порт. Это означает, что прослушиватель связи должен поддерживать совместное использование портов. Для этого мы рекомендуем при создании адреса прослушивания использовать прослушиватель связи идентификатора раздела и идентификатора реплики или экземпляра.
+> [AZURE.NOTE]Ресурсы конечных точек являются общими для всего пакета служб и выделяются Service Fabric при активации пакета служб. Таким образом, все реплики, размещенные на одном и том же объекте ServiceHost, используют один и тот же порт. Это означает, что прослушиватель связи должен поддерживать совместное использование портов. Для этого мы рекомендуем при создании адреса прослушивания использовать прослушиватель связи идентификатора раздела и идентификатора реплики или экземпляра.
 
 ```csharp
 
@@ -230,4 +230,4 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 * [Написание службы с помощью интерфейса API надежных служб, использующего стек связи WebAPI](service-fabric-reliable-services-communication-webapi.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

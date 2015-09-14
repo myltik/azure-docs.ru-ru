@@ -1,19 +1,19 @@
 <properties
     pageTitle="Использование интерфейса командной строки (CLI) Azure со службой хранилища Azure | Microsoft Azure"
-    description="Узнайте, как использовать интерфейс командной строки Azure (Azure CLI) для создания учетных записей хранения и управления ими, а также для работы с большими двоичными объектами и файлами Azure в службе хранилища Azure."
-    services="storage"
-    documentationCenter="na"
-    authors="tamram"
-    manager="jdial"/>
+	description="Узнайте, как использовать интерфейс командной строки Azure (Azure CLI) для создания учетных записей хранения и управления ими, а также для работы с большими двоичными объектами и файлами Azure в службе хранилища Azure."
+	services="storage"
+	documentationCenter="na"
+	authors="tamram"
+	manager="jdial"/>
 
 <tags
     ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article" 
-    ms.date="05/27/2015"
-    ms.author="chungli;jiyang;yaxia;tamram"/>
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="chungli;jiyang;yaxia;tamram"/>
 
 # Использование интерфейса командной строки (CLI) Azure со службой хранилища Azure
 
@@ -80,9 +80,9 @@
 
     - **<container_name>** Используйте заданное в сценарии имя или введите новое имя для своего контейнера.
 
-    - **<image_to_upload>** Введите путь к изображению на локальном компьютере, например: "\~/images/HelloWorld.png".
+    - **<image_to_upload>** Введите путь к изображению на локальном компьютере, например: "~/images/HelloWorld.png".
 
-    - **<destination_folder>** Введите путь к локальному каталогу для хранения файлов, загруженных из службы хранилища Azure, например: "\~/downloadImages".
+    - **<destination_folder>** Введите путь к локальному каталогу для хранения файлов, загруженных из службы хранилища Azure, например: "~/downloadImages".
 
 7. После обновления необходимых переменных в Vim нажмите комбинации клавиш "Esc, : , wq!", чтобы сохранить сценарий.
 
@@ -189,7 +189,7 @@
 
 ### Отправка локального файла в каталог
 
-В следующем примере выполняется передача файла из **\~/temp/samplefile.txt** в каталог **myDir**. Отредактируйте путь к файлу, чтобы он соответствовал пути к существующему файлу на локальном компьютере:
+В следующем примере выполняется передача файла из **~/temp/samplefile.txt** в каталог **myDir**. Отредактируйте путь к файлу, чтобы он соответствовал пути к существующему файлу на локальном компьютере:
 
         azure storage file upload '~/temp/samplefile.txt' myshare myDir
 
@@ -203,6 +203,16 @@
 
 Обратите внимание, что имя каталога необязательно для операции перечисления. Если имя каталога не указано, команда перечислит содержимое корневого каталога общей папки.
 
+### Копирование файлов
+
+Начиная с версии 0.9.8 интерфейса Azure CLI, можно скопировать файл в другой файл, файл в большой двоичный объект или BLOB-объект в файл. Ниже демонстрируется выполнение этих операций копирования с помощью команд CLI. Копирование файла в новый каталог:
+
+	azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare --dest-path destdir/hellocopy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
+	
+Копирование большого двоичного объекта в каталог файлов:
+
+	azure storage file copy start --source-container srcctn --source-blob hello2.txt --dest-share hello --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
+
 ## Дальнейшие действия
 
 Ниже приведены некоторые связанные статьи и ресурсы для подробного изучения службы хранилища Azure.
@@ -214,4 +224,4 @@
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="Управление учетной записью хранения StorSimple в Microsoft Azure | Microsoft Azure"
-   description="Здесь объясняется, как можно использовать страницу «Настройка» для добавления, изменения и удаления или смены ключей безопасности для учетной записи хранения."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+   pageTitle="Управление учетной записью хранения StorSimple | Microsoft Azure"
+	description="Здесь объясняется, как можно использовать страницу ";Настройка"; в диспетчере StorSimple для добавления, изменения и удаления или смены ключей безопасности для учетной записи хранения."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="v-sharos"/>
 
-# Управление учетной записью хранения StorSimple
+# Использование службы диспетчера StorSimple для управления учетной записью хранения
 
 ## Обзор
 
@@ -27,9 +27,7 @@
 
 В этом учебнике объясняется, как с помощью страницы **Настройка** добавлять, изменять или удалять учетные записи хранения или менять для них ключи безопасности.
 
- ![Страница «Настройка»](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)
-
-**Рис. 1. Страницы настройки службы диспетчера StorSimple**
+ ![Страница "Настройка"](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)
 
 Учетные записи хранения содержат учетные данные, используемые устройством для доступа к учетной записи хранения у поставщика облачной службы. Для учетных записей хранения Microsoft Azure это такие учетные данные, как имя учетной записи и основной ключ доступа.
 
@@ -150,6 +148,6 @@
 
 ## Дальнейшие действия
 
-[Узнайте о больше о безопасности StorSimple](storsimple-security.md).
+Узнайте подробнее о [защите StorSimple](storsimple-security.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

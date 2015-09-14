@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Действие Hive" 
-	description="Узнайте, как с помощью действия Hive в фабрике данных Azure выполнять запросы Hive к кластеру HDInsight по требованию или собственному кластеру HDInsight." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Действие Hive"
+	description="Узнайте, как с помощью действия Hive в фабрике данных Azure выполнять запросы Hive к кластеру HDInsight по требованию или собственному кластеру HDInsight."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/26/2015"
 	ms.author="spelluru"/>
 
 # Действие Hive
@@ -52,17 +52,17 @@
 	
 ## Сведения о синтаксисе
 
-Свойство | Описание | Обязательное
+Свойство | Описание | Обязательно
 -------- | ----------- | --------
 name | Имя действия. | Да
-description | Текст, описывающий, для чего используется действие. | Нет
+description | Текст, описывающий, для чего используется действие | Нет
 type | HDInsightHive. | Да
 inputs | Входные данные, используемые действием Hive. | Нет
 outputs | Выходные данные, создаваемые действием Hive. | Да 
-linkedServiceName | Ссылка на кластер HDInsight, зарегистрированный в качестве связанной службы в фабрике данных. | Да 
+linkedServiceName (имя связанной службы) | Ссылка на кластер HDInsight, зарегистрированный в качестве связанной службы в фабрике данных. | Да 
 script | Указывается встроенный сценарий Hive. | Нет
 script path | Путь к файлу сценария Hive в хранилище BLOB-объектов Azure. Использовать можно либо свойство script, либо свойство scriptPath, но не оба сразу. | Нет 
-defines | Параметры в виде пары «ключ-значение», ссылки на которые указываются в сценарии Hive с помощью элемента hiveconf. | Нет
+defines | Параметры в виде пары "ключ-значение", ссылки на которые указываются в сценарии Hive с помощью элемента hiveconf. | Нет
 
 ## Пример
 
@@ -176,8 +176,8 @@ defines | Параметры в виде пары «ключ-значение»,
 		          		"scriptPath": "adfwalkthrough\\scripts\\samplehive.hql",
 		          		"scriptLinkedService": "StorageLinkedService",
 		          		"defines": {
-		            		"Input": "$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
-		            		"Output": "$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
+		            		"Input": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)",
+		            		"Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:%M}/dayno={0:%d}/', SliceStart)"
 		          		},
        					"scheduler": {
           					"frequency": "Hour",
@@ -214,4 +214,9 @@ defines | Параметры в виде пары «ключ-значение»,
 			SUM(Duration)
 		FROM HiveSampleIn Group by ProfileID
 
-<!---HONumber=August15_HO6-->
+
+
+## Отправить отзыв
+Мы будем весьма признательны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-hive-activity.md).
+
+<!---HONumber=September15_HO1-->

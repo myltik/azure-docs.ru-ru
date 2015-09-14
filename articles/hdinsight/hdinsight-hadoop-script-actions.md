@@ -14,74 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/21/2015"
+	ms.date="09/03/2015"
 	ms.author="jgao"/>
 
 # Разработка скриптов действия сценария для HDInsight
 
+Узнайте, как разрабатывать скрипты действия сценария для HDInsight. Дополнительную информацию о скриптах действия сценария см. в статье [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster.md). Для той же статьи, написанной для кластера HDInsight в операционной системе Linux, см. [Разработка скриптов действия сценария для HDInsight](hdinsight-hadoop-script-actions-linux.md).
+
 Действие сценария можно использовать для установки дополнительного программного обеспечения, работающего в кластере Hadoop, или для изменения конфигурации приложений, установленных в кластере. Действия сценариев — это сценарии, выполняемые на узлах кластера во время развертывания кластеров HDInsight. Они будут выполнены, как только узлы в кластере завершат конфигурацию HDInsight. Действие сценария выполняется из учетной записи с правами системного администратора и предоставляет права полного доступа к узлам кластера. Для каждого кластера можно задать ряд действий сценария, которые будут выполнены в указанном порядке.
 
-## Вспомогательные методы для пользовательских скриптов
+> [AZURE.NOTE]Если появляется следующее сообщение об ошибке:
+> 
+>     System.Management.Automation.CommandNotFoundException; ExceptionMessage : The term 'Save-HDIFile' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+> Это означает, что вы не включили вспомогательные методы. См. [Вспомогательные методы для пользовательских скриптов](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
 
-Вспомогательные методы действий скриптов представляют собой служебные программы, которые можно использовать при создании пользовательских скриптов. Они определяются на странице [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1) и могут быть включены в скрипты с помощью следующей команды.
+## Примеры сценариев
 
-    # Download config action module from a well-known directory.
-	$CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
-	$CONFIGACTIONMODULE = "C:\apps\dist\HDInsightUtilities.psm1";
-	$webclient = New-Object System.Net.WebClient;
-	$webclient.DownloadFile($CONFIGACTIONURI, $CONFIGACTIONMODULE);
-	
-	# (TIP) Import config action helper method module to make writing config action easy.
-	if (Test-Path ($CONFIGACTIONMODULE))
-	{ 
-		Import-Module $CONFIGACTIONMODULE;
-	} 
-	else
-	{
-		Write-Output "Failed to load HDInsightUtilities module, exiting ...";
-		exit;
-	}
-
-Ниже приведены вспомогательные методы, предоставляемые этим скриптом.
-
-Вспомогательный метод | Описание
--------------- | -----------
-**Save-HDIFile** | Скачивает файл с указанным универсальным идентификатором ресурса в расположение на локальном диске, который сопоставлен с узлом виртуальной машины Azure, назначенным данному кластеру.
-**Expand-HDIZippedFile** | Распаковывает ZIP-файл.
-**Invoke-HDICmdScript** | Запускает сценарий из cmd.exe.
-**Write-HDILog** | Записывает выходные данные пользовательского сценария, используемого для действия сценария.
-**Get-Services** | Получает список служб, запущенных на том компьютере, где выполняется сценарий.
-**Get-Service** | Используя имя определенной службы в качестве входных данных, получает подробную информацию об этой службе (имя службы, идентификатор процесса, состояние и т. п.) на том компьютере, где выполняется сценарий.
-**Get-HDIServices** | Получает список служб HDInsight, запущенных на том компьютере, где выполняется сценарий.
-**Get-HDIService** | Используя имя определенной службы HDInsight в качестве входных данных, получает подробную информацию об этой службе (имя службы, идентификатор процесса, состояние и т. п.) на том компьютере, где выполняется сценарий.
-**Get-ServicesRunning** | Получает список служб, запущенных на том компьютере, где выполняется сценарий.
-**Get-ServiceRunning** | Проверяет, запущена ли служба с определенным именем на том компьютере, где выполняется сценарий.
-**Get-HDIServicesRunning** | Получает список служб HDInsight, запущенных на том компьютере, где выполняется сценарий.
-**Get-HDIServiceRunning** | Проверяет, запущена ли служба HDInsight с определенным именем на том компьютере, где выполняется сценарий.
-**Get-HDIHadoopVersion** | Получает версию Hadoop, установленную на том компьютере, где выполняется сценарий.
-**Test-IsHDIHeadNode** | Проверяет, является ли тот компьютер, где выполняется сценарий, головным узлом.
-**Test-IsActiveHDIHeadNode** | Проверяет, является ли тот компьютер, где выполняется сценарий, активным головным узлом.
-**Test-IsHDIDataNode** | Проверяет, является ли тот компьютер, где выполняется сценарий, узлом данных.
-**Edit-HDIConfigFile** | Изменяет файлы конфигурации hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml и yarn-site.xml.
-
-## Вызов действий сценариев
-
-HDInsight предоставляет несколько скриптов для установки дополнительных компонентов в кластерах HDInsight:
-
-Имя | Скрипт
------ | -----
-**Установка Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. См. статью [Установка и использование Spark в кластерах HDInsight Hadoop][hdinsight-install-spark].
-**Установка R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. См. статью [Установка и использование R на кластерах HDInsight Hadoop][hdinsight-r-scripts].
-**Установка Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. См. статью [Установка и использование Solr на кластерах HDInsight Hadoop](hdinsight-hadoop-solr-install.md).
-**Установка Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. См. статью [Установка Giraph в кластерах HDInsight Hadoop и использование Giraph для обработки диаграмм больших объемов](hdinsight-hadoop-giraph-install.md).
-
-Действие сценария можно развернуть из портала предварительной версии Azure, из Azure PowerShell или из пакета SDK для HDInsight .NET. Дополнительную информацию см. в разделе [Настройка кластеров HDInsight с помощью действия сценария][hdinsight-cluster-customize].
-
-> [AZURE.NOTE]Примеры сценариев работают только с кластером HDInsight версии 3.1 или более поздней. Дополнительную информацию о версиях кластера HDInsight см. в статье [Новые возможности версий кластеров Hadoop, предоставляемых HDInsight](../hdinsight-component-versioning/).
-
-## Образец сценария
-
-Ниже приведен пример сценария для настройки файлов конфигурации сайта:
+Для подготовки кластеров HDInsight в операционной системе Windows, действием сценария является сценарий Azure PowerShell. Ниже приведен пример сценария для настройки файлов конфигурации сайта:
 
 	param (
 	    [parameter(Mandatory)][string] $ConfigFileName,
@@ -126,11 +75,74 @@ HDInsight предоставляет несколько скриптов для 
 
 	Write-HDILog "$configFileName has been configured."
 
-Копию файла сценария можно найти на странице [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1). При вызове сценария из портала предварительной версии Azure можно воспользоваться следующими параметрами:
+Сценарий принимает четыре параметра: имя файла конфигурации, свойство, которое вы хотите изменить, значение, которое вы хотите установить, и описание. Например:
 
-	hive-site.xml hive.metastore.client.socket.timeout 90
+	hive-site.xml hive.metastore.client.socket.timeout 90 
 
 Эти параметры установят для значения hive.metastore.client.socket.timeout величину 90 в файле hive-site.xml. Значение по умолчанию составляет 60 секунд.
+
+Этот пример сценария также доступен по ссылке [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1).
+
+HDInsight предоставляет несколько скриптов для установки дополнительных компонентов в кластерах HDInsight:
+
+Имя | Скрипт
+----- | -----
+**Установка Spark** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. См. статью [Установка и использование Spark в кластерах HDInsight][hdinsight-install-spark].
+**Установка R** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. См. статью [Установка и использование R в кластерах HDInsight][hdinsight-r-scripts].
+**Установка Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. См. статью [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
+— **Установка Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. См. статью [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
+
+Действие сценария можно развернуть из портала предварительной версии Azure, из Azure PowerShell или из пакета SDK для HDInsight .NET. Дополнительную информацию см. в разделе [Настройка кластеров HDInsight с помощью действия сценария][hdinsight-cluster-customize].
+
+> [AZURE.NOTE]Примеры сценариев работают только с кластером HDInsight версии 3.1 или более поздней. Дополнительную информацию о версиях кластера HDInsight см. в статье [Новые возможности версий кластеров Hadoop, предоставляемых HDInsight](../hdinsight-component-versioning/).
+
+
+
+
+
+## Вспомогательные методы для пользовательских скриптов
+
+Вспомогательные методы действий скриптов представляют собой служебные программы, которые можно использовать при создании пользовательских скриптов. Они определяются на странице [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1) и могут быть включены в скрипты с помощью следующей команды.
+
+    # Download config action module from a well-known directory.
+	$CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
+	$CONFIGACTIONMODULE = "C:\apps\dist\HDInsightUtilities.psm1";
+	$webclient = New-Object System.Net.WebClient;
+	$webclient.DownloadFile($CONFIGACTIONURI, $CONFIGACTIONMODULE);
+	
+	# (TIP) Import config action helper method module to make writing config action easy.
+	if (Test-Path ($CONFIGACTIONMODULE))
+	{ 
+		Import-Module $CONFIGACTIONMODULE;
+	} 
+	else
+	{
+		Write-Output "Failed to load HDInsightUtilities module, exiting ...";
+		exit;
+	}
+
+Ниже приведены вспомогательные методы, предоставляемые этим скриптом.
+
+Вспомогательный метод | Описание
+-------------- | -----------
+**Save-HDIFile** | Скачивает файл с указанным универсальным идентификатором ресурса в расположение на локальном диске, который сопоставлен с узлом виртуальной машины Azure, назначенным данному кластеру.
+**Expand-HDIZippedFile** | Распаковывает ZIP-файл.
+**Invoke-HDICmdScript** | Запускает сценарий из cmd.exe.
+**Write-HDILog** | Записывает выходные данные пользовательского сценария, используемого для действия сценария.
+**Get-Services** | Получает список служб, запущенных на том компьютере, где выполняется сценарий.
+**Get-Service** | Используя имя определенной службы в качестве входных данных, получает подробную информацию об этой службе (имя службы, идентификатор процесса, состояние и т. п.) на том компьютере, где выполняется сценарий.
+**Get-HDIServices** | Получает список служб HDInsight, запущенных на том компьютере, где выполняется сценарий.
+**Get-HDIService** | Используя имя определенной службы HDInsight в качестве входных данных, получает подробную информацию об этой службе (имя службы, идентификатор процесса, состояние и т. п.) на том компьютере, где выполняется сценарий.
+**Get-ServicesRunning** | Получает список служб, запущенных на том компьютере, где выполняется сценарий.
+**Get-ServiceRunning** | Проверяет, запущена ли служба с определенным именем на том компьютере, где выполняется сценарий.
+**Get-HDIServicesRunning** | Получает список служб HDInsight, запущенных на том компьютере, где выполняется сценарий.
+**Get-HDIServiceRunning** | Проверяет, запущена ли служба HDInsight с определенным именем на том компьютере, где выполняется сценарий.
+**Get-HDIHadoopVersion** | Получает версию Hadoop, установленную на том компьютере, где выполняется сценарий.
+**Test-IsHDIHeadNode** | Проверяет, является ли тот компьютер, где выполняется сценарий, головным узлом.
+**Test-IsActiveHDIHeadNode** | Проверяет, является ли тот компьютер, где выполняется сценарий, активным головным узлом.
+**Test-IsHDIDataNode** | Проверяет, является ли тот компьютер, где выполняется сценарий, узлом данных.
+**Edit-HDIConfigFile** | Изменяет файлы конфигурации hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml и yarn-site.xml.
+
 
 ## Рекомендации по разработке скриптов
 
@@ -187,6 +199,17 @@ HDInsight предоставляет несколько скриптов для 
 	Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
 
 В этом примере необходимо убедиться, что контейнер somecontainer в учетной записи хранения somestorageaccount является общедоступным. В противном случае сценарий выдаст исключение "Не найдено" и прекратит работу.
+
+### Передача параметров командлету Add-AzureHDInsightScriptAction
+
+Чтобы передать несколько параметров командлету Add-AzureHDInsightScriptAction, необходимо отформатировать строковое значение, которое содержит все параметры для скрипта. Например:
+
+	"-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
+ 
+или
+
+	$parameters = '-Parameters "{0};{1};{2}"' -f $CertificateName,$certUriWithSasToken,$CertificatePassword
+
 
 ### Вызов исключения при сбое развертывания кластера
 
@@ -256,7 +279,15 @@ HDInsight предоставляет несколько скриптов для 
 
 ## Отладка пользовательских сценариев
 
-Журналы ошибок сценария хранятся вместе с другими выходными данными в учетной записи хранения по умолчанию, заданной для кластера при его создании. Журналы хранятся в таблице с именем *u<\\cluster-name-fragment><\\time-stamp>setuplog*. Это сводные журналы, содержащие записи из всех узлов (рабочих и главного), на которых выполняется сценарий в кластере.
+Журналы ошибок сценария хранятся вместе с другими выходными данными в учетной записи хранения по умолчанию, заданной для кластера при его создании. Журналы хранятся в таблице с именем *u<\\cluster-name-fragment><\\time-stamp>setuplog*. Это сводные журналы, содержащие записи из всех узлов (рабочих и главного), на которых выполняется сценарий в кластере. Для проверки журналов удобно воспользоваться инструментами HDInsight для Visual Studio. Для установки инструментов см. статью [Приступая к работе с инструментами Hadoop в Visual Studio для HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md#install-hdinsight-tools-for-visual-studio).
+
+**Для проверки журнала с помощью Visual Studio**
+
+1. Откройте Visual Studio.
+2. Щелкните **Представление**, а затем щелкните **Обозреватель сервера**.
+3. Щелкните правой кнопкой мыши на Azure, выберите "Подключение к **подписке Microsoft Azure**", а затем введите учетные данные.
+4. Разверните **Хранилище**, затем разверните узлы учетной записи хранения Azure, используемой в качестве файловой системы по умолчанию, разверните **Таблицы**, а затем дважды щелкните имя таблицы.
+
 
 Вы также можете осуществить удаленный доступ к узлам кластера для просмотра STDOUT и STDERR для пользовательских сценариев. Журналы на каждом узле относятся только к данному конкретному узлу и хранятся в **C:\\HDInsightLogs\\DeploymentAgent.log**. В эти файлы журналов записываются все выходные данные пользовательского скрипта. Фрагмент журнала для действия сценария Spark выглядит следующим образом:
 
@@ -308,8 +339,8 @@ HDInsight предоставляет несколько скриптов для 
 - [Настройка кластеров HDInsight с помощью действия сценария][hdinsight-cluster-customize]
 - [Установка и использование Spark в кластерах HDInsight][hdinsight-install-spark]
 - [Установка и использование R в кластерах HDInsight][hdinsight-r-scripts]
-- [Установка и использование Solr на кластерах HDInsight Hadoop](hdinsight-hadoop-solr-install.md).
-- [Установка Giraph в кластерах HDInsight Hadoop и использование Giraph для обработки диаграмм больших объемов](hdinsight-hadoop-giraph-install.md).
+- [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
+- [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
@@ -320,4 +351,4 @@ HDInsight предоставляет несколько скриптов для 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

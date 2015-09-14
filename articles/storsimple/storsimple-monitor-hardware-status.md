@@ -1,25 +1,25 @@
 <properties 
    pageTitle="Компоненты оборудования StorSimple и их состояние | Microsoft Azure"
-   description="Узнайте, как отслеживать аппаратные компоненты устройства StorSimple через службу диспетчера StorSimple."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="Узнайте, как отслеживать аппаратные компоненты устройства StorSimple через службу диспетчера StorSimple."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/02/2015"
+	ms.author="alkohli"/>
 
-# Компоненты оборудования StorSimple и их состояние
+# Использование службы диспетчера StorSimple для мониторинга компонентов оборудования и их состояния
 
 ## Обзор
 
-В этой статье описываются различные физические и логические компоненты локального устройства StorSimple. Также объясняется, как отслеживать состояние компонента устройства с помощью страницы **Обслуживание** в службе диспетчера StorSimple.
+В этой статье описываются различные физические и логические компоненты локального устройства StorSimple. В ней также объясняется, как отслеживать состояние компонента устройства с помощью страницы **Обслуживание** в службе диспетчера StorSimple.
 
 Страница **Обслуживание** отображает состояние оборудования всех компонентов устройства StorSimple. В списке компонентов для устройства 8100 существует три раздела.
 
@@ -131,4 +131,4 @@
 
 Если с устройством продолжают возникать проблемы, [обратитесь в службу технической поддержки Майкрософт](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

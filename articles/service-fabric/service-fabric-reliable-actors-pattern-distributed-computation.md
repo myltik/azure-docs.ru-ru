@@ -1,20 +1,20 @@
 <properties
    pageTitle="Шаблон разработки надежных субъектов: распределенные вычисления"
-   description="Надежные субъекты Service Fabric отлично подходят для работы с параллельным асинхронным обменом сообщениями, параллельными вычислениями и для управления состояниями в распределенных средах."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="jessebenson"
-   manager="timlt"
-   editor=""/>
+	description="Надежные субъекты Service Fabric отлично подходят для работы с параллельным асинхронным обменом сообщениями, параллельными вычислениями и для управления состояниями в распределенных средах."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="jessebenson"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/05/2015"
-   ms.author="claudioc"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/05/2015"
+	ms.author="claudioc"/>
 
 # Шаблон разработки надежных субъектов: распределенные вычисления
 Этот шаблон возник отчасти благодаря реальной ситуации: наш клиент смог в рекордно короткие сроки выполнить финансовый расчет с помощью надежных субъектов Service Fabric, а точнее рассчитать риски с помощью моделирования по методу Монте-Карло.
@@ -82,7 +82,7 @@ public class PooledTask : Actor, IPooledTask
                 pi.InCircle++;
         }
 
-        var agg = ActorProxy.Create<IAggregator>(0);
+        var agg = ActorProxy.Create<IAggregator>(ActorId.NewId());
         return agg.AggregateAsync(pi);
     }
 }
@@ -203,4 +203,4 @@ public class Finaliser : Actor<FinalizerState>, IFinaliser
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

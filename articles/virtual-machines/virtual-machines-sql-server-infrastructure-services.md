@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/24/2015"
+	ms.date="09/01/2015"
 	ms.author="jroth"/>
 
 # Общие сведения об SQL Server на виртуальных машинах Azure
@@ -29,22 +29,19 @@
 
 После получения подписки самый простой способ развернуть виртуальную машину SQL Server в Azure — [подготовить образ коллекции машин SQL Server на портале управления Azure](virtual-machines-provision-sql-server.md). Эти образы содержат лицензии на использование SQL Server, стоимость которых включена в цену виртуальной машины.
 
-Вы можете выполнять общие рабочие нагрузки SQL Server на виртуальных машинах Azure. Для SQL Server есть несколько оптимизированных образов виртуальных машин, которые доступны в коллекции. Дополнительные сведения о конкретных рабочих нагрузках приведены в следующих статьях.
-
-- [SQL Server Business Intelligence на виртуальных машинах Azure](virtual-machines-sql-server-business-intelligence.md)
-- [Хранение данных SQL Server и рабочих нагрузок операций на виртуальных машинах Azure](virtual-machines-sql-server-dw-and-oltp-workloads.md)
-
 Следующая таблица содержит матрицу доступных образов SQL Server в коллекции виртуальных машин.
 
 |Версия SQL Server|операционная система|Выпуск SQL Server|
 |---|---|---|
-|SQL Server 2008 R2 SP2|Windows Server 2008 R2|Enterprise, Standard и Web|
-|SQL Server 2008 R2 SP3|Windows Server 2008 R2|Enterprise, Standard и Web|
-|SQL Server 2012 SP2|Windows Server 2012|Enterprise, Standard, Web, OLTP (Enterprise) и хранилища данных (Enterprise)|
-|SQL Server 2012 SP2|Windows Server 2012 R2|Enterprise, Standard, Web, OLTP (Enterprise) и хранилища данных (Enterprise)|
-|SQL Server 2014|Windows Server 2012 R2|Enterprise, Standard, Web, OLTP (Enterprise) и хранилища данных (Enterprise)|
-|SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise, Standard, Web, OLTP (Enterprise) и хранилища данных (Enterprise)|
+|SQL Server 2008 R2 SP2|Windows Server 2008 R2|Enterprise, Standard, Web|
+|SQL Server 2008 R2 SP3|Windows Server 2008 R2|Enterprise, Standard, Web|
+|SQL Server 2012 SP2|Windows Server 2012|Enterprise, Standard, Web|
+|SQL Server 2012 SP2|Windows Server 2012 R2|Enterprise, Standard, Web|
+|SQL Server 2014|Windows Server 2012 R2|Enterprise, Standard, Web|
+|SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise, Standard, Web|
 |SQL Server 2016 CTP|Windows Server 2012 R2|Оценка|
+
+>[AZURE.NOTE]Образы виртуальных машин для хранения данных и транзакционных рабочих нагрузок (не показано выше), имеющиеся в коллекции, являются устаревшими и скоро будут удалены из нее. Используйте стандартные образы, перечисленные в предыдущей таблице, и оптимизируйте их производительность с учетом конкретной рабочей нагрузки, следуя указаниям, приведенным в [рекомендациях по оптимизации производительности SQL Server в виртуальных машинах Azure](virtual-machines-sql-server-performance-best-practices.md).
 
 Наряду с использованием этих предварительно настроенных образов можно [создать виртуальную машину Azure](virtual-machines-windows-tutorial.md) без предустановленного SQL Server. Можно установить любой экземпляр SQL Server с действующей лицензией. Перенесите лицензию в Azure для запуска SQL Server в виртуальной машине Azure, воспользовавшись инструкциями из статьи [Перемещение лицензий в рамках программы Software Assurance в Azure](http://azure.microsoft.com/pricing/license-mobility/). В этом сценарии вы оплачиваете только [затраты](http://azure.microsoft.com/pricing/details/virtual-machines) на вычислительные ресурсы и ресурсы хранения Azure, связанные с виртуальной машиной.
 
@@ -66,6 +63,7 @@
 
 - [Настройка групп доступности AlwaysOn в Azure (графический пользовательский интерфейс)](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
 - [Настройка прослушивателя внутренней подсистемы балансировки нагрузки для группы доступности AlwaysOn в Azure](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
+- [Развертывание AlwaysOn SQL Server с помощью шаблона диспетчера ресурсов Azure](virtual-machines-workload-template-sql-alwayson.md)
 - [Расширение локальных групп доступности AlwaysOn в Azure](virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups.md)
 
 Дополнительные рекомендации по обеспечению высокого уровня доступности см. в разделе [Высокий уровень доступности и аварийное восстановление для SQL Server в виртуальных машинах Azure](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md).
@@ -110,7 +108,7 @@
 |Data Quality Services|Установлены (только в SQL Server 2012 и более поздних версиях).|
 |Master Data Services|Установлены (только в SQL Server 2012 и более поздних версиях). Требуются [дополнительная настройка и дополнительные компоненты](https://msdn.microsoft.com/library/ee633752.aspx).
 |PowerPivot для SharePoint|Доступен (только в SQL Server 2012 и более поздних версиях). Требуются дополнительная настройка и дополнительные компоненты (в том числе SharePoint).|
-|Клиент распределенного воспроизведения|Доступен (только в SQL Server 2012 и более поздних версиях), но не установлен. См. [Запуск установки SQL Server на предоставленном платформой образе SQL Server](#running-sql-server-setup-from-the-platform-provided-sql-server-image).|
+|Клиент распределенного воспроизведения|Доступен (только в SQL Server 2012 и более поздних версиях), но не установлен. См. [Запуск установки SQL Server на предоставленном платформой образе SQL Server](#run-sql-server-setup-from-the-platform-provided-sql-server-image).|
 |Средства|Все средства, включая SQL Server Management Studio, диспетчер конфигурации SQL Server, Business Intelligence Development Studio, программу установки SQL Server, средства связи клиентских средств, пакет SDK клиентских средств, пакет SDK для подключения клиента SQL и средства обновления и миграции, такие как приложения уровня данных (DAC), средства резервного копирования, восстановления, присоединения и отсоединения|
 |Электронная документация по SQL Server|Установлена, но требуется настройка с помощью средства просмотра справки.|
 
@@ -121,16 +119,18 @@
 |Функция|Конфигурация|
 |---|---|
 |Экземпляр|Содержит экземпляр по умолчанию SQL Server Database Engine (безымянный), прослушивает только протокол общей памяти.|
-|Проверка подлинности|По умолчанию во время настройки виртуальной машины SQL Server в Azure выбирается проверка подлинности Windows. Если вы хотите использовать имя пользователя sa или создать новую учетную запись SQL Server, необходимо изменить режим проверки подлинности. Дополнительные сведения см. в статье [Рекомендации по безопасности SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-security-considerations.md).|
+|Проверка подлинности|По умолчанию во время настройки виртуальной машины SQL Server в Azure выбирается проверка подлинности Windows. Если вы хотите использовать имя пользователя sa или создать новую учетную запись SQL Server, необходимо изменить режим проверки подлинности. Дополнительные сведения см. в статье [Вопросы безопасности SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-security-considerations.md).|
 |sysadmin|Пользователь Azure, который установил виртуальную машину, первоначально является единственным членом фиксированной серверной роли sysadmin SQL Server.|
 |Память|В настройках памяти ядра СУБД задается динамическая конфигурация памяти.|
 |Проверка подлинности автономной базы данных|Отключить|
 |Язык по умолчанию|Английский|
 |Цепочки владения между базами данных|Отключить|
 
+### Программа улучшения качества программного обеспечения (CEIP)
+
 [Программа улучшения качества программного обеспечения (CEIP)](https://technet.microsoft.com/library/cc730757.aspx) включена. CEIP можно отключить с помощью утилиты создания отчетов об ошибках и использовании SQL Server. Для запуска утилиты создания отчетов об ошибках и использовании SQL Server в меню "Пуск" щелкните "Все программы", "Версия Microsoft SQL Server" "Средства настройки", а затем "Создание отчетов об ошибках и использовании SQL Server". Если вы не хотите использовать экземпляр SQL Server с включенной CEIP, вы также можете развернуть образ собственной виртуальной машины в Azure. Дополнительные сведения см. в статье [Создание и загрузка виртуального жесткого диска с операционной системой Windows Server](virtual-machines-create-upload-vhd-windows-server.md).
 
-### Запуск установки SQL Server на предоставленном платформой образе SQL Server
+## Запуск установки SQL Server на предоставленном платформой образе SQL Server
 
 При создании виртуальной машины с помощью предоставленного платформой образа SQL Server вы можете найти установочный носитель SQL Server, сохраненный в виртуальной машине, в каталоге **C:\\SqlServer\_SQLMajorVersion.SQLMinorVersion\_Full**. Для выполнения всех операций по установке, в том числе добавления или удаления компонентов, добавления нового экземпляра или восстановления экземпляра, при наличии достаточного пространства на диске можно запустить установку из этого каталога.
 
@@ -144,4 +144,4 @@
 - [Шаблоны приложений и стратегии разработки для SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Виртуальные машины Azure](virtual-machines-about.md) 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

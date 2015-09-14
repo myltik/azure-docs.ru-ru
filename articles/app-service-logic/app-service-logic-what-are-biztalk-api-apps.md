@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Что такое соединители и приложения API BizTalk" 
-	description="Сведения о приложениях API, соединителях и приложениях API BizTalk" 
-	services="app-service\logic" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+	pageTitle="Что такое соединители и приложения API BizTalk"
+	description="Сведения о приложениях API, соединителях и приложениях API BizTalk"
+	services="app-service\logic"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="mandia"/>
 
 # Что такое соединители и приложения API BizTalk
@@ -48,4 +48,4 @@
 В разделе [Список соединителей и приложений API](app-service-logic-connectors-list.md) можно найти полный список соединителей и приложений API, содержащихся в каждой категории, включая стандартные соединители, BizTalk EAI, соединители Premium и так далее.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

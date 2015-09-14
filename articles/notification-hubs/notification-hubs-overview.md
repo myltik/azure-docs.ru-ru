@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Концентраторы уведомлений Azure" 
-	description="Узнайте, как использовать push-уведомления в Azure. Примеры кода написаны на C# с использованием API .NET." 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
-	services="notification-hubs" 
+<properties
+	pageTitle="Концентраторы уведомлений Azure"
+	description="Узнайте, как использовать push-уведомления в Azure. Примеры кода написаны на C# с использованием API .NET."
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
+	services="notification-hubs"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 
@@ -94,7 +94,7 @@ Push-уведомления являются одним из наиболее в
 
 Центры уведомлений предоставляют готовую инфраструктуру для отправки push-уведомлений, которая обеспечивает следующие преимущества.
 
-- **Несколько платформ.**   
+- **Несколько платформ.**
 	+  Поддержка всех основных мобильных платформ. Концентраторы уведомлений могут отправлять push-уведомления приложениям Магазина Windows, iOS, Android и Windows Phone.
 
 
@@ -140,7 +140,7 @@ Push-уведомления являются одним из наиболее в
 Соответствующие управляемые API-ссылки .NET на push-уведомления приведены ниже.
 
 + [Microsoft.WindowsAzure.Messaging.NotificationHub]
-+ [Microsoft.ServiceBus.Notifications] 
++ [Microsoft.ServiceBus.Notifications]
 
 
   [0]: ./media/notification-hubs-overview/registration-diagram.png
@@ -156,8 +156,5 @@ Push-уведомления являются одним из наиболее в
   [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
-  
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

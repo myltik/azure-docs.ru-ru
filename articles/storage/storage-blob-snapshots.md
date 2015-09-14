@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Создание моментального снимка большого двоичного объекта" 
-	description="Практическое руководство по созданию моментальных снимков больших двоичных объектов хранилища Azure" 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
+	pageTitle="Создание моментального снимка большого двоичного объекта"
+	description="Практическое руководство по созданию моментальных снимков больших двоичных объектов хранилища Azure"
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="adinah"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="tamram"/>
 
 # Создание моментального снимка BLOB-объекта
@@ -125,4 +125,4 @@
 
 ![Ресурсы хранилища Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

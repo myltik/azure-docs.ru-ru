@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Рассылка push-уведомлений проверенным пользователям" 
-	description="Узнайте, как отправлять push-уведомления для конкретного адресата" 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="android" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Рассылка push-уведомлений проверенным пользователям"
+	description="Узнайте, как отправлять push-уведомления для конкретного адресата"
+	services="mobile-services,notification-hubs"
+	documentationCenter="android"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="notification-hubs" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="notification-hubs"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Рассылка push-уведомлений проверенным пользователям
@@ -27,7 +27,7 @@
 
 Этот учебник поддерживает приложения Android.
 
-##Предварительные требования 
+##Предварительные требования
 
 Перед началом работы с этим учебником необходимо изучить следующие учебники по мобильным службам.
 
@@ -62,6 +62,5 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

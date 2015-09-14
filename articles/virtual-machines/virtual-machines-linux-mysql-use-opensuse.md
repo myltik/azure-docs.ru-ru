@@ -6,7 +6,7 @@
 	authors="KBDAzure"
 	manager="timlt"
 	editor=""
-	tags="mysql"/>
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,32 +14,28 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/22/2015"
+	ms.date="08/31/2015"
 	ms.author="kathydav"/>
 
 # Установка MySQL на виртуальной машине под управлением OpenSUSE Linux в Azure
 
-[MySQL][MySQL] — это популярная база данных SQL с открытым исходным кодом. В этом учебнике показано:
+[MySQL][MySQL] — это популярная база данных SQL с открытым исходным кодом. В этом учебнике показано, как создать виртуальную машину под управлением OpenSUSE Linux, а затем установить MySQL.
 
-- Как использовать [портал управления Azure][AzurePortal] для создания виртуальной машины OpenSUSE Linux из образа, доступного в Azure.
-- Как подключаться к виртуальной машине с использованием SSH или PuTTY.
-- Как установить MySQL на виртуальной машине.
-
-[AZURE.INCLUDE [antares-iaas-signup-iaas](../../includes/antares-iaas-signup-iaas.md)]
+[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## Создание виртуальной машины под управлением OpenSUSE Linux
 
 [AZURE.INCLUDE [create-and-configure-opensuse-vm-in-portal](../../includes/create-and-configure-opensuse-vm-in-portal.md)]
 
-##Установка и запуск MySQL на виртуальной машине
+## Установка и запуск MySQL на виртуальной машине
 
 [AZURE.INCLUDE [install-and-run-mysql-on-opensuse-vm](../../includes/install-and-run-mysql-on-opensuse-vm.md)]
 
-##Сводка
-В этом учебнике вы научились создавать виртуальную машину под управлением OpenSUSE Linux и удаленно подключаться к ней с помощью SSH или PuTTY. Кроме того, вы узнали, как установить и настроить MySQL на виртуальной машине Linux. Дополнительные сведения о MySQL см. в [документации по MySQL][MySQLDocs].
+## Дальнейшие действия
+Дополнительные сведения о MySQL см. в [документации по MySQL][MySQLDocs].
 
-[MySQLDocs]: http://dev.mysql.com/doc/
+[MySQLDocs]: http://dev.mysql.com/doc/index-topic.html
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

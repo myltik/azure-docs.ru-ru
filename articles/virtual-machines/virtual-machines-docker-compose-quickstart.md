@@ -1,20 +1,20 @@
 <properties
    pageTitle="Начало работы с решениями Docker и Compose на виртуальной машине Azure"
-   description="Краткое введение по использованию решений Compose и Docker в Azure"
-   services="virtual-machines"
-   documentationCenter=""
-   authors="dlepow"
-   manager="timlt"
-   editor=""/>
+	description="Краткое введение по использованию решений Compose и Docker в Azure"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="08/07/2015"
-   ms.author="danlep"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="08/07/2015"
+	ms.author="danlep"/>
 
 # Начало работы с решениями Docker и Compose на виртуальной машине Azure
 
@@ -24,7 +24,7 @@
 
 ## Шаг 1. Настройка виртуальной машины Linux как узла Docker
 
-Чтобы создать виртуальную машину Linux и настроить ее как узел Docker, можно использовать различные процедуры Azure и образы, доступные в Azure Markeplace. Например, в разделе [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure](virtual-machines-docker-with-xplat-cli) описана процедура быстрого создания виртуальной машины Ubuntu с расширением виртуальных машин Docker. При использовании этого расширения виртуальная машина настраивается как узел Docker автоматически. Приведенный в этой статье пример демонстрирует применение [интерфейса командной строки Azure для Mac, Linux и Windows](xplat-cli.md) (Azure CLI) в режиме управления службами для создания виртуальной машины.
+Чтобы создать виртуальную машину Linux и настроить ее как узел Docker, можно использовать различные процедуры Azure и образы, доступные в Azure Markeplace. Например, в разделе [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure](virtual-machines-docker-with-xplat-cli.md) описана процедура быстрого создания виртуальной машины Ubuntu с расширением виртуальных машин Docker. При использовании этого расширения виртуальная машина настраивается как узел Docker автоматически. Приведенный в этой статье пример демонстрирует применение [интерфейса командной строки Azure для Mac, Linux и Windows](../xplat-cli.md) (Azure CLI) в режиме управления службами для создания виртуальной машины.
 
 ## Шаг 2. Установка решения Compose
 
@@ -37,7 +37,7 @@ $ curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compo
 
 $ chmod +x /usr/local/bin/docker-compose
 ```
->[AZURE.NOTE]Если появится сообщение об ошибке «Отказано в доступе», возможно, что в каталог /usr/local/bin на виртуальной машине запрещено записывать данные, поэтому решение Compose понадобится установить в режиме суперпользователя. Выполните команду `sudo -i`, а затем — две приведенные выше команды и команду `exit`.
+>[AZURE.NOTE]Если появится сообщение об ошибке "Отказано в доступе", возможно, что в каталог /usr/local/bin на виртуальной машине запрещено записывать данные, поэтому решение Compose понадобится установить в режиме суперпользователя. Выполните команду `sudo -i`, а затем — две приведенные выше команды и команду `exit`.
 
 Чтобы проверить установку решения Compose, выполните следующую команду:
 
@@ -112,4 +112,4 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

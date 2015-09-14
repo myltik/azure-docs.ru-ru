@@ -3,7 +3,7 @@
 	description="Использование службы приложений Azure для отправки push-уведомлений в приложение Xamarin.iOS"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="normesta"
+	authors="wesmc7777"
 	manager="dwrede"
 	editor=""/>
 
@@ -209,4 +209,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->
