@@ -241,7 +241,7 @@
 Обновление устройства может занять несколько часов. Выполните следующие действия, чтобы проверить наличие обновлений и применить их на своем устройстве.
 <!-- > can take 1-4 hours-->
 
-<!-- > [AZURE.NOTE] If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
+<!-- > [AZURE.NOTE] Если шлюз настроен на сетевом интерфейсе, отличном от Data 0, перед установкой обновления необходимо будет отключить сетевые интерфейсы Data 2 и Data 3. Перейдите в раздел **Устройства > Настроить** и отключите интерфейсы Data 2 и Data 3. Эти интерфейсы необходимо будет снова включить после обновления устройства.-->
 
 #### Обновление устройства
 
@@ -255,7 +255,7 @@
 
 4.	После успешного обновления устройства включите сетевые интерфейсы Data 2 и Data 3, если они были отключены.
 
-<!-- In step 2, you may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.-->
+<!-- Перед установкой обновлений может появиться сообщение о необходимости отключить интерфейсы Data 2 и Data 3. Эти сетевые интерфейсы необходимо отключить, иначе обновления могут завершиться ошибкой.-->
 
 ## Получение IQN узла Windows Server
 
@@ -287,4 +287,4 @@ MPIO представляет собой дополнительный компо
 Для управления устройством StorSimple используется [служба Диспетчера StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=September15_HO1-->
+<!-----HONumber=September15_HO1-->

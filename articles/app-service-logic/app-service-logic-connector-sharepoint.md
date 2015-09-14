@@ -34,7 +34,8 @@
 
 	Имя | Обязательно | Описание
 --- | --- | ---
-URL-адрес сайта | Да | Введите полный URL-адрес веб-сайта SharePoint. Например, введите **https://microsoft.sharepoint.com/teams/wabstest*. Относительные URL-адреса библиотек или списков документов | Да | Введите URL-адреса библиотек или списков документов, связанных с URL-адресом сайта SharePoint, которые могут изменяться соединителем. Например, введите *Lists/Task, Shared Documents*.
+URL-адрес сайта | Да | Введите полный URL-адрес веб-сайта SharePoint. Например, введите *https://microsoft.sharepoint.com/teams/wabstest*.
+Относительные URL-адреса библиотек или списков документов | Да | Введите URL-адреса библиотек или списков документов, связанных с URL-адресом сайта SharePoint, которые могут изменяться соединителем. Например, введите *Lists/Task, Shared Documents*.
 
 5. После завершения параметры пакета будут выглядеть примерно так:
 <br/>
@@ -486,4 +487,4 @@ ItemID | Да | Идентификатор элемента списка.
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->

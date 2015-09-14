@@ -188,4 +188,4 @@ SendGrid поддерживает различные веб-интерфейсы
   [облачная служба электронной почты]: https://sendgrid.com/email-solutions
   [доставка электронной почты]: https://sendgrid.com/transactional-email
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->
