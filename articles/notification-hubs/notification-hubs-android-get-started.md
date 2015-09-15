@@ -522,7 +522,7 @@
 
 
 <!-- URLs. -->
-[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md
+[Приступая к работе с push-уведомлениями в мобильных службах]: ../mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [портале Azure]: https://manage.windowsazure.com/
@@ -530,4 +530,4 @@
 [Использование концентраторов уведомлений для отправки push-уведомлений пользователям]: notification-hubs-aspnet-backend-android-notify-users.md
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->
