@@ -1,7 +1,7 @@
 1.	Войдите на [веб-портал предварительной версии Microsoft Azure](https://portal.azure.com/).
 2.	На навигационной панели щелкните **Создать**, затем **Данные + хранилище** и **DocumentDB**. 
 
-	![Снимок экрана портала предварительной версии Azure с выделением кнопки "Создать", элемента "Данные + хранилище" в области "Создать" и Azure DocumentDB в колонке "Данные + хранилище"][1]
+	![Снимок экрана портала предварительной версии Azure][1]
 
 	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  -->
 	
@@ -49,4 +49,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!--------HONumber=August15_HO6-->
+<!---------HONumber=August15_HO6-->
