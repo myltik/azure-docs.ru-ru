@@ -43,16 +43,16 @@
 
 The completed application is provided at the end of this tutorial as well.
 
-## 1. Register an App
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+## 1. Регистрация приложения
+Создайте приложение на странице [apps.dev.microsoft.com](https://apps.dev.microsoft.com) или выполните следующие [действия](active-directory-v2-app-registration.md).  Не забудьте:
 
-- Copy down the **Application Id** assigned to your app, you'll need it soon.
-- Add the **Web** platform for your app.
-- Enter the correct **Redirect URI**. The redirect URI indicates to Azure AD where authentication responses should be directed - the default for this tutorial is `http://localhost:3000/auth/openid/return`.
+- скопировать **идентификатор приложения**, назначенный вашему приложению (он скоро вам понадобится);
+- добавить **веб-платформу** для приложения;
+- ввести правильный **URI перенаправления**. URI перенаправления сообщает Azure AD, куда следует направлять ответы проверки подлинности. Значение по умолчанию для этого учебника — `http://localhost:3000/auth/openid/return`.
 
-## 2. Add pre-requisities to your directory
+## 2. Добавление предварительных требований в ваш каталог
 
-From the command-line, change directories to your root folder if not already there and run the following commands:
+В командной строке сделайте текущей корневую папку, если это еще не было сделано, и выполните следующие команды:
 
 - `npm install express`
 - `npm install ejs`
@@ -417,4 +417,4 @@ exports.list = function(req, res){
 
 Дополнительные ресурсы: [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) [Тег StackOverflow azure-active-directory >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

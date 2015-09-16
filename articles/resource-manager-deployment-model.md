@@ -73,7 +73,7 @@
 
         ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        Либо просмотрите портал предварительной версии и выберите **классическое** развертывание (для вычислений, хранения и работы по сети).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -158,4 +158,4 @@
 - Сведения о создании декларативных шаблонов развертывания см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 - Команды для развертывания шаблонов см. в статье [Развертывание приложения с помощью шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
 
-<!-----HONumber=August15_HO9-->
+<!------HONumber=August15_HO9-->
