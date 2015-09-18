@@ -38,22 +38,22 @@
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
-The completed application is provided at the end of this tutorial as well.
+Готовое приложение также приводится в конце этого руководства.
 
-## 1. Register an App
-- Sign into the Azure Management Portal.
-- In the left hand nav, click on **Active Directory**.
-- Select the tenant where you wish to register the application.
-- Click the **Applications** tab, and click add in the bottom drawer.
-- Follow the prompts and create a new **Web Application and/or WebAPI**.
-    - The **name** of the application will describe your application to end-users
-    -	The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:3000/auth/openid/return``.
-    - The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`
-- Once you've completed registration, AAD will assign your app a unique client identifier.  You'll need this value in the next sections, so copy it from the Configure tab.
+## 1. Регистрация приложения
+- Выполните вход на портале управления Azure.
+- В левой панели навигации щелкните **Active Directory**.
+- Выберите клиент, в котором нужно зарегистрировать приложение.
+- Перейдите на вкладку **Приложения** и нажмите кнопку **Добавить** в нижней панели.
+- Следуйте инструкциям на экране, а затем создайте новое **веб-приложение и/или WebAPI**.
+    - **Имя** приложения отображает его описание конечным пользователям.
+    -	**URL-адрес входа** — это базовый URL-адрес вашего приложения.  Схема по умолчанию — `http://localhost:3000/auth/openid/return``.
+    - **URI идентификатора приложения** — это уникальный идентификатор вашего приложения.  Соглашение заключается в использовании `https://<tenant-domain>/<app-name>`, например, `https://contoso.onmicrosoft.com/my-first-aad-app` .
+- После завершения регистрации Azure AD присваивает приложению уникальный идентификатор клиента.  Это значение понадобится в следующих разделах, поэтому его стоит скопировать из вкладки «Настройка».
 
-## 2. Add pre-requisities to your directory
+## 2. Добавление предварительных требований в ваш каталог
 
-From the command-line, change directories to your root folder if not already there and run the following commands:
+В командной строке сделайте текущей корневую папку, если это еще не было сделано, и выполните следующие команды:
 
 - `npm install express`
 - `npm install ejs`
@@ -64,21 +64,21 @@ From the command-line, change directories to your root folder if not already the
 - `npm install assert-plus`
 - `npm install passport`
 
-- In addition, you'll need our `passport-azure-ad` as well:
+- Кроме того, вам также потребуется `passport-azure-ad`:
 
 - `npm install passport-azure-ad`
 
-This will install the libraries that passport-azure-ad depend on.
+Будет выполнена установка библиотек, которые зависят от passport-azure-ad.
 
-## 3. Set up your app to use the passport-node-js strategy
-Here, we'll configure the Express middleware to use the OpenID Connect authentication protocol.  Passport will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+## 3. Настройка приложения для использования стратегии passport-node-js
+Здесь мы настроим промежуточный слой Express для использования протокола проверки подлинности OpenID Connect.  Кроме всего прочего, Passport будет использоваться для выдачи запросов входа и выхода, управления сеансом пользователя и получения сведений о пользователе.
 
 -	To begin, open the `config.js` file in the root of the project, and enter your app's configuration values in the `exports.creds` section.
-    -	The `clientID:` is the **Application Id** assigned to your app in the registration portal.
-    -	The `returnURL` is the **Redirect Uri** you entered in the portal.
-    - The `clientSecret` is the secret you generated in the portal
+    -	`clientID`: — это **идентификатор приложения**, назначенный приложению на портале регистрации.
+    -	`returnURL` — это **URI перенаправления**, который был введен на портале.
+    - `clientSecret` — это секретный код, созданный на портале.
 
-- Next open `app.js` file in the root of the proejct and add the follwing call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`
+- Затем откройте файл `app.js`  в корне проекта и добавьте вызов стратегии `OIDCStrategy`, входящей в состав `passport-azure-ad`.
 
 
 ```JavaScript
@@ -391,4 +391,4 @@ For reference, the completed sample (without your configuration values) [is prov
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=September15_HO1-->
+<!-----HONumber=September15_HO1-->

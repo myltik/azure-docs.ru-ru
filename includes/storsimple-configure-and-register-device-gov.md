@@ -80,7 +80,10 @@
 
      `Get-HcsSystem`
 
-    Вы должны увидеть следующие версии:-HcsSoftwareVersion: 6.3.9600.17491 - CisAgentVersion: 1.0.9037.0 - MdsAgentVersion: 26.0.4696.1433
+    Вы должны увидеть следующие версии:
+    - HcsSoftwareVersion: 6.3.9600.17491
+    - CisAgentVersion: 1.0.9037.0
+    - MdsAgentVersion: 26.0.4696.1433
  
 9. Выполните следующий командлет, чтобы подтвердить правильность применения обновления встроенного ПО:
 
@@ -135,4 +138,4 @@
      
         
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->
