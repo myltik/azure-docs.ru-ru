@@ -306,7 +306,7 @@
 
 ## Дальнейшие действия
 
-Вы познакомились с основами использования очередей служебной шины. Дополнительную информацию см. в статье [Очереди, разделы и подписки][] на портале MSDN.
+Вы познакомились с основами использования очередей служебной шины. Дополнительные сведения см. в статье [Очереди, темы и подписки][].
 
 [What are Service Bus Topics and Subscriptions?]: #bkmk_WhatAreSvcBusTopics
 [Create a Service Namespace]: #bkmk_CreateSvcNamespace
@@ -326,10 +326,10 @@
 [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
 [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
 [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-[Очереди, разделы и подписки]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+[Очереди, темы и подписки]: service-bus-queues-topics-subscriptions.md
 [Available Namespaces screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_04_SvcBusNode_AvailNamespaces.jpg
 [sqlfilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [require-once]: http://php.net/require_once
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

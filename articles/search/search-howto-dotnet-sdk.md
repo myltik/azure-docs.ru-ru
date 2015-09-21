@@ -397,7 +397,7 @@
 
 ## Дальнейшие действия ##
 
-- Дополнительные сведения можно получить из [видео, а также других примеров и руководств](https://msdn.microsoft.com/library/azure/dn818681.aspx).
+- Дополнительные сведения можно получить из [видео, а также других примеров и руководств](search-video-demo-tutorial-list.md).
 - Сведения о функциях и возможностях в данной версии пакета SDK для Поиска Azure: [Обзор Поиска Azure](https://msdn.microsoft.com/library/azure/dn798933.aspx)
 - Изучите [соглашения о наименовании](https://msdn.microsoft.com/library/azure/dn857353.aspx), чтобы узнать правила именования различных объектов.
 - Изучите [поддерживаемые типы данных](https://msdn.microsoft.com/library/azure/dn798938.aspx) в службе поиска Azure.
@@ -626,4 +626,4 @@ Hotel.cs:
     }
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

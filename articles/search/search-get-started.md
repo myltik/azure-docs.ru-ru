@@ -98,7 +98,7 @@
 
 Счета за дополнительные реплики и разделы выставляются в единицах поиска. Итоговое количество единиц поиска, которое требуется для поддержки определенной конфигурации ресурсов, отображается на странице по мере добавления ресурсов.
 
-Для получения информации по стоимости единицы можно воспользоваться разделом [Сведения о ценах](http://go.microsoft.com/fwlink/p/?LinkID=509792). В статье [Ограничения (служба поиска Azure)](http://msdn.microsoft.com/library/azure/dn798934.aspx) можно найти справочные сведения, которые помогут в настройке сочетаний разделов и реплик.
+Для получения информации по стоимости единицы можно воспользоваться разделом [Сведения о ценах](http://go.microsoft.com/fwlink/p/?LinkID=509792). В статье [Ограничения (служба поиска Azure)](search-limits-quotas-capacity.md) можно найти справочные сведения, которые помогут в настройке сочетаний разделов и реплик.
 
  ![][15]
 
@@ -256,7 +256,7 @@
 
         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
 
-    Запрос ищет термин «мотель» и возвращает плоский список категорий для рейтинга.
+    Запрос ищет термин "мотель" и возвращает плоский список категорий для рейтинга.
 
 3.	Заголовок запроса должен остаться таким же, как прежде. Не забывайте, что вы заменили адрес узла и ключ API (строчные буквы) значениями, соответствующими вашей службе.
 
@@ -334,7 +334,7 @@
 
 - [Что такое поиск Azure?](search-what-is-azure-search.md)
 
-- [Интерфейс REST API поиска Azure](http://msdn.microsoft.com/library/dn798935.aspx)
+- [REST API службы поиска Azure](http://msdn.microsoft.com/library/dn798935.aspx)
 
 - [SDK .NET службы поиска Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx)
 
@@ -378,4 +378,4 @@
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Форматы и кодеки стандартного кодировщика служб мультимедиа"
-	description="В этом разделе приведен обзор кодеков и форматов стандартного кодировщика служб мультимедиа."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Форматы и кодеки стандартного кодировщика служб мультимедиа" 
+	description="В этом разделе приведен обзор кодеков и форматов стандартного кодировщика служб мультимедиа." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/03/2015"
 	ms.author="juliako"/>
 
 #Форматы и кодеки стандартного кодировщика служб мультимедиа
@@ -29,10 +29,10 @@
 FLV (с кодеками H.264 и AAC) (.flv) |Да 
 MXF (.mxf) |Да 
 GXF (.gxf) |Да 
-MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp) |Да 
+MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Да 
 Windows Media Video (WMV)/ASF (.wmv, .asf) |Да 
 AVI (без сжатия 8 бит/10 бит) (.avi)|Да 
-MP4/ISMV (.ismv)|Да 
+MP4 (MP4, M4A, M4V) и ISMV (ISMA, ISMV)|Да 
 [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Да 
 Matroska/WebM (.mkv) |Да 
 WAVE/WAV (.wav) |Да 
@@ -81,8 +81,16 @@ Dolby® Digital Plus (E-AC3) |Нет
 
 Формат файла|Видеокодек|Аудиокодек
 ---|---|---
-MP4 (* .mp4)<br/><br/>(включая контейнеры MP4 с несколькими скоростями) |H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC v2 
+MP4 <br/><br/>(включая контейнеры MP4 с несколькими скоростями) |H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC v2 
 MPEG2-TS |H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC v2 
+
+
+##Схемы обучения работе со службами мультимедиа
+
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##См. также
 
@@ -90,4 +98,4 @@ MPEG2-TS |H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC
 
 [Кодирование с помощью стандартного кодировщика мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

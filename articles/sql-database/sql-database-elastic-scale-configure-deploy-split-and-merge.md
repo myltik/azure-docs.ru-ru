@@ -1,6 +1,8 @@
 <properties
+	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="Учебник по инструменту разбиения и объединения эластичной базы данных | Microsoft Azure"
 	description="Разбиение и объединение с помощью инструментов эластичной базы данных"
+	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
@@ -100,12 +102,12 @@
 
 ### Обновление файла конфигурации службы
 
-Вставьте скопированный ранее отпечаток сертификата в атрибут thumbprint/value этих настроек. Для веб-роли:
+Вставьте скопированный ранее отпечаток сертификата в атрибут thumbprint/value этих настроек. Для рабочей роли:
 
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
-Для рабочей роли:
+Для веб-роли:
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
     <Setting name="AllowedClientCertificateThumbprints" value="" />
@@ -332,4 +334,4 @@
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

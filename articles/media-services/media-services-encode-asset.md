@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Обзор и сравнение кодировщиков мультимедиа Azure по запросу"
-	description="В этом разделе приводится обзор и сравнение кодировщиков мультимедиа Azure по запросу."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Обзор и сравнение кодировщиков мультимедиа Azure по запросу" 
+	description="В этом разделе приводится обзор и сравнение кодировщиков мультимедиа Azure по запросу." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 #Обзор и сравнение кодировщиков мультимедиа Azure по запросу
@@ -238,6 +238,14 @@ MPEG Layer 2|Нет|Нет|Да
 MP3 (MPEG-1 Audio Layer 3)|Нет|Нет|Да
 Windows Media Audio|Нет|Да|Да
 
+
+##Схемы обучения работе со службами мультимедиа
+
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ##Связанные статьи
 
 - [Квоты и ограничения](media-services-quotas-and-limitations.md)
@@ -246,4 +254,4 @@ Windows Media Audio|Нет|Да|Да
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

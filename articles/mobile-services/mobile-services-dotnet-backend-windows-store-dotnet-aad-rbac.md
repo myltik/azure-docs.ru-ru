@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Управление доступом в мобильных службах с помощью Azure Active Directory на основе ролей (Магазин Windows) | Microsoft Azure"
-	description="Узнайте, как управлять доступом на основе ролей Azure Active Directory в приложении Магазина Windows."
+	pageTitle="Управление доступом на основе ролей в мобильных службах с помощью .NET и Azure Active Directory (Магазин Windows) | Microsoft Azure"
+	description="Узнайте, как управлять доступом на основе ролей Azure Active Directory в приложении Магазина Windows с помощью мобильной службы с серверной частью .NET."
 	documentationCenter="windows"
 	authors="wesmc7777"
 	manager="dwrede"
@@ -8,15 +8,15 @@
 	services="mobile-services"/>
 
 <tags
-	ms.service="mobile-services"
+	ms.service="mobile-services" 
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Управление доступом на основе ролей в мобильных службах и Azure Active Directory
+# Управление доступом на основе ролей в мобильных службах с помощью JavaScript и Azure Active Directory
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
@@ -384,7 +384,6 @@
 [Добавление проверки подлинности в приложение]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
 [How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[портале управления Azure]: https://manage.windowsazure.com/
 [Directory Sync Scenarios]: http://msdn.microsoft.com/library/azure/jj573653.aspx
 [Store Server Scripts]: mobile-services-store-scripts-source-control.md
 [Регистрация для использования имени входа Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
@@ -393,4 +392,4 @@
 [Получение доступа к сведениям Graph Azure Active Directory]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [Библиотека проверки подлинности Azure AD для .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

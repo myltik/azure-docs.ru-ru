@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="09/04/2015"
    ms.author="telmos" />
 
 # Управление списками управления доступом для конечных точек с помощью PowerShell
@@ -97,4 +97,4 @@
 
 [Настройка связи с виртуальной машиной](http://go.microsoft.com/fwlink/?LinkId=303938)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

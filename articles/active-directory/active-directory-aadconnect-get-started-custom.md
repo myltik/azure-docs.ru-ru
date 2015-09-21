@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Выборочная установка Azure AD Connect"
-	description="В этом документе описаны параметры выборочной установки для Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Выборочная установка Azure AD Connect" 
+	description="В этом документе описаны параметры выборочной установки для Azure AD Connect." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="active-directory"  
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Выборочная установка Azure AD Connect
@@ -184,17 +184,6 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 
 В промежуточном режиме можно вносить необходимые изменения в модуль синхронизации и просматривать данные перед экспортом. Если вы довольны конфигурацией, снова запустите мастер установки и отключите промежуточный режим. Это позволит экспортировать данные в Azure AD. Обязательно отключите другой сервер, чтобы только один сервер активно экспортировал данные.
 
-### Предотвращение случайного удаления
-При установке Azure AD Connect компонент предотвращения случайного удаления включен по умолчанию и не разрешает экспорт с более чем 500 операций удаления. 500 — это значение по умолчанию, которое можно изменить. Если эта функция включена и запущено слишком много операций удаления, экспорт не будет продолжаться и вы получите следующее сообщение электронной почты:
-
-![Фильтрация синхронизации](./media/active-directory-aadconnect-get-started-custom/email.png)
-
-
-Если эта ситуация оказалась непредвиденной, выясните причину и выполните все действия для ее исправления.
-
-Чтобы временно отключить эту защиту и выполнить эти операции удаления, запустите Disable-ADSyncExportDeletionThreshold
-
-Чтобы повторно включить защиту или изменить пороговое значение по умолчанию, запустите Enable-ADSyncExportDeletionThreshold
 
 
 ## Настройка федерации с AD FS
@@ -279,4 +268,4 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

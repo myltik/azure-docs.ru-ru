@@ -1,20 +1,20 @@
 <properties
     pageTitle="Использование очередей служебной шины (.NET) | Microsoft Azure"
-	description="Узнайте, как использовать очереди служебной шины в Azure. Примеры кода написаны на C# с использованием API .NET."
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    description="Узнайте, как использовать очереди служебной шины в Azure. Примеры кода написаны на C# с использованием API .NET."
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
     ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="07/02/2015"
-	ms.author="sethm"/>
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="07/02/2015"
+    ms.author="sethm"/>
 
 # Использование очередей служебной шины Azure
 
@@ -223,9 +223,9 @@
 
 Вы узнали основные сведения об очередях служебной шины. Для получения дополнительных сведений используйте следующие ссылки.
 
--   См. обзор MSDN: [Очереди, разделы и подписки][].
+-   См. статью [Очереди, темы и подписки][].
 -   Создание работающего приложения, отправляющего сообщения в очередь служебной шины и получающего их из нее: [Учебник по обмену сообщениями через посредника служебной шины в .NET].
--   Примеры служебной шины: скачайте со страницы [Примеры Azure][] или просмотрите обзор на сайте [MSDN][].
+-   Примеры служебной шины: скачайте со страницы [примеров Azure][] или просмотрите [обзор][].
 
   [What are Service Bus Queues]: #what-queues
   [Create a Service Namespace]: #create-namespace
@@ -239,9 +239,9 @@
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
   [Azure portal]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
-  [Очереди, разделы и подписки]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [Очереди, темы и подписки]: service-bus-queues-topics-subscriptions.md
   [Учебник по обмену сообщениями через посредника служебной шины в .NET]: http://msdn.microsoft.com/library/azure/hh367512.aspx
-  [Примеры Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
+  [примеров Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
+  [обзор]: service-bus-samples.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

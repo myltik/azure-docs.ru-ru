@@ -1,18 +1,20 @@
 <properties 
-	pageTitle="Варианты размещения вычислительных сред, предоставляемые Azure"
-	description="Дополнительная информация о вариантах среды вычисления Azure и о том, как они работают: виртуальные машины, веб-сайты, облачные службы и пр."
+	pageTitle="Варианты размещения вычислительных сред, предоставляемые Azure" 
+	description="Дополнительная информация о вариантах среды вычисления Azure и о том, как они работают: виртуальные машины, веб-сайты, облачные службы и пр." 
+	headerExpose="" 
+	footerExpose="" 
 	services="cloud-services,virtual-machines"
-	authors="Thraka"
+	authors="Thraka" 
 	documentationCenter=""
 	manager="timlt"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="adegeo;cephalin;kathydav"/>
 
 
@@ -76,4 +78,4 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 * Дополнительная информация об [облачных службах](services/cloud-services/)
 * Дополнительная информация о [виртуальных машинах](https://msdn.microsoft.com/library/azure/jj156143.aspx) 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

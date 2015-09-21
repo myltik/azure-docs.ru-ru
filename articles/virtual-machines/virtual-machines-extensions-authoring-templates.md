@@ -1,20 +1,20 @@
 <properties
    pageTitle="Создание шаблонов с помощью расширений виртуальных машин Azure | Microsoft Azure"
-	description="Дополнительные сведения о создании шаблонов с помощью расширений"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   description="Дополнительные сведения о создании шаблонов с помощью расширений"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="kundanap"/>
 
 # Создание шаблонов диспетчера ресурсов Azure с расширениями виртуальных машин
 
@@ -22,10 +22,10 @@
 
 Шаблон диспетчера ресурсов Azure позволяет декларативно задать IaaS-инфраструктуру Azure на языке JSON, установив зависимости между ресурсами. Более подробно шаблоны диспетчера ресурсов Azure рассматриваются в следующих статьях.
 
-<a href="https://azure.microsoft.com/ru-RU/documentation/articles/resource-group-overview/" target="_blank">Общие сведения о группе ресурсов</a> <br/> <a href="https://azure.microsoft.com/ru-RU/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank">Развертывание шаблонов с помощью интерфейса командной строки Azure</a> <br/> <a href="https://azure.microsoft.com/ru-RU/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank">Развертывание шаблонов с помощью Azure Powershell</a>
+[Общие сведения о группе ресурсов](../resource-group-overview.md)
 
 ## Фрагмент шаблона образца для расширений виртуальной машины
-Фрагмент шаблона для развертывания расширений выглядит следующим образом:
+При развертывании расширения VM в шаблоне диспетчера ресурсов Azure необходимо декларативно задать конфигурацию расширения в этом шаблоне. Ниже приведен формат для указания конфигурации расширения.
 
       {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -43,6 +43,11 @@
       }
       }
       }
+
+Как видно из указанного выше, расширение шаблона содержит две основные части:
+
+1. Имя расширения, издатель и версия.
+2. Конфигурация расширения.
 
 ## Идентификация значений "publisher", "type" и "typeHandlerVersion" для любого расширения
 
@@ -68,14 +73,16 @@
 
 Следующий шаг при создании шаблона расширения заключается в определении формата для предоставления параметров конфигурации. Каждое расширение поддерживает собственный набор параметров.
 
-Чтобы ознакомиться с примером конфигурации для расширений Windows, откройте раздел [с примерами расширений Windows](virtual-machines-extensions-configuration-samples-windows.md).
+Чтобы ознакомиться с примером конфигурации для расширений Windows, откройте документацию [с примерами расширений Windows](virtual-machines-extensions-configuration-samples-windows.md).
 
-Чтобы ознакомиться с примером конфигурации для расширений Linux, откройте раздел [с примерами расширений Linux](virtual-machines-extensions-configuration-samples-linux.md).
+Чтобы ознакомиться с примером конфигурации для расширений Linux, откройте документацию [с примерами расширений Linux](virtual-machines-extensions-configuration-samples-linux.md).
 
 Ознакомьтесь со следующими разделами, посвященными шаблонам виртуальных машин, для получения полноценного шаблона с расширениями виртуальных машин.
 
-<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Расширение пользовательского сценария на виртуальной машине Linux</a> </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Расширение пользовательского сценария на виртуальной машине Windows</a>
+[Расширение Custom Script на виртуальной машине Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
+
+[Расширение Custom Script на виртуальной машине Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
 Развернуть созданный шаблон можно с помощью интерфейса командной строки Azure или Azure Powershell.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

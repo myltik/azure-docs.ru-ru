@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/16/2015"
+   ms.date="09/03/2015"
    ms.author="oanapl"/>
 
 # Общие сведения о наблюдении за работоспособностью системы в Service Fabric
@@ -336,4 +336,4 @@ HealthEvents                    :
 [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

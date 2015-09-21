@@ -1,9 +1,9 @@
-<properties 
+<properties
    pageTitle="Протоколы проверки подлинности Azure Active Directory"
    description="Обзор протоколов проверки подлинности, поддерживаемых в Azure Active Directory (AD)"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
-   services="active-directory" 
+   services="active-directory"
    manager="mbaldwin"
    editor=""/>
 
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/01/2015"
+   ms.date="09/02/2015"
    ms.author="mbaldwin"/>
 
 # Протоколы проверки подлинности Azure Active Directory
 
 Служба Azure Active Directory (Azure AD) поддерживает несколько широко используемых протоколов проверки подлинности и авторизации. В этих разделах описываются поддерживаемые протоколы и их реализация в Azure AD. В них представлен обзор поддерживаемых типов утверждений, описание в использования метаданных федерации, подробная документация по протоколам OAuth 2.0 и SAML 2.0, а также советы по устранению неполадок.
 
-## Статьи и другие справочные материалы по протоколам проверки подлинности 
+## Статьи и другие справочные материалы по протоколам проверки подлинности
 
 - [Важные сведения об откате ключа подписи в Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) — дополнительные сведения об откате ключа подписи Azure AD, изменениях, которые можно вносить для автоматического обновления ключа, и порядок обновления самых распространенных сценариев приложений.
 
@@ -47,13 +47,12 @@
 
 
 
-## См. также 
+## См. также
 
 [Руководство разработчика по Azure Active Directory](active-directory-developers-guide.md)
 
 [Использование Azure AD для проверки подлинности](../app-service-web/web-sites-authentication-authorization.md)
 
 [Примеры кода Active Directory](active-directory-code-samples.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

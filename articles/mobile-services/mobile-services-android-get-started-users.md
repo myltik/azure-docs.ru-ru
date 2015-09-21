@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Приступая к работе с проверкой подлинности (Android) | Microsoft Azure"
-	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения Android с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт."
+	pageTitle="Приступая к работе с проверкой подлинности в Android (серверная часть JavaScript) | Microsoft Azure"
+	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения Android с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт (серверная часть JavaScript)."
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/04/2015"
 	ms.author="ricksal"/>
 
-# Добавление аутентификации в приложение мобильных служб Android
+# Добавление проверки подлинности в приложение мобильных служб для Android (серверная часть JavaScript)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
@@ -108,4 +108,4 @@
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

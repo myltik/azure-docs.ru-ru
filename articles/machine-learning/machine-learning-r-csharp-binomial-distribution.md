@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Набор веб-служб биномиального распределения | Microsoft Azure"
-	description="Набор биномиального распределения"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="Набор веб-служб биномиального распределения | Microsoft Azure" 
+	description="Набор биномиального распределения" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="ireiter" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="jaymathe"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/02/2015" 
+	ms.author="ireiter"/>
 
 
 #Набор биномиального распределения
@@ -290,4 +290,4 @@
 [6]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_6.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

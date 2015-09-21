@@ -198,7 +198,7 @@
 
 ## Дальнейшие действия
 
-Вы познакомились с основами использования очередей служебной шины. Дополнительную информацию см. в статье [Очереди, разделы и подписки][] на портале MSDN.
+Вы познакомились с основами использования очередей служебной шины. Дополнительную информацию см. в статье [Очереди, темы и подписки][].
 
 [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
 [Azure Management Portal]: http://manage.windowsazure.com/
@@ -208,9 +208,9 @@
 [Namespace List screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_05_NamespaceList.jpg
 [Properties Pane screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_06_PropertiesPane.jpg
 [Default Key screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_07_DefaultKey.jpg
-[Очереди, разделы и подписки]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+[Очереди, темы и подписки]: service-bus-queues-topics-subscriptions.md
 [require_once]: http://php.net/require_once
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

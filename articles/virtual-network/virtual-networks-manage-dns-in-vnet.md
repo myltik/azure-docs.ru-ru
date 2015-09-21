@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Управление DNS-серверами, используемыми виртуальной сетью"
-	description="Узнайте, как добавлять и удалять DNS-серверы в виртуальной сети (VNet)."
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Узнайте, как добавлять и удалять DNS-серверы в виртуальной сети (VNet)."
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="06/08/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/04/2015"
+   ms.author="telmos" />
 
 # Управление DNS-серверами, используемыми виртуальной сетью
 
@@ -65,4 +65,4 @@
 
 [Удаление виртуальной сети](../virtual-networks-delete-vnet)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -91,12 +91,12 @@
 
 Вы ознакомились с основными сведениями об очередях служебной шины. Для получения дополнительной информации используйте следующие ссылки.
 
--   См. справочник MSDN: [Очереди, разделы и подписки][].
+-   См. статью [Очереди, темы и подписки][].
 
 [Azure Management Portal]: http://manage.windowsazure.com
 [Azure для Python]: https://pypi.python.org/pypi/azure
 [пакет Azure для Python]: https://pypi.python.org/pypi/azure
-[Очереди, разделы и подписки]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+[Очереди, темы и подписки]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

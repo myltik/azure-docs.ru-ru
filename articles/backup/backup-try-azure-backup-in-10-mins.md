@@ -1,15 +1,15 @@
 <properties
    pageTitle="Служба архивации Azure за 10 минут | Microsoft Azure"
-	description="Начните работу со службой архивации Azure всего за 10 минут."
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="shreeshd"
-	editor=""/>
+   description="Начните работу со службой архивации Azure всего за 10 минут."
+   services="backup"
+   documentationCenter=""
+   authors="Jim-Parker"
+   manager="shreeshd"
+   editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="08/20/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="09/03/2015" ms.author="aashishr"; "jimpark"/>
 
-# О службе архивации Azure за 10 минут
+# Начало работы со службой архивации Azure
 Настроить службу архивации Azure очень легко. Следующие обучающие видео помогут вам быстро приступить к работе.
 
 ## Шаг 1. Оформление подписки Azure
@@ -46,4 +46,4 @@
 - [Резервное копирование Windows Server](backup-azure-backup-windows-server.md)
 - Посетите [форум о службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

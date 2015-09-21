@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Приступая к работе с табличным хранилищем Azure и подключенными службами Visual Studio"
-	description="Начало работы с использованием хранилища таблиц Azure в проекте облачной службы в Visual Studio"
+    pageTitle="Начало работы с табличным хранилищем и подключенными службами Visual Studio (облачными службами) | Microsoft Azure"
+	description="Как приступить к работе, используя табличное хранилище Azure в проекте облачной службы в Visual Studio после подключения к учетной записи хранения с помощью подключенных служб Visual Studio"
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea123"/>
 
-# Приступая к работе с табличным хранилищем Azure и подключенными службами Visual Studio
+# Начало работы с табличным хранилищем Azure и подключенными службами Visual Studio (проектами облачных служб)
 
 > [AZURE.SELECTOR]
 > - [Getting started](vs-storage-cloud-services-getting-started-tables.md)
@@ -42,11 +42,11 @@
 - Общие сведения об облачных службах Azure см. в [документации по облачным службам](http://azure.microsoft.com/documentation/services/cloud-services/).
 - Дополнительную информацию о программировании для ASP.NET см. в разделе [ASP.NET](http://www.asp.net).
 
-##Доступ к таблицам в коде
+## Доступ к таблицам в коде
 
 Для доступа к таблицам в проектах облачных служб необходимо включить следующие элементы во все файлы исходного кода C#, которые обращаются к табличному хранилищу Azure.
 
-1. Убедитесь, что объявления пространств имен в верхней части файла C# содержат следующие операторы `using`.
+1. Убедитесь, что объявления пространств имен в верхней части файла C# содержат указанные ниже выражения **using**.
 
 		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
@@ -71,14 +71,14 @@
     	// Get a reference to a table named "peopleTable".
 	    CloudTable table = tableClient.GetTableReference("peopleTable");
 
-##Создание таблицы в коде
+## Создание таблицы в коде
 
-Чтобы создать таблицу Azure, просто добавьте вызов `CreateIfNotExistsAsync` после получения объекта `CloudTable`, как описано в разделе "Доступ к таблицам в коде".
+Чтобы создать таблицу Azure, просто добавьте вызов **CreateIfNotExistsAsync** после получения объекта **CloudTable**, как описано в разделе "Доступ к таблицам в коде".
 
 	// Create the CloudTable if it does not exist.
 	await table.CreateIfNotExistsAsync();
 
-##Добавление сущности в таблицу
+## Добавление сущности в таблицу
 
 Чтобы добавить сущность в таблицу, создайте класс, который определяет свойства сущности. Следующий код определяет класс сущностей с именем **CustomerEntity** который использует имя клиента как ключ строки, а фамилию клиента — как ключ раздела.
 
@@ -112,7 +112,7 @@
 	// Execute the insert operation.
 	await peopleTable.ExecuteAsync(insertOperation);
 
-##Вставка пакета сущностей
+## Вставка пакета сущностей
 
 В таблицу можно вставить несколько сущностей с помощью одной операции записи. В следующем примере кода показано создание двух объектов сущностей (Jeff Smith и Ben Smith), добавление их в объект **TableBatchOperation** с помощью метода Insert и запуск операции с помощью вызова **CloudTable.ExecuteBatchAsync**.
 
@@ -141,9 +141,9 @@
     // Create the CloudTable if it does not exist
     await table.CreateIfNotExistsAsync();
 
-##Добавление сущности в таблицу
+## Добавление сущности в таблицу
 
-Чтобы добавить сущность в таблицу, создайте класс, который определяет свойства сущности. Следующий код определяет класс сущностей `CustomerEntity`, который использует имя клиента как ключ строки, а фамилию клиента — как ключ раздела.
+Чтобы добавить сущность в таблицу, создайте класс, который определяет свойства сущности. Следующий код определяет класс сущностей с именем **CustomerEntity** который использует имя клиента как ключ строки, а фамилию клиента — как ключ раздела.
 
     public class CustomerEntity : TableEntity
     {
@@ -160,7 +160,7 @@
          public string PhoneNumber { get; set; }
     }
 
-Табличные операции, включающие в себя сущности, выполняются с использованием объекта `CloudTable`, ранее созданного в разделе "Доступ к таблицам в коде". Объект `TableOperation` представляет операцию, которую необходимо выполнить. В следующем примере кода показано создание объекта `CloudTable` и объекта `CustomerEntity`. Чтобы подготовить операцию, создается `TableOperation` для вставки сущности customer в таблицу. Наконец, эта операция выполняется путем вызова CloudTable.ExecuteAsync.
+Операции с таблицами, затрагивающие сущности, выполняются с использованием объекта **CloudTable**. Его создание описано ранее, в разделе "Доступ к таблицам в коде". Объект **TableOperation** представляет операции, которые необходимо выполнить. В следующем примере кода показано создание объекта **CloudTable** и объекта **CustomerEntity**. Чтобы подготовить операцию, создается **TableOperation** для вставки сущности customer в таблицу. Наконец, эта операция выполняется путем вызова CloudTable.ExecuteAsync.
 
     // Get a reference to the CloudTable object named 'peopleTable' as described in "Access a table in code".
 
@@ -175,9 +175,9 @@
     // Execute the insert operation.
     await peopleTable.ExecuteAsync(insertOperation);
 
-##Вставка пакета сущностей
+## Вставка пакета сущностей
 
-В таблицу можно вставить несколько сущностей с помощью одной операции записи. В следующем примере кода показано создание двух объектов сущностей (Jeff Smith и Ben Smith), добавление их в объект `TableBatchOperation` с помощью метода Insert и запуск операции с помощью вызова `CloudTable.ExecuteBatchAsync`.
+В таблицу можно вставить несколько сущностей с помощью одной операции записи. Указанный ниже пример кода создает два объекта сущностей (Jeff Smith и Ben Smith), добавляет их в объект **TableBatchOperation** с помощью метода Insert и запускает операцию с помощью вызова **CloudTable.ExecuteBatchAsync**.
 
     // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code".
 
@@ -201,9 +201,9 @@
     // Execute the batch operation.
     await peopleTable.ExecuteBatchAsync(batchOperation);
 
-##Получение всех сущностей в разделе
+## Получение всех сущностей в разделе
 
-Чтобы запросить из таблицы все сущности в секции, используйте объект `TableQuery`. Следующий пример кода задает фильтр для сущностей с ключом раздела "Smith". Этот пример выводит на консоль поля каждой сущности в результатах запроса.
+Чтобы запросить все сущности из таблицы, используйте объект **TableQuery**. Следующий пример кода задает фильтр для сущностей с ключом раздела "Smith". Этот пример выводит на консоль поля каждой сущности в результатах запроса.
 
     // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code".
 
@@ -228,9 +228,9 @@
     return View();
 
 
-##Получение одной сущности
+## Получение одной сущности
 
-Можно написать запрос для получения отдельной сущности. Следующий пример кода использует **TableOperation** для указания клиента "Ben Smith". Этот метод возвращает только одну сущность, а не коллекцию, а возвращаемое значение в **TableResult.Result** является объектом **CustomerEntity**. Указание ключа раздела и ключа строки в запросе — самый быстрый способ для получения одной сущности из службы **таблиц**.
+Можно написать запрос для получения отдельной сущности. Следующий пример кода использует **TableOperation** для указания клиента "Ben Smith". Этот метод возвращает только одну сущность, а не коллекцию. Возвращаемое значение в **TableResult.Result** — это объект **CustomerEntity**. Указание ключа раздела и ключа строки в запросе — самый быстрый способ для получения одной сущности из службы **таблиц**.
 
 	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code".
 
@@ -246,7 +246,7 @@
 	else
 	   Console.WriteLine("The phone number could not be retrieved.");
 
-##Удаление сущности
+## Удаление сущности
 После нахождения сущности ее можно удалить. В следующем примере код выполняет поиск сущности с именем "Ben Smith" и при нахождении удаляет ее.
 
 	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code".
@@ -274,8 +274,8 @@
 	else
 	   Console.WriteLine("Couldn't delete the entity.");
 
-##Дальнейшие действия
+## Дальнейшие действия
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

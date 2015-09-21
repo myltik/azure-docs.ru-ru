@@ -1,21 +1,21 @@
 <properties
    pageTitle="Настраиваемая подготовка кластеров Hadoop в HDInsight | Microsoft Azure"
-	description="Узнайте, как выполнить настраиваемую подготовку кластеров Azure HDInsight с помощью портала предварительной версии Azure, Azure PowerShell, командной строки или пакета SDK для HDInsight .NET."
-	services="hdinsight"
-	documentationCenter=""
-	tags="azure-portal"
-	authors="mumian"
-	manager="paulettm"
-	editor="cgronlun"/>
+   	description="Узнайте, как выполнить настраиваемую подготовку кластеров Azure HDInsight с помощью портала предварительной версии Azure, Azure PowerShell, командной строки или пакета SDK для HDInsight .NET."
+   services="hdinsight"
+   documentationCenter=""
+   tags="azure-portal"
+   authors="mumian"
+   manager="paulettm"
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/21/2015"
-	ms.author="jgao"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="09/03/2015"
+   ms.author="jgao"/>
 
 # Подготовка кластеров Hadoop в HDInsight
 
@@ -250,83 +250,98 @@
     ![Создание нового кластера на портале предварительной версии Azure](./media/hdinsight-provision-clusters/HDI.CreateCluster.1.png "Создание нового кластера на портале предварительной версии Azure")
 
 3. Введите или выберите следующие значения:
-  - **Имя кластера**: введите имя кластера. Если имя кластера доступно, рядом с ним появится зеленый флажок.
-  - **Тип кластера**: выберите **Hadoop**.
-  - **Операционная система кластера**: выберите **Windows Server 2012 R2 Datacenter**.
-  - **Подписка**: выберите подписку Azure, которая будет использоваться для подготовки этого кластера.
-  - **Группа ресурсов**: выберите существующую группу ресурсов или создайте новую. Эта запись будет выбрана по умолчанию для одной из существующих групп ресурсов (при их наличии).
-  - **Учетные данные**: настройте имя пользователя и пароль для пользователя Hadoop (пользователя HTTP). При включении удаленного рабочего стола для кластера необходимо настроить имя пользователя удаленного рабочего стола и пароль, а также указать дату окончания срока действия учетной записи. Щелкните **Выбрать** внизу страницы, чтобы сохранить изменения.
 
-	![Укажите учетные данные кластера](./media/hdinsight-provision-clusters/HDI.CreateCluster.3.png "Укажите учетные данные кластера")
-  - **Источник данных**: выберите существующую или создайте новую учетную запись хранения Azure, которая будет использована в качестве файловой системы по умолчанию для кластера.
+  * **Имя кластера**: введите имя кластера. Если имя кластера доступно, рядом с ним появится зеленый флажок.
+  * **Тип кластера**: выберите **Hadoop**.
+  * **Операционная система кластера**: выберите **Windows Server 2012 R2 Datacenter**.
+  * **Подписка**: выберите подписку Azure, которая будет использоваться для подготовки этого кластера.
+  * **Группа ресурсов**: выберите существующую группу ресурсов или создайте новую. Эта запись будет выбрана по умолчанию для одной из существующих групп ресурсов (при их наличии).
+  * **Учетные данные**: настройте имя пользователя и пароль для пользователя Hadoop (пользователя HTTP). При включении удаленного рабочего стола для кластера необходимо настроить имя пользователя удаленного рабочего стола и пароль, а также указать дату окончания срока действия учетной записи. Щелкните **Выбрать** внизу страницы, чтобы сохранить изменения.
 
-	   ![Колонка "Источник данных"](./media/hdinsight-provision-clusters/HDI.CreateCluster.4.png "Укажите конфигурацию источника данных")
+	   	![Provide cluster credentials](./media/hdinsight-provision-clusters/HDI.CreateCluster.3.png "Provide cluster credentials")
 
-  	- **Метод выбора**: выберите значение **Из всех подписок**, чтобы активировать поиск учетных записей хранения во всех своих подписках. Задайте для этого параметра значение **Ключ доступа**, если вы хотите ввести **имя хранилища** и **ключ доступа** существующей учетной записи хранения.
-  	- **Выбрать учетную запись хранения/Создать**: щелкните **Выбрать учетную запись хранения**, чтобы найти и выбрать существующую учетную запись хранения, которую нужно связать с кластером. Чтобы создать новую учетную запись хранения, выберите **Создать**. В появившееся поле введите имя учетной записи хранения. Если имя доступно, появится зеленый флажок.
-    - **Выбрать контейнер по умолчанию**: здесь можно ввести имя контейнера по умолчанию и использовать его для кластера. Вы можете ввести любое имя, однако мы рекомендуем использовать такое же имя, как у кластера, чтобы легко распознавать, какой контейнер используется для конкретного кластера.
-  	- **Расположение**: географический регион, к которому будет относиться существующая или новая учетная запись хранения. Это расположение будет определять расположение кластера. Учетная запись хранения, используемая по умолчанию, должна находиться в том же центре обработки данных Azure, что и кластер.
+  * **Источник данных**. Выберите существующую или создайте новую учетную запись хранения Azure, которая будет использована в качестве файловой системы по умолчанию для кластера.
 
-  - **Ценовые категории узлов**: задайте количество рабочих узлов, необходимых для кластера. Оценочная стоимость кластера отобразится в колонке.
+   		![Data source blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.4.png "Provide data source configuration")
 
-	![Колонка "Ценовые категории узла"](./media/hdinsight-provision-clusters/HDI.CreateCluster.5.png "Укажите количество узлов кластера")
+  		* **Selection Method**: Set this to **From all subscriptions** to enable browsing of storage accounts from all your subscriptions. Set this to **Access Key** if you want to enter the **Storage Name** and **Access Key** of an existing storage account.
+  		* **Select storage account / Create New**: Click **Select storage account** to browse and select an existing storage account you want to associate with the cluster. Or, click **Create New** to create a new storage account. Use the field that appears to enter the name of the storage account. A green check will appear if the name is available.
+  		* **Choose Default Container**: Use this to enter the name of the default container to use for the cluster. While you can enter any name here, we recommend using the same name as the cluster so that you can easily recognize that the container is used for this specific cluster.
+  		* **Location**: The geographic region that the storage account is in, or will be created in. This location will determine the cluster location.  The cluster and its default storage account must co-locate in the same Azure data center.
+  	
+  * **Ценовые категории узлов**. Задайте количество рабочих узлов, необходимых для кластера. Оценочная стоимость кластера отобразится в колонке.
+  
 
-  - **Необязательная конфигурация**: позволяет выбрать версию кластера, а также настроить другие необязательные параметры, например присоединение **виртуальной сети** и конфигурацию **внешнего метахранилища** для хранения данных Hive и Oozie. Используйте действия сценариев, чтобы настроить кластер для установки пользовательских компонентов или использовать дополнительные учетные записи хранения с кластером.
+		![Node pricing tiers blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.5.png "Specify number of cluster nodes")
 
-  	- **Версия HDInsight**: выберите версию, которую вы хотите использовать для кластера. Дополнительную информацию см. в разделе [Версии кластеров HDInsight](hdinsight-component-versioning.md).
-  	- **Виртуальная сеть**: выберите виртуальную сеть Azure и подсеть, чтобы разместить кластер в виртуальной сети.  
 
-		![Колонка "Виртуальная сеть"](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Укажите сведения о виртуальной сети")
+  * **Необязательная конфигурация**. Позволяет выбрать версию кластера, а также настроить другие необязательные параметры, например присоединение **виртуальной сети** и конфигурацию **внешнего метахранилища** для хранения данных Hive и Oozie. Используйте действия сценариев, чтобы настроить кластер для установки пользовательских компонентов или использовать дополнительные учетные записи хранения с кластером.
 
-    >[AZURE.NOTE]Кластер HDInsight на основе Windows можно разместить только в классической виртуальной сети.
+  		* **HDInsight Version**: Select the version you want to use for the cluster. For more information, see [HDInsight cluster versions](hdinsight-component-versioning.md).
+  		* **Virtual Network**: Select an Azure virtual network and the subnet if you want to place the cluster into a virtual network.  
 
-  	- **Внешние метахранилища**: укажите базу данных SQL Azure для хранения метаданных Hive и Oozie, связанных с кластером.
+			![Virtual network blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.6.png "Specify virtual network details")
 
-		![Колонка "Пользовательские метахранилища"](./media/hdinsight-provision-clusters/HDI.CreateCluster.7.png "Укажите внешние метахранилища")
+			>[AZURE.NOTE] Windows based HDInsight cluster can only be placed into a classical virtual network.
+  
 
-		Для параметра **Использовать существующую базу данных SQL для метаданных Hive** выберите **Да**, выберите базу данных SQL, а затем укажите имя пользователя и пароль для базы данных. При необходимости повторите эти шаги для параметра **Использовать существующую базу данных SQL для метаданных Oozie**. Щелкайте **Выбрать**, пока не перейдете в колонку **Необязательная конфигурация**.
+  		
+		* **External Metastores**: Specify an Azure SQL database to store Hive and Oozie metadata associated with the cluster.
+ 
 
-		>[AZURE.NOTE]База данных Azure SQL, используемая в качестве хранилища метаданных, должна обеспечивать подключение к другим службам Azure, в том числе Azure HDInsight. На панели мониторинга базы данных SQL Azure в правой части щелкните имя сервера. Это сервер, на котором работает экземпляр базы данных SQL. В представлении сервера щелкните **Настройка**, а затем **Службы Azure**, **Да** и **Сохранить**.
+			![Custom metastores blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.7.png "Specify external metastores")
 
-  	- Щелкните **Действия сценария**, если вы хотите использовать настраиваемый сценарий для настройки кластера во время его создания. Дополнительную информацию о действиях сценариев см. в статье [Настройка кластеров HDInsight с помощью действия скрипта](hdinsight-hadoop-customize-cluster.md). В колонке "Действия сценария" введите данные, как показано на снимке экрана.
 
-		![Колонка "Действие сценария"](./media/hdinsight-provision-clusters/HDI.CreateCluster.8.png "Укажите действие сценария")
+			For **Use an existing SQL DB for Hive** metadata, click **Yes**, select a SQL database, and then provide the username/password for the database. Repeat these steps if you want to **Use an existing SQL DB for Oozie metadata**. Click **Select** till you are back on the **Optional Configuration** blade.
 
-    - **Ключи хранилища Azure**: укажите дополнительные учетные записи хранения, которые нужно связать с кластером. В колонке **Ключи хранилища Azure** нажмите кнопку **Добавить ключ к хранилищу данных** и выберите существующую учетную запись хранения или создайте новую.
 
-		![Колонка "Дополнительное хранилище"](./media/hdinsight-provision-clusters/HDI.CreateCluster.9.png "Укажите дополнительные учетные записи хранения")
+			>[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Azure Services**, click **Yes**, and then click **Save**.
+		
+  		* **Script Actions** if you want to use a custom script to customize a cluster, as the cluster is being created. For more information about script actions, see [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md). On the Script Actions blade provide the details as shown in the screen capture.
+  	
 
-4. Щелкните **Создать**. Выберите **Закрепить на начальной панели**, чтобы добавить плитку для кластера на начальную панель портала предварительной версии. Значок указывает, что выполняется подготовка кластера. После завершения подготовки вместо него будет отображаться значок HDInsight.
+			![Script action blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.8.png "Specify script action")
+
+
+    	* **Azure Storage Keys**: Specify additional storage accounts to associate with the cluster. In the **Azure Storage Keys** blade, click **Add a storage key**, and then select an existing storage account or create a new account.
+    
+
+			![Additional storage blade](./media/hdinsight-provision-clusters/HDI.CreateCluster.9.png "Specify additional storage accounts")
+
+
+4. Щелкните **Создать**. Выберите **Закрепить на начальной панели**, чтобы добавить плитку кластера на начальную панель портала предварительной версии. Значок указывает, что выполняется подготовка кластера. После завершения подготовки вместо него будет отображаться значок HDInsight.
+
 
 	| Подготовка выполняется | Подготовка завершена |
 	| ------------------ | --------------------- |
 	| ![Индикатор подготовки на начальной панели](./media/hdinsight-provision-clusters/provisioning.png) | ![Плитка подготовки кластера](./media/hdinsight-provision-clusters/provisioned.png) |
 
+
+	
 	> [AZURE.NOTE]Обычно создание кластера занимает около 15 минут. Отслеживать процесс подготовки можно с помощью плитки на начальной панели или записи **Уведомления** в левой части страницы.
+	
 
 5. После завершения подготовки щелкните плитку кластера на начальной панели, чтобы открыть колонку кластера. Колонка кластера содержит важные сведения о кластере: имя, группа ресурсов, к которой он принадлежит, расположение, операционная система, URL-адрес панели мониторинга кластера и т. д.
 
+
 	![Колонка "Кластер"](./media/hdinsight-provision-clusters/HDI.Cluster.Blade.png "Свойства кластера")
 
-	Описание значков в верхней части этой колонки и в разделе **Основные компоненты**.
 
-	* **Параметры** и **Все параметры**: отображение колонки **Параметры** кластера, в которой представлены подробные сведения о конфигурации кластера.
+	Ниже приведено описание значков в верхней части этой колонки и в разделе **Основные компоненты**.
 
-	* **Панель мониторинга**, **Панель мониторинга кластера** и **URL-адрес**: пути доступа к панели мониторинга кластера, которая представляет собой веб-портал для выполнения заданий в кластере.
 
-	* **Удаленный рабочий стол**: позволяет включать и отключать удаленный рабочий стол на узлах кластера.
-
-	* **Масштабирование кластера**: позволяет изменить число рабочих узлов для этого кластера.
-
-	* **Удалить**: удаление кластера HDInsight.
-
-	* **Быстрый запуск** (![значок облака и молнии = быстрый запуск](./media/hdinsight-provision-clusters/quickstart.png)): отображает сведения, необходимые для начала работы с HDInsight.
-
-	* **Пользователи** (![значок "пользователи"](./media/hdinsight-provision-clusters/users.png)): здесь можно указать разрешения для доступа к _порталу управления_ этого кластера для других пользователей в подписке Azure.
+	* **Параметры** и **Все параметры**. Отображают колонку **Параметры** кластера, которая содержит подробные сведения о конфигурации кластера.
+	* **Панель мониторинга**, **Панель мониторинга кластера** и **URL-адрес**. Пути доступа к панели мониторинга кластера, которая представляет собой веб-портал для выполнения заданий в кластере.
+	* **Удаленный рабочий стол**. Позволяет включать или отключать удаленный рабочий стол на узлах кластера.
+	* **Масштабировать кластер**. Позволяет изменить количество рабочих узлов для этого кластера.
+	* **Удалить**. Удаление кластера HDInsight.
+	* **Быстрый запуск** (![значок облака и молнии = быстрый запуск](./media/hdinsight-provision-clusters/quickstart.png)). Отображает сведения, необходимые для начала работы с HDInsight.
+	* **Пользователи** (![значок "пользователи"](./media/hdinsight-provision-clusters/users.png)). Здесь можно указать разрешения на доступ к _порталу управления_ этого кластера для других пользователей в своей подписке Azure.
+	
 
 		> [AZURE.IMPORTANT]Этот параметр влияет _только_ на доступ и разрешения для этого кластера на портале предварительной версии и не определяет пользователей, которые могут подключаться к кластеру HDInsight или отправлять в него задания.
-
-	* **Теги** (![значок "теги"](./media/hdinsight-provision-clusters/tags.png)): здесь можно задавать пары «ключ — значение» для определения пользовательской таксономии облачных служб. Например, можно создать ключ с именем __project__, а затем использовать общее значение для всех служб, связанных с определенным проектом.
+		
+	* **Теги** (![значок "теги"](./media/hdinsight-provision-clusters/tags.png)). Теги позволяют задавать пары "ключ-значение" для определения пользовательской таксономии облачных служб. Например, можно создать ключ с именем __project__, а затем использовать общее значение для всех служб, связанных с определенным проектом.
 
 
 ## Подготовка с помощью шаблона в диспетчере ресурсов Azure
@@ -464,14 +479,14 @@ Azure PowerShell — это полнофункциональная среда с
 
 4. Нажмите кнопку **ОК**, чтобы создать проект.
 
-5. В меню **Средства** выберите **Диспетчер пакетов Nuget**, а затем щелкните **Управление пакетами Nuget для решений**. В диалоговом окне в поле поиска введите **HDInsight**. Установите следующие компоненты из результатов поиска:
+5. В меню **Сервис** выберите **Диспетчер пакетов Nuget**, затем выберите **Управление пакетами Nuget для решений**. В диалоговом окне введите в поле поиска в запрос **HDInsight**. Установите следующие компоненты из результатов поиска:
 
 	 * Microsoft.Azure.Management.HDInsight;
 	 * Microsoft.Azure.Management.HDInsight.Job.
 
-	Выполните поиск по запросу «Проверка подлинности Azure» и установите **Microsoft.Azure.Common.Authentication** из результатов поиска.
+	Выполните поиск по запросу "Проверка подлинности Azure" и установите **Microsoft.Azure.Common.Authentication** из результатов поиска.
 
-6. В обозревателе решений дважды щелкните файл **Program.cs**, чтобы открыть его, вставьте следующий код и укажите значения для переменных.
+6. В обозревателе решений дважды щелкните файл **Program.cs**, чтобы открыть его, вставьте указанный ниже код и укажите значения для переменных:
 
 
         using System;
@@ -585,7 +600,7 @@ Azure PowerShell — это полнофункциональная среда с
 - [Задача удаления кластера Azure HDInsight][ssisclusterdelete]
 - [Диспетчер подключений по подпискам Azure][connectionmanager]
 
-Узнать больше о пакете дополнительных компонентов Azure для SSIS можно [здесь][ssispack].
+Узнать больше о пакете дополнительных компонентов Azure для служб SSIS можно [здесь][ssispack].
 
 
 ##<a id="nextsteps"></a>Дальнейшие действия
@@ -766,4 +781,4 @@ Azure PowerShell — это полнофункциональная среда с
 [ssisclustercreate]: http://msdn.microsoft.com/ru-RU/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/ru-RU/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

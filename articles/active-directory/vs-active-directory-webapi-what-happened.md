@@ -1,11 +1,4 @@
-<properties
-	pageTitle=""
-	description="Описываются изменения в проекте Visual Studio после запуска мастера Azure Active Directory"
-	services="active-directory"
-	documentationCenter=""
-	authors="patshea123"
-	manager="douge"
-	editor="tglee"/>
+<properties pageTitle="What happened to my WebApi project (Visual Studio Azure Active Directory connected service) |Microsoft Azure " description="Describes what happens to your MVC project WebApi you connect to Azure AD by using Visual Studio services="active-directory" services="active-directory" documentationCenter="" authors="patshea123" manager="douge" editor="tglee"/>
 
 <tags
 	ms.service="active-directory"
@@ -13,10 +6,10 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea"/>
 
-# Что произошло с моим проектом?
+# Что произошло с моим проектом WebApi в подключенной службе Visual Studio Azure Active Directory
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-active-directory-webapi-getting-started.md)
@@ -64,7 +57,7 @@
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
     		<add key="ida:Audience" value="The App ID Uri from the wizard" />
-	</appSettings>` 
+	</appSettings>`
 ```
 
 ###Создано приложение Azure AD
@@ -108,7 +101,7 @@
 ```
 	`<appSettings>
 	    <add key="ida:Password" value="Your Azure AD App's new password" />
-	</appSettings>` 
+	</appSettings>`
 ```
 
 ###Обновлено приложение Azure Active Directory
@@ -116,4 +109,4 @@
 
 [Дополнительная информация о службе Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

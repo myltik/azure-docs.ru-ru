@@ -7,11 +7,15 @@
 
 		azure config mode arm
 
+	Вот результат, ожидаемый для указанной выше команды:
+
 		info:    New mode is arm
 
-3. При необходимости выполните команду **azure group create**, чтобы создать новую группу ресурсов, как показано ниже. Обратите внимание на результат выполнения команды. В списке, который откроется после выполнения команды, будут указаны используемые параметры. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md/#resource-groups).
+3. При необходимости выполните команду **azure group create**, как показано ниже, чтобы создать новую группу ресурсов. Обратите внимание на результат выполнения команды. В списке, который откроется после выполнения команды, будут указаны используемые параметры. Дополнительные сведения о группах ресурсов можно найти в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md/#resource-groups).
 
 		azure group create -n TestRG -l centralus
+
+	Вот результат, ожидаемый для указанной выше команды:
 
 		info:    Executing command group create
 		+ Getting resource group TestRG
@@ -28,9 +32,11 @@
 	- **-n (или --name)**. Имя для новой группы ресурсов. В данном сценарии это *TestRG*.
 	- **-l (или --location)**. Регион Azure, в котором будет создана новая группа ресурсов. В данном сценарии это *centralus*.
 
-4. Выполните команду **azure network vnet create**, чтобы создать виртуальную сеть и подсеть, как показано ниже. Обратите внимание на результат выполнения команды интерфейса командной строки. В списке, который откроется после выполнения команды, будут указаны используемые параметры.
-5. 
+4. Выполните команду **azure network vnet create**, чтобы создать виртуальную сеть и подсеть, как показано ниже.
+
 		azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l centralus
+
+	Вот результат, ожидаемый для указанной выше команды:
 
 		info:    Executing command network vnet create
 		+ Looking up virtual network "TestVNet"
@@ -54,6 +60,8 @@
 
 		azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
 
+	Вот результат, ожидаемый для указанной выше команды:
+
 		info:    Executing command network vnet subnet create
 		+ Looking up the subnet "FrontEnd"
 		+ Creating subnet "FrontEnd"
@@ -74,9 +82,11 @@
 
 		azure network vnet subnet create -g TestRG -e TestVNet -n BackEnd -a 192.168.2.0/24
 
-4. Выполните команду **azure network vnet show**, чтобы просмотреть свойства новой виртуальной сети, как показано ниже.
+4. Выполните команду **azure network vnet show**, как показано ниже, чтобы просмотреть свойства новой виртуальной сети.
 
 		azure network vnet show -g TestRG -n TestVNet
+
+	Вот результат, ожидаемый для указанной выше команды:
 
 		info:    Executing command network vnet show
 		+ Looking up virtual network "TestVNet"
@@ -96,4 +106,4 @@
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

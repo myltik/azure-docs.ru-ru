@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Передача локализованных экстренных новостей с помощью центров уведомлений"
-	description="Узнайте, как использовать центры уведомлений Azure Service Bus для отправки уведомлений о локализованных экстренных новостях."
+	description="Узнайте, как использовать Центры уведомлений Azure для отправки уведомлений о локализованных экстренных новостях."
 	services="notification-hubs"
 	documentationCenter="windows"
 	authors="wesmc7777"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="09/08/2015" 
 	ms.author="wesmc"/>
 
 # Использование концентраторов уведомлений для отправки локализованных экстренных новостей
@@ -232,4 +232,4 @@
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Инструкциях по использованию концентраторов уведомлений для Магазина Windows]: http://msdn.microsoft.com/library/jj927172.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Авторизация учетных записей разработчиков с помощью Azure Active Directory в управлении API Azure
@@ -228,4 +228,4 @@
 
 [Вход на портал разработчика с помощью учетной записи Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

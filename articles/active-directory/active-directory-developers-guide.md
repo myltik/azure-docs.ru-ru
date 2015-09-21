@@ -1,20 +1,20 @@
 <properties
    pageTitle="Руководство разработчика по Azure Active Directory | Microsoft Azure"
-	description="Данная статья содержит полное руководство по ориентированным на разработчиков ресурсам для Azure Active Directory"
-	services="active-directory"
-	documentationCenter="dev-center-name"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   description="Данная статья содержит полное руководство по ориентированным на разработчиков ресурсам для Azure Active Directory"
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/12/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/02/2015"
+   ms.author="mbaldwin"/>
 
 
 # Руководство разработчика по Azure Active Directory
@@ -27,7 +27,7 @@ Azure Active Directory является платформой для управл
 
 1. [Сценарии проверки подлинности Active Directory](active-directory-authentication-scenarios.md): обеспечьте вход в приложение, используя упрощенную проверку подлинности в Azure Active Directory.
 
-1. [API Graph Azure Active Directory](https://msdn.microsoft.com/library/azure/hh974476.aspx): используйте API Graph Azure Active Directory для программного доступа к Azure Active Directory через конечные точки API REST.
+1. [Azure Active Directory Graph API](active-directory-graph-api.md). Используйте Azure Active Directory Graph API для программного доступа к Azure Active Directory через конечные точки API-интерфейса REST.
 
 1. [Интеграция приложений в Azure Active Directory](active-directory-integrating-applications.md): узнайте больше о регистрации приложения и ознакомьтесь с рекомендациями по фирменному стилю многопользовательских приложений.
 
@@ -47,11 +47,17 @@ Azure Active Directory является платформой для управл
 |[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Phone](active-directory-devquickstarts-windowsphone.md)|[Магазин Windows](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)
 
 
-### Руководства по быстрому запуску веб-приложений и веб-API
+### Краткие руководства по началу работы с веб-приложениями
 
-|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)|[![JavaScript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)
-|:--:|:--:|:--:|:--:
-|[Веб-приложение .NET](active-directory-devquickstarts-webapp-dotnet.md)|[Веб-интерфейс API .NET](active-directory-devquickstarts-webapi-dotnet.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-webapi-nodejs.md)
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![JavaScript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs)
+|:--:|:--:|:--:|
+|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-openidconnect-nodejs)
+
+### Краткие руководства по началу работы с веб-интерфейсами API
+
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)
+|:--:|:--:|
+|[.NET](active-directory-devquickstarts-webapi-dotnet.md)|[Node.js](active-directory-devquickstarts-webapi-nodejs.md)
 
 ### Руководства по быстрому запуску запросов каталога
 
@@ -75,36 +81,36 @@ Azure Active Directory является платформой для управл
 Эти статьи содержат основные справочники по REST и API библиотек проверки подлинности, протоколам, ошибкам, образцам кода и конечных точкам.
 
 ###  Поддержка
-- [Вопросы с тегами](http://stackoverflow.com/questions/tagged/azure-active-directory): ищите решения Azure Active Directory, связанные с переполнением стека, по тегам [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) и [adal](http://stackoverflow.com/questions/tagged/adal).
+- [Вопросы с тегами](http://stackoverflow.com/questions/tagged/azure-active-directory). Ищите решения Azure Active Directory, связанные с переполнением стека, по тегам [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) и [adal](http://stackoverflow.com/questions/tagged/adal).
 
 ### Код
 
-- [Библиотеки Azure AD с открытым исходным кодом](http://github.com/AzureAD): самый простой способ найти источник библиотеки — это [список библиотек](active-directory-authentication-libraries.md).
+- [Библиотеки Azure Active Directory с открытым исходным кодом](http://github.com/AzureAD). Самый простой способ найти источник библиотеки — это [список библиотеки](active-directory-authentication-libraries.md).
 
-- [Примеры кода Azure Active Directory](http://github.com/AzureADSamples): самый простой способ навигации по списку примеров — это [индекс примеров кода](active-directory-code-samples.md).
+- [Примеры кода Azure Active Directory ](http://github.com/AzureADSamples). Самый простой способ навигации по списку примеров — это [индекс примеров кода](active-directory-code-samples.md).
 
 
 ### Graph API
 
-- [Справочник по API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx): справочник по REST для API Graph Azure Active Directory. [Просмотрите новый интерактивный справочник по API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+- [Справочник по API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx). Справочник по REST для Azure Active Directory Graph API. [Просмотрите интерактивный справочник по API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-- [Области разрешений API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes): области разрешений OAuth 2.0, которые используются для управления доступом приложения к каталогу данных в клиенте.
+- [Области разрешений API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes). Области разрешений OAuth 2.0, которые используются для управления доступом приложения к данным каталога в клиенте.
 
 
 ### Протоколы проверки подлинности
 
-- [Справочник по протоколу SAML 2.0](https://msdn.microsoft.com/library/azure/dn195591.aspx): протокол SAML 2.0 позволяет приложениям предоставлять пользователям единый вход.
+- [Справочник по протоколу SAML 2.0](https://msdn.microsoft.com/library/azure/dn195591.aspx). Протокол SAML 2.0 позволяет приложениям предоставлять пользователям единый вход.
 
 
-- [Справочник по протоколу OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx): протокол OAuth 2.0 обеспечивает авторизацию доступа к веб-приложениям и веб-API в клиенте Azure Active Directory.
+- [Справочник по протоколу OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx). Протокол OAuth 2.0 обеспечивает авторизацию доступа к веб-приложениям и веб-интерфейсам API в клиенте Azure Active Directory.
 
 
-- [Справочник по протоколу OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx): протокол OpenID Connect 1.0 расширяет OAuth 2.0, позволяя использовать его как протокол проверки подлинности.
+- [Справочник по протоколу OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx). Протокол OpenID Connect 1.0 расширяет OAuth 2.0, позволяя использовать его как протокол проверки подлинности.
 
 
-- [Справочник по протоколу WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx): протокол WS-Federation 1.2 описан в спецификации федерации веб-служб версии 1.2.
+- [Справочник по протоколу WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx). Протокол WS-Federation 1.2 описан в спецификации федерации веб-служб версии 1.2.
 
-- [Поддерживаемые маркеры и типы утверждений](active-directory-token-and-claims.md): это руководство позволит вам понять и оценить утверждения в маркерах SAML 2.0 и веб-маркерах JSON (JWT).
+- [Поддерживаемые маркеры и типы утверждений](active-directory-token-and-claims.md). Это руководство позволит вам понять и оценить утверждения в маркерах SAML 2.0 и веб-маркерах JSON (JWT).
 
 ## Видеоролики
 
@@ -117,7 +123,7 @@ Azure Active Directory является платформой для управл
 - [Разработка современных приложений в машинном коде с помощью Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)
 
 ### Azure Friday
-[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) — это еженедельные пятничные видеоинтервью со специалистами длительностью 10–15 минут по различным связанным с Azure вопросам. Используйте функцию фильтра служб на странице, чтобы просмотреть все видео Azure Active Directory.
+[Azure, пятница](http://azure.microsoft.com/documentation/videos/azure-friday/) — это еженедельные пятничные видеоинтервью со специалистами длительностью 10–15 минут, посвященные различным связанным с Azure вопросам. Используйте функцию фильтра служб на странице, чтобы просмотреть все видео Azure Active Directory.
 
 - [Удостоверение Azure 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)
 - [Удостоверение Azure 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
@@ -125,12 +131,12 @@ Azure Active Directory является платформой для управл
 
 ## Социальные сети
 
-- [Блог группы Active Directory](http://blogs.technet.com/b/ad/): будьте в курсе последних разработок в сфере Azure Active Directory.
+- [Блог группы Active Directory](http://blogs.technet.com/b/ad/). Будьте в курсе последних разработок в сфере Azure Active Directory.
 
-- [Блог группы Azure Active Directory Graph](http://blogs.msdn.com/b/aadgraphteam): информация об Azure Active Directory, которая относится к API Graph.
+- [Блог группы Azure Active Directory Graph](http://blogs.msdn.com/b/aadgraphteam). Информация об Azure Active Directory, которая относится к API Graph.
 
-- [Облачная идентификация](http://www.cloudidentity.net): соображения об управлении удостоверениями как услуге от главного руководителя программы Azure Active Directory.
+- [Облачная идентификация](http://www.cloudidentity.net). Соображения об управлении удостоверениями от главного руководителя программы Azure Active Directory.
 
-- [Azure Active Directory в Twitter](https://twitter.com/azuread): объявления Azure Active Directory длиной 140 символов и меньше.
+- [Azure Active Directory в Twitter](https://twitter.com/azuread). Объявления Azure Active Directory длиной 140 символов и меньше.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/19/2015"
+   ms.date="09/04/2015"
    ms.author="alkohli" />
 
 # Включение и выключение устройства StorSimple 
@@ -241,4 +241,4 @@
 
 Если у вас возникнут проблемы после включения или завершения работы устройства StorSimple, [обратитесь в службу поддержки Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

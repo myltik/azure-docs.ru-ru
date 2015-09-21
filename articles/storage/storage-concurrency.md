@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Управление параллелизмом в службе хранилища Microsoft Azure
@@ -273,4 +273,4 @@ Insert or Merge Entity (Вставка или слияние сущностей)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -3,7 +3,7 @@
    description="Передача данных о динамической нагрузке в балансировщик: общие сведения."
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
-   ms.author="abhic"/>
+   ms.date="09/03/2015"
+   ms.author="masnider"/>
 
 # Передача данных о динамической нагрузке: общие сведения
 
@@ -36,4 +36,4 @@
 Дополнительные сведения см. в статье [Архитектура балансировщика ресурсов](service-fabric-resource-balancer-architecture.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

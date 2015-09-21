@@ -3,7 +3,7 @@
    description="Советы по переносу кода SQL в хранилище данных SQL Azure для разработки решений."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Перенос кода SQL в хранилище данных SQL
@@ -114,4 +114,4 @@ AND     request_id IN
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

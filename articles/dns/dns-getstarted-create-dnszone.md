@@ -1,20 +1,20 @@
 <properties
    pageTitle="Приступая к работе с Azure DNS | Microsoft Azure"
-	description="Узнайте, как создавать зоны DNS для Azure DNS. В этом пошаговом руководстве вы узнаете, как создать вашу первую зону DNS для размещения домена DNS."
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor=""/>
+   description="Узнайте, как создавать зоны DNS для Azure DNS. В этом пошаговом руководстве вы узнаете, как создать вашу первую зону DNS для размещения домена DNS."
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/02/2015"
+   ms.author="joaoma"/>
 
 # Приступая к работе с Azure DNS
 
@@ -30,11 +30,13 @@
 Для управления Azure DNS с помощью Azure PowerShell необходимо выполнить следующие действия.
 
 ### Шаг 1.
- Azure DNS использует диспетчер ресурсов Azure (ARM). Убедитесь, что выбран режим PowerShell для использования командлетов ARM. Подробнее: [Использование Windows Powershell с диспетчером ресурсов](powershell-azure-resource-manager.md).<BR><BR>
+Azure DNS использует диспетчер ресурсов Azure (ARM). Убедитесь, что выбран режим PowerShell для использования командлетов ARM. Подробнее: [Использование Windows Powershell с диспетчером ресурсов](powershell-azure-resource-manager.md).<BR><BR>
 
 		PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-### Шаг 2.
+На экране может появиться предупреждение "Командлет Switch-AzureMode является устаревшим и будет удален в следующих версиях". Его можно игнорировать.
+
+### Шаг 2
  Войдите в учетную запись Azure.<BR><BR>
 
 		PS C:\> Add-AzureAccount
@@ -153,4 +155,4 @@
 [Приступая к созданию наборов записей и записей](dns-getstarted-create-recordset.md)<BR> [Управление зонами DNS](dns-operations-dnszones.md)<BR> [Управление DNS-записями](dns-operations-recordsets.md)<BR> [Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)<BR> [Справочник по API REST для службы Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

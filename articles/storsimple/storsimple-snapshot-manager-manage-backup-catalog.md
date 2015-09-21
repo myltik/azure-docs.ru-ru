@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Использование диспетчера моментальных снимков StorSimple для управления каталогом резервных копий | Microsoft Azure"
+   pageTitle="Каталог архивов диспетчера моментальных снимков StorSimple | Microsoft Azure"
    description="Узнайте, как использовать оснастку консоли MMC ";Диспетчер моментальных снимков StorSimple"; для просмотра каталога резервных копий и управления ими."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Использование диспетчера моментальных снимков StorSimple для управления каталогом резервных копий
@@ -67,7 +67,7 @@
 
 Диспетчер моментальных снимков StorSimple отображает следующее сообщение во время создания резервной копии в качестве меры предосторожности.
 
-![Автоматический сообщение о моментальном снимке](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Automatic_snap.png)
+![Сообщение об автоматическом моментальном снимке](./media/storsimple-snapshot-manager-manage-backup-catalog/HCS_SSM_Automatic_snap.png)
 
 >[AZURE.IMPORTANT]Невозможно удалить том, который входит в группу томов. Параметр удаления недоступен. <br>
 
@@ -207,4 +207,4 @@
 
 [Дополнительные сведения о задачах и рабочих процессах диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

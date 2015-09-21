@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Заметки о выпуске, посвященные обновлению 0.2 для устройств серии StorSimple 8000. Январь 2015 г. | Microsoft Azure"
-    description="Описание новых возможностей, проблем и решений для январского выпуска Microsoft Azure StorSimple 2015 г."
+    pageTitle="Заметки о выпуске, посвященные обновлению 0.2 для StorSimple 8000 | Microsoft Azure"
+    description="Описание новых функций и исправлений, открытых проблем и доступных решений для выпуска Microsoft Azure StorSimple (обновление 0.2) от января 2015 года."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/19/2015"
+    ms.date="09/04/2015"
     ms.author="v-sharos" />
 
 
@@ -78,4 +78,4 @@
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

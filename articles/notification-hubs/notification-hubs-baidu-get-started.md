@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Приступая к работе с Центрами уведомлений Azure | Microsoft Azure"
-	description="Из этого учебника вы узнаете, как использовать Центры уведомлений Azure для отправки push-уведомлений на устройства Android."
+	pageTitle="Приступая к работе с Центрами уведомлений Azure с помощью Baidu | Microsoft Azure"
+	description="Из этого учебника вы узнаете, как использовать Центры уведомлений Azure для отправки push-уведомлений на устройства Android с помощью Baidu."
 	services="notification-hubs"
 	documentationCenter="android"
 	authors="wesmc7777"
@@ -13,10 +13,10 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Приступая к работе с центрами уведомлений
+# Приступая к работе с Центрами уведомлений с помощью Baidu
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -479,4 +479,4 @@ Push-облако Baidu — это китайская облачная служ
 [портал Azure]: https://manage.windowsazure.com/
 [портал Baidu]: http://www.baidu.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -42,9 +42,9 @@
 3.	Зашифруйте ключ содержимого с помощью открытого ключа сертификата X.509. 
 
 	Пакет SDK служб мультимедиа для .NET использует при выполнении шифрования RSA с OAEP. Примером может служить [функция EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-4.	Создайте значение контрольной суммы (на основе алгоритма вычисления контрольной суммы ключа AES для PlayReady), которая вычисляется по идентификатору ключа и ключу содержимого. Дополнительную информацию см. в разделе «Алгоритм вычисления контрольной суммы ключа AES для PlayReady» [документа по объектам заголовков PlayReady](http://www.microsoft.com/playready/documents/).
+4.	Создайте значение контрольной суммы (на основе алгоритма вычисления контрольной суммы ключа AES для PlayReady), которая вычисляется по идентификатору ключа и ключу содержимого. Дополнительную информацию см. в разделе "Алгоритм вычисления контрольной суммы ключа AES для PlayReady" [документа по объектам заголовков PlayReady](http://www.microsoft.com/playready/documents/).
 
-	В следующем примере .NET контрольная сумма вычисляется с помощью части «GUID» идентификатора ключа и незащищенного ключа содержимого.
+	В следующем примере .NET контрольная сумма вычисляется с помощью части "GUID" идентификатора ключа и незащищенного ключа содержимого.
 	
 		public static string CalculateChecksum(byte[] contentKey, Guid keyId)
 		{
@@ -251,4 +251,13 @@
 
 	HTTP/1.1 204 No Content 
 
-<!---HONumber=August15_HO7-->
+
+
+##Схемы обучения работе со службами мультимедиа
+
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Заметки о выпуске устройства версии StorSimple 8000. Июль 2014 г. | Microsoft Azure"
-    description="Описание новых возможностей, проблем и решений для июльского выпуска Microsoft Azure StorSimple 2014 г."
+    pageTitle="Заметки о выпуске версии StorSimple 8000 | Microsoft Azure"
+    description="Описание новых возможностей, открытых проблем и доступных решений для выпуска Microsoft Azure StorSimple от июля 2014 г."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/19/2015"
+    ms.date="09/04/2015"
     ms.author="v-sharos" />
 
 # Заметки о выпуске устройства версии StorSimple 8000. Июль 2014 г. 
@@ -42,4 +42,4 @@
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

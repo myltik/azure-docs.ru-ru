@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Использование хранилища BLOB-объектов из Xamarin (Предварительная версия)
@@ -173,10 +173,10 @@ URI подписи коллективного доступа для нового
 
 Дополнительные сведения о BLOB-объектах, таблицах и очередях вы можете получить перейдя по следующим ссылкам:
 
-[Введение в хранилище Microsoft Azure](storage-introduction.md)  
-[Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md)  
-[Использование табличного хранилища из .NET](storage-dotnet-how-to-use-tables.md)  
+[Введение в хранилище Microsoft Azure](storage-introduction.md) 
+[Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md) 
+[Использование табличного хранилища из .NET](storage-dotnet-how-to-use-tables.md) 
 [Использование хранилища очередей из .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

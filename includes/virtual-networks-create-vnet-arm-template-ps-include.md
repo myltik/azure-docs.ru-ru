@@ -5,16 +5,20 @@
 1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md). Войдите в Azure и выберите подписку.
 2. Выполните командлет **Switch-AzureMode**, чтобы включить режим диспетчера ресурсов, как показано ниже.
 
-	Switch-AzureMode AzureResourceManager
+		Switch-AzureMode AzureResourceManager
 
-	ПРЕДУПРЕЖДЕНИЕ. Командлет Switch-AzureMode является устаревшим и будет удален в следующих версиях.
+	Вот результат, ожидаемый для указанной выше команды:
+
+		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
 	>[AZURE.WARNING]Командлет Switch-AzureMode является устаревшим. По этой причине все командлеты диспетчера ресурсов вскоре будут переименованы.
 
-3. При необходимости выполните командлет **New-AzureResourceGroup**, чтобы создать новую группу ресурсов. Представленная ниже команда создает группу ресурсов с именем *TestRG* в регионе Azure *Центральная часть США*. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md/#resource-groups).
+3. При необходимости выполните командлет **New-AzureResourceGroup**, чтобы создать новую группу ресурсов. Представленная ниже команда создает группу ресурсов с именем *TestRG* в регионе Azure *Central US*. Дополнительные сведения о группах ресурсов можно найти в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md/#resource-groups).
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
 		
+	Вот результат, ожидаемый для указанной выше команды:
+
 		ResourceGroupName : TestRG
 		Location          : centralus
 		ProvisioningState : Succeeded
@@ -25,11 +29,12 @@
 		                    *
 		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
 
-4. Выполните командлет **New-AzureResourceGroupDeployment**, чтобы развернуть новую виртуальную сеть с помощью шаблона и файлов параметров, которые вы загрузили и изменили раньше.
+4. Выполните командлет **New-AzureResourceGroupDeployment**, чтобы развернуть новую виртуальную сеть с помощью шаблона и файлов параметров, которые вы скачали и изменили раньше.
 
 		New-AzureResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
 			-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-		
+			
+	Вот результат, ожидаемый для указанной выше команды:
 		
 		DeploymentName    : TestVNetDeployment
 		ResourceGroupName : TestRG
@@ -50,11 +55,12 @@
 		
 		Outputs           :
 
-5. Выполните командлет **Get-AzureVirtualNetwork**, чтобы просмотреть свойства новой виртуальной сети, как показано ниже.
+5. Выполните командлет **Get-AzureVirtualNetwork**, как показано ниже, чтобы просмотреть свойства новой виртуальной сети.
 
 
 		Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 		
+	Вот результат, ожидаемый для указанной выше команды:
 		
 		Name              : TestVNet
 		ResourceGroupName : TestRG
@@ -95,4 +101,4 @@
 		                      }
 		                    ]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

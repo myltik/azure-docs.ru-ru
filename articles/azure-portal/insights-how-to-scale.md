@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # Масштабирование числа экземпляров вручную или автоматически
@@ -137,4 +137,4 @@
 * [Отслеживайте доступность и скорость реагирования любой веб-страницы](../app-insights-monitor-web-app-availability.md) с помощью Application Insights, так вы сможете узнать, что страница не работает.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

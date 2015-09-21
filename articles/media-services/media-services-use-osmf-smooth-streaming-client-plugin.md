@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -399,8 +399,16 @@ package
 Дополнительные сведения об общей процедуре разработки для OSMF см. на официальной [странице разработки OSMF](http://osmf.org/resources.html).
 
 
+##Схемы обучения работе со службами мультимедиа
+
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##См. также
 
 [Адаптивный подключаемый модуль Майкрософт для потоковой передачи для обновления OSMF](http://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

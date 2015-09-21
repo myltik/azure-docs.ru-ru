@@ -38,7 +38,7 @@ API поиска по журналу в службе Operational Insights отн
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
     ```
 
-3. Установите ARMClient, открыв новое окно командной строки, и выполните следующую команду:
+2. Установите ARMClient, выполнив следующую команду:
 
     ```
     choco install armclient
@@ -66,7 +66,7 @@ API поиска по журналу в службе Operational Insights отн
 2. Получение рабочих областей Operations Management Suite Workspaces. Например:
 
     ```
-    armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2014-10-10
+    armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2015-03-20
     ```
 
     При успешном вызове Get отобразятся все рабочие области, привязанные к подписке. Например:
@@ -90,12 +90,12 @@ API поиска по журналу в службе Operational Insights отн
 3. Создание своей переменной поиска. Например:
 
     ```
-    $mySearch = "{ 'top':150, 'query':'Error'}”;
+    $mySearch = "{ 'top':150, 'query':'Error'}";
     ```
 4. Поиск с помощью новой переменной поиска. Например:
 
     ```
-    armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2014-10-10 $mySearch
+    armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2015-03-20 $mySearch
     ```
 
 ## Примеры API поиска
@@ -106,7 +106,7 @@ API поиска по журналу в службе Operational Insights отн
 **Пример URL:**
 
 ```
-	/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search?api-version=2014-10-10
+	/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search?api-version=2015-03-20
 ```
 
 **Запрос:**
@@ -123,7 +123,7 @@ API поиска по журналу в службе Operational Insights отн
 	  "start":"2015-02-04T21:03:29.231Z",
 	  "end":"2015-02-11T21:03:29.231Z"
 	}
-	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2014-10-10 $searchParametersJson
+	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2015-03-20 $searchParametersJson
 ```
 В следующей таблице описаны имеющиеся свойства.
 
@@ -194,7 +194,7 @@ API поиска по журналу в службе Operational Insights отн
 **Запрос содержимого сохраненных результатов поиска:**
 
 ```
-	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2014-10-10
+	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2015-03-20
 ```
 
 >[AZURE.NOTE]Если результаты поиска выдаются со статусом "Ожидание", данный API можно использовать для запроса обновленных результатов. Через 6 минут результат поиска удаляется из кэша и выдается статус Http Gone. Если по первому поисковому запросу сразу выдаются результаты со статусом "Успешно", результаты не добавляются в кэш, в результате чего при запросе этот API выдает статус Http Gone. Содержимое результатов Http 200 будет представлено в том же формате, что и у первоначального поискового запроса, но с обновленными значениями.
@@ -204,7 +204,7 @@ API поиска по журналу в службе Operational Insights отн
 **Запрос списка сохраненных поисковых запросов:**
 
 ```
-	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
+	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2015-03-20
 ```
 
 Поддерживаемые методы: GET, PUT и DELETE.
@@ -217,9 +217,9 @@ API поиска по журналу в службе Operational Insights отн
 |---|---|
 |Идентификатор|Уникальный идентификатор.|
 |Etag|**Необходимо для обновления**. Обновляется сервером при каждой операции записи. Для обновления требуется, чтобы в качестве значения использовалось текущее сохраненное значение или символ *. Для старых или недопустимых значений возвращается 409.|
-|properties.query|**Обязательное свойство**. Поисковый запрос.|
-|properties.displayName|**Обязательное свойство**. Определяемое пользователем отображаемое имя запроса. Если смоделировать как ресурс Azure, это будет тег.|
-|properties.category|**Обязательное свойство**. Определяемая пользователем категория запроса. Если смоделировать как ресурс Azure, это будет тег.|
+|properties.query|**Обязательный**. Поисковый запрос.|
+|properties.displayName|**Обязательный**. Определяемое пользователем отображаемое имя запроса. Если смоделировать как ресурс Azure, это будет тег.|
+|properties.category|**Обязательный**. Определяемая пользователем категория запроса. Если смоделировать как ресурс Azure, это будет тег.|
 
 >[AZURE.NOTE]Сейчас, когда поступают запросы на сохраненные поисковые запросы в рабочей области, API поиска в службе Operational Insights возвращает сохраненные поисковые запросы, созданные пользователем. Сохраненные поисковые запросы, созданные решениями, пока не возвращаются. Эта возможность будет добавлена позже.
 
@@ -228,7 +228,7 @@ API поиска по журналу в службе Operational Insights отн
 **Запрос**
 
 ```
-	armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10
+	armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2015-03-20
 ```
 
 ### Изменение сохраненных поисковых запросов
@@ -236,8 +236,8 @@ API поиска по журналу в службе Operational Insights отн
  **Запрос**
 
 ```
-	$savedSearchParametersJson = "{'etag': 'W/`"datetime'2015-04-16T23%3A35%3A35.3182423Z'`"', 'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
-	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10 $savedSearchParametersJson
+	$savedSearchParametersJson = "{'etag': 'W/`"datetime\'2015-04-16T23%3A35%3A35.3182423Z\'`"', 'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
+	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2015-03-20 $savedSearchParametersJson
 ```
 
 ### Метаданные (только JSON)
@@ -247,7 +247,7 @@ API поиска по журналу в службе Operational Insights отн
 **Запрос полей**
 
 ```
-	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/schema?api-version=2014-10-10
+	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/schema?api-version=2015-03-20
 ```
 
 **Ответ**
@@ -317,7 +317,7 @@ Highlight — необязательный параметр, который с�
 	  "start":"2015-02-04T21:03:29.231Z",
 	  "end":"2015-02-11T21:03:29.231Z"
 	}
-	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2014-10-10 $searchParametersJson
+	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2015-03-20 $searchParametersJson
 ```
 
 **Пример результата:**
@@ -346,4 +346,4 @@ Highlight — необязательный параметр, который с�
 
 Обратите внимание, что вышеуказанный результат содержит сообщение об ошибке с префиксом и постфиксом.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

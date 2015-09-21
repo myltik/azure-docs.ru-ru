@@ -146,10 +146,10 @@
 
 Вы узнали основные сведения об очередях служебной шины. Для получения дополнительных сведений используйте следующие ссылки.
 
--   См. справочник MSDN: [Очереди, разделы и подписки](http://msdn.microsoft.com/library/windowsazure/hh367516.aspx)
+-   Обзор [очередей, тем и подписок](service-bus-queues-topics-subscriptions.md)
 -   Посетите репозиторий [Azure SDK для Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub
 
-Сравнение очередей служебной шины Azure, описанных в этой статье, и очередей служебной шины Azure, описанных в статье [Использование службы очередей Azure](/develop/ruby/how-to-guides/queue-service/), см. в статье [Очереди Azure и очереди служебной шины Azure — сходство и отличия](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)
+Сравнение очередей служебной шины Azure, описанных в этой статье, и очередей служебной шины Azure, описанных в статье [Использование службы очередей Azure](/develop/ruby/how-to-guides/queue-service/), см. в статье [Очереди Azure и очереди служебной шины Azure — сходство и отличия](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

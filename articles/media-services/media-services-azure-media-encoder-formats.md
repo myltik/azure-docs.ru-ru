@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Форматы и кодеки кодировщика служб мультимедиа Azure"
-	description="В этом разделе приведен обзор кодеков и форматов кодировщика служб мультимедиа Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Форматы и кодеки кодировщика служб мультимедиа Azure" 
+	description="В этом разделе приведен обзор кодеков и форматов кодировщика служб мультимедиа Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/05/2015" 
 	ms.author="juliako"/>
 
 #Форматы и кодеки кодировщика служб мультимедиа Azure
@@ -21,7 +21,7 @@
 Этот документ содержит список наиболее распространенных форматов входных и выходных файлов и кодеков, которые можно использовать в кодировщике мультимедиа Azure.
 
 
-##Форматы входных видеофайлов (контейнеры)
+##Форматы входных файлов (контейнеры)
  
 Формат файла (расширения файлов)|Поддерживаются
 ---|---
@@ -33,32 +33,25 @@ MPEG-2 для цифровых видеокамер (MOD) (.mod) |Да
 Файл транспортного потока (TS) DVD (.ts) |Да
 Файл видеообъекта DVD (VOB) (.vob) |Да
 Файл Expression Encoder Screen Capture Codec (.xesc) |Да
-MP4 (.mp4) |Да
+MP4 (MP4, M4A, M4V) и ISMV (ISMA, ISMV) |Да
 Системный поток MPEG-1 (.mpeg, .mpg) |Да
 Видеофайл MPEG-2 (.m2v) |Да
-Формат файлов Smooth Streaming (PIFF 1.3) (.ismv) |Да
 Windows Media Video (WMV) (.wmv) |Да
+Звук AC-3 (Dolby Digital) (.ac3)|Да
+Audio Interchange File Format (AIFF) (.aiff)|Да
+Broadcast Wave Format (.bwf)|Да
+MP3 (MPEG-1 Audio Layer 3) (.mp3)|Да
+Аудиокнига MPEG-4 (.m4b)|Да
+Файл WAVE (.wav)|Да
+Windows Media Audio (.wma)|Да
 Adobe® Flash® F4V |Нет		
 MXF/SMPTE 377M |Ограничено 
 GXF |Нет		 
 [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|Нет
 Matroska/WebM |Нет
 
+
 Поддерживается несколько форматов без сжатия. Дополнительные сведения см. в разделе [Поддерживаемые форматы видео без сжатия](#uncompressed).
-
-##Форматы входных аудиофайлов
-
-Формат файла (расширения файлов)|Поддерживаются
----|---
-Звук AC-3 (Dolby Digital) (.ac3)|Да
-Audio Interchange File Format (AIFF) (.aiff)|Да
-Broadcast Wave Format (.bwf)|Да
-MP3 (MPEG-1 Audio Layer 3) (.mp3)|Да
-Звук MP4 (.m4A)|Да
-Аудиокнига MPEG-4 (.m4b)|Да
-Файл WAVE (.wav)|Да
-Windows Media Audio (.wma)|Да
-
 
 ##Входные видеокодеки
 
@@ -95,7 +88,7 @@ MP3 (MPEG-1 Audio Layer 3)|Да
 Windows Media Audio 9 (Windows Media Audio Standard, Windows Media Audio Professional и Windows Media Audio Lossless) |Да
 WAV/PCM|Да
 [FLAC](https://en.wikipedia.org/wiki/FLAC)|Нет
-[Opus] (https://en.wikipedia.org/wiki/Opus_(audio_format) |Нет
+[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |Нет
 [Vorbis](https://en.wikipedia.org/wiki/Vorbis)|Нет
 
 
@@ -141,4 +134,12 @@ MP4 (MP4)|H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC
 Формат Cirrus Logic Jr YUV 411|Формат Cirrus Logic Jr YUV 411 с менее чем 8 битами на выборку Y, U и V. Выборка по Y в каждом пикселе, выборка по U и V в каждом четвертом пикселе по горизонтали в каждом ряду; выборка каждого вертикального ряда.
 Формат YVU9 Indeo|Формат YVU9 Indeo с дополнительной информацией об отличиях от последнего кадра. 9,5 бит на пиксель, однако в показаниях отображается значение 9.
 
-<!---HONumber=September15_HO1-->
+
+##Схемы обучения работе со службами мультимедиа
+
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

@@ -3,7 +3,7 @@
 	description="Узнайте, как работают планы службы приложений Azure и чем они удобны для вашей среды управления." 
 	services="app-service" 
 	documentationCenter="" 
-	authors="cephalin" 
+	authors="btardif" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="09/07/2015" 
 	ms.author="byvinyal"/>
 
 #Подробный обзор планов службы приложений Azure#
@@ -50,17 +50,11 @@
 
 Вы не можете создать пустой план службы приложения. Однако можно явно создать новый план во время создания приложения.
 
-Для этого на [портале Azure](http://go.microsoft.com/fwlink/?LinkId=529715) нажмите кнопку **СОЗДАТЬ**, затем выберите **Мобильные и веб-приложения** и укажите **Веб-приложения**, **Мобильные приложения**, **Приложения логики** или **Приложения API**. Затем можно выбрать или создать план службы приложений для нового приложения.
- 
-![Вопросы и ответы по планам службы приложений](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview01.png)
+Для этого на [портале Azure](http://go.microsoft.com/fwlink/?LinkId=529715) нажмите кнопку **СОЗДАТЬ**, затем выберите **Мобильные и веб-приложения** и укажите **Веб-приложения**, **Мобильные приложения**, **Приложения логики** или **Приложения API**. ![][createWebApp]
 
-##Назначение приложения плану службы приложений
-
-Приложения можно назначать существующему плану во время их создания.
-
-Для этого на [портале Azure](http://portal.azure.com) нажмите кнопку **СОЗДАТЬ**, затем выберите **Мобильные и веб-приложения** и укажите **Веб-приложения**, **Мобильные приложения**, **Приложения логики** или **Приложения API**. Затем можно выбрать или создать план службы приложений для нового приложения. Щелкните пункт **Или выбрать существующий** для отображения списка, где можно выбрать существующий план.
-
-![Вопросы и ответы по планам службы приложений](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview02.png)
+Затем можно выбрать или создать план службы приложений для нового приложения.
+  
+ ![][createASP]
  
 ## Перемещение приложения в другой план службы приложений
 
@@ -70,7 +64,7 @@
  
 Откроется выноска App Service Plan (План службы приложений). На этом шаге можно выбрать существующий план или создать новый. Планы в других географических расположениях будут выделены серым цветом, их выбрать нельзя.
 
-![Вопросы и ответы по планам службы приложений](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview03.png)
+![][change]
 
 Обратите внимание, что каждый план имеет свою ценовую категорию. При перемещении сайта с уровня **Free** на уровень **Standard** ваше приложение сможет использовать все функции и ресурсы уровня **Standard**.
 
@@ -84,7 +78,7 @@
 
 На приведенном ниже рисунке показаны колонки **План службы приложений** и **Ценовая категория**. Если щелкнуть раздел **Ценовая категория** в колонке **План службы приложений**, разворачивается колонка **Ценовая категория**, в которой можно изменить ценовую категорию и размер экземпляров для плана.
  
-![Вопросы и ответы по планам службы приложений](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview04.png)
+ ![][pricingtier]
 
 ##Сводка
 
@@ -95,5 +89,13 @@
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
+ 
+ 
+ <!-- Images. -->
+[pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
+[assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
+[change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
+[createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
+[createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

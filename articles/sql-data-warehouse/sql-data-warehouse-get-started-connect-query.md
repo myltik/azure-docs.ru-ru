@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
    
 # Начало работы. Подключение к хранилищу данных SQL
@@ -188,4 +188,4 @@ C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server
 [загрузить демонстрационные данные]: ./sql-data-warehouse-get-started-load-samples.md
 [создать код]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

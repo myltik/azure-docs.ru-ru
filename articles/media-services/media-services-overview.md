@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Общие сведения о службах мультимедиа Azure и распространенные сценарии"
-	description="В этом разделе приводится краткий обзор служб мультимедиа Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Общие сведения о службах мультимедиа Azure и распространенные сценарии" 
+	description="В этом разделе приводится краткий обзор служб мультимедиа Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #Общие сведения о службах мультимедиа Azure и распространенные сценарии
@@ -36,6 +36,14 @@
 - Существующие средства: [портал управления Azure](http://manage.windowsazure.com/) или [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
 
 
+##Схемы обучения работе со службами мультимедиа
+
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##Предварительные требования
 
 Приступить к использованию служб мультимедиа Azure можно только при наличии следующих компонентов.
@@ -44,7 +52,7 @@
 2. Учетная запись служб мультимедиа Azure. Используйте портал управления Azure, .NET или API REST, чтобы создать учетную запись служб мультимедиа Azure. Дополнительные сведения см. в разделе [Создание учетной записи](media-services-create-account.md).
 3. Настройка среды разработки (необязательно) Выберите .NET или REST API для среды разработки. Дополнительные сведения см. в [разделе о настройке среды](media-services-dotnet-how-to-use.md). 
 
-	Кроме того, ознакомьтесь с [разделом о подключении](media-services-dotnet-connect_programmatically.md), чтобы научиться подключаться программными средствами.
+	Кроме того, ознакомьтесь с разделом о [подключении](media-services-dotnet-connect_programmatically.md), чтобы научиться подключаться программными средствами.
 4. Выделите одну или несколько единиц масштабирования (рекомендуется). Рекомендуем выделить одну или несколько единиц масштабирования для приложения в рабочей среде. Дополнительные сведения см. в разделе [Управление конечными точками потоковой передачи](media-services-manage-origins.md).
 
 ##Основные понятия
@@ -211,8 +219,6 @@
 
 	Дополнительные сведения см. в разделе [Соглашение об уровне обслуживания Microsoft Azure](http://azure.microsoft.com/support/legal/sla/).
 
-
-
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
@@ -220,4 +226,4 @@
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

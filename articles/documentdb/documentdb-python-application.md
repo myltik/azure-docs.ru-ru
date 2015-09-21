@@ -1,20 +1,20 @@
 <properties
     pageTitle="Создание веб-приложения на базе Python и Flask с использованием DocumentDB | Microsoft Azure"
-	description="Узнайте, как использовать DocumentDB для хранения и использования данных из веб-приложения Python и Flask (MVC), размещенного в Azure."
-	services="documentdb"
-	documentationCenter="python"
-	authors="ryancrawcour"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    description="Узнайте, как использовать DocumentDB для хранения и использования данных из веб-приложения Python и Flask (MVC), размещенного в Azure."
+    services="documentdb"
+    documentationCenter="python"
+    authors="ryancrawcour"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
     ms.service="documentdb"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="hero-article"
-	ms.date="09/03/2015"
-	ms.author="ryancraw"/>
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="python"
+    ms.topic="hero-article"
+    ms.date="09/03/2015"
+    ms.author="ryancraw"/>
 
 # Создание веб-приложения Python и Flask (MVC) с использованием DocumentDB
 
@@ -338,7 +338,7 @@
 
 Поздравляем! Вы только что создали свое первое приложение на Python с помощью Azure DocumentDB и опубликовали его в службе веб-сайтов Azure.
 
-Нам важно знать, насколько этот учебник оказался полезен для вас. Оцените его содержимое с помощью кнопок голосования в начале или конце раздела. Данный раздел активно обновляется, поэтому для нас важны ваши отзывы о том, как улучшить его. Если вы хотите, чтобы мы связались с вами, укажите ваш адрес электронной почты в своих комментариях.
+Мы часто обновляем и улучшаем этот раздел на основе ваших отзывов. После завершения учебника воспользуйтесь кнопками голосования в верхней и нижней части страницы, а также оставьте отзыв о том, что следует улучшить по вашему мнению. Если вы хотите, чтобы мы связались с вами, укажите ваш электронный адрес в комментариях.
 
 Для добавления дополнительной функциональности в приложение ознакомьтесь с доступными интерфейсами API в [пакете SDK Python для DocumentDB](https://pypi.python.org/pypi/pydocumentdb).
 
@@ -351,4 +351,4 @@
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -1,26 +1,32 @@
 <properties
    pageTitle="Пример конфигурации для расширений виртуальных машин Azure | Microsoft Azure"
-	description="Пример конфигурации для разработки шаблонов с расширениями"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   description="Пример конфигурации для разработки шаблонов с расширениями"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="kundanap"/>
 
 # Примеры конфигурации расширения виртуальной машины Linux Azure.
 
-В этой статье представлен пример конфигурации для настройки расширений ВМ Azure для виртуальных машин IaaS Azure Linux. Чтобы узнать подробнее об этих расширениях, щелкните <a href="https://msdn.microsoft.com/ru-RU/library/azure/dn606311.aspx" target="_blank">здесь</a>.
+В этой статье представлен пример конфигурации для настройки расширений ВМ Azure для виртуальных машин IaaS Azure Linux.
 
-## Фрагмент шаблона образца для расширения виртуальной машины.
+Чтобы узнать подробнее об этих расширениях, щелкните здесь: [Расширения виртуальных машин Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+
+Чтобы узнать дополнительные сведения о разработке шаблонов расширения, щелкните здесь: [Разработка шаблонов расширения.](virtual-machines-extensions-authoring-templates.md)
+
+В данной статье содержатся предполагаемые значения конфигурации для некоторых расширений Linux.
+
+## Фрагмент шаблона образца для расширений виртуальной машины
 Фрагмент шаблона для развертывания расширений выглядит следующим образом:
 
       {
@@ -91,7 +97,7 @@
         }
 
 ### Расширение для доступа к виртуальной машине (сброс пароля)
-Обновленная схема представлена <a href="https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess" target="_blank">здесь </a>.
+Для получения обновленной схемы обратитесь к [документации VMAccessForLinux](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess).
 
         {
           "publisher": "Microsoft.OSTCExtensions",
@@ -107,7 +113,7 @@
         }
 
 ### Установка исправлений для ОС
-Обновленная схема представлена <a href="https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching" target="_blank">здесь </a>.
+Для получения обновленной схемы обратитесь к [документации OSPatching](https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching).
 
         {
         "publisher": "Microsoft.OSTCExtensions",
@@ -132,7 +138,7 @@
         }
 
 ### Расширение Docker
-Обновленная схема представлена <a href="https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema" target="_blank">здесь </a>.
+Для получения обновленной схемы обратитесь к [документации расширения Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md#1-configuration-schema).
 
         {
           "publisher": "Microsoft.Azure.Extensions ",
@@ -155,6 +161,29 @@
             }
             }
         }
+
+        ### Linux Diagnostics Extension
+        {
+        "storageAccountName": "storage account to receive data",
+        "storageAccountKey": "key of the account",
+        "perfCfg": [
+        {
+            "query": "SELECT PercentAvailableMemory, AvailableMemory, UsedMemory ,PercentUsedSwap FROM SCX_MemoryStatisticalInformation",
+            "table": "LinuxMemory"
+        }
+        ],
+        "fileCfg": [
+        {
+            "file": "/var/log/mysql.err",
+            "table": "mysqlerr"
+        }
+        ]
+        }
+
 В приведенных выше примерах замените номер версии на номер актуальной версии.
 
-<!---HONumber=September15_HO1-->
+Здесь представлен полный шаблон виртуальной машины для создания виртуальной машины Linux с расширением:
+
+[Расширение Custom Script на виртуальной машине Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
+
+<!---HONumber=Sept15_HO2-->

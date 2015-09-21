@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/24/2015"
+   ms.date="09/10/2015"
    ms.author="seanmck"/>
 
 # Настройка среды разработки Service Fabric
@@ -51,8 +51,9 @@
 
 Для создания локального кластера разработки и развертывания приложений из Visual Studio в Service Fabric используются сценарии Windows PowerShell. По умолчанию Windows блокирует выполнение этих сценариев. Чтобы включить их, необходимо изменить политику выполнения PowerShell. Для этого запустите PowerShell с правами администратора и введите следующую команду:
 
-    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
-
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+```
 
 ## Настройка и запуск локального кластера
 Локальный кластер представляет собой топологию из нескольких компьютеров, которые вы запускаете с компьютера для разработки и используете в качестве рабочей среды. Чтобы настроить локальный кластер, сделайте следующее.
@@ -60,9 +61,17 @@
 
 1. Закройте все окна PowerShell и откройте новое от имени администратора.
 
-2. Перейдите в каталог установки кластера с помощью команды `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"`
+2. Перейдите в каталог установки кластера
 
-3. Запустите `.\DevClusterSetup.ps1`
+    ```powershell
+    cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"
+    ```
+    
+3. Выполнить
+
+    ```powershell
+    .\DevClusterSetup.ps1
+    ```
 
 Через несколько секунд вы увидите сведения об узле и подтверждение успешного создания кластера. В некоторых случаях при запуске хост-службы и служб имен Service Fabric могут отображаться предупреждения. Их можно проигнорировать — практически сразу же будут выведены основные сведения о кластере.
 
@@ -72,7 +81,11 @@
 
 Вы можете проверить, успешно ли создан кластер, используя инструмент Service Fabric Explorer, который входит в пакет SDK.
 
-1. Запустите Service Fabric Explorer с помощью команды `. "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"`.
+1. Запустите Service Fabric Explorer с помощью команды 
+
+    ```powershell
+    . "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"
+    ```
 
 2. Разверните узел кластера Onebox/Local в левом верхнем углу.
 
@@ -93,4 +106,4 @@
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Ссылка WebPI"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

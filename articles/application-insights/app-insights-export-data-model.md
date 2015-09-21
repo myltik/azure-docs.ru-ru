@@ -451,7 +451,7 @@
 * 
     Языковые параметры приложения, установленного на клиенте. Если не указано явно для элемента телеметрии, это значение получается в результате обработки поля агента пользователя. 
 
-    *Примеры*<br/> ru<br/>ru-ru<br/>de-DE<br/>неизвестно
+    *Примеры*<br/> ru<br/>ru-RU<br/>de-DE<br/>неизвестно
 
 **machineName**
 
@@ -679,6 +679,18 @@
     string context.user.accountId      Max: 100
 * 
     Уникальный идентификатор, определяющий учетную запись в приложении. Он предоставляется разработчиком. 
+
+### Настраиваемые метрики
+
+    context.custom.metrics.<metric-name>
+
+      double value
+      double count
+      double min
+      double max
+      double stdDev
+      double sampledValue
+      double sum
 
 
 ## remotedependency
@@ -1069,4 +1081,4 @@
 * [Непрерывный экспорт](app-insights-export-telemetry.md)
 * [Примеры кода](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

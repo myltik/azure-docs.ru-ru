@@ -2,7 +2,7 @@
 	pageTitle="Application Insights для приложений Windows Phone и Магазина Windows | Microsoft Azure"
 	description="Анализ использования и производительности приложения для устройства Windows с помощью Application Insights."
 	services="application-insights"
-	documentationCenter="windows"
+    documentationCenter="windows"
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -39,7 +39,7 @@
 
 На [портале Azure][portal] создайте новый ресурс Application Insights.
 
-![Последовательно выберите пункты «Создать», «Службы для разработчиков», «Application Insights»](./media/app-insights-windows-get-started/01-new.png)
+![Последовательно выберите пункты "Создать", "Службы для разработчиков", "Application Insights"](./media/app-insights-windows-get-started/01-new.png)
 
 [Ресурс][roles] в Azure — это экземпляр службы. В этом ресурсе будет анализироваться и представляться телеметрия из вашего приложения.
 
@@ -69,6 +69,7 @@
 4. Добавьте файл ApplicationInsights.config в корневой каталог проекта и вставьте скопированный c портала ключ инструментирования. Ниже приведен пример XML-кода для этого файла конфигурации.
 
 	```xml
+
 		<?xml version="1.0" encoding="utf-8" ?>
 		<ApplicationInsights>
 			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
@@ -82,6 +83,10 @@
 5. Добавьте приведенный ниже код инициализации. Рекомендуем добавить этот код в конструктор `App()`. Если выполнить это действие в другом месте, можно пропустить автоматический сбор сведений о первых просмотрах страниц.
 
 ```C#
+
+    using Microsoft.ApplicationInsights;
+    ...
+
 	public App()
 	{
 	   // Add this initilization line.
@@ -96,7 +101,7 @@
 
 ## <a name="network"></a>3. Включение доступа к сети для вашего приложения
 
-Если приложение еще не [запросило исходящий доступ к сети](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx), вам нужно добавить это в его манифест как [обязательную возможность](https://msdn.microsoft.com/library/windows/apps/br211477.aspx).
+Если приложение еще не [запросило доступ к Интернету](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx), вам нужно добавить это в его манифест как [обязательную возможность](https://msdn.microsoft.com/library/windows/apps/br211477.aspx).
 
 ## <a name="run"></a>4. Запуск проекта
 
@@ -111,16 +116,13 @@
 
 ## <a name="monitor"></a>5. Просмотр данных мониторинга
 
-Откройте Application Insights из проекта.
-
-![Щелкните проект правой кнопкой мыши и откройте портал Azure](./media/app-insights-windows-get-started/appinsights-04-openPortal.png)
-
+Выполните вход на [портал Azure](https://portal.azure.com) и перейдите к ресурсу Application Insights, который вы создали ранее.
 
 Сначала вы увидите только одну или две точки. Например:
 
 ![Щелкните плитки, чтобы увидеть больше данных](./media/app-insights-windows-get-started/appinsights-26-devices-01.png)
 
-Если вам требуется больше данных, нажмите кнопку **Обновить** через несколько секунд.
+Если вам требуется больше данных, через несколько секунд нажмите кнопку **Обновить**.
 
 Щелкните любую диаграмму, чтобы просмотреть более подробные сведения.
 
@@ -165,7 +167,7 @@
 
 ```
 
-Дополнительную информацию см. в статье [Пользовательские события и метрики][api].
+Дополнительную информацию см. в статье [Общие сведения об API. Пользовательские события и метрики][api].
 
 ## Что дальше?
 
@@ -196,7 +198,10 @@
 
 ## Обновление до новой версии пакета SDK
 
-При [выпуске новой версии пакета SDK](app-insights-release-notes-windows.md): * щелкните правой кнопкой мыши проект и выберите «Управление пакетами NuGet»; * выберите установленные пакеты Application Insights и выберите **Обновить**.
+После выпуска [новой версии пакета SDK](app-insights-release-notes-windows.md):
+
+* Щелкните правой кнопкой мыши проект и выберите "Управление пакетами NuGet".
+* Выберите установленные пакеты Application Insights и нажмите **Обновить**.
 
 
 ## <a name="usage"></a>Дальнейшие действия
@@ -227,4 +232,4 @@
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

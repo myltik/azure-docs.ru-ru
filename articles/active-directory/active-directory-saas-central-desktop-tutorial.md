@@ -1,7 +1,5 @@
 <properties pageTitle="Учебник. Интеграция Azure Active Directory с Central Desktop | Microsoft Azure" description="Узнайте, как использовать Central Desktop вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi"/>
-
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
 #Учебник. Интеграция Azure Active Directory с Central Desktop
 >[AZURE.TIP]Чтобы оставить отзыв, нажмите [здесь](http://go.microsoft.com/fwlink/?LinkId=522411).
 
@@ -54,6 +52,8 @@
 В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Central Desktop со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.  
 В рамках этой процедуры потребуется передать в клиент Central Desktop сертификат в кодировке Base-64.  
 Если вы не знакомы с этой процедурой, посмотрите видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+
+
 
 ###Чтобы настроить единый вход, выполните следующие действия.
 
@@ -154,4 +154,4 @@
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

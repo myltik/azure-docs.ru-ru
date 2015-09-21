@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Просмотр заданий архивации и управление ими с помощью диспетчера моментальных снимков StorSimple | Microsoft Azure"
+   pageTitle="Задания архивации диспетчера моментальных снимков StorSimple | Microsoft Azure"
    description="Узнайте, как использовать оснастку консоли MMC ";Диспетчер моментальных снимков StorSimple"; для просмотра запланированных, выполняющихся и завершенных заданий архивации, а также управления ими."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/05/2015"
    ms.author="v-sharos" />
 
 
@@ -129,4 +129,4 @@
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

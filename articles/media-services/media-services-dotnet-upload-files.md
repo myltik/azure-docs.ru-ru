@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/17/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -41,7 +41,7 @@
 
 Если для ресурса задано шифрование с использованием параметра **StorageEncrypted**, пакет SDK служб мультимедиа для .NET создаст для ресурса зашифрованный в хранилище ключ содержимого (**StorateEncrypted** **ContentKey**).
 
->[AZURE.NOTE]При создании URL-адресов для потоковой передачи содержимого службы мультимедиа используют значение свойства IAssetFile.Name (например, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Поэтому кодирование с помощью знака процента не допускается. Значение свойства **Name** не может содержать следующие [символы, зарезервированные для кодирования с помощью знака процента](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%\#". Кроме того, может использоваться только один символ "." для расширения имени файла.
+>[AZURE.NOTE]При создании URL-адресов для потоковой передачи содержимого службы мультимедиа используют значение свойства IAssetFile.Name (например, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Поэтому кодирование с помощью знака процента не допускается. Значение свойства **Name** не может содержать следующие [символы, зарезервированные для кодирования с помощью знака процента](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Кроме того, может использоваться только один символ "." для расширения имени файла.
 
 В этом разделе показано, как использовать пакет SDK служб мультимедиа для .NET, а также расширения пакета SDK служб мультимедиа для .NET для передачи файлов в ресурс служб мультимедиа.
 
@@ -213,7 +213,7 @@
 	        CloudBlobClient blobClient = storageaccount.CreateCloudBlobClient();
 	        CloudBlobContainer blobContainer = blobClient.GetContainerReference(destBlobURI);
 	
-	        string[] splitfilename = filename.Split('\');
+	        string[] splitfilename = filename.Split('\\');
 	        var blob = blobContainer.GetBlockBlobReference(splitfilename[splitfilename.Length - 1]);
 	
 	        using (var stream = System.IO.File.OpenRead(filename))
@@ -299,10 +299,19 @@
 	var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
 
 
+##Схемы обучения работе со службами мультимедиа
+
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 ##Дальнейшие действия
 После загрузки актива в службы мультимедиа перейдите к статье [Получение процессора мультимедиа][].
 
 [Получение процессора мультимедиа]: media-services-get-media-processor.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

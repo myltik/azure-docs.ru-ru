@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Начало работы с данными (Android) | Microsoft Azure" 
-	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении Android." 
+	pageTitle="Приступая к работе с данными в Android (серверная часть JavaScript) | Microsoft Azure" 
+	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении Android (серверная часть JavaScript)." 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="09/04/2015" 
 	ms.author="ricksal"/>
 
-# Добавление мобильных служб в существующее приложение Android
+# Добавление мобильных служб в существующее приложение Android (серверная часть JavaScript)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
@@ -35,7 +35,7 @@
 </div>
 
 
-<p>Этот учебник поможет лучше понять, как мобильные службы Azure могут сохранять данные приложения Android и извлекать их из него. В этом разделе рассматриваются многие действия, которые уже выполнялись в кратком руководстве по использованию мобильных служб. Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником <a href="/ru-ru/develop/mobile/tutorials/get-started-android">Приступая к работе с мобильными службами</a>.</p>
+<p>Этот учебник поможет лучше понять, как мобильные службы Azure могут сохранять данные приложения Android и извлекать их из него. В этом разделе рассматриваются многие действия, которые уже выполнялись в кратком руководстве по использованию мобильных служб. Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником <a href="/ru-RU/develop/mobile/tutorials/get-started-android">Приступая к работе с мобильными службами</a>.</p>
 
 ## Предварительные требования
 
@@ -156,4 +156,4 @@
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

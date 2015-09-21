@@ -1,6 +1,7 @@
 <properties
-	pageTitle="Вызов пользовательского API из клиента Android | Microsoft Azure"
-	description="Узнайте, как определить настраиваемый API и вызывать его из приложения Android, которое использует мобильные службы Azure."
+	writer="ricksal"
+	pageTitle="Вызов настраиваемого интерфейса API из клиента Android (серверная часть JavaScript) | Microsoft Azure"
+	description="Узнайте, как определить настраиваемый API и вызывать его из приложения Android, которое использует мобильные службы Azure (серверная часть JavaScript)."
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
@@ -13,10 +14,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="ricksal"/>
 
-# Вызов из клиента настраиваемого интерфейса API
+# Вызов настраиваемого интерфейса API из клиента Android (серверная часть JavaScript)
 
 [AZURE.INCLUDE [mobile-services-selector-call-custom-api](../../includes/mobile-services-selector-call-custom-api.md)]
 
@@ -68,4 +69,4 @@
 
 [Хранение серверных сценариев в системе управления версиями]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

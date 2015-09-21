@@ -1,20 +1,21 @@
 <properties
     pageTitle="Что такое машинное обучение в Microsoft Azure? | Microsoft Azure"
-	description="Здесь описываются основные понятия полностью управляемой службы машинного обучения, облачные технологии, которые можно использовать для создания, развертывания решения и получения от него прибыли."
+    description="Здесь описываются основные понятия полностью управляемой службы машинного обучения, облачные технологии, которые можно использовать для создания, развертывания решения и получения от него прибыли."
+	keywords="what is machine learning,cloud technology,predictive,what is predictive analytics,operationalize"
 	services="machine-learning"
-	documentationCenter=""
-	authors="cjgronlund"
-	manager="neerajkh"
-	editor="cgronlun"/>
+    documentationCenter=""
+    authors="cjgronlund"
+    manager="neerajkh"
+    editor="cgronlun"/>
 
 <tags
     ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="cgronlun;tedway;olgali"/>
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/09/2015"
+    ms.author="cgronlun;tedway;olgali"/>
 
 
 # Введение в машинное обучение в Microsoft Azure
@@ -29,7 +30,7 @@
 
 Служба машинного обучения Azure представляет собой мощную облачную службу прогностической аналитики, при помощи которой можно без лишних временных затрат создавать и развертывать прогнозирующие модели как аналитические решения.
 
-Служба машинного обучения Azure предоставляет не только средства для моделирования прогнозов, но и полностью управляемую службу, которую можно использовать для публикации прогнозирующих моделей как готовые к использованию веб-службы. Служба машинного обучения Azure дает разработчикам инструменты для создания полноценных решений прогнозирующей аналитики в облаке. Вы сможете быстрого создавать, тестировать, развертывать и контролировать модели прогнозирования. Вам не потребуется приобретать оборудование и вручную управлять виртуальными машинами.
+Служба машинного обучения Azure предоставляет не только средства для создания моделей прогнозной аналитики, но и полностью управляемую службу, которую можно использовать для развертывания прогнозирующих моделей как готовые к использованию веб-службы. Служба машинного обучения Azure дает разработчикам инструменты для создания полноценных решений прогнозирующей аналитики в облаке. Вы сможете быстрого создавать, тестировать, развертывать и контролировать модели прогнозирования. Вам не потребуется приобретать оборудование и вручную управлять виртуальными машинами.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -59,7 +60,7 @@
 * Приобретайте готовые для использования веб-службы в [Microsoft Azure Marketplace](https://datamarket.azure.com/browse?query=machine+learning), например для получения рекомендаций, анализа текста и обнаружение неполадок.
 
 * Ввод моделей прогнозной аналитики в эксплуатацию:
-    * [Публикация веб-служб](machine-learning-publish-a-machine-learning-web-service.md)
+    * [Развертывание веб-служб](machine-learning-publish-a-machine-learning-web-service.md)
     * [Обучение и повторное обучение моделей с помощью API-интерфейсов](machine-learning-retrain-models-programmatically.md)
     * [Управление конечными точками веб-служб](machine-learning-create-endpoint.md)
     * [Масштабирование веб-служб](machine-learning-scaling-endpoints.md)
@@ -115,4 +116,4 @@
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

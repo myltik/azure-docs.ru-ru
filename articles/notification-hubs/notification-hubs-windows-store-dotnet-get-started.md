@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с Центрами уведомлений Azure | Microsoft Azure"
+	pageTitle="Приступая к работе с Центрами уведомлений Azure для приложений Магазина Windows | Microsoft Azure"
 	description="Из этого учебника вы узнаете, как использовать центры уведомлений Azure для отправки push-уведомлений в приложение для Магазина Windows или Windows Phone 8.1 (без Silverlight)."
 	services="notification-hubs"
 	documentationCenter="windows"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/24/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Приступая к работе с центрами уведомлений
+# Приступая к работе с Центрами уведомлений для приложений Магазина Windows
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -211,7 +211,7 @@
             await hub.SendWindowsNativeNotificationAsync(toast);
         }
 
-   	Обязательно замените заполнитель «hub name» на имя центра уведомлений, отображаемое на вкладке **Центры уведомлений** портала. Кроме того, замените заполнитель строки подключения на строку подключения с именем **DefaultFullSharedAccessSignature**, полученную в разделе "Настройка центра уведомлений".
+   	Обязательно замените заполнитель "hub name" на имя центра уведомлений, отображаемое на вкладке **Центры уведомлений** портала. Кроме того, замените заполнитель строки подключения на строку подключения с именем **DefaultFullSharedAccessSignature**, полученную в разделе "Настройка центра уведомлений".
 
 	>[AZURE.NOTE]Обязательно используйте строку подключения с **полным** доступом, а не доступом к **прослушиванию**. У строки с доступом к прослушиванию отсутствуют разрешения для отправки уведомлений.
 
@@ -264,4 +264,4 @@
 [каталог плиток]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [обзор эмблем]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

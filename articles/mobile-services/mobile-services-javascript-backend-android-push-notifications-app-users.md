@@ -1,7 +1,7 @@
 
 <properties
-	pageTitle="Рассылка push-уведомлений проверенным пользователям"
-	description="Узнайте, как отправлять push-уведомления для конкретного адресата"
+	pageTitle="Рассылка push-уведомлений проверенным пользователям приложения для Android (серверная часть JavaScript)"
+	description="Узнайте, как отправлять push-уведомления определенным пользователям приложения Android, прошедшим проверку подлинности, с помощью мобильных служб с серверной частью JavaScript."
 	services="mobile-services, notification-hubs"
 	documentationCenter="android"
 	authors="wesmc7777"
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015" 
 	ms.author="wesmc"/>
 
 
-# Рассылка push-уведомлений проверенным пользователям
+# Рассылка push-уведомлений проверенным пользователям приложения для Android
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
@@ -26,7 +26,7 @@
 
 В этом разделе демонстрируется отправка push-уведомлений прошедшему проверку подлинности пользователю на любом зарегистрированном устройстве. В отличие от предыдущего учебника по [push-уведомлениям][Get started with push notifications], в данном учебнике будет изменяться мобильная служба, чтобы она требовала выполнение проверки подлинности пользователя перед регистрацией клиента в концентраторе уведомлений для получения push-уведомлений. Регистрация также изменяется — добавляется тег на основе идентификатора назначенного пользователя. Наконец, обновляется серверный скрипт, чтобы уведомление отправлялось не всем зарегистрированным пользователям, а только тем, кто прошел проверку подлинности.
 
-Этот учебник поддерживает приложения Android.
+Этот учебник поддерживает приложения Android с помощью мобильной службы Azure и серверной части JavaScript.
 
 ##Предварительные требования
 
@@ -94,7 +94,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 [Get started with push notifications]: mobile-services-javascript-backend-android-get-started-push.md
 [Приступая к работе с push-уведомлениями в мобильных службах]: mobile-services-javascript-backend-android-get-started-push.md
 
-[портал управления Azure]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

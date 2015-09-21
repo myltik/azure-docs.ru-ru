@@ -1,22 +1,23 @@
-<properties 
+<properties
 	pageTitle="Расширенный процесс аналитики и технологии в действии: использование SQL Server | Microsoft Azure"
-	description="Расширенный процесс аналитики и технологии в действии"
+	description="Расширенный процесс аналитики и технологии в действии"  
 	services="machine-learning"
+	solutions=""
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun" />
 
-<tags 
+<tags
 	ms.service="machine-learning"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="09/09/2015" 
 	ms.author="mohabib;fashah;bradsev"/>
 
-                
+
 # Расширенный процесс аналитики и технологии в действии: использование SQL Server
 
 В этом учебнике представлено пошаговое руководство по созданию и развертыванию модели с помощью общедоступного набора данных [Поездки такси Нью-Йорка](http://www.andresmh.com/nyctaxitrips/). В учебнике используется схема процесса обработки аналитических данных и технологии расширенного анализа (ADAPT)
@@ -53,7 +54,7 @@
 1. Двоичная классификация: Спрогнозировать, были ли выплачены чаевые за поездку, т. е. значение *tip\_amount* больше 0 $ является позитивным примером, а значение *tip\_amount* 0 $ является негативным примером.
 
 2. Мультиклассовая классификация: Спрогнозировать диапазон суммы чаевых за поездку. Мы разделяем *tip\_amount* на пять ячеек или классов:
-	
+
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
 		Class 2 : tip_amount > $5 and tip_amount <= $10
@@ -83,7 +84,7 @@
 	> [AZURE.NOTE]Примеры сценариев и файлов IPython Notebook будут загружены в вашу виртуальную машину для обработки данных в процессе установки. Когда послеустановочный сценарий для виртуальной машины завершен, в библиотеке документов виртуальной машины будут размещаться примеры: — примеры сценариев: `C:\Users<user_name>\Documents\Data Science Scripts` — примеры IPython Notebook: `C:\Users<user_name>\Documents\IPython Notebooks\DataScienceSamples`, где `<user_name>` находится имя входа виртуальной машины Windows. Эти папки с примерами в дальнейшем будут именоваться **Примеры сценариев** и **Примеры файлов IPython Notebook**.
 
 
-По размеру набора данных, расположению источника данных и выбранной целевой среде Azure этот сценарий похож на [Сценарий №5. Большой набор данных в локальных файлах, загружаемый на сервер SQL Server в виртуальной машине Azure](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
+По размеру набора данных, расположению источника данных и выбранной целевой среде Azure этот сценарий похож на [Сценарий № 5. Большой набор данных в локальных файлах, загружаемый на сервер SQL Server в виртуальной машине Azure](../machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>Получение данных из общедоступного источника
 
@@ -126,7 +127,7 @@
 	- Выберите **Параметры базы** данных из списка **Выберите страницу** слева.
 
 	- Проверьте и/или измените **Расположения базы данных** по умолчанию на выбранные вами расположения **Диск с данными**. Здесь будут располагаться новые базы, созданные с настройками расположения по умолчанию.
-	
+
 		![База данных SQL по умолчанию][15]
 
 5. Чтобы создать новую базу данных и набор файловых групп для размещения секционированных таблиц, откройте образец сценария **create\_db\_default.sql**. Сценарий создаст новую базу данных с именем **TaxiNYC** и 12 файловых групп в расположении данных по умолчанию. Каждая файловая группа будет содержать данные trip\_data и trip\_fare за один месяц. При желании можно изменить имя базы данных. Нажмите **!Выполнить**, чтобы запустить сценарий.
@@ -173,7 +174,7 @@
 
 Когда вы будете готовы перейти к машинному обучению Azure, вы можете:
 
-1. Сохранить финальный запрос SQL для извлечения и выборки данных, скопировать и вставить этот запрос непосредственно в модуль [Reader][reader] в машинном обучении Azure или 
+1. Сохранить финальный запрос SQL для извлечения и выборки данных, скопировать и вставить этот запрос непосредственно в модуль [Reader][reader] в машинном обучении Azure или
 2. Сохранить данные по итогам выборки и проектирования, которые планируется использовать для построения модели в новой таблице базы данных, и использовать новую таблицу в модуле [Reader][reader] в машинном обучении Azure.
 
 В этом разделе мы сохраним финальный запрос для извлечения и выборки данных. Второй метод демонстрируется в разделе [Просмотр данных и проектирование характеристик в IPython Notebook](#ipnb).
@@ -184,7 +185,7 @@
 	SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')
 
 	-- Report number of columns in table nyctaxi_trip
-	SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip' 
+	SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'
 
 #### Просмотр: Распределение поездок по параметру medallion
 
@@ -232,12 +233,12 @@
 В этом примере вычисляется распределение диапазонов чаевых за заданный период времени (или по полному набору данных в случае охвата целого года). Это распределение классов меток, которое в дальнейшем будет использоваться для моделирования мультиклассовой классификации.
 
 	SELECT tip_class, COUNT(*) AS tip_freq FROM (
-		SELECT CASE 
+		SELECT CASE
 			WHEN (tip_amount = 0) THEN 0
 			WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
 			WHEN (tip_amount > 5 AND tip_amount <= 10) THEN 2
 			WHEN (tip_amount > 10 AND tip_amount <= 20) THEN 3
-			ELSE 4 
+			ELSE 4
 		END AS tip_class
 	FROM nyctaxi_fare
 	WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
@@ -247,7 +248,7 @@
 
 В этом примере значения долготы и широты начальных и конечных пунктов поездок преобразуются в географические точки SQL, вычисляется расстояние поездки по разности географических точек и возвращается случайная выборка результатов для сравнения. В примере результаты ограничиваются только допустимыми координатами с помощью запроса оценки качества данных, описанного ранее.
 
-	SELECT 
+	SELECT
 	pickup_location=geography::STPointFromText('POINT(' + pickup_longitude + ' ' + pickup_latitude + ')', 4326)
 	,dropoff_location=geography::STPointFromText('POINT(' + dropoff_longitude + ' ' + dropoff_latitude + ')', 4326)
 	,trip_distance
@@ -290,7 +291,7 @@
 
 - Считайте небольшую выборку данных во фрейм данных, размещенный в памяти.
 - Выполните несколько визуализаций и просмотров с использованием выборки данных.
-- Поэкспериментируйте с проектированием характеристик с использованием выборки данных. 
+- Поэкспериментируйте с проектированием характеристик с использованием выборки данных.
 - Для просмотра большего объема данных, манипуляций с данными и проектирования характеристик используйте Python для подачи SQL-запросов непосредственно к базе данных SQL Server на виртуальной машине Azure.
 - Определите размер выборки, который будет использоваться для построения модели в службе машинного обучения Azure.
 
@@ -319,45 +320,45 @@
 #### Сообщение числа строк и столбцов в таблице nyctaxi\_trip
 
     nrows = pd.read_sql('''
-		SELECT SUM(rows) FROM sys.partitions 
+		SELECT SUM(rows) FROM sys.partitions
 		WHERE object_id = OBJECT_ID('nyctaxi_trip')
 	''', conn)
-    
+
 	print 'Total number of rows = %d' % nrows.iloc[0,0]
-    
+
     ncols = pd.read_sql('''
-		SELECT COUNT(*) FROM information_schema.columns 
+		SELECT COUNT(*) FROM information_schema.columns
 		WHERE table_name = ('nyctaxi_trip')
 	''', conn)
-    
+
 	print 'Total number of columns = %d' % ncols.iloc[0,0]
 
 - Общее число строк = 173179759  
 - Общее число столбцов = 14
-    
+
 #### Считывание небольшой выборки данных из базы данных SQL Server
 
     t0 = time.time()
-    
+
 	query = '''
-		SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, 
-			f.tolls_amount, f.total_amount, f.tip_amount 
-		FROM nyctaxi_trip t, nyctaxi_fare f 
+		SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax,
+			f.tolls_amount, f.total_amount, f.tip_amount
+		FROM nyctaxi_trip t, nyctaxi_fare f
 		TABLESAMPLE (0.05 PERCENT)
-		WHERE t.medallion = f.medallion 
-		AND   t.hack_license = f.hack_license 
+		WHERE t.medallion = f.medallion
+		AND   t.hack_license = f.hack_license
 		AND   t.pickup_datetime = f.pickup_datetime
 	'''
 
     df1 = pd.read_sql(query, conn)
-    
+
     t1 = time.time()
     print 'Time to read the sample table is %f seconds' % (t1-t0)
-    
+
     print 'Number of rows and columns retrieved = (%d, %d)' % (df1.shape[0], df1.shape[1])
 
 Время для прочтения примера таблицы — 6, 492000 секунд Число извлеченных строк и столбцов = (84952, 21)
-    
+
 #### Описательная статистика
 
 Теперь все готово для просмотра выборки данных. Начнем с рассмотрения описательной статистики для** trip\_distance** (или любых других полей):
@@ -426,14 +427,14 @@
 В этом разделе мы соединим таблицы **nyctaxi\_trip** и **nyctaxi\_fare**, извлечем 1 %-ную случайную выборку и сохраним выбранные данные в новой таблице с именем **nyctaxi\_one\_percent**:
 
     cursor = conn.cursor()
-    
+
     drop_table_if_exists = '''
         IF OBJECT_ID('nyctaxi_one_percent', 'U') IS NOT NULL DROP TABLE nyctaxi_one_percent
     '''
-    
+
     nyctaxi_one_percent_insert = '''
         SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, f.total_amount, f.tip_amount
-		INTO nyctaxi_one_percent 
+		INTO nyctaxi_one_percent
 		FROM nyctaxi_trip t, nyctaxi_fare f
 		TABLESAMPLE (1 PERCENT)
 		WHERE t.medallion = f.medallion
@@ -441,11 +442,11 @@
 		AND   t.pickup_datetime = f.pickup_datetime
 		AND   pickup_longitude <> '0' AND dropoff_longitude <> '0'
     '''
-    
+
     cursor.execute(drop_table_if_exists)
     cursor.execute(nyctaxi_one_percent_insert)
     cursor.commit()
-    
+
 ### Просмотр данных с помощью SQL-запросов в IPython Notebook
 
 В этом разделе мы рассмотрим распределение данных с использованием 1%-ной выборки данных, которая сохранена в созданной нами выше новой таблице. Обратите внимание, что подобные просмотры можно выполнять с использованием исходных таблиц, при необязательном использовании **TABLESAMPLE** для ограничения выборки для просмотра или для ограничения результатов заданным периодом времени с помощью разделов **pickup\_datetime**, как проиллюстрировано в разделе [Просмотр данных и проектирование характеристик в SQL Server](#dbexplore).
@@ -453,8 +454,8 @@
 #### Исследование: ежедневное распределение поездок
 
     query = '''
-		SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c 
-		FROM nyctaxi_one_percent 
+		SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
+		FROM nyctaxi_one_percent
 		GROUP BY CONVERT(date, dropoff_datetime)
 	'''
 
@@ -463,11 +464,11 @@
 #### Исследование: распределение поездок по параметру medallion
 
     query = '''
-		SELECT medallion,count(*) AS c 
-		FROM nyctaxi_one_percent 
+		SELECT medallion,count(*) AS c
+		FROM nyctaxi_one_percent
 		GROUP BY medallion
 	'''
-    
+
 	pd.read_sql(query,conn)
 
 ### Создание характеристик с помощью SQL-запросов в IPython Notebook
@@ -484,13 +485,13 @@
 		nyctaxi_one_percent_add_col = '''
 			ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
 		'''
-		
+
 		cursor.execute(nyctaxi_one_percent_add_col)
 		cursor.commit()
-    
+
     	nyctaxi_one_percent_update_col = '''
-        	UPDATE nyctaxi_one_percent 
-            SET 
+        	UPDATE nyctaxi_one_percent
+            SET
                tipped = CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END,
                tip_class = CASE WHEN (tip_amount = 0) THEN 0
                                 WHEN (tip_amount > 0 AND tip_amount <= 5) THEN 1
@@ -515,22 +516,22 @@
     cursor.commit()
 
     nyctaxi_one_percent_update_col = '''
-		WITH B AS 
+		WITH B AS
 		(
-			SELECT medallion, hack_license, 
+			SELECT medallion, hack_license,
 				SUM(CASE WHEN vendor_id = 'cmt' THEN 1 ELSE 0 END) AS cmt_count,
 				SUM(CASE WHEN vendor_id = 'vts' THEN 1 ELSE 0 END) AS vts_count
-			FROM nyctaxi_one_percent 
+			FROM nyctaxi_one_percent
 			GROUP BY medallion, hack_license
-		) 
-    
-		UPDATE nyctaxi_one_percent 
+		)
+
+		UPDATE nyctaxi_one_percent
 		SET nyctaxi_one_percent.cmt_count = B.cmt_count,
 			nyctaxi_one_percent.vts_count = B.vts_count
-		FROM nyctaxi_one_percent A INNER JOIN B 
+		FROM nyctaxi_one_percent A INNER JOIN B
 		ON A.medallion = B.medallion AND A.hack_license = B.hack_license
 	'''
-    
+
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
@@ -546,20 +547,20 @@
     cursor.commit()
 
     nyctaxi_one_percent_update_col = '''
-		WITH B(medallion,hack_license,pickup_datetime,trip_time_in_secs, BinNumber ) AS 
+		WITH B(medallion,hack_license,pickup_datetime,trip_time_in_secs, BinNumber ) AS
 		(
-			SELECT medallion,hack_license,pickup_datetime,trip_time_in_secs, 
+			SELECT medallion,hack_license,pickup_datetime,trip_time_in_secs,
 			NTILE(5) OVER (ORDER BY trip_time_in_secs) AS BinNumber from nyctaxi_one_percent
 		)
-    
-		UPDATE nyctaxi_one_percent 
+
+		UPDATE nyctaxi_one_percent
 		SET trip_time_bin = B.BinNumber
-		FROM nyctaxi_one_percent A INNER JOIN B 
+		FROM nyctaxi_one_percent A INNER JOIN B
 		ON A.medallion = B.medallion
 		AND A.hack_license = B.hack_license
 		AND A.pickup_datetime = B.pickup_datetime
 	'''
-    
+
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
@@ -568,7 +569,7 @@
 В этом примере десятичное представление поля широты и/или долготы разбивается на несколько полей регионов с различной степенью детализации, таких как страна, город, район, квартал и т. д. Обратите внимание, что новые географические поля не сопоставляются с фактическим расположением. Для получения информации о сопоставлении местоположений геокодов см. [REST-службы Bing Maps](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
-		ALTER TABLE nyctaxi_one_percent 
+		ALTER TABLE nyctaxi_one_percent
 		ADD l1 varchar(6), l2 varchar(3), l3 varchar(3), l4 varchar(3),
 			l5 varchar(3), l6 varchar(3), l7 varchar(3)
 	'''
@@ -578,13 +579,13 @@
 
     nyctaxi_one_percent_update_col = '''
 		UPDATE nyctaxi_one_percent
-		SET l1=round(pickup_longitude,0) 
+		SET l1=round(pickup_longitude,0)
 			, l2 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 1 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),1,1) ELSE '0' END     
 			, l3 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 2 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),2,1) ELSE '0' END     
 			, l4 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 3 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),3,1) ELSE '0' END     
 			, l5 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 4 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),4,1) ELSE '0' END     
 			, l6 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 5 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),5,1) ELSE '0' END     
-			, l7 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 6 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),6,1) ELSE '0' END 
+			, l7 = CASE WHEN LEN (PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1)) >= 6 THEN SUBSTRING(PARSENAME(ROUND(ABS(pickup_longitude) - FLOOR(ABS(pickup_longitude)),6),1),6,1) ELSE '0' END
 	'''
 
     cursor.execute(nyctaxi_one_percent_update_col)
@@ -655,12 +656,12 @@
 
 ## <a name="mldeploy"></a>Развертывание моделей в машинном обучении Azure
 
-Когда модель готова, ее можно легко развернуть в виде веб-службы непосредственно из эксперимента. Дополнительную информацию о публикации веб-служб Azure ML см. статью [Публикация веб-службы машинного обучения Azure](machine-learning-publish-a-machine-learning-web-service.md).
+Когда модель готова, ее можно легко развернуть в виде веб-службы непосредственно из эксперимента. Дополнительную информацию о развертывании веб-служб Azure ML см. в статье [Развертывание веб-службы машинного обучения Azure](machine-learning-publish-a-machine-learning-web-service.md).
 
 Чтобы развернуть новую веб-службу, необходимо выполнить такие действия.
 
 1. Создать эксперимент по количественной оценке.
-2. Опубликовать веб-службу.
+2. Развернуть веб-службу.
 
 Чтобы создать эксперимент по количественной оценке на основе учебного эксперимента со статусом **Завершено**, щелкните **СОЗДАТЬ ЭКСПЕРИМЕНТ ПО КОЛИЧЕСТВЕННОЙ ОЦЕНКЕ** на нижней панели действий.
 
@@ -674,11 +675,11 @@
 
 При создании эксперимента по количественной оценке просмотрите его и скорректируйте по необходимости. Типичной корректировкой является замена входного набора данных и/или запроса таким, который исключает поля меток, поскольку они не будут доступны при вызове службы. Также рекомендуется уменьшить размер входного набора данных и/или запроса до нескольких записей, которых достаточно для обозначения входной схемы. Для порта вывода зачастую исключаются все входные поля и в вывод включаются только **Оцененные метки** и **Оцененные вероятности** с помощью модуля [Столбцы проекта][project-columns].
 
-Образец эксперимента по количественной оценке показан на рисунке ниже. Когда все будет готово к публикации, нажмите кнопку **ОПУБЛИКОВАТЬ ВЕБ-СЛУЖБУ** на нижней панели действий.
+Образец эксперимента по количественной оценке показан на рисунке ниже. Когда все будет готово к развертыванию, нажмите кнопку **ОПУБЛИКОВАТЬ ВЕБ-СЛУЖБУ** на нижней панели действий.
 
 ![Публикация Машинного обучения Azure][11]
 
-Итак, в этом пошаговом руководстве мы создали среду обработки данных, работали с большим общедоступным набором данных на протяжении всего процесса от получения данных до обучения модели и публикации веб-службы машинного обучения Azure.
+Итак, в этом пошаговом руководстве мы создали среду обработки данных, работали с большим общедоступным набором данных на протяжении всего процесса от получения данных до обучения модели и развертывания веб-службы машинного обучения Azure.
 
 ### Сведения о лицензии
 
@@ -713,6 +714,5 @@
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

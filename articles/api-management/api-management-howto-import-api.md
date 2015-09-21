@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Как импортировать определение API с операциями в Azure API Management
@@ -95,4 +95,4 @@ API создаются и настраиваются на портале изд�
 [Как создать интерфейсы API]: api-management-howto-create-apis.md
 [Как настраивать параметры API]: api-management-howto-create-apis.md#configure-api-settings
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

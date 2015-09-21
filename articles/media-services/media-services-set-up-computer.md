@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 # Настройка среды
@@ -44,9 +44,12 @@
 
 [AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
 
-## Дальнейшие действия
 
-- [Приступая к работе с доставкой видео по запросу (VOD) с помощью пакета SDK для .NET](media-services-dotnet-get-started.md)
-- [Использование пакета SDK для .NET для создания каналов, выполняющих динамическое преобразование односкоростного потока в мультискоростной (предварительная версия)](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+##Дальнейшие действия: схемы обучения AMS
 
-<!---HONumber=September15_HO1-->
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

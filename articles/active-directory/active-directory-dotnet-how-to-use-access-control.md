@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Использование контроля доступа (.NET) | Microsoft Azure" 
-	description="Сведения об использовании службы Access Control (ACS) в приложении Azure для проверки подлинности пользователей, пытающихся получить доступ к веб-приложению." 
-	services="active-directory" 
-	documentationCenter=".net" 
-	authors="msmbaldwin" 
-	manager="mbaldwin" 
+<properties
+	pageTitle="Использование контроля доступа (.NET) | Microsoft Azure"
+	description="Сведения об использовании службы Access Control (ACS) в приложении Azure для проверки подлинности пользователей, пытающихся получить доступ к веб-приложению."
+	services="active-directory"
+	documentationCenter=".net"
+	authors="msmbaldwin"
+	manager="mbaldwin"
 	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/02/2015" 
 	ms.author="mbaldwin"/>
 
 
@@ -78,7 +78,7 @@
 Для выполнения задач в этом руководстве вам потребуется следующее:
 
 -	Подписка Azure.
--	Microsoft Visual Studio 2012 
+-	Microsoft Visual Studio 2012
 -	Средство идентификации и доступа для Visual Studio 2012 (чтобы загрузить, см. раздел [Средство идентификации и доступа][])
 
 
@@ -87,7 +87,7 @@
 Чтобы использовать Active Directory Access Control в Azure, создайте пространство имен Access Control. Пространство имен предоставляет уникальную область для адресации ресурсов ACS в вашем приложении.
 
 1.  Войдите на [Портал управления Azure][] (https://manage.WindowsAzure.com).
-    
+
 2.  Щелкните **Active Directory**.
 
 	![][1]
@@ -124,7 +124,7 @@ Azure создает и активирует пространство имен.
             if (!String.IsNullOrEmpty(User.Identity.Name))
             {
                 name = User.Identity.Name;
-            }    
+            }
             <text>
             Hello, @Html.ActionLink(name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
                     @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
@@ -238,19 +238,19 @@ Azure создает и активирует пространство имен.
         <table>
             <tr>
                 <td>
-                    IsAuthenticated: 
+                    IsAuthenticated:
                 </td>
                 <td>
-                    @ViewBag.ClaimsIdentity.IsAuthenticated 
+                    @ViewBag.ClaimsIdentity.IsAuthenticated
                 </td>
             </tr>
             <tr>
                 <td>
-                    Name: 
-                </td>        
+                    Name:
+                </td>
                 <td>
                     @ViewBag.ClaimsIdentity.Name
-                </td>        
+                </td>
             </tr>
         </table>
         <h3>Claims from ClaimsIdentity</h3>
@@ -349,7 +349,7 @@ Azure создает и активирует пространство имен.
 ## Что дальше?
 
 Вы создали веб-приложение, интегрированное с ACS. Но это только начало! Этот сценарий можно расширить.
- 
+
 Например, можно добавить дополнительные поставщики удостоверений для этой проверяющей стороны или позволить входить в веб-приложение пользователям, зарегистрированным в корпоративных каталогах (например, в доменных службах Active Directory).
 
 Можно также добавить к пространству имен правила, определяющие, какие утверждения отправляются в приложение для обработки с помощью бизнес-логики приложения.
@@ -400,6 +400,5 @@ Azure создает и активирует пространство имен.
   [18]: ./media/active-directory-dotnet-how-to-use-access-control/acsManagementService.png
   [19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

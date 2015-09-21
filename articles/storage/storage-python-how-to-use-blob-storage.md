@@ -114,4 +114,4 @@
 [пакет Azure для Python]: https://pypi.python.org/pypi/azure
 [Хранилище Azure для Python]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

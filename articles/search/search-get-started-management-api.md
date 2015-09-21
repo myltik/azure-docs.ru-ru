@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 # Приступая к работе с Azure Search Management REST API
@@ -204,4 +204,4 @@ Azure Search management REST API является программной аль�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Кластерная модель | Microsoft Azure"
-	description="Кластерная модель"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="Кластерная модель | Microsoft Azure" 
+	description="Кластерная модель" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="FrancescaLazzeri" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="jaymathe"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/02/2015" 
+	ms.author="lazzeri"/>
 
 
 #Кластерная модель    
@@ -128,4 +128,4 @@
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

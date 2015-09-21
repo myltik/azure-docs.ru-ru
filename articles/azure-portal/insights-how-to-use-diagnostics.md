@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # Включение мониторинга и диагностики
@@ -71,4 +71,4 @@
 * [Отслеживайте работоспособность службы](insights-service-health.md), чтобы знать, когда производительность Azure снизилась или работа службы нарушилась. 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

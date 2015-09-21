@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Создание определений приложений логики"
-	description="Узнайте, как создать определение JSON для приложения логики."
-	authors="stepsic-microsoft-com"
-	manager="dwrede"
-	editor=""
-	services="app-service\logic"
+	pageTitle="Создание определений приложений логики" 
+	description="Узнайте, как создать определение JSON для приложения логики." 
+	authors="stepsic-microsoft-com" 
+	manager="dwrede" 
+	editor="" 
+	services="app-service\logic" 
 	documentationCenter=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 	
 #Создание определений приложений логики
@@ -686,6 +686,41 @@ Content-type: application/json
 }
 ``` 
 
-Затем в каждой среде можно предоставить другое значение для параметра `connection`. В [документации по интерфейсу API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) описаны все параметры для создания приложений логики и управления ими.
+Затем в каждой среде можно предоставить другое значение для параметра `connection`.
 
-<!---HONumber=September15_HO1-->
+## Выполнение шага до тех пор, пока не будет выполнено условие
+
+Представим, что есть интерфейс API, который нужно вызвать. При этом необходимо дождаться определенного ответа перед продолжением. Представим также, что требуется подождать, пока кто-то отправит файл в каталог перед обработкой файла. Это можно сделать с помощью *do-until*:
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "triggers": {},
+    "actions": {
+        "http0": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://mydomain/listfiles"
+            },
+            "until": {
+                "limit": {
+                    "timeout": "PT10M"
+                },
+                "conditions": [
+                    {
+                        "expression": "@greater(length(action().outputs.body),0)"
+                    }
+                ]
+            }
+        }
+    },
+    "outputs": {}
+}
+```
+
+В [документации по интерфейсу API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) описаны все параметры для создания приложений логики и управления ими.
+
+<!---HONumber=Sept15_HO2-->

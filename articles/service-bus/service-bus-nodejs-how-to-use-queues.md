@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Использование очередей служебной шины (Node.js) | Microsoft Azure"
-	description="Узнайте, как использовать очереди служебной шины в Azure в приложении Node.js."
-	services="service-bus"
-	documentationCenter="nodejs"
-	authors="MikeWasson"
-	manager="wpickett"
+	pageTitle="Использование очередей служебной шины (Node.js) | Microsoft Azure" 
+	description="Узнайте, как использовать очереди служебной шины в Azure в приложении Node.js." 
+	services="service-bus" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="07/06/2015"
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="07/06/2015" 
 	ms.author="mwasson"/>
 
 # Как использовать очереди служебной шины
@@ -165,8 +165,8 @@
 
 Вы узнали основные сведения об очередях служебной шины. Для получения дополнительных сведений используйте следующие ссылки.
 
--   Ознакомьтесь со справочником MSDN: [Очереди, разделы и подписки][].
--   Посетите репозиторий [Пакет SDK хранилища Azure для Node] на веб-сайте GitHub.
+-   См. статью [Очереди, темы и подписки][].
+-   Посетите репозиторий [Пакет SDK хранилища Azure для Node][] на веб-сайте GitHub.
 
   [Пакет SDK хранилища Azure для Node]: https://github.com/Azure/azure-sdk-for-node
   [Дальнейшие действия]: #next-steps
@@ -183,10 +183,10 @@
   [Azure Management Portal]: http://manage.windowsazure.com
   
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [Очереди, разделы и подписки]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [Очереди, темы и подписки]: service-bus-queues-topics-subscriptions.md
   [Создание и развертывание веб-приложения Node.js в службе приложений Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Облачная служба Node.js с хранилищем]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Веб-приложение Node.js с хранилищем]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Azure Site Recovery: вопросы и ответы"
-	description="В этой статье рассматриваются популярные вопросы об использовании Azure Site Recovery."
-	services="site-recovery"
+	pageTitle="Azure Site Recovery: вопросы и ответы" 
+	description="В этой статье рассматриваются популярные вопросы об использовании Azure Site Recovery." 
+	services="site-recovery" 
 	documentationCenter=""
 	authors="csilauraa"
 	manager="jwhit"
@@ -11,9 +11,9 @@
 	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
-	ms.date="08/26/2015"
+	ms.date="08/26/2015" 
 	ms.author="lauraa"/>
 
 
@@ -63,6 +63,17 @@ ASR имеет сертификат ISO 27001:2005 и сейчас проход�
 
 ### Можно ли заполнить начальные диски в Azure в автономном режиме?
 Эта возможность не поддерживается. Отправьте нам свои пожелания через [форум Azure Site Recovery: поддержка автономной репликации](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+
+### Можно ли регулировать пропускную способность, выделенную для трафика репликации, при использовании Hyper-V в качестве источника?
+- Выполняя репликацию между двумя локальными сайтами, для этого можно использовать функции качества обслуживания в Windows. Ниже приведен пример сценария: 
+
+    	New-NetQosPolicy -Name ASRReplication -IPDstPortMatchCondition 8084 -ThrottleRate (2048*1024)
+    	gpupdate.exe /force
+
+- Если вы выполняете репликацию в Azure, то можете настроить ее с помощью следующего образца командлета PowerShell:
+
+    	Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth (512*1024) -NonWorkHourBandwidth (2048*1024)
+
 
 ## Поддержка версий
 
@@ -236,4 +247,4 @@ NetApp, EMC и HP поддерживают репликацию SAN Azure Site R
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

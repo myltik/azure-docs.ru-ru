@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/09/2015"
+   ms.date="09/04/2015"
    ms.author="telmos" />
 
 # Определяемые пользователем маршруты и IP-пересылка
@@ -90,4 +90,4 @@
 - Информация о том, как [создавать маршруты](../virtual-networks-udr-how-to#How-to-manage-routes) и связывать их с подсетями.
 - Информация о том, как [включить IP-пересылку](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding) для виртуальной машины, работающей на виртуальном устройстве. 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

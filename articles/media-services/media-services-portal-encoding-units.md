@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Масштабирование зарезервированных единиц кодирования"
-	description="Узнайте, как можно масштабировать службы мультимедиа, указав число зарезервированных единиц потоковой передачи по требованию и зарезервированных единиц кодирования, которые требуется подготовить для вашей учетной записи."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Масштабирование зарезервированных единиц кодирования" 
+	description="Узнайте, как можно масштабировать службы мультимедиа, указав число зарезервированных единиц потоковой передачи по требованию и зарезервированных единиц кодирования, которые требуется подготовить для вашей учетной записи." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -42,7 +42,7 @@
 	Чтобы изменить число зарезервированных единиц для выбранного типа зарезервированных единиц, используйте ползунок **КОДИРОВКА**.
 	
 	
-	![Страница «Процессоры»](./media/media-services-portal-encoding-units/media-services-encoding-scale.png)
+	![Страница "Процессоры"](./media/media-services-portal-encoding-units/media-services-encoding-scale.png)
 
 	  
 	>[AZURE.NOTE]Следующие центры обработки данных не предоставляют зарезервированные единицы типа Premium: Сингапур, Гонконг, Осака, Пекин, Шанхай.
@@ -59,7 +59,14 @@
 
 
 
+##Схемы обучения работе со службами мультимедиа
+
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

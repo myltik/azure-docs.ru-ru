@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Управление доступом в мобильных службах с помощью Azure Active Directory на основе ролей (Магазин Windows) | Microsoft Azure" 
-	description="Узнайте, как управлять доступом на основе ролей Azure Active Directory в приложении Магазина Windows." 
+	pageTitle="Управление доступом на основе ролей в мобильных службах с помощью JavaScript и Azure Active Directory (Магазин Windows) | Microsoft Azure" 
+	description="Узнайте, как управлять доступом на основе ролей Azure Active Directory в приложении Магазина Windows с помощью мобильной службы с серверной частью JavaScript." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="09/03/2015" 
 	ms.author="wesmc"/>
 
-# Управление доступом на основе ролей в мобильных службах и Azure Active Directory
+# Управление доступом на основе ролей в мобильных службах с помощью .NET и Azure Active Directory
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
@@ -285,4 +285,4 @@
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Получение доступа к сведениям Graph Azure Active Directory]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

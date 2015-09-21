@@ -1,20 +1,20 @@
 <properties
    pageTitle="Использование связанных шаблонов в диспетчере ресурсов Azure"
-	description="Описывает, как использовать связанные шаблоны в шаблоне диспетчера ресурсов Azure для создания решения модульных шаблонов. Показывает, как передавать значения параметров, указывать файл параметров и динамически создаваемые URL-адреса."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="Описывает, как использовать связанные шаблоны в шаблоне диспетчера ресурсов Azure для создания решения модульных шаблонов. Показывает, как передавать значения параметров, указывать файл параметров и динамически создаваемые URL-адреса."
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/04/2015"
+   ms.author="tomfitz"/>
 
 # Использование связанных шаблонов в диспетчере ресурсов Azure
 
@@ -44,7 +44,7 @@
       } 
     ] 
 
-Диспетчеру ресурсов необходим доступ к связанному шаблону, т. е. невозможно указать локальный файл для связанного шаблона. Можно предоставить только URI, который включает в себя **http** или **https**. Один из вариантов — размещение связанного шаблона в учетной запись хранения и использование URI для этого элемента, как показано ниже.
+Службе диспетчера ресурсов необходим доступ к связанному шаблону, т. е. невозможно указать локальный файл, доступный только в локальной сети, для связанного шаблона. Можно предоставить только URI, который включает в себя **http** или **https**. Один из вариантов — размещение связанного шаблона в учетной запись хранения и использование URI для этого элемента, как показано ниже.
 
     "templateLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
@@ -110,4 +110,4 @@
 - [Создание шаблонов](./resource-group-authoring-templates.md)
 - [Развертывание шаблонов](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

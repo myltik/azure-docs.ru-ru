@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Приступая к работе со служебной программой командной строки AzCopy
@@ -972,4 +972,4 @@ AzCopy предназначен для максимального использ
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -36,7 +36,7 @@
 - Visual Studio 2012 или Visual Studio Express 2012 для Windows 8, установленные в Windows 8. Пробную версию можно получить [здесь](http://www.microsoft.com/visualstudio/11/downloads).
 - [Клиентский пакет SDK для бесперебойной потоковой передачи Microsoft для Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)
 
-Готовое решение для каждого урока можно скачать из раздела примеров кода для разработчиков MSDN (коллекция кода): [Урок 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming"), [Урок 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и элементом управления «Ползунок»"), [Урок 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и выбором потока") и [Урок 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и выбором дорожки").
+Готовое решение для каждого урока можно скачать из раздела примеров кода для разработчиков MSDN (коллекция кода): [Урок 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming"), [Урок 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и элементом управления "Ползунок""), [Урок 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и выбором потока") и [Урок 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и выбором дорожки").
 
 ##Урок 1. Создание базового приложения для магазина с бесперебойной потоковой передачей
 На этом занятии предстоит создать приложение для магазина Windows с элементом управления MediaElement для воспроизведения контента с бесперебойной потоковой передачей. Работающее приложение имеет следующий вид:
@@ -507,7 +507,7 @@
 		    <RowDefinition Height="50"/>
 		</Grid.RowDefinitions>
 
-3. Внутри тегов &lt;Grid&gt;&lt;/Grid&gt; добавьте следующий код, чтобы определить элемент управления «поле со списком», который позволит пользователям просмотреть список доступных потоков и выбрать нужные:
+3. Внутри тегов &lt;Grid&gt;&lt;/Grid&gt; добавьте следующий код, чтобы определить элемент управления "поле со списком", который позволит пользователям просмотреть список доступных потоков и выбрать нужные:
 
 		<Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
 			<Grid.RowDefinitions>
@@ -963,6 +963,15 @@
 Вы завершили урок 4. В этом уроке были добавлены функциональные возможности для выбора дорожек.
 
 
+##Схемы обучения работе со службами мультимедиа
+
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 ##Другие ресурсы:
 - [Создание приложения для Windows 8 с потоковой передачей Smooth Streaming на JavaScript с расширенными возможностями](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
 - [Технический обзор Smooth Streaming](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
@@ -971,4 +980,4 @@
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/09/2015"
    ms.author="lodipalm"/>
 
 # Работа с фабрикой данных Azure и хранилищем данных SQL
@@ -43,7 +43,7 @@
 
 <!--Article references-->
 
-[Copy data with Azure Data Factory]: ./data-factory-copy-activity/
+[Copy data with Azure Data Factory]: ./data-factory-data-movement-activities/#copyactivity
 [Общие сведения о разработке для хранилища данных SQL]: ./sql-data-warehouse-overview-develop/
 [Обзор интеграции хранилища данных SQL]: ./sql-data-warehouse-overview-integration/
 
@@ -51,6 +51,6 @@
 
 <!--Other Web references-->
 [документации к фабрике данных Azure]: https://azure.microsoft.com/documentation/services/data-factory/
-[Копирование данных с помощью фабрики данных Azure]: https://azure.microsoft.com/ru-ru/documentation/articles/data-factory-data-movement-activities/
+[Копирование данных с помощью фабрики данных Azure]: https://azure.microsoft.com/ru-RU/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Перемещение и обработка файлов журнала с помощью фабрики данных Azure (на портале Azure)"
-	description="В этом подробном учебнике описывается реалистичный сценарий, который реализуется с помощью редактора фабрики данных и службы фабрики данных Azure на портале Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Перемещение и обработка файлов журнала с помощью фабрики данных Azure (на портале Azure)" 
+	description="В этом подробном учебнике описывается реалистичный сценарий, который реализуется с помощью редактора фабрики данных и службы фабрики данных Azure на портале Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # Учебник. Оценка эффективности маркетинговой кампании  
@@ -419,7 +419,7 @@ Contoso — это компания, которая создает игры д�
 Чтобы узнать, как создать конвейер для копирования данных об эффективности маркетинговой кампании в локальную базу данных SQL Server, изучите статью [Пошаговое руководство. Использование локального источника данных][tutorial-onpremises].
 
 ## Отправить отзыв
-Мы будем весьма признательны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-tutorial.md).
+Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-tutorial.md).
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -441,7 +441,7 @@ Contoso — это компания, которая создает игры д�
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [sqlcmd-install]: http://www.microsoft.com/download/details.aspx?id=35580
-[azure-sql-firewall]: http://msdn.microsoft.com/library/azure/jj553530.aspx
+[azure-sql-firewall]: https://azure.microsoft.com/documentation/articles/sql-database-configure-firewall-settings/
 
 
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
@@ -528,4 +528,4 @@ Contoso — это компания, которая создает игры д�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

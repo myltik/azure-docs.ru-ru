@@ -1,3 +1,20 @@
+<properties 
+   pageTitle="Настройка и регистрация устройств"
+   description="Описан способ использования Windows PowerShell для StorSimple для настройки и регистрации вашего устройства, на котором выполняется обновление 1."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="tysonn" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/08/2015"
+   ms.author="alkohli" />
+
 
 ### Настройка и регистрация устройства
 
@@ -25,11 +42,11 @@
    - Шлюз
    - IP-адрес основного DNS-сервера
     
-		Обратите внимание, что система проверяет сетевые настройки после каждого шага процесса.
+		Note that the system is validating network settings after each step in the process.
    
       >[AZURE.NOTE]Возможно, необходимо будет подождать несколько минут, пока не будут применены маска подсети и настройки DNS. Если появится сообщение об ошибке "Проверьте сетевое подключение к Data 0", проверьте физическое подключение к сети на сетевом интерфейсе DATA 0 активного контроллера.
 
-8. (Необязательно.) Настройте прокси-сервер доступа в Интернет. Хотя использовать прокси-сервер доступа в Интернет и не обязательно, **следует знать, что, если в вашей сети он имеется, настройку для работы с ним можно выполнить только в этом разделе**. Дополнительные сведения см. в статье [Настройка прокси-сервера доступа в Интернет для устройства](https://msdn.microsoft.com/library/azure/dn764937.aspx).
+8. (Необязательно.) Настройте прокси-сервер доступа в Интернет. Хотя использовать прокси-сервер доступа в Интернет и не обязательно, **следует знать, что, если в вашей сети он имеется, настройку для работы с ним можно выполнить только в этом разделе**. Дополнительные сведения см. в статье [Настройка прокси-сервера доступа в Интернет для устройства](../articles/storsimple/storsimple-configure-web-proxy.md).
 
 9. Настройте основной NTP-сервер для своего устройства. NTP-серверы необходимы, так как ваше устройство должно синхронизироваться по времени, чтобы оно могло проверять подлинность с вашими поставщиками облачных служб. Убедитесь, что ваша сеть позволяет передавать NTP-трафик из вашего центра обработки данных в Интернет. Если это невозможно, укажите внутренний NTP-сервер.
  
@@ -58,10 +75,12 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
   
-        Если состояние устройства — **Вне сети**, подождите несколько минут, чтобы устройство могло перейти в оперативный режим. 
+        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
       
-        Если по прошествии нескольких минут устройство все еще находится не в сети, убедитесь, что защищенная брандмауэром сеть настроена в соответствии [с требованиями к сети для вашего устройства StorSimple](https://msdn.microsoft.com/library/dn772371.aspx). Если поддержка HTTP 1.1 отсутствует, проверьте порт 9354 и убедитесь в том, что он открыт для исходящей связи. Этот порт используется для связи между службой StorSimple Manager и вашим устройством StorSimple. 
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](../articles/storsimple/storsimple-system-requirements.md). 
+
+		If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
      
        
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

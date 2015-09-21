@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #Копирование существующего BLOB-объекта в файл служб мультимедиа
@@ -36,7 +36,7 @@
 В этом разделе вы создадите и настроите проект консольного приложения на C#.
 
 1. Чтобы создать новое решение, содержащее проект консольного приложения на C#, используйте Visual Studio 2012 или Visual Studio 2010 с пакетом обновления 1 (SP1). 
-2. В поле «Имя» введите CopyExistingBlobsIntoAsset и нажмите кнопку «ОК».
+2. В поле "Имя" введите CopyExistingBlobsIntoAsset и нажмите кнопку "ОК".
 1. С помощью Nuget добавьте ссылки на связанные библиотеки DLL служб мультимедиа. В главном меню Visual Studio последовательно выберите элементы ИНСТРУМЕНТЫ > Диспетчер пакетов библиотеки > Консоль диспетчера пакетов. В окне консоли введите Install-Package windowsazure.mediaservices и нажмите клавишу ВВОД.
 1. Добавьте другие ссылки, необходимые для этого проекта: System.Configuration.
 1. Замените операторы using, добавленные в файл Programs.cs по умолчанию, на следующие:
@@ -286,4 +286,11 @@
 		}
  
 
-<!---HONumber=August15_HO7-->
+##Схемы обучения работе со службами мультимедиа
+
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

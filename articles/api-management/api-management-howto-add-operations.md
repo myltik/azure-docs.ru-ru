@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Добавление операций в API в Azure API Management
@@ -164,4 +164,4 @@
 [Как создать и опубликовать продукт]: api-management-howto-add-products.md
 [Кэширование результатов операции в Azure API Management]: api-management-howto-cache.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

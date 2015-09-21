@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2015"
+	ms.date="09/03/2015"
 	ms.author="tamram"/>
 
 # Мониторинг учетной записи хранения на портале Azure
@@ -157,4 +157,4 @@
 
 Журналы диагностики сохраняются в контейнере BLOB-объектов с именем $logs в вашей учетной записи хранения. Дополнительные сведения о доступе к контейнеру $logs см. в статье [О ведении журнала службы аналитики хранилища](http://msdn.microsoft.com/library/azure/hh343262.aspx).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

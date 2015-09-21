@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Приступая к работе с подключенными службами хранилища очередей Azure и Visual Studio (проекты облачных служб)" 
-	description="Начало работы с использованием хранилища очередей Azure в проекте облачной службы в Visual Studio" 
+    pageTitle="Начало работы с хранилищем очередей и подключенными службами Visual Studio (облачными службами) | Microsoft Azure"
+	description="Как приступить к работе, используя хранилище очередей Azure в проекте облачной службы в Visual Studio после подключения к учетной записи хранения с помощью подключенных служб Visual Studio"
 	services="storage" 
 	documentationCenter="" 
 	authors="patshea123" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="09/03/2015" 
 	ms.author="patshea123"/>
 
 # Приступая к работе с подключенными службами хранилища очередей Azure и Visual Studio (проекты облачных служб)
@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-cloud-services-getting-started-queues.md)
 > - [Tables](vs-storage-cloud-services-getting-started-tables.md)
 
-##Обзор
+## Обзор
 
 В этой статье описывается, как приступить к использованию хранилища очередей Azure в Visual Studio после создания учетной записи хранения Azure или указания ссылки на нее в проекте облачных служб с помощью диалогового окна **Добавление подключенных служб** в Visual Studio.
 
@@ -44,11 +44,11 @@
 Хранилище очередей Azure — это служба для хранения большого количества сообщений, к которым можно получить доступ практически из любой точки мира с помощью вызовов с проверкой подлинности по протоколам HTTP или HTTPS. Одно сообщение очереди может быть размером до 64 КБ, а очередь может содержать миллионы сообщений до общего ограничения емкости учетной записи хранения.
 
 
-##Доступ к очередям в коде
+## Доступ к очередям в коде
 
 Для доступа к очередям в проектах облачных служб Visual Studio необходимо включить следующие элементы во все файлы исходного кода C#, которые обращаются к хранилищу очередей Azure.
 
-1. Убедитесь, что объявления пространств имен в верхней части файла C# содержат следующие операторы **использования**.
+1. Убедитесь, что объявления пространств имен в верхней части файла C# содержат указанные ниже выражения **using**.
 
 		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
@@ -64,7 +64,7 @@
 	    // Create the queue client.
     	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-4. Используйте объект **CloudQueue** для ссылки на определенную очередь.
+4. Используйте объект **CloudQueue**, чтобы указать ссылку на определенную очередь.
 
     	// Get a reference to a queue named "messageQueue"
 	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
@@ -72,7 +72,7 @@
 
 **ПРИМЕЧАНИЕ.** Вставьте весь код, представленный выше, перед кодом в следующих примерах.
 
-##Создание очереди в коде
+## Создание очереди в коде
 
 Чтобы создать очередь Azure в коде, просто добавьте вызов **CreateIfNotExists**.
 
@@ -82,7 +82,7 @@
 	// Create the CloudQueue if it does not exist
 	messageQueue.CreateIfNotExists();
 
-##Добавление сообщения в очередь
+## Добавление сообщения в очередь
 
 Чтобы вставить сообщение в существующую очередь, создайте объект **CloudQueueMessage**, а затем вызовите метод **AddMessage**.
 
@@ -97,7 +97,7 @@
 	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
 	messageQueue.AddMessage(message);
 
-##Чтение сообщения в очереди
+## Чтение сообщения в очереди
 
 Просмотреть сообщение в начале очереди, не удаляя его, можно с помощью метода **PeekMessage**.
 
@@ -107,7 +107,7 @@
 	// Peek at the next message
     CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
 
-##Чтение и удаление сообщения в очереди
+## Чтение и удаление сообщения в очереди
 
 Ваш код может удалить сообщение из очереди в два этапа.
 
@@ -128,7 +128,7 @@
 	await messageQueue.DeleteMessage(retrievedMessage);
 
 
-## Использование дополнительных вариантов обработки и удаления сообщений в очереди
+## Дополнительные варианты обработки и удаления сообщений в очереди
 
 Способ извлечения сообщения из очереди можно настроить двумя способами.
 
@@ -197,9 +197,9 @@
     // Delete the queue.
     messageQueue.Delete();
 
-##Дальнейшие действия
+## Дальнейшие действия
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 			
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/11/2015" 
+ms.date="09/08/2015" 
 ms.author="adegeo"/>
 
 # Адаптируйте жизненный цикл веб-роли или рабочей роли в .NET
@@ -80,4 +80,4 @@ public override bool OnStart()
 ## Дальнейшие действия
 Узнайте, как [создать пакет облачной службы](cloud-services-model-and-package.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

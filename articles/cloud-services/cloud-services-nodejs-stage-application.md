@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="09/08/2015" 
 	ms.author="mwasson"/>
 
 
@@ -24,18 +24,15 @@
 
 > [AZURE.NOTE]Действия, приведенные в этой статье, применяются только к приложениям узла, размещенным в качестве облачной службы Azure.
 
-Эта задача включает следующие шаги:
-
--   [Шаг 1. Развертывание приложения в промежуточной среде.]
--   [Шаг 2. Развертывание приложения в рабочей среде путем переключения виртуальных IP-адресов.]
-
 ## Шаг 1. Развертывание приложения в промежуточной среде.
 
-В этой задаче демонстрируется развертывание приложения в промежуточной среде с помощью **Azure PowerShell**.
+В этой задаче демонстрируется развертывание приложения в промежуточной среде с помощью **Microsoft Azure PowerShell**.
 
 1.  При публикации службы необходимо просто передать параметр **-Slot** в командлет **Publish-AzureServiceProject**.
 
-    **Publish-AzureServiceProject -Slot staging**
+    ```powershell
+    Publish-AzureServiceProject -Slot staging
+    ```
 
 2.  Выполните вход на [портал управления Azure] и выберите **Облачные службы**. После того, как создана облачная служба, и в столбце состояния **Промежуточная среда** установлено значение **Выполняется**, щелкните имя службы.
 
@@ -50,8 +47,6 @@
     ![URL-адрес сайта][cloud-service-staging-url]
 
 Далее необходимо проверить работоспособность приложения с помощью URL-адреса сайта в промежуточной среде.
-
-В сценарии обновления, в котором приложение в промежуточной среде представляет собой обновленную версию ранее развернутого в рабочей среде приложения, вы можете [обновить приложение в рабочей среде, выполнив переключение виртуальных IP-адресов][Step 2: Deploy an Application to Production by Swapping VIPs].
 
 ## Шаг 2. Обновление приложения в рабочей среде путем переключения виртуальных IP-адресов
 
@@ -72,18 +67,12 @@
 ## Дополнительные ресурсы
 
 - [Развертывание обновления службы в рабочей среде путем переключения виртуальных IP-адресов в Azure]
-- [Обзор управления развертываниями в Azure]
 
-  [Шаг 1. Развертывание приложения в промежуточной среде.]: #step1
-  [Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
-  [Шаг 2. Развертывание приложения в рабочей среде путем переключения виртуальных IP-адресов.]: #step2
-  [портал управления Azure]: http://manage.windowsazure.com
+[портал управления Azure]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
-  [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
-  [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-  [Развертывание обновления службы в рабочей среде путем переключения виртуальных IP-адресов в Azure]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
-  [Обзор управления развертываниями в Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
- 
+[cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
+[vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
+[Развертывание обновления службы в рабочей среде путем переключения виртуальных IP-адресов в Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

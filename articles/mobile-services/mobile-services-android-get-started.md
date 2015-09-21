@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Начало работы с мобильными службами Azure для приложений Android"
-	description="Следуйте указаниям этого учебника, чтобы приступить к использованию мобильных служб Azure для разработки приложений Android."
+	pageTitle="Начало работы с мобильными службами Azure для приложений Android (серверная часть JavaScript)"
+	description="Следуйте указаниям этого учебника, чтобы приступить к использованию мобильных служб Azure для разработки приложений Android (серверная часть JavaScript)."
 	services="mobile-services"
 	documentationCenter="android"
 	authors="RickSaling"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/04/2015"
 	ms.author="ricksal"/>
 
-# Приступая к работе с мобильными службами
+# Начало работы с мобильными службами для Android (серверная часть JavaScript)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
@@ -117,4 +117,4 @@
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -1,30 +1,30 @@
-<properties 
-   pageTitle="Примеры службы хранилища Azure | Microsoft Azure"
-	description="Просматривайте, загружайте и пробуйте примеры для службы хранилища Azure. Воспользуйтесь примерами для начала работы с BLOB-объектами, очередями, таблицами и файлами с помощью клиентских библиотек хранилища .NET, Java, Node.js и C++."
-	services="storage"
-	documentationCenter="na"
-	authors="tamram"
-	manager="na"
-	editor="na"/>
-<tags 
+<properties
+   pageTitle="Примеры для службы хранилища Azure | Microsoft Azure"
+   description="Просматривайте, загружайте и пробуйте примеры для службы хранилища Azure. Воспользуйтесь примерами для начала работы с BLOB-объектами, очередями, таблицами и файлами с помощью клиентских библиотек хранилища .NET, Java, Node.js и C++."
+   services="storage"
+   documentationCenter="na"
+   authors="tamram"
+   manager="na"
+   editor="na" />
+<tags
    ms.service="storage"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="storage"
-	ms.date="09/01/2015"
-	ms.author="tamram"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage"
+   ms.date="09/01/2015"
+   ms.author="tamram" />
 
-# Примеры службы хранилища Azure
+# Примеры для службы хранилища Azure
 
 ## Обзор
 Используйте следующие ссылки для просмотра и загрузки действующих примеров службы хранилища Azure.
 
 ## Примеры для .NET
 
-Для просмотра примеров .NET загрузите [Клиентскую библиотеку хранилища .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) на NuGet. Клиентская библиотека хранилища .NET также доступна в [Пакете SDK Azure для .NET](http://azure.microsoft.com/downloads/).
+Для просмотра примеров .NET загрузите [Клиентскую библиотеку хранилища .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) на NuGet. Клиентская библиотека хранилища .NET также доступна в [пакете Azure SDK для .NET](http://azure.microsoft.com/downloads/).
 
-* [Приступая к работе с BLOB-объектами, таблицами и очередями Azure за 5 минут](storage-getting-started-guide.md)
+* [Начните работать с таблицами, очередями и большими двоичными объектами Azure за 5 минут](storage-getting-started-guide.md)
 * [Управление параллелизмом с помощью службы хранилища Azure: пример приложения](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
 * [Начало работы с BLOB-объектами](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataBlobStorage)
 * [Начало работы с таблицами](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts/DataTableStorage)
@@ -79,6 +79,6 @@
 ### Ресурсы для C++
 
 - [Исходный код для клиентской библиотеки хранилища C++](https://github.com/Azure/azure-storage-cpp)
-- [Справочник по клиентской библиотеке C++](http://azure.github.io/azure-storage-cpp/) 
+- [Справочник по клиентской библиотеке C++](http://azure.github.io/azure-storage-cpp/)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

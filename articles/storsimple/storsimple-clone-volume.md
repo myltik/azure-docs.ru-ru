@@ -1,19 +1,19 @@
 <properties
    pageTitle="Клонирование тома StorSimple | Microsoft Azure"
-	description="В разделе рассматриваются разные типы клонов, ситуации их использования и клонирование отдельного тома с помощью резервного набора данных."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="В разделе рассматриваются разные типы клонов, ситуации их использования и клонирование отдельного тома с помощью резервного набора данных."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/27/2015"
+   ms.author="alkohli" />
 
 # Клонирование тома с помощью службы диспетчера StorSimple
 
@@ -29,7 +29,7 @@
 
 С помощью локального или облачного моментального снимка можно создать клон на том же устройстве, другом устройстве или даже на виртуальной машине.
 
-## Клонирование тома
+#### Клонирование тома
 
 1. На странице службы StorSimple Manager щелкните вкладку **Каталог резервных копий** и выберите резервный набор данных.
 
@@ -89,4 +89,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

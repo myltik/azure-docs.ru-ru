@@ -7,13 +7,17 @@
 
 		Switch-AzureMode AzureResourceManager
 	
+	Вот результат, ожидаемый для указанной выше команды:
+
 		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
 	>[AZURE.WARNING]Командлет Switch-AzureMode является устаревшим. По этой причине все командлеты диспетчера ресурсов вскоре будут переименованы.
 	
-3. При необходимости выполните командлет **New-AzureResourceGroup**, чтобы создать новую группу ресурсов, как показано ниже. В нашем сценарии необходимо создать группу ресурсов с именем *TestRG*. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md/#resource-groups).
+3. При необходимости выполните командлет **New-AzureResourceGroup**, как показано ниже, чтобы создать новую группу ресурсов. В нашем сценарии необходимо создать группу ресурсов с именем *TestRG*. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md/#resource-groups).
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
+
+	Вот результат, ожидаемый для указанной выше команды:
 	
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -26,11 +30,13 @@
 		
 		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG	
 
-4. Выполните командлет **New-AzureVirtualNetwork**, чтобы создать виртуальную сеть, как показано ниже.
+4. Выполните командлет **New-AzureVirtualNetwork**, как показано ниже, чтобы создать виртуальную сеть.
 
 		New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
 			-AddressPrefix 192.168.0.0/16 -Location centralus	
 		
+	Вот результат, ожидаемый для указанной выше команды:
+
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -53,13 +59,15 @@
 
 		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 	
-	>[AZURE.TIP]Можно объединить шаги 4 и 5, выполнив команду **$vnet = New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
+	>[AZURE.TIP]Можно объединить шаги 4 и 5, выполнив команду **$vnet = New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
 
 6. Выполните командлет **Add-AzureVirtualNetworkSubnetConfig**, чтобы добавить подсеть в новую виртуальную сеть, как показано ниже.
 
 		Add-AzureVirtualNetworkSubnetConfig -Name FrontEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
 		
+	Вот результат, ожидаемый для указанной выше команды:
+
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -98,6 +106,8 @@
 
 		Set-AzureVirtualNetwork -VirtualNetwork $vnet	
 		
+	Вот результат, ожидаемый для указанной выше команды:
+
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -137,4 +147,4 @@
 		                      }
 		                    ]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -213,9 +213,9 @@
 
 Вы узнали основные сведения о разделах служебной шины. Для получения дополнительных сведений используйте следующие ссылки.
 
--   См. справочник MSDN: [Очереди, разделы и подписки](http://msdn.microsoft.com/library/windowsazure/hh367516.aspx)
--   Справочник API для [SqlFilter](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx)
--	Посетите репозиторий [Azure SDK для Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub
+-   См. статью [Очереди, темы и подписки](service-bus-queues-topics-subscriptions.md).
+-   Справочник API для [SqlFilter](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx).
+-	Посетите репозиторий [Azure SDK для Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="09/05/2015"
 	ms.author="juliako"/>
 
 
 # Приступая к работе с доставкой видео по запросу (VoD) с помощью портала Azure
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
-
-
 
 
 В этом учебнике приведены пошаговые инструкции по реализации базового приложения доставки видео по запросу с помощью портала Azure.
@@ -44,7 +42,7 @@
 
 	![Быстрое создание служб мультимедиа](./media/media-services-portal-get-started/wams-QuickCreate.png)
 
-2. В поле **ИМЯ** введите имя новой учетной записи. Имя учетной записи служб мультимедиа может состоять из букв или цифр в нижнем регистре и должно иметь длину от 3 до 24 знаков.
+2. В поле **ИМЯ** введите имя новой учетной записи. Имя учетной записи служб мультимедиа может состоять из букв или цифр в нижнем регистре без пробелов и должно иметь длину от 3 до 24 символов.
 
 3. В поле **РЕГИОН** выберите географический регион, который будет использоваться для хранения записей метаданных вашей учетной записи служб мультимедиа. В раскрывающемся списке отображаются только доступные регионы служб мультимедиа.
 
@@ -224,6 +222,13 @@ URL-адрес потоковой передачи имеет следующий
 
 
 
+##Схемы обучения работе со службами мультимедиа
+
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ### Дополнительные ресурсы
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now! (Службы мультимедиа Azure 101. Передача видео в Интернет)</a>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - Dynamic Packaging and Mobile Devices (Службы мультимедиа Azure 102. Динамическая упаковка и мобильные устройства)</a>
@@ -249,4 +254,4 @@ URL-адрес потоковой передачи имеет следующий
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

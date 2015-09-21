@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.date="09/08/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -34,9 +34,10 @@
 - Если вы хотите получить дополнительные сведения о синхронизации паролей, см. статью [Реализация синхронизации паролей](active-directory-aadconnectsync-implement-password-synchronization.md).
 - Дополнительные сведения о пользователях и контактах в службах синхронизации Azure AD Connect см. в статье [Общее представление о пользователях и контактах](active-directory-aadconnectsync-understanding-users-and-contacts.md).
 - Сведения о том, как изменить конфигурацию по умолчанию, см. в статье [Рекомендации по изменению конфигурации по умолчанию](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
-- Сведения об атрибутах, которые синхронизируются с Azure AD, см. в статье [Атрибуты, синхронизируемые с Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md).
-- Если вы хотите узнать больше о декларативной подготовке, см. статью [Общее представление о выражениях декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
-- Чтобы просмотреть функции декларативной подготовки, см. статью [Справочник по функциям](active-directory-aadconnectsync-functions-reference.md).
+- Больше о работе сервера синхронизации можно узнать в статье [Рабочие задачи и рекомендации](active-directory-aadconnectsync-operations.md)
+- Сведения об атрибутах, которые синхронизируются с Azure AD, см. в статье [Атрибуты, синхронизированные с Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md).
+- Больше о декларативной подготовке можно узнать в статье [Выражения декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+- Ознакомиться с функциями декларативной подготовки можно в разделе [Справочник по функциям](active-directory-aadconnectsync-functions-reference.md)
 
 
 
@@ -48,4 +49,4 @@
 
 <!--Image references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

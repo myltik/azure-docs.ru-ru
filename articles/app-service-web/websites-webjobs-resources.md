@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.date="09/08/2015" 
 	ms.author="tdykstra"/>
 
 # Документация по веб-заданиям Azure
@@ -42,6 +42,7 @@
 * [Использование табличного хранилища Azure с пакетом SDK веб-заданий](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Использование служебной шины Azure с пакетом SDK веб-заданий](websites-dotnet-webjobs-sdk-service-bus.md)
 * [Краткий справочник по пакету SDK веб-заданий (скачиваемый PDF-файл)](http://go.microsoft.com/fwlink/?LinkID=524028&clcid=0x409)
+* [Документация по настройке веб-заданий в GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs).
 * Видеоролики
 	* [Веб-задания и пакет SDK веб-заданий](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-153-WebJobs-with-Pranav-Rastogi?utm_source=dlvr.it&utm_medium=twitter)
 	* [Серия видеопрограмм по веб-заданиям Azure на канале 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
@@ -57,7 +58,8 @@
 * [Включение предоставления веб-заданий Azure из командной строки или постоянно](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Развертывание из Git приложения консоли .NET на Azure с помощью веб-заданий](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [Развертывание веб-заданий F# в Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
-* Видео
+* [Развертывание пользовательских служб в качестве веб-заданий Azure](http://withouttheloop.com/articles/2015-06-23-deploying-custom-services-as-azure-webjobs/)
+* Видеоролики
 	* [Введение в средства для работы с веб-заданиями для Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
 	* [Средства для работы с веб-заданиями и удаленная отладка](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 
@@ -65,6 +67,8 @@
 
 * [Диалоговое окно "Добавление веб-заданий Azure"](websites-dotnet-deploy-webjobs.md#configure)
 * [Создание запланированного веб-задания на портале управления Azure](web-sites-create-web-jobs.md#CreateScheduled)
+* [Подключение задания планировщика к веб-заданию](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
+* [Планирование веб-заданий Azure с помощью выражений cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 
 ##<a name="debug"></a>Проверка и отладка веб-заданий
 
@@ -90,7 +94,6 @@
 ##<a name="additional"></a>Дополнительные ресурсы по веб-заданиям
 
 * [Общедоступная запись в блоге о веб-заданиях Azure Магнуса Мортенссона (Magnus Mårtensson)](http://magnusmartensson.com/azure-webjobs-ga)
-* [Документация по настройке веб-заданий в GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs).
 * [Запуск веб-заданий Powershell в службе приложений Azure](http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx)
 * [Получение уведомлений после завершения веб-заданий, инициированных Azure](http://blog.amitapple.com/post/2014/03/webjobs-notification/)
 * [Простые правила резервного копирования веб-приложений с веб-заданиями](http://azure.microsoft.com/blog/2014/04/28/simple-web-site-backup-retention-policy-with-webjobs/)
@@ -139,4 +142,4 @@
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

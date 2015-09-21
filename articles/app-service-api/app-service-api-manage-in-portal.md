@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Управление приложениями API"
-	description="Узнайте, как управлять приложениями API в службе приложений Azure с помощью портала Azure и обозревателя сервера Visual Studio."
-	services="app-service\api"
-	documentationCenter=""
-	authors="tdykstra"
-	manager="wpickett"
+	pageTitle="Управление приложениями API" 
+	description="Узнайте, как управлять приложениями API в службе приложений Azure с помощью портала Azure и обозревателя сервера Visual Studio." 
+	services="app-service\api" 
+	documentationCenter="" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
+	ms.service="app-service-api" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/17/2015"
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="tdykstra"/>
 
 # Управление приложениями API в службе приложений Azure
@@ -134,4 +134,4 @@
 
 Дополнительную информацию об управлении приложениями API с помощью командной строки см. в статьях раздела меню **Автоматизация**, которое отображается в левой части статьи (в широких окнах браузера) или в верхней части статьи (в узких окнах).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

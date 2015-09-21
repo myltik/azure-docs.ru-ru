@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с Центрами уведомлений Azure | Microsoft Azure"
+	pageTitle="Приступая к работе с Центрами уведомлений Azure для приложений Android | Microsoft Azure"
 	description="Из этого учебника вы узнаете, как использовать Центры уведомлений Azure для отправки push-уведомлений на устройства Android."
 	services="notification-hubs"
 	documentationCenter="android"
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="09/01/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Приступая к работе с центрами уведомлений
+# Приступая к работе с Центрами уведомлений для приложений Android
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -527,7 +527,7 @@
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [портале Azure]: https://manage.windowsazure.com/
 [руководстве по использованию концентраторов уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
-[Использование концентраторов уведомлений для отправки push-уведомлений пользователям]: notification-hubs-aspnet-backend-android-notify-users.md
+[Использование центров уведомлений для отправки push-уведомлений пользователям]: notification-hubs-aspnet-backend-android-notify-users.md
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

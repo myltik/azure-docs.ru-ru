@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Управление мультимедийным содержимым с помощью служб мультимедиа Azure на портале управления Azure"
-	description="Сведения об управлении мультимедийным контентом в службах мультимедиа Azure. Сюда относятся: передача, индексирование, кодирование, шифрование и публикация."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Управление мультимедийным содержимым с помощью служб мультимедиа Azure на портале управления Azure" 
+	description="Сведения об управлении мультимедийным контентом в службах мультимедиа Azure. Сюда относятся: передача, индексирование, кодирование, шифрование и публикация." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/23/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -206,6 +206,14 @@ URL-адрес потоковой передачи имеет следующий
 - **ПРОИГРЫВАТЕЛЬ КОНТЕНТА СЛУЖБ МУЛЬТИМЕДИА** выполняет воспроизведение из конечной точки потоковой передачи по умолчанию. Если требуется воспроизвести из конечной точке потоковой передачи не по умолчанию, используйте другой проигрыватель. Например, [Проигрыватель служб мультимедиа Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
  
 
+##Схемы обучения работе со службами мультимедиа
+
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ![AMSPlayer][AMSPlayer]
 
 <!-- Images -->
@@ -221,4 +229,4 @@ URL-адрес потоковой передачи имеет следующий
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Доставка мультимедиа по запросу с помощью служб мультимедиа Azure"
-	description="В этом разделе рассказывается об общих сценариях доставки мультимедиа по запросу с помощью служб мультимедиа Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Доставка мультимедиа по запросу с помощью служб мультимедиа Azure" 
+	description="В этом разделе рассказывается об общих сценариях доставки мультимедиа по запросу с помощью служб мультимедиа Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"   
 	ms.author="juliako"/>
 
 
@@ -89,135 +89,15 @@
 
 Объяснения понятий, связанных с доставкой содержимого по запросу, см. в разделе [Понятия служб мультимедиа](media-services-concepts.md).
 
-##Стандартные задачи. Доставка мультимедиа по запросу.
 
-###Создание учетной записи служб мультимедиа
+##Дальнейшие действия: схемы обучения AMS
 
-Используйте **портал управления Azure** для [создания учетной записи служб мультимедиа Azure](media-services-create-account.md).
+Схемы обучения AMS можно просмотреть здесь:
 
-###Настройка среды разработки  
-
-Выберите **.NET** или **REST API** в качестве среды разработки.
-
-[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
-
-###Программное подключение  
-
-Выберите **.NET** или **REST API** для программного подключения к службам мультимедиа Azure.
-
-[AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
-
-
-###Настройка конечных точек потоковой передачи
-
-Общие сведения о конечных точках потоковой передачи и управлении ими см. в статье [Управление конечными точками потоковой передачи в учетной записи служб мультимедиа](media-services-manage-origins.md).
-
-###Добавление мультимедиа 
-
-Добавляйте файлы через **портал управления Azure**, **.NET** или **API REST**.
-
-[AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
-
-###Создание заданий и задач
-
-Задание — это сущность, которая содержит метаданные о наборе задач (например, кодирования или индексирования). Каждая задача выполняет атомарную операцию на входном ресурсе или ресурсах. Пример создания заданий кодирования см. в разделе:
-
-Обзор см. в разделе [Работа с заданиями служб мультимедиа Azure](media-services-jobs.md).
-
-Получите обработчик мультимедиа, соответствующий вашей задаче, в составе **.NET** или **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-get-media-processor](../../includes/media-services-selector-get-media-processor.md)]
-
-В следующих примерах создаются задания кодирования с помощью **портала управления Azure**, **.NET** или **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
-
-####Индексация
-
-[AZURE.INCLUDE [media-services-selector-index-content](../../includes/media-services-selector-index-content.md)]
-
-####Кодирование 
-
-**Общие сведения**:
-
-- [Общие сведения о динамической упаковке](media-services-dynamic-packaging-overview.md)
-- [Кодирование содержимого по запросу с помощью служб мультимедиа Azure](media-services-encode-asset.md).
-
-Кодируйте файлы с помощью **кодировщика службы мультимедиа Azure** через **портал управления Azure**, **.NET** или **API REST**.
- 
-[AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
-
-Дополнительное кодирование с помощью **рабочего процесса Premium обработчика мультимедиа** с использованием **.NET**.
-
-[AZURE.INCLUDE [media-services-selector-advanced-encoding](../../includes/media-services-selector-advanced-encoding.md)]
-
-####Наблюдение за ходом выполнения задания
-
-Мониторинг хода выполнения задания с помощью **портала управления Azure**, **.NET** или **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-job-progress](../../includes/media-services-selector-job-progress.md)]
-
-###Защита содержимого 
-
-**Общие сведения**:
-
-[Общая информация о системе защиты содержимого](media-services-content-protection-overview.md)
-
-Если вы хотите зашифровать ресурс с помощью алгоритма AES (на основе 128-битных ключей шифрования) или технологии управления цифровыми правами PlayReady, вам нужно создать ключ содержимого.
-
-Чтобы создать ключи, используйте **.NET** или **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-create-contentkey](../../includes/media-services-selector-create-contentkey.md)]
-
-Создав ключ содержимого, можно настроить политику авторизации ключей с помощью **.NET** или **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
-
-
-Настройте политику доставки ресурсов с помощью **.NET** или **API REST**.
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-
-####Интеграция с партнерами
-
-[Использование castLabs для доставки лицензий DRM для служб мультимедиа Azure](media-services-castlabs-integration.md)
-
-###Публикация и доставка ресурсов
-
-Общие сведения о динамической упаковке
-
-> [AZURE.SELECTOR]
-- [Overview](media-services-dynamic-packaging-overview.md)
-
-
-Общая информация о доставке содержимого
-
-> [AZURE.SELECTOR]
-- [Overview](media-services-deliver-content-overview.md)
-
-Опубликуйте ресурсы (создав указатели) с помощью **портала управления Azure**, **API .NET** или **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
-
-###Поддержка сети CDN Azure
-
-Службы мультимедиа поддерживают интеграцию с сетью CDN Azure. Информацию о включении сети CDN Azure см. в разделе [Управление конечными точками потоковой передачи в учетной записи служб мультимедиа](media-services-manage-origins.md#enable_cdn).
-
-###Масштабирование учетной записи служб мультимедиа
-
-Можно масштабировать **службы мультимедиа**, указав число **зарезервированных единиц потоковой передачи** и **зарезервированных единиц кодирования**, которые необходимо использовать при подготовке учетной записи.
-
-Можно также масштабировать учетную запись служб мультимедиа, добавляя к ней учетные записи хранения. Каждая учетная запись хранения ограничена 500 ТБ. Чтобы увеличить емкость хранилища за пределы ограничений по умолчанию, можно присоединить несколько учетных записей хранения для одной учетной записи служб мультимедиа.
-
-[Этот](media-services-how-to-scale.md) раздел содержит ссылки на соответствующие разделы.
-
-###Воспроизведение содержимого в существующих видеопроигрывателях
-
-Дополнительную информацию см. в разделе [Воспроизведение содержимого с помощью существующих проигрывателей](media-services-playback-content-with-existing-players.md).
-
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

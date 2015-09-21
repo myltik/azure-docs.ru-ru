@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Как настраивать уведомления и почтовые шаблоны в Azure API Management
@@ -114,4 +114,4 @@ API Management предоставляет почтовые шаблоны для
 [Начинаем работу с API Management]: api-management-get-started.md
 [Создание экземпляра службы API Management]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

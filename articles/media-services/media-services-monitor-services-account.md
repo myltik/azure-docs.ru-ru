@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -57,10 +57,18 @@
 4. Закончив настройку мониторинга, нажмите кнопку **Сохранить**. Как и в случае метрик служб мультимедиа, просмотр данных на панели мониторинга рекомендуется начинать примерно через час. Метрики в учетной записи хранения хранятся в четырех таблицах с именами $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue и $MetricsCapacityBlob. Дополнительные сведения см. в разделе [Метрики аналитик хранения](http://go.microsoft.com/fwlink/?LinkId=256668).
 
 
+##Схемы обучения работе со службами мультимедиа
+
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 <!-- Images -->
 [dashboard]: ./media/media-services-monitor-services-account/media-services-dashboard.png
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

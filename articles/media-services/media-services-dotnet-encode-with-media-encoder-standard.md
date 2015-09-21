@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Кодирование ресурса-контейнера с помощью стандартного кодировщика мультимедиа"
-	description="В этом разделе показано, как использовать .NET для кодирования ресурса-контейнера с помощью стандартного кодировщика мультимедиа."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Кодирование ресурса-контейнера с помощью стандартного кодировщика мультимедиа" 
+	description="В этом разделе показано, как использовать .NET для кодирования ресурса-контейнера с помощью стандартного кодировщика мультимедиа." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"    
 	ms.author="juliako"/>
 
 
@@ -116,8 +116,16 @@
 		    return processor;
 		}
 
+
+##Схемы обучения работе со службами мультимедиа
+
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ##См. также 
 
 [Обзор кодирования с помощью служб мультимедиа](media-services-encode-asset.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

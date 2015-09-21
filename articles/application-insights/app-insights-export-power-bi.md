@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Просмотр данных Application Insights в Power BI"
-	description="Использование Power BI для мониторинга производительности и использования приложения."
-	services="application-insights"
-	documentationCenter=""
-	authors="noamben"
+	pageTitle="Просмотр данных Application Insights в Power BI" 
+	description="Использование Power BI для мониторинга производительности и использования приложения." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="awills"/>
  
 # Представления данных Application Insights в Power BI
@@ -25,6 +25,9 @@
 
 ![Пример представления Power BI с данными об использовании, полученными из Application Insights](./media/app-insights-export-power-bi/020.png)
 
+
+> [AZURE.NOTE]Вам понадобится рабочая или учебная учетная запись (учетная запись организации MSDN) для отправки данных Stream Analytics в Power BI.
+
 ## Видео
 
 Ноам Бен Зив (Noam Ben Zeev) показывает то, о чем идет речь в этой статье.
@@ -33,7 +36,7 @@
 
 ## Мониторинг приложения с помощью Application Insights
 
-Если вы еще не пробовали это, начните сейчас. Application Insights может осуществлять мониторинг любого устройства или веб-приложения на разных платформах, включая Windows, iOS, Android, J2EE и др. [Начало работы](app-insights-get-started.md).
+Если вы еще не пробовали это, начните сейчас. Application Insights может осуществлять мониторинг любого устройства или веб-приложения на разных платформах, включая Windows, iOS, Android, J2EE и др. [Приступая к работе](app-insights-get-started.md).
 
 ## Создание хранилища в Azure
 
@@ -78,7 +81,7 @@
 
     Данные также будут экспортированы в хранилище.
 
-4. Проверьте экспортированные данные. В Visual Studio выберите меню **Представление/Обозреватель облака** и откройте хранилище Azure. (Если этой команды нет в меню, установите пакет SDK Azure: откройте диалоговое окно «Создание проекта», разверните узел «Visual C#/облако» и выберите «Получить Microsoft Azure SDK для .NET».)
+4. Проверьте экспортированные данные. В Visual Studio выберите меню **Представление/обозреватель облака** и откройте Azure/хранилище. (Если этой команды нет в меню, установите пакет SDK Azure: откройте диалоговое окно «Создание проекта», разверните узел «Visual C#/облако» и выберите «Получить Microsoft Azure SDK для .NET».)
 
     ![](./media/app-insights-export-power-bi/04-data.png)
 
@@ -140,13 +143,15 @@
 
 Закройте мастер и дождитесь завершения установки.
 
+> [AZURE.TIP]Воспользуйтесь примером команды для загрузки некоторых данных. Сохраните их как тестовый образец для отладки запроса.
+
 ## Определение выходных данных
 
 Теперь выберите задание и задайте выходные данные.
 
 ![Выбор нового канала и элементов «Выходные данные», «Добавить», «Power BI».](./media/app-insights-export-power-bi/160.png)
 
-Предоставьте для Stream Analytics доступ к ресурсу Power BI, после чего создайте имя для выходных данных, а также для целевого набора данных и таблицы Power BI.
+Предоставьте свою **рабочую или учебную учетную запись** для доступа Stream Analytics к ресурсу Power BI. Затем укажите имя для выходных данных, а также для целевого набора данных и таблицы Power BI.
 
 ![Создание трех имен.](./media/app-insights-export-power-bi/170.png)
 
@@ -155,6 +160,11 @@
 Запрос определяет преобразование входных данных в выходные.
 
 ![Выбор задания и элемента «Запрос». Вставка следующего примера.](./media/app-insights-export-power-bi/180.png)
+
+
+Используйте функцию «Проверить» для проверки выходных данных. Предоставьте ей образец данных, полученный на странице входных данных.
+
+#### Запрос для отображения количества событий
 
 Вставьте следующий запрос.
 
@@ -173,7 +183,29 @@
 
 * export-input — это псевдоним, присвоенный входным данным потока.
 * pbi-output — это определенный псевдоним выходных данных.
-* Мы используем GetElements, так как имя события находится во вложенном массиве JSON. Затем элемент Select выбирает имя события, а также количество экземпляров с этим именем за определенный период времени. Предложение Group By группирует элементы по периодам времени продолжительностью 1 минута.
+* Мы используем [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx), так как имя события находится во вложенном массиве JSON. Затем элемент Select выбирает имя события, а также количество экземпляров с этим именем за определенный период времени. Предложение [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) группирует элементы по периодам времени продолжительностью 1 минута.
+
+
+#### Запрос для отображения значений метрики
+
+
+```SQL
+
+    SELECT
+      A.context.data.eventtime,
+      avg(CASE WHEN flat.arrayvalue.myMetric.value IS NULL THEN 0 ELSE  flat.arrayvalue.myMetric.value END) as myValue
+    INTO
+      [pbi-output]
+    FROM
+      [export-input] A
+    OUTER APPLY GetElements(A.context.custom.metrics) as flat
+    GROUP BY TumblingWindow(minute, 1), A.context.data.eventtime
+
+``` 
+
+* Этот запрос позволяет получить время события и значение метрики по телеметрии метрики. Значения метрик находятся в массиве, поэтому мы используем шаблон OUTER APPLY GetElements для извлечения строк. myMetric — это имя метрики. 
+
+
 
 ## Выполнение задания
 
@@ -185,7 +217,7 @@
 
 ## Просмотр результатов в Power BI
 
-Откройте Power BI, а затем выберите набор данных и таблицу, определенные как выходные данные задания Stream Analytics.
+Откройте Power BI с рабочей или учебной учетной записью и выберите набор данных и таблицу, которые были определены как выходные данные задания Stream Analytics.
 
 ![Выбор набора данных и полей в Power BI.](./media/app-insights-export-power-bi/200.png)
 
@@ -207,4 +239,4 @@
 * [Application Insights](app-insights-overview.md)
 * [Дополнительные примеры и пошаговые руководства](app-insights-code-samples.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

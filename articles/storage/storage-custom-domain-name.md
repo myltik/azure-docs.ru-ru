@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 
@@ -117,4 +117,4 @@ BLOB-объект|**URL-адрес по умолчанию:** http://mystorageac
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">Сопоставление содержимого CDN с личным доменом￼</a>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

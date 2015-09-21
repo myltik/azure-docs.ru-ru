@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 #Разбивка результатов поиска на страницы в службе поиска Azure.#
@@ -103,7 +103,7 @@
 - [REST API службы поиска Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx)
 - [Операции с индексами](http://msdn.microsoft.com/library/azure/dn798918.aspx)
 - [Операции с документом](http://msdn.microsoft.com/library/azure/dn800962.aspx).
-- [Поиск Azure: учебники, видеодемонстрации и примеры](http://msdn.microsoft.com/library/azure/dn818681.aspx)
+- [Поиск Azure: учебники, видеодемонстрации и примеры](search-video-demo-tutorial-list.md)
 - [Фасетная навигация в службе поиска Azure](search-faceted-navigation.md)
 
 
@@ -114,4 +114,4 @@
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

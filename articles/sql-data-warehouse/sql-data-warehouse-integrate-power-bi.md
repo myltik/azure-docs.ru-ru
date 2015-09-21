@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/09/2015"
    ms.author="lodipalm"/>
 
 # Использование Power BI с хранилищем данных SQL
@@ -51,17 +51,15 @@
 ## Поиск значений параметров
 Полное имя сервера и имя базы данных можно посмотреть на портале Azure. Обратите внимание, что в настоящее время хранилище данных SQL можно найти только на портале предварительной версии Azure.
 
-## Дальнейшие действия
-Общие сведения об интеграции см. в разделе [Обзор интеграции хранилища данных SQL][]. Дополнительные советы по разработке см. в разделе [Общие сведения о разработке для хранилища данных SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Общие сведения о разработке для хранилища данных SQL]: ./sql-data-warehouse-overview-develop/
-[Обзор интеграции хранилища данных SQL]: ./sql-data-warehouse-overview-integration/
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
+[SQL Data Warehouse integration overview]: ./sql-data-warehouse-overview-integration/
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

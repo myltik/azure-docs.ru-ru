@@ -1,19 +1,19 @@
 <properties 
-pageTitle="Выполнение задач запуска в облачных службах Azure | Microsoft Azure"
-	description="Задачи запуска помогают подготовить среду облачной службы для приложения. Вы узнаете, как работают задачи запуска и как их можно создать."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
+pageTitle="Выполнение задач запуска в облачных службах Azure | Microsoft Azure" 
+description="Задачи запуска помогают подготовить среду облачной службы для приложения. Вы узнаете, как работают задачи запуска и как их можно создать." 
+services="cloud-services" 
+documentationCenter="" 
+authors="Thraka" 
+manager="timlt" 
+editor=""/>
 <tags 
-ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/11/2015"
-	ms.author="adegeo"/>
+ms.service="cloud-services" 
+ms.workload="tbd" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="09/08/2015" 
+ms.author="adegeo"/>
 
 
 
@@ -163,4 +163,4 @@ EXIT /B 0
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

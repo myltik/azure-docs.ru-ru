@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Приступая к работе с Azure Active Directory (проекты .NET)" 
-	description="Начало работы с использованием Azure Active Directory в Visual Studio" 
+	pageTitle="Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты MVC)" 
+	description="Как приступить к использованию Azure Active Directory в проектах MVC после подключения или создания Azure AD с помощью подключенных служб Visual Studio" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="patshea123" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="patshea"/>
 
-# Приступая к работе с Azure Active Directory (проекты .NET)
+# Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты MVC)
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-active-directory-dotnet-getting-started.md)
@@ -77,4 +77,4 @@
 
 [Дополнительная информация о службе Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

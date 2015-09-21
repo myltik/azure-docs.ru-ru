@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Создание политик архивации и управление ими с помощью диспетчера моментальных снимков StorSimple | Microsoft Azure"
+   pageTitle="Политики архивации диспетчера моментальных снимков StorSimple | Microsoft Azure"
    description="Узнайте, как использовать оснастку консоли MMC ";Диспетчер моментальных снимков StorSimple"; для создания политик архивации, которые контролируют архивацию по расписанию, и управления этими политиками."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Создание политик архивации и управление ими с помощью диспетчера моментальных снимков StorSimple
@@ -118,4 +118,4 @@
 
 [Просмотр заданий архивации и управление ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-backup-jobs.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Шаг 2: передача данных в эксперимент машинного обучения | Microsoft Azure" 
-	description="Второй этап разработки прогнозного решения: передача сохраненных общедоступных данных в Студию машинного обучения Azure." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Шаг 2: передача данных в эксперимент машинного обучения | Microsoft Azure"
+	description="Второй этап разработки прогнозного решения: передача сохраненных общедоступных данных в Студию машинного обучения Azure."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015" 
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@
 2.	**Отправка существующих данных**
 3.	[Создание нового эксперимента](machine-learning-walkthrough-3-create-new-experiment.md)
 4.	[Обучение и анализ моделей](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5.	[Публикация веб-службы](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[Развертывание веб-службы](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Доступ к веб-службе](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -70,7 +70,7 @@
 
 ![Передача набора данных][1]
 
- 
+
 Данные будут отправлены в модуль набора данных, который можно использовать в эксперименте.
 
 Дополнительную информацию об импорте различных типов данных в эксперимент см. в разделе [Импорт обучающих данных в Студию машинного обучения Azure](machine-learning-import-data.md).
@@ -78,6 +78,5 @@
 **Далее: [создание нового эксперимента](machine-learning-walkthrough-3-create-new-experiment.md)**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

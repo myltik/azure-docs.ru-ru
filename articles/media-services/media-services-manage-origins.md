@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Управление конечными точками потоковой передачи в учетной записи служб мультимедиа"
-	description="В этом разделе показано, как управлять конечными точками потоковой передачи с помощью портала управления Azure."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Управление конечными точками потоковой передачи в учетной записи служб мультимедиа" 
+	description="В этом разделе показано, как управлять конечными точками потоковой передачи с помощью портала управления Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	writer="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -134,10 +135,18 @@
 Дополнительные сведения см. в [разделе, анонсирующем интеграцию служб мультимедиа Azure с Azure CDN (сетью доставки содержимого)](http://azure.microsoft.com/blog/2015/03/17/announcing-azure-media-services-integration-with-azure-cdn-content-delivery-network/).
 
 
+##Схемы обучения работе со службами мультимедиа
+
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 [streaming-endpoint-enable-cdn]: ./media/media-services-manage-origins/media-services-origins-enable-cdn.png
 [streaming-endpoint]: ./media/media-services-manage-origins/media-services-origins-page.png
 [configure-origin]: ./media/media-services-manage-origins/media-services-origins-configure.png
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

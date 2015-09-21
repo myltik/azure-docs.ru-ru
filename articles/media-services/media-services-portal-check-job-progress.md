@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #Практическое руководство. Проверка хода выполнения задания
@@ -32,6 +32,15 @@
 
 	![CheckStatus][checkstatus]
 
+
+##Схемы обучения работе со службами мультимедиа
+
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##Дальнейшее действие
 
 Опубликуйте содержимое. Дополнительные сведения см. в разделе [Кодирование ресурса](../media-services-manage-content#publish).
@@ -40,4 +49,4 @@
 [checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

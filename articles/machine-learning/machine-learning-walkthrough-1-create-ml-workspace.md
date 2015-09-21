@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Шаг 1. Создание рабочей области машинного обучения | Microsoft Azure" 
-	description="Первый этап пошагового руководства по разработке прогнозного решения: узнайте, как настроить рабочую область студии машинного обучения Azure." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="Шаг 1. Создание рабочей области машинного обучения | Microsoft Azure"
+	description="Первый этап пошагового руководства по разработке прогнозного решения: узнайте, как настроить рабочую область студии машинного обучения Azure."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@
 2.	[Отправка существующих данных](machine-learning-walkthrough-2-upload-data.md)
 3.	[Создание нового эксперимента](machine-learning-walkthrough-3-create-new-experiment.md)
 4.	[Обучение и анализ моделей](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5.	[Публикация веб-службы](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[Развертывание веб-службы](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[Доступ к веб-службе](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -54,6 +54,5 @@
 **Далее: [отправка существующих данных](machine-learning-walkthrough-2-upload-data.md)**
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

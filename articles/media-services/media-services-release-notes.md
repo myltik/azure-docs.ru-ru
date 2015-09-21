@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Заметки о выпуске служб мультимедиа"
-	description="Заметки о выпуске служб мультимедиа"
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Заметки о выпуске служб мультимедиа" 
+	description="Заметки о выпуске служб мультимедиа" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="media"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="media" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/07/2015"   
 	ms.author="juliako"/>
 
 
@@ -534,6 +534,14 @@ API REST служб мультимедиа обновлены до версии 
 
 	Поддержка асинхронного выполнения добавлена для всех методов.
 
+
+##Схемы обучения работе со службами мультимедиа
+
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 <!-- Anchors. -->
 
 <!-- Images. -->
@@ -575,4 +583,4 @@ API REST служб мультимедиа обновлены до версии 
 [Обработка уведомлений из заданий служб мультимедиа]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

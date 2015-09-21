@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Использование диспетчера моментальных снимков StorSimple для подключения устройств StorSimple и управления ими | Microsoft Azure"
+   pageTitle="Управление устройствами с помощью диспетчера моментальных снимков StorSimple | Microsoft Azure"
    description="Узнайте, как использовать оснастку консоли MMC ";Диспетчер моментальных снимков StorSimple"; для подключения устройств StorSimple и управления ими."
    services="storsimple"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/18/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Использование диспетчера моментальных снимков StorSimple для подключения устройств StorSimple и управления ими
@@ -262,4 +262,4 @@
 
 [Просмотр томов и управление ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

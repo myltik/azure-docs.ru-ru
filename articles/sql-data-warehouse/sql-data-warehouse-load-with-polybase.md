@@ -1,20 +1,20 @@
 <properties
    pageTitle="Учебник по работе с PolyBase в хранилище данных SQL | Microsoft Azure"
-	description="Узнайте, что такое средство PolyBase и как его использовать в сценариях работы с хранилищем данных."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor="jrowlandjones"/>
+   description="Узнайте, что такое средство PolyBase и как его использовать в сценариях работы с хранилищем данных."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="05/09/2015"
-	ms.author="sahajs;barbkess"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/02/2015"
+   ms.author="sahajs;barbkess"/>
 
 
 # Загрузка данных с помощью PolyBase
@@ -137,6 +137,8 @@ DROP EXTERNAL FILE FORMAT text_file_format
 
 Параметр LOCATION указывает путь к данным из корня источника данных. В этом примере данные располагаются по адресу wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/. Все файлы для одной таблицы должны находиться в одной логической папке в большом двоичном объекте Azure.
 
+При необходимости можно также указать параметры REJECT (REJECT\_TYPE, REJECT\_VALUE, REJECT\_SAMPLE\_VALUE), определяющие, как PolyBase будет обрабатывать измененные записи, полученные от внешнего источника данных.
+
 ```
 -- Creating external table pointing to file stored in Azure Storage
 CREATE EXTERNAL TABLE [ext].[CarSensor_Data] 
@@ -170,11 +172,11 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 ;
 ```
 
-> [AZURE.NOTE]При удалении внешней таблицы необходимо использовать `DROP EXTERNAL TABLE`, использование `DROP TABLE` **не поддерживается**.
+> [AZURE.NOTE]При удалении внешней таблицы необходимо использовать `DROP EXTERNAL TABLE`. Использовать `DROP TABLE` **невозможно**.
 
 Раздел справки: [DROP EXTERNAL TABLE (Transact-SQL)][].
 
-Также стоит отметить, что внешние таблицы видимы в представлениях каталогов `sys.tables` и более подробно в `sys.external_tables`.
+Также стоит отметить, что внешние таблицы видимы в представлениях каталогов как в `sys.tables`, так и (более подробно) `sys.external_tables`.
 
 ## Ротация ключей хранилищ данных
 
@@ -197,21 +199,17 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 ## Отправка запроса для данных хранилища больших двоичных объектов Azure
 Запросы к внешним таблицам используют имя таблицы так, как будто это реляционная таблица.
 
-Это неструктурированный запрос, который объединяет данные о клиентах страховой компании из хранилища данных SQL с данными автомобильных датчиков из большого двоичного объекта хранилища Azure. Результат содержит водителей, которые водят быстрее других.
 
 ```
--- Join SQL Data Warehouse relational data with Azure storage data. 
-SELECT 
-      [Insured_Customers].[FirstName]
-,     [Insured_Customers].[LastName]
-,     [Insured_Customers].[YearlyIncome]
-,     [CarSensor_Data].[Speed]
-FROM  [dbo].[Insured_Customers] 
-JOIN  [ext].[CarSensor_Data]         ON [Insured_Customers].[CustomerKey] = [CarSensor_Data].[CustomerKey]
-WHERE [CarSensor_Data].[Speed] > 60 
-ORDER BY [CarSensor_Data].[Speed] DESC
+
+-- Query Azure storage resident data via external table. 
+SELECT * FROM [ext].[CarSensor_Data]
 ;
+
 ```
+
+> [AZURE.NOTE]Запрос на внешнюю таблицу может завершиться с ошибкой *"Запрос прерван — достигнуто максимальное число отклонений при чтении из внешнего источника"*. Это означает, что внешние данные содержат *"грязные"* записи. Запись данных считается "грязной", если фактические типы данных и количество столбцов не соответствуют определениям столбцов из внешней таблицы или если данные не соответствуют указанному формату внешнего файла. Чтобы устранить эту проблему, убедитесь в правильности определений внешней таблицы и формата внешнего файла, а также в том, что внешние данные соответствуют этим определениям. Если подмножество записей внешних данных "грязные", можно отклонить эти записи для запросов с помощью параметров отклонения в CREATE EXTERNAL TABLE DDL.
+
 
 ## Загрузка данных из хранилища больших двоичных объектов Azure
 В этом примере данные загружаются из хранилища больших двоичных объектов Azure в базу данных хранилища данных SQL.
@@ -327,4 +325,4 @@ $write.Dispose()
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ru-RU/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ru-RU/library/ms189450.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

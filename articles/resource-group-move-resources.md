@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Перемещение ресурсов в новую группу ресурсов"
-	description="Перемещайте ресурсы в новую группу ресурсов для диспетчера ресурсов Azure с помощью Azure PowerShell или REST API."
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="tfitzmac"
-	manager="wpickett"
+	pageTitle="Перемещение ресурсов в новую группу ресурсов" 
+	description="Перемещайте ресурсы в новую группу ресурсов для диспетчера ресурсов Azure с помощью Azure PowerShell или REST API." 
+	services="azure-resource-manager" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="azure-resource-manager" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="tomfitz"/>
 
 # Перемещение ресурсов в новую группу ресурсов или подписку
@@ -39,12 +39,13 @@
 
 - Управление API
 - поиск Azure;
+- Веб-приложения Azure (действуют [ограничения](app-service-web/app-service-move-resources.md))
 - Фабрика данных
 - хранилище ключей;
 - Mobile Engagement;
 - Operational Insights;
 - Кэш Redis
-- Веб-приложения Azure (действуют [ограничения](app-service-web/app-service-move-resources.md))
+- База данных SQL
 
 Службы с поддержкой перемещения в новую группу ресурсов, но не в новую подписку:
 
@@ -101,4 +102,4 @@
 - [Управление ресурсами с помощью портала Azure](azure-portal/resource-group-portal.md)
 - [Использование тегов для организации ресурсов](./resource-group-using-tags.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

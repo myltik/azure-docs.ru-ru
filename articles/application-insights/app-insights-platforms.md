@@ -2,7 +2,7 @@
 	pageTitle="Application Insights: языки и платформы | Microsoft Azure"
 	description="Доступные языки и платформы для Application Insights"
 	services="application-insights"
-	documentationCenter=""
+    documentationCenter=""
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -48,6 +48,7 @@
 + [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 + [Microsoft CRM](app-insights-sample-mscrm.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
++ [Orchard](https://orchardazureappinsights.codeplex.com) 
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [SharePoint](app-insights-sharepoint.md)
 + [C#|VB для Магазина Windows](app-insights-windows-get-started.md)
@@ -77,4 +78,4 @@
 
 <!--Link references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

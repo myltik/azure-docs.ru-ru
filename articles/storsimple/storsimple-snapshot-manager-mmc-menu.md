@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Использование действий меню MMC в диспетчере моментальных снимков StorSimple | Microsoft Azure"
-   description="Узнайте, как использовать действия меню консоли управления (MMC) в диспетчере моментальных снимков StorSimple."
+   pageTitle="Меню действий ММС в диспетчере моментальных снимков StorSimple | Microsoft Azure"
+   description="Узнайте, как использовать стандартные действия меню консоли управления (MMC) в диспетчере моментальных снимков StorSimple."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Использование действий меню MMC в диспетчере моментальных снимков StorSimple
@@ -127,4 +127,4 @@
 
 [Дополнительные сведения о пользовательском интерфейсе диспетчера моментальных снимков StorSimple](storsimple-use-snapshot-manager.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

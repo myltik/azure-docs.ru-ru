@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Использование средств бизнес-аналитики с Apache Spark в HDInsight | Microsoft Azure"
-	description="Пошаговые инструкции по использованию записных книжек совместно с Apache Spark для создания схем на основе необработанных данных, сохранения их в виде таблиц Hive и последующего использования средств бизнес-аналитики для анализа данных в таблице Hive"
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="paulettm"
+	pageTitle="Использование средств бизнес-аналитики с Apache Spark в HDInsight | Microsoft Azure" 
+	description="Пошаговые инструкции по использованию записных книжек совместно с Apache Spark для создания схем на основе необработанных данных, сохранения их в виде таблиц Hive и последующего использования средств бизнес-аналитики для анализа данных в таблице Hive" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="paulettm" 
 	editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags 
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/31/2015"
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/03/2015" 
 	ms.author="nitinme"/>
 
 
@@ -31,7 +31,7 @@
 
 - Подписка Azure. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 - Кластер Apache Spark. Инструкции см. в разделе [Подготовка кластеров Apache Spark в Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
-- Компьютер с установленным драйвером ODBC Microsoft Spark. Драйвер можно скачать [здесь](http://go.microsoft.com/fwlink/?LinkId=616229).
+- Компьютер с установленным драйвером ODBC Microsoft Spark (требуется для работы Spark в HDInsight с Tableau). Драйвер можно скачать [здесь](http://go.microsoft.com/fwlink/?LinkId=616229).
 - Средства бизнес-аналитики, такие как [Power BI](http://www.powerbi.com/) или [Tableau Desktop](http://www.tableau.com/products/desktop). Оформить подписку на бесплатную предварительную версию Power BI можно на сайте [http://www.powerbi.com/](http://www.powerbi.com/).
 
 ##<a name="hivetable"></a>Сохранение необработанных данных в виде таблицы Hive
@@ -116,7 +116,7 @@
 
 3. На следующем экране выберите **Spark** и нажмите кнопку **Подключить**.
 
-4. На странице «Spark в Azure HDInsight» укажите значения для подключения к кластеру Spark и нажмите кнопку **Подключить**.
+4. На странице "Spark в Azure HDInsight" укажите значения для подключения к кластеру Spark и нажмите кнопку **Подключить**.
 
 	![Подключение к кластеру Spark в HDInsight](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Connect.Spark.png "Подключение к кластеру Spark в HDInsight")
 
@@ -208,4 +208,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

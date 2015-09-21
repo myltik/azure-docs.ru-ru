@@ -1,20 +1,20 @@
 <properties
     pageTitle="Использование разделов служебной шины (.NET) | Microsoft Azure"
-	description="Узнайте, как использовать разделы и подписки служебной шины в Azure. Примеры кода написаны для приложений .NET."
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    description="Узнайте, как использовать разделы и подписки служебной шины в Azure. Примеры кода написаны для приложений .NET."
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
     ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="07/02/2015"
-	ms.author="sethm"/>
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="07/02/2015"
+    ms.author="sethm"/>
 
 # Использование разделов и подписок служебной шины Azure
 
@@ -284,20 +284,19 @@
 
 Вы узнали основные сведения о разделах и подписках Service Bus. Для получения дополнительных сведений используйте следующие ссылки.
 
--   См. справочник MSDN: [Очереди, разделы и подписки][].
+-   См. статью [Очереди, темы и подписки][].
 -   Справочник API для [SqlFilter][].
 -   Создание работающего приложения, отправляющего сообщения в очередь служебной шины и получающего их из нее: [Учебник по обмену сообщениями через посредника служебной шины в .NET][].
--   Примеры служебной шины: скачайте со страницы [Примеры Azure][] или просмотрите обзор на сайте [MSDN][].
+-   Примеры служебной шины: скачайте со страницы [примеров Azure][] или просмотрите [обзор](service-bus-samples.md).
 
   [Azure portal]: http://manage.windowsazure.com
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
-  [Очереди, разделы и подписки]: http://msdn.microsoft.com/library/hh367516.aspx
+  [Очереди, темы и подписки]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Учебник по обмену сообщениями через посредника служебной шины в .NET]: http://msdn.microsoft.com/library/azure/hh367512.aspx
-  [Примеры Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
+  [примеров Azure]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

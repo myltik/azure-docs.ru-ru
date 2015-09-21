@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
  
 # Отслеживание зависимостей, исключений и времени выполнения в веб-приложениях Java
@@ -21,7 +21,11 @@
 
 [Инструментирование веб-приложения Java с помощью Application Insights][java] позволяет получать более подробную информацию без изменения кода, используя для этого агент для Java.
 
-* **Удаленные зависимости:** данные о вызовах, отправляемых вашим приложением через драйвер [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), такой как MySQL, SQL Server, PostgreSQL или SQLite.
+
+* **Зависимости** — данные о вызовах других компонентов в вашем приложении, включая:
+ * **вызовы REST** через HttpClient, OkHttp и RestTemplate (Spring);
+ * вызовы **Redis** через клиент Jedis. Если вызов выполняется дольше 10 с, агент также получает аргументы вызова.
+ * **[Вызовы JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)** — MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB или Apache Derby DB. Поддерживаются вызовы "executeBatch". Если для MySQL и PostgreSQL вызов выполняется дольше 10 с, агент сообщит о плане запроса. 
 * **Перехваченные исключения:** данные об исключениях, обработанных вашим кодом.
 * **Время выполнения метода:** данные о времени, которое потребовалось для выполнения определенных методов.
 
@@ -29,7 +33,7 @@
 
 ## Установка агента Application Insights для Java
 
-1. [Загрузите агент](http://go.microsoft.com/fwlink/?LinkId=618633) на компьютере с сервером Java.
+1. [Скачайте агент](http://go.microsoft.com/fwlink/?LinkId=618633) на компьютере с сервером Java.
 2. Измените скрипт запуска сервера приложений, добавив следующую виртуальную машину Java:
 
     `javaagent:` *полный путь к файлу агента JAR*
@@ -54,7 +58,14 @@
       <Instrumentation>
         
         <!-- Collect remote dependency data -->
-        <BuiltIn enabled="true"/>
+        <BuiltIn enabled="true">
+           <!-- Disable Redis or alter threshold call duration above which arguments will be sent.
+               Defaults: enabled, 10000 ms -->
+           <Jedis enabled="true" thresholdInMS="1000"/>
+           
+           <!-- Set SQL query duration above which query plan will be reported (MySQL, PostgreSQL). Default is 10000 ms. -->
+           <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
+        </BuiltIn>
 
         <!-- Collect data about caught exceptions 
              and method execution times -->
@@ -89,6 +100,8 @@
 
 [Дополнительные сведения о диагностировании проблем зависимостей](app-insights-dependencies.md#diagnosis).
 
+
+
 ## Вопросы? Проблемы?
 
 [Устранение неполадок Java](app-insights-java-troubleshoot.md)
@@ -109,4 +122,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

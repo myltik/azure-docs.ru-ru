@@ -290,14 +290,14 @@
 
 Вы узнали основные сведения о разделах служебной шины. Для получения дополнительных сведений используйте следующие ссылки.
 
--   См. справочник MSDN: [Очереди, темы и подписки][]
+-   См. статью [Очереди, темы и подписки][].
 -   Справочник API для [SqlFilter][].
 -   Посетите репозиторий [Пакет SDK хранилища Azure для Node] на веб-сайте GitHub.
 
   [Пакет SDK хранилища Azure для Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Azure Management Portal]: http://manage.windowsazure.com
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Очереди, темы и подписки]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [Очереди, темы и подписки]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Создание и развертывание приложения Node.js на веб-сайте Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
@@ -305,4 +305,4 @@
   [Веб-приложение Node.js с хранилищем]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

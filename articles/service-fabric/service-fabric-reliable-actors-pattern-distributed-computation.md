@@ -1,20 +1,20 @@
 <properties
    pageTitle="Шаблон разработки надежных субъектов: распределенные вычисления"
-	description="Надежные субъекты Service Fabric отлично подходят для работы с параллельным асинхронным обменом сообщениями, параллельными вычислениями и для управления состояниями в распределенных средах."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="jessebenson"
-	manager="timlt"
-	editor=""/>
+   description="Надежные субъекты Service Fabric отлично подходят для работы с параллельным асинхронным обменом сообщениями, параллельными вычислениями и для управления состояниями в распределенных средах."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="jessebenson"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/05/2015"
-	ms.author="claudioc"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="09/08/2015"
+   ms.author="claudioc"/>
 
 # Шаблон разработки надежных субъектов: распределенные вычисления
 Этот шаблон возник отчасти благодаря реальной ситуации: наш клиент смог в рекордно короткие сроки выполнить финансовый расчет с помощью надежных субъектов Service Fabric, а точнее рассчитать риски с помощью моделирования по методу Монте-Карло.
@@ -48,10 +48,13 @@ public class Processor : Actor, IProcessor
     public Task ProcessAsync(int tries, int seed, int taskCount)
     {
         var tasks = new List<Task>();
+        ActorId aggregatorId = null;
         for (int i = 0; i < taskCount; i++)
         {
-            var task = ActorProxy.Create<IPooledTask>(0); // stateless
-            tasks.Add(task.CalculateAsync(tries, seed));
+            var task = ActorProxy.Create<IPooledTask>(ActorId.NewId()); // stateless
+            if (i % 2 == 0) // new aggregator for every 2 pooled actors
+               aggregatorId = ActorId.NewId();
+            tasks.Add(task.CalculateAsync(tries, seed, aggregatorId));
         }
         return Task.WhenAll(tasks);
     }
@@ -59,12 +62,12 @@ public class Processor : Actor, IProcessor
 
 public interface IPooledTask : IActor
 {
-    Task CalculateAsync(int tries, int seed);
+    Task CalculateAsync(int tries, int seed, ActorId aggregatorId);
 }
 
 public class PooledTask : Actor, IPooledTask
 {
-    public Task CalculateAsync(int tries, int seed)
+    public Task CalculateAsync(int tries, int seed, ActorId aggregatorId)
     {
         var pi = new Pi()
         {
@@ -82,7 +85,7 @@ public class PooledTask : Actor, IPooledTask
                 pi.InCircle++;
         }
 
-        var agg = ActorProxy.Create<IAggregator>(ActorId.NewId());
+        var agg = ActorProxy.Create<IAggregator>(aggregatorId);
         return agg.AggregateAsync(pi);
     }
 }
@@ -203,4 +206,4 @@ public class Finaliser : Actor<FinalizerState>, IFinaliser
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

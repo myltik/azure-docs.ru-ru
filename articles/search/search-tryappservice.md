@@ -318,7 +318,7 @@
 
 Для выполнения всех этих задач необходима подписка на Azure, чтобы можно было создавать и заполнять индексы в службе. Дополнительные сведения о регистрации бесплатной пробной версии см. на странице [https://azure.microsoft.com/pricing/free-trial](https://azure.microsoft.com/pricing/free-trial/).
 
-Сведения о службе поиска Azure см. на [странице документации](http://azure.microsoft.com/documentation/services/search/) сайта [http://azure.microsoft.com](http://azure.microsoft.com) или в [примерах и видео](https://msdn.microsoft.com/library/dn818681.aspx), посвященных полному спектру функций поиска Azure.
+Сведения о Поиске Azure см. на [странице документации](http://azure.microsoft.com/documentation/services/search/) сайта [http://azure.microsoft.com](http://azure.microsoft.com) или в [примерах и видео](search-video-demo-tutorial-list.md), посвященных полному спектру функций Поиска Azure.
 
 <a name="Schema"></a>
 ##О схеме
@@ -529,4 +529,4 @@
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="" 
-	description="Сведения о начале работы с мастером Azure Active Directory (проекты веб-API)" 
-	services="active-directory" 
+	pageTitle="Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты WebApi) |Microsoft Azure" 
+	description="Как начать использовать Azure Active Directory в проектах WebApi после подключения или создания Azure AD с помощью подключенных служб Visual Studio" 
+    services="active-directory"
 	documentationCenter="" 
 	authors="patshea123" 
 	manager="douge" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="patshea123"/>
 
-# Приступая к работе с Azure Active Directory (проекты веб-API)
+# Начало работы с Azure Active Directory и подключенными службами Visual Studio (проекты WebApi)
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-active-directory-webapi-getting-started.md)
@@ -29,4 +29,4 @@
 [Дополнительная информация о службе Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

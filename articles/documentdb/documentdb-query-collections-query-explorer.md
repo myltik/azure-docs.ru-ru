@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="06/10/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stbaro"/>
 
 # Создание, изменение и выполнение запросов SQL к коллекции DocumentDB с помощью обозревателя запросов #
@@ -78,4 +78,4 @@
 - Дополнительные сведения о грамматике SQL DocumentDB, поддерживаемой в обозревателе запросов, см. [здесь](documentdb-sql-query.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

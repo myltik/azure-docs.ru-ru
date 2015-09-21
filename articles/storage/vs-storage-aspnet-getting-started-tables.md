@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Начало работы с табличным хранилищем Azure и подключенными службами Visual Studio | Microsoft Azure"
-	description="Как приступить к работе с табличным хранилищем Azure в проекте ASP.NET в Visual Studio"
+	pageTitle="Начало работы с табличным хранилищем и подключенными службами Visual Studio (ASP.NET) | Microsoft Azure"
+	description="Как приступить к работе, используя табличное хранилище Azure в проекте ASP.NET в Visual Studio после подключения к учетной записи хранения с помощью подключенных служб Visual Studio"
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea123"/>
 
-# Начало работы с табличным хранилищем Azure и подключенными службами Visual Studio
-
+# Начало работы с табличным хранилищем и подключенными службами Visual Studio (ASP.NET)
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-storage-aspnet-getting-started-tables.md)
 > - [What Happened](vs-storage-aspnet-what-happened.md)
@@ -35,33 +34,33 @@
 
 ## Доступ к таблицам в коде
 
-1. Убедитесь, что объявления пространств имен в верхней части файла C# содержат следующие операторы `using`.
+1. Убедитесь, что объявления пространств имен в верхней части файла C# содержат указанные ниже выражения **using**.
 
 		 using Microsoft.Azure;
 		 using Microsoft.WindowsAzure.Storage;
 		 using Microsoft.WindowsAzure.Storage.Auth;
 		 using Microsoft.WindowsAzure.Storage.Table;
 
-2. Получите объект `CloudStorageAccount`, представляющий данные учетной записи хранения. Используйте следующий код, чтобы получить строку подключения и сведения об учетной записи хранения из конфигурации службы Azure.
+2. Получите объект **CloudStorageAccount**, представляющий данные учетной записи хранения. Используйте следующий код, чтобы получить строку подключения и сведения об учетной записи хранения из конфигурации службы Azure.
 
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
     **ПРИМЕЧАНИЕ.** Вставьте весь код, представленный выше, перед кодом в указанных ниже примерах.
 
-3. Получите объект `CloudTableClient`, чтобы указать ссылку на объекты таблицы в вашей учетной записи хранения.
+3. Получите объект **CloudTableClient**, чтобы указать ссылку на объекты таблицы в учетной записи хранения.
 
 	    // Create the table client.
     	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-4. Получите ссылочный объект `CloudTable` для указания ссылки на определенную таблицу и сущности.
+4. Получите объект ссылки **CloudTable**, чтобы указать ссылку на определенную таблицу и сущности.
 
     	// Get a reference to a table named "peopleTable"
 	    CloudTable table = tableClient.GetTableReference("peopleTable");
 
 ## Создание таблицы в коде
 
-Чтобы создать таблицу Azure, просто добавьте вызов `CreateIfNotExistsAsync()` в предыдущий пример кода.
+Чтобы создать таблицу Azure, просто добавьте вызов **CreateIfNotExistsAsync()** в указанный выше код.
 
 	// Create the CloudTable if it does not exist
 	await table.CreateIfNotExistsAsync();
@@ -69,7 +68,7 @@
 
 ## Вставка пакета сущностей
 
-В таблицу можно вставить несколько сущностей с помощью одной операции записи. В следующем примере кода показано создание двух объектов сущностей (Jeff Smith и Ben Smith), добавление их в объект `TableBatchOperation` с помощью метода Insert и запуск операции с помощью вызова `CloudTable.ExecuteBatchAsync`.
+В таблицу можно вставить несколько сущностей с помощью одной операции записи. Указанный ниже пример кода создает два объекта сущностей (Jeff Smith и Ben Smith), добавляет их в объект **TableBatchOperation** с помощью метода Insert и запускает операцию с помощью вызова **CloudTable.ExecuteBatchAsync**.
 
 	// Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
@@ -94,7 +93,7 @@
 	await peopleTable.ExecuteBatchAsync(batchOperation);
 
 ## Получение всех сущностей в разделе
-Чтобы запросить из таблицы все сущности в секции, используйте объект `TableQuery`. Следующий пример кода задает фильтр для сущностей с ключом раздела "Smith". Этот пример выводит на консоль поля каждой сущности в результатах запроса.
+Чтобы запросить все сущности из таблицы, используйте объект **TableQuery**. Следующий пример кода задает фильтр для сущностей с ключом раздела "Smith". Этот пример выводит на консоль поля каждой сущности в результатах запроса.
 
 	// Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
@@ -120,7 +119,7 @@
 
 
 ## Получение одной сущности
-Можно написать запрос для получения отдельной сущности. Следующий пример кода использует `TableOperation` для указания клиента по имени Ben Smith. Этот метод возвращает только одну сущность, а не коллекцию, а возвращаемое значение в `TableResult.Result` является объектом `CustomerEntity`. Указание ключа секции и ключа строки в запросе — самый быстрый способ для получения одной сущности из службы таблиц.
+Можно написать запрос для получения отдельной сущности. Следующий пример кода использует **TableOperation** для указания клиента "Ben Smith". Этот метод возвращает только одну сущность, а не коллекцию. Возвращаемое значение в **TableResult.Result** — это объект **CustomerEntity**. Указание ключа секции и ключа строки в запросе — самый быстрый способ для получения одной сущности из службы таблиц.
 
         // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
@@ -168,4 +167,4 @@
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

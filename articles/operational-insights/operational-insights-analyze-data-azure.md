@@ -47,7 +47,7 @@ Operational Insights использует данные с серверов в в
 
 ![Image of Operational Insights Servers page](./media/operational-insights-analyze-data-azure/servers.png)
 
- >[AZURE.NOTE]Для выполнения автоматической установки агента оперативной аналитики должен быть установлен [агент ВМ Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx).
+ >[AZURE.NOTE]Для выполнения автоматической установки агента оперативной аналитики должен быть установлен [агент ВМ Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx). Если у вас есть виртуальная машина диспетчера ресурсов Azure, она будет не показана в списке. Вам следует использовать PowerShell или создать шаблон ARM для установки агента.
 
 
 
@@ -55,7 +55,9 @@ Operational Insights использует данные с серверов в в
 
 Если вы предпочитаете использовать сценарии, агент Microsoft Monitoring Agent можно включить с помощью PowerShell.
 
-Microsoft Monitoring Agent — это [расширение виртуальной машины Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx), которым можно управлять с помощью PowerShell, как показано в следующем примере.
+Microsoft Monitoring Agent — это [расширение виртуальной машины Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx), которым можно управлять с помощью PowerShell, как показано в следующих примерах.
+
+Для "классических" виртуальных машин Azure используйте эту команду PowerShell:
 
 ```powershell
 Add-AzureAccount
@@ -66,6 +68,24 @@ $hostedService="enter hosted service here"
 
 $vm = Get-AzureVM –ServiceName $hostedService
 Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionName 'MicrosoftMonitoringAgent' -Version '1.*' -PublicConfiguration "{'workspaceId':  '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
+```
+Для виртуальных машин диспетчера ресурсов Azure используйте эту команду PowerShell:
+
+```powershell
+Add-AzureAccount
+Switch-AzureMode -Name AzureResourceManager
+
+$workspaceId="enter workspace here"
+$workspaceKey="enter workspace key here"
+
+$resourcegroup = "enter resource group"
+$resourcename = "enter resource group"
+
+$vm = Get-AzureVM -ResourceGroupName $resourcegroup -Name $resourcename
+$location = $vm.Location
+
+Set-AzureVMExtension -ResourceGroupName $resourcegroup -VMName $resourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
+
 ```
 
 При настройке с помощью PowerShell необходимо указать идентификатор рабочей области и первичный ключ. Идентификатор рабочей области и первичный ключ находятся на странице **Параметры** портала оперативной аналитики.
@@ -96,7 +116,7 @@ Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -
 Счетчики производительности|Системные и пользовательские счетчики производительности.
 Аварийные дампы|Информация о состоянии процесса в случае сбоя приложения.
 Пользовательские журналы ошибок|Журналы, созданные вашим приложением или службой.
-.NET EventSource|События, созданные вашим кодом с использованием класса [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx) .NET
+.NET EventSource|События, созданные вашим кодом с использованием [класса EventSource] .NET (https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx).
 Трассировка событий Windows на основе манифестов|События трассировки событий Windows, созданные каким-либо процессом
 Syslog|События, отправляемые в управляющие программы Syslog или Rsyslog
 
@@ -115,7 +135,7 @@ Syslog|События, отправляемые в управляющие про
 
  >[AZURE.NOTE]Журналы IIS веб-сайтов Azure в настоящее время не поддерживаются.
 
-При работе с виртуальными машинами имеется возможность установить [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) на виртуальную машину, чтобы включить дополнительные функции анализа. Это позволит, помимо возможности анализа журналов IIS и журналов событий, выполнять дополнительные виды анализа, включая отслеживание изменений конфигурации, оценку SQL и оценку обновлений.
+При работе с виртуальными машинами вы можете установить [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) на виртуальную машину, чтобы включить дополнительные функции анализа. Это позволит, помимо возможности анализа журналов IIS и журналов событий, выполнять дополнительные виды анализа, включая отслеживание изменений конфигурации, оценку SQL и оценку обновлений.
 
 Вы можете помочь нам определить, какие дополнительные журналы должны анализироваться службой оперативной аналитики в первую очередь, проголосовав на [странице отзывов](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).
 
@@ -131,7 +151,7 @@ Syslog|События, отправляемые в управляющие про
 
 ### Включение диагностики
 
-Для включения журналов событий Windows или изменения scheduledTransferPeriod настройте систему диагностики Azure с помощью XML-файла конфигурации (diagnostics.wadcfg), как указано в пунктах [Шаг 2. Добавление файла diagnostics.wadcfg в решение Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) и [Шаг 3. Настройка системы диагностики для приложения](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) раздела «Включение диагностики в облачной службе». В следующем примере файл конфигурации собирает все журналы IIS и все события из журналов приложения и системы.
+Для включения журналов событий Windows или изменения scheduledTransferPeriod настройте систему диагностики Azure с помощью XML-файла конфигурации (diagnostics.wadcfg), как указано в пунктах [Шаг 2. Добавление файла diagnostics.wadcfg в решение Visual Studio](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) и [Шаг 3. Настройка системы диагностики для приложения](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3) раздела "Включение диагностики в облачной службе". В следующем примере файл конфигурации собирает все журналы IIS и все события из журналов приложения и системы.
 
     <?xml version="1.0" encoding="utf-8" ?>
     <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"
@@ -154,7 +174,7 @@ Syslog|События, отправляемые в управляющие про
     </DiagnosticMonitorConfiguration>
 
 
-Выполняя пункт [Шаг 4. Настройка хранения ваших диагностических данных](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step4) раздела «Включение диагностики в облачной службе», убедитесь, что в параметре ConfigurationSettings указана учетная запись хранения, как в приведенном ниже примере.
+Выполняя пункт [Шаг 4. Настройка хранения ваших диагностических данных](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step4) раздела "Включение диагностики в облачной службе", убедитесь, что в параметре ConfigurationSettings указана учетная запись хранения, как в приведенном ниже примере.
 
 
     <ConfigurationSettings>
@@ -162,7 +182,7 @@ Syslog|События, отправляемые в управляющие про
     </ConfigurationSettings>
 
 
-Значения **AccountName** и **AccountKey** можно найти на панели мониторинга учетной записи в разделе «Управление ключами доступа» на портале управления Microsoft Azure. Для строки подключения должен использоваться протокол **https**.
+Значения **AccountName** и **AccountKey** можно найти на портале управления Microsoft Azure. Для этого откройте раздел "Управление ключами доступа" на панели мониторинга учетной записи хранения. Для строки подключения должен использоваться протокол **https**.
 
 После того как обновленная конфигурация диагностики будет применена к облачной службе и диагностические данные начнут записываться в хранилище Azure, можно приступить к настройке Operational Insights.
 
@@ -174,7 +194,7 @@ Syslog|События, отправляемые в управляющие про
 
 1. При создании виртуальной машины установите агент ВМ. Если виртуальная машина уже существует, проверьте, установлен ли агент.
 	- Если для создания виртуальной машины используется портал управления Azure по умолчанию, выберите вариант **Настраиваемое создание** и параметр **Установить агент ВМ**.
-	- Если используется новый портал управления, выберите пункт **Дополнительная настройка**, а затем **Диагностика** и задайте для параметра **Состояние** значение **Вкл**.
+	- Если же для создания виртуальной машины используется новый портал управления, выберите пункт **Необязательная конфигурация**, а затем **Диагностика** и задайте для параметра **Состояние** значение **Вкл**.
 
 	В результате для виртуальной машины будет автоматически установлено и запущено расширение "Система диагностики Azure", которое будет отвечать за сбор диагностических данных.
 
@@ -182,7 +202,7 @@ Syslog|События, отправляемые в управляющие про
 	1. Выберите виртуальную машину.
 	2. Щелкните **Мониторинг**.
 	3. Щелкните **Диагностика**.
-	4. Установите **Состояние** в значение **ВКЛ**.
+	4. Установите для поля **Состояние** значение **ВКЛ**.
 	5. Выберите все нужные диагностические метрики. Служба Operational Insights может анализировать системные журналы событий Windows, журналы событий приложений Windows и журналы IIS.
 	7. Нажмите кнопку **ОК**.
 
@@ -231,8 +251,8 @@ Syslog|События, отправляемые в управляющие про
 
 ### Включение анализа с помощью Operational Insights
 
-1. На портале Azure по умолчанию перейдите к рабочей области оперативной аналитики и откройте вкладку **Хранилище**.![Вкладка хранилища рабочей области](./media/operational-insights-analyze-data-azure/workspace-storage-tab.png)
-2. Щелкните **Добавить учетную запись хранения**, чтобы открыть окно **Добавление учетной записи хранения**.
+1. На портале Azure по умолчанию перейдите к рабочей области оперативной аналитики и откройте вкладку **Служба хранилища**. ![Вкладка хранилища рабочей области](./media/operational-insights-analyze-data-azure/workspace-storage-tab.png)
+2. Щелкните **Добавить учетную запись хранения**, чтобы открыть поле **Добавить учетную запись хранения**.
 3. Выберите учетную запись хранения, которую вы хотите использовать.
 4. В списке **Тип данных** выберите тип данных: **События**, **Журналы IIS** или **Syslog (Linux)**.
 5. Щелкните значок **ОК**.<br> ![Окно учетной записи хранения](./media/operational-insights-analyze-data-azure/storage-account.png)
@@ -249,4 +269,4 @@ Syslog|События, отправляемые в управляющие про
 
 [Настройка параметров прокси-сервера и брандмауэра (необязательно)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

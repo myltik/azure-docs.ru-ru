@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -173,15 +173,13 @@
 
 Следующий файл App.config содержит необходимые значения для подключения. Значения в элементе <appSettings> — это обязательные значения, получаемые в процессе настройки учетной записи служб мультимедиа.
 
+	<configuration>
+	  <appSettings>
+	    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+	    <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+	  </appSettings>
+	</configuration>
 
-<pre>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</pre>
 
 Чтобы получить значения для подключения из конфигурации, можно использовать класс **ConfigurationManager**, а затем присвоить значения полям в коде:
 	
@@ -189,9 +187,19 @@
 	private static readonly string _accountKey = ConfigurationManager.AppSettings["MediaServicesAccountKey"];
 
 
+
+##Схемы обучения работе со службами мультимедиа
+
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 <!-- Anchors. -->
 
 
 <!-- URLs. -->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

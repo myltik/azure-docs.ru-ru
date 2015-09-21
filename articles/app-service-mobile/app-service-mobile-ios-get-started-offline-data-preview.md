@@ -140,7 +140,7 @@
 
     | Атрибут | Тип |
     |----------- |   ------    |
-    | id | Integer 64 |
+    | id | Строка |
     | key | Строка |
     | keyType | Integer 64 |
     | таблица | Строка |
@@ -159,8 +159,8 @@
     | complete | Логический | поле элемента todo |
     | text | Строка | поле элемента todo |
     | ms\_createdAt | Дата | (необязательно) сопоставляется с системным свойством createdAt | 
-	| ms\_updatedAt | Дата | (необязательно) сопоставляется с системным свойством updatedAt | 
-	| ms\_version | Строка | (необязательно) используется для обнаружения конфликтов, сопоставляется с версией |
+    | ms\_updatedAt | Дата | (необязательно) сопоставляется с системным свойством updatedAt | 
+    | ms\_version | Строка | (необязательно) используется для обнаружения конфликтов, сопоставляется с версией |
 
 
 ## <a name="setup-sync"></a>Изменение режима синхронизации приложения
@@ -248,4 +248,4 @@
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

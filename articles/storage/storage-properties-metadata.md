@@ -1,7 +1,7 @@
 
 <properties 
-  pageTitle="Задание и получение свойств и метаданных для ресурсов хранилища | Microsoft Azure" 
-  description="Узнайте, как задавать и получать свойства и метаданные для ресурсов службы хранилища Azure." 
+  pageTitle="Задание и получение свойств и метаданных для объектов в службе хранилища Azure | Microsoft Azure" 
+  description="Хранение пользовательских метаданных для объектов в службе хранилища Azure, а также задание и получение свойств системы." 
   services="storage" 
   documentationCenter="" 
   authors="tamram" 
@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="08/04/2015" 
+  ms.date="09/03/2015" 
   ms.author="tamram"/>
 
 
@@ -106,4 +106,4 @@
 - [Начало работе с хранилищем больших двоичных объектов для .NET](storage-dotnet-how-to-use-blobs.md)  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

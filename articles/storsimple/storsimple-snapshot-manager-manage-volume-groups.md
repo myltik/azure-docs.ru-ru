@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="Создание групп томов и управление ими с помощью диспетчера моментальных снимков StorSimple | Microsoft Azure"
+   pageTitle="Группы томов диспетчера моментальных снимков StorSimple | Microsoft Azure"
    description="Узнайте, как использовать оснастку консоли MMC ";Диспетчер моментальных снимков StorSimple"; для создания групп томов и управления ими."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # Создание групп томов и управление ими с помощью диспетчера моментальных снимков StorSimple
@@ -142,4 +142,4 @@
 
 [Создание политик архивации и управление ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-backup-policies.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

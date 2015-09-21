@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -40,7 +40,7 @@
 Темы видеоматериала первого дня
 
 - Общие сведения о конструкторе
-- Простые рабочие процессы — «Привет, мир!»
+- Простые рабочие процессы — "Привет, мир!"
 - Создание нескольких выходных MP4-файлов для использования в потоковой передаче мультимедиа Azure
 
 > [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-1]
@@ -65,8 +65,18 @@
  
 > [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-3]
 
+
+
+##Схемы обучения работе со службами мультимедиа
+
+Схемы обучения AMS можно просмотреть здесь:
+
+- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##См. также
 
 [Учебные видеоматериалы по расширенному рабочему процессу кодировщика служб мультимедиа Azure](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

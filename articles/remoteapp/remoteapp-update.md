@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Обновление коллекции Azure RemoteApp"
+   pageTitle="Обновление коллекции Azure RemoteApp | Microsoft Azure"
    description="Узнайте, как обновить коллекцию Azure RemoteApp"
    services="remoteapp"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="08/12/2015"
+   ms.date="09/03/2015"
    ms.author="elizapo"/>
 
 # Обновление коллекции в Azure RemoteApp
@@ -25,7 +25,7 @@
 Как же обновляется коллекция? Очень просто.
 
 1. Обновите образ, используемый в коллекции. Примените к нему все необходимые исправления и обновления и сохраните под новым именем.
-2. [Загрузите](remoteapp-uploadimage.md) или [импортируйте](remoteapp-image-on-azurevm) образ в RemoteApp.
+2. [Загрузите](remoteapp-uploadimage.md) или [импортируйте](remoteapp-image-on-azurevm.md) образ в RemoteApp.
 3. Теперь на странице коллекции нажмите **Обновить**.
 4. Выберите новое изображение в списке **Образ шаблона**.
 4. Здесь есть один скользкий момент: вам нужно решить, что делать с пользователями, которые работают с приложением в коллекции в данный момент. Доступны следующие варианты.
@@ -36,4 +36,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -1,25 +1,27 @@
-<properties 
-	pageTitle="Установка и использование Giraph для кластеров Hadoop в HDInsight | Microsoft Azure" 
-	description="Дополнительные сведения о настройке кластера HDInsight с Giraph. Вы воспользуетесь параметром конфигурации действия скрипта (Script Action), чтобы использовать скрипт для установки Giraph." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
+<properties
+	pageTitle="Установка и использование Giraph для кластеров Hadoop в HDInsight | Microsoft Azure"
+	description="Дополнительные сведения о настройке кластера HDInsight с Giraph. Вы воспользуетесь параметром конфигурации действия скрипта (Script Action), чтобы использовать скрипт для установки Giraph."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/11/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/11/2015"
 	ms.author="nitinme"/>
 
 # Установка Giraph в кластерах HDInsight Hadoop и использование Giraph для обработки диаграмм больших объемов
 
 Giraph можно установить в любой тип кластера Hadoop в Azure HDInsight с помощью параметра кластера **Действие сценария**. Действие скрипта позволяет выполнять скрипты для настройки кластера только во время его создания. Дополнительную информацию см. в статье [Настройка кластеров HDInsight с помощью действия сценария][hdinsight-cluster-customize].
+
+> [AZURE.NOTE]Информация, приведенная в этой статье, относится только к кластерам HDInsight под управлением Windows. Сведения о работе R с кластером под управлением Linux см. в статье [Установка Giraph в кластерах HDInsight Hadoop (Linux)](hdinsight-hadoop-giraph-install-linux.md).
 
 В этом разделе описано, как установить Giraph с помощью действия скрипта. После установки Giraph вы также научитесь использовать Giraph для наиболее типичных приложений для обработки крупномасштабных графов.
 
@@ -35,18 +37,18 @@ Giraph можно установить в любой тип кластера Had
 - определение кратчайшего маршрута между двумя компьютерами в сети;
 - вычисление ранга страницы для веб-страниц.
 
-   
+
 ## <a name="install"></a>Как установить Giraph
 
 Пример сценария для установки Giraph в кластере HDInsight доступен в большом двоичном объекте службы хранилища Azure (доступ только для чтения): [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). Этот раздел содержит инструкции по использованию примера скрипта при подготовке кластера с помощью портала Azure.
 
 > [AZURE.NOTE]Пример скрипта работает только с кластером HDInsight версии 3.1. Дополнительную информацию о версиях кластера HDInsight см. в статье [Новые возможности версий кластеров Hadoop, предоставляемых HDInsight](hdinsight-component-versioning.md).
 
-1. Начните подготовку кластера с помощью параметра **НАСТРАИВАЕМОЕ СОЗДАНИЕ**, как описано в статье [Подготовка кластера с использованием пользовательских параметров](hdinsight-provision-clusters.md#portal). 
+1. Начните подготовку кластера с помощью параметра **НАСТРАИВАЕМОЕ СОЗДАНИЕ**, как описано в статье [Подготовка кластера с использованием пользовательских параметров](hdinsight-provision-clusters.md#portal).
 2. На странице **Действия сценариев** мастера щелкните **Добавить действие сценария** для предоставления информации о данном действии сценария, как показано ниже:
 
 	![Использование действия сценария для настройки кластера](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "Использование действия сценария для настройки кластера")
-	
+
 	<table border='1'>
 	<tr><th>Свойство</th><th>Значение</th></tr>
 	<tr><td>Имя</td>
@@ -73,13 +75,13 @@ Giraph можно установить в любой тип кластера Had
 
 	Отправьте файл tiny\_graph.txt в основное хранилище для кластера HDInsight. Указания по отправке данных см. в статье [Отправка данных для заданий Hadoop в HDInsight](hdinsight-upload-data.md).
 
-	Эти данные описывают взаимоотношения между объектами в направленном графе с использованием формата [source\_id, source\_value,[[dest\_id], [edge\_value],...]]. Каждая строка представляет взаимоотношение между объектом **source\\\_id** и одним или несколькими объектами **dest\\\_id**. Значение **edge\\\_value** (или вес) можно представить себе как силу или расстояние подключения между **source\_id** и **dest\\\_id**.
+	Эти данные описывают взаимоотношения между объектами в направленном графе с использованием формата [source\_id, source\_value,[[dest\_id], [edge\_value],...]]. Каждая строка представляет взаимоотношение между объектом **source\\_id** и одним или несколькими объектами **dest\\_id**. Значение **edge\\_value** (или вес) можно представить себе как силу или расстояние подключения между **source\_id** и **dest\\_id**.
 
 	В визуальной форме и с использованием значения (или веса) в качестве расстояния между объектами указанные выше данные могут выглядеть следующим образом.
 
 	![tiny\_graph.txt начерчен в виде кругов с линиями различной длины между](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
 
-	
+
 
 4. Запустите пример SimpleShortestPathsComputation. Воспользуйтесь следующими командлетами Azure PowerShell для запуска этого примера, используя файл tiny\_graph.txt в качестве входных данных. Для выполнения необходимо установить и настроить [Azure PowerShell][powershell-install].
 
@@ -99,7 +101,7 @@ Giraph можно установить в любой тип кластера Had
 		  -JarFile $jarFile
 		  -ClassName "org.apache.giraph.GiraphRunner"
 		  -Arguments $jobArguments
-		
+
 		# Run the job, write output to the Azure PowerShell window
 		$job = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $jobDefinition
 		Write-Host "Wait for the job to complete ..." -ForegroundColor Green
@@ -119,7 +121,7 @@ Giraph можно установить в любой тип кластера Had
 
 		# Select the current subscription
 		Select-AzureSubscription $subscriptionName
-		
+
 		# Create the Storage account context object
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 		$storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
@@ -144,7 +146,7 @@ Giraph можно установить в любой тип кластера Had
 		3	1.0
 
 	Пример SimpleShortestPathComputation жестко запрограммирован для запуска с объекта ID 1 и поиска кратчайшего пути к другим объектам. Таким образом, выходные данные должны считываться как `destination_id distance`, где расстояние представляет собой значение (или вес) переходов на пути между объектом ID 1 и целевым объектом ID.
-	
+
 	При визуализации можно проверить результаты, проходя кратчайшие пути между ID 1 и всеми другими объектами. Обратите внимание, что кратчайший путь между ID 1 и ID 4 — это 5. Это общее расстояние между объектами <span style="color:orange">ID 1 и ID 3</span> и между объектами <span style="color:red">ID 3 и ID 4</span>.
 
 	![Представление объектов в виде кругов с кратчайшими путями между ними](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
@@ -166,6 +168,5 @@ Giraph можно установить в любой тип кластера Had
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

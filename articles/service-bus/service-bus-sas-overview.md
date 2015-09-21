@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Общие сведения о подписях общего доступа"
+   pageTitle="Обзор подписанных URL-адресов (SAS) | Microsoft Azure"
    description="Что такое подписи общего доступа, как они работают и как использовать их в кодах Node, PHP и C#."
    services="service-bus,event-hubs"
    documentationCenter="na"
@@ -12,8 +12,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/24/2015"
+   ms.workload="na"
+   ms.date="09/04/2015"
    ms.author="darosa"/>
 
 # Подписи коллективного доступа
@@ -24,7 +24,7 @@
 
 Подписи общего доступа представляют собой механизм проверки подлинности на основе безопасных хэшей SHA-256 или URI. Это очень мощный механизм, который используется всеми службами служебной шины. На практике SAS состоит из двух компонентов: *политики общего доступа* и *подписи общего доступа* (которая часто называется *маркером*).
 
-Более подробные сведения об использовании подписей общего доступа со служебной шиной см. в статье [Проверка подлинности подписей общего доступа с помощью служебной шины](https://msdn.microsoft.com/library/azure/dn170477.aspx).
+Более подробные сведения об использовании подписанных URL-адресов (SAS) со служебной шиной см. в статье [Проверка подлинности подписанного URL-адреса с помощью служебной шины](service-bus-shared-access-signature-authentication.md).
 
 ## Политика общего доступа
 
@@ -251,6 +251,8 @@ private bool PutCbsToken(Connection connection, string sasToken)
 
 Дополнительные сведения о возможностях использования маркеров SAS см. в [справочнике по API REST служебной шины](https://msdn.microsoft.com/library/azure/hh780717.aspx).
 
-Дополнительные сведения о SAS см. в статье MSDN [Проверка подлинности служебной шины](https://msdn.microsoft.com/library/azure/dn155925.aspx). Дополнительные примеры о SAS в C# и Java Script в [блоге Дамира](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)
+Дополнительные сведения о проверке подлинности с помощью служебной шины см. в статье [Проверка подлинности и авторизация с помощью служебной шины](service-bus-authentication-and-authorization.md).
 
-<!---HONumber=August15_HO7-->
+Больше примеров SAS в сценариях C# и Java Script можно найти в [этой записи блога](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx).
+
+<!---HONumber=Sept15_HO2-->

@@ -149,14 +149,14 @@
 
 Вы узнали основные сведения о разделах служебной шины. Для получения дополнительных сведений используйте следующие ссылки.
 
--   См. справочник MSDN: [Очереди, разделы и подписки][].
+-   См. статью [Очереди, темы и подписки][].
 -   Справочник по [SqlFilter.SqlExpression][].
 
 [Azure Management Portal]: http://manage.windowsazure.com
 [Azure для Python]: https://pypi.python.org/pypi/azure
 [пакет Azure для Python]: https://pypi.python.org/pypi/azure
-[Очереди, разделы и подписки]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+[Очереди, темы и подписки]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

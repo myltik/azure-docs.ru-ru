@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/20/2015" 
+	ms.date="09/08/2015" 
 	ms.author="jeffstok"/>
 
 #Заметки о выпуске Microsoft Stream Analytic
+
+## Заметки о выпуске Stream Analytics 10.09.2015 ##
+
+Этот выпуск содержит следующие обновления.
+
+Название|Описание
+---|---
+Поддержка групп PowerBI|Чтобы разрешить совместное использование данных с другими пользователями Power BI, теперь задания Stream Analytics могут записываться в группы внутри вашей учетной записи Power BI.
 
 ## Заметки о выпуске Stream Analytics от 20.08.2015 ##
 
@@ -26,7 +34,7 @@
 ---|---
 Добавлена функция LAST |Функция [LAST](http://msdn.microsoft.com/library/mt421186.aspx) теперь доступна для заданий Stream Analytics и позволяет извлекать самое последнее событие в потоке за заданный временной интервал.
 Новые функции массивов|Теперь доступны функции массивов [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) и [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx).
-Новые функции записи|Теперь доступны функции записей [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) и [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx).
+Новые функции записи|Теперь доступны функции записи [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) и [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx).
 
 ## Заметки о выпуске Stream Analytics от 30.07.2015 ##
 
@@ -73,7 +81,7 @@
 Наборы данных PowerBI могут содержать только одну таблицу|PowerBI не поддерживает несколько таблиц в заданном наборе данных.
 
 ## Получение справки
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-ru/home?forum=AzureStreamAnalytics).
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
 
 ## Дальнейшие действия
 
@@ -84,4 +92,4 @@
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

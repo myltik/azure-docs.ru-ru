@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Сетевой список управления доступом"
-	description="Дополнительные сведения о списках ACL"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Дополнительные сведения о списках ACL"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="06/08/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/04/2015"
+   ms.author="telmos" />
 
 # Сетевые списки управления доступом
 
@@ -99,4 +99,4 @@ ACL — это объект, содержащий список правил. П
 
 [Управление списками управления доступом для конечных точек с помощью PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

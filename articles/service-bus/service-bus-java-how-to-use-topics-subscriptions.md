@@ -222,11 +222,11 @@
 
 ## Дальнейшие действия
 
-Теперь, когда вы ознакомились с основами использования очередей служебной шины, см. раздел MSDN [Очереди, разделы и подписки служебной шины][] для получения дополнительных сведений.
+Вы познакомились с основами использования очередей служебной шины. Дополнительные сведения см. в статье [Очереди, темы и подписки][].
 
   [Пакет Azure SDK для Java]: http://azure.microsoft.com/develop/java/
   [пакет SDK Azure для Java]: http://azure.microsoft.com/develop/java/
-  [набор средств Azure для Eclipse]: https://msdn.microsoft.com/ru-ru/library/azure/hh694271.aspx
+  [набор средств Azure для Eclipse]: https://msdn.microsoft.com/ru-RU/library/azure/hh694271.aspx
   [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -245,7 +245,7 @@
   [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
   [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-  [Очереди, разделы и подписки служебной шины]: http://msdn.microsoft.com/library/hh367516.aspx
+  [Очереди, темы и подписки]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->
