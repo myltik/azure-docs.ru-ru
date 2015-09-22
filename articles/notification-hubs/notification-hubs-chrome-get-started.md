@@ -374,7 +374,7 @@
 	- *registerWithGCM* — обработчик нажатия первой кнопки, в результате работы которого *chrome.gcm.register* выполняет вызов GCM для регистрации этого экземпляра приложения Chrome.
 	- *registerCallback* — функция обратного вызова, которая вызывается, когда возвращается вышеуказанный вызов регистрации в GCM.
 	- *registerWithNH* — обработчик нажатия второй кнопки, который выполняет регистрацию в Центре уведомлений. Он получает значения *hubName* и *connectionString*, которые указал пользователь, и вызывает REST API для регистрации в Центрах уведомлений.
-	- *splitConnectionString* и *generateSaSToken* — это параметры создания маркера SaS с помощью JavaScript, который должен отправляться при каждом вызове REST API. Дополнительную информацию см. здесь: http://msdn.microsoft.com/library/dn495627.aspx.
+	- *splitConnectionString* и *generateSaSToken* — это параметры создания маркера SaS с помощью JavaScript, который должен отправляться при каждом вызове REST API. Дополнительную информацию см. здесь: [основным понятиям](http://msdn.microsoft.com/library/dn495627.aspx).
 	- *sendNHRegistrationRequest* — это функция, осуществляющая вызов HTTP REST.
 	- *registrationPayload* определяет полезные XML-данные регистрации. Дополнительную информацию см. здесь: [Создание регистрации NH REST API]. Здесь мы обновляем идентификатор регистрации на основе данных, полученных от GCM.
 	- *client* — это экземпляр *XMLHttpRequest*, который мы используем, чтобы выполнить запрос HTTP POST. Обратите внимание, что мы обновляем заголовок *Authorization* с помощью маркера SaS. Если этот вызов будет выполнен успешно, этот экземпляр приложения Chrome будет зарегистрирован в центре уведомлений Azure.
@@ -489,11 +489,11 @@
 [образце использования службы GCM для приложения Chrome]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Устанавливаемые веб-приложения]: https://developers.google.com/chrome/apps/docs/
 [Приложения Chrome на мобильных устройствах]: https://developer.chrome.com/apps/chrome_apps_on_mobile
-[Создание REST API концентратора уведомлений для регистрации]: http://msdn.microsoft.com/library/azure/dn223265.aspx
+[Создание регистрации NH REST API]: http://msdn.microsoft.com/library/azure/dn223265.aspx
 [библиотеки crypto-js]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging для Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
 [Уведомление пользователей посредством центров уведомлений]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=Sept15_HO2-->
+<!-----HONumber=Sept15_HO2-->

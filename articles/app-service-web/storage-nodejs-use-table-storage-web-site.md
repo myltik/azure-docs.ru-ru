@@ -486,7 +486,7 @@
 >
 > Если это первое созданное вами веб-приложение, для его развертывания необходимо использовать портал Azure.
 
-Сначала установите [интерфейс командной строки Azure], выполнив в командной строке следующую команду:
+Сначала установите [Интерфейс командной строки Azure], выполнив в командной строке следующую команду:
 
 	npm install azure-cli -g
 
@@ -643,4 +643,4 @@
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!----HONumber=September15_HO1-->
+<!------HONumber=September15_HO1-->
