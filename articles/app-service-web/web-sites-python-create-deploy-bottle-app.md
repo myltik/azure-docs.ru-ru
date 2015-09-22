@@ -391,11 +391,11 @@
 [Git для Windows]: http://msysgit.github.io/
 [GitHub для Windows]: https://windows.github.com/
 [средствами Python для Visual Studio]: http://aka.ms/ptvs
-[Инструменты Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[инструменты Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
 [Документация по средствам Python для Visual Studio]: http://aka.ms/ptvsdocs
 [документации по инструментам Python для Visual Studio]: http://aka.ms/ptvsdocs
 [Документация по работе с Bottle]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->
