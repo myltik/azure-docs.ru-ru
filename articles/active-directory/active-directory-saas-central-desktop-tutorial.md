@@ -67,10 +67,10 @@
 
 3.  На странице **Настройка URL-адреса приложения** выполните следующие действия и нажмите кнопку **Далее**.
 
-    -   В текстовом поле **URL-адрес входа в Central Desktop** введите URL-адрес вашего клиента Central Desktop (например: **http://contoso.centraldesktop.com*).
+    -   В текстовом поле **URL-адрес входа в Central Desktop** введите URL-адрес вашего клиента Central Desktop (например: *http://contoso.centraldesktop.com*).
     -   В текстовом поле "URL-адрес ответа Central Desktop" введите URL-адрес службы AssertionConsumerService Central Desktop (например, https://contoso.centraldesktop.com/saml2-assertion.php).
 
-    >[AZURE.NOTE]Это значение можно найти в метаданных Central Desktop (например: **http://contoso.centraldesktop.com*).
+    >[AZURE.NOTE]Это значение можно найти в метаданных Central Desktop (например: *http://contoso.centraldesktop.com*).
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-central-desktop-tutorial/IC769561.png "Настройка URL-адреса приложения")
 
@@ -154,4 +154,4 @@
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->
