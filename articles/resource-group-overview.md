@@ -111,7 +111,7 @@
 
 Сведения о PowerShell см. в разделах [Использование Windows PowerShell с диспетчером ресурсов](./powershell-azure-resource-manager.md) и [Командлеты диспетчера ресурсов Azure](https://msdn.microsoft.com/library/azure/dn757692.aspx).
 
-(Информацию об интерфейсе командной строки Azure см. в разделе [Использование интерфейса командной строки Azure для Mac, Linux и Windows со средствами управления ресурсами Azure](./virtual-machines/xplat-cli-azure-resource-manager.md)￼.)
+(Информацию об интерфейсе командной строки Azure см. в разделе [Использование интерфейса командной строки Azure для Mac, Linux и Windows со средствами управления ресурсами Azure](./virtual-machines/xplat-cli-azure-resource-manager.md).)
 
 Сведения о API REST см. в разделе [Справочник по API REST диспетчера ресурсов Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
@@ -129,4 +129,4 @@
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

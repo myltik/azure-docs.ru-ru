@@ -95,6 +95,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 [Приступая к работе с push-уведомлениями в мобильных службах]: mobile-services-javascript-backend-android-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+[портал управления Azure]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->
