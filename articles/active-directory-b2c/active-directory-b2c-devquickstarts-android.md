@@ -15,9 +15,13 @@ Azure AD B2C позволяет добавить в приложение Android
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 	
-> [AZURE.NOTE]Для работы с этим кратким руководством требуется веб-API, защищенный Azure AD с B2C. Мы создали для вас файлы .NET и node.js. В данном пошаговом руководстве предполагается, что образец веб-API в файле node.js уже настроен. См. [руководство по веб-API Azure AD B2C для Node.js](active-directory-b2c-devquickstarts-api-node.md).
+> [AZURE.NOTE]
+	Для работы с этим кратким руководством требуется веб-API, защищенный Azure AD с B2C. Мы создали для вас файлы .NET и node.js. 
+	В данном пошаговом руководстве предполагается, что образец веб-API в файле node.js уже настроен. См. [руководство по веб-API Azure AD B2C для Node.js](active-directory-b2c-devquickstarts-api-node.md).
 
-> [AZURE.NOTE]В этой статье не рассматривается реализация входа, регистрации и управления профилями с помощью Azure AD B2C. Она посвящена вызову веб-API после того, как пользователь прошел проверку подлинности. Прочитайте [руководство по началу работы с веб-приложениями .NET](active-directory-b2c-devquickstarts-web-dotnet.md), чтобы изучить основы Azure AD B2C (если вы еще этого не сделали).
+> [AZURE.NOTE]
+	В этой статье не рассматривается реализация входа, регистрации и управления профилями с помощью Azure AD B2C. Она посвящена вызову веб-API после того, как пользователь прошел проверку подлинности. 
+    Прочитайте [руководство по началу работы с веб-приложениями .NET](active-directory-b2c-devquickstarts-web-dotnet.md), чтобы изучить основы Azure AD B2C (если вы еще этого не сделали).
 
 Клиентские приложения для Android, которым необходим доступ к защищенным ресурсам, могут использовать библиотеку проверки подлинности Azure AD (ADAL). Единственное предназначение ADAL — упростить процесс получения маркеров доступа. Чтобы показать, насколько это просто, создадим приложение To Do List (список дел) для Android, которое:
 
@@ -377,7 +381,14 @@ private void getTasks() { if (Constants.CURRENT\_RESULT == null || Constants.CUR
  
  Напишем также метод, инициализирующий таблицы при первом запуске.
  
- ``` private void initAppTables() { try { // Получить экземпляр таблицы мобильной службы для использования // mToDoTable = mClient.getTable(WorkItem.class); // mToDoTable.TABvLES\_URL = "/api/"; //mTextNewToDo = (EditText)findViewById(R.id.listViewToDo);
+ ```
+     private void initAppTables() {
+        try {
+            // Get the Mobile Service Table instance to use
+//            mToDoTable = mClient.getTable(WorkItem.class);
+//            mToDoTable.TABvLES_URL = "/api/";
+            //mTextNewToDo = (EditText)findViewById(R.id.listViewToDo);
+
 
             // Create an adapter to bind the items with the view
             //mAdapter = new WorkItemAdapter(ToDoActivity.this, R.layout.listViewToDo);
@@ -492,7 +503,12 @@ ADAL encrypts the tokens and store in SharedPreferences by default. You can look
 
 Android webview does not clear session cookies after app is closed. You can handle this with sample code below:
 ```java
-CookieSyncManager.createInstance(getApplicationContext()); CookieManager cookieManager = CookieManager.getInstance(); cookieManager.removeSessionCookie(); CookieSyncManager.getInstance().sync(); ``` Подробнее о файлах cookie: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+CookieSyncManager.createInstance(getApplicationContext());
+CookieManager cookieManager = CookieManager.getInstance();
+cookieManager.removeSessionCookie();
+CookieSyncManager.getInstance().sync();
+```
+Подробнее о файлах cookie: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
 <!---HONumber=Sept15_HO3-->
