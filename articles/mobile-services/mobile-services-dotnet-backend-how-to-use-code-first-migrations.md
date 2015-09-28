@@ -4,6 +4,7 @@
 	services="mobile-services"
 	documentationCenter=""
 	authors="ggailey777"
+	writer="glenga"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/14/2015"
 	ms.author="glenga"/>
 
 # Изменение модели данных в серверной мобильной службе для .NET
@@ -176,4 +177,4 @@ Visual Studio позволяет легко создать новый контр
 [EntityData]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.entitydata.aspx
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

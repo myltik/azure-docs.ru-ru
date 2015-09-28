@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #Форматы и кодеки стандартного кодировщика служб мультимедиа
@@ -36,7 +36,20 @@ MP4 (MP4, M4A, M4V) и ISMV (ISMA, ISMV)|Да
 [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Да 
 Matroska/WebM (.mkv) |Да 
 WAVE/WAV (.wav) |Да 
+QuickTime (.mov) |Да
  
+###Форматы аудио во входных контейнерах 
+
+Стандарт Media Encoder поддерживает следующие форматы аудио во входных контейнерах:
+
+- файлы MXF, GXF и QuickTime со звуковыми дорожками с чередованием стерео или форматом 5.1;
+
+или
+
+- файлы MXF, GXF и QuickTime, где звук переносится как отдельные дорожки PCM, но сопоставление каналов (стерео или 5.1) можно определить по метаданным файла.
+
+Обратите внимание, что поддержка явного и пользовательского сопоставления каналов будет реализована в ближайшем будущем.
+
 
 ##Входные видеокодеки
 
@@ -53,6 +66,13 @@ Canopus HQ/HQX |Нет
 MPEG-4, часть 2 |Да 
 [Theora](https://en.wikipedia.org/wiki/Theora) |Да 
 YUV420 без сжатия или мезонинный файл |Да
+Apple ProRes 422 |Да
+Apple ProRes 422 LT |Да
+Apple ProRes 422 HQ |Да
+Apple ProRes Proxy|Да
+Apple ProRes 4444 |Да
+Apple ProRes 4444 XQ |Да
+
 
 
 ##Входные аудиокодеки
@@ -98,4 +118,4 @@ MPEG2-TS |H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC
 
 [Кодирование с помощью стандартного кодировщика мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

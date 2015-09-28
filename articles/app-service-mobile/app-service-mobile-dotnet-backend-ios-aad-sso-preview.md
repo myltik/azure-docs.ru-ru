@@ -1,18 +1,18 @@
 <properties
         pageTitle="Проверка подлинности приложения iOS с помощью единого входа Azure Active Directory"
-	description="Выполнение входа пользователей в приложение iOS с помощью библиотеки проверки подлинности Active Directory."
-	documentationCenter="Mobile"
-	authors="mattchenderson"
-	services="app-service\mobile"
-	manager="dwrede"/>
+        description="Выполнение входа пользователей в приложение iOS с помощью библиотеки проверки подлинности Active Directory."
+        documentationCenter="Mobile"
+        authors="mattchenderson"
+        services="app-service\mobile"
+        manager="dwrede" />
 
 <tags ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="05/19/2015"
-	ms.author="mahender"/>
+ms.workload="mobile"
+ms.tgt_pltfrm="mobile-ios"
+ms.devlang="objective-c"
+ms.topic="article"
+ms.date="09/14/2015"
+ms.author="mahender" />
 
 # Добавление единого входа Azure Active Directory в приложение iOS
 
@@ -124,4 +124,4 @@
  [Начало работы с мобильными приложениями]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  [Добавление проверки подлинности в приложение]: app-service-mobile-dotnet-backend-ios-get-started-users-preview.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Использование Azure CDN в службе приложений Azure"
-	description="В этом учебнике объясняется, как развернуть в службе приложений Azure веб-приложение, которое обслуживает содержимое из интегрированной конечной точки CDN Azure."
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="Использование Azure CDN в службе приложений Azure" 
+	description="В этом учебнике объясняется, как развернуть в службе приложений Azure веб-приложение, которое обслуживает содержимое из интегрированной конечной точки CDN Azure." 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.service="app-service" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 
@@ -27,6 +27,8 @@
 - Облегчение обновления пакетов NuGet в веб-приложении службы приложений Azure, например версий jQuery или Bootstrap. 
 - Управление веб-приложениями и содержимым, обслуживаемым CDN, из одного интерфейса Visual Studio.
 - Интеграция объединения и минификации ASP.NET с Azure CDN.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Что будет строиться ##
 
@@ -494,7 +496,7 @@
 
 4. В файле *App\_Start\\StyleFundleExtensions.cs* переименуйте пространство имен для своего приложения ASP.NET (например, **cdnwebapp**).
 
-3. Вернитесь в файл `App_Start\BundleConfig.cs` и замените последнюю инструкцию `bundles.Add` следующим кодом:
+3. Вернитесь к файлу `App_Start\BundleConfig.cs` и замените последнюю инструкцию `bundles.Add` следующим кодом:
 
         bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
           .IncludeFallback("~/Content/css", "sr-only", "width", "1px")
@@ -564,4 +566,4 @@
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

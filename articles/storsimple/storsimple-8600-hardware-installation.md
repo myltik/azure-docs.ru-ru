@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Установка устройства StorSimple 8600 | Microsoft Azure"
-	description="Описывается процедура распаковки, установки в стойку и подключения устройства StorSimple 8600 перед развертыванием и настройкой программного обеспечения."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Описывается процедура распаковки, установки в стойку и подключения устройства StorSimple 8600 перед развертыванием и настройкой программного обеспечения."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/06/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/16/2015"
+   ms.author="alkohli" />
 
 # Распаковка, установка в стойку и подключение устройства StorSimple 8600
 
@@ -196,7 +196,7 @@ Microsoft Azure StorSimple 8600 представляет собой устрой
 - предоставленные последовательные кабели;
 - преобразователь Последовательного соединения в USB с соответствующими драйверами, установленными на вашем компьютере (при необходимости);
 - адаптеры QSFP-SFP+ для использования с сетевыми интерфейсами 10 Гбит/с;
-- [Поддерживаемое оборудование для сетевых интерфейсов 10 GbE на устройстве StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces/) 
+- [Поддерживаемое оборудование для сетевых интерфейсов 10 GbE на устройстве StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md) 
 
 ### SAS и кабели питания
 
@@ -289,4 +289,4 @@ H, I | Узлы (например, файловые серверы)
 Теперь вы готовы к [Развертыванию и настройке локального устройства StorSimple](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

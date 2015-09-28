@@ -13,13 +13,19 @@
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA" 
-	ms.date="04/14/2015" 
+	ms.date="09/11/2015" 
 	ms.author="sstein"/>
 
 
 # Управление Базами данных SQL Azure с помощью портала управления Azure
 
-[Портал управления Azure][Management Portal] позволяет создавать базы данных SQL Azure и серверы, выполнять их мониторинг, а также управлять ими. В данной статье рассматриваются операции с базой данных, которые можно выполнять с помощью портала управления. Дополнительные сведения о других средствах управления базами данных SQL Azure см. [здесь][AzureDb management overview].
+
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-manage-portal.md)
+- [SSMS](sql-database-manage-azure-ssms.md)
+- [PowerShell](sql-database-command-line-tools.md)
+
+[Портал управления Azure][Management Portal] позволяет создавать базы данных SQL Azure и серверы, выполнять их мониторинг, а также управлять ими. В данной статье рассматриваются операции с базой данных, которые можно выполнять с помощью портала управления.
 
 >[AZURE.NOTE]Если вы еще не знакомы с порталом управления Azure, просмотрите этот [видеокурс с кратким обзором][Azure Portal Tour] основных возможностей портала и основных понятий.
 
@@ -29,6 +35,10 @@
 ![Операции управления базой данных](./media/sql-database-manage-portal/sqldatabase_actions.png)
 
 На портале управления Azure предоставлен набор наиболее часто используемых операций с базой данных, доступных в верхней колонке базы данных. Можно восстановить базу данных до более раннего состояния, открыть базу данных в Visual Studio, скопировать базу данных на новый сервер, а также экспортировать базу данных в учетную запись хранения Azure.
+
+- [Восстановление базы данных SQL](sql-database-point-in-time-restore-tutorial-management-portal.md)
+- [Открытие базы данных SQL в Visual Studio](sql-database-connect-query.md)
+- [Экспорт базы данных SQL](sql-database-export.md)
 
 ## 2\. Мониторинг базы данных
 ![Мониторинг базы данных](./media/sql-database-manage-portal/sqldatabase_monitoring.png)
@@ -40,18 +50,28 @@
 ## 3\. Безопасность и аудит базы данных
 ![Безопасность базы данных](./media/sql-database-manage-portal/sqldatabase_security.png)
 
-Базы данных SQL Azure можно настроить для отслеживания всех событий базы данных и записи их в журнал аудита для вашей учетной записи хранения Azure. Это может помочь вам соблюсти требования нормативов, проанализировать работу с базой данных и получить представление о расхождениях, которые могут указывать на бизнес-проблемы или предполагаемые нарушения безопасности. Дополнительные сведения об аудите базы данных SQL Azure представлены [здесь][AzureDb Auditing]
+Базы данных SQL Azure можно настроить для отслеживания всех событий базы данных и записи их в журнал аудита для вашей учетной записи хранения Azure. Это может помочь вам соблюсти требования нормативов, проанализировать работу с базой данных и получить представление о расхождениях, которые могут указывать на бизнес-проблемы или предполагаемые нарушения безопасности.
 
-Базы данных SQL Azure также можно настроить на маскирование конфиденциальных данных для пользователей с недостаточными полномочиями. Дополнительные сведения о функции динамического маскирования данных в базах данных SQL Azure представлены [здесь][AzureDb datamasking].
+- [Аудит базы данных SQL](sql-database-auditing-get-started.md)
+
+Базы данных SQL Azure также можно настроить на маскирование конфиденциальных данных для пользователей с недостаточными полномочиями.
+
+- [динамическое маскирование данных](sql-database-dynamic-data-masking-get-started.md);
+
 
 ## 4\. Георепликация
 ![Георепликация](./media/sql-database-manage-portal/sqldatabase_georeplication.png)
 
-Базы данных SQL Azure можно настроить на асинхронную репликацию зафиксированных транзакций в базу данных-получатель. С помощью функции георепликации, доступной на портале управления, можно выбирать регион Azure, в котором следует разместить базу данных-получатель. Дополнительные сведения о георепликации баз данных в Azure представлены [здесь][Database geo-replication].
+Базы данных SQL Azure можно настроить на асинхронную репликацию зафиксированных транзакций в базу данных-получатель. С помощью функции георепликации, доступной на портале управления, можно выбирать регион Azure, в котором следует разместить базу данных-получатель.
+
+- [Георепликация](https://msdn.microsoft.com/library/azure/dn783447.aspx)
+
+
+
+
 
 ##Дополнительные ресурсы
-* [Введение в Базы данных SQL][]   
-* [Управление Базой данных SQL Azure с помощью SQL Server Management Studio][]   
+* [База данных SQL](sql-database-technical-overview.md)   
 * [Мониторинг Базы данных SQL с помощью динамических административных представлений][]   
 * [Справочник по Transact-SQL (База данных SQL)][]
   
@@ -59,9 +79,9 @@
   [Management Portal]: https://portal.azure.com
   [Azure part monitoring]: ../documentdb-monitor-accounts.md
   [AzureDb management overview]: http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/
-  [Введение в Базы данных SQL]: http://azure.microsoft.com/services/sql-database
+  [Introducing SQL Database]: http://azure.microsoft.com/services/sql-database
   [Database geo-replication]: http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/
-  [Управление Базой данных SQL Azure с помощью SQL Server Management Studio]: sql-database-manage-azure-ssms.md
+  [Managing Azure SQL Database using SQL Server Management Studio]: sql-database-manage-azure-ssms.md
   [Мониторинг Базы данных SQL с помощью динамических административных представлений]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
   [Справочник по Transact-SQL (База данных SQL)]: http://msdn.microsoft.com/library/bb510741(v=sql.120).aspx
   [AzureDb Auditing]: http://azure.microsoft.com/documentation/articles/sql-database-auditing-get-started/
@@ -70,4 +90,4 @@
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

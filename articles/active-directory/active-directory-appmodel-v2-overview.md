@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Модель приложений версии 2.0 | Microsoft Azure"
+	pageTitle="Обзор модели приложений версии 2.0 | Microsoft Azure"
 	description="Общие сведения о создании приложений с поддержкой входа как по учетной записи Майкрософт, так и через Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Предварительная версия модели приложений 2.0. Вход для пользователей учетных записей Майкрософт и Azure AD в одном приложении
@@ -57,4 +57,4 @@
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

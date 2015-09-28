@@ -274,19 +274,19 @@
 1. Войдите на сервер через веб-интерфейс, воспользовавшись учетной записью с правами администратора.
 2. Дважды щелкните программу установки адаптера StorSimple для SharePoint. Откроется мастер установки.
 
-![Мастер установки](./media/storsimple-adapter-for-sharepoint/sasp2.png)
+    ![Мастер установки](./media/storsimple-adapter-for-sharepoint/sasp2.png)
 
 3. Нажмите кнопку **Далее**. Откроется следующая страница.
 
-![Мастер установки: страница удаления](./media/storsimple-adapter-for-sharepoint/sasp3.png)
+    ![Мастер установки: страница удаления](./media/storsimple-adapter-for-sharepoint/sasp3.png)
 
-4. Нажмите **Удалить**, чтобы выбрать процесс удаления. Откроется следующая страница.
+4. Щелкните **Удалить**, чтобы выбрать процесс удаления. Откроется следующая страница.
 
-![Мастер установки: страница подтверждения](./media/storsimple-adapter-for-sharepoint/sasp4.png)
+    ![Мастер установки: страница подтверждения](./media/storsimple-adapter-for-sharepoint/sasp4.png)
 
-5. Нажмите **Удалить**, чтобы подтвердить удаление. Откроется показанная ниже страница хода выполнения.
+5. Щелкните **Удалить**, чтобы подтвердить удаление. Откроется показанная ниже страница хода выполнения.
 
-![Мастер установки: страница хода выполнения](./media/storsimple-adapter-for-sharepoint/sasp5.png)
+    ![Мастер установки: страница хода выполнения](./media/storsimple-adapter-for-sharepoint/sasp5.png)
 
 6. После завершения процесса удаления появится страница «Готово». Нажмите кнопку **Готово**, чтобы закрыть мастер установки.
 
@@ -294,11 +294,11 @@
 
 1. Откройте панель управления и выберите **Программы и компоненты**.
 
-2. Выберите **Адаптер StorSimple для SharePoint** и нажмите кнопку **Удалить**.
+2. Выберите **Адаптер StorSimple для SharePoint** и щелкните **Удалить**.
 
 ## Дальнейшие действия
 
-[Дополнительные сведения о StorSimple](storsimple-overview.md).
+[Узнайте больше о StorSimple](storsimple-overview.md).
 
 <!--Reference links-->
 [1]: https://www.microsoft.com/download/details.aspx?id=44073
@@ -308,4 +308,4 @@
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/ru-RU/library/ff943565.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -3,7 +3,7 @@
 	description="Создайте виртуальную машину под управлением Windows Server 2012 R2, а затем установите и настройте на ней базу данных MySQL."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/10/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 
 # Установка MySQL на виртуальной машине под управлением Windows Server 2012 R2 в Azure
@@ -128,4 +128,4 @@
 
 Дополнительную информацию о MySQL см. в [документации по MySQL](http://dev.mysql.com/doc/).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

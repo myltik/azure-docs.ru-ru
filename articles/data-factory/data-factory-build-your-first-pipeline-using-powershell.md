@@ -103,7 +103,7 @@
 		    "typeProperties": {
 		      "version": "3.1",
 		      "clusterSize": 1,
-		      "timeToLive": "00:05:00",
+		      "timeToLive": "00:30:00",
 		      "jobsContainer": "adfjobs",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
@@ -264,6 +264,6 @@
 В этой статье описывается создание конвейера с помощью действия преобразования (действие HDInsight), которое по требованию выполняет сценарий Hive в кластере Azure HDInsight. Сведения о том, как копировать данные из хранилища BLOB-объектов Azure в SQL Azure с помощью действия копирования, см. в учебнике [Копирование данных из хранилища BLOB-объектов Azure в Azure SQL](./data-factory-get-started.md).
 
 ## Отправить отзыв
-Мы будем весьма признательны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md).
+Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

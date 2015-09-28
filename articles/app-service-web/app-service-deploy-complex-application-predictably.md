@@ -5,15 +5,15 @@
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.date="09/15/2015"
 	ms.author="cephalin"/>
 
 
@@ -22,6 +22,8 @@
 В этой статье описано, как предсказуемо с помощью шаблонов групп ресурсов JSON и скриптов PowerShell подготовить и развернуть приложение, состоящее из [микрослужб](https://en.wikipedia.org/wiki/Microservices), в [службу приложений Azure](/services/app-service/) как единое целое.
 
 Залогом успеха при подготовке и развертывании крупномасштабных приложений, которые состоят из разъединенных микрослужб, являются повторяемость и предсказуемость. [Служба приложений Azure](/services/app-service/) позволяет создавать микрослужбы, которые содержат веб-приложения, мобильные приложения, приложения API и приложения логики. [Диспетчер ресурсов Azure](../resource-group-overview.md) позволяет управлять микрослужбами как единым целым, вместе с зависимостями ресурсов, например параметрами управления базами данных и систем управления версиями. Теперь можно также развернуть такое приложение с помощью шаблонов JSON и простых скриптов PowerShell.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Выполняемая задача ##
 
@@ -303,4 +305,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

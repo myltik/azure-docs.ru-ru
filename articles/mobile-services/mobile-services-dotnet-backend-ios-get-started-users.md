@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Добавление проверки подлинности в существующее приложение мобильных служб Azure (iOS) | Microsoft Azure"
+	pageTitle="Добавление проверки подлинности в существующее приложение мобильных служб Azure (iOS) | Серверная часть .NET | Microsoft Azure"
 	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения iOS с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -65,4 +65,4 @@
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

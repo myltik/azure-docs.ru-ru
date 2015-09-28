@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Замена компонентов оборудования StorSimple | Microsoft Azure"
-	description="Описывает безопасную замену БПО, аккумулятора, модулей контроллера, контроллеров EBOD, дисковых накопителей и корпуса устройства StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Описывает безопасную замену БПО, аккумулятора, модулей контроллера, контроллеров EBOD, дисковых накопителей и корпуса устройства StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # Замена компонентов оборудования StorSimple
 
@@ -90,7 +90,7 @@
 
 |Метка|Описание|
 |:----|:----------|
-|0–11|Диски (всего 12)|
+|0–11|Дисковые накопители (всего 12)|
 
 Как в основном корпусе, так и в корпусе EBOD установлены дисковые модули. В корпусе расположено двенадцать дисков размером 3,5" в формате 3 на 4.
 
@@ -142,4 +142,4 @@
 
 Перед заменой компонентов оборудования StorSimple ознакомьтесь со всеми [мерами предосторожности](storsimple-safety.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

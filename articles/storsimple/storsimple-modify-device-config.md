@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Изменение конфигурации устройства StorSimple | Microsoft Azure"
-	description="В этом разделе показано, как использовать службу диспетчера StorSimple для перенастройки уже развернутого устройства StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   pageTitle="Изменение конфигурации устройства StorSimple | Microsoft Azure" 
+   description="В этом разделе показано, как использовать службу диспетчера StorSimple для перенастройки уже развернутого устройства StorSimple." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/14/2015"
-	ms.author="v-sharos@microsoft.com"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/15/2015"
+   ms.author="v-sharos@microsoft.com"/>
 
 # Использование службы диспетчера StorSimple для изменения конфигурации устройства StorSimple
 
@@ -124,8 +124,9 @@ DNS-сервер используется, когда устройство пы�
 
 ## Дальнейшие действия
 
-[Настройка MPIO для устройства StorSimple](storsimple-configure-mpio-windows-server.md).
- 
+- Узнайте о [настройке функции Multipath I/O для устройства StorSimple](storsimple-configure-mpio-windows-server.md).
+
+- Узнайте об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
      
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

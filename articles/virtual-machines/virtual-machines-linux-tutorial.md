@@ -303,9 +303,6 @@
 
 - [Развертывание приложения LAMP с помощью расширения Azure CustomScript для Linux](virtual-machines-linux-script-lamp.md)
 
-- [О параметрах конфигурации виртуальной машины Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx)
-
 - [Расширение виртуальных машин Docker для Linux в Azure](virtual-machines-docker-vm-extension.md)
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

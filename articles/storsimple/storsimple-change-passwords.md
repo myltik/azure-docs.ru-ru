@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Изменение паролей StorSimple | Microsoft Azure"
-	description="В этом разделе показано, как использовать службу диспетчера StorSimple для изменения паролей диспетчера моментальных снимков StorSimple и администратора устройства."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   pageTitle="Изменение паролей StorSimple | Microsoft Azure" 
+   description="В этом разделе показано, как использовать службу диспетчера StorSimple для изменения паролей диспетчера моментальных снимков StorSimple и администратора устройства." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="v-sharos@microsoft.com"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/15/2015"
+   ms.author="v-sharos@microsoft.com"/>
 
 # Изменение паролей StorSimple с помощью службы диспетчера StorSimple
 
@@ -62,8 +62,10 @@
 
 ## Дальнейшие действия
 
-[Узнайте о больше о безопасности StorSimple](storsimple-security.md).
+- Узнайте больше о [безопасности StorSimple](storsimple-security.md).
 
-[Узнайте больше об изменении конфигурации устройства](storsimple-modify-device-config.md).
+- Узнайте больше об [изменении конфигурации устройства](storsimple-modify-device-config.md).
 
-<!---HONumber=September15_HO1-->
+- Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

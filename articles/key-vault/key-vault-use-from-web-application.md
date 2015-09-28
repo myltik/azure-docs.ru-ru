@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="09/16/2015" 
 	ms.author="adhurwit"/>
 
 # Использование хранилища ключей Azure из веб-приложения #
@@ -152,6 +152,11 @@
 	PS C:\> $adapp = New-AzureADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
 	
 	PS C:\> $sp = New-AzureADServicePrincipal -ApplicationId $adapp.ApplicationId
+	
+	PS C:\> Set-AzureKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToKeys all -ResourceGroupName 'contosorg'
+	
+	# get the thumbprint to use in your app settings
+	PS C:\>$x509.Thumbprint
 
 После выполнения этих команд приложение можно будет увидеть в Azure AD. Если вы сначала не видите приложение, выполните поиск по запросу "Приложения, которыми владеет моя компания" вместо "Приложения, используемые моей компанией".
 
@@ -238,4 +243,4 @@
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

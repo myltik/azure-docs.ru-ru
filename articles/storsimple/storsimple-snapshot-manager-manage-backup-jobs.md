@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/05/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 
@@ -108,7 +108,8 @@
 
 ## Дальнейшие действия
 
-[Использование диспетчера моментальных снимков StorSimple для управления каталогом резервных копий](storsimple-snapshot-manager-manage-backup-catalog.md).
+- Узнайте об [использовании диспетчера моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
+- Узнайте об [использовании диспетчера моментальных снимков StorSimple для управления каталогом резервных копий](storsimple-snapshot-manager-manage-backup-catalog.md).
 
 
 
@@ -129,4 +130,4 @@
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -4,7 +4,7 @@
 	description="Узнайте, как использовать подписку на Office 365 в Azure RemoteApp для совместного использования приложений Office."
 	services="remoteapp"
 	documentationCenter="" 
-	authors="lizap" 
+	authors="piotrci" 
 	manager="mbaldwin" />
 
 <tags 
@@ -117,4 +117,4 @@ Azure RemoteApp будет использовать пользовательск
 - [Развертывание и обновление Office 365 профессиональный плюс с помощью средства развертывания Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (видео)
 - [Настройка параметров обновления для Office 365 профессиональный плюс](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

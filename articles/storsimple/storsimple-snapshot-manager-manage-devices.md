@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Использование диспетчера моментальных снимков StorSimple для подключения устройств StorSimple и управления ими
@@ -260,6 +260,7 @@
 
 ## Дальнейшие действия
 
-[Просмотр томов и управление ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-volumes.md).
+- Узнайте об [использовании диспетчера моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
+- Узнайте о [просмотре заданий архивации и управлении ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

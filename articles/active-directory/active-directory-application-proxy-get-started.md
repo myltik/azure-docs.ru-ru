@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="terrylan"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 # Как обеспечить безопасный удаленный доступ к локальным приложениям
@@ -46,14 +46,14 @@
 У прокси приложения гораздо больше возможностей:
 
 
-- [Публикация приложений с помощью доменного имени](https://msdn.microsoft.com/library/azure/mt210927.aspx)
-- [Включение единого входа](https://msdn.microsoft.com/library/azure/dn879065.aspx)
-- [Работа с приложениями, поддерживающими утверждения](https://msdn.microsoft.com/library/azure/mt210926.aspx)
-- [Включение условного доступа](https://msdn.microsoft.com/library/azure/dn931796.aspx)
+- [Публикация приложений с помощью доменного имени](active-directory-application-proxy-custom-domains.md)
+- [Включение единого входа](active-directory-application-proxy-sso-using-kcd.md)
+- [Работа с приложениями, поддерживающими утверждения](active-directory-application-proxy-claims-aware-apps.md)
+- [Включение условного доступа](active-directory-application-proxy-conditional-access.md)
 
 
 ### Узнайте больше о прокси приложения
-- [Просмотрите нашу справку в Интернете](https://msdn.microsoft.com/library/azure/dn768219.aspx)
+- [Просмотрите нашу справку в Интернете](active-directory-application-proxy-enable.md)
 - [Ознакомьтесь с блогом о прокси приложения](http://blogs.technet.com/b/applicationproxyblog/)
 - [Смотрите наши видео на Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
@@ -61,4 +61,4 @@
 * [Регистрация организации в Azure](../sign-up-organization.md)
 * [Удостоверение Azure](../fundamentals-identity.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

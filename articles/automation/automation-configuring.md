@@ -61,10 +61,10 @@
 	Add-AzureAccount –Credential $cred
 	Select-AzureSubscription –SubscriptionName "My Subscription"
 
-Эти строки должны повторяться после любой [контрольной точки](automation-runbook-execution#checkpoints) в Runbook. Если выполнение Runbook приостанавливается, а затем возобновляется другим работником, ему необходимо будет заново пройти аутентификацию.
+Эти строки должны повторяться после любой [контрольной точки](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints) в Runbook. Если выполнение Runbook приостанавливается, а затем возобновляется другим работником, ему необходимо будет заново пройти аутентификацию.
 
 ## Связанные статьи
 - [Служба автоматизации Azure: аутентификация в Azure с помощью Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

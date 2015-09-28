@@ -3,7 +3,7 @@
 	description="Узнайте, как использовать Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows в Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/10/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows
 
@@ -271,4 +271,4 @@
 
 [Создание и предварительная настройка виртуальной машины Windows с помощью диспетчера ресурсов и Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

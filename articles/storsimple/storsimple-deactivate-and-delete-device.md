@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Отключение и удаление устройства StorSimple | Microsoft Azure"
-	description="Описание процедуры вывода устройства StorSimple из эксплуатации путем его отключения и последующего удаления."
-	services="storsimple"
-	documentationCenter=""
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Описание процедуры вывода устройства StorSimple из эксплуатации путем его отключения и последующего удаления."
+   services="storsimple"
+   documentationCenter=""
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="v-sharos" />
 
 # Отключение и удаление устройства StorSimple
 
@@ -87,8 +87,10 @@
 Удаление устройства может занять несколько минут.
 
 ## Дальнейшие действия
-Сведения о том, как восстановить на отключенном устройстве заводские параметры, см. в разделе [Восстановление на устройстве до заводских настроек](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
+- Сведения о том, как восстановить на отключенном устройстве заводские настройки, см. в разделе [Восстановление на устройстве заводских настроек](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 
-Чтобы получить техническую поддержку, [обратитесь в службу поддержки Майкрософт](storsimple-contact-microsoft-support.md).
+- Чтобы получить техническую поддержку, [обратитесь в службу поддержки Майкрософт](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=September15_HO1-->
+- Подробнее об управлении устройством с помощью службы диспетчера StorSimple см. в статье [Использование службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

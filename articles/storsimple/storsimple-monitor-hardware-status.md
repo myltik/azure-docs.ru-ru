@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Компоненты оборудования StorSimple и их состояние | Microsoft Azure"
-	description="Узнайте, как отслеживать аппаратные компоненты устройства StorSimple через службу диспетчера StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Узнайте, как отслеживать аппаратные компоненты устройства StorSimple через службу диспетчера StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Использование службы диспетчера StorSimple для мониторинга компонентов оборудования и их состояния
 
@@ -125,10 +125,12 @@
 |Подключение к контроллеру устройства|ВВОД-ВЫВОД|Физический|Controller|Нет|Указывает состояние подключения между модулем ввода-вывода EBOD и контроллером устройства.|
 
 ## Дальнейшие действия
-Для устранения неполадок компонента устройства, в котором возник отказ или снизилась производительность, обратитесь к разделу [Индикаторы мониторинга StorSimple](storsimple-monitoring-indicators.md).
+- Больше об управлении устройством с помощью службы диспетчера StorSimple см. в статье [Использование службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+ 
+- Для устранения неполадок компонента устройства, в котором возник отказ или снизилась производительность, обратитесь к статье об [индикаторах мониторинга StorSimple](storsimple-monitoring-indicators.md).
 
-Чтобы заменить неисправный компонент аппаратного обеспечения, см. раздел [Замена аппаратного компонента StorSimple](storsimple-hardware-component-replacement.md).
+- Чтобы заменить неисправный компонент аппаратного обеспечения, см. статью [Замена компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md).
 
-Если с устройством продолжают возникать проблемы, [обратитесь в службу технической поддержки Майкрософт](storsimple-contact-microsoft-support.md).
+- Если проблемы с устройством не исчезают, [обратитесь в службу поддержки Майкрософт](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Модель приложений 2.0 | Microsoft Azure"
+	pageTitle="Модель приложений версии 2.0: области, разрешения и согласие | Microsoft Azure"
 	description="Описание авторизации в модели приложений версии 2.0 Azure AD, включая области, разрешение и согласие на их предоставление."
 	services="active-directory"
 	documentationCenter=""
@@ -116,4 +116,4 @@ Content-Type: application/json
 
 Дополнительные сведения о том, как получать и использовать маркеры обновления, можно найти в [справочнике по протоколу модели приложений 2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

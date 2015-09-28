@@ -1,3 +1,4 @@
+<!--author=alkohli last changed: 9/17/15-->
 
 ### Создание резервной копии
 
@@ -24,4 +25,8 @@
 
 Настройка устройства завершена.
 
-<!---HONumber=August15_HO6-->
+![Доступный видеоролик](./media/storsimple-take-backup/Video_icon.png) **Доступный видеоролик**
+
+Чтобы просмотреть видеоролик о том, как получить резервную копию StorSimple, щелкните [здесь](http://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
+
+<!---HONumber=Sept15_HO3-->

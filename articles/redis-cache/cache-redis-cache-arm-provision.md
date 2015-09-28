@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="09/15/2015" 
 	ms.author="tomfitz"/>
 
 # Создание кэша Redis с помощью шаблона
 
-В этом разделе вы узнаете, как создать шаблон диспетчера ресурсов Azure, который развертывает кэш Redis для Azure. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
+В этом разделе вы узнаете, как создать шаблон диспетчера ресурсов Azure, который развертывает кэш Redis для Azure. Кэш можно использовать с существующей учетной записи хранения для размещения данных диагностики. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
+
+В настоящее время параметры диагностики являются общими для всех кэшей в одном регионе подписки. Обновление одного кэша в регионе повлияет на все кэши в нем.
 
 Дополнительную информацию о создании шаблонов см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
 
@@ -26,7 +28,7 @@
 
 ## Что именно развертывается
 
-В этом шаблоне мы развернем кэш Redis для Azure.
+В этом шаблоне вы развернете кэш Azure Redis, который использует существующую учетную запись хранения для диагностических данных.
 
 Чтобы выполнить развертывание автоматически, нажмите следующую кнопку.
 
@@ -48,6 +50,34 @@
       "type": "string"
     }
 
+### diagnosticsStorageAccountName
+
+Имя существующей учетной записи хранения, которую вы хотите использовать для диагностики.
+
+    "diagnosticsStorageAccountName": {
+      "type": "string"
+    }
+
+### enableNonSslPort
+
+Логическое значение, указывающее, следует ли разрешить доступ к портам, отличным от SSL.
+
+    "enableNonSslPort": {
+      "type": "bool"
+    }
+
+### diagnosticsStatus
+
+Значение, указывающее, включена ли диагностика. Используйте значение ON или OFF.
+
+    "diagnosticsStatus": {
+      "type": "string",
+      "defaultValue": "ON",
+      "allowedValues": [
+            "ON",
+            "OFF"
+        ]
+    }
     
 ## Развертываемые ресурсы
 
@@ -56,23 +86,36 @@
 Создает кэш Redis для Azure.
 
     {
-      "apiVersion": "2014-04-01-preview",
+      "apiVersion": "2015-08-01",
       "name": "[parameters('redisCacheName')]",
       "type": "Microsoft.Cache/Redis",
       "location": "[parameters('redisCacheLocation')]",
       "properties": {
-        "sku": {
-          "name": "[parameters('redisCacheSKU')]",
-          "family": "[parameters('redisCacheFamily')]",
-          "capacity": "[parameters('redisCacheCapacity')]"
-        },
+        "enableNonSslPort": "[parameters('enableNonSslPort')]",
         "redisVersion": "[parameters('redisCacheVersion')]",
-        "enableNonSslPort": true
-      }
+        "sku": {
+          "capacity": "[parameters('redisCacheCapacity')]",
+          "family": "[parameters('redisCacheFamily')]",
+          "name": "[parameters('redisCacheSKU')]"
+        }
+      },
+        "resources": [
+          {
+            "apiVersion": "2014-04-01",
+            "type": "diagnosticSettings",
+            "name": "service", 
+            "location": "[parameters('redisCacheLocation')]",
+            "dependsOn": [
+              "[concat('Microsoft.Cache/Redis/', parameters('redisCacheName'))]"
+            ],
+            "properties": {
+              "status": "[parameters('diagnosticsStatus')]",
+              "storageAccountName": "[parameters('diagnosticsStorageAccountName')]",
+              "retention": "30"
+            }
+          }
+        ]
     }
-     
-
-
 
 ## Команды для выполнения развертывания
 
@@ -86,4 +129,4 @@
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

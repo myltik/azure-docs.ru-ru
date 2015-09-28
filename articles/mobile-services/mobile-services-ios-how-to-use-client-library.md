@@ -233,6 +233,12 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 При удалении необходимо по крайней мере задать атрибут `id`.
 
+##<a name="#custom-api"></a>Практическое руководство. Вызов настраиваемого интерфейса API
+
+Настраиваемый интерфейс API позволяет определить пользовательские конечные точки, которые предоставляют функциональные возможности сервера, не сопоставляемые с операциями вставки, обновления, удаления или чтения. При использовании настраиваемого интерфейса API вы получаете больше возможностей для управления сообщениями, в том числе для чтения и установки заголовков HTTP-сообщений, а также определения форматов текста сообщений, отличных от JSON. Пример создания настраиваемого интерфейса API в мобильной службе см. в разделе [Как определить конечную точку настраиваемого интерфейса API](mobile-services-dotnet-backend-define-custom-api.md).
+
+[AZURE.INCLUDE [mobile-services-ios-call-custom-api](../../includes/mobile-services-ios-call-custom-api.md)]
+
 
 ##<a name="authentication"></a>Практическое руководство. Проверка подлинности пользователей
 
@@ -328,4 +334,4 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [статье об обработчике конфликтов]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

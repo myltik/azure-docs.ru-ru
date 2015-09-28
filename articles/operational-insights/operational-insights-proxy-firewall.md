@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Настройка параметров прокси-сервера и брандмауэра для Operational Insights
@@ -174,4 +174,4 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 3. Добавьте все счетчики, которые начинаются с **HTTP**. ![добавление счетчиков](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Если Operations Manager настроен правильно, вы увидите активность счетчиков управления службы работоспособности для событий и других данных для пакетов управления, которые вы добавили в оперативной аналитике и для которых настроили политику сбора данных журналов. ![Отображение активности на мониторе производительности](./media/operational-insights-proxy-firewall/sendingdata2.png)
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

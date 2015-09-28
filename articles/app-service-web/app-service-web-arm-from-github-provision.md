@@ -5,15 +5,15 @@
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="09/15/2015" 
 	ms.author="tomfitz"/>
 
 # Развертывание веб-приложения, связанного с репозиторием GitHub
@@ -23,6 +23,8 @@
 Дополнительную информацию о создании шаблонов см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
 
 Полная версия шаблона приведена в файле [Веб-приложение, связанное с шаблоном GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-github-deploy/azuredeploy.json).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Что именно развертывается
 
@@ -108,4 +110,4 @@ URL-адрес репозитория GitHub, в котором располож
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

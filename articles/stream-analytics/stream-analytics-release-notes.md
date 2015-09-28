@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/08/2015" 
+	ms.date="09/16/2015" 
 	ms.author="jeffstok"/>
 
 #Заметки о выпуске Microsoft Stream Analytic
@@ -24,7 +24,7 @@
 
 Название|Описание
 ---|---
-Поддержка групп PowerBI|Чтобы разрешить совместное использование данных с другими пользователями Power BI, теперь задания Stream Analytics могут записываться в группы внутри вашей учетной записи Power BI.
+Поддержка групп PowerBI|Чтобы разрешить совместное использование данных с другими пользователями Power BI, теперь задания Stream Analytics могут выполнять запись в группы [Power BI](stream-analytics-define-outputs.md#power-bi) внутри вашей учетной записи Power BI.
 
 ## Заметки о выпуске Stream Analytics от 20.08.2015 ##
 
@@ -32,7 +32,7 @@
 
 Название|Описание
 ---|---
-Добавлена функция LAST |Функция [LAST](http://msdn.microsoft.com/library/mt421186.aspx) теперь доступна для заданий Stream Analytics и позволяет извлекать самое последнее событие в потоке за заданный временной интервал.
+Добавлена функция LAST |Функция [LAST](http://msdn.microsoft.com/library/mt421186.aspx) теперь доступна для заданий Stream Analytics и позволяет извлекать самое последнее событие в потоке за заданный интервал времени.
 Новые функции массивов|Теперь доступны функции массивов [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) и [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx).
 Новые функции записи|Теперь доступны функции записи [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) и [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx).
 
@@ -42,7 +42,7 @@
 
 Название|Описание
 ---|---
-ИД организации Power BI отключен от идентификатора Azure|Эта функция позволяет получать [выходные данные Power BI](stream-analytics-power-bi-dashboard.md) для задания ASA с любого типа учетной записи Azure (Live ID или идентификатор организации). Кроме того, можно иметь один ИД организации для вашей учетной записи Azure и использовать другой для авторизации выходных данных Power BI.
+ИД организации Power BI отключен от идентификатора Azure|Эта функция позволяет получать [выходные данные Power BI](stream-analytics-power-bi-dashboard.md) для задания ASA с любого типа учетной записи Azure (Live ID или идентификатора организации). Кроме того, можно иметь один ИД организации для вашей учетной записи Azure и использовать другой для авторизации выходных данных Power BI.
 Поддержка выходных данных очередей служебной шины|Выходные данные [очередей служебной шины](stream-analytics-connect-data-event-outputs.md#service-bus-queues) теперь доступны в заданиях Stream Analytics.
 Поддержка выходных данных разделов служебной шины|Выходные данные [разделов служебной шины](stream-analytics-connect-data-event-outputs.md#service-bus-topics) теперь доступны в заданиях Stream Analytics.
 
@@ -92,4 +92,4 @@
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

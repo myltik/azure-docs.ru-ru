@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Publish-WebApplicationWebSite (сценарий Windows PowerShell)"
-	description="Узнайте, как опубликовать веб-проект на веб-сайте Azure. Этот сценарий создает необходимые ресурсы в подписке Azure, если они еще не созданы."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="Узнайте, как опубликовать веб-проект на веб-сайте Azure. Этот сценарий создает необходимые ресурсы в подписке Azure, если они еще не созданы."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # Publish-WebApplicationWebSite (сценарий Windows PowerShell)
 
@@ -22,13 +22,13 @@
 Этот сценарий публикует веб-проект на веб-сайте Azure и создает необходимые ресурсы в подписке Azure, если они еще не созданы.
 
 	Publish-WebApplicationWebSite
-	–Configuration <configuration> 
+	–Configuration <configuration>
 	-SubscriptionName <subscriptionName>
 	-WebDeployPackage <packageName>
 	-DatabaseServerPassword @{Name = "name"; Password = "password"}
 	-SendHostMessagesToOutput
 	-Verbose
-	
+
 
 ## Параметр Configuration
 
@@ -68,14 +68,14 @@
 |Значение по умолчанию|Нет|
 |Принимает входные данные конвейера?|Нет|
 |Принимает подстановочные знаки?|Нет|
-	
+
 ## Параметр DatabaseServerPassword
 
 Имя и пароль администратора базы данных SQL в Azure.
 
 |Параметр|Значение по умолчанию|
-|Псевдонимы|Нет|
 |---|---|
+|Псевдонимы|Нет|
 |Обязательный?|Нет|
 |Позиция|именованная|
 |Значение по умолчанию|Нет|
@@ -129,4 +129,4 @@
 
 [Publish-WebApplicationVM (сценарий Windows PowerShell)](https://msdn.microsoft.com/library/azure/dn689112.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

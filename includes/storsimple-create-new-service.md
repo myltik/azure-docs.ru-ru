@@ -1,3 +1,5 @@
+<!--author=alkohli last changed: 9/17/15-->
+
 
 #### Создание новой службы
 
@@ -16,10 +18,14 @@
   4. Выберите **Создать новую учетную запись хранения**, чтобы автоматически создать учетную запись хранения одновременно со службой. Эта учетная запись хранения будет иметь специальное имя, например storsimplebwv8c6dcnf. Если требуется хранить данные в другом расположении, снимите этот флажок. 
   5. Щелкните **Создать диспетчер StorSimple**, чтобы создать службу.
 
-   ![создайте службу](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
+   ![Создать диспетчера StorSimple](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
 
   Будет выполнено перенаправление на стартовую страницу **Служба**. Создание службы займет несколько минут. После успешного создания службы будет выведено уведомление и состояние службы сменится на **Активна**.
  
-   ![создание службы](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
+   ![Создание службы](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-<!---HONumber=August15_HO8-->
+![Доступный видеоролик](./media/storsimple-create-new-service/Video_icon.png) **Доступный видеоролик**
+
+Чтобы просмотреть видеоролик о том, как создать новую службу диспетчера StorSimple, щелкните [здесь](http://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
+
+<!---HONumber=Sept15_HO3-->

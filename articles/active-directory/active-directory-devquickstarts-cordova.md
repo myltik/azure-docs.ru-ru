@@ -255,6 +255,5 @@ Azure AD предоставляет маркеры только известны
 [Безопасность веб-API с Azure AD для Node.js>>](active-directory-devquickstarts-webapi-nodejs.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

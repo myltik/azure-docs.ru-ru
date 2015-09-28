@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Создание учетной записи базы данных — бесплатная пробная версия | Microsoft Azure" 
-	description="Узнайте, как создать учетные записи базы данных с помощью портала интернет-служб для Azure DocumentDB, управляемой базы данных документов NoSQL для JSON. Получите бесплатную пробную версию сегодня."
+	description="Узнайте, как создать учетные записи базы данных с помощью средства создания интернет-баз данных для Azure DocumentDB, управляемой базы данных документов NoSQL для JSON. Получите бесплатную пробную версию сегодня."
+	keywords="Free trial, online database creator, create a database, create database, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -45,4 +46,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Документация по интерфейсу API рекомендаций для машинного обучения | Microsoft Azure"
-	description="Документация по интерфейсу API рекомендаций для машинного обучения Azure, предназначенная для системы рекомендаций, доступной в Microsoft Azure Marketplace."
-	services="machine-learning"
-	documentationCenter=""
-	authors="AharonGumnik"
-	manager="paulettm"
+	pageTitle="Документация по интерфейсу API рекомендаций для машинного обучения | Microsoft Azure" 
+	description="Документация по интерфейсу API рекомендаций для машинного обучения Azure, предназначенная для системы рекомендаций, доступной в Microsoft Azure Marketplace." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="AharonGumnik" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/14/2015" 
 	ms.author="LuisCa"/>
 
 #Документация по интерфейсу API рекомендаций по Машинному обучению Azure
@@ -352,7 +352,7 @@ OData XML
 | MaxUserLength | Максимальное число отдельных элементов для пользователя. |
 | MinItemLength | Максимальное число отдельных пользователей для элемента. |
 | MinUserLength | Минимальное число отдельных элементов для пользователя. |
-| RawNumberOfItems | Количество элементов до удаления элементов, которые нельзя смоделировать. |
+| RawNumberOfItems | Количество элементов в файлах использования. |
 | RawNumberOfUsers | Количество точек использования перед любыми операциями удаления. |
 | RawNumberOfRecords | Количество точек использования перед любыми операциями удаления. |
 | SamplingNumberOfItems | Недоступно |
@@ -848,6 +848,7 @@ OData XML
 | Метод HTTP | URI |
 |:--------|:--------|
 |ПУБЛИКАЦИЯ |`<rootURI>/AddRule?apiVersion=%271.0%27`|
+|ЗАГОЛОВОК |`"Content-Type", "text/xml"`|
 
 |	Имя параметра |	Допустимые значения |
 |:--------			|:--------								|
@@ -945,6 +946,7 @@ OData XML
 | Метод HTTP | URI |
 |:--------|:--------|
 |ПУБЛИКАЦИЯ |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>Пример:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|ЗАГОЛОВОК |`"Content-Type", "text/xml"`|
 
 |	Имя параметра |	Допустимые значения |
 |:--------			|:--------								|
@@ -1189,6 +1191,7 @@ OData XML
 | Метод HTTP | URI |
 |:--------|:--------|
 |ПУБЛИКАЦИЯ |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27`|
+|ЗАГОЛОВОК |`"Content-Type", "text/xml"`|
 
 |	Имя параметра |	Допустимые значения |
 |:--------			|:--------								|
@@ -1736,6 +1739,7 @@ OData
 | Метод HTTP | URI |
 |:--------|:--------|
 |ПУБЛИКАЦИЯ |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>Пример:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
+|ЗАГОЛОВОК |`"Content-Type", "text/xml"` (при отправке текста запроса)|
 
 |	Имя параметра |	Допустимые значения |
 |:--------			|:--------								|
@@ -1809,6 +1813,7 @@ OData XML
 | Метод HTTP | URI |
 |:--------|:--------|
 |ПУБЛИКАЦИЯ |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&buildType=%27<buildType>%27&apiVersion=%271.0%27`<br><br>Пример:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&buildType=%27Ranking%27&apiVersion=%271.0%27`|
+|ЗАГОЛОВОК |`"Content-Type", "text/xml"` (при отправке текста запроса)|
 
 |	Имя параметра |	Допустимые значения |
 |:--------			|:--------								|
@@ -2861,4 +2866,4 @@ OData XML
 Данный документ предоставляется "как есть". Сведения и мнения, содержащиеся в этом документе, включая URL-адреса и другие ссылки на веб-сайты, могут быть изменены без предварительного уведомления.<br><br> Некоторые примеры, содержащиеся в данном документе, являются вымышленными и приводятся исключительно в демонстрационных целях. Никакой реальной связи нет и не предполагается.<br><br> Настоящий документ не предоставляет юридических прав на интеллектуальную собственность в отношении продуктов корпорации Майкрософт. Вы можете скопировать и использовать данный документ для внутренних справочных целей.<br><br> © Корпорация Майкрософт (Microsoft Corporation), 2015 г. Все права защищены.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

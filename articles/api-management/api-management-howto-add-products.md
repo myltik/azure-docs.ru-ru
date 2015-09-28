@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/15/2015" 
 	ms.author="sdanie"/>
 
 # Создание и публикация продукта в службе управления API Azure
@@ -148,4 +148,4 @@
 [Как создать и использовать группы для управления учетными записями разработчиков в службе управления Azure API]: api-management-howto-create-groups.md
 [Как создать и настраивать расширенные параметры продукта в службе управления Azure API]: api-management-howto-product-with-rules.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

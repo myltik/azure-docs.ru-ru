@@ -1,5 +1,4 @@
-
-
+<!--author=SharS last changed: 9/17/15-->
 
 ### Настройка и регистрация устройства
 
@@ -138,4 +137,4 @@
      
         
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

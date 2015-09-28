@@ -1,0 +1,48 @@
+<properties
+	pageTitle="Вход в виртуальную машину под управлением Windows Server"
+	description="Узнайте, как использовать портал Azure для входа на виртуальную машину под управлением Windows Server."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
+
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/15/2015"
+	ms.author="cynthn"/>
+
+# Вход в виртуальную машину под управлением Windows Server#
+
+Для запуска сеанса удаленного рабочего стола используйте кнопку **Подключить** на портале предварительной версии Azure. Сначала вы подключитесь к виртуальной машине, а затем сможете войти в систему.
+
+## Подключение к виртуальной машине
+
+1. Войдите на [портал предварительной версии Azure](https://portal.azure.com/) (если вы еще этого не сделали).
+
+2.	В главном меню щелкните **Обзор**.
+
+3.	Прокрутите колонку поиска вниз и щелкните **Виртуальные машины**.
+
+	![Поиск виртуальных машин](./media/virtual-machines-log-on-windows-server-preview/search-blade-preview-portal.png)
+
+4.	Затем выберите виртуальную машину из списка.
+
+5. В колонке виртуальной машины щелкните **Подключить**.
+
+	![Подключение к виртуальной машине](./media/virtual-machines-log-on-windows-server-preview/preview-portal-connect.png)
+
+## Вход на виртуальную машину
+
+[AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
+
+## Устранение неполадок
+
+Если советы по входу не помогли решить проблему или они вам не подходят, см. статью [Устранение неполадок с подключением к удаленному рабочему столу виртуальной машины Windows в службе Azure](virtual-machines-troubleshoot-remote-desktop-connections.md). В ней описывается процесс диагностики и решения распространенных проблем.
+
+<!---HONumber=Sept15_HO3-->

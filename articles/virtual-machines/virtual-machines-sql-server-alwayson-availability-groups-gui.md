@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Настройка групп доступности AlwaysOn в Azure (графический пользовательский интерфейс)"
+	pageTitle="Настройка групп доступности AlwaysOn в виртуальной машине Azure (графический пользовательский интерфейс)"
 	description="Создание группы доступности AlwaysOn на виртуальных машинах Azure. В этом учебнике в основном используется пользовательский интерфейс и инструменты, а не сценарии."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/12/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
-# Настройка групп доступности AlwaysOn в Azure (графический пользовательский интерфейс)
+# Настройка групп доступности AlwaysOn в виртуальной машине Azure (графический пользовательский интерфейс)
 
 В этом комплексном учебнике вы научитесь реализовывать группы доступности с помощью SWL Server AlwaysOn на виртуальных машинах Azure.
 
@@ -534,4 +534,4 @@
 
 Дополнительные сведения об использовании SQL Server в Azure см. в разделе [SQL Server на виртуальных машинах Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

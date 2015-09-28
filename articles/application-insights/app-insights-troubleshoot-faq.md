@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Устранение неполадок и ответы на вопросы по Application Insights"
-	description="Что-то в Visual Studio Application Insights непонятно или не работает? Попробуйте здесь."
-	services="application-insights"
-	documentationCenter=".net"
-	authors="alancameronwills"
+	pageTitle="Устранение неполадок и ответы на вопросы по Application Insights" 
+	description="Что-то в Visual Studio Application Insights непонятно или не работает? Попробуйте здесь." 
+	services="application-insights" 
+    documentationCenter=".net"
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="application-insights" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
  
 # Устранение неполадок и ответы на вопросы по Application Insights для ASP.NET
@@ -136,6 +136,9 @@
 + Нажмите кнопку «Обновить». Колонка периодически обновляется, однако ее можно обновить и вручную. При значительных значениях временного диапазона интервал обновления увеличивается.
 + На начальном экране Microsoft Azure посмотрите на карту состояния службы. Если есть какие-либо предупреждения, дождитесь возвращения всех модулей в состояние ОК, затем закройте и заново откройте модуль приложения Application Insights.
 + Кроме того, просмотрите [наш блог о состояниях](http://blogs.msdn.com/b/applicationinsights-status/).
+
+#### После публикации приложения на сервере отсутствуют данные
+
 + В брандмауэре вам может потребоваться открыть TCP-порты 80 и 443 для исходящего трафика, идущего на сайты dc.services.visualstudio.com и f5.services.visualstudio.com.
 + Если для отправки из корпоративной сети необходимо использовать прокси-сервер, установите значение [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx) в файле Web.config.
 + Для Windows Server 2008. Убедитесь в том, что установлены следующие обновления: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
@@ -148,7 +151,7 @@
 
 #### <a name="q08"></a>Можно ли использовать Application Insights для мониторинга веб-сервера в интрасети?
 
-Да, можно отслеживать состояние и использование сервера, если сервер может отправлять данные в общедоступный Интернет.
+Да, можно отслеживать состояние и использование сервера, если сервер может отправлять данные в общедоступный Интернет. Откройте в своем брандмауэре TCP-порты 80 и 443 для исходящего трафика на сайты dc.services.visualstudio.com и f5.services.visualstudio.com.
 
 Если же вы хотите запускать веб-тесты для вашей службы, она должна быть доступна из Интернета через порт 80.
 
@@ -161,7 +164,9 @@
 * Проверьте [блог состояний](http://blogs.msdn.com/b/applicationinsights-status/).
 * Вы достигли месячной квоты точек данных? Чтобы выяснить это, последовательно выберите «Параметры», «Квота и расценки». Если вы достигли квоты, вы можете изменить свой тарифный план или заплатить за дополнительную емкость. См. [схему ценообразования](http://azure.microsoft.com/pricing/details/application-insights/).
 
+## Монитор состояний не работает
 
+См. статью [Устранение неполадок монитора состояний](app-insights-monitor-performance-live-website-now.md#troubleshooting). Чаще всего проблема связана с портами брандмауэра.
 
 ## Портал
 
@@ -228,6 +233,10 @@
 
 Вы можете [написать сценарий PowerShell](app-insights-powershell-script-create-resource.md) для создания ресурса Application Insights.
 
+## Другие ответы
+
+* [Форум Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/ru-RU/home?forum=ApplicationInsights)
+
 
 <!--Link references-->
 
@@ -239,4 +248,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

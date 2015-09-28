@@ -1,23 +1,23 @@
-<properties 
-	pageTitle="Общие сведения о динамической упаковке" 
-	description="В этом разделе представлены общие сведения о технологии динамической упаковки." 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor="" 
-	services="media-services" 
+<properties
+	pageTitle="Общие сведения о динамической упаковке"
+	description="В этом разделе представлены общие сведения о технологии динамической упаковки."
+	authors="Juliako"
+	manager="dwrede"
+	editor=""
+	services="media-services"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/07/2015" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
-#Динамическая упаковка 
+#Динамическая упаковка
 
 ##Обзор
 
@@ -38,14 +38,14 @@
 
 ##Стандартный сценарий
 
-1. Отправьте входной файл (он также называется мезонинным). Например, это может быть файл в формате H.264, MP4 или WMV (список поддерживаемых форматов см. в разделе "Форматы, поддерживаемые кодировщиком служб мультимедиа").
- 
+1. Отправьте входной файл (он также называется мезонинным). Например, это может быть файл в формате H.264, MP4 или WMV (список поддерживаемых форматов см. в разделе [Форматы, поддерживаемые кодировщиком служб мультимедиа](media-services-azure-media-encoder-formats)).
+
 1. Преобразуйте мезонинный файл в набор мультискоростных MP4-файлов в формате H.264.
- 
+
 1. Опубликуйте ресурс, содержащий набор мультискоростных MP4-файлов, создав указатель OnDemand.
- 
+
 1. Создайте URL-адреса для доступа к содержимому и его потоковой передачи.
- 
+
 >[AZURE.NOTE]Технология динамической упаковки поддерживает не все форматы MP4-файлов (дополнительные сведения см. в разделе [Форматы, не поддерживаемые динамической упаковкой](media-services-dynamic-packaging-overview.md#unsupported_formats)).
 
 ##Подготовка ресурсов для динамической потоковой передачи
@@ -65,7 +65,7 @@
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
 Кодирование файлов с помощью **Azure Media Encoder** с использованием **портала управления Azure**, **.NET** или **API REST**.
- 
+
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
 
@@ -105,6 +105,4 @@
 - [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
- 
-
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

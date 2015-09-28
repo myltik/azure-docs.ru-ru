@@ -1,25 +1,27 @@
 <properties 
-	pageTitle="Настройка веб-приложений в службе приложений Azure"
-	description="Настройка веб-приложения в службе приложений Azure"
-	services="app-service\web"
-	documentationCenter=""
-	authors="erikre"
-	manager="wpickett"
-	editor="mollybos"/>
+	pageTitle="Настройка веб-приложений в службе приложений Azure" 
+	description="Настройка веб-приложения в службе приложений Azure" 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="erikre" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/16/2015" 
 	ms.author="erikre"/>
 
 
 # Настройка веб-приложений в службе приложений Azure #
 
 В этом разделе рассматривается настройка веб-приложения с помощью [портала Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Параметры приложения
 
@@ -176,4 +178,4 @@
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

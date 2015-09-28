@@ -7,21 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2015" ms.author="trinadhk";"aashishr" />
 
 
 # Развертывание резервной копии виртуальной машины Azure с помощью PowerShell и управление ею
 В этой статье объясняется, как использовать Azure PowerShell для резервного копирования и восстановления виртуальных машин Azure IaaS.
 
 ## Основные понятия
-См. [введение в резервное копирование Azure IaaS](backup-azure-vms-introduction.md) в документации службы архивации Azure. В этом документе объясняется, зачем следует выполнять резервное копирование виртуальной машины, а также содержится информация о необходимых условиях и ограничениях этой процедуры.
+См. статью [Общие сведения о резервном копировании Azure IaaS](backup-azure-vms-introduction.md) в документации службы архивации Azure. В этом документе объясняется, зачем следует выполнять резервное копирование виртуальной машины, а также содержится информация о необходимых условиях и ограничениях этой процедуры.
 
 Чтобы эффективно использовать PowerShell, необходимо понимать иерархию объектов и знать, откуда следует начинать резервное копирование.
 
@@ -31,7 +24,11 @@
 
 
 ## Настройка и регистрация
-Сначала включите командлеты службы архивации Azure. Для этого перейдите в режим *AzureResourceManager* с помощью командлета **Switch-AzureMode**:
+Чтобы начать работу, сделайте следующее:
+
+1. [Скачайте последнюю версию PowerShell](https://github.com/Azure/azure-powershell/releases) (минимальная требуемая версия: 0.9.8)
+
+2. Включите командлеты службы архивации Azure. Для этого перейдите в режим *AzureResourceManager* с помощью командлета **Switch-AzureMode**:
 
 ```
 PS C:\> Switch-AzureMode AzureResourceManager
@@ -49,8 +46,8 @@ PS C:\> Switch-AzureMode AzureResourceManager
 Вы можете создать новое хранилище службы архивации с помощью командлета **New-AzureRMBackupVault**. Хранилище архивов представляет собой ресурс ARM, поэтому вам потребуется разместить его в группе ресурсов. В консоли Azure PowerShell с повышенными привилегиями выполните следующие команды:
 
 ```
-PS C:\> New-AzureRMResourceGroup –Name “test-rg” –Region “West US”
-PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
+PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
 Чтобы получить список всех хранилищ службы архивации в данной подписке, используйте командлет **Get-AzureRMBackupVault**.
@@ -101,7 +98,7 @@ PS C:\> Get-AzureRMBackupContainer -Type AzureVM -Status Registered -Vault $back
 ```
 
 ### Начальное резервное копирование
-Расписание резервного копирования предполагает создание полной начальной копии элемента и добавочное копирование последующих резервных копий. Если вы хотите, чтобы начальное резервное копирование произошло в определенное время или даже непосредственно, используйте командлет **Backup-AzureRMBackupItem**:
+Расписание резервного копирования предполагает создание полной начальной копии элемента и добавочное копирование последующих резервных копий. Если вы хотите, чтобы начальное резервное копирование произошло в определенное время или даже немедленно, используйте командлет **Backup-AzureRMBackupItem**:
 
 ```
 PS C:\> $container = Get-AzureRMBackupContainer -Vault $backupvault -type AzureVM -name "testvm"
@@ -140,7 +137,7 @@ PS C:\> Wait-AzureRMBackupJob -Job $joblist[0] -Timeout 43200
 
 ### Выбор виртуальной машины.
 
-Чтобы получить объект PowerShell, определяющий правильный архивный элемент, необходимо начать с контейнера в хранилище и пройти постепенно вниз по иерархии объектов. Чтобы выбрать контейнер, который представляет виртуальную Машину, используйте командлет **Get-AzureRMBackupContainer** и передайте найденный контейнер в командлет **Get-AzureRMBackupItem**.
+Чтобы получить объект PowerShell, определяющий правильный архивный элемент, необходимо начать с контейнера в хранилище и пройти постепенно вниз по иерархии объектов. Чтобы выбрать контейнер, который представляет виртуальную машину, используйте командлет **Get-AzureRMBackupContainer** и передайте найденный контейнер в командлет **Get-AzureRMBackupItem**.
 
 ```
 PS C:\> $backupitem = Get-AzureBackupContainer -Vault $backupvault -Type AzureVM -name "testvm" | Get-AzureRMBackupItem
@@ -148,7 +145,7 @@ PS C:\> $backupitem = Get-AzureBackupContainer -Vault $backupvault -Type AzureVM
 
 ### Выбор точки восстановления
 
-Теперь можно получить список всех точек восстановления для архивного элемента с помощью командлета **Get-AzureRMBackupRecoveryPointt** и выбрать точку восстановления для восстановления данных. Обычно пользователи выбирают самую последнюю точку *AppConsistent* в списке.
+Теперь можно получить список всех точек восстановления для архивного элемента с помощью командлета **Get-AzureRMBackupRecoveryPointt** и выбрать точку восстановления. Обычно пользователи выбирают самую последнюю точку *AppConsistent* в списке.
 
 ```
 PS C:\> $rp =  Get-AzureRMBackupRecoveryPoint -Item $backupitem
@@ -174,7 +171,7 @@ WorkloadName    Operation       Status          StartTime              EndTime
 testvm          Restore         InProgress      01-Sep-15 1:14:01 PM   01-Jan-01 12:00:00 AM
 ```
 
-После того как задание восстановления выполнено, вы можете получить сведения об операции восстановления с помощью командлета **Get-AzureRMBackupJobDetails**. Свойство *ErrorDetails* будет содержать сведения, необходимые для перестройки виртуальной Машины.
+Когда задание восстановления будет выполнено, вы можете получить сведения об операции восстановления с помощью командлета **Get-AzureRMBackupJobDetails**. Свойство *ErrorDetails* будет содержать сведения, необходимые для повторного создания виртуальной машины.
 
 ```
 PS C:\> $restorejob = Get-AzureRMBackupJob -Job $restorejob
@@ -234,4 +231,4 @@ New-AzureVM -ServiceName "panbhasample" -Location "SouthEast Asia" -VM $vm
 - [New-AzureVMConfig](https://msdn.microsoft.com/library/azure/dn495159.aspx)
 - [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

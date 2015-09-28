@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="07/27/2015"
+	ms.topic="get-started-article" 
+	ms.date="09/10/2015"
 	ms.author="spelluru"/>
 
 # Построение первого конвейера с помощью фабрики данных Azure
@@ -64,12 +64,10 @@
 
 1. Откройте блокнот, вставьте следующий текст в файл и сохраните его с именем **partitionweblogs.hql** в папке C:\\adfgettingstarted. Этот сценарий Hive создает две внешние таблицы: **WebLogsRaw** и **WebLogsPartitioned**.
 
-	> [AZURE.IMPORTANT]Замените **storageaccountname** в последней строке на имя вашей учетной записи хранения.
-
 		set hive.exec.dynamic.partition.mode=nonstrict;
-
+		
 		DROP TABLE IF EXISTS WebLogsRaw; 
-		CREATE EXTERNAL TABLE WebLogsRaw (
+		CREATE TABLE WebLogsRaw (
 		  date  date,
 		  time  string,
 		  ssitename string,
@@ -91,8 +89,9 @@
 		)
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 		LINES TERMINATED BY '\n' 
-		LOCATION '/HdiSamples/WebsiteLogSampleData/SampleLog/'
 		tblproperties ("skip.header.line.count"="2");
+		
+		LOAD DATA INPATH '/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log' OVERWRITE INTO TABLE WebLogsRaw;
 		
 		DROP TABLE IF EXISTS WebLogsPartitioned ; 
 		create external table WebLogsPartitioned (  
@@ -119,7 +118,7 @@
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
 		STORED AS TEXTFILE 
 		LOCATION '${hiveconf:partitionedtable}';
-
+		
 		INSERT INTO TABLE WebLogsPartitioned  PARTITION( year , month) 
 		SELECT
 		  date,
@@ -143,8 +142,7 @@
 		  year(date),
 		  month(date)
 		FROM WebLogsRaw
-
-	 
+	
  
 2. Чтобы подготовить хранилище Azure для использования с учебником:
 	1. Скачайте [последнюю версию программы **AzCopy**](http://aka.ms/downloadazcopy) или [последнюю предварительную версию](http://aka.ms/downloadazcopypr). Инструкции по использованию этой программы вы найдете в статье [Использование AzCopy](../storage/storage-use-azcopy.md).
@@ -153,7 +151,7 @@
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 	
 
-	3. Перейдите в папку c:\\adfgettingstarted и выполните следующую команду, чтобы загрузить HQL-файл Hive в учетную запись хранения. Замените **<StorageAccountName>** и **<Storage Key>** на имя вашей учетной записи хранения Azure и ее ключ соответственно.
+	3. Перейдите в папку c:\\adfgettingstarted и выполните следующую команду, чтобы загрузить HQL-файл Hive в учетную запись хранения. Замените **StorageAccountName** и **Storage Key** на имя вашей учетной записи хранения Azure и ключ к ней соответственно.
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
 	4. После успешной загрузки файла будут отображены следующие данные из AzCopy.
@@ -174,6 +172,6 @@
 - Щелкните ссылку [Использование Visual Studio](data-factory-build-your-first-pipeline-using-vs.md), чтобы пройти учебник с помощью Visual Studio 2013. 
 
 ## Отправить отзыв
-Мы будем весьма признательны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
+Мы будем очень благодарны за ваш отзыв об этой статье. Уделите несколько минут тому, чтобы отправить его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

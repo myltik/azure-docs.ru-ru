@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/22/2015"
 	ms.author="josephd"/>
 
 # Развертывание среды SharePoint с группами доступности AlwaysOn для SQL Server на платформе Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
 
 В этом разделе приведены пошаговые инструкции по развертыванию фермы SharePoint 2013 для интрасети с группами доступности AlwaysOn для SQL Server с помощью классической модели развертывания. В состав фермы входят перечисленные ниже компьютеры.
 
@@ -36,12 +38,12 @@
 Ниже перечислены этапы развертывания этой конфигурации.
 
 - [Этап 1. Настройка Azure](virtual-machines-workload-intranet-sharepoint-phase1.md). Создание учетной записи хранения, облачных служб и распределенной виртуальной сети.
-- [Этап 2. Настройка контроллеров домена](virtual-machines-workload-intranet-sharepoint-phase2.md). Создание и настройка реплик контроллеров домена доменных служб Active (AD DS).
-- [Этап 3. Настройка инфраструктуры сервера SQL Server](virtual-machines-workload-intranet-sharepoint-phase3.md). Создание и настройка виртуальных машин SQL Server, их подготовка для работы со средой SharePoint и создание кластера.
-- [Этап 4. Настройка серверов SharePoint](virtual-machines-workload-intranet-sharepoint-phase4.md). Создание и настройка четырех виртуальных машин SharePoint.
-- [Этап 5. Создание группы доступности и добавление баз данных SharePoint](virtual-machines-workload-intranet-sharepoint-phase5.md). Подготовка баз данных и создание группы доступности AlwaysOn для SQL Server.
+- [Второй этап: настройка контроллеров домена](virtual-machines-workload-intranet-sharepoint-phase2.md). Создание и настройка реплик контроллеров домена доменных служб Active (AD DS).
+- [Третий этап: настройка инфраструктуры SQL Server](virtual-machines-workload-intranet-sharepoint-phase3.md). Создание и настройка виртуальных машин SQL Server, их подготовка для работы со средой SharePoint и создание кластера.
+- [Четвертый этап: настройка серверов SharePoint](virtual-machines-workload-intranet-sharepoint-phase4.md). Создание и настройка четырех виртуальных машин SharePoint.
+- [ Пятый этап: создание группы доступности и добавление баз данных SharePoint](virtual-machines-workload-intranet-sharepoint-phase5.md). Подготовка баз данных и создание группы доступности AlwaysOn для SQL Server.
 
-Это развертывание фермы SharePoint с группами доступности AlwaysOn для SQL Server соответствует [этой схеме](http://go.microsoft.com/fwlink/?LinkId=394788) и выполняется в соответствии с актуальными рекомендациями.
+Данное развертывание фермы SharePoint с группами доступности AlwaysOn для SQL Server соответствует [этой схеме](http://go.microsoft.com/fwlink/?LinkId=394788) и выполняется в соответствии с актуальными рекомендациями.
 
 Эта схема представляет собой пошаговое руководство по созданию функциональной высокодоступной фермы SharePoint в интрасети на базе служб инфраструктуры Azure в соответствии с определенной архитектурой. Дополнительные советы и рекомендации по развертыванию SharePoint 2013 в среде Azure на базе различных архитектур см. в статье [Архитектуры Microsoft Azure для SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx).
 
@@ -53,7 +55,7 @@
 
 Инструкции по созданию среды для разработки или тестирования либо экспериментальной проверке этой конфигурации см. в статье [Настройка фермы SharePoint интрасети в гибридном облаке для тестирования](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
 
-Дополнительные сведения о среде SharePoint с группами доступности AlwaysOn для SQL Server см. в статье [Настройка группы доступности AlwaysOn SQL Server 2012 для SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
+Дополнительные сведения о среде SharePoint с группами доступности AlwaysOn для SQL Server см. в статье [Настройка групп обеспечения доступности SQL Server 2012 AlwaysOn для SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
 > [AZURE.NOTE]Корпорация Майкрософт выпустила SharePoint Server 2016 IT (предварительная версия). Для облегчения установки и тестирования предварительной версии вы можете воспользоваться образом с SharePoint Server 2016 IT (предварительная версия) и предустановленными обязательными компонентами из коллекции виртуальных машин Azure. Дополнительные сведения можно найти в статье [Тестирование SharePoint Server 2016 IT (предварительная версия) в Azure](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/).
 
@@ -74,4 +76,4 @@
 
 [Службы инфраструктуры Azure: высокодоступное бизнес-приложение](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

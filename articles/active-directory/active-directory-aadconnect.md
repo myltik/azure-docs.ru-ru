@@ -112,7 +112,7 @@ Azure Active Directory Connect состоит из трех основных к�
     		<defaultProxy>
       		<proxy
         	usesystemdefault="true"
-        	proxyaddress=http://<PROXYIP>:80"
+        	proxyaddress="http://<PROXYIP>:80"
         	bypassonlocal="true"
      		 />
     		</defaultProxy>
@@ -273,4 +273,4 @@ Azure Active Directory Connect состоит из трех основных к�
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

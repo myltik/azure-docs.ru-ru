@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Управление политиками архивации StorSimple | Microsoft Azure"
-	description="Объясняет, как использовать службу диспетчера StorSimple для создания резервных копий, созданных вручную, расписания снятия резервных копий и срока хранения резервных копий, а также для управления ими."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Объясняет, как использовать службу диспетчера StorSimple для создания резервных копий, созданных вручную, расписания снятия резервных копий и срока хранения резервных копий, а также для управления ими."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor=""/>
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos"/>
 
 # Использование службы диспетчера StorSimple для управления политиками архивации
 
@@ -53,6 +53,10 @@
 
 [AZURE.INCLUDE [storsimple-add-backup-policy](../../includes/storsimple-add-backup-policy.md)]
 
+![Доступно видео](./media/storsimple-manage-backup-policies/Video_icon.png) **Доступно видео**
+
+Чтобы просмотреть видео о создании тома StorSimple, щелкните [здесь](http://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
+
 
 ## Добавление или изменение расписания
 
@@ -82,6 +86,6 @@
 
 ## Дальнейшие действия
 
-Узнайте, как выполнять [просмотр заданий архивации и управлять ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-backup-jobs.md).
+- Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

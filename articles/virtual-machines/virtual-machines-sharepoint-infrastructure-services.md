@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
 	ms.date="09/08/2015"
 	ms.author="josephd"/>
 
 # Фермы SharePoint, размещенные в службах инфраструктуры Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью модели развертывания, которая использует менеджер ресурсов, а также классической модели.
 
 Настройте свою первую или очередную ферму SharePoint для разработки и тестирования или производства в службах инфраструктуры Microsoft Azure, где можно воспользоваться преимуществами простоты настройки и возможностью быстро развернуть ферму, чтобы использовать новую емкость или оптимизировать основные функции.
 
@@ -29,7 +31,7 @@
 
 Автоматически созданная среда состоит из трех серверов для контроллера домена, сервера SQL Server и сервера SharePoint в облачной виртуальной сети Azure.
 
-Чтобы создать подобную конфигурацию с помощью модели развертывания для диспетчера ресурсов, используйте шаблон. Изучите раздел [Развертывание трехсерверной фермы SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
+Чтобы создать подобную конфигурацию с помощью модели развертывания для диспетчера ресурсов, используйте шаблон. См. раздел [Развертывание трехсерверной фермы SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
 
 ## Высокодоступная ферма SharePoint для разработки и тестирования
 
@@ -37,7 +39,7 @@
 
 Автоматически созданная среда состоит из девяти серверов в облачной виртуальной сети Azure: два для контроллеров домена, три для кластера SQL Server, два сервера SharePoint уровня приложений и два сервера SharePoint уровня Интернета.
 
-Чтобы создать подобную конфигурацию с помощью виртуальных машин диспетчера ресурсов, используйте шаблон. Изучите раздел [Развертывание девятисерверной фермы SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
+Чтобы создать подобную конфигурацию с помощью виртуальных машин диспетчера ресурсов, используйте шаблон. См. раздел [Развертывание девятисерверной фермы SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
 
 ## Гибридная облачная ферма для разработки и тестирования
 
@@ -47,7 +49,7 @@
 
 ## Высокодоступная рабочая ферма SharePoint в интрасети
 
-Развертывая [SharePoint 2013 с группами доступности AlwaysOn SQL Server в Azure](virtual-machines-workload-intranet-sharepoint-overview.md), можно создать готовую высокодоступную ферму интрасети SharePoint Server 2013 в Azure.
+Развертывая [SharePoint 2013 с группами доступности AlwaysOn сервера SQL Server в Azure](virtual-machines-workload-intranet-sharepoint-overview.md), можно создать готовую высокодоступную ферму интрасети SharePoint Server 2013 в Azure.
 
 В этой конфигурации используются классические виртуальные машины.
 
@@ -65,4 +67,4 @@
 
 - [Развертывание службы синхронизации каталогов Office 365 (DirSync) в Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

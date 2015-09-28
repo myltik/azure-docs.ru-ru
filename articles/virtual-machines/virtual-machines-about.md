@@ -3,7 +3,7 @@
 	description="Изучите основные сведения о виртуальных машинах в Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager,azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/14/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #О виртуальных машинах Azure
 
@@ -49,4 +49,4 @@
 [Виртуальные машины]: #tellmevm
 [Облачные службы]: cloud-services-choose-me.md
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -3,7 +3,7 @@
 	description="Узнайте, как присоединить диск данных к виртуальной машине Azure и инициализировать, чтобы подготовить к использованию."
 	services="virtual-machines, storage"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/16/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Подключение диска данных к виртуальной машине Windows
 
@@ -59,4 +59,4 @@
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

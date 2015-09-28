@@ -5,15 +5,15 @@
 	documentationCenter=""
 	authors="MikeWasson"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="09/16/2015"
 	ms.author="mwasson"/>
 
 # Настройка личного доменного имени для службы приложений Azure
@@ -24,14 +24,13 @@
 - [Web Apps with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
 - [GoDaddy](web-sites-godaddy-custom-domain-name.md)
 
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
-
 При создании веб-приложения Azure назначает ему поддомен azurewebsites.net. Например, если веб-приложение называется **contoso**, оно будет иметь URL-адрес **contoso.azurewebsites.net**. Azure также назначает виртуальный IP-адрес.
 
 Для рабочего веб-приложения, возможно, потребуется, чтобы пользователи видели имя личного домена. В этой статье объясняется, как зарезервировать или настроить личный домен для [веб-приложений службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-[AZURE.INCLUDE [нижний колонтитул](../../includes/custom-dns-web-site-intro-notes.md)]
+[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
+[AZURE.INCLUDE [нижний колонтитул](../../includes/custom-dns-web-site-intro-notes.md)]
 
 ## Обзор
 
@@ -148,4 +147,4 @@
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

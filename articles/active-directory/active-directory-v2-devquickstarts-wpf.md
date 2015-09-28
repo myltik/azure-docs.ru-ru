@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Модель приложений 2.0 | Microsoft Azure"
+	pageTitle="Модель приложений версии 2.0: собственное приложение .NET | Microsoft Azure"
 	description="Как создать собственное приложение .NET, которое поддерживает вход пользователей с помощью личной учетной записи Майкрософт, а также рабочей или учебной учетных записей."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Предварительная версия модели приложений 2.0: реализация входа в классическом приложении Windows
@@ -50,10 +50,10 @@
 ## 2. Установка и настройка ADAL
 Зарегистрировав приложение в Майкрософт, вы можете установить ADAL и написать код, связанный с вашим идентификатором. Чтобы библиотека проверки подлинности могла взаимодействовать с конечной точкой v2.0, вам нужно указать для библиотеки некоторые сведения о регистрации своего приложения.
 
--	Сначала добавьте ADAL в проект TodoListClient с помощью консоли диспетчера пакетов.
+-    Сначала добавьте ADAL в проект TodoListClient с помощью консоли диспетчера пакетов.
 
 ```
-PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease 
+PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease
 ```
 
 -	В проекте TodoListClient откройте `app.config`. Замените значения элементов в разделе `<appSettings>` на значения, введенные на портале регистрации приложений. Код будет использовать эти значения при каждом обращении к библиотеке ADAL.
@@ -247,4 +247,4 @@ private async void SignIn(object sender = null, RoutedEventArgs args = null) { /
 
 Дополнительные ресурсы: -[Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) -[Тег StackOverflow "adal" >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/17/2015" 
 	ms.author="jeffstok"/>
 
 # Основные сведения о выходных данных Stream Analytics
@@ -47,8 +47,8 @@
 <table>
 <tbody>
 <tr>
-<td>Имя свойства</td>
-<td>Описание</td>
+<td>ИМЯ СВОЙСТВА</td>
+<td>ОПИСАНИЕ</td>
 </tr>
 <tr>
 <td>Псевдоним выходных данных</td>
@@ -232,4 +232,4 @@
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

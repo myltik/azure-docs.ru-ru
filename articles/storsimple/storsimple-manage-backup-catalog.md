@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Управление каталогом резервных копий StorSimple | Microsoft Azure"
-	description="В этой статье описываются способы использования страницы каталога резервного копирования службы диспетчера StorSimple для перечисления, выбора и удаления резервных наборов данных для тома."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="В этой статье описываются способы использования страницы каталога резервного копирования службы диспетчера StorSimple для перечисления, выбора и удаления резервных наборов данных для тома."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/01/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/14/2015"
+   ms.author="v-sharos" />
 
 # Использование службы диспетчера StorSimple для управления каталогом резервного копирования
 
@@ -113,6 +113,8 @@
 
 ## Дальнейшие действия
 
-Узнайте, как использовать каталог резервного копирования [для восстановления устройства с помощью резервного набора данных](storsimple-restore-from-backup-set.md).
+- Узнайте об использовании каталога резервного копирования [для восстановления устройства с помощью набора архивации](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=September15_HO1-->
+- Узнайте об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

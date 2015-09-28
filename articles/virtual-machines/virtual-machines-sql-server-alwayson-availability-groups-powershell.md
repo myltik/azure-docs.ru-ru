@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Настройка группы доступности AlwaysOn в Azure (PowerShell)"
+	pageTitle="Настройка групп доступности AlwaysOn в виртуальной машине Azure (графический пользовательский интерфейс)"
 	description="Использование PowerShell для создания группы доступности AlwaysOn в Azure."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/14/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
-# Настройка группы доступности AlwaysOn в Azure (PowerShell)
+# Настройка групп доступности AlwaysOn в виртуальной машине Azure (графический пользовательский интерфейс)
 
 >[AZURE.NOTE]Учебник по тому же сценарию для графического пользовательского интерфейса см. в статье [Настройка групп доступности AlwaysOn в Azure (GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).
 
@@ -623,4 +623,4 @@
 
 Дополнительные сведения об использовании SQL Server в Azure см. в разделе [SQL Server на виртуальных машинах Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

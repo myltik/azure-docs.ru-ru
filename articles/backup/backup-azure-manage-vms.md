@@ -4,11 +4,11 @@
 	description="Узнайте, как управлять виртуальной машиной Azure."
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
 
 # Управление виртуальными машинами
 
@@ -23,6 +23,8 @@
     ![Резервное копирование виртуальной машины](./media/backup-azure-manage-vms/backup-vmdetails.png)
 
 3. Для просмотра параметров политики резервного копирования виртуальной машины и управления ими перейдите на вкладку **Политики**.
+
+    ![Политика резервного копирования виртуальных машин](./media/backup-azure-manage-vms/manage-policy-settings.png)
 
     На вкладке **Политики резервного копирования** отображается существующая политика. Ее параметры можно изменить при необходимости. Если необходимо создать новую политику, на странице **Политики** щелкните **Создать**. Обратите внимание, что если вы хотите удалить политику, с ней не должна быть связана ни одна виртуальная машина.
 
@@ -100,7 +102,7 @@
 
 После повторной защиты состояние защиты виртуальной машины изменится на **Защищено** при наличии точек восстановления до **остановки защиты**.
 
-    ![Reprotected VM](./media/backup-azure-manage-vms/reprotected-status.png)
+  ![Виртуальная машина защищена повторно](./media/backup-azure-manage-vms/reprotected-status.png)
 
 >[AZURE.NOTE]При повторной защите виртуальной машины можно выбрать другую политику, отличную от политики, с помощью которой виртуальная машина была защищена изначально.
 
@@ -122,13 +124,13 @@
 - либо во время выполнения задания остановки защиты,
 - либо по окончании данного задания на виртуальной машине.
 
-Чтобы удалить резервные копии на виртуальной машине, которая находится в состоянии *Защита остановлена* после успешного завершения задания **Прекратить резервное копирование**, сделайте следующее.
+Чтобы удалить резервные копии на виртуальной машине, которая находится в состоянии *Защита остановлена* после успешного завершения задания **Прекратить резервное копирование**:
 
 1. Перейдите на страницу **Защищенные элементы**, выберите в поле *Тип* значение **Виртуальная машина Azure** и нажмите кнопку **Выбрать**.
 
     ![Тип виртуальной машины](./media/backup-azure-manage-vms/vm-type.png)
 
-2. Выберите виртуальную машину. Виртуальная машина будет находиться в состоянии **Защита остановлена**.
+2. Выберите виртуальную машину. Виртуальная машина будет находиться в состоянии **Защита остановлена** .
 
     ![Защита остановлена](./media/backup-azure-manage-vms/protection-stopped-b.png)
 
@@ -136,11 +138,11 @@
 
     ![Удаление резервных копий](./media/backup-azure-manage-vms/delete-backup.png)
 
-4. В мастере **Удалить данные архивации** укажите причину удаления резервных копий (настоятельно рекомендуется) и щелкните **Отправить**.
+4. В мастере **удаления данных архивации** укажите причину удаления резервных копий (настоятельно рекомендуем) и нажмите кнопку **Отправить**.
 
     ![Удаление данных резервных копий](./media/backup-azure-manage-vms/delete-backup-data.png)
 
-5. При этом будет создано задание для удаления данных резервных копий для выбранной виртуальной машины. Щелкните **Просмотреть задание**, чтобы просмотреть соответствующее задание на странице «Задания».
+5. При этом будет создано задание для удаления данных резервных копий для выбранной виртуальной машины. Нажмите **Просмотреть задание**, чтобы просмотреть соответствующее задание на странице "Задания".
 
     ![Удаление данных выполнено](./media/backup-azure-manage-vms/delete-data-success.png)
 
@@ -149,7 +151,9 @@
 ## Панель мониторинга
 На странице **Панель мониторинга** можно просмотреть сведения о виртуальных машинах Azure, их хранилище и заданиях, которые с ними связаны (за последние 24 часа). Здесь также можно просмотреть состояние резервного копирования и все связанные с ним ошибки.
 
-    ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+![Панель мониторинга](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+
+>[AZURE.NOTE]Значения на панели мониторинга обновляются каждые 24 часа.
 
 ## Аудит операций
 В службе архивации Azure можно просматривать журналы операций резервного копирования, запущенных пользователем. В них можно увидеть, какие именно операции управления выполнялись в хранилище службы архивации. Журналы операций позволяет проводить эффективный анализ и аудит операций резервного копирования.
@@ -174,11 +178,11 @@
 
     ![Журналы операций](./media/backup-azure-manage-vms/ops-logs.png)
 
-2. В фильтрах в поле *Тип* выберите значение **Резервное копирование**, в поле *Имя службы* укажите имя хранилища службы архивации и щелкните **Отправить**.
+2. В фильтрах в поле *Тип* выберите значение **Резервное копирование**, в поле *Имя службы* укажите имя хранилища службы архивации и нажмите кнопку **Отправить**.
 
     ![Фильтр журналов операций](./media/backup-azure-manage-vms/ops-logs-filter.png)
 
-3. В журналах операций выберите любую операцию и щелкните **Сведения**, чтобы просмотреть соответствующую информацию.
+3. В журналах операций выберите любую операцию и нажмите **Сведения**, чтобы просмотреть соответствующую информацию.
 
     ![Сведения о выборке из журналов операций](./media/backup-azure-manage-vms/ops-logs-details.png)
 
@@ -201,7 +205,7 @@ PS C:\> Switch-AzureMode AzureResourceManager
 PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/microsoft.backupbvtd2/BackupVault/trinadhVault' -EventName Backup  -EventSource Administrative -Level Error -OperationName 'Microsoft.Backup/backupVault/Backup' -ResourceProvider Microsoft.Backup -Status Failed  -SubStatus Failed -RuleType Event -Location eastus -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -Name Backup-Failed -Description 'Backup failed for one of the VMs in vault trinadhkVault' -CustomEmails 'contoso@microsoft.com' -SendToServiceOwners
 ```
 
-**ResourceId**. Этот параметр можно получить во всплывающем окне «Журналы операций», как описано в разделе выше. ResourceUri во всплывающем окне сведений об операции — это и есть параметр ResourceId, который нужно указать для этого командлета.
+**ResourceId**. Этот параметр можно получить во всплывающем окне "Журналы операций", как описано в разделе выше. ResourceUri во всплывающем окне сведений об операции — это и есть параметр ResourceId, который нужно указать для этого командлета.
 
 **EventName**. Для оповещений о резервном копировании виртуальных машин IaaS поддерживаются такие значения: Register,Unregister,ConfigureProtection,Backup,Restore,StopProtection,DeleteBackupData,CreateProtectionPolicy,DeleteProtectionPolicy,UpdateProtectionPolicy.
 
@@ -211,7 +215,7 @@ PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/su
 
 **Status**. Поддерживаемые значения: Started, Succeeded и Failed. Рекомендуется оставить значение Informational как уровень для состояния Succeeded.
 
-**SubStatus**. Такое же значение, как для состояния операций резервного копирования.
+**SubStatus**. Совпадает с состоянием операций резервного копирования.
 
 **RuleType**. Оставьте значение *Event*, так как оповещения о резервном копировании основаны на событиях.
 
@@ -245,4 +249,4 @@ PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/su
 
 - [Восстановление виртуальных машин Azure](backup-azure-restore-vms.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

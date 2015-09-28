@@ -3,7 +3,7 @@
 	description="Общие сведения о резервном копировании виртуальных машин в Azure с помощью службы архивации Azure"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
@@ -122,4 +122,4 @@
 - [Восстановление виртуальных машин](backup-azure-restore-vms.md)
 - [Управление резервными копиями виртуальной машины](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

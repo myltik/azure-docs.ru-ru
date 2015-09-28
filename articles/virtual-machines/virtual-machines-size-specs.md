@@ -1,21 +1,21 @@
 <properties
  pageTitle="Размер виртуальных машин"
-	description="Список различных размеров виртуальных машин и их характеристик."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="KBDAzure"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+ description="Список различных размеров виртуальных машин и их характеристик."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="cynthn"
+ manager="timlt"
+ editor=""
+ tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="kathydav"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
+ ms.workload="infrastructure-services"
+ ms.date="09/02/2015"
+ ms.author="cynthn"/>
 
 # Размеры виртуальных машин
 
@@ -146,4 +146,4 @@ ms.service="virtual-machines"
 
 [Об экземплярах A8, A9, A10 и A11 с большим объемом вычислений](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

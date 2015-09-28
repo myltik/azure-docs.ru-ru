@@ -1,4 +1,7 @@
 
+<!--author=SharS last changed: 9/15/15-->
+
+
 #### Создание пользовательской политики резервного копирования
 
 1. На странице **Устройства** выберите **Политики резервного копирования** и нажмите кнопку **Добавить**.
@@ -39,4 +42,4 @@
 
     ![Настраиваемая политика резервного копирования](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

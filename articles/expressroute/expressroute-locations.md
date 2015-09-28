@@ -1,19 +1,19 @@
 <properties
    pageTitle="Расположения ExpressRoute | Microsoft Azure"
-	description="В этой статье приведена подробная информация о расположениях, где предлагаются услуги, и способах подключения к регионам Azure."
-	services="expressroute"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor="tysonn"/>
+   description="В этой статье приведена подробная информация о расположениях, где предлагаются услуги, и способах подключения к регионам Azure."
+   services="expressroute"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor="tysonn" />
 <tags
    ms.service="expressroute"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/06/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/06/2015"
+   ms.author="cherylmc" />
 
 # Партнеры и одноранговые расположения Azure ExpressRoute
 Таблицы в этой статье содержат информацию о поставщиках услуг подключения ExpressRoute (поставщиках Exchange и поставщиках сетевых услуг), территориальном покрытии ExpressRoute, облачных службах Майкрософт, поддерживаемых через ExpressRoute, и системных интеграторах ExpressRoute.
@@ -77,7 +77,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Поддерживаются | Не поддерживается | Сингапур |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Поддерживаются | Скоро | Амстердам, Ченнаи+, Гонконг, Лондон, Мумбаи+, Сингапур |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Поддерживаются | Не поддерживается | Мельбурн+, Сидней |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Поддерживаются | Не поддерживается | Лондон, Гонконг, Кремниевая долина, Вашингтон, округ Колумбия |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Поддерживаются | Скоро | Лондон, Гонконг, Кремниевая долина, Вашингтон, округ Колумбия |
 
  Знак **+** означает "скоро"
 
@@ -115,4 +115,4 @@ ExpressRoute поддерживается во всех регионах и ра
 - Если вы хотите настроить подключение ExpressRoute, см. статью [Настройка подключения через поставщика EXP](expressroute-configuring-exps.md) или [Настройка подключения через поставщика сетевых услуг](expressroute-configuring-nsps.md).
 - Если вы хотите настроить VPN-подключение "сеть — сеть" и ExpressRoute для одной и той же виртуальной сети, см. статью [Настройка подключения существующих одновременно VPN типа ExpressRoute и "сеть —-сеть"](expressroute-coexist.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

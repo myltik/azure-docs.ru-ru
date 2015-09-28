@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="stevenpo"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 
@@ -42,15 +42,11 @@
 1. Откройте **Управление AD FS**.
 2. Перейдите в папку **Отношения доверия проверяющей стороны**, щелкните правой кнопкой мыши приложение, которое публикуется с помощью прокси приложения, и выберите **Свойства**.
 
-![Щелкните правой кнопкой мыши имя приложения в папке «Отношения доверия проверяющей стороны» (снимок экрана)][1]
+![Щелкните правой кнопкой мыши имя приложения в папке «Отношения доверия проверяющей стороны» (снимок экрана)](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)
 
 3. На вкладке **Конечные точки** в поле **Тип конечной точки** выберите **WS-Federation**.
 4. В поле **Доверенный URL-адрес** введите URL-адрес, который вы указали в прокси приложения в поле **Внешний URL-адрес**, и нажмите кнопку **ОК**.
 
-![Добавление конечной точки: задайте значение в поле «Доверенный URL-адрес» (снимок экрана)][2]
+![Добавление конечной точки: задайте значение в поле «Доверенный URL-адрес» (снимок экрана)](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)
 
-<!--image references-->
-[1]: ./media/active-directory-application-proxy-claims-aware-apps/AppDropdown.jpg
-[2]: ./media/active-directory-application-proxy-claims-aware-apps/AddEndpoint.jpg
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

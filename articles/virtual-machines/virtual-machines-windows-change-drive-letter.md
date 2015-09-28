@@ -3,7 +3,8 @@
 	description="Описывается переназначение временного диска на виртуальной машине Windows в Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn
+"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/27/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #Изменение буквы диска для временного диска Windows
 
@@ -65,4 +66,4 @@
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

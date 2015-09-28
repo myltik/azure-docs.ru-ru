@@ -146,7 +146,9 @@ fabricRuntime.RegisterActor(typeof(MyNewActor));
 
 ## Дальнейшие действия
 
-[Общие сведения о надежных субъектах Service Fabric](service-fabric-reliable-actors-introduction.md) [Справочник по API-интерфейсам субъектов](https://msdn.microsoft.com/library/azure/dn971626.aspx) [Пример кода](https://github.com/Azure/servicefabric-samples)
+- [Общие сведения о надежных субъектах Service Fabric](service-fabric-reliable-actors-introduction.md)
+- [Справочная документация по API-интерфейсам Actors](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+- [Пример кода](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -156,4 +158,4 @@ fabricRuntime.RegisterActor(typeof(MyNewActor));
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

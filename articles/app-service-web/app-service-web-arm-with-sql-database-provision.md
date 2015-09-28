@@ -5,15 +5,15 @@
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/15/2015" 
 	ms.author="tomfitz"/>
 
 # Подготовка веб-приложения к работе с базой данных SQL
@@ -25,6 +25,8 @@
 Подробнее о развертывании приложений см. в статье [Предсказуемое развертывание сложного приложения в Azure](app-service-deploy-complex-application-predictably.md).
 
 Полная версия шаблона приведена в файле [Шаблон веб-приложения с базой данных SQL](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Что именно развертывается
 
@@ -450,4 +452,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

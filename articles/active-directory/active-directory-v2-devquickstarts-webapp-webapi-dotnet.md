@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Модель приложений 2.0 | Microsoft Azure"
+	pageTitle="Модель приложений версии 2.0: веб-приложение .NET | Microsoft Azure"
 	description="Как создать веб-приложение .NET MVC, вызывающее веб-службы, используя личные учетные записи Майкрософт, а также рабочие и учебные учетные записи для входа."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Предварительная версия модели приложений 2.0: вызов веб-API из веб-приложения .NET
@@ -42,7 +42,7 @@
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-Можно также [загрузить готовое приложение в виде файла ZIP](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) или создать копию готового приложения:
+Alternatively, you can [download the completed app as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) or clone the completed app:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
@@ -120,8 +120,8 @@ public void ConfigureAuth(IAppBuilder app)
 - Сначала установите предварительную версию ADAL:
 
 ```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
-- Добавьте еще один оператор `using` в файл `App_Start\Startup.Auth.cs` для ADAL.
-- Теперь добавьте новый метод обработчика события `OnAuthorizationCodeReceived`.  Этот обработчик будет обращаться к ADAL для получения токена доступа к API списка дел и сохранять этот токен в кэше токенов ADAL для последующего использования:
+- And add another `using` statement to the `App_Start\Startup.Auth.cs` file for ADAL.
+- Now add a new method, the `OnAuthorizationCodeReceived` event handler.  This handler will use ADAL to acquire an access token to the To-Do List API, and will store the token in ADAL's token cache for later:
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -207,4 +207,4 @@ catch (AdalException ee)
 - [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md)
 - [Тег StackOverflow "adal" >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Управление записями системы контроля доступа в StorSimple | Microsoft Azure"
-	description="Описывает, как использовать записи контроля доступа (ACR), чтобы определить, какие узлы могут подключаться к тому на устройстве StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Описывает, как использовать записи контроля доступа (ACR), чтобы определить, какие узлы могут подключаться к тому на устройстве StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Использование службы диспетчера StorSimple для управления записями контроля доступа
 
@@ -90,8 +90,8 @@
 
 ## Дальнейшие действия
 
-Узнайте больше об [управлении томами StorSimple](storsimple-manage-volumes.md).
-
+- Узнайте больше об [управлении томами StorSimple](storsimple-manage-volumes.md).
+- Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -8,17 +8,19 @@
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/03/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Восстановление веб-приложения в службе приложений Azure
 
 В этой статье описывается, как восстановить веб-приложение, для которого ранее с помощью компонента резервного копирования веб-приложений в [службе приложений](http://go.microsoft.com/fwlink/?LinkId=529714) была создана резервная копия. Дополнительные сведения см. в разделе [Резервные копии веб-приложений в службе приложений](web-sites-backup.md).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 Компонент восстановления позволяет в любой момент восстановить предыдущее состояние веб-приложения или создать новое на основе одной из резервных копий исходного веб-приложения. Создание нового веб-приложения, работающего параллельно с предыдущей версией, может быть полезным для A/B-тестирования.
 
@@ -96,4 +98,4 @@
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

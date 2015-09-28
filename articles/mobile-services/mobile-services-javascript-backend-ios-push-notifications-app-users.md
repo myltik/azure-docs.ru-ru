@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Рассылка push-уведомлений проверенным пользователям"
+	pageTitle="Рассылка push-уведомлений проверенным пользователям приложения в iOS (серверная часть JavaScript)"
 	description="Сведения об отправке push-уведомлений конкретным адресатам"
 	services="mobile-services,notification-hubs"
 	documentationCenter="ios"
@@ -73,4 +73,4 @@ function insert(item, user, request) {
 [портал управления Azure]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

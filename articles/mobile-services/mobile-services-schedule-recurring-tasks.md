@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Планирование серверных задач с помощью планировщика | Microsoft Azure"
-	description="Использование планировщика мобильных служб Azure для планирования заданий для мобильного приложения."
+	pageTitle="Планирование задач в серверной мобильной службе JavaScript | Microsoft Azure"
+	description="Используйте планировщик в мобильных служб Azure для запуска заданий серверной части JavaScript по расписанию."
 	services="mobile-services"
 	documentationCenter=""
 	authors="ggailey777"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/14/2015"
 	ms.author="glenga"/>
 
 # Планирование повторяющихся заданий в мобильных службах
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [Javascript backend](mobile-services-schedule-recurring-tasks.md)
 
 В этом разделе показано, как использовать функциональные возможности планировщика заданий на портале управления для определения кода серверного сценария, который выполняется на основе определенного расписания. В этом случае сценарий периодически проверяет удаленную службу (в данном случае Twitter) и сохраняет результаты в новой таблице. В число других периодических задач, которые могут быть запланированы, входят следующие:
 
@@ -166,4 +166,4 @@
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

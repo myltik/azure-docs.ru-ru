@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/06/2015"
+	ms.date="09/10/2015"
 	ms.author="banders"/>
 
 # Руководство по функциям Operational Insights
@@ -47,7 +47,7 @@ Operational Insights — это служба аналитики, которая 
 	- [Прямое подключение компьютеров к Operational Insights](operational-insights-direct-agent.md)
 	- [Анализ данных с серверов в Microsoft Azure](operational-insights-analyze-data-azure.md)
 - **Выполните все вышеперечисленное во время работы с мобильным приложением**
-	- Дополнительные сведения о приложении Windows Phone см. в разделе [Мобильные приложения Operational Insights](http://www.windowsphone.com/ru-ru/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865).
+	- Дополнительные сведения о приложении Windows Phone см. в разделе [Мобильные приложения Operational Insights](http://www.windowsphone.com/ru-RU/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865).
 
 ## Среда Operational Insights
 
@@ -72,4 +72,4 @@ Operational Insights — это служба аналитики, которая 
 ### Где находится Operational Insights?
 Microsoft Azure Operational Insights находится в США. Несмотря на то, что рабочим языком Operational Insights является английский язык, служба доступна на некоторых других рынках. Дополнительные сведения см. в разделе [Международный доступ](http://go.microsoft.com/fwlink/?LinkId=229842).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

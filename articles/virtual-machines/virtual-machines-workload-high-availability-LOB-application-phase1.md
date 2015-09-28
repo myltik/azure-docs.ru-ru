@@ -1,23 +1,26 @@
 <properties 
-	pageTitle="Бизнес-приложение, этап 1 | Microsoft Azure"
-	description="На первом этапе развертывания бизнес-приложения в Azure создайте виртуальную сеть и другие элементы инфраструктуры Azure."
+	pageTitle="Бизнес-приложение, этап 1 | Microsoft Azure" 
+	description="На первом этапе развертывания бизнес-приложения в Azure создайте виртуальную сеть и другие элементы инфраструктуры Azure." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
-	editor=""/>
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Первый этап развертывания бизнес-приложений: настройка Azure
-
+ 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью модели развертывания, которая использует менеджер ресурсов.
+ 
 На этом этапе развертывания высокодоступного бизнес-приложения в интрасети на базе служб инфраструктуры Azure вы создадите инфраструктуру сети и хранения Azure. Его необходимо выполнить, прежде чем переходить к [этапу 2](virtual-machines-workload-high-availability-LOB-application-phase2.md). Все этапы перечислены в статье [Развертывание высокодоступных бизнес-приложений в Azure](virtual-machines-workload-high-availability-LOB-application-overview.md).
 
 В среде Azure необходимо подготовить такие основные сетевые компоненты:
@@ -137,7 +140,7 @@
 	Switch-AzureMode AzureServiceManagement
 	Test-AzureName -Storage <Proposed storage account name>
 
-Предложенное имя уникально, если в результате выполнения команды Test-AzureName отображается значение **False**. Выбрав уникальные имена для обеих учетных записей, обновите таблицу ST и вернитесь в режим диспетчера ресурсов Azure PowerShell, используя следующую команду.
+Если в результате выполнения команды Test-AzureName отображается значение **False**, предложенное имя является уникальным. Выбрав уникальные имена для обеих учетных записей, обновите таблицу ST и вернитесь в режим диспетчера ресурсов Azure PowerShell, используя следующую команду.
 
 	Switch-AzureMode AzureResourceManager 
 
@@ -196,7 +199,7 @@
 	$vnetConnectionKey="<Table V – Item 8 – Value column>"
 	$vnetConnection=New-AzureVirtualNetworkGatewayConnection -Name $vnetConnectionName -ResourceGroupName $rgName -Location $locName -ConnectionType IPsec -SharedKey $vnetConnectionKey -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localGateway
 
-Настройте локальное VPN-устройство для подключения к VPN-шлюзу Azure. Дополнительные сведения см. в статье [Настройка VPN-устройства](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
+Настройте локальное VPN-устройство для подключения к VPN-шлюзу Azure. Дополнительные сведения см. в разделе [Настройка VPN-устройства](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
 
 Чтобы настроить локальное VPN-устройство, вам потребуются:
 
@@ -248,4 +251,4 @@
 
 [Рабочая нагрузка служб инфраструктуры Azure: ферма SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

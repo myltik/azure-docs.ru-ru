@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Модель приложений версии 2.0 | Microsoft Azure"
+	pageTitle="Модель приложений версии 2.0: веб-приложение .NET | Microsoft Azure"
 	description="Как создать веб-приложение .NET MVC, которое поддерживает вход пользователей в систему с помощью личной, рабочей и учебной учетных записей Майкрософт."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Предварительная версия модели приложений 2.0: реализация входа в веб-приложении .NET MVC
@@ -21,7 +21,7 @@
 Модель приложений версии 2.0 позволяет быстро реализовать проверку подлинности для веб-приложения с поддержкой личных учетных записей Майкрософт, а также рабочих и учебных учетных записей. В веб-приложениях ASP.NET это можно делать с помощью ПО промежуточного уровня OWIN корпорации Microsoft, включенного в .NET Framework 4.5.
 
   >[AZURE.NOTE]
-	Эти сведения относятся к общедоступной предварительной версии модели приложений 2.0. Инструкции по интеграции с общедоступной службой Azure AD см. в статье [Руководство разработчика Azure Active Directory](active-directory-developers-guide.md).
+    Эти сведения относятся к общедоступной предварительной версии модели приложений 2.0. Инструкции по интеграции с общедоступной службой Azure AD см. в статье [Руководство разработчика Azure Active Directory](active-directory-developers-guide.md).
 
  Здесь мы будем использовать OWIN:
 -	1) для входа пользователя в приложение с помощью Azure AD и модели приложений 2.0; 
@@ -55,7 +55,7 @@
     -	`ida:ClientId`— это **идентификатор приложения**, назначенный приложению на портале регистрации.
     -	`ida:RedirectUri`— это **URI перенаправления**, который был введен на портале.
 
--	Затем с помощью консоли диспетчера пакетов добавьте в проект пакеты NuGet ПО промежуточного слоя OWIN.
+-    Затем с помощью консоли диспетчера пакетов добавьте в проект пакеты NuGet ПО промежуточного слоя OWIN.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OpenIdConnect 
@@ -210,4 +210,4 @@ public ActionResult About()
 - [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) 
 - [Тег StackOverflow "azure active directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

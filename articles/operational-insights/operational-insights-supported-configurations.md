@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Поддерживаемые конфигурации для службы оперативной аналитики
@@ -29,13 +29,13 @@
 Чтобы использовать службу оперативной аналитики в качестве подключенной службы, необходимо выполнить следующие необходимые условия.
 
 
-- Для интеграции System Center 2012 SP1 Operations Manager и службы оперативной аналитики требуются обновленные пакеты управления, включенные в [соединитель оперативной аналитики для Operations Manager](https://www.microsoft.com/ru-ru/download/details.aspx?id=38199). Вы можете загрузить и установить пакеты управления со страницы [Соединитель оперативной аналитики для Operations Manager](https://www.microsoft.com/ru-ru/download/details.aspx?id=38199) в Центре загрузки.
+- Для интеграции System Center 2012 SP1 Operations Manager и службы оперативной аналитики требуются обновленные пакеты управления, включенные в [соединитель оперативной аналитики для Operations Manager](https://www.microsoft.com/ru-RU/download/details.aspx?id=38199). Вы можете загрузить и установить пакеты управления со страницы [Соединитель оперативной аналитики для Operations Manager](https://www.microsoft.com/ru-RU/download/details.aspx?id=38199) в Центре загрузки.
 
 - System Center 2012 SP1: накопительный пакет обновления 6 для Operations Manager, хотя более предпочтителен накопительный пакет обновления 7. Это обновление необходимо применить в качестве сценария подключенной службы к серверу управления, агентам и консоли управления службой оперативной аналитики.
 
 - System Center 2012 R2: накопительный пакет обновления 2 для Operations Manager, хотя более предпочтителен накопительный пакет обновления 3. Это обновление необходимо применить в качестве сценария подключенной службы к серверу управления, агентам и консоли управления службой оперативной аналитики.
 
-- Чтобы просмотреть данные управления емкостью, необходимо разрешить подключение Operations Manager к Virtual Machine Manager (VMM). Дополнительную информацию о подключении систем см в статье [Подключение VMM к Operations Manager](https://technet.microsoft.com/ru-ru/library/hh882396.aspx).
+- Чтобы просмотреть данные управления емкостью, необходимо разрешить подключение Operations Manager к Virtual Machine Manager (VMM). Дополнительную информацию о подключении систем см в статье [Подключение VMM к Operations Manager](https://technet.microsoft.com/ru-RU/library/hh882396.aspx).
 
 Инструкции по установке и настройке см. в статье [Просмотр оповещений службы оперативной аналитики](http://go.microsoft.com/fwlink/?LinkID=293793).
 
@@ -48,11 +48,11 @@
 
 ### Необходимое программное обеспечение для Operations Manager
 
-Чтобы просмотреть данные управления емкостью, необходимо разрешить подключение Operations Manager к Virtual Machine Manager. Дополнительную информацию о подключении систем см в статье [Подключение VMM к Operations Manager](https://technet.microsoft.com/ru-ru/library/hh882396.aspx).
+Чтобы просмотреть данные управления емкостью, необходимо разрешить подключение Operations Manager к Virtual Machine Manager. Дополнительную информацию о подключении систем см в статье [Подключение VMM к Operations Manager](https://technet.microsoft.com/ru-RU/library/hh882396.aspx).
 
 ## Агенты подключенные непосредственно к службе оперативной аналитики
 
-Для подключения к службе напрямую используется агент Microsoft Monitoring Agent Его требования к системе перечислены на странице [Центра загрузки Майкрософт](https://www.microsoft.com/ru-ru/download/details.aspx?id=40316&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True).
+Для подключения к службе напрямую используется агент Microsoft Monitoring Agent Его требования к системе перечислены на странице [Центра загрузки Майкрософт](https://www.microsoft.com/ru-RU/download/details.aspx?id=40316&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True).
 
 ## Браузеры
 
@@ -100,4 +100,4 @@
 
 Кроме того, 32-разрядный выпуск SQL Server поддерживается при работе в режиме реализации WOW64.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

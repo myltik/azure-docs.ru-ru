@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="09/10/2015"
 	ms.author="banders"/>
 
 # Безопасность Operational Insights
@@ -107,4 +107,4 @@
 
 Вы можете войти в OMS с помощью учетной записи, настроенной ранее. Весь трафик между OMS и службой OMS передается через защищенный канал HTTPS.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

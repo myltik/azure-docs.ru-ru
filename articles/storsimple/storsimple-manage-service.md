@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Развертывание службы диспетчера StorSimple | Microsoft Azure"
-	description="Сведения о создании и удалении службы диспетчера StorSimple на портале управления, а также об управлении ключом регистрации службы."
-	services="storsimple"
-	documentationCenter=""
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Сведения о создании и удалении службы диспетчера StorSimple на портале управления, а также об управлении ключом регистрации службы."
+   services="storsimple"
+   documentationCenter=""
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="v-sharos" />
 
 # Развертывание службы диспетчера StorSimple
 
@@ -107,10 +107,12 @@
 
 ## Дальнейшие действия
 
-Дополнительные сведения о [процессе развертывания StorSimple](storsimple-deployment-walkthrough.md).
+- Узнайте больше о [процессе развертывания StorSimple](storsimple-deployment-walkthrough.md).
 
-[Узнайте об управлении учетной записью хранения StorSimple](storsimple-manage-storage-accounts.md).
+- Узнайте больше об [управлении учетной записью хранения StorSimple](storsimple-manage-storage-accounts.md).
+
+- Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

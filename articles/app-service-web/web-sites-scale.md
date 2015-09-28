@@ -8,17 +8,19 @@
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Масштабирование веб-приложения в службе приложений Azure #
 
 Чтобы повысить производительность и пропускную способность веб-приложения в Microsoft Azure, на [портале Azure](http://go.microsoft.com/fwlink/?LinkId=529715) режим плана [службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714) **Free** можно изменить на **Shared**, **Basic**, **Standard** или **Premium**.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 Масштабирование веб-приложений Azure предполагает два связанных действия: перевод плана службы приложений на более высокий уровень обслуживания и последующую настройку некоторых параметров. В данной статье рассматриваются оба этих действия. Более высокие уровни обслуживания, например **Standard** и **Premium**, предлагают повышенную надежность и гибкость в определении способов использования ресурсов в Azure.
 
@@ -199,4 +201,4 @@
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

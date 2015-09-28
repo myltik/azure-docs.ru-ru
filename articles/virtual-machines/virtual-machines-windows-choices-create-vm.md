@@ -3,7 +3,7 @@
 	description="Различные способы создания виртуальной машины Windows и ссылки на инструкции."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager,azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.topic="index-page"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="07/15/2015"
-	ms.author="kathydav"/>
+	ms.date="09/15/2015"
+	ms.author="cynthn"/>
 
 # Различные способы создания виртуальной машины Windows
 
@@ -67,8 +67,6 @@
 [Подключение диска с данными][]
 
 ## Дополнительные ресурсы
-[О параметрах конфигурации виртуальной машины Azure][]
-
 [Тестовая среда с базовой конфигурацией][]
 
 [Гибридные облачные тестовые среды Azure][]
@@ -97,10 +95,8 @@
 
 [Подключение диска с данными]: storage-windows-attach-disk.md
 
-[О параметрах конфигурации виртуальной машины Azure]: http://msdn.microsoft.com/library/azure/dn763935.aspx
-
 [Тестовая среда с базовой конфигурацией]: virtual-machines-base-configuration-test-environment.md
 
 [Гибридные облачные тестовые среды Azure]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

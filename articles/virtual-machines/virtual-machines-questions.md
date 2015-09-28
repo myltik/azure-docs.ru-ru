@@ -3,7 +3,7 @@
 	description="В этой статье содержатся ответы на некоторые наиболее распространенные вопросы о виртуальных машинах Azure"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/17/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Часто задаваемые вопросы о виртуальных машинах Azure
 
@@ -148,4 +148,4 @@ Azure взимает почасовую оплату на основе разм�
 
 [Различные способы создания виртуальной машины Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

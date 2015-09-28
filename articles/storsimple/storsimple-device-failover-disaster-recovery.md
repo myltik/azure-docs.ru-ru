@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Отработка отказа и аварийное восстановление для устройства StorSimple | Microsoft Azure"
-	description="Информация о том, как выполнить отработку отказа устройства StorSimple на то же устройство либо другое физическое или виртуальное устройство."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="adinah"
-	editor=""/>
+   description="Информация о том, как выполнить отработку отказа устройства StorSimple на то же устройство либо другое физическое или виртуальное устройство."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/28/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="alkohli" />
 
 # Отработка отказа и аварийное восстановление для устройства StorSimple
 
@@ -129,11 +129,16 @@
 	
 	b. Перейдите на страницу **Контейнеры томов**. Теперь должны отобразиться все контейнеры томов, а также тома со старого устройства.
 
+![Доступно видео](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **Доступно видео**
+
+Чтобы посмотреть видео, показывающее процесс перемещения данных с физического устройства после сбоя на виртуальное устройство в облаке, щелкните [здесь](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/).
+
 ## Аварийное восстановление непрерывности бизнеса (BCDR)
 
 Сценарий аварийного восстановления непрерывности бизнеса (BCDR) реализуется, когда весь центр обработки данных Azure прекращает работу. Это может повлиять на службу диспетчера StorSimple и связанные устройства StorSimple.
 
 Если есть устройства StorSimple, зарегистрированные непосредственно перед сбоем, этим устройствам StorSimple может потребоваться восстановление заводских настроек. После аварии устройство StorSimple будет отображаться как автономное. Устройство StorSimple необходимо удалить из портала и восстановить его заводские настройки, после чего повторить регистрацию.
+
 
 ## Дальнейшие действия
 
@@ -142,7 +147,7 @@
 - [деактивировать устройство StorSimple](storsimple-deactivate-and-delete-device.md#deactivate-a-device);
 - [удалить устройство StorSimple](storsimple-deactivate-and-delete-device.md#delete-a-device);
 
-Сведения об управлении устройством с помощью службы Диспетчера StorSimple см. в разделе [Использование службы Диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+Сведения об управлении устройством с помощью службы диспетчера StorSimple см. в статье [Использование службы StorSimple Manager для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

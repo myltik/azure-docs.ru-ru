@@ -3,7 +3,7 @@
 	description="Узнайте, как создать виртуальную машину Azure под управлением Windows, используя Marketplace на портале предварительной версии Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="08/14/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Создание виртуальной машины под управлением Windows на портале предварительной версии Azure#
 
@@ -107,4 +107,4 @@
 * Использование Azure PowerShell и интерфейса командной строки Azure для [поиска и выбора образов виртуальных машин](resource-groups-vm-searching.md).
 * Автоматизация развертывания виртуальных машин и рабочей нагрузки и управления ими с помощью[диспетчера ресурсов Azure](virtual-machines-how-to-automate-azure-resource-manager.md) и [шаблонов диспетчера ресурсов Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

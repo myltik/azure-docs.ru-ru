@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Управление контроллерами устройства StorSimple | Microsoft Azure"
-	description="Узнайте, как остановить, перезапустить и выключить контроллеры устройства StorSimple или восстановить их заводские настройки."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Узнайте, как остановить, перезапустить и выключить контроллеры устройства StorSimple или восстановить их заводские настройки."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Управление контроллерами устройства StorSimple
 
@@ -220,6 +220,8 @@
 
 ## Дальнейшие действия
 
-Если возникли затруднения с контроллерами устройства StorSimple, которые не удается разрешить с помощью процедур, описанных в этом учебнике, [обратитесь в службу технической поддержки Майкрософт](storsimple-contact-microsoft-support.md).
+- Если возникли затруднения с контроллерами устройства StorSimple, которые не удается разрешить с помощью процедур, описанных в этом учебнике, [обратитесь в службу поддержки Майкрософт](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=September15_HO1-->
+- Больше об управлении устройством с помощью службы диспетчера StorSimple см. в статье [Использование службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

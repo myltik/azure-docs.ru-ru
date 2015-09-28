@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Бизнес-приложение в Azure | Microsoft Azure"
-	description="Определение полезности бизнес-приложения в Azure, настройка тестовой среды и развертывание конфигурации высокого уровня доступности."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	pageTitle="Бизнес-приложение в Azure | Microsoft Azure" 
+	description="Определение полезности бизнес-приложения в Azure, настройка тестовой среды и развертывание конфигурации высокого уровня доступности." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # Службы инфраструктуры Azure: высокодоступное бизнес-приложение
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью модели развертывания, которая использует менеджер ресурсов.
 
 Настройте свое первое или очередное специализированное веб-приложение для интрасети в Microsoft Azure и получите такие преимущества, как простота настройки и возможность быстрого развертывания приложения для увеличения его емкости.
  
@@ -33,7 +35,7 @@
 
 ## Создание бизнес-приложения для разработки и тестирования, размещенного в Azure
 
-Распределенная виртуальная сеть соединена с локальной сетью через подключение VPN или ExpressRoute по принципу «сайт — сайт». Если вы хотите создать среду разработки и тестирования с практически финальной конфигурацией, чтобы поэкспериментировать с подключением к приложению и удаленным администрированием через VPN-подключение, см. статью [Настройка специализированного веб-приложения в гибридном облаке для тестирования](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md).
+Распределенная виртуальная сеть соединена с локальной сетью через подключение VPN или ExpressRoute по принципу «сайт — сайт». Если вы хотите создать среду разработки и тестирования с практически финальной конфигурацией, чтобы поэкспериментировать с подключением к приложению и удаленным администрированием через VPN-подключение, см. статью [Настройка веб бизнес-приложения в гибридном облаке для тестирования](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md).
 
 ![](./media/virtual-machines-workload-high-availability-LOB-application/CreateLOBAppHybridCloud_3.png)
  
@@ -53,7 +55,7 @@
 - конфигурации AlwaysOn для SQL Server с двумя виртуальными машинами под управлением SQL Server и узлом большинства в кластере;
 - доменных служб Active Directory в виртуальной сети с двумя репликами контроллера домена.
 
-Общие сведения о бизнес-приложениях см. в статье [Архитектурный проект бизнес-приложений](http://msdn.microsoft.com/dn630664).
+Общие сведения о бизнес-приложениях см. в разделе [проектов архитектуры для бизнес-приложений](http://msdn.microsoft.com/dn630664).
 
 ### Спецификация
 
@@ -103,4 +105,4 @@
 
 [Рабочая нагрузка служб инфраструктуры Azure: ферма SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

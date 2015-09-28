@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
 	ms.author="josephd"/>
 
 # Ферма серверов SharePoint
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
 
 Благодаря ферме серверов SharePoint портал предварительной версии Microsoft Azure автоматически создает предварительно настроенную ферму SharePoint Server 2013. Это позволяет сэкономить много времени при необходимости использовать базовую или высокодоступную ферму SharePoint в среде разработки и тестирования или в ходе оценки SharePoint Server 2013 в качестве решения для совместной работы в рамках организации.
 
@@ -41,7 +43,7 @@
 
 Чтобы создать ферму SharePoint с помощью шаблона фермы серверов SharePoint, выполните следующее:
 
-1. На [портале предварительной версии Microsoft Azure](https://portal.azure.com/) выберите **New** (Создать) > **Compute** (Вычисления) > **SharePoint Server Farm** (Ферма серверов SharePoint). Если пункта **SharePoint Server Farm** нет, щелкните **Создать** > **Вычисление** > **Marketplace**, введите **SharePoint** в поле **Поиск вычисления** и выберите **SharePoint Server Farm**. На панели **SharePoint Server Farm** нажмите кнопку **Создать**.
+1. На [портале предварительной версии Microsoft Azure](https://portal.azure.com/) выберите **New** (Создать) > **Compute** (Вычисления) > **SharePoint Server Farm** (Ферма серверов SharePoint). Если пункта **SharePoint Server Farm** нет, щелкните **Создать** > **Вычисление** > **Marketplace**, введите **SharePoint** в поле **Поиск Вычисление** и выберите **SharePoint Server Farm**. На панели **SharePoint Server Farm** нажмите кнопку **Создать**.
 2. На панели **Create a SharePoint farm** (Создать ферму SharePoint) введите имя группы ресурсов.
 3. Введите имя пользователя и пароль для локальной учетной записи администрирования на каждой виртуальной машине фермы. Выберите имя и пароль, которые сложно будет угадать, запишите их и сохраните в надежном месте.
 4. Если вам необходима высокодоступная ферма, нажмите **Enable high availability** (Включить высокую доступность).
@@ -62,7 +64,7 @@
 2.	В списке групп ресурсов щелкните имя вашей группы ресурсов фермы SharePoint.
 3.	В панели для вашей группы ресурсов фермы SharePoint щелкните **История развертываний**.
 4.	В панели **История развертываний** щелкните **Microsoft.SharePointFarm**.
-5.	На панели **Microsoft.SharePointFarm** выберите URL-адрес в поле **SHAREPOINTSITEURL** и скопируйте его.
+5.	На панели **Microsoft.SharePointFarm** выделите URL-адрес в поле **SHAREPOINTSITEURL** и скопируйте его.
 6.	Вставьте URL-адрес в строку адреса в Интернет-браузере.
 7.	После появления запроса введите учетные данные для учетной записи пользователя, которые были определены при создании фермы.
 
@@ -72,7 +74,7 @@
 2.	В списке групп ресурсов щелкните имя вашей группы ресурсов фермы SharePoint.
 3.	В панели для вашей группы ресурсов фермы SharePoint щелкните **История развертываний**.
 4.	В панели **История развертываний** щелкните **Microsoft.SharePointFarm**.
-5.	На панели **Microsoft.SharePointFarm** выберите URL-адрес в поле **SHAREPOINTCENTRALADMINURL** и скопируйте его.
+5.	На панели **Microsoft.SharePointFarm** выделите URL-адрес в поле **SHAREPOINTCENTRALADMINURL** и скопируйте его.
 6.	Вставьте URL-адрес в строку адреса в Интернет-браузере.
 7.	После появления запроса введите учетные данные для учетной записи пользователя, которые были определены при создании фермы.
 
@@ -97,4 +99,4 @@
 
 [Фермы SharePoint, размещенные в службах инфраструктуры Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

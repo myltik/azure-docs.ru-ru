@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Поставщик сетевых ресурсов"
-	description="Поставщик сетевых ресурсов"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="adinah"
-	editor="tysonn"/>
+   pageTitle="Общие сведения о поставщике сетевых ресурсов | Microsoft Azure"
+   description="Узнайте о новом поставщике сетевых ресурсов в диспетчере ресурсов Azure"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/23/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/14/2015"
+   ms.author="telmos" />
 
 # Поставщик сетевых ресурсов
 В современных условиях для успеха бизнеса необходима возможность быстрого, гибкого, безопасного и воспроизводимого создания и администрирования крупномасштабных сетевых приложений. Диспетчер ресурсов Azure (ARM) позволяет создавать такие приложения в виде единой коллекции ресурсов в группах ресурсов. Для управления такими ресурсами используются различные поставщики ресурсов в ARM.
@@ -392,4 +392,4 @@ Azure DNS является службой размещения для домен
 
 [Развертывания шаблонов](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

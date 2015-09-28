@@ -10,7 +10,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
@@ -18,6 +18,8 @@
 
 
 # Сведения о конфигурации фермы серверов SharePoint
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
 
 Ферма серверов SharePoint — это компонент портала предварительной версии Azure, автоматически создающий предварительно настроенную ферму SharePoint Server 2013. Существует две следующих конфигурации фермы:
 
@@ -139,4 +141,4 @@
 
 [Настройка фермы SharePoint интрасети в гибридном облаке для тестирования](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

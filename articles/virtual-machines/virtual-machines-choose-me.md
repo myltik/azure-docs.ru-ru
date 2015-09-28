@@ -1,20 +1,22 @@
-<properties 
-	pageTitle="Могут ли виртуальные машины Azure предоставить мне необходимые вычислительные возможности?" 
-	description="Подробнее о вариантах размещения вычислений Azure и о том, как они работают: служба приложений, облачные службы и виртуальные машины" 
+<properties
+	pageTitle="Могут ли виртуальные машины Azure предоставить мне необходимые вычислительные возможности?"
+	description="Подробнее о вариантах размещения вычислений Azure и о том, как они работают: служба приложений, облачные службы и виртуальные машины"
+	headerExpose=""
+	footerExpose=""
 	services="virtual-machines"
-	authors="KBDAzure" 
+	authors="cynthn"
 	documentationCenter=""
 	manager="timlt"
 	tags=azure-resource-manager, azure-service-management/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/19/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/19/2015"
+	ms.author="cynthn"/>
 
 # Следует ли выбрать виртуальные машины Azure?
 
@@ -29,4 +31,4 @@ Azure предоставляет разные модели размещения 
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

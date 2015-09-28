@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # Как использовать клиент .NET для мобильных служб Azure
@@ -276,7 +276,7 @@
 
 ##<a name="#custom-api"></a>Практическое руководство. Вызов настраиваемого интерфейса API
 
-Настраиваемый интерфейс API позволяет определить пользовательские конечные точки, которые предоставляют функциональные возможности сервера, не сопоставляемые с операциями вставки, обновления, удаления или чтения. При использовании настраиваемого интерфейса API вы получаете больше возможностей для управления сообщениями, в том числе для чтения и установки заголовков HTTP-сообщений, а также определения форматов текста сообщений, отличных от JSON. Полный пример, который включает в себя создание пользовательского API в мобильной службе, см. в разделе [Вызов из клиента настраиваемого интерфейса API].
+Настраиваемый интерфейс API позволяет определить пользовательские конечные точки, которые предоставляют функциональные возможности сервера, не сопоставляемые с операциями вставки, обновления, удаления или чтения. При использовании настраиваемого интерфейса API вы получаете больше возможностей для управления сообщениями, в том числе для чтения и установки заголовков HTTP-сообщений, а также определения форматов текста сообщений, отличных от JSON. Пример создания настраиваемого интерфейса API в мобильной службе см. в разделе [Как определить конечную точку настраиваемого интерфейса API](mobile-services-dotnet-backend-define-custom-api.md).
 
 Настраиваемый API можно вызвать путем вызова одной из перегрузок метода [InvokeApiAsync] для клиента. Например, следующая строка кода отправляет запрос POST интерфейсу API **completeAll** в мобильной службе:
 
@@ -472,11 +472,11 @@
 
 В этом случае мобильная служба управляет потоком проверки подлинности OAuth 2.0, отображая страницу входа выбранного поставщика и генерируя маркер проверки подлинности мобильных служб после успешного соединения с поставщиком удостоверений. Метод [LoginAsync] возвращает ответ [MobileServiceUser], в котором содержится как [userId] авторизованного пользователя, так и [MobileServiceAuthenticationToken] в качестве веб-маркера JSON (JWT). Этот маркер можно кэшировать и повторно использовать до истечения срока его действия. Дополнительные сведения см. в разделе [Кэширование маркера проверки подлинности].
 
-> [AZURE.NOTE]**Приложение Магазина Windows.** Если вы используете поставщик входа в учетные записи Майкрософт для проверки подлинности пользователей в приложении Магазина Windows, этот пакет приложения также необходимо зарегистрировать в мобильных службах. При регистрации сведений пакета приложений магазина Windows с помощью мобильных служб клиент сможет повторно использовать учетные данные для входа в учетную запись Майкрософт для осуществления единого входа. Если этого не сделать, пользователям входа учетной записи Майкрософт придется осуществлять вход в систему при каждом вызове метода входа в систему. Чтобы узнать, как зарегистрировать пакет приложения Магазина Windows, изучите документ [Регистрация пакета приложения Магазина Windows для проверки подлинности Майкрософт](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). После регистрации данных пакета в мобильных службах вызовите метод [LoginAsync](http://go.microsoft.com/fwlink/p/?LinkId=311594%20target="_blank"), подставив вместо параметра **useSingleSignOn** значение _true_, чтобы повторно использовать учетные данные.
-
 ###Клиентский поток
 
 Приложение может также независимо связаться с поставщиком удостоверений и указать возвращаемый маркер в мобильные службы для проверки подлинности. Этот клиентский поток позволяет пользователям выполнять единый вход или получать дополнительные данные о пользователе от поставщика удостоверений.
+
+####Однократный вход в систему с помощью маркера Google или Facebook
 
 Упрощенная схема использования клиентского потока показана в этом фрагменте для Google или Facebook.
 
@@ -511,13 +511,60 @@
 		}
 	}
 
-Если используется учетная запись Майкрософт, вход следует выполнить следующим образом:
 
-	// Replace authentication_token_value with actual value of your Microsoft authentication token obtained through the Live SDK
-	user = await client
-		.LoginWithMicrosoftAccountAsync(authentication_token_value);
+####Однократный вход в систему с использованием учетной записи Майкрософт с помощью пакета Live SDK
 
-Более полный пример использования учетной записи Майкрософт для обеспечения единого входа см. в разделе "Проверка подлинности приложения с помощью единого входа" ([Магазин Windows](/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)/[Windows Phone](/develop/mobile/tutorials/single-sign-on-wp8/)).
+Чтобы иметь возможность проверять подлинность пользователей, необходимо зарегистрировать свое приложение в центре разработчиков учетных записей Майкрософт. Затем зарегистрированное приложение необходимо подключить к своей мобильной службе. Выполните действия в разделе [Регистрация приложения для входа с использованием учетной записи Майкрософт](mobile-services-how-to-register-microsoft-authentication.md), чтобы зарегистрировать учетную запись Майкрософт и подключить его к своей мобильной службе. Если у вас есть версии приложения для Магазина Windows и Windows Phone, сначала зарегистрируйте версию для Магазина Windows.
+
+Следующий код выполняет проверку подлинности с помощью пакета Live SDK и использует возвращенный маркер для входа в мобильную службу.
+
+	private LiveConnectSession session;
+ 	//private static string clientId = "<microsoft-account-client-id>";
+    private async System.Threading.Tasks.Task AuthenticateAsync()
+    {
+
+        // Get the URL the mobile service.
+        var serviceUrl = App.MobileService.ApplicationUri.AbsoluteUri;
+
+        // Create the authentication client for Windows Store using the mobile service URL.
+        LiveAuthClient liveIdClient = new LiveAuthClient(serviceUrl);
+        //// Create the authentication client for Windows Phone using the client ID of the registration.
+        //LiveAuthClient liveIdClient = new LiveAuthClient(clientId);
+
+        while (session == null)
+        {
+            // Request the authentication token from the Live authentication service.
+			// The wl.basic scope is requested.
+            LiveLoginResult result = await liveIdClient.LoginAsync(new string[] { "wl.basic" });
+            if (result.Status == LiveConnectSessionStatus.Connected)
+            {
+                session = result.Session;
+
+                // Get information about the logged-in user.
+                LiveConnectClient client = new LiveConnectClient(session);
+                LiveOperationResult meResult = await client.GetAsync("me");
+
+                // Use the Microsoft account auth token to sign in to Mobile Services.
+                MobileServiceUser loginResult = await App.MobileService
+                    .LoginWithMicrosoftAccountAsync(result.Session.AuthenticationToken);
+
+                // Display a personalized sign-in greeting.
+                string title = string.Format("Welcome {0}!", meResult.Result["first_name"]);
+                var message = string.Format("You are now logged in - {0}", loginResult.UserId);
+                var dialog = new MessageDialog(message, title);
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+            }
+            else
+            {
+                session = null;
+                var dialog = new MessageDialog("You must log in.", "Login Required");
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+            }
+        }
+    }
+
 
 ###<a name="caching"></a>Кэширование маркера проверки подлинности
 В некоторых случаях вызова способа входа в систему можно избежать первого выполнения проверки подлинности пользователя. Чтобы кэшировать удостоверение текущего пользователя при первом входе в систему, в приложениях для Магазина Windows можно использовать класс [PasswordVault]. При каждом последующем входе будет проверяться, есть ли в кэше удостоверение пользователя. Если кэш пуст, пользователь будет перенаправлен на страницу входа в систему.
@@ -697,7 +744,7 @@
 [Take]: http://msdn.microsoft.com/library/windowsazure/dn250574.aspx
 [Fiddler]: http://www.telerik.com/fiddler
 [Custom API in Azure Mobile Services Client SDKs]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
-[Вызов из клиента настраиваемого интерфейса API]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
+[Call a custom API from the client]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

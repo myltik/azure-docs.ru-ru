@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/10/2015"
 	ms.author="mmercuri"/>
 
 # Совместное использование состояния в шаблонах диспетчера ресурсов Azure
@@ -32,52 +32,54 @@
 
 В следующем примере показано, как определять переменные, содержащие составные объекты, для представления коллекций данных. Коллекции определяют значения, используемые для размера виртуальной машины, сетевых параметров, параметров операционной системы и параметров доступности.
 
-    "tshirtSizeLarge": {
-      "vmSize": "Standard_A4",
-      "diskSize": 1023,
-      "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-16disk-resources.json')]",
-      "vmCount": 3,
-      "slaveCount": 2,
-      "storage": {
-        "name": "[parameters('storageAccountNamePrefix')]",
-        "count": 2,
-        "pool": "db",
-        "map": [0,1,1],
-        "jumpbox": 0
-      }
-    },
-    "osSettings": {
-      "scripts": [
-        "[concat(variables('templateBaseUrl'), 'install_postgresql.sh')]",
-        "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/ubuntu/vm-disk-utils-0.1.sh"
-      ],
-      "imageReference": {
-				"publisher": "Canonical",
-        "offer": "UbuntuServer",
-        "sku": "14.04.2-LTS",
-        "version": "latest"
-      }
-    },
-    "networkSettings": {
-      "vnetName": "[parameters('virtualNetworkName')]",
-      "addressPrefix": "10.0.0.0/16",
-      "subnets": {
-        "dmz": {
-          "name": "dmz",
-          "prefix": "10.0.0.0/24",
-          "vnet": "[parameters('virtualNetworkName')]"
-        },
-        "data": {
-          "name": "data",
-          "prefix": "10.0.1.0/24",
-          "vnet": "[parameters('virtualNetworkName')]"
+    "variables": {
+      "tshirtSizeLarge": {
+        "vmSize": "Standard_A4",
+        "diskSize": 1023,
+        "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-16disk-resources.json')]",
+        "vmCount": 3,
+        "slaveCount": 2,
+        "storage": {
+          "name": "[parameters('storageAccountNamePrefix')]",
+          "count": 2,
+          "pool": "db",
+          "map": [0,1,1],
+          "jumpbox": 0
         }
+      },
+      "osSettings": {
+        "scripts": [
+          "[concat(variables('templateBaseUrl'), 'install_postgresql.sh')]",
+          "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/ubuntu/vm-disk-utils-0.1.sh"
+        ],
+        "imageReference": {
+	  "publisher": "Canonical",
+          "offer": "UbuntuServer",
+          "sku": "14.04.2-LTS",
+          "version": "latest"
+        }
+      },
+      "networkSettings": {
+        "vnetName": "[parameters('virtualNetworkName')]",
+        "addressPrefix": "10.0.0.0/16",
+        "subnets": {
+          "dmz": {
+            "name": "dmz",
+            "prefix": "10.0.0.0/24",
+            "vnet": "[parameters('virtualNetworkName')]"
+          },
+          "data": {
+            "name": "data",
+            "prefix": "10.0.1.0/24",
+            "vnet": "[parameters('virtualNetworkName')]"
+          }
+        }
+      },
+      "availabilitySetSettings": {
+        "name": "pgsqlAvailabilitySet",
+        "fdCount": 3,
+        "udCount": 5
       }
-    },
-    "availabilitySetSettings": {
-      "name": "pgsqlAvailabilitySet",
-      "fdCount": 3,
-      "udCount": 5
     }
 
 Затем можно ссылаться на эти переменные в шаблоне. Возможность ссылаться на именованные переменные и их свойства упрощает синтаксис шаблона и облегчает понимание контекста. В следующем примере определяется ресурс для развертывания с использованием показанных выше объектов для установки значения. Например, обратите внимание, что размер виртуальной машины задается при получении значения для `variables('tshirtSize').vmSize`, а значение для размера диска получается на основе `variables('tshirtSize').diskSize`. Кроме того, URI для связанного шаблона задается на основе значения для `variables('tshirtSize').vmTemplate`.
@@ -387,4 +389,4 @@ enableJumpbox | Строка из ограниченного списка (enabl
 - [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md)
 - [Функции шаблонов в диспетчере ресурсов Azure](resource-group-template-functions.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

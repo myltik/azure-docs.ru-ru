@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Создание групп томов и управление ими с помощью диспетчера моментальных снимков StorSimple
@@ -140,6 +140,7 @@
 
 ## Дальнейшие действия
 
-[Создание политик архивации и управление ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-backup-policies.md)
+- Узнайте об [использовании диспетчера моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
+- Узнайте о [создании политик архивации и управлении ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

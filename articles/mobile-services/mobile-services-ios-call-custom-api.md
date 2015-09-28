@@ -1,9 +1,10 @@
 <properties
-	pageTitle="Вызов настраиваемого интерфейса API из клиента iOS"
+	pageTitle="Вызов настраиваемого интерфейса API из клиента iOS (серверная часть JavaScript)"
 	description="Узнайте, как определить настраиваемый API и вызывать его из приложения iOS, которое использует мобильные службы Azure."
 	services="mobile-services"
 	documentationCenter="ios"
 	authors="krisragh"
+	writer="krisragh"
 	manager="dwrede"
 	editor=""/>
 
@@ -55,4 +56,4 @@
 [Get started with push notifications]: ../mobile-services-ios-get-started-push.md
 [Хранение серверных сценариев в системе управления версиями]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Настройка и регистрация устройств"
-   description="Описан способ использования Windows PowerShell для StorSimple для настройки и регистрации вашего устройства, на котором выполняется обновление 1."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="alkohli" />
+<!--author=alkohli last changed: 9/17/15-->
 
 
 ### Настройка и регистрация устройства
@@ -83,4 +68,4 @@
      
        
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

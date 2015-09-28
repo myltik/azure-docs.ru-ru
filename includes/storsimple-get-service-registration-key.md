@@ -1,4 +1,4 @@
-
+<!--author=alkohli last changed: 9/17/15-->
 
 #### Получение регистрационного ключа службы StorSimple
 
@@ -18,6 +18,8 @@
 
 > [AZURE.NOTE]Регистрационный ключ службы используется для регистрации всех устройств, которые необходимо зарегистрировать в службе диспетчера StorSimple.
 
- 
+![Доступный видеоролик](./media/storsimple-get-service-registration-key/Video_icon.png) **Доступный видеоролик**
 
-<!---HONumber=August15_HO8-->
+Чтобы просмотреть видеоролик о том, как получить ключ регистрации службы, щелкните [здесь](http://azure.microsoft.com/documentation/videos/get-the-service-registration-key/).
+
+<!---HONumber=Sept15_HO3-->

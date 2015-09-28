@@ -1,24 +1,38 @@
 <properties 
-   pageTitle="Список обновлений для гостевой ОС Azure | Microsoft Azure"
-	description="Список обновлений для выпусков гостевой ОС"
-	services="cloud-services"
-	documentationCenter="na"
-	authors="yuemlu"
-	manager="markkie"
-	editor=""/>
+   pageTitle="Список обновлений для гостевой ОС Azure | Microsoft Azure" 
+   description="Список обновлений для выпусков гостевой ОС" 
+   services="cloud-services" 
+   documentationCenter="na" 
+   authors="yuemlu" 
+   manager="markkie" 
+   editor=""/>
 
 <tags
    ms.service="cloud-services"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="08/24/2015"
-	ms.author="yuemlu"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="tbd" 
+   ms.date="09/14/2015"
+   ms.author="yuemlu"/>
 
 # Гостевая ОС Azure 
 
 В следующей таблице приведены обновления Microsoft Security Response Center (MSRC) для гостевой ОС Azure. Выполните поиск по этой статье, чтобы определить, применяется ли какое-либо конкретное обновление к используемой гостевой ОС. Обновления всегда пролонгируются для того семейства версий [family][family-explain], в котором они были введены.
+
+## Сентябрьская гостевая система
+
+| Идентификатор бюллетеня | Родительская статья базы знаний | Описание уязвимости | Гостевая ОС | Дата первого появления |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-093 | [3088903] | Обновление безопасности для Internet Explorer | 4\.24, 3.31, 2.43 | 8 сентября 2015 г. |
+| MS15-094 | [3089548] | Накопительный пакет обновлений безопасности для Internet Explorer | 4\.24, 3.31, 2.43 | 8 сентября 2015 г. |
+| MS15-096 | [3072595] | Уязвимость в службе Active Directory делает возможным отказ в обслуживании | 4\.24, 3.31, 2.43 | 8 сентября 2015 г. |
+| MS15-097 | [3089656] | Уязвимости в графических компонентах Майкрософт могут привести к несанкционированному повышению привилегий. | 4\.24, 3.31, 2.43 | 8 сентября 2015 г. |
+| MS15-098 | [3089669] | Уязвимости в журнале Windows могут позволить удаленно исполнять код | 4\.24, 3.31, 2.43 | 8 сентября 2015 г. |
+| MS15-101 | [3089662] | Уязвимости в .NET Framework могут привести к несанкционированному повышению привилегий | 4\.24, 3.31, 2.43 | 8 сентября 2015 г. |
+| MS15-102 | [3089657] | Уязвимости в компоненте управления задачами Windows могут привести к несанкционированному повышению привилегий | 4\.24, 3.31, 2.43 | 8 сентября 2015 г. |
+| MS15-105 | [3091287] | Уязвимость в Windows Hyper-V может привести к обходу функции безопасности | 4\.24 | 8 сентября 2015 г. |
+
 
 ## Августовская гостевая ОС
 
@@ -157,6 +171,16 @@
 | Недоступно | [2999802][2999802] | В Windows печатаются сплошные линии вместо пунктирных | 4\.15, 3.22, 2.34 | 13 января 2015 г. |
 | Недоступно | [2896881][2896881] | Долгое время ожидания входа при использовании команды VBScript AddPrinterConnection для сопоставления принтеров и пользователей во время выполнения входа в Windows | 4\.15, 3.22, 2.34 | 13 января 2015 г. |
 
+
+[3088903]: http://support.microsoft.com/kb/3088903
+[3089548]: http://support.microsoft.com/kb/3089548
+[3072595]: http://support.microsoft.com/kb/3072595
+[3089656]: http://support.microsoft.com/kb/3089656
+[3089669]: http://support.microsoft.com/kb/3089669
+[3089657]: http://support.microsoft.com/kb/3089657
+[3091287]: http://support.microsoft.com/kb/3091287
+[3089662]: http://support.microsoft.com/kb/3089662
+
 [3082442]: http://support.microsoft.com/kb/3082442
 [3078662]: http://support.microsoft.com/kb/3078662
 [3080348]: http://support.microsoft.com/kb/3080348
@@ -184,7 +208,7 @@
 
 [MS15-034]: https://technet.microsoft.com/library/security/MS15-034
 
-[3042553]: https://support.microsoft.com/ru-ru/kb/3042553/
+[3042553]: https://support.microsoft.com/ru-RU/kb/3042553/
 
 [3034682]: http://support.microsoft.com/kb/3034682
 [3036220]: http://support.microsoft.com/kb/3036220
@@ -264,4 +288,4 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

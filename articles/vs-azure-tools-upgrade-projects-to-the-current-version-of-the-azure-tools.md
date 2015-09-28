@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Обновление проектов до текущей версии инструментов Azure"
-	description="Сведения об обновлении проекта Azure в Visual Studio до текущей версии инструментов Azure"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="Сведения об обновлении проекта Azure в Visual Studio до текущей версии инструментов Azure"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # Обновление проектов до текущей версии инструментов Azure для Visual Studio
 
-##Обзор
+## Обзор
 
 После установки текущего выпуска инструментов Azure (или предыдущего выпуска, который новее, чем 1.6) все проекты, созданные с помощью инструментов Azure, выпущенных до версии 1.6 (ноябрь 2011 г.), будут автоматически обновлены сразу же после их открытия. Если вы создавали проекты с помощью версии 1.6 (ноябрь 2011 г.) этих инструментов и эта версия у вас по-прежнему установлена, вы можете открывать такие проекты в старой версии и решить позже, следует ли их обновлять.
 
@@ -55,4 +55,4 @@
 
 [История выпусков инструментов Azure](http://go.microsoft.com/fwlink/p/?LinkId=623548)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Начало работы с проверкой подлинности для мобильных приложений в Xamarin iOS"
-	description="Использование мобильных приложений для проверки подлинности пользователей приложения Xamarin iOS с помощью разных поставщиков удостоверений, включая AAD, Google, Facebook, Twitter и Майкрософт."
-	services="app-service\mobile"
-	documentationCenter="xamarin"
-	authors="mattchenderson"
-	manager="dwrede"
+	pageTitle="Начало работы с проверкой подлинности для мобильных приложений в Xamarin iOS" 
+	description="Использование мобильных приложений для проверки подлинности пользователей приложения Xamarin iOS с помощью разных поставщиков удостоверений, включая AAD, Google, Facebook, Twitter и Майкрософт." 
+	services="app-service\mobile" 
+	documentationCenter="xamarin" 
+	authors="mattchenderson" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/27/2015"
+	ms.service="app-service" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/27/2015" 
 	ms.author="mahender"/>
 
 # Добавление проверки подлинности в приложение Xamarin.iOS
@@ -23,6 +23,8 @@
 В этом разделе показано, как выполнить проверку подлинности пользователей мобильного приложения службы приложений из клиентского приложения. В этом учебнике вы добавите проверку подлинности в проект краткого руководства, используя поставщик удостоверений, поддерживаемый службой приложений. После успешной проверки подлинности и авторизации мобильным приложением отображается значение идентификатора пользователя.
 
 Этот учебник создан на основе краткого руководства по мобильным приложениям. Необходимо также сначала пройти учебник[ Создание приложения Xamarin.iOS]. Если вы не используете скачанный проект быстрого запуска сервера, в проект необходимо добавить пакет расширений для аутентификации. Дополнительную информацию о пакетах расширений для сервера см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
 
 ##<a name="create-gateway"></a>Создание шлюза службы приложений
 
@@ -46,14 +48,14 @@
 
 В этом разделе предстоит изменить приложение для отображения экрана входа до отображения данных. При запуске приложение не подключится к службе приложений и не отобразит никаких данных. После первого обновления пользователем появится экран входа; список задач появится после успешного входа.
 
-1. В проекте клиента откройте файл **QSTodoService.cs** и добавьте в QSTodoService следующие операторы using и объявления элементов:
+1. В проекте клиента откройте файл **QSTodoService.cs** и добавьте в QSTodoService оператор using и объявления элементов:
 
 
 		// Logged in user
 		private MobileServiceUser user; 
 		public MobileServiceUser User { get { return user; } }
 
-2. Добавьте оператор `using` для UIKit и новый метод **Authenticate** для **QSTodoService** со следующим определением:
+2. Добавьте оператор `using` для UIKit и новый метод **Authenticate** в **QSTodoService** со следующим определением:
 
 	```
 		using UIKit;
@@ -116,4 +118,4 @@
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

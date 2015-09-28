@@ -7,7 +7,7 @@
 
 		Switch-AzureMode AzureResourceManager
 	
-	Вот результат, ожидаемый для указанной выше команды:
+	Ожидаемые выходные данные:
 
 		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
@@ -17,7 +17,7 @@
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
 
-	Вот результат, ожидаемый для указанной выше команды:
+	Ожидаемые выходные данные:
 	
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -35,7 +35,7 @@
 		New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
 			-AddressPrefix 192.168.0.0/16 -Location centralus	
 		
-	Вот результат, ожидаемый для указанной выше команды:
+	Ожидаемые выходные данные:
 
 		Name              : TestVNet
 		ResourceGroupName : TestRG
@@ -66,7 +66,7 @@
 		Add-AzureVirtualNetworkSubnetConfig -Name FrontEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
 		
-	Вот результат, ожидаемый для указанной выше команды:
+	Ожидаемые выходные данные:
 
 		Name              : TestVNet
 		ResourceGroupName : TestRG
@@ -106,7 +106,7 @@
 
 		Set-AzureVirtualNetwork -VirtualNetwork $vnet	
 		
-	Вот результат, ожидаемый для указанной выше команды:
+	Ожидаемые выходные данные:
 
 		Name              : TestVNet
 		ResourceGroupName : TestRG
@@ -147,4 +147,4 @@
 		                      }
 		                    ]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Что такое диспетчер моментальных снимков StorSimple?
@@ -144,8 +144,8 @@
 
 ## Дальнейшие действия
 
-[Дополнительные сведения о задачах и рабочих процессах диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-admin.md)
+- Узнайте больше об [использовании диспетчера моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
 
-[Скачайте диспетчер моментальных снимков StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
+- Скачайте [диспетчер моментальных снимков StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

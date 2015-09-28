@@ -21,18 +21,18 @@
 
 >[AZURE.NOTE]Структура ценообразования для концентраторов событий описана в разделе [Доступность и поддержка концентраторов событий: часто задаваемые вопросы](event-hubs-availability-and-support-faq.md); дополнительные сведения см. на странице [цен на концентраторы событий](http://azure.microsoft.com/pricing/details/event-hubs/).
 
-- [Как выставляется цена на служебную шину?](#How-do-you-charge-for-Service-Bus?)
-- [Какое использование служебной шины считается передачей данных? А какое не считается?](#What-usage-of-Service-Bus-is-subject-to-data-transfer?-What-is-not?)
-- [Что такое ретранслятор служебной шины?](#What-exactly-is-a-Service-Bus-"relay"?)
-- [Как вычисляется количество часов ретрансляции?](#How-is-the-Relay-Hours-meter-calculated?)
-- [Что делать, если к определенному ретранслятору подключено несколько прослушивателей?](#What-if-I-have-more-than-one-listener-connected-to-a-given-relay?)
-- [Как вычисляется количество сообщений ретрансляторам?](#How-is-the-Messages-meter-calculated-for-relays?)
-- [Взимает ли служебная шина плату за использование хранилища?](#Does-Service-Bus-charge-for-storage?)
-- [Есть ли у служебной шины квоты использования?](#Does-Service-Bus-have-any-usage-quotas?)
+- [Как выставляется цена на служебную шину?](#how-do-you-charge-for-service-bus)
+- [Какое использование служебной шины считается передачей данных? А какое не считается?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
+- [Что такое ретранслятор служебной шины?](#what-exactly-is-a-service-bus-quotrelayquot)
+- [Как вычисляется количество часов ретрансляции?](#how-is-the-relay-hours-meter-calculated)
+- [Что делать, если к определенному ретранслятору подключено несколько прослушивателей?](#what-if-i-have-more-than-one-listener-connected-to-a-given-relay)
+- [Как вычисляется количество сообщений ретрансляторам?](#how-is-the-messages-meter-calculated-for-relays)
+- [Взимает ли служебная шина плату за использование хранилища?](#does-service-bus-charge-for-storage)
+- [Есть ли у служебной шины квоты использования?](#does-service-bus-have-any-usage-quotas)
 
 ## Как выставляется цена на служебную шину?
 
-Дополнительные сведения о ценах на использование служебной шины см. в статье [Цены и выставление счетов при использовании шины обслуживания](https://msdn.microsoft.com/library/dn831889.aspx) и на странице [цен на служебную шину](http://azure.microsoft.com/pricing/details/service-bus/). Помимо указанной платы, также взимается плата за связанные операции передачи данных, исходящих из центра обработки данных, в котором подготавливается ваше приложение. Дополнительные сведения см. в разделе [Какое использование служебной шины считается передачей данных? А какое не считается?](#What-usage-of-Service-Bus-is-subject-to-data-transfer?-What-is-not?) ниже.
+Дополнительные сведения о ценах на использование служебной шины см. в статье [Цены и выставление счетов при использовании шины обслуживания](https://msdn.microsoft.com/library/dn831889.aspx) и на странице [цен на служебную шину](http://azure.microsoft.com/pricing/details/service-bus/). Помимо указанной платы, также взимается плата за связанные операции передачи данных, исходящих из центра обработки данных, в котором подготавливается ваше приложение. Дополнительные сведения см. в разделе [Какое использование служебной шины считается передачей данных? А какое не считается?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) ниже.
 
 ## Какое использование служебной шины считается передачей данных? А какое не считается?
 
@@ -114,4 +114,4 @@
 - [Обзор архитектуры служебной шины Azure](fundamentals-service-bus-hybrid-solutions.md)
 - [Как использовать очереди служебной шины](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

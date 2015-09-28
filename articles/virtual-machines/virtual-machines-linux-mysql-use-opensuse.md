@@ -3,7 +3,7 @@
 	description="Узнайте, как установить MySQL на виртуальной машине в Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Установка MySQL на виртуальной машине под управлением OpenSUSE Linux в Azure
 
@@ -38,4 +38,4 @@
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Создание учетной записи Operational Insights и вход
@@ -40,4 +40,4 @@
 
 - [Установка и настройка рабочей области](operational-insights-setup-workspace.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

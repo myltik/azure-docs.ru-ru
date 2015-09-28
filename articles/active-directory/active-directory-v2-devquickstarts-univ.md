@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Модель приложений 2.0 | Microsoft Azure"
+	pageTitle="Модель приложений версии 2.0: универсальное приложение Windows | Microsoft Azure"
 	description="Как создать универсальное приложение Windows, которое поддерживает вход пользователей в систему с помощью лично, рабочей и учебной учетной записью Майкрософт."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.topic="article"
   ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
   # Предварительная версия модели приложений 2.0: добавление входа в универсальное приложение для Windows
@@ -22,4 +22,4 @@
 
   >[AZURE.NOTE]Эти сведения относятся к общедоступной предварительной версии модели приложений 2.0. Инструкции по интеграции с общедоступной службой Azure AD см. в статье [Руководство разработчика Azure Active Directory](active-directory-developers-guide.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

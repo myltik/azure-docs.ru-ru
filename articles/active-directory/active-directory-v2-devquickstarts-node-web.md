@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Модель приложений версии 2.0 | Microsoft Azure"
+	pageTitle="Модель приложений версии 2.0: веб-приложение Node.js | Microsoft Azure"
 	description="Как создать приложение Node JS, которое поддерживает вход пользователей в систему с помощью лично, рабочей и учебной учетной записью Майкрософт."
 	services="active-directory"
 	documentationCenter="nodejs"
@@ -10,10 +10,10 @@
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
-	ms.tgt_pltfrm="na"
+  ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="09/11/2015"
 	ms.author="brandwe"/>
 
 # Предварительная версия модели приложений 2.0: реализация входа в веб-приложении NodeJS
@@ -67,7 +67,7 @@ The completed application is provided at the end of this tutorial as well.
 - `npm install express-session`
 - `npm install cookie-parser`
 
-- In addition, we've use `passport-azure-ad` for our Preview in the skeleton of the quickstart. 
+- In addition, we've use `passport-azure-ad` for our Preview in the skeleton of the quickstart.
 
 - `npm install passport-azure-ad`
 
@@ -93,8 +93,8 @@ var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 - После этого используйте стратегию, которую мы только что использовали в ссылке, чтобы обрабатывать запросы на вход.
 
 ```JavaScript
-// Use the OIDCStrategy within Passport. (Section 2) 
-// 
+// Use the OIDCStrategy within Passport. (Section 2)
+//
 //   Strategies in passport require a `validate` function, which accept
 //   credentials (in this case, an OpenID identifier), and invoke a callback
 //   with a user object.
@@ -224,7 +224,7 @@ app.get('/auth/openid',
 app.get('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    
+
     res.redirect('/');
   });
 
@@ -237,7 +237,7 @@ app.get('/auth/openid/return',
 app.post('/auth/openid/return',
   passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
   function(req, res) {
-    
+
     res.redirect('/');
   });
 ```
@@ -383,13 +383,13 @@ exports.list = function(req, res){
 	<body>
 		<% if (!user) { %>
 			<p>
-			<a href="/">Home</a> | 
+			<a href="/">Home</a> |
 			<a href="/login">Log In</a>
 			</p>
 		<% } else { %>
 			<p>
-			<a href="/">Home</a> | 
-			<a href="/account">Account</a> | 
+			<a href="/">Home</a> |
+			<a href="/account">Account</a> |
 			<a href="/logout">Log Out</a>
 			</p>
 		<% } %>
@@ -417,4 +417,4 @@ exports.list = function(req, res){
 
 Дополнительные ресурсы: [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) [Тег StackOverflow azure-active-directory >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

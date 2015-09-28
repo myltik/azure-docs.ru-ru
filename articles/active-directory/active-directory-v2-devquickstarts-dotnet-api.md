@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Модель приложений 2.0 | Microsoft Azure"
+	pageTitle="Модель приложений версии 2.0: веб-API .NET | Microsoft Azure"
 	description="Как создать веб-API .NET MVC, принимающий маркеры доступа личных учетных записей Майкрософт, а также рабочих и учебных учетных записей."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # Предварительная версия модели приложений 2.0: защита веб-API MVC
@@ -156,4 +156,4 @@ public IEnumerable<TodoItem> Get()
 
 Дополнительные ресурсы: -[Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) -[Тег StackOverflow "azure active directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

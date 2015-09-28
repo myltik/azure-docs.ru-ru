@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Создание пакетов поддержки StorSimple и управление ими | Microsoft Azure"
-	description="Узнайте, как создавать, расшифровывать и изменять содержимое пакетов поддержки для устройства StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Узнайте, как создавать, расшифровывать и изменять содержимое пакетов поддержки для устройства StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 
 # Создание пакетов поддержки StorSimple и управление ими
@@ -196,6 +196,7 @@
 
 ## Дальнейшие действия
 
-Узнайте, как [использовать пакеты поддержки и журналы устройства для устранения неполадок при развертывании устройства](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+- Узнайте об [использовании пакетов поддержки и журналов устройства для устранения неполадок при его развертывании](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting). 
+- Узнайте об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

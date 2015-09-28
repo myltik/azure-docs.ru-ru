@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Управление ресурсами Базы данных SQL Azure с помощью PowerShell" 
+	pageTitle="Управление базой данных SQL Azure с помощью PowerShell" 
 	description="Управление ресурсами Базы данных SQL с PowerShell" 
 	services="sql-database" 
 	documentationCenter="" 
@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="09/11/2015" 
 	ms.author="vinsonyu"/>
 
-# Управление ресурсами Базы данных SQL Azure с помощью PowerShell
+# Управление базой данных SQL Azure с помощью PowerShell
 
+
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-manage-portal.md)
+- [SSMS](sql-database-manage-azure-ssms.md)
+- [PowerShell](sql-database-command-line-tools.md)
 
 В этой статье представлены команды PowerShell для выполнения различных задач Базы данных SQL Azure с использованием командлетов диспетчера ресурсов Azure.
 
@@ -137,4 +142,4 @@
 - [Командлеты управления службой Базы данных SQL Azure](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

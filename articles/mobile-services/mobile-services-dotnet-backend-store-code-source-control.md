@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Хранение кода проекта в системе управления версиями | Microsoft Azure"
+	pageTitle="Хранение кода проекта серверной части .NET в системе управления версиями | Мобильные службы Azure"
 	description="Узнайте, как сохранить серверный проект .NET в локальном репозитории Git на компьютере и опубликовать его оттуда."
 	services="mobile-services"
 	documentationCenter=""
@@ -10,17 +10,17 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/15/2015"
 	ms.author="glenga"/>
 
-# Хранение кода проекта в системе управления версиями
+# Хранение кода проекта мобильной службы в системе управления версиями
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
-- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
+- [Javascript backend](mobile-services-store-scripts-source-control.md)
 
 В этой статье показано, как использовать систему управления версиями, предоставленную мобильными службами Azure, для хранения проекта серверной службы для .NET. Чтобы опубликовать проект, просто отправьте его из локального репозитория Git в рабочую мобильную службу.
 
@@ -102,4 +102,4 @@
 [Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
 [Изменение модели данных в серверной мобильной службе для .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

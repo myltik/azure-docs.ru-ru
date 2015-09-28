@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Службы инфраструктуры Azure: интрасетевая ферма SharePoint
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
 
 Работа с фермой SharePoint в Microsoft Azure имеет целый ряд преимуществ: простота настройки, возможность быстро увеличить емкость фермы или оптимизировать основные функции. Многие фермы SharePoint перерастают из стандартных высокодоступных трехуровневых конфигураций в фермы с десятком, а то и больше серверов, оптимизированных для повышения производительности или выполнения определенных задач (например, распределенное кэширование или поиск).
 
@@ -108,7 +110,7 @@
 
 	Подготовьте базы данных SharePoint, создайте группу доступности AlwaysOn и добавьте в нее подготовленные базы данных. Подробные сведения см. в статье, посвященной [этапу 5](virtual-machines-workload-intranet-sharepoint-phase5.md).
 
-Сведения о том, как расширить такую ферму SharePoint, можно найти в статье [Архитектуры Microsoft Azure для SharePoint 2013](http://technet.microsoft.com/library/dn635309.aspx).
+Сведения о том, как расширить такую ферму SharePoint, см. в статье [Архитектуры Microsoft Azure для SharePoint 2013](http://technet.microsoft.com/library/dn635309.aspx).
 
 ## Дополнительные ресурсы
 
@@ -126,4 +128,4 @@
 
 [Службы инфраструктуры Azure: высокодоступное бизнес-приложение](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

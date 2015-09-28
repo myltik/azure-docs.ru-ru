@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Заметки о выпуске Application Insights для Windows"
-	description="Последние обновления."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Заметки о выпуске Application Insights для Windows" 
+	description="Последние обновления." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/18/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/18/2015" 
 	ms.author="sergkanz"/>
  
 # Заметки о выпуске для пакета SDK Application Insights для Windows Phone и Магазина Windows
@@ -28,18 +28,35 @@
 * Создайте копию файла ApplicationInsights.config, чтобы сохранить выполненные вами настройки.
 * В обозревателе решений щелкните правой кнопкой мыши свой проект и выберите элемент **Управление пакетами NuGet**.
 * Настройте фильтр, чтобы отображались установленные пакеты. 
-* Выберите установленные пакеты Application Insights и щелкните элемент «Обновить».
+* Выберите установленные пакеты Application Insights и щелкните элемент "Обновить".
 * Сравните старую и новую версии файла ApplicationInsights.config. Снова объедините настройки, выполненные вами в старой версии.
 * Перестройте свое решение.
+
+## Версия 1.2
+
+### Пакет SDK для приложений Windows
+
+- Исправьте исключение FileNotFound, которое препятствовало постоянной отправке данных телеметрии после повторного открытия приложения.
+
+### Базовый пакет SDK
+
+- Первая версия пакета SDK Application Insights доступна на сайте [GitHub](http://github.com/microsoft/ApplicationInsights-dotnet)
+
+## Версия 1.1
+
+### Базовый пакет SDK
+
+- В пакете SDK появился новый тип телеметрии ```DependencyTelemetry```, который содержит данные о вызове зависимости из приложения
+- Новый метод ```TelemetryClient.TrackDependency``` позволяет отправлять данные о вызовах зависимостей из приложения
 
 ## Версия 1.0.0
 
 ### Пакет SDK для приложений Windows
 
-- Обновлена инициализация для приложений Windows. Новый класс `WindowsAppInitializer` с методом `InitializeAsync()` обеспечивает самозагрузку инициализации для коллекции SDK. Это изменение дает более точный контроль и повышает качество инициализации приложений по сравнению с используемым ранее методом ApplicationInsights.config.
+- Обновлена инициализация для приложений Windows. Новый класс `WindowsAppInitializer` с методом `InitializeAsync()` обеспечивает инициализации начальной загрузки коллекции SDK. Это изменение дает более точный контроль и повышает качество инициализации приложений по сравнению с используемым ранее методом ApplicationInsights.config.
 - DeveloperMode больше не устанавливается автоматически. Чтобы изменить поведение DeveloperMode, необходимо прописать его в коде.
 - Пакет NuGet больше не внедряет файл ApplicationInsights.config. При добавлении пакета NuGet вручную рекомендуем использовать новый WindowsAppInitializer.
-- ApplicationInsights.config считывает только `<InstrumentationKey>`; все остальные параметры игнорируются в пользу параметров WindowsAppInitializer.
+- ApplicationInsights.config считывает только `<InstrumentationKey>`; все остальные параметры игнорируются, вместо них используются параметры WindowsAppInitializer.
 - Хранилище рынка собирается пакетом SDK автоматически.
 - Исправлены различные ошибки, повышена стабильность работы и производительность.
 
@@ -69,7 +86,7 @@
 
 ## Версия 0.15
 
-- Новое свойство ```Operation.SyntheticSource``` теперь доступно в ```TelemetryContext```. Теперь можно отметить элементы телеметрии, такие как «трафик нереального пользователя», и указать, как был создан этот трафик. Например, установив это свойство, можно легко отличить трафик автоматизации тестирования от трафика нагрузочного теста.
+- Новое свойство ```Operation.SyntheticSource``` теперь доступно в ```TelemetryContext```. Теперь можно отметить элементы телеметрии, такие как "трафик нереального пользователя", и указать, как был создан этот трафик. Например, установив это свойство, можно легко отличить трафик автоматизации тестирования от трафика нагрузочного теста.
 - Логика канала перемещена в отдельный NuGet, который называется Microsoft.ApplicationInsights.PersistenceChannel. Канал по умолчанию теперь называется InMemoryChannel
 - Новый метод ```TelemetryClient.Flush``` позволяет синхронно очищать элементы телеметрии из буфера
 
@@ -77,4 +94,4 @@
 
 Для более старых версий заметки о выпуске не доступны.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

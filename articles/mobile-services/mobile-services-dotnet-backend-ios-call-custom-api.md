@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Вызов настраиваемого интерфейса API из клиента iOS"
+	pageTitle="Вызов настраиваемого интерфейса API из клиента iOS (серверная часть .NET)"
 	description="Узнайте, как определить настраиваемый API и вызывать его из приложения iOS, которое использует мобильные службы Azure."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -50,4 +50,4 @@
 [Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
 [Store server scripts in source control]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

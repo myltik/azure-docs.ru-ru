@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Просмотр оповещений StorSimple и управление ими | Microsoft Azure"
-	description="Описание условий срабатывания оповещений StorSimple и уровней их серьезности, описание порядка настройки отправки уведомлений об оповещениях, а также того, как использовать службу диспетчера StorSimple для управления оповещениями."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Описание условий срабатывания оповещений StorSimple и уровней их серьезности, описание порядка настройки отправки уведомлений об оповещениях, а также того, как использовать службу диспетчера StorSimple для управления оповещениями."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/01/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos" />
 
 # Использование службы управления StorSimple для просмотра оповещений StorSimple и управления ими
 
@@ -231,6 +231,7 @@
 
 ## Дальнейшие действия
 
-[Узнайте больше об ошибках StorSimple](storsimple-troubleshoot-operational-device.md).
+- Узнайте больше об [ошибках StorSimple](storsimple-troubleshoot-operational-device.md).
+- Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

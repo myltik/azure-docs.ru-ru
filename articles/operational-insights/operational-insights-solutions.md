@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="NA"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="09/10/2015"
 	ms.author="alfran"/>
 
 # Решения в Operational Insights
@@ -129,4 +129,4 @@
 - число дней с момента последнего обновления;
 - версия агента обновления Windows.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

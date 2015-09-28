@@ -1,3 +1,5 @@
+<!--author=SharS last changed: 9/17/15-->
+
 
 #### Создание новой службы
 
@@ -12,10 +14,10 @@
   4. Выберите **Создать новую учетную запись хранения**, чтобы автоматически создать учетную запись хранения одновременно со службой. Эта учетная запись хранения будет иметь специальное имя, например storsimplebwv8c6dcnf.
   5. Щелкните **Создать диспетчер StorSimple**, чтобы создать службу.
 
-       ![создать службу](./media/storsimple-create-new-service-gov/HCS_CreateAService-gov-include.png)
+       ![создайте службу](./media/storsimple-create-new-service-gov/HCS_CreateAService-gov-include.png)
 
      Будет выполнено перенаправление на стартовую страницу **Служба**. Создание службы займет несколько минут. После успешного создания службы будет выведено уведомление и состояние службы сменится на **Активна**.
  
        ![создание службы](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

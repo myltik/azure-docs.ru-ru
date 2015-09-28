@@ -2,23 +2,26 @@
 	pageTitle="Дополнительные настройки и расширения веб-приложений службы приложений Azure"
 	description="Используйте объявления преобразования XML-документов (XDT), чтобы преобразовать файл ApplicationHost.config в веб-приложении службы приложений Azure и добавить частные расширения. Это позволит выполнять дополнительные действия по администрированию."
 	authors="cephalin"
+	writer="cephalin"
 	editor="mollybos"
 	manager="wpickett"
 	services="app-service\web"
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 # Дополнительные настройки и расширения веб-приложений службы приложений Azure
 
 С помощью объявлений [преобразования XML-документов](http://msdn.microsoft.com/library/dd465326.aspx) (XDT) вы можете преобразовать файл [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) в веб-приложении в службе приложений Azure. Объявления XDT можно также использовать для добавления частных расширений, которые обеспечивают пользовательские действия администрирования веб-приложений. Статья содержит пример расширения для веб-приложения диспетчера PHP, позволяющего управлять параметрами PHP через веб-интерфейс.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ##<a id="transform"></a>Дополнительные настройки посредством ApplicationHost.config
 Платформа службы приложений представляет собой гибкое решение для управления настройками веб-приложения. Хотя стандартный файл конфигурации IIS ApplicationHost.config недоступен для непосредственного редактирования в службе приложений, платформа поддерживает декларативную модель преобразования ApplicationHost.config, основанную на преобразовании XML-документа (XDT).
@@ -179,4 +182,4 @@
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

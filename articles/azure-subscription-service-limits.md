@@ -22,9 +22,9 @@
 
 Настоящий документ описывает некоторые из наиболее известных ограничений Microsoft Azure. Учтите, что на текущий момент он охватывает не все службы Azure. Со временам эти ограничения будут расширены.
 
-> [AZURE.NOTE] Если требуется сделать ограничение выше значения **ограничения по умолчанию**, то можно [бесплатно отправить запрос в службу поддержки](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Ограничения не могут быть увеличены выше значения **Максимальное ограничение** в таблицах ниже. Если столбца **Максимальное ограничение** нет, то указанный ресурс не имеет настраиваемого ограничения.
+> [AZURE.NOTE]Если требуется сделать ограничение выше значения **ограничения по умолчанию**, то можно [бесплатно отправить запрос в службу поддержки](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Ограничения не могут быть увеличены выше значения **Максимальное ограничение ** в таблицах ниже. Если столбца **Максимальное ограничение ** нет, то указанный ресурс не имеет настраиваемого ограничения.
 
-### Ограничения и диспетчер ресурсов Azure
+## Ограничения и диспетчер ресурсов Azure
 
 Теперь несколько ресурсов можно объединить в одной группе ресурсов Azure. При использовании групп ресурсов ограничения, которые были глобальными, становятся управляемыми на региональном уровне благодаря диспетчеру ресурсов Azure. Подробнее о группах ресурсов Azure см. в разделе [Использование групп ресурсов для управления ресурсами Azure](resource-group-portal.md).
 
@@ -44,9 +44,11 @@
 - [Azure RemoteApp](#azure-remoteapp-limits)
 - [Архивация](#backup-limits)
 - [Пакетная служба](#batch-limits)
+- [Службы BizTalk](#biztalk-services-limits)
 - [CDN](#cdn-limits)
 - [Облачные службы](#cloud-services-limits)
 - [Фабрика данных](#data-factory-limits)
+- [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
 - [хранилище ключей;](#key-vault-limits)
 - [Службы мультимедиа](#media-services-limits)
@@ -66,6 +68,7 @@
 - [StorSimple System](#storsimple-system-limits)
 - [Анализ потока](#stream-analytics-limits)
 - [Подписка](#subscription-limits)
+- [Диспетчер трафика](#traffic-manager-limits)
 - [Виртуальные машины](#virtual-machines-limits)
 
 
@@ -73,91 +76,96 @@
 #### Ограничения подписки
 [AZURE.INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
-### Ограничения подписки — диспетчер ресурсов Azure
+#### Ограничения подписки — диспетчер ресурсов Azure
 
 При использовании диспетчера ресурсов Azure и групп ресурсов Azure применяются следующие ограничения. Ограничения, которые не были изменены после выпуска диспетчера ресурсов Azure, ниже не перечислены. Их можно просмотреть в предыдущей таблице.
 
 [AZURE.INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
 
-## Ограничения группы ресурсов
+### Ограничения группы ресурсов
 
 [AZURE.INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
 
 
-## Ограничения виртуальных машин
+### Ограничения виртуальных машин
 #### Ограничения виртуальной машины
 [AZURE.INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 
-### Ограничения виртуальных машин — диспетчер ресурсов Azure
+#### Ограничения виртуальных машин — диспетчер ресурсов Azure
 
 При использовании диспетчера ресурсов Azure и групп ресурсов Azure применяются следующие ограничения. Ограничения, которые не были изменены после выпуска диспетчера ресурсов Azure, ниже не перечислены. Их можно просмотреть в предыдущей таблице.
 
 [AZURE.INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
 
-## Ограничения сети
+### Ограничения сети
 #### Ограничения сети
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
-### Ограничения диспетчера трафика
+#### Ограничения диспетчера трафика
 
 [AZURE.INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
 
-### Ограничения DNS
+#### Ограничения DNS
 
 [AZURE.INCLUDE [dns-limits](../includes/dns-limits.md)]
 
-## Ограничения хранилища
+### Ограничения хранилища
 
-### Ограничения стандартного хранилища
+#### Ограничения стандартного хранилища
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-Дополнительную информацию об ограничениях учетных записей хранения см. в статье [Целевые показатели масштабируемости и производительности хранилища Azure](../articles/storage/storage-scalability-targets.md).
+Дополнительные сведения об ограничениях учетных записей хранения см. в статье [Целевые показатели масштабируемости и производительности хранилища Azure](../articles/storage/storage-scalability-targets.md).
 
 
-### Ограничения хранилища Premium
+#### Ограничения хранилища Premium
 
 [AZURE.INCLUDE [azure-storage-limits-premium-storage](../includes/azure-storage-limits-premium-storage.md)]
 
 
-### Ограничения хранилища — диспетчер ресурсов Azure
+#### Ограничения хранилища — диспетчер ресурсов Azure
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
 
-## Ограничения облачных служб
+### Ограничения облачных служб
 
 [AZURE.INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 
-## Ограничения службы приложений
+### Ограничения службы приложений
 Следующие ограничения службы приложения включают ограничения для веб-приложений, мобильных приложений, приложений API и приложений логики.
 
 [AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
-## Ограничения планировщика
+### Ограничения планировщика
 
 [AZURE.INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
-## Ограничения пакета
+### Ограничения пакета
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
+###Ограничения служб BizTalk
+В следующей таблице показаны ограничения для служб BizTalk Azure.
 
-## Ограничения DocumentDB
+[AZURE.INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
+
+
+### Ограничения DocumentDB
 
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
 
-## Ограничения взаимодействия через мобильные устройства
+### Ограничения взаимодействия через мобильные устройства
 
 [AZURE.INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
 
-## Ограничение поиска
+### Ограничение поиска
 
 [AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
 
@@ -167,11 +175,11 @@
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
-## Ограничения CDN
+### Ограничения CDN
 
 [AZURE.INCLUDE [cdn-limits](../includes/cdn-limits.md)]
 
-## Ограничения мобильных служб
+### Ограничения мобильных служб
 
 [AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
@@ -180,42 +188,42 @@
 [AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
 
 
-## Ограничения служебной шины
+### Ограничения служебной шины
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
 
-## Ограничения фабрики данных
+### Ограничения фабрики данных
 
 [AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
 
-## Ограничения Stream Analytics
+### Ограничения Stream Analytics
 
 [AZURE.INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
 
-## Лимиты Active Directory
+### Лимиты Active Directory
 
 [AZURE.INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
 
-## Ограничения Azure RemoteApp
+### Ограничения Azure RemoteApp
 
 [AZURE.INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
-## Ограничения системы StorSimple
+### Ограничения системы StorSimple
 
 [AZURE.INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
 
-## Ограничения Operational Insights
+### Ограничения Operational Insights
 
 [AZURE.INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
 
-## Ограничения резервного копирования
+### Ограничения резервного копирования
 
 [AZURE.INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
-## Ограничения Site Recovery
+### Ограничения Site Recovery
 
 [AZURE.INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
 
@@ -223,24 +231,24 @@
 
 [AZURE.INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
-## Ограничения управления API
+### Ограничения управления API
 
 [AZURE.INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
-## Ограничения кэша Redis для Azure
+### Ограничения кэша Redis для Azure
 
 [AZURE.INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
 
-## Ограничения хранилища ключей
+### Ограничения хранилища ключей
 
 [AZURE.INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
 
-## Multi-Factor Authentication
+### Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
 ### Ограничения базы данных SQL
 
-Сведения об ограничениях базы данных SQL см. в разделе [Ограничения ресурсов базы данных SQL](sql-database/sql-database-resource-limits.md).
+Ограничения базы данных SQL см. в разделе [Ограничения ресурсов базы данных SQL](sql-database/sql-database-resource-limits.md).
 
 ## См. также
 
@@ -248,4 +256,4 @@
 
 [Размеры виртуальных машин и облачных служб для Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

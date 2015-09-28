@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Управление контейнерами томов StorSimple | Microsoft Azure"
-	description="В данной статье рассказывается, как на странице контейнеров томов службы диспетчера StorSimple добавить, изменить или удалить контейнер томов."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="В данной статье рассказывается, как на странице контейнеров томов службы диспетчера StorSimple добавить, изменить или удалить контейнер томов."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/02/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/16/2015"
+   ms.author="v-sharos" />
 
 # Использование службы диспетчера StorSimple для управления контейнерами томов StorSimple
 
@@ -63,7 +63,7 @@
 
 ## Дальнейшие действия
 
-Узнайте больше об [управлении томами StorSimple](storsimple-manage-volumes.md).
- 
+- Узнайте больше об [управлении томами StorSimple](storsimple-manage-volumes.md). 
+- Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

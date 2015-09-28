@@ -5,20 +5,22 @@
 	documentationCenter=""
 	authors="ccompy"
 	manager="stefsch"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/27/2015"
+	ms.date="09/15/2015"
 	ms.author="ccompy"/>
 
 # Создание веб-приложения в среде службы приложений #
 
 Создание веб-приложений в средах службы приложений (ASE) почти идентично обычному процессу. Если вы не знакомы со средой службы приложений, см. статью [Знакомство со средой службы приложений](app-service-app-service-environment-intro.md).
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 Для создания веб-приложения в ASE необходимо сначала создать среду ASE. Сведения о том, как создать такую среду, см. в статье [Создание среды службы приложения](app-service-web-how-to-create-an-app-service-environment.md).
 
@@ -91,4 +93,4 @@
 [HowtoConfigureASE]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -256,4 +256,4 @@ BizTalk Server на виртуальных машинах Azure предоста
 - [Службы BizTalk: имя и ключ издателя](biztalk-issuer-name-issuer-key.md)<br/>
 - [Как приступить к работе с пакетом SDK для служб BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Перенос базы данных в базу данных SQL Azure"
-	description="База данных SQL Microsoft Azure, развертывание базы данных, миграция базы данных, импорт базы данных, экспорт базы данных, мастер миграции"
-	services="sql-database"
-	documentationCenter=""
-	authors="carlrabeler"
-	manager="jeffreyg"
-	editor=""/>
+   description="База данных SQL Microsoft Azure, развертывание базы данных, миграция базы данных, импорт базы данных, экспорт базы данных, мастер миграции"
+   services="sql-database"
+   documentationCenter=""
+   authors="carlrabeler"
+   manager="jeffreyg"
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="09/02/2015"
-	ms.author="carlrab"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management"
+   ms.date="09/02/2015"
+   ms.author="carlrab"/>
 
 # Перенос базы данных в Базу данных SQL Azure
 
@@ -49,7 +49,7 @@ SQL Server Management Studio предоставляет два способа д
 ## Инструменты для миграции
 Используемые для миграции инструменты включают среду SQL Server Management Studio (SSMS) и инструменты Visual Studio для работы с SQL Server (VS, SSDT), а также портал Azure.
 
-> Всегда устанавливайте последние версии клиентских инструментов, так как более ранние несовместимы с Базой данных SQL Azure версии 12.
+> [AZURE.IMPORTANT]Всегда устанавливайте последние версии клиентских инструментов, так как более ранние несовместимы с Базой данных SQL Azure версии 12.
 
 ### SQL Server Management Studio (SSMS);
 Используя среду SSMS, можно развернуть совместимую базу данных непосредственно в Базе данных SQL Azure или экспортировать ее логическую резервную копию в файл BACPAC, а затем импортировать его в новую базу данных SQL Azure.
@@ -72,4 +72,4 @@ SQL Server Management Studio предоставляет два способа д
 | Возможность изменять результат на выходе в случае ошибок не предусмотрена. Исходная схема должна быть совместимой. | Все доступные возможности SSDT для Visual Studio. Схема изменяется в автономном режиме. | Проверка приложений выполняется в Azure. Как правило, она не занимает много времени, так как схема переносится без изменений. | Проверку приложений можно выполнить в SQL Server до развертывания базы данных в Azure. |
 | Простой одно- или двухэтапный процесс с минимальными корректировками. | Более сложный многоэтапный процесс (может быть проще, если требуется развернуть только схему). |
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

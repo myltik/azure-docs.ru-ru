@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Панель мониторинга службы диспетчера StorSimple | Microsoft Azure"
-	description="В статье описывается панель мониторинга службы диспетчера StorSimple и способы ее использования для наблюдения за работоспособностью решения StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="В статье описывается панель мониторинга службы диспетчера StorSimple и способы ее использования для наблюдения за работоспособностью решения StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/17/2015"
+   ms.author="v-sharos" />
 
 # Использование панели мониторинга службы диспетчера StorSimple
 
@@ -74,6 +74,8 @@
 
 ## Дальнейшие действия
 
-[Узнайте, как устранять неполадки устройства StorSimple](storsimple-troubleshoot-operational-device.md).
+- Узнайте, как [устранять неполадки устройства StorSimple](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=September15_HO1-->
+- Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

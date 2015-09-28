@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Восстановление тома StorSimple из резервной копии | Microsoft Azure"
-	description="Описание способов использования страницы каталога резервного копирования службы диспетчера StorSimple для восстановления тома StorSimple из резервного набора данных."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Описание способов использования страницы каталога резервного копирования службы диспетчера StorSimple для восстановления тома StorSimple из резервного набора данных."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/28/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos" />
 
 # Восстановление тома StorSimple из резервного набора данных
 
@@ -74,12 +74,18 @@
 
     ![Страница подтверждения](./media/storsimple-restore-from-backup-set/HCS_ConfirmRestore.png)
 
-7. Проверьте информацию о восстановлении и щелкните значок флажка ![значок с изображением флажка](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png). Запустится задание восстановления, которое можно просмотреть на странице **Задания**.
+7. Проверьте информацию о восстановлении и щелкните значок флажка ![значок галочки](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png). Запустится задание восстановления, которое можно просмотреть на странице **Задания**.
 
 8. После завершения восстановления можно убедиться, что содержимое томов заменено томами из резервной копии.
 
+![Доступно видео](./media/storsimple-restore-from-backup-set/Video_icon.png) **Доступно видео**
+
+Чтобы посмотреть видео о том, как использовать функции клонирования и восстановления в StorSimple для восстановления удаленных файлов, щелкните [здесь](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+
 ## Дальнейшие действия
 
-Узнайте о том, как [управлять томами StorSimple](storsimple-manage-volumes.md).
+- Узнайте об [управлении томами StorSimple](storsimple-manage-volumes.md).
 
-<!---HONumber=September15_HO1-->
+- Узнайте об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

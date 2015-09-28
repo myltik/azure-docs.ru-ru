@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Администрирование с помощью службы диспетчера StorSimple | Microsoft Azure"
-	description="Узнайте, как управлять устройством StorSimple с помощью службы диспетчера StorSimple на портале управления Azure."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Узнайте, как управлять устройством StorSimple с помощью службы диспетчера StorSimple на портале управления Azure."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/11/2015"
+   ms.author="alkohli" />
 
 # Использование службы диспетчера StorSimple для администрирования устройства StorSimple
 
@@ -89,7 +89,7 @@
 |Изменить параметры устройства </br>Изменить параметры времени </br>Изменить параметры DNS.md </br>Настроить сетевые интерфейсы.|Служба диспетчера StorSimple → Устройства → Настройка|[Изменение конфигурации устройства StorSimple](storsimple-modify-device-config.md)|
 |Просмотреть параметры веб-прокси.|Служба диспетчера StorSimple → Устройства → Настройка|[Настройка веб-прокси для устройства](storsimple-configure-web-proxy.md)|
 |Изменить пароль администратора устройства </br>Изменить пароль диспетчера моментальных снимков StorSimple.|Служба диспетчера StorSimple → Устройства → Настройка|[Изменение паролей StorSimple](storsimple-change-passwords.md)|
-|Настройка удаленного управления|Служба диспетчера StorSimple → Устройства → Настройка|[Удаленное подключение к устройству StorSimple](https://msdn.microsoft.com/library/azure/dn772393.aspx)|
+|Настройка удаленного управления|Служба диспетчера StorSimple → Устройства → Настройка|[Удаленное подключение к устройству StorSimple](storsimple-remote-connect.md)|
 |Настроить параметры оповещений.|Служба диспетчера StorSimple → Устройства → Настройка|[Просмотр оповещений StorSimple и управление ими](storsimple-manage-alerts.md)|
 |Настроить CHAP для устройства StorSimple.|Служба диспетчера StorSimple → Устройства → Настройка|[Настройка CHAP для устройства StorSimple](storsimple-configure-chap.md)|
 |Добавить политику резервного копирования </br>Добавить или изменить расписание </br>Удалить политику резервного копирования </br>Выполнить резервное копирование вручную </br>Создать пользовательскую политику резервного копирования с несколькими томами и расписаниями.|Служба диспетчера StorSimple → Устройства → Политики резервного копирования|[Управление политиками резервного копирования](storsimple-manage-backup-policies.md)|
@@ -97,6 +97,10 @@
 |Узнать о компонентах оборудования StorSimple </br>Отслеживать состояние оборудования </br>(перечисленные выше действия доступны только для локальных устройств).|Служба диспетчера StorSimple → Устройства → Обслуживание|[Мониторинг компонентов оборудования](storsimple-monitor-hardware-status.md)|
 |Создать пакет поддержки.|Служба диспетчера StorSimple → Устройства → Обслуживание|[Создание пакетов поддержки и управление ими](storsimple-create-manage-support-package.md)|
 |Установка обновлений программного обеспечения|Служба диспетчера StorSimple → Устройства → Обслуживание|[Обновление устройства](storsimple-update-device.md)|
+
+![Доступно видео](./media/storsimple-manager-service-administration/Video_icon.png) **Доступно видео**
+
+Для просмотра видео с обзором пользовательского интерфейса службы диспетчера StorSimple щелкните [здесь](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ##Дальнейшие действия
 При возникновении проблем с ежедневной работой устройства StorSimple или любого из его аппаратных компонентов см. следующие источники.
@@ -108,4 +112,4 @@
 
 -  [Обращение в службу поддержки Майкрософт](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

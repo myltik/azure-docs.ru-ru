@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Удаленное подключение к устройству StorSimple | Microsoft Azure"
-	description="Объясняется, как настроить устройство для удаленного управления, а затем подключиться к Windows PowerShell для StorSimple по протоколу HTTP или HTTPS."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Объясняется, как настроить устройство для удаленного управления, а затем подключиться к Windows PowerShell для StorSimple по протоколу HTTP или HTTPS."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/28/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Удаленное подключение к устройству StorSimple
 
@@ -268,6 +268,8 @@
 
 ## Дальнейшие действия
 
-[Узнайте подробнее об использовании Windows PowerShell для администрирования устройства StorSimple](storsimple-windows-powershell-administration.md).
+- Узнайте больше об [использовании Windows PowerShell для администрирования устройства StorSimple](storsimple-windows-powershell-administration.md).
 
-<!---HONumber=September15_HO1-->
+- Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

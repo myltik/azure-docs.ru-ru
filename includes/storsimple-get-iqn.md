@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Получение IQN узла Windows
 
@@ -9,4 +10,4 @@
 
 3. Сохраните эту строку.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

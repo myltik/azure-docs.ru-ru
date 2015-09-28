@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # Обновление устройства StorSimple серии 8000
@@ -116,7 +116,7 @@ Windows PowerShell для StorSimple используется, чтобы при
 
 ## Дальнейшие действия
 
-[Узнайте, как использовать Windows PowerShell для StorSimple для администрирования устройства StorSimple](storsimple-windows-powershell-administration.md).
- 
+- Узнайте больше об [ использовании Windows PowerShell для администрирования устройства StorSimple](storsimple-windows-powershell-administration.md).
+- Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

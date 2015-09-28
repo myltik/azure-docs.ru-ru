@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Управление шаблонами пропускной способности StorSimple | Microsoft Azure"
-	description="Управление шаблонами пропускной способности StorSimple, предоставляющее возможность использования пропускной способности элементов управления."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Управление шаблонами пропускной способности StorSimple, предоставляющее возможность использования пропускной способности элементов управления."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Использование службы диспетчера StorSimple для управления шаблонами пропускной способности StorSimple
 
@@ -68,7 +68,7 @@
    3. В раскрывающемся списке выберите **Время начала**. Это время, с которого начнется выполнение расписания.
    4. В раскрывающемся списке выберите **Время окончания**. Это время завершения расписания.
    
-         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
+         > [AZURE.NOTE] Пересечения временных интервалов не допускаются. Если начальное и конечное время таковы, что в расписании появляются пересекающиеся временные интервалы, будет выдано соответствующее сообщение об ошибке.
 
    5. Задайте **Скорость пропускной способности**. Это значение пропускной способности (в Мбит/с), которое используется устройством StorSimple в операциях, включающих облако. Укажите в этом поле число от 1 до 1000.
    
@@ -174,6 +174,7 @@
 
 ## Дальнейшие действия
 
-Дополнительные сведения о [компонентах StorSimple](storsimple-components.md).
+- Узнайте больше о [компонентах StorSimple](storsimple-components.md). 
+- Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

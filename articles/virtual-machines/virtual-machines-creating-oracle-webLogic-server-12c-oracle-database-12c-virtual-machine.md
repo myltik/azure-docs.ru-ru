@@ -1,4 +1,4 @@
-<properties title="Creating an Oracle WebLogic Server 12c and Oracle Database 12c virtual machine in Azure" pageTitle="Создание виртуальной машины Oracle WebLogic Server 12c и Oracle Database 12c в Azure" description="Пошагово создайте пример образа Oracle WebLogic Server 12c и Oracle Database 12c под управлением Windows Server 2012 в Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties pageTitle="Создание виртуальной машины Oracle WebLogic Server 12c и Oracle Database 12c в Azure" description="Пошагово создайте пример образа Oracle WebLogic Server 12c и Oracle Database 12c под управлением Windows Server 2012 в Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 
 #Создание виртуальной машины Oracle WebLogic Server 12c и Oracle Database 12c в Azure
@@ -21,15 +21,15 @@
 
 7.	Выберите **ценовую категорию**. Обратите внимание, что по умолчанию отображаются рекомендуемые ценовые уровни. Чтобы просмотреть все параметры конфигурации, щелкните **Просмотреть все** в правом верхнем углу.
 
-8. При необходимости настройте дополнительные параметры (см. раздел [Параметры конфигурации виртуальной машины Azure](https://msdn.microsoft.com/library/azure/dn763935.aspx). Следуйте указанным далее рекомендациям.
+8. При необходимости установите дополнительные настройки. Следуйте указанным далее рекомендациям.
 
-	а. Оставьте значение **Учетная запись хранения** как есть, чтобы создать новую учетную запись хранения с именем виртуальной машины.
+	а. Не изменяйте запись **Учетная запись хранения**, чтобы создать учетную запись хранения с именем виртуальной машины.
 
 	b. Оставьте в поле **Группа доступности** значение **Не настроено**.
 
 	c. Пока не добавляйте конечные точки.
 
-9.	Выберите или создайте группу ресурсов. Подробные сведения см. в разделе [Управление ресурсами Azure с помощью портала предварительной версии Azure](resource-group-portal.md).
+9.	Выберите или создайте группу ресурсов. Подробные сведения см. в статье [Управление ресурсами Azure с помощью портала предварительной версии Azure](resource-group-portal.md).
 
 10. Выберите **подписку**.
 
@@ -38,10 +38,10 @@
 
 ##Создание базы данных, размещенной на этой виртуальной машине
 
-Следуйте указаниям в разделе [Создание виртуальной машины Oracle Database 12c в Azure](virtual-machines-creating-oracle-database-virtual-machine.md), начиная с подраздела **Создание базы данных с помощью виртуальной машины Oracle Database 12c в Azure**.
+Следуйте указаниям в статье [Создание виртуальной машины Oracle Database 12c в Azure](virtual-machines-creating-oracle-database-virtual-machine.md), начиная с раздела **Создание базы данных с помощью виртуальной машины Oracle Database 12c в Azure**.
 
 ##Настройка Oracle WebLogic Server 12c, размещенного на этой виртуальной машине
-Следуйте указаниям в разделе [Создание виртуальной машины Oracle WebLogic Server 12c в Azure](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md), начиная с подраздела **Настройка виртуальной машины Oracle WebLogic Server 12c в Azure**. Если вы хотите настроить кластер WebLogic Server, также см. раздел [Создание кластера Oracle WebLogic Server 12c в Azure](virtual-machines-creating-oracle-webLogic-server-12c-cluster.md).
+Следуйте указаниям в статье [Создание виртуальной машины Oracle WebLogic Server 12c в Azure](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md), начиная с раздела **Настройка виртуальной машины Oracle WebLogic Server 12c в Azure**. Если вы хотите настроить кластер WebLogic Server, см. также статью [Создание кластера Oracle WebLogic Server 12c в Azure](virtual-machines-creating-oracle-webLogic-server-12c-cluster.md).
 
 ##Дополнительные ресурсы
 [Различные рекомендации по образам виртуальных машин Oracle](miscellaneous-considerations-for-oracle-virtual-machine-images-new-article.md)
@@ -54,4 +54,4 @@
 
 [Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -3,7 +3,7 @@
 	description="Информация о создании виртуальной машины под управлением Windows на портале Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Создание виртуальной машины под управлением Windows на портале Azure
 
@@ -52,8 +52,4 @@
 
 - Подключите диск для хранения данных. Можно присоединять пустые диски и диски с данными. Указания см. в статье [Учебник по подключению диска данных](storage-windows-attach-disk.md).
 
-## Дополнительные ресурсы
-
-Дополнительные сведения о том, что можно настроить для виртуальной машины и когда это можно сделать, см. в статье [О параметрах конфигурации ВМ Azure](http://msdn.microsoft.com/library/azure/dn763935.aspx).
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

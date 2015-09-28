@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="09/10/2015"
    ms.author="banders"/>
 # Анализ данных с серверов в Microsoft Azure
 
@@ -269,4 +269,4 @@ Syslog|События, отправляемые в управляющие про
 
 [Настройка параметров прокси-сервера и брандмауэра (необязательно)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

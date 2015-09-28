@@ -38,6 +38,7 @@
 Сейчас к службам, которые поддерживают перемещение в новую группу ресурсов и подписку, относятся:
 
 - Управление API
+- Azure DocumentDB.
 - поиск Azure;
 - Веб-приложения Azure (действуют [ограничения](app-service-web/app-service-move-resources.md))
 - Фабрика данных
@@ -63,7 +64,7 @@
 
 ## Перемещение ресурсов с помощью PowerShell
 
-Чтобы переместить существующие ресурсы в другую группу ресурсов или подписку, используйте команду **Move-AzureResource**.
+Чтобы переместить существующие ресурсы в другую группу или подписку, используйте команду **Move-AzureResource**.
 
 В первом примере показано, как переместить один ресурс в новую группу ресурсов.
 
@@ -83,7 +84,7 @@
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-Замените **{source-subscription-id}** и **{source-resource-group-name}** подпиской и группой ресурсов, содержащими ресурсы, которые нужно переместить. В качестве {api-version} используйте **2015-01-01**.
+Замените **{source-subscription-id}** и **{source-resource-group-name}** идентификатором подписки и группы, которая сейчас содержит необходимые ресурсы. В качестве {api-version} используйте **2015-01-01**.
 
 В запросе включите объект JSON, который определяет целевую группу ресурсов и ресурсы, которые нужно переместить.
 
@@ -102,4 +103,4 @@
 - [Управление ресурсами с помощью портала Azure](azure-portal/resource-group-portal.md)
 - [Использование тегов для организации ресурсов](./resource-group-using-tags.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

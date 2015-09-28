@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/10/2015" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -41,8 +41,8 @@
 
 
 - [сборки среды CLR](http://msdn.microsoft.com/library/ms189524.aspx);
-- [оконные функции](https://msdn.microsoft.com/library/bb934097.aspx) и поддержка [OVER](http://msdn.microsoft.com/library/ms189461.aspx); 
-- [XML-индексы](https://msdn.microsoft.com/library/bb934097.aspx) и [выборочные XML-индексы](http://msdn.microsoft.com/library/jj670104.aspx);
+- [оконные функции](http://msdn.microsoft.com/library/bb934097.aspx) и поддержка [OVER](http://msdn.microsoft.com/library/ms189461.aspx); 
+- [XML-индексы](http://msdn.microsoft.com/library/bb934097.aspx) и [выборочные XML-индексы](http://msdn.microsoft.com/library/jj670104.aspx);
 - [отслеживание изменений](http://msdn.microsoft.com/library/bb933875.aspx);
 - [SELECT...INTO](http://msdn.microsoft.com/library/ms188029.aspx);
 - [полнотекстовый поиск](http://msdn.microsoft.com/library/ms142571.aspx).
@@ -59,7 +59,19 @@
 
 - Поддержка хранения [индексов columnstore](http://msdn.microsoft.com/library/gg492153.aspx) в памяти.
 - [Секционирование таблиц по строкам](http://msdn.microsoft.com/library/ms187802.aspx) и расширенные возможности инструкции [TRUNCATE TABLE](http://msdn.microsoft.com/library/ms177570.aspx).
-- Доступность динамических административных представлений [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx) и расширенных событий [(XEvents)](https://msdn.microsoft.com/library/bb630282.aspx) для мониторинга и настройки производительности.
+- Доступность динамических административных представлений [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx) для мониторинга и настройки производительности.
+
+
+### Надежная производительность
+
+
+Если клиентская программа подключается к базы данных SQL V12, а клиент работает на виртуальной машине Azure (ВМ), необходимо открыть на ней следующие диапазоны портов:
+
+- 11000–11999;
+- 14000–14999.
+
+
+Щелкните [здесь](sql-database-develop-direct-route-ports-adonet-v12.md), чтобы узнать больше о портах для базы данных SQL V12. Эти порты необходимы для улучшения производительности базы данных SQL V12.
 
 
 ## Улучшенная поддержка поставщиков облачных SaaS-решений
@@ -83,6 +95,8 @@
 - [автономные базы данных](http://msdn.microsoft.com/library/azure/ff394108.aspx);
 - [роли приложений](http://msdn.microsoft.com/library/ms190998.aspx), управляемые с помощью инструкций GRANT, DENY, REVOKE;
 - [прозрачное шифрование данных](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE).
+- [Подключение к базе данных SQL с использованием проверки подлинности Azure Active Directory](sql-database-aad-authentication.md)
+ - База данных SQL теперь поддерживает проверку подлинности Azure Active Directory — это механизм подключения к базе данных SQL с помощью удостоверений в Azure Active Directory (Azure AD). С помощью проверки подлинности Azure Active Directory можно централизованно управлять удостоверениями пользователей базы данных и другими службами Майкрософт.
 
 
 ## Улучшенная непрерывность бизнес-процессов при восстановлении данных
@@ -98,7 +112,7 @@
 | Активная георепликация | • RPO < 5 минут.<br/>• ERT < 1 часа. | • RPO < 5 секунд.<br/>• ERT < 30 секунд. |
 
 
-Дополнительные сведения см. в статье [Обеспечение непрерывности работы базы данных SQL Azure](https://msdn.microsoft.com/library/azure/hh852669.aspx).
+Дополнительные сведения см. в статье [Обеспечение непрерывности работы базы данных SQL Azure](http://msdn.microsoft.com/library/azure/hh852669.aspx).
 
 
 ## Дополнительные причины для обновления
@@ -147,4 +161,4 @@
 
 [Дополнительные условия использования для предварительных версий Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

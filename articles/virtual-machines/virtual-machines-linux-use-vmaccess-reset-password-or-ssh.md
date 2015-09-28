@@ -3,7 +3,7 @@
 	description="Как использовать портал предварительной версии Azure или расширение VMAccess для Linux для сброса паролей и ключей SSH, сброса конфигураций SSH и удаления пользователей Linux."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/28/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Как сбросить пароль или ключ SSH в виртуальных машинах Linux #
 
@@ -263,4 +263,4 @@
 [Расширения и компоненты виртуальных машин Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Подключение к виртуальной машине Azure с помощью RDP или SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

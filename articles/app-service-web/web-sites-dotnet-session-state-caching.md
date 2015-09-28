@@ -3,17 +3,17 @@
 	description="Узнайте, как использовать службу кэша Azure для поддержки кэширования состояний сеансов ASP.NET." 
 	services="app-service\web" 
 	documentationCenter=".net" 
- 	authors="Rick-Anderson" 
+	authors="Rick-Anderson" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="09/16/2015" 
 	ms.author="riande"/>
 
 
@@ -23,6 +23,8 @@
 В этом разделе объясняется, как использовать службу кэша Redis для Azure для состояния сеанса.
 
 Если ваше веб-приложение ASP.NET использует состояние сеанса, вам потребуется настроить поставщик состояния внешнего сеанса (либо службу Redis Cache или поставщик состояния сеанса SQL Server). Если вы используете дату сеанса и не используете внешний поставщик, вы будете ограничены одним экземпляром вашего веб-приложения. Служба Redis Cache самая простая, и включить ее можно очень быстро.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ##<a id="createcache"></a>Создание кэша
 Следуйте [этим инструкциям](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache), чтобы создать кэш.
@@ -107,4 +109,4 @@
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

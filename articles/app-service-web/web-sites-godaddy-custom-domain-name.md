@@ -5,27 +5,26 @@
 	documentationCenter=""
 	authors="erikre"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="09/16/2015"
 	ms.author="erikre"/>
 
 # Настройка личного доменного имени в службе приложений Azure (приобретенного непосредственно у GoDaddy)
 
 [AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
+[AZURE.INCLUDE [общие сведения](../../includes/custom-dns-web-site-intro.md)]
+
+Если вы приобрели домен через веб-приложения службы приложений Azure, см. последний шаг статьи <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Покупка домена для веб-приложений</a>.
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
-
-> [AZURE.NOTE]Если вы приобрели домен через веб-приложения службы приложений Azure, см. последний шаг статьи <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">Покупка домена для веб-приложений</a>.
-
-[AZURE.INCLUDE [общие сведения](../../includes/custom-dns-web-site-intro.md)]
 
 В этой статье вы найдете указания по использованию личного доменного имени, приобретенного у [GoDaddy](https://godaddy.com), с использованием [веб-приложений службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714).
 
@@ -35,7 +34,6 @@
 ##Общие сведения о записях DNS
 
 [AZURE.INCLUDE [understandingdns](../../includes/custom-dns-web-site-understanding-dns-raw.md)]
-
 
 <a name="bkmk_configurecname"></a>
 ## Добавление записи DNS для пользовательского домена
@@ -89,4 +87,4 @@
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

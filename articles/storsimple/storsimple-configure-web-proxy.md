@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Настройка веб-прокси для устройства StorSimple | Microsoft Azure"
-	description="Узнайте, как использовать Windows PowerShell для StorSimple для настройки параметров веб-прокси для устройства StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Узнайте, как использовать Windows PowerShell для StorSimple для настройки параметров веб-прокси для устройства StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # Настройка веб-прокси для устройства StorSimple
 
@@ -146,6 +146,9 @@
 > - Ошибки, связанные с параметрами веб-прокси, не будут отображаться в портале управления в службе диспетчера StorSimple. Если после завершения настройки возникнет проблема с веб-прокси, состояние устройства на портале управления изменится на **Не в сети**.|
 
 ## Дальнейшие действия
-Если возникают проблемы при развертывании устройства или настройке параметров веб-прокси, см. статью [Устранение неполадок в развертывании устройства StorSimple](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=September15_HO1-->
+- Если возникают проблемы при развертывании устройства или настройке параметров веб-прокси, см. статью [Устранение неполадок в развертывании устройства StorSimple](storsimple-troubleshoot-deployment.md).
+
+- Сведения об использовании службы диспетчера StorSimple см. в статье [Использование службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+
+<!---HONumber=Sept15_HO3-->

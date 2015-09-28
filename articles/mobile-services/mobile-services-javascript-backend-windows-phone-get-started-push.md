@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Добавление push-уведомлений в приложение мобильных служб (Магазин Windows) | Microsoft Azure" 
-	description="Узнайте, как использовать мобильные службы и центры уведомлений Azure для отправки push-уведомлений в приложение Магазина Windows." 
+	pageTitle="Добавление push-уведомлений в приложение мобильных служб (Windows Phone) | Microsoft Azure" 
+	description="Узнайте, как использовать мобильные службы и центры уведомлений Azure для отправки push-уведомлений в приложение Windows Phone." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
 
@@ -180,4 +180,4 @@
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

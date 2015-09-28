@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -45,7 +45,7 @@
 
 	![Создать колонку "Фабрика данных"](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT] Имена фабрики данных Azure являются глобально уникальными. Для успешного создания фабрики добавьте свое имя в качестве префикса имени фабрики.
+	> [AZURE.IMPORTANT]Имена фабрики данных Azure являются глобально уникальными. Для успешного создания фабрики добавьте свое имя в качестве префикса имени фабрики. 
 3.	Если вы еще не создали группу ресурсов, сделайте это сейчас. Для этого:
 	1.	Щелкните **ИМЯ ГРУППЫ РЕСУРСОВ**.
 	2.	Выберите команду **Создать группу ресурсов** в колонке **Группа ресурсов**.
@@ -96,7 +96,7 @@
 		    "typeProperties": {
 		      "version": "3.1",
 		      "clusterSize": 1,
-		      "timeToLive": "00:05:00",
+		      "timeToLive": "00:30:00",
 		      "jobsContainer": "adfjobs",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
@@ -157,7 +157,7 @@
 	![Кнопка "Создать конвейер"](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. Вставьте приведенный ниже фрагмент JSON в окно Draft-1.
 
-	> [AZURE.IMPORTANT] Замените в нем **storageaccountname** на имя вашей учетной записи хранения.
+	> [AZURE.IMPORTANT]Замените в нем **storageaccountname** на имя вашей учетной записи хранения.
 
 		{
 		  "name": "MyFirstPipeline",
@@ -218,10 +218,10 @@
 8. В представлении диаграммы дважды щелкните набор данных **AzureBlobOutput**. Вы увидите срез, который обрабатывается в данный момент.
 
 	![Выборка](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. По завершении обработки срез перейдет в состояние **Ready** (готово). Обратите внимание, что создание кластера HDInsight по требованию, как правило, занимает некоторое время. 
+9. По завершении обработки срез перейдет в состояние **Ready** (Готово). Обратите внимание, что создание кластера HDInsight по требованию, как правило, занимает некоторое время. 
 
 	![Выборка](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)	
-10. Когда срез будет в состоянии **Ready** (готово), проверьте выходные данные в папке **partitioneddata** контейнера **data** в хранилище BLOB-объектов.  
+10. Когда срез будет в состоянии **Ready** (Готово), проверьте выходные данные в папке **partitioneddata** контейнера **data** в хранилище BLOB-объектов.  
  
 
  
@@ -231,6 +231,6 @@
   
 
 ## Отправить отзыв
-Мы будем весьма признательны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md).
+Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Подключение к локальному SQL Server из мобильной службы Azure с использованием гибридных подключений — мобильные службы Azure" 
-	description="Узнайте, как подключиться к локальному SQL Server из мобильной службы Azure с помощью гибридных подключений" 
+	pageTitle="Подключение к локальному SQL Server из серверной мобильной службы .NET с использованием гибридных подключений | Мобильные службы Azure" 
+	description="Узнайте, как подключиться к локальному SQL Server из серверной мобильной службы .NET с помощью гибридных подключений Azure" 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/15/2015" 
 	ms.author="glenga"/>
 
   
@@ -134,4 +134,4 @@
 [портале управления Azure]: http://manage.windowsazure.com
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -6,15 +6,15 @@
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="NA"
 	ms.workload="search"
-	ms.topic="article"
+	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="08/19/2015"
+	ms.date="09/16/2015"
 	ms.author="heidist"/>
 
 #Службы поиска Azure: учебники, видео, демоверсии и примеры
@@ -23,7 +23,7 @@
 
 ##Сайты с демоверсиями
 
-[**Демоверсия портала поиска работы в г. Нью-Йорк с использованием службы поиска Azure**](http://aka.ms/azjobsdemo) — это веб-сайт ASP.NET иллюстрирующий возможности службы поиска Azure на основе данных, полученных в рамках инициативы по открытым данным г. Нью-Йорк.
+[**Демоверсия портала поиска работы в г. Нью-Йорк с использованием службы поиска Azure**](http://aka.ms/azjobsdemo) — это работающий веб-сайт ASP.NET, иллюстрирующий возможности службы поиска Azure на основе данных, полученных в рамках инициативы по открытым данным г. Нью-Йорк.
 
 [**Попробуйте службу приложений + Поиск Azure**](search-tryappservice.md) — это бесплатный часовой сеанс работы со службой поиска Azure, предоставляющий необходимые данные, рабочее веб-приложение и исходный код, который можно изменять в режиме онлайн для тестирования возможностей поиска.
 
@@ -64,7 +64,16 @@
 
 ##Примеры кода
 
-[****https://github.com/AzureSearch**](https://github.com/AzureSearch) — это репозиторий GitHub для Поиска Azure, содержащий примеры кода от команды разработчиков службы поиска Azure. Вы можете перейти в репозиторий, чтобы ознакомиться со всем содержимым. Или же можно воспользоваться ссылками ниже, чтобы сразу перейти к конкретным примерам.
+[****https://github.com/liamca/AzureSearchDemos**](https://github.com/liamca/AzureSearchDemos) — это репозиторий GitHub, который содержит примеры кода, созданные Лиэмом Кавана (Liam Cavanagh). В этом репозитории можно найти следующие примеры:
+
+- [AdventureWorksWP8]() — это приложение для Windows Phone.
+- [AzSearchAutoScaleWeb](https://github.com/liamca/AzureSearchDemos/tree/master/AzSearchAutoScaleWeb) 
+- [BabyNameJS](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS) — это файл index.html, который предоставляет данные в учебнике.
+- [DotNetSample](https://github.com/liamca/AzureSearchDemos/tree/master/DotNetSample) представляет собой приложение ASP.NET MVC для службы поиска Azure.
+- [NYCJobs.NET](https://github.com/liamca/AzureSearchDemos/tree/master/NYCJobs.NET) содержит исходный код для демонстрационного сайта NYCJobs.
+- [Recommendations](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations) использует фабрику активных данных, базу данных SQL, хранилище BLOB-объектов и HDInsight для реализации рекомендаций продуктов, основанных на частоте совместной покупки продуктов.
+
+[****https://github.com/AzureSearch**](https://github.com/AzureSearch) — это еще один репозиторий GitHub для Поиска Azure, содержащий примеры кода от команды разработчиков службы поиска Azure. Вы можете перейти в репозиторий, чтобы ознакомиться со всем содержимым. Или же можно воспользоваться ссылками ниже, чтобы сразу перейти к конкретным примерам.
 
 - [**JavaIndexerDemo**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)
 - [**NodeJSIndexerDemo**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)
@@ -81,4 +90,4 @@
 - [**Пример синхронизации SQL Server со службой "Поиск Azure"**](http://sqlserver2azuresearch.codeplex.com/) представляет собой консольное приложение Windows, которое загружает набор строк SQL Server из внедренной локальной базы данных.
 - [**Демоверсия профилей оценки**](https://azuresearchscoringprofiles.codeplex.com/) представляет собой консольное приложение Windows, которое определяет, выполняет и обновляет профиль оценки для настройки результатов поиска.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

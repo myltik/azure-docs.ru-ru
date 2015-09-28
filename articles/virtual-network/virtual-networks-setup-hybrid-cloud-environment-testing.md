@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Тестовая среда гибридного облака | Microsoft Azure"
-	description="Узнайте, как создать гибридную облачную среду для ИТ-специалистов или тестирования разработки, дополненной упрощенной локальной сетью."
-	services="virtual-network"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	pageTitle="Тестовая среда гибридного облака | Microsoft Azure" 
+	description="Узнайте, как создать гибридную облачную среду для ИТ-специалистов или тестирования разработки, дополненной упрощенной локальной сетью." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/10/2015" 
 	ms.author="josephd"/>
 
 # Создание гибридной облачной среды для тестирования
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
 
 В этом разделе описываются шаги по созданию гибридной облачной среды с помощью Microsoft Azure для тестирования. Это конфигурация, которая получается в результате.
 
@@ -40,7 +42,7 @@
 1.	Настройка компьютеров в подсети Corpnet.
 2.	Настройка RRAS1.
 3.	Создание виртуальной сети Azure между организациями.
-4.	Создание VPN-подключения «сайт-сайт».
+4.	Создание VPN-подключения "сайт-сайт".
 5.	Настройка DC2. 
 
 Если у вас еще нет подписки Azure, вы можете зарегистрироваться для получения бесплатной пробной версии на веб-сайте [Try Azure](http://azure.microsoft.com/pricing/free-trial/). При наличии подписки MSDN см. [Преимущества Azure для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
@@ -51,14 +53,14 @@
 
 ## Этап 1. Настройка компьютеров в подсети Corpnet.
 
-Воспользуйтесь инструкциями из раздела «Этапы настройки подсети Corpnet» [руководства по практической работе «Базовая конфигурация Windows Server 2012 R2»](http://www.microsoft.com/download/details.aspx?id=39638) для настройки компьютеров DC1, APP1 и CLIENT1 в подсети с именем Corpnet. **Эта подсеть должна быть изолирована от сети организации, поскольку она будет подключена прямо к Интернету через компьютер RRAS1.**
+Воспользуйтесь инструкциями из раздела "Этапы настройки подсети Corpnet" [руководства по практической работе "Базовая конфигурация Windows Server 2012 R2"](http://www.microsoft.com/download/details.aspx?id=39638) для настройки компьютеров DC1, APP1 и CLIENT1 в подсети с именем Corpnet. **Эта подсеть должна быть изолирована от сети организации, поскольку она будет подключена прямо к Интернету через компьютер RRAS1.**
 
 Далее войдите в DC1 с учетными данными CORP\\User1. Для настройки домена CORP таким образом, чтобы компьютеры и пользователи использовали свой локальный контроллер домена для проверки подлинности, выполните следующие команды из командной строки Windows PowerShell с правами администратора.
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
-	New-ADReplicationSubnet –Name "10.0.0.0/8" –Site "TestLab"
-	New-ADReplicationSubnet –Name "192.168.0.0/16" –Site "TestVNET
+	New-ADReplicationSubnet “Name "10.0.0.0/8" “Site "TestLab"
+	New-ADReplicationSubnet “Name "192.168.0.0/16" “Site "TestVNET
 
 Это текущая конфигурация.
 
@@ -85,15 +87,15 @@ RRAS1 обеспечивает маршрутизацию трафика и сл
 	$publicIPpreflength=<Prefix length of your public IP address>
 	[IPAddress]$publicDG="<Your ISP default gateway>"
 	[IPAddress]$publicDNS="<Your ISP DNS server(s)>"
-	Rename-NetAdapter –Name $corpnetAdapterName –NewName Corpnet
-	Rename-NetAdapter –Name $internetAdapterName –NewName Internet
-	New-NetIPAddress -InterfaceAlias "Internet" -IPAddress $publicIP -PrefixLength $publicIPpreflength –DefaultGateway $publicDG
+	Rename-NetAdapter -Name $corpnetAdapterName -NewName Corpnet
+	Rename-NetAdapter -Name $internetAdapterName -NewName Internet
+	New-NetIPAddress -InterfaceAlias "Internet" -IPAddress $publicIP -PrefixLength $publicIPpreflength “DefaultGateway $publicDG
 	Set-DnsClientServerAddress -InterfaceAlias Internet -ServerAddresses $publicDNS
 	New-NetIPAddress -InterfaceAlias "Corpnet" -IPAddress 10.0.0.2 -AddressFamily IPv4 -PrefixLength 24
 	Set-DnsClientServerAddress -InterfaceAlias "Corpnet" -ServerAddresses 10.0.0.1
 	Set-DnsClient -InterfaceAlias "Corpnet" -ConnectionSpecificSuffix corp.contoso.com
-	New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
-	New-NetFirewallRule –DisplayName “Allow ICMPv4-Out” –Protocol ICMPv4 –Direction Outbound
+	New-NetFirewallRule -DisplayName "Allow ICMPv4-Input" -Protocol ICMPv4
+	New-NetFirewallRule -DisplayName "Allow ICMPv4-Output" -Protocol ICMPv4 -Direction Outbound
 	Disable-NetAdapterBinding -Name "Internet" -ComponentID ms_msclient
 	Disable-NetAdapterBinding -Name "Internet" -ComponentID ms_server
 	ping dc1.corp.contoso.com
@@ -109,18 +111,18 @@ RRAS1 обеспечивает маршрутизацию трафика и сл
 Сначала войдите на [портал управления Azure](https://manage.windowsazure.com/) с учетными данными своей подписки Azure и создайте виртуальную сеть под названием TestVNET.
 
 1.	На портале управления Azure на панели задач последовательно выберите **Создать > Сетевые службы > Виртуальная сеть > Настраиваемое создание**.
-2.	На странице «Сведения о виртуальной сети» введите **TestVNET** в поле **Имя**.
+2.	На странице "Сведения о виртуальной сети" введите **TestVNET** в поле **Имя**.
 3.	В разделе **Расположение** выберите подходящий центр обработки данных для своего региона.
 4.	Нажмите стрелку Далее.
-5.	На странице «DNS-серверы и подключение VPN» в разделе **DNS-серверы** введите **DC1** в поле **Выбрать или ввести имя**, введите **10.0.0.1** в поле **IP-адрес**, а затем выберите **Настроить VPN типа «сеть-сеть»**.
+5.	На странице "DNS-серверы и подключение VPN" в разделе **DNS-серверы** введите **DC1** в поле **Выбрать или ввести имя**, введите **10.0.0.1** в поле **IP-адрес**, а затем выберите **Настроить VPN типа "сеть-сеть"**.
 6.	В разделе **Локальная сеть** выберите **Указать новую локальную сеть**. 
 7.	Нажмите стрелку Далее.
-8.	На странице «Подключение сайт-сайт»:
+8.	На странице "Подключение сайт-сайт":
 	- В поле **Имя** введите **Corpnet**. 
 	- В поле **IP-адрес устройства VPN** введите общедоступный IP-адрес, назначенный веб-интерфейсу RRAS1.
 	- В поле **Адресное пространство** в столбце **Начальный IP-адрес** введите **10.0.0.0**. В поле **CIDR (количество адресов)** выберите **/8**, а затем щелкните **Добавить адресное пространство**.
 9.	Нажмите стрелку Далее.
-10.	На странице « Адресные пространства виртуальной сети»:
+10.	На странице "Адресные пространства виртуальной сети":
 	- В поле **Адресное пространство** в столбце **Начальный IP-адрес** выберите **192.168.0.0**.
 	- В разделе **Подсети** щелкните **Subnet-1** и замените имя на **TestSubnet**. 
 	- В столбце **CIDR (количество адресов)** для сети TestSubnet выберите **/24 (256)**.
@@ -129,13 +131,13 @@ RRAS1 обеспечивает маршрутизацию трафика и сл
 
 Затем установите Azure PowerShell на локальном компьютере с помощью инструкций из статьи [Установка и настройка Azure PowerShell](../install-configure-powershell.md).
 
-После этого создайте новую облачную службу для виртуальной сети TestVNET. Необходимо выбрать уникальное имя. Например, службу можно назвать TestVNET-*UniqueSequence*, где *UniqueSequence* — это сокращенное название вашей организации. К примеру, если ваша организация называется Tailspin Toys, облачную службу можно назвать TestVNET-Tailspin.
+После этого создайте новую облачную службу для виртуальной сети TestVNET. Необходимо выбрать уникальное имя. Например, службу можно назвать TestVNET-*уникальная\_последовательность*, где *уникальная\_последовательность* — это сокращенное название вашей организации. К примеру, если ваша организация называется Tailspin Toys, облачную службу можно назвать TestVNET-Tailspin.
 
 Уникальность имени можно проверить, выполнив эту команду Azure PowerShell на локальном компьютере.
 
 	Test-AzureName -Service <Proposed cloud service name>
 
-Если команда возвращает значение «False»,имя является уникальным. Создайте облачную службу с помощью этой команды.
+Если команда возвращает значение False,имя является уникальным. Создайте облачную службу с помощью этой команды.
 
 	New-AzureService -Service <Unique cloud service name> -Location "<Same location name as your virtual network>"
 
@@ -143,7 +145,7 @@ RRAS1 обеспечивает маршрутизацию трафика и сл
 
 	Test-AzureName -Storage <Proposed storage account name>
 
-Если команда возвращает значение «False»,имя является уникальным. Создайте и настройте учетную запись хранения с помощью этих команд.
+Если команда возвращает значение False,имя является уникальным. Создайте и настройте учетную запись хранения с помощью этих команд.
 
 	New-AzureStorageAccount -StorageAccountName <Unique storage account name> -Location "<Same location name as your virtual network>"
 	Set-AzureStorageAccount -StorageAccountName <Unique storage account name>
@@ -153,7 +155,7 @@ RRAS1 обеспечивает маршрутизацию трафика и сл
 ![](./media/virtual-networks-setup-hybrid-cloud-environment-testing/CreateHybridCloudVNet_3.png)
 
  
-## Этап 4. Создание VPN-подключения типа «сеть-сеть»
+## Этап 4. Создание VPN-подключения типа "сеть-сеть"
 
 Сначала необходимо создать шлюз виртуальной сети.
 
@@ -197,14 +199,14 @@ RRAS1 обеспечивает маршрутизацию трафика и сл
  
 На компьютере DC1 выполните следующие команды в командной строке Windows PowerShell с правами администратора.
 
-	New-NetRoute –DestinationPrefix "0.0.0.0/0" –InterfaceAlias "Ethernet" –NextHop 10.0.0.2
-	Set-DhcpServerv4OptionValue –Router 10.0.0.2
+	New-NetRoute -DestinationPrefix "0.0.0.0/0" -InterfaceAlias "Ethernet" -NextHop 10.0.0.2
+	Set-DhcpServerv4OptionValue -Router 10.0.0.2
 
 Если имя интерфейса не Ethernet, используйте команду **Get-NetAdapter**, чтобы определить имя интерфейса.
 
 На компьютере APP1 выполните следующую команду в командной строке Windows PowerShell с правами администратора.
 
-	New-NetRoute –DestinationPrefix "0.0.0.0/0" –InterfaceAlias "Ethernet" –NextHop 10.0.0.2
+	New-NetRoute -DestinationPrefix "0.0.0.0/0" -InterfaceAlias "Ethernet" -NextHop 10.0.0.2
 
 На компьютере CLIENT1 выполните следующую команду в командной строке Windows PowerShell с правами администратора.
 
@@ -223,13 +225,13 @@ RRAS1 обеспечивает маршрутизацию трафика и сл
 	$ServiceName="<Your cloud service name from Phase 3>"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
-	$cred=Get-Credential –Message "Type the name and password of the local administrator account for DC2."
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for DC2."
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password 
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW	
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.0.4
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles -LUN 0 -HostCaching None
+	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 
 Далее выполните вход в новую виртуальную машину DC2.
@@ -237,11 +239,11 @@ RRAS1 обеспечивает маршрутизацию трафика и сл
 1.	На левой панели портала управления Azure щелкните **Виртуальные машины**, а затем выберите **Работающие** в столбце **Состояние** для DC2.
 2.	На панели задач щелкните **Подключиться**. 
 3.	Когда будет предложено открыть файл DC2.rdp, щелкните **Открыть**.
-4.	При появлении запроса в окне сообщений «Подключение к удаленному рабочему столу» щелкните **Подключиться**.
+4.	При появлении запроса в окне сообщений "Подключение к удаленному рабочему столу" щелкните **Подключиться**.
 5.	При появлении запроса используйте следующие учетные данные:
-	- Имя: **DC2**[имя учетной записи локального администратора]
+	- Имя: **DC2\**[имя учетной записи локального администратора]
 	- Пароль: [пароль учетной записи локального администратора]
-6.	После появления запроса, ссылающегося на сертификаты, в окне сообщений «Подключение к удаленному рабочему столу» щелкните **Да**.
+6.	После появления запроса, ссылающегося на сертификаты, в окне сообщений "Подключение к удаленному рабочему столу" щелкните **Да**.
 
 Далее настройте правила брандмауэра Windows, чтобы разрешить трафик для тестирования базовых параметров подключения. Из командной строки Windows PowerShell с правами администратора на DC2 выполните следующие команды.
 
@@ -255,12 +257,12 @@ RRAS1 обеспечивает маршрутизацию трафика и сл
 1.	В левой области диспетчера серверов щелкните **Файловые службы и службы хранилища**, а затем щелкните **Диски**.
 2.	В области содержимого в группе **Диски** щелкните **диск 2** (при этом для параметра **Раздел** должно быть задано значение **Неизвестный**).
 3.	Щелкните **Задачи**, а затем **Новый том**.
-4.	На странице «Перед началом работы» мастера создания томов щелкните **Далее**.
-5.	На странице «Выбор сервера и диска» щелкните **Диск 2**, а затем щелкните **Далее**. При появлении запроса нажмите кнопку **OK**.
-6.	На странице «Выбор размера тома» щелкните **Далее**.
-7.	На странице «Назначение букве диска или папке» щелкните **Далее**.
-8.	На странице «Выбор параметров файловой системы» щелкните **Далее**.
-9.	На странице «Подтверждение выбора» щелкните **Создать**.
+4.	На странице "Перед началом работы" мастера создания томов щелкните **Далее**.
+5.	На странице "Выбор сервера и диска" щелкните **Диск 2**, а затем щелкните **Далее**. При появлении запроса нажмите кнопку **OK**.
+6.	На странице "Выбор размера тома" щелкните **Далее**.
+7.	На странице "Назначение букве диска или папке" щелкните **Далее**.
+8.	На странице "Выбор параметров файловой системы" щелкните **Далее**.
+9.	На странице "Подтверждение выбора" щелкните **Создать**.
 10.	После завершения нажмите кнопку **Закрыть**.
 
 Затем настройте DC2 в качестве реплики контроллера домена для домена corp.contoso.com. Выполните следующие команды из командной строки Windows PowerShell на DC2.
@@ -326,4 +328,4 @@ RRAS1 обеспечивает маршрутизацию трафика и сл
 После этого перейдите на портал управления Azure на локальном компьютере и дождитесь, пока виртуальная сеть TestVNET не покажет подключенное состояние.
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -2,24 +2,27 @@
 	pageTitle="Служба приложений Azure и ее влияние на существующие службы Azure" 
 	description="В этом разделе объясняется, как новая служба приложений Azure и ее функциональные возможности влияют на существующие службы в Azure." 
 	authors="yochayk" 
+	writer="yochayk" 
 	editor="yochayk" 
 	manager="nirma" 
 	services="app-service\web" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="09/15/2015" 
 	ms.author="yochayk"/>
 
 
 # Служба приложений Azure и существующие службы Azure
 
 В этой статье описаны изменения в существующих службах Azure, возникающие в процессе объединения нескольких служб Azure в [службу приложений Azure](http://azure.microsoft.com/services/app-service/), представляющую собой новое интегрированное решение.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Обзор 
 
@@ -46,7 +49,7 @@
 <tr class="odd">
 <td align="left">Веб-сайты Azure</td>
 <td align="left">Веб-приложения</td>
-<td align="left"><li>Для веб-сайтов Azure влияние службы приложений ограничено лишь изменением названия «Веб-сайты» на «Веб-приложения».
+<td align="left"><li>Для веб-сайтов Azure влияние службы приложений ограничено лишь изменением названия "Веб-сайты" на "Веб-приложения".
 <p><li>Это касается всех существующих экземпляров веб-сайтов в службе приложений.</p>
 <p><li>Вы можете получить доступ к своим существующим веб-сайтам через <a href="http://go.microsoft.com/fwlink/?LinkId=529715">портал Azure</a>, где можно найти все существующие сайты в разделе <em>Веб-приложения</em>.</p>
 <p><li><em>План размещения веб-сайтов</em> теперь называется <em>планом службы приложений</em>. <em>План службы приложений</em> может размещать любые типы приложений службы приложений, такие как веб-приложения, мобильные приложения, приложения логики или приложения API.</p>
@@ -90,4 +93,4 @@
 Дополнительные сведения см. в [документации по службе приложений](http://azure.microsoft.com/documentation/services/app-service/).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 
 #### Получение регистрационного ключа службы StorSimple
@@ -20,4 +21,4 @@
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

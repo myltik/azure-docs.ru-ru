@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/22/2015"
+	ms.date="09/11/2015"
 	ms.author="cabailey"/>
 #Создание ключей, защищенных аппаратным модулем безопасности, и их передача в хранилище ключей Azure
 
@@ -105,8 +105,9 @@ Thales e-Security — ведущий международный поставщи
 |Европа|KeyVault-BYOK-Tools-Europe.zip|881DCA798305B8408C06BAE7B3EFBC1E9EA6113A8D6EC443464F3744896F32C3|
 |Азия|KeyVault-BYOK-Tools-AsiaPacific.zip|0C76967B3AC76687E4EA47EB96174EE6B25AB24E3114E28A90D9B93A2E6ABF6E|
 |Латинская Америка|KeyVault-BYOK-Tools-LatinAmerica.zip|B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48|
+|Япония|KeyVault-BYOK-Tools-Japan.zip|DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113|
 
-Чтобы проверить целостность загруженного набора инструментов BYOK, выполните в сеансе Azure PowerShell командлет [Get FileHash](https://technet.microsoft.com/library/dn520872.aspx).
+Чтобы проверить целостность загруженного набора инструментов BYOK, выполните в сеансе Azure PowerShell командлет [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx).
 
 	Get-FileHash KeyVault-BYOK-Tools-*.zip
 
@@ -258,7 +259,7 @@ Thales e-Security — ведущий международный поставщи
 - kmfile-dump.exe:
 
 		"%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
-При выполнении этой команды замените contosokey тем же значением, которое вы указали при выполнении **Шага 3.3. Создание нового ключа** раздела [Создание ключа](#step-3-generate-your-key).
+При выполнении этой команды замените contosokey тем же значением, которое вы указали при выполнении шага 3.3, **Создание нового ключа**, раздела [Создание ключа](#step-3-generate-your-key).
 
 ###Шаг 4.3. Шифрование ключа с помощью ключа обмена ключами Майкрософт
 
@@ -306,4 +307,4 @@ Thales e-Security — ведущий международный поставщи
 
 Теперь ключ, защищенный с помощью аппаратного модуля безопасности, можно использовать в хранилище ключей. Дополнительные сведения см. в разделе **Использование аппаратного модуля безопасности** руководства [Приступая к работе с хранилищем ключей Azure](key-vault-get-started.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

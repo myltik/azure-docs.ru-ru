@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Как использовать кэш Azure Redis"
-	description="Узнайте, как повысить производительность приложений Azure с помощью кэша Redis для Azure."
-	services="redis-cache"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
+	pageTitle="Как использовать кэш Azure Redis" 
+	description="Узнайте, как повысить производительность приложений Azure с помощью кэша Redis для Azure." 
+	services="redis-cache,app-service" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cache"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="cache-redis"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="08/25/2015"
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="dotnet" 
+	ms.topic="hero-article" 
+	ms.date="08/25/2015" 
 	ms.author="sdanie"/>
 
 # Как использовать кэш Azure Redis
@@ -368,4 +368,4 @@
 
 [Бесплатная пробная версия Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Как с помощью инспектора API отслеживать вызовы в управлении Azure API"
-	description="Сведения о трассировке вызовов с помощью инспектора API в службе управления API Azure."
-	services="api-management"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
+	pageTitle="Как с помощью инспектора API отслеживать вызовы в управлении Azure API" 
+	description="Сведения о трассировке вызовов с помощью инспектора API в службе управления API Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/14/2015" 
 	ms.author="sdanie"/>
 
 # Как с помощью инспектора API отслеживать вызовы в управлении Azure API
@@ -24,7 +24,7 @@
 
 Это руководство содержит пошаговые инструкции по использованию инспектора API.
 
->[AZURE.NOTE]Трассировки инспектора API доступны только для [администраторов](api-management-howto-create-groups.md) экземпляра службы управления API. Трассировки инспектора API возвращаются только при вызове [защищенного продукта](api-management-howto-add-products.md), для которого требуется ключ подписки.
+>[AZURE.NOTE]Трассировка инспектором API доступна только для запросов, содержащих ключи подписки, принадлежащие учетной записи [администратора](api-management-howto-create-groups.md).
 
 ## <a name="trace-call"> </a> Использование инспектора API для трассировки вызова
 
@@ -230,7 +230,7 @@
 ## <a name="next-steps"> </a>Дальнейшие действия
 
 -	Просмотрите другие разделы в руководстве [Приступая к работе с расширенными параметрами API][].
--	Посмотрите демонстрацию выражений политики трассировки: [Cloud Cover, эпизод 177: возможности управления API](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Перемотайте демонстрацию до 21:00.
+-	Посмотрите видеоруководство по выражениям политики трассировки в ролике [Cloud Cover Episode 177: More API Management Features](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). Перемотайте демонстрацию до 21:00.
 
 >[AZURE.VIDEO episode-177-more-api-management-features-with-vlad-vinogradsky]
 
@@ -261,4 +261,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -50,9 +50,10 @@
 Дополнительную информацию об обмене сообщениями через служебную шину см. в следующих разделах.
 
 - [Очереди, разделы и подписки служебной шины](service-bus-queues-topics-subscriptions.md)
-- [Обзор архитектуры служебной шины Azure](service-bus-fundamentals-hybrid-solutions.md)
+- [Базовая информация о Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+- [Архитектура служебной шины](service-bus-architecture.md)
 - [Использование очередей служебной шины](service-bus-dotnet-how-to-use-queues.md)
 - [Использование разделов служебной шины](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

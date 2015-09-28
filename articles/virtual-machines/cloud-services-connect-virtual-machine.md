@@ -3,7 +3,7 @@
 	description="Узнайте, как подключить виртуальную машину к облачной службе Azure."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,11 +15,11 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/13/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 
 # Подключение виртуальных машин с помощью виртуальной сети или облачной службы
 
 [AZURE.INCLUDE [howto-connect-vm-cloud-service](../../includes/howto-connect-vm-cloud-service.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->
