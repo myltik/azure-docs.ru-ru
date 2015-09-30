@@ -213,8 +213,10 @@ public IEnumerable<Models.Task> Get()
 
 ## 8\. Изменение политик
 
-Теперь, когда у вас есть API, защищенный с помощью Azure AD B2C, можно поэкспериментировать с политиками приложения и понаблюдать, как это влияет (или не влияет) на API. Вы можете <!--add **identity providers**
-to the policies, allowing you users to sign into the Task Client using social accounts.  You can also -->управлять **утверждениями приложения** в политиках и изменять сведения о пользователе, доступные в веб-API. Любые дополнительные утверждения, добавляемые вами, будут доступны для веб-API .NET MVC в объекте `ClaimsPrincipal`, как описано выше.
+Теперь, когда у вас есть API, защищенный с помощью Azure AD B2C, можно поэкспериментировать с политиками приложения и понаблюдать, как это влияет (или не влияет) на API. Вы можете управлять **утверждениями приложения** в политиках и изменять сведения о пользователе, доступные в веб-API. Любые дополнительные утверждения, добавляемые вами, будут доступны для веб-API .NET MVC в объекте `ClaimsPrincipal`, как описано выше.
+<!--add **identity providers**
+to the policies, allowing you users to sign into the Task Client using social accounts.  You can also 
+-->
 
 <!--
 
@@ -228,4 +230,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->
