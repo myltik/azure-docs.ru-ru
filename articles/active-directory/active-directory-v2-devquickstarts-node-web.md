@@ -41,7 +41,7 @@
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
-The completed application is provided at the end of this tutorial as well.
+Готовое приложение также приводится в конце этого руководства.
 
 ## 1. Регистрация приложения
 Создайте приложение на странице [apps.dev.microsoft.com](https://apps.dev.microsoft.com) или выполните следующие [действия](active-directory-v2-app-registration.md).  Не забудьте:
@@ -72,23 +72,24 @@ The completed application is provided at the end of this tutorial as well.
 - `npm install passport-azure-ad`
 
 
-This will install the libraries that passport-azure-ad depend on.
+Будет выполнена установка библиотек, которые зависят от passport-azure-ad.
 
-## 3. Set up your app to use the passport-node-js strategy
-Here, we'll configure the Express middleware to use the OpenID Connect authentication protocol.  Passport will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+## 3. Настройка приложения для использования стратегии passport-node-js
+Здесь мы настроим промежуточный слой Express для использования протокола проверки подлинности OpenID Connect. Кроме всего прочего, Passport будет использоваться для выдачи запросов входа и выхода, управления сеансом пользователя и получения сведений о пользователе.
 
--	To begin, open the `config.js` file in the root of the project, and enter your app's configuration values in the `exports.creds` section.
-    -	The `clientID:` is the **Application Id** assigned to your app in the registration portal.
-    -	The `returnURL` is the **Redirect URI** you entered in the portal.
-    - The `clientSecret` is the secret you generated in the portal.
+-	Для начала откройте файл `config.js` в корне проекта, а затем введите значения параметров конфигурации приложения в разделе `exports.creds`.
+    -	`clientID:` — это **идентификатор приложения**, назначенный приложению на портале регистрации.
+    -	`returnURL` — это **URI перенаправления**, который был введен на портале.
+    - `clientSecret` — это секретный код, созданный на портале
 
-- Next open `app.js` file in the root of the proejct and add the follwing call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`
+- Затем откройте файл `app.js` в корне проекта и добавьте вызов стратегии `OIDCStrategy`, входящей в состав `passport-azure-ad`
 
 
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Добавление ведения журнала var log = bunyan.createLogger({ name: 'Пример веб-приложения Microsoft OIDC' }); ```
+// Добавление ведения журнала var log = bunyan.createLogger({ name: 'Пример веб-приложения Microsoft OIDC' }); 
+```
 
 - После этого используйте стратегию, которую мы только что использовали в ссылке, чтобы обрабатывать запросы на вход.
 
@@ -417,4 +418,4 @@ exports.list = function(req, res){
 
 Дополнительные ресурсы: [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) [Тег StackOverflow azure-active-directory >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->
