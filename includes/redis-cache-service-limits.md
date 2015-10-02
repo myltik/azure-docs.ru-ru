@@ -9,4 +9,4 @@
 
 Информацию об ограничениях конфигурации кэша Redis для Azure см. в статье [Конфигурация сервера кэша Redis по умолчанию](redis-cache/cache-configure.md#default-redis-server-configuration).
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=Sept15_HO1-->

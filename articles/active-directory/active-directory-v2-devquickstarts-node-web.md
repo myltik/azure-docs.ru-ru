@@ -88,7 +88,10 @@
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Добавление ведения журнала var log = bunyan.createLogger({ name: 'Пример веб-приложения Microsoft OIDC' }); 
+// Добавление ведения журнала 
+var log = bunyan.createLogger({ 
+	name: 'Пример веб-приложения Microsoft OIDC' 
+}); 
 ```
 
 - После этого используйте стратегию, которую мы только что использовали в ссылке, чтобы обрабатывать запросы на вход.
@@ -418,4 +421,4 @@ exports.list = function(req, res){
 
 Дополнительные ресурсы: [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) [Тег StackOverflow azure-active-directory >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=Sept15_HO3-->
+<!-----HONumber=Sept15_HO3-->
