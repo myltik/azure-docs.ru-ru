@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Интеграция с Azure Active Directory"
+   pageTitle="Интеграция с Azure Active Directory | Microsoft Azure"
    description="Руководство по преимуществам и ресурсам для интеграции с Azure Active Directory."
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/25/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Интеграция с Azure Active Directory
@@ -90,4 +90,4 @@ Azure Active Directory предоставляет организациям фу�
 
 [Вход пользователей с помощью в Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

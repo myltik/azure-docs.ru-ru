@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Как использовать VMAccess для виртуальных машин Linux"
-	description="Как использовать портал предварительной версии Azure или расширение VMAccess для Linux для сброса паролей и ключей SSH, сброса конфигураций SSH и удаления пользователей Linux."
+	pageTitle="Сброс пароля виртуальной машины Linux с помощью Azure CLI"
+	description="Как использовать расширение VMAccess на портале Azure или Azure CLI для сброса паролей и ключей SSH, конфигурации SSH и удаления учетных записей пользователей виртуальной машины Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -263,4 +263,4 @@
 [Расширения и компоненты виртуальных машин Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Подключение к виртуальной машине Azure с помощью RDP или SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="03/10/2015"
+ ms.date="09/22/2015"
  ms.author="rasquill"/>
  
 #Обзор агента и расширений виртуальной машины
@@ -62,4 +62,4 @@ ms.service="virtual-machines"
 
 Дополнительные сведения об этих задачах можно найти в статье [Добавление, поиск, обновление и удаление расширений виртуальной машины Azure](virtual-machines-extensions-install.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

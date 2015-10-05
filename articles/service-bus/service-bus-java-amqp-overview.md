@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Обзор AMQP для служебной шины (Java) | Microsoft Azure" 
-	description="Узнайте об использовании протокола AMQP 1.0 в Azure." 
+	description="Узнайте об использовании Java и протокола AMQP 1.0 в Azure." 
 	services="service-bus" 
 	documentationCenter="java" 
 	authors="sethmanheim" 
@@ -99,4 +99,4 @@ AMQP 1.0 разрабатывался с 2008 г. активной группо�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

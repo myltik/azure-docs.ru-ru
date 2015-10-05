@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Примеры кода Azure Active Directory"
+   pageTitle="Примеры кода Azure Active Directory | Microsoft Azure"
    description="Список примеров кода Azure Active Directory, сгруппированных по сценарию."
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/30/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Примеры кода Azure Active Directory
@@ -152,4 +152,4 @@ PHP | [Образец приложения PHP для API Graph Azure AD](http:/
 
 [Разработка современных приложений с помощью OAuth и служб федерации Active Directory](http://msdn.microsoft.com/library/dn633593.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

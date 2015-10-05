@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Веб-приложение Ruby on Rails на виртуальной машине Azure с ОС Linux" 
-	description="Размещение веб-сайта на основе Ruby on Rails в Azure с помощью виртуальной машины Linux." 
-	services="virtual-machines" 
-	documentationCenter="ruby" 
-	authors="MikeWasson" 
-	manager="wpickett" 
-	editor=""/>
+<properties
+	pageTitle="Размещение веб-сайта Ruby on Rails в виртуальной машине Linux | Microsoft Azure"
+	description="Настройка и размещение веб-сайта на основе Ruby on Rails в Azure с помощью виртуальной машины Linux."
+	services="virtual-machines"
+	documentationCenter="ruby"
+	authors="MikeWasson"
+	manager="wpickett"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="web"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="06/09/2015"
 	ms.author="mwasson"/>
 
 
@@ -25,6 +26,8 @@
 В этом учебнике описано, как разместить веб-сайт Ruby on Rails в Azure с помощью виртуальной машины Linux.
 
 Данный учебник был проверен с использованием Ubuntu Server 14.04 LTS. Если вы используете другой дистрибутив Linux, могут потребоваться другие действия для установления Rails.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса с помощью классической модели развертывания.
 
 ## Создание виртуальной машины Azure
 
@@ -50,8 +53,8 @@
 
 ## Установка Ruby on Rails
 
-1. Используйте SSH, чтобы подключиться к виртуальной машине. 
-	
+1. Используйте SSH, чтобы подключиться к виртуальной машине.
+
 2. В сеансе SSH выполните следующие команды, чтобы установить Ruby на виртуальной машине:
 
 		sudo apt-get update -y
@@ -170,6 +173,5 @@
 [new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
 
 [new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,8 +1,7 @@
 <properties 
-	pageTitle="Обзор заданий обработки эластичных баз данных" 
-	description="Описание службы заданий обработки эластичных баз данных" 
-	services="sql-database" 
-	documentationCenter=""  
+	pageTitle="Создание заданий обработки эластичных баз данных и управление ими с помощью PowerShell" 
+	description="Управление пулами базы данных SQL Azure с помощью PowerShell" 
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="ddove"/>
 
@@ -12,7 +11,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="09/17/2015" 
 	ms.author="ddove; sidneyh" />
 
 # Создание заданий обработки эластичных баз данных для Базы данных SQL и управление им с помощью PowerShell (предварительная версия)
@@ -674,4 +673,4 @@
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

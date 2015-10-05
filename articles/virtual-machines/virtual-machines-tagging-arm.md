@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Пометка виртуальной машины в Azure"
-   description="Узнайте, как отметить тегом виртуальную машину в Azure."
+   pageTitle="Как добавить тег к виртуальной машине | Microsoft Azure"
+   description="Узнайте, как добавлять теги к виртуальной машине Azure, созданной с помощью модели развертывания диспетчера ресурсов."
    services="virtual-machines"
    documentationCenter=""
    authors="mmccrory"
@@ -19,13 +19,15 @@
 
 # Пометка виртуальной машины в Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье рассматривается добавление тегов виртуальных машин, созданных на основе модели развертывания диспетчера ресурсов.
+
 В этой статье описываются различные способы маркировки виртуальной машины в Azure с помощью диспетчера ресурсов Azure. Теги — это определяемые пользователем пары "ключ-значение", которые можно помещать непосредственно в ресурс или группу ресурсов. В настоящий момент Azure поддерживает до 15 тегов на ресурс или группу ресурсов. Теги можно добавлять к ресурсу во время его создания или к уже существующему ресурсу. Обратите внимание, что теги поддерживаются только для тех ресурсов, которые созданы с помощью диспетчера ресурсов Azure.
 
 ## Пометка виртуальной машины с помощью шаблонов
 
 Для начала рассмотрим пометку с помощью шаблонов. [Этот шаблон](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) добавляет теги к следующим ресурсам: Compute (виртуальная машина), Storage (учетная запись хранения) и Network (общедоступный IP-адрес, виртуальная сеть и сетевой интерфейс).
 
-Нажмите кнопку **Развернуть в Azure** по [ссылке на шаблон](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Откроется [портал предварительной версии Azure](http://portal.azure.com/), где можно развернуть шаблон.
+Нажмите кнопку **Развернуть в Azure**, после того как перейдете по [ссылке на шаблон](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Откроется [портал предварительной версии Azure](http://portal.azure.com/), где можно развернуть шаблон.
 
 ![Простое развертывание с тегами](./media/virtual-machines-tagging-arm/deploy-to-azure-tags.png)
 
@@ -180,11 +182,11 @@
 
 
 [среду PowerShell с диспетчером ресурсов Azure]: ../powershell-azure-resource-manager.md
-[Командлеты ресурсов Azure]: https://msdn.microsoft.com/ru-ru/library/azure/dn757692.aspx
+[Командлеты ресурсов Azure]: https://msdn.microsoft.com/ru-RU/library/azure/dn757692.aspx
 [среду интерфейса командной строки Azure]: ./xplat-cli-azure-resource-manager.md
 [Общие сведения о диспетчере ресурсов Azure]: ../resource-group-overview.md
 [Использование тегов для упорядочивания ресурсов Azure]: ../resource-group-using-tags.md
 [Общие сведения о счете Azure]: ../billing-understand-your-bill.md
 [Получение ценных сведений о потреблении ресурсов Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

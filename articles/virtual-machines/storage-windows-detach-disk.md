@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Отключение диска от виртуальной машины Windows | Microsoft Azure"
-	description="Узнайте, как отключать диск от виртуальной машины в Azure."
-	services="virtual-machines, storage"
+	description="Узнайте, как отключить диск от виртуальной машины в Azure с использованием классической модели развертывания."
+	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
@@ -21,6 +21,9 @@
 
 # Отключение диска от виртуальной машины Windows
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается, как отключить диск с помощью классической модели развертывания.
+
+
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
 
 ## Дополнительные ресурсы
@@ -29,4 +32,4 @@
 
 [Подключение диска данных к виртуальной машине Windows](storage-windows-attach-disk.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

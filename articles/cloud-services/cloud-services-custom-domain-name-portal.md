@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Настройка пользовательского доменного имени для облачных служб"
-	description="Узнайте, как предоставить приложение или данные Azure на пользовательском домене посредством установки параметров DNS."
+	pageTitle="Настройка пользовательского доменного имени в облачных службах (портал предварительной версии) | Microsoft Azure"
+	description="Узнайте, как опубликовать в Интернете приложение или данные Azure на пользовательском домене, настроив параметры DNS. В этих примерах используется портал предварительной версии Azure."
 	services="cloud-services"
 	documentationCenter=".net"
 	authors="Thraka"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 # Настройка пользовательского доменного имени для облачной службы Azure
@@ -141,8 +141,11 @@
 
 ## Дальнейшие действия
 
--   [Управление облачными службами](cloud-services-how-to-manage.md)
--   [Сопоставление содержимого CDN с пользовательским доменом](http://msdn.microsoft.com/library/windowsazure/gg680307.aspx)
+* [Управление облачными службами](cloud-services-how-to-manage.md)
+* [Сопоставление содержимого CDN с пользовательским доменом](cdn-map-content-to-custom-domain.md)
+* [Общая настройка облачной службы](cloud-services-how-to-configure-portal.md).
+* Узнайте, как [развернуть облачную службу](cloud-services-how-to-create-deploy-portal.md).
+* Настройте [SSL-сертификаты](cloud-services-configure-ssl-certificate-portal.md).
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
@@ -154,4 +157,4 @@
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle=""
+	pageTitle="Приступая к работе с проектом мобильных служб Visual Studio для .NET (подключенные службы) | Microsoft Azure"
 	description="Как приступить к работе с мобильными службами Azure в проекте Visual Studio .NET"
 	services="mobile-services"
 	documentationCenter=""
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
-	ms.author="patshea123"/>
+	ms.date="09/17/2015" 
+	ms.author="patshea"/>
 
 # Приступая к работе с мобильными службами (проекты .NET)
 
@@ -85,4 +85,4 @@
 
 [Дополнительные сведения о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

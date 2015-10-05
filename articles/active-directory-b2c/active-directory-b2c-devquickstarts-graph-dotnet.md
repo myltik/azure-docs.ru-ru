@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 
@@ -343,4 +343,4 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 Если у вас есть вопросы или запросы о действиях, которые вы хотели бы выполнить с помощью API Graph в каталоге B2C, обращайтесь! Оставьте комментарий к статье или отправьте заявку в репозиторий образцов кода GitHub.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Аналитика службы хранилища" 
-	description="Как управлять параллелизмом для служб BLOB-объектов, очередей, таблиц и файлов" 
+	pageTitle="Включение метрик хранилища на портале Azure | Microsoft Azure" 
+	description="Как включить метрики хранилища для служб больших двоичных объектов, очередей, таблиц и файлов." 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="09/04/2015" 
 	ms.author="tamram"/>
 
 # Включение метрик хранилища и просмотр данных метрик
@@ -192,4 +192,4 @@
 [Включение ведения журнала хранилища и доступ к данным журнала](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

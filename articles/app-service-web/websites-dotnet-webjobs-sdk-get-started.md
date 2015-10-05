@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/29/2015"
+	ms.date="09/22/2015"
 	ms.author="tdykstra"/>
 
 # Создание веб-задания .NET в службе приложений Azure
@@ -486,7 +486,7 @@
 	- *Web.config*
 	- *Global.asax.cs*  
 	- В папку *Controllers*: *AdController.cs* 
-	- В папку *Views\Shared*: файл <em>_Layout.cshtml</em>. 
+	- В папку *Views\Shared*: файл *_Layout.cshtml*.
 	- В папку *Views\Home*: файл *Index.cshtml*. 
 	- В папку *Views\Ad* (сначала создайте эту папку): пять файлов *.cshtml*.<br/><br/>
 
@@ -826,4 +826,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Руководство по смене портала Azure на портал предварительной версии Azure см. в разделе [Справочная информация о навигации по предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

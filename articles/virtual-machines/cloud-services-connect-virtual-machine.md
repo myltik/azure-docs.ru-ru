@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Подключение виртуальных машин к облачной службе Azure"
-	description="Узнайте, как подключить виртуальную машину к облачной службе Azure."
+	pageTitle="Подключение виртуальных машин к облачной службе | Microsoft Azure"
+	description="Подключение виртуальной машины к облачной службе Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -18,8 +18,10 @@
 	ms.author="cynthn"/>
 
 
-# Подключение виртуальных машин с помощью виртуальной сети или облачной службы
+# Подключение виртуальных машин, созданных с помощью классической модели развертывания модели, к виртуальной сети или облачной службе
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается управление ресурсами с помощью классической модели развертывания.
 
 [AZURE.INCLUDE [howto-connect-vm-cloud-service](../../includes/howto-connect-vm-cloud-service.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

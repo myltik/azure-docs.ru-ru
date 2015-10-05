@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Предварительная версия Azure Active Directory B2C: регистрация и вход потребителей в приложения
@@ -62,4 +62,4 @@
 - [Часто задаваемые вопросы о Azure Active Directory B2C](active-directory-b2c-faqs.md)
 - [Регистрация запросов на поддержку для Azure Active Directory B2C](active-directory-b2c-support.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="07/17/2015"
+ ms.date="09/23/2015"
  ms.author="larryfr"/>
 
 #Подключение к Hive в Azure HDInsight с помощью драйвера Hive JDBC
@@ -72,4 +72,4 @@
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

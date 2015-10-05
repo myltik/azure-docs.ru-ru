@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Создание настраиваемой виртуальной машины под управлением Windows в Azure"
+	pageTitle="Создание настраиваемой виртуальной машины под управлением Windows | Microsoft Azure"
 	description="Узнайте, как создать настраиваемую виртуальную машину под управлением Windows в Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -20,6 +20,8 @@
 
 #Создание настраиваемой виртуальной машины под управлением Windows в Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+
 *Настраиваемая* виртуальная машина — это просто виртуальная машина, созданная с помощью метода **Из коллекции**, что дает больший выбор настроек, чем метод **Быстрое создание**. Вот какие параметры доступны:
 
 - подключение виртуальной машины к виртуальной сети;
@@ -34,4 +36,4 @@
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

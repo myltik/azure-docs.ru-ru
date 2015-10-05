@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Рекомендации по управлению паролями Azure AD| Microsoft Azure" 
-	description="Рекомендации по развертыванию и использованию функции, образцы документации для пользователей и обучающие руководства по управлению паролями в службе Azure Active Directory." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="Рекомендации по управлению паролями Azure AD| Microsoft Azure"
+	description="Рекомендации по развертыванию и использованию функции, образцы документации для пользователей и обучающие руководства по управлению паролями в службе Azure Active Directory."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # Развертывание компонентов управления паролями и обучение пользователей их использованию
@@ -98,12 +98,12 @@
 1.	На [портале управления Azure](https://manage.windowsazure.com) откройте раздел **Расширение Active Directory** и перейдите в свой каталог.
 2.	Откройте вкладку **Пользователи**.
 3.	Выберите нужного пользователя из списка.
-4.	На первой вкладке содержится **Альтернативный адрес электронной почты**, который можно использовать как свойство для активации функции сброса пароля. 
+4.	На первой вкладке содержится **Альтернативный адрес электронной почты**, который можно использовать как свойство для активации функции сброса пароля.
 
     ![][005]
 
 5.	Откройте вкладку **Сведения о работе**.
-6.	На этой странице есть поля **Рабочий телефон**, **Мобильный телефон**, **Телефон для проверки подлинности** и **Адрес электронной почты для проверки подлинности**. Эти свойства также можно задать, чтобы позволить пользователю сбрасывать свой пароль. 
+6.	На этой странице есть поля **Рабочий телефон**, **Мобильный телефон**, **Телефон для проверки подлинности** и **Адрес электронной почты для проверки подлинности**. Эти свойства также можно задать, чтобы позволить пользователю сбрасывать свой пароль.
 
     ![][006]
 
@@ -136,6 +136,5 @@
 [004]: ./media/active-directory-passwords-best-practices/004.jpg "Image_004.jpg"
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Перенос данных
@@ -191,7 +191,7 @@ PolyBase также поддерживает так называемую фун�
 
 [рабочая версия]: http://aka.ms/downloadazcopy/
 [пробная версия]: http://aka.ms/downloadazcopypr/
-[Адаптер загрузки данных ADO.NET]: https://msdn.microsoft.com/ru-ru/library/bb934041.aspx
-[документации по службам SSIS]: https://msdn.microsoft.com/ru-ru/library/ms141026.aspx
+[Адаптер загрузки данных ADO.NET]: https://msdn.microsoft.com/RU-RU/library/bb934041.aspx
+[документации по службам SSIS]: https://msdn.microsoft.com/RU-RU/library/ms141026.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

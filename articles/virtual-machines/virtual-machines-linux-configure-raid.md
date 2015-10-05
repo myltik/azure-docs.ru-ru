@@ -1,11 +1,13 @@
 <properties 
-	pageTitle="Настройка программного RAID-массива на виртуальной машине под управлением Linux в Azure" 
+	pageTitle="Настройка программного RAID-массива на виртуальной машине под управлением Linux | Microsoft Azure" 
 	description="Узнайте, как использовать mdadm для настройки RAID-массива на платформе Linux в Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
+	writer="szark" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tag="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -21,6 +23,7 @@
 # Настройка программного RAID-массива в Linux
 Это обычный сценарий для использования программного RAID-массива на виртуальных машинах Linux в Azure, который позволяет представить множество дисков данных в виде одного RAID-устройства. Обычно это делается для повышения производительности и обеспечения возможности увеличения пропускной способности по сравнению с использованием только одного диска.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## Присоединение дисков данных
 Для настройки RAID-устройства обычно требуется не менее двух пустых дисков данных. В этой статье мы не будем подробно останавливаться на том, как присоединить диски данных к виртуальной машине Linux. Подробные указания по подключению пустого диска данных к виртуальной машине Linux в Azure см. в разделе [Подключение диска](storage-windows-attach-disk.md#attachempty) статьи Microsoft Azure.
@@ -178,4 +181,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

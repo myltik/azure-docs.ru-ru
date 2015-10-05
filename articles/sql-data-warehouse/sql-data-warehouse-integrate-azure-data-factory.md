@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/23/2015"
    ms.author="lodipalm"/>
 
 # Работа с фабрикой данных Azure и хранилищем данных SQL
@@ -30,8 +30,6 @@
 + Сервер SQL Server в IaaS
 
 Сведения о настройке копирования данных см. в разделе [Копирование данных с помощью фабрики данных Azure][].
-
-> [AZURE.NOTE]В настоящее время с помощью фабрики данных Azure нельзя передавать данные в столбцы, не допускающие значения NULL, в хранилище данных SQL.
 
 ## Хранимые процедуры
  Фабрику данных Azure можно использовать как для планирования передачи данных, так и для управления выполнением хранимых процедур. Это позволяет создавать более сложные конвейеры и расширять возможности фабрики данных Azure за счет использоваться вычислительных мощностей хранилища данных SQL.
@@ -51,6 +49,6 @@
 
 <!--Other Web references-->
 [документации к фабрике данных Azure]: https://azure.microsoft.com/documentation/services/data-factory/
-[Копирование данных с помощью фабрики данных Azure]: https://azure.microsoft.com/ru-RU/documentation/articles/data-factory-data-movement-activities/
+[Копирование данных с помощью фабрики данных Azure]: https://azure.microsoft.com/RU-RU/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,57 +1,181 @@
 <properties
-   pageTitle="Устранение неполадок при развертывании групп ресурсов в Azure"
-	description="В статье описаны распространенные проблемы, возникающие при развертывании ресурсов в Azure, и показано, как использовать портал Azure, интерфейс командной строки Azure для Mac, Linux и Windows (CLI Azure ) и PowerShell для проверки развертывания и выявления проблем."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Устранение неполадок при развертывании групп ресурсов| Microsoft Azure"
+   description="В статье описаны распространенные проблемы развертывания ресурсов, созданных с помощью модели развертывания диспетчера ресурсов, и показано, как обнаружить и устранить эти проблемы."
+   services="azure-resource-manager,virtual-machines"
+   documentationCenter=""
+   authors="squillace"
+   manager="timlt"
+   editor=""/>
 
 <tags
-   ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="command-line-interface"
-	ms.workload="infrastructure"
-	ms.date="08/26/2015"
-	ms.author="rasquill"/>
+   ms.service="azure-resource-manager"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-multiple"
+   ms.workload="infrastructure"
+   ms.date="09/18/2015"
+   ms.author="rasquill"/>
 
 # Устранение неполадок при развертывании групп ресурсов в Azure
 
-Развертывание может завершиться неудачно по ряду причин. Гораздо лучше избежать ошибок развертывания, проверив некоторые вещи заранее. В этом документе описаны средства и операции, позволяющие предотвратить простые ошибки, загрузить файлы шаблонов и изучить журналы развертывания. В нем также указано, на что следует обратить внимание при проверке журналов развертывания на наличие сбоев.
+Когда во время развертывания возникают проблемы, нужно понять, что пошло не так. Диспетчер ресурсов предоставляет два способа, которые позволяют выяснить, что произошло и почему это произошло. С помощью команд развертывания можно получить сведения о конкретном развертывании для группы ресурсов. Также можно использовать журналы аудита для получения сведений обо всех операциях, выполняемых для группы ресурсов. С этой информацией можно устранить проблему и возобновить операции в своем решении.
 
-## Полезные средства для работы с Azure
-При работе с ресурсами Azure из командной строки вы воспользуетесь набором инструментов, который поможет выполнить необходимые задачи. Шаблоны группы ресурсов Azure представляют собой документы JSON, а API диспетчера ресурсов Azure принимает и возвращает JSON, поэтому средства анализа JSON станут одними из первых инструментов, которые вы будете использовать для просмотра сведений о ресурсах и для разработки шаблонов и файлов параметров шаблонов и взаимодействия с ними.
+Этот раздел в основном посвящен устранению неполадок развертываний с помощью команд развертывания. Сведения об использовании журналов аудита для отслеживания всех операций с ресурсами см. в разделе [Операции аудита с помощью диспетчера ресурсов](../resource-group-audit.md).
 
-### Средства Mac, Linux и Windows
-Если вы используете интерфейс командной строки Azure для Mac, Linux или Windows, то, скорее всего, вы уже знакомы со стандартными средствами для загрузки, такими как **[curl](http://curl.haxx.se/)**, **[wget](https://www.gnu.org/software/wget/)** или **[Resty](https://github.com/beders/Resty)**, со служебными программами JSON, например **[jq](http://stedolan.github.io/jq/download/)** и **[jsawk](https://github.com/micha/jsawk)**, а также с библиотеками языков, которые хорошо обрабатывают JSON. (Многие из этих средств, например [wget](http://gnuwin32.sourceforge.net/packages/wget.htm), также портированы в Windows; на самом деле, сделать так, чтобы программы для Linux и другие программные средства с открытым исходным кодом также работали в Windows, можно несколькими способами.)
+В этом разделе показано, как получить сведения об устранении неполадок с помощью Azure PowerShell, Azure CLI и API-интерфейса REST. Сведения об использовании портала предварительной версии для устранения неполадок развертывания см. в статье [Управление ресурсами Azure с помощью портала предварительной версии Azure](../azure-portal/resource-group-portal.md).
 
-Этот раздел содержит некоторые команды CLI Azure, которые вы можете использовать с **jq** для эффективного получения именно тех сведений, которые вам нужны. Чтобы лучше понять, как используются ресурсы Azure, выберите тот набор инструментов, к которому вы привыкли.
+В этом разделе также описываются решения стандартных проблем, с которыми сталкиваются пользователи.
 
-### Windows PowerShell
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс устранения неполадок для групп ресурсов с помощью модели развертывания диспетчера ресурсов. Создать группы ресурсов с классической модели развертывания невозможно.
 
-В Windows PowerShell есть несколько основных команд для выполнения тех же процедур.
 
-- С помощью командлета **[Invoke-WebRequest](https://technet.microsoft.com/library/hh849901%28v=wps.640%29)** скачайте такие файлы, как шаблоны группы ресурсов или JSON-файлы параметров.
-- Используйте командлет **[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898%28v=wps.640%29.aspx)** для преобразования строки JSON в настраиваемый объект ([PSCustomObject](https://msdn.microsoft.com/library/windows/desktop/system.management.automation.pscustomobject%28v=vs.85%29.aspx)), содержащий свойство для каждого поля в строке JSON.
+## Устранение неполадок с помощью PowerShell
 
-## Предотвращение ошибок в CLI Azure для Mac, Linux и Windows
+Общее состояние развертывания можно получить с помощью команды **Get-AzureResourceGroupDeployment**. В следующем примере развертывание завершилось неудачно.
 
-В интерфейсе командной строки Azure есть несколько команд, которые помогут избежать ошибок и определить причину возникновения ошибки.
+    PS C:\> Get-AzureResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
 
-- **azure location list**. Эта команда возвращает расположения, поддерживающие каждый тип ресурса, например поставщиков виртуальных машин. Прежде чем указывать расположение ресурса, с помощью этой команды проверьте, поддерживает ли расположение тип ресурса.
+    DeploymentName    : ExampleDeployment
+    ResourceGroupName : ExampleGroup
+    ProvisioningState : Failed
+    Timestamp         : 8/27/2015 8:03:34 PM
+    Mode              : Incremental
+    TemplateLink      :
+    Parameters        :
+                    Name             Type                       Value
+                    ===============  =========================  ==========
+                    siteName         String                     ExampleSite
+                    hostingPlanName  String                     ExamplePlan
+                    siteLocation     String                     West US
+                    sku              String                     Free
+                    workerSize       String                     0
 
-    Так как список расположений может быть длинным и включать множество поставщиков, с помощью предлагаемых средств можно изучить поставщики и расположения, прежде чем использовать расположение, которое еще не доступно. Следующий сценарий использует **jq** для поиска расположений, в которых доступен поставщик ресурсов для виртуальных машин Azure.
+    Outputs           :
 
-        azure location list --json | jq '.[] | select(.name == "Microsoft.Compute/virtualMachines")'
-        {
-          "name": "Microsoft.Compute/virtualMachines",
-          "location": "East US,West US,West Europe,East Asia,Southeast Asia,North Europe"
-        }
+Каждое развертывание обычно состоит из нескольких операций, каждая из которых представляет шаг процесса развертывания. Чтобы определить, что пошло не так при развертывании, обычно требуется просмотреть сведения об операциях развертывания. Состояние операций можно просмотреть с помощью команды **Get AzureResourceGroupDeploymentOperation**.
 
-- **azure group template validate <resource group>**. Эта команда проверяет шаблоны и их параметры перед использованием. Введите пользовательский шаблон или шаблон из коллекции и значения параметров шаблона, которые планируется использовать.
+    PS C:\> Get-AzureResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup
+    Id                        OperationId          Properties         
+    -----------               ----------           -------------
+    /subscriptions/xxxxx...   347A111792B648D8     @{ProvisioningState=Failed; Timestam...
+    /subscriptions/xxxxx...   699776735EFC3D15     @{ProvisioningState=Succeeded; Times...
 
-    Следующий пример показывает, как проверить шаблон и все необходимые параметры. Командная строка Azure запрашивает значения требуемых параметров.
+Эта команда отображает две операции в развертывании. Одна имеет состояние подготовки "Сбой", а другая — "Завершено успешно".
+
+Сообщение о состоянии можно получить с помощью следующей команды:
+
+    PS C:\> (Get-AzureResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties.StatusMessage
+
+    Code       : Conflict
+    Message    : Website with given name mysite already exists.
+    Target     :
+    Details    : {@{Message=Website with given name mysite already exists.}, @{Code=Conflict}, @{ErrorEntity=}}
+    Innererror :
+
+## Устранение неполадок интерфейса командной строки Azure
+
+Общее состояние развертывания можно получить с помощью команды **azure group deployment show**. В следующем примере развертывание завершилось неудачно.
+
+    azure group deployment show ExampleGroup ExampleDeployment
+
+    info:    Executing command group deployment show
+    + Getting deployments
+    data:    DeploymentName     : ExampleDeployment
+    data:    ResourceGroupName  : ExampleGroup
+    data:    ProvisioningState  : Failed
+    data:    Timestamp          : 2015-08-27T20:03:34.9178576Z
+    data:    Mode               : Incremental
+    data:    Name             Type    Value
+    data:    ---------------  ------  ------------
+    data:    siteName         String  ExampleSite
+    data:    hostingPlanName  String  ExamplePlan
+    data:    siteLocation     String  West US
+    data:    sku              String  Free
+    data:    workerSize       String  0
+    info:    group deployment show command OK
+
+
+Дополнительные сведения о причинах сбоя развертывания можно получить в журналах аудита. Чтобы просмотреть журналы аудита, выполните команду **azure group log show**. Для получения журнала только для последнего развертывания можно указать параметр **--last-deployment**.
+
+    azure group log show ExampleGroup --last-deployment
+
+Команда **azure group log show** может возвращать большой объем данных. Для устранения неполадок обычно необходимо сосредоточиться на операции, выполнить которую не удалось. Следующий сценарий использует параметр **--json** и средство **jq** для поиска в журнале ошибок развертывания. Дополнительные сведения о таких средствах, как **jq**, см. в разделе [Полезные средства для работы с Azure](#useful-tools-to-interact-with-azure).
+
+    azure group log show ExampleGroup --json | jq '.[] | select(.status.value == "Failed")'
+
+    {
+      "claims": {
+        "aud": "https://management.core.windows.net/",
+        "iss": "https://sts.windows.net/<guid>/",
+        "iat": "1442510510",
+        "nbf": "1442510510",
+        "exp": "1442514410",
+        "ver": "1.0",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "<guid>",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "<guid>",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "someone@example.com",
+        "puid": "XXXXXXXXXXXXXXXX",
+        "http://schemas.microsoft.com/identity/claims/identityprovider": "example.com",
+
+        "altsecid": "1:example.com:XXXXXXXXXXX",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "<hash string>",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Tom",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "FitzMacken",
+        "name": "Tom FitzMacken",
+        "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+        "groups": "<guid>",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "example.com#someone@example.com",
+        "wids": "<guid>",
+        "appid": "<guid>",
+        "appidacr": "0",
+        "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+        "http://schemas.microsoft.com/claims/authnclassreference": "1",
+        "ipaddr": "000.000.000.000"
+      },
+      "properties": {
+        "statusCode": "Conflict",
+        "statusMessage": "{"Code":"Conflict","Message":"Website with given name mysite already exists.","Target":null,"Details":[{"Message":"Website with given name 
+          mysite already exists."},{"Code":"Conflict"},{"ErrorEntity":{"Code":"Conflict","Message":"Website with given name mysite already exists.","ExtendedCode":
+          "54001","MessageTemplate":"Website with given name {0} already exists.","Parameters":["mysite"],"InnerErrors":null}}],"Innererror":null}"
+      },
+    ...
+
+Вы увидите, что в разделе **Свойства** отражаются сведения json о неудачной операции.
+
+Для получения более подробных сведений из журналов можно использовать параметры **--verbose** и **-vv**. Используйте параметр **--verbose**, чтобы отобразить шаги, которые проходят операции на `stdout`. Для получения полной истории запроса используйте параметр **-vv**. В сообщениях часто содержатся важные сведения о причинах ошибок.
+
+## Устранение неполадок с API REST
+
+API-Интерфейс REST диспетчера ресурсов содержит идентификаторы URI для получения сведений о развертывании, операциях развертывания, а также сведений о конкретной операции. Полное описание этих команд см. в следующих статьях:
+
+- [Получение сведений о развертывании шаблона](https://msdn.microsoft.com/library/azure/dn790565.aspx)
+- [Список всех операций развертывания шаблона](https://msdn.microsoft.com/library/azure/dn790518.aspx)
+- [Получение сведений об операции развертывании шаблона](https://msdn.microsoft.com/library/azure/dn790519.aspx)
+
+
+## Обновление истекших учетных данных
+
+Если срок действия учетных данных Azure истек или вы не вошли в учетную запись Azure, развертывание завершится неудачно. Срок действия учетных данных может истечь, если сеанс открыт слишком долго. Обновить учетные данные можно следующими способами:
+
+- В PowerShell используйте командлет **Add-AzureAccount**. Учетных данных в файле параметров публикации недостаточно для командлетов в модуле AzureResourceManager.
+- В интерфейсе командной строки Azure используйте команду **azure login**. Если возникают ошибки проверки подлинности, убедитесь, что вы [правильно настроили CLI Azure](../xplat-cli-connect.md).
+
+## Проверка формата шаблонов и параметров
+
+Если файл шаблона или параметра имеет неправильный формат, развертывание завершится неудачно. Перед развертыванием можно проверить правильность шаблона и параметров.
+
+### PowerShell
+
+В PowerShell используйте командлет **Test-AzureResourceGroupTemplate**.
+
+    PS C:\> Test-AzureResourceGroupTemplate -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
+    VERBOSE: 12:55:32 PM - Template is valid.
+
+### Инфраструктура CLI Azure
+
+В интерфейсе командной строки Azure используйте команду **azure group template validate <resource group>**
+
+Следующий пример показывает, как проверить шаблон и все необходимые параметры. Командная строка Azure запрашивает значения требуемых параметров.
 
         azure group template validate \
         > --template-uri "https://contoso.com/templates/azuredeploy.json" \
@@ -64,146 +188,54 @@
         + Validating the template
         info:    group template validate command OK
 
-## Использование CLI Azure для получения сведений по устранению проблем с развертыванием
+### Интерфейс REST API
 
-- **azure group log show <resource group>**: этот командлет возвращает записи журнала для каждого развертывания группы ресурсов. Если что-то идет не так, начните с проверки журналов развертывания.
+Для интерфейса API REST см. [Проверка развертывания шаблона](https://msdn.microsoft.com/library/azure/dn790547.aspx).
 
-        info:    Executing command group log show
-        info:    Getting group logs
-        data:    ----------
-        data:    EventId:              <guid>
-        data:    Authorization:
-        data:                          action: Microsoft.Network/networkInterfaces/write
-        data:                          role:   Subscription Admin
-        data:                          scope:  /subscriptions/xxxxxxxxxxx/resourcegroups/templates/
-                                               providers/Microsoft.Network/
-                                               networkInterfaces/myNic
-        data:    ResourceUri:          /subscriptions/xxxxxxxxxxxx/resourcegroups/templates/providers/
-                                       Microsoft.Network/networkInterfaces/myNic
-        data:    SubscriptionId:       <guid>
-        data:    EventTimestamp (UTC): Wed Apr 22 2015 05:53:31 GMT+0000 (UTC)
-        data:    OperationName:        Microsoft.Network/networkInterfaces/write
-        data:    OperationId:          <guid>
-        data:    Status:               Started
-        data:    SubStatus:
-        data:    Caller:
-        data:    CorrelationId:        <guid>
-        data:    Description:
-        data:    HttpRequest:          clientRequestId: <guid>
-                                       clientIpAddress: 000.000.00.000
-                                       method:          PUT
+## Проверка расположений, которые поддерживают ресурс
 
-        data:    Level:                Informational
-        data:    ResourceGroup:        templates
-        data:    ResourceProvider:     Microsoft.Network
-        data:    EventSource:          Microsoft Resources
-        data:    Properties:           requestbody: {"location":"West US","properties
-                                       ":{"ipConfigurations":[{"
-                                       name":"ipconfig1","properties":{"
-                                       privateIPAllocationMethod
+При указании расположения для ресурса необходимо использовать одно из расположений, которые поддерживают ресурс. Перед указанием расположения ресурса используйте одну из следующих команд, чтобы убедиться, что это расположение поддерживает тип ресурса.
 
-                                       ":"Dynamic","publicIPAddress":{"id":"/
-                                       subscriptions/
-                                       <guid>/
-                                       resourceGroups/
-                                       templates/providers/Microsoft.Network/
-                                       publicIPAddresses/
-                                       myPublicIP"},"subnet":{"idThe AzureResourceManager module includes cmdlets that ":"/subscriptions/
-                                       <guid>/resourceGroups/templates/
-                                       providers/
-                                       Microsoft.Network/virtualNetworks/myVNET/subnets/
-                                       Subnet-1
-                                       "}}}]}}
+### PowerShell
 
-Используйте параметр **--last-deployment** для получения журнала только для последнего развертывания. Следующий сценарий использует параметр **--json** и **jq** для поиска в журнале ошибок развертывания.
+В PowerShell полный список ресурсов и расположений можно просмотреть с помощью команды **Get-AzureLocation**.
 
-        azure group log show templates --json | jq '.[] | select(.status.value == "Failed")'
+    PS C:\> Get-AzureLocation
 
-        {
-          "claims": {
-            "aud": "https://management.core.windows.net/",
-            "iss": "https://sts.windows.net/<guid>/",
-            "iat": "1429678549",
-            "nbf": "1429678549",
-            "exp": "1429682449",
-            "ver": "1.0",
-            "http://schemas.microsoft.com/identity/claims/tenantid": "<guid>",
-            "http://schemas.microsoft.com/identity/claims/objectidentifier": "<guid>",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "ahmet@contoso.onmicrosoft.com",
-            "puid": "XXXXXXXXXXXXXX",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "<hash string>",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "ahmet",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "",
-            "name": "Friendly Name",
-            "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-            "groups": "<guid>",
-            "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "ahmet@contoso.onmicrosoft.com",
-            "appid": "<guid>",
-            "appidacr": "0",
-            "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-            "http://schemas.microsoft.com/claims/authnclassreference": "1"
-          },
-          "properties": {},
-          "authorization": {
-            "action": "Microsoft.Resources/subscriptions/resourcegroups/deployments/write",
-            "role": "Subscription Admin",
-            "scope": "/subscriptions/<guid>/resourcegroups/templates/deployments/basic-vm-version-0.1"
-          },
-          "eventChannels": "Operation",
-          "eventDataId": "<guid>",
-          "correlationId": "<guid>",
-          "eventName": {
-            "value": "EndRequest",
-            "localizedValue": "End request"
-          },
-          "eventSource": {
-            "value": "Microsoft.Resources",
-            "localizedValue": "Microsoft Resources"
-          },
-          "level": "Error",
-          "resourceGroupName": "templates",
-          "resourceProviderName": {
-            "value": "Microsoft.Resources",
-            "localizedValue": "Microsoft Resources"
-          },
-          "resourceUri": "/subscriptions/<guid>/resourcegroups/templates/deployments/basic-vm-version-0.1",
-          "operationId": "<guid>",
-          "operationName": {
-            "value": "Microsoft.Resources/subscriptions/resourcegroups/deployments/write",
-            "localizedValue": "Update deployment"
-          },
-          "status": {
-            "value": "Failed",
-            "localizedValue": "Failed"
-          },
-          "subStatus": {},
-          "eventTimestamp": "2015-04-22T05:53:40.8150293Z",
-          "submissionTimestamp": "2015-04-22T05:54:00.6728843Z",10037FFE8E80BB65
-          "subscriptionId": "<guid>"
-        }
+    Name                                    Locations                               LocationsString
+    ----                                    ---------                               ---------------
+    ResourceGroup                           {East Asia, South East Asia, East US... East Asia, South East Asia, East US,...
+    Microsoft.ApiManagement/service         {Central US, East US, East US 2, Nor... Central US, East US, East US 2, Nort...
+    Microsoft.AppService/apiapps            {East US, West US, South Central US,... East US, West US, South Central US, ...
+    ...
 
+Определенный тип ресурса можно указать с помощью:
 
-- **Параметры --verbose и -vv**: используйте параметр **--verbose**, чтобы задать режим подробного протоколирования для отображения этапов операций в `stdout`. Для получения полного журнала запросов, включающего этапы, отображаемые с помощью **--verbose**, используйте параметр **-vv**. В сообщениях часто содержатся важные сведения о причинах ошибок.
+    PS C:\> Get-AzureLocation | Where-Object Name -eq "Microsoft.Compute/virtualMachines" | Format-Table Name, LocationsString -Wrap
 
-- **Ваши учетные данные Azure не настроены или просрочены**: чтобы обновить учетные данные в сеансе CLI Azure, просто введите `azure login`. Если возникают ошибки проверки подлинности, убедитесь, что вы [правильно настроили CLI Azure](../xplat-cli-connect.md).
+    Name                                                        LocationsString
+    ----                                                        ---------------
+    Microsoft.Compute/virtualMachines                           East US, East US 2, West US, Central US, South Central US,
+                                                                North Europe, West Europe, East Asia, Southeast Asia,
+                                                                Japan East, Japan West
 
-## Предотвращение ошибок в Windows PowerShell
+### Инфраструктура CLI Azure
 
-Модуль AzureResourceManager включает командлеты, которые помогают избежать ошибок.
+В интерфейсе командной строки Azure можно использовать команду **azure location list**. Так как список расположений может быть длинным и включать множество поставщиков, с помощью предлагаемых средств можно изучить поставщики и расположения, прежде чем использовать расположение, которое еще не доступно. Следующий сценарий использует средство **jq** для поиска расположений, в которых доступен поставщик ресурсов для виртуальных машин Azure.
 
+    azure location list --json | jq '.[] | select(.name == "Microsoft.Compute/virtualMachines")'
+    {
+      "name": "Microsoft.Compute/virtualMachines",
+      "location": "East US,East US 2,West US,Central US,South Central US,North Europe,West Europe,East Asia,Southeast Asia,Japan East,Japan West"
+    }
 
-- **Get-AzureLocation**: этот командлет возвращает расположения, поддерживающие каждый тип ресурса. Прежде чем вводить расположение ресурса, с помощью этого командлета проверьте, поддерживает ли расположение тип ресурса.
+### Интерфейс REST API
+        
+Для API-интерфейса REST см. [Получение сведений о поставщике ресурсов](https://msdn.microsoft.com/library/azure/dn790534.aspx).
 
+## Создание уникальных имен ресурсов
 
-- **Test-AzureResourceGroupTemplate**: протестируйте шаблон и его параметры перед использованием. Введите пользовательский шаблон или шаблон из коллекции и значения параметров шаблона, которые планируется использовать. Этот командлет проверяет внутреннюю непротиворечивость шаблона и соответствие набора значений параметров шаблону.
-
-## Получение сведений для устранению проблем с развертыванием в Windows PowerShell
-
-- **Get-AzureResourceGroupLog**: этот командлет возвращает записи журнала для каждого развертывания группы ресурсов. Если что-то идет не так, начните с проверки журналов развертывания.
-
-- **Verbose и Debug**: командлеты в модуле AzureResourceManager обращаются к интерфейсам API REST, которые выполняют фактическую работу. Чтобы увидеть сообщения, возвращаемые интерфейсами API, присвойте переменной $DebugPreference значение "Continue" и используйте общий параметр Verbose в командах. В сообщениях часто содержатся важные сведения о причинах ошибок.
-
-- **Ваши учетные данные Azure не настроены или просрочены**: чтобы обновить учетные данные в сеансе Windows PowerShell, используйте командлет **Add-AzureAccount**. Учетных данных в файле параметров публикации недостаточно для командлетов в модуле AzureResourceManager.
+Для некоторых ресурсов, особенно учетных записей хранения, серверов баз данных и веб-сайтов, необходимо указать имя ресурса, которое будет уникальным в Azure. В настоящее время невозможно проверить, является ли имя уникальным. Мы советуем использовать схему именования, вероятность использования которой другими организациями будет низкой.
 
 ## Проблемы с проверкой подлинности, подпиской, ролями и квотами
 
@@ -231,34 +263,29 @@
 
 В таких случаях следует перейти на портал и зарегистрировать проблему в службе поддержки, чтобы поднять свою квоту для региона, в котором требуется осуществить развертывание.
 
-> [AZURE.NOTE] Следует помнить, что для групп ресурсов квоты устанавливаются для каждого отдельного региона, а не для всей подписки. Если необходимо развернуть 30 ядер в западной части США, необходимо запросить 30 ядер управления ресурсами в этом регионе. Если необходимо развернуть 30 ядер в любом из регионов, к которым у вас есть доступ, следует запросить 30 ядер управления ресурсами во всех регионах.
-<!-- -->
-Чтобы точно указать ядра, можно, например, проверить регионы, для которых следует запросить соответствующее значение квоты, воспользовавшись следующей командой, которая передает данные в **jq** для анализа JSON.
-<!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
-        {
-          "name": "virtualMachines",
-          "apiVersions": [
-            "2015-05-01-preview",
-            "2014-12-01-preview"
-          ],
-          "locations": [
-            "East US",
-            "West US",
-            "West Europe",
-            "East Asia",
-            "Southeast Asia"
-          ]
-        }
+> [AZURE.NOTE]Следует помнить, что для групп ресурсов квоты устанавливаются для каждого отдельного региона, а не для всей подписки. Если необходимо развернуть 30 ядер в западной части США, необходимо запросить 30 ядер управления ресурсами в этом регионе. Если необходимо развернуть 30 ядер в любом из регионов, к которым у вас есть доступ, следует запросить 30 ядер управления ресурсами во всех регионах. <!-- --> Например, чтобы точно указать количество ядер, можно проверить регионы, для которых необходимо оценить квоту, с помощью следующей команды. Эта команда передает данные средству **jq** для анализа JSON. <!-- --> azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
 
 
-## Проблемы режимов CLI Azure и PowerShell
-
-Возможно, вы сталкивались с ситуацией, когда ресурсы Azure, развернутые с помощью API управления службами или портала, не отображаются с помощью API диспетчера ресурсов или портала Azure. Для управления ресурсами важно использовать то же API диспетчера ресурсов или портала, которое использовалось для их создания. Если ресурс исчез, проверьте, доступен ли он, используя другой API управления или портал.
-
-## Проблемы с регистрацией поставщика ресурсов Azure
+## Проверка регистрации поставщика ресурсов
 
 Ресурсами управляет поставщик ресурсов, и для учетной записи или подписки может быть включено использование конкретного поставщика. Если поставщик включен для использования, он также должен быть зарегистрирован. Большинство поставщиков, но не все, регистрируются автоматически порталом Azure или интерфейсом командной строки, который вы используете.
+
+### PowerShell
+
+Чтобы получить список поставщиков ресурсов и состояние регистрации, воспользуйтесь командлетом **Get-AzureProvider**.
+
+    PS C:\> Get-AzureProvider
+
+    ProviderNamespace                       RegistrationState                       ResourceTypes
+    -----------------                       -----------------                       -------------
+    Microsoft.AppService                    Registered                              {apiapps, appIdentities, gateways, d...
+    Microsoft.Batch                         Registered                              {batchAccounts}
+    microsoft.cache                         Registered                              {Redis, checkNameAvailability, opera...
+    ...
+
+Чтобы зарегистрировать поставщика, воспользуйтесь командлетом **Register-AzureProvider**.
+
+### Инфраструктура CLI Azure
 
 Чтобы узнать, зарегистрирован ли поставщик для использования, выполните в CLI Azure команду `azure provider list` (приведен сокращенный пример вывода).
 
@@ -307,8 +334,14 @@
           "registrationState": "Registered"
         }
 
-
 Если поставщик требует регистрации, используйте команду `azure provider register <namespace>`, где значение *namespace* берется из приведенного выше списка.
+
+### Интерфейс REST API
+
+Для получения состояния регистрации см. [Получение сведений о поставщике ресурсов](https://msdn.microsoft.com/library/azure/dn790534.aspx).
+
+Для регистрации поставщика см. [Регистрация подписки с поставщиком ресурсов](https://msdn.microsoft.com/library/azure/dn790548.aspx).
+
 
 ## Как узнать, что развертывание пользовательских шаблонов завершилось успешно
 
@@ -318,83 +351,28 @@
 
 Тем не менее вы можете сделать так, чтобы Azure не сообщал об успешном развертывании, создав настраиваемый сценарий для пользовательского шаблона (например, с помощью [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)), который умеет отслеживать все развертывание на предмет готовности в рамках всей системы и возвращает успешный результат только в том случае, если пользователи могут работать со всем развертыванием. Если вы хотите сделать так, чтобы ваше расширение выполнялось последним, используйте свойство **dependsOn** в шаблоне. Пример этого можно просмотреть [здесь](https://msdn.microsoft.com/library/azure/dn790564.aspx).
 
-## Слияние шаблонов
+## Полезные средства для работы с Azure
+При работе с ресурсами Azure из командной строки вы воспользуетесь набором инструментов, который поможет выполнить необходимые задачи. Шаблоны группы ресурсов Azure представляют собой документы JSON, а API диспетчера ресурсов Azure принимает и возвращает JSON, поэтому средства анализа JSON станут одними из первых инструментов, которые вы будете использовать для просмотра сведений о ресурсах и для разработки шаблонов и файлов параметров шаблонов и взаимодействия с ними.
 
-Иногда нужно объединить два шаблона или запустить дочерний шаблон из родительского. Для этого в главном шаблоне можно воспользоваться ресурсом развертывания, с помощью которого можно развернуть дочерний шаблон.
+### Средства Mac, Linux и Windows
+Если вы используете интерфейс командной строки Azure для Mac, Linux или Windows, то, скорее всего, вы уже знакомы со стандартными средствами для загрузки, такими как **[curl](http://curl.haxx.se/)**, **[wget](https://www.gnu.org/software/wget/)** или **[Resty](https://github.com/beders/Resty)**, со служебными программами JSON, например **[jq](http://stedolan.github.io/jq/download/)** и **[jsawk](https://github.com/micha/jsawk)**, а также с библиотеками языков, которые хорошо обрабатывают JSON. (Многие из этих средств, например [wget](http://gnuwin32.sourceforge.net/packages/wget.htm), также портированы в Windows; фактически сделать так, чтобы программы для Linux и другие программные средства с открытым исходным кодом также работали в Windows, можно несколькими способами.)
 
+Этот раздел содержит некоторые команды CLI Azure, которые вы можете использовать с **jq** для эффективного получения именно тех сведений, которые вам нужны. Чтобы лучше понять, как используются ресурсы Azure, выберите тот набор инструментов, к которому вы привыкли.
 
-    {
-            "name": "instance01",
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2015-01-01",
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "https://mystore.blob.windows.net/azurermtemplates/my-child-template.json",
-                    "contentVersion": "1.0.0.0"
-                },
-                "parameters": {
-                    "storageAccountName": { "value": "[variables('stgAcctName1')]" },
-                    "adminUsername": { "value": "[parameters('adminUsername')]" },
-                    "adminPassword": { "value": "[parameters('adminPassword')]" }
-                }
-            }
-    }
+### PowerShell
 
+В Windows PowerShell есть несколько основных команд для выполнения тех же процедур.
 
-## Использование нескольких групп ресурсов
+- С помощью командлета **[Invoke-WebRequest](https://technet.microsoft.com/library/hh849901%28v=wps.640%29)** скачайте такие файлы, как шаблоны группы ресурсов или JSON-файлы параметров.
+- Используйте командлет **[ConvertFrom-Json](https://technet.microsoft.com/library/hh849898%28v=wps.640%29.aspx)** для преобразования строки JSON в настраиваемый объект ([PSCustomObject](https://msdn.microsoft.com/library/windows/desktop/system.management.automation.pscustomobject%28v=vs.85%29.aspx)), содержащий свойство для каждого поля в строке JSON.
 
-Часто требуется использовать ресурс из-за пределов текущей группы ресурсов, в которой разворачивается шаблон. Наиболее распространенным из таких случаев является использование учетной записи хранения или виртуальной сети в альтернативной группе ресурсов. Это часто требуется для того, чтобы удаление группы ресурсов, которая содержит виртуальные машины, не привело к удалению больших двоичных объектов VHD или виртуальной сети, которая используется несколькими группами ресурсов. В следующем примере показано, как использовать ресурс из внешней группы ресурсов.
-
-
-    {
-      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-          "virtualNetworkName": {
-              "type": "string"
-          },
-          "virtualNetworkResourceGroup": {
-              "type": "string"
-          },
-          "subnet1Name": {
-              "type": "string"
-          },
-          "nicName": {
-              "type": "string"
-          }
-      },
-      "variables": {
-          "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-          "subnet1Ref": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]"
-      },
-      "resources": [
-      {
-          "apiVersion": "2015-05-01-preview",
-          "type": "Microsoft.Network/networkInterfaces",
-          "name": "[parameters('nicName')]",
-          "location": "[parameters('location')]",
-          "properties": {
-              "ipConfigurations": [{
-                  "name": "ipconfig1",
-                  "properties": {
-                      "privateIPAllocationMethod": "Dynamic",
-                      "subnet": {
-                          "id": "[variables('subnet1Ref')]"
-                      }
-                  }
-              }]
-           }
-      }]
-
-    }
 
 ## Дальнейшие действия
 
-Чтобы освоить создание шаблонов, прочтите статью [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md) и найдите развертываемые примеры в [репозитории AzureRMTemplates](https://github.com/azurermtemplates/azurermtemplates). Примеры свойства **dependsOn** приведены в [шаблоне подсистемы балансировки нагрузки с правилом NAT для входящего трафика](https://github.com/azurermtemplates/azurermtemplates/blob/master/101-create-internal-loadbalancer/azuredeploy.json).
+Чтобы освоить создание шаблонов, прочтите статью [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md) и найдите развертываемые примеры в [репозитории шаблонов быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates). Примеры свойства **dependsOn** представлены в статье [Создание виртуальной машины с несколькими сетевыми адаптерами, доступной через протокол RDP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-1-vm-loadbalancer-2-nics).
 
 <!--Image references-->
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

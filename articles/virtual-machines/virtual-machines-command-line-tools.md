@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Управление службами Azure с помощью интерфейса командной строки Azure на компьютерах Mac, а также на компьютерах с ОС Linux и Windows | Microsoft Azure"
-	description="Узнайте, как использовать средства командной строки для компьютеров Mac и компьютеров с ОС Linux и Windows, чтобы управлять Azure с помощью интерфейса командной строки Azure в режиме asm."
+	pageTitle="Управление службами с помощью Azure CLI | Microsoft Azure"
+	description="Узнайте, как использовать программы командной строки для Mac, Linux и Windows, чтобы управлять Azure с помощью Azure CLI в классическом режиме развертывания (с использованием управления службами)."
 	services="virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
 	authors="dlepow"
@@ -18,6 +18,8 @@
 	ms.author="danlep"/>
 
 # Управление службами Azure с помощью интерфейса командной строки Azure на компьютерах Mac, а также на компьютерах с ОС Linux и Windows
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания. Для создания ресурса вы также можете использовать [модель развертывания диспетчера ресурсов](virtual-machines-deploy-rmtemplates-azure-cli.md).
 
 В этом разделе рассказывается, как с помощью интерфейса командной строки Azure в режиме **asm** создавать и удалять службы, а также управлять ими на компьютерах Mac и компьютерах с ОС Linux и Windows. Эти функциональные возможности аналогичны предоставляемым командлетами управления службами Windows PowerShell, которые устанавливаются вместе с пакетами SDK для Azure для .NET, Node.JS и PHP.
 
@@ -65,7 +67,7 @@
 	warn:   Remember to delete it now that it has been imported.
 	info:   Account publish settings imported successfully
 
-> [AZURE.NOTE]PUBLISHSETTINGS-файл может содержать данные (например, имя и идентификатор подписки) о нескольких подписках. При импорте PUBLISHSETTINGS-файла первая подписка используется в качестве описания по умолчанию. Чтобы использовать другую подписку, выполните следующую команду: <code>\~$ azure config set subscription &lt;идентификатор\_другой\_подписки&gt;</code>
+> [AZURE.NOTE]PUBLISHSETTINGS-файл может содержать данные (например, имя и идентификатор подписки) о нескольких подписках. При импорте PUBLISHSETTINGS-файла первая подписка используется в качестве описания по умолчанию. Чтобы использовать другую подписку, выполните следующую команду: <code>~$ azure config set subscription &lt;идентификатор\_другой\_подписки&gt;</code>
 
 **account clear [параметры]**
 
@@ -2346,4 +2348,4 @@ info:   vm shutdown command OK
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

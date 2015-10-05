@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Приступая к работе с данными в Android (серверная часть JavaScript) | Microsoft Azure" 
-	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении Android (серверная часть JavaScript)." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Приступая к работе с данными в Android (серверная часть JavaScript) | Microsoft Azure"
+	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении Android (серверная часть JavaScript)."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="09/16/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="09/23/2015"
 	ms.author="ricksal"/>
 
 # Добавление мобильных служб в существующее приложение Android (серверная часть JavaScript)
@@ -35,7 +35,7 @@
 </div>
 
 
-<p>Этот учебник поможет лучше понять, как мобильные службы Azure могут сохранять данные приложения Android и извлекать их из него. В этом разделе рассматриваются многие действия, которые уже выполнялись в кратком руководстве по использованию мобильных служб. Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником <a href="/ru-RU/develop/mobile/tutorials/get-started-android">Приступая к работе с мобильными службами</a>.</p>
+<p>Этот учебник поможет лучше понять, как мобильные службы Azure могут сохранять данные приложения Android и извлекать их из него. В этом разделе рассматриваются многие действия, которые уже выполнялись в кратком руководстве по использованию мобильных служб. Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником <a href="/ru-ru/develop/mobile/tutorials/get-started-android">Приступая к работе с мобильными службами</a>.</p>
 
 ## Предварительные требования
 
@@ -46,6 +46,10 @@
 
 - [пакет SDK для Android для мобильных служб Azure];
 - <a  href="https://developer.android.com/sdk/index.html" target="_blank">интегрированная среда разработки Android Studio</a>, которая включает в себя пакет SDK для Android, а также Android 4.2 или более поздней версии. Для загружаемого проекта GetStartedWithData требуется Android 4.2 или более поздней версии. Однако для пакета SDK для мобильных служб требуется только Android 2.2 или более поздней версии.
+
+## Пример кода
+
+Просмотреть полный исходный код можно <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/AndroidStudio">здесь</a>.
 
 ## Загрузка проекта GetStartedWithData
 
@@ -87,25 +91,18 @@
 4. Откройте вкладку **Данные**, а затем щелкните **Обзор**.
 
    	![][9]
-  
+
    	Обратите внимание, что таблица **TodoItem** теперь содержит данные с рядом значений, созданных мобильными службами, и в таблицу были автоматически добавлены столбцы, соответствующие классу TodoItem в приложении.
 
 Это заключительный шаг учебника **Приступая к работе с данными** для Android.
 
 ## Устранение неполадок
 
-###Проверка версии Android SDK
+### Проверка версии Android SDK
 
 [AZURE.INCLUDE [Проверка пакета SDK](../../includes/mobile-services-verify-android-sdk-version.md)]
 
 
-## Более ранние версии кода
-
-Чтобы просмотреть версию этого учебника для Eclipse, перейдите к следующей статье: [Приступая к работе с данными в Eclipse](mobile-services-android-get-started-data-ec.md).
-
-Чтобы просмотреть полную версию исходного кода в проекте Eclipse, перейдите <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">сюда</a>.
-
-Чтобы получить пример файла, который использовался в предыдущей версии пакета SDK для Android для мобильных служб Azure, вы можете скачать его [здесь](http://go.microsoft.com/fwlink/p/?LinkID=282122).
 
 ## Дальнейшие действия
 
@@ -145,7 +142,6 @@
 [Уточнение запросов посредством подкачки]: /develop/mobile/tutorials/add-paging-to-data-android
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-android
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-android
-[Get started with data (Eclipse)]: /documentation/articles/mobile-services-android-get-started-data-EC/
 [Приступая к работе с проверкой подлинности]: /develop/mobile/tutorials/get-started-with-users-android
 [Приступая к работе с push-уведомлениями]: /develop/mobile/tutorials/get-started-with-push-android
 
@@ -154,6 +150,5 @@
 [пакет SDK для Android для мобильных служб Azure]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
- 
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

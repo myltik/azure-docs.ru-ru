@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="09/23/2015"  
 	ms.author="juliako"/>
 
 #Обзор и сравнение кодировщиков мультимедиа Azure по запросу
@@ -70,13 +70,13 @@
 
 ###Входные и выходные метаданные
 
-Входные метаданные кодировщика описаны [здесь](http://msdn.microsoft.com/library/azure/dn783120.aspx) (не отличаются от метаданных кодировщика мультимедиа Azure).
+Входные метаданные кодировщиков описаны [здесь](http://msdn.microsoft.com/library/azure/dn783120.aspx).
 
-Выходные метаданные кодировщика описаны [здесь](http://msdn.microsoft.com/library/azure/dn783217.aspx) (не отличаются от метаданных кодировщика мультимедиа Azure).
+Выходные метаданные кодировщиков описаны [здесь](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
 ###Эскиз
 
-В настоящее время не поддерживается.
+Информацию о том, как создавать эскизы, см. в разделе [Как создать эскизы с помощью стандартного кодировщика мультимедиа](media-services-dotnet-generate-thumbnail-with-mes.md).
 
 ###Наложения звука и видео
 
@@ -90,7 +90,7 @@
 
 ###Обзор
 
-Кодировщик мультимедиа Azure — один из кодировщиков, поддерживаемых службами мультимедиа. Начиная с июля 2015 года, рекомендуется использовать [стандартный кодировщик мультимедиа](media-services-encode-asset.md#media_encoder_standard).
+Кодировщик мультимедиа Azure — один из кодировщиков, поддерживаемых службами мультимедиа. Начиная с июля 2015 года рекомендуется использовать [стандартный кодировщик мультимедиа](media-services-encode-asset.md#media_encoder_standard).
 
 ###Использование
 
@@ -106,13 +106,13 @@
 
 ###Входные и выходные метаданные
 
-Входные метаданные кодировщики описаны [здесь](http://msdn.microsoft.com/library/azure/dn783120.aspx).
+Входные метаданные кодировщиков описаны [здесь](http://msdn.microsoft.com/library/azure/dn783120.aspx).
 
-Выходные метаданные кодировщики описаны [здесь](http://msdn.microsoft.com/library/azure/dn783217.aspx).
+Выходные метаданные кодировщиков описаны [здесь](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
 ###Эскиз
 
-[Создание эскиза](https://msdn.microsoft.com/library/azure/Dn673581.aspx)
+[Создание эскиза](https://msdn.microsoft.com/library/hh973624.aspx)
 
 ###Наложения звука и видео
 
@@ -127,14 +127,16 @@
 [Кодирование мультимедиа с помощью Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md)
 
 ##Расширенный рабочий процесс кодировщика мультимедиа
-	
+
+###Обзор
+
+[Знакомство с кодированием Premium в службах мультимедиа Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+
+###Использование
+
 Рабочий процесс Premium кодировщика мультимедиа настраивается с помощью сложных рабочих процессов. Файлы рабочих процессов можно создавать и обновлять с помощью [конструктора рабочих процессов](media-services-workflow-designer.md).
 
-Дополнительные сведения см. в следующих статьях:
-
-- [Знакомство с кодированием Premium в службах мультимедиа Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-- [Использование кодирования Premium в службах мультимедиа Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-
+[Использование кодирования Premium в службах мультимедиа Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
 ##<a id="compare_encoders"></a>Сравнение кодировщиков
 
@@ -254,4 +256,4 @@ Windows Media Audio|Нет|Да|Да
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

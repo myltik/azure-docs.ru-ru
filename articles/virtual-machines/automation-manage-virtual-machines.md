@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Управление виртуальными машинами Azure с помощью службы автоматизации Azure"
+	pageTitle="Управление виртуальными машинами с помощью службы автоматизации Azure | Microsoft Azure"
 	description="Способы использования службы автоматизации Azure для управления виртуальными машинами Azure при масштабировании."
 	services="virtual-machines, automation"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/20/2015"
+	ms.date="08/11/2015"
 	ms.author="jolevy"/>
 
 
@@ -21,6 +21,8 @@
 #Управление виртуальными машинами Azure с помощью службы автоматизации Azure
 
 В этом руководстве представлена служба автоматизации Azure и описано, как ее использовать, чтобы упростить управление виртуальными машинами Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## Что такое служба автоматизации Azure
 
@@ -42,4 +44,4 @@
 
 [Приступая к работе со службой автоматизации Azure](../automation-create-runbook-from-samples.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

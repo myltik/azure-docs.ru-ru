@@ -1,29 +1,32 @@
-<properties 
-   pageTitle="Создание и отправка виртуального жесткого диска FreeBSD в Azure"
-	description="Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему FreeBSD."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="KylieLiang"
-	manager="timlt"
-	editor=""/>
+<properties
+   pageTitle="Создание и передача образа виртуальной машины FreeBSD | Microsoft Azure"
+   description="Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл), содержащий операционную систему FreeBSD, для создания виртуальной машины Azure."
+   services="virtual-machines"
+   documentationCenter=""
+   authors="KylieLiang"
+   manager="timlt"
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="infrastructure-services"
-	ms.date="05/19/2015"
-	ms.author="kyliel"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-linux"
+   ms.workload="infrastructure-services"
+   ms.date="05/19/2015"
+   ms.author="kyliel"/>
 
-# Создание и отправка виртуального жесткого диска FreeBSD в Azure 
+# Создание и отправка виртуального жесткого диска FreeBSD в Azure
 
 В этой статье показано, как создать и передать виртуальный жесткий диск с операционной системой FreeBSD, чтобы использовать его в качестве образа для создания виртуальной машины в Azure.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
 
 ##Предварительные требования##
 В данной статье предполагается, что у вас есть следующие элементы:
 
-- **Подписка Azure ** — если у вас ее нет, то можно создать учетную запись, что займет всего лишь несколько минут. При наличии подписки MSDN см. статью [Преимущество Azure для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). В противном случае см. статью о том, как [создать бесплатную пробную учетную запись](http://azure.microsoft.com/pricing/free-trial/).  
+- **Подписка Azure ** — если у вас ее нет, то можно создать учетную запись, что займет всего лишь несколько минут. При наличии подписки MSDN см. раздел [Преимущества Azure для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). В противном случае см. статью о том, как [создать бесплатную пробную учетную запись](http://azure.microsoft.com/pricing/free-trial/).  
 
 - **Средства Azure PowerShell.** У вас уже установлен модуль Microsoft Azure PowerShell, настроенный на использование вашей подписки. Информацию о скачивании модуля см. в разделе [Загрузки Azure](http://azure.microsoft.com/downloads/). Учебник по установке и настройке модуля вы найдете здесь. Для передачи VHD-файла вы будете использовать командлет из раздела [Загрузки Azure](http://azure.microsoft.com/downloads/).
 
@@ -48,9 +51,9 @@
 
     SSH включается по умолчанию после установки с диска. Если этот компонент не включен или вы используете непосредственно виртуальный жесткий диск FreeBSD, введите:
 
-		# echo 'sshd_enable="YES"' >> /etc/rc.conf 
-		# ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key 
-		# ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key 
+		# echo 'sshd_enable="YES"' >> /etc/rc.conf
+		# ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
+		# ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 		# service sshd restart
 
 3. **Настройка последовательной консоли**
@@ -73,7 +76,7 @@
 
     5\.2. **Установка wget**
 
-		# pkg install wget 
+		# pkg install wget
 
 6. **Установка агента Azure**
 
@@ -111,11 +114,11 @@
 	![Быстрое создание учетной записи хранения](./media/virtual-machines-freebsd-create-upload-vhd/Storage-quick-create.png)
 
 4. Заполните поля, как показано ниже:
-	
+
 	- В поле **URL-адрес** введите имя поддомена, используемого в URL-адресе для учетной записи хранения. Записи могут содержать от 3 до 24 строчных букв и цифр. Это имя становится именем узла в URL, который используется для адресации ресурсов BLOB-объекта, очереди и таблицы для подписки.
-			
+
 	- Выберите **расположение или территориальную группу** для учетной записи хранения. Указав территориальную группу, можно выполнить совместное размещение облачных служб и хранилища в одном центре обработки данных.
-		 
+
 	- Укажите, следует ли использовать **георепликацию** для учетной записи хранения. По умолчанию георепликация включена. Этот параметр позволяет бесплатно выполнять репликацию данных в дополнительное расположение. Таким образом хранилище переключится на это расположение в случае аварийного отказа основного расположения. Дополнительное местоположение назначается автоматически и не может быть изменено. Если в соответствии с законодательными требованиями или организационной политикой требуется более жесткий контроль расположения облачного хранилища, георепликацию можно отключить. Однако следует помнить, что если вы опять включите георепликацию, с вас будет взята однократная плата за репликацию существующих данных в дополнительное местоположение. Службы хранения без георепликации предлагаются со скидкой. Дополнительную информацию об управлении георепликацией учетных записей хранения см. здесь: [Создание и удаление учетной записи хранения, а также управление ею](../storage-create-storage-account/#replication-options).
 
 	![Введите сведения об учетной записи хранения](./media/virtual-machines-freebsd-create-upload-vhd/Storage-create-account.png)
@@ -148,7 +151,7 @@
 1. Откройте консоль Azure PowerShell.
 
 2. Введите следующую команду: `Add-AzureAccount`
-	
+
 	После выполнения команды откроется окно входа, и вы сможете войти, используя свою рабочую или школьную учетную запись.
 
 	![Окно PowerShell](./media/virtual-machines-freebsd-create-upload-vhd/add_azureaccount.png)
@@ -157,7 +160,7 @@
 
 ###Использование сертификата
 
-1. Откройте консоль Azure PowerShell. 
+1. Откройте консоль Azure PowerShell.
 
 2. Введите `Get-AzurePublishSettingsFile`.
 
@@ -172,7 +175,7 @@
 	`<PathToFile>` — это полный путь к файлу PUBLISHSETTINGS.
 
    Дополнительную информацию см. в разделе [Начало работы с командлетами Microsoft Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)
-	
+
    Дополнительную информацию об установке и настройке PowerShell см. в статье [Как установить и настроить Microsoft Azure PowerShell](../install-configure-powershell.md).
 
 ## Шаг 4. Загрузка файла VHD ##
@@ -204,6 +207,5 @@
 4. После завершения подготовки вы увидите в Azure запущенную виртуальную машину FreeBSD.
 
 	![образ FreeBSD в Azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

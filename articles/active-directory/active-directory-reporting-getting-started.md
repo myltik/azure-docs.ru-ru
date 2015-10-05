@@ -1,10 +1,10 @@
 <properties
    pageTitle="Azure AD Reporting: приступая к работе"
-   description="Azure AD Reporting: приступая к работе"
+   description="Перечислены различные отчеты, доступные в Azure Active Directory Reporting."
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="mbaldwin"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/30/2015"
+   ms.date="09/21/2015"
    ms.author="curtand;kenhoff"/>
 
 # Приступая к работе с помощью Azure AD Reporting
@@ -156,4 +156,4 @@ Azure Active Directory содержит отчеты о безопасности
 
 > [AZURE.TIP]Дополнительную документацию по Azure AD Reporting см. в статье [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

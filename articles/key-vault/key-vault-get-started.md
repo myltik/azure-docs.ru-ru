@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/22/2015"
+	ms.date="09/22/2015"
 	ms.author="cabailey"/>
 
 # Приступая к работе с хранилищем ключей Azure #
@@ -36,7 +36,7 @@
 
 - подписка на Microsoft Azure. Если у вас нет подписки, вы можете зарегистрироваться для использования [бесплатной пробной версии](../../../../pricing/free-trial);
 - Azure PowerShell версии 0.9.1 или более поздней. Чтобы установить последнюю версию и связать ее со своей подпиской Azure, см. статью [Как установить и настроить Azure PowerShell](../powershell-install-configure.md);
-- приложение, для которого вы будете настраивать использование ключа или пароля, созданного по этому учебнику. Пример приложения доступен в [Центре загрузки Майкрософт](http://www.microsoft.com/ru-RU/download/details.aspx?id=45343). Указания см. в сопутствующем файле Readme.
+- приложение, для которого вы будете настраивать использование ключа или пароля, созданного по этому учебнику. Пример приложения доступен в [Центре загрузки Майкрософт](http://www.microsoft.com/ru-ru/download/details.aspx?id=45343). Указания см. в сопутствующем файле Readme.
 
 
 Этот учебник предназначен для начинающих пользователей Windows PowerShell, но предполагается, что вы знакомы с основными понятиями, такими как модули, командлеты и сеансы. Дополнительные сведения о Windows PowerShell см. в статье [Начало работы с Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
@@ -179,7 +179,7 @@
 
 
 	Set-AzureKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
-	
+
 Если этому же приложению необходимо разрешить читать секретные данные в хранилище, выполните следующую команду:
 
 
@@ -242,6 +242,6 @@
 
 Полный список командлетов Windows PowerShell для хранилища ключей Azure см. в разделе [Командлеты для хранилища ключей Azure](https://msdn.microsoft.com/library/azure/dn868052.aspx).
 
-Справочные материалы по программированию см. в статье [Хранилище ключей](https://msdn.microsoft.com/library/azure/dn903625.aspx) библиотеки документации по Microsoft Azure на сайте MSDN.
+Справочные материалы по программированию см. в [руководстве разработчика для хранилища ключей Azure](key-vault-developers-guide.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

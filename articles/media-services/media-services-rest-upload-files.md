@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/20/2015"
 	ms.author="juliako"/>
 
 
@@ -27,14 +27,17 @@
 
 >[AZURE.NOTE]При создании URL-адресов для потоковой передачи содержимого службы мультимедиа используют значение свойства IAssetFile.Name (например, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Поэтому кодирование с помощью знака процента не допускается. Значение свойства **Name** не может содержать следующие [символы, зарезервированные для кодирования с помощью знака процента](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Кроме того, может использоваться только один символ "." для расширения имени файла.
 
-Основной рабочий процесс использования ресурсов делится на следующие разделы.
+Основная процедура отправки ресурсов делится на следующие разделы:
 
 - Создание ресурса
 - Шифрование актива (необязательно)
 - Отправка файла в хранилище больших двоичных объектов
 
+AMS также позволяет передавать ресурсы в пакетном режиме. Дополнительную информацию см. в [этом разделе](media-services-rest-upload-files.md#upload_in_bulk).
 
-##Создание ресурса
+##Отправка ресурсов
+
+###Создание ресурса
 
 >[AZURE.NOTE]При работе с REST API служб мультимедиа следует руководствоваться следующими рекомендациями.
 >
@@ -106,7 +109,7 @@
 	   "StorageAccountName":"storagetestaccount001"
 	}
 	
-##Создание сущности AssetFile
+###Создание сущности AssetFile
 
 Сущность [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) представляет собой аудио- или видеофайл, который хранится в контейнере больших двоичных объектов. Файл ресурса всегда связан с ресурсом, который, в свою очередь, может содержать один или несколько файлов ресурса. Задача кодировщика служб мультимедиа завершится с ошибкой, если объект файла ресурса не связан с цифровым файлом в контейнере больших двоичных объектов.
 
@@ -171,7 +174,7 @@
 	}
 
 
-## Создание сущности AccessPolicy с разрешением на запись 
+### Создание сущности AccessPolicy с разрешением на запись 
 
 Перед отправкой файлов в хранилище больших двоичных объектов настройте для политики доступа права на запись в ресурс. Для этого отправьте запрос HTTP POST в набор сущностей AccessPolicy. При создании сущности необходимо задать значение DurationInMinutes. В противном случае вы получите сообщение об ошибке 500 (внутренняя ошибка сервера). Дополнительную информацию о сущностях AccessPolicy см. в разделе [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
 
@@ -218,7 +221,7 @@
 	   "Permissions":2
 	}
 
-##Получение URL-адреса отправки
+###Получение URL-адреса отправки
 
 Чтобы получить фактический URL-адрес отправки, создайте указатель SAS. Указатели определяют время начала и тип конечной точки подключения для клиентов, которым требуется доступ к файлам в ресурсе. Для обработки разных запросов клиентов и удовлетворения их потребностей можно создать несколько сущностей Locator для заданной пары AccessPolicy и Asset. Каждый из этих указателей использует значения StartTime и DurationInMinutes сущности AccessPolicy, чтобы определить время, в течение которого можно использовать URL-адрес. Дополнительную информацию см. в разделе [Указатель](http://msdn.microsoft.com/library/azure/hh974308.aspx).
 
@@ -286,7 +289,7 @@
 	   "Name":null
 	}
 
-## Отправка файла в контейнер хранилища больших двоичных объектов
+### Отправка файла в контейнер хранилища больших двоичных объектов
 	
 Когда сущности AccessPolicy и Locator будут заданы, фактические файлы отправляются в контейнер хранилища больших двоичных объектов Azure с помощью интерфейсов REST API службы хранилища Azure. Файлы можно отправить в страничные или блочные большие блочный BLOB-объекты.
 
@@ -295,7 +298,7 @@
 Дополнительную информацию о работе с большими двоичными объектами службы хранилища Azure см. в статье [API-интерфейс REST службы BLOB-объектов](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
 
-## Обновление AssetFile 
+### Обновление AssetFile 
 
 После отправки файла обновите информацию о размере сущности FileAsset (и другую информацию). Например:
 	
@@ -322,7 +325,7 @@
 
 При успешном выполнении возвращается следующий результат: HTTP/1.1 204 Нет содержимого
 
-## Удаление Locator и AccessPolicy 
+### Удаление Locator и AccessPolicy 
 
 **HTTP-запрос**
 
@@ -362,6 +365,146 @@
 	HTTP/1.1 204 No Content 
 	...
 
+##<a id="upload_in_bulk"></a>Отправка ресурсов в пакетном режиме
+
+###Создание сущности IngestManifest
+
+IngestManifest — это контейнер для набора ресурсов, файлов ресурсов и статистических данных, которые можно использовать для определения хода массового приема этого набора.
+
+
+**HTTP-запрос**
+
+	POST https:// media.windows.net/API/IngestManifests HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
+	Host: media.windows.net
+	Content-Length: 36
+	Expect: 100-continue
+	
+	{ "Name" : "ExampleManifestREST" }
+
+###Создание ресурсов
+
+Прежде чем создать манифест IngestManifestAsset, необходимо создать ресурс, который будет выполняться с помощью массового приема. Ресурс — это контейнер, состоящий из нескольких наборов объектов или объектов разного типа в службах мультимедиа, в том числе видео, аудио, изображения, коллекции отпечатков, текстовые каналы и файлы скрытых субтитров. Для создания ресурса в REST API нужно отправить HTTP-запрос POST службам мультимедиа Microsoft Azure и разместить информацию о свойствах ресурса в тексте запроса. В данном примере ресурс создается с помощью параметра StorageEncrption(1), включенного в текст запроса.
+
+**HTTP-ответ**
+
+	POST https://media.windows.net/API/Assets HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
+	Host: media.windows.net
+	Content-Length: 55
+	Expect: 100-continue
+	
+	{ "Name" : "ExampleManifestREST_Asset", "Options" : 1 }
+
+###Создание сущности IngestManifestAssets
+
+Сущность IngestManifestAssets представляет ресурсы в сущности IngestManifest, используемые при массовом приеме. По сути это связь ресурса с манифестом. Службы мультимедиа Azure выполняет внутренний поиск отправки файлов, используя для этого коллекцию IngestManifestFiles, связанную с IngestManifestAsset. После отправки этих файлов ресурс считается завершенным. Новую сущность IngestManifestAsset можно создать с помощью HTTP-запроса POST. В текст запроса включите идентификатор IngestManifest и идентификатор ресурса, которые IngestManifestAsset должен связать воедино для массового приема.
+
+**HTTP-ответ**
+
+	POST https://media.windows.net/API/IngestManifestAssets HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
+	Host: media.windows.net
+	Content-Length: 152
+	Expect: 100-continue
+	{ "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "Asset" : { "Id" : "nb:cid:UUID:b757929a-5a57-430b-b33e-c05c6cbef02e"}}
+
+###(Необязательно) Создание сущности ContentKeys, используемой для шифрования
+
+Если ваш ресурс будет использовать шифрование, прежде чем создавать для него IngestManifestFiles, создайте необходимую для шифрования сущность ContentKeys. В этом случае в текст запроса включаются описанные ниже свойства.
+ 
+Свойство текста запроса | Идентификатор описания | Идентификатор ContentKey, созданный нами в следующем формате "nb:kid:UUID:<NEW GUID>". ContentKeyType | Это тип ключа содержимого, который в данном случае выражается целым числом. Для шифрования хранилища передается значение 1. EncryptedContentKey | Мы создаем новое значение ключа содержимого, которое представляет собой 256-битное (32-байтное) значение. Ключ шифруется с помощью сертификата шифрования хранилища X.509, полученного из служб мультимедиа Microsoft Azure с помощью HTTP- запроса GET для методов GetProtectionKeyId и GetProtectionKey. ProtectionKeyId | Это идентификатор ключа защиты для сертификата шифрования хранилища X.509, который использовался для шифрования ключа содержимого. ProtectionKeyType | Это тип шифрования для защиты ключа, который использовался для шифрования ключа содержимого. В нашем примере этим значением является StorageEncryption(1). Checksum | Контрольная сумма, рассчитанная для ключа содержимого с помощью MD5. Она вычисляется путем шифрования идентификатора содержимого с использованием ключа содержимого. В примере кода показано, как вычислить контрольную сумму.
+
+
+**HTTP-ответ**
+	
+	POST https://media.windows.net/api/ContentKeys HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
+	Host: media.windows.net
+	Content-Length: 572
+	Expect: 100-continue
+	
+	{"Id" : "nb:kid:UUID:316d14d4-b603-4d90-b8db-0fede8aa48f8", "ContentKeyType" : 1, "EncryptedContentKey" : "Y4NPej7heOFa2vsd8ZEOcjjpu/qOq3RJ6GRfxa8CCwtAM83d6J2mKOeQFUmMyVXUSsBCCOdufmieTKi+hOUtNAbyNM4lY4AXI537b9GaY8oSeje0NGU8+QCOuf7jGdRac5B9uIk7WwD76RAJnqyep6U/OdvQV4RLvvZ9w7nO4bY8RHaUaLxC2u4aIRRaZtLu5rm8GKBPy87OzQVXNgnLM01I8s3Z4wJ3i7jXqkknDy4VkIyLBSQvIvUzxYHeNdMVWDmS+jPN9ScVmolUwGzH1A23td8UWFHOjTjXHLjNm5Yq+7MIOoaxeMlKPYXRFKofRY8Qh5o5tqvycSAJ9KUqfg==", "ProtectionKeyId" : "7D9BB04D9D0A4A24800CADBFEF232689E048F69C", "ProtectionKeyType" : 1, "Checksum" : "TfXtjCIlq1Y=" }
+
+### Привязка ключа содержимого к ресурсу
+
+Ключ содержимого привязывается к одному или нескольким ресурсам с помощью HTTP-запроса POST. Приведенный ниже запрос представляет собой пример привязки ключа содержимого к ресурсу по идентификатору.
+
+**HTTP-ответ**
+	
+	POST https://media.windows.net/API/Assets('nb:cid:UUID:b3023475-09b4-4647-9d6d-6fc242822e68')/$links/ContentKeys HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
+	Host: media.windows.net
+	Content-Length: 113
+	Expect: 100-continue
+	
+	{ "uri": "https://media.windows.net/api/ContentKeys('nb%3Akid%3AUUID%3A32e6efaf-5fba-4538-b115-9d1cefe43510')"}
+
+###Создание сущности IngestManifestFiles для каждого ресурса
+
+IngestManifestFile фактически представляет собой большой двоичный объект видео- или аудиоданных, который будет отправляться в рамках массового приема. Свойства, связанные с шифрованием, не являются обязательными, если только в ресурсе не применяется шифрование. В примере, который приводится в этом разделе, демонстрируется создание сущности IngestManifestFile, которая использует для созданного ранее ресурса параметр StorageEncryption.
+
+
+**HTTP-ответ**
+
+	POST https://media.windows.net/API/IngestManifestFiles HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
+	Host: media.windows.net
+	Content-Length: 367
+	Expect: 100-continue
+	
+	{ "Name" : "REST_Example_File.wmv", "ParentIngestManifestId" : "nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048", "ParentIngestManifestAssetId" : "nb:maid:UUID:beed8531-9a03-9043-b1d8-6a6d1044cdda", "IsEncrypted" : "true", "EncryptionScheme" : "StorageEncryption", "EncryptionVersion" : "1.0", "EncryptionKeyId" : "nb:kid:UUID:32e6efaf-5fba-4538-b115-9d1cefe43510" }
+	
+###Отправка файлов в хранилище BLOB-объектов
+
+При этом можно использовать любое высокоскоростное клиентское приложение, которое может передавать файлы ресурсов по универсальному коду ресурса (URI) контейнера хранилища больших двоичных объектов, предоставляемому свойством BlobStorageUriForUpload сущности IngestManifest. [Приложение Aspera On Demand for Azure](http://go.microsoft.com/fwlink/?LinkId=272001) — одна из наиболее примечательных служб высокоскоростной передачи.
+
+###Контроль за ходом выполнения массового приема
+
+Ход выполнения массового приема операций для сущности IngestManifest можно отслеживать путем опроса свойства Statistics сущности IngestManifest. Это свойство комплексного типа, [IngestManifestStatistics](https://msdn.microsoft.com/library/azure/jj853027.aspx). Чтобы опросить свойство Statistics, отправьте HTTP-запрос GET, передав идентификатор IngestManifest.
+ 
+
+**HTTP-ответ**
+
+	GET https://media.windows.net/API/IngestManifests('nb:mid:UUID:5c77f186-414f-8b48-8231-17f9264e2048') HTTP/1.1
+	Content-Type: application/json;odata=verbose
+	Accept: application/json;odata=verbose
+	DataServiceVersion: 3.0
+	MaxDataServiceVersion: 3.0
+	x-ms-version: 2.11
+	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=070500D0-F35C-4A5A-9249-485BBF4EC70B&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1334275521&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=GxdBb%2fmEyN7iHdNxbawawHRftLhPFFqxX1JZckuv3hY%3d
+	Host: media.windows.net
+
 
 ##Схемы обучения работе со службами мультимедиа
 
@@ -375,4 +518,4 @@
 [How to Get a Media Processor]: media-services-get-media-processor.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

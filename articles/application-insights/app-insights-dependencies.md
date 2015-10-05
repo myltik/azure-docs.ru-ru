@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/17/2015" 
 	ms.author="awills"/>
  
 # Диагностика проблем с зависимостями в Application Insights
@@ -48,7 +48,7 @@
 платформа | Установить
 ---|---
 Сервер IIS | [Монитор состояния](app-insights-monitor-performance-live-website-now.md)
-Веб-приложение Azure | [Расширение для Application Insights](../insights-perf-analytics.md)
+Веб-приложение Azure | [Расширение для Application Insights](../azure-portal/insights-perf-analytics.md)
 Веб-сервер Java | [Веб-приложения Java](app-insights-java-agent.md)
 
 В случае с монитором состояния для серверов IIS вам не нужно заново компилировать проект с исходным кодом, используя пакет SDK для Application Insights.
@@ -129,4 +129,4 @@
 
 <!--Link references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Настройка пользовательского доменного имени для облачных служб"
+	pageTitle="Настройка пользовательского доменного имени в облачных службах | Microsoft Azure"
 	description="Узнайте, как предоставить приложение или данные Azure на пользовательском домене посредством установки параметров DNS."
 	services="cloud-services"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 # Настройка пользовательского доменного имени для облачной службы Azure
@@ -23,7 +23,7 @@
 - [Azure Preview Portal](cloud-services-custom-domain-name-portal.md)
 
 
-При создании облачной службы Azure ей назначается поддомен cloudapp.net. Например, если облачная служба имеет имя contoso, пользователи будут иметь доступ к приложению по URL-адресу вида http://&lt;*contoso*>. cloudapp.net. Azure также назначает виртуальный IP-адрес.
+При создании облачной службы Azure ей назначается поддомен cloudapp.net. Например, если облачная служба имеет имя contoso, пользователи смогут обращаться к приложению по URL-адресу вида http://contoso.cloudapp.net. Azure также назначает виртуальный IP-адрес.
 
 Однако вы можете сделать свое приложение доступным на своем собственном имени домена, например contoso.com. В этой статье объясняется, как зарезервировать или настроить личное доменное имя для веб-ролей облачной службы.
 
@@ -145,8 +145,14 @@
 
 ## Дальнейшие действия
 
--   [Управление облачными службами](cloud-services-how-to-manage.md)
--   [Сопоставление содержимого CDN с пользовательским доменом](http://msdn.microsoft.com/library/windowsazure/gg680307.aspx)
+* [Управление облачными службами](cloud-services-how-to-manage.md)
+* [Сопоставление содержимого CDN с пользовательским доменом](cdn-map-content-to-custom-domain.md)
+* [Общая настройка облачной службы](cloud-services-how-to-configure.md).
+* Узнайте, как [развернуть облачную службу](cloud-services-how-to-create-deploy.md).
+* Настройте [SSL-сертификаты](cloud-services-configure-ssl-certificate.md).
+
+
+
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
@@ -159,4 +165,4 @@
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!-------HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

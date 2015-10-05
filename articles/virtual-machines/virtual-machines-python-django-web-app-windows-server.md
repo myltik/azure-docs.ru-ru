@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Веб-приложение Python на Django | Microsoft Azure"
-	description="В этом учебнике описывается размещение веб-сайта, созданного на основе Django, в Azure с помощью виртуальной машины Windows Server 2012 R2 Datacenter."
+	description="В этом учебнике изучается размещение веб-сайта, созданного на основе Django, в Azure с помощью виртуальной машины Windows Server 2012 R2 Datacenter и классической модели развертывания."
 	services="virtual-machines"
 	documentationCenter="python"
 	authors="huguesv"
 	manager="wpickett"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 
 <tags 
@@ -18,11 +19,15 @@
 	ms.author="huvalo"/>
 
 
+# Веб-приложение Hello World на Django на виртуальной машине Windows Server
 
+> [AZURE.SELECTOR]
+- [Windows](virtual-machines-python-django-web-app-windows-server.md)
+- [Mac/Linux](virtual-machines-python-django-web-app-linux.md)
 
-# Веб-приложение Hello World на Django
+<br>
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
 
 В этом учебнике описывается, как разместить веб-сайт на основе Django в Microsoft Azure с помощью виртуальной машины Windows Server. В данном учебнике предполагается, что у вас нет опыта использования платформы Azure. По завершении работы с данным учебником у вас будет приложение на базе Django, выполняемое в облаке.
 
@@ -41,7 +46,7 @@
 
 ## Создание и настройка виртуальной машины Azure для размещения Django
 
-1. Чтобы создать виртуальную машину Azure с Windows Server 2012 R2 Datacenter, следуйте [этим](virtual-machines-windows-tutorial-classic-portal.md) инструкциям.
+1. Чтобы создать виртуальную машину Azure с Windows Server 2012 R2 Datacenter, следуйте [этим](virtual-machines-windows-tutorial-classic-portal.md) указаниям.
 
 1. Дайте Azure команду для перенаправления трафика порта 80 из Интернета в порт 80 на виртуальной машине:
  - Перейдите к только что созданной виртуальной машине на портале Azure и откройте вкладку **КОНЕЧНЫЕ ТОЧКИ**.
@@ -50,7 +55,7 @@
  - Откройте **ОБЩИЙ ПОРТ 80** протокола **TCP** как **ЧАСТНЫЙ ПОРТ 80**. ![][port80]
 1. На вкладке **ПАНЕЛЬ МОНИТОРИНГА** щелкните **ПОДКЛЮЧИТЬ**, чтобы использовать **Удаленный рабочий стол** для удаленного входа в созданную виртуальную машину Azure.  
 
-**Важное примечание.** Во всех инструкциях ниже подразумевается, что вы правильно выполнили вход на виртуальную машину и выполняете команды на ней, а не на локальном компьютере.
+**Важное примечание.** Во всех указаниях ниже подразумевается, что вы правильно выполнили вход на виртуальную машину и выполняете команды на ней, а не на локальном компьютере.
 
 ## <a id="setup"> </a>Установка Python, Django, WFastCGI
 
@@ -125,7 +130,7 @@
 
         c:\python34\scripts\wfastcgi-enable
 
-1. Создайте файл web.config в каталоге *C:\\inetpub\\wwwroot\\helloworld*. Значение атрибута `scriptProcessor` должно соответствовать выходным данным из предыдущего шага. Дополнительные сведения о настройках wfastcgi приведены на странице [wfastcgi][] в pypi.
+1. Создайте файл web.config в каталоге *C:\\inetpub\\wwwroot\\helloworld*. Значение атрибута `scriptProcessor` должно соответствовать выходным данным предыдущего шага. Дополнительные сведения о настройках wfastcgi приведены на странице [wfastcgi][] в pypi.
 
     Python 2.7:
 
@@ -178,4 +183,4 @@
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="09/17/2015"
 	ms.author="jgao"/>
 
 # Управление кластерами Hadoop в HDInsight с использованием интерфейса командной строки Azure (CLI Azure)
@@ -160,4 +160,4 @@ HDInsight использует контейнер хранилища BLOB-объ
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Отображение кластеров"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

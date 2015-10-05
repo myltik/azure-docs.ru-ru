@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -146,5 +146,11 @@
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
+## Дальнейшие действия
 
-<!---HONumber=August15_HO7-->
+* [Общая настройка облачной службы](cloud-services-how-to-configure.md).
+* Настройте [пользовательское доменное имя](cloud-services-custom-domain-name.md).
+* [Управляйте облачной службой](cloud-services-how-to-manage.md).
+* Настройте [SSL-сертификаты](cloud-services-configure-ssl-certificate.md).
+
+<!---HONumber=Sept15_HO4-->

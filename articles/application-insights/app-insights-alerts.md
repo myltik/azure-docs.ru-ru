@@ -114,6 +114,8 @@ Application Insights выполняет мониторинг живого при
 
 Я хочу получать электронные сообщения, если в среднем за 5 минут ответ сервера на HTTP-запросы выполняется дольше 1 секунды. Мой ресурс Application Insights называется IceCreamWebApp, и он находится в группе ресурсов Fabrikam. Я владелец подписки Azure.
 
+GUID — это идентификатор подписки (не ключ инструментирования приложения).
+
     Add-AlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
      -ResourceGroup "Fabrikam" `
@@ -169,7 +171,14 @@ Application Insights выполняет мониторинг живого при
 `view.count`|Просмотры страниц|Количество клиентских запросов пользователя для веб-страницы. Искусственный трафик отфильтровывается.
 {имя пользовательской метрики}|{имя метрики}|Значение метрики, сообщаемое [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric) или [параметром измерения вызова отслеживания](app-insights-api-custom-events-metrics.md#properties).
 
-   
+Метрики отправляются различными модулями телеметрии:
+
+Группа метрик | Модуль сборщика
+---|---
+basicExceptionBrowser,<br/>clientPerformance,<br/>view | [Browser JavaScript](app-insights-javascript.md)
+performanceCounter | [Производительность](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3)
+remoteDependencyFailed| [Dependency](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1)
+request,<br/>requestFailed|[Server request](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
 
 <!--Link references-->
@@ -182,4 +191,4 @@ Application Insights выполняет мониторинг живого при
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

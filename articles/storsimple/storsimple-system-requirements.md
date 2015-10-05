@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Требования к системе StorSimple | Microsoft Azure"
-	description="Описание требований к системе и рекомендаций по программному обеспечению, высокой доступности и сетям для решения Azure StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   pageTitle="Требования к системе StorSimple | Microsoft Azure" 
+   description="Описание требований к системе и рекомендаций по программному обеспечению, высокой доступности и сетям для решения Azure StorSimple." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="alkohli" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/21/2015"
+   ms.author="alkohli"/>
 
 # Программное обеспечение StorSimple, высокий уровень доступности и требования к сети
 
@@ -154,7 +154,8 @@
 | UDP 123 (NTP) | Исходящий | WAN | В некоторых случаях. См. примечания. |Этот порт требуется, только если вы используете веб-NTP-сервер. |
 | TCP 9354 | Исходящий | WAN | В некоторых случаях. См. примечания. |Исходящий порт используется службой StorSimple Manager для взаимодействия с устройством. Этот порт требуется, если существующая сеть не поддерживает использование HTTP 1.1 для подключения к Интернету; например, если вы используете прокси-сервер на основе HTTP 1.0.<br> При подключении через прокси-сервер см. дополнительные сведения в разделе [Требования к служебной шине](https://msdn.microsoft.com/library/azure/ee706729.aspx). |
 | 3260 (iSCSI) | В | Локальная сеть | Нет | Этот порт используется для доступа к данным по iSCSI.|
-| 5985 | В | Локальная сеть | Нет | Входящий порт используется диспетчером моментальных снимков StorSimple для взаимодействия с устройством StorSimple.<br>Этот порт также используется при удаленном подключении к Windows PowerShell для StorSimple по HTTP или HTTPS. |
+| 5985 | В | Локальная сеть | Нет | Входящий порт используется диспетчером моментальных снимков StorSimple для взаимодействия с устройством StorSimple.<br>Этот порт также используется при удаленном подключении к Windows PowerShell для StorSimple по протоколу HTTP. |
+| 5986 | В | Локальная сеть | Нет | Этот порт используется, когда вы удаленно подключаетесь к Windows PowerShell для StorSimple по протоколу HTTPS. |
 
 <sup>1</sup> Входящие порты не требуется открывать при общем доступе через Интернет.
 
@@ -188,10 +189,10 @@
 
 ## Дальнейшие действия
 
-- [Сведения о системных ограничениях StorSimple](storsimple-limits.md).
+- [Узнайте о системных ограничениях StorSimple](storsimple-limits.md).
 - [Узнайте о развертывании решения StorSimple](storsimple-deployment-walkthrough.md).
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

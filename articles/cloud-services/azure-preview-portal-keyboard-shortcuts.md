@@ -1,8 +1,8 @@
 <properties
-   pageTitle="Сочетания клавиш портала Azure"
+   pageTitle="Сочетания клавиш портала Azure | Microsoft Azure"
    description="В этой статье всегда будет актуальный список сочетаний клавиш, которые работают на портале Azure. У индивидуальных служб могут свои специальные сочетания клавиш."
    services="cloud-services"
-   documentationCenter="dev-center-name"
+   documentationCenter=""
    authors="curtand"
    manager="msStevenPo"
    editor=""/>
@@ -50,4 +50,4 @@
 
 Познакомьтесь с порталом Azure поближе: http://azure.microsoft.com.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

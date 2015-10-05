@@ -1,25 +1,30 @@
 <properties 
-	pageTitle="Использование Django и MySQL в Azure с помощью инструментов Python 2.2 для Visual Studio"
-	description="Информация о том, как создать веб-приложение Django, которое хранит данные в экземпляре базы данных MySQL, с помощью инструментов Python для Visual Studio и развернуть его в веб-приложениях службы приложений Azure."
-	services="app-service\web"
-	documentationCenter="python"
-	authors="huguesv"
-	manager="wpickett"
+	pageTitle="Использование Django и MySQL в Azure с помощью инструментов Python 2.2 для Visual Studio" 
+	description="Информация о том, как создать веб-приложение Django, которое хранит данные в экземпляре базы данных MySQL, с помощью инструментов Python для Visual Studio и развернуть его в веб-приложениях службы приложений Azure." 
+	services="app-service\web" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
-
-
-
 # Использование Django и MySQL в Azure с помощью инструментов Python 2.2 для Visual Studio 
+
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
 
 В этом учебнике мы используем [Средства Python для Visual Studio], чтобы создать простое веб-приложение опросника с помощью шаблонов PTVS. Также доступна [видеоверсия](https://www.youtube.com/watch?v=oKCApIrS0Lo) этого учебника.
 
@@ -32,7 +37,7 @@
  - Visual Studio 2013 или 2015
  - [Инструменты Python 2.2 для Visual Studio]
  - [Образцы VSIX средств Python 2.2 для Visual Studio]
- - [Пакет инструментов SDK Azure для VS 2013] или [пакет инструментов SDK Azure для VS 2015]
+ - [Пакет SDK для Azure для VS 2013] или [пакет SDK для Azure для VS 2015].
  - [Python 2.7 (32-разрядная версия)]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -99,7 +104,7 @@
 
   	<!-- ![New Button](./media/web-sites-python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)-->
 
-1.  Введите **mysql** в поле поиска, нажмите кнопку **База данных MySQL** и щелкните **Создать**.
+1.  Введите **mysql** в поле поиска, щелкните **База данных MySQL** и затем щелкните **Создать**.
 
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
 
@@ -200,8 +205,8 @@
 [Средства Python для Visual Studio]: http://aka.ms/ptvs
 [Инструменты Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Образцы VSIX средств Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Пакет инструментов SDK Azure для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[пакет инструментов SDK Azure для VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
+[Пакет SDK для Azure для VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
+[пакет SDK для Azure для VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 (32-разрядная версия)]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Документация по средствам Python для Visual Studio]: http://aka.ms/ptvsdocs
 [Удаленная отладка в Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=624026
@@ -211,4 +216,4 @@
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

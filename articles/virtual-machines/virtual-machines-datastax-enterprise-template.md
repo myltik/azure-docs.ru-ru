@@ -3,16 +3,18 @@
 	description="Информация о том, как легко развернуть кластер DataStax Enterprise в виртуальных машинах Ubuntu с помощью Azure PowerShell или интерфейса командной строки Azure и диспетчера ресурсов шаблона"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="karthmut"
+	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/> <!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" --> <tags
+	editor="tysonn"/>
+<!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" -->
+<tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/29/2015"
-	ms.author="karthmut"/>
+	ms.author="scoriani"/>
 
 # DataStax Enterprise в Ubuntu с шаблоном диспетчера ресурсов
 
@@ -44,7 +46,7 @@
 
 ### Этап 1-а. Загрузка файлов шаблонов с помощью PowerShell
 
-Создайте локальную папку для JSON-файлов шаблонов и других файлов (например, C:\\Azure\\Templates\\DataStax).
+Создайте локальную папку для JSON-файлов шаблонов и других файлов (например, C:\Azure\Templates\DataStax).
 
 Подставьте имя своей локальной папки и выполните следующие команды.
 
@@ -498,4 +500,4 @@ vm-disk-utils-0.1.sh содержится в папке shared_scripts\ubuntu в
 
 Дополнительную информацию см. в разделе [Язык шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

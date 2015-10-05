@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Как подключить диск данных на портале предварительной версии Azure"
-	description="Как подключить новый и существующий диски данных на портале предварительной версии Azure | Microsoft Azure"
+	pageTitle="Подключение диска данных | Microsoft Azure"
+	description="Как подключить новый или существующий диск данных к виртуальной машине на портале предварительной версии Azure с помощью модели развертывания на основе диспетчера ресурсов."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/14/2015"
 	ms.author="cynthn"/>
 
 # Как подключить диск данных на портале предварительной версии Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса с помощью модели развертывания на основе диспетчера ресурсов. Для создания ресурса вы также можете использовать [классическую модель развертывания](storage-windows-attach-disk.md).
 
 В этой статье показано, как подключить новый и существующий диски к виртуальной машине на портале предварительной версии Azure. Перед этим ознакомьтесь со следующими советами:
 
@@ -88,4 +90,4 @@
 
 [Об учетных записях хранения Azure]: ../storage-whatis-account/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

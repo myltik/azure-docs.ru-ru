@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Информация о пакете SDK веб-заданий
@@ -104,4 +104,4 @@
 Дополнительные сведения о пакете SDK веб-заданий приводятся в разделе [Веб-задания Azure — рекомендуемые ресурсы](http://go.microsoft.com/fwlink/?linkid=390226).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

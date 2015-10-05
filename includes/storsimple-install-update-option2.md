@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Способ 2. Установка обновления 1.2 с помощью портала управления Azure"
-   description="В этой статье рассказывается, как установить обновление 1.2 для StorSimple серии 8000 с помощью портала управления."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### Установка обновления 1.2 с портала управления Azure
 
@@ -27,4 +12,4 @@
 
 7. Теперь можно [установить обновление 1.2 с помощью портала управления](#use-the-management-portal-to-install-update-1). Следуйте инструкциям, начиная с шага 3 описанной процедуры. После установки всех обновлений можно повторно включить отключенный сетевой интерфейс.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

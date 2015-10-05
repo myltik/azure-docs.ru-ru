@@ -1,19 +1,19 @@
 <properties
  pageTitle="Начало работы с кластером пакета HPC для запуска рабочих нагрузок Excel и SOA | Microsoft Azure"
-	description="."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""/>
+ description="."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="dlepow"
+ manager="timlt"
+ editor=""/>
 <tags
 ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows"
-	ms.workload="big-compute"
-	ms.date="08/18/2015"
-	ms.author="danlep"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-windows"
+ ms.workload="big-compute"
+ ms.date="08/18/2015"
+ ms.author="danlep"/>
 
 # Начало работы с кластером пакета HPC в Azure для запуска рабочих нагрузок Excel и SOA
 
@@ -135,14 +135,14 @@ ms.service="virtual-machines"
     <ServiceName>HPCExcelCN01</ServiceName>
     <VMSize>Medium</VMSize>
     <NodeCount>18</NodeCount>
-    <ImageName HPCPackInstalled="true">96316178b0644ae08bc4e037635ce104__HPC-Pack-2012R2-Update2-CN-Excel-4.4.4864.0-WS2012R2-ENU</ImageName>
+    <ImageName HPCPackInstalled="true">96316178b0644ae08bc4e037635ce104__HPC-Pack-2012R2-Update2-CN-Excel-4.4.4868.0-WS2012R2-ENU</ImageName>
   </ComputeNodes>
 </IaaSClusterConfig>
 ```
 
 **Примечания по файлу конфигурации**
 
-* Параметр **VMName** головного узла должен точно совпадать с параметром **ServiceName**.
+* Параметр **VMName** головного узла должен точно совпадать с параметром **ServiceName**, иначе запуск задания SOA завершится сбоем.
 
 * Обязательно укажите параметр **EnableWebPortal**, чтобы сертификат головного узла был создан и экспортирован.
 
@@ -158,7 +158,7 @@ ms.service="virtual-machines"
     # remove the compute node role for head node to make sure the Excel workbook won’t run on head node
         Get-HpcNode -GroupName HeadNodes | Set-HpcNodeState -State offline | Set-HpcNode -Role BrokerNode
 
-    # total number of nodes in the deployment including the head node and compute nodes
+    # total number of nodes in the deployment including the head node and compute nodes, which should match the number specified in the XML configuration file
         $TotalNumOfNodes = 19
 
         $ErrorActionPreference = 'SilentlyContinue'
@@ -210,19 +210,27 @@ You have enabled REST API or web portal on HPC Pack head node. Please import the
 
 2. На клиентском компьютере импортируйте сертификат кластера в папку Cert:\\CurrentUser\\Root.
 
-3. Убедитесь, что установлен Excel. Создайте файл Excel.exe.config со следующим содержимым в одной папке с файлом Excel.exe на клиентском компьютере. Это гарантирует, что надстройка COM пакета HPC 2012 R2 для Excel успешно загрузится.
+3. Убедитесь, что установлен Excel. Создайте файл Excel.exe.config со следующим содержимым в одной папке с файлом Excel.exe на клиентском компьютере. Это гарантирует, что надстройка COM пакета HPC 2012 R2 для Excel и библиотека службы хранилища Azure будут успешно загружены. Обратите внимание, что атрибут href ниже должен указывать на %CCP\_HOME%Bin\\Microsoft.WindowsAzure.Storage.dll на клиентском компьютере.
 
     ```
 <?xml version="1.0"?>
 <configuration>
-  <startup useLegacyV2RuntimeActivationPolicy="true">
-    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/>
-  </startup>
+    <startup useLegacyV2RuntimeActivationPolicy="true">
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/>
+    </startup>
+    <runtime>
+        <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+            <dependentAssembly>
+                <assemblyIdentity name="Microsoft.WindowsAzure.Storage"  culture="neutral" publicKeyToken="31bf3856ad364e35"/>
+                <codeBase version="4.3.0.0" href="C:\Program Files\Microsoft HPC Pack 2012\Bin\Microsoft.WindowsAzure.Storage.dll"/>
+            </dependentAssembly>
+        </assemblyBinding>
+    </runtime>
 </configuration>
 ```
 4.	Скачайте полную [установку пакета HPC 2012 R2 с обновлением 2](http://www.microsoft.com/download/details.aspx?id=47755) и установите клиент пакета HPC либо скачайте и установите [служебные программы клиента пакета HPC 2012 R2 с обновлением 2](https://www.microsoft.com/download/details.aspx?id=47754) и соответствующий дистрибутив Visual C++ 2010 для своего компьютера ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555)).
 
-5.	В этом примере мы используем пример книги Excel под названием ConvertiblePricing\_Complete.xlsb, доступный для загрузки [здесь](https://www.microsoft.com/ru-RU/download/details.aspx?id=2939).
+5.	В этом примере мы используем пример книги Excel под названием ConvertiblePricing\_Complete.xlsb, доступный для загрузки [здесь](https://www.microsoft.com/ru-ru/download/details.aspx?id=2939).
 
 6.	Скопируйте книгу Excel в рабочую папку, например D:\\Excel\\Run.
 
@@ -259,15 +267,15 @@ You have enabled REST API or web portal on HPC Pack head node. Please import the
 
 Для выполнения пользовательских функций Excel выполните предыдущие этапы 1–3, чтобы настроить клиентский компьютер. Для пользовательских функций Excel не требуется устанавливать приложение Excel на вычислительных узлах, поэтому на этапе 1 можно выбрать обычный образ вычислительного узла, а не образ с Excel.
 
->[AZURE.NOTE]В диалоговом окне соединителя кластера Excel 2010 и 2013 действует ограничение в 34 знака. Если полное имя кластера имеет большую длину, например hpcexcelhn01.southeastasia.cloudapp.azure.com, оно не поместится в диалоговом окне. Обходным путем является применение исправления QFE KB3085833 обновления 2 (скачать его можно [здесь](http://www.microsoft.com/ru-RU/download/details.aspx?id=48725)) для API сеанса SOA на клиентском компьютере, после чего необходимо задать для переменной, являющейся глобальной для компьютера, например *CCP\_IAASHN*, значение в виде длинного имени кластера и ввести *% CCP\_IAASHN%* в диалоговом окне в качестве имени головного узла кластера.
+>[AZURE.NOTE]В диалоговом окне соединителя кластера Excel 2010 и 2013 действует ограничение в 34 знака. Если полное имя кластера имеет большую длину, например hpcexcelhn01.southeastasia.cloudapp.azure.com, оно не поместится в диалоговом окне. Обходным путем является применение исправления QFE KB3085833 обновления 2 (скачать его можно [здесь](http://www.microsoft.com/ru-ru/download/details.aspx?id=48725)) для API сеанса SOA на клиентском компьютере, после чего необходимо задать для переменной, являющейся глобальной для компьютера, например *CCP\_IAASHN*, значение в виде длинного имени кластера и ввести *% CCP\_IAASHN%* в диалоговом окне в качестве имени головного узла кластера.
 
 После успешного развертывания кластера выполните следующие действия, чтобы запустить встроенные образцы пользовательских функций Excel. Для собственных пользовательских функций Excel см. эти [ресурсы](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx), чтобы создать XLL-файлы и развернуть их в кластере IaaS.
 
-1.	Откройте новую книгу Excel. На вкладке ленты **Разработка** щелкните **Надстройки**. Затем в диалоговом окне нажмите кнопку **Обзор**, перейдите в папку %CCP\_HOME%Bin\\XLL32 и выберите пример ClusterUDF32.xll.
+1.	Откройте новую книгу Excel. На вкладке ленты **Разработка** щелкните **Надстройки**. Затем в диалоговом окне нажмите кнопку **Обзор**, перейдите в папку %CCP\_HOME%Bin\\XLL32 и выберите пример ClusterUDF32.xll. Если ClusterUDF32 не существует на клиентском компьютере, его можно скопировать из папки %CCP\_HOME%Bin\\XLL32 на головном узле.
 
     ![Выбор пользовательской функции][udf]
 
-2.	Выберите команды **Файл** > **Параметры** > **Дополнительные**. В разделе **Формулы** установите флажок **Разрешить использование вычислительных кластеров для расчета пользовательских XLL-функций**. Затем нажмите кнопку **Параметры** и введите полное имя кластера в поле **Имя головного узла кластера**. (Как упоминалось ранее, длина этого поля ограничена 34 символами, поэтому длинное имя кластера может не поместиться. Вы можете задать более короткое полное имя при развертывании кластеров с помощью сценария развертывания IaaS.)
+2.	Выберите команды **Файл** > **Параметры** > **Дополнительные**. В разделе **Формулы** установите флажок **Разрешить использование вычислительных кластеров для расчета пользовательских XLL-функций**. Затем нажмите кнопку **Параметры** и введите полное имя кластера в поле **Имя головного узла кластера**. (Как упоминалось ранее, длина этого поля ограничена 34 символами, поэтому длинное имя кластера может не поместиться. Можно применить обновление 2 для QFE (KB3085833) на клиенте, а затем задать здесь глобальную переменную компьютера для длинного имени кластера.)
 
     ![Настройка пользовательской функции][options]
 
@@ -376,4 +384,4 @@ binding.Security.Message.ClientCredentialType = BasicHttpMessageCredentialType.U
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

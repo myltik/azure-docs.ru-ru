@@ -3,8 +3,9 @@
 	description="Из этого учебника вы узнаете об автоматизации основных задач в хранилище ключей с использованием CLI"
 	services="key-vault"
 	documentationCenter=""
-	authors="msmbaldwin"
-	manager="mbaldwin"tags="azure-resource-manager"/>
+	authors="BrucePerlerMS"
+	manager="mbaldwin"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -12,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.date="09/22/2015"
 	ms.author="bruceper"/>
 
 # Управление хранилищем ключей с помощью CLI #
@@ -185,7 +186,7 @@
 Например, если имя хранилища — ContosoKeyVault, а идентификатор клиента приложения — 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, и нужно авторизовать это приложение для расшифровки и подписи с использованием ключей в вашем хранилище, выполните следующее:
 
     azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-keys '[“decrypt”,”sign”]'
-    
+
 Если этому же приложению необходимо разрешить читать секретные данные в хранилище, выполните следующую команду:
 
 	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["Get"]'
@@ -212,7 +213,7 @@
 
     azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --destination 'HSM'
 
-Более подробные указания по созданию пакета BYOK см. в разделе [Как использовать ключи, защищенные аппаратным модулем безопасности, с помощью хранилища ключей Azure](https://msdn.microsoft.com/library/azure/dn903624.aspx).
+Более подробные указания по созданию пакета BYOK см. в разделе [Как использовать ключи, защищенные аппаратным модулем безопасности, с помощью хранилища ключей Azure](key-vault-hsm-protected-keys.md).
 
 
 ## Удаление хранилища ключей, а также связанных ключей и секретов
@@ -253,6 +254,6 @@
 
 ## Дальнейшие действия
 
-Справочные материалы по программированию см. в разделах [Справочник по REST API хранилища ключей Azure](https://msdn.microsoft.com/library/azure/dn903609.aspx) и [Справочник по API клиента C# для хранилища ключей Azure](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+Справочные материалы по программированию см. в [руководстве разработчика для хранилища ключей Azure](key-vault-developers-guide.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

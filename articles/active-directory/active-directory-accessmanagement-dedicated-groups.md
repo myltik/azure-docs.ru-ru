@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Выделенные группы в Azure Active Directory | Microsoft Azure" 
-	description="В этом разделе объясняется, как управлять группами в Azure AD." 
+	description="Общие сведения о выделенных группах в Azure AD и том, как они создаются." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -28,9 +28,7 @@
 Ниже приведено несколько разделов, в которых содержатся некоторые дополнительные сведения о Azure Active Directory:
 
 * [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
-
 * [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
-
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

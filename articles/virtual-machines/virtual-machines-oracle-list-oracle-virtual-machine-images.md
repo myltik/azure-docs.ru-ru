@@ -1,23 +1,18 @@
-<properties title="List of Oracle virtual machine images"
-pageTitle="Список образов виртуальных машин Oracle"
-description="Просмотрите список образов Oracle в коллекции Azure и узнайте, как создать виртуальную машину Oracle на основе такого образа."
-services="virtual-machines"
-documentationCenter=""
-authors="bbenz"
-manager=""
-editor=""
-tags=""/>
+<properties" pageTitle="title="Вывод списка образов виртуальных машин Oracle | Microsoft Azure" description="Просмотрите список образов Oracle в коллекции Azure и узнайте, как создать виртуальную машину Oracle на основе такого образа." services="virtual-machines" documentationCenter="" authors="bbenz" manager="" editor="" tags="azure-service-management, azure-resource-manager"/>
 
 <tags
 ms.service="virtual-machines"
 ms.devlang="na"
 ms.topic="article"
-ms.tgt_pltfrm="na"
+ms.tgt_pltfrm="vm-multiple"
 ms.workload="infrastructure-services"
 ms.date="06/22/2015"
 ms.author="bbenz" />
 
 #Список образов виртуальных машин Oracle
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса с помощью модели развертывания на основе диспетчера ресурсов, а также классической модели.
+
 Чтобы создать виртуальную машину на основе образа Oracle, войдите на [портал Azure](https://ms.portal.azure.com/), щелкните **Marketplace**, выберите меню **Вычисление**, а затем в поле поиска введите **Oracle**. Выберите образ и следуйте указаниям, чтобы установить образ в Microsoft Azure. Обратите внимание, что в образах Oracle корпорации Майкрософт на [портале Azure](https://ms.portal.azure.com/) используется Windows, а в образах Oracle корпорации Oracle используется Oracle Linux.
 
 ![](media/virtual-machines-oracle-list-oracle-virtual-machine-images/image1.png)
@@ -67,4 +62,4 @@ ms.author="bbenz" />
 
 [Образы виртуальных машин Oracle. Различные рекомендации](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

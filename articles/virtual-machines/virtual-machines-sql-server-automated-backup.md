@@ -1,12 +1,13 @@
-<properties 
-   pageTitle="Автоматическая архивация SQL Server на виртуальных машинах Azure"
+<properties
+   pageTitle="Автоматическая архивация для виртуальных машин SQL Server | Microsoft Azure"
    description="Описывает функцию автоматической архивации для SQL Server на виртуальных машинах Azure."
    services="virtual-machines"
    documentationCenter="na"
    authors="rothja"
    manager="jeffreyg"
-   editor="monicar" />
-<tags 
+   editor="monicar"
+   tags="azure-resource-manager" />
+<tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
@@ -16,6 +17,9 @@
    ms.author="jroth" />
 
 # Автоматическая архивация SQL Server на виртуальных машинах Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс управления ресурсом с помощью классической модели развертывания.
+
 
 Служба автоматической архивации автоматически настраивает [управляемое резервное копирование на портал Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) для всех существующих и новых баз данных на виртуальной машине Azure c SQL Server 2014 Standard или Enterprise. Это позволяет настроить регулярную архивацию базы данных с использованием надежного хранилища больших двоичных объектов Azure.
 
@@ -35,11 +39,11 @@
 
 ## Настройка автоматической архивации на портале
 
-При создании новой виртуальной машины 2014 SQL Server можно настроить автоматическую архивацию с помощью [предварительной версии портала Azure](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409). На представленном ниже снимке экрана необходимые параметры отображаются в разделе **ДОПОЛНИТЕЛЬНАЯ НАСТРОЙКА** | **АВТОМАТИЧЕСКАЯ АРХИВАЦИЯ SQL**.
+При создании новой виртуальной машины SQL Server 2014 можно настроить автоматическую архивацию с помощью [предварительной версии портала Azure](http://go.microsoft.com/fwlink/?LinkID=525040&clcid=0x409). На представленном ниже снимке экрана необходимые параметры отображаются в разделе **ДОПОЛНИТЕЛЬНАЯ НАСТРОЙКА** | **АВТОМАТИЧЕСКАЯ АРХИВАЦИЯ SQL**.
 
 ![Настройка автоматической архивации SQL на портале Azure](./media/virtual-machines-sql-server-automated-backup/IC778483.jpg)
 
-Для уже существующих виртуальных машин SQL Server 2014 выберите параметры **автоматической архивации ** в разделе **Конфигурация** свойств виртуальной машины. В окне **Автоматическая архивация** можно активировать функцию, указать срок хранения, выбрать учетную запись хранения и настроить шифрование. Это показано на следующем снимке экрана.
+Для уже существующих виртуальных машин SQL Server 2014 выберите параметры **автоматической архивации ** в разделе **Конфигурация** свойств виртуальной машины. В окне **Автоматическая архивация** можно включить эту функцию, указать срок хранения, выбрать учетную запись хранения и настроить шифрование. Это показано на следующем снимке экрана.
 
 ![Настройка автоматической архивации на портале Azure](./media/virtual-machines-sql-server-automated-backup/IC792133.jpg)
 
@@ -53,7 +57,7 @@
     $storageaccountkey = (Get-AzureStorageKey -StorageAccountName $storageaccount).Primary
     $storagecontext = New-AzureStorageContext -StorageAccountName $storageaccount -StorageAccountKey $storageaccountkey
     $autobackupconfig = New-AzureVMSqlServerAutoBackupConfig -StorageContext $storagecontext -Enable -RetentionPeriod 10
-    
+
     Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -AutoBackupSettings $autobackupconfig | Update-AzureVM
 
 Установка и настройка агента SQL Server IaaS занимают несколько минут.
@@ -66,10 +70,10 @@
     $password = "P@ssw0rd"
     $encryptionpassword = $password | ConvertTo-SecureString -AsPlainText -Force  
     $autobackupconfig = New-AzureVMSqlServerAutoBackupConfig -StorageContext $storagecontext -Enable -RetentionPeriod 10 -EnableEncryption -CertificatePassword $encryptionpassword
-    
-    Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -AutoBackupSettings $autobackupconfig | Update-AzureVM 
 
-Чтобы отключить автоматическую архивацию, выполните тот же скрипт без параметра**-Enable** в команде **New-AzureVMSqlServerAutoBackupConfig**. Как и установка, отключение автоматической архивации занимает несколько минут.
+    Get-AzureVM -ServiceName <vmservicename> -Name <vmname> | Set-AzureVMSqlServerExtension -AutoBackupSettings $autobackupconfig | Update-AzureVM
+
+Чтобы отключить автоматическую архивацию, выполните тот же сценарий без параметра**-Enable** в команде **New-AzureVMSqlServerAutoBackupConfig**. Как и установка, отключение автоматической архивации занимает несколько минут.
 
 ## Отключение и удаление агента SQL Server IaaS
 
@@ -105,8 +109,8 @@
 
 Дополнительные сведения об архивации и восстановлении SQL Server на виртуальных машинах Azure см. в статье [Архивация и восстановление SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-backup-and-restore.md).
 
-Для виртуальных машин SQL Server Azure существует родственная функция — [Автоматическая установка исправлений для SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-automated-patching.md).
+Для виртуальных машин SQL Server Azure существует родственная функция — [автоматическая установка исправлений для SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-automated-patching.md).
 
 Просмотрите и другие [ресурсы по запуску SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

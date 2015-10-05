@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Предварительная версия Azure AD B2C: поток кода авторизации OAuth 2.0
@@ -272,4 +272,4 @@ Here is the entire flow for a native  app; each request is detailed in the secti
 - [Создайте приложение](active-directory-b2c-app-registration.md) для получения идентификатора приложения и URI перенаправления. Включите **собственный клиент** в свое приложение.
 - [Создайте собственные политики](active-directory-b2c-reference-policies.md) для получения имен политик.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

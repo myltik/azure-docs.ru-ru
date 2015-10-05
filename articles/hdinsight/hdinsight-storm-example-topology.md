@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="07/21/2015"
+ ms.date="09/23/2015"
  ms.author="larryfr"/>
 
 # Примеры топологий и компонентов Storm для Apache Storm в HDInsight
@@ -58,4 +58,4 @@
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Этот проект содержит шаблоны для «воронок», «сит» и топологий, обеспечивающих взаимодействие с различными сервисами Azure, такими как концентраторы событий, DocumentDB и база данных SQL."
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

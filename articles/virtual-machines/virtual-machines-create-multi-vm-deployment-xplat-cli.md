@@ -1,22 +1,25 @@
 <properties
-   pageTitle="Развертывание нескольких виртуальных машин с помощью интерфейса командной строки Azure | Microsoft Azure"
-   description="Узнайте, как выполнить развертывание нескольких виртуальных машин с помощью интерфейса командной строки Azure"
+   pageTitle="Развертывание нескольких виртуальных машин с помощью Azure CLI | Microsoft Azure"
+   description="Узнайте, как выполнить развертывание нескольких виртуальных машин с помощью классической модели развертывания и Azure CL."
    services="virtual-machines"
    documentationCenter="nodejs"
    authors="AlanSt"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
    <tags
    ms.service="virtual-machines"
    ms.devlang="nodejs"
    ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
+   ms.tgt_pltfrm="Linux"
    ms.workload="infrastructure-services"
    ms.date="02/20/2015"
-   ms.author="alanst;kasing"/>
+   ms.author="alanst"/>
 
-# Развертывание нескольких виртуальных машин с помощью интерфейса командной строки Azure
+# Развертывание нескольких виртуальных машин с помощью Azure CLI
+
+> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
 
 В описанном ниже сценарии показано, как настроить развертывание нескольких виртуальных машин c несколькими облачными службами в виртуальной сети с помощью интерфейса командной строки Azure.
 
@@ -24,7 +27,7 @@
 
 ![](./media/virtual-machines-create-multi-vm-deployment-xplat-cli/multi-vm-xplat-cli.png)
 
-Этот сценарий создаст одну виртуальную машину (**servervm**) с двумя подключенными дисками данных в облачной службе **servercs** и две виртуальные машины (**clientvm1, clientvm2**) в облачной службе **workercs**. Обе облачные службы будут размещены в виртуальной сети **samplevnet**. Кроме того, в облачной службе **servercs** будет настроена конечная точка для внешних подключений.
+Этот сценарий создаст одну виртуальную машину (**servervm**) с двумя подключенными дисками данных в облачной службе **servercs** и две виртуальные машины (**clientvm1 и clientvm2**) в облачной службе **workercs**. Обе облачные службы будут размещены в виртуальной сети **samplevnet**. Кроме того, в облачной службе **servercs** будет настроена конечная точка для внешних подключений.
 
 ## Сценарий CLI для выполнения развертывания
 Код для настройки относительно прост:
@@ -67,4 +70,4 @@
 * [Вход в виртуальную машину под управлением ОС Linux](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

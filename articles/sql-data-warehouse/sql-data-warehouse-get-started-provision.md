@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Начало работы. Подготовка хранилища данных SQL #
@@ -161,6 +161,8 @@
 1. [Подключитесь и запросите][] хранилище данных.
 2. Загрузите [данные образца].
 
+	> [AZURE.NOTE]Мы хотим улучшить эту статью. Если на вопрос «Помогла ли вам эта статья?» вы выберите «нет», добавьте краткую рекомендацию о том, чего в ней не хватает или как ее улучшить. Заранее спасибо!
+
 <!--Image references-->
 
 
@@ -169,7 +171,7 @@
 [данные образца]: ./sql-data-warehouse-get-started-load-samples.md
 
 <!--External links-->
-[бесплатной пробной версии]: https://azure.microsoft.com/ru-RU/pricing/free-trial/
+[бесплатной пробной версии]: https://azure.microsoft.com/ru-ru/pricing/free-trial/
 [портал Azure]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

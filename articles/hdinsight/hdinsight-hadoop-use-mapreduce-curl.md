@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 #Выполнение заданий MapReduce с помощью Curl с использованием Hadoop в HDInsight
@@ -95,7 +95,7 @@ Curl используется для демонстрации возможнос
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE]Необходимо указать имя учетной записи хранения, содержащей большой двоичный объект, с помощью параметров `-a` и `-k`, либо задать переменные среды **AZURE\\\_STORAGE\\\_ACCOUNT** и **AZURE\\\_STORAGE\\\_ACCESS\\\_KEY**. См. также: [Как передать данные в HDInsight](hdinsight-upload-data.md).
+> [AZURE.NOTE]Необходимо указать имя учетной записи хранения, содержащей большой двоичный объект, с помощью параметров `-a` и `-k`, либо задать переменные среды **AZURE\\_STORAGE\\_ACCOUNT** и **AZURE\\_STORAGE\\_ACCESS\\_KEY**. См. также: [Как передать данные в HDInsight](hdinsight-upload-data.md).
 
 ##<a id="summary"></a>Сводка
 
@@ -115,4 +115,4 @@ Curl используется для демонстрации возможнос
 
 * [Использование Pig с Hadoop в HDInsight](hdinsight-use-pig.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

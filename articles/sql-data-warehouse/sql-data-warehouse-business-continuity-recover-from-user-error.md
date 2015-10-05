@@ -1,20 +1,20 @@
 <properties
    pageTitle="Восстановление базы данных после ошибки пользователя в хранилище данных SQL | Microsoft Azure"
-	description="Процедура восстановления базы данных после ошибки пользователя в хранилище данных SQL"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="sahaj08"
-	manager="barbkess"
-	editor=""/>
+   description="Процедура восстановления базы данных после ошибки пользователя в хранилище данных SQL"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sahaj08"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="06/26/2015"
-	ms.author="sahajs"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/23/2015"
+   ms.author="sahajs"/>
 
 # Восстановление базы данных после ошибки пользователя в хранилище данных SQL
 
@@ -30,16 +30,23 @@
 
 ### PowerShell
 
-Используйте PowerShell для программного восстановления базы данных. Для восстановления базы данных используйте командлет [Start-AzureSqlDatabaseRestore][].
+Используйте Azure PowerShell для программного восстановления базы данных. Чтобы загрузить модуль Azure PowerShell, запустите [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 
-1. Выберите в своей учетной записи подписку, содержащую базу данных, которую нужно восстановить.
-2. Откройте список точек восстановления базы данных (требуется режим управления ресурсами Azure).
-3. Выберите нужные точки восстановления с помощью свойства RestorePointCreationDate.
-3. Восстановите базу данных в желаемой точке восстановления.
-4. Проследите за ходом восстановления.
+Для восстановления базы данных используйте командлет [Start-AzureSqlDatabaseRestore][].
+
+1. Откройте Microsoft Azure PowerShell.
+2. Подключитесь к своей учетной записи Azure и выведите список всех подписок, связанных с ней.
+3. Выберите подписку, содержащую базу данных, которую надо восстановить.
+4. Откройте список точек восстановления базы данных (требуется режим управления ресурсами Azure).
+5. Выберите нужные точки восстановления с помощью свойства RestorePointCreationDate.
+6. Восстановите базу данных в желаемой точке восстановления.
+7. Проследите за ходом восстановления.
 
 ```
-Select-AzureSubscription -SubscriptionId <Subscription_GUID>
+
+Add-AzureAccount
+Get-AzureSubscription
+Select-AzureSubscription -SubscriptionName "<Subscription_name>"
 
 # List database restore points
 Switch-AzureMode AzureResourceManager
@@ -59,7 +66,7 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerNa
 Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
 
-Обратите внимание, что если вашим сервером является foo.database.windows.net, в командлетах PowerShell в качестве -ServerName используйте значение "foo".
+Обратите внимание, что если вашим сервером является foo.database.windows.net, в приведенных выше командлетах PowerShell в качестве -ServerName используйте значение foo.
 
 ### Интерфейс REST API
 Используйте REST для программного восстановления базы данных.
@@ -74,15 +81,20 @@ Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $R
 Удаленную базу данных можно восстановить на момент удаления. Хранилище данных Azure SQL делает моментальный снимок базы данных перед ее удалением и хранит его в течение 7 дней.
 
 ### PowerShell
-PowerShell позволяет восстановить удаленную базу данных программными средствами. Чтобы восстановить удаленную базу данных, используйте командлет [Start-AzureSqlDatabaseRestore][].
+Azure PowerShell позволяет восстановить удаленную базу данных программными средствами. Чтобы загрузить модуль Azure PowerShell, запустите [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 
-1. Найдите удаленную базу данных и дату ее удаления в списке удаленных баз данных.
+Чтобы восстановить удаленную базу данных, используйте командлет [Start-AzureSqlDatabaseRestore][].
+
+1. Откройте Microsoft Azure PowerShell.
+2. Подключитесь к своей учетной записи Azure и выведите список всех подписок, связанных с ней.
+3. Выберите подписку, содержащую удаленную базу данных, которую надо восстановить.
+4. Найдите базу данных и дату ее удаления в списке удаленных баз данных.
 
 ```
 Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>"
 ```
 
-2. Получите конкретную удаленную базу данных и начинайте восстановление.
+5. Получите конкретную удаленную базу данных и начинайте восстановление.
 
 ```
 $Database = Get-AzureSqlDatabase -RestorableDropped -ServerName "<YourServerName>" –DatabaseName "<YourDatabaseName>" -DeletionDate "1/01/2015 12:00:00 AM"
@@ -91,6 +103,8 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase
 
 Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
+
+Обратите внимание, что если вашим сервером является foo.database.windows.net, в приведенных выше командлетах PowerShell в качестве -ServerName используйте значение foo.
 
 ### Интерфейс REST API
 Используйте REST для программного восстановления базы данных.
@@ -118,8 +132,8 @@ Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid 
 [Database operation status]: http://msdn.microsoft.com/library/azure/dn720371.aspx
 [Get restorable dropped database]: http://msdn.microsoft.com/library/azure/dn509574.aspx
 [List restorable dropped databases]: http://msdn.microsoft.com/library/azure/dn509562.aspx
-[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/ru-RU/library/dn720218.aspx
+[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/ru-ru/library/dn720218.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

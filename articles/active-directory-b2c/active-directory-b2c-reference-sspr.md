@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Предварительная версия Azure Active Directory B2C: настройка самостоятельного сброса пароля для пользователей
@@ -36,4 +36,4 @@
 
 > [AZURE.NOTE]Страницы самостоятельного сброса пароля можно настраивать с помощью [функции фирменной символики](active-directory-add-company-branding.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

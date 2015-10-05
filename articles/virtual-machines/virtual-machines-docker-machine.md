@@ -13,12 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="05/25/2015"
+   ms.date="09/22/2015"
    ms.author="rasquill"/>
 
 # Использование docker-machine в Azure
 
 В этом разделе описано, как использовать [Docker](https://www.docker.com/) с [машиной](https://github.com/docker/machine) и [CLI Azure](https://github.com/Azure/azure-xplat-cli), чтобы создать виртуальную машину Azure для быстрого и легкого управления контейнерами Linux с компьютера под управлением Ubuntu. Для демонстрации в учебнике показано, как развернуть [образ Docker Hub для BusyBox](https://registry.hub.docker.com/_/busybox/) и [образ Docker Hub для nginx](https://registry.hub.docker.com/_/nginx/), а также настроить контейнер для маршрутизации веб-запросов в контейнер nginx. (В документации по **машине** Docker описано, как изменить эти указания для других платформ.)
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+
 
 Есть некоторые предварительные требования к изучению этого учебника. Кроме этого, понадобится установить следующее ПО.
 
@@ -38,7 +41,7 @@
 
 <br />
 
->  Независимо от выбранного метода необходимо вызвать имя двоичного файла непосредственно в командной строке или указать путь к двоичному файлу, например **/usr/local/bin**. Убедитесь, что он помечен как исполняемый файл. Для этого введите `chmod +x` &lt;*`binaryName`*&gt;, где &lt;*`binaryName`*&gt; — это имя исполняемого файла машины Docker. В этом учебнике используется **docker-machine\_linux-amd64**.
+>  Независимо от выбранного метода необходимо вызвать имя двоичного файла непосредственно в командной строке или указать путь к двоичному файлу, например **/usr/local/bin**. Убедитесь, что он помечен как исполняемый файл. Для этого введите `chmod +x` &lt;*`binaryName`*&gt;, где &lt;*`binaryName`*&gt; — это имя исполняемого файла компьютера Docker. В этом учебнике используется **docker-machine\_linux-amd64**.
 
 ## Создание файлов сертификата и ключа для Docker, машины и Azure
 
@@ -210,4 +213,4 @@
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

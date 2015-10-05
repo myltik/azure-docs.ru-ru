@@ -1,19 +1,19 @@
 <properties
    pageTitle="Руководство разработчика хранилища ключей | Microsoft Azure"
-	description="Разработчики могут использовать хранилище ключей Azure для управления криптографическими ключами в среде Microsoft Azure."
-	services="key-vault"
-	documentationCenter=""
-	authors="BrucePerlerMS"
-	manager="mbaldwin"
-	editor="mbaldwin"/>
+   description="Разработчики могут использовать хранилище ключей Azure для управления криптографическими ключами в среде Microsoft Azure."
+   services="key-vault"
+   documentationCenter=""
+   authors="BrucePerlerMS"
+   manager="mbaldwin"
+   editor="mbaldwin" />
 <tags
    ms.service="key-vault"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/11/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/22/2015"
+   ms.author="mbaldwin" />
 
 # Руководство разработчика хранилища ключей Azure
 
@@ -55,11 +55,11 @@ API-интерфейс Node.js — набор оболочек, обеспеч�
 
 - [Создание хранилищей ключей и управление ими с помощью PowerShell](key-vault-get-started.md)
 - [Создание хранилищей ключей и управление ими с помощью CLI](key-vault-manage-with-cli.md)
-- [Создание ключей, защищенных аппаратным модулем безопасности, и их передача в хранилище ключей Azure](https://msdn.microsoft.com/library/azure/dn903624.aspx)
+- [Создание ключей, защищенных аппаратным модулем безопасности, и их передача в хранилище ключей Azure](key-vault-hsm-protected-keys.md)
 - [О ключах и секретах](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
 ## См. также
 
 - [Azure Key Vault code samples](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

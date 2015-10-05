@@ -1,20 +1,20 @@
 <properties
    pageTitle="Создание набора записей для DNS-зоны | Microsoft Azure"
-	description="Как создать записи узла для Azure DNS. Настройка наборов записей и записей с помощью PowerShell"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   description="Как создать записи узла для Azure DNS. Настройка наборов записей и записей с помощью PowerShell"
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="Adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
 
 # Создание записей DNS
@@ -64,9 +64,9 @@ Azure DNS поддерживает все общие типы DNS-записей
 
 Относительное имя набора записей в зоне DNS "contoso.com" — "www", поэтому полным доменным именем записей будет "www.contoso.com". Тип записи — "A", а срока жизни составляет 60 секунд.
 
->[AZURE.NOTE]Чтобы создать набор записей на вершине зоны (в этом случае «contoso.com»), используйте имя записи «@», включая кавычки. Это общее соглашение при работе с DNS.
+>[AZURE.NOTE]Чтобы создать набор записей на вершине зоны (в этом случае "contoso.com"), используйте имя записи "@", включая кавычки. Это общее соглашение при работе с DNS.
 
-Набор записей является пустым, поэтому, чтобы использовать недавно созданный набор записей «www», нам нужно будет добавить записи.<BR>
+Набор записей является пустым, поэтому, чтобы использовать недавно созданный набор записей "www", нам нужно будет добавить записи.<BR>
 
 ### Шаг 2
 
@@ -124,4 +124,4 @@ Azure DNS поддерживает все общие типы DNS-записей
 [Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

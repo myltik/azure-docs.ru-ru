@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Использование SSH для подключения к виртуальным машинам Linux в Azure" 
+	pageTitle="Использование SSH для подключения к виртуальным машинам Linux | Microsoft Azure" 
 	description="Узнайте, как создавать и использовать ключи SSH с виртуальной машиной Linux в Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -17,6 +18,8 @@
 	ms.author="szark"/>
 
 #Использование SSH с Linux в Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Текущая версия портала управления Azure принимает только открытые ключи SSH, инкапсулированные в сертификате X509. Для создания и использования ключей SSH с Azure выполните описанные ниже действия.
 
@@ -133,7 +136,7 @@
 
 ## Создание PPK для Putty ##
 
-1. Загрузите и установите Puttygen из следующего расположения: [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1. Загрузите и установите Puttygen из следующего расположения: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 2. Puttygen, возможно, не удастся прочитать закрытый ключ, созданный ранее (`myPrivateKey.key`). Выполните следующую команду для его преобразования в закрытый ключ RSA, который распознается Puttygen:
 
@@ -163,7 +166,7 @@
 
 ## Использование Putty для подключения к компьютеру Linux ##
 
-1.	Загрузите и установите putty из следующего расположения: [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1.	Загрузите и установите putty из следующего расположения: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2.	Запустите putty.exe
 3.	Заполните имя узла, используя IP с портала управления.
 
@@ -176,4 +179,4 @@
 5.	Щелкните **Открыть**, чтобы подключится к виртуальной машине.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

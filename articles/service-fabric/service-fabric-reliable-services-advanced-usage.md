@@ -1,20 +1,20 @@
 <properties
    pageTitle="Дополнительные возможности использования модели программирования надежных служб"
-	description="Модель программирования надежных служб Service Fabric: сведения о расширенных возможностях использования, с помощью которых можно повысить гибкость работы служб."
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="jessebenson"
-	manager="timlt"
-	editor="masnider"/>
+   description="Модель программирования надежных служб Service Fabric: сведения о расширенных возможностях использования, с помощью которых можно повысить гибкость работы служб."
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="jessebenson"
+   manager="timlt"
+   editor="masnider"/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="jesseb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="jesseb"/>
 
 # Дополнительные возможности использования модели программирования надежных служб
 Платформа Service Fabric упрощает написание надежных служб с отслеживанием или без отслеживания состояния и управление ими. Это руководство расскажет о дополнительных вариантах использования модели программирования надежных служб для получения большей управляемости и гибкости служб. Перед чтением этого руководства ознакомьтесь с [моделью программирования надежных служб](service-fabric-reliable-services-introduction.md).
@@ -59,7 +59,4 @@
 
 - [Общие сведения об ограничениях на размещение](service-fabric-placement-constraint.md)
 
-- [Защита трафика при репликации служб с отслеживанием состояния в Service Fabric (Azure)](service-fabric-replication-security.md)
- 
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

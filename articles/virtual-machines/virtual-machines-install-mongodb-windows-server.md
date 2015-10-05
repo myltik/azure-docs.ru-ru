@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Установка MongoDB на виртуальной машине под управлением Windows Server"
-	description="Узнайте, как установить MongoDB на виртуальной машине Azure под управлением Windows Server."
+	pageTitle="Установка MongoDB на виртуальную машину Windows | Microsoft Azure"
+	description="Узнайте, как установить MongoDB на виртуальную машину Azure под управлением Windows Server, созданную с помощью классической модели развертывания."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -19,7 +19,9 @@
 
 #Установка MongoDB на виртуальной машине под управлением Windows Server в Azure
 
-[MongoDB][MongoDB] является популярной, высокопроизводительной базой данных NoSQL с открытым исходным кодом. С помощью [портала Azure][AzureManagementPortal] можно создать виртуальную машину под управлением Windows Server из коллекции образов с помощью классической модели развертывания. Затем можно установить и настроить базу данных MongoDB на виртуальной машине.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье рассматривается установка приложений на виртуальную машину, созданную с помощью классической модели развертывания.
+
+[MongoDB][MongoDB] является популярной высокопроизводительной базой данных NoSQL с открытым кодом. С помощью [портала Azure][AzureManagementPortal] можно создать виртуальную машину под управлением Windows Server из коллекции образов с помощью классической модели развертывания. Затем можно установить и настроить базу данных MongoDB на виртуальной машине.
 
 
 ## Создание виртуальной машины под управлением Windows Server
@@ -35,17 +37,17 @@
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-Инструкции о том, как инициализировать диск, см. в разделе "Инструкции по инициализации нового диска с данными в Windows Server" в статье [Подключение диска с данными к виртуальной машине Windows](storage-windows-attach-disk.md).
+Указания по инициализации диска см. в разделе «Практическое руководство. Инициализация нового диска данных в Windows Server» в статье [Подключение диска данных к виртуальной машине Windows](storage-windows-attach-disk.md).
 
 ## Установка и запуск MongoDB на виртуальной машине
 
 [AZURE.INCLUDE [install-and-run-mongo-on-win2k8-vm](../../includes/install-and-run-mongo-on-win2k8-vm.md)]
 
 ##Сводка
-В этом учебнике вы научились создавать виртуальную машину под управлением Windows Server, удаленно подключаться к ней и подключать диск данных. Вы также узнали, как установить и настроить MongoDB на виртуальной машине под управлением Windows. Теперь вы можете получить доступ к MongoDB на виртуальной машине под управлением Windows, выполнив действия, описанные в дополнительных разделах [документации MongoDB][MongoDocs].
+В этом учебнике вы научились создавать виртуальную машину под управлением Windows Server, удаленно подключаться к ней и подключать диск данных. Вы также узнали, как установить и настроить MongoDB на виртуальной машине под управлением Windows. Теперь вы можете получить доступ к MongoDB на виртуальной машине под управлением Windows, выполнив действия, описанные в дополнительных разделах [документации по MongoDB][MongoDocs].
 
 [MongoDocs]: http://docs.mongodb.org/manual/
 [MongoDB]: http://www.mongodb.org/
 [AzureManagementPortal]: http://manage.windowsazure.com
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

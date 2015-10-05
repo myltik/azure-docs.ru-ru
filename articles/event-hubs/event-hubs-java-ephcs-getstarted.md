@@ -95,6 +95,7 @@
 - Пример [развертывания обработки событий при помощи концентраторов событий].
 - [Решение для обмена сообщениями в очереди] при помощи очередей служебной шины.
 
+Дополнительную информацию см. также в [Центре разработчика Java](/develop/java/).
 
 <!-- Images. -->
 [1]: ./media/event-hubs-java-ephcs-getstarted/create-event-hub1.png
@@ -118,4 +119,4 @@
 [Решение для обмена сообщениями в очереди]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

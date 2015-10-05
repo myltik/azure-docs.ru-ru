@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # Управление владельцами группы
@@ -40,9 +40,7 @@
 Ниже приведено несколько разделов, в которых содержатся некоторые дополнительные сведения о Azure Active Directory:
 
 * [Управление доступом к ресурсам с помощью групп Azure Active Directory](active-directory-manage-groups.md)
-
 * [Что такое Microsoft Azure Active Directory](active-directory-whatis.md)
-
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,12 +1,12 @@
-<properties title="Deploying Your Own Private Docker Registry on Azure"
-  pageTitle="Развертывание частного реестра Docker в Azure"
+<properties 
+  pageTitle="Развертывание частного реестра Docker в Azure | Microsoft Azure"
   description="В этой статье объясняется, как разместить образы контейнеров в службе хранилища BLOB-объектов Azure."
   services="virtual-machines"
   documentationCenter="virtual-machines"
   authors="ahmetalpbalkan"
   editor="squillace"
   manager="" 
-  tags="" />
+  tags="azure-service-management,azure-resource-manager" />
 
 <tags
   ms.service="virtual-machines"
@@ -18,6 +18,9 @@
   ms.author="ahmetb" />
 
 # Развертывание частного реестра Docker в Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Эта статья посвящена виртуальным машинам, созданным с помощью модели развертывания на основе диспетчера ресурсов, а также классической модели.
+
 
 В этой статье объясняется, что представляет собой частный реестр Docker и как можно развернуть образ контейнера Docker Registry 2.0 в частный реестр Docker в Microsoft Azure, используя хранилище BLOB-объектов Azure.
 
@@ -41,7 +44,7 @@
 
 **Безопасность**. Ваши образы Docker хранятся только в центрах обработки данных Azure, тогда как служба Docker Hub размещена в общедоступном сегменте Интернета.
   
-**Скорость**. Ваши образы Docker хранятся в том же центре обработки данных или регионе, что и ваши приложения. Это означает, что образы будут извлекаться быстрее и надежнее, чем в случае со службой Docker Hub.
+**Производительность**. Ваши образы Docker хранятся в том же центре обработки данных или регионе, что и ваши приложения. Это означает, что образы будут извлекаться быстрее и надежнее, чем в случае со службой Docker Hub.
 
 **Надежность**. Отдав предпочтение хранилищу BLOB-объектов Microsoft Azure, вы получаете целый ряд возможностей и преимуществ, в частности высокую доступность, избыточность, хранилище класса Premium (диски SSD) и т. д.
 
@@ -93,4 +96,4 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

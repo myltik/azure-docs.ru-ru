@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="07/06/2015" 
+	ms.date="09/23/2015" 
 	ms.author="larryfr"/>
 
 #Использование Python с Hive и Pig в HDInsight
@@ -326,4 +326,4 @@ Pig|/PigPython/stderr<p>/PigPython/stdout
 
 * [Использование MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

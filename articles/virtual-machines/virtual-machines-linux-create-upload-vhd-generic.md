@@ -1,11 +1,12 @@
-<properties 
+<properties
 	pageTitle="Создание и передача виртуального жесткого диска с операционной системой Linux в Azure"
 	description="Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему Linux."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="szarkos"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -16,8 +17,9 @@
 	ms.date="05/15/2015"
 	ms.author="szarkos"/>
 
-
 # <a id="nonendorsed"> </a>Информация о нерекомендованных дистрибутивах #
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 **Внимание!** Соглашение об уровне обслуживания для платформы Azure применяется для виртуальных машин с ОС Linux, только если используется один из [рекомендованных дистрибутивов](virtual-machines-../linux-endorsed-distributions.md). Все дистрибутивы Linux, представленные в коллекции образов Azure, — это рекомендованные дистрибутивы, уже имеющие необходимую конфигурацию.
 
@@ -189,4 +191,4 @@
 
 - Затем необходимо завершить работу виртуальной машины и передать виртуальный жесткий диск в Azure.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

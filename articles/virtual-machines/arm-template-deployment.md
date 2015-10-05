@@ -1,4 +1,12 @@
-<properties pageTitle="Развертывание ресурсов Azure с помощью шаблона" description="Узнайте, как использовать доступные в библиотеке управления ресурсами Azure клиенты для развертывания виртуальной машины, виртуальной сети и учетной записи хранения" services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
+<properties
+	pageTitle="Развертывание ресурсов Azure с помощью шаблона | Microsoft Azure"
+	description="Узнайте, как использовать некоторые из доступных клиентов в библиотеке управления ресурсами Azure для развертывания виртуальной машины, виртуальной сети и учетной записи хранения."
+	services="virtual-machines,virtual-networks,storage"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -11,6 +19,8 @@
 
 # Развертывание ресурсов Azure с использованием библиотек .NET и шаблона
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса с помощью модели развертывания на основе диспетчера ресурсов.
+
 С помощью групп ресурсов и шаблонов вы можете управлять всеми ресурсами, которые поддерживают работу вашего приложения. В этом учебнике показано, как использовать некоторые из доступных клиентов в библиотеке управления ресурсами Azure и как создать шаблон для развертывания виртуальной машины, виртуальной сети и учетной записи хранения.
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
@@ -19,7 +29,7 @@
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Учетная запись хранения Azure.](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/ru-RU/download/details.aspx?id=34595) или [Windows Management Framework 4.0.](http://www.microsoft.com/ru-RU/download/details.aspx?id=40855)
+- [Windows Management Framework 3.0](http://www.microsoft.com/ru-ru/download/details.aspx?id=34595) или [Windows Management Framework 4.0.](http://www.microsoft.com/ru-ru/download/details.aspx?id=40855)
 - [Azure PowerShell](../powershell-install-configure.md)
 
 На выполнение этих действий требуется примерно 30 минут.
@@ -294,7 +304,7 @@
           }
         }
 
-    >[AZURE.NOTE]Имена образов виртуальных жестких дисков в коллекции образов регулярно изменяются, поэтому для развертывания виртуальной машины необходимо получить текущее имя образа. В разделе [Образы виртуальных машин](https://azure.microsoft.com/ru-RU/documentation/articles/virtual-machines-images/) прочитайте сведения о том, как сделать это, и замените текст {source-image-name} именем файла виртуального жесткого диска, который необходимо использовать. Имя может иметь следующий вид: a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd. Замените текст {subscription-id} идентификатором своей подписки.
+    >[AZURE.NOTE]Имена образов виртуальных жестких дисков в коллекции образов регулярно изменяются, поэтому для развертывания виртуальной машины необходимо получить текущее имя образа. В разделе [Образы виртуальных машин](https://azure.microsoft.com/ru-ru/documentation/articles/virtual-machines-images/) прочитайте сведения о том, как сделать это, и замените {source-image-name} именем файла виртуального жесткого диска, который необходимо использовать. Имя может иметь следующий вид: a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201412.01-en.us-127GB.vhd. Замените текст {subscription-id} идентификатором своей подписки.
 
 
 4.	Сохраните созданный файл параметров.
@@ -443,4 +453,4 @@
 
 	![Создание приложения AD](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

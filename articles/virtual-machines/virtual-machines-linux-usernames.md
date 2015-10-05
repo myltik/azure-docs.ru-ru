@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Выбор имен пользователей для Linux в Azure" 
+	pageTitle="Выбор имен пользователей для Linux | Microsoft Azure" 
 	description="Узнайте, как выбирать имена пользователей для виртуальной машины Linux в Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -248,4 +249,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

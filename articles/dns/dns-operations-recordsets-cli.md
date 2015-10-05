@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Управление наборами записей и записями DNS в Azure DNS | Microsoft Azure" 
-   description="Управляйте наборами записей и записями DNS в службе Azure DNS при размещении вашего домена в Azure DNS. Все команды PowerShell для операций с наборами записей и записями." 
+   pageTitle="Управление наборами записей и записями DNS в Azure DNS с помощью интерфейса командной строки | Microsoft Azure" 
+   description="Управляйте наборами записей и записями DNS в службе Azure DNS при размещении вашего домена в Azure DNS. Все команды интерфейса командной строки для операций с наборами записей и записями." 
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/07/2015"
+   ms.date="09/22/2015"
    ms.author="joaoma"/>
 
-# Управление записями DNS
+# Как управлять записями DNS с помощью интерфейса командной строки
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-operations-recordsets-cli.md)
@@ -239,4 +239,4 @@ Azure DNS поддерживает [записи с подстановочным
 [Приступить к созданию наборов записей и записей](dns-getstarted-create-recordset-cli.md)<BR> [Выполнение операций с зонами DNS](dns-operations-dnszones-cli.md)<BR> [Автоматизации операций с помощью пакета SDK для .NET](dns-sdk.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

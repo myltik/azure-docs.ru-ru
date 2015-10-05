@@ -44,6 +44,8 @@
 
 Инструкции по использованию инструмента разбиения/слияния см. в разделе [Обзор инструмента разбиения/слияния](sql-database-elastic-scale-overview-split-and-merge.md).
 
+[Теперь исходный код клиентской библиотеки эластичной базы данных является открытым!](http://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
+
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -51,4 +53,4 @@
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

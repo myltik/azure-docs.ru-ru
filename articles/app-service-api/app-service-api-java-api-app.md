@@ -18,6 +18,12 @@
 
 # Сборка и развертывание приложения API Java в службе приложений Azure
 
+> [AZURE.SELECTOR]
+- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
+- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [Node.js](app-service-api-nodejs-api-app.md)
+- [Java](app-service-api-java-api-app.md)
+
 В этом учебнике показано, как создать приложение Java и развернуть его в приложения API службы приложений Azure, используя [Git](http://git-scm.com). Указания, приведенные в этом учебнике, применимы в любой операционной системе, на которой может работать Java. В этом учебнике также используется [Gradle](https://gradle.org), чтобы сделать возможными автоматическую сборку и разрешение зависимостей пакетов для приложения Java. Наконец, [RESTEasy](http://resteasy.jboss.org/) используется для создания службы RESTful, полностью реализуя спецификации [JaxRS](https://jax-rs-spec.java.net/).
 
 Снимок экрана завершенного приложения:
@@ -270,4 +276,4 @@
 [api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

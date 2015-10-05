@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Мониторинг конвейеров фабрики данных Azure и управление ими"
-	description="Узнайте, как с помощью портала управления Azure и Azure PowerShell отслеживать состояние конвейеров и фабрик данных Azure и управлять ими."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Мониторинг конвейеров фабрики данных Azure и управление ими" 
+	description="Узнайте, как с помощью портала управления Azure и Azure PowerShell отслеживать состояние конвейеров и фабрик данных Azure и управлять ими." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Мониторинг конвейеров фабрики данных Azure и управление ими
@@ -287,6 +287,10 @@ Azure регистрирует пользовательские события, 
 
 В приведенном выше определении JSON **subStatus** можно удалить, если вы не хотите получать оповещение при конкретном сбое.
 
+Приведенный выше пример устанавливает оповещения для всех фабрик данных в вашей подписке. Если вам необходимо установить оповещение для определенной фабрики данных, можно указать ее **resourceUri** в блоке **dataSource**, как показано ниже:
+
+	"resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
+
 Список возможных операций и состояний (а также дополнительных состояний) см. в следующей таблице.
 
 Имя операции | Состояние | Дополнительное состояние
@@ -337,7 +341,7 @@ OnDemandClusterDeleted | Succeeded
 
 
 #### Устранение неполадок пользовательских событий
-Вы можете просмотреть все созданные события, щелкнув плитку **Операции**, и настроить уведомления для любых операций, отображаемых в колонке **События**.
+Вы можете просмотреть все созданные события, щелкнув элемент **Операции**, и настроить уведомления для любых операций, отображаемых в колонке **События**.
 
 ![Операции](./media/data-factory-monitor-manage-pipelines/operations.png)
 
@@ -369,9 +373,9 @@ OnDemandClusterDeleted | Succeeded
 #### Включение метрик
 Чтобы включить метрики, в колонке "Фабрика данных" выберите следующее:
 
-**Мониторинг** -> **Метрика** -> **Параметры диагностики** -> **Диагностика**.
+**Мониторинг** > **Метрика** > **Параметры диагностики** > **Диагностика**.
 
-В колонке **Диагностика** щелкните **Вкл.**, выберите учетную запись хранения и нажмите кнопку "Сохранить".
+В колонке **Диагностика** щелкните **Вкл.**, выберите учетную запись хранения и нажмите кнопку «Сохранить».
 
 ![Включить метрики](./media/data-factory-monitor-manage-pipelines/enable-metrics.png)
 
@@ -380,9 +384,9 @@ OnDemandClusterDeleted | Succeeded
 
 ### Настройка оповещений по метрикам
 
-Чтобы настроить оповещения по метрикам, в колонке "Фабрика данных" выберите **Мониторинг** -> **Метрика** -> **Добавить оповещение** -> **Добавление правила оповещения**.
+Чтобы настроить оповещения о метриках, в колонке «Фабрика данных» выберите **Мониторинг** > **Метрика** > **Добавить оповещение** > **Добавление правила оповещения**.
 
-Введите необходимые сведения для правила, укажите адреса электронной почты, на которые буду отправляться оповещения, и нажмите кнопку **ОК**.
+Введите необходимые сведения для правила, укажите электронные адреса, на которые буду отправляться оповещения, и нажмите кнопку **ОК**.
 
 
 ![Настройка оповещений по метрикам](./media/data-factory-monitor-manage-pipelines/setting-up-alerts-on-metrics.png)
@@ -443,7 +447,7 @@ OnDemandClusterDeleted | Succeeded
  
 Замените subscriptionId, resourceGroupName и dataFactoryName в приведенном выше примере на соответствующие значения.
 
-Сейчас для *metricName* можно указать только два значения: - FailedRuns и - SuccessfulRuns.
+Сейчас для *metricName* можно указать только два значения: - FailedRuns или - SuccessfulRuns.
 
 **Развертывание оповещения**
 
@@ -469,6 +473,6 @@ OnDemandClusterDeleted | Succeeded
 
 
 ## Отправить отзыв
-Мы будем весьма признательны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md).
+Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

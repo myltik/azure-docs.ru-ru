@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Создание и передача виртуального жесткого диска с ОС Oracle Linux в Azure" 
+	pageTitle="Создание и передача виртуального жесткого диска Oracle Linux | Microsoft Azure" 
 	description="Узнайте, как создать и передать виртуальный жесткий диск (VHD-файл) Azure, содержащий операционную систему Oracle Linux." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -17,6 +18,8 @@
 	ms.author="szark"/>
 
 # Подготовка виртуальной машины Oracle Linux для Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 - [Подготовка виртуальной машины Oracle Linux версии 6.4 или более поздней для Azure](#oracle6)
 - [Подготовка виртуальной машины Oracle Linux версии 7.0 или более поздней для Azure](#oracle7)
@@ -227,4 +230,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

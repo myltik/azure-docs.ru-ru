@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Дополнительные сведения: управление паролями Azure AD| Microsoft Azure" 
-	description="Дополнительные разделы по управлению паролями Azure AD, включая принципы работы обратной записи паролей, безопасность обратной записи паролей, принципы работы портала сброса паролей и данные, которые используются при сбросе пароля." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="Дополнительные сведения: управление паролями Azure AD| Microsoft Azure"
+	description="Дополнительные разделы по управлению паролями Azure AD, включая принципы работы обратной записи паролей, безопасность обратной записи паролей, принципы работы портала сброса паролей и данные, которые используются при сбросе пароля."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # Дополнительные сведения об управлении паролями
@@ -280,6 +280,5 @@
 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

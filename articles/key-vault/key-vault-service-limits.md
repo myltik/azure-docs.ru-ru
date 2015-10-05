@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Ограничения службы для хранилища ключей Azure" 
-   description="Узнайте об ограничениях службы для хранилища ключей Azure." 
+<properties
+   pageTitle="Ограничения службы для хранилища ключей Azure | Microsoft Azure"
+   description="Узнайте об ограничениях службы для хранилища ключей Azure."
    documentationCenter="dev-center-name"
    services="key-vault"  
    authors="msmbaldwin" 
-   manager="mbaldwin" 
+   manager="mbaldwin"
    editor=""/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="identity" 
-   ms.date="07/06/2015"
+   ms.workload="identity"
+   ms.date="09/22/2015"
    ms.author="mbaldwin"/>
 
 # Ограничения службы для хранилища ключей Azure
@@ -22,4 +22,4 @@
 
 [AZURE.INCLUDE [key-vault-limits](../../includes/key-vault-limits.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

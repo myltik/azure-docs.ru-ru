@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -156,6 +156,12 @@
 
 > [AZURE.NOTE]Если для удаляемой облачной службы был настроен подробный мониторинг, платформа Azure не удаляет данные мониторинга из учетной записи хранения. В этом случае требуется удалить такие данные вручную. Сведения о расположении таблицы показателей см. в разделе «Практическое руководство. Доступ к данным подробного мониторинга вне портала управления» статьи <a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">Мониторинг облачных служб</a>.
 
- 
 
-<!---HONumber=August15_HO7-->
+## Дальнейшие действия
+
+ * [Общая настройка облачной службы](cloud-services-how-to-configure.md).
+* Узнайте, как [развернуть облачную службу](cloud-services-how-to-create-deploy.md).
+* Настройте [пользовательское доменное имя](cloud-services-custom-domain-name.md).
+* Настройте [SSL-сертификаты](cloud-services-configure-ssl-certificate.md).
+
+<!---HONumber=Sept15_HO4-->

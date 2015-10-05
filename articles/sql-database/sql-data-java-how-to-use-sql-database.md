@@ -3,7 +3,7 @@
 	description="Узнайте, как использовать базу данных SQL Azure из кода Java." 
 	services="sql-database" 
 	documentationCenter="java" 
-	authors="rmcmurray" 
+	authors="MightyPen" 
 	manager="jeffreyg" 
 	editor="jimbe"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
-	ms.author="robmcm"/>
+	ms.date="09/22/2015" 
+	ms.author="genemi"/>
 
 # Использование базы данных SQL Azure в Java
 
@@ -698,6 +698,8 @@
 
 Для получения дополнительных сведений о Microsoft JDBC Driver для SQL Server см. раздел [Обзор драйвера JDBC](http://msdn.microsoft.com/library/ms378749.aspx). Для получения дополнительных сведений о базе данных SQL см. раздел [Обзор базы данных SQL](http://msdn.microsoft.com/library/windowsazure/ee336241.aspx).
 
+Дополнительную информацию см. также в [Центре разработчика Java](/develop/java/).
+
 [Concepts]: #concepts
 [Prerequisites]: #prerequisites
 [Creating an Azure SQL Database]: #create_db
@@ -726,4 +728,4 @@
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

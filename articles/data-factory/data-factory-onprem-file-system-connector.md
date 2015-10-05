@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Перемещение данных в файловую систему или из нее | Фабрика данных Azure"
-	description="Узнайте, как переместить данные в локальную базу данных или из нее c помощью фабрики данных Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Перемещение данных в файловую систему или из нее | Фабрика данных Azure" 
+	description="Узнайте, как переместить данные в локальную базу данных или из нее c помощью фабрики данных Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Перемещение данных в локальную файловую систему или из нее с помощью фабрики данных Azure
@@ -561,7 +561,18 @@ encodingName | Имя кодировки. Список допустимых им
 
 ## Свойства типа "Действие копирования общей папки"
 
-В настоящее время **FileSystemSource** и **FileSystemSink** не поддерживают какие-либо свойства.
+**FileSystemSource** поддерживает следующие свойства:
+
+| Свойство | Описание | Допустимые значения | Обязательно |
+| -------- | ----------- | -------------- | -------- |
+| recursive | Указывает, следует ли читать данные рекурсивно из вложенных папок или только из указанной папки. | True, False (по умолчанию)| Нет | 
+
+**FileSystemSink** поддерживает следующие свойства:
+
+| Свойство | Описание | Допустимые значения | Обязательно |
+| -------- | ----------- | -------------- | -------- |
+| copyBehavior | Определяет поведение функции копирования, когда в качестве источника используется BlobSource или FileSystem. | <p>Для свойства copyBehavior можно использовать три значения. </p><ul><li>PreserveHierarchy: сохраняет иерархии файлов в папку назначения, т. е. относительный путь исходного файла к исходной папке идентичен относительному пути целевого файла к папке назначения.</li><li>FlattenHierarchy: все файлы из исходной папки будут на первом уровне целевой папки. Целевые файлы будут иметь автоматически созданные имена. </li><li>MergeFiles: объединяет все файлы из исходной папки в один файл. Если указано имя файла или большого двоичного объекта, именем объединенного файла будет указанное имя; в противном случае имя файла будет автоматически сформировано.</li></ul> | Нет |
+
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
@@ -576,4 +587,4 @@ encodingName | Имя кодировки. Список допустимых им
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

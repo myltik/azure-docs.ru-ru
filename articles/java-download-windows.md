@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="08/14/2015" 
 	ms.author="robmcm"/>
 
 #Загрузка пакета Azure SDK для Java
@@ -22,4 +22,8 @@
 
 [AZURE.INCLUDE [download\_eclipse](../includes/download_eclipse.md)]
 
-<!---HONumber=August15_HO6-->
+## Дальнейшие действия
+
+Дополнительную информацию см. в [Центре разработчика Java](/develop/java/).
+
+<!---HONumber=Sept15_HO4-->

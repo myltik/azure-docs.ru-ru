@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/08/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 #Разработка топологий на основе Java для базовых приложений подсчета слов с помощью Apache Storm и Maven в HDInsight
@@ -467,4 +467,4 @@ Trident — это высокоуровневая абстракция, пре�
 
 Другие примеры топологий Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

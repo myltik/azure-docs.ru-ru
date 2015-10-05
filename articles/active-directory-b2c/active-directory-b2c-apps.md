@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Предварительная версия Azure AD B2C: типы приложений
@@ -128,4 +128,4 @@ Accept: application/json
 
 Сценарий связанных веб-API может поддерживаться с помощью предоставления учетных данных носителя маркера JWT OAuth 2.0 или потока On-Behalf-Of. Однако в предварительной версии Azure AD B2C поток On-Behalf-Of еще не реализован.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,9 +1,10 @@
 <properties 
 	pageTitle="Как использовать AMQP 1.0 с API служебной шины Java | Microsoft Azure" 
-	description="Узнайте, как использовать службу сообщений Java (JMS) со служебной шиной Azure и протоколом AMQP 1.0." 
+	description="Как использовать службу сообщений Java (JMS) со служебной шиной Azure и протоколом AMQP 1.0." 
 	services="service-bus" 
 	documentationCenter="java" 
 	authors="sethmanheim" 
+	writer="sethm" 
 	manager="timlt" 
 	editor=""/>
 
@@ -35,7 +36,7 @@ AMQP 1.0 — это эффективный и надежный протокол 
 
 ## Загрузка клиентской библиотеки AMQP 1.0 JMS
 
-Информацию о том, где скачать последнюю версию клиентской библиотеки Apache Qpid JMS AMQP 1.0, см. на странице [http://people.apache.org/\~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
+Информацию о том, где скачать последнюю версию клиентской библиотеки Apache Qpid JMS AMQP 1.0, см. на странице [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
 
 При построении и запуске приложений JMS с использованием служебной шины необходимо добавить следующие 4 JAR-файла из архива распространения Apache Qpid JMS AMQP 1.0 в Java CLASSPATH:
 
@@ -335,7 +336,10 @@ exit
 * [Как использовать AMQP 1.0 с API .NET служебной шины](service-bus-dotnet-advanced-message-queuing.md)
 * [Протокол AMQP 1.0 для Service Bus. Руководство разработчика](http://msdn.microsoft.com/library/jj841071.aspx)
 * [Использование очередей служебной шины](service-bus-dotnet-how-to-use-queues.md)
+* [Центр разработчика Java](/develop/java/).
+
+
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

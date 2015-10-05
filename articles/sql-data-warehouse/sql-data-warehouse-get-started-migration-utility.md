@@ -1,20 +1,20 @@
 <properties
    pageTitle="Миграция: служебная программа для миграции в хранилище данных | Microsoft Azure"
-	description="Миграция в хранилище данных SQL."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
-	editor=""/>
+   description="Миграция в хранилище данных SQL."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="08/13/2015"
-	ms.author="lodipalm"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="lodipalm"/>
 
 
 #Служебная программа для миграции в хранилище данных (предварительная версия)
@@ -53,8 +53,8 @@
 <!--Image references-->
 
 <!--Article references-->
-[документации по миграции]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-migrate/
-[разработки]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-develop/
+[документации по миграции]: https://azure.microsoft.com/RU-RU/documentation/articles/sql-data-warehouse-overview-migrate/
+[разработки]: https://azure.microsoft.com/RU-RU/documentation/articles/sql-data-warehouse-overview-develop/
 [здесь]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

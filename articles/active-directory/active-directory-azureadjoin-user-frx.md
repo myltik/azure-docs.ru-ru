@@ -43,7 +43,8 @@
 > [AZURE.NOTE]Присоединение к локальному домену Active Directory при первом запуске Windows не поддерживается. Если вы планируете присоединить компьютер к домену, следует выбрать ссылку «Настроить Windows с локальной учетной записью». Затем вы сможете присоединиться к домену из меню «Параметры компьютера», как это делали раньше.
 
 ## Дополнительная информация
-* [Изучите сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md).
+* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-overview.md)
+* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Настройте присоединение к Azure AD](active-directory-azureadjoin-setup.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Управление хранилищем ключей Azure с помощью службы автоматизации Azure"
+	pageTitle="Управление хранилищем ключей Azure с помощью службы автоматизации Azure | Microsoft Azure"
 	description="Сведения об использовании службы автоматизации Azure для управления хранилищем ключей Azure."
 	services="Key-Vault, automation"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="09/22/2015"
 	ms.author="csand"/>
 
 
@@ -44,6 +44,5 @@
 
 * Изучите [руководство по началу работы](../automation-create-runbook-from-samples.md) со службой автоматизации Azure.
 * Изучите раздел [Скрипты PowerShell хранилища ключей Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

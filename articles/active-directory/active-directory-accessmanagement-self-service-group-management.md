@@ -1,10 +1,10 @@
 <properties
 	pageTitle="Настройка Azure AD для управления самостоятельным доступом к приложениям Microsoft Azure"
-	description="В этом разделе объясняется, как управлять группами в Azure AD."
+	description="Обзор самостоятельного управления группами, которое позволяет пользователям создавать группы безопасности и управлять ими в Microsoft Azure Active Directory (AD), а также предоставляет возможность запрашивать членство в группах безопасности."
 	services="active-directory"
 	documentationCenter=""
     authors="femila"
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="09/21/2015"
 	ms.author="femila"/>
 
 #Настройка Azure AD для управления самостоятельным доступом к приложениям
@@ -49,4 +49,4 @@
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

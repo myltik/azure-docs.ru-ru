@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Представления данных Application Insights в Power BI
@@ -42,13 +42,13 @@
 
 В результате непрерывного экспорта происходит передача данных в учетную запись хранилища Azure, поэтому необходимо сначала создать хранилище.
 
-1. Создайте учетную запись хранения в подписке на [портале Azure](https://portal.azure.com).
+1. Создайте «классическую» учетную запись хранения в подписке на [портале Azure](https://portal.azure.com).
 
     ![На портале Azure выберите «Создать», «Данные», «Хранилище».](./media/app-insights-export-power-bi/030.png)
 
 2. Создание контейнера
 
-    ![В новом хранилище выберите «Контейнеры», а затем «Добавить».](./media/app-insights-export-power-bi/040.png)
+    ![В новом хранилище выберите «Контейнеры», щелкните элемент «Контейнеры», а затем — «Добавить».](./media/app-insights-export-power-bi/040.png)
 
 3. Скопируйте ключ доступа к хранилищу.
 
@@ -239,4 +239,4 @@
 * [Application Insights](app-insights-overview.md)
 * [Дополнительные примеры и пошаговые руководства](app-insights-code-samples.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

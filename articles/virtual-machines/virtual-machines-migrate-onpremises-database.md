@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Перенос базы данных в SQL Server на виртуальной машине Azure"
+	pageTitle="Перенос базы данных в SQL Server на виртуальной машине | Mirosoft Azure"
 	description="Узнайте больше о том, как перенести локальную пользовательскую базу данных в SQL Server на виртуальной машине Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="carlrabeler"
 	manager="jeffreyg"
-	editor=""/>
-
+	editor=""
+	tags="azure-service-management" />
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
@@ -18,6 +18,8 @@
 
 
 # Перенос базы данных в SQL Server на виртуальной машине Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
 
 Существует несколько методов миграции пользовательской базы данных локального SQL Server в SQL Server на виртуальной машине Azure. В данной статье кратко рассматриваются различные методы, рекомендованы лучшие методы для различных сценариев. Кроме того, в статье есть [инструкции](#azure-vm-deployment-wizard-tutorial) по использованию мастера **развертывания баз данных SQL Server на виртуальной машине Microsoft Azure**.
 
@@ -66,7 +68,7 @@
 При миграции на существующую виртуальную машину Azure необходимо выполнить указанные ниже действия по настройке.
 
 - Настройте виртуальную машину Azure и экземпляр SQL Server так, чтобы обеспечить подключение с другого компьютера, выполнив действия, указанные в разделе "Подключение к экземпляру виртуальной машины SQL Server с SSMS на другом компьютере" статьи [Подготовка к работе виртуальной машины SQL Server в Azure](../virtual-machines-provision-sql-server/#SSMS). При миграции с помощью мастера поддерживаются только образы SQL Server 2014 и SQL Server 2016 из коллекции.
-- Настройте открытую конечную точку для службы Cloud Adapter SQL Server в шлюзе Microsoft Azure с частным портом 11435. Этот порт создается в процессе подготовки SQL Server 2014 или SQL Server 2016 к работе на виртуальной машине Microsoft Azure. Служба Cloud Adapter также создает правило брандмауэра Windows, чтобы разрешить входящие подключения TCP через порт по умолчанию 11435. Эта конечная точка позволяет мастеру использовать службу Cloud Adapter для копирования файлов резервных копий из локального экземпляра на виртуальную машину Azure. Дополнительные сведения см. в статье [Адаптер для облака для SQL Server](https://msdn.microsoft.com/library/dn169301.aspx).
+- Настройте открытую конечную точку для службы Cloud Adapter SQL Server в шлюзе Microsoft Azure с частным портом 11435. Этот порт создается в процессе подготовки SQL Server 2014 или SQL Server 2016 к работе на виртуальной машине Microsoft Azure. Служба Cloud Adapter также создает правило брандмауэра Windows, чтобы разрешить входящие подключения TCP через порт по умолчанию 11435. Эта конечная точка позволяет мастеру использовать службу Cloud Adapter для копирования файлов резервных копий из локального экземпляра на виртуальную машину Azure. Дополнительные сведения см. в статье [Адаптер облака для SQL Server](https://msdn.microsoft.com/library/dn169301.aspx).
 
 	![Создание конечной точки Cloud Adapter](./media/virtual-machines-migrate-onpremises-database/cloud-adapter-endpoint.png)
 
@@ -165,4 +167,4 @@
 
 Подробные сведения о работе SQL Server на виртуальных машинах Azure см. в разделе [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

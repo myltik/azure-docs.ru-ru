@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="Использование службы архивации Azure для замены ленточной инфраструктуры | Microsoft Azure"
    description="Узнайте, как служба архивации Azure предоставляет ленточную семантику, которая дает возможность выполнять резервное копирование и восстановление данных в Azure"
    services="backup"
@@ -6,14 +6,7 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
-<tags
-ms.service="backup" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.tgt_pltfrm="na" 
-ms.workload="storage-backup-recovery" 
-ms.date="07/01/2015" 
-ms.author="jimpark"; "aashishr"/>
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="09/22/2015" ms.author="jimpark"; "aashishr"; "sammehta"/>
 
 # Использование службы архивации Azure для замены ленточной инфраструктуры
 Пользователи службы архивации Azure и System Center Data Protection Manager могут: создавать резервные копии данных по расписанию, которое лучше всего соответствует потребностям их организации; хранить резервные копии данных в течение более длительного времени; сделать Azure одним из средств длительного хранения данных (вместо магнитных лент).
@@ -54,8 +47,10 @@ ms.author="jimpark"; "aashishr"/>
 
 Общее количество точек восстановления равно 56.
 
+> [AZURE.NOTE]У службы архивации Azure нет ограничений на количество точек восстановления.
+
 ## Расширенная конфигурация
-Щелкнув элемент **Изменить** на показанном выше экране, клиенты получат доступ к дополнительным возможностям для составления расписаний хранения.
+Щелкнув **Изменить** на показанном выше экране, клиенты получат доступ к дополнительным возможностям для составления расписаний хранения.
 
 ![Изменить](./media/backup-azure-backup-cloud-as-tape/modify.png)
 
@@ -65,4 +60,4 @@ ms.author="jimpark"; "aashishr"/>
 - [Общие сведения о службе архивации Azure](backup-introduction-to-azure-backup.md)
 - [Знакомство со службой архивации Azure](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

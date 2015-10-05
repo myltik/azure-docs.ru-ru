@@ -13,10 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/22/2015"
+	ms.date="09/22/2015"
 	ms.author="rasquill"/>
 
 # Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
 
 В этом разделе показано, как создать виртуальную машину с расширением виртуальных машин Docker в режиме управления службами (asm) в CLI Azure на любой платформе. [Docker](https://www.docker.com/) — один из самых популярных подходов к виртуализации, использующий [контейнеры Linux](http://en.wikipedia.org/wiki/LXC) вместо виртуальных машин как способ изоляции данных и вычислений при использовании общих ресурсов. Можно использовать расширение Docker в [агенте Linux для Azure](virtual-machines-linux-agent-user-guide.md) для создания виртуальной машины, в которой будет размещено любое количество контейнеров с приложениями Azure. Обзорное обсуждение контейнеров и их преимуществ см. на [доске по Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
@@ -25,7 +27,7 @@
 + [Ресурсы для контейнеров и управления ими в Azure]
 + [Дальнейшие действия]
 
-## <a id='How to use the Docker VM Extension with Azure'>Использование расширения виртуальных машин Docker в Azure</a>
+##Использование расширения виртуальных машин Docker в Azure
 Чтобы использовать расширения виртуальных машин Docker в Azure, необходимо установить версию [интерфейса командной строки Azure](https://github.com/Azure/azure-sdk-tools-xplat) (CLI Azure) более позднюю, чем 0.8.6 (на момент написания статьи текущей версией является 0.8.10). Вы можете установить CLI Azure на компьютерах под управлением Mac, Linux и Windows.
 
 
@@ -63,10 +65,10 @@
 
 `azure vm image list | grep Ubuntu-14_04`
 
-в интерфейсе командной строки Azure для поиска последнего образа Ubuntu в коллекции виртуальных машин, выберите одно из имен образов, например `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-ru-ru-30GB`, и используйте указанную ниже команду для создания виртуальной машины с помощью этого образа.
+в интерфейсе командной строки Azure для поиска последнего образа Ubuntu в коллекции виртуальных машин, выберите одно из имен образов, например `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-RU-RU-30GB`, и используйте указанную ниже команду для создания виртуальной машины с помощью этого образа.
 
 ```
-azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-ru-ru-30GB" <username> <password>
+azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-RU-RU-30GB" <username> <password>
 ```
 
 Описание:
@@ -139,4 +141,4 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 [Руководству пользователя Docker]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

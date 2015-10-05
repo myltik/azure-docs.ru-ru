@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="kenazk"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -16,7 +17,7 @@
 	ms.date="07/23/2015"
 	ms.author="kenazk"/>
 
-#Управление доступностью виртуальных машин
+# Управление доступностью виртуальных машин
 
 ## Сравнение планового и внепланового обслуживания
 На доступность ваших виртуальных машин могут повлиять такие два типа событий платформы Microsoft Azure: плановое и внеплановое обслуживание.
@@ -69,4 +70,4 @@
 [Избежание наличия одиночных экземпляров виртуальных машин в группах доступности]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Настройка группы доступности для виртуальных машин]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

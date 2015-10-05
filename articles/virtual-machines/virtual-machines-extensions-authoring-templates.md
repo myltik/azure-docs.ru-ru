@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -17,6 +18,8 @@
    ms.author="kundanap"/>
 
 # Создание шаблонов диспетчера ресурсов Azure с расширениями виртуальных машин
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается использование модели развертывания на основе диспетчера ресурсов.
 
 ## Общие сведения о шаблонах диспетчере ресурсов Azure
 
@@ -85,4 +88,4 @@
 
 Развернуть созданный шаблон можно с помощью интерфейса командной строки Azure или Azure Powershell.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

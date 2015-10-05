@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Пример кода. Экспорт в SQL из Application Insights с использованием рабочей роли"
-	description="Напишите код анализа телеметрии в Application Insights с помощью функции непрерывного экспорта."
-	services="application-insights"
-	documentationCenter=""
-	authors="mazharmicrosoft"
+	pageTitle="Пример кода. Экспорт в SQL из Application Insights с использованием рабочей роли" 
+	description="Напишите код анализа телеметрии в Application Insights с помощью функции непрерывного экспорта." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="mazharmicrosoft" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Пример кода. Экспорт в SQL из Application Insights с использованием рабочей роли
@@ -34,11 +34,11 @@
 1. Получите [учетную запись в Microsoft Azure](http://azure.microsoft.com/pricing/).
 2. На [портале Azure][portal] добавьте новый ресурс Application Insights для своего приложения:
 
-    ![Выберите «Создать», «Службы для разработчиков», Application Insights и тип приложения.](./media/app-insights-code-sample-export-telemetry-sql-database/010-new-asp.png)
+    ![Выберите "Создать", "Службы для разработчиков", Application Insights и тип приложения.](./media/app-insights-code-sample-export-telemetry-sql-database/010-new-asp.png)
 
 
     (Тип вашего приложения и подписка могут отличаться.)
-3. Откройте «Быстрый запуск», чтобы узнать, как установить пакет SDK для приложения необходимого типа.
+3. Откройте "Быстрый запуск", чтобы узнать, как установить пакет SDK для приложения необходимого типа.
 
     ![Выберите «Быстрый запуск» и следуйте указаниям.](./media/app-insights-code-sample-export-telemetry-sql-database/020-quick.png)
 
@@ -51,20 +51,20 @@
 
 ## Создание хранилища в Azure
 
-1. Создайте учетную запись хранения в подписке на [портале Azure][portal].
+1. Создайте «классическую» учетную запись хранения в подписке на [портале Azure][portal].
 
     ![На портале Azure выберите «Создать», «Данные», «Хранилище».](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
 
 2. Создание контейнера
 
-    ![В новом хранилище выберите «Контейнеры», а затем «Добавить».](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
+    ![В новом хранилище выберите «Контейнеры», щелкните элемент «Контейнеры», а затем — «Добавить».](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
 
 
 ## Запуск непрерывного экспорта в службе хранилища Azure
 
 1. На портале Azure перейдите к ресурсу Application Insights, созданному для приложения.
 
-    ![Выберите «Обзор», Application Insights, а затем выберите свое приложение.](./media/app-insights-code-sample-export-telemetry-sql-database/060-browse.png)
+    ![Выберите «Обзор», «Application Insights», а затем выберите свое приложение.](./media/app-insights-code-sample-export-telemetry-sql-database/060-browse.png)
 
 2. Создайте непрерывный экспорт.
 
@@ -85,7 +85,7 @@
 
 4. Проверьте экспортированные данные. В Visual Studio выберите меню **Представление/Обозреватель облака** и откройте хранилище Azure. (Если этой команды нет в меню, установите пакет SDK Azure: откройте диалоговое окно «Создание проекта», разверните узел «Visual C#/облако» и выберите «Получить Microsoft Azure SDK для .NET».)
 
-    ![В Visual Studio откройте «Обозреватель сервера», «Azure», «Хранилище».](./media/app-insights-code-sample-export-telemetry-sql-database/087-explorer.png)
+    ![В Visual Studio откройте "Обозреватель сервера", "Azure", "Хранилище".](./media/app-insights-code-sample-export-telemetry-sql-database/087-explorer.png)
 
     Запишите общую часть имени пути, которое образовано от имени приложения и ключа инструментирования.
 
@@ -95,7 +95,7 @@
 
 И снова начнем с использованием вашей подписки на [портале Azure][portal]. Создайте базу данных (и новый сервер, если его еще нет), куда будут записываться данные.
 
-![«Создать», «Данные», SQL.](./media/app-insights-code-sample-export-telemetry-sql-database/090-sql.png)
+!["Создать", "Данные", SQL.](./media/app-insights-code-sample-export-telemetry-sql-database/090-sql.png)
 
 
 Убедитесь, что на сервере базы данных разрешен доступ к службам Azure:
@@ -539,4 +539,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

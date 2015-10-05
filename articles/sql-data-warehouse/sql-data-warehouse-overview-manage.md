@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/24/2015"
+   ms.date="09/22/2015"
    ms.author="mausher;nicw;barbkess;JRJ@BigBangData.co.uk;"/>
 
 # Средства управления для хранилища данных SQL
@@ -43,9 +43,9 @@
 [подключению]: sql-data-warehouse-develop-connections.md
 
 <!--MSDN references-->
-[SQL Server Data Tools]: https://msdn.microsoft.com/ru-ru/library/mt204009.aspx
+[SQL Server Data Tools]: https://msdn.microsoft.com/RU-RU/library/mt204009.aspx
 
 <!--Other web references-->
 [Портал Azure]: http://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

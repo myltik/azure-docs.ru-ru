@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
+	ms.date="09/20/2015"   
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@
 
 - [Известные проблемы](#issues)
 - [Журнал версий интерфейса API REST](#rest_version_history)
+- [Выпуск от сентября 2015 г.](#september_changes_15)
 - [Выпуск: август 2015 г.](#august_changes_15)
 - [Выпуск: июль 2015 г.](#july_changes_15)
 - [Выпуск: июнь 2015 г.](#june_changes_15)
@@ -73,7 +74,17 @@
 
 Информацию о журнале версий интерфейса API REST служб мультимедиа см. в [Справочнике по API-интерфейсу REST для служб мультимедиа Azure].
 
-##<a id="august_changes_15"></a>Выпуск: август 2015 г.
+##<a id="september_changes_15"></a>Выпуск от сентября 2015 г. 
+
+- Теперь AMS позволяет защищать видео по запросу и потоки Live Stream с технологией Widevine Modular DRM. Вы можете использовать следующих партнеров служб доставки для доставки лицензий Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) и [castLabs](http://castlabs.com/company/partners/azure/). Дополнительные сведения см. в [этом блоге](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
+
+	Чтобы настроить AssetDeliveryConfiguration для использования Widevine, можно воспользоваться пакетом [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (начиная с версии 3.5.1) или REST API.
+
+- AMS поддерживает видео в формате Apple ProRes. Теперь вы можете отправлять исходные видеофайлы в формате QuickTime, использующие Apple ProRes или другие кодеки. Дополнительные сведения см. в [этом блоге](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
+
+- Теперь можно использовать Media Encoder Standard для выполнения дополнительной обрезки и динамического извлечения из архивов. Дополнительные сведения см. в [этом блоге](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+
+##<a id="august_changes_15"></a>Выпуск от августа 2015 г.
 
 - В настоящее время доступны пакет SDK служб мультимедиа Azure для выпуска Java версии 0.8.0 и новые примеры. Дополнительные сведения см. в следующих статьях:
 
@@ -82,11 +93,11 @@
 - Обновление мультимедиапроигрывателя Azure с поддержкой нескольких аудиопотоков. Дополнительные сведения см. в следующих статьях:
 	- [Запись блога](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)
 
-##<a id="july_changes_15"></a>Выпуск: июль 2015 г.
+##<a id="july_changes_15"></a>Выпуск от июля 2015 г.
 
-- В общий доступ предоставлен стандартный кодировщик служб мультимедиа. Дополнительную информацию см. в [этой записи блога](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
+- В общий доступ предоставлен стандартный кодировщик служб мультимедиа. Дополнительные сведения см. в [этой записи блога](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-	Стандартный кодировщик мультимедиа использует предустановки, описанные в [этом](http://go.microsoft.com/fwlink/?LinkId=618336) разделе. Обратите внимание, что при использовании предустановки для кодирования 4k необходимо получить тип зарезервированных единиц **Premium**. Дополнительную информацию см. в разделе [Масштабирование кодирования](media-services-portal-encoding-units).
+	В Media Encoder Standard используются предустановки, описанные в [этом](http://go.microsoft.com/fwlink/?LinkId=618336) разделе. Обратите внимание, что при использовании предустановки для кодирования видео в формате 4k необходимо получить тип зарезервированной единицы **Premium**. Дополнительные сведения см. в разделе [Масштабирование кодирования](media-services-portal-encoding-units).
 - Интерактивные субтитры в режиме реального времени в службах мультимедиа Azure и проигрывателе. Дополнительные сведения см. в [этой записи блога](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/).
 
 ###Обновления пакета SDK служб мультимедиа для .NET
@@ -97,7 +108,7 @@
 - Реализована поддержка динамических фильтров.
 - Реализованы функциональные возможности, позволяющие пользователям сохранять контейнер хранилища при удалении ресурса.
 - Исправлены ошибки, связанные с политиками повтора в каналах.
-- Активирован **расширенный рабочий процесс кодировщика мультимедиа**.
+- Включен **рабочий процесс Media Encoder Premium**.
 
 ##<a id="june_changes_15"></a>Выпуск: июнь 2015 г.
 
@@ -583,4 +594,4 @@ API REST служб мультимедиа обновлены до версии 
 [Обработка уведомлений из заданий служб мультимедиа]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Установка стека LAMP на виртуальную машину Linux"
-	description="Узнайте, как установить стек LAMP на виртуальную машину Linux в Azure. Можно выполнить установку в Ubuntu или CentOS."
+	pageTitle="Установка стека LAMP на виртуальную машину Linux | Microsoft Azure"
+	description="Узнайте, как установить стек LAMP на виртуальную машину Linux в Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="szarkos"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags=“azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -19,6 +20,8 @@
 
 
 #Установка стека LAMP на виртуальную машину Linux в Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса с помощью модели развертывания на основе диспетчера ресурсов, а также классической модели.
 
 Стек LAMP состоит из следующих элементов:
 
@@ -125,4 +128,4 @@
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

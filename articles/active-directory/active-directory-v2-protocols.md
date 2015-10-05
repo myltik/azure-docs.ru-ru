@@ -320,7 +320,7 @@ error=access_denied
 
 Модель приложений 2.0 содержит конечную точку метаданных OpenID Connect, позволяющую приложению получать сведения о модели приложений 2.0 в среде выполнения. Эти сведения включают конечные точки, содержимое маркеров и ключи подписи маркеров. Конечная точка метаданных содержит документ JSON, расположенный по ссылке:
 
-`https://login.microsoftonline.com/common/v2.0/.well-known/configuration`
+`https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`
 
 Одно из свойств этого документа конфигурации — `jwks_uri`, имеющее следующее значение для модели приложений 2.0:
 
@@ -475,4 +475,4 @@ error=access_denied
 
 На текущий момент предварительная версия модели приложений 2.0 не поддерживает этот поток. Увидеть, как он работает в общедоступной службе Azure AD, можно в [этом примере кода Azure AD](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

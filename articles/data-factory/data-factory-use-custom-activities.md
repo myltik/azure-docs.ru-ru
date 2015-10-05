@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Использование настраиваемых действий в конвейере фабрики данных Azure"
-	description="Узнайте, как создавать пользовательские действия и использовать их в конвейере фабрики данных Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Использование настраиваемых действий в конвейере фабрики данных Azure" 
+	description="Узнайте, как создавать пользовательские действия и использовать их в конвейере фабрики данных Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Использование настраиваемых действий в конвейере фабрики данных Azure
@@ -53,7 +53,7 @@
 
 4. Импортируйте пакет NuGet для службы хранилища Azure в проект.
 
-		Install-Package Azure.Storage
+		Install-Package Azure.Storage -Version 4.3.0 
 
 5. Добавьте следующие инструкции с **using** в исходный файл в проекте.
 
@@ -244,7 +244,18 @@
 	4. В свойстве **version** укажите версию HDInsight, которую хотите использовать. Если исключить это свойство, будет использоваться последняя версия.  
 	5. В качестве значения свойства **linkedServiceName** укажите службу **StorageLinkedService**, которую вы создали в учебнике по началу работы. 
 
-		{ "name": "HDInsightOnDemandLinkedService", "properties": { "type": "HDInsightOnDemand", "typeProperties": { "clusterSize": "1", "timeToLive": "00:05:00", "version": "3.1", "linkedServiceName": "StorageLinkedService" } } }
+			{
+			  "name": "HDInsightOnDemandLinkedService",
+			  "properties": {
+			    "type": "HDInsightOnDemand",
+			    "typeProperties": {
+			      "clusterSize": "1",
+			      "timeToLive": "00:05:00",
+			      "version": "3.1",
+			      "linkedServiceName": "StorageLinkedService"
+			    }
+			  }
+			}
 
 2. Чтобы развернуть эту службу, нажмите кнопку **Развернуть** на панели команд.
    
@@ -405,6 +416,7 @@
 		    "type": "AzureBatch",
 		    "typeProperties": {
 		      "accountName": "<Azure Batch account name>",
+			  "batchUri": "https://<region>.batch.azure.com",
 		      "accessKey": "<Azure Batch account key>",
 		      "poolName": "<Azure Batch pool name>",
 		      "linkedServiceName": "<Specify associated storage linked service reference here>"
@@ -412,11 +424,10 @@
 		  }
 		}
 
-	> [AZURE.NOTE]Добавьте текст **.<region name** к имени учетной записи пакетной службы в свойстве **accountName**. Пример: mybatchaccount.eastus. Другой вариант — указать конечную точку batchUri, как показано ниже.
+	> [AZURE.IMPORTANT]**URL-адрес** из **колонки учетной записи пакетной службы Azure** имеет следующий формат: accountname.region.batch.azure.com. Для свойства **batchUri** в JSON необходимо будет **удалить «accountname.»** из URL-адреса и использовать **accountname** для свойства JSON **accountName**.
+	  
+	Для свойства **poolName** можно также указать идентификатор пула, а не его имя.
 
-		accountName: "adfteam",
-		batchUri: "https://eastus.batch.azure.com",
- 
 	Описания этих свойств см. в разделе MSDN, посвященном [связанной Пакетной службе Azure](https://msdn.microsoft.com/library/mt163609.aspx).
 
 2.  В редакторе фабрики данных откройте определение JSON для конвейера, созданного в пошаговом руководстве, и замените **HDInsightLinkedService** на **AzureBatchLinkedService**.
@@ -467,4 +478,4 @@
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

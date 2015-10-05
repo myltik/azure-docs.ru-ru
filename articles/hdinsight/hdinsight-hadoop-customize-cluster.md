@@ -92,7 +92,9 @@ HDInsight предоставляет несколько скриптов для 
 
 Встроенные компоненты полностью поддерживаются, и служба поддержки корпорации Майкрософт поможет выявить и устранить проблемы, связанные с этими компонентами.
 
-Настраиваемые компоненты получают ограниченную коммерчески оправданную поддержку, способствующую дальнейшей диагностике проблемы. В результате проблема может быть устранена, либо вас могут попросить воспользоваться доступными каналами по технологиям с открытым исходным кодом, чтобы связаться с экспертами в данной области. Например, существует множество сайтов сообществ, которые можно использовать, такие как: <a href ="https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight" target="_blank">Форум MSDN по HDInsight</a> и <a href="http://stackoverflow.com" target="_blank">Stack Overflow</a>. Кроме того, у проектов Apache есть соответствующие сайты по-адресу <a href="http://apache.org" target="_blank">Apache.org</a>, например для <a href="http://hadoop.apache.org/" target="_blank">Hadoop</a> и <a href="http://spark.apache.org/" target="_blank">Spark</a>.
+> [AZURE.WARNING]Компоненты, предоставляемые вместе с кластером HDInsight, поддерживаются в полном объеме. Служба поддержки Майкрософт поможет вам выявить и устранить проблемы, связанные с этими компонентами.
+>
+> Настраиваемые компоненты получают ограниченную коммерчески оправданную поддержку, способствующую дальнейшей диагностике проблемы. В результате проблема может быть устранена, либо вас могут попросить воспользоваться доступными каналами по технологиям с открытым исходным кодом, чтобы связаться с экспертами в данной области. Например, можно использовать ряд сайтов сообществ, например [форум MSDN по HDInsight](https://social.msdn.microsoft.com/Forums/azure/ru-ru/home?forum=hdinsight) и [http://stackoverflow.com](http://stackoverflow.com). Кроме того, для проектов Apache есть соответствующие сайты по адресу [http://apache.org](http://apache.org), например для [Hadoop](http://hadoop.apache.org/) и [Spark](http://spark.apache.org/).
 
 Служба HDInsight позволяет использовать настраиваемые компоненты несколькими разными способами. Уровень поддержки не зависит от того, как компонент используется или устанавливается в кластере. Ниже приведен список самых распространенных способов использования настраиваемых компонентов в кластерах HDInsight.
 
@@ -111,8 +113,8 @@ HDInsight предоставляет несколько скриптов для 
 - [Разработка скриптов действия сценария для HDInsight][hdinsight-write-script]
 - [Установка и использование Spark в кластерах HDInsight][hdinsight-install-spark]
 - [Установка и использование R в кластерах HDInsight][hdinsight-install-r]
-- [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md)
-- [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md)
+- [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
+- [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
@@ -123,4 +125,4 @@ HDInsight предоставляет несколько скриптов для 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Этапы подготовки кластера"
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/18/2015"
 	ms.author="glenga"/>
 
 # Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure
@@ -30,50 +30,78 @@
 
 ###Инициализация серверного проекта
 
-Проекте внутреннего сервера .NETинициализируется в методе **Register** класса **WebApiConfig**, который обычно находится в папке App\_Start. Объект **HttpConfiguration**, который представляет параметры конфигурации для службы, используется для инициализации серверного проекта. Следующий пример инициализирует серверный проект без дополнительных функций:
+Инициализацию проекта внутреннего сервера .NET можно выполнить аналогично инициализации проектов ASP.NET — включив класс запуска OWIN. Для добавления этого класса в Visual Studio щелкните правой кнопкой мыши проект сервера и последовательно выберите пункты **Добавить**, **Создать элемент**, **Интернет**, **Общие** и **Класс запуска OWIN**.
 
-    new MobileAppConfiguration()
-        .ApplyTo(config);
+После этого будет создан класс с указанным ниже атрибутом.
 
-Чтобы включить отдельные функции, необходимо вызвать методы расширения для объекта **MobileAppConfiguration** до вызова **ApplyTo**. Например, следующий код во время инициализации добавляет маршруты по умолчанию для всех контроллеров API:
+    [assembly: OwinStartup(typeof(YourServiceName.YourStartupClassName))]
+
+В методе `Configuration()` класса запуска OWIN настройте проект сервера с помощью объекта **HttpConfiguration**, представляющего параметры конфигурации для службы. Следующий пример инициализирует серверный проект без дополнительных функций:
+
+	// in OWIN startup class
+	public void Configuration(IAppBuilder app)
+	{
+	    HttpConfiguration config = new HttpConfiguration();
+	   
+	    new MobileAppConfiguration()
+	        // no added features
+	        .ApplyTo(config);  
+	    
+	    app.UseWebApi(config);
+	}
+
+Чтобы включить отдельные функции, перед вызовом **ApplyTo** необходимо вызвать методы расширения для объекта **MobileAppConfiguration**. Например, следующий код во время инициализации добавляет маршруты по умолчанию для всех контроллеров API:
 
 	new MobileAppConfiguration()
 	    .MapApiControllers()
 	    .ApplyTo(config);
 
-Многие методы расширения компонентов доступны через дополнительные пакеты NuGet, которые можно добавить. Это описано в следующем разделе.
+Многие методы расширения компонентов доступны через дополнительные пакеты NuGet, которые можно добавить. Это описано в следующем разделе. При быстром запуске сервера на портале Azure будет выполнен вызов **UseDefaultConfiguration()**. Это эквивалентно указанной ниже настройке.
+    
+		new MobileAppConfiguration()
+			.AddMobileAppHomeController()             // from the Home package
+			.MapApiControllers()
+			.AddTables(                               // from the Tables package
+				new MobileAppTableConfiguration()
+					.MapTableControllers()
+					.AddEntityFramework()             // from the Entity package
+				)
+			.AddPushNotifications()                   // from the Notifications package
+			.MapLegacyCrossDomainController()         // from the CrossDomain package
+			.ApplyTo(config);
+
 
 ### Расширения пакета SDK
 
-Следующие пакеты расширений на основе NuGet предоставляют различные возможности мобильных устройств, которые может использовать ваше приложение. Расширения включаются во время инициализации с помощью объекта **MobileAppConfiguration**.
+Следующие пакеты расширений на основе NuGet предоставляют различные возможности мобильных устройств, которые может использовать ваше приложение. Во время инициализации вы можете включить расширения с помощью объекта **MobileAppConfiguration**.
 
-- [Microsoft.Azure.Mobile.Server.Quickstart] поддерживает базовую настройку мобильных приложений. Добавляется в конфигурацию вызовом метода расширения **UseDefaultConfiguration** во время инициализации. Это расширение включает в себя следующие расширения: пакеты Notifications, Authentication, Entity, Tables, Crossdomain и Home. Это эквивалент серверного проекта быстрого запуска, который можно скачать с портала Azure.
+- [Microsoft.Azure.Mobile.Server.Quickstart] поддерживает базовую настройку мобильных приложений. Чтобы добавить его в конфигурацию, во время инициализации вызовите метод расширения **UseDefaultConfiguration**. Это расширение включает в себя следующие расширения: пакеты Notifications, Authentication, Entity, Tables, Crossdomain и Home. Это эквивалент серверного проекта быстрого запуска, который можно скачать с портала Azure.
 
-- [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) добавляет простую домашнюю страницу в корневой каталог веб-сайта. Добавьте в конфигурацию, вызвав метод расширения **AddMobileAppHomeController**.
+- [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) добавляет простую домашнюю страницу в корневой каталог веб-сайта. Чтобы добавить его в конфигурацию, вызовите метод расширения **AddMobileAppHomeController**.
 
-- [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) содержит классы для работы с данными и настраивает конвейер данных. Добавьте в конфигурацию, вызвав метод расширения **AddTables**.
+- [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) содержит классы для работы с данными и настраивает конвейер данных. Чтобы добавить его в конфигурацию, вызовите метод расширения **AddTables**.
 
-- [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) позволяет платформе Entity Framework осуществлять доступ к данным в базе данных SQL. Добавьте в конфигурацию, вызвав метод расширения **AddTablesWithEntityFramework**.
+- [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) позволяет платформе Entity Framework получать доступ к данным в Базе данных SQL. Чтобы добавить его в конфигурацию, вызовите метод расширения **AddTablesWithEntityFramework**.
 
-- [Microsoft.Azure.Mobile.Server.Authentication] включает аутентификацию и настраивает ПО промежуточного слоя OWIN, используемое для проверки токенов. Добавьте в конфигурацию, вызвав методы расширения **AddAppServiceAuthentication** и **IAppBuilder**.**UseMobileAppAuthentication**.
+- [Microsoft.Azure.Mobile.Server.Authentication] включает функцию проверки подлинности и настраивает ПО промежуточного слоя OWIN, используемое для проверки маркеров. Чтобы добавить его в конфигурацию, вызовите методы расширения **AddAppServiceAuthentication** и **IAppBuilder**.**UseMobileAppAuthentication**.
 
-- [Microsoft.Azure.Mobile.Server.Notifications] включает push-уведомления и определяет конечную точку регистрации отправки. Добавьте в конфигурацию, вызвав метод расширения **AddPushNotifications**.
+- [Microsoft.Azure.Mobile.Server.Notifications] включает push-уведомления и определяет их конечную точку регистрации. Чтобы добавить его в конфигурацию, вызовите метод расширения **AddPushNotifications**.
 
-- [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) создает контроллер, который обслуживает данные для устаревших веб-браузеров из вашего мобильного приложения. Добавьте в конфигурацию, вызвав метод расширения **MapLegacyCrossDomainController**.
+- [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) создает контроллер, который предоставляет данные устаревшим веб-браузерам из вашего мобильного приложения. Чтобы добавить его в конфигурацию, вызовите метод расширения **MapLegacyCrossDomainController**.
 
 ## Практическое руководство. Определение настраиваемого контроллера API
 
 Настраиваемый контроллер API обеспечивает большинство базовых функций для серверной части мобильного приложения, предоставляя конечную точку. Настраиваемый контроллер API
 
-1. В Visual Studio щелкните правой кнопкой мыши папку Controllers, а затем щелкните **Добавить** > **Контроллер**, выберите **Контроллер веб-API 2&mdash;Пустой** и нажмите кнопку **Добавить**.
+1. В Visual Studio щелкните правой кнопкой мыши папку "Контроллеры", а затем последовательно выберите пункты **Добавить**, **Контроллер**, **Контроллер веб-API 2 — Пустой** и нажмите кнопку **Добавить**.
 
-2. Укажите **имя контроллера**, например `CustomController`, и нажмите кнопку **Добавить**. Будет создан новый класс **CustomController**, наследующий от **ApiController**.
+2. Укажите **имя контроллера**, например `CustomController`, и нажмите кнопку **Добавить**. Будет создан класс **CustomController**, представляющий собой наследник класса **ApiController**.
 
 3. В файле нового класса контроллера добавьте следующую инструкцию using:
 
 		using Microsoft.Azure.Mobile.Server.Config;
 
-4. Примените **MobileAppControllerAttribute** к определению класса контроллера API, как показано в следующем примере:
+4. Примените атрибут **MobileAppControllerAttribute** к определению класса контроллера API, как показано в примере ниже.
 
 		[MobileAppController] 
 		public class CustomController : ApiController
@@ -81,66 +109,59 @@
 		      //...
 		}
 
-4. Перейдите к папке App\_Startup, откройте файл проекта WebApiConfig.cs и добавьте вызов метода расширения **MapApiControllers**, как показано в следующем примере:
+4. Добавьте в файл App\_Start/Startup.MobileApp.cs вызов метода расширения **MapApiControllers**, как показано в примере ниже.
 
 		new MobileAppConfiguration()
 		    .MapApiControllers()
 		    .ApplyTo(config);
+    
+	Обратите внимание, что нет необходимости вызывать метод **MapApiControllers**, если вы вызываете метод **UseDefaultConfiguration**, инициализирующий все функции.
 
-	Обратите внимание, что нет необходимости вызывать **MapApiControllers** при вызове **UseDefaultConfiguration**, который инициализирует все функции.
-
-Любой контроллер, к которому не применен **MobileAppControllerAttribute**, может быть доступен клиентам, но он не будет правильно использоваться клиентами с помощью любого клиентского пакета SDK для мобильных приложений.
+Клиенты могут получить доступ к любому контроллеру, к которому не применен атрибут **MobileAppControllerAttribute**. Тем не менее клиенты, в которых применяется любой пакет SDK клиента мобильного приложения, не смогут правильно использовать этот контроллер.
 
 ## Практическое руководство. Определение контроллера таблиц
 
-Контроллер таблиц предоставляет доступ к данным сущностей в хранилище данных на основе таблиц, например в хранилище базы данных SQL или хранилище таблиц Azure. Контроллеры таблиц наследуют у универсального класса **TableController**, где универсальным типом является сущность в модели, которая представляет схему таблицы следующим образом:
+Контроллер таблиц предоставляет доступ к данным сущностей в хранилище данных на основе таблиц, например в хранилище базы данных SQL или хранилище таблиц Azure. Контроллеры таблиц являются наследниками универсального класса **TableController**, где универсальный тип представляет собой объект в модели, которая представляет схему таблицы, как показано ниже.
 
 	public class TodoItemController : TableController<TodoItem>
     {  
 		//...
 	}
 
-Контроллеры таблиц инициализируются с помощью метода расширения **AddTables**. В следующем примере инициализируется контроллер таблиц, который использует Entity Framework для доступа к данным:
+Для инициализации контроллеров таблиц используется метод расширения **AddTables**. В следующем примере инициализируется контроллер таблиц, который использует Entity Framework для доступа к данным:
 
     new MobileAppConfiguration().AddTables(
         new MobileAppTableConfiguration()
         .MapTableControllers()
         .AddEntityFramework()).ApplyTo(config);
  
-Пример контроллера таблиц, который использует Entity Framework для доступа к данным в базе данных SQL Azure, см. в классе **TodoItemController** в серверном проекте быстрого запуска, который можно скачать с портала Azure.
+Пример контроллера таблиц, использующего платформу Entity Framework для доступа к данным в Базе данных SQL Azure, см. в классе **TodoItemController** в проекте сервера быстрого запуска, который можно скачать с портала Azure.
 
 ## Практическое руководство. Добавление аутентификации в серверный проект
 
-Вы можете добавить аутентификацию в серверный проект, расширив объект **MobileAppConfiguration** и настроив ПО промежуточного слоя OWIN. При установке пакета [Microsoft.Azure.Mobile.Server.Quickstart] и вызове метода расширения **UseDefaultConfiguration** можно перейти к шагу 4.
+Вы можете добавить функцию проверки подлинности в проект сервера, расширив объект **MobileAppConfiguration** и настроив ПО промежуточного слоя OWIN. При установке пакета [Microsoft.Azure.Mobile.Server.Quickstart] и вызове метода расширения **UseDefaultConfiguration** можно перейти к шагу 3.
 
-1. В Visual Studio установите пакет [Microsoft.Azure.Mobile.Server.Authentication]. 
+1. В Visual Studio установите пакет [Microsoft.Azure.Mobile.Server.Authentication]. 
 
-2. Перейдите к папке App\_Startup, откройте файл проекта WebApiConfig.cs и добавьте вызов метода расширения **AddAppServiceAuthentication** во время инициализации, который выглядит следующим образом:
-
-		new MobileAppConfiguration()
-			// other features...
-			.AddAppServiceAuthentication()
-			.ApplyTo(config);
-
-3. В файле проекта Startup.cs добавьте следующую строку кода в начало метода **Configuration**:
+2. В файле проекта Startup.cs добавьте следующую строку кода в начало метода **Configuration**:
 
 		app.UseMobileAppAuthentication(config);
 
 	Это добавляет компонент ПО промежуточного слоя OWIN, который позволяет мобильному приложению Azure проверять токены, выданные связанным шлюзом службы приложений.
 
-4. Добавьте атрибут `[Authorize]` в любой контроллер или метод, который требует аутентификации. Теперь пользователи должны пройти аутентификацию для доступа к этой конечной точке или определенным API.
+3. Добавьте атрибут `[Authorize]` в контроллеры и методы, требующие проверки подлинности. Теперь пользователи должны пройти аутентификацию для доступа к этой конечной точке или определенным API.
 
-Чтобы узнать о том, как аутентифицировать клиенты в серверной части мобильного приложения, см. раздел [Добавление проверки подлинности в приложение](app-service-mobile-dotnet-backend-ios-get-started-users-preview.md).
+Сведения о том, как выполнять проверку подлинности клиентов в серверной части мобильного приложения, см. в статье [Добавление функции проверки подлинности в приложение](app-service-mobile-dotnet-backend-ios-get-started-users-preview.md).
 
 ## Практическое руководство. Добавление push-уведомлений в серверный проект
 
-Вы можете добавить push-уведомления в серверный проект, расширив объект **MobileAppConfiguration** и создав клиент центров уведомлений. При установке пакета [Microsoft.Azure.Mobile.Server.Quickstart] и вызове метода расширения **UseDefaultConfiguration** можно перейти к шагу 3.
+Вы можете добавить push-уведомления в проект сервера, расширив объект **MobileAppConfiguration** и создав клиент Центров уведомлений. При установке пакета [Microsoft.Azure.Mobile.Server.Quickstart] и вызове метода расширения **UseDefaultConfiguration** можно перейти к шагу 3.
 
-1. В Visual Studio щелкните правой кнопкой мыши серверный проект и щелкните **Управление пакетами NuGet**, найдите пакет Microsoft.Azure.Mobile.Server.Notifications и нажмите кнопку **Установить**. Будет установлен пакет [Microsoft.Azure.Mobile.Server.Notifications].
+1. В Visual Studio щелкните правой кнопкой мыши проект сервера, затем щелкните **Управление пакетами NuGet**, найдите пакет Microsoft.Azure.Mobile.Server.Notifications и нажмите кнопку **Установить**. Будет установлен пакет [Microsoft.Azure.Mobile.Server.Notifications].
  
-3. Повторите этот шаг, чтобы установить пакет `Microsoft.Azure.NotificationHubs`, который включает в себя клиентскую библиотеку центров уведомлений.
+3. Повторите это действие, чтобы установить пакет `Microsoft.Azure.NotificationHubs`, который включает в себя клиентскую библиотеку Центров уведомлений.
 
-2. Перейдите к папке App\_Startup, откройте файл проекта WebApiConfig.cs и добавьте вызов метода расширения **AddPushNotifications** во время инициализации, который выглядит следующим образом:
+2. Во время инициализации перейдите к папке App\_Startup, откройте файл проекта Startup.MobileApp.cs и добавьте в него вызов метода расширения **AddPushNotifications**, который выглядит указанным ниже образом.
 
 		new MobileAppConfiguration()
 			// other features...
@@ -158,7 +179,7 @@
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
-        ServiceSettingsDictionary settings = 
+        MobileAppSettingsDictionary settings = 
             config.GetMobileAppSettingsProvider().GetMobileAppSettings();
         
         // Get the Notification Hubs credentials for the Mobile App.
@@ -170,7 +191,7 @@
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-На этом этапе можно использовать клиент центров уведомлений для отправки push-уведомлений на зарегистрированные устройства. Дополнительные сведения см. в разделе [Добавление push-уведомлений в приложение](app-service-mobile-dotnet-backend-ios-get-started-push-preview.md). Чтобы узнать больше обо всем, что можно сделать с помощью центров уведомлений, см. раздел [Общая информация о центрах уведомлений Azure](../notification-hubs/notification-hubs-overview.md).
+На этом этапе можно использовать клиент центров уведомлений для отправки push-уведомлений на зарегистрированные устройства. Дополнительные сведения см. в статье [Добавление push-уведомлений в приложение](app-service-mobile-dotnet-backend-ios-get-started-push-preview.md). Дополнительные сведения обо всем, что можно сделать с помощью Центров уведомлений, см. в статье [Общая информация о Центрах уведомлений](../notification-hubs/notification-hubs-overview.md).
 
 ## Практическое руководство. Публикация серверного проекта
 
@@ -184,4 +205,4 @@
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

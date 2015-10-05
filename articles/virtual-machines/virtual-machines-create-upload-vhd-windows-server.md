@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Создание и передача виртуального жесткого диска Windows Server в Azure"
-	description="Узнайте, как создать и передать виртуальный жесткий диск с операционной системой Windows Server в Azure."
+	pageTitle="Создание и передача виртуального жесткого диска Windows Server в Azure с помощью Powershell"
+	description="Узнайте, как создать и передать виртуальный жесткий диск Windows Server с помощью классической модели развертывания и Azure Powershell."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -198,4 +198,4 @@
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

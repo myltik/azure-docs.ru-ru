@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Как обновить агент Linux для Azure до последней версии из Github"
-	description="Узнайте, как обновить агент Linux для Azure из Github для виртуальной машины Linux в Azure."
+	pageTitle="Обновление агента Linux для Azure из Github | Microsoft Azure"
+	description="Узнайте, как обновить агент Linux для Azure на виртуальной машине Linux до последней версии с сайта Github."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -17,19 +18,21 @@
 	ms.author="mingzhan"/>
 
 
-# Как обновить агент Linux для Azure до последней версии из Github
+# Как обновить агент Linux для Azure на виртуальной машине до последней версии с сайта Github
 
-Для обновления [агента Azure Linux](https://github.com/Azure/WALinuxAgent) требуется:
+Для обновления [агента Linux для Azure](https://github.com/Azure/WALinuxAgent) на виртуальной машине Linux требуется:
 
 1. работающая виртуальная машина Linux в Azure;
 2. подключение к этой виртуальной машине Linux с помощью протокола SSH.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс управления ресурсом с помощью модели развертывания на основе диспетчера ресурсов, а также классической модели.
 
 > [AZURE.NOTE]Если эта задача выполняется на компьютере Windows, можно использовать Putty, чтобы подключиться по протоколу SSH к компьютеру Linux. Дополнительную информацию см. в разделе [Как войти в виртуальную машину под управлением Linux](virtual-machines-linux-how-to-log-on.md).
 
 Рекомендованные Azure дистрибутивы Linux содержат в своих репозиториях пакет агента Linux для Azure, так что сначала проверьте наличие и установите последнюю версию из этого репозитория дистрибутивов, если это возможно.
 
 Для Ubuntu просто введите:
-     
+
     #sudo apt-get install walinuxagent
 
 Для CentOS введите:
@@ -63,8 +66,8 @@
     #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent  
 
 ###Для версии 2.1.x или более поздней введите:
-  
-    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip 
+
+    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip
     #unzip WALinuxAgent-[version].zip
     #cd WALinuxAgent-[version]
 
@@ -83,18 +86,18 @@
     #chmod +x waagent
 
  Копирование нового исполняемого файла в /usr/sbin/
-   
+
   Для большинства дистрибутивов Linux используйте:
-         
+
       #sudo cp waagent /usr/sbin
 
   Для CoreOS используйте:
 
     #sudo cp waagent /usr/share/oem/bin/
- 
+
 ###Для версии 2.1.x используйте:
 
-Возможно, сначала потребуется установить пакет `setuptools`, ознакомьтесь с информацией [здесь](https://pypi.python.org/pypi/setuptools). Затем выполните следующее:
+Возможно, сначала потребуется установить пакет `setuptools`. Ознакомьтесь с информацией [здесь](https://pypi.python.org/pypi/setuptools). Затем выполните следующее:
 
     #sudo python setup.py install
 
@@ -110,10 +113,10 @@
 
 Для CoreOS используйте:
 
-    #sudo systemctl restart waagent 
+    #sudo systemctl restart waagent
 
 ## Подтверждение версии агента Azure Linux
-   
+
     #waagent -version
 
 Для CoreOS приведенная выше команда может не работать.
@@ -122,8 +125,4 @@
 
 Дополнительную информацию об агенте Azure для Linux см. в [файле сведений агента Linux для Azure](https://github.com/Azure/WALinuxAgent).
 
-
-
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Пошаговое руководство. Экспорт в SQL из Application Insights с использованием Stream Analytics
@@ -59,29 +59,29 @@
 
 В результате непрерывного экспорта происходит передача данных в учетную запись хранилища Azure, поэтому необходимо сначала создать хранилище.
 
-1. Создайте учетную запись хранения в подписке на [портале Azure][portal].
+1. Создайте «классическую» учетную запись хранения в подписке на [портале Azure][portal].
 
-    ![В портале Azure выберите "Создать", "Данные", "Хранилище".](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
+    ![На портале Azure выберите «Создать», «Данные», «Хранилище». Выберите «Классический» и щелкните «Создать». Введите имя хранилища.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 
 2. Создание контейнера
 
-    ![В новом хранилище выберите "Контейнеры", а затем "Добавить".](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
+    ![В новом хранилище выберите «Контейнеры», щелкните элемент «Контейнеры», а затем — «Добавить».](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
 
 3. Скопируйте ключ доступа к хранилищу.
 
     Он вскоре потребуется для настройки входных данных для службы Stream Analytics.
 
-    ![В хранилище откройте "Параметры", "Ключи" и сделайте копию первичного ключа доступа.](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
+    ![В хранилище откройте «Параметры», «Ключи» и сделайте копию первичного ключа доступа.](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
 
 ## Запуск непрерывного экспорта в службе хранилища Azure
 
 1. На портале Azure перейдите к ресурсу Application Insights, созданному для приложения.
 
-    ![Выберите "Обзор", "Application Insights", а затем выберите свое приложение.](./media/app-insights-code-sample-export-sql-stream-analytics/060-browse.png)
+    ![Выберите «Обзор», «Application Insights», а затем выберите свое приложение.](./media/app-insights-code-sample-export-sql-stream-analytics/060-browse.png)
 
 2. Создайте непрерывный экспорт.
 
-    ![Выберите "Параметры", "Непрерывный экспорт", "Добавить".](./media/app-insights-code-sample-export-sql-stream-analytics/070-export.png)
+    ![Выберите «Параметры», «Непрерывный экспорт», «Добавить».](./media/app-insights-code-sample-export-sql-stream-analytics/070-export.png)
 
 
     Выберите учетную запись хранения, созданную ранее:
@@ -314,4 +314,4 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

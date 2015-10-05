@@ -1,6 +1,6 @@
 <properties 
-pageTitle="Операции с индексаторами (API REST службы &quot;Поиск Azure&quot;: версия 2015-02-28-Preview)" 
-description="Операции с индексаторами (API REST службы &quot;Поиск Azure&quot;: версия 2015-02-28-Preview)" 
+pageTitle="Операции с индексаторами (API REST службы ";Поиск Azure";: версия 2015-02-28-Preview)" 
+description="Операции с индексаторами (API REST службы ";Поиск Azure";: версия 2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 
 authors="HeidiSteen" 
@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="07/08/2015" 
+ms.date="09/21/2015" 
 ms.author="heidist" />
 
 #Операции с индексаторами (API REST службы "Поиск Azure": версия 2015-02-28-Preview)
@@ -40,7 +40,7 @@ ms.author="heidist" />
 
 Мы планируем в будущем обеспечить поддержку дополнительных источников данных. Чтобы помочь нам определить приоритеты этих решений, оставьте свой отзыв на [форум отзывов по Поиску Azure](http://feedback.azure.com/forums/263029-azure-search).
 
-В статье [Ограничения (служба поиска Azure)](https://msdn.microsoft.com/library/azure/dn798934.aspx) приведены сведения об ограничениях, связанных с ресурсами индексатора и источника данных.
+В статье [Ограничения службы](search-limits-quotas-capacity.md) приведена информация об ограничениях, связанных с ресурсами индексатора и источника данных.
 
 ## Типичные рабочий процесс
 
@@ -775,4 +775,4 @@ ms.author="heidist" />
 </tr>
 </table>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -163,12 +163,13 @@
 
 ## Дальнейшие действия
 
-Вы узнали основные сведения об очередях служебной шины. Для получения дополнительных сведений используйте следующие ссылки.
+Для получения дополнительных сведений см. следующие ресурсы.
 
--   См. статью [Очереди, темы и подписки][].
--   Посетите репозиторий [Пакет SDK хранилища Azure для Node][] на веб-сайте GitHub.
+-   [очереди, разделы и подписки][]
+-   Репозиторий [Пакет SDK для Azure для Node][] на сайте GitHub.
+-   [Центр разработчика Node.js](/develop/nodejs/).
 
-  [Пакет SDK хранилища Azure для Node]: https://github.com/Azure/azure-sdk-for-node
+  [Пакет SDK для Azure для Node]: https://github.com/Azure/azure-sdk-for-node
   [Дальнейшие действия]: #next-steps
   [What are Service Bus Queues?]: #what-are-service-bus-queues
   [Create a Service Namespace]: #create-a-service-namespace
@@ -183,10 +184,10 @@
   [Azure Management Portal]: http://manage.windowsazure.com
   
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [Очереди, темы и подписки]: service-bus-queues-topics-subscriptions.md
+  [очереди, разделы и подписки]: service-bus-queues-topics-subscriptions.md
   [Создание и развертывание веб-приложения Node.js в службе приложений Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Облачная служба Node.js с хранилищем]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Веб-приложение Node.js с хранилищем]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

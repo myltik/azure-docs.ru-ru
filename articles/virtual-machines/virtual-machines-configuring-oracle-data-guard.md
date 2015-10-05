@@ -1,21 +1,38 @@
-<properties title="Configuring Oracle Data Guard for Azure" pageTitle="Настройка Oracle Data Guard для Azure" description="Изучите учебник по установке и реализации Oracle Data Guard на виртуальных машинах Azure для обеспечения высокого уровня доступности и аварийного восстановления." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties
+	pageTitle="Настройка Oracle Data Guard на виртуальных машинах | Microsoft Azure"
+	description="Изучите учебник по установке и реализации Oracle Data Guard на виртуальных машинах Azure для обеспечения высокого уровня доступности и аварийного восстановления."
+	services="virtual-machines"
+	authors="bbenz"
+	documentationCenter=""
+	tags="azure-service-management"/>
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
+	ms.author="bbenz" />
+
 #Настройка Oracle Data Guard для Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс управления ресурсом, созданным с помощью классической модели развертывания.
+
 В этом учебнике показано, как настроить и реализовать Oracle Data Guard в среде виртуальных машин Azure, чтобы обеспечить высокий уровень доступности и аварийное восстановление. Учебник посвящен односторонней репликации для баз данных Oracle, не являющихся кластерами реальных приложений (RAC).
 
 Oracle Data Guard поддерживает защиту данных и аварийное восстановление для базы данных Oracle. Это простое и высокопроизводительное решение для аварийного восстановления, защиты данных и обеспечения высокой доступности всей базы данных Oracle.
 
-В этом учебнике предполагается, что вы уже ознакомились с концепциями высокого уровня доступности и аварийного восстановления баз данных Oracle как в теории, так и на практике. Дополнительную информацию см. на [веб-сайте Oracle](http://www.oracle.com/technetwork/database/features/availability/index.html) и в документе [Основные понятия и руководство по администрированию Oracle Data Guard](http://docs.oracle.com/cd/E11882_01/server.112/e17022/create_ps.htm).
+В этом учебнике предполагается, что вы уже ознакомились с концепциями высокого уровня доступности и аварийного восстановления баз данных Oracle как в теории, так и на практике. Информацию см. на [веб-сайте Oracle](http://www.oracle.com/technetwork/database/features/availability/index.html) и в руководстве [Основные понятия и администрирование Oracle Data Guard](http://docs.oracle.com/cd/E11882_01/server.112/e17022/create_ps.htm).
 
 Кроме того, для работы с учебником вы должны выполнить следующие предварительные требования:
 
-- Ознакомиться с подразделом «Принципы обеспечения высокого уровня доступности и аварийного восстановления» раздела [Образы виртуальных машин Oracle. Различные рекомендации](virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images.md). Обратите внимание, что в настоящее время Azure поддерживает автономные экземпляры базы данных Oracle, но не кластеры реальных приложений Oracle (Oracle RAC).
+- Ознакомиться с подразделом "Рекомендации по высокой доступности и аварийному восстановлению" раздела [Различные рекомендации по образам виртуальных машин Oracle](virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images.md). Обратите внимание, что в настоящее время Azure поддерживает автономные экземпляры базы данных Oracle, но не кластеры реальных приложений Oracle (Oracle RAC).
 
-- Создать две виртуальные машины в Azure с помощью той же платформы, которая предоставляется образом Oracle Enterprise Edition в Windows Server. Дополнительную информацию см. в статьях [Создание виртуальной машины Oracle Database 12c в Azure](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md) и [Виртуальные машины Azure](http://azure.microsoft.com/documentation/services/virtual-machines/). Убедиться, что эти виртуальные машины находятся в [одной и той же облачной службе](virtual-machines-load-balance.md) и в [одной виртуальной сети](azure.microsoft.com/documentation/services/virtual-network/), чтобы они могли обращаться друг к другу посредством постоянного частного IP-адреса. Кроме того, мы советуем размещать виртуальные машины в одной [группе доступности](virtual-machines-manage-availability.md), так как это позволяет Azure помещать их в отдельные домены сбоя и домены обновления. Обратите внимание, что Oracle Data Guard доступен только в выпуске Oracle Database Enterprise Edition. Каждая виртуальная машина должна иметь не менее 2 ГБ памяти и 5 ГБ места на диске. Самые последние сведения о предоставляемых платформой размерах виртуальных машин см. в статье [Размеры виртуальных машин и облачных служб для Azure](http://msdn.microsoft.com/library/dn197896.aspx). Если для ваших виртуальных машин требуются дополнительные тома диска, можно подключить дополнительные диски. Информацию см. в разделе [Подключение диска данных к виртуальной машине](storage-windows-attach-disk.md).
+- Создать две виртуальные машины в Azure с помощью той же платформы, которая предоставляется образом Oracle Enterprise Edition в Windows Server. Информацию см. в статьях [Создание виртуальной машины Oracle Database 12c в Azure](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md) и [Виртуальные машины Azure](http://azure.microsoft.com/documentation/services/virtual-machines/). Убедиться, что эти виртуальные машины находятся в [одной облачной службе](virtual-machines-load-balance.md) и [одной виртуальной сети](azure.microsoft.com/documentation/services/virtual-network/), чтобы они могли обращаться друг к другу посредством постоянного частного IP-адреса. Кроме того, рекомендуем размещать виртуальные машины в одной [группе доступности](virtual-machines-manage-availability.md), так как это позволяет Azure помещать их в отдельные домены сбоя и домены обновления. Обратите внимание, что Oracle Data Guard доступен только в выпуске Oracle Database Enterprise Edition. Каждая виртуальная машина должна иметь не менее 2 ГБ памяти и 5 ГБ места на диске. Последние сведения о предоставляемых платформой размерах виртуальных машин см. в статье [Размеры виртуальных машин и облачных служб для Azure](http://msdn.microsoft.com/library/dn197896.aspx). Если для ваших виртуальных машин требуются дополнительные тома диска, можно подключить дополнительные диски. Информацию см. в разделе [Подключение диска данных к виртуальной машине](storage-windows-attach-disk.md).
 
 - Задать на портале управления Azure имя Machine1 для основной виртуальной машины и Machine2 для резервной.
 
-- Установить переменную среды **ORACLE\_HOME**, чтобы она указывала на один и тот же корневой путь установки Oracle на основной и резервной виртуальных машинах, например `C:\OracleDatabase\product\11.2.0\dbhome_1\database`.
+- Установить переменную среды **ORACLE\_HOME**, чтобы она указывала на один корневой путь установки Oracle на основной и резервной виртуальных машинах, например `C:\OracleDatabase\product\11.2.0\dbhome_1\database`.
 
 - Войти на сервер Windows как участник группы **Administrators** или **ORA\_DBA**.
 
@@ -68,7 +85,7 @@ Oracle Data Guard поддерживает защиту данных и авар
 >| **Память** | Минимум 2 ГБ | Минимум 2 ГБ |
 >| **Место на диске** | Минимум 5 ГБ | Минимум 5 ГБ |
 
-Для последующих выпусков базы данных Oracle и Oracle Data Guard может потребоваться реализовать некоторые дополнительные изменения. Сведения о последних версиях см. в документации по [Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) и [базе данных Oracle](http://www.oracle.com/us/corporate/features/database-12c/index.html) на веб-сайте Oracle.
+Для последующих выпусков базы данных Oracle и Oracle Data Guard может потребоваться реализовать некоторые дополнительные изменения. Последние сведения о версиях см. в документации по [Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) и [Oracle Database](http://www.oracle.com/us/corporate/features/database-12c/index.html) на веб-сайте Oracle.
 
 ##Реализация физической среды с резервной базой данных
 ### 1\. Создание базы данных-источника
@@ -77,17 +94,17 @@ Oracle Data Guard поддерживает защиту данных и авар
 - Подключитесь к базе данных как пользователь SYS с ролью SYSDBA в командной строке SQL*Plus и выполните следующую инструкцию, чтобы увидеть имя базы данных:
 
 		SQL> select name from v$database;
-		
+
 		The result will display like the following:
-		
+
 		NAME
 		---------
 		TEST
 - Затем запросите имена файлов базы данных из системного представления dba\_data\_files:
 
-		SQL> select file_name from dba_data_files; 
-		FILE_NAME 
-		------------------------------------------------------------------------------- 
+		SQL> select file_name from dba_data_files;
+		FILE_NAME
+		-------------------------------------------------------------------------------
 		C:\ <YourLocalFolder>\TEST\USERS01.DBF
 		C:\ <YourLocalFolder>\TEST\UNDOTBS01.DBF
 		C:\ <YourLocalFolder>\TEST\SYSAUX01.DBF
@@ -118,7 +135,7 @@ Oracle Data Guard поддерживает защиту данных и авар
 
 >[AZURE.IMPORTANT]В базе данных Oracle Database 12c имеется новый пользователь **SYSDG**, которого можно использовать для администрирования Oracle Data Guard. Дополнительные сведения см. в статье [Изменения в выпуске Oracle Database 12c](http://docs.oracle.com/cd/E16655_01/server.121/e10638/release_changes.htm).
 
-Кроме того, проверьте, определена ли на виртуальной машине Machine1 среда ORACLE\_HOME. Если нет, задайте ее как переменную среды с помощью диалогового окна «Переменные среды». Чтобы вызвать это диалоговое окно, запустите служебную программу **Система**, дважды щелкнув значок «Система» на **панели управления**. Затем перейдите на вкладку **Дополнительно** и нажмите кнопку **Переменные среды**. Нажмите кнопку **Создать** в разделе **Системные переменные**, чтобы установить переменные среды. После установки переменных среды закройте текущую командную строку Windows и откройте новую.
+Кроме того, проверьте, определена ли на виртуальной машине Machine1 среда ORACLE\_HOME. Если нет, задайте ее как переменную среды с помощью диалогового окна «Переменные среды». Чтобы открыть это диалоговое окно, запустите служебную программу **Система**, дважды щелкнув значок "Система" на **панели управления**. Затем перейдите на вкладку **Дополнительно** и нажмите кнопку **Переменные среды**. Нажмите кнопку **Создать** в разделе **Системные переменные**, чтобы установить переменные среды. После установки переменных среды закройте текущую командную строку Windows и откройте новую.
 
 Выполните следующую инструкцию, чтобы перейти в каталог Oracle\_Home, например в C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\database.
 
@@ -142,8 +159,8 @@ Oracle Data Guard поддерживает защиту данных и авар
 	3         ONLINE  C:<YourLocalFolder>\TEST\REDO03.LOG               NO
 	2         ONLINE  C:<YourLocalFolder>\TEST\REDO02.LOG               NO
 	1         ONLINE  C:<YourLocalFolder>\TEST\REDO01.LOG               NO
-	Next, query the v$log system view, displays log file information from the control file. 
-	SQL> select bytes from v$log; 
+	Next, query the v$log system view, displays log file information from the control file.
+	SQL> select bytes from v$log;
 	BYTES
 	----------
 	52428800
@@ -182,7 +199,7 @@ Oracle Data Guard поддерживает защиту данных и авар
 Сначала войдите как sysdba. В командной строке Windows введите следующее:
 
 	sqlplus /nolog
-	
+
 	connect / as sysdba
 
 Затем завершите работу базы данных в командной строке SQL*Plus:
@@ -205,13 +222,13 @@ Oracle Data Guard поддерживает защиту данных и авар
 
 Далее выполните:
 
-	SQL> alter database archivelog; 
+	SQL> alter database archivelog;
 	Database altered.
 
 Затем выполните инструкцию Alter database с предложением Open, чтобы сделать базу данных доступной для обычного использования:
 
 	SQL> alter database open;
-	
+
 	Database altered.
 
 #### Установка параметров инициализации базы данных-источника
@@ -224,16 +241,16 @@ Oracle Data Guard поддерживает защиту данных и авар
 	File created.
 
 Затем необходимо изменить pfile, добавив в него параметры резервирования. Чтобы сделать это, откройте файл INITTEST.ORA в папке %ORACLE\_HOME%\\database. Затем добавьте в этот файл INITTEST.ORA следующие инструкции. Обратите внимание, что в соответствии с соглашением об именовании ваш файл INIT.ORA должен иметь имя INIT<имя\_базы\_данных>.ORA.
-	
-	db_name='TEST' 
-	db_unique_name='TEST' 
+
+	db_name='TEST'
+	db_unique_name='TEST'
 	LOG_ARCHIVE_CONFIG='DG_CONFIG=(TEST,TEST_STBY)'
 	LOG_ARCHIVE_DEST_1= 'LOCATION=C:\OracleDatabase\archive   VALID_FOR=(ALL_LOGFILES,ALL_ROLES) DB_UNIQUE_NAME=TEST'
 	LOG_ARCHIVE_DEST_2= 'SERVICE=TEST_STBY LGWR ASYNC VALID_FOR=(ONLINE_LOGFILES,PRIMARY_ROLE) DB_UNIQUE_NAME=TEST_STBY'
 	LOG_ARCHIVE_DEST_STATE_1=ENABLE
-	LOG_ARCHIVE_DEST_STATE_2=ENABLE 
-	REMOTE_LOGIN_PASSWORDFILE=EXCLUSIVE 
-	LOG_ARCHIVE_FORMAT=%t_%s_%r.arc 
+	LOG_ARCHIVE_DEST_STATE_2=ENABLE
+	REMOTE_LOGIN_PASSWORDFILE=EXCLUSIVE
+	LOG_ARCHIVE_FORMAT=%t_%s_%r.arc
 	LOG_ARCHIVE_MAX_PROCESSES=30
 	# Standby role parameters --------------------------------------------------------------------
 	fal_server=TEST_STBY
@@ -244,18 +261,18 @@ Oracle Data Guard поддерживает защиту данных и авар
 	# ---------------------------------------------------------------------------------------------
 
 
-Предыдущий блок инструкций содержит следующие три важные элемента настройки: **LOG\_ARCHIVE\_CONFIG...:** с помощью этой инструкции вы задаете уникальные идентификаторы баз данных. **LOG\_ARCHIVE\_DEST\_1...:** с помощью этой инструкции вы задаете расположение локальной папки архива. Рекомендуется создать новый каталог для архивирования вашей базы данных и явно указать расположение локального архива с помощью этой инструкции, а не использовать папку Oracle по умолчанию %ORACLE\_HOME%\\database\\archive. **LOG\_ARCHIVE\_DEST\_2... LGWR ASYNC...:** вы определяете процесс средства асинхронной записи в журнал (LGWR) для сбора транзакционных данных повторяемых операций и передачи их в целевые резервные расположения. Здесь DB\_UNIQUE\_NAME указывает уникальное имя для базы данных на целевом резервном сервере.
+Предыдущий блок инструкций содержит три важные элемента настройки: **LOG\_ARCHIVE\_CONFIG...:** с помощью этой инструкции вы задаете уникальные идентификаторы баз данных. **LOG\_ARCHIVE\_DEST\_1...:** с помощью этой инструкции вы задаете расположение папки локального архива. Рекомендуем создать новый каталог для архивирования вашей базы данных и явно указать расположение локального архива с помощью этой инструкции, а не использовать папку Oracle по умолчанию %ORACLE\_HOME%\\database\\archive. **LOG\_ARCHIVE\_DEST\_2... LGWR ASYNC...:** вы определяете процесс средства асинхронной записи в журнал (LGWR) для сбора транзакционных данных повторяемых операций и передачи их в целевые резервные расположения. Здесь DB\_UNIQUE\_NAME указывает уникальное имя для базы данных на целевом резервном сервере.
 
 После подготовки нового файла параметров необходимо создать из него файл spfile.
 
 Сначала завершите работу базы данных:
 
 	SQL> shutdown immediate;
-	
+
 	Database closed.
-	
+
 	Database dismounted.
-	
+
 	ORACLE instance shut down.
 
 Далее выполните команду startup nomount следующим образом:
@@ -277,7 +294,7 @@ Oracle Data Guard поддерживает защиту данных и авар
 Затем завершите работу базы данных:
 
 	SQL> shutdown immediate;
-	
+
 	ORA-01507: database not mounted
 
 И запустите экземпляр с помощью команды startup:
@@ -297,7 +314,7 @@ Oracle Data Guard поддерживает защиту данных и авар
 
 Во-первых, вам понадобится подключиться к удаленному рабочему столу на Machine2 с помощью портала управления Azure.
 
-Затем на резервном сервере (Machine2) вы создадите все необходимые папки для резервной базы данных, например C:\\<локальная\_папка>\\TEST. При выполнении упражнений из этого учебника убедитесь, что структура папок на Machine2 соответствует структуре папок на Machine1 для хранения всех необходимых файлов, таких как файл параметров, файлы данных, файлы журналов повторяемых операций, а также файлы udump, bdump и cdump. Кроме того, на Machine2 должны быть определены переменные среды ORACLE\_HOME и ORACLE\_BASE. Если они не заданы, определите их как переменные среды с помощью диалогового окна «Переменные среды». Чтобы вызвать это диалоговое окно, запустите служебную программу **Система**, дважды щелкнув значок «Система» на **панели управления**. Затем перейдите на вкладку **Дополнительно** и нажмите кнопку **Переменные среды**. Нажмите кнопку **Создать** в разделе **Системные переменные**, чтобы установить переменные среды. После настройки переменных среды закройте текущую командную строку Windows и откройте новую, чтобы увидеть изменения.
+Затем на резервном сервере (Machine2) вы создадите все необходимые папки для резервной базы данных, например C:\\<локальная\_папка>\\TEST. При выполнении упражнений из этого учебника убедитесь, что структура папок на Machine2 соответствует структуре папок на Machine1 для хранения всех необходимых файлов, таких как файл параметров, файлы данных, файлы журналов повторяемых операций, а также файлы udump, bdump и cdump. Кроме того, на Machine2 должны быть определены переменные среды ORACLE\_HOME и ORACLE\_BASE. Если они не заданы, определите их как переменные среды с помощью диалогового окна «Переменные среды». Чтобы открыть это диалоговое окно, запустите служебную программу **Система**, дважды щелкнув значок "Система" на **панели управления**. Затем перейдите на вкладку **Дополнительно** и нажмите кнопку **Переменные среды**. Нажмите кнопку **Создать** в разделе **Системные переменные**, чтобы установить переменные среды. После настройки переменных среды закройте текущую командную строку Windows и откройте новую, чтобы увидеть изменения.
 
 Затем выполните следующие действия:
 
@@ -322,18 +339,18 @@ Oracle Data Guard поддерживает защиту данных и авар
 ### 1\. Подготовка файла параметров инициализации для резервной базы данных
 
 В этом разделе показывается, как подготовить файл параметров инициализации для резервной базы данных. Чтобы сделать это, сначала вручную скопируйте файл INITTEST.ORA с Machine1 на Machine2. Вы должны видеть файл INITTEST.ORA в папке %ORACLE\_HOME%\\database на обеих виртуальных машинах. Затем измените файл INITTEST.ORA на Machine2, чтобы настроить резервную роль, как показано ниже:
-	
+
 	db_name='TEST'
 	db_unique_name='TEST_STBY'
 	db_create_file_dest='c:\OracleDatabase\oradata\test_stby’
 	db_file_name_convert=’TEST’,’TEST_STBY’
 	log_file_name_convert='TEST','TEST_STBY'
-	
-	
+
+
 	job_queue_processes=10
 	LOG_ARCHIVE_CONFIG='DG_CONFIG=(TEST,TEST_STBY)'
 	LOG_ARCHIVE_DEST_1='LOCATION=c:\OracleDatabase\TEST_STBY\archives VALID_FOR=(ALL_LOGFILES,ALL_ROLES) DB_UNIQUE_NAME=’TEST'
-	LOG_ARCHIVE_DEST_2='SERVICE=TEST LGWR ASYNC VALID_FOR=(ONLINE_LOGFILES,PRIMARY_ROLE) 
+	LOG_ARCHIVE_DEST_2='SERVICE=TEST LGWR ASYNC VALID_FOR=(ONLINE_LOGFILES,PRIMARY_ROLE)
 	LOG_ARCHIVE_DEST_STATE_1='ENABLE'
 	LOG_ARCHIVE_DEST_STATE_2='ENABLE'
 	LOG_ARCHIVE_FORMAT='%t_%s_%r.arc'
@@ -342,7 +359,7 @@ Oracle Data Guard поддерживает защиту данных и авар
 
 Предыдущий блок инструкций содержит следующие два важных элемента настройки:
 
--	***. LOG\_ARCHIVE\_DEST\_1:** вы должны вручную создать папку c:\\OracleDatabase\\TEST\_STBY\\archives на Machine2.
+-	***. LOG\_ARCHIVE\_DEST\_1:** необходимо вручную создать папку c:\\OracleDatabase\\TEST\_STBY\\archives на Machine2.
 -	***. LOG\_ARCHIVE\_DEST\_2:** это необязательный шаг. Он выполняется, так как это может потребоваться при обслуживании основной виртуальной машины, когда база данных на резервной виртуальной машине становится источником.
 
 Затем необходимо запустить резервный экземпляр. На резервном сервере базы данных введите следующую команду в командной строке Windows, чтобы создать экземпляр Oracle путем создания новой службы Windows:
@@ -359,9 +376,9 @@ Oracle Data Guard поддерживает защиту данных и авар
 Подключитесь к удаленному рабочему столу на Machine1 и измените файл listener.ora, как указано ниже. При редактировании файла listener.ora всегда проверяйте, чтобы открывающая и закрывающая скобки стояли в одном столбце. Файл listener.ora можно найти в следующей папке: c:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\NETWORK\\ADMIN\\.
 
 	# listener.ora Network Configuration File: C:\OracleDatabase\product\11.2.0\dbhome_1\network\admin\listener.ora
-	
+
 	# Generated by Oracle configuration tools.
-	
+
 	SID_LIST_LISTENER =
 	  (SID_LIST =
 	    (SID_DESC =
@@ -371,7 +388,7 @@ Oracle Data Guard поддерживает защиту данных и авар
 	      (ENVS = "EXTPROC_DLLS=ONLY:C:\OracleDatabase\product\11.2.0\dbhome_1\bin\oraclr11.dll")
 	    )
 	  )
-	
+
 	LISTENER =
 	  (DESCRIPTION_LIST =
 	    (DESCRIPTION =
@@ -381,9 +398,9 @@ Oracle Data Guard поддерживает защиту данных и авар
 	  )
 
 Затем подключитесь к удаленному рабочему столу на Machine2 и измените файл listener.ora следующим образом: # listener.ora Network Configuration File: C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\network\\admin\\listener.ora
-	
+
 	# Generated by Oracle configuration tools.
-	
+
 	SID_LIST_LISTENER =
 	  (SID_LIST =
 	    (SID_DESC =
@@ -393,7 +410,7 @@ Oracle Data Guard поддерживает защиту данных и авар
 	      (ENVS = "EXTPROC_DLLS=ONLY:C:\OracleDatabase\product\11.2.0\dbhome_1\bin\oraclr11.dll")
 	    )
 	  )
-	
+
 	LISTENER =
 	  (DESCRIPTION_LIST =
 	    (DESCRIPTION =
@@ -416,7 +433,7 @@ Oracle Data Guard поддерживает защиту данных и авар
 	      (SERVICE_NAME = test)
 	    )
 	  )
-	
+
 	TEST_STBY =
 	  (DESCRIPTION =
 	    (ADDRESS_LIST =
@@ -428,7 +445,7 @@ Oracle Data Guard поддерживает защиту данных и авар
 	  )
 
 Подключитесь к удаленному рабочему столу на Machine2 и измените файл tnsnames.ora следующим образом:
-	
+
 	TEST =
 	  (DESCRIPTION =
 	    (ADDRESS_LIST =
@@ -438,7 +455,7 @@ Oracle Data Guard поддерживает защиту данных и авар
 	      (SERVICE_NAME = test)
 	    )
 	  )
-	
+
 	TEST_STBY =
 	  (DESCRIPTION =
 	    (ADDRESS_LIST =
@@ -455,7 +472,7 @@ Oracle Data Guard поддерживает защиту данных и авар
 Откройте новую командную строку Windows на основной и резервной виртуальных машинах и выполните следующие инструкции:
 
 	C:\Users\DBAdmin>tnsping test
-	
+
 	TNS Ping Utility for 64-bit Windows: Version 11.2.0.1.0 - Production on 14-NOV-2013 06:29:08
 	Copyright (c) 1997, 2010, Oracle.  All rights reserved.
 	Used parameter files:
@@ -464,10 +481,10 @@ Oracle Data Guard поддерживает защиту данных и авар
 	Attempting to contact (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = MACHINE1)(PORT = 1521))) (CONNECT_DATA = (SER
 	VICE_NAME = test)))
 	OK (0 msec)
-	
+
 
 	C:\Users\DBAdmin>tnsping test_stby
-	
+
 	TNS Ping Utility for 64-bit Windows: Version 11.2.0.1.0 - Production on 14-NOV-2013 06:29:16
 	Copyright (c) 1997, 2010, Oracle.  All rights reserved.
 	Used parameter files:
@@ -481,7 +498,7 @@ Oracle Data Guard поддерживает защиту данных и авар
 ##Запуск резервного экземпляра в состоянии nomount
 Вам нужно настроить среду для поддержки резервной базы данных на резервной виртуальной машине (MACHINE2).
 
-Сначала вручную скопируйте файл пароля с основной виртуальной машины (Machine1) на резервную (Machine2). Это необходимо сделать, поскольку пароль **sys** должен быть одинаковым на обеих виртуальных машинах.
+Сначала вручную скопируйте файл пароля с основной виртуальной машины (Machine1) на резервную (Machine2). Это необходимо, так как пароль **sys** должен быть одинаковым на обеих машинах.
 
 Затем откройте командную строку Windows на Machine2 и настройте переменные среды, чтобы они указывали на резервную базу данных:
 
@@ -493,10 +510,10 @@ Oracle Data Guard поддерживает защиту данных и авар
 Запустите базу данных:
 
 	SQL>shutdown immediate;
-	
+
 	SQL>startup nomount
 	ORACLE instance started.
-	
+
 	Total System Global Area  747417600 bytes
 	Fixed Size                  2179496 bytes
 	Variable Size             473960024 bytes
@@ -512,7 +529,7 @@ Oracle Data Guard поддерживает защиту данных и авар
 >[AZURE.IMPORTANT]Не используйте аутентификацию операционной системы, так как на резервном сервере еще нет базы данных.
 
 	C:\> RMAN TARGET sys/password@test AUXILIARY sys/password@test_STBY
-	
+
 	RMAN>DUPLICATE TARGET DATABASE
 	  FOR STANDBY
 	  FROM ACTIVE DATABASE
@@ -530,9 +547,9 @@ Oracle Data Guard поддерживает защиту данных и авар
 
 Когда вы открываете резервную базу данных в режиме **MOUNT**, продолжается доставка журналов архивирования, и процесс управляемого восстановления продолжает применять журналы в резервной базе данных. Это обеспечивает поддержку резервной базы данных в актуальном состоянии по отношению к базе данных-источнику. Обратите внимание, что в течение этого времени резервная база данных недоступна для составления отчетов.
 
-При открытии резервной базы данных в режиме **READ ONLY** доставка журналов архивирования продолжается. Но процесс управляемого восстановления останавливается. В результате резервная база данных все более устаревает, до возобновления процесса управляемого восстановления. В это время можно использовать резервную базу данных для составления отчетов, но данные могут не отражать последние изменения.
+Когда вы открываете резервную базу данных в режиме **READ ONLY**, доставка журналов архивирования продолжается. Но процесс управляемого восстановления останавливается. В результате резервная база данных все более устаревает, до возобновления процесса управляемого восстановления. В это время можно использовать резервную базу данных для составления отчетов, но данные могут не отражать последние изменения.
 
-В целом мы рекомендуем поддерживать резервную базу данных в режиме **MOUNT**, чтобы обеспечить актуальность данных в резервной базе данных в случае сбоя базы данных-источника. Однако вы можете поддерживать резервную базу данных и в режиме **READ ONLY** в целях создания отчетов, если таковы требования вашего приложения. Следующие шаги демонстрируют включение Data Guard в режиме только для чтения с помощью SQL*Plus.
+В целом мы рекомендуем установить режим **MOUNT**, чтобы обеспечить актуальность данных в резервной базе данных в случае сбоя базы данных-источника. Но вы также можете установить режим **READ ONLY** для составления отчетов, в зависимости от требований вашего приложения. Следующие шаги демонстрируют включение Data Guard в режиме только для чтения с помощью SQL*Plus.
 
 	SHUTDOWN IMMEDIATE;
 	STARTUP MOUNT;
@@ -545,15 +562,15 @@ Oracle Data Guard поддерживает защиту данных и авар
 Откройте окно командной строки SQL*Plus и проверьте архивные журналы повторяемых операций на резервной виртуальной машине (Machine2):
 
 	SQL> show parameters db_unique_name;
-	
+
 	NAME                                TYPE       VALUE
 	------------------------------------ ----------- ------------------------------
 	db_unique_name                      string     TEST_STBY
-	
+
 	SQL> SELECT NAME FROM V$DATABASE
-	
+
 	SQL> SELECT SEQUENCE#, FIRST_TIME, NEXT_TIME, APPLIED FROM V$ARCHIVED_LOG ORDER BY SEQUENCE#;
-	
+
 	SEQUENCE# FIRST_TIM NEXT_TIM APPLIED
 	----------------  ---------------  --------------- ------------
 	45                    23-FEB-14   23-FEB-14   YES
@@ -565,9 +582,9 @@ Oracle Data Guard поддерживает защиту данных и авар
 
 Откройте окно командной строки SQL*Plus и переключите файлы журналов на основную виртуальную машину (Machine1):
 
-	SQL> alter system switch logfile; 
+	SQL> alter system switch logfile;
 	System altered.
-	
+
 	SQL> archive log list
 	Database log mode              Archive Mode
 	Automatic archival             Enabled
@@ -579,14 +596,14 @@ Oracle Data Guard поддерживает защиту данных и авар
 Проверьте архивные журналы повторяемых операций на резервной виртуальной машине (Machine2):
 
 	SQL> SELECT SEQUENCE#, FIRST_TIME, NEXT_TIME, APPLIED FROM V$ARCHIVED_LOG ORDER BY SEQUENCE#;
-	
+
 	SEQUENCE# FIRST_TIM NEXT_TIM APPLIED
 	----------------  ---------------  --------------- ------------
 	45                    23-FEB-14   23-FEB-14   YES
 	46                    23-FEB-14   23-FEB-14   YES
 	47                    23-FEB-14   23-FEB-14   YES
 	48                    23-FEB-14   23-FEB-14   YES
-	
+
 	49                    23-FEB-14   23-FEB-14   YES
 	50                    23-FEB-14   23-FEB-14   IN-MEMORY
 
@@ -607,4 +624,4 @@ Oracle Data Guard поддерживает защиту данных и авар
 ##Дополнительные ресурсы
 [Образы виртуальных машин Oracle для Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

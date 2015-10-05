@@ -21,7 +21,6 @@
 
 - [Жизненный цикл приложения](service-fabric-application-lifecycle.md)
 - [Визуализация кластера с помощью обозревателя Service Fabric](service-fabric-visualizing-your-cluster.md)
-- [Защита трафика при репликации служб с отслеживанием состояния](service-fabric-replication-security.md)
 
 ## Упаковка, развертывание и удаление приложения
 В следующих разделах рассматривается модель приложений Service Fabric, а также создание пакетов приложений и их развертывание.
@@ -41,13 +40,12 @@
 - [Дополнительные разделы](service-fabric-application-upgrade-advanced.md)
 - [Устранение неполадок при обновлении приложения](service-fabric-application-upgrade-troubleshooting.md)
 - [Пошаговое руководство по обновлению приложений](service-fabric-application-upgrade-tutorial.md)
-- [Обновление приложения Service Fabric: сериализация данных](service-fabric-application-upgrade-data-serialization.md) 
+- [Обновление приложения Service Fabric: сериализация данных](service-fabric-application-upgrade-data-serialization.md)
 
 ## Масштабирование и разделение служб приложений
 Масштабирование и разделение описываются в таких статьях:
 
 - [Разделение служб Service Fabric](service-fabric-concepts-partitioning.md)
 - [Масштабирование приложений Service Fabric](service-fabric-concepts-scalability.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Создание виртуальной машины Windows и управление ею с помощью компонента управления службами и Azure PowerShell"
-	description="Используйте Azure PowerShell для быстрого создания виртуальной машины под управлением Windows в компонента управления службами и применения функций управления."
+	pageTitle="Создание виртуальной машины Windows и управление ею с помощью Azure PowerShell | Microsoft Azure"
+	description="Создание виртуальной машины Windows и управление ею с помощью Azure PowerShell с использованием классической модели развертывания."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,13 +17,13 @@
 	ms.date="07/09/2015"
 	ms.author="cynthn"/>
 
-# Создание виртуальной машины Windows и управление ею с помощью компонента управления службами и Azure PowerShell
+# Создание виртуальной машины Windows и управление ею с помощью Azure PowerShell
 
-В этой статье показано, как создать виртуальную машину Windows и управлять ею с помощью управления службами и Azure PowerShell.
+В этой статье описывается, как создать виртуальную машину Windows и управлять ею с помощью Azure PowerShell.
 
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается создание виртуальной машины Windows с помощью классической модели развертывания. Для создания виртуальной машины Windows вы также можете использовать [модель развертывания диспетчера ресурсов](virtual-machines-deploy-rmtemplates-powershell.md).
 
-- [Развертывание виртуальных машин и управление ими с использованием шаблонов диспетчера ресурсов Azure и PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+
 
 ## Настройка Azure PowerShell
 
@@ -43,7 +43,7 @@
 
 	Get-AzureSubscription | sort SubscriptionName | Select SubscriptionName
 
-Теперь замените все содержимое в кавычках, в том числе символы < and >, правильным именем подписки и выполните следующие команды:
+Теперь замените все содержимое в кавычках, в том числе знаки < and >, правильным именем подписки и выполните следующие команды:
 
 	$subscrName="<subscription name>"
 	Select-AzureSubscription -SubscriptionName $subscrName –Current
@@ -209,4 +209,4 @@
 
 [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2015" 
+	ms.date="09/23/2015" 
 	ms.author="larryfr"/>
 
 #Анализ данных датчика с помощью консоли запросов Hive с Hadoop в HDInsight
@@ -38,7 +38,7 @@
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE]Microsoft Excel используется для визуализации данных с помощью [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=ru-ru&rs=ru-ru&ad=US).
+	> [AZURE.NOTE]Microsoft Excel используется для визуализации данных с помощью [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=RU-RU&rs=RU-RU&ad=US).
 
 * [Драйвер Microsoft Hive ODBC](http://www.microsoft.com/download/details.aspx?id=40886).
 
@@ -54,4 +54,4 @@
 
 3. Следуйте инструкциям, представленным на веб-странице, чтобы закончить образец.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

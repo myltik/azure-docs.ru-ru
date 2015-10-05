@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Отключение диска от виртуальной машины Linux в Azure"
+	pageTitle="Отключение диска от виртуальной машины Linux | Microsoft Azure"
 	description="Узнайте, как отключить диск данных от виртуальной машины Azure, созданной с использованием классической модели развертывания."
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,6 +19,7 @@
 
 # Отсоединение диска от виртуальной машины Linux
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается удаление диска с использованием классической модели развертывания.
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-linux.md)]
 
@@ -28,4 +29,4 @@
 
 [Управление службами Azure с помощью интерфейса командной строки Azure](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

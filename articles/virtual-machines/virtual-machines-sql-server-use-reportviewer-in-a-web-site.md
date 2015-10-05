@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Использование ReportViewer для веб-сайта, размещенного в Azure"
+	pageTitle="Использование ReportViewer для веб-сайта | Microsoft Azure"
 	description="В этом разделе описано, как создать веб-сайт Microsoft Azure с элементом управления ReportViewer Visual Studio, который отображает отчет, хранящийся на виртуальной машине Microsoft Azure."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" 
+	tags="azure-service-management" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,9 +14,11 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
 # Использование ReportViewer для веб-сайта, размещенного в Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
 
 Вы можете создать веб-сайт Microsoft Azure с элементом управления ReportViewer Visual Studio, который отображает отчет, хранящийся на виртуальной машине Microsoft Azure. Элемент управления ReportViewer представляет собой веб-приложение, создаваемое с помощью шаблона веб-приложения ASP.NET.
 
@@ -31,13 +34,13 @@
 
 ## Предварительные требования
 
-Просмотрите раздел "Общие советы и рекомендации" статьи [Бизнес-аналитика SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-business-intelligence.md).
+Просмотрите подраздел "Общие рекомендации" статьи [Бизнес-аналитика SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-business-intelligence.md).
 
 >[AZURE.NOTE]Элементы управления ReportViewer входят в состав Visual Studio Standard Edition или выше. Если используется Web Developer Express Edition, необходимо установить [MICROSOFT REPORT VIEWER 2012 RUNTIME](https://www.microsoft.com/download/details.aspx?id=35747), чтобы воспользоваться функциями среды выполнения ReportViewer.
 >
 >ReportViewer в режиме локальной обработки не поддерживается в Microsoft Azure.
 
-Просмотрите документ [Элемент просмотра отчетов Reporting Services и серверы отчетов на основе виртуальных машин Microsoft Azure](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx).
+Просмотрите технический документ [Элемент просмотра отчетов Reporting Services и серверы отчетов на основе виртуальных машин Microsoft Azure](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx).
 
 ## Добавление сборок в пакет развертывания
 
@@ -51,45 +54,45 @@
 
 ### Добавление ссылки на сборку Microsoft.ReportViewer.Common
 
-- Щелкните правой кнопкой мыши на узле **Ссылки** проекта, выберите **Добавить ссылку**, выберите сборку на вкладке .NET и нажмите кнопку **ОК**.
+- Щелкните узел **Ссылки** вашего проекта правой кнопкой мыши, нажмите **Добавить ссылку**, выберите сборку на вкладке .NET и нажмите кнопку **ОК**.
 
 ### Включение локальной доступности сборок для приложения ASP.NET
 
-1. В каталоге **Ссылки** щелкните сборку Microsoft.ReportViewer.Common, чтобы ее свойства появились на панели "Свойства".
+1. В папке **Ссылки** выберите сборку Microsoft.ReportViewer.Common, чтобы ее свойства появились на панели "Свойства".
 
-1. На панели "Свойства" установите значение свойства **Копировать локально** в True.
+1. На панели "Свойства" задайте для свойства **Копировать локально** значение True.
 
 1. Повторите шаги 1 и 2 для сборки Microsoft.ReportViewer.WebForms.
 
 ### Получение языкового пакета ReportViewer
 
-1. Установите соответствующий распространяемый пакет Microsoft Report Viewer 2012 Runtime из [центра загрузки Майкрософт](http://go.microsoft.com/fwlink/?LinkId=317386).
+1. Установите соответствующий распространяемый пакет Microsoft Report Viewer 2012 Runtime из [Центра загрузки Майкрософт](http://go.microsoft.com/fwlink/?LinkId=317386).
 
 1. Выберите язык из раскрывающегося списка. После этого произойдет переход на соответствующую страницу центра загрузки.
 
-1. Щелкните **Загрузить**, чтобы начать загрузку файла ReportViewerLP.exe.
+1. Нажмите **Скачать**, чтобы начать загрузку файла ReportViewerLP.exe.
 
-1. После загрузки файла ReportViewerLP.exe нажмите кнопку **Запустить**, чтобы немедленно установить пакет, или кнопку **Сохранить**, чтобы сохранить его на компьютере. При выборе кнопки **Сохранить** запомните название каталога, в который сохраняете файл.
+1. После загрузки файла ReportViewerLP.exe нажмите кнопку **Запустить**, чтобы немедленно установить пакет, или кнопку **Сохранить**, чтобы сохранить его на компьютере. Если вы нажмете кнопку **Сохранить**, запомните название папки, в которой сохраняется файл.
 
-1. Перейдите в каталог, в котором был сохранен файл. Щелкните правой кнопкой мыши на файле ReportViewerLP.exe, выберите **Запуск от имени администратора**, а затем нажмите кнопку **Да**.
+1. Перейдите в каталог, в котором был сохранен файл. Щелкните файл ReportViewerLP.exe правой кнопкой мыши, выберите **Запуск от имени администратора**, а затем нажмите кнопку **Да**.
 
-1. После запуска ReportViewerLP.exe вы увидите, что в каталоге c:\\windows\\assembly появились файлы ресурсов **Microsoft.ReportViewer.Webforms.Resources** и **Microsoft.ReportViewer.Common.Resources**.
+1. После запуска ReportViewerLP.exe вы увидите, что в папке c:\\windows\\assembly появились файлы ресурсов **Microsoft.ReportViewer.Webforms.Resources** и **Microsoft.ReportViewer.Common.Resources**.
 
 ### Настройка локализованного элемента управления ReportViewer
 
 1. Загрузите и установите распространяемый пакет Microsoft Report Viewer 2012 Runtime, следуя приведенным выше инструкциям.
 
-1. Создайте каталог <language> в проекте и скопируйте в него файлы сборок соответствующих ресурсов. Необходимо скопировать следующие файлы сборок ресурсов: **Microsoft.ReportViewer.Webforms.Resources.dll** и **Microsoft.ReportViewer.Common.Resources.dll**. Выберите файлы сборок ресурсов и на панели "Свойства" установите значение параметра **Копировать в выходной каталог** в "**Копировать всегда**".
+1. Создайте папку <language> в проекте и скопируйте в нее файлы сборок соответствующих ресурсов. Необходимо скопировать следующие файлы сборок ресурсов: **Microsoft.ReportViewer.Webforms.Resources.dll** и **Microsoft.ReportViewer.Common.Resources.dll**. Выберите файлы сборок ресурсов и на панели "Свойства" задайте для параметра **Копировать в выходной каталог** значение "**Копировать всегда**".
 
-1. Настройте Culture и UI Culture для веб-проекта. Дополнительные сведения о настройке Culture и UI Culture для веб-страницы ASP.NET см. в разделе [Руководство. Настройка Culture и UI Culture для глобализации веб-страницы ASP.NET](http://go.microsoft.com/fwlink/?LinkId=237461).
+1. Настройте Culture и UI Culture для веб-проекта. Дополнительные сведения о настройке Culture и UI Culture для веб-страницы ASP.NET см. в статье [Практическое руководство. Установка значений Culture и UICulture для глобализации веб-страниц ASP.NET](http://go.microsoft.com/fwlink/?LinkId=237461).
 
 ## Настройка проверки подлинности и авторизации
 
-В ReportViewer должны использоваться правильные учетные данные для проверки подлинности на сервере отчетов. Для доступа к желаемым отчетам учетные данные должны быть авторизованы сервером отчетов. Сведения о проверке подлинности приведены в документе [Элемент просмотра отчетов Reporting Services и серверы отчетов на основе виртуальных машин Microsoft Azure](https://msdn.microsoft.com/library/azure/dn753698.aspx).
+В ReportViewer должны использоваться правильные учетные данные для проверки подлинности на сервере отчетов. Для доступа к желаемым отчетам учетные данные должны быть авторизованы сервером отчетов. Сведения о проверке подлинности приведены в техническом документе [Элемент управления средства просмотра отчетов Reporting Services и серверы отчетов на основе виртуальной машины Microsoft Azure](https://msdn.microsoft.com/library/azure/dn753698.aspx).
 
 ## Публикация веб-приложения ASP.NET в Azure
 
-Инструкции по публикации веб-приложения ASP.NET в Azure см. в статьях [Руководство. Миграция и публикация веб-приложения в Azure из Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx) и [Приступая к работе с веб-приложениями и ASP.NET](../app-service-web/web-sites-dotnet-get-started.md).
+Инструкции по публикации веб-приложения ASP.NET в Azure см. в статьях [Инструкции. Миграция и публикация веб-приложения в Azure из среды Visual Studio](https://msdn.microsoft.com/library/azure/hh420322.aspx) и [Начало работы с веб-приложениями и ASP.NET](../app-service-web/web-sites-dotnet-get-started.md).
 
 >[AZURE.IMPORTANT]Если в контекстном меню в обозревателе решений не появилась команда "Добавить проект развертывания Azure" или "Добавить проект облачной службы Azure", может потребоваться изменить целевую платформу для проекта на .NET Framework 4.
 >
@@ -105,4 +108,4 @@
 
 [Элемент управления средства просмотра отчетов Reporting Services и серверы отчетов на основе виртуальных машин Microsoft Azure](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

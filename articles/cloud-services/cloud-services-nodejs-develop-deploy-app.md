@@ -10,7 +10,7 @@
 <tags
 	ms.service="cloud-services"
 	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
 	ms.topic="hero-article"
 	ms.date="08/31/2015"
@@ -41,7 +41,7 @@
 > [AZURE.NOTE]В этом учебнике используется Azure PowerShell, для которого требуется операционная система Windows.
 
 - Установите и настройте [Azure PowerShell](../install-configure-powershell.md).
-- Скачайте и установите [пакет SDK для Azure для .NET 2.7](http://www.microsoft.com/ru-RU/download/details.aspx?id=48178). В параметрах установки выберите:
+- Скачайте и установите [пакет SDK для Azure для .NET 2.7](http://www.microsoft.com/ru-ru/download/details.aspx?id=48178). В параметрах установки выберите:
     - MicrosoftAzureAuthoringTools
     - MicrosoftAzureComputeEmulator
 
@@ -177,6 +177,9 @@
 
 	> [AZURE.NOTE]При удалении службы учетная запись хранения, созданная при первоначальной публикации службы, не удаляется. Оплата за использование хранилища будет насчитываться. Дополнительную информацию об удалении учетной записи хранения см. в разделе [Удаление учетной записи хранения из подписки Azure](http://msdn.microsoft.com/library/windowsazure/hh531562.aspx).
 
+## Дальнейшие действия
+
+Дополнительную информацию см. в [Центре разработчика Node.js](/develop/nodejs/).
 
 [The Windows Start menu with the Azure SDK Node.js entry expanded]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
 [mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
@@ -194,4 +197,4 @@
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

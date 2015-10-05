@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Что такое модель и пакет облачной службы в Azure" 
-    description="Описание модели (CSDEF-файл, CSCFG-файл) и пакета облачной службы (CSPKG-файл) в Azure" 
-    services="cloud-services" 
-    documentationCenter="" 
-    authors="Thraka" 
-    manager="timlt" 
+<properties
+    pageTitle="Что такое модель и пакет облачной службы в Azure"
+    description="Описание модели (CSDEF-файл, CSCFG-файл) и пакета облачной службы (CSPKG-файл) в Azure"
+    services="cloud-services"
+    documentationCenter=""
+    authors="Thraka"
+    manager="timlt"
     editor=""/>
-<tags 
-    ms.service="cloud-services" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/06/2015" 
+<tags
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/06/2015"
     ms.author="adegeo"/>
 
 # Что такое модель облачных служб и как создать ее пакет
@@ -24,7 +24,7 @@
 
 * Я хочу узнать больше о файлах [ServiceDefinition.csdef](#csdef) и [ServiceConfig.cscfg](#cscfg).
 * Я уже знаю об этих файлах, покажите мне [примеры](#next-steps) того, что я могу настроить.
-* Я хочу создать файл [ServicePackage.cspkg](#cspkg). 
+* Я хочу создать файл [ServicePackage.cspkg](#cspkg).
 * Я использую Visual Studio и хочу выполнить следующие действия.
     * [Создать новую облачную службу.][vs_create]
     * [Изменить конфигурацию существующей облачной службы][vs_reconfigure]
@@ -253,7 +253,7 @@ Azure разрешает только одну точку входа для ве
 
 <!--
 * [Configure Sizes for Cloud Services](!!!!!https://msdn.microsoft.com/library/azure/ee814754.aspx)  
-* [Configure Local Storage Resources](!!!!!https://msdn.microsoft.com/library/azure/ee758708.aspx)
+* [Configure Local Storage Resources](!!!!!https://azure.microsoft.com/documentation/articles/cloud-services-configure-local-storage-resources/)
 -->
 
 * [Настроить удаленный рабочий стол для экземпляра облачной службы][remotedesktop]
@@ -269,9 +269,9 @@ Azure разрешает только одну точку входа для ве
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/ru-ru/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/ru-ru/library/ee460772.aspx
+[vs_remote]: https://msdn.microsoft.com/ru-RU/library/gg443832.aspx
+[vs_deploy]: https://msdn.microsoft.com/ru-RU/library/ee460772.aspx
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/ru-ru/library/ee405487.aspx
+[vs_create]: https://msdn.microsoft.com/ru-RU/library/ee405487.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

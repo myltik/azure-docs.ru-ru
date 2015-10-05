@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Добавление сертификата в хранилище ЦС Java | Microsoft Azure"
-	description="Узнайте, как добавить сертификат центра сертификации (ЦС) в хранилище сертификатов (cacerts) центра сертификации Java для службы Twilio или Azure Service Bus."
-	services=""
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="Добавление сертификата в хранилище ЦС Java | Microsoft Azure" 
+	description="Узнайте, как добавить сертификат центра сертификации (ЦС) в хранилище сертификатов (cacerts) центра сертификации Java для службы Twilio или Azure Service Bus." 
+	services="" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # Добавление сертификата в хранилище сертификатов ЦС Java
@@ -50,6 +50,10 @@
 
 Если требуется добавить Baltimore CyberTrust Root, он имеет серийный номер 02:00:00:b9 и отпечаток пальца SHA1 d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. Его можно скачать с <https://cacert.omniroot.com/bc2025.crt>, сохранить в локальном файле с расширением **.cer**, а затем импортировать с помощью **keytool**, как показано выше.
 
+## Дальнейшие действия
+
 Дополнительные сведения об используемых в Azure корневых сертификатах см. в статье [Перенос корневых сертификатов Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
-<!---HONumber=September15_HO1-->
+Дополнительную информацию о Java см. в [Центре разработчика Java](/develop/java/).
+
+<!---HONumber=Sept15_HO4-->

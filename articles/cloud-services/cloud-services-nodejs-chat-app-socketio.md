@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Приложение node.js с использованием Socket.io | Microsoft Azure"
-	description="Узнайте, как использовать socket.io в приложении Node.js, размещенном в Azure."
-	services="cloud-services"
-	documentationCenter="nodejs"
-	authors="TomArcher"
-	manager="wpickett"
+	pageTitle="Приложение node.js с использованием Socket.io | Microsoft Azure" 
+	description="Узнайте, как использовать socket.io в приложении Node.js, размещенном в Azure." 
+	services="cloud-services" 
+	documentationCenter="nodejs" 
+	authors="TomArcher" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="tarcher"/>
 
 
@@ -32,7 +32,7 @@ Socket.IO обеспечивает связь в режиме реального
 
 Убедитесь, что следующие продукты и версии установлены для успешного завершения примера, описанного в этой статье.
 
-* Установите [Visual Studio 2013](https://www.visualstudio.com/ru-RU/downloads/download-visual-studio-vs.aspx).
+* Установите [Visual Studio 2013](https://www.visualstudio.com/ru-ru/downloads/download-visual-studio-vs.aspx).
 * Установите [Node.js](https://nodejs.org/download/).
 * Установите [Python версии 2.7.10](https://www.python.org/).
 
@@ -149,6 +149,8 @@ Socket.IO обеспечивает связь в режиме реального
 
 В этом учебнике было рассмотрено создание базового приложения для разговора, размещаемого в облачной службе Azure. Чтобы узнать, как разместить это приложение на веб-сайте Azure, см. раздел [Создание приложения для разговора Node.js с использованием Socket.IO на веб-сайте Azure][chatwebsite].
 
+Дополнительную информацию см. также в [Центре разработчика Node.js](/develop/nodejs/).
+
   [chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
 
   [Azure SLA]: http://www.windowsazure.com/support/sla/
@@ -172,4 +174,4 @@ Socket.IO обеспечивает связь в режиме реального
   
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

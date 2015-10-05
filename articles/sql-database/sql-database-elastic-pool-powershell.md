@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Создание эластичного пула баз данных для Базы данных SQL и управление им с помощью PowerShell"
-	description="Создание эластичного пула баз данных для Базы данных SQL Azure и управление им с помощью PowerShell"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="Создание эластичного пула баз данных для Базы данных SQL и управление им с помощью PowerShell" 
+   description="Создание эластичного пула баз данных для Базы данных SQL Azure и управление им с помощью PowerShell" 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="stevestein" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="data-management"
-	ms.date="08/25/2015"
-	ms.author="adamkr; sstein"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="data-management" 
+   ms.date="09/23/2015"
+   ms.author="adamkr; sstein"/>
 
 # Создание эластичного пула баз данных для Базы данных SQL и управление им с помощью PowerShell
 
@@ -240,4 +240,4 @@
 
 Дополнительные сведения об эластичных базах данных и их пулах, включая интерфейс API и сведения об ошибках, можно узнать в статье [Справка по эластичным пулам баз данных](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

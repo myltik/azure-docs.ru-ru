@@ -1,23 +1,23 @@
 <properties
-   pageTitle="Создание набора записей для DNS-зоны | Microsoft Azure"
-	description="Как создать записи узла для Azure DNS. Настройка наборов записей и отдельных записей с помощью PowerShell или интерфейса командной строки (CLI)"
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   pageTitle="Создание набора записей и записей зоны DNS с помощью интерфейса командной строки | Microsoft Azure"
+   description="Как создать записи узла для Azure DNS. Настройка наборов записей и записей с помощью интерфейса командной строки."
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="Adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
 
-# Создание записей DNS
+# Создание записей DNS с помощью интерфейса командной строки
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-getstarted-create-recordset-cli.md)
@@ -52,14 +52,14 @@ Azure DNS поддерживает все общие типы DNS-записей
 
 
 
-## Создание записей и наборов записей с помощью интерфейса командной строки
+## Создание наборов записей и записей 
 
 В примере, приведенном ниже, мы демонстрируем, как создать записи и набор записей. В примере мы используем тип записи DNS "A". Сведения о других типах записей см. в статье [Управление записями DNS](dns-operations-recordsets-cli.md).
 
 
-### Шаг 1.
+### Шаг 1
 
-Создайте набор записей с помощью интерфейса командной строки:
+Создание набора записей
 
 	Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
 
@@ -122,4 +122,4 @@ Azure DNS поддерживает все общие типы DNS-записей
 [Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

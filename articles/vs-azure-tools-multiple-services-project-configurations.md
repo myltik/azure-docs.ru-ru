@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Настройка проекта Azure с помощью нескольких конфигураций службы"
-	description="Настройка проекта Azure с помощью нескольких конфигураций службы"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Настройка проекта Azure с помощью нескольких конфигураций службы"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Настройка проекта Azure
 
@@ -85,7 +85,7 @@
 
 ## Страница «Локальное хранилище»
 
-На странице свойств **Локальное хранилище** вы можете зарезервировать для роли один или несколько локальных ресурсов хранилища. Локальный ресурс хранилища — это зарезервированный каталог в файловой системе виртуальной машины Azure, на которой выполняется экземпляр роли. Дополнительные сведения о работе с локальными ресурсами хранилища см. в статье [Настройка ресурсов локального хранилища](https://msdn.microsoft.com/library/azure/ee758708.aspx).
+На странице свойств **Локальное хранилище** вы можете зарезервировать для роли один или несколько локальных ресурсов хранилища. Локальный ресурс хранилища — это зарезервированный каталог в файловой системе виртуальной машины Azure, на которой выполняется экземпляр роли. Дополнительные сведения о работе с локальными ресурсами хранилища см. в статье [Настройка локальных ресурсов хранилища](../cloud-services/cloud-services-configure-local-storage-resources.md).
 
 ## Страница «Сертификаты»
 
@@ -114,4 +114,4 @@
 
 [Инструменты Azure для Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Отправка пользовательского веб-приложения Java в Azure"
-	description="В этом учебнике объясняется, как отправить пользовательское веб-приложение Java в веб-приложения службы приложений Azure."
-	services="app-service\web"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="Отправка пользовательского веб-приложения Java в Azure" 
+	description="В этом учебнике объясняется, как отправить пользовательское веб-приложение Java в веб-приложения службы приложений Azure." 
+	services="app-service\web" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # Отправка пользовательского веб-приложения Java в Azure
@@ -227,7 +227,11 @@ Liferay поддерживается в веб-приложениях служб
 
 После внесения этих изменений перезапустите веб-приложения с Liferay, а затем откройте http://yourwebapp. Портал Liferay доступен из корневого каталога веб-приложения.
 
+## Дальнейшие действия
+
 Дополнительные сведения о Liferay см. по адресу [http://www.liferay.com](http://www.liferay.com).
+
+Дополнительную информацию о Java см. в [Центре разработчика Java](/develop/java/).
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -237,4 +241,4 @@ Liferay поддерживается в веб-приложениях служб
 <!-- External Links -->
 [службы приложений Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

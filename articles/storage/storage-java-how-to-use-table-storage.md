@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Использование табличного хранилища из Java | Microsoft Azure"
-	description="Вы узнаете, как использовать службу табличного хранилища в Azure. Примеры кода написаны на Java."
-	services="storage"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="Использование табличного хранилища из Java | Microsoft Azure" 
+	description="Вы узнаете, как использовать службу табличного хранилища в Azure. Примеры кода написаны на Java." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 
@@ -552,6 +552,9 @@
 - [REST API службы хранилища Azure][]
 - [Блог рабочей группы службы хранилища Azure][]
 
+Дополнительную информацию см. также в [Центре разработчика Java](/develop/java/).
+
+
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Пакет SDK для службы хранилища Azure для Java]: https://github.com/azure/azure-storage-java
 [Пакет SDK хранилища Azure для Java]: https://github.com/azure/azure-storage-java
@@ -563,4 +566,4 @@
 [записи блога]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

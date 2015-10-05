@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Установка обновления 1.2 с портала управления Azure"
-   description="В этой статье рассказывается, как установить обновление 1.2 для StorSimple серии 8000 с помощью портала управления."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### Установка обновления 1.2 с портала управления
 
@@ -76,8 +61,8 @@
 
     ![Страница "Обслуживание"](./media/storsimple-install-update-via-portal/InstallUpdate12_10M.png)
 
-13. Вы увидите доступные обновления режима обслуживания. Установка этих обновлений прерывает рабочие процессы устройства и может быть реализована только через интерфейс Windows PowerShell. Чтобы установить эти обновления с помощью Windows PowerShell для StorSimple, выполните инструкции в статье [Установка обновлений режима обслуживания](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
+13. Вы увидите доступные обновления режима обслуживания. Установка этих обновлений прерывает рабочие процессы устройства и может быть реализована только через интерфейс Windows PowerShell. Чтобы установить эти обновления с помощью Windows PowerShell для StorSimple, выполните указания в статье [Установка обновлений режима обслуживания](storsimple-update-device.md#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
 > [AZURE.NOTE]В некоторых случаях сообщение о наличии обновлений режима обслуживания может отображаться в течение 24 часов после успешной установки обновлений режима обслуживания на устройство.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

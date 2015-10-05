@@ -1,20 +1,20 @@
 <properties
    pageTitle="Делегирование домена в Azure DNS | Microsoft Azure"
-	description="Узнайте, как изменить делегирование домена и использовать серверы имен Azure DNS для размещения домена."
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   description="Узнайте, как изменить делегирование домена и использовать серверы имен Azure DNS для размещения домена."
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="Adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
 
 # Делегирование домена в Azure DNS
@@ -129,15 +129,15 @@ DNS-клиенты на ПК или мобильных устройствах о
 
 	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset
+	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
 
 Чтобы убедиться в корректности настройки зоны, нужно, как и при делегировании с помощью регистратора доменных имен, найти запись SOA дочерней зоны.
 
 	PS C:\> nslookup –type=SOA partners.contoso.com
-
+	
 	Server: ns1-08.azure-dns.com
 	Address: 208.76.47.8
-
+	
 	partners.contoso.com
 		primary name server = ns1-08.azure-dns.com
 		responsible mail addr = msnhst.microsoft.com
@@ -158,5 +158,6 @@ DNS-клиенты на ПК или мобильных устройствах о
 [Автоматизация операций Azure с помощью пакета SDK для .NET](../dns-sdk)
 
 [Справочник по REST API службы Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
+ 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

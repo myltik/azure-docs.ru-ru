@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Как работает управление паролями Azure AD| Microsoft Azure" 
-	description="Узнайте о различных компонентах управления паролями Azure AD, с помощью которых пользователи могут регистрировать личные данные, а также сбрасывать и изменять свои пароли, а администраторы — настраивать и включать управление паролями локальной службы Active Directory и просматривать отчеты о действиях пользователей." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="Как работает управление паролями Azure AD| Microsoft Azure"
+	description="Узнайте о различных компонентах управления паролями Azure AD, с помощью которых пользователи могут регистрировать личные данные, а также сбрасывать и изменять свои пароли, а администраторы — настраивать и включать управление паролями локальной службы Active Directory и просматривать отчеты о действиях пользователей."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # Как работает управление паролями
@@ -120,6 +120,5 @@
 [005]: ./media/active-directory-passwords-how-it-works/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-how-it-works/006.jpg "Image_006.jpg"
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

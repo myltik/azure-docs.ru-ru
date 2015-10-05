@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Веб-приложение Python на Django (Mac) | Microsoft Azure" 
-	description="В этом учебнике описывается, как разместить веб-сайт на основе Django в Azure с помощью виртуальной машины Linux." 
+	pageTitle="Веб-приложение Python на Django в Linux | Microsoft Azure" 
+	description="Узнайте, как разместить веб-приложение на основе Django в Azure с помощью виртуальной машины Linux." 
 	services="virtual-machines" 
 	documentationCenter="python" 
 	authors="huguesv" 
 	manager="wpickett" 
-	editor=""/>
+	editor=""
+	tags=“azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -15,16 +16,16 @@
 	ms.topic="article" 
 	ms.date="05/20/2015" 
 	ms.author="huvalo"/>
-
-
-
-
-
-# Веб-приложение Hello World на Django (Mac и Linux)
+	
+# Веб-приложение Hello World на Django на виртуальной машине Linux
 
 > [AZURE.SELECTOR]
-- [Windows](web-app-with-django.md)
-- [Mac/Linux](django-hello-world-(maclinux).md)
+- [Windows](virtual-machines-python-django-web-app-windows-server.md)
+- [Mac/Linux](virtual-machines-python-django-web-app-linux.md)
+
+<br>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
 
 В этом учебнике описывается, как разместить веб-сайт на основе Django в Microsoft Azure с помощью виртуальной машины Linux. В данном учебнике предполагается, что у вас нет опыта использования платформы Azure. По завершении изучения этого учебника вы получите приложение на основе Django, выполняемое в облаке.
 
@@ -134,4 +135,4 @@
 [portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

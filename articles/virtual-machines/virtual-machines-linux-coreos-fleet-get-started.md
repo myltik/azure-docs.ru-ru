@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Начало работы с Fleet на CoreOS в Azure"
-	description="Предоставляет простые примеры использования Fleet и Docker на виртуальной машине CoreOS Linux в Azure."
+	pageTitle="Приступая к работе с Fleet в CoreOS | Microsoft Azure"
+	description="Предоставляет простые примеры использования Fleet и Docker на виртуальной машине CoreOS Linux, созданной с помощью классической модели развертывания в Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
@@ -18,6 +18,8 @@
 	ms.author="danlep"/>
 
 # Начало работы с Fleet на CoreOS в Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс управления ресурсом с помощью классической модели развертывания.
 
 В этой статье даются два кратких примера использования [fleet](https://github.com/coreos/fleet) и [Docker](https://www.docker.com/) для запуска приложений на кластере виртуальных машин[CoreOS].
 
@@ -152,7 +154,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 
 * Попробуйте выполнить больше функций с трехузловым кластером CoreOS в Azure. Узнайте, как создавать более сложные кластеры и использовать Docker, а также создавать более интересные приложения. Для этого прочитайте [учебник Тима Парка (Tim Park) по CoreOS], [учебник Патрика Чейнзона (Patrick Chanezon) по CoreOS], документацию по [Docker] и [Обзор CoreOS].
 
-* Чтобы начать работу с Fleet и CoreOS в диспетчере ресурсов Azure, воспользуйтесь этим [шаблоном быстрого запуска](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/).
+* Чтобы приступить к работе с Fleet и CoreOS в диспетчере ресурсов Azure, воспользуйтесь этим [шаблоном быстрого запуска](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/).
 
 * Дополнительную информацию об использовании среды с открытым исходным кодом на виртуальных машинах Linux в Azure см. в статье [Linux и вычисления с открытым кодом в Azure].
 
@@ -173,4 +175,4 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 [образ CoreOS Apache для Docker Hub]: https://registry.hub.docker.com/u/coreos/apache/
 [Linux и вычисления с открытым кодом в Azure]: virtual-machines-linux-opensource.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

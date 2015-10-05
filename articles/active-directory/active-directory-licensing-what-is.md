@@ -1,20 +1,20 @@
 <properties
    pageTitle="Что такое лицензирование Microsoft Azure Active? | Microsoft Azure"
-	description="Описание процедуры и принципа работы лицензирования Microsoft Azure AD, а также рекомендации по началу работы, включая сведения о лицензировании Office 365, Microsoft Intune, а также выпусков Azure Active Directory Premium и Basic"
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="swadhwa"
-	editor=""/>
+   description="Описание процедуры и принципа работы лицензирования Microsoft Azure AD, а также рекомендации по началу работы, включая сведения о лицензировании Office 365, Microsoft Intune, а также выпусков Azure Active Directory Premium и Basic"
+   services="active-directory"
+   documentationCenter=""
+   authors="curtand"
+   manager="stevenpo"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="07/16/2015"
-	ms.author="curtand"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/21/2015"
+   ms.author="curtand"/>
 
 # Что такое лицензирование Microsoft Azure Active?
 
@@ -131,4 +131,4 @@ Azure Active Directory (AD) — это служба идентификации 
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [Прямое приобретение лицензий Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

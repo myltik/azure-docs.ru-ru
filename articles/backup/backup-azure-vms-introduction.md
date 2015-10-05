@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
 
 # Резервное копирование виртуальной машины Azure
 
@@ -111,7 +111,7 @@
 - Резервное копирование виртуальных машин с помощью службы архивации Azure поддерживается только в определенных версиях операционных систем:
   - **Linux**: список дистрибутивов, одобренных Azure, доступен [здесь](../virtual-machines-linux-endorsed-distributions.md). Другие собственные дистрибутивы Linux должны также работать, если агент виртуальной машины доступен на виртуальной машине.
   - **Windows Server**: версии до Windows Server 2008 R2 не поддерживаются.
-- Восстановление контроллера домена виртуальной машины, которая входит в конфигурацию с несколькими контроллерами домена, поддерживается только с помощью PowerShell. Узнайте больше о [восстановлении контроллера домена в конфигурации с несколькими контроллерами домена](backup-azure-restore-vms.md#multiple-dcs)
+- Восстановление контроллера домена виртуальной машины, которая входит в конфигурацию с несколькими контроллерами домена, поддерживается только с помощью PowerShell. Узнайте больше о [восстановлении контроллера домена в конфигурации с несколькими контроллерами домена](backup-azure-restore-vms.md#restoring-domain-controller-vms)
 
 Если вы хотите, чтобы были добавлены какие-то функции, [отправьте нам свой отзыв](http://aka.ms/azurebackup_feedback).
 
@@ -122,4 +122,4 @@
 - [Восстановление виртуальных машин](backup-azure-restore-vms.md)
 - [Управление резервными копиями виртуальной машины](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

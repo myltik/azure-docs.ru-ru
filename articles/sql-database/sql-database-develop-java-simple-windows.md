@@ -61,6 +61,9 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 В примере кода объект `Connection` создается с помощью строки подключения. Вы можете получить ее, используя [портал предварительной версии Azure](http://portal.azure.com/). Подробнее о том, как найти строку подключения, читайте в статье [Создание первой Базы данных SQL Azure](sql-database-get-started.md).
 
 
+> [AZURE.NOTE]Драйвер JTDS JDBC. При использовании драйвера JTDS JDBC необходимо будет добавить ssl=require в URL-адрес строки подключения и задать для виртуальной машины Java параметр -Djsse.enableCBCProtection=false. Этот параметр виртуальной машины Java отключает исправление для уязвимости системы безопасности, поэтому убедитесь, что понимаете все связанные с ним риски, прежде чем задавать этот параметр.
+
+
 ## Пример кода Java
 
 
@@ -223,6 +226,8 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 			+ resultSet.getString(3));
 	}
 
- 
+## Дальнейшие действия
 
-<!---HONumber=August15_HO6-->
+Дополнительную информацию см. в [Центре разработчика Java](/develop/java/).
+
+<!---HONumber=Sept15_HO4-->

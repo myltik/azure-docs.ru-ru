@@ -1,11 +1,13 @@
 <properties 
-	pageTitle="Рекомендованные дистрибутивы Linux в Azure" 
-	description="Сведения о рекомендованных дистрибутивах Linux в Azure, включая рекомендации по Ubuntu, OpenLogic и SUSE." 
+	pageTitle="Рекомендованные дистрибутивы Linux | Microsoft Azure" 
+	description="Узнайте о рекомендованных дистрибутивах Linux в Azure, включая рекомендации по Ubuntu, OpenLogic, Oracle и SUSE." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management,azure-resource-manager" 
+	/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -77,4 +79,4 @@ SUSE Linux Enterprise Server в Azure — проверенная платфор
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

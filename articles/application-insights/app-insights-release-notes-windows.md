@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/18/2015" 
 	ms.author="sergkanz"/>
  
 # Заметки о выпуске для пакета SDK Application Insights для Windows Phone и Магазина Windows
@@ -94,4 +94,4 @@
 
 Для более старых версий заметки о выпуске не доступны.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

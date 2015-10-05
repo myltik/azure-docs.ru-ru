@@ -130,7 +130,7 @@
 
 ## Дальнейшие действия
 
-Дополнительные сведения см. в статьях [Приступая к работе с Azure DNS](../dns/dns-getstarted-create-dnszone) и [Делегирование домена в Azure DNS](../dns/dns-domain-delegation)
+Дополнительные сведения см. в статьях [Приступая к работе с Azure DNS](../dns/dns-getstarted-create-dnszone.md) и [Делегирование домена в Azure DNS](../dns/dns-domain-delegation.md)
 
 ## Изменения
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -147,4 +147,4 @@
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

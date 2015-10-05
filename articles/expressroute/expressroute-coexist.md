@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="09/17/2015"
    ms.author="cherylmc"/>
 
 # Настройка сосуществующих подключений VPN типа ExpressRoute и "сеть-сеть"
@@ -150,7 +150,10 @@
 
 	Используйте следующий пример, подставив собственные значения.
 
-	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <local-network- gateway-public-IP> -AddressSpace <local-network-address-space>`
+	`New-AzureLocalNetworkGateway -Gatewayname MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>`
+
+	> [AZURE.IMPORTANT]Если в локальной сети имеется несколько маршрутов, их все можно передать как массив. $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
+
 
 	Чтобы получить параметры шлюза виртуальной сети, включая идентификатор шлюза и общедоступный IP-адрес, используйте командлет `Get-AzureVirtualNetworkGateway`. См. указанный ниже пример.
 
@@ -183,7 +186,7 @@
 **Перед началом настройки.** Убедитесь, что у вас достаточно свободных IP-адресов в виртуальной сети, и соответственно можно увеличить размер подсети шлюза.
 
 
-1. Скачайте последнюю версию командлетов Azure PowerShell. Вы можете загрузить и установить последнюю версию командлетов PowerShell из раздела PowerShell [страницы "Загрузка"](http://azure.microsoft.com/downloads/).
+1. Скачайте последнюю версию командлетов Azure PowerShell. Вы можете загрузить и установить последнюю версию командлетов PowerShell из раздела PowerShell [страницы «Загрузка»](http://azure.microsoft.com/downloads/).
 
 2. Удалите существующий VPN-шлюз к сети типа "сеть-сеть". Используйте командлет, приведенный ниже, подставив свои собственные значения.
 
@@ -192,13 +195,13 @@
 2. Экспортируйте схему виртуальной сети. Используйте командлет PowerShell, приведенный ниже, подставив свои собственные значения.
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
-3. Измените схему файла конфигурации сети так, чтобы подсеть шлюза имела значение /27 (или более короткий префикс). См. указанный ниже пример. Дополнительные сведения о работе с файлом конфигурации сети см. в разделе [Создание виртуальной сети с помощью файла конфигурации сети](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). Дополнительные сведения о схеме конфигурации см. в разделе [Схема конфигурации виртуальной сети Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+3. Измените схему файла конфигурации сети так, чтобы подсеть шлюза имела значение /27 или меньше (/26, /25 и т. п.). См. указанный ниже пример. Дополнительные сведения о работе с файлом конфигурации сети см. в разделе [Создание виртуальной сети с помощью файла конфигурации сети](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal). Дополнительные сведения о схеме конфигурации см. в разделе [Схема конфигурации виртуальной сети Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
 
           <Subnet name="GatewaySubnet">
             <AddressPrefix>10.17.159.224/27</AddressPrefix>
           </Subnet>
-4. Если ранее шлюз был к сети VPN типа "сеть-сеть", необходимо также изменить тип подключения на **выделенный**.
+4. Если ранее шлюз был к сети VPN типа «сеть-сеть», необходимо также изменить тип подключения на **выделенный**.
 
 		         <Gateway>
 		          <ConnectionsToLocalNetwork>
@@ -207,14 +210,14 @@
 		            </LocalNetworkSiteRef>
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
-5. На этом этапе вы будете иметь виртуальную сеть без шлюзов. Вы можете выполнить **Этап 3**, описанный в данной статье, [Создание новой виртуальной сети с существующими подключениями](#create-a-new-vnet-with-coexisting-connections) для создания новых шлюзов и осуществления подключений.
+5. На этом этапе вы будете иметь виртуальную сеть без шлюзов. Вы можете выполнить описанный в данной статье **Этап 3**, [Создание новой виртуальной сети с существующими подключениями](#create-a-new-vnet-with-coexisting-connections), для создания новых шлюзов и осуществления подключений.
 
 
 
 ## Дальнейшие действия
 
-Дополнительные сведения об ExpressRoute. См. статью [Технический обзор ExpressRoute](expressroute-introduction.md).
+Дополнительные сведения об ExpressRoute. См. раздел [Обзор ExpressRoute](expressroute-introduction.md).
 
-Дополнительные сведения о VPN-шлюзах. См. раздел [Сведения о VPN-шлюзах](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Дополнительные сведения о VPN-шлюзах. См. раздел [Шлюзы VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

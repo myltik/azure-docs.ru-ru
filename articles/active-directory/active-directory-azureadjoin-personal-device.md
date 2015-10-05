@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2015"
+	ms.date="09/21/2015"
 	ms.author="femila"/>
 
 # Присоединение личного устройства к своей организации
@@ -31,8 +31,8 @@
 9.	Если вы являетесь федеративным пользователем, то появится экран входа в Windows, где вам нужно будет ввести учетные данные.
 
 ## Дополнительная информация
-* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-overview.md)
 * [Сценарии использования и рекомендации по развертыванию для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

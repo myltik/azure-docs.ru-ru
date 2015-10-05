@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Могут ли виртуальные машины Azure предоставить мне необходимые вычислительные возможности?"
-	description="Подробнее о вариантах размещения вычислений Azure и о том, как они работают: служба приложений, облачные службы и виртуальные машины"
+	pageTitle="Следует ли выбрать виртуальные машины Azure? | Microsoft Azure"
+	description="Узнайте о виртуальных машинах Azure и сравните их с разными моделями размещения приложений в Azure."
 	headerExpose=""
 	footerExpose=""
 	services="virtual-machines"
@@ -10,7 +10,7 @@
 	tags=azure-resource-manager, azure-service-management/>
 
 <tags
-	ms.service="multiple"
+	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -19,6 +19,8 @@
 	ms.author="cynthn"/>
 
 # Следует ли выбрать виртуальные машины Azure?
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Azure предоставляет разные модели размещения для запуска приложений. Каждая из них содержит различный набор служб, и ваш выбор зависит от конкретных целей. Виртуальная машина Azure — ваш выбор?
 
@@ -31,4 +33,4 @@ Azure предоставляет разные модели размещения 
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

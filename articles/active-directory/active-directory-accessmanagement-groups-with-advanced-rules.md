@@ -1,11 +1,11 @@
 
 <properties
 	pageTitle="Использование атрибутов для создания расширенных правил | Microsoft Azure"
-	description="Расширенные указания по управлению группами безопасности и использованию этих групп для управления доступом к ресурсу."
+	description="Указания по созданию дополнительных правил для группы и использованием поддерживаемых операторов и параметров выражений правила."
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 
@@ -168,4 +168,4 @@
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

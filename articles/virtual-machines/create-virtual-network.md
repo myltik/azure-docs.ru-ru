@@ -1,22 +1,27 @@
 <properties 
-	pageTitle="Учебник. Создание виртуальной сети только для облака"
-	description="Узнайте в этом учебнике, как создать пример исключительно облачной виртуальной сети Azure."
-	services="virtual-machines, virtual-network"
-	documentationCenter=""
-	authors="cherylmc"
-	manager="adinah"
-	editor=""/>
+	pageTitle="Создание виртуальной сети только для облака | Microsoft Azure" 
+	description="Узнайте в этом учебнике, как создать пример исключительно облачной виртуальной сети Azure." 
+	services="virtual-machines, virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/17/2015" 
 	ms.author="cherylmc"/>
 
 # Учебник. Создание виртуальной сети только для облака в Azure.
+
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса с помощью модели развертывания на основе диспетчера ресурсов.
+
 
 В этом учебнике будет описана последовательность действий на портале управления Azure по созданию только облачной виртуальной сети Azure, которая будет содержать две подсети. Полученная виртуальная сеть будет выглядеть так.
 
@@ -118,4 +123,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

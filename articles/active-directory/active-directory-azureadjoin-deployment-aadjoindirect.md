@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Сценарии использования и рекомендации по развертыванию для присоединения к Azure AD | Microsoft Azure" 
-	description="Раздел, в котором поясняется, как администраторы могут настроить подключение конечных пользователей (сотрудников компаний, учащихся и других пользователей) к Azure AD." 
+	description="Перечислены и описаны различные сценарии развертывания, доступные для присоединения к Azure AD." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # Сценарии использования и рекомендации по развертыванию для присоединения к Azure AD 
@@ -82,7 +82,7 @@
 
 
 ## Дополнительная информация
-* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-overview.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

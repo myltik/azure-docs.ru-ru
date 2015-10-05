@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/10/2015"
+	ms.date="09/22/2015"
 	ms.author="spelluru"/>
 
 # Построение первого конвейера с помощью фабрики данных Azure
@@ -148,13 +148,15 @@
 	1. Скачайте [последнюю версию программы **AzCopy**](http://aka.ms/downloadazcopy) или [последнюю предварительную версию](http://aka.ms/downloadazcopypr). Инструкции по использованию этой программы вы найдете в статье [Использование AzCopy](../storage/storage-use-azcopy.md).
 	2. После установки программы AzCopy вы можете добавить путь к ней в переменную PATH, выполнив следующую команду в командной строке. 
 	
-			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
-	
+			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy			 
 
 	3. Перейдите в папку c:\\adfgettingstarted и выполните следующую команду, чтобы загрузить HQL-файл Hive в учетную запись хранения. Замените **StorageAccountName** и **Storage Key** на имя вашей учетной записи хранения Azure и ключ к ней соответственно.
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
-	4. После успешной загрузки файла будут отображены следующие данные из AzCopy.
+
+		> [AZURE.NOTE]Приведенная выше команда создает контейнер с именем **script** в хранилище больших двоичных объектов Azure и копирует файл **partitionweblogs.hql** в контейнер.
+	>
+	5. После успешной загрузки файла будут отображены следующие данные из AzCopy.
 	
 			Finished 1 of total 1 file(s).
 			[2015/06/15 15:47:13] Transfer summary:
@@ -169,9 +171,9 @@
 
 - Щелкните ссылку [Использование редактора фабрики данных](data-factory-build-your-first-pipeline-using-editor.md) вверху, чтобы пройти учебник, используя редактор фабрики данных, который является компонентом портала Azure.
 - Щелкните ссылку [Использование PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) вверху, чтобы пройти учебник с помощью Azure PowerShell.
-- Щелкните ссылку [Использование Visual Studio](data-factory-build-your-first-pipeline-using-vs.md), чтобы пройти учебник с помощью Visual Studio 2013. 
+- Щелкните ссылку [Использование Visual Studio](data-factory-build-your-first-pipeline-using-vs.md), чтобы изучить учебник с помощью Visual Studio 2013. 
 
 ## Отправить отзыв
-Мы будем очень благодарны за ваш отзыв об этой статье. Уделите несколько минут тому, чтобы отправить его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
+Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

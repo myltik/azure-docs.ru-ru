@@ -12,8 +12,8 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="05/19/2015"
+	ms.topic="hero-article" 
+	ms.date="09/08/2015"
 	ms.author="bwren"/>
 
 
@@ -146,4 +146,4 @@
 
 **Обратная связь!** Если вы ищете модуль интеграции или определенное решение для службы автоматизации Azure, в котором используются модули Runbook, разместите соответствующий запрос на сайте "Центр сценариев". Если вы хотите оставить отзыв или запрос на ту или иную функцию для службы автоматизации Azure, оставляйте их на сайте [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Спасибо!
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

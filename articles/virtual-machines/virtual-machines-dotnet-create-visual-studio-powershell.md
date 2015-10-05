@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Создание виртуальной машины для веб-проекта с помощью Visual Studio"
+	pageTitle="Создание виртуальной машины для веб-проекта с помощью Visual Studio | Microsoft Azure"
 	description="Создание виртуальной машины для веб-сайта"
 	services="virtual-machines"
 	documentationCenter=""
@@ -68,4 +68,4 @@
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

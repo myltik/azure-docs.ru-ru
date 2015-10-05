@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Использование Azure CLI для Mac, Linux и Windows со службой управления ресурсами Azure | Microsoft Azure"
-	description="Сведения об использовании Azure CLI для Mac, Linux и Windows для управления ресурсами Azure с помощью Azure CLI в режиме arm."
+	pageTitle="Использование интерфейса командной строки Azure с диспетчером ресурсов | Microsoft Azure"
+	description="Узнайте о том, как использовать Azure CLI для Mac, Linux и Windows, чтобы управлять ресурсами Azure с помощью Azure CLI в режиме развертывания на основе диспетчера ресурсов."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-mangaer"/>
 
 <tags
 	ms.service="multiple"
@@ -16,7 +17,10 @@
 	ms.date="06/09/2015"
 	ms.author="danlep"/>
 
-# Использование Azure CLI для Mac, Linux и Windows со службой управления ресурсами Azure
+# Использование CLI Azure для Mac, Linux и Windows с диспетчером ресурсов Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса с помощью модели развертывания на основе диспетчера ресурсов. Для создания ресурса вы также можете использовать [классическую модель развертывания](virtual-machines-command-line-tools.md).
+
 
 В разделе рассматривается использование интерфейса командной строки Azure (Azure CLI) в режиме **arm** для создания, удаления служб и управления ими на компьютерах Mac, Linux и Windows. Некоторые задачи можно выполнить с использованием библиотек Azure SDK, PowerShell и портала Azure.
 
@@ -24,7 +28,7 @@
 
 ## Принудительный и декларативный подходы
 
-Как и в [режиме управления службами (**asm**)](../virtual-machines-command-line-tools.md), в режиме **arm** интерфейса командной строки Azure представлены команды, которые создают ресурсы принудительным образом с помощью командной строки. Например, команда `azure group create <groupname> <location>` используется, чтобы создать группу ресурсов, а команда `azure group deployment create <resourcegroup> <deploymentname>` — для подготовки развертывания любого количества элементов и для того, чтобы поместить их в группу. Каждый тип ресурса имеет принудительные команды, поэтому их можно соединить в цепочку, создавая очень сложные развертывания.
+Как и в [режиме управления службами (**asm**)](../virtual-machines-command-line-tools.md), в режиме **arm** интерфейса командной строки Azure представлены команды, которые создают ресурсы принудительно с помощью командной строки. Например, команда `azure group create <groupname> <location>` используется, чтобы создать группу ресурсов, а команда `azure group deployment create <resourcegroup> <deploymentname>` — для подготовки развертывания любого количества элементов и для того, чтобы поместить их в группу. Каждый тип ресурса имеет принудительные команды, поэтому их можно соединить в цепочку, создавая очень сложные развертывания.
 
 Однако при использовании группы ресурсов _шаблоны_ (которые описывают группу ресурсов) — это декларативный подход, который отличается большей мощностью и позволяет автоматизировать сложные развертывания (практически) любого количества ресурсов для (практически) любых целей. При использовании шаблонов единственной принудительной командой является развертывание. Общие сведения о шаблонах, ресурсах и группах ресурсов см. в разделе [Обзор группы ресурсов Azure](resource-groups-overview).
 
@@ -1735,6 +1739,5 @@
 	vm image list-offers [options] <location> <publisher>
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

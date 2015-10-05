@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="09/22/2015"
    ms.author="barbkess"/>
 
 # Элементы языка
@@ -49,8 +49,8 @@
 ## Операторы
 - [\+ (Добавить)](https://msdn.microsoft.com/library/ms178565.aspx)
 - [\+ (Объединение строк)](https://msdn.microsoft.com/library/ms177561.aspx)
-- [\- (Отрицательное число)](https://msdn.microsoft.com/library/ms189480.aspx)
-- [\- (Вычитание)](https://msdn.microsoft.com/library/ms189518.aspx)
+- [- (Отрицательное число)](https://msdn.microsoft.com/library/ms189480.aspx)
+- [- (Вычитание)](https://msdn.microsoft.com/library/ms189518.aspx)
 - [* (Умножение)](https://msdn.microsoft.com/library/ms176019.aspx)
 - [/ (Деление)](https://msdn.microsoft.com/library/ms175009.aspx)
 - [Остаток от деления](https://msdn.microsoft.com/library/ms190279.aspx)
@@ -78,7 +78,7 @@
 - [& (битовый AND)](https://msdn.microsoft.com/library/ms174965.aspx)
 - [| (битовый OR)](https://msdn.microsoft.com/library/ms186714.aspx)
 - [^ (битовый исключающий OR)](https://msdn.microsoft.com/library/ms190277.aspx)
-- [\~ (битовый NOT)](https://msdn.microsoft.com/library/ms173468.aspx)
+- [~ (битовый NOT)](https://msdn.microsoft.com/library/ms173468.aspx)
 - [^= (битовый исключающий OR EQUALS)](https://msdn.microsoft.com/library/cc627413.aspx)
 - |= (битовый OR EQUALS)
 - ? (битовый AND EQUALS)
@@ -290,4 +290,4 @@
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

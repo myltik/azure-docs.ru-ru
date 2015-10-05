@@ -18,23 +18,19 @@
 
 # Как быстро приступить к работе с Docker в Azure Marketplace
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+
 Самый быстрый способ приступить к работе с [Docker] — перейти в Azure Marketplace и создать виртуальную машину с помощью шаблона образа **Docker on Ubuntu Server**, созданного [Canonical] при сотрудничестве с [MSOpenTech]. При этом создается виртуальная машина Ubuntu Server и автоматически устанавливается [расширение виртуальных машин Docker](virtual-machines-docker-vm-extension.md) вместе с **последней** версией ядра Docker, которая предварительно установлена и запущена в Azure.
 
 Вы можете немедленно подключиться к виртуальной машине через SSH и начать работу с Docker напрямую, без выполнения каких-либо других действий.
 
 > [AZURE.NOTE]Виртуальная машина, созданная с помощью шаблона Azure Marketplace, не имеет удаленного API Docker для управления удаленным клиентом Docker. Чтобы включить удаленное управление узлом Docker в этой виртуальной машине, см. [статью о запуске Docker с использованием HTTPS](https://docs.docker.com/articles/https/) или выполните действия, перечисленные в статье [Использование расширения виртуальных машин Docker на портале Azure](virtual-machines-docker-with-portal.md) или [Использование расширения виртуальных машин Docker в CLI Azure](virtual-machines-docker-with-xplat-cli.md). По желанию можно выполнить сборку [клиента Docker Windows](https://github.com/ahmetalpbalkan/Docker.DotNet) с сайта Github и применить описанную процедуру (либо просто взять его из [nuget](https://www.nuget.org/packages/Docker.DotNet/)).
 
-Содержание раздела
-
-- [Вход на портал]
-- [Создание виртуальной машины с использованием образа Docker от Canonical и MSOpenTech]
-- [Подключение через SSH и готовность к работе]
-
-## <a id='logon'>Вход на портал</a>
+## Вход на портал
 
 Эта часть не представляет никаких сложностей, если у вас есть учетная запись Azure. [Кроме того, вы можете легко получить такую учетную запись совершенно бесплатно](http://azure.microsoft.com/pricing/free-trial/)!
 
-## <a id='createvm'>Создание виртуальной машины с использованием образа Docker от Canonical и MSOpenTech</a>
+## Создание виртуальной машины с использованием образа Docker от Canonical и MSOpenTech
 
 1. После входа в систему нажмите кнопку **Создать** в нижнем левом углу, чтобы создать образ виртуальной машины. Подходящий образ может сразу же отобразиться на баннере:
 
@@ -52,7 +48,7 @@
 
 > ![Запуск образа Docker на портале](./media/virtual-machines-docker-ubuntu-quickstart/DockerUbuntuRunning.png)
 
-## <a id='havingfun'>Подключение через SSH и готовность к работе</a>
+## Подключение через SSH и готовность к работе
 
 Теперь начинается самое интересное. Вы можете немедленно подключиться к виртуальной машине с помощью SSH:
 
@@ -68,9 +64,9 @@
 Вам остается лишь начать пользоваться [Docker]!
 
 <!--Anchors-->
-[Вход на портал]: #logon
-[Создание виртуальной машины с использованием образа Docker от Canonical и MSOpenTech]: #createvm
-[Подключение через SSH и готовность к работе]: #havingfun
+[Log on to the Portal]: #logon
+[Create a VM with the Docker Image from Canonical and MSOpenTech]: #createvm
+[Connect with SSH and Have Fun]: #havingfun
 [Next steps]: #next-steps
 
 
@@ -81,4 +77,4 @@
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

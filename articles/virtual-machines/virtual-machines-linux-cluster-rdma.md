@@ -1,25 +1,28 @@
 <properties
- pageTitle="Настройка кластера Linux RDMA для выполнения приложений MPI | Microsoft Azure"
-	description="Узнайте, как создать кластер Linux с виртуальными машинами A8 или A9, чтобы использовать RDMA для запуска приложений MPI."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""/>
+ pageTitle="Кластер Linux RDMA для выполнения приложений MPI | Microsoft Azure"
+ description="Создайте кластер Linux с виртуальными машинами A8 или A9, чтобы использовать RDMA для запуска приложений MPI."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="dlepow"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management"/>
 <tags
 ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="infrastructure-services"
-	ms.date="07/17/2015"
-	ms.author="danlep"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-linux"
+ ms.workload="infrastructure-services"
+ ms.date="09/21/2015"
+ ms.author="danlep"/>
 
 # Настройка кластера Linux RDMA для выполнения приложений MPI
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс настройки ресурсов с помощью классической модели развертывания.
+
 В этой статье показано, как настроить кластер Linux RDMA в Azure с [экземплярами виртуальных машин A8 и A9](virtual-machines-a8-a9-a10-a11-specs.md) для выполнения приложений MPI. При настройке виртуальных машин A8 и A9 под управлением Linux для выполнения поддерживаемой реализации MPI приложения MPI будут эффективно взаимодействовать по сети Azure с низкой задержкой и высокой пропускной способностью, которая основана на технологии удаленного прямого доступа к памяти (RDMA).
 
->[AZURE.NOTE]Azure Linux RDMA в настоящее время поддерживается библиотекой Intel MPI версии 5.0 ОС для SUSE Linux Enterprise Server 12 (SLES 12).
+>[AZURE.NOTE]В настоящее время Azure Linux RDMA поддерживается библиотекой Intel MPI версии 5 для SUSE Linux Enterprise Server 12 (SLES 12). В этой статье используется Intel MPI версии 5.0.3.048.
 >
 > Azure также предоставляет экземпляры для ресурсоемких вычислений A10 и A11 с идентичными экземплярам A8 и A9 возможностями обработки, но без подключения к серверной сети RDMA. Для запуска рабочих нагрузок MPI в Azure наилучшей производительности, как правило, можно добиться с экземплярами A8 и A9.
 
@@ -28,11 +31,11 @@ ms.service="virtual-machines"
 
 Ниже перечислены методы, которые можно использовать для создания кластера Linux RDMA с планировщиком заданий или без него.
 
-* **Пакет HPC** — вы можете создать кластер пакета Microsoft HPC в Azure и добавить вычислительные узлы под управлением поддерживаемых дистрибутивов Linux (поддерживаются начиная с пакета HPC 2012 R2 с обновлением 2). Некоторые узлы Linux можно настроить для доступа к сети RDMA. Сведения о начале работы см. в [документации пакета HPC](http://go.microsoft.com/fwlink/?LinkId=617894).
+* **Пакет HPC** — вы можете создать кластер пакета Microsoft HPC в Azure и добавить вычислительные узлы под управлением поддерживаемых дистрибутивов Linux (поддерживаются начиная с пакета HPC 2012 R2 с обновлением 2). Некоторые узлы Linux можно настроить для доступа к сети RDMA. См. [Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](virtual-machines-linux-cluster.md).
 
-* **Скрипты Azure CLI** — вы можете использовать[интерфейс командной строки Azure](../xplat-cli.md) (CLI) для Mac, Linux и Windows, чтобы создавать собственные скрипты для развертывания виртуальной сети и других необходимых компонентов для создания кластера Linux. CLI в режиме управления службами Azure (asm) развертывает узлы кластера последовательно, поэтому при развертывании множества вычислительных узлов для его завершения может потребоваться несколько минут. Пример см. далее в этой статье.
+* **Скрипты Azure CLI** — как показано далее в этой статье, вы можете использовать[интерфейс командной строки Azure](../xplat-cli.md) (CLI) для Mac, Linux и Windows, чтобы создавать скрипты для развертывания виртуальной сети и других необходимых компонентов кластера Linux. CLI в классическом режиме развертывания (управление службами) развертывает узлы кластера последовательно, поэтому при развертывании множества вычислительных узлов для его завершения может потребоваться несколько минут.
 
-* **Шаблоны диспетчера ресурсов Azure** — создав простой шаблон JSON диспетчера ресурсов Azure и выполнив команды Azure CLI в режиме arm или используя предварительную версию портала Azure, вы можете развернуть несколько виртуальных машин A8 и A9 под управлением Linux, а также определить параметры виртуальных сетей, DNS, статические IP-адреса и другие ресурсы, чтобы создать вычислительный кластер, которые может использовать все преимущества сети RDMA и выполнять рабочие нагрузки MPI. Можно [создать собственный шаблон](../resource-group-authoring-templates.md) или изучить [страницу краткого руководства по шаблонам Azure](https://azure.microsoft.com/documentation/templates/), которая содержит шаблоны, созданные корпорацией Майкрософт и сообществом пользователей. Обычно шаблоны диспетчера ресурсов — это самый быстрый и самый надежный способ развертывания кластера Linux.
+* **Шаблоны диспетчера ресурсов Azure** — создав простой шаблон JSON диспетчера ресурсов Azure и выполнив команды Azure CLI для диспетчера ресурсов или используя предварительную версию портала Azure, вы можете развернуть несколько виртуальных машин A8 и A9 под управлением Linux, а также определить параметры виртуальных сетей, DNS, статические IP-адреса и другие ресурсы, чтобы создать вычислительный кластер, который может использовать все преимущества сети RDMA для выполнения рабочих нагрузок MPI. Для развертывания вашего решения вы можете [создать собственный шаблон](../resource-group-authoring-templates.md) или изучить [страницу краткого руководства по шаблонам Azure](https://azure.microsoft.com/documentation/templates/), которая содержит шаблоны, созданные корпорацией Майкрософт и сообществом пользователей. Обычно шаблоны диспетчера ресурсов — это самый быстрый и самый надежный способ развертывания кластера Linux.
 
 ## Развертывание в режиме управления службами Azure с помощью скриптов Azure CLI
 
@@ -40,18 +43,19 @@ ms.service="virtual-machines"
 
 ### Предварительные требования
 
-* **Клиентский компьютер** — вам необходим клиентский компьютер Mac, Linux или Windows для взаимодействия с Azure.
+*   **Клиентский компьютер** — вам необходим клиентский компьютер под управлением Mac, Linux или Windows для взаимодействия с Azure. Далее предполагается, что вы используете клиент Linux.
 
-* **Подписка Azure ** — если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/).
+*   **Подписка Azure ** — если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-* **Квота ядер** — вам может потребоваться увеличить квоту ядер для развертывания кластера виртуальных машин A8 или A9. Например, для развертывания восьми виртуальных машин A9 необходимо не меньше 128 ядер, как показано в этой статье. Чтобы увеличить квоту, бесплатно [отправьте запрос в службу поддержки](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+*   **Квота ядер** — вам может потребоваться увеличить квоту ядер для развертывания кластера виртуальных машин A8 или A9. Например, для развертывания восьми виртуальных машин A9 необходимо не меньше 128 ядер, как показано в этой статье. Чтобы увеличить квоту, бесплатно [отправьте запрос в службу поддержки](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 
-* **Azure CLI** — [установите](../xplat-cli-install.md) интерфейс командной строки Azure и [настройте его](../xplat-cli-connect.md) для использования подписки Azure на клиентском компьютере.
+*   **Azure CLI** — [установите](../xplat-cli-install.md) интерфейс командной строки Azure и [настройте его](../xplat-cli-connect.md) для подключения к подписке Azure с клиентского компьютера.
 
+*   **Intel MPI** — в рамках настройки образа виртуальной машины Linux для кластера (подробно далее в этой статье) необходимо загрузить и установить среду выполнения Intel MPI Library 5 с [сайта Intel.com](https://software.intel.com/ru-RU/intel-mpi-library/) на подготавливаемой виртуальной машине Linux Azure. Для этого после регистрации на сайте Intel перейдите по ссылке в письме с подтверждением на соответствующую веб-страницу и скопируйте ссылку для скачивания TGZ-файла для соответствующей версии Intel MPI. В этой статье используется Intel MPI версии 5.0.3.048.
 
 ### Подготовка виртуальной машины SLES 12
 
-После входа в систему в Azure с помощью Azure CLI выполните команду `azure config list`, чтобы убедиться, что CLI находится в режиме управления службами Azure (asm). Если это не так, активируйте режим, выполнив следующую команду:
+После входа в систему в Azure с помощью Azure CLI выполните команду `azure config list` и убедитесь, что в выводе команды отображается режим **asm**. Это означает, что CLI находится в режиме управления службами Azure. Если это не так, активируйте режим, выполнив следующую команду:
 
 ```
 azure config mode asm
@@ -63,9 +67,9 @@ azure config mode asm
 azure account list
 ```
 
-Значение `Current` текущей активной подписки равно `true`. Если это не та подписка, которую вы хотите использовать для создания кластера, установите в качестве активной подписки соответствующий номер подписки:
+Для текущей активной подписки значение `Current` установлено в `true`. Если это не та подписка, которую вы хотите использовать для создания кластера, установите в качестве активной подписки соответствующий номер подписки:
 
-```he
+```
 azure account set <subscription-number>
 ```
 
@@ -80,91 +84,95 @@ azure vm image list | grep "suse.*hpc"
 Теперь настройте виртуальную машину размера A9 с доступным образом SLES 12 HPC, выполнив следующую команду:
 
 ```
-azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location> -z A9 -n <vm-name> -e 10004 b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708
+azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location> -z A9 -n <vm-name> -e 22 b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708
 ```
 
 где:
 
 * размер (в данном примере — A9) может быть A8 или A9;
 
-* внешний номер порта SSH (в данном примере — 10004) — любой допустимый номер порта; внутренний номер порта SSH — 22;
+* внешний номер порта SSH (в данном примере — 22, номер порта SSH по умолчанию) — любой допустимый номер порта; внутренний номер порта SSH будет установлен в 22;
 
 * новая облачная служба будет создан в регионе Azure, заданной расположением; укажите расположение, например "Запад США", в котором доступны экземпляры A8 и A9;
 
-* именем образа в настоящее время может быть `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` (бесплатно) или `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-priority-v20150708` для поддержки приоритетов SUSE (платно).
+* в качестве имени образа в настоящее время можно выбрать `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708` (бесплатно) или `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-priority-v20150708` для поддержки приоритетов SUSE (платно).
 
 ### Настройка виртуальной машины
 
-После завершения подготовки виртуальной машины установите SSH-подключение к виртуальной машине с помощью ее внешнего IP-адреса (или DNS-имени) и внешнего порта номер, который вы указали, и настройте ее. Подробнее о подключении см. в разделе [Как войти в виртуальную машину под управлением Linux](virtual-machines-linux-how-to-log-on.md).
+После завершения подготовки виртуальной машины установите SSH-подключение к виртуальной машине с помощью ее внешнего IP-адреса (или DNS-имени) и внешнего порта номер, который вы указали, и настройте ее. Подробнее о подключении см. в разделе [Как войти в виртуальную машину под управлением Linux](virtual-machines-linux-how-to-log-on.md). Команды необходимо выполнять от имени пользователя, настроенного на виртуальной машине, если только для выполнения шага не нужен доступ с правами root.
 
->[AZURE.NOTE]Microsoft Azure не предоставляет доступ с правами root для виртуальных машин Linux. Чтобы получить административный доступ при подключении в качестве пользователя, можно использовать `sudo –s`.
+>[AZURE.IMPORTANT]Microsoft Azure не предоставляет доступ с правами root для виртуальных машин Linux. Чтобы получить административный доступ при подключении к виртуальной машине в качестве обычного пользователя, можно выполнять команды с использованием `sudo`.
 
-**Обновления** — вы можете установить обновления с помощью **zypper**, а также служебных программ NFS.
+*   **Обновления**. Установите обновления с помощью **zypper**. Также можно установить служебные программы NFS.  
 
->[AZURE.IMPORTANT]В настоящее время мы не рекомендуем применять обновления ядра, которые могут вызвать проблемы с драйверами Linux RDMA.
+    >[AZURE.IMPORTANT]В настоящее время мы не рекомендуем применять обновления ядра, которые могут вызвать проблемы с драйверами Linux RDMA.
 
-**Intel MPI** — скачайте и установите среду выполнения библиотеки Intel MPI 5.0 с [сайта Intel.com](https://software.intel.com/ru-RU/intel-mpi-library/). После регистрации на сайте Intel перейдите по ссылке в письме с подтверждением на соответствующую веб-страницу и скопируйте ссылку для скачивания TGZ-файла для соответствующей версии Intel MPI.
+*   **Intel MPI** — Загрузите и установите среду выполнения Intel MPI 5 с сайта Intel.com, выполнив команду, похожую на указанную ниже.
 
-Выполните следующему команду, чтобы установить Intel MPI на виртуальной машине:
+    ```
+    sudo wget <download link for your registration>
 
-```
+    sudo tar xvzf <tar-file>
 
-$ wget <download link for your registration>
-$ tar xvzf <tar-file>
-$ cd <mpi-directory>
-$ sudo ./install.sh
-```
+    cd <mpi-directory>
 
-**Блокировка памяти** — чтобы код MPI заблокировал память для RDMA, необходимо добавить или изменить следующие параметры в файле /etc/security/limits.conf:
+    sudo ./install.sh
 
-```
-<User or group name> hard    memlock <memory required for your application in KB>
-<User or group name> soft    memlock <memory required for your application in KB>
-```
+    ```
 
->[AZURE.NOTE]В целях тестирования можно также задать неограниченное значение для параметра memlock. Например, `<User or group name>    hard    memlock unlimited`.
+    Примите параметры по умолчанию для установки Intel MPI на виртуальной машине.
+
+*   **Блокировка памяти** — чтобы код MPI заблокировал память для RDMA, необходимо добавить или изменить следующие параметры в файле /etc/security/limits.conf: (Для изменения этого файла потребуется доступ с правами root.)
+
+    ```
+    <User or group name> hard    memlock <memory required for your application in KB>
+
+    <User or group name> soft    memlock <memory required for your application in KB>
+    ```
+
+    >[AZURE.NOTE]В целях тестирования можно также задать неограниченное значение для параметра memlock. Например, `<User or group name>    hard    memlock unlimited`.
 
 
-**SSH-ключи** — установите отношение доверия для имени пользователя и пароль, которые применялись для создания этой виртуальной машины, со всеми вычислительными узлами в кластере. Создайте SSH-ключи следующей командой:
+*   **Ключи SSH** — Создайте ключи SSH для установления доверия для учетной записи пользователя среди всех вычислительных узлов в кластере при выполнении заданий MPI. Для создания ключей SSH выполните следующую команду. Просто нажмите клавишу ВВОД, чтобы создать ключи в расположении по умолчанию без указания парольной фразы.
 
-```
-$ ssh-keygen
-```
+    ```
+    ssh-keygen
+    ```
 
-Сохраните открытый ключ в расположении по умолчанию и запомните введенную парольную фразу.
+    Добавьте открытый ключ в файл authorized\_keys для известных открытых ключей.
 
-```
-$ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-```
+    ```
+    cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+    ```
 
-Измените или создайте файл ssh\_config в каталоге ~/.ssh. Укажите диапазон IP-адресов частной сети, которая будет использоваться в Azure:
+    Измените или создайте файл ssh\_config в каталоге ~/.ssh. Укажите диапазон IP-адресов частной сети, которая будет использоваться в Azure (в данном примере, 10.32.0.0/16):
 
-```
-host 10.32.0.*
-StrictHostKeyChecking no
-```
+    ```
+    host 10.32.0.*
+    StrictHostKeyChecking no
+    ```
 
-Кроме того, можно перечислить IP-адрес частной сети каждой виртуальной машины в кластере следующим образом:
+    Список IP-адресов частной сети для каждой виртуальной машины в кластере также можно получить следующим образом:
 
-```
-host 10.32.0.1
- StrictHostKeyChecking no
-host 10.32.0.2
- StrictHostKeyChecking no
-host 10.32.0.3
- StrictHostKeyChecking no
-```
+    ```
+    host 10.32.0.1
+     StrictHostKeyChecking no
+    host 10.32.0.2
+     StrictHostKeyChecking no
+    host 10.32.0.3
+     StrictHostKeyChecking no
+    ```
 
->[AZURE.NOTE]Настройка `StrictHostKeyChecking no` может создавать угрозу безопасности, если определенный IP-адрес или диапазон не задан, как показано выше.
+    >[AZURE.NOTE]Настройка `StrictHostKeyChecking no` может создавать угрозу безопасности, если определенный IP-адрес или диапазон не задан, как показано в этих примерах.
 
-**Приложения** — скопируйте все нужные приложения на эту виртуальную машину или выполните другие настройки перед записью образа.
+* **Приложения** — Установите все нужные приложения на эту виртуальную машину или выполните другие настройки перед записью образа.
 
 ### Запись образа
 
-Чтобы записать образ, выполните следующую команду на виртуальной машине Linux:
+Чтобы записать образ, выполните следующую команду на виртуальной машине Linux: При этом виртуальная машина отзывается, но учетные записи пользователей и ключи SSH, которые вы настроили, сохраняются.
 
 ```
-$ sudo waagent -deprovision
+sudo waagent -deprovision
 ```
 
 Затем на клиентском компьютере выполните следующие команды Azure CLI для записи образа. Подробнее см. в статье [Запись образа виртуальной машины Linux для использования в качестве шаблона](virtual-machines-linux-capture-image.md).
@@ -180,51 +188,52 @@ azure vm capture -t <vm-name> <image-name>
 
 ### Развертывание кластера с помощью образа
 
-Укажите соответствующие вашей среде значения в следующем скрипте и запустите его на клиентском компьютере. Так как в режиме ASM виртуальные машины развертываются последовательно, для выполнения этого скрипта и развертывания восьми виртуальных машин размера A9 потребуется несколько минут.
+Укажите соответствующие вашей среде значения в следующем скрипте Bash и запустите его на клиентском компьютере. Так как в режиме управления службами виртуальные машины развертываются последовательно, для выполнения этого скрипта и развертывания восьми виртуальных машин размера A9 потребуется несколько минут.
 
 ```
-### Script to create a compute cluster without a scheduler in a VNet in Azure
-### Create a custom private network in Azure
-### Replace 10.32.0.0 with your virtual network address space
-### Replace <network-name> with your network identifier
-### Select a region where A8 and A9 VMs are available, such as West US
-### See Azure Pricing pages for prices and availability of A8 and A9 VMs
+#!/bin/bash -x
+# Script to create a compute cluster without a scheduler in a VNet in Azure
+# Create a custom private network in Azure
+# Replace 10.32.0.0 with your virtual network address space
+# Replace <network-name> with your network identifier
+# Select a region where A8 and A9 VMs are available, such as West US
+# See Azure Pricing pages for prices and availability of A8 and A9 VMs
 
 azure network vnet create -l "West US" -e 10.32.0.0 -i 16 <network-name>
 
-### Create a cloud service. All the A8 and A9 instances need to be in the same cloud service for Linux RDMA to work across InfiniBand.
-### Note: The current maximum number of VMs in a cloud service is 50. If you need to provision more than 50 VMs in the same cloud service in your cluster, contact Azure Support.
+# Create a cloud service. All the A8 and A9 instances need to be in the same cloud service for Linux RDMA to work across InfiniBand.
+# Note: The current maximum number of VMs in a cloud service is 50. If you need to provision more than 50 VMs in the same cloud service in your cluster, contact Azure Support.
 
 azure service create <cloud-service-name> --location "West US" –s <subscription-ID>
 
-### Define a prefix naming scheme for compute nodes, e.g., cluster11, cluster12, etc.
+# Define a prefix naming scheme for compute nodes, e.g., cluster11, cluster12, etc.
 
 vmname=cluster
 
-### Define a prefix for external port numbers. If you want to turn off external ports and use only internal ports to communicate between compute nodes via port 22, don’t use this option. Since port numbers up to 10000 are reserved, use numbers after 10000. Leave external port on for rank 0 and head node.
+# Define a prefix for external port numbers. If you want to turn off external ports and use only internal ports to communicate between compute nodes via port 22, don’t use this option. Since port numbers up to 10000 are reserved, use numbers after 10000. Leave external port on for rank 0 and head node.
 
 portnumber=101
 
-### In this cluster there will be 8 size A9 nodes, named cluster11 to cluster18. Specify your captured image in <image-name>.
+# In this cluster there will be 8 size A9 nodes, named cluster11 to cluster18. Specify your captured image in <image-name>. Specify the username and password you used when creating the SSH keys.
 
 for (( i=11; i<19; i++ )); do
         azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i -w <network-name> -b Subnet-1 <image-name>
 done
 
-### Save this script and run it at the CLI prompt to provision your cluster
+# Save this script with a name like makecluster.sh and run it in your shell environnment to provision your cluster
 ```
-
 ## Настройка и запуск Intel MPI
 
-Для запуска приложений MPI в Azure Linux RDMA необходимо настроить определенные переменные среды, связанные с Intel MPI. Ниже приведен пример скрипта для настройки переменных и запуска приложения.
+Для запуска приложений MPI в Azure Linux RDMA необходимо настроить определенные переменные среды, связанные с Intel MPI. Ниже приведен пример скрипта Bash для настройки переменных и запуска приложения.
 
 ```
 #!/bin/bash -x
+
 source /opt/intel/impi_latest/bin64/mpivars.sh
 
 export I_MPI_FABRICS=shm:dapl
 
-# THIS IS A MANDATORY ENVIRONMENT VARIABLE AND MUST BE SET BEFORE RUNNING ANY JOB
+# THIS IS A MANDATORY ENVIRONMENT VARIABLEAND MUST BE SET BEFORE RUNNING ANY JOB
 # Setting the variable to shm:dapl gives best performance for some applications
 # If your application doesn’t take advantage of shared memory and MPI together, then set only dapl
 
@@ -243,23 +252,44 @@ mpirun -n <number-of-cores> -ppn <core-per-node> -hostfile <hostfilename>  /path
 #end
 ```
 
-Формат файла узла выглядит следующим образом. Добавьте одну строку для каждого узла в кластере. Укажите частные IP-адреса из виртуальной сети, определенной ранее, но не DNS-имена.
+Формат файла узла выглядит следующим образом. Добавьте одну строку для каждого узла в кластере. Укажите частные IP-адреса из виртуальной сети, определенной ранее, но не DNS-имена. Например для двух узлов с IP-адресами 10.32.0.1 и 10.32.0.2 файл содержит следующие сведения:
 
 ```
-private ip address1:16 [e.g. 10.32.0.1:16]
-private ip address2:16
-...
+10.32.0.1:16
+10.32.0.2:16
 ```
 
 ## Проверка базового кластера из двух узлов после установки Intel MPI
 
-Вы можете выполнить следующие команды Intel MPI, чтобы проверить конфигурацию кластера.
+Если это еще не сделано, сначала настройте среду для Intel MPI.
 
 ```
-/opt/intel/impi_latest/bin64/mpirun -hosts <host1>, <host2> -ppn 1 -n 2 -env I_MPI_FABRICS dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 /opt/intel/impi_latest/bin64/IMB-MPI1 pingpong
+source /opt/intel/impi_latest/bin64/mpivars.sh
 ```
 
-В работающем кластере с двумя узлами вы должны увидеть результаты, аналогичные приведенным ниже:
+### Запуск простой команды MPI
+
+Выполните простую команду MPI на одном из вычислительных узлов, чтобы убедиться, что MPI установлена правильно и по крайней мере два вычислительных узла могут взаимодействовать друг с другом. Следующая команда **mpirun** запускает команду **hostname** на двух узлах.
+
+```
+/opt/intel/impi_latest/bin64/mpirun -ppn 1 -n 2 -hosts <host1>,<host2> -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 hostname
+```
+В выходных данных должны быть перечислены имена всех узлов, переданные в качестве входных данных для `-hosts`. Например, команда **mpirun** с двумя узлами возвращает выходные данные следующего вида:
+
+```
+cluster11
+cluster12
+```
+
+### Запуск теста производительности MPI
+
+Следующая команда Intel MPI проверяет конфигурацию кластера и подключение к сети RDMA с помощью тестирования pingpong.
+
+```
+/opt/intel/impi_latest/bin64/mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 /opt/intel/impi_latest/bin64/IMB-MPI1 pingpong
+```
+
+В работающем кластере с двумя узлами вы должны увидеть результаты, аналогичные приведенным ниже. В сети RDMA Azure для сообщения размером до 512 байт ожидается задержка на уровне 3 микросекунд или ниже.
 
 ```
 #------------------------------------------------------------
@@ -339,4 +369,4 @@ private ip address2:16
 
 * Рекомендации по Intel MPI см. в [документации для библиотеки Intel MPI](https://software.intel.com/ru-RU/articles/intel-mpi-library-documentation/).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

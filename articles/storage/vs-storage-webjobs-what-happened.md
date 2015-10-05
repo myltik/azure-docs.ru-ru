@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Что произошло с моим проектом веб-заданий (подключенными к службе хранилища Azure службами Visual Studio)?
 
@@ -41,4 +41,4 @@
 
 Дополнительные сведения см. в разделе [Рекомендуемые ресурсы для веб-заданий Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

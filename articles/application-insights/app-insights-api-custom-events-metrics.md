@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/28/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 # API Application Insights для пользовательских событий и метрик 
@@ -696,7 +696,10 @@
 
     telemetry.Flush();
 
-Обратите внимание, что функция является синхронной.
+    // Allow some time for flushing before shutdown.
+    System.Threading.Thread.Sleep(1000);
+
+Обратите внимание, что функция является асинхронной.
 
 
 
@@ -900,4 +903,4 @@
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

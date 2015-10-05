@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Как создать виртуальную машину Azure с помощью интерфейса CLI Azure | Microsoft Azure"
+   pageTitle="Как создать виртуальную машину Azure с помощью Azure CLI | Microsoft Azure"
    description="В этой статье описано, как установить интерфейс CLI Azure на любой платформе, как его использовать для подключения к учетной записи Azure и как с его помощью создавать виртуальные машины."
    services="virtual-machines"
-   documentationCenter="virtual-machines"
+   documentationCenter=""
    authors="dlepow"
    manager="timlt"
-   editor="tysonn"/>
+   editor="tysonn"
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -17,13 +18,16 @@
    ms.author="danlep"/>
 
 # Создание виртуальной машины с помощью интерфейса командной строки Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания. Для создания ресурса вы также можете использовать [модель развертывания диспетчера ресурсов](virtual-machines-deploy-rmtemplates-azure-cli.md).
+
 Интерфейс CLI Azure позволяет управлять инфраструктурой Azure с любой платформы.
 
 Чтобы приступить к созданию виртуальной машины, нужно установить CLI Azure и оформить подписку Azure. Давайте сделаем это. Если у вас еще нет учетной записи Azure, [вы можете бесплатно получить ее](http://azure.microsoft.com/pricing/free-trial/).
 
 ## Установка CLI Azure
 
-Следуйте инструкциям по [установке интерфейса командной строки Azure](../xplat-cli.md#install).
+Следуйте указаниям по [установке Azure CLI](../xplat-cli.md#install).
 
 ## Подключение к Azure с помощью интерфейса командной строки Azure CLI
 
@@ -43,9 +47,9 @@
 
     Теперь вы можете выбрать нужный образ и воспользоваться командой `show`, чтобы просмотреть подробную информацию о его свойствах:
 
-        azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ru-ru-30GB
+        azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ru-RU-30GB
 
-2. Выбрав нужный образ виртуальной машины, выполните команду `vm create`, чтобы создать его. Эта команда имеет большое количество параметров, список которых можно просмотреть с помощью команды `help`
+2. Выбрав нужный образ виртуальной машины, выполните команду `vm create`, чтобы создать его. Эта команда имеет большое количество параметров, список которых можно просмотреть с помощью команды `help`:
 
         vm create --help
 
@@ -59,7 +63,7 @@
 
     The Linux example below creates a VM in West US, opens the default SSH port 22 (the -e argument), and creates a user called `myadminuser`:
 
-        azure vm create -e -l "West US"  my-new-cli-vm b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ru-ru-30GB "myadminuser" "myAdm1n@passwd"
+        azure vm create -e -l "West US"  my-new-cli-vm b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ru-RU-30GB "myadminuser" "myAdm1n@passwd"
 
 ## Дальнейшие действия
 
@@ -69,9 +73,9 @@
 
     ssh myadminuser@my-new-cli-vm.cloudapp.net
 
-Дополнительные примеры использования интерфейса командной строки Azure для управления инфраструктурой Azure см. на [странице со справочной информацией о командах интерфейса командной строки Azure](../virtual-machines-command-line-tools.md).
+Дополнительные примеры использования Azure CLI для управления инфраструктурой Azure см. на [странице со справочной информацией о командах Azure CLI](../virtual-machines-command-line-tools.md).
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

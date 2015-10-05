@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Рекомендации по фирменной символике для приложений"
-	description="Полное руководство по ориентированным на разработчиков ресурсам для Azure Active Directory"
-	services="active-directory"
-	documentationCenter="dev-center-name"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   pageTitle="Рекомендации по фирменной символике для приложений | Microsoft Azure"
+   description="Полное руководство по ориентированным на разработчиков ресурсам для Azure Active Directory"
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/17/2015"
+   ms.author="mbaldwin"/>
 
 
 # Рекомендации по фирменной символике для приложений
@@ -94,4 +94,4 @@
 
 Если приложение поддерживает учетные записи и Azure AD, и Майкрософт, в него необходимо добавить две отдельные кнопки входа. Мы активно работаем над обновлением, которое позволит интегрировать и поддерживать как личные, так и рабочие учетные записи Майкрософт. Когда оно появится, в приложении можно будет отображать единую кнопку «вход с помощью Microsoft».
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

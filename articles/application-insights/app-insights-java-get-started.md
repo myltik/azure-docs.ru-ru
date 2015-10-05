@@ -271,7 +271,7 @@
 
 Для сбора данных по другим исключениям доступны два варианта:
 
-* [вставить в код вызовы функции TrackException][apiexceptions]; 
+* [вставить в код вызовы trackException()][apiexceptions]; 
 * [установить на сервере агент для Java](app-insights-java-agent.md). Необходимо указать методы, которые требуется отслеживать.
 
 
@@ -381,7 +381,9 @@ Application Insights может тестировать ваш веб-сайт ч
 
 [Устранение неполадок Java](app-insights-java-troubleshoot.md)
 
+## Дальнейшие действия
 
+Дополнительную информацию см. в [Центре разработчика Java](/develop/java/).
 
 <!--Link references-->
 
@@ -394,4 +396,4 @@ Application Insights может тестировать ваш веб-сайт ч
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

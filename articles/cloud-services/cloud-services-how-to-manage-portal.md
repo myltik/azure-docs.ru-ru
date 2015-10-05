@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Управление облачной службой | Microsoft Azure" 
-	description="Узнайте, как управлять облачными службами в портале предварительной версии Azure." 
+	pageTitle="Как управлять облачной службой (портал предварительной версии) | Microsoft Azure" 
+	description="Узнайте, как управлять облачными службами в портале предварительной версии Azure. В этих примерах используется портал предварительной версии Azure." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -106,4 +106,11 @@
 
 [портале предварительной версии Azure]: https://portal.azure.com
 
-<!---HONumber=August15_HO7-->
+## Дальнейшие действия
+
+* [Общая настройка облачной службы](cloud-services-how-to-configure-portal.md).
+* Узнайте, как [развернуть облачную службу](cloud-services-how-to-create-deploy-portal.md).
+* Настройте [пользовательское доменное имя](cloud-services-custom-domain-name-portal.md).
+* Настройте [SSL-сертификаты](cloud-services-configure-ssl-certificate-portal.md).
+
+<!---HONumber=Sept15_HO4-->

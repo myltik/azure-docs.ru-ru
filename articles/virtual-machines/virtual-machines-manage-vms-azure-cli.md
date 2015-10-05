@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Управление виртуальными машинами Azure с помощью интерфейса командной строки Azure для Mac, Linux и Windows | Microsoft Azure"
-   description="Описывается создание, управление и удаление виртуальных машин Azure с помощью Azure CLI для Mac, Linux и Windows."
+   pageTitle="Управление виртуальными машинами Azure с помощью Azure CLI | Microsoft Azure"
+   description="Описывается управление виртуальными машинами Azure с помощью Azure CLI для Mac, Linux и Windows."
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="dlepow"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
    <tags
    ms.service="virtual-machines"
@@ -17,6 +18,8 @@
    ms.author="danlep"/>
 
 # Управление виртуальными машинами с помощью Azure CLI для Mac, Linux и Windows
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс управления ресурсом, созданным с помощью классической модели развертывания. Вы также можете управлять ресурсом, созданным с помощью [модели развертывания на основе диспетчера ресурсов](virtual-machines-how-to-automate-azure-resource-manager.md).
 
 Многие повседневные задачи управления виртуальными машинами можно автоматизировать с помощью Azure CLI. В этой статье приводятся примеры команд для простых задач, а также ссылки на статьи о командах для более сложных задач.
 
@@ -79,6 +82,5 @@
 ## Дальнейшие действия
 
 Дополнительные примеры использования интерфейса командной строки Azure в режиме **ARM** см. в разделе [Использование интерфейса командной строки Microsoft Azure для Mac, Linux и Windows в режиме управления ресурсами Azure](../xplat-cli-resource-manager.md). Дополнительную информацию о ресурсах Azure и их основных понятиях см. в разделе [Обзор диспетчера ресурсов Azure](../resource-group-overview.md).
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

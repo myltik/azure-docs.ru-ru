@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 
@@ -156,20 +156,33 @@
 + `dc.services.visualstudio.com:443`
 + `f5.services.visualstudio.com:443`
 
-### Наличие отдельных ресурсов для разработки, тестирования и выпуска
 
-Для основного приложения на этапах отладки, тестирования и эксплуатации телеметрию рекомендуется отправлять в [отдельные ресурсы](app-insights-separate-resources.md).
+## Разработка, тестирование и выпуск
 
+Данные телеметрии основного приложения на разных этапах (отладки, тестирования и эксплуатации) рекомендуется отправлять в [отдельные ресурсы](app-insights-separate-resources.md).
+
+## Отслеживание версии приложения
+
+Убедитесь, что в процессе сборки создается `buildinfo.config`. Добавьте в CSPROJ-файл:
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+При наличии данных сборки веб-модуль Application Insights автоматически добавляет **версию приложения** как свойство для каждого элемента телеметрии. Это позволяет использовать фильтр по версии при [диагностическом поиске][diagnostic] или [изучении метрик][metrics].
 
 
 
 ## Добавление отслеживания зависимостей и счетчиков производительности системы
 
-[Показатели зависимостей](app-insights-dependencies.md) могут пригодиться при диагностике проблем с производительностью. Они измеряют вызовы баз данных, API REST и внешних компонентов из приложения.
+[Метрики зависимостей](app-insights-dependencies.md) могут пригодиться при диагностике проблем с производительностью. Они измеряют вызовы баз данных, API REST и внешних компонентов из приложения.
 
 ![](./media/app-insights-asp-net/04-dependencies.png)
 
-Эти действия также включают [отчеты о счетчиках производительности](app-insights-web-monitor-performance.md#system-performance-counters), например для ЦП, памяти и сетевой загрузки.
+Эти действия также включают в себя [отчеты о счетчиках производительности](app-insights-web-monitor-performance.md#system-performance-counters), например для ЦП, памяти и сетевой загрузки.
 
 #### Если приложение выполняется на сервере IIS
 
@@ -235,4 +248,4 @@
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Настройка присоединения Azure AD для ваших пользователей| Microsoft Azure" 
-	description="Раздел, в котором поясняется, как администраторы могут настроить подключение конечных пользователей (сотрудников компаний, учащихся и других пользователей) к Azure AD." 
+	description="Поясняет, как администраторы могут настроить присоединение к Azure AD пользователей (сотрудников компаний, учащихся и других пользователей) своей организации." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # Настройка присоединения к Azure AD в организации
@@ -47,8 +47,8 @@
 - Добавление пользователями рабочих учетных записей Windows на личные устройства 
 
 ## Дополнительная информация
-* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-overview.md)
 * [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

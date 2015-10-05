@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Расширение возможностей HDInsight с помощью виртуальной сети Azure | Microsoft Azure"
+	pageTitle="Расширение возможностей HDInsight с помощью виртуальной сети Azure | Microsoft Azure"  
 	description="Узнайте, как использовать виртуальную сеть Azure для подключения HDInsight к другим облачным ресурсам или к ресурсам в центре обработки данных."
 	services="hdinsight"
 	documentationCenter=""
@@ -9,12 +9,12 @@
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="07/06/2015"
-	ms.author="larryfr"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="09/23/2015"
+   ms.author="larryfr"/>
 
 
 #Расширение возможностей HDInsight с помощью виртуальной сети Azure
@@ -173,4 +173,4 @@
 
 Дополнительные сведения о виртуальных сетях Azure см. в статье [Общие сведения о виртуальных сетях Azure](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

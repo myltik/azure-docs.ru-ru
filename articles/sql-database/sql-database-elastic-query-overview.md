@@ -1,6 +1,8 @@
 <properties
+    title="Azure SQL Database elastic database query overview"
     pageTitle="Обзор функции запросов к эластичным базам данных SQL Azure "
     description="Обзор функции эластичных запросов "
+    metaKeywords="azure sql database elastic database queries"
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
@@ -265,4 +267,4 @@ SP\_EXECUTE\_FANOUT — это хранимая процедура, предос
 
 <!--anchors-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

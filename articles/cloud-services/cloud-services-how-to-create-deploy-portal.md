@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Создание и развертывание облачной службы | Microsoft Azure"
-	description="Узнайте, как создать и развернуть облачную службу с помощью функции ";Быстрое создание"; в Azure."
+	pageTitle="Как создать и развернуть облачную службу (портал предварительной версии) | Microsoft Azure"
+	description="Узнайте, как создать и развернуть облачную службу с помощью функции ";Быстрое создание"; в Azure. В этих примерах используется портал предварительной версии Azure."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -107,4 +107,11 @@
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
 
-<!---HONumber=August15_HO8-->
+## Дальнейшие действия
+
+* [Общая настройка облачной службы](cloud-services-how-to-configure-portal.md).
+* Настройте [пользовательское доменное имя](cloud-services-custom-domain-name-portal.md).
+* [Управляйте облачной службой](cloud-services-how-to-manage-portal.md).
+* Настройте [SSL-сертификаты](cloud-services-configure-ssl-certificate-portal.md).
+
+<!---HONumber=Sept15_HO4-->

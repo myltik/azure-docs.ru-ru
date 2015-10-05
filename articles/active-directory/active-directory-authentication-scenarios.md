@@ -1,6 +1,6 @@
 
 <properties
-   pageTitle="Сценарии проверки подлинности в Azure AD"
+   pageTitle="Сценарии проверки подлинности в Azure AD | Microsoft Azure"
    description="Обзор пяти наиболее распространенных сценариев проверки подлинности для Azure Active Directory (AAD)"
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Сценарии проверки подлинности в Azure AD
@@ -467,4 +467,4 @@ Azure Active Directory (Azure AD) упрощает процесс проверк
 
 [OAuth 2.0 в Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

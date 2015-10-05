@@ -1,21 +1,21 @@
 <properties
    pageTitle="Модели развертывания: диспетчер ресурсов и управление службами (классическая модель) | Azure"
-	description="Ознакомьтесь с основными различиями между классической моделью развертывания и моделью развертывания с помощью диспетчера ресурсов."
-	services="virtual-network"
-	documentationCenter=""
-	authors="telmosampaio"
-	manager="carolz"
-	editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+   description="Ознакомьтесь с основными различиями между классической моделью развертывания и моделью развертывания с помощью диспетчера ресурсов."
+   services="virtual-network"
+   documentationCenter=""
+   authors="telmosampaio"
+   manager="carolz"
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/14/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/14/2015"
+   ms.author="telmos"/>
 
 # Модели развертывания Azure
 
@@ -65,7 +65,7 @@
 ## Дальнейшие действия
 
 - Читайте подробнее о [диспетчере ресурсов](/resource-group-overview.md).
-- Узнайте, как [разрабатывать шаблоны](/best-practices-resource-manager-design-templates/md).
-- Используйте [рекомендации](best-practices-resource-manager-examples.md).
+- Узнайте, как [разрабатывать шаблоны](/best-practices-resource-manager-design-templates.md).
+- Используйте [рекомендации](/best-practices-resource-manager-examples.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

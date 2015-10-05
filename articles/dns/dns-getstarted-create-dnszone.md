@@ -1,6 +1,6 @@
 <properties
    pageTitle="Приступая к работе с Azure DNS | Microsoft Azure"
-   description="Узнайте, как создавать зоны DNS для Azure DNS. В этом пошаговом руководстве вы узнаете, как создать вашу первую зону DNS для размещения домена DNS."
+   description="Узнайте, как создавать зоны DNS для Azure DNS. В этом пошаговом руководстве мы рассмотрим, как создать зону DNS для размещения домена DNS, используя PowerShell."
    services="dns"
    documentationCenter="na"
    authors="joaoma"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2015"
+   ms.date="09/22/2015"
    ms.author="joaoma"/>
 
-# Приступая к работе с Azure DNS
+# Приступая к работе с Azure DNS с помощью Powershell
 
 
 > [AZURE.SELECTOR]
@@ -127,7 +127,7 @@ Azure DNS использует диспетчер ресурсов Azure (ARM). 
 >[AZURE.NOTE]Наборы записей в корне (или на "вершине") зоны DNS используются "@" в качестве имени набора записей.
 
 
-После создания первой зоны DNS ее можно проверить с помощью средств работы с DNS, таких как nslookup и dig, или [командлета PowerShell Resolve-DnsName](https://technet.microsoft.com/ru-RU/library/jj590781.aspx).<BR>
+После создания первой зоны DNS ее можно проверить с помощью средств работы с DNS, таких как nslookup и dig, или [командлета PowerShell Resolve-DnsName](https://technet.microsoft.com/ru-ru/library/jj590781.aspx).<BR>
 
 Если вы еще не делегировали домен для использования новой зоны в Azure DNS, вам необходимо направить DNS-запрос непосредственно одному из серверов имен для вашей зоны. Серверы имен для вашей зоны указаны в записях NS, которые отображаются командлетом Get-AzureDnsRecordSet выше. Укажите правильные значения для вашей зоны в команде ниже.<BR>
 
@@ -155,4 +155,4 @@ Azure DNS использует диспетчер ресурсов Azure (ARM). 
 [Приступая к созданию наборов записей и записей](dns-getstarted-create-recordset.md)<BR> [Управление зонами DNS](dns-operations-dnszones.md)<BR> [Управление DNS-записями](dns-operations-recordsets.md)<BR> [Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)<BR> [Справочник по API REST для службы Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

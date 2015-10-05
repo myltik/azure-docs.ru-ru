@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Перемещение данных в большой двоичный объект Azure и из него | Фабрика данных Azure"
-	description="Узнайте, как переместить данные в хранилище больших двоичных объектов Azure и из него с помощью фабрики данных Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Перемещение данных в большой двоичный объект Azure и из него | Фабрика данных Azure" 
+	description="Узнайте, как переместить данные в хранилище больших двоичных объектов Azure и из него с помощью фабрики данных Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # Перемещение данных в большой двоичный объект Azure и из него с помощью фабрики данных Azure
@@ -471,14 +471,17 @@
 | Свойство | Описание | Допустимые значения | Обязательно |
 | -------- | ----------- | -------------- | -------- | 
 | treatEmptyAsNull | Указывает, следует ли интерпретировать null или пустую строку как значение null. | TRUE<br/>FALSE | Нет |
-| skipHeaderLineCount | Укажите, сколько строк необходимо пропустить. Применяется, только когда для входного набора данных используется **TextFormat**. | Целое число от 0 до макс. | Нет | 
+| skipHeaderLineCount | Указывает, сколько строк необходимо пропустить. Применяется, только когда для входного набора данных используется **TextFormat**. | Целое число от 0 до макс. | Нет | 
+| recursive | Указывает, следует ли читать данные рекурсивно из вложенных папок или только из указанной папки. | True (значение по умолчанию), False | Нет | 
 
 
-Для **BlobSink** в разделе **typeProperties** могут быть указаны следующие свойства:
+Для **BlobSink** в разделе **typeProperties** можно задать указанные ниже свойства.
 
 | Свойство | Описание | Допустимые значения | Обязательно |
 | -------- | ----------- | -------------- | -------- |
 | blobWriterAddHeader | Указывает, нужно ли добавлять заголовок для определений столбцов. | TRUE<br/>FALSE (по умолчанию) | Нет |
+| copyBehavior | Это свойство определяет поведение функции копирования, когда в качестве источника используется BlobSource или FileSystem. | <p>Для свойства copyBehavior можно использовать три значения. </p><ul><li>**PreserveHierarchy**: сохраняет иерархии файлов в папку назначения, т. е. относительный путь исходного файла к исходной папке идентичен относительному пути целевого файла к папке назначения.</li><li>**FlattenHierarchy**: все файлы из исходной папки будут на первом уровне целевой папки. Целевые файлы будут иметь автоматически созданные имена. </li><li>**MergeFiles**: объединяет все файлы из исходной папки в один файл. Если указано имя файла или большого двоичного объекта, то именем объединенного файла будет указанное имя; в противном случае имя файла будет создано автоматически.</li></ul> | Нет |
+
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -489,7 +492,7 @@
 
 
 
-## Отзывы и предложения
-Мы будем очень благодарны за отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-blob-connector.md).
+## Отправить отзыв
+Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-blob-connector.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

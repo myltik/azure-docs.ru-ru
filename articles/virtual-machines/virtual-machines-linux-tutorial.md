@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Создание виртуальной машины под управлением Linux в Azure"
-	description="Узнайте, как создать виртуальную машину Azure с ОС Linux с помощью образа из Azure."
+	pageTitle="Создание виртуальной машины под управлением Linux | Microsoft Azure"
+	description="Узнайте, как создать виртуальную машину Azure под управлением Linux с помощью образа из Azure и интерфейса командной строки Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-resource-management" />
+	tags="azure-resource-manager" />
 
 <tags
 	ms.service="virtual-machines"
@@ -37,9 +37,9 @@
 
 Первым делом [установите Azure CLI](../xplat-cli-install.md).
 
-Хорошо. Теперь убедитесь, что вы находитесь в режиме управления ресурсами, введя `azure config mode arm`.
+Хорошо. Теперь убедитесь, что вы находитесь в режиме диспетчера ресурсов, введя `azure config mode arm`.
 
-Отлично. Теперь войдите с использованием своего рабочего идентификатора, введя `azure login`, и следуйте подсказкам.
+Отлично. Теперь [войдите с использованием своего рабочего или учебного идентификатора](../xplat-cli-connect.md#use-the-log-in-method), введя `azure login`, и следуйте указаниям.
 
 > [AZURE.NOTE]Если вы увидите ошибку входа в систему, может потребоваться [создать рабочий идентификатор из личной учетной записи Майкрософт](resource-group-create-work-id-from-personal.md).
 
@@ -305,4 +305,4 @@
 
 - [Расширение виртуальных машин Docker для Linux в Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

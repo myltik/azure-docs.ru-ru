@@ -68,6 +68,8 @@
 
 Теперь, когда вы научились использовать модули Node.js с Azure, узнайте, как [указать версию Node.js], [построить и развернуть веб-сайт Node.js] и [использовать интерфейс командной строки Azure для Mac и Linux].
 
+Дополнительную информацию см. в [Центре разработчика Node.js](/develop/nodejs/).
+
 [указать версию Node.js]: nodejs-specify-node-version-azure-apps.md
 [использовать интерфейс командной строки Azure для Mac и Linux]: xplat-cli.md
 [построить и развернуть веб-сайт Node.js]: web-sites-nodejs-develop-deploy-mac.md
@@ -76,4 +78,4 @@
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Пользовательские сценарии развертывания веб-сайтов с использованием Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

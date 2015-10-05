@@ -204,7 +204,7 @@ Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" 
 Приложения или пользователи подключаются к базе данных SQL Azure, используя удостоверения Azure AD, с клиентских компьютеров. На эти компьютеры необходимо установить указанное ниже программное обеспечение.
 
 - .NET Framework 4.6 или более поздней версии можно скачать с веб-страницы [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
-- Библиотека проверки подлинности Azure Active Directory для сервера SQL Server (**ADALSQL.DLL**) доступна на нескольких языках (версии x89 и amd64) в центре загрузки в [библиотеке проверки подлинности Microsoft Active Directory для Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
+- Библиотека аутентификации Azure Active Directory для SQL Server (**ADALSQL.DLL**) доступна на нескольких языках (версии x86 и amd64) в центре загрузки в [библиотеке аутентификации Microsoft Active Directory для Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
 
 ### Средства
 
@@ -252,7 +252,7 @@ Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" 
 	FROM EXTERNAL PROVIDER;
 
 
-Значением параметра *Azure\_AD\_principal\_name* может быть имя участника-пользователя Azure AD, а также отображаемое имя группы Azure AD или приложения.
+Значением параметра *Azure\_AD\_principal\_name* может быть имя субъекта-пользователя Azure AD или отображаемое имя группы Azure AD.
 
 **Примеры.** Создание пользователя автономной базы данных, представляющего собой пользователя федеративного или управляемого домена Azure AD:
 
@@ -268,7 +268,7 @@ Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" 
 
 При создании пользователя базы данных пользователь получает разрешение **ПОДКЛЮЧЕНИЕ** и может подключаться к этой базе данных как член с ролью **PUBLIC**. Изначально пользователю доступны только разрешения, предоставленные для роли **PUBLIC**, или любые разрешения, предоставленные любой группе Windows, в которую входит пользователь. Подготовив пользователя автономной базы данных, использующей Azure AD, можно предоставить ему дополнительные разрешения — так же, как разрешения для любого другого типа пользователя. Обычно разрешения предоставляются ролям базы данных, а затем эти роли назначаются пользователям. Дополнительные сведения см. в статье [Основные сведения о разрешениях ядра СУБД](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Дополнительные сведения о специальных ролях базы данных SQL см. в статье [Управление базами данных и учетными записями в базе данных SQL Azure](sql-database-manage-logins.md). Пользователь федеративного домена, импортируемый в управляемый домен, должен использовать идентификатор управляемого домена.
 
-> [AZURE.NOTE]Пользователи Azure AD помечаются в метаданных базы данных как тип E (EXTERNAL\_USER), а группы и приложения — как тип X (EXTERNAL\_GROUPS). Дополнительные сведения см. в статье [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+> [AZURE.NOTE]Пользователи Azure AD помечаются в метаданных базы данных как тип E (EXTERNAL\_USER), а группы — как тип X (EXTERNAL\_GROUPS). Дополнительные сведения см. в статье [sys.database\_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 
 
 ## 7\. Подключение к базе данных с помощью удостоверений Azure Active Directory
@@ -310,6 +310,7 @@ Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" 
 [СОЗДАНИЕ ПОЛЬЗОВАТЕЛЯ (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx)
 
 <!--Image references-->
+
 [1]: ./media/sql-database-aad-authentication/1aad-auth-diagram.png
 [2]: ./media/sql-database-aad-authentication/2subscription-relationship.png
 [3]: ./media/sql-database-aad-authentication/3admin-structure.png
@@ -320,6 +321,5 @@ Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" 
 [8]: ./media/sql-database-aad-authentication/8choose-ad.png
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
-<!--anchors-->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

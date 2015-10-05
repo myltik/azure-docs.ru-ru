@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Использование приложения API в службе приложений Azure из клиента .NET"
-	description="Узнайте, как использовать приложение API из клиента .NET с помощью пакета SDK службы приложений."
-	services="app-service\api"
-	documentationCenter=".net"
-	authors="tdykstra"
-	manager="wpickett"
+	pageTitle="Использование приложения API в службе приложений Azure из клиента .NET" 
+	description="Узнайте, как использовать приложение API из клиента .NET с помощью пакета SDK службы приложений." 
+	services="app-service\api" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="dotnet"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.service="app-service-api" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="dotnet" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Использование приложения API в службе приложений Azure из клиента .NET 
@@ -205,4 +205,4 @@
 Сведения об использовании проверки подлинности в приложениях API см. в статье [Проверка подлинности для приложений API и мобильных приложений в службе приложений Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
 <properties 
-pageTitle="Включение подключения к удаленному рабочему столу для роли в облачных службах Azure"
-	description="Настройка приложения в облачной службе Azure для удаленного подключения."
-	services="cloud-services"
-	documentationCenter=""
-	authors="sbtron"
-	manager="timlt"
-	editor=""/>
+pageTitle="Включение подключения к удаленному рабочему столу для роли в облачных службах Azure с помощью PowerShell" 
+description="Как настроить приложение облачной службы Azure для подключений к удаленному рабочему столу с помощью PowerShell" 
+services="cloud-services" 
+documentationCenter="" 
+authors="sbtron" 
+manager="timlt" 
+editor=""/>
 <tags 
-ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
-	ms.author="saurabh"/>
+ms.service="cloud-services" 
+ms.workload="tbd" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="09/17/2015" 
+ms.author="saurabh"/>
 
 # Включение подключения к удаленному рабочему столу для роли в облачных службах Azure с помощью PowerShell
 
@@ -102,4 +102,4 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 [Настройка облачных служб](cloud-services-how-to-configure.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

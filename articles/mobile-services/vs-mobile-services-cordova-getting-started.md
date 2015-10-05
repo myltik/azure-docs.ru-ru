@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="" 
-	description="Описание первых шагов, которые можно выполнить, чтобы приступить к работе с мобильными службами Azure в проекте Cordova" 
+	pageTitle="Приступая к работе с проектом мобильных служб Cordova (подключенные службы Visual Studio)" 
+	description="Описывает первые шаги, которые можно выполнить после подключения проекта Cordova к мобильным службам Azure с помощью подключенных служб Visual Studio." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="patshea123" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="09/17/2015" 
 	ms.author="patshea"/>
 
 # Приступая к работе с мобильными службами (проекты Cordova)
@@ -94,4 +94,4 @@
 
 [Дополнительные сведения о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

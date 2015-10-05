@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"    
+	ms.date="09/20/2015"    
 	ms.author="juliako"/>
 
 
@@ -22,8 +22,6 @@
 Задания кодирования — одни из самых распространенных операций обработки в службах мультимедиа. Они создаются для преобразования файлов мультимедиа из одного формата кодирования в другой. При кодировании можно использовать встроенный кодировщик служб мультимедиа. Также можно использовать кодировщик, предоставленный партнером служб мультимедиа, кодировщики сторонних производителей доступны в Магазине Azure.
 
 В этом разделе показано, как использовать .NET для кодирования ресурсов-контейнеров с помощью стандартного кодировщика мультимедиа. Стандартный кодировщик мультимедиа настраивается с помощью одной из предустановок кодировщика, описанных [здесь](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
-
->[AZURE.NOTE]Текущий выпуск обработчика мультимедиа требует передать всю строку XML или JSON в качестве предустановки кодирования. Вскоре выйдет обновление службы, обеспечивающее поддержку передачи именованной строки, такой как "H264 Multiple Bitrate 720p".
 
 Мы советуем всегда кодировать мезонинные файлы в набор MP4-файлов с адаптивной скоростью, а затем преобразовывать его в нужный формат с помощью [динамической упаковки](media-services-dynamic-packaging-overview.md). Для использования динамической упаковки вам потребуется получить по крайней мере одну единицу потокового воспроизведения по запросу для конечной точки потоковой передачи, из которой планируется передавать содержимое. Дополнительные сведения см. в статье [Масштабирование служб мультимедиа](media-services-manage-origins.md#scale_streaming_endpoints).
 
@@ -35,7 +33,7 @@
 
 - Создание задания кодирования.
 - Получение ссылки на стандартный кодировщик мультимедиа.
-- Загрузка XML-кода предустановки из одной из предустановок, приведенных [здесь](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+- Укажите использование предустановки «H264 Multiple Bitrate 720p». Все предустановки можно просмотреть [здесь](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). Кроме того, [здесь](https://msdn.microsoft.com/library/mt269962.aspx) вы можете проверить схему, которой должны соответствовать эти предустановки.
 - Добавление одной задачи кодирования в задание. 
 - Указание входного ресурса-контейнера для кодирования.
 - Создание выходного ресурса-контейнера, который будет содержать закодированный ресурс-контейнер.
@@ -50,13 +48,12 @@
 		    // processor to use for the specific task.
 		    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 		
-		    // Load the XML (or JSON) from the local file
-		    string configuration = File.ReadAllText(pathToLocalPresetFile);
-		
-		    // Create a task
-		    ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
+
+		    // Create a task with the encoding details, using a string preset.
+		    // In this case "H264 Multiple Bitrate 720p" preset is used.
+		    ITask task = job.Tasks.AddNew("My encoding task",
 		        processor,
-		        configuration,
+		        "H264 Multiple Bitrate 720p",
 		        TaskOptions.None);
 		
 		    // Specify the input asset to be encoded.
@@ -126,6 +123,6 @@
 
 ##См. также 
 
-[Обзор кодирования с помощью служб мультимедиа](media-services-encode-asset.md)
+[Как создать эскиз с помощью стандартного кодировщика мультимедиа и .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Обзор кодирования в службах мультимедиа](media-services-encode-asset.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

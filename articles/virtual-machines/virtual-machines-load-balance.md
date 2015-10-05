@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Балансировка нагрузки для служб инфраструктуры Azure"
+	pageTitle="Балансировка нагрузки для служб инфраструктуры | Microsoft Azure"
 	description="В этой статье описываются два разных типа балансировки нагрузки, которые поддерживаются в Azure: подсистема балансировки нагрузки для облачных служб и диспетчер трафика для трафика клиентов."
 	services="virtual-machines"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
@@ -18,6 +18,7 @@
 
 
 # Балансировка нагрузки для служб инфраструктуры Azure#
+
 
 В службах инфраструктуры Azure доступны два уровня балансировки нагрузки.
 
@@ -83,4 +84,4 @@ Azure также может распределять нагрузку внутр
 
 <!-- LINKS -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

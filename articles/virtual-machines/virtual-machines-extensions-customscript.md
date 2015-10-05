@@ -1,27 +1,30 @@
 <properties
-   pageTitle="Расширение Custom Script в Windows | Microsoft Azure"
-	description="Автоматизация задач настройки виртуальной машины Azure с помощью расширения Custom Script в ОС Windows"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Расширение Custom Script на виртуальной машине под управлением Windows | Microsoft Azure"
+   description="Автоматизируйте процесс настройки виртуальных машин Azure с помощью расширения Custom Script для выполнения сценариев PowerShell на удаленной виртуальной машине под управлением Windows"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/06/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-windows"
+   ms.workload="infrastructure-services"
+   ms.date="08/06/2015"
+   ms.author="kundanap"/>
 
-# Расширение Custom Script в ОС Windows
+# Расширение Custom Script для виртуальных машин под управлением Windows
 
-В этой статье описано использование расширения Custom Script в ОС Windows с помощью командлетов Azure Powershell.
+В этой статье описано использование расширения Custom Script на виртуальных машинах под управлением Windows с помощью командлетов Azure Powershell.
 
+Расширения виртуальной машины разработаны корпорацией Майкрософт и доверенными сторонними компаниями для расширения функциональных возможностей виртуальной машины. Общие сведения о расширениях виртуальных машин см. в статье [Расширения и компоненты виртуальных машин Azure](virtual-machines-extensions-features.md).
 
-Расширения виртуальной машины разработаны корпорацией Майкрософт и доверенными сторонними компаниями для расширения функциональных возможностей виртуальной машины. Общие сведения о расширениях виртуальных машин см. в статье <a href="https://msdn.microsoft.com/library/azure/dn606311.aspx" target="_blank">Расширения и компоненты виртуальных машин Azure</a>.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания. Для создания ресурса вы также можете использовать [модель развертывания диспетчера ресурсов](virtual-machines-extensions-customscript%20-with%20template.md).
+
 
 ## Общие сведения о расширении Custom Script
 
@@ -83,9 +86,9 @@
 
 ### Использование расширения Custom Script с шаблонами
 
-Чтобы узнать об использовании расширения Custom Script с шаблонами, см. документацию [здесь](virtual-machines-extensions-customscript-with template.md).
+Чтобы узнать об использовании расширения Custom Script с шаблонами, ознакомьтесь с документацией [здесь](virtual-machines-extensions-customscript-with template.md).
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

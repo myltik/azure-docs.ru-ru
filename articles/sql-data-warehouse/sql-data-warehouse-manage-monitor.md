@@ -1,20 +1,20 @@
 <properties
    pageTitle="Мониторинг рабочей нагрузки с помощью динамических административных представлений | Microsoft Azure"
-	description="Узнайте о том, как организовать отслеживание рабочей нагрузки с помощью динамических административных представлений."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="sahaj08"
-	manager="barbkess"
-	editor=""/>
+   description="Узнайте о том, как организовать отслеживание рабочей нагрузки с помощью динамических административных представлений."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sahaj08"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="08/06/2015"
-	ms.author="sahajs"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="sahajs"/>
 
 # Мониторинг рабочей нагрузки с помощью динамических административных представлений
 
@@ -22,23 +22,9 @@
 
 
 
-
-## Разрешения
-
-В хранилище данных SQL для запроса динамического административного представления требуется наличие разрешений **VIEW DATABASE STATE**. Разрешение **VIEW DATABASE STATE** возвращает сведения обо всех объектах в текущей базе данных. Чтобы предоставить разрешение **VIEW DATABASE STATE** определенному пользователю базы данных, выполните следующий запрос:
-
-```
-
-GRANT VIEW DATABASE STATE TO database_user;
-
-```
-
-
-
-
 ## Мониторинг подключений
 
-Для получения сведений о подключениях, установленных к базе данных в хранилище данных SQL Azure,можно использовать представление *sys.dm\_pdw\_nodes\_exec\_connections*. Кроме того, представление *sys.dm\_exec\_sessions* может оказаться полезным при получении сведений обо всех активных подключениях пользователя.
+Для получения сведений о подключениях, установленных к базе данных в хранилище данных SQL Azure, можно использовать представление *sys.dm\_pdw\_nodes\_exec\_connections*. Кроме того, представление *sys.dm\_exec\_sessions* может оказаться полезным при получении сведений о всех активных подключениях пользователя.
 
 ```
 
@@ -207,14 +193,14 @@ DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
 
 
 ## Дальнейшие действия
-Дополнительные советы по управлению хранилищем данных SQL можно найти в разделе [сведений о средствах управления][].
+Дополнительные советы по управлению хранилищем данных SQL можно найти в разделе [сведений об управлении][].
 
 <!--Image references-->
 
 <!--Article references-->
-[сведений о средствах управления]: sql-data-warehouse-overview-manage.md
+[сведений об управлении]: sql-data-warehouse-overview-manage.md
 [конструктору таблиц]: sql-data-warehouse-develop-table-design.md
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

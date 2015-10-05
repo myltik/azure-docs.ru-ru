@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Предварительная версия Azure Active Directory B2C: часто задаваемые вопросы
@@ -105,4 +105,4 @@
 
 См. также действующие [лимиты и ограничения предварительной версии](active-directory-b2c-limitations.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="09/22/2015"
 	ms.author="larryfr"/>
 
 #Создание списка рекомендуемых фильмов с помощью Apache Mahout и Hadoop в HDInsight на платформе Linux (предварительная версия)
@@ -30,6 +30,14 @@ Mahout — это библиотека [машинного обучения][ml]
 ##Предварительные требования
 
 * Hadoop в кластере HDInsight на платформе Linux. Для получения сведений о создании кластера см. раздел [Начало работы с Hadoop в HDInsight на платформе Linux][getstarted].
+
+##Управление версиями Mahout
+
+Дополнительные сведения о версии Mahout, входящий в состав кластера HDInsight, см. в разделе [Версии HDInsight и компоненты Hadoop](hdinsight-component-versioning.md).
+
+> [AZURE.WARNING]Хотя в кластер HDInsight можно передать другую версию Mahout, только компоненты, предоставляемые вместе с кластером HDInsight, поддерживаются в полном объеме. Служба поддержки Майкрософт поможет вам выявить и устранить проблемы, связанные с этими компонентами.
+>
+> Настраиваемые компоненты получают ограниченную коммерчески оправданную поддержку, способствующую дальнейшей диагностике проблемы. В результате проблема может быть устранена, либо вас могут попросить воспользоваться доступными каналами по технологиям с открытым исходным кодом, чтобы связаться с экспертами в данной области. Например, можно использовать ряд сайтов сообществ, например [форум MSDN по HDInsight](https://social.msdn.microsoft.com/Forums/azure/ru-ru/home?forum=hdinsight) и [http://stackoverflow.com](http://stackoverflow.com). Кроме того, для проектов Apache есть соответствующие сайты по адресу [http://apache.org](http://apache.org), например для [Hadoop](http://hadoop.apache.org/) и [Spark](http://spark.apache.org/).
 
 ##<a name="recommendations"></a>Общие сведения о рекомендациях
 
@@ -256,4 +264,4 @@ Mahout — это библиотека [машинного обучения][ml]
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

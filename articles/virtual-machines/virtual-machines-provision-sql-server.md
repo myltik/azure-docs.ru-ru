@@ -1,19 +1,21 @@
 <properties 
-	pageTitle="Подготовка виртуальной машины SQL Server в Azure"
-	description="В этом руководстве объясняется, как создавать и настраивать виртуальные машины SQL Server в Azure."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"/>
+	pageTitle="Подготовка виртуальной машины SQL Server | Microsoft Azure" 
+	description="В этом руководстве объясняется, как создавать и настраивать виртуальные машины SQL Server в Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="rothja" 
+	manager="jeffreyg" 
+	editor="monicar"
+	tags="azure-service-management"
+	/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows-sql-server" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="jroth"/>
 
 # Подготовка виртуальной машины SQL Server в Azure
@@ -23,6 +25,8 @@
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
 
 ## Обзор
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
 
 Коллекция виртуальных машин в Azure включает в себя несколько образов, содержащих Microsoft SQL Server. Можно выбрать один из образов виртуальных машин из коллекции и несколькими щелчками подготовить виртуальную машину в среде Azure.
 
@@ -48,7 +52,7 @@
 >[AZURE.NOTE]Виртуальную машину, созданную с помощью ознакомительной версии образа платформы SQL Server, нельзя обновить в коллекции до образа с поминутной оплатой. Можно выбрать один из двух вариантов:
 >
 > - Вы можете создать новую виртуальную машину с помощью выпуска SQL Server с поминутной оплатой из коллекции и перенести файлы базы данных на эту новую виртуальную машину, выполнив шаги, описанные в разделе [Миграция базы данных в SQL Server на виртуальной машине Azure](virtual-machines-migrate-onpremises-database).
-> - Либо вы можете обновить существующий экземпляр пробной версии SQL Server до другой версии SQL Server в рамках соглашения [Перемещение лицензий в рамках программы Software Assurance в Azure](http://azure.microsoft.com/pricing/license-mobility/), следуя процедуре, описанной в статье [Обновление до другой версии SQL Server](https://msdn.microsoft.com/library/cc707783.aspx). Сведения о покупке лицензионной копии SQL Server см. в разделе [Как приобрести SQL Server](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx).
+> - Либо вы можете обновить существующий экземпляр ознакомительного выпуска SQL Server до другого выпуска SQL Server в рамках соглашения [Перемещение лицензий в рамках программы Software Assurance в Azure](http://azure.microsoft.com/pricing/license-mobility/), следуя процедуре, описанной в статье [Обновление SQL Server до другого выпуска](https://msdn.microsoft.com/library/cc707783.aspx). Сведения о покупке лицензионной копии SQL Server см. в разделе [Как приобрести SQL Server](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx).
 
 4. На первой странице **Конфигурация виртуальной машины** укажите следующие сведения:
 	- **ДАТА ВЫПУСКА ВЕРСИИ**. Если доступно несколько образов, выберите самый последний из них.
@@ -104,7 +108,7 @@
 
 	![Нажмите кнопку «Открыть».](./media/virtual-machines-provision-sql-server/click-open-to-connect.png)
 
-3. В диалоговом окне **Безопасность Windows** выберите элемент **Другая учетная запись**.
+3. В диалоговом окне **Безопасность Windows** щелкните **Другая учетная запись**.
 
 	![Нажмите «Другая учетная запись»](./media/virtual-machines-provision-sql-server/credentials.png)
 
@@ -154,4 +158,4 @@
 
 - [Шаблоны приложений и стратегии разработки для SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

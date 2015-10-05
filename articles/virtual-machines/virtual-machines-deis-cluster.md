@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Развертывание 3-узлового кластера Deis в Azure"
+   pageTitle="Развертывание 3-узлового кластера Deis | Microsoft Azure"
    description="В этой статье описывается создание 3-узлового кластера Deis в Azure с помощью шаблона диспетчера ресурсов Azure."
    services="virtual-machines"
    documentationCenter=""
    authors="HaishiBai"
    manager="larar"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -20,6 +21,8 @@
 
 В этой статье пошагово описана подготовка кластера [Deis](http://deis.io/) в Azure. Она охватывает все действия, от создания необходимых сертификатов до развертывания и масштабирования примера приложения **Go** на новом подготовленном кластере.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса с помощью модели развертывания на основе диспетчера ресурсов.
+
 На следующей схеме показана архитектура развернутой системы. Системный администратор управляет кластером с помощью инструментов Deis, таких как **deis** и **deisctl**. Подключения устанавливаются через посредством подсистемы балансировки нагрузки Azure, переадресовывающей подключения одному из узлов, участвующих в кластере. Кроме того, доступ клиентов к развернутым приложениям также осуществляется через подсистему балансировки нагрузки. В этом случае подсистема балансировки нагрузки переадресовывает трафик в сеть маршрутизатора Deis, который, в свою очередь, перенаправляет трафик в соответствующие контейнеры Docker, размещенные в кластере.
 
   ![Схема архитектуры развернутого кластера Deis](media/virtual-machines-deis-cluster/architecture-overview.png)
@@ -28,7 +31,7 @@
 
  * Активная подписка Azure. Если у вас ее нет, можно получить бесплатную ознакомительную версию на сайте [azure.com](https://azure.microsoft.com).
  * Рабочий или учебный идентификатор для использования групп ресурсов Azure. Если у вас имеется личная учетная запись и для входа вы используете идентификатор Майкрософт, необходимо [создать рабочий идентификатор на основе вашего личного идентификатора](resource-group-create-work-id-from-personal.md).
- * Либо, в зависимости от клиентской операционной системы клиента, [Azure PowerShell](powershell-install-configure.md) или [Azure CLI для Mac, Linux и Windows](xplat-cli-install.md).
+ * Либо, в зависимости от клиентской операционной системы клиента, [Azure PowerShell](powershell-install-configure.md) или [интерфейса командной строки Azure для Mac, Linux и Windows](xplat-cli-install.md).
  * [OpenSSL](https://www.openssl.org/). OpenSSL используется для создания необходимых сертификатов.
  * Клиент Git, например [Git Bash](https://git-scm.com/).
  * Чтобы протестировать пример приложения, также необходим DNS-сервер. Можно использовать любые DNS-серверы или службы, которые поддерживают записи A с подстановочным знаком.
@@ -57,9 +60,9 @@
 5. Перейдите по адресу [https://discovery.etcd.io/new](https://discovery.etcd.io/new), чтобы создать новый токен кластера, который имеет следующий вид:
 
         https://discovery.etcd.io/6a28e078895c5ec737174db2419bb2f3
-<br /> У каждого кластера CoreOS должен быть уникальный токен от этой бесплатной службы. См. [документацию по CoreOS](https://coreos.com/docs/cluster-management/setup/cluster-discovery/), чтобы получить дополнительную информацию.
+<br /> У каждого кластера CoreOS должен быть уникальный токен от этой бесплатной службы. Дополнительные сведения см. в [документации по CoreOS](https://coreos.com/docs/cluster-management/setup/cluster-discovery/).
 
-6. Измените файл **облака config.yaml**, чтобы заменить существующий токен **discovery** новым:
+6. Измените файл **cloud-config.yaml**, чтобы заменить существующий токен **discovery** новым:
 
         #cloud-config
         ---
@@ -254,4 +257,4 @@
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

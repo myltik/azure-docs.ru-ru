@@ -1,21 +1,37 @@
-<properties title="Configuring Oracle GoldenGate for Azure" pageTitle="Настройка Oracle GoldenGate для Azure" description="Изучите учебник по установке и реализации Oracle GoldenGate на виртуальных машинах Azure для обеспечения высокого уровня доступности и аварийного восстановления." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties
+	pageTitle="Настройка Oracle GoldenGate на виртуальных машинах | Microsoft Azure"
+	description="Изучите учебник по установке и реализации Oracle GoldenGate на виртуальных машинах Azure с Windows Server для обеспечения высокого уровня доступности и аварийного восстановления."
+	services="virtual-machines"
+	authors="bbenz"
+	documentationCenter=""
+	tags="azure-service-management"/>
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
+	ms.author="bbenz" />
 #Настройка Oracle GoldenGate для Azure
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс управления ресурсом, созданным с помощью классической модели развертывания.
+
 В этом учебнике показано, как настроить Oracle GoldenGate для среды виртуальных машин Azure, чтобы обеспечить высокий уровень доступности и аварийное восстановление. Учебник посвящен [двунаправленной репликации](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_about_gg.htm) баз данных Oracle, не являющихся кластерами реальных приложений (RAC), и для него требуется, чтобы оба сайта были активны.
 
-Oracle GoldenGate поддерживает интеграцию данных и распределение данных. Это позволяет настроить решение для распределения данных и синхронизации данных с помощью конфигурации репликации из Oracle в Oracle, а также предоставляет гибкое решение, обеспечивающее высокий уровень доступности. Oracle GoldenGate дополняет Oracle Data Guard своими возможностями репликации, чтобы обеспечить распространение информации по всему предприятию, а также отсутствие простоев при обновлении и миграции. Дополнительную информацию см. в разделе [Использование Oracle GoldenGate с Oracle Data Guard](http://docs.oracle.com/cd/E11882_01/server.112/e17157/unplanned.htm).
+Oracle GoldenGate поддерживает интеграцию данных и распределение данных. Это позволяет настроить решение для распределения данных и синхронизации данных с помощью конфигурации репликации из Oracle в Oracle, а также предоставляет гибкое решение, обеспечивающее высокий уровень доступности. Oracle GoldenGate дополняет Oracle Data Guard своими возможностями репликации, чтобы обеспечить распространение информации по всему предприятию, а также отсутствие простоев при обновлении и миграции. Дополнительные сведения см. в разделе [Использование Oracle GoldenGate с Oracle Data Guard](http://docs.oracle.com/cd/E11882_01/server.112/e17157/unplanned.htm).
 
-Oracle GoldenGate состоит из следующих основных компонентов: Extract, Data Pump, Replicat, Trails (или извлекаемые файлы), Checkpoints, Manager и Collector. Для двунаправленной репликации между двумя сайтами необходимо создать и запустить все эти компоненты на обоих сайтах. Подробную информацию об архитектуре Oracle GoldenGate см. в [руководстве по Oracle GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html).
+Oracle GoldenGate состоит из следующих основных компонентов: Extract, Data Pump, Replicat, Trails (или извлекаемые файлы), Checkpoints, Manager и Collector. Для двунаправленной репликации между двумя сайтами необходимо создать и запустить все эти компоненты на обоих сайтах. Дополнительные сведения об архитектуре Oracle GoldenGate см. в [руководстве по Oracle GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html).
 
-В этом учебнике предполагается, что вы уже ознакомились с концепциями высокого уровня доступности и аварийного восстановления баз данных Oracle, а также [Oracle GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html), как в теории, так и на практике. Дополнительную информацию см. на [веб-сайте Oracle](http://www.oracle.com/technetwork/database/features/availability/index.html).
+В этом учебнике предполагается, что вы уже ознакомились с концепциями высокого уровня доступности и аварийного восстановления баз данных Oracle, а также [Oracle GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html), как в теории, так и на практике. Дополнительные сведения см. на [веб-сайте Oracle](http://www.oracle.com/technetwork/database/features/availability/index.html).
 
 Кроме того, для работы с учебником вы должны выполнить следующие предварительные требования:
 
-- Ознакомиться с подразделом «Принципы обеспечения высокого уровня доступности и аварийного восстановления» раздела [Образы виртуальных машин Oracle. Различные рекомендации](virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images.md). Обратите внимание, что в настоящее время Azure поддерживает автономные экземпляры базы данных Oracle, но не кластеры реальных приложений Oracle (Oracle RAC).
+- Ознакомиться с подразделом "Рекомендации по высокой доступности и аварийному восстановлению" раздела [Различные рекомендации по образам виртуальных машин Oracle](virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images.md). Обратите внимание, что в настоящее время Azure поддерживает автономные экземпляры базы данных Oracle, но не кластеры реальных приложений Oracle (Oracle RAC).
 
-- Скачать программное обеспечение Oracle GoldenGate с веб-сайта [скачиваемых файлов Oracle](http://www.oracle.com/us/downloads/index.html). Необходимо выбрать Product Pack Oracle Fusion Middleware – Data Integration. Затем следует выбрать пакет Oracle GoldenGate on Oracle v11.2.1 Media Pack для Microsoft Windows x64 (64-разрядная версия) для базы данных Oracle 11g. После этого следует скачать Oracle GoldenGate V11.2.1.0.3 для Oracle 11g (64-разрядная версия) для Windows 2008 (64-разрядная версия).
+- Скачать программное обеспечение Oracle GoldenGate с веб-сайта [Oracle](http://www.oracle.com/us/downloads/index.html). Необходимо выбрать Product Pack Oracle Fusion Middleware – Data Integration. Затем следует выбрать пакет Oracle GoldenGate on Oracle v11.2.1 Media Pack для Microsoft Windows x64 (64-разрядная версия) для базы данных Oracle 11g. После этого следует скачать Oracle GoldenGate V11.2.1.0.3 для Oracle 11g (64-разрядная версия) для Windows 2008 (64-разрядная версия).
 
-- Создать две виртуальные машины в Azure с помощью платформы, которая предоставляется образом Oracle Enterprise Edition в Windows Server. Дополнительную информацию см. в статьях [Создание виртуальной машины Oracle Database 12c в Azure](#z3dc8d3c097cf414e9048f7a89c026f80) и [Виртуальные машины Azure](http://azure.microsoft.com/documentation/services/virtual-machines/). Убедиться, что эти виртуальные машины находятся в [одной и той же облачной службе](virtual-machines-load-balance.md) и в [одной виртуальной сети](http://azure.microsoft.com/documentation/services/virtual-network/), чтобы они могли обращаться друг к другу посредством постоянного частного IP-адреса.
+- Создать две виртуальные машины в Azure с помощью платформы, которая предоставляется образом Oracle Enterprise Edition в Windows Server. Информацию см. в статьях [Создание виртуальной машины Oracle Database 12c в Azure](#z3dc8d3c097cf414e9048f7a89c026f80) и [Виртуальные машины Azure](http://azure.microsoft.com/documentation/services/virtual-machines/). Убедиться, что эти виртуальные машины находятся в [одной облачной службе](virtual-machines-load-balance.md) и [одной виртуальной сети](http://azure.microsoft.com/documentation/services/virtual-network/), чтобы они могли обращаться друг к другу посредством постоянного частного IP-адреса.
 
 - На портале Azure присвоить виртуальным машинам имена: MachineGG1 для сайта A и MachineGG2 для сайта B.
 
@@ -28,7 +44,7 @@ Oracle GoldenGate состоит из следующих основных ком
 1. Настраивать базу данных на сайтах A и B:  
 
 	1. Выполнять начальную загрузку данных.
-	
+
 2. Подготавливать сайты А и B для репликации базы данных.
 
 3. Создавать все необходимые объекты для поддержки репликации DDL.
@@ -71,7 +87,7 @@ Oracle GoldenGate состоит из следующих основных ком
 >| **ИД безопасности Oracle** | TESTGG1 | TESTGG2 |
 >| **Схема репликации** | SCOTT | SCOTT |
 
-Для последующих выпусков базы данных Oracle и Oracle GoldenGate может потребоваться реализовать некоторые дополнительные изменения. Сведения о последних версиях см. в документации по [Oracle GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) и [базе данных Oracle](http://www.oracle.com/us/corporate/features/database-12c/index.html) на веб-сайте Oracle. Например, для базы данных-источника версии 11.2.0.4 и более поздних версий запись DDL выполняется асинхронно сервером интеллектуального анализа журналов и не требует установки специальных триггеров, таблиц или других объектов базы. Обновления Oracle GoldenGate могут выполняться без остановки приложений пользователя. Использование триггера DDL и вспомогательных объектов необходимо, когда Extract выполняется в режиме интеграции с базой данных-источником Oracle 11g, версия которой предшествует 11.2.0.4. Подробное руководство см. в разделе [Установка и настройка Oracle GoldenGate для базы данных Oracle](http://docs.oracle.com/goldengate/1212/gg-winux/GIORA.pdf).
+Для последующих выпусков базы данных Oracle и Oracle GoldenGate может потребоваться реализовать некоторые дополнительные изменения. Последние сведения о версиях см. в документации по [Oracle GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) и [Oracle Database](http://www.oracle.com/us/corporate/features/database-12c/index.html) на веб-сайте Oracle. Например, для базы данных-источника версии 11.2.0.4 и более поздних версий запись DDL выполняется асинхронно сервером интеллектуального анализа журналов и не требует установки специальных триггеров, таблиц или других объектов базы. Обновления Oracle GoldenGate могут выполняться без остановки приложений пользователя. Использование триггера DDL и вспомогательных объектов необходимо, когда Extract выполняется в режиме интеграции с базой данных-источником Oracle 11g, версия которой предшествует 11.2.0.4. Подробные инструкции см. в руководстве [Установка и настройка Oracle GoldenGate для базы данных Oracle](http://docs.oracle.com/goldengate/1212/gg-winux/GIORA.pdf).
 
 ##1\. Настройка базы данных на сайтах A и B
 В этом разделе объясняется, как выполнять предварительные требования к базе данных на сайтах А и B. Все шаги этого раздела необходимо выполнить на обоих сайтах, А и B.
@@ -96,13 +112,13 @@ Oracle GoldenGate состоит из следующих основных ком
 
 Затем необходимо создать пользователя базы данных, который будет использоваться процессами Manager, Extract и Replication Oracle GoldenGate. Обратите внимание, что можно создать отдельных пользователей для каждого процесса или настроить только одного общего пользователя. В этом учебнике мы создадим одного пользователя, ggate. Затем мы предоставим этому пользователю необходимые привилегии. Обратите внимание, что следующие операции необходимо выполнить на сайте А и сайте B.
 
-Откройте командное окно SQL*Plus на сайте A и сайте B с привилегиями администратора базы данных, используя **SYSDBA**, например:
+Откройте командное окно SQL*Plus на сайте A и сайте B с правами администратора базы данных, используя **SYSDBA**, например:
 
 	Enter username: / as sysdba
 
 И выполните:
 
-	SQL> create tablespace ggs_data   datafile 'c:\OracleDatabase\oradata<DBNAME><DBNAME>ggs_data01.dbf' size 200m; 
+	SQL> create tablespace ggs_data   datafile 'c:\OracleDatabase\oradata<DBNAME><DBNAME>ggs_data01.dbf' size 200m;
 	SQL> create user ggate identified by ggate default tablespace ggs_data  temporary tablespace temp;
 	      grant connect, resource to ggate;
 	      grant select any dictionary, select any table to ggate;
@@ -125,12 +141,12 @@ Oracle GoldenGate состоит из следующих основных ком
 
 ### Выполнение начальной загрузки данных
 
-Начальную загрузку данных в базу данных можно выполнить несколькими методами. Например, можно использовать [прямую загрузку Oracle GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_initsync.htm) или регулярные служебные программы Export и Import, чтобы экспортировать данные таблицы с сайта А на сайт B.
+Начальную загрузку данных в базу данных можно выполнить несколькими методами. Например, экспортировать данные таблицы с сайта А на сайт B можно с помощью [прямой загрузки Oracle GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_initsync.htm) или обычных служебных программ для экспорта и импорта.
 
 Для демонстрации процесса репликации Oracle GoldenGate в этом учебнике показано создание таблицы на обоих сайтах A и B с помощью следующих команд.
 
 Сначала откройте командное окно SQL*Plus и выполните следующую команду, чтобы создать таблицу inventory в базах данных на сайтах A и B:
-	
+
 	create table scott.inventory
 	(prod_id number,
 	prod_category varchar2(20),
@@ -158,17 +174,17 @@ Oracle GoldenGate состоит из следующих основных ком
 	:NEW.LAST_DML := SYSTIMESTAMP;
 	END IF;
 	END;
-	/ 
+	/
 
 
 ##2\. Подготовка сайтов А и B для репликации базы данных
 В этом разделе поясняется, как подготовить сайты А и B для репликации базы данных. Все шаги этого раздела необходимо выполнить на обоих сайтах, А и B.
 
 Сначала установите подключение удаленного рабочего стола для сайта А и сайта B на портале Azure. Переключите базу данных в режим archivelog с помощью командного окна SQL*Plus:
-	
-	sql>shutdown immediate 
-	sql>startup mount 
-	sql>alter database archivelog; 
+
+	sql>shutdown immediate
+	sql>startup mount
+	sql>alter database archivelog;
 	sql>alter database open;
 
 
@@ -182,22 +198,22 @@ Oracle GoldenGate состоит из следующих основных ком
 
 Завершите работу базы данных и перезапустите ее:
 
-	sql>shutdown immediate 
+	sql>shutdown immediate
 	sql>startup
 
 
 ##3\. Создание всех необходимых объектов для поддержки репликации DDL
 В этом разделе перечислены сценарии, которые надо использовать для создания всех объектов, необходимых для поддержки репликации DDL. Сценарии, указанные в этом разделе, необходимо выполнить на сайте А и сайте B.
 
-Откройте командную строку Windows и перейдите к папке Oracle GoldenGate, например C:\\OracleGG. Откройте командную строку SQL*Plus на сайте A и сайте B с привилегиями администратора базы данных, например, используя **SYSDBA**.
+Откройте командную строку Windows и перейдите к папке Oracle GoldenGate, например C:\\OracleGG. Откройте командную строку SQL*Plus на сайте A и сайте B с правами администратора базы данных, например, используя **SYSDBA**.
 
 Затем выполните следующие сценарии:
-	
+
 	SQL> @marker_setup.sql  
 	Enter GoldenGate schema name: ggate
 	SQL> @ddl_setup.sql  
 	Enter GoldenGate schema name: ggate
-	SQL> @role_setup.sql 
+	SQL> @role_setup.sql
 	Enter GoldenGate schema name: ggate
 	SQL> grant ggs_ggsuser_role to ggate;
 	 Grant succeeded.
@@ -298,7 +314,7 @@ Oracle GoldenGate состоит из следующих основных ком
 	Successfully logged into database.
 
 После этого добавьте таблицу контрольных точек в базу данных, владельцем которой является ggate:
-	
+
 	GGSCI (MachineGG2) 2> ADD CHECKPOINTTABLE ggate.checkpointtable
 	Successfully created checkpoint table ggate.checkpointtable.
 
@@ -316,7 +332,7 @@ Oracle GoldenGate состоит из следующих основных ком
 
 ###Добавление REPLICAT на сайт B
 В этом разделе описывается добавление процесса REPLICAT REP2 на сайт B.
- 
+
 С помощью команды ADD REPLICAT создайте группу Replicat на сайте B:
 
 	GGSCI (MachineGG2) 37> add replicat rep2 exttrail C:\OracleGG\dirdatab, checkpointtable ggate.checkpointtable
@@ -417,7 +433,7 @@ Oracle GoldenGate состоит из следующих основных ком
 	GGSCI (MachineGG1) 13> info trandata scott.inventory
 	Logging of supplemental redo log data is enabled for table SCOTT.INVENTORY.
 	Columns supplementally logged for table SCOTT.INVENTORY: PROD_ID, PROD_CATEGORY, QTY_IN_STOCK, LAST_DML.
-		
+
 Установите подключение удаленного рабочего стола к MachineGG2, откройте интерпретатор команд Oracle GoldenGate и выполните:
 
 	GGSCI (MachineGG2) 18> dblogin userid ggate password ggate
@@ -474,7 +490,7 @@ Oracle GoldenGate состоит из следующих основных ком
 
 	GGSCI (MachineGG1) 16> info all
 	Program     Status      Group       Lag at Chkpt  Time Since Chkpt
-	
+
 	MANAGER     RUNNING
 	EXTRACT     RUNNING     DPUMP1      00:00:00      00:46:33
 	EXTRACT     RUNNING     EXT1        00:00:00      00:00:04
@@ -497,7 +513,7 @@ Oracle GoldenGate состоит из следующих основных ком
 
 	GGSCI (ActiveGG2orcldb) 6> info all
 	Program     Status      Group       Lag at Chkpt  Time Since Chkpt
-	
+
 	MANAGER     RUNNING
 	EXTRACT     RUNNING     DPUMP2      00:00:00      136:13:33
 	EXTRACT     RUNNING     EXT2        00:00:00      00:00:04
@@ -535,29 +551,29 @@ Oracle GoldenGate состоит из следующих основных ком
 ##6\. Проверка процесса двунаправленной репликации
 
 Чтобы проверить конфигурацию Oracle GoldenGate, вставьте строку в базу данных на сайте A. Установите подключение удаленного рабочего стола к сайту A. Откройте командное окно SQL*Plus и выполните: SQL> select name from v$database;
-	
+
 	NAME
 	———
 	TESTGG
-	
+
 	SQL> insert into inventory values  (100,’TV’,100,sysdate);
-	
+
 	1 row created.
-	
+
 	SQL> commit;
-	
+
 	Commit complete.
 
 Затем проверьте, реплицирована ли эта строка на сайт B. Для этого установите подключение удаленного рабочего стола к сайту B. Откройте окно SQL Plus и выполните:
 
 	SQL> select name from v$database;
-	
+
 	NAME
 	———
 	TESTGG
-	
+
 	SQL> select * from inventory;
-	
+
 	PROD_ID PROD_CATEGORY QTY_IN_STOCK LAST_DML
 	———- ——————– ———— ———
 	100 TV 100 22-MAR-13
@@ -566,15 +582,15 @@ Oracle GoldenGate состоит из следующих основных ком
 
 	SQL> insert into inventory  values  (101,’DVD’,10,sysdate);
 	1 row created.
-	
+
 	SQL> commit;
-	
+
 	Commit complete.
 
 Установите подключение удаленного рабочего стола к сайту А и проверьте, была выполнена репликация:
 
 	SQL> select * from inventory;
-	
+
 	PROD_ID PROD_CATEGORY QTY_IN_STOCK LAST_DML
 	———- ——————– ———— ———
 	100 TV 100 22-MAR-13
@@ -583,4 +599,4 @@ Oracle GoldenGate состоит из следующих основных ком
 ##Дополнительные ресурсы
 [Образы виртуальных машин Oracle для Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

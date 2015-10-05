@@ -34,7 +34,7 @@
 
 ![Снимок экрана приложения "Мой список дел", созданного с помощью этого учебника](./media/documentdb-nodejs-application/image1.png)
 
-Нет времени на знакомство с учебником, и вы просто хотите получить готовое решение с GitHub? Не проблема, получите его [здесь](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
+Нет времени на изучение учебника, и вы просто хотите получить готовое решение? Без проблем, вы можете получить полный пример решения на сайте [GitHub][].
 
 ## <a name="_Toc395783176"></a>Предварительные требования
 
@@ -554,10 +554,13 @@
 
 Поздравляем! Вы только что создали свое первое веб-приложение Node.js Express с использованием Azure DocumentDB и опубликовали его на веб-сайтах Azure.
 
-Исходный код завершенного учебного приложения можно загрузить [здесь](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
+Исходный код полного справочного приложения можно скачать на сайте [GitHub][].
 
-  [Node.js]: http://nodejs.org/
-  [Git]: http://git-scm.com/
+Дополнительную информацию см. в [Центре разработчика Node.js](/develop/nodejs/).
+
+[Node.js]: http://nodejs.org/
+[Git]: http://git-scm.com/
+[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

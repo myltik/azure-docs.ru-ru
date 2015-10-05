@@ -1,20 +1,20 @@
 <properties
    pageTitle="Общие сведения о конфигурации KVSActorStateProvider при использовании надежных субъектов Service Fabric"
-	description="Информация о настройке субъектов Service Fabric с отслеживанием состояния и типом KVSActorStateProvider."
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="sumukhs"
-	manager="anuragg"
-	editor=""/>
+   description="Информация о настройке субъектов Service Fabric с отслеживанием состояния и типом KVSActorStateProvider."
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="sumukhs"
+   manager="anuragg"
+   editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="sumukhs"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="sumukhs"/>
 
 # Конфигурация надежных субъектов — KVSActorStateProvider
 Используемую по умолчанию конфигурацию KVSActorStateProvider можно изменить. Для этого нужно обновить файл settings.xml, созданный в папке Config конкретного субъекта в корневом каталоге пакета Visual Studio.
@@ -27,10 +27,8 @@
 Конфигурации безопасности репликаторов используются для защиты канала связи, который используется во время репликации. Это означает, что службы не будут «видеть» реплицируемый трафик друг друга, что позволит обеспечить высокую доступность и высокий уровень защиты. Пустой раздел конфигурации безопасности означает, что канал репликации не защищен.
 ### Имя раздела
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
-### Имена конфигураций
-См. статью [Защита трафика репликации](../service-fabric/service-fabric-replication-security.md).
 
-## Настройка репликатора
+## Конфигурация репликатора
 Конфигурации репликатора используются для настройки репликатора, отвечающего за надежность состояний поставщика состояний субъекта. Как правило, достаточно использовать конфигурацию по умолчанию, которая создается с помощью шаблона Visual Studio. В этом разделе мы расскажем о дополнительных конфигурациях, с помощью которых можно выполнить более тонкую настройку репликатора.
 ### Имя раздела
 &lt;ActorName&gt;ServiceReplicatorConfig
@@ -82,6 +80,5 @@
 ## Примечания
 
 Параметр BatchAcknowledgementInterval управляет задержкой репликации. Значение 0 обеспечивает минимальную возможную задержку за счет уменьшения скорости репликации (потому что необходимо отправлять и обрабатывать большее количество сообщений с подтверждениями, каждое из которых содержит меньше подтверждений). По мере увеличения значения BatchAcknowledgementInterval увеличивается общая скорость репликации и задержка операций. Значение этого параметра напрямую влияет на задержку фиксации транзакций.
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

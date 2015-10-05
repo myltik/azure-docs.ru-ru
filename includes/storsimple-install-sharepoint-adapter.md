@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Установка адаптера StorSimple для SharePoint
 
@@ -25,4 +26,4 @@
 
 8. Перейдите к следующему шагу: [Настройка RBS](#configure-rbs).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

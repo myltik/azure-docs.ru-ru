@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="08/13/2015"
+	ms.date="09/17/2015"
 	ms.author="bwren"/>
 
 
@@ -21,9 +21,9 @@
 
 > [AZURE.SELECTOR]
 - [Graphical](automation-first-runbook-graphical.md)
-- [Textual](automation-first-runbook-textual.md)
+- [PowerShell Workflow](automation-first-runbook-textual.md)
 
-В данном учебнике описана процедура создания [графического модуля Runbook](automation-graphical-authoring-intro.md) в службе автоматизации Azure. Для начала мы протестируем и опубликуем простой модуль Runbook и расскажем, как отслеживать состояние его заданий. Затем мы изменим Runbook, настроив его на фактическое управление ресурсами Azure (в данном случае на запуск виртуальной машины Azure). Затем мы создадим еще один, улучшенный модуль Runbook, добавив параметры и условную связь.
+В данном учебнике описана процедура создания [графического модуля Runbook](automation-runbook-types.md#graphical-runbooks) в службе автоматизации Azure. Для начала мы протестируем и опубликуем простой модуль Runbook и расскажем, как отслеживать состояние его заданий. Затем мы изменим Runbook, настроив его на фактическое управление ресурсами Azure (в данном случае на запуск виртуальной машины Azure). Затем мы создадим еще один, улучшенный модуль Runbook, добавив параметры и условную связь.
 
 ## Предварительные требования
 
@@ -165,8 +165,8 @@
 ## Связанные статьи
 
 - [Графическая разработка в службе автоматизации Azure](automation-graphical-authoring-intro.md)
-- [Мой первый текстовый модуль Runbook](automation-first-runbook-textual.md)
+- [Первый Runbook рабочего процесса PowerShell](automation-first-runbook-textual.md)
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

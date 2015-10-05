@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Какие дальнейшие действия можно предпринимать с помощью Azure AD?"
-	description="Представлены дополнительные задачи с помощью Azure AD."
+	pageTitle="Какие дальнейшие действия можно предпринимать с помощью Azure Active Directory?"
+	description="Сложные задачи, такие как управление паролями, управление пользователями, управление группами и использование условного доступа с помощью Azure Active Directory."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="terrylan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Какие дальнейшие действия можно предпринимать с помощью Azure AD?
 
 
-###Другие статьи на эту тему
+### Другие статьи на эту тему
 [Что такое Azure AD?](active-directory-whatis.md)<br> [Как это работает?](active-directory-works.md)<br> [Приступая к работе](active-directory-get-started.md)<br> [Дальнейшие действия](active-directory-next-steps.md)<br> [Подробнее](active-directory-learn-map.md)
 
 ## Управление учетными записями пользователей в Azure Active Directory
@@ -41,4 +41,4 @@
 * [Удостоверение Azure](fundamentals-identity.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

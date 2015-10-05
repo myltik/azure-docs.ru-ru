@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Протоколы проверки подлинности Azure Active Directory"
+   pageTitle="Протоколы аутентификации Azure Active Directory | Microsoft Azure"
    description="Обзор протоколов проверки подлинности, поддерживаемых в Azure Active Directory (AD)"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Протоколы проверки подлинности Azure Active Directory
@@ -55,4 +55,4 @@
 
 [Примеры кода Active Directory](active-directory-code-samples.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

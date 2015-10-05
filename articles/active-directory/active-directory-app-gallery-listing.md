@@ -1,6 +1,6 @@
 <properties
    pageTitle="Добавление приложения в коллекцию приложений Azure Active Directory"
-   description="Полное руководство по ориентированным на разработчиков ресурсам для Azure Active Directory"
+   description="Как добавить приложение, поддерживающее единый вход, в список галереи Azure Active Directory | Microsoft Azure"
    services="active-directory"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/30/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 
@@ -56,6 +56,5 @@
 > Приложите крупный значок приложения (PNG-файл, 215 x 215 пикселей, сплошной цвет фона):
 >
 > Приложите логотип приложения (PNG-файл, 150 x 122 пикселя, сплошной цвет фона):
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

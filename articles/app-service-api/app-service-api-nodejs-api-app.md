@@ -4,8 +4,8 @@
 	services="app-service\api"
 	documentationCenter="nodejs"
 	authors="pkefal"
-	manager=""
-	editor=""/>
+  manager="" 
+  editor=""/>
 
 <tags
 	ms.service="app-service-api"
@@ -17,6 +17,12 @@
 	ms.author="pakefali"/>
 
 # Создание и развертывание приложения API Node.js в службе приложений Azure
+
+> [AZURE.SELECTOR]
+- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
+- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [Node.js](app-service-api-nodejs-api-app.md)
+- [Java](app-service-api-java-api-app.md)
 
 В этом учебнике показано, как создать приложение [Node.js](http://nodejs.org) и развернуть его в приложения API в службе приложений Azure с помощью [Git](http://git-scm.com). Инструкции, приведенные в этом учебнике, применимы к любой операционной системе, на которой может работать Node.
 
@@ -34,7 +40,7 @@
 
 2. Щелкните команду **СОЗДАТЬ** в нижнем левом углу портала.
 
-3. Выберите элементы **Интернет + мобильные устройства** > **Приложение API**.
+3. Щелкните **Интернет + мобильные устройства** > **Приложение API**.
 
 	![][portal-quick-create]
 
@@ -50,7 +56,7 @@
 
 	Если установлен флажок **Добавить на начальную панель**, на портале автоматически откроется колонка приложения API после его создания. Если этот флажок снят, выберите элемент **Уведомления** на домашней странице портала, чтобы узнать состояние создания приложения API, а затем щелкните уведомление, чтобы перейти к колонке нового приложения API.
 
-7. Щелкните элементы **Параметры** > **Параметры приложения**.
+7. Щелкните **Параметры** > **Параметры приложения**.
 
 9. Установите для уровня доступа значение **Общедоступный (анонимный)**.
 
@@ -243,4 +249,4 @@
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

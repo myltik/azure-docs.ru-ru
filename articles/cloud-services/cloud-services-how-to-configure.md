@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Настройка облачной службы | Microsoft Azure"
-	description="Узнайте, как настроить облачные службы в Azure. Как обновить конфигурацию облачной службы и настроить удаленный доступ к экземплярам роли."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
+	pageTitle="Настройка облачной службы | Microsoft Azure" 
+	description="Узнайте, как настроить облачные службы в Azure. Как обновить конфигурацию облачной службы и настроить удаленный доступ к экземплярам роли." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -78,8 +78,12 @@
     4. Нажмите кнопку **OK** (флажок).
 
 
-## Дополнительные ресурсы
+## Дальнейшие действия
 
-[Активация подключения к удаленному рабочему столу для роли в облачных службах Azure](cloud-services-role-enable-remote-desktop.md)
+* Узнайте, как [развернуть облачную службу](cloud-services-how-to-create-deploy.md).
+* Настройте [пользовательское доменное имя](cloud-services-custom-domain-name.md).
+* [Управляйте облачной службой](cloud-services-how-to-manage.md).
+* [Активация подключения к удаленному рабочему столу для роли в облачных службах Azure](cloud-services-role-enable-remote-desktop.md)
+* Настройте [SSL-сертификаты](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

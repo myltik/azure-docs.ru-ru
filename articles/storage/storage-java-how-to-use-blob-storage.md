@@ -258,6 +258,8 @@
 - [REST API службы хранилища Azure][]
 - [Блог рабочей группы службы хранилища Azure][]
 
+Дополнительную информацию см. также в [Центре разработчика Java](/develop/java/).
+
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Пакет SDK для службы хранилища Azure для Java]: https://github.com/azure/azure-storage-java
 [Пакет SDK хранилища Azure для Java]: https://github.com/azure/azure-storage-java
@@ -268,4 +270,4 @@
 [REST API службы хранилища Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Использование хранилища Azure Premium Storage с SQL Server на виртуальных машинах"
-	description="В этой статье приведены инструкции, касающиеся начала использования хранилища Azure Premium Storage с сервером SQL Server на виртуальных машинах Azure. Статья содержит примеры новых развертываний и миграции существующих развертываний SQL Server в IaaS."
+	pageTitle="Использование хранилища Azure Premium с SQL Server | Microsoft Azure"
+	description="В этой статье используется ресурсы, созданные с помощью классической модели развертывания, и предоставляются рекомендации по использованию хранилища Azure Premium с SQL Server, выполняющимся на виртуальных машинах Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="danielsollondon"
 	manager="jeffreyg"
-	editor=""/>
+   editor="monicar"    
+   tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -21,7 +22,11 @@
 
 ## Обзор
 
-[Хранилище Azure Premium Storage](../storage-premium-storage-preview-portal.md) — это хранилище нового поколения, обеспечивающее малую задержку и высокую пропускную способность ввода-вывода. Данное хранилище лучше справляется с интенсивными нагрузками ввода-вывода, как, например, SQL Server на [виртуальных машинах](http://azure.microsoft.com/services/virtual-machines/) IaaS. Данная статья содержит информацию о планировании и осуществлении миграции виртуальной машины под управлением SQL Server для использования хранилища Premium Storage. Она включает описание этапов работы с инфраструктурой Azure (сеть, хранилище) и гостевой виртуальной машиной Windows. В примере из [приложения](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) приведена комплексная схема миграции, описывающая перенос более крупных виртуальных машин, что позволит воспользоваться преимуществами улучшенного локального хранилища SSD с помощью PowerShell.
+[Хранилище Azure Premium Storage](../storage-premium-storage-preview-portal.md) — это хранилище нового поколения, обеспечивающее малую задержку и высокую пропускную способность ввода-вывода. Данное хранилище лучше справляется с интенсивными нагрузками ввода-вывода, как, например, SQL Server на [виртуальных машинах](http://azure.microsoft.com/services/virtual-machines/) IaaS.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается использование ресурсов с классической моделью развертывания.
+
+Данная статья содержит информацию о планировании и осуществлении миграции виртуальной машины под управлением SQL Server для использования хранилища Premium Storage. Она включает описание этапов работы с инфраструктурой Azure (сеть, хранилище) и гостевой виртуальной машиной Windows. В примере из [приложения](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) приведена комплексная схема миграции, описывающая перенос более крупных виртуальных машин, что позволит воспользоваться преимуществами улучшенного локального хранилища SSD с помощью PowerShell.
 
 Важно понимать весь процесс использования хранилища Azure Premium Storage с сервером SQL Server на виртуальных машинах IAAS. А именно:
 
@@ -83,7 +88,7 @@
 
 Вам потребуется создать новую учетную запись хранения, настроенную для хранилища Premium Storage. Обратите внимание, что использование хранилища Premium Storage настраивается в учетной записи хранения, а не на отдельных виртуальных жестких дисках. Тем не менее при использовании виртуальной машины серии DS* вы можете подключать виртуальные жесткие диски из учетных записей хранения Premium и Standard. Вы можете воспользоваться таким решением, если не хотите размещать виртуальный жесткий диск ОС на учетной записи хранения Premium.
 
-Следующая команда **New-AzureStorageAccountPowerShell** с **типом** Premium_LRS создает учетную запись хранения Premium:
+Следующая команда **New-AzureStorageAccountPowerShell** с **типом** Premium\_LRS создает учетную запись хранения Premium:
 
     $newstorageaccountname = "danpremstor" 
     New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "West Europe" -Type "Premium_LRS"   
@@ -1143,4 +1148,4 @@
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

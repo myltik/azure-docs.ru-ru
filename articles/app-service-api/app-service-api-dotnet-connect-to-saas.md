@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Подключение к платформе SaaS из приложения API ASP.NET в службе приложений Azure
@@ -455,4 +455,4 @@ URL-адрес перенаправления после входа в Dropbox �
 [портал Azure]: https://manage.windowsazure.com/
 [портала Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

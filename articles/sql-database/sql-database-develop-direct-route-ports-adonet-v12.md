@@ -114,4 +114,10 @@
 
 - [Подключение к базе данных SQL: ссылки, рекомендации и советы по разработке](sql-database-connect-central-recommendations.md)
 
-<!---HONumber=Sept15_HO3-->
+
+- [Брандмауэр базы данных SQL Azure](sql-database-firewall-configure.md)
+
+
+- [Практическое руководство. Настройка параметров брандмауэра для Базы данных SQL](sql-database-configure-firewall-settings.md)
+
+<!---HONumber=Sept15_HO4-->

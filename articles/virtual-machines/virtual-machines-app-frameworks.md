@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Платформы приложений"
+   pageTitle="Платформы приложений | Microsoft Azure"
    description="В этой статье описано, как создавать популярные платформы приложений, используя шаблоны с помощью диспетчера ресурсов Azure. В качестве примеров можно привести стек LAMP, SharePoint и SQL Server."
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="squillace"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager" />
 
 <tags
    ms.service="virtual-machines"
@@ -19,6 +20,8 @@
 # Создание платформ приложений с помощью шаблонов
 
 Приведенные здесь информация и ссылки позволят вам ускорить процесс создания необходимых объектов.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса с помощью модели развертывания на основе диспетчера ресурсов.
 
 | Шаблон | Описание | Просмотрите шаблон | Разверните его прямо сейчас |
 |:---|:---|:---:|:---:|
@@ -47,6 +50,6 @@
 
 Ознакомьтесь со всеми шаблонами в вашем распоряжении на сайте [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-Дополнительные сведения о диспетчере ресурсов Azure см. [здесь](../resource-group-template-deploy.md).
+Узнайте больше о [диспетчере ресурсов Azure](../resource-group-template-deploy.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

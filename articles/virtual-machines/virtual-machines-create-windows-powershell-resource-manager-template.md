@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов"
+	pageTitle="Создание виртуальной машины с помощью шаблона ARM | Microsoft Azure"
 	description="Используйте шаблон диспетчера ресурсов, чтобы с легкостью создать виртуальную машину Windows с помощью Azure PowerShell или интерфейса командной строки Azure."
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса с помощью модели развертывания на основе диспетчера ресурсов. Создать этот ресурс с помощью классической модели развертывания невозможно.
 
 Вы можете легко создать виртуальную машину Azure под управлением Windows, используя шаблон диспетчера ресурсов с помощью Azure PowerShell или интерфейса командной строки Azure. Этот шаблон позволяет создать одну виртуальную машину под управлением Windows в новой виртуальной сети с единой подсетью в новой группе ресурсов.
 
@@ -333,4 +335,4 @@
 
 [Установка и настройка Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->
