@@ -886,7 +886,16 @@ ADAL для Android представляет пользователя в вид�
  
  **В тот же файл** с именем `ToDoActivity.java` добавим код:
  
- ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
+```
+    private URL getEndpointUrl() {
+        URL endpoint = null;
+        try {
+            endpoint = new URL(Constants.SERVICE_URL);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return endpoint;
+    }
 
  ```
 
@@ -959,21 +968,26 @@ ADAL для Android представляет пользователя в вид�
 
 Готовый пример для сравнения в виде ZIP-файла находится [здесь](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip). Также можно клонировать его с GitHub.
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android```
-
-
-### Important Information
-
-
-#### Encryption
-
-ADAL encrypts the tokens and store in SharedPreferences by default. You can look at the StorageHelper class to see the details. Android introduced AndroidKeyStore for 4.3(API18) secure storage of private keys. ADAL uses that for API18 and above. If you want to use ADAL for lower SDK versions, you need to provide secret key at AuthenticationSettings.INSTANCE.setSecretKey
-
-#### Session cookies in Webview
-
-Android webview does not clear session cookies after app is closed. You can handle this with sample code below:
 ```
-CookieSyncManager.createInstance(getApplicationContext()); CookieManager cookieManager = CookieManager.getInstance(); cookieManager.removeSessionCookie(); CookieSyncManager.getInstance().sync(); ``` Подробнее о файлах cookie: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android
+```
+
+
+### Важная информация
+
+
+#### Шифрование
+
+ADAL шифрует маркеры и по умолчанию хранит их в SharedPreferences. Вы можете подробно рассмотреть класс StorageHelper. В Android 4.3 (API уровня 18) введено безопасное хранилище закрытых ключей AndroidKeyStore. Библиотека ADAL использует это хранилище при работе с API уровня 18 и выше. Если требуется использовать ADAL с более ранними версиями SDK, необходимо предоставить секретный ключ в AuthenticationSettings.INSTANCE.setSecretKey.
+
+#### Файлы cookie сеанса в веб-представлении
+
+После закрытия приложения веб-представление Android не очищает файлы cookie сеанса. Выполнить очистку можно с помощью следующего примера кода: ```
+CookieSyncManager.createInstance(getApplicationContext());
+CookieManager cookieManager = CookieManager.getInstance();
+cookieManager.removeSessionCookie();
+CookieSyncManager.getInstance().sync();
+``` Подробнее о файлах cookie: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
-<!---HONumber=Sept15_HO4-->
+<!----HONumber=Sept15_HO4-->

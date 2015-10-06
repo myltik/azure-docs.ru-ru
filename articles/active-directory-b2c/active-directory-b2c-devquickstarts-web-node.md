@@ -34,50 +34,48 @@
 
 Код для этого учебника размещен на портале [GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS). Для понимания процесса можно [скачать основу приложения как ZIP-файл](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) или клонировать ее:
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
+```
+git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git
+```
 
-The completed application is provided at the end of this tutorial as well.
+Готовое приложение также приводится в конце этого руководства.
 
-> [AZURE.WARNING] 	For our B2C Preview you must use the same client ID/Application ID and policies for both the Web-API task server and the client that connects to it. This is true for our iOS and Android tutorials. If you have previously created an application in either of those quickstarts, please use those values instead of creating new ones below.
+> [AZURE.WARNING] 	Для предварительной версии B2C следует использовать тот же идентификатор клиента или идентификатор приложения и политики как для сервера задач веб-API, так и для клиента, который к нему подключается. Это верно для учебников по iOS и Android. Если ранее вы создали приложение в любом из этих руководств, используйте эти значения и не создавайте новые в дальнейшем.
 
-## 1. Get an Azure AD B2C directory
+## 1. Создание каталога Azure AD B2C
 
-Before you can use Azure AD B2C, you must create a directory, or tenant.  A directory is a container for all your users, apps, groups, and so on.  If you don't have
+Перед использованием Azure AD B2C необходимо создать каталог или клиент. Каталог — это контейнер для всех пользователей, приложений, групп и т. д. Если каталог B2C еще не создан, [создайте его](active-directory-b2c-get-started.md), прежде чем продолжить.
 one already, go [create a B2C directory](active-directory-b2c-get-started.md) before moving on.
 
-## 2. Create an application
+## 2. Создание приложения
 
-Now you need to create an app in your B2C directory, which gives Azure AD some information that it needs to securely communicate with your app.  Both the client app and web API will be represented by a single **Application ID** in this case, since they comprise one logical app.  To create an app,
-follow [these instructions](active-directory-b2c-app-registration.md).  Be sure to
+Теперь необходимо создать приложение в каталоге B2C. Оно будет передавать в Azure AD сведения, необходимые для безопасного взаимодействия с вашим приложением. В этом случае как клиентское приложение, так и веб-API будут представлены одним **идентификатором приложения**, поскольку они включают в себя одно приложение логики. Создайте приложение, выполнив [эти инструкции](active-directory-b2c-app-registration.md). Не забудьте
 
-- Include a **web app/web api** in the application
-- Enter `http://localhost/TodoListService` as a **Reply URL** - it is the default URL for this code sample.
-- Create an **Application Secret** for your application and copy it down.  You will need it shortly.
-- Copy down the **Application ID** that is assigned to your app.  You will also need it shortly.
+- Включить в приложение **веб-приложение или веб-API**.
+- Введите `http://localhost/TodoListService` как **URL-адрес ответа**. Это URL-адрес по умолчанию для этого примера кода.
+- Создайте для своего приложения **секрет приложения** и скопируйте его. Скоро он вам понадобится.
+- Скопируйте **идентификатор приложения**, назначенный приложению. Он также вам скоро понадобится.
 
     > [AZURE.IMPORTANT]
-    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
+    Вам не удастся использовать для этой цели приложения, зарегистрированные на вкладке **Приложения** [портала Azure](https://manage.windowsazure.com/).
 
-## 3. Create your policies
+## 3. Создание политик
 
-In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This app contains three 
-identity experiences - sign-up, sign-in, and sign-in with Facebook.  You will need to create one policy of each type, as described in the 
-[policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).  When creating your three policies, be sure to:
+В Azure AD B2C взаимодействие с каждым пользователем определяется [**политикой**](active-directory-b2c-reference-policies.md). Это приложение содержит три вида идентификации: регистрация, вход и вход с помощью учетной записи Facebook. Вам нужно создать по одной политике каждого типа, как описано в [справочнике по политикам](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). При создании трех политик обязательно сделайте следующее.
 
-- Choose the **Display Name** and a few other sign-up attributes in your sign-up policy.
-- Choose the **Display Name** and **Object ID** application claims in every policy.  You can choose other claims as well.
-- Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly. 
+- Выберите в политике регистрации значение для атрибута **Отображаемое имя** и других атрибутов регистрации.
+- Выберите утверждения приложения **Отображаемое имя** и **Идентификатор объекта** в каждой политике. Можно также выбрать другие утверждения.
+- Скопируйте **имя** каждой политики после ее создания. Оно должно включать префикс `b2c_1_`. Эти имена политик понадобятся вам через некоторое время. 
 
-Once you have your three policies successfully created, you're ready to build your app.
+Создав три политики, можно приступать к созданию приложения.
 
-Note that this article does not cover how to use the policies you just created.  If you want to learn about how policies work in Azure AD B2C,
-you should start with the [.NET Web App getting started tutorial](active-directory-b2c-devquickstarts-web-dotnet.md).
+Обратите внимание, что в данной статье не рассматривается использование политик, которые вы только что создали. Дополнительные сведения о работе политик в Azure AD B2C см. в [руководстве по началу работы с веб-приложением .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 
 
-## 4. Add pre-requisities to your directory
+## 4. Добавление предварительных требований в ваш каталог
 
-From the command-line, change directories to your root folder if not already there and run the following commands:
+В командной строке сделайте текущей корневую папку, если это еще не было сделано, и выполните следующие команды:
 
 - `npm install express`
 - `npm install ejs`
@@ -92,29 +90,33 @@ From the command-line, change directories to your root folder if not already the
 - `npm install express-session`
 - `npm install cookie-parser`
 
-- In addition, we've use `passport-azure-ad` for our Preview in the skeleton of the quickstart. 
+- Кроме того, в схему этого шаблона быстрого запуска мы включили специальный раздел `passport-azure-ad` для предварительной версии.
 
 - `npm install passport-azure-ad`
 
 
-This will install the libraries that passport-azure-ad depend on.
+Будет выполнена установка библиотек, которые зависят от passport-azure-ad.
 
-## 5. Set up your app to use the passport-node-js strategy
-Here, we'll configure the Express middleware to use the OpenID Connect authentication protocol.  Passport will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+## 5. Настройка приложения для использования стратегии passport-node-js
+Здесь мы настроим промежуточный слой Express для использования протокола проверки подлинности OpenID Connect. Кроме всего прочего, Passport будет использоваться для выдачи запросов входа и выхода, управления сеансом пользователя и получения сведений о пользователе.
 
--	To begin, open the `config.js` file in the root of the project, and enter your app's configuration values in the `exports.creds` section.
-    -	The `clientID:` is the **Application Id** assigned to your app in the registration portal.
-    -	The `returnURL` is the **Redirect URI** you entered in the portal.
-    - The `tenantName:` is the **tenant name** of your app, e.g. contoso.onmicrosoft.com
+-	Сначала откройте файл `config.js` в корне проекта, а затем введите значения параметров конфигурации приложения в разделе `exports.creds`.
+    -	`clientID:` — это **идентификатор приложения**, назначенный приложению на портале регистрации.
+    -	`returnURL` — это **URI перенаправления**, который был введен на портале.
+    - `tenantName:` — это **имя клиента** вашего приложения, например contoso.onmicrosoft.com.
 
 
-- Next open `app.js` file in the root of the proejct and add the follwing call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`
+- Затем откройте файл `app.js` в корне проекта и добавьте вызов стратегии `OIDCStrategy`, входящей в состав `passport-azure-ad`
 
 
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Добавление ведения журнала var log = bunyan.createLogger({ name: 'Пример веб-приложения Microsoft OIDC' }); ```
+// Add some logging
+var log = bunyan.createLogger({
+    name: 'Microsoft OIDC Example Web Application'
+});
+```
 
 - После этого используйте стратегию, которую мы только что использовали в ссылке, чтобы обрабатывать запросы на вход.
 
@@ -411,7 +413,9 @@ exports.list = function(req, res){
 
 Готовый пример для сравнения (без ваших значений конфигурации) [можно найти здесь](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/complete.zip) в виде ZIP-файла или клонировать с GitHub:
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-nodejs.git```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-nodejs.git
+```
 
 Теперь можно перейти к более сложным темам. Можно попробовать:
 

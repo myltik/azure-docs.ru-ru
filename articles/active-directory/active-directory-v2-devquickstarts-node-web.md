@@ -67,7 +67,7 @@
 - `npm install express-session`
 - `npm install cookie-parser`
 
-- In addition, we've use `passport-azure-ad` for our Preview in the skeleton of the quickstart.
+- Кроме того, в схему этого шаблона быстрого запуска мы включили специальный раздел `passport-azure-ad` для предварительной версии.
 
 - `npm install passport-azure-ad`
 

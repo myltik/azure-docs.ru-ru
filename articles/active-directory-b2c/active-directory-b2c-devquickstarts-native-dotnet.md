@@ -78,16 +78,14 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
   </appSettings>
   ```
 
-If you want to learn how a web API securely authenticates requests using Azure AD B2C, check out our
-[Web API Getting Started article](active-directory-b2c-devquickstarts-api-dotnet.md).
+Чтобы узнать, как веб-API выполняет безопасную проверку подлинности запросов с помощью Azure AD B2C, прочтите нашу
+[статью о начале работы с веб-API](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## 6. Execute policies
-Now that the `TaskService` is ready to authenticate requests, we can implement the `TaskClient`.  Your app communicates with Azure AD B2C by sending HTTP authentication requests,
-specifying the policy it wishes to execute as part of the request.  For .NET desktop applications, you can use the **Active Directory Authentication Library (ADAL)**
-to send OAuth 2.0 authentication messages, execute policies, and get tokens for calling web APIs.
+## 6. Выполнение политик
+Теперь, когда `TaskService` готова для проверки подлинности запросов, можно реализовать `TaskClient`. Приложение взаимодействует с Azure AD B2C, отправляя HTTP-запросы проверки подлинности и указывая политику, которую необходимо выполнить как часть запроса. Для классических приложений .NET можно использовать **библиотеку проверки подлинности Active Directory (ADAL)**, чтобы отправлять сообщения проверки подлинности OAuth 2.0, выполнять политики и получать токены для вызова веб-API.
 
-#### Install ADAL
-Begin by adding ADAL to the TaskClient project using the Visual Studio Package Manager Console.
+#### Установка ADAL
+Сначала добавьте ADAL в проект TaskClient с помощью консоли диспетчера пакетов Visual Studio.
 
 ```
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TaskClient -IncludePrerelease
@@ -326,7 +324,9 @@ private void SignOut(object sender, RoutedEventArgs e)
 
 Готовый пример в виде ZIP-файла находится [здесь](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). Кроме того, можно клонировать его с GitHub.
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
+```
 
 <!--
 

@@ -82,13 +82,12 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Web
 </appSettings>
   ```
 
-This article will not cover the details of securing the `TaskService`.  If you want to learn how a web API securely authenticates requests using Azure AD B2C, check out our
-[Web API Getting Started article](active-directory-b2c-devquickstarts-api-dotnet.md).
+В этой статье не рассматривается обеспечение безопасности `TaskService`. Сведения о том, как веб-API безопасно выполняет проверку подлинности запросов с помощью Azure AD B2C, см. в нашей
+[статье о начале работы с веб-API](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## 6. Configure the task web app
+## 6. Настройка веб-приложения для задач
 
-In order for the `TaskWebApp` to communicate with Azure AD B2C, there are a few common parameters that you will need to provide.  In the `TaskWebApp` project, open up the
-`web.config` file in the root of the project and replace the values in the `<appSettings>` section.  These values will be used throughout the web app.
+Чтобы `TaskWebApp` обменивался данными с Azure AD B2C, необходимо указать несколько общих параметров. В проекте `TaskWebApp` откройте файл `web.config` в корне проекта и замените значения в разделе `<appSettings>`. Эти значения будут использоваться во всем веб-приложении.
 
 ```
 <appSettings>
@@ -368,7 +367,9 @@ public void SignOut()
 
 Готовый пример в виде ZIP-файла находится [здесь](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip). Кроме того, можно клонировать его с GitHub.
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git
+```
 
 <!--
 
