@@ -44,7 +44,10 @@ GRANT VIEW DATABASE STATE TO database_user;
 Следующий запрос возвращает размер базы данных в мегабайтах:
 
 ```
--- Вычисление размера базы данных. SELECT SUM(reserved\_page\_count)*8.0/1024 FROM sys.dm\_db\_partition\_stats; GO 
+-- Вычисление размера базы данных. 
+SELECT SUM(reserved\_page\_count)*8.0/1024
+FROM sys.dm\_db\_partition\_stats;
+GO 
 ```
 
 Следующий запрос возвращает размер отдельных объектов базы данных в мегабайтах:
@@ -134,4 +137,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [Введение в базы данных SQL](sql-database-technical-overview.md)
 
-<!----HONumber=Sept15_HO3-->
+<!-----HONumber=Sept15_HO3-->
