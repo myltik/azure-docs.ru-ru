@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Запуск и остановка виртуальных машин с помощью службы автоматизации Azure: рабочий процесс PowerShell | Microsoft Azure"
-   description="Версия решения с графическим интерфейсом для службы автоматизации Azure, включая модули Runbook для запуска и остановки классических виртуальных машин."
-   services="automation"
-   documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
-   editor="tysonn" />
+	pageTitle="Запуск и остановка виртуальных машин с помощью службы автоматизации Azure: рабочий процесс PowerShell | Microsoft Azure"
+	description="Версия решения с графическим интерфейсом для службы автоматизации Azure, включая модули Runbook для запуска и остановки классических виртуальных машин."
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
+	editor="tysonn" />
 <tags 
-   ms.service="automation"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
-   ms.author="bwren" />
+	ms.service="automation"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/25/2015"
+	ms.author="bwren" />
 
 # Решение для службы автоматизации Azure: запуск и остановка виртуальных машин
 
@@ -53,7 +53,7 @@
 Для модулей Runbook нужно создать перечисленные ниже ресурсы, после чего добавить в них соответствующие значения.
 
 | Тип ресурса | Имя ресурса | Описание |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | Учетные данные | AzureCredential | Содержит учетные данные для учетной записи, имеющей полномочия запускать и останавливать виртуальные машины в подписке Azure. Кроме того, вы можете указать другой ресурс учетных данных. Для этого используйте параметр **Credential** действия **Add-AzureAccount**. |
 | Переменная | AzureSubscriptionId | Содержит идентификатор вашей подписки Azure. |
 
@@ -64,7 +64,7 @@
 Модули Runbooks имеют следующие параметры. Вам необходимо указать значения всех обязательных параметров. Также по желанию можно указать значения дополнительных параметров.
 
 | Параметр | Тип | Обязательно | Описание |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | ServiceName | string | Нет | Если значение указано, запускаются или останавливаются все виртуальные машины с таким именем службы. Если значение не указано, запускаются или останавливаются все классические виртуальные машины в подписке Azure. |
 | AzureSubscriptionIdAssetName | string | Нет | Содержит имя [ресурса переменной](#installing-the-solution), в котором указан идентификатор вашей подписки Azure. Если значение не указано, используется значение *AzureSubscriptionId*. |
 | AzureCredentialAssetName | string | Нет | Содержит имя [ресурса учетных данных](#installing-the-solution), в котором указаны учетные данные используемого модуля Runbook. Если значение не указано, используется значение *AzureCredential*. |
@@ -193,4 +193,4 @@
 - [Дочерние модули Runbook в службе автоматизации Azure](automation-child-runbooks.md) 
 - [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

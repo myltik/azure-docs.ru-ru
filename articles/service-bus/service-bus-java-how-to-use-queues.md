@@ -179,7 +179,7 @@
 
   [Пакет Azure SDK для Java]: http://azure.microsoft.com/develop/java/
   [пакет SDK Azure для Java]: http://azure.microsoft.com/develop/java/
-  [набор средств Azure для Eclipse]: https://msdn.microsoft.com/ru-ru/library/azure/hh694271.aspx
+  [набор средств Azure для Eclipse]: https://msdn.microsoft.com/ru-RU/library/azure/hh694271.aspx
   [What are Service Bus Queues?]: #what-are-service-bus-queues
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -193,4 +193,4 @@
   [Очереди, темы и подписки]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -125,7 +125,7 @@
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-> [AZURE.NOTE]Значения **audienceuris** и **realm** должны иметь префикс «spn:».
+	> [AZURE.NOTE]Значения **audienceuris** и **realm** должны иметь префикс «spn:».
 
 4. В Eclipse щелкните правой кнопкой мыши проект **phpSample**, выберите **Создать**, затем щелкните **Файл PHP**.
 
@@ -188,6 +188,9 @@
 
 Образец, в котором показан пример использования Azure Active Directory и единого входа для веб-узлов PHP, доступен по адресу <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP>.
 
+## Дальнейшие действия
+
+Дополнительные сведения см. в [Центре разработчика PHP](/develop/php/).
 
 [Step 1: Create a PHP Application]: #createapp
 [Step 2: Provision the Application in a Company's Directory Tenant]: #provisionapp
@@ -203,4 +206,4 @@
 [Пример PHP-кода для Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Сведения о настройке сети для работы с Express Route" 
 	description="Сведения о настройке сети для выполнения сред службы приложений в виртуальных сетях, подключенных к каналу ExpressRoute." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="stefsch" 
 	manager="nirma" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -126,4 +126,4 @@
 
 <!-- IMAGES -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

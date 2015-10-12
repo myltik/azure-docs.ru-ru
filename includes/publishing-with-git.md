@@ -276,7 +276,7 @@ Azure создаст связь с выбранным репозиторием �
 [Git website]: http://git-scm.com
 [Установка Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Использование PowerShell для Azure]: ../articles/install-configure-powershell.md
-[Использование программ командной строки Azure для Mac и Linux]: ../articles/xplat-cli.md
+[Использование программ командной строки Azure для Mac и Linux]: ../articles/xplat-cli-install.md
 [Документация по Git]: http://git-scm.com/documentation
 
 [portal-select-website]: ./media/publishing-with-git/git-select-website.png
@@ -298,4 +298,4 @@ Azure создаст связь с выбранным репозиторием �
 [Использование Dropbox для общего доступа к репозиториям Git]: https://gist.github.com/trey/2722927
 [Непрерывная доставка в Azure с помощью Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

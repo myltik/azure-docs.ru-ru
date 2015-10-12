@@ -12,16 +12,16 @@
     ms.workload="data-services"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="get-started-article" 
-    ms.date="06/29/2015"
+    ms.topic="get-started-article"
+    ms.date="09/28/2015"
     ms.author="chhavib;olgali"/>
 
 # Использование образцов экспериментов для создания новых экспериментов
-Когда вы хотите создать эксперимент, поищите примеры в образцах экспериментов группы по машинному обучению, а также в экспериментах сообщества машинного обучения. Также можно задавать вопросы или размещать комментарии об экспериментах в [коллекции](http://gallery.azureml.net/).
+Когда вы хотите создать эксперимент, поищите примеры в образцах экспериментов группы по машинному обучению, а также в экспериментах сообщества машинного обучения. Кроме того, можно задавать вопросы или размещать комментарии об экспериментах в [коллекции аналитических данных Кортаны](http://gallery.azureml.net/).
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Просмотр коллекции
+## Обзор коллекции аналитических данных Кортаны
 1. Перейдите в раздел [Коллекция](http://gallery.azureml.net/).
 2. Перейдите к просмотру из раздела **Эксперименты в тренде** или **Образцы Майкрософт**.
 3. Используйте поиск и фильтры, чтобы уменьшить число выводимых результатов: ![](./media/machine-learning-sample-experiments/image1.png) 
@@ -38,6 +38,5 @@
 - [Просмотрите образцы экспериментов на R](machine-learning-r-csharp-web-service-examples.md)
 - [Создайте API веб-службы](machine-learning-publish-a-machine-learning-web-service.md)
 - [Просмотрите приложения, готовые к использованию](https://datamarket.azure.com/browse?query=machine+learning)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

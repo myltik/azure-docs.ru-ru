@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Добавление входных данных | Microsoft Azure" 
-	description="Сегмент схемы обучения по добавлению входных данных."
+	description="Добавление входных данных в задания Stream Analytics | Сегмент схемы обучения"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,8 +13,9 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
+
 
 # Добавление входных данных
 
@@ -25,21 +26,29 @@
 
 Чтобы добавить в задание службы Stream Analytics входные данные, выполните следующие действия.
 
-1. В задании Stream Analytics нажмите **Входные данные**, а затем **Добавить входные данные**.
+1. На портале Azure нажмите **Входные данные**, а затем выберите **Добавить входные данные** в задании Stream Analytics.
 
     ![Добавление входных данных](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)
+
+    На портале предварительной версии Azure нажмите плитку **Входные данные** в задании Stream Analytics.
+
+    ![Добавление входных данных на портале предварительной версии Azure](./media/stream-analytics-add-inputs/7-stream-analytics-add-inputs.png)
 
 2. Укажите тип входных данных: либо **Поток данных**, либо **Эталонные данные**.
 
     ![Добавление данных](./media/stream-analytics-add-inputs/2-stream-analytics-add-inputs.png)
 
-3. При создании ввода потока данных, укажите тип источника для эталонных данных. Поскольку поддерживается только хранилище больших двоичных объектов, при создании эталонных данных этот экран пропускается.
+    ![Добавление данных на портале предварительной версии Azure](./media/stream-analytics-add-inputs/8-stream-analytics-add-inputs.png)
+
+3. При создании ввода потока данных, укажите тип источника для эталонных данных. Так как в настоящее время поддерживается только хранилище больших двоичных объектов, при создании эталонных данных этот шаг можно пропустить.
 
     ![Добавление потока данных](./media/stream-analytics-add-inputs/3-stream-analytics-add-inputs.png)
 
+    ![Добавление потока данных на портале предварительной версии](./media/stream-analytics-add-inputs/9-stream-analytics-add-inputs.png)
+
 4. В поле «Псевдоним входных данных» введите понятное имя для этого источника входных данных. Впоследствии это имя будет использоваться в запросе вашего задания для ссылки на входные данные.
 
-    Укажите остальные свойства подключения, необходимые для подключения к источнику данных. Эти поля зависят от типа входных данных и источника и подробно описаны [здесь](stream-analytics-create-a-job.md.).
+    Укажите остальные свойства подключения, необходимые для подключения к источнику данных. Эти поля зависят от типа входных данных и источника и подробно описаны [здесь](stream-analytics-create-a-job.md).
 
     ![Добавление концентратора событий](./media/stream-analytics-add-inputs/4-stream-analytics-add-inputs.png)
 
@@ -49,10 +58,13 @@
 
     ![Параметры сериализации данных](./media/stream-analytics-add-inputs/5-stream-analytics-add-inputs.png)
 
+    ![Параметры сериализации данных на портале предварительной версии Azure](./media/stream-analytics-add-inputs/10-stream-analytics-add-inputs.png)
+
 6. Когда источник входных данных будет создан, служба Stream Analytics проверит возможность подключения к этому источнику. Состояние операции проверки подключения можно проверить в концентраторе уведомлений.
 
     ![Проверить подключение](./media/stream-analytics-add-inputs/6-stream-analytics-add-inputs.png)
 
+    ![Тестирование подключения на портале предварительной версии Azure](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)
 
 ## Получение справки
 Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
@@ -65,4 +77,4 @@
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

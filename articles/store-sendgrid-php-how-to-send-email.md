@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Использование службы электронной почты SendGrid (PHP) | Microsoft Azure"
-	description="Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры кода написаны на PHP."
-	documentationCenter="php"
-	services=""
-	manager="sendgrid"
-	editor="mollybos"
+	pageTitle="Использование службы электронной почты SendGrid (PHP) | Microsoft Azure" 
+	description="Узнайте, как отправить электронное сообщение с помощью службы электронной почты SendGrid в Azure. Примеры кода написаны на PHP." 
+	documentationCenter="php" 
+	services="" 
+	manager="sendgrid" 
+	editor="mollybos" 
 	authors="thinkingserious"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="PHP"
-	ms.topic="article"
-	ms.date="10/30/2014"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
 	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
 # Как использовать службу электронной почты SendGrid в языке PHP
 
@@ -390,6 +390,9 @@ SendGrid поддерживает дополнительные функцион�
 -   Библиотека SendGrid PHP: <https://github.com/sendgrid/sendgrid-php>
 -   Специальное предложение SendGrid для клиентов Azure: <https://sendgrid.com/windowsazure.html>
 
+Дополнительные сведения также можно найти в [Центре разработчика PHP](/develop/php/).
+
+
   [https://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
   [special offer]: https://www.sendgrid.com/windowsazure.html
@@ -401,4 +404,4 @@ SendGrid поддерживает дополнительные функцион�
   [sendgrid-php library]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Редактор]: https://getcomposer.org/download/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

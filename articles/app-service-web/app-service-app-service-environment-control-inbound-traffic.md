@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Как управлять входящим трафиком в среде службы приложений" 
 	description="Дополнительные сведения о настройке правил сетевой безопасности для управления входящим трафиком в среде службы приложений." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -134,4 +134,4 @@
 
 <!-- IMAGES -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -501,8 +501,8 @@
 	Эта команда запускает браузер и открывает страницу загрузки. Если будет предложено, войдите с учетной записью, которая связана с вашей подпиской Azure.
 
 	<!-- ![The download page][download-publishing-settings] -->
-
-	Загрузка файла должна начаться автоматически. Если этого не произошло, можно щелкнуть ссылку в начале страницы, чтобы загрузить файл вручную. Сохраните файл и запомните путь к нему.
+	
+	Скачивание файла должно начаться автоматически. Если этого не произошло, можно щелкнуть ссылку в начале страницы, чтобы скачать файл вручную. Сохраните файл и запомните путь к нему.
 
 2. Введите следующую команду, чтобы импортировать параметры.
 
@@ -616,7 +616,7 @@
 [удаленный репозиторий Git]: http://git-scm.com/docs/git-remote
 
 [Создание веб-приложения Node.js в Azure с MongoDB на виртуальной машине]: web-sites-nodejs-store-data-mongodb.md
-[Интерфейс командной строки Azure]: ../xplat-cli.md
+[интерфейс командной строки Azure]: ../xplat-cli-install.md
 
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
@@ -643,4 +643,4 @@
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!------HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

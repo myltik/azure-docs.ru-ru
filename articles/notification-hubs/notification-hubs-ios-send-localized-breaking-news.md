@@ -13,8 +13,9 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
+
 # Использование концентраторов уведомлений для вещания локализованных экстренных новостей на устройства iOS
 
 > [AZURE.SELECTOR]
@@ -222,4 +223,4 @@
 [Руководство по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Инструкции по использованию концентраторов уведомлений для iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="09/30/2015"
 	ms.author="wesmc"/>
 
 # Приступая к работе с Центрами уведомлений для приложений Магазина Windows
@@ -197,6 +197,9 @@
 
 	После этого будет добавлена ссылка на пакет SDK для центров уведомлений Azure с помощью <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">пакета NuGet Microsoft.Azure.Notification Hubs</a>.
 
+	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+
+
 5. Откройте файл Program.cs и добавьте следующее выражение `using`:
 
         using Microsoft.Azure.NotificationHubs;
@@ -211,7 +214,7 @@
             await hub.SendWindowsNativeNotificationAsync(toast);
         }
 
-   	Обязательно замените заполнитель "hub name" на имя центра уведомлений, отображаемое на вкладке **Центры уведомлений** портала. Кроме того, замените заполнитель строки подключения на строку подключения с именем **DefaultFullSharedAccessSignature**, полученную в разделе "Настройка центра уведомлений".
+   	Обязательно замените заполнитель «hub name» на имя центра уведомлений, отображаемое на вкладке **Центры уведомлений** портала. Кроме того, замените заполнитель строки подключения на строку подключения с именем **DefaultFullSharedAccessSignature**, полученную в разделе "Настройка центра уведомлений".
 
 	>[AZURE.NOTE]Обязательно используйте строку подключения с **полным** доступом, а не доступом к **прослушиванию**. У строки с доступом к прослушиванию отсутствуют разрешения для отправки уведомлений.
 
@@ -264,4 +267,4 @@
 [каталог плиток]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [обзор эмблем]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

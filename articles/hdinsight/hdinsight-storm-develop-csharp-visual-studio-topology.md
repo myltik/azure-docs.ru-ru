@@ -23,23 +23,25 @@
 
 Вы также узнаете о том, как создавать гибридные топологии, использующие компоненты C# и Java.
 
+[AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
+
 ##Предварительные требования
 
 -	Одна из следующих версий Visual Studio
 
-	-	Visual Studio 2012 с [обновлением 4](http://www.microsoft.com/download/details.aspx?id=39305)
+	-	Visual Studio 2012 с [обновлением 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-	-	Visual Studio 2013 с [обновлением 4](http://www.microsoft.com/download/details.aspx?id=44921) или [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+	-	Visual Studio 2013 с [обновлением 4](http://www.microsoft.com/download/details.aspx?id=44921) или [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
 	-	Visual Studio 2015 или [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 
 -	Пакет SDK Azure 2.5.1 или более поздней версии
 
--	Средства HDInsight для Visual Studio. Инструкции по установке и настройке средств HDInsight для Visual Studio см. в статье [Начало работы со средствами HDInsight для Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+-	Средства HDInsight для Visual Studio. Инструкции по установке и настройке средств HDInsight для Visual Studio можно найти в разделе [Начало работы со средствами HDInsight для Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
     > [AZURE.NOTE]Средства HDInsight для Visual Studio не поддерживаются в Visual Studio Express
 
--	Кластер Apache Storm в HDInsight. Инструкции по созданию кластера см. в статье [Начало работы с Apache Storm в HDInsight](hdinsight-storm-getting-started.md).
+-	Кластер Apache Storm в HDInsight. Инструкции по созданию кластера можно найти в разделе [Начало работы с Apache Storm в HDInsight](hdinsight-storm-getting-started.md).
 
 	> [AZURE.NOTE]В настоящее время инструменты HDInsight для Visual Studio поддерживают только Storm в кластерах HDInsight версии 3.2.
 
@@ -66,7 +68,7 @@
 
 ##Создание топологии на C#
 
-1.	Если вы еще не установили последнюю версию средств HDInsight для Visual Studio, см. статью [Начало работы со средствами HDInsight для Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+1.	Если вы еще не установили последнюю версию средств HDInsight для Visual Studio, ознакомьтесь с разделом [Начало работы со средствами HDInsight для Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 2.	Откройте Visual Studio, выберите **Файл** > **Создать**, а затем **Проект**.
 
@@ -82,7 +84,7 @@
 
 	-	**Bolt.cs** — пример сита, которое подсчитывает числа, созданные воронкой.
 
-	В рамках создания проекта с NuGet загружаются актуальные версии [пакетов SCP.NET](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/).
+	В рамках создания проекта с NuGet будут скачаны актуальные версии [пакетов SCP.NET](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/).
 
 В следующих разделах рассказывается о том, как превратить этот проект в базовое приложение WordCount.
 
@@ -436,7 +438,7 @@
 
 -	**JavaComponentConstructor** должен использоваться для создания нового экземпляра класса Java для воронки или сита.
 
--	**microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** должен использоваться для сериализации данных в компоненты Java и из них из объектов Java в JSON.
+-	**microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** должен использоваться для сериализации данных в компоненты Java и из них из объектов Java в JSON
 
 -	При отправке топологии на сервер необходимо использовать параметр **Additional configurations** (Дополнительные конфигурации), чтобы задать **пути к файлам Java**. При этом следует указать путь к каталогу, содержащему JAR-файлы с классами Java.
 
@@ -656,4 +658,4 @@ Context.Logger.Info("Component started");
 
 -	[Начало работы с HBase в HDInsight](../hdinsight-hbase-get-started.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -222,7 +222,7 @@
 | Операции входа в пользовательское бизнес-приложение, добавленное в каталог | Нет (ожидается вскоре) |
 | Операции входа в добавленное в каталог прокси-приложение для приложений Azure AD | Нет (ожидается вскоре) |
 
-> Примечание. Чтобы уменьшить количество ненужной информации в этом отчете, операции входа в собственное приложение [Lync или Skype для бизнеса](http://products.office.com/ru-ru/skype-for-business/online-meetings) и те, которые выполняются [помощником по входу в Microsoft Online Services](http://community.office365.com/ru-ru/w/sso/534.aspx), не отображаются.
+> Примечание. Чтобы отчет содержал меньше ненужной информации, в нем не отображены операции входа, которые выполняет [помощник по входу в Microsoft Online Services](http://community.office365.com/ru-RU/w/sso/534.aspx).
 
 
 
@@ -270,4 +270,4 @@
 - [Начало работы с Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Добавление фирменной символики компании на страницах входа и панели доступа](active-directory-add-company-branding.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

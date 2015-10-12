@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/22/2015"
+	ms.date="09/29/2015"
 	ms.author="spelluru"/>
 
 # Построение первого конвейера с помощью фабрики данных Azure
@@ -154,7 +154,7 @@
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
 
-		> [AZURE.NOTE]Приведенная выше команда создает контейнер с именем **script** в хранилище больших двоичных объектов Azure и копирует файл **partitionweblogs.hql** в контейнер.
+		> [AZURE.NOTE]Указанная выше команда создает контейнер с именем **script** в вашем хранилище больших двоичных объектов Azure и копирует файл **partitionweblogs.hql** с локального диска в контейнер больших двоичных объектов.
 	>
 	5. После успешной загрузки файла будут отображены следующие данные из AzCopy.
 	
@@ -176,4 +176,4 @@
 ## Отправить отзыв
 Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

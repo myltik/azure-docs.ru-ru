@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/09/2015"
-	ms.author="yuaxu;wesmc"/>
+	ms.date="09/24/2015"
+	ms.author="wesmc"/>
 
 # Приступая к работе с центрами уведомлений
 
@@ -497,4 +497,4 @@ Push-уведомления обычно отправляются в серве�
 [Компонент клиента Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Компонент обмена сообщениями в Azure]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

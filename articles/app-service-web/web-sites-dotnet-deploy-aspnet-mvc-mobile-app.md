@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Развертывание мобильного веб-приложения ASP.NET MVC 5 в службе приложений Azure" 
 	description="В этом учебнике объясняется, как развернуть веб-приложение в службе приложений Azure с помощью инструментов для мобильных устройств в веб-приложении ASP.NET MVC 5." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
@@ -144,7 +144,7 @@
 
 В этом разделе для мобильных устройств будет создан специальный файл макета.
 
-Сначала скопируйте *Views\\Shared\\\_Layout.cshtml* в *Views\\Shared\\\_Layout.Mobile.cshtml*. Откройте *\_Layout.Mobile.cshtml* и измените заголовок с **Приложение MVC5** на **Приложение MVC5 (мобильное)**.
+Сначала скопируйте *Views\\Shared\\_Layout.cshtml* в *Views\\Shared\\_Layout.Mobile.cshtml*. Откройте *\_Layout.Mobile.cshtml* и измените заголовок с **Приложение MVC5** на **Приложение MVC5 (мобильное)**.
 
 В каждом вызове `Html.ActionLink` панели навигации удалите "Поиск по" в каждой ссылке *ActionLink*. В следующем коде показан законченный тег `<ul class="nav navbar-nav">` файла макета для мобильных устройств.
 
@@ -191,7 +191,7 @@
 
     using System.Web.WebPages;
 
-Сохраните изменения. Скопируйте файл *Views\\Shared\\\_Layout.Mobile.cshtml* в *Views\\Shared\\\_Layout.iPhone.cshtml*. Откройте новый файл и измените заголовок с `MVC5 Application (Mobile)` на `MVC5 Application (iPhone)`.
+Сохраните изменения. Скопируйте файл *Views\\Shared\\_Layout.Mobile.cshtml* в *Views\\Shared\\_Layout.iPhone.cshtml*. Откройте новый файл и измените заголовок с `MVC5 Application (Mobile)` на `MVC5 Application (iPhone)`.
 
 Скопируйте файл *Views\\Home\\AllTags.Mobile.cshtml* в *Views\\Home\\AllTags.iPhone.cshtml*. В новом файле измените значение элемента `<h2>` с "Tags (M)" на "Tags (iPhone)".
 
@@ -209,7 +209,7 @@
 
 ![][AllSpeakers_LayoutMobile]
 
-Вы можете глобально отключить представление по умолчанию (не для мобильных устройств) из отображения в макете для мобильных устройств, задав для параметра `RequireConsistentDisplayMode` значение `true` в файле *Views\\\_ViewStart.cshtml* следующим образом.
+Вы можете глобально отключить представление по умолчанию (не для мобильных устройств) из отображения в макете для мобильных устройств, задав для параметра `RequireConsistentDisplayMode` значение `true` в файле *Views\\_ViewStart.cshtml* следующим образом.
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
@@ -619,4 +619,4 @@
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

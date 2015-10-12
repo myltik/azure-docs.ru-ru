@@ -1,20 +1,20 @@
 <properties
    pageTitle="Разработка службы Service Fabric"
-	description="Тематические статьи и учебники, помогающие научиться разрабатывать службы Service Fabric с использованием моделей программирования на основе надежных субъектов и служб."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="rwike77"
-	manager="timlt"
-	editor=""/>
+   description="Тематические статьи и учебники, помогающие научиться разрабатывать службы Service Fabric с использованием моделей программирования на основе надежных субъектов и служб."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="rwike77"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/20/2015"
-	ms.author="ryanwi"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="09/25/2015"
+   ms.author="ryanwi"/>
 
 # Разработка службы Service Fabric
 На этой странице приведены ссылки на общие сведения и тематические статьи и справочные разделы, которые помогут вам глубже изучить разработку служб Service Fabric. Платформа Service Fabric предлагает две высокоуровневые модели программирования для создания служб: интерфейсы API надежных субъектов и надежных служб. Хотя обе модели основаны на одних и тех же принципах Service Fabric, они характеризуются разным соотношением простоты и гибкости с точки зрения параллельной работы, секционирования и обмена данными. Полезно изучить обе модели, чтобы выбрать ту из них, которая лучше всего подходит для разработки конкретной службы приложения.
@@ -30,6 +30,7 @@
 - [Жизненный цикл субъектов и сбор мусора](service-fabric-reliable-actors-lifecycle.md)
 - [Использование платформы Service Fabric субъектами](service-fabric-reliable-actors-platform.md)
 - [Заметки о сериализации типов субъектов в Azure Service Fabric](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+- [Node.js и надежные субъекты](service-fabric-node-and-reliable-actors-an-winning-combination.md)
 
 Взаимодействие с субъектами описано в следующих статьях:
 
@@ -69,7 +70,6 @@
 Надежные службы — это простая, мощная, верхнеуровневая модель программирования, открывающая широкие и гибкие возможности для разработки приложений. Дополнительные сведения см. в следующих статьях:
 
 - [Приступая к работе с надежными службами](service-fabric-reliable-services-quick-start.md)
-- [Обзор моделей программирования](../service-fabric-reliable-services-service-overview.md)  
 - [Архитектура](service-fabric-reliable-services-platform-architecture.md)
 - [Надежные коллекции](service-fabric-reliable-services-reliable-collections.md)
 - [Настройка надежных служб с отслеживанием состояния](../Service-Fabric/service-fabric-reliable-services-configuration.md)
@@ -87,4 +87,4 @@
 
 - [Диагностика надежных служб с отслеживанием состояния](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

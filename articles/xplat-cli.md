@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [PowerShell](powershell-install-configure.md)
-- [Azure CLI](xplat-cli.md)
+- [Azure CLI](xplat-cli-install.md)
 
 Интерфейс командной строки Azure представляет собой набор межплатформенных команд с открытым кодом для работы с платформой Azure. CLI Azure предоставляет практически те же функции, которые содержатся на портале управления Azure, например возможность управлять веб-сайтами, виртуальными машинами, мобильными службами, базой данных SQL и другими службами, включенными в платформу Azure.
 
@@ -281,4 +281,4 @@
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [Using the Azure CLI]: virtual-machines-command-line-tools.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

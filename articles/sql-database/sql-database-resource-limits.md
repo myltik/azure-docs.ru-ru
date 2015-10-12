@@ -71,8 +71,8 @@
 
 [Лимиты, квоты и ограничения подписки и обслуживания Azure](../azure-subscription-service-limits.md)
 
-[Уровни служб и уровни производительности в базе данных SQL Azure](https://msdn.microsoft.com/library/azure/dn741336.aspx)
+[Уровни служб и уровни производительности в базе данных SQL Azure](sql-database-service-tiers.md)
 
 [Сообщения об ошибках для клиентских программ базы данных SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

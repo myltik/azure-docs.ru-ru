@@ -22,6 +22,7 @@
 
 В этом разделе показывается, как использовать <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">библиотеку Microsoft Avro</a> для сериализации объектов и других структур данных в потоки, чтобы сохранить их в памяти, базе данных или файле, а также как десериализовать их, чтобы восстановить исходные объекты.
 
+[AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
 
 ##<a name="apacheAvro"></a>Apache Avro
 <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Библиотека Microsoft Avro</a> реализует систему сериализации данных Apache Avro для среды Microsoft.NET. Apache Avro обеспечивает компактный формат обмена двоичными данными для сериализации. Она использует <a href="http://www.json.org" target="_blank">JSON</a> для определения не зависящей от языка схемы, которая гарантирует взаимодействие языков. Данные, сериализованные в одном языке, могут быть прочитаны в другом. В настоящее время поддерживаются C, C++, C#, Java, PHP, Python и Ruby. Подробные сведения об этом формате см. в <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">спецификации Аpache Avro</a>. Обратите внимание, что текущая версия библиотеки Microsoft Avro не поддерживает часть удаленных вызовов процедур (RPC) этой спецификации.
@@ -1404,4 +1405,4 @@
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

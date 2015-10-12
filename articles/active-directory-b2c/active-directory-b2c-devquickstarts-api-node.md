@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 > [AZURE.NOTE]
-	В этой статье не рассматривается реализация входа, регистрации и управления профилями с помощью Azure AD B2C. Она посвящена вызову веб-API после того, как пользователь прошел проверку подлинности.
+	В этой статье не рассматривается реализация входа, регистрации и управления профилями с помощью Azure AD B2C. Она посвящена вызову веб-API после того, как пользователь прошел проверку подлинности.
 Прочитайте [руководство по началу работы с веб-приложениями .NET](active-directory-b2c-devquickstarts-web-dotnet.md), чтобы изучить основы Azure AD B2C.
 
 > [AZURE.NOTE]	Этот пример рассчитан на подключение к [примеру приложения iOS B2C.](active-directory-b2c-devquickstarts-ios.md) Сначала изучите данное руководство, а затем переходите к этому примеру.
@@ -293,11 +293,13 @@ policyName:'b2c_1_<sign in policy name>',
 
 ```
 
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+
 ### Обязательные значения
 
-*IdentityMetadata* — здесь модуль passport-azure-ad будет искать данные конфигурации для поставщиков удостоверений, а также ключи для проверки маркеров JWT. Возможно, вам не требуется вносить изменения, если вы используете Azure Active Directory.
+*IdentityMetadata*. Здесь модуль passport-azure-ad будет искать данные конфигурации для IdP, а также ключи для проверки маркеров JWT. Возможно, вам не требуется вносить изменения, если вы используете Azure Active Directory.
 
-*audience* — ваш URI с портала, идентифицирующий вашу службу. В нашем примере используется: `http://localhost/TodoListService`
+*audience* — ваш URI с портала, идентифицирующий вашу службу. В нашем примере используется `http://localhost/TodoListService`
 
 *tenantName* — имя вашего клиента (например, contoso.onmicrosoft.com).
 
@@ -347,7 +349,7 @@ name: 'Microsoft Azure Active Directory Sample'
 
 В данном пошаговом руководстве для хранения наших задач мы будем использовать MongoDB, как описано в ***шаге 4***.
 
-Если вы помните, применительно к файлу config.js, созданному на шаге 11, мы вызывали нашу базу данных *tasklist*, так как именно ее мы указали в конце нашего URL-адреса подключения mogoose\_auth\_local. Заранее создавать эту базу данных в MongoDB не нужно. Она создаст ее для нас при первом запуске нашего приложения сервера (если она еще не существует).
+Если вы помните, применительно к файлу config.js, созданному на шаге 11, мы вызывали базу данных *tasklist*, так как именно ее мы указали в конце URL-адреса подключения mogoose\_auth\_local. Заранее создавать эту базу данных в MongoDB не нужно. Она создаст ее для нас при первом запуске нашего приложения сервера (если она еще не существует).
 
 Теперь, когда мы указали серверу, какую базу данных MongoDB мы бы хотели использовать, необходимо написать дополнительный код для создания модели и схемы для наших задач на сервере.
 
@@ -876,7 +878,7 @@ Transfer-Encoding: chunked
 
 Если вы просто искали сведения о реализации интерфейса REST API с использованием Restify и OAuth2, то у вас уже есть нужный код, чтобы продолжать разработку своей службы и применять приведенный пример.
 
-Готовый пример для сравнения (без ваших значений конфигурации) [можно найти здесь](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/complete.zip) в виде ZIP-файла или клонировать с GitHub:
+Готовый пример (без ваших значений конфигурации) [можно скачать в виде ZIP-файла здесь](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/complete.zip) или клонировать с GitHub.
 
 ```
 git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git
@@ -889,4 +891,4 @@ git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nod
 
 [Подключение к веб API с помощью iOS с B2C >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

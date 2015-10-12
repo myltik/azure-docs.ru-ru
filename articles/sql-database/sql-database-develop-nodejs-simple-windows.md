@@ -224,4 +224,4 @@
 
 Дополнительную информацию см. в [Центре разработчика Node.js](/develop/nodejs/).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

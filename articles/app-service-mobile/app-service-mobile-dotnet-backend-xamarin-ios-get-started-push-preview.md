@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Добавление push-уведомлений в приложение Xamarin.iOS с помощью службы приложений Azure"
-	description="Использование службы приложений Azure для отправки push-уведомлений в приложение Xamarin.iOS"
-	services="app-service\mobile"
-	documentationCenter="xamarin"
+	pageTitle="Добавление push-уведомлений в приложение Xamarin.iOS с помощью службы приложений Azure" 
+	description="Использование службы приложений Azure для отправки push-уведомлений в приложение Xamarin.iOS" 
+	services="app-service\mobile" 
+	documentationCenter="xamarin" 
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dotnet"
+	ms.service="app-service-mobile" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="08/22/2015"
-	ms.author="yuaxu"/>
+	ms.date="08/22/2015" 
+	ms.author="wesmc"/>
 
 # Добавление push-уведомлений в приложение Xamarin.iOS
 
@@ -209,4 +209,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

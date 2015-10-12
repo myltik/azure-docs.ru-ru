@@ -180,9 +180,9 @@ ORDER BY 1,2,3
 [Общие сведения о разработке]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[GROUP BY]: https://msdn.microsoft.com/RU-RU/library/ms177673.aspx
+[GROUP BY]: https://msdn.microsoft.com/ru-RU/library/ms177673.aspx
 
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

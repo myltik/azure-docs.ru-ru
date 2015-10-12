@@ -34,9 +34,7 @@
 
 Код для этого учебника размещен на портале [GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS). Для понимания процесса можно [скачать основу приложения как ZIP-файл](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) или клонировать ее:
 
-```
-git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git
-```
+```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS.git```
 
 Готовое приложение также приводится в конце этого руководства.
 
@@ -56,8 +54,7 @@ one already, go [create a B2C directory](active-directory-b2c-get-started.md) be
 - Создайте для своего приложения **секрет приложения** и скопируйте его. Скоро он вам понадобится.
 - Скопируйте **идентификатор приложения**, назначенный приложению. Он также вам скоро понадобится.
 
-    > [AZURE.IMPORTANT]
-    Вам не удастся использовать для этой цели приложения, зарегистрированные на вкладке **Приложения** [портала Azure](https://manage.windowsazure.com/).
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3. Создание политик
 
@@ -66,6 +63,8 @@ one already, go [create a B2C directory](active-directory-b2c-get-started.md) be
 - Выберите в политике регистрации значение для атрибута **Отображаемое имя** и других атрибутов регистрации.
 - Выберите утверждения приложения **Отображаемое имя** и **Идентификатор объекта** в каждой политике. Можно также выбрать другие утверждения.
 - Скопируйте **имя** каждой политики после ее создания. Оно должно включать префикс `b2c_1_`. Эти имена политик понадобятся вам через некоторое время. 
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Создав три политики, можно приступать к созданию приложения.
 
@@ -105,6 +104,7 @@ one already, go [create a B2C directory](active-directory-b2c-get-started.md) be
     -	`returnURL` — это **URI перенаправления**, который был введен на портале.
     - `tenantName:` — это **имя клиента** вашего приложения, например contoso.onmicrosoft.com.
 
+[AZURE.INCLUDE [active-directory-b2c-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 - Затем откройте файл `app.js` в корне проекта и добавьте вызов стратегии `OIDCStrategy`, входящей в состав `passport-azure-ad`
 
@@ -432,4 +432,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

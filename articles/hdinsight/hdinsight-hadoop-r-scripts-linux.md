@@ -101,7 +101,6 @@ R можно установить в любой тип кластера Hadoop �
 		ints = to.dfs(1:100)
 		calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
 
-
 	В первой строке вызывается библиотека RHadoop rmr2, которая используется для операций MapReduce.
 
 	Во второй строке создаются значения 1–100, которые затем сохраняются в файловой системе Hadoop с помощью `to.dfs`.
@@ -149,4 +148,4 @@ R можно установить в любой тип кластера Hadoop �
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

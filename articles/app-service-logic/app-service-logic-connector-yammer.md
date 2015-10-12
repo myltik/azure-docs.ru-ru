@@ -1,20 +1,20 @@
 <properties
    pageTitle="Использование соединителя Yammer в приложениях логики | Служба приложений Microsoft Azure"
-	description="Как создать и настроить соединитель Yammer или приложение API и использовать его в приложении логики в службе приложений Azure"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="Как создать и настроить соединитель Yammer или приложение API и использовать его в приложении логики в службе приложений Azure"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="sameerch"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="sameerch"/>
 
 
 # Использование соединителя Yammer в приложении логики #
@@ -73,7 +73,9 @@
 ## Дополнительные возможности соединителя
 После создания соединителя его можно добавить в рабочий бизнес-процесс с помощью приложения логики. См. раздел [Что такое приложения логики?](app-service-logic-what-are-logic-apps.md).
 
-Справку по REST API Swagger см. в статье [Справочник по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+>[AZURE.NOTE]Если вы хотите начать работу с приложениями логики Azure до создания учетной записи Azure, перейдите на веб-сайт [пробного использования приложений логики](https://tryappservice.azure.com/?appservice=logic). На этом сайте вы сможете быстро создать кратковременное приложение логики начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+
+Справку по API REST Swagger см. в статье [Справочные материалы по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Можно также просматривать статистику производительности и управлять безопасностью соединителя. См. статью [Управление встроенными приложениями API и соединителями, а также их мониторинг](app-service-logic-monitor-your-connectors.md).
 
@@ -90,4 +92,4 @@
 [10]: ./media/app-service-logic-connector-yammer/img10.PNG
 [11]: ./media/app-service-logic-connector-yammer/img11.PNG
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

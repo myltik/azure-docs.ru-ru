@@ -1,20 +1,20 @@
 <properties
  pageTitle="Использование вычислительных виртуальных машин на базе Linux в кластере пакета HPC | Microsoft Azure"
-	description="Узнайте, как создать сценарий развертывания кластера пакета HPC в Azure, содержащего головной узел под управлением Windows Server с вычислительными узлами Linux."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+ description="Узнайте, как создать сценарий развертывания кластера пакета HPC в Azure, содержащего головной узел под управлением Windows Server с вычислительными узлами Linux."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="dlepow"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management"/>
 <tags
  ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.workload="big-compute"
-	ms.date="09/01/2015"
-	ms.author="danlep"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
+ ms.workload="big-compute"
+ ms.date="09/01/2015"
+ ms.author="danlep"/>
 
 # Начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure
 
@@ -43,7 +43,7 @@
 * **Квота ядер** — может потребоваться увеличить квоту ядер, особенно если вы решите развернуть несколько узлов кластера с многоядерными виртуальными машинами. Для примера в этой статье необходимо по крайней мере 24 ядра. Чтобы увеличить квоту, бесплатно [отправьте запрос в службу поддержки](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
 
 ### Создание файла конфигурации
-Сценарий развертывания IaaS из пакета HPC использует входной XML-файл конфигурации, описывающий инфраструктуру кластера HPC. Чтобы развернуть небольшой кластер, состоящий из головного узла и 2 вычислительных узлов Linux, вставьте значения для вашей среды в следующий образец файла конфигурации. Дополнительные сведения о файле конфигурации см. в файле Manual.rtf в папке сценария или [документации по сценарию](https://msdn.microsoft.com/library/azure/dn864734.aspx).
+Сценарий развертывания IaaS из пакета HPC использует входной XML-файл конфигурации, описывающий инфраструктуру кластера HPC. Чтобы развернуть небольшой кластер, состоящий из головного узла и 2 вычислительных узлов Linux, вставьте значения для вашей среды в следующий образец файла конфигурации. Дополнительные сведения о файле конфигурации см. в файле Manual.rtf в папке сценария или статье [Создание кластера HPC с помощью сценария развертывания IaaS пакета HPC](virtual-machines-hpcpack-cluster-powershell-script.md).
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -310,4 +310,4 @@ PS > clusrun /nodegroup:LinuxNodes mount CentOS7RDMA-HN:/nfs /nfsshared
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

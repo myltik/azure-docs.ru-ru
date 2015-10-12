@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Управление доступом на основе ролей на портале Microsoft Azure"
 	description="Описывает, как работает управление доступом на основе ролей и как его настроить"
-	services=""
+	services="active-directory"
 	documentationCenter=""
 	authors="IHenkel"
 	manager="stevenpo"
 	editor=""/>
 
 <tags
-	ms.service="multiple"
+	ms.service="active-directory"
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.tgt_pltfrm="Ibiza"
@@ -1275,7 +1275,7 @@ $log | Format-Table
 Дополнительные ресурсы для работы с управлением доступом на основе ролей:
 
 + [Управление доступом на основе ролей с помощью Windows PowerShell](role-based-access-control-powershell.md)
-+ [Управление доступом на основе ролей с помощью интерфейса командной строки Azure](role-based-access-control-xplat-cli.md)
++ [Управление доступом на основе ролей с помощью интерфейса командной строки Azure](role-based-access-control-xplat-cli-install.md)
 + [Устранение неполадок управления доступом на основе ролей](role-based-access-control-troubleshooting.md)
 + [Azure Active Directory Premium и Basic](active-directory-editions.md)
 + [Как подписки Azure связаны с Azure AD](active-directory-how-subscriptions-associated-directory.md)
@@ -1293,4 +1293,4 @@ $log | Format-Table
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

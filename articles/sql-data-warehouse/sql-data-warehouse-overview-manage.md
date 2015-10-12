@@ -43,9 +43,9 @@
 [подключению]: sql-data-warehouse-develop-connections.md
 
 <!--MSDN references-->
-[SQL Server Data Tools]: https://msdn.microsoft.com/RU-RU/library/mt204009.aspx
+[SQL Server Data Tools]: https://msdn.microsoft.com/ru-RU/library/mt204009.aspx
 
 <!--Other web references-->
 [Портал Azure]: http://portal.azure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

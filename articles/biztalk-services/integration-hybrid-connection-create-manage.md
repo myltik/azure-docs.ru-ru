@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="09/24/2015" 
 	ms.author="mandia"/>
 
 
@@ -38,8 +38,10 @@
 **Создание гибридных подключений в службах BizTalk**
 
 1. Выполните вход на [портал управления Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. В левой панели навигации щелкните **Службы BizTalk**, а затем выберите нужную службу BizTalk. <br/>Если служба BizTalk отсутствует, можно создать ее с помощью команды [Создание службы BizTalk](biztalk-provision-services.md).
-3. Выберите вкладку "Гибридные подключения": <br/> ![вкладка "Гибридные подключения"][HybridConnectionTab]
+2. В левой панели навигации щелкните **Службы BizTalk**, а затем выберите нужную службу BizTalk. 
+
+	Если служба BizTalk отсутствует, можно создать ее с помощью команды [Создать службу BizTalk](biztalk-provision-services.md).
+3. Выберите вкладку "Гибридные подключения": ![вкладка "Гибридные подключения"][HybridConnectionTab]
 
 4. Щелкните **Создать гибридное подключение** или нажмите кнопку **ДОБАВИТЬ** в области задач. Заполните следующие поля:
 
@@ -70,8 +72,8 @@
 
 1. Выполните вход на [портал управления Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. В левой панели навигации щелкните **Службы BizTalk**, а затем выберите нужную службу BizTalk. 
-3. Выберите вкладку **Гибридные подключения**: <br/> ![вкладка "Гибридные подключения"][HybridConnectionTab]
-4. На панели задач нажмите кнопку **Локальная настройка**: <br/> ![Локальная установка][HCOnPremSetup]
+3. Выберите вкладку **Гибридные подключения**: ![вкладка "Гибридные подключения"][HybridConnectionTab]
+4. На панели задач нажмите кнопку **Настройка локального подключения**: ![Локальная установка][HCOnPremSetup]
 5. Щелкните **Установить и настроить**, чтобы запустить или загрузить диспетчер гибридных подключений в локальной системе. 
 6. Установите флажок для запуска процесса установки. 
 
@@ -112,20 +114,22 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 1. Выполните вход на [портал управления Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. В левой панели навигации щелкните **Службы BizTalk**, а затем выберите нужную службу BizTalk. 
-3. Выберите вкладку **Гибридные подключения**: <br/> ![вкладка "Гибридные подключения"][HybridConnectionTab]
-4. Выберите гибридное подключение. На панели задач выберите **Управление подключением**: <br/> ![Управление параметрами][HCManageConnection] <br/> В разделе **Управление подключением** содержится перечень строк подключения к приложению и локальных строка подключения. Вы можете скопировать сроки подключений или повторно создать ключ доступа, используемый в строке подключения. <br/> <br/> **При повторном создании** общий ключ доступа, используемый в строке подключения, будет изменен. Выполните следующие действия.
-- На портале управления Azure в приложении Azure выберите пункт **Синхронизировать ключи**.
-- Повторно запустите **программу локальной установки**. Локальный ресурс автоматически настроится для использования обновленной основной строки подключения.
+3. Выберите вкладку **Гибридные подключения**: ![вкладка "Гибридные подключения"][HybridConnectionTab]
+4. Выберите гибридное подключение. На панели задач нажмите кнопку **Управление подключением**: ![Управление параметрами][HCManageConnection]
+
+	В разделе **Управление подключением** содержится перечень строк подключения к приложению и локальных строк подключения. Вы можете скопировать сроки подключений или повторно создать ключ доступа, используемый в строке подключения.
+
+	**При повторном создании** общий ключ доступа, используемый в строке подключения, будет изменен. Выполните следующие действия: на портале управления Azure в приложении Azure выберите пункт **Синхронизировать ключи**, а затем повторно запустите пункт **Настройка локального подключения**. Локальный ресурс автоматически настроится для использования обновленной основной строки подключения.
 
 
 #### Применение групповой политики для контроля локальных ресурсов, используемых гибридным подключением
 
 1. Скачайте [административные шаблоны диспетчера гибридных подключений](http://www.microsoft.com/download/details.aspx?id=42963).
 2. Извлеките файлы.
-3. На компьютере, где осуществляется изменение групповой политики, выполните следующие действия. 
+3. На компьютере, где осуществляется изменение групповой политики, выполните следующие действия.  
 
 	- Скопируйте файлы ADMX в папку *%WINROOT%\\PolicyDefinitions*.
-	- Скопируйте файлы ADMX в папку *%WINROOT%\\PolicyDefinitions\\ru-ru*.
+	- Скопируйте файлы ADMX в папку *%WINROOT%\\PolicyDefinitions\\ru-RU*.
 
 После копирования файлов можно изменить политику с помощью редактора групповой политики.
 
@@ -134,16 +138,16 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 ## Далее
 
-[Подключение веб-приложений Azure к локальным ресурсам](../web-sites-hybrid-connection-get-started.md)<br/> [Подключение к локальному SQL Server из веб-приложений Azure](../web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/> [Мобильные службы Azure и гибридные подключения](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)<br/> [Обзор гибридных подключений](integration-hybrid-connection-overview.md)
+[Подключение веб-приложений Azure к локальным ресурсам](../web-sites-hybrid-connection-get-started.md) [Подключение к локальному SQL Server из веб-приложений Azure](../web-sites-hybrid-connection-connect-on-premises-sql-server.md) [Мобильные службы Azure и гибридные подключения](../mobile-services-dotnet-backend-hybrid-connections-get-started.md) [Обзор гибридных подключений](integration-hybrid-connection-overview.md)
 
 
 ## См. также
 
-[REST API для управления службами BizTalk в Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)<br/> [Службы BizTalk: Диаграмма выпусков](biztalk-editions-feature-chart.md)<br/> [Создание службы BizTalk с помощью портала управления Azure](biztalk-provision-services.md)<br/> [Службы BizTalk: вкладки «Панель мониторинга», «Монитор» и «Масштаб»](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+[REST API для управления службами BizTalk в Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx) [Службы BizTalk: диаграмма выпусков](biztalk-editions-feature-chart.md) [Создание службы BizTalk с помощью портала управления Azure](biztalk-provision-services.md) [Службы BizTalk: вкладки «Панель мониторинга», «Монитор» и «Масштаб»](biztalk-dashboard-monitor-scale-tabs.md)
 
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

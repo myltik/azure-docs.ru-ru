@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
+   ms.date="09/24/2015"
    ms.author="bwren" />
 
 # Типы модулей Runbook в службе автоматизации Azure
@@ -36,36 +36,41 @@
 - Визуальное представление процессов управления.
 - Использование [контрольных точек](automation-powershell-workflow.md#checkpoints) для возобновления модулей Runbook в случае ошибки.
 - Использование [параллельной обработки](automation-powershell-workflow.md#parallel-processing) для одновременного выполнения нескольких действий.
-- Другие графические модули Runbook и модули Runbook рабочих процессов PowerShell можно добавлять как дочерние модули для создания рабочих процессов высокого уровня.
+- Графические Runbook могут включать другие графические Runbook и Runbook рабочего процесса PowerShell в качестве дочерних Runbook для создания рабочих процессов высокого уровня.
+
 
 ### Ограничения
 
 - Редактировать модуль Runbook за пределами портала Azure нельзя.
-- Для выполнения сложной логики может потребоваться [элемент управления сценарием рабочего процесса](automation-powershell-workflow.md#activities) с рабочим процессом PowerShell.
+- Для выполнения сложной логики может потребоваться [элемент управления сценарием рабочего процесса](automation-powershell-workflow.md#activities), содержащий код рабочего процесса PowerShell.
+- Вам не удастся отобразить или напрямую изменить код рабочего процесса PowerShell, созданный графическим рабочим процессом. Обратите внимание, что вы можете просматривать код в любых действиях сценария рабочего процесса.
 - Модуль Runbook запускается дольше, чем модули Runbook PowerShell, поскольку требует предварительной компиляции.
-- Модули Runbook PowerShell можно включать только с помощью командлета Start-AzureAutomationRunbook, который создает новое задание.
+- Runbook PowerShell можно включать только как дочерние Runbook с помощью командлета Start-AzureAutomationRunbook, который создает задание.
+
 
 ## Модули Runbook рабочих процессов PowerShell
 
-Модули Runbook рабочих процессов PowerShell представляют собой текстовые модули Runbook, основанные на [рабочем процессе Windows PowerShell](automation-powershell-workflow.md). Код модуля Runbook можно редактировать в текстовом редакторе на портале Azure. Кроме того, можно использовать любой автономный текстовый редактор и [импортировать модуль Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) в службу автоматизации Azure.
+Runbook рабочих процессов PowerShell представляют собой текстовые Runbook, основанные на [рабочем процессе Windows PowerShell](automation-powershell-workflow.md). Код модуля Runbook можно редактировать в текстовом редакторе на портале Azure. Кроме того, можно использовать любой автономный текстовый редактор и [импортировать Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) в службу автоматизации Azure.
 
 ### Преимущества
 
 - Реализация сложной логики с помощью кода рабочего процесса PowerShell.
 - Использование [контрольных точек](automation-powershell-workflow.md#checkpoints) для возобновления модулей Runbook в случае ошибки.
 - Использование [параллельной обработки](automation-powershell-workflow.md#parallel-processing) для одновременного выполнения нескольких действий.
-- Другие графические модули Runbook или модули Runbook рабочих процессов PowerShell можно добавлять как дочерние модули для создания рабочих процессов высокого уровня.
+- Графические Runbook могут включать другие графические Runbook и Runbook рабочего процесса PowerShell в качестве дочерних Runbook для создания рабочих процессов высокого уровня.
+
 
 ### Ограничения
 
 - Автор должен знать рабочий процесс PowerShell.
-- Модуль Runbook должен справляться с усложнениями рабочего процесса PowerShell, например с [десериализованными объектами](automation-powershell-workflow.md#code-changes).
+- Runbook должен справляться с усложнениями рабочего процесса PowerShell, например с [десериализованными объектами](automation-powershell-workflow.md#code-changes).
 - Модуль Runbook запускается дольше, чем модули Runbook PowerShell, поскольку требует предварительной компиляции.
-- Модули Runbook PowerShell можно включать только с помощью командлета Start-AzureAutomationRunbook, который создает новое задание.
+- Runbook PowerShell можно включать только как дочерние Runbook с помощью командлета Start-AzureAutomationRunbook, который создает задание.
+
 
 ## Модули Runbook PowerShell
 
-Модули Runbook PowerShell используют Windows PowerShell. Код модуля Runbook можно редактировать в текстовом редакторе на портале Azure. Кроме того, можно использовать любой автономный текстовый редактор и [импортировать модуль Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) в службу автоматизации Azure.
+Модули Runbook PowerShell используют Windows PowerShell. Код модуля Runbook можно редактировать в текстовом редакторе на портале Azure. Кроме того, можно использовать любой автономный текстовый редактор и [импортировать Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) в службу автоматизации Azure.
 
 ### Преимущества
 
@@ -75,18 +80,18 @@
 ### Ограничения
 
 - Необходимо знание сценариев PowerShell.
-- Невозможность использования [параллельной обработки](automation-powershell-workflow.md#parallel-processing) для одновременного выполнения нескольких действий.
-- Невозможность использования [контрольных точек](automation-powershell-workflow.md#checkpoints) для возобновления модулей Runbook в случае ошибки.
-- Невозможность запуска модулей Runbook на [гибридном компоненте Runbook Worker](automation-hybrid-runbook-worker.md).
-- Модули рабочего процесса PowerShell и графические модули Runbook можно включать только с помощью командлета Start-AzureAutomationRunbook, который создает новое задание.
+- Вам не удастся использовать [параллельную обработку](automation-powershell-workflow.md#parallel-processing) для одновременного выполнения нескольких действий.
+- Вам не удастся использовать [контрольные точки](automation-powershell-workflow.md#checkpoints) для возобновления Runbook в случае ошибки.
+- Вам не удастся запустить Runbook в [гибридной рабочей роли Runbook](automation-hybrid-runbook-worker.md).
+- Runbook рабочих процессов PowerShell и графические Runbook можно включать в качестве дочерних Runbook с помощью командлета Start-AzureAutomationRunbook, который создает задание.
 
 ### Известные проблемы
 Ниже перечислены проблемы с модулями Runbook PowerShell, известные на данный момент.
 
-- Модули Runbook PowerShell не могут извлекать незашифрованный [переменный ресурс](automation-variables.md) с нулевым значением.
-- Модули Runbook PowerShell не могут извлекать незашифрованный [переменный ресурс](automation-variables.md), в имени которого есть символ *~*.
+- Runbook PowerShell не имеют возможности извлекать незашифрованный [переменный ресурс-контейнер](automation-variables.md) с пустым значением.
+- Runbook PowerShell не имеют возможности извлекать [переменный ресурс](automation-variables.md), в имени которого есть символ *~*.
 - Модуль Get-Process в цикле в модуле Runbook PowerShell может аварийно завершить работу после примерно 80 итераций. 
-- Модуль Runbook PowerShell может завершиться ошибкой, если попытается записать слишком большой объем данных в поток вывода за один раз. Обычно эту проблему можно обойти, выводя при работе с большими объектами только необходимые данные. Например, вместо того чтобы использовать метод *Get-Process*, можно вывести только требуемые поля, указав *Get-Process | Select ProcessName, CPU*.
+- Модуль Runbook PowerShell может завершиться ошибкой, если попытается записать слишком большой объем данных в поток вывода за один раз. Обычно эту проблему можно обойти, выводя при работе с большими объектами только необходимые данные. Например, вместо того чтобы использовать метод *Get-Process*, можно вывести только требуемые поля с помощью *Get-Process | Select ProcessName, CPU*.
 
 ## Рекомендации
 
@@ -104,4 +109,4 @@
 - [Изучение рабочего процесса Windows PowerShell](automation-powershell-workflow.md)
 - [Создание или импорт модуля Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

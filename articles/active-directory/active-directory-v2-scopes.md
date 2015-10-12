@@ -116,4 +116,4 @@ Content-Type: application/json
 
 Дополнительные сведения о том, как получать и использовать маркеры обновления, можно найти в [справочнике по протоколу модели приложений 2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

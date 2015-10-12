@@ -20,7 +20,7 @@
 
 Чтобы помочь вам интегрировать все облачные (SaaS) приложения с Azure Active Directory, мы разработали коллекцию учебников. В этих руководствах описаны все необходимые этапы настройки.
 
-Полный список предварительно интегрированных в Azure AD приложений SaaS см. в разделе [Active Directory Marketplace](https://azure.microsoft.com/ru-ru/marketplace/active-directory/).
+Полный список предварительно интегрированных в Azure AD приложений SaaS см. в разделе [Active Directory Marketplace](https://azure.microsoft.com/ru-RU/marketplace/active-directory/).
 
 ##Список учебников
 
@@ -55,7 +55,6 @@
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Clarizen.jpg)| [Clarizen](https://go.microsoft.com/fwLink/?LinkID=403229&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Clever.jpg)| [Clever](https://go.microsoft.com/fwLink/?LinkID=530228&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_ClickTime.jpg)| [ClickTime](https://go.microsoft.com/fwLink/?LinkID=403236&clcid=0x409)|
-| ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_CloudBees.jpg)| [CloudBees](https://go.microsoft.com/fwLink/?LinkID=403228&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_CloudPassage.jpg)| [CloudPassage](https://go.microsoft.com/fwLink/?LinkID=512732&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Concur.jpg)| [Concur](https://go.microsoft.com/fwLink/?LinkID=309575&clcid=0x409)|
 | ![логотип](./media/active-directory-saas-tutorial-list/SaaSApp_Coupa.jpg)| [Coupa](https://go.microsoft.com/fwLink/?LinkID=510267&clcid=0x409)|
@@ -160,8 +159,6 @@
 
 
 
-
-
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

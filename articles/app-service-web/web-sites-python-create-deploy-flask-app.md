@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Создание веб-приложений с помощью Flask в Azure"
-	description="В учебнике описывается, как запустить веб-приложение на языке Python в Azure."
-	services="app-service\web"
+	pageTitle="Создание веб-приложений с помощью Flask в Azure" 
+	description="В учебнике описывается, как запустить веб-приложение на языке Python в Azure." 
+	services="app-service\web" 
 	documentationCenter="python"
 	tags="python"
-	authors="huguesv"
-	manager="wpickett"
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -377,6 +377,8 @@
 - [Использование Flask и MongoDB в Azure с помощью инструментов Python для Visual Studio]
 - [Flask и хранилище таблиц Azure с использованием инструментов Python Tools для Visual Studio]
 
+Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
+
 ## Изменения
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
@@ -401,4 +403,4 @@
 [Документация по Flask]: http://flask.pocoo.org/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

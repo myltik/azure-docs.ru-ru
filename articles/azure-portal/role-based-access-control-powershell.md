@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Windows PowerShell](role-based-access-control-powershell.md)
-- [Azure CLI](role-based-access-control-xplat-cli.md)
+- [Azure CLI](role-based-access-control-xplat-cli-install.md)
 
 
 Функция управления доступом на основе ролей (RBAC) на портале Azure и в API диспетчера ресурсов Azure позволяет управлять доступом к подписке на детальном уровне. С ее помощью вы можете предоставлять доступ пользователям, группам и субъектам-службам Active Directory, назначая им роли с определенной областью.
@@ -161,7 +161,7 @@ RBAC работает только с диспетчером ресурсов Az
 - [Блог Azure](http://blogs.msdn.com/windowsazure): узнайте о новых возможностях в Azure.
 - [Блог Windows PowerShell](http://blogs.msdn.com/powershell): узнайте о новых возможностях в Windows PowerShell.
 - [Блог "Hey, Scripting Блог](http://blogs.technet.com/b/heyscriptingguy/): реальные советы и рекомендации от сообщества Windows PowerShell.
-- [Настройка управления доступом на основе ролей с помощью Azure CLI](role-based-access-control-xplat-cli.md)
+- [Настройка управления доступом на основе ролей с помощью Azure CLI](role-based-access-control-xplat-cli-install.md)
 - [Устранение неполадок управления доступом на основе ролей](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

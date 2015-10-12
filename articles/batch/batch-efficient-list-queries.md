@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="08/27/2015"
+	ms.date="09/24/2015"
 	ms.author="davidmu;v-marsma"/>
 
 # Эффективные запросы списков в пакетной службе
@@ -37,20 +37,22 @@
 - Увеличение количества и размера элементов приводит к росту потребления памяти приложением, вызывающим пакетную службу,
 - а также к увеличению сетевого трафика. Передача займет больше времени и, в зависимости от архитектуры приложения, может привести к увеличению расходов на Интернет для данных, передаваемых за пределы области учетной записи пакетной службы.
 
+> [AZURE.IMPORTANT]Мы *настоятельно* рекомендуем *всегда* использовать предложения фильтрации и выбора в вызовах API для получения списков. Это обеспечит максимальную эффективность и производительность приложения. Эти предложения и порядок их использования описаны ниже.
+
 Ниже приведена информация, которая касается всех интерфейсов API пакетной службы.
 
 - Имя каждого свойства — это строка, соответствующая свойству объекта.
 - Имена всех свойств чувствительны к регистру, но для значений свойств регистр значения не имеет.
 - Имена свойств и регистры соответствуют элементам в API REST пакетной службы.
 - Строки даты и времени начинаются с DateTime и указываются в одном из двух форматов:
-	- W3CDTF (например, *creationTime gt DateTime'2011-05-08T08:49:37Z'*);
-	- RFC1123 (например, *creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'*).
+	- W3CDTF (например, *creationTime gt DateTime'2011-05-08T08:49:37Z'*)
+	- RFC1123 (например, *creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'*)
 - Строки с логическими выражениями должны иметь значение True или False.
 - Если указано неверное свойство или оператор, возвращается ошибка с кодом «400 (недопустимый запрос)».
 
 ## Эффективное выполнение запросов в пакетной службе для .NET
 
-Интерфейс API пакетной службы для .NET позволяет снижать как количество возвращаемых элементов в списке, так и объем сведений, возвращаемых для каждого элемента. Для этого в запросе указывается уровень детализации ([DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx)). DetailLevel — это абстрактный базовый класс. Фактически нужно создать и передать объект [ODATADetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx) в качестве параметра в соответствующие методы.
+API пакетной службы для .NET позволяет уменьшить как количество возвращаемых элементов в списке, так и объем сведений, возвращаемых для каждого элемента. Для этого в запросе необходимо указать уровень детализации ([DetailLevel](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.detaillevel.aspx)). DetailLevel — это абстрактный базовый класс. Фактически необходимо создать и передать объект [ODATADetailLevel][odata] в качестве параметра в соответствующие методы.
 
 Объект ODataDetailLevel имеет три открытых строковых свойства, которые можно указать в конструкторе или напрямую:
 
@@ -58,15 +60,15 @@
 - [SelectClause](#select). Выбор подмножества значений свойств, возвращаемых для каждого элемента. Позволяет уменьшить размер элемента и ответа.
 - [ExpandClause](#expand). Возвращение всех необходимых данных за один, а не несколько вызовов.
 
-> [AZURE.TIP]Экземпляр DetailLevel с предложениями Select и Expand также можно передать в соответствующие методы Get, такие как [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx), для ограничения объема возвращаемых данных.
+> [AZURE.TIP]Экземпляр DetailLevel с предложениями Select и Expand также можно передать в соответствующие методы Get, например [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx), для ограничения объема возвращаемых данных.
 
 ### <a id="filter"></a> FilterClause
 
 Количество возвращаемых элементов можно уменьшить с помощью строки фильтра. Чтобы убедиться, что возвращаются только элементы, относящиеся к запросу, можно задать одно или несколько значений свойств с квалификаторами. Например, можно вывести список только выполняющихся задач в задании или только вычислительных узлов, которые готовы к выполнению задач.
 
- [FilterClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.filterclause.aspx) — это строка, состоящая из одного или нескольких выражений, где каждое выражение состоит из *имени свойства*, *оператора* и *значения*. Для каждого вызова API можно указать только определенные свойства, равно как и операторы, поддерживаемые каждым свойством. Несколько выражений можно объединить с помощью логических операторов **and** и **or**.
+ [FilterClause](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.filterclause.aspx) — это строка, состоящая из одного или нескольких выражений, где каждое выражение состоит из *имени свойства*, *оператора* и *значения*. Для каждого вызова API можно указать только определенные свойства, равно как и операторы, поддерживаемые каждым свойством. Вы можете объединить несколько выражений с помощью логических операторов **and** и **or**.
 
-Например, эта строка фильтра возвращает только выполняющиеся задачи, параметр *displayName* которых начинается с MyTask:
+Например, эта строка фильтра возвращает только те выполняющиеся задачи, для которых параметр *displayName* начинается с MyTask:
 
 	startswith(displayName, 'MyTask') and (state eq 'Running')
 
@@ -83,7 +85,7 @@
 - [Получение списка сертификатов в учетной записи](https://msdn.microsoft.com/library/azure/dn820154.aspx)
 - [Получение списка файлов в узле](https://msdn.microsoft.com/library/azure/dn820151.aspx)
 
-> [AZURE.IMPORTANT]Указывая свойства в каком-либо из трех типов предложений, убедитесь, что имя свойства и регистр соответствуют аналогичному элементу в API REST пакетной службы. Например, при работе с [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) в .NET необходимо указывать **state**, а не **State**, несмотря на то что в .NET используется свойство [CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). Чтобы проверить имя и регистр свойства **state**, следует найти имя элемента в разделе [Получение сведений о задаче](https://msdn.microsoft.com/library/azure/dn820133.aspx) в документации по API REST пакетной службы.
+> [AZURE.IMPORTANT]Указывая свойства в каком-либо из трех типов предложений, убедитесь, что имя свойства и регистр соответствуют аналогичному элементу в API REST пакетной службы. Например, при работе с [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) в .NET необходимо указывать **state**, а не **State**, несмотря на то что в .NET используется свойство [CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state). Чтобы проверить имя и регистр свойства **state**, найдите имя элемента в статье [Получение сведений о задаче](https://msdn.microsoft.com/library/azure/dn820133.aspx) в документации по REST API пакетной службы.
 
 ### <a id="select"></a> SelectClause
 
@@ -101,7 +103,7 @@
 
 ## Пример эффективного запроса
 
-Ниже приведен фрагмент кода, который с помощью API пакетной службы для .NET выполняет эффективный запрос к пакетной службе для получения статистики по определенному набору пулов. В этом сценарии у пользователя пакетной службы есть как тестовый, так и рабочий пулы. Идентификаторы тестовых пулов начинаются с префикса test, а рабочих — с префикса prod. В приведенном фрагменте *myBatchClient* — это должным образом инициализированный экземпляр [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient).
+Ниже приведен фрагмент кода, который с помощью API пакетной службы для .NET выполняет эффективный запрос к пакетной службе для получения статистики по определенному набору пулов. В этом сценарии у пользователя пакетной службы есть как тестовый, так и рабочий пулы. Идентификаторы тестовых пулов начинаются с префикса test, а рабочих — с префикса prod. В приведенном фрагменте кода *myBatchClient* — это должным образом инициализированный экземпляр [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient).
 
 	// First we need an ODATADetailLevel instance on which to set the expand, filter, and select
 	// clause strings
@@ -124,13 +126,33 @@
 	// detail level we configured above
 	List<CloudPool> testPools = myBatchClient.PoolOperations.ListPools(detailLevel).ToList();
 
-> [AZURE.TIP]Мы советуем *всегда* использовать предложения фильтрации и выбора в вызовах API для получения списков. Это обеспечит максимальную эффективность и производительность приложения.
+## Пример проекта
+
+Изучите пример проекта [EfficientListQueries][efficient_query_sample] на GitHub, чтобы узнать, как эффективные запросы на получение списков могут повлиять на производительность в приложении. Это консольное приложение C# создает и добавляет большое количество задач в задание, а затем запрашивает пакетную службу, используя различные спецификации [ODATADetailLevel][odata] и отображая выходные данные указанного ниже вида.
+
+		Adding 5000 tasks to job jobEffQuery...
+		5000 tasks added in 00:00:47.3467587, hit ENTER to query tasks...
+
+		4943 tasks retrieved in 00:00:04.3408081 (ExpandClause:  | FilterClause: state eq 'active' | SelectClause: id,state)
+		0 tasks retrieved in 00:00:00.2662920 (ExpandClause:  | FilterClause: state eq 'running' | SelectClause: id,state)
+		59 tasks retrieved in 00:00:00.3337760 (ExpandClause:  | FilterClause: state eq 'completed' | SelectClause: id,state)
+		5000 tasks retrieved in 00:00:04.1429881 (ExpandClause:  | FilterClause:  | SelectClause: id,state)
+		5000 tasks retrieved in 00:00:15.1016127 (ExpandClause:  | FilterClause:  | SelectClause: id,state,environmentSettings)
+		5000 tasks retrieved in 00:00:17.0548145 (ExpandClause: stats | FilterClause:  | SelectClause: )
+
+		Sample complete, hit ENTER to continue...
+
+Как показано в сведениях о затраченном времени, ограничение свойств и количества возвращаемых элементов может значительно снизить время отклика на запрос. Этот и другие примеры проектов находятся в репозитории [azure-batch-samples][github_samples] на веб-сайте GitHub.
 
 ## Дальнейшие действия
 
 1. Обязательно ознакомьтесь с документацией по API пакетной службы, относящейся к вашим сценариям разработки.
     - [Пакетная служба (REST)](https://msdn.microsoft.com/library/azure/dn820158.aspx)
     - [Пакетная служба (.NET)](https://msdn.microsoft.com/library/azure/dn865466.aspx)
-2. Скачайте [образцы кода, связанные с использованием пакетной службы Azure](https://github.com/Azure/azure-batch-samples), на GitHub и изучите их.
+2. Скачайте [примеры кода для пакетной службы Azure](https://github.com/Azure/azure-batch-samples) на GitHub и изучите их.
 
-<!---HONumber=September15_HO1-->
+[efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
+[github_samples]: https://github.com/Azure/azure-batch-samples
+[odata]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
+
+<!---HONumber=Oct15_HO1-->

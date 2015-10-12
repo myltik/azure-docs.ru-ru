@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Начало работы с проверкой подлинности для мобильных приложений в Xamarin iOS" 
 	description="Использование мобильных приложений для проверки подлинности пользователей приложения Xamarin iOS с помощью разных поставщиков удостоверений, включая AAD, Google, Facebook, Twitter и Майкрософт." 
-	services="app-service\mobile" 
+	services="app-service" 
 	documentationCenter="xamarin" 
 	authors="mattchenderson" 
 	manager="dwrede" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="mobile" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
@@ -118,4 +118,4 @@
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

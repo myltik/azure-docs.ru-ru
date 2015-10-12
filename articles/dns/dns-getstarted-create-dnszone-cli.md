@@ -173,4 +173,4 @@ Azure DNS использует диспетчер ресурсов Azure. Обя
 
 [Приступая к созданию наборов записей и записей](dns-getstarted-create-recordset-cli.md)<BR> [Управление зонами DNS](dns-operations-dnszones-cli.md)<BR> [Управление DNS-записями](dns-operations-recordsets-cli.md)<BR> [Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)<BR> [Справочник по API REST для службы Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -108,7 +108,7 @@ OR  y.[is_user_defined] = 1
 - Вместо **geography** используйте varbinary.
 - **hierarchyid** — этот тип CLR не поддерживается.
 - Вместо **image**, **text**, **ntext** используйте varchar/nvarchar (чем меньше, тем лучше).
-- Вместо **nvarchar(max)** используйте varchar(4000) или меньшую версию для лучшей производительности.
+- Вместо **nvarchar(max)** используйте nvarchar(4000) или меньшую версию для лучшей производительности.
 - Вместо **numeric** используйте decimal.
 - Не используйте **sql\_variant**. Вместо этого разделите столбец на несколько строго типизированных столбцов.
 - Вместо **sysname** используйте nvarchar(128).
@@ -145,4 +145,4 @@ OR  y.[is_user_defined] = 1
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

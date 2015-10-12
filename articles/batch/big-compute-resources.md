@@ -1,20 +1,20 @@
 <properties
    pageTitle="Большие вычисления: технические ресурсы для пакетных и высокопроизводительных вычислений (HPC) | Microsoft Azure"
-	description="В этой статье приведены технические ресурсы, которые помогут вам запускать крупномасштабные параллельные и пакетные задания, а также рабочие нагрузки HPC в Azure."
-	services="batch, cloud-services, virtual-machines"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""/>
+   description="В этой статье приведены технические ресурсы, которые помогут вам запускать крупномасштабные параллельные и пакетные задания, а также рабочие нагрузки HPC в Azure."
+   services="batch, cloud-services, virtual-machines"
+   documentationCenter=""
+   authors="dlepow"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="big-compute"
-	ms.date="09/02/2015"
-	ms.author="danlep"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="big-compute"
+   ms.date="09/29/2015"
+   ms.author="danlep"/>
 
 # Большие вычисления в Azure: технические ресурсы для пакетных и высокопроизводительных вычислений (HPC)
 Это руководство по техническим ресурсам поможет вам выполнять крупномасштабные параллельные и пакетные задания, а также рабочие нагрузки HPC в Azure. Перенесите свои текущие пакетные задания или рабочие нагрузки HPC в облако Azure или создайте в Azure новые решения для больших вычислений с помощью набора служб Azure.
@@ -48,43 +48,16 @@
 
 ### Пакет Microsoft HPC
 
-Пакет HPC — бесплатное решение Майкрософт для высокопроизводительных вычислений, созданное на основе технологий Microsoft Azure и Windows Server.
+HPC Pack — это бесплатное решение HPC корпорации Майкрософт, созданное на основе технологий Microsoft Azure и Windows Server и поддерживающее рабочие нагрузки HPC как в Windows, так и в Linux.
 
-* [Загрузить пакет HPC 2012 R2 с обновлением 2](https://www.microsoft.com/ru-ru/download/details.aspx?id=47755)
+* [Загрузить пакет HPC 2012 R2 с обновлением 2](https://www.microsoft.com/ru-RU/download/details.aspx?id=47755)
 
 * [Документация](https://technet.microsoft.com/library/jj899572.aspx)
 
-* **Образы виртуальных машин Azure**
 
-    * [Пакет HPC на Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)
+* [Параметры кластера HPC с Microsoft HPC Pack в Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
 
-    * [Вычислительный узел пакета HPC на Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)
-
-    * [Вычислительный узел пакета HPC с Excel на Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)
-
-* **Шаблоны и скрипты для быстрого запуска Azure**
-
-    * [Создание кластера HPC](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
-
-    * [Создание кластера HPC с пользовательским образом вычислительного узла](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
-
-    * [Создание кластера пакета HPC с вычислительными узлами Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
-
-    * [Сценарий PowerShell для развертывания пакета HPC в виде IaaS](https://www.microsoft.com/download/details.aspx?id=44949)
-
-* **Учебники по Azure**
-
-    * [Учебник: начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack.md)
-
-    * [Учебник. Запуск NAMD с пакетом Microsoft HPC на вычислительных узлах Linux в Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack-namd.md)
-
-    * [Учебник: начало работы с кластером пакета HPC в Azure для запуска рабочих нагрузок Excel и SOA](../virtual-machines/virtual-machines-excel-cluster-hpcpack.md)
-
-    * [Учебник: настройка гибридного кластера с пакетом HPC в Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
-
-    * [Пакет HPC на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/dn518135.aspx)
-
-    * [Использование пакета HPC совместно с Azure](https://technet.microsoft.com/library/gg481749.aspx)
+* [Использование пакета HPC совместно с Azure](https://technet.microsoft.com/library/gg481749.aspx)
 
 
 * [Форумы по Windows HPC](https://social.microsoft.com/Forums/home?category=windowshpc)
@@ -111,17 +84,15 @@
 
 ## Экземпляры для ресурсоемких вычислений
 
-Azure предлагает вычислительные экземпляры [различных размеров](../virtual-machines/virtual-machines-size-specs.md), включая ресурсоемкие [A8, A9, A10 и A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md), для выполнения рабочих нагрузок HPC в Linux и Windows.
+Azure предлагает вычислительные экземпляры [различных размеров](../virtual-machines/virtual-machines-size-specs.md) (включая ресурсоемкие [A8, A9, A10 и A11](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md)) для выполнения рабочих нагрузок HPC в Linux и Windows.
 
 * [Настройка кластера Linux RDMA для выполнения приложений MPI](../virtual-machines/virtual-machines-linux-cluster-rdma.md)
 
-* [Экземпляры A8 и A9: краткое руководство для пакета HPC](https://msdn.microsoft.com/library/azure/dn594431.aspx)
-
-* [Запуск приложений MPI на экземплярах A8 и A9](https://msdn.microsoft.com/library/azure/dn592104.aspx)
+* [Настройка кластера RDMA в Windows с помощью Microsoft HPC Pack для выполнения приложений MPI](../virtual-machines/virtual-machines-windows-hpcpack-cluster-rdma.md)
 
 ## Проекты архитектуры
 
-* В PDF-документе [Крупномасштабные вычисления: финансовые услуги](http://go.microsoft.com/fwlink/?LinkId=536378) описывается ввод в эксплуатацию систем для крупномасштабных вычислений и анализа данных в облаке, а также управление такими системами. В качестве примера рассматриваются такие направления, как управление рисками, отчетность и моделирование.
+* В PDF-документе [Крупномасштабные вычисления: финансовые услуги](http://go.microsoft.com/fwlink/?LinkId=536378) описывается ввод в эксплуатацию систем для крупномасштабных вычислений и анализа данных в облаке, а также управление такими системами. В качестве примера рассматриваются различные направления, например управление рисками, отчетность и моделирование.
 
 ## Примеры и образцы
 
@@ -150,4 +121,4 @@ Azure предлагает вычислительные экземпляры [р
 * Последние объявления см. в [блоге группы Microsoft HPC и Пакетной службы](http://blogs.technet.com/b/windowshpc/), а также в [блоге Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Следите также за лентой [новостей о Пакетной службе](http://azure.microsoft.com/updates/?service=batch) или подпишитесь на [RSS-канал](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

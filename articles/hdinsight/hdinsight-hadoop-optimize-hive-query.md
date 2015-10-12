@@ -6,7 +6,7 @@
    authors="rashimg"
    manager="mwinkle"
    editor="cgronlun"
-	tags="azure-portal"/>
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -22,7 +22,9 @@
 
 По умолчанию производительность кластеров Hadoop не оптимизирована. В этой статье описывается несколько наиболее распространенных методов оптимизации производительности Hive, которые можно применить к отправке запросов.
 
+
 [AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+
 
 * [Оптимизация запросов Hive для Hadoop в HDInsight](hdinsight-hadoop-optimize-hive-query-v1.md).
 
@@ -59,7 +61,7 @@ Tez работает быстрее, так как:
 
 	set hive.execution.engine=tez;
 
-Платформа Tez должна быть активирована во время подготовки. Ниже приведен пример сценария Azure PowerShell для подготовки кластера Hadoop с активированной платформой Tez.
+При подготовке кластеров HDInsight под управлением Windows необходимо включить Tez. Ниже приведен пример сценария Azure PowerShell для подготовки кластера Hadoop с активированной платформой Tez.
 
 
 	$clusterName = "[HDInsightClusterName]"
@@ -83,6 +85,10 @@ Tez работает быстрее, так как:
 	Set-AzureHDInsightDefaultStorage -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" -StorageAccountKey $defaultStorageAccountKey -StorageContainerName $defaultStorageContainerName |
 	Add-AzureHDInsightConfigValues -Hive $hiveConfig |
 	New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $hdiCredential
+
+    
+> [AZURE.NOTE]При подготовке кластеров HDInsight под управлением Linux платформа Tez включена по умолчанию.
+    
 
 ## Секционирование данных в Hive
 
@@ -220,4 +226,4 @@ Hive поддерживает различные форматы. Наприме�
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

@@ -210,7 +210,7 @@
 
 **-c, --connect** создает виртуальную машину в уже созданном развертывании в службе размещения. Если с этим параметром не используется параметр -vmname, то имя новой виртуальной машины будет создано автоматически.<br /> **-n, --vm-name** Задание имени виртуальной машины. Этот параметр по умолчанию берет имя службы размещения. Если параметр -vmname не указан, имя для новой виртуальной машины будет создано в следующем формате: &lt;имя\_службы>&lt;идентификатор>, где &lt;идентификатор> — это число, равное увеличенному на 1 количеству имеющихся в службе виртуальных машин. Например, если использовать эту команду для добавления новой виртуальной машины в службу размещения MyService, в которой имеется одна виртуальная машина, то новая виртуальная машина получит имя MyService2.<br /> **-u, --blob-url** Задание URL-адреса целевого хранилища больших двоичных объектов, в котором необходимо создать системный диск виртуальной машины. <br /> **-z, --vm-size** Задание размера виртуальной машины. Допустимые значения: ExtraSmall, Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9, A10, A11, Basic\_A0, Basic\_A1, Basic\_A2, Basic\_A3, Basic\_A4, Standard\_D1, Standard\_D2, Standard\_D3, Standard\_D4, Standard\_D11, Standard\_D12, Standard\_D13, Standard\_D14, Standard\_DS1, Standard\_DS2, Standard\_DS3, Standard\_DS4, Standard\_DS11, Standard\_DS12, Standard\_DS13, Standard\_DS14, Standard\_G1, Standard\_G2, Standard\_G3, Standard\_G4, Standard\_G55. По умолчанию используется значение Small. <br /> **-r** Добавление возможности подключения к виртуальной машине с ОС Windows с помощью протокола удаленного рабочего стола. <br /> **-e, --ssh** Добавление возможности подключения к виртуальной машине с ОС Windows с помощью протокола SSH. <br /> **-t, --ssh-cert** Задание сертификата SSH. <br /> **-s** Подписка <br /> **-o, --community** Указанный образ представляет собой образ сообщества <br /> **-w** Имя виртуальной сети <br/> **-l, --location** Задание расположения (например, "Север центральной части США"). <br /> **-a, --affinity-group** Задание территориальной группы.<br /> **-w, --virtual-network-name** Задание виртуальной сети, в которой необходимо добавить виртуальную машину. Можно настраивать виртуальные сети и управлять ими на портале Azure.<br /> **-b, --subnet-names** Задание имен подсетей для назначения виртуальной машине.
 
-В этом примере MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-ru-ru-30GB — образ, предоставленный платформой. Дополнительные сведения об образах операционных систем см. в описании команды vm image list.
+В этом примере MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-ru-RU-30GB — образ, предоставленный платформой. Дополнительные сведения об образах операционных систем см. в описании команды vm image list.
 
 	~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "West US" -r
 	info:   Executing command vm create
@@ -422,15 +422,15 @@ info:   vm shutdown command OK
 	~$ azure vm image list
 	data:   Name                                                                   Category   OS
 	data:   ---------------------------------------------------------------------  ---------  -------
-	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-ru-ru-30GB.vhd   Canonical  Linux
+	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-ru-RU-30GB.vhd   Canonical  Linux
 	data:   MSFT__Windows-Server-2008-R2-SP1.11-29-2011                            Microsoft  Windows
 	data:   MSFT__Windows-Server-2008-R2-SP1-with-SQL-Server-2012-Eval.11-29-2011  Microsoft  Windows
-	data:   MSFT__Windows-Server-8-Beta.ru-ru.30GB.2012-03-22                      Microsoft  Windows
+	data:   MSFT__Windows-Server-8-Beta.ru-RU.30GB.2012-03-22                      Microsoft  Windows
 	data:   MSFT__Windows-Server-8-Beta.2-17-2012                                  Microsoft  Windows
-	data:   MSFT__Windows-Server-2008-R2-SP1.ru-ru.30GB.2012-3-22                  Microsoft  Windows
-	data:   OpenLogic__OpenLogic-CentOS-62-20120509-ru-ru-30GB.vhd                 OpenLogic  Linux
-	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-ru-ru-30GB.vhd       SUSE       Linux
-	data:   SUSE__OpenSUSE64121-03192012-ru-ru-15GB.vhd                            SUSE       Linux
+	data:   MSFT__Windows-Server-2008-R2-SP1.ru-RU.30GB.2012-3-22                  Microsoft  Windows
+	data:   OpenLogic__OpenLogic-CentOS-62-20120509-ru-RU-30GB.vhd                 OpenLogic  Linux
+	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-ru-RU-30GB.vhd       SUSE       Linux
+	data:   SUSE__OpenSUSE64121-03192012-ru-RU-15GB.vhd                            SUSE       Linux
 	data:   WIN2K8-R2-WINRM                                                        User       Windows
 	info:   vm image list command OK
 
@@ -501,7 +501,7 @@ info:   vm shutdown command OK
 	data:   LogicalDiskSizeInGB "30"
 	data:   MediaLink "http://mystorageaccount.blob.core.azure-preview.com/vhd-store/mycentos-cb39b8223b01f95c.vhd"
 	data:   Name "mycentos-mycentos-0-20120524070008"
-	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-ru-ru-30GB.vhd"
+	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-ru-RU-30GB.vhd"
 	info:   vm disk show command OK
 
 **vm disk list [параметры] [имя\_виртуальной\_машины]**
@@ -2348,4 +2348,4 @@ info:   vm shutdown command OK
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -14,6 +14,6 @@
  
 Теперь мобильная служба и приложение настроены для работы с вашим поставщиком проверки подлинности. При необходимости эти действия можно повторить для каждого дополнительного поставщика удостоверений, которого нужно поддерживать.
 
-    > [AZURE.IMPORTANT] Verify that you've set the correct redirect URI on your identity provider's developer site. As described in the linked instructions for each provider above, the redirect URI may be different for a .NET backend service vs. for a JavaScript backend service. An incorrectly configured redirect URI may result in the login screen not being displayed properly and the app malfunctioning in unexpected ways.
+> [AZURE.IMPORTANT]Убедитесь, что на сайте разработчика поставщика удостоверений указан правильный универсальный код ресурса (URI) перенаправления. Как описано в соответствующих инструкциях для каждого из указанных выше поставщиков, универсальный код ресурса (URI) перенаправления у серверной службы .NET и серверной службы JavaScript может различаться. Неправильная настройка URI перенаправления может привести к неправильному отображению экрана входа и непредсказуемой работе приложения.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

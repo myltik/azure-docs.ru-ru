@@ -152,4 +152,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 <!--Other Web references-->
 [Центре загрузки Майкрософт]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

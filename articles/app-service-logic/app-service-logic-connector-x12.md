@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Использование соединителя BizTalk X12 в приложениях логики | Служба приложений Microsoft Azure"
-	description="Как создать и настроить соединитель BizTalk X12 или приложение API и использовать его в приложении логики в службе приложений Azure"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="Использование соединителя BizTalk X12 в приложениях логики | Служба приложений Microsoft Azure" 
+   description="Как создать и настроить соединитель BizTalk X12 или приложение API и использовать его в приложении логики в службе приложений Azure" 
+   services="app-service\logic" 
+   documentationCenter=".net,nodejs,java" 
+   authors="rajeshramabathiran" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="rajram"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="08/23/2015"
+   ms.author="rajram"/>
 
 # Приступая к работе с приложением API BizTalk X12: добавление в приложение логики
 Служба BizTalk X12 позволяет получать и отправлять сообщения по протоколу X12 между компаниями. X12 также известен как ASC X12 или X12 уполномоченного комитета по стандартам и широко используется в различных отраслях.
@@ -63,7 +63,9 @@
 ## Дополнительные возможности соединителя
 После создания соединителя его можно добавить в бизнес-процесс с помощью приложения логики. См. раздел [Что такое приложения логики?](app-service-logic-what-are-logic-apps.md).
 
-Справку по API REST Swagger см. в статье [Справочные материалы по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+>[AZURE.NOTE]Если вы хотите начать работу с приложениями логики Azure до создания учетной записи Azure, перейдите на веб-сайт [пробного использования приложений логики](https://tryappservice.azure.com/?appservice=logic). На этом сайте вы сможете быстро создать кратковременное приложение логики начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+
+Справочные материалы по REST API Swagger см. в статье [Справочные материалы по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Можно также просматривать статистику производительности и управлять безопасностью соединителя. См. раздел [Управление приложениями API и соединителем, а также их отслеживание](../app-service-api/app-service-api-manage-in-portal.md).
 
@@ -81,4 +83,4 @@
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

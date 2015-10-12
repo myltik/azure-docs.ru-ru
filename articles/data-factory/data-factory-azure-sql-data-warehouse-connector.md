@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Перемещение данных в хранилище данных Azure SQL и из него | Фабрика данных Azure"
-	description="Узнайте, как переместить данные в хранилище данных SQL Azure и из него с помощью фабрики данных Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Перемещение данных в хранилище данных Azure SQL и из него | Фабрика данных Azure" 
+	description="Узнайте, как переместить данные в хранилище данных SQL Azure и из него с помощью фабрики данных Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/29/2015" 
 	ms.author="spelluru"/>
 
 # Перемещение данных в хранилище данных Azure SQL и из него с помощью фабрики данных Azure
@@ -172,7 +172,7 @@
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlDWSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -372,7 +372,7 @@
 Свойство | Описание | Обязательно
 -------- | ----------- | --------
 type | Для свойства type необходимо задать значение **AzureSqlDW**. | Да
-**connectionString** | В свойстве connectionString указываются сведения, необходимые для подключения к экземпляру базы данных SQL Azure. | Да
+**connectionString** | Укажите сведения, необходимые для подключения к экземпляру хранилища данных SQL Azure, для свойства connectionString. | Да
 
 Примечание. Вам надо настроить [брандмауэр базы данных SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). А на сервере базы данных — [разрешить службам Azure доступ к серверу](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Кроме того, когда вы с помощью шлюза фабрики данных копируете данные в хранилище данных SQL Azure из внешнего по отношению к Azure источника, в том числе из локальных источников данных, необходимо настроить соответствующий диапазон IP-адресов для компьютера, который отправляет данные в хранилище данных SQL Azure.
 
@@ -394,22 +394,63 @@ type | Для свойства type необходимо задать значе
 
 То, какие свойства будут доступны в разделе typeProperties, зависит от типа действия, а в случае с действием копирования — еще и от типов источников и приемников.
 
-В случае действия копирования, когда источник относится к типу **SqlDWSource**, в разделе **typeProperties** доступны следующие свойства:
+### SqlDWSource
+В случае действия копирования, когда источник относится к типу **SqlDWSource**, в разделе **typeProperties** доступны указанные ниже свойства.
 
 | Свойство | Описание | Допустимые значения | Обязательно |
 | -------- | ----------- | -------------- | -------- |
-| sqlReaderQuery | Используйте пользовательский запрос для чтения данных. | Строка запроса SQL. Например, select * from MyTable. Если не указано другое, выполняется инструкция SQL select from MyTable. | Нет |
+| sqlReaderQuery | Используйте пользовательский запрос для чтения данных. | Строка запроса SQL. Например, select * from MyTable. Если он не указан, то будет выполнена следующая инструкция SQL: select **столбцы, определенные в разделе структуры таблицы JSON** from MyTable. | Нет |
+| sqlReaderStoredProcedureName | Имя хранимой процедуры, которая считывает данные из исходной таблицы. | Имя хранимой процедуры. | Нет |
+| sqlReaderStoredProcedureParameters | Параметры для хранимой процедуры. | Пары имен и значений. Имена и регистр параметров должны совпадать с именами и регистром параметров хранимой процедуры. | Нет |
 
-**SqlDWSink** поддерживает следующие свойства:
+#### Пример SqlDWSource
+
+    "source": {
+        "type": "SqlDWSource",
+        "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
+        "storedProcedureParameters": {
+            "stringData": { "value": "str3" },
+            "id": { "value": "$$Text.Format('{0:yyyy}', SliceStart)", "type": "Int"}
+        }
+    }
+
+**Определение хранимой процедуры:**
+
+	CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
+	(
+		@stringData varchar(20),
+		@id int
+	)
+	AS
+	SET NOCOUNT ON;
+	BEGIN
+	     select *
+	     from dbo.UnitTestSrcTable
+	     where dbo.UnitTestSrcTable.stringData != stringData
+	    and dbo.UnitTestSrcTable.id != id
+	END
+	GO
+ 
+
+### SqlDWSink
+**SqlDWSink** поддерживает указанные ниже свойства.
 
 | Свойство | Описание | Допустимые значения | Обязательно |
 | -------- | ----------- | -------------- | -------- |
-| sqlWriterStoredProcedureName | Указанное пользователем имя хранимой процедуры для обновления и вставки данных в целевой таблице. | Имя хранимой процедуры. | Нет |
-| sqlWriterTableType | Указанное пользователем имя типа таблицы для использования в упомянутой выше хранимой процедуре. Действие копирования делает перемещаемые данные доступными во временной таблице этого типа. Код хранимой процедуры затем можно использовать для объединения копируемых и существующих данных. | Имя типа таблицы. | Нет |
 | writeBatchSize | Вставляет данные в таблицу SQL, когда размер буфера достигает значения writeBatchSize. | Целое число (единица — количество строк) | Нет (значение по умолчанию — 10 000) |
 | writeBatchTimeout | Время ожидания до выполнения операции пакетной вставки, пока не завершится срок ее действия. | (Единица — интервал времени) Пример: 00:30:00 (30 минут). | Нет | 
 | sqlWriterCleanupScript | Указанный пользователем запрос на выполнение действия копирования, позволяющий убедиться в том, что данные конкретного среза будут очищены. Дополнительные сведения см. ниже в разделе о повторяемости. | Инструкция запроса. | Нет |
 | sliceIdentifierColumnName | Указываемое пользователем имя столбца, в которое действие копирования добавляет автоматически созданный идентификатор среза. Этот идентификатор используется для очистки данных конкретного среза при повторном запуске. Дополнительные сведения см. ниже в разделе о повторяемости. | Имя столбца с типом данных binary(32). | Нет |
+
+#### Пример SqlDWSink
+
+
+    "sink": {
+        "type": "SqlDWSink",
+        "writeBatchSize": 1000000,
+        "writeBatchTimeout": "00:05:00",
+    }
+
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -417,14 +458,14 @@ type | Для свойства type необходимо задать значе
 
 ### Сопоставление типов для хранилища данных SQL Azure
 
-Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в два этапа:
+Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования выполняется автоматическое преобразование типов источников в типы приемников. Такое преобразование выполняется в два этапа.
 
 1. Преобразование собственных типов источников в тип .NET.
 2. Преобразование типа .NET в собственный тип приемника.
 
 Когда данные перемещаются в базы данных SQL Azure, SQL Server, Sybase и обратно, для преобразования типа SQL в тип .NET и наоборот используются следующие сопоставления.
 
-Сопоставление аналогично [сопоставлению типов данных SQL Server для ADO.NET](https://msdn.microsoft.com/library/cc716729.aspx).
+Сопоставление аналогично [сопоставлению типов данных SQL Server для ADO.NET](https://msdn.microsoft.com/library/cc716729.aspx).
 
 | Тип ядра СУБД SQL Server | Тип .NET Framework |
 | ------------------------------- | ------------------- |
@@ -467,4 +508,4 @@ type | Для свойства type необходимо задать значе
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

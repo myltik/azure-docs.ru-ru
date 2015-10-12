@@ -253,8 +253,8 @@
 
 [Обзор диспетчера ресурсов Azure][resource-group-overview] [Использование интерфейса командной строки Azure][azure-command-line-tools] [Использование Azure PowerShell с диспетчером ресурсов Azure][powershell-azure-resource-manager]
 
-[azure-command-line-tools]: ../xplat-cli.md
+[azure-command-line-tools]: ../xplat-cli-install.md
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

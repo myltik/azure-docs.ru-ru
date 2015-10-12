@@ -114,7 +114,7 @@ CoreOS — это небольшой оптимизированный дистр
 
 ## Основные сведения
 
-1. [Основные сведения. Интерфейс командной строки Azure (CLI Azure)](../xplat-cli.md)
+1. [Основные сведения. Интерфейс командной строки Azure (CLI Azure)](../xplat-cli-install.md)
 4. [Основные сведения. Использование сертификатов и управление ими](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 5. [Основные сведения. Выбор имен пользователей Linux](virtual-machines-linux-usernames.md)
 6. [Основные сведения. Вход на виртуальную машину Linux через портал Azure](virtual-machines-linux-how-to-log-on.md)
@@ -131,7 +131,7 @@ CoreOS — это небольшой оптимизированный дистр
 17. [Основные сведения. Включение пользовательских данных в виртуальную машину для использования с пакетом Cloud-init](virtual-machines-how-to-inject-custom-data.md)
 18. [Блог основных сведений. Сборка высокодоступной системы Linux в Azure за 12 шагов](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
 19. [Блог основных сведений. Автоматизация подготовки Linux в Azure с помощью CLI Azure, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
-19. [Развертывание нескольких виртуальных машин с помощью интерфейса командной строки Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli.md)
+19. [Развертывание нескольких виртуальных машин с помощью интерфейса командной строки Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli-install.md)
 20. [Основные сведения. Расширение виртуальной машины Docker для Azure](virtual-machines-docker-vm-extension.md)
 23. [Справочник по API-интерфейсу управления службами REST](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 24. [Файловая система Gluster в Azure](http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
@@ -181,7 +181,7 @@ CoreOS — это небольшой оптимизированный дистр
 
 Просмотрите этот раздел для быстрой справки. При наличии предложений отправьте нам их в запросе на получение или напишите их в комментариях ниже.
 
-1. [Развертывание нескольких виртуальных машин с помощью интерфейса командной строки Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli.md)
+1. [Развертывание нескольких виртуальных машин с помощью интерфейса командной строки Azure](virtual-machines-create-multi-vm-deployment-../xplat-cli-install.md)
 2. [Репозиторий Github Azure Linux Патрика Чейнзона (Patrick Chanezon)](https://github.com/chanezon/azure-linux)
 3. [Видео. Перемещение локальных данных USB из Linux в Azure с помощью **usbip**](http://channel9.msdn.com/Blogs/Open/On-premises-USB-devices-on-Linux-on-Azure-via-usbip)
 4. [Видео. Доступ к графическому интерфейсу на базе Linux в Azure в браузере с помощью fernapp](http://channel9.msdn.com/Blogs/Open/Accessing-Linux-based-GUI-on-Azure-over-browser-with-fernapp)
@@ -258,7 +258,7 @@ CoreOS — это небольшой оптимизированный дистр
 
 1. Docker
 	- [Расширение виртуальных машин Docker для Linux в Azure](virtual-machines-docker-vm-extension.md)
-	- [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)](virtual-machines-docker-with-../xplat-cli.md)
+	- [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)](virtual-machines-docker-with-../xplat-cli-install.md)
 	- [Использование расширения виртуальных машин Docker на портале предварительной версии Azure](virtual-machines-docker-with-portal.md)
 	- [Как быстро приступить к работе с Docker в Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
 	- [Использование docker-machine в Azure](virtual-machines-docker-machine.md)
@@ -307,4 +307,4 @@ CoreOS — это небольшой оптимизированный дистр
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

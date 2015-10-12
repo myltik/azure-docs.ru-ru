@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 # Написание запросов
@@ -22,9 +22,13 @@
 
 ## Создание запроса Stream Analytics ##
 
-1. В задании Stream Analytics нажмите **Запрос**.
+1. В задании Stream Analytics на портале управления Azure нажмите **Запрос**.
 
     ![Выбор запроса](./media/stream-analytics-write-queries/1-stream-analytics-write-queries.png)
+
+    На портале предварительной версии Azure нажмите **Запрос**.
+
+    ![Выбор запроса в предварительной версии](./media/stream-analytics-write-queries/query-preview-portal.png)
 
 2.	Новые задания включают шаблон запроса, помогающий начать работу. Шаблон запроса выполняет запрос к серверу, проецирующий все поля из входных событий в выходные данные.
 
@@ -37,6 +41,8 @@
 
 Чтобы проверить работу запроса, запустите его в браузере, применив к одному или нескольким JSON-файлам с тестовыми данными. При этом задание не выполняется, а стоимость услуг не увеличивается.
 
+> [AZURE.NOTE]В настоящий момент тестирование запросов не поддерживается на портале предварительной версии Azure.
+
 1.	Убедитесь, что в запросе нет ошибок (в противном случае кнопка «Тест» будет неактивна), и нажмите кнопку «Тест».  
 
     ![Тестирование запроса](./media/stream-analytics-write-queries/3-stream-analytics-write-queries.png)
@@ -45,7 +51,7 @@
 
     ![Тестирование данных](./media/stream-analytics-write-queries/4-stream-analytics-write-queries.png)
 
-3.	Найдите тестовый файл. В [github] (https://github.com/Azure/azure-stream-analytics/tree/master/Sample данных) доступно несколько примеров файлов, а также возможность извлекать примеры данных из входных потоковых данных, используя функцию «Пример данных» на вкладке входных данных.
+3.	Найдите тестовый файл. В [github] (https://github.com/Azure/azure-stream-analytics/tree/master/Sample данных) доступно несколько примеров файлов, а также возможность извлекать примеры данных из входных потоковых данных, используя функцию "Пример данных" на вкладке входных данных.
 
     ![Входные данные запроса](./media/stream-analytics-write-queries/5-stream-analytics-write-queries.png)
 
@@ -64,4 +70,4 @@
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

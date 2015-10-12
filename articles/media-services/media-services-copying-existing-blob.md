@@ -259,7 +259,15 @@
 		            try
 		            {
 		                Console.WriteLine(string.Format("Copy blob '{0}' to '{1}'", sourceBlob.Uri, destinationBlob.Uri));
-		                destinationBlob.StartCopyFromBlob(new Uri(sourceBlob.Uri.AbsoluteUri + signature));
+		                destinationBlob.StartCopy(sourceBlob.Uri);
+
+	                    while (destinationBlob.CopyState.Status == CopyStatus.Pending)
+	                    {
+	                        Thread.Sleep(10000);
+	                    }
+	
+	                    Console.WriteLine("Final Copy status = " + destinationBlob.CopyState.Status);
+
 		            }
 		            catch (Exception ex)
 		            {
@@ -293,4 +301,4 @@
 - [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

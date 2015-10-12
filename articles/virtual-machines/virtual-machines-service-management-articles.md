@@ -41,7 +41,7 @@
 
 [Создание виртуальной машины с помощью интерфейса командной строки Azure](virtual-machines-xplat-getting-started.md)
 
-[Развертывание нескольких виртуальных машин с помощью интерфейса командной строки Azure](virtual-machines-create-multi-vm-deployment-xplat-cli.md)
+[Развертывание нескольких виртуальных машин с помощью интерфейса командной строки Azure](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
 ## План
 
@@ -95,7 +95,7 @@
 
 [Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
 
-[Docker](virtual-machines-docker-with-xplat-cli.md)
+[Docker](virtual-machines-docker-with-xplat-cli-install.md)
 
 [Exchange Server](https://technet.microsoft.com/library/jj619301.aspx)
 
@@ -151,4 +151,4 @@
 
 [Управление службами Azure с помощью интерфейса командной строки Azure на компьютерах Mac, а также на компьютерах с ОС Linux и Windows](virtual-machines-command-line-tools.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

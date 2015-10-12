@@ -254,6 +254,7 @@
 * Продолжить изучение функции тегов в концентраторах уведомлений в [учебнике "Срочные новости"]
 * Изучить отправку уведомлений отдельным пользователям в [учебнике "Уведомление пользователей"]
 
+Дополнительную информацию можно найти также в [Центре разработчика PHP](/develop/php/).
 
 [Образец оболочки PHP REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [Примере оболочки PHP REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
@@ -261,4 +262,4 @@
 [учебнике по началу работы]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

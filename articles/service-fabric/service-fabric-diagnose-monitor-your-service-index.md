@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/04/2015"
+   ms.date="09/25/2015"
    ms.author="ryanwi"/>
 
 # Мониторинг и диагностика состояния службы Service Fabric
@@ -22,7 +22,6 @@
 - [Локальный мониторинг и диагностика состояния служб](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 - [Настройка Application Insights для приложения Service Fabric](service-fabric-diagnostics-application-insights-setup.md)
 - [Устранение неполадок при обновлении приложения](service-fabric-application-upgrade-troubleshooting.md)
-- [Устранение неполадок при обновлении приложения под наблюдением](../service-fabric-application-monitored-upgrade-troubleshooting.md)
 - [Диагностика и мониторинг производительности в модели надежных субъектов](service-fabric-reliable-actors-diagnostics.md)
 - [Диагностика и мониторинг производительности в модели надежных служб](service-fabric-reliable-services-diagnostics.md)
 
@@ -38,6 +37,5 @@
 - [Просмотр отчетов о работоспособности Service Fabric](service-fabric-view-entities-aggregated-health.md)
 - [Использование отчетов о работоспособности системы для устранения неполадок](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Добавление настраиваемых отчетов о работоспособности Service Fabric](service-fabric-report-health.md)
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

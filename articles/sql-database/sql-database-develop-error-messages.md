@@ -242,4 +242,4 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 - [Общие рекомендации и ограничения для базы данных SQL Azure](http://msdn.microsoft.com/library/azure/ee336245.aspx)
 - [Управление ресурсами](http://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

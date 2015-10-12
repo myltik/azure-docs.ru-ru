@@ -272,6 +272,9 @@
 
 После загрузки `index.php` и `createtable.php` перейдите по адресу **http://[site name].azurewebsites.net/createtable.php**, чтобы создать таблицу базы данных MySQL для приложения, а затем перейдите по адресу **http://[site имя].azurewebsites.net/index.php**, чтобы начать работу с приложением.
  
+## Дальнейшие действия
+
+Дополнительные сведения можно найти в [Центре разработчика PHP](/develop/php/).
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
@@ -297,4 +300,4 @@
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

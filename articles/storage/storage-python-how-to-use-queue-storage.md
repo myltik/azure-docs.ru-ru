@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Использование хранилища очередей из Python | Microsoft Azure"
-	description="Узнайте о том, как использовать службу очередей Azure из Python для создания и удаления очередей, а также для вставки, получения и удаления сообщений."
-	services="storage"
-	documentationCenter="python"
-	authors="emgerner-msft"
-	manager="wpickett"
+	pageTitle="Использование хранилища очередей из Python | Microsoft Azure" 
+	description="Узнайте о том, как использовать службу очередей Azure из Python для создания и удаления очередей, а также для вставки, получения и удаления сообщений." 
+	services="storage" 
+	documentationCenter="python" 
+	authors="emgerner-msft" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="emgerner"/>
 
 # Использование хранилища очередей из Python
@@ -107,10 +107,12 @@
 -   См. справочник MSDN: [Хранение данных и доступ к ним в Azure][]
 -   Посетите [блог команды разработчиков хранилища Azure][].
 
+Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
+
 [Хранение данных и доступ к ним в Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [блог команды разработчиков хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [пакет Azure для Python]: https://pypi.python.org/pypi/azure
 [Хранилище Azure для Python]: https://pypi.python.org/pypi/azure-storage
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

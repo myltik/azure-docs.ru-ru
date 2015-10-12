@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Настройка промежуточных сред для веб-приложений в службе приложений Azure"
 	description="Узнайте, как использовать промежуточную публикацию для веб-приложений в службе приложений Azure."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	writer="cephalin"
@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="09/21/2015"
 	ms.author="cephalin"/>
 
 # Настройка промежуточных сред для веб-приложений в службе приложений Azure
@@ -127,6 +127,11 @@
 
 3. Передайте код в этот слот развертывания. Вскоре произойдет автоматический перенос, и изменения будут отражены в URL-адресе целевого слота.
 
+<a name="Multi-Phase"></a>
+## Использование многофазного переключения для веб-приложения ##
+
+Многофазное переключение доступно для упрощения проверки в контексте элементов конфигурации, предназначенных для определенного слота, например строк подключения. В этих случаях может быть полезно применять такие элементы конфигурации из цели переключения в источник и выполнять проверку до того, как произойдет переключение. После применения целевых элементов конфигурации к источнику вы можете либо завершить переключение, либо восстановить исходную конфигурацию источника, что также отменяет переключение. Примеры командлетов Azure PowerShell, доступных для многофазного переключения, включены в раздел командлетов Azure PowerShell для слотов развертывания.
+
 <a name="Rollback"></a>
 ## Откат производственного приложения после переноса ##
 В случае обнаружения ошибок в производственной области вы можете выполнить откат сайтов до состояния, предшествующего их переключению, выполнив мгновенное обратное переключение тех же двух областей.
@@ -147,49 +152,43 @@ Azure PowerShell — это модуль, предоставляющий ком
 
 - Информацию об установке и настройке Azure PowerShell и об аутентификации Azure PowerShell с подпиской Azure см. в разделе [Установка и настройка Microsoft Azure PowerShell](../install-configure-powershell.md).  
 
-- Чтобы получить список командлетов, доступных для службы веб-приложений Azure в PowerShell, вызовите `help AzureWebsite`.
+- Чтобы использовать новый режим Диспетчера ресурсов Azure для командлетов PowerShell, для начала сделайте следующее: `Switch-AzureMode -Name AzureResourceManager`.
 
 ----------
 
-### Get-AzureWebsite
-Командлет **Get-AzureWebsite** выводит сведения о веб-приложениях Azure для текущей подписки, как показано в следующем примере.
+### Создание веб-приложения
 
-`Get-AzureWebsite webappslotstest`
-
-----------
-
-### New-AzureWebsite
-Слот развертывания можно создать с помощью командлета **New-AzureWebsite**, указав имена веб-приложения и слота. Кроме того, при создании слота развертывания укажите ту же область, что и для веб-приложения, как показано в следующем примере.
-
-`New-AzureWebsite webappslotstest -Slot staging -Location "West US"`
+`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -Location [location] -AppServicePlan [app service plan name]`
 
 ----------
 
-### Publish-AzureWebsiteProject
-Для развертывания контента можно использовать командлет **Publish-AzureWebsiteProject**, как в следующем примере.
+### Создание слота развертывания для веб-приложения
 
-`Publish-AzureWebsiteProject -Name webappslotstest -Slot staging -Package [path].zip`
-
-----------
-
-### Show-AzureWebsite
-После применения обновлений контента и конфигурации к новой области можно проверить обновления, просмотрев область с помощью командлета **Show-AzureWebsite**, как в следующем примере.
-
-`Show-AzureWebsite -Name webappslotstest -Slot staging`
+`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -SlotName [deployment slot name] -Location [location] -AppServicePlan [app service plan name]`
 
 ----------
 
-### Switch-AzureWebsiteSlot
-Командлет **Switch-AzureWebsiteSlot** может выполнить операцию переключения, чтобы обновленная область развертывания стала производственным сайтом, как в следующем примере. Производственное приложение при этом будет постоянно доступно, и для него не потребуется холодного запуска.
+### Запуск многофазного переключения и применение конфигурации целевого слота к исходному слоту
 
-`Switch-AzureWebsiteSlot -Name webappslotstest`
+`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01`
 
 ----------
 
-### Remove-AzureWebsite
-Если область развертывания больше не нужна, ее можно удалить с помощью командлета **Remove-AzureWebsite**, как в следующем примере.
+### Сброс первого этапа многофазного переключения и восстановление конфигурации исходного слота
 
-`Remove-AzureWebsite -Name webappslotstest -Slot staging`
+`Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01`
+
+----------
+
+### Переключение слотов развертывания
+
+`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01`
+
+----------
+
+### Удаление слота развертывания
+
+`Remove-AzureResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [web app name]/[slot name] -ApiVersion 2015-07-01`
 
 ----------
 
@@ -200,7 +199,7 @@ Azure PowerShell — это модуль, предоставляющий ком
 
 Интерфейс командной строки Azure предоставляет набор кроссплатформенных команд для работы с Azure, включая поддержку управления слотами развертывания веб-приложений.
 
-- Указания по установке, настройке и использованию интерфейса командной строки Azure, включая информацию о подключении интерфейса командной строки Azure к подписке Azure, см. в разделе [Установка и настройка интерфейса командной строки Azure](../xplat-cli.md).
+- Указания по установке, настройке и использованию интерфейса командной строки Azure, включая информацию о подключении интерфейса командной строки Azure к подписке Azure, см. в разделе [Установка и настройка интерфейса командной строки Azure](../xplat-cli-install.md).
 
 -  Чтобы получить список команд, доступных для службы приложений Azure в интерфейсе командной строки Azure, вызовите `azure site -h`.
 
@@ -261,4 +260,4 @@ Azure PowerShell — это модуль, предоставляющий ком
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

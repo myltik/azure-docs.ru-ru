@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="Заметки о выпуске, посвященные обновлению 1.2 для устройств серии StorSimple 8000 | Microsoft Azure"
-    description="В статье описываются новые возможности, проблемы и способы их решения для обновления 1.2, предназначенного для устройств серии StorSimple 8000."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="alkohli"
-    manager="carolz"
-    editor="" />
+   pageTitle="Заметки о выпуске, посвященные обновлению 1.2 для устройств серии StorSimple 8000 | Microsoft Azure"
+   description="В статье описываются новые возможности, проблемы и способы их решения для обновления 1.2, предназначенного для устройств серии StorSimple 8000."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
  <tags 
-    ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="09/09/2015"
-    ms.author="alkohli" />
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/09/2015"
+   ms.author="alkohli" />
 
 # Заметки о выпуске, посвященные обновлению 1.2 для устройств серии StorSimple 8000  
 
@@ -124,4 +124,4 @@
 - [Установка обновления 1.2 на устройство](storsimple-install-update-1.md).
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

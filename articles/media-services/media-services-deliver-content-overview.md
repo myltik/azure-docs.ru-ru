@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="09/27/2015" 
 	ms.author="juliako"/>
 
 
@@ -84,6 +84,8 @@
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
+
+
 **Формат Apple HTTP Live Streaming (HLS) V4**
 
 {имя конечной точки потоковой передачи - имя учетной записи служб мультимедиа}.streaming.mediaservices.windows.net/{идентификатор указателя}/{имя файла}.ism/Manifest(format=m3u8-aapl)
@@ -96,6 +98,11 @@
 	
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
+**Формат Apple HTTP Live Streaming (HLS) с фильтром "только аудио"**
+
+По умолчанию дорожки, имеющие только аудио, включены в манифест HLS. Это требуется для сертификации магазина Apple для сетей мобильной связи. В этом случае, если клиент не имеет достаточную пропускную способность или подключен по 2G, он переключается на воспроизведение только аудио дорожки. Это позволяет сохранить текущую потоковую передачу, не применяя буферизацию, но при этом не отображается видео. Несмотря на это, в некоторых сценариях буферизация проигрывателя может быть предпочтительнее воспроизведения лишь аудио дорожки. Для удаления дорожки, имеющей только аудио, добавьте к URL-адресу "audio-only=false".
+
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
 **Формат Smooth Streaming**
 
@@ -179,4 +186,4 @@
 [Обновление указателей служб мультимедиа после отката ключей хранилища](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

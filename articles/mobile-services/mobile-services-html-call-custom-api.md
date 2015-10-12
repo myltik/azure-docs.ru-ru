@@ -3,17 +3,17 @@
 	description="Узнайте, как определить настраиваемый интерфейс API и вызывать его из приложения iOS, которое использует мобильные службы Azure."
 	services="mobile-services"
 	documentationCenter=""
-	authors="ggailey777"
+	authors="ggailey777"  
 	manager="dwrede"
 	editor=""/>
 
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-html"
+	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015"
 	ms.author="glenga"/>
 
 # Вызов настраиваемого API из приложения HTM
@@ -92,4 +92,4 @@
 [Добавление мобильных служб к существующему приложению]: mobile-services-html-get-started-data.md
 [Хранение серверных сценариев в системе управления версиями]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

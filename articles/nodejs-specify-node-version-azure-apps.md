@@ -93,9 +93,9 @@
 
 Дополнительную информацию см. в [Центре разработчика Node.js](/develop/nodejs/).
 
-[использовать средства командной строки Azure для Mac и Linux]: xplat-cli.md
-[средств командной строки Azure]: xplat-cli.md
+[использовать средства командной строки Azure для Mac и Linux]: xplat-cli-install.md
+[средств командной строки Azure]: xplat-cli-install.md
 [работать с модулями]: nodejs-use-node-modules-azure-apps.md
 [строить и развертывать веб-сайт Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

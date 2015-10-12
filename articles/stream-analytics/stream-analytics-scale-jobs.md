@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Задания по масштабированию в Azure Stream Analytics для увеличения пропускной способности | Microsoft Azure"
 	description="Узнайте, как масштабировать задания Stream Analytics с помощью настройки входных разделов, настройки определения запроса и определения единиц потоковой передачи."
+	keywords="analytics jobs,data stream,data streaming"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/04/2015"
+	ms.date="09/29/2015"
 	ms.author="jeffstok"/>
 
 # Задания по масштабированию в Azure Stream Analytics для увеличения пропускной способности #
@@ -153,6 +154,9 @@
 
 ![Масштабирование единиц потоковой передачи Azure Stream Analytics][img.stream.analytics.streaming.units.scale]
 
+На портале предварительной версии Azure параметры масштаба доступны в разделе "Параметры":
+
+![Настройка задания Stream Analytics на портале предварительной версии Azure][img.stream.analytics.preview.portal.settings.scale]
 
 ## Мониторинг производительности задания ##
 
@@ -228,7 +232,7 @@
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## Получение справки ##
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
 
 
 ## Дальнейшие действия ##
@@ -246,6 +250,7 @@
 [img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
 [img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
 [img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
+[img.stream.analytics.preview.portal.settings.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings.png
 
 <!--Link references-->
 
@@ -260,4 +265,4 @@
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

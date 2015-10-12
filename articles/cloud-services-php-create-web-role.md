@@ -198,6 +198,10 @@ Azure предоставляет три вычислительные модел�
 
 Чтобы опубликовать приложение, сначала импортируйте параметры публикации с помощью командлета **Import-PublishSettingsFile**. После этого опубликуйте приложение, используя командлет [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx). Подробнее о входе: [Установка и настройка Azure PowerShell](powershell-install-configure.md).
 
+## Дальнейшие действия
+
+Дополнительные сведения см. в [Центре разработчика PHP](/develop/php/).
+
 [Пакет Azure SDK для PHP]: /develop/php/common-tasks/download-php-sdk/
 [install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
 [определения службы (CSDEF)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
@@ -207,4 +211,4 @@ Azure предоставляет три вычислительные модел�
 [sqlsrv drivers]: http://php.net/sqlsrv
 [sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

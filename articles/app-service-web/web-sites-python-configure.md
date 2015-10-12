@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Настройка Python в веб-приложениях службы приложений Azure" 
 	description="В этом учебнике описываются возможности создания и настройки в веб-приложениях службы приложений Azure базового приложения Python, совместимого с интерфейсом шлюза веб-сервера (WSGI)." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="python" 
 	tags="python"
 	authors="huguesv" 
@@ -9,8 +9,8 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
@@ -371,6 +371,10 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
+## Дальнейшие действия
+
+Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
+
 >[AZURE.NOTE]Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
 ## Изменения
@@ -383,4 +387,4 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

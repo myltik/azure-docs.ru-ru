@@ -184,4 +184,4 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 [загрузить демонстрационные данные]: ./sql-data-warehouse-get-started-load-samples.md
 [создать код]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Присоединение веб-приложения в службе приложений Azure к кэшу Redis при помощи протокола Memcache | Microsoft Azure"
 	description="Присоединение веб-приложения в службе приложений Azure к кэшу Redis с помощью протокола Memcache"
-	services="app-service\web"
+	services="app-service"
 	documentationCenter="php"
 	authors="SyntaxC4"
 	manager="wpickett"
@@ -12,7 +12,7 @@
 	ms.devlang="php"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
-	ms.workload="web"
+	ms.workload="na"
 	ms.date="09/16/2015"
 	ms.author="cfowler"/>
 
@@ -198,4 +198,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

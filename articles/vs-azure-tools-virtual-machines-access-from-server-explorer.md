@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="09/30/2015"
    ms.author="kempb" />
 
 # Доступ к виртуальным машинам Azure из обозревателя сервера
@@ -51,6 +51,6 @@
 
 ## Дальнейшие действия
 
-Дополнительные сведения об использовании ролей Azure в Visual Studio см. в статье [Использование удаленного рабочего стола с ролями Azure](http://go.microsoft.com/fwlink/p/?LinkID=623091).
+Дополнительные сведения об использовании ролей Azure в Visual Studio см. в статье [Использование удаленного рабочего стола с ролями Azure](vs-azure-tools-remote-desktop-roles.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

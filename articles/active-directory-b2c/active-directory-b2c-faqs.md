@@ -75,7 +75,7 @@
 
 ### Работает ли Azure AD B2C с программой SharePoint On-Premises 2016 или более ранних версий?
 
-В настоящее время нет. Azure AD B2C не поддерживает маркеры SAML 1.1.
+В настоящее время нет. Azure AD B2C не поддерживает маркеры SAML 1.1, необходимые для работы порталов и приложений электронной коммерции, созданных на основе SharePoint On-Premises. Обратите внимание, что служба Azure AD B2C не предназначена для сценария общего доступа для внешнего партнера Sharepoint. В этом случае вам необходимо решение [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx).
 
 ### Какие функции отчетности и аудита есть в Azure AD B2C? Соответствуют ли они аналогичным функциям в Azure AD Premium?
 
@@ -95,7 +95,7 @@
 
 ### Как сообщать о проблемах с Azure AD B2C?
 
-См. [этот раздел о поддержке](active-directory-b2c-support.md) Azure AD B2C.
+См. [этот раздел о службе поддержки](active-directory-b2c-support.md) Azure AD B2C.
 
 ### Когда служба Azure AD B2C станет общедоступной?
 
@@ -103,6 +103,6 @@
 
 ## Дополнительные сведения
 
-См. также действующие [лимиты и ограничения предварительной версии](active-directory-b2c-limitations.md).
+См. также действующие [пределы и ограничения предварительной версии](active-directory-b2c-limitations.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

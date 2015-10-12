@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/22/2015"
 	ms.author="jgao"/>
 
 # Отправка заданий Hadoop в HDInsight
@@ -569,132 +569,101 @@ Hadoop MapReduce — это программная платформа для н
 
 **Создание консольного приложения Visual Studio**
 
-1. Откройте Visual Studio.
+1. Откройте Visual Studio 2013 или 2015.
 
-2. В меню **Файл** выберите команду **Создать**, а затем — **Проект**.
+2. Создайте новый проект со следующими параметрами:
 
-3. В окне **Новый проект** введите или выберите следующие значения.
+	|Свойство|Значение|
+	|--------|-----|
+	|Шаблон|Templates/Visual C#/Windows/Console Application|
+	|Имя|SubmitHiveJob|
 
-	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-<tr>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Свойство</th>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Значение</th></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Категория</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Шаблон</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Консольное приложение</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Имя</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">SubmitHiveJob</td></tr>
-</table>
+3. В меню **Средства** щелкните **Диспетчер пакетов Nuget**, а затем щелкните **Консоль диспетчера пакетов**.
+4. Чтобы установить пакеты, выполните в консоли следующую команду:
 
-4. Нажмите кнопку **ОК**, чтобы создать проект.
+		Install-Package Microsoft.Azure.Common.Authentication -pre
+		Install-Package Microsoft.Azure.Management.HDInsight -Pre
+		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
 
+	Эти команды добавляют библиотеки .NET и ссылки на них в текущий проект Visual Studio.
 
-5. В меню **Инструменты** последовательно выберите **Диспетчер пакетов библиотеки** и **Консоль диспетчера пакетов**.
+5. В обозревателе решений дважды щелкните файл **Program.cs**, чтобы открыть его, вставьте указанный ниже код и задайте значения для переменных:
 
-6. Установите пакет, выполнив в консоли следующую команду.
+		using System.Collections.Generic;
+		using System.Linq;
+		using Microsoft.Azure.Management.HDInsight.Job;
+		using Microsoft.Azure.Management.HDInsight.Job.Models;
+		using Hyak.Common;
+		
+		namespace SubmitHiveJob
+		{
+		    class Program
+		    {
+		        private static HDInsightJobManagementClient _hdiJobManagementClient;
+		
+		        private const string ExistingClusterName = "<HDINSIGHT CLUSTER NAME>";
+		        private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
+		
+		        private const string ExistingClusterUsername = "<HDINSIGHT HTTP USER NAME>";  //The default name is admin.
+		        private const string ExistingClusterPassword = "<HDINSIGHT HTTP USER PASSWORD>";
+		
+		        private static void Main(string[] args)
+		        {
+		
+		            var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
+		            _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
+		
+		            SubmitHiveJob();
+		        }
+		
+		        private static void SubmitHiveJob()
+		        {
+		            Dictionary<string, string> defines = new Dictionary<string, string> { { "hive.execution.engine", "ravi" }, { "hive.exec.reducers.max", "1" } };
+		            List<string> args = new List<string> { { "argA" }, { "argB" } };
+		            var parameters = new HiveJobSubmissionParameters
+		            {
+		                UserName = ExistingClusterUsername,
+		                Query = "SHOW TABLES",
+		                Defines = ConvertDefinesToString(defines),
+		                Arguments = ConvertArgsToString(args)
+		            };
+		
+		            System.Console.WriteLine("Submitting the Hive job to the cluster...");
+		            var response = _hdiJobManagementClient.JobManagement.SubmitHiveJob(parameters);
+		            System.Console.WriteLine("Validating that the response is as expected...");
+		            System.Console.WriteLine("Response status code is " + response.StatusCode);
+		            System.Console.WriteLine("Validating the response object...");
+		            System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
+		            System.Console.WriteLine("Press ENTER to continue ...");
+		            System.Console.ReadLine();
+		        }
+		
+		        private static string ConvertDefinesToString(Dictionary<string, string> defines)
+		        {
+		            if (defines.Count == 0)
+		            {
+		                return null;
+		            }
+		
+		            return string.Join("&define=", defines.Select(x => x.Key + "%3D" + x.Value).ToArray());
+		        }
+		        private static string ConvertArgsToString(List<string> args)
+		        {
+		            if (args.Count == 0)
+		            {
+		                return null;
+		            }
+		
+		            return string.Join("&arg=", args.ToArray());
+		        }
+		    }
+		}
 
-		Install-Package Microsoft.WindowsAzure.Management.HDInsight
-
-
-	Эта команда добавляет библиотеки .NET и ссылки на них в текущий проект Visual Studio.
-
-7. В **обозревателе решений** дважды щелкните файл **Program.cs**, чтобы открыть его.
-
-8. Добавьте в начало файла следующие инструкции **using**.
-
-		using System.IO;
-		using System.Threading;
-		using System.Security.Cryptography.X509Certificates;
-
-		using Microsoft.WindowsAzure.Management.HDInsight;
-		using Microsoft.Hadoop.Client;
-
-9. Добавьте в класс следующее определение функции. Эта функция используется для ожидания завершения задания Hadoop.
-
-        private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
-        {
-            JobDetails jobInProgress = client.GetJob(jobResults.JobId);
-            while (jobInProgress.StatusCode != JobStatusCode.Completed && jobInProgress.StatusCode != JobStatusCode.Failed)
-            {
-                jobInProgress = client.GetJob(jobInProgress.JobId);
-                Thread.Sleep(TimeSpan.FromSeconds(10));
-            }
-        }
-
-10. Вставьте в функцию **Main()** следующий код.
-
-		// Set the variables
-		string subscriptionID = "<Azure subscription ID>";
-		string clusterName = "<HDInsight cluster name>";
-		string certFriendlyName = "<certificate friendly name>";
-
-
-	Это все переменные, которые необходимо задать для программы. Имя подписки Azure можно получить у своего системного администратора.
-
-	Сведения о сертификате см. в статье [Создание и передача сертификата управления для Azure][azure-certificate]. Чтобы быстро настроить сертификат, выполните командлеты PowerShell **Get-AzurePublishSettingsFile** и **Import-AzurePublishSettingsFile**. Они создадут и автоматически отправят сертификат управления. После выполнения командлетов откройте **certmgr.msc** на рабочей станции и найдите сертификаты в узле **Личные** > **Сертификаты**. В сертификате, который создан командлетами Azure PowerShell, в полях **Кому выдан** и **Кем выдан** указано значение «Средства Azure».
-
-11. В функции **Main()** определите задание Hive, добавив следующий код.
-
-        // define the Hive job
-        HiveJobCreateParameters hiveJobDefinition = new HiveJobCreateParameters()
-        {
-            JobName = "show tables job",
-            StatusFolder = "/ShowTableStatusFolder",
-            Query = "show tables;"
-        };
-
-	С помощью параметра **File** можно указать файл сценария HiveQL в HDFS.
-
-        // define the Hive job
-        HiveJobCreateParameters hiveJobDefinition = new HiveJobCreateParameters()
-        {
-            JobName = "show tables job",
-            StatusFolder = "/ShowTableStatusFolder",
-            File = "/user/admin/showtables.hql"
-        };
-
-
-12. В функции **Main()** создайте объект **JobSubmissionCertificateCredential**, добавив следующий код.
-
-        // Get the certificate object from certificate store using the friendly name to identify it
-        X509Store store = new X509Store();
-        store.Open(OpenFlags.ReadOnly);
-        X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
-        JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
-
-13. В функции **Main()** запустите задание и дождитесь его завершения, добавив следующий код.
-
-        // Submit the Hive job
-        var jobClient = JobSubmissionClientFactory.Connect(creds);
-        JobCreationResults jobResults = jobClient.CreateHiveJob(hiveJobDefinition);
-
-        // Wait for the job to complete
-        WaitForJobCompletion(jobResults, jobClient);
-
-14. В функции **Main()** отправьте на печать выходные данные задания Hive, добавив следующий код.
-
-        // Print the Hive job output
-        System.IO.Stream stream = jobClient.GetJobOutput(jobResults.JobId);
-
-        StreamReader reader = new StreamReader(stream);
-        Console.WriteLine(reader.ReadToEnd());
-
-        Console.WriteLine("Press ENTER to continue.");
-        Console.ReadLine();
-
-**Запуск приложения**
-
-Когда приложение открыто в Visual Studio, нажмите клавишу **F5** для запуска приложения. Должно открыться окно консоли, в котором отображается состояние приложения. Должен быть получен следующий результат:
-
-	hivesampletable
+6. Нажмите клавишу **F5** для запуска приложения.
 
 ##Отправка заданий с помощью инструментов HDInsight для Visual Studio
 
-С помощью инструментов HDInsight для Visual Studio можно выполнять запросы Hive и сценарии Pig. См. статью [Приступая к работе с инструментами Hadoop в Visual Studio для HDInsight для выполнения запроса Hive](hdinsight-hadoop-visual-studio-tools-get-started.md).
+С помощью инструментов HDInsight для Visual Studio можно выполнять запросы Hive и сценарии Pig. Ознакомьтесь с разделом [Приступая к работе с инструментами Hadoop в Visual Studio для HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 
 ##Дальнейшие действия
@@ -731,4 +700,4 @@ Hadoop MapReduce — это программная платформа для н
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

@@ -114,6 +114,8 @@
 	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
 	cnxn.rollback()
 
- 
+## Дальнейшие действия
 
-<!---HONumber=August15_HO6-->
+Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
+
+<!---HONumber=Oct15_HO1-->

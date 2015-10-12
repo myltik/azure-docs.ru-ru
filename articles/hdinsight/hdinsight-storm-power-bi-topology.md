@@ -55,9 +55,9 @@
 
 ## Регистрация приложения Power BI
 
-1. Следуйте указаниям в [кратком руководстве по Power BI](https://msdn.microsoft.com/RU-RU/library/dn931989.aspx) для регистрации в Power BI.
+1. Следуйте указаниям в [кратком руководстве по Power BI](https://msdn.microsoft.com/ru-RU/library/dn931989.aspx) для регистрации в Power BI.
 
-2. Создайте регистрацию приложения, выполнив инструкции в статье [Регистрация приложения](https://msdn.microsoft.com/RU-RU/library/dn877542.aspx). Она будет использоваться при доступе к API REST Power BI.
+2. Создайте регистрацию приложения, выполнив инструкции в статье [Регистрация приложения](https://msdn.microsoft.com/ru-RU/library/dn877542.aspx). Она будет использоваться при доступе к API REST Power BI.
 
     > [AZURE.IMPORTANT]Сохраните **идентификатор клиента** для регистрации приложения.
 
@@ -139,4 +139,4 @@
 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

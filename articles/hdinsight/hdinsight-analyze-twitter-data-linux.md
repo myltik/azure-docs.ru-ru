@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="08/12/2015"
 	ms.author="larryfr"/>
 
 # Анализ данных Twitter с помощью Hive в HDInsight
 
-В этом документе вы будете получать твиты с использованием API потоковой передачи Twitter, а затем использовать Apache Hive в кластере HDInsight под управлением Linux (предварительная версия) для обработки данных в формате JSON. Результатом будет список пользователей Twitter, отправивших большинство твитов, которые содержат определенное слово.
+В данном документе рассказывается, как получать твиты с использованием API потоковой передачи Twitter, а затем использовать Apache Hive в кластере HDInsight под управлением Linux для обработки данных в формате JSON. Результатом будет список пользователей Twitter, отправивших большинство твитов, которые содержат определенное слово.
 
 > [AZURE.NOTE]Хотя отдельные части этого документа можно использовать для кластеров HDInsight под управлением Windows (например, Python и Hive), многие действия относятся к кластерам HDInsight под управлением Linux. Описание действий для кластеров на основе Windows см. в статье [Анализ данных Twitter с помощью Hive в HDInsight](hdinsight-analyze-twitter-data.md).
 
@@ -37,7 +37,7 @@
 
 - __Python__ и [pip](https://pypi.python.org/pypi/pip)
 
-- __Azure CLI__. Дополнительную информацию см. в разделе [Установка и настройка CLI Azure](../xplat-cli.md).
+- __Azure CLI__. Дополнительные сведения см. в статье [Установка и настройка CLI Azure](../xplat-cli-install.md).
 
 ##Получение веб-канала Twitter
 
@@ -319,4 +319,4 @@ Twitter позволяет получать [данные для каждого 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

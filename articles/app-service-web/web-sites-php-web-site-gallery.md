@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-web"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
@@ -26,8 +26,10 @@
 - [Создание веб-приложения PHP-MySQL для Azure и его развертывание с помощью Git](/ru-RU/develop/php/tutorials/website-w-mysql-and-git/)
 - [Создание дополнительных типов приложений с помощью PHP и Azure](/ru-RU/develop/php/tutorials/)
 
-## Изменения
-* Руководство по переходу с Веб-сайтов Microsoft Azure на службу приложений Azure см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Сведения, касающиеся создания нового портала вместо старого, см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
+Дополнительные сведения также можно найти в [Центре разработчика PHP](/develop/php/).
 
-<!---HONumber=Sept15_HO2-->
+## Изменения
+* Указания по изменениям при переходе от веб-сайтов к службе приложений см. в статье [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Сведения, касающиеся создания нового портала вместо старого, см. в статье [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
+
+<!---HONumber=Oct15_HO1-->

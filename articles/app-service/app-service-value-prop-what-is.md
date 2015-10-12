@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -59,4 +59,4 @@
 [Создайте новое веб-приложение](http://go.microsoft.com/fwlink/?LinkId=523751) бесплатно, прямо сейчас. Никаких кредитных карт и обязательств, никаких проблем.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

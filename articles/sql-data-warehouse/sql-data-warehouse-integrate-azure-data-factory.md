@@ -29,26 +29,26 @@
 + Локальный сервер SQL Server
 + Сервер SQL Server в IaaS
 
-Сведения о настройке копирования данных см. в разделе [Копирование данных с помощью фабрики данных Azure][].
+Сведения о настройке копирования данных см. в разделе [Копирование данных с помощью фабрики данных Azure](../data-factory/data-factory-data-movement-activities.md).
 
 ## Хранимые процедуры
  Фабрику данных Azure можно использовать как для планирования передачи данных, так и для управления выполнением хранимых процедур. Это позволяет создавать более сложные конвейеры и расширять возможности фабрики данных Azure за счет использоваться вычислительных мощностей хранилища данных SQL.
 
 ## Дальнейшие действия
-Общие сведения об интеграции см. в разделе [Обзор интеграции хранилища данных SQL][]. Дополнительные советы по разработке см. в разделе [Общие сведения о разработке для хранилища данных SQL][].
+Общие сведения об интеграции см. в разделе [Обзор интеграции хранилища данных SQL](sql-data-warehouse-overview-integrate.md). Дополнительные советы по разработке см. в разделе [Общие сведения о разработке для хранилища данных SQL](sql-data-warehouse-overview-develop.md).
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Copy data with Azure Data Factory]: ./data-factory-data-movement-activities/#copyactivity
-[Общие сведения о разработке для хранилища данных SQL]: ./sql-data-warehouse-overview-develop/
-[Обзор интеграции хранилища данных SQL]: ./sql-data-warehouse-overview-integration/
+[Copy data with Azure Data Factory]: https://azure.microsoft.com/ru-RU/documentation/articles/data-factory-azure-sql-connector/
+[SQL Data Warehouse development overview]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-develop/
+[SQL Data Warehouse integration overview]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-integrate/
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 [документации к фабрике данных Azure]: https://azure.microsoft.com/documentation/services/data-factory/
-[Копирование данных с помощью фабрики данных Azure]: https://azure.microsoft.com/RU-RU/documentation/articles/data-factory-data-movement-activities/
+[Copy data with Azure Data Factory]: https://azure.microsoft.com/ru-RU/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

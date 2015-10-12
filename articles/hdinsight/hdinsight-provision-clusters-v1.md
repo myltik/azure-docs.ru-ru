@@ -445,7 +445,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 - **пакет SDK для Node.js** — <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>;
 - **Azure CLI** — <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
 
-Общее руководство по использованию интерфейса командной строки Azure CLI см. в статье [Интерфейс командной строки Azure для Mac, Linux и Windows](../xplat-cli.md).
+Общее руководство по использованию интерфейса командной строки Azure CLI см. в статье [Интерфейс командной строки Azure для Mac, Linux и Windows](../xplat-cli-install.md).
 
 Приведенные ниже инструкции помогут в установке Azure CLI на базе Linux и Windows с дальнейшим использованием командной строки для подготовки кластера.
 
@@ -810,4 +810,4 @@ HDInsight использует контейнер хранилища BLOB-объ
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

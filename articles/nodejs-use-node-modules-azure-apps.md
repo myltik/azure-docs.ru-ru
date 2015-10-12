@@ -71,11 +71,11 @@
 Дополнительную информацию см. в [Центре разработчика Node.js](/develop/nodejs/).
 
 [указать версию Node.js]: nodejs-specify-node-version-azure-apps.md
-[использовать интерфейс командной строки Azure для Mac и Linux]: xplat-cli.md
+[использовать интерфейс командной строки Azure для Mac и Linux]: xplat-cli-install.md
 [построить и развернуть веб-сайт Node.js]: web-sites-nodejs-develop-deploy-mac.md
 [Node.js Web Application with Storage on MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
 [Publishing with Git]: web-sites-publish-source-control.md
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Пользовательские сценарии развертывания веб-сайтов с использованием Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

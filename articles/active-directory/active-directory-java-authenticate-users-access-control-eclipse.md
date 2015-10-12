@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="article"
-    ms.date="06/03/2015"
+    ms.date="09/22/2015"
     ms.author="robmcm" />
 
 # Проверка подлинности веб-пользователей с помощью службы контроля доступа Azure и Eclipse
@@ -287,7 +287,7 @@ Azure создает и активирует пространство имен. 
 [Deploy to Azure]: #deploy_azure
 [Next steps]: #next_steps
 [веб-сайта проекта]: http://wastarterkit4java.codeplex.com/releases/view/61026
-[Как просматривать SAML, возвращенный службой Azure Access Control]: /ru-ru/develop/java/how-to-guides/view-saml-returned-by-acs/
+[Как просматривать SAML, возвращенный службой Azure Access Control]: /ru-RU/develop/java/how-to-guides/view-saml-returned-by-acs/
 [Служба Access Control 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Windows Identity Foundation]: http://www.microsoft.com/download/en/details.aspx?id=17331
 [Windows Identity Foundation SDK]: http://www.microsoft.com/download/en/details.aspx?id=4451
@@ -310,4 +310,4 @@ Azure создает и активирует пространство имен. 
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

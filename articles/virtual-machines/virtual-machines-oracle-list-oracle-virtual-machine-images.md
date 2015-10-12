@@ -62,4 +62,4 @@ ms.author="bbenz" />
 
 [Образы виртуальных машин Oracle. Различные рекомендации](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

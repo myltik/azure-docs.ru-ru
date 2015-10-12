@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/08/2015"
+   ms.date="09/25/2015"
    ms.author="rickbyh"/>
 
 # Управление базами данных и учетными записями в Базе данных SQL Azure
@@ -140,7 +140,7 @@ CREATE DATABASE database1;
 
 > [AZURE.NOTE]При создании имени входа необходимо использовать надежный пароль. Дополнительные сведения см. в разделе [Надежные пароли](https://msdn.microsoft.com/library/ms161962.aspx).
 
-В следующем примере показано, как создать пользователя базы данных с именем **login1User** в базе данных **database1**, которая соответствует учетным данным **login1**:
+В следующем примере показано, как создать пользователя базы данных с именем **login1User** в базе данных **database1**, которая соответствует учетным данным **login1**. Чтобы запустить следующий пример, необходимо сначала создать новое подключение к базе данных database1, используя учетную запись с разрешением **ALTER ANY USER** в этой базе данных. Это разрешение есть у всех пользователей, которые подключаются как члены роли **db\_owner**, например тех, кто создал базу данных.
 
 ```
 -- Establish a new connection to the database1 database
@@ -167,6 +167,6 @@ SELECT * FROM sys.databases;
 
 ## См. также
 
-[Безопасность в базе данных SQL Azure: рекомендации и ограничения](sql-database-security-guidelines.md) [Подключение к базе данных SQL с помощью проверки подлинности Azure Active Directory](sql-database-aad-authentication.md)
+[Безопасность в Базе данных SQL Azure: рекомендации и ограничения](sql-database-security-guidelines.md) [Подключение к Базе данных SQL с помощью проверки подлинности Azure Active Directory](sql-database-aad-authentication.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Установка обновления 1.2 на устройство StorSimple | Microsoft Azure"
-   description="Описание процедуры установки обновления 1.2 для StorSimple 8000 Series на вашем устройстве."
+   description="Описание процедуры установки обновления 1.2 для StorSimple 8000 Series на вашем устройстве StorSimple 8000."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="09/28/2015"
    ms.author="alkohli" />
 
 # Установка обновления 1.2 на устройство StorSimple
@@ -153,4 +153,4 @@
 
 Дополнительные сведения об [обновлении 1.2](storsimple-update1-release-notes.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -134,6 +134,22 @@
 
 Необходимо изменить конфигурацию Jetty в файле start.ini, чтобы задать `java.net.preferIPv4Stack=true`.
 
+### Springboot
+Чтобы запустить приложение Springboot, необходимо отправить JAR- или WAR-файл и добавить следующий файл web.config. Файл web.config необходимо поместить в папку wwwroot. Настройте аргументы в файле web.config, чтобы он указывал на JAR-файл. В следующем примере JAR-файл также расположен в папке wwwroot.
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<configuration>
+	  <system.webServer>
+	    <handlers>
+	      <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
+	    </handlers>
+	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe"
+	        arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar ";%HOME%\site\wwwroot\my-web-project.jar";">
+	    </httpPlatform>
+	  </system.webServer>
+	</configuration>
+
+
 ### Hudson
 
 В нашем тесте использовался WAR-файл Hudson 3.1.2 и экземпляр Tomcat 7.0.50 по умолчанию, но не использовался пользовательский интерфейс настройки. Поскольку Hudson представляет собой средство построения программного обеспечения, рекомендуется установить его на выделенных экземплярах, где в веб-приложении можно установить флаг **AlwaysOn**.
@@ -229,9 +245,9 @@ Liferay поддерживается в веб-приложениях служб
 
 ## Дальнейшие действия
 
-Дополнительные сведения о Liferay см. по адресу [http://www.liferay.com](http://www.liferay.com).
+Дополнительные сведения о Liferay см. на сайте [http://www.liferay.com](http://www.liferay.com).
 
-Дополнительную информацию о Java см. в [Центре разработчика Java](/develop/java/).
+Дополнительные сведения о Java см. в [Центре разработчика Java](/develop/java/).
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -241,4 +257,4 @@ Liferay поддерживается в веб-приложениях служб
 <!-- External Links -->
 [службы приложений Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

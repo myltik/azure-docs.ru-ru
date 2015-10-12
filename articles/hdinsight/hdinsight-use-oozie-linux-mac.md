@@ -34,7 +34,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 - **Подписку на Azure**: См. [Получение бесплатной пробной версии Azure](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
 
-- **Консоль Azure**: См. [Установка и настройка консоли Azure](xplat-cli.md)
+- **Консоль Azure**: См. [Установка и настройка консоли Azure](xplat-cli-install.md)
 
 - **Кластер HDInsight**: См. [Приступая к работе с HDInsight в Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
@@ -48,9 +48,9 @@ Apache Oozie — это система рабочих процессов и ко
 
 1. Действие Hive запускает скрипт HiveQL для извлечения записей из таблицы **hivesampletable**, входящей в состав в HDInsight. Каждая строка данных описывает посещение с определенного мобильного устройства. Формат записи таков:
 
-		8       18:54:20        ru-ru   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-		23      19:19:44        ru-ru   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-		23      19:19:46        ru-ru   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+		8       18:54:20        ru-RU   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+		23      19:19:44        ru-RU   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+		23      19:19:46        ru-RU   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
 	Скрипт Hive, используемый в данном документе, подсчитывает общее количество посещений для каждой платформы (например, Android или iPhone) и сохраняет результаты в новой таблице Hive.
 
@@ -201,7 +201,7 @@ Apache Oozie — это система рабочих процессов и ко
 
 Для создания базы данных SQL Azure, в которую будут экспортированы данные, выполните следующие действия.
 
-> [AZURE.IMPORTANT]Перед выполнением этих действий необходимо выполнить действия, описанные в разделе [Установка и настройка консоли Azure](xplat-cli.md). Установку консоли и последующие действия для создания базы данных можно выполнить в кластере HDInsight или на локальной рабочей станции.
+> [AZURE.IMPORTANT]Перед выполнением этих действий необходимо выполнить действия, описанные в разделе [Установка и настройка консоли Azure](xplat-cli-install.md). Установку консоли и последующие действия для создания базы данных можно выполнить в кластере HDInsight или на локальной рабочей станции.
 
 1. Для создания нового сервера баз данных SQL Azure используйте следующую команду:
 
@@ -477,13 +477,9 @@ Oozie REST API позволяет создавать собственные ут
 
 Для доступа к веб-интерфейсу Oozie выполните следующие действия:
 
-1. Создайте туннель SSH для кластера HDInsight. Информация о создании туннеля SSH приведена в одном из следующих разделов:
+1. Создайте туннель SSH для кластера HDInsight. Дополнительные сведения о том, как это сделать, можно узнать в статье [Использование туннелирования SSH для доступа к веб-интерфейсу Ambari, ResourceManager, JobHistory, NameNode, Oozie и другим веб-интерфейсам](hdinsight-linux-ambari-ssh-tunnel.md).
 
-	* [Использование SSH с Hadoop под управлением Linux в HDInsight в Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
-
-	* [Использование SSH с Hadoop под управлением Linux в HDInsight в Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
-
-2. После создания туннеля откройте веб-интерфейс Ambari в браузере. Универсальный код ресурса (URI) сайта Ambari следующий: ****https://CLUSTERNAME.azurehdinsight.net**. Замените **CLUSTERNAME** именем своего кластера HDInsight под управлением Linux.
+2. После создания туннеля откройте веб-интерфейс Ambari в браузере. Универсальный код ресурса (URI) веб-сайта Ambari: ****https://CLUSTERNAME.azurehdinsight.net**. Замените **CLUSTERNAME** именем своего кластера HDInsight под управлением Linux.
 
 3. В левой части страницы выберите **Oozie**, затем **Quick Links** и, наконец, **Oozie Web UI**.
 
@@ -715,7 +711,7 @@ Oozie REST API позволяет создавать собственные ут
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: powershell-install-configure.md
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/ru-ru/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/ru-RU/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
@@ -725,4 +721,4 @@ Oozie REST API позволяет создавать собственные ут
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

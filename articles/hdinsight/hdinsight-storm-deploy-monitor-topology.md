@@ -17,11 +17,13 @@
    ms.date="09/23/2015"
    ms.author="larryfr"/>
 
-#Развертывание топологий Apache Storm в HDInsight и управление ими
+#Развертывание топологий Apache Storm в HDInsight под управлением Windows и управление ими
 
 Панель мониторинга Storm позволяет легко развернуть и запустить топологии Apache Storm в кластере HDInsight с помощью браузера. С помощью панели мониторинга можно также следить за топологиями и управлять их работой. Если используется Visual Studio, средства HDInsight для Visual Studio предоставляют аналогичные функциональные возможности в Visual Studio.
 
 Панель мониторинга и компоненты Storm в средствах HDInsight используют интерфейс REST API для Storm, с помощью которого можно создавать собственные решения для мониторинга и управления.
+
+> [AZURE.IMPORTANT]Действия, описанные в этом документе, требуют наличия Storm под управлением Windows в кластере HDInsight. Дополнительные сведения об использовании кластера под управлением Linux можно найти в разделе [Развертывание и управление топологиями Apache Storm в HDInsight под управлением Linux](hdinsight-storm-deploy-monitor-topology-linux.md).
 
 ##Предварительные требования
 
@@ -177,4 +179,4 @@
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor=""f/>
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="09/29/2015"
 	ms.author="danlep"/>
 
 
@@ -24,7 +24,7 @@
 
 В этом учебнике демонстрируется один из способов использования масштабируемых вычислительных ресурсов в Azure, доступных по требованию, для запуска ресурсоемких приложений, который также называют "ускорением в облако".
 
-В этом учебнике предполагается, что у читателя нет опыта работы с вычислительными кластерами или пакетом HPC. Оно предназначено только для того, чтобы помочь вам быстро развернуть кластер вычислений для демонстрационных целей. Рекомендации и действия для развертывания гибридного кластера с пакетом HPC большего масштаба в производственной среде см. в [подробном руководстве](http://go.microsoft.com/fwlink/p/?LinkID=200493). Если нужно установить кластер пакетов HPC полностью в Azure, см. раздел [Пакет Microsoft в виртуальных машинах Azure](http://go.microsoft.com/fwlink/p/?linkid=330375).
+В этом учебнике предполагается, что у читателя нет опыта работы с вычислительными кластерами или пакетом HPC. Оно предназначено только для того, чтобы помочь вам быстро развернуть кластер вычислений для демонстрационных целей. Рекомендации и действия для развертывания гибридного кластера с пакетом HPC большего масштаба в производственной среде см. в [подробном руководстве](http://go.microsoft.com/fwlink/p/?LinkID=200493). Сведения о том, как настроить кластер HPC Pack полностью в Azure, см. в статье [Параметры создания кластера HPC в Azure с помощью Microsoft HPC Pack и управления им](../virtual-machines/virtual-machines-hpcpack-cluster-options.md).
 
 >[AZURE.NOTE]Azure предлагает [различные размеры](../virtual-machines/virtual-machines-size-specs.md) для вычислительных ресурсов, подходящие для разных рабочих нагрузок. Например, экземпляры A8 и A9 обеспечивают высокую производительность и доступ к сети приложений с малой задержкой и высокой пропускной способностью, что необходимо для некоторых приложений HPC. См. раздел [Сведения об экземплярах A8, A9, A10 и A11 с большим объемом вычислений](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md).
 
@@ -307,7 +307,7 @@
 
 * [Пакет HPC 2012 R2 и пакет HPC 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697)
 * [Ускорение в Azure с помощью пакета Microsoft HPC](http://go.microsoft.com/fwlink/p/?LinkID=200493)
-* [Пакет Microsoft HPC на виртуальных машинах Azure](http://go.microsoft.com/fwlink/p/?linkid=330375)
+* [Параметры создания кластера HPC в Azure с помощью Microsoft HPC Pack и управления им](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
 * [Большие вычисления в Azure: технические ресурсы для пакетных служб и высокопроизводительных вычислительных систем (HPC)](big-compute-resources.md)
 
 
@@ -348,4 +348,4 @@
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

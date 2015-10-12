@@ -1,18 +1,18 @@
 <properties 
 	pageTitle="Развертывание веб-заданий с помощью Visual Studio" 
 	description="Узнайте, как развернуть веб-задания Azure в веб-приложениях службы приложений Azure с помощью Visual Studio." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
@@ -200,4 +200,4 @@
 * Руководство по смене портала Azure на портал предварительной версии Azure см. в разделе [Справочная информация о навигации по предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

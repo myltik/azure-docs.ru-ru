@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="09/24/2015"
 	ms.author="glenga"/>
 
 
@@ -45,7 +45,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
-## Загрузка проекта сервера
+## Скачивание проекта сервера
 
 1. На портале Azure последовательно выберите пункты [Просмотреть все] > **Мобильные приложения** > **Веб-приложения**, а затем щелкните только что созданную серверную часть мобильного приложения. 
 
@@ -65,13 +65,11 @@
  
 		Install-Package Microsoft.AspNet.WebApi.Cors  
 
-	Она устанавливает CORS-поддержку, необходимую серверной части.
-
-2. Откройте файл проекта WebApiConfig.cs и добавьте следующий оператор:
+2. Откройте файл проекта App\_Start/Startup.MobileApp.cs и добавьте указанный ниже оператор using.
 
 		using System.Web.Http.Cors;
 
-3. После создания **HttpConfiguration** добавьте в метод **WebApiConfig.Register** следующий код:
+3. После создания **HttpConfiguration** (*config*) добавьте указанный ниже код в метод **Startup.ConfigureMobileApp**.
 
         // Enable CORS support for localhost port 8000, all headers and methods.
         var cors = new EnableCorsAttribute("http://localhost:8000", "*", "*");
@@ -121,4 +119,4 @@
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

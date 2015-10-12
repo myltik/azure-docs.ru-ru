@@ -24,7 +24,7 @@
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-В этом разделе представлен пример кода, написанный на Python. Пример кода запускается на компьютере с ОС Mac. Этот пример подключается к базе данных SQL Azure с помощью драйвера **pymssql**.
+В этом разделе представлен пример кода, написанный на Python. Пример кода запускается на компьютере с ОС Mac. Этот пример подключается к базе данных SQL Azure с помощью драйвера **pymssql**. Кроме того, посмотрите наш видеоролик [Начало работы с Python на компьютере Mac](https://www.youtube.com/watch?v=OMpugPTwnTI) в качестве дополнения к этой документации.
 
 
 ## Требования
@@ -43,7 +43,7 @@
 
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-**2) FreeTDS**: выполните указанную ниже команду из терминала. Она запустит загрузку FreeTDS на компьютер. FreeTDS требуется для работы Pymmsql.
+**2) FreeTDS:** выполните указанную ниже команду из терминала. Она запустит загрузку FreeTDS на компьютер. FreeTDS требуется для работы Pymmsql.
 
     brew install FreeTDS
   
@@ -118,4 +118,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

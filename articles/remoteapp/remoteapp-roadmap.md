@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Новые возможности Azure RemoteApp"
+    pageTitle="Новые возможности Azure RemoteApp | Microsoft Azure"
     description="Узнайте, когда будут доступны новые возможности Azure RemoteApp"
     services="remoteapp"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="08/12/2015"
+    ms.date="09/29/2015"
     ms.author="elizapo" />
 
 # Новые возможности Azure RemoteApp
@@ -28,7 +28,9 @@
 |ExpressRoute ([отзыв](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi))| |X| | |
 |Доступность Azure RemoteApp на новом [портале предварительной версии Azure](http://azure.microsoft.com/overview/preview-portal/)| | | |X|
 |Универсальное приложение Windows 10 для предварительной версии Azure RemoteApp| | |X| |
-|Возможность публикации отдельных приложений для определенных пользователей ([отзывы](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))| | |X| |
+|Возможность публикации отдельных приложений для определенных пользователей — **Public Preview** ([отзывы](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))| | ||X|
+|Распространяемый пакет MSI для клиента Windows ([отзывы](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo))| | ||X|
+
 
 Другие улучшения, добавленные ранее в этом году
 
@@ -39,4 +41,4 @@
 - Доступность в австралийских центрах обработки данных
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="09/30/2015"
    ms.author="sahajs;twounder"/>
 
 # Работа со службой Azure Stream Analytics и хранилищем данных SQL
@@ -89,11 +89,11 @@ Azure Stream Analytics является полностью управляемо�
 [Основные сведения о службе Azure Stream Analytics]: stream-analytics-introductiond.md
 [Приступая к работе с Azure Stream Analytics]: stream-analytics-get-started.md
 [Общие сведения о разработке для хранилища данных SQL]: sql-data-warehouse-overview-develop.md
-[Обзор интеграции хранилища данных SQL]: sql-data-warehouse-overview-integration.md
+[Обзор интеграции хранилища данных SQL]: sql-data-warehouse-overview-integrate.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

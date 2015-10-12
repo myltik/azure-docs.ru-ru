@@ -34,11 +34,11 @@ Azure CLI имеет открытый исходный код. Исходный 
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- **CLI Azure** — Сведения об установке и настройке CLI Azure см. в разделе [Установка и настройка CLI Azure](../xplat-cli.md) .
+- **CLI Azure** — Сведения об установке и настройке CLI Azure см. в разделе [Установка и настройка CLI Azure](../xplat-cli-install.md) .
 
 ##Установка
 
-Если вы этого еще не сделали, используйте документ [Установка и настройка CLI Azure](../xplat-cli.md) для установки и настройки CLI Azure.
+Если вы этого еще не сделали, используйте документ [Установка и настройка CLI Azure](../xplat-cli-install.md) для установки и настройки CLI Azure.
 
 ##Подготовка кластера HDInsight
 
@@ -132,8 +132,11 @@ HDInsight использует контейнер хранилища BLOB-объ
 
 	azure hdinsight cluster delete <ClusterName>
 
+##<a name="scaling"></a>Масштабирование кластера
 
+Чтобы изменить размер кластера Hadoop с помощью Azure PowerShell, выполните следующую команду с клиентского компьютера:
 
+	Set-AzureHDInsightClusterSize -ClusterSizeInNodes <NewSize> -name <clustername>
 
 ##Дальнейшие действия
 В этой статье вы узнали, как выполнять различные административные задачи в кластере HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
@@ -144,7 +147,7 @@ HDInsight использует контейнер хранилища BLOB-объ
 * [Использование CLI Azure][azure-command-line-tools]
 
 
-[azure-command-line-tools]: ../xplat-cli.md
+[azure-command-line-tools]: ../xplat-cli-install.md
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -160,4 +163,4 @@ HDInsight использует контейнер хранилища BLOB-объ
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Отображение кластеров"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

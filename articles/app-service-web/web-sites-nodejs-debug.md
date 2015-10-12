@@ -120,11 +120,11 @@ URL-адрес FTP, возвращаемый в панели мониторин�
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [Справка по IISNode]: https://github.com/tjanczuk/iisnode#readme
-[How to Use The Azure Command-Line Interface]: ../xplat-cli.md
+[How to Use The Azure Command-Line Interface]: ../xplat-cli-install.md
 [Использование модулей Node.js с приложениями Azure]: ../nodejs-use-node-modules-azure-apps.md
 [Установка версии Node.js в приложении Azure]: ../nodejs-specify-node-version-azure-apps.md
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

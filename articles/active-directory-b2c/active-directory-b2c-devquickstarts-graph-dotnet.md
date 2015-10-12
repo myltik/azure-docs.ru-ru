@@ -40,7 +40,9 @@
 
 Теперь, когда каталог B2C у вас есть, необходимо создать приложение службы с помощью командлетов Azure AD Powershell. Для начала загрузите и установите [помощник по входу в Microsoft Online Services](http://go.microsoft.com/fwlink/?LinkID=286152). Затем загрузите и установите [64-разрядный модуль Azure Active Directory для Windows PowerShell.](http://go.microsoft.com/fwlink/p/?linkid=236297).
 
-Установив модуль Powershell, откройте Powershell и подключитесь к каталогу B2C. После выполнения `Get-Credential` появится запрос имени пользователя и пароля. Введите данные своей учетной записи администратора каталога B2C.
+> [AZURE.NOTE]Чтобы использовать API Graph с вашим каталогом B2C, потребуется зарегистрировать выделенное приложение с помощью PowerShell, следуя указанным ниже инструкциям. Вам не удастся повторно использовать уже существующие приложения B2C, зарегистрированные на портале Azure. Это ограничение предварительной версии Azure AD B2C. Мы удалим его в ближайшем будущем (после этого мы соответствующим образом обновим данную статью).
+
+Установив модуль Powershell, откройте Powershell и подключитесь к каталогу B2C. После запуска `Get-Credential` отобразится запрос на ввод имени пользователя и пароля. Укажите данные своей учетной записи администратора каталога B2C.
 
 ```
 > $msolcred = Get-Credential
@@ -77,9 +79,9 @@ EndDate               : 9/2/2016 1:33:09 AM
 Usage                 : Verify
 ```
 
-Если приложение будет создано, этот код выведет на печать некоторые свойства приложения, такие как указанные выше. Вам потребуются свойства `ObjectId` и `AppPrincipalId`, поэтому также скопируйте их значения.
+Если приложение будет создано, этот код выведет на печать некоторые свойства приложения, такие как указанные выше. Вам потребуются параметры `ObjectId` и `AppPrincipalId`, поэтому скопируйте их значения.
 
-Теперь, когда вы создали приложение в каталоге B2C, назначьте ему разрешения, необходимые для выполнения операций CRUD. Приложению нужно назначить три различные роли: модули чтения каталога (для чтения пользователей), модули записи каталога (для создания и обновления пользователей) и администратор учетных записей пользователей (для удаления пользователей). Идентификаторы этих ролей известны, что позволяет выполнить указанные ниже команды, заменив параметр `-RoleMemberObjectId` на `ObjectId` из представленного выше кода. Чтобы просмотреть список всех ролей каталога, выполните команду `Get-MsolRole`.
+Теперь, когда вы создали приложение в каталоге B2C, назначьте ему разрешения, необходимые для выполнения операций CRUD. Приложению нужно назначить три различные роли: модули чтения каталога (для чтения пользователей), модули записи каталога (для создания и обновления пользователей) и администратор учетных записей пользователей (для удаления пользователей). Идентификаторы этих ролей известны, поэтому можно выполнить указанные ниже команды, заменив параметр `-RoleMemberObjectId` на `ObjectId` из представленного выше кода. Чтобы отобразить список всех ролей каталога, выполните команду `Get-MsolRole`.
 
 ```
 > Add-MsolRoleMember -RoleObjectId 88d8e3e3-8f55-4a1e-953a-9b9898b8876b -RoleMemberObjectId <Your-ObjectId> -RoleMemberType servicePrincipal
@@ -91,13 +93,13 @@ Usage                 : Verify
 
 ## Загрузка, настройка и построение образца кода
 
-Для начала загрузим и выполним образец кода. А теперь посмотрим, что происходит за сценой. Вы можете [загрузить образец кода в виде ZIP-архива](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip) или клонировать его в желаемый каталог.
+Для начала загрузим и выполним образец кода. А теперь посмотрим, что происходит за сценой. Вы можете [скачать пример кода в виде ZIP-архива](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip) или клонировать его в выбранный вами каталог.
 
 ```
 git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
 ```
 
-Откройте решение Visual Studio `B2CGraphClient\B2CGraphClient.sln` в Visual Studio. В проекте `B2CGraphClient` откройте файл `App.config`. Замените три параметра приложения собственными значениями, например:
+Откройте решение Visual Studio `B2CGraphClient\B2CGraphClient.sln` в Visual Studio. В проекте `B2CGraphClient` откройте файл `App.config`. Замените три параметра приложения собственными значениями, например:
 
 ```
 <appSettings>
@@ -107,11 +109,13 @@ git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
 </appSettings>
 ```
 
-Теперь щелкните решение `B2CGraphClient` правой кнопкой мыши и постройте образец кода заново. В случае успеха у вас появится исполняемый файл `B2C.exe` в каталоге `B2CGraphClient\bin\Debug`.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+
+Теперь щелкните решение `B2CGraphClient` правой кнопкой мыши и еще раз выполните сборку примера кода. В случае успеха в каталоге `B2CGraphClient\bin\Debug` появится исполняемый файл `B2C.exe`.
 
 ## CRUD пользователя с API Graph
 
-Чтобы использовать B2CGraphClient, откройте командную строку Windows и перейдите в каталог `Debug` с помощью команды cd. Выполните команду `B2C Help`.
+Чтобы использовать B2CGraphClient, откройте командную строку Windows (CMD) и перейдите в каталог `Debug` с помощью команды cd. Затем выполните команду `B2C Help`.
 
 ```
 > cd B2CGraphClient\bin\Debug
@@ -145,7 +149,7 @@ public B2CGraphClient(string clientId, string clientSecret, string tenant)
 }
 ```
 
-Для примера возьмем команду `B2C Get-User`. Если `Get-User` вызывается без дополнительных входных данных, интерфейс командной строки вызывает метод `B2CGraphClient.GetAllUsers(...)`, а тот, в свою очередь, вызывает метод `B2CGraphClient.SendGraphGetRequest(...)`, который отправляет в API Graph HTTP-запрос GET. Прежде чем отправить запрос GET, он получает маркер доступа, используя ADAL.
+Для примера используем команду `B2C Get-User`. При вызове `Get-User` без дополнительных входных данных CLI вызывает метод `B2CGraphClient.GetAllUsers(...)`. А тот, в свою очередь, вызывает метод `B2CGraphClient.SendGraphGetRequest(...)`, который отправляет HTTP-запрос GET в API Graph. Прежде чем отправить запрос GET, он получает маркер доступа, используя ADAL.
 
 ```C#
 public async Task<string> SendGraphGetRequest(string api, string query)
@@ -158,11 +162,11 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 
 ```
 
-Как видите, маркер доступа для API Graph можно получить, вызвав метод ADAL `AuthenticationContext.AcquireToken(...)`. ADAL возвращает маркер доступа, представляющий удостоверение приложения.
+Как видите, маркер доступа для API Graph можно получить, вызвав метод ADAL `AuthenticationContext.AcquireToken(...)`. ADAL возвращает маркер доступа, представляющий удостоверение приложения.
 
 ### Чтение пользователей
 
-Чтобы извлечь список пользователей из API Graph или получить определенного пользователя, отправьте HTTP-запрос GET в конечную точку `/users`. Для всех пользователей в каталоге запрос будет выглядеть следующим образом:
+Чтобы извлечь список пользователей из API Graph или получить определенного пользователя, отправьте HTTP-запрос GET в конечную точку `/users`. Для всех пользователей в каталоге запрос будет выглядеть следующим образом:
 
 ```
 GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=beta
@@ -177,13 +181,13 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
  
 При этом необходимо обратить внимание на два важных момента.
 
-- Маркер доступа, полученный из ADAL, должен быть добавлен в заголовок `Authorization` с помощью схемы `Bearer`.
+- Маркер доступа, полученный из ADAL, добавлен в заголовок `Authorization` с помощью схемы `Bearer`.
 - Для каталогов B2C необходимо использовать параметр запроса `api-version=beta`.
 
 
-> [AZURE.NOTE]Бета-версия API Graph Azure AD включает функции предварительного просмотра. Данные бета-версии см. в [этой записи блога рабочей группы API Graph](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx).
+> [AZURE.NOTE]Бета-версия API Graph Azure AD включает функции предварительного просмотра. Сведения о бета-версии см. в [этой записи блога рабочей группы API Graph](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx).
 
-Оба фрагмента данных обрабатываются в методе `B2CGraphClient.SendGraphGetRequest(...)`.
+Оба фрагмента сведений обрабатываются в методе `B2CGraphClient.SendGraphGetRequest(...)`.
 
 ```C#
 public async Task<string> SendGraphGetRequest(string api, string query)
@@ -232,7 +236,8 @@ Content-Length: 338
 	"passwordProfile": {
 		"password": "P@ssword!",
 		"forceChangePasswordNextLogin": false   // always set to false
-	}
+	},
+	"passwordPolicies": "DisablePasswordExpiration"
 }
 ```
 
@@ -245,13 +250,13 @@ Content-Length: 338
 > B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
-Команда `Create-User` принимает файл `.json` как входной параметр, содержащий представление JSON объекта-пользователя. Образец кода включает два примера файлов `.json`, `usertemplate-email.json` и `usertemplate-username.json`, которые вы можете изменить согласно своим потребностям. Помимо указанных выше можно использовать и другие поля, включенные в эти файлы. Информацию о других полях см. в [справочнике по сущностям API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#UserEntity).
+Команда `Create-User` принимает файл `.json` в качестве входного параметра, содержащего представление JSON объекта-пользователя. В пример кода включены два образца файлов `.json` (`usertemplate-email.json` и `usertemplate-username.json`). Вы можете изменить их согласно вашим потребностям. Помимо указанных выше можно использовать и другие поля, включенные в эти файлы. Информацию о других полях см. в [справочнике по объектам API Graph в Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#UserEntity).
 
-Формирование запроса POST можно увидеть в методе `B2CGraphClient.SendGraphPostRequest(...)`, который:
+То, как формируется запрос POST, можно увидеть в методе `B2CGraphClient.SendGraphPostRequest(...)`. Его действия:
 
-- присоединяет маркер доступа к заголовку `Authorization` запроса;
-- устанавливает значение `api-version=beta`;
-- включает объект пользователя JSON в тело запроса.
+- добавление маркера доступа в заголовок `Authorization` запроса;
+- настройка `api-version=beta`;
+- включение объекта-пользователя JSON в тело запроса.
 
 ### Обновление учетных записей пользователей-клиентов
 
@@ -275,7 +280,7 @@ Content-Length: 37
 > B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
 ```
 	
-Информацию об отправке этого запроса вы найдете в методе `B2CGraphClient.SendGraphPatchRequest(...)`.
+Сведения о том, как отправить этот запрос, см. в методе `B2CGraphClient.SendGraphPatchRequest(...)`.
 
 ### Удаление пользователей
 
@@ -292,16 +297,16 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 > B2C Delete-User <object-id-of-user>
 ```
 
-Информацию об отправке этого запроса вы найдете в методе `B2CGraphClient.SendGraphDeleteRequest(...)`.
+Сведения о том, как отправить этот запрос, см. в методе `B2CGraphClient.SendGraphDeleteRequest(...)`.
 
-Наряду с управлением пользователями API Graph позволяет выполнять и многие другие действия. Подробные сведения о каждом из таких действий и примеры запросов см. в [справочнике по API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+Наряду с управлением пользователями API Graph позволяет выполнять и многие другие действия. Подробные сведения о каждом из таких действий и примеры запросов см. в [справочнике по API Graph для Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
 
 ## Использование настраиваемых атрибутов
 
 Почти в любом клиентском приложении необходимо сохранять те или иные данные профилей пользователей-клиентов. Один из способов решения данной задачи — настройка пользовательского атрибута в каталоге B2C, позволяющая работать с этим атрибутом как с любым другим свойством объекта пользователя. Атрибут можно обновить, удалить, использовать для запроса, отправить как утверждение в маркере входа и т. д.
 
-Инструкции по настройке пользовательского атрибута в каталоге B2C см. в [справочнике по пользовательским атрибутам в предварительной версии B2C](active-directory-b2c-reference-custom-attr.md).
+Инструкции по указанию настраиваемых атрибутов в каталоге B2C см. в [справочнике по настраиваемым атрибутам в предварительной версии B2C](active-directory-b2c-reference-custom-attr.md).
 
 Для просмотра пользовательских атрибутов, определенных в каталоге B2C, можно использовать B2CGraphClient.
 
@@ -328,7 +333,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 }
 ```
 
-Полное имя, например `extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Number`, можно использовать в качестве свойства объектов пользователей. Для это достаточно обновить значение свойства в соответствующем файле `.json` и выполнить следующую команду:
+Полное имя, например `extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Number`, можно использовать как свойство объектов-пользователей. Для этого достаточно добавить в файл `.json` новое свойство, указать значение для него и запустить указанный ниже код.
 
 ```
 > B2C Update-User <object-id-of-user> <path-to-json-file>
@@ -338,9 +343,9 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 - Приложению необходимо предоставить соответствующие разрешения в каталоге.
 - На данном этапе для получения маркеров доступа необходимо использовать ADAL версии 2 (или отправлять сообщения протокола напрямую, без привлечения библиотеки).
-- При вызове API Graph используйте [`api-version=beta`](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx).
+- При вызове API Graph используйте [`api-version=beta`](http://blogs.msdn.com/b/aadgraphteam/archive/2015/04/10/graph-api-versioning-and-the-new-beta-version.aspx).
 - Некоторые описанные выше свойства при создании и обновлении пользователей-клиентов являются обязательными.
 
 Если у вас есть вопросы или запросы о действиях, которые вы хотели бы выполнить с помощью API Graph в каталоге B2C, обращайтесь! Оставьте комментарий к статье или отправьте заявку в репозиторий образцов кода GitHub.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

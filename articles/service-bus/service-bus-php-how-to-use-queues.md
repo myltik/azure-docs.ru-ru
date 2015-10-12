@@ -200,6 +200,8 @@
 
 Вы познакомились с основами использования очередей служебной шины. Дополнительную информацию см. в статье [Очереди, темы и подписки][].
 
+Дополнительную информацию можно найти также в [Центре разработчика PHP](/develop/php/).
+
 [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
 [Azure Management Portal]: http://manage.windowsazure.com/
 [Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
@@ -213,4 +215,4 @@
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Индекс статей по HDInsight для портала Azure | Microsoft Azure"
-	description="Страница индексов со ссылками на статьи, посвященные HDInsight на портале Azure. Майкрософт рекомендует использовать портал предварительной версии Azure для новых кластеров Hadoop в HDInsight."
-	services="hdinsight"
-	documentationCenter="na"
-	authors="cjgronlund"
-	manager="pablissima"
-	editor=""/>
+   description="Страница индексов со ссылками на статьи, посвященные HDInsight на портале Azure. Майкрософт рекомендует использовать портал предварительной версии Azure для новых кластеров Hadoop в HDInsight."
+   services="hdinsight"
+   documentationCenter="na"
+   authors="cjgronlund"
+   manager="pablissima"
+   editor=""/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="index-page"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/17/2015"
-	ms.author="cjgronlund"/>
+   ms.devlang="na"
+   ms.topic="index-page"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/17/2015"
+   ms.author="cjgronlund"/>
 
 # Индекс статей по HDInsight на портале Azure
 
@@ -102,6 +102,7 @@
 * [Создание списка рекомендуемых к просмотру фильмов с использованием Apache Mahout с Hadoop](hdinsight-mahout.md)
 * [Схема обучения: разработка расширенных аналитических решений](machine-learning-data-science-how-to-create-machine-learning-service.md)
 * [Схема обучения: расширенная обработка данных](machine-learning-data-science-advanced-data-processing.md)
+* [Прогнозирование суммы чаевых в такси с помощью HDInsight и машинного обучения](machine-learning-data-science-process-hive-walkthrough.md)
 
 ## Расширяемость
 
@@ -132,4 +133,4 @@
 * [Значение сообщений об ошибках](hdinsight-debug-jobs.md)
 * [Получить помощь на форуме](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

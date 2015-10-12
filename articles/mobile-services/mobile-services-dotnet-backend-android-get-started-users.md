@@ -3,7 +3,7 @@
 	description="Узнайте, как использовать мобильные службы для аутентификации пользователей приложения магазина Windows с помощью разнообразных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." 
 	services="mobile-services" 
 	documentationCenter="android" 
-	authors="mattchenderson" 
+	authors="RickSaling" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="09/24/2015" 
 	ms.author="ricksal"/>
 
 # Добавление аутентификации в приложение мобильных служб Android
@@ -86,4 +86,4 @@
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

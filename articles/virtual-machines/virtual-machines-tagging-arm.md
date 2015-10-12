@@ -189,4 +189,4 @@
 [Общие сведения о счете Azure]: ../billing-understand-your-bill.md
 [Получение ценных сведений о потреблении ресурсов Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

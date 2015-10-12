@@ -324,4 +324,4 @@
 - [Настройка маршрутизации ExpressRoute (управление пирингами канала)](expressroute-howto-routing-classic.md)
 - [Свяжите виртуальные сети с каналом ExpressRoute](expresssroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

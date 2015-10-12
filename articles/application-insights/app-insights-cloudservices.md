@@ -4,7 +4,7 @@
    services="application-insights"
    documentationCenter=""
    authors="soubhagyadash"
-   manager="victormu"
+   manager="douge"
    editor="alancameronwills"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="ibiza"
    ms.topic="article"
    ms.workload="tbd"
-   ms.date="06/17/2015"
+   ms.date="09/30/2015"
    ms.author="sdash"/>
 
 # Application Insights для облачных служб Azure
@@ -44,7 +44,7 @@
 
 2.  Сделайте копию ключа инструментирования Он потребуется позже для настройки пакета SDK.
 
-    ![Нажмите «Свойства», выберите ключ и нажмите сочетание клавиш CTRL + C](./media/app-insights-cloudservices/02-props.png)
+    ![Нажмите "Свойства", выберите ключ и нажмите сочетание клавиш CTRL + C](./media/app-insights-cloudservices/02-props.png)
 
 
 Обычно лучше создавать отдельный ресурс для данных из каждой рабочей роли и веб-роли.
@@ -56,7 +56,7 @@
 
 1. В Visual Studio измените пакеты NuGet вашего проекта облачных приложений.
 
-    ![Щелкните проект правой кнопкой мыши и выберите пункт «Управление пакетами Nuget»](./media/app-insights-cloudservices/03-nuget.png)
+    ![Щелкните проект правой кнопкой мыши и выберите пункт "Управление пакетами Nuget"](./media/app-insights-cloudservices/03-nuget.png)
 
 2. Добавьте пакет NuGet [Application Insights for Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Эта версия пакета SDK включает модули, которые добавляют контекст сервера, например информацию о роли.
 
@@ -65,20 +65,32 @@
 
 3. Настройте пакет SDK для отправки данных в ресурсы Application Insights.
 
-    Откройте `ApplicationInsights.config` и вставьте эту строку:
+    Задайте ключ инструментирования в качестве параметра конфигурации в файле `ServiceConfiguration.Cloud.cscfg`. ([Пример кода](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
+ 
+    ```XML
+     
+    <Role name="WorkerRoleA"> 
+      <Setting name="Telemetry.AI.InstrumentationKey" value="YOUR IKEY" /> 
+    </Role>
+    ```
+ 
+    В соответствующей функции запуска задайте ключ инструментирования в параметре конфигурации.
 
-    `<InstrumentationKey>` *скопированный ключ инструментирования* `</InstrumentationKey>`
+    ```C#
 
-    Используйте ключ инструментирования, скопированный из ресурса Application Insights.
+     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("Telemetry.AI.InstrumentationKey");
+    ```
 
-4. Задайте для файла ApplicationInsights.config незамедлительное копирование в выходной каталог. Это нужно только для рабочих ролей.
+    Сделайте это для каждой роли в вашем приложении. См. указанные ниже примеры.
+ 
+ * [Веб-роль](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
+ * [Рабочая роль](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
+ * [При работе с веб-страницами](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)   
 
+4. Задайте для файла ApplicationInsights.config незамедлительное копирование в выходной каталог. 
 
-Кроме того, вы можете задать ключ инструментирования (iKey) в коде. Это полезно, например, если вы хотите использовать параметры конфигурации службы Azure для управления ключами инструментария в соответствующих средах. В [примере приложения](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService) показано, как можно задать iKey.
+    (в CONFIG-файле имеются сообщения, указывающие, куда именно поместить ключ инструментирования. Тем не менее для облачных приложений лучше задать его в CSCFG-файле. Это обеспечит правильную идентификацию роли на портале.)
 
-* [Веб-роль](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
-* [Рабочая роль](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
-* [При работе с веб-страницами](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)
 
 ## Отправка сообщений о телеметрии с помощью пакета SDK
 ### Запросы отчетов
@@ -157,7 +169,7 @@
 
 * Откройте плитку [Поиск][diagnostic], чтобы просмотреть отдельные события.
 * Используйте приложение, открывая различные страницы, чтобы создать некоторый объем данных телеметрии.
-* Подождите несколько секунд и нажмите «Обновить».
+* Подождите несколько секунд и нажмите "Обновить".
 * См. раздел [Устранение неполадок][qna].
 
 
@@ -196,4 +208,4 @@
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

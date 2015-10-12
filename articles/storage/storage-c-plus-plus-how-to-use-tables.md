@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="07/19/2015"
+	ms.date="09/23/2015"
     ms.author="tamram"/>
 
 # Использование табличного хранилища из C++
@@ -414,4 +414,4 @@
 -	[Справочник по клиентской библиотеке хранилища для C++](http://azure.github.io/azure-storage-cpp)
 -	[Документация по службе хранилища Azure](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

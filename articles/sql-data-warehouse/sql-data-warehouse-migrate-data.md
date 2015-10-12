@@ -191,7 +191,7 @@ PolyBase также поддерживает так называемую фун�
 
 [рабочая версия]: http://aka.ms/downloadazcopy/
 [пробная версия]: http://aka.ms/downloadazcopypr/
-[Адаптер загрузки данных ADO.NET]: https://msdn.microsoft.com/RU-RU/library/bb934041.aspx
-[документации по службам SSIS]: https://msdn.microsoft.com/RU-RU/library/ms141026.aspx
+[Адаптер загрузки данных ADO.NET]: https://msdn.microsoft.com/ru-RU/library/bb934041.aspx
+[документации по службам SSIS]: https://msdn.microsoft.com/ru-RU/library/ms141026.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

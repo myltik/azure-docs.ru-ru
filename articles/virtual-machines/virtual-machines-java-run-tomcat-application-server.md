@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="09/22/2015"
 	ms.author="robmcm"/>
 
 # Использование сервера приложений Java на виртуальной машине, созданной с помощью классической модели развертывания.
@@ -145,4 +145,4 @@
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

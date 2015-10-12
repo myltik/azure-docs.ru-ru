@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [pig-selector](../../includes/hdinsight-maven-mapreduce-selector.md)]
 
-Этот документ содержит пошаговые инструкции по использованию Apache Maven для создания приложения MapReduce, его развертывания и запуска в кластере HDInsight Hadoop под управлением Linux.
+Этот документ содержит пошаговые инструкции по использованию Apache Maven для создания приложения MapReduce, его развертывания и запуска в кластере HDInsight Hadoop под управлением Linux. Сведения об использовании Hadoop под управлением Windows в кластере HDInsight см. в статье [Разработка программ MapReduce на Java для Hadoop в HDInsight](hdinsight-develop-deploy-java-mapreduce.md).
 
 ##<a name="prerequisites"></a>Предварительные требования
 
@@ -33,13 +33,13 @@
 
 - **Подписку на Azure**: См. [Получение бесплатной пробной версии Azure](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md).
 
-- **Azure CLI**: дополнительные сведения см. в статье [Установка и настройка Azure CLI](../xplat-cli.md).
+- **Azure CLI**: дополнительные сведения см. в статье [Установка и настройка CLI Azure](../xplat-cli-install.md).
 
 ##Настройка переменных среды
 
 Во время установки Java и JDK могут быть установлены следующие переменные среды. Однако следует убедиться, что они существуют и что они содержат правильные значения для вашей системы.
 
-* **JAVA\_HOME** — эта переменная должна указывать на каталог, в который установлена среда выполнения Java (JRE). Например, в системе OS X, Unix или Linux она должна иметь примерно такое значение: `/usr/lib/jvm/java-7-oracle` В Windows значение будет приблизительно таким: `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA\_HOME** — эта переменная должна указывать на каталог, в который установлена среда выполнения Java (JRE). Например, в системе OS X, Unix или Linux она должна иметь примерно такое значение: `/usr/lib/jvm/java-7-oracle` В Windows значение будет приблизительно таким: `c:\Program Files (x86)\Java\jre1.7`
 
 * **PATH** — эта переменная должна содержать следующие пути:
 
@@ -90,7 +90,7 @@
 
 	Это указывает Maven, что для проекта требуются библиотеки (перечисленные в параметре <artifactId>) определенной версии (указанной в параметре <version>). При компиляции он будет загружено из репозитория Maven по умолчанию. Можно воспользоваться [поиском по репозиторию Maven](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar), чтобы получить дополнительную информацию.
 
-	`<scope>provided</scope>` сообщает Maven, что эти зависимости не должны быть упакованы с приложением, так как они будут предоставлены кластером HDInsight во время выполнения.
+	`<scope>provided</scope>` сообщает Maven, что не следует упаковывать эти зависимости вместе с приложением, так как они будут предоставлены кластером HDInsight во время выполнения.
 
 2. Добавьте в файл __pom.xml__ следующее: Эти строки должны находиться в файле внутри тегов `<project>...</project>`; например между `</dependencies>` и `</project>`.
 
@@ -126,7 +126,7 @@
   		  </plugins>
 	    </build>
 
-	Первый подключаемый модуль настраивает [подключаемый модуль Maven Shade](http://maven.apache.org/plugins/maven-shade-plugin/), используемый для создания uberjar (иногда называется fatjar), который содержит требуемые приложению зависимости. Он также предотвращает дублирование лицензий в рамках пакета JAR, которое может вызвать проблемы в некоторых системах.
+	Первый подключаемый модуль настраивает [подключаемый модуль Maven Shade](http://maven.apache.org/plugins/maven-shade-plugin/), используемый для создания uberjar (иногда называется fatjar), который содержит необходимые для приложения зависимости. Он также предотвращает дублирование лицензий в рамках пакета JAR, которое может вызвать проблемы в некоторых системах.
 
 	Второй подключаемый модуль настраивает компилятор Maven, который используется для задания версии Java, необходимой для этого приложения. Версия должна совпадать с версией, используемой в кластере HDInsight.
 
@@ -134,9 +134,9 @@
 
 ##Создание приложения MapReduce
 
-1. Перейдите в каталог __wordcountjava\\src\\main\\java\\org\\apache\\hadoop\\examples__ и переименуйте файл __app.java__ в __WordCount.java__.
+1. Перейдите в каталог __wordcountjava\\src\\main\\java\\org\\apache\\hadoop\\examples__ и переименуйте файл __App.java__ в __WordCount.java__.
 
-2. Откройте файл __WordCount.java__ в текстовом редакторе и замените его содержимое на следующее:
+2. Откройте файл __WordCount.java__ в текстовом редакторе и замените его содержимое указанным ниже.
 
 		package org.apache.hadoop.examples;
 
@@ -213,7 +213,7 @@
 
 ##Создание приложения
 
-1. Перейдите в каталог __wordcountjava__, если вы еще не сделали это.
+1. Перейдите в каталог __wordcountjava__ (если вы еще не сделали это).
 
 2. Выполните следующую команду, чтобы собрать файл JAR, содержащий приложение.
 
@@ -223,10 +223,10 @@
 
 3. После завершения выполнения команды в каталоге __wordcountjava\\target__ будет находиться файл с именем __wordcountjava-1.0-SNAPSHOT.jar__.
 
-	> [AZURE.NOTE]Файл __Wordcountjava-1.0-SNAPSHOT.jar__ является uberjar, который содержит не только задание WordCount, но и зависимости, необходимые заданию во время выполнения.
+	> [AZURE.NOTE]Файл __wordcountjava-1.0-SNAPSHOT.jar__ является uberjar, который содержит не только задание WordCount, но и зависимости, необходимые заданию во время выполнения.
 
 
-##<a id="upload"></a>Загрузка файла JAR
+##<a id="upload"></a>Отправка JAR-файла
 
 Воспользуйтесь следующей командой, чтобы загрузить файл JAR в головной узел HDInsight:
 
@@ -238,7 +238,7 @@
 
 > [AZURE.NOTE]Если для защиты учетной записи SSH использовался пароль, будет предложено ввести пароль. Если использовался ключ SSH, возможно, нужно будет использовать параметр `-i` и указать путь к закрытому ключу. Например, `scp -i /path/to/private/key wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
-##<a name="run"></a>Выполнение задания MapReduce
+##<a name="run"></a>Запуск задания MapReduce
 
 1. Подключитесь к HDInsight через SSH, как описано в следующих статьях.
 
@@ -270,7 +270,7 @@
 - [Использование Pig с HDInsight][hdinsight-use-pig]
 - [Использование MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-Дополнительную информацию см. также в [Центре разработчика Java](/develop/java/).
+Дополнительные сведения см. в [Центре разработчика Java](/develop/java/).
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -300,4 +300,4 @@
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -303,7 +303,7 @@ API управления службой обеспечивает програм�
 		location=location)
 
 	# Name of an os image as returned by list_os_images
-	image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-ru-ru-30GB.vhd'
+	image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-ru-RU-30GB.vhd'
 
 	# Destination storage account container/blob where the VM disk
 	# will be created
@@ -406,7 +406,7 @@ API управления службой обеспечивает програм�
 
 Теперь, когда вы ознакомились с основами службы управления, можно приступить к [полной справочной документации по API для пакета SDK Azure Python](http://azure-sdk-for-python.readthedocs.org/en/documentation/index.html) и легко выполнять сложные задачи, управляя своим приложением python.
 
-
+Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
 
 [What is Service Management]: #WhatIs
 [Concepts]: #Concepts
@@ -445,4 +445,4 @@ API управления службой обеспечивает програм�
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

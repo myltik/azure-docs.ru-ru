@@ -136,9 +136,12 @@
 -   См. справочник MSDN: [Хранилище Azure][].
 -   Посетите [блог команды разработчиков службы хранилища Azure][].
 
+Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
+
+
 [Хранилище Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [блог команды разработчиков службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [пакет Azure для Python]: https://pypi.python.org/pypi/azure
 [Хранилище Azure для Python]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

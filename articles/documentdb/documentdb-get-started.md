@@ -228,6 +228,7 @@
 	        IsRegistered = true
 	    };
 	
+	    // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
 	    await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, andersonFamily);
 	}
 
@@ -266,6 +267,7 @@
             IsRegistered = false
         };
 
+        // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
         await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, wakefieldFamily);
 	}
 
@@ -278,7 +280,7 @@
 Служба DocumentDB поддерживает функционально богатые [запросы](documentdb-sql-query.md) документов JSON, хранящихся в каждой коллекции. Ниже приведены примеры кода разнообразных запросов с использованием как синтаксиса SQL DocumentDB, так и LINQ, которые можно запускать на добавленных на предыдущем шаге документах. Добавьте эти запросы в асинхронный метод **GetStartedDemo**.
 
     // Query the documents using DocumentDB SQL for the Andersen family.
-    var families = client.CreateDocumentQuery(documentCollection.DocumentsLink,
+    var families = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id,
         "SELECT * " +
         "FROM Families f " +
         "WHERE f.id = "AndersenFamily"");
@@ -290,7 +292,7 @@
 
     // Query the documents using LINQ for the Andersen family.
     families =
-        from f in client.CreateDocumentQuery(documentCollection.DocumentsLink)
+        from f in client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id)
         where f.Id == "AndersenFamily"
         select f;
 
@@ -300,7 +302,7 @@
     }
 
     // Query the documents using LINQ lambdas for the Andersen family.
-    families = client.CreateDocumentQuery(documentCollection.DocumentsLink)
+    families = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id)
         .Where(f => f.Id == "AndersenFamily")
         .Select(f => f);
 
@@ -472,4 +474,4 @@
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

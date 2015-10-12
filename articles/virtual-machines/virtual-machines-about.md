@@ -1,6 +1,6 @@
 <properties
 	pageTitle="О виртуальных машинах Azure | Microsoft Azure"
-	description="Изучите основные сведения о виртуальных машинах в Azure."
+	description="Изучите основные сведения о виртуальных машинах в Azure с использованием обеих моделей развертывания."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="07/14/2015"
 	ms.author="cynthn"/>
 
-#О виртуальных машинах Azure, созданных с помощью обеих моделей развертывания
+#О виртуальных машинах Azure 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описываются ресурсы, созданные с помощью модели развертывания на основе диспетчера ресурсов, а также классической модели развертывания.
 
@@ -51,4 +51,4 @@
 [Виртуальные машины]: #tellmevm
 [Облачные службы]: cloud-services-choose-me.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

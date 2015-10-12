@@ -13,8 +13,9 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
+
 # Регистрация текущего пользователя для push-уведомлений с помощью ASP.NET
 
 > [AZURE.SELECTOR]
@@ -237,4 +238,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Приступая к работе с концентраторами уведомлений]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

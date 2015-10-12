@@ -23,12 +23,13 @@
 
 | Описание | Что демонстрирует | Язык или платформа |
 |:--------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:---------------------------|
-| [Воронка и сито концентратора событий](https://github.com/apache/storm/tree/master/external/storm-eventhubs) | Источник воронки и сита концентратора событий | Java |
+| [Источник воронки и сита концентратора событий](https://github.com/apache/storm/tree/master/external/storm-eventhubs) | Источник воронки и сита концентратора событий | Java |
 | [Разработка топологий на платформе Java для Apache Storm в HDInsight][5797064f] | Maven | Java |
 | [Разработка топологий для Apache Storm в HDInsight на C# с помощью Visual Studio][16fce2d1] | Средства HDInsight для Visual Studio | C#, Java |
 | [Создание нескольких потоков данных в топологии Storm на C#][ec5a4064] | Несколько потоков | C# |
 | [Определение популярных тем Twitter с помощью Storm в HDInsight][3c86c7c8] | Trident | Java, Trident |
-| [Обработка событий из концентраторов событий Azure с помощью Storm в HDInsight][844d1d81] | Концентраторы событий | C# и Java |
+| [Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (C#)][844d1d81] | Концентраторы событий | C# и Java |
+| [Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md) | Концентраторы событий | Java |
 | [Использование средств Power BI (предварительная версия) для визуализации данных из топологии Storm][94d15238] | Power BI | C# |
 | [Анализ данных датчиков с помощью Storm и HBase в HDInsight][ab894747] | Концентраторы событий, HBase, Socket.IO, веб-панель мониторинга | C#, Java, JavaScript, HTML |
 | [Обработка данных с датчиков автомобиля из концентраторов событий с использованием Storm в HDInsight][246ee964] | Концентраторы событий, DocumentDb, хранилище больших двоичных объектов Azure (WASB) | C#, Java |
@@ -58,4 +59,4 @@
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Этот проект содержит шаблоны для «воронок», «сит» и топологий, обеспечивающих взаимодействие с различными сервисами Azure, такими как концентраторы событий, DocumentDB и база данных SQL."
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Непрерывное развертывание с использованием GIT в службе приложений Azure" 
 	description="Узнайте, как с помощью Git опубликовать веб-приложение Azure, а затем включить непрерывное развертывание из веб-служб Bitbucket, CodePlex, Dropbox, GitHub или Mercurial." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -23,4 +23,4 @@
 [AZURE.INCLUDE [publishing-with-git](../../includes/publishing-with-git.md)]
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -150,7 +150,7 @@
 - Разработка базы данных, работающей в сети или в автономном режиме.
 
 
-Вместо этого можно подключиться с помощью [Visual Studio Community 2013](https://www.visualstudio.com/ru-ru/news/vs2013-community-vs.aspx/) — бесплатной и полнофункциональной версии VS2013.
+Вместо этого можно подключиться с помощью [Visual Studio Community 2013](https://www.visualstudio.com/ru-RU/news/vs2013-community-vs.aspx/) — бесплатной и полнофункциональной версии VS2013.
 
 
 На странице базы данных на старом портале Azure можно щелкнуть **Открыть в Visual Studio**, чтобы запустить VS2013 на компьютере для подключения к базе данных SQL Azure.
@@ -254,4 +254,4 @@
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

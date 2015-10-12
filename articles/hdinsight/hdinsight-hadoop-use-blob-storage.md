@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Запрос данных из HDFS-совместимых BLOB-хранилищ | Microsoft Azure"
 	description="HDInsight использует хранилище BLOB-объектов для хранения данных большого размера для HDFS. Узнайте, как получать данные из хранилищ BLOB-объектов и сохранять результаты анализа."
+	keywords="blob storage,hdfs,structured data,unstructured data"
 	services="hdinsight,storage"
 	documentationCenter=""
 	tags="azure-portal"
@@ -100,7 +101,7 @@ HDInsight предоставляет доступ к распределенно�
 
 ###Использование Azure CLI
 
-Если у вас уже [установлен и настроен интерфейс командной строки Azure CLI](../xplat-cli.md), можно использовать следующую команду для учетной записи хранения и контейнера.
+Если у вас уже [установлен и настроен интерфейс командной строки Azure CLI](../xplat-cli-install.md), можно использовать следующую команду для учетной записи хранения и контейнера.
 
 	azure storage account create <storageaccountname> --type LRS
 
@@ -315,4 +316,4 @@ HDInsight предоставляет доступ к распределенно�
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

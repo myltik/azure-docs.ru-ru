@@ -32,7 +32,7 @@ Mahout — это библиотека [машинного обучения][ml]
 
 * Как запускать задания Mahout с помощью Windows PowerShell.
 
-* как запускать задания Mahout из командной строки Hadoop;
+* - как запускать задания Mahout из командной строки Hadoop;
 
 * Как устанавливать Mahout на кластерах HDInsight версий 3.0 и 2.0.
 
@@ -93,7 +93,7 @@ Mahout — это библиотека [машинного обучения][ml]
 	# NOTE: The version number portion of the file path
 	# may change in future versions of HDInsight.
 	# So dynamically grab it using Hive.
-	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar' | where {$_.startswith("C:\apps\dist")}
+	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar' | where {$_.startswith("C:\apps\dist")}
 	$noCRLF = $mahoutPath -replace "`r`n", ""
 	$cleanedPath = $noCRLF -replace "\", "/"
 	$jarFile = "file:///$cleanedPath"
@@ -374,7 +374,7 @@ Mahout устанавливается на кластерах HDInsight верс
 Кластеры HDInsight 3.1 содержат Mahout. Путь и имя файла включают в себя версию Mahout, установленную в кластере. Пример сценария Windows PowerShell в этом учебнике использует путь, который действителен по состоянию на июль 2014 года, однако в будущем он изменится при обновлении HDInsight из-за изменения номера версии. Чтобы определить текущий путь к JAR-файлу Mahout для своего кластера, используйте следующую команду Windows PowerShell, затем внесите изменения в сценарий, указав полученный путь к файлу:
 
 	Use-AzureHDInsightCluster -Name $clusterName
-	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar'
+	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar'
 
 ###<a name="nopowershell"></a>Классы, которые не работают с Windows PowerShell
 
@@ -422,4 +422,4 @@ Mahout устанавливается на кластерах HDInsight верс
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

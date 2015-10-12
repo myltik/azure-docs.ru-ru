@@ -624,4 +624,4 @@ Oracle Data Guard поддерживает защиту данных и авар
 ##Дополнительные ресурсы
 [Образы виртуальных машин Oracle для Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

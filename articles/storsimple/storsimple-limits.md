@@ -1,10 +1,10 @@
 <properties 
    pageTitle="Ограничения системы StorSimple | Microsoft Azure"
-   description="Описывает ограничения системы и рекомендуемые размеры для компонентов StorSimple и соединений."
+   description="Описывает ограничения системы и рекомендуемые размеры для компонентов серии StorSimple 8000 и соединений."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="09/28/2015"
    ms.author="alkohli" />
 
 # Ограничения системы StorSimple
@@ -27,4 +27,4 @@ StorSimple обеспечивает масштабируемое и гибкое
 
 Ознакомьтесь с [Требованиями к системе StorSimple](storsimple-system-requirements.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

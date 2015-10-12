@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="10/01/2015"
 	ms.author="markusvi"/>
 
 
@@ -45,7 +45,7 @@
 
  
 ## Описание сценария
-Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. <br> Сценарий, описанный в этом учебнике, состоит из трех основных блоков:
+Цель этого учебника — научить вас проверять единый вход в Azure AD в пробной среде. <br> Сценарий, описанный в этом учебнике, состоит из двух основных блоков:
 
 1. Добавление Halogen Software из коллекции. 
 2. Настройка и проверка единого входа в Azure AD
@@ -221,4 +221,4 @@
 [300]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_300.png
 [301]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

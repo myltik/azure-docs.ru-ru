@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015" 
 	ms.author="wesmc"/>
 
 #Безопасные push-уведомления посредством центров уведомлений Azure
@@ -131,4 +131,4 @@
 
 4. В пользовательском интерфейсе приложения Android нажмите **Вход**. Затем нажмите кнопку **Отправить push-уведомление**.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

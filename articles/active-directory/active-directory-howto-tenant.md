@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/02/2015"
+	ms.date="09/28/2015"
 	ms.author="dastrock"/>
 
 # Как получить клиент Azure Active Directory
@@ -65,4 +65,4 @@
 
 При регистрации для получения подписки Azure вам потребуется предоставить информацию о кредитной карте. Не беспокойтесь, плата за публикацию приложений в Azure AD или создание новых клиентов не взимается.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

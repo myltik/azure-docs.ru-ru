@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="07/02/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh"/>
 
 # Авторизация пользователей на стороне службы в мобильных службах
@@ -42,10 +42,10 @@
 
 		// Get the logged in user
 		var currentUser = User as ServiceUser;
-	
+
 		// Set the user ID on the item
 		item.UserId = currentUser.Id;
-	
+
 	Этот код добавляет в элемент идентификатор пользователя, прошедшего аутентификацию, прежде чем вставить этот элемент в таблицу TodoItem.
 
 3. Найдите метод **GetAllTodoItems** и замените имеющуюся инструкцию **return** на следующую строку кода:
@@ -54,7 +54,7 @@
 		var currentUser = User as ServiceUser;
 
 		return Query().Where(todo => todo.UserId == currentUser.Id);
-		
+
 	Этот запрос фильтрует возвращаемые объекты TodoItem таким образом, чтобы каждый пользователь получил только элементы, которые он вставил.
 
 4. повторно опубликовать проект мобильной службы в Azure.
@@ -78,6 +78,5 @@
 
 <!-- URLs. -->
 [Добавление проверки подлинности в существующее приложение мобильных служб]: mobile-services-dotnet-backend-ios-get-started-users.md
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="09/25/2015"
 	ms.author="donnam"/>
 
 # Использование автономной синхронизации данных в мобильных службах
@@ -159,7 +159,7 @@
 
 
 <!-- URLs. -->
-[Обработка конфликтов с автономной поддержкой мобильных служб]: ../mobile-services-xamarin-android-handling-conflicts-offline-data.md
+[Обработка конфликтов с автономной поддержкой мобильных служб]: mobile-services-windows-store-dotnet-handling-conflicts-offline-data.md
 [Get started with data]: mobile-services-android-get-started-data.md
 [Приступая к работе с мобильными службами]: mobile-services-android-get-started.md
 [Использование клиентского компонента Xamarin для мобильных служб Azure]: partner-xamarin-mobile-services-how-to-use-client-library.md
@@ -172,4 +172,4 @@
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

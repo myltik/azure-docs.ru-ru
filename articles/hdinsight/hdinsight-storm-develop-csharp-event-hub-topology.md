@@ -1,20 +1,20 @@
 <properties
    pageTitle="Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight | Microsoft Azure"
-	description="Узнайте, как обрабатывать данные службы концентраторов событий с использованием топологии C# Storm, созданной в Visual Studio с помощью средств HDInsight для Visual Studio."
-	services="hdinsight,notification hubs"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"/>
+   description="Узнайте, как обрабатывать данные службы концентраторов событий с использованием топологии C# Storm, созданной в Visual Studio с помощью средств HDInsight для Visual Studio."
+   services="hdinsight,notification hubs"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="09/02/2015"
-	ms.author="larryfr"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="09/02/2015"
+   ms.author="larryfr"/>
 
 # Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (C#)
 
@@ -25,6 +25,8 @@
 * **EventHubWriter** — случайным образом генерирует данные и записывает их в службу концентраторов событий
 
 * **EventHubReader** — считывает данные из службы концентраторов событий и сохраняет их в табличное хранилище Azure
+
+[AZURE.NOTE]Шаги, описанные в этом документе, можно применять только к кластеру HDInsight под управлением Windows. Java-версию этого проекта, которая работает с кластером под управлением Linux или Windows, можно найти в разделе [Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (Java)](hdinsight-storm-develop-java-event-hub-topology.md).
 
 ## Предварительные требования
 
@@ -555,4 +557,4 @@ EventHubSpout периодически передает информацию о 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

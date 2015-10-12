@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
@@ -135,14 +135,14 @@
 [портале предварительной версии Azure]: https://portal.azure.com/
 [портале управления Azure]: https://manage.windowsazure.com/
 [Что такое мобильные приложения]: app-service-mobile-value-prop-preview.md
-[Я уже использую веб-сайты и мобильные службы, как служба приложений может помочь мне?]: /ru-ru/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services-preview
+[Я уже использую веб-сайты и мобильные службы, как служба приложений может помочь мне?]: /ru-RU/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services-preview
 [пакет SDK для сервера мобильных приложений]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Создание мобильного приложения]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 [Добавление push-уведомлений в мобильное приложение]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [Добавление проверки подлинности в мобильное приложение]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md
-[планировщике Azure]: /ru-ru/documentation/services/scheduler/
+[планировщике Azure]: /ru-RU/documentation/services/scheduler/
 [веб-задание]: ../app-service-web/websites-webjobs-resources.md
 [Отправка кроссплатформенных push-уведомлений]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
 [Как использовать пакет SDK для сервера .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

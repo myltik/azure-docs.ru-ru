@@ -1,8 +1,6 @@
 <properties
-    title="Azure SQL Database elastic database query overview"
     pageTitle="Обзор функции запросов к эластичным базам данных SQL Azure "
-    description="Обзор функции эластичных запросов "
-    metaKeywords="azure sql database elastic database queries"
+    description="Обзор функции эластичных запросов "    
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
@@ -15,7 +13,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="07/09/2015"
-    ms.author="sidneyh" />
+    ms.author="sidneyh;torsteng" />
 
 # Обзор функции запросов к эластичным базам данных SQL (предварительная версия)
 
@@ -81,7 +79,7 @@
 Функция запроса к эластичной базе данных использует следующие четыре инструкции DDL. Как правило, эти инструкции используются лишь один раз или изредка в случае изменения схемы программы.
 
 *    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-*    [CREATE CREDENTIAL](https://msdn.microsoft.com/library/ms189522.aspx)
+*    [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 *    [CREATE/DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
 *    [CREATE/DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
 
@@ -100,7 +98,7 @@
 
 Для удаления главного ключа и учетных данных можно использовать следующий синтаксис:
 
-    DROP CREDENTIAL <credential_name> ON DATABASE;
+    DROP DATABASE SCOPED CREDENTIAL <credential_name>;
     DROP MASTER KEY;  
 
 ### Внешние источники данных
@@ -267,4 +265,4 @@ SP\_EXECUTE\_FANOUT — это хранимая процедура, предос
 
 <!--anchors-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

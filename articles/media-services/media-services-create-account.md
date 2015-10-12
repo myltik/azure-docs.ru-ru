@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/07/2015"  
+	ms.date="09/28/2015"  
 	ms.author="juliako"/>
 
 
@@ -78,7 +78,7 @@
 
 - [Приступая к работе с доставкой видео по запросу (VOD) с помощью пакета SDK для .NET](media-services-dotnet-get-started.md)
 
-- [Использование пакета SDK для .NET для создания каналов, в реальном времени выполняющих кодирование односкоростного потока в мультискоростной (предварительная версия)](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [Использование пакета SDK для .NET для создания каналов, выполняющих кодирование односкоростного потока во многоскоростной в реальном времени](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 <!-- Reusable paths. -->
 
@@ -92,4 +92,4 @@
 
   [портале Azure]: http://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

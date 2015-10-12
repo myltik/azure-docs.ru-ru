@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Состояние сеанса с кэшем Redis для Azure в службе приложений Azure" 
 	description="Узнайте, как использовать службу кэша Azure для поддержки кэширования состояний сеансов ASP.NET." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
@@ -109,4 +109,4 @@
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

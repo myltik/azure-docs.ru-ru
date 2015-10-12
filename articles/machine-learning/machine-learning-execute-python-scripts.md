@@ -1,20 +1,21 @@
 <properties 
-	pageTitle="Выполнение сценариев машинного обучения Python | Microsoft Azure"
-	description="Описываются принципы проектирования, лежащие в основе поддержки сценариев Python в Машинном обучении Azure, а также основные сценарии использования, возможности и ограничения."
+	pageTitle="Выполнение сценариев машинного обучения Python | Microsoft Azure" 
+	description="Описываются принципы проектирования, лежащие в основе поддержки сценариев Python в Машинном обучении Azure, а также основные сценарии использования, возможности и ограничения." 
+	keywords="python machine learning,pandas,python pandas,python scripts, execute python scripts"
 	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="paulettm"
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2015"
-	ms.author="bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/30/2015" 
+	ms.author="bradsev" />
 
 
 # Выполнение сценариев Python в Студии машинного обучения Azure
@@ -164,10 +165,13 @@
 
 В ближайшие месяцы мы планируем ввести в модуль [Выполнение сценария Python][execute-python-script] дополнительные функциональные возможности, такие как обучение и выполнение моделей в Python, а также добавить улучшенную поддержку разработки и отладки кода в Студию машинного обучения Azure.
 
+## Дальнейшие действия
+
+Дополнительную информацию можно найти в [Центре разработчика Python](/develop/python/).
 
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [инструменты Python для Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

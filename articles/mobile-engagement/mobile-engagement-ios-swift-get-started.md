@@ -30,13 +30,15 @@
 
 Для работы с данным учебником требуется следующее:
 
-+ XCode 6 или XCode 7, которые можно установить из Mac App Store.
++ XCode 6 или XCode 7, которые можно установить из Mac App Store
 + [Mobile Engagement iOS SDK]
 + Сертификат push-уведомлений (P12), который можно получить в центре разработки для Apple
 
+> [AZURE.NOTE]В этом учебнике используется Swift версии 2.0.
+
 Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными Mobile Engagement для приложений iOS.
 
-> [AZURE.IMPORTANT]Выполнение этого учебника является необходимым условием для работы со всеми остальными учебниками, посвященными Mobile Engagement для приложений iOS. Для его выполнения необходимо иметь активную учетную запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатная пробная версия Azure</a>.
+> [AZURE.IMPORTANT]Выполнение этого учебника является необходимым условием для работы со всеми остальными учебниками, посвященными Mobile Engagement для приложений iOS. Для его выполнения необходимо иметь активную учетную запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-RU%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатная пробная версия Azure</a>.
 
 ##<a id="setup-azme"></a>Настройка Mobile Engagement для вашего приложения iOS
 
@@ -44,7 +46,7 @@
 
 ##<a id="connecting-app"></a>Подключение приложения к серверной части Mobile Engagement
 
-В этом руководстве описаны действия по базовой интеграции, т. е. минимум, необходимый для сбора данных и отправки push-уведомлений. Полную документацию по интеграции см. в статье [Интеграция пакета SDK для Mobile Engagement с iOS](../mobile-engagement-ios-sdk-overview/).
+В этом руководстве описаны действия по базовой интеграции, т. е. минимум, необходимый для сбора данных и отправки push-уведомлений. Полную документацию по интеграции можно найти в разделе [Интеграция пакета Mobile Engagement iOS SDK](../mobile-engagement-ios-sdk-overview/).
 
 Создадим базовое приложение при помощи XCode, чтобы продемонстрировать интеграцию.
 
@@ -74,11 +76,10 @@
 
 	![][4]
 
-8. Измените файл связующего заголовка так, чтобы в нем показывался код AzME Objective-C для созданного кода Swift, и добавьте следующие объекты импорта:
+8. Измените промежуточный файл заголовков так, чтобы в нем отображался код Mobile Engagement Objective-C для вашего кода Swift, и добавьте следующие объекты импорта:
 
 		/* Mobile Engagement Agent */
 		#import "AEModule.h"
-		#import "AEPushDelegate.h"
 		#import "AEPushMessage.h"
 		#import "AEStorage.h"
 		#import "EngagementAgent.h"
@@ -87,6 +88,8 @@
 		#import "AEIdfaProvider.h"
 
 9. В разделе "Параметры сборки" убедитесь, что для настройки сборки связующего заголовка Objective-C в разделе "Компилятор Swift — создание кода" указан путь к этому заголовку. Ниже приведен пример пути: **$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h (в зависимости от пути)**
+
+	![][6]
 
 10. Вернитесь на страницу портала Azure *Информация о подключении* для вашего приложения и скопируйте строку подключения.
 
@@ -105,17 +108,13 @@
 
 Чтобы начать отправку данных и убедиться, что пользователи активны, отправьте по крайней мере один экран (действие) в серверную часть Mobile Engagement.
 
-1. Откройте файл **ViewController.h** и импортируйте **EngagementViewController.h**:
+1. Откройте файл **ViewController.swift** и замените базовый класс **ViewController** на **EngagementViewController**:
 
-    `# import "EngagementViewController.h"`
-
-2. Теперь замените суперкласс интерфейса **ViewController** на **EngagementViewController**:
-
-	`@interface ViewController : EngagementViewController`
+	`class ViewController : EngagementViewController {`
 
 ##<a id="monitor"></a>Подключение приложения с наблюдением в режиме реального времени
 
-[AZURE.INCLUDE [Подключение приложения с наблюдением в режиме реального времени](../../includes/mobile-engagement-connect-app-with-monitor.md)]
+[AZURE.INCLUDE [Подключение приложения с возможностью его отслеживания в режиме реального времени](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ##<a id="integrate-push"></a>Включение функции отправки и приема push-уведомлений и обмена сообщениями в приложении
 
@@ -132,10 +131,9 @@ Mobile Engagement позволяет взаимодействовать и св�
 3. Перейдите в папку с извлеченным SDK
 4. Выберите папку `EngagementReach`
 5. Нажмите "Добавить"
-6. Измените файл связующего заголовка так, чтобы в нем открывались заголовки рекламной кампании AzME Objective-C, добавьте следующие импортируемые объекты:
+6. Измените промежуточный файл заголовков так, чтобы в нем отображались заголовки Mobile Engagement Objective-C Reach, и добавьте следующие объекты импорта:
 
 		/* Mobile Engagement Reach */
-		#import "AE_TBXML.h"
 		#import "AEAnnouncementViewController.h"
 		#import "AEAutorotateView.h"
 		#import "AEContentViewController.h"
@@ -154,12 +152,13 @@ Mobile Engagement позволяет взаимодействовать и св�
 		#import "AEReachModule.h"
 		#import "AEReachNotifAnnouncement.h"
 		#import "AEReachPoll.h"
+		#import "AEReachPollQuestion.h"
 		#import "AEViewControllerUtil.h"
 		#import "AEWebAnnouncementJsBridge.h"
 
 ### Изменение делегата приложения
 
-1. В `didFinishLaunchingWithOptions` создайте модуль обработки рекламных кампаний и передайте его в существующую строку инициализации Mobile Engagement:
+1. В `didFinishLaunchingWithOptions` создайте модуль обработки рекламных кампаний и передайте его в существующую строку инициализации Engagement:
 
 		func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 			let reach = AEReachModule.moduleWithNotificationIcon(UIImage(named:"icon.png")) as! AEReachModule
@@ -171,16 +170,16 @@ Mobile Engagement позволяет взаимодействовать и св�
 ###Разрешите приложению получать push-уведомления APNS
 1. Добавьте следующую строку в метод `didFinishLaunchingWithOptions`:
 
-		if application.respondsToSelector("registerUserNotificationSettings:")
+		/* Ask user to receive push notifications */
+		if #available(iOS 8.0, *)
 		{
-			application.registerUserNotificationSettings(UIUserNotificationSettings(
-			forTypes: (UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound),
-			categories: nil))
-			application.registerForRemoteNotifications()
+		   let settings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound], categories: nil)
+		   application.registerUserNotificationSettings(settings)
+		   application.registerForRemoteNotifications()
 		}
 		else
 		{
-			application.registerForRemoteNotificationTypes(UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound)
+		   application.registerForRemoteNotificationTypes([UIRemoteNotificationType.Alert, UIRemoteNotificationType.Badge, UIRemoteNotificationType.Sound])
 		}
 
 2. Добавьте метод `didRegisterForRemoteNotificationsWithDeviceToken` следующим образом:
@@ -209,5 +208,6 @@ Mobile Engagement позволяет взаимодействовать и св�
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-swift-get-started/add-header-file.png
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
+[6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

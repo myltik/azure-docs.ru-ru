@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Подключение веб-приложения к приложению API в службе приложений Azure" 
 	description="В этом учебнике показано, как использовать приложение API из веб-приложения ASP.NET, размещенного в службе приложений Azure." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="syntaxc4" 
 	manager="yochayk" 
@@ -12,7 +12,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.date="09/15/2015"
 	ms.author="cfowler"/>
 
@@ -71,16 +71,16 @@
 
 1. Обновите представление `Contact` для отражения динамического списка контактов с помощью следующего кода:
 	<pre>// Добавьте в самое начало файла представления
-@model IList&lt;MyContactsList.Web.Models.Contact>
-
-// Замените электронные адреса по умолчанию на следующие
-&lt;h3>Общие контакты &lt;/h3>
-&lt;ul>
-    @foreach (var contact in Model)
-    {
-        &lt;li>&lt;a href="mailto:@contact.EmailAddress">@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a>&lt;/li>
-    }
-&lt;/ul> 
+	@model IList&lt;MyContactsList.Web.Models.Contact&gt;
+	
+	// Замените электронные адреса по умолчанию на следующие
+    &lt;h3&gt;Public Contacts&lt;/h3&gt;
+    &lt;ul&gt;
+        @foreach (var contact in Model)
+        {
+            &lt;li&gt;&lt;a href=&quot;mailto:@contact.EmailAddress&quot;&gt;@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a&gt;&lt;/li&gt;
+        }
+    &lt;/ul&gt; 
 	</pre>
 
 	![Обновления кода Contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
@@ -96,4 +96,4 @@
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -171,7 +171,7 @@ PTVS работает с установленными экземплярами V
 * [IPython — расширенный интерфейс REPL/Notebook для Python][]
 * [IPython Notebook в Azure][]
 * [Средства Python для Visual Studio на GitHub][]
-
+* [Центр по разработке для Python](/develop/python/)
 
 [Распространяемая среда аналитики Python]: http://continuum.io
 [Распространяемый набор Enthought Python]: http://www.enthought.com
@@ -205,4 +205,4 @@ PTVS работает с установленными экземплярами V
 [хранилища очередей]: storage-python-how-to-use-queue-storage.md
 [хранилища BLOB-объектов]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

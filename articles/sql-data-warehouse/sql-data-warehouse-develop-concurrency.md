@@ -448,8 +448,8 @@ FROM	sys.dm_pdw_wait_stats w
 [Общие сведения о разработке]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[Управление базами данных, именами для входа и пользователями в базе данных SQL Azure]: https://msdn.microsoft.com/ru-ru/library/azure/ee336235.aspx
+[Управление базами данных, именами для входа и пользователями в базе данных SQL Azure]: https://msdn.microsoft.com/ru-RU/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="09/28/2015"
    ms.author="kempb" />
 
 # Обновление проектов до текущей версии инструментов Azure для Visual Studio
@@ -51,8 +51,4 @@
 
 1. Выполните сборку проекта, а затем исправьте все ошибки, возникающие в результате изменения API. Сведения об изменении кода для новой версии см. в документации к конкретному API.
 
-## Ресурсы
-
-[История выпусков инструментов Azure](http://go.microsoft.com/fwlink/p/?LinkId=623548)
-
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

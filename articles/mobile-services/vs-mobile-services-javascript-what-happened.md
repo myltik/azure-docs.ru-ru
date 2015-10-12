@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Что происходит при добавлении мобильных служб в приложение Javascript с помощью подключенных служб Visual Studio" 
+	pageTitle="Что происходит при добавлении мобильных служб в приложение JavaScript с помощью подключенных служб Visual Studio" 
 	description="Описание того, что произошло с вашим проектом мобильных служб Azure в Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="09/23/2015" 
 	ms.author="patshea"/>
 
-# Что происходит с моим проектом Javascript для Azure в Visual Studio при добавлении мобильных служб с помощью подключенных служб?
+# Что происходит с моим проектом Javascript при добавлении мобильных служб Azure с помощью подключенных служб Visual Studio?
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)
@@ -46,4 +46,4 @@
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

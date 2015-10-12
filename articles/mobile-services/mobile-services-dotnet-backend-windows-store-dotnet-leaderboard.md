@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Создание приложения списка лидеров для Магазина Windows с помощью серверной части .NET | Microsoft Azure" 
+	pageTitle="Создание приложения списка лидеров для Магазина Windows с помощью внутреннего сервера .NET | Мобильные службы Azure" 
 	description="Узнайте, как создать приложение списка лидеров для Магазина Windows с помощью мобильных служб Azure с внутренним сервером .NET." 
 	documentationCenter="windows" 
 	authors="MikeWasson" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="09/24/2015" 
 	ms.author="glenga"/>
 
 # Создание приложения списка лидеров с помощью внутреннего сервера .NET мобильных служб Azure
@@ -762,4 +762,4 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

@@ -343,6 +343,9 @@
 
 Для добавления дополнительной функциональности в веб-приложение ознакомьтесь с доступными интерфейсами API в [пакете SDK Python для DocumentDB](https://pypi.python.org/pypi/pydocumentdb).
 
+Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
+
+
   [Учебники по Flask доступны здесь]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
   [отсюда]: http://aka.ms/ptvs
@@ -352,4 +355,4 @@
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

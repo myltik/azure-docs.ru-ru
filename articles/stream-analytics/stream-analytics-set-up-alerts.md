@@ -14,8 +14,9 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
+
 
 # Настройка оповещений
 
@@ -29,14 +30,14 @@
 
 ## Настройка оповещений через портал Azure
 
-Настроить оповещения можно одним из двух способов.
+Есть два способа настройки оповещений на портале управления Azure:
 
-1.	Вкладка «Монитор» задания Stream Analytics.  
+1.	Вкладка **Монитор** задания Stream Analytics.  
 2.	Журнал операций в службах управления.  
 
 ## Настройка оповещений с помощью вкладки «Монитор» задания на портале
 
-1.	Выберите метрику на вкладке «Монитор», нажмите кнопку «Добавить правило» в нижней части панели мониторинга и настройте правила.  
+1.	Выберите метрику на вкладке монитора, нажмите кнопку **Добавить правило** в нижней части панели мониторинга и настройте правила.  
 
     ![Панель мониторинга](./media/stream-analytics-set-up-alerts/01-stream-analytics-set-up-alerts.png)
 
@@ -59,6 +60,20 @@
 
     ![Определение оповещения](./media/stream-analytics-set-up-alerts/05-stream-analytics-set-up-alerts.png)
 
+## Настройка оповещений на портале предварительной версии Azure ##
+
+На портале предварительной версии Azure перейдите к нужному заданию Stream Analytics и откройте раздел **Мониторинг**. В появившейся колонке **Метрика** выберите команду **Добавить оповещение**.
+
+  ![Настройка портала предварительной версии Azure](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)
+
+Правилу оповещения можно дать имя и выбрать описание, которое будет отображаться в уведомлении по электронной почте.
+
+Если вы выбрали раздел "Метрики", нужно задать условия и пороговое значение для метрики.
+
+  ![Выбор метрики на портале предварительной версии Azure](./media/stream-analytics-set-up-alerts/07-stream-analytics-set-up-alerts.png)
+
+Дополнительные сведения о настройке оповещений на портале предварительной версии Azure см. в статье [Получение уведомлений](./azure-portal/insights-receive-alert-notifications.md).
+
 ## Получение справки
 Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
 
@@ -70,4 +85,4 @@
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

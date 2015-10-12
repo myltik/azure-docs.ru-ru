@@ -7,10 +7,10 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/14/2015" ms.author="trinadhk";"aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2015" ms.author="trinadhk";"aashishr"/>
 
 
-# Устранение ошибок
+# Устранение неполадок при архивации виртуальных машин Azure
 Для устранения ошибок, обнаруженных в ходе применения службы архивации Azure, можно использовать информацию из следующей таблицы.
 
 ## Обнаружение
@@ -89,7 +89,7 @@
 
 Для виртуальных машин Linux:
 
-- Установите последнюю версию [агента Linux](https://github.com/Azure/WALinuxAgent) с сайта GitHub. 
+- Установите последнюю версию [агента Linux](https://github.com/Azure/WALinuxAgent) с сайта GitHub.
 - [Обновите свойство виртуальной машины](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx), чтобы указать, что агент установлен.
 
 
@@ -100,7 +100,7 @@
 
 Для виртуальных машин Linux:
 
-- Следуйте указаниям по [обновлению агента виртуальных машин Linux](../virtual-machines-linux-update-agent.md). 
+- Следуйте указаниям по [обновлению агента виртуальных машин Linux](../virtual-machines-linux-update-agent.md).
 
 
 ### Проверка установки агента виртуальной машины
@@ -123,4 +123,4 @@
 1. Получите список [IP-адресов центра обработки данных Azure ](https://msdn.microsoft.com/library/azure/dn175718.aspx) для добавления в разрешенный список.
 2. Разблокируйте IP-адреса с помощью командлета [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Запустите этот командлет на ВМ Azure в окне PowerShell с повышенными привилегиями (запустите от имени администратора).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

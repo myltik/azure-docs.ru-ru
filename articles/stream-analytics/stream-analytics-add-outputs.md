@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 # Добавление выходных данных
@@ -24,13 +24,19 @@
 
 Чтобы добавить выход данных в задание службы Stream Analytics, выполните следующие действия.
 
-1. В задании Stream Analytics нажмите **Выходные данные**, а затем **Добавить выходные данные**.
+1. На портале Azure нажмите **Выходные данные**, а затем **Добавить выходные данные** в задании Stream Analytics.
 
     ![Добавление выходных данных](./media/stream-analytics-add-outputs/1-stream-analytics-add-outputs.png)
+
+    На портале предварительной версии Azure нажмите плитку **Выходные данные** в задании Stream Analytics.
+
+    ![Добавление выходных данных на портале Azure](./media/stream-analytics-add-outputs/5-stream-analytics-add-outputs.png)
 
 2. Укажите тип выходных данных:
 
     ![Выбор типа данных](./media/stream-analytics-add-outputs/2-stream-analytics-add-outputs.png)
+
+    ![Выбор типа данных на портале предварительной версии Azure](./media/stream-analytics-add-outputs/6-stream-analytics-add-outputs.png)
 
 3. В поле **Псевдоним выходных данных** введите понятное имя для этого выхода данных. Впоследствии это имя можно будет использовать в запросе вашего задания для ссылки на выходные данные.
     
@@ -40,9 +46,11 @@
 
 4. В зависимости от типа выходных данных необходимо указать способ сериализации или форматирования данных. В этой статье описаны конкретные параметры сериализации для каждого выходного типа.
 
-    Укажите остальные свойства подключения, необходимые для подключения к источнику данных. Эти поля зависят от типа входных данных и источника и подробно описаны [здесь](stream-analytics-create-a-job.md.).
+    Укажите остальные свойства подключения, необходимые для подключения к источнику данных. Эти поля зависят от типа входных данных и источника и подробно описаны [здесь](stream-analytics-create-a-job.md).
 
     ![Добавление концентратора событий](./media/stream-analytics-add-outputs/4-stream-analytics-add-outputs.png)
+
+    ![Добавление концентратора событий на портале предварительной версии Azure](./media/stream-analytics-add-outputs/7-stream-analytics-add-outputs.png)
 
 ## Получение справки
 Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
@@ -55,4 +63,4 @@
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

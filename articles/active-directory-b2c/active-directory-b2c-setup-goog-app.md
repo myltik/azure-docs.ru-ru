@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/28/2015"
 	ms.author="swkrish"/>
 
 # Предварительная версия Azure Active Directory (AD) B2C: организация регистрации и входа для потребителей с учетными записями Google+
@@ -41,19 +41,19 @@
     ![G+ — экран согласия OAuth](./media/active-directory-b2c-setup-goog-app/google-consent-screen.png)
 
 6. Из списка **Application type** (Тип приложения) выберите **Web application** (Веб-приложение).
-7. В поле **Name** (Имя) введите имя своего приложения, затем введите адрес [https://login.microsoftonline.com](https://login.microsoftonline.com) в поле **Authorized redirect URIs** (Разрешенные универсальные коды ресурса (URI) перенаправления) и [https://login.microsoftonline.com/te/{каталог}/oauth2/authresp](https://login.microsoftonline.com/te/{directory}/oauth2/authresp) в поле **Authorized redirect URIs** (Разрешенные универсальные коды ресурса (URI) перенаправления), заменив **{каталог}** именем своего каталога (например, contosob2c.onmicrosoft.com). Щелкните **Создать**.
+7. В поле **Имя** введите имя вашего приложения, в поле **Авторизованные URI перенаправления** — адрес [https://login.microsoftonline.com](https://login.microsoftonline.com), а в поле **Авторизованные URI перенаправления** — адрес [https://login.microsoftonline.com/te/{клиент}/oauth2/authresp](https://login.microsoftonline.com/te/{tenant}/oauth2/authresp), заменив **{клиент}** именем своего клиента (например, contosob2c.onmicrosoft.com). Щелкните **Создать**.
 
-    > [AZURE.NOTE]В значении **{каталог}** учитывается регистр.
+    > [AZURE.NOTE]В значении **{клиент}** необходимо учитывать регистр.
 
     ![G+ — создание идентификатора клиента](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
 
-8. Скопируйте значения **Client ID** (Идентификатор клиента) и **Client secret** (Секрет клиента). Оба значения необходимы для настройки Google+ в качестве поставщика удостоверений в вашем каталоге.
+8. Скопируйте значения **Client ID** (Идентификатор клиента) и **Client secret** (Секрет клиента). Оба значения необходимы для настройки Google+ в качестве поставщика удостоверений в вашем клиенте.
 
     > [AZURE.NOTE]**Секрет клиента** — это важные учетные данные безопасности.
 
     ![G+ — секрет клиента](./media/active-directory-b2c-setup-goog-app/google-client-secret.png)
 
-## Настройка Google+ в качестве поставщика удостоверений в каталоге
+## Настройка Google+ в качестве поставщика удостоверений в клиенте
 
 1. Откройте колонку функций B2C на [портале предварительной версии Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. В колонке функций B2C щелкните **Поставщики удостоверений социальных сетей**.
@@ -63,4 +63,4 @@
 6. Щелкните **Настроить этого поставщика удостоверений** и введите **идентификатор клиента** и **секрет клиента** ранее созданного приложения Google+.
 7. Нажмите кнопку **ОК**, а затем — **Создать**, чтобы сохранить конфигурацию Google+.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

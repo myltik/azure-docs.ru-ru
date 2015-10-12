@@ -40,13 +40,13 @@
 
 - **Рабочая станция**: компьютер с клиентом SSH.
 
-- **Azure CLI**: дополнительные сведения см. в разделе [Установка и настройка Azure CLI](../xplat-cli.md).
+- **Azure CLI**: дополнительные сведения см. в разделе [Установка и настройка Azure CLI](../xplat-cli-install.md).
 
 - **Кластер HDInsight под управлением Linux**: указания по подготовке кластеров см. в статье [Приступая к работе с HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md) или [Подготовка кластеров HDInsight к работе][hdinsight-provision].
 
 - **База данных SQL Azure**: этот документ содержит инструкции по созданию примера базы данных SQL. Дополнительные сведения о базе данных SQL см. в разделе [Приступая к работе с базой данных SQL Azure][sqldatabase-get-started].
 
-* **SQL Server**: действия, описанные в этом документе, можно также использовать в SQL Server с некоторыми изменениями. Дополнительные сведения о конкретных требованиях по использованию данной статьи с SQL Server см. в разделе [Использование SQL Server](#using-sql-server).
+* **SQL Server**: шаги, приведенные в этом документе, также могут использоваться с некоторыми изменениями с SQL Server. Однако и кластер HDInsight, и SQL Server должны находиться в одной виртуальной сети Azure. Дополнительные сведения о конкретных требованиях по использованию данной статьи с SQL Server см. в разделе [Использование SQL Server](#using-sql-server).
 
 ##Ознакомление со сценарием
 
@@ -171,7 +171,7 @@
 
         sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
 
-    Она дает Sqoop указание на подключение к базе данных SQL, базе данных **sqooptest** и экспорт данных из **wasb:///hive/warehouse/hivesampletable** (физические файлы для *hivesampletable*) в таблицу **mobiledata** таблицы.
+    Она дает Sqoop указание на подключение к базе данных SQL, базе данных **sqooptest** и экспорт данных из **wasb:///hive/warehouse/hivesampletable** (физические файлы для *hivesampletable*) в таблицу **mobiledata**.
 
 5. После выполнения команды используйте следующую команду для подключения к базе данных с помощью TSQL:
 
@@ -263,4 +263,4 @@ Sqoop можно также использовать для импорта и э
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -239,4 +239,4 @@ Azure DNS поддерживает [записи с подстановочным
 [Приступить к созданию наборов записей и записей](dns-getstarted-create-recordset-cli.md)<BR> [Выполнение операций с зонами DNS](dns-operations-dnszones-cli.md)<BR> [Автоматизации операций с помощью пакета SDK для .NET](dns-sdk.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

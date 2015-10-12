@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/26/2015" 
+	ms.date="09/25/2015" 
 	ms.author="mimig"/>
 
 # Создание учетной записи базы данных DocumentDB на портале предварительной версии Azure
@@ -46,4 +46,4 @@
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

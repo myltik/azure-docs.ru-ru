@@ -28,7 +28,7 @@ Azure предлагает отличные облачные решения на
 
 **Но это уже устаревшие новости.** А вот *свежие* новости — Azure предоставляет еще больше удобств Docker:
 
-- [много](virtual-machines-docker-with-xplat-cli.md) [разных](virtual-machines-docker-with-portal.md) [способов](virtual-machines-docker-ubuntu-quickstart.md) [создания узлов Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) для контейнеров в соответствии с конкретной ситуацией;
+- [много](virtual-machines-docker-with-xplat-cli-install.md) [разных](virtual-machines-docker-with-portal.md) [способов](virtual-machines-docker-ubuntu-quickstart.md) [создания узлов Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) для контейнеров в соответствии с конкретной ситуацией;
 - [диспетчер ресурсов Azure](resource-group-overview.md) и [шаблоны групп ресурсов](resource-group-authoring-templates.md) упрощают развертывание и обновление сложных распределенных приложений;
 - интеграцию с большим массивом частных инструментов управления конфигурациями и инструментов управления конфигурациями с открытым исходным кодом.
 
@@ -120,7 +120,7 @@ Azure предлагает отличные облачные решения на
 
 На этом этапе любой архитектор, разработчик, производственный или ИТ-специалист может подумать, что можно ВСЕ это автоматизировать — ведь это НАСТОЯЩИЙ «ЦОД как служба».
 
-И это действительно так. Во множестве систем, большинство из которых, вероятно, уже используются, можно управлять группами виртуальных машин Azure и внедрять пользовательский код с помощью сценариев, в частности [CustomScriptingExtension для Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) или [CustomScriptingExtension для Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). Вы можете автоматизировать развертывание Azure (и, возможно, уже делаете это) с помощью сценариев PowerShell или интерфейса командной строки Azure [следующим образом](virtual-machines-create-multi-vm-deployment-xplat-cli.md).
+И это действительно так. Во множестве систем, большинство из которых, вероятно, уже используются, можно управлять группами виртуальных машин Azure и внедрять пользовательский код с помощью сценариев, в частности [CustomScriptingExtension для Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) или [CustomScriptingExtension для Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). Вы можете автоматизировать развертывание Azure (и, возможно, уже делаете это) с помощью сценариев PowerShell или интерфейса командной строки Azure [следующим образом](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md).
 
 Эти возможности часто затем переносятся в такие инструменты, как [Puppet](https://puppetlabs.com/) и [Chef](https://www.chef.io/), для автоматизации создания и настройки виртуальных машин при масштабировании. (Ссылки на использование этих инструментов в Azure см. [здесь](#tools-for-working-with-containers)).
 
@@ -185,7 +185,7 @@ Docker в Microsoft Azure:
 
 - [Расширение виртуальных машин Docker для Linux в Azure](virtual-machines-docker-vm-extension.md)
 - [Руководство пользователя для Azure Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
-- [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)](virtual-machines-docker-with-xplat-cli.md)
+- [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)](virtual-machines-docker-with-xplat-cli-install.md)
 - [Использование расширения виртуальных машин Docker на портале предварительной версии Azure](virtual-machines-docker-with-portal.md)
 - [Как быстро приступить к работе с Docker в Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
 - [Использование docker-machine в Azure](virtual-machines-docker-machine.md)
@@ -239,4 +239,4 @@ Docker в Microsoft Azure:
 [микрослужбы]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

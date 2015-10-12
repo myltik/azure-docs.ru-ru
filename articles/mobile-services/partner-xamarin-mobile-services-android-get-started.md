@@ -1,5 +1,6 @@
 <properties 
 	pageTitle="Приступая к работе с мобильными службами для Xamarin.Android" 
+	writer="craigd" 
 	description="Узнайте, как использовать мобильные службы Azure с приложением Xamarin.Android." 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
@@ -13,8 +14,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
-	ms.author="lindydonna"/>
+	ms.date="09/25/2015" 
+	ms.author="donnam"/>
 
 # <a name="getting-started"></a>Приступая к работе с мобильными службами
 
@@ -136,4 +137,4 @@
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

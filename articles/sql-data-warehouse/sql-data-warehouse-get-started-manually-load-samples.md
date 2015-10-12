@@ -71,16 +71,16 @@
 <!--Image references-->
 
 <!--Article references-->
-[переносить]: https://azure.microsoft.com/RU-RU/documentation/articles/sql-data-warehouse-overview-migrate/
-[разрабатывать]: https://azure.microsoft.com/RU-RU/documentation/articles/sql-data-warehouse-overview-develop/
-[загружать]: https://azure.microsoft.com/RU-RU/documentation/articles/sql-data-warehouse-overview-load/
-[подключению и запросам]: https://azure.microsoft.com/RU-RU/documentation/articles/sql-data-warehouse-get-started-connect-query/
-[Перенос кода]: https://azure.microsoft.com/RU-RU/documentation/articles/sql-data-warehouse-migrate-code/
+[переносить]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-migrate/
+[разрабатывать]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-develop/
+[загружать]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-load/
+[подключению и запросам]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-get-started-connect-query/
+[Перенос кода]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-migrate-code/
 
 <!--MSDN references-->
-[программы командной строки Microsoft для SQL Server]: http://www.microsoft.com/RU-RU/download/details.aspx?id=36433
+[программы командной строки Microsoft для SQL Server]: http://www.microsoft.com/ru-RU/download/details.aspx?id=36433
 
 <!--Other Web references-->
 [образцы сценариев данных]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

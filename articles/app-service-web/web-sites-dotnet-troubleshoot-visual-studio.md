@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Устранение неполадок веб-приложения в службе приложений Azure с помощью Visual Studio" 
 	description="Узнайте, как устранять неполадки в работе веб-приложения Azure с помощью удаленной отладки, трассировки и средств ведения журналов, которые встроены в Visual Studio 2013." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
@@ -762,4 +762,4 @@ Visual Studio обеспечивает доступ к подмножеству 
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

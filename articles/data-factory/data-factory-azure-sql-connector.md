@@ -95,7 +95,7 @@
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}/",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",
@@ -239,7 +239,7 @@
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/",
 	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
@@ -393,21 +393,74 @@
 
 То, какие свойства будут доступны в разделе typeProperties, зависит от типа действия, а в случае с действием копирования — еще и от типов источников и приемников.
 
-В случае действия копирования, когда источник относится к типу **SqlSource**, в разделе **typeProperties** доступны следующие свойства.
+### SqlSource
+
+В случае действия копирования, когда источник относится к типу **SqlSource**, в разделе **typeProperties** доступны указанные ниже свойства.
 
 | Свойство | Описание | Допустимые значения | Обязательно |
 | -------- | ----------- | -------------- | -------- |
 | sqlReaderQuery | Используйте пользовательский запрос для чтения данных. | Строка SQL-запроса. Например, select * from MyTable. Если не указано другое, выполняется инструкция SQL select from MyTable. | Нет |
+| sqlReaderStoredProcedureName | Имя хранимой процедуры, которая считывает данные из исходной таблицы. | Имя хранимой процедуры. | Нет |
+| storedProcedureParameters | Параметры для хранимой процедуры. | Пары имен и значений. Имена и регистр параметров должны совпадать с именами и регистром параметров хранимой процедуры. | Нет | 
 
-**SqlSink** поддерживает следующие свойства.
+### Пример SqlSource
+
+    "source": {
+        "type": "SqlSource",
+        "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
+        "storedProcedureParameters": {
+            "stringData": { "value": "str3" },
+            "id": { "value": "$$Text.Format('{0:yyyy}', SliceStart)", "type": "Int"}
+        }
+    }
+
+**Определение хранимой процедуры:**
+
+	CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
+	(
+		@stringData varchar(20),
+		@id int
+	)
+	AS
+	SET NOCOUNT ON;
+	BEGIN
+	     select *
+	     from dbo.UnitTestSrcTable
+	     where dbo.UnitTestSrcTable.stringData != stringData
+	    and dbo.UnitTestSrcTable.id != id
+	END
+	GO
+
+
+### SqlSink 
+
+**SqlSink** поддерживает указанные ниже свойства.
 
 | Свойство | Описание | Допустимые значения | Обязательно |
 | -------- | ----------- | -------------- | -------- |
-| sqlWriterStoredProcedureName | Указанное пользователем имя хранимой процедуры для обновления и вставки данных в целевой таблице. | Имя хранимой процедуры. | Нет |
-| sqlWriterTableType | Указанное пользователем имя типа таблицы для использования в упомянутой выше хранимой процедуре. Действие копирования делает перемещаемые данные доступными во временной таблице этого типа. Код хранимой процедуры затем можно использовать для объединения копируемых и существующих данных. | Имя типа таблицы. | Нет |
 | writeBatchTimeout | Время ожидания до выполнения операции пакетной вставки, пока не завершится срок ее действия. | (Единица — интервал времени) Пример: 00:30:00 (30 минут). | Нет | 
+| writeBatchSize | Вставляет данные в таблицу SQL, когда размер буфера достигает значения writeBatchSize. | Целое число (единица — количество строк) | Нет (значение по умолчанию — 10 000)
 | sqlWriterCleanupScript | Указанный пользователем запрос на выполнение действия копирования, позволяющий убедиться в том, что данные конкретного среза будут очищены. Дополнительные сведения см. ниже в разделе о повторяемости. | Инструкция запроса. | Нет |
 | sliceIdentifierColumnName | Указываемое пользователем имя столбца, в которое действие копирования добавляет автоматически созданный идентификатор среза. Этот идентификатор используется для очистки данных конкретного среза при повторном запуске. Дополнительные сведения см. ниже в разделе о повторяемости. | Имя столбца с типом данных binary(32). | Нет |
+| sqlWriterStoredProcedureName | Имя хранимой процедуры, обновляющей данные или вставляющей их в целевую таблицу. | Имя хранимой процедуры. | Нет |
+| storedProcedureParameters | Параметры для хранимой процедуры. | Пары имен и значений. Имена и регистр параметров должны совпадать с именами и регистром параметров хранимой процедуры. | Нет | 
+| sqlWriterTableType | Указанное пользователем имя типа таблицы для использования в упомянутой выше хранимой процедуре. Действие копирования делает перемещаемые данные доступными во временной таблице этого типа. Код хранимой процедуры затем можно использовать для объединения копируемых и существующих данных. | Имя типа таблицы. | Нет |
+
+#### Пример SqlSink
+
+    "sink": {
+        "type": "SqlSink",
+        "writeBatchSize": 1000000,
+        "writeBatchTimeout": "00:05:00",
+        "sqlWriterStoredProcedureName": "CopyTestStoredProcedureWithParameters",
+        "sqlWriterTableType": "CopyTestTableType",
+        "storedProcedureParameters": {
+            "id": { "value": "1", "type": "Int" },
+            "stringData": { "value": "str1" },
+            "decimalData": { "value": "1", "type": "Decimal" }
+        }
+    }
+
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -418,7 +471,7 @@
 
 ### Сопоставление типов SQL Server и SQL Azure
 
-Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования типы источников автоматически преобразовываются в типы приемников. Такое преобразование выполняется в 2 этапа:
+Как упоминалось в статье о [действиях перемещения данных](data-factory-data-movement-activities.md), во время копирования выполняется автоматическое преобразование типов источников в типы приемников. Такое преобразование выполняется в два этапа.
 
 1. Преобразование собственных типов источников в тип .NET.
 2. Преобразование типа .NET в собственный тип приемника.
@@ -468,10 +521,10 @@
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Отправить отзыв
-Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-sql-connector.md).
+Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его нам [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-sql-connector.md).
 
 
 
 	 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/14/2015"
+   ms.date="09/28/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Подключение к базе данных SQL с использованием проверки подлинности Azure Active Directory 
@@ -65,7 +65,7 @@
 
 ## Функции и ограничения Azure AD 
 
-На сервере Azure SQL Server можно подготовить следующих членов Azure Active Directory. - Собственные члены — члены, созданные в Azure AD в управляемом домене или в домене клиента. Дополнительные сведения см. в статье [Добавление собственного имени домена в Azure AD](active-directory-add-domain.md). - Федеративные члены домена — члены, созданные в Azure AD с федеративным доменом. Дополнительные сведения см. в статье [Windows Azure теперь поддерживает федерацию с Windows Server Active Directory](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/). - Импортированные члены из других служб Azure Active Directory, являющиеся собственными или федеративными членами домена. - Группы Active Directory, созданные как группы безопасности.
+На сервере Azure SQL Server можно подготовить следующих членов Azure Active Directory. - Собственные члены — члены, созданные в Azure AD в управляемом домене или в домене клиента. Дополнительные сведения см. в статье [Добавление собственного имени домена в Azure AD](active-directory-add-domain.md). - Федеративные члены домена — члены, созданные в Azure AD с федеративным доменом. Дополнительные сведения см. в статье [Microsoft Azure теперь поддерживает федерацию с Windows Server Active Directory](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/). Импортированные члены из других служб Azure Active Directory, являющиеся собственными или федеративными членами домена. Группы Active Directory, созданные как группы безопасности.
 
 Учетные записи Майкрософт (например, outlook.com, hotmail.com, live.com) и гостевые учетные записи (например, gmail.com, yahoo.com) не поддерживаются. Возможность войти на сайт [https://login.live.com](https://login.live.com) с помощью учетной записи и пароля означает, что вы используете учетную запись Майкрософт, которая не поддерживается при проверке подлинности Azure AD для базы данных SQL Azure.
 
@@ -87,7 +87,7 @@
 - Создайте управляемый домен исходного домена Azure AD.
 - Выполните федерацию локальных доменных служб Active Directory с Azure Active Directory.
 
-Дополнительные сведения см. в статьях [Добавление собственного имени домена в Azure AD](active-directory-add-domain.md), [Windows Azure теперь поддерживает федерацию с Windows Server Active Directory](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Управление каталогом Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) и [Управление службой Azure AD с помощью Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+Дополнительные сведения см. в статьях [Добавление собственного имени домена в Azure AD](active-directory-add-domain.md), [Microsoft Azure теперь поддерживает федерацию с Windows Server Active Directory](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Управление каталогом Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx) и [Управление службой Azure AD с помощью Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 
 ## 2\. Убедитесь, что ваша база данных расположена в базе данных SQL Azure V12.
  
@@ -142,12 +142,12 @@
 3. В колонке **Параметры** щелкните **Администратор Active Directory (предварительная версия)** и примите условия предварительной версии.
 4. В колонке **Администратор Active Directory (предварительная версия)** щелкните, чтобы ознакомиться с условиями предварительной версии, а затем нажмите кнопку **ОК**, чтобы принять их.
 5. В колонке **Администратор Active Directory (предварительная версия)** щелкните **Администратор Active Directory**, а затем щелкните **Задать администратора** вверху.
-6. В колонке **Добавление администратора** найдите пользователя, выберите пользователя (или группу), чтобы назначить его администратором, и щелкните **Выбрать**. (В колонке «Администратор Active Directory» отобразятся все члены и группы Active Directory. Пользователей или группы, которые выделены серым цветом, нельзя выбрать; они не поддерживаются ролью администратора Azure AD. См. список поддерживаемых администраторов в разделе **Функции и ограничения Azure AD** выше.)
-7. В верхней части колонки **Администратор Active Directory** щелкните **СОХРАНИТЬ**. ![выбор администратора][10]
+6. В колонке **Добавление администратора** найдите пользователя, выберите пользователя (или группу), чтобы назначить его администратором, и щелкните **Выбрать**. (В колонке «Администратор Active Directory» отобразятся все члены и группы Active Directory. Пользователей или группы, которые выделены серым цветом, нельзя выбрать; они не поддерживаются ролью администратора Azure AD. См. список поддерживаемых администраторов в разделе **Функции и ограничения Azure AD** выше.) Управление доступом на основе ролей (RBAC) применяется только к порталу и не распространяется на SQL Server.
+7. В верхней части колонки **Администратор Active Directory** нажмите кнопку **Сохранить**. ![выбор администратора][10]
 
-	Изменение администратора может занять несколько минут. После этого новый администратор отобразится в поле **Администратор Active Directory**.
+	Изменение администратора может занять несколько минут. После этого новый администратор появится в поле **Администратор Active Directory**.
 
-В дальнейшем удалить администратора можно с помощью элемента **Удалить администратора** в верхней части колонки **Администратор Active Directory**.
+В дальнейшем удалить администратора можно нажатием кнопки **Удалить администратора** в верхней части колонки **Администратор Active Directory**.
 
 ### Подготовка администратора Azure AD для сервера Azure SQL Server с помощью PowerShell 
 
@@ -209,7 +209,7 @@ Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" 
 ### Средства
 
 - Установка [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) или [SQL Server Data Tools для Visual Studio 2015](https://msdn.microsoft.com/library/mt204009.aspx) соответствует требованиям .NET Framework 4.6. 
-- SSMS устанавливает **ADALSQL.DLL** версии x86. 
+- SSMS устанавливает **ADALSQL.DLL** версии x86. (В настоящий момент SSMS не запрашивает перезагрузку после установки. Это будет исправлено в будущей CTP-версии.)
 - SSDT устанавливает **ADALSQL.DLL** версии amd64. SSDT только частично поддерживает проверку подлинности Azure AD.
 - Последняя версия Visual Studio со страницы [загрузок Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs) соответствует требованиям .NET Framework 4.6, но не устанавливает необходимую версию amd64 **ADALSQL.DLL**.
 
@@ -217,7 +217,7 @@ Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" 
 
 ### Сведения о пользователях автономной базы данных
 
-Для проверки подлинности Azure Active Directory необходимо, чтобы пользователи базы данных создавались как пользователи автономной базы данных. Пользователь автономной базы данных на основе удостоверения Azure AD —это пользователь, у которого нет имени для входа в базу данных master и который сопоставляется с удостоверением в каталоге Azure AD, связанном с базой данных. Удостоверение Azure AD может быть учетной записью отдельного пользователя или группы. Дополнительные сведения о пользователях автономной базы данных см. в статье [Пользователи автономной базы данных — создание переносимой базы данных](https://msdn.microsoft.com/library/ff929188.aspx).
+Для проверки подлинности Azure Active Directory необходимо, чтобы пользователи базы данных создавались как пользователи автономной базы данных. Пользователь автономной базы данных на основе удостоверения Azure AD —это пользователь, у которого нет имени для входа в базу данных master и который сопоставляется с удостоверением в каталоге Azure AD, связанном с базой данных. Удостоверение Azure AD может быть учетной записью отдельного пользователя или группы. Дополнительные сведения о пользователях автономной базы данных см. в статье [Пользователи автономной базы данных — создание переносимой базы данных](https://msdn.microsoft.com/library/ff929188.aspx). Пользователей баз данных (за исключением администраторов) невозможно создавать с помощью портала, а действие ролей RBAC не распространяется на SQL Server.
 
 ### Подключение к пользовательской базе данных с помощью SQL Server Management Studio
  
@@ -322,4 +322,4 @@ Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" 
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

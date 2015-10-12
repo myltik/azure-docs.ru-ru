@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="08/07/2015"
+   ms.date="09/27/2015"
    ms.author="tamram" />
 
 # Цели масштабируемости хранилища и производительности Azure
@@ -76,4 +76,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

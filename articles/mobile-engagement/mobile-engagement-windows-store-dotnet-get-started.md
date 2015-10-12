@@ -159,6 +159,8 @@ Mobile Engagement позволяет взаимодействовать и св�
 
 1. Необходимо сопоставить ваше приложение с приложением Магазина Windows, чтобы получить **идентификатор безопасности пакета (SID)** и **секретный ключ** (секрет клиента). Вы можете создать приложение в [Центре разработки для Магазина Windows], а затем **сопоставить приложение с Магазином** в Visual Studio.
 
+	![][7]
+
 2. Перейдите в область **Параметры** портала Mobile Engagement и щелкните раздел **Системное push-уведомление** слева.
 
 3. Нажмите кнопку **Изменить**, чтобы ввести данные в поля **Идентификатор безопасности пакета (SID)** и **Секретный ключ**, как показано ниже.
@@ -178,10 +180,11 @@ Mobile Engagement позволяет взаимодействовать и св�
 [Универсальные приложения для Windows — интеграция наложения]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
-[1]: ./media/mobile-engagement-windows-store-dotnet-get-started/UniversalAppCreation.png
+[1]: ./media/mobile-engagement-windows-store-dotnet-get-started/universal-app-creation.png
 [2]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-capabilities.png
 [3]: ./media/mobile-engagement-windows-store-dotnet-get-started/add-connection-info.png
 [5]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-toast.png
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
+[7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

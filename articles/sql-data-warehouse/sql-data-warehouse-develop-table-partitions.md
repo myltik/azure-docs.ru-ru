@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="09/28/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Секции таблиц в хранилище данных SQL
@@ -106,6 +106,7 @@ FROM    sys.dm_pdw_nodes_resource_governor_workload_groups	wg
 JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools	rp ON wg.[pool_id] = rp.[pool_id]
 WHERE   wg.[name] like 'SloDWGroup%'
 AND     rp.[name]    = 'SloDWPool'
+;
 ```
 
 > [AZURE.NOTE]Старайтесь избегать изменения размеров секций за пределы выделенной памяти, предоставляемой классом очень больших ресурсов. Если размер секций превышает эту цифру, возникает риск нехватки памяти, что, в свою очередь, приводит к менее оптимальному сжатию.
@@ -116,7 +117,7 @@ AND     rp.[name]    = 'SloDWPool'
 ### Как разделить секцию, которая содержит данные
 Наиболее эффективный способ разделения секции, которая уже содержит данные, — использовать инструкцию `CTAS`. Если секционированная таблица является кластеризованным индексом columnstore, то секция таблицы должна быть пустой, прежде чем она может быть разделена.
 
-Ниже приведен пример секционированной таблицы columnstore, содержащей одну строку в последней секции:
+Ниже приведен пример секционированной таблицы columnstore, содержащей по одной строке в каждой секции:
 
 ```
 CREATE TABLE [dbo].[FactInternetSales]
@@ -141,9 +142,12 @@ WITH
 ;
 
 INSERT INTO dbo.FactInternetSales
-VALUES (1,20010101,1,1,1,1,1,1)
+VALUES (1,19990101,1,1,1,1,1,1);
+INSERT INTO dbo.FactInternetSales
+VALUES (1,20000101,1,1,1,1,1,1);
 
-CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey)
+
+CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey);
 ```
 
 > [AZURE.NOTE]Создавая объект статистики, мы обеспечиваем более точные метаданные таблицы. Если пропустить создание объекта статистики, хранилище данных SQL будет использовать значения по умолчанию. Чтобы ознакомиться с информацией о статистике, см. раздел [Статистика][].
@@ -162,12 +166,13 @@ JOIN    sys.schemas    s    ON    t.[schema_id]   = s.[schema_id]
 JOIN    sys.indexes    i    ON    p.[object_id]   = i.[object_Id]
                             AND   p.[index_Id]    = i.[index_Id]
 WHERE t.[name] = 'FactInternetSales'
+;
 ```
 
 Если мы попытаемся разделить эту таблицу, появится сообщение об ошибке:
 
 ```
-ALTER TABLE FactInternetSales SPLIT RANGE (20020101)
+ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
 Сообщение 35346, уровень 15, состояние 1, строка 44. Использование предложения SPLIT в инструкции ALTER PARTITION привело к ошибке, поскольку секция непустая. Если для таблицы существует индекс columnstore, разделить можно только пустые секции. Рекомендуется отключить индекс columnstore перед выполнением инструкции ALTER PARTITION, а после завершения ALTER PARTITION перестроить индекс columnstore.
@@ -175,52 +180,54 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20020101)
 Однако можно использовать `CTAS`, чтобы создать новую таблицу для хранения наших данных.
 
 ```
-CREATE TABLE dbo.FactInternetSales_20010101
+CREATE TABLE dbo.FactInternetSales_20000101
     WITH    (   DISTRIBUTION = HASH(ProductKey)
             ,   CLUSTERED COLUMNSTORE INDEX
             ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
-                                (20010101
+                                (20000101
                                 )
                             )
             )
 AS
 SELECT *
-FROM	FactInternetSales
-WHERE	1=2
+FROM    FactInternetSales
+WHERE   1=2
+;
 ```
 
 Так как границы секций выровнены, переключение разрешено. Это позволит оставить исходную таблицу с пустым разделом, который мы впоследствии сможем разделить.
 
 ```
-ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20010101 PARTITION 2
+ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
 
-ALTER TABLE FactInternetSales SPLIT RANGE (20020101)
+ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
 Все, что осталось сделать, — выровнять наши данные по новым границам секции границы с помощью `CTAS` и переключить данные обратно в основную таблицу.
 
 ```
-CREATE TABLE [dbo].[FactInternetSales_20010101_20020101]
+CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
     WITH    (   DISTRIBUTION = HASH([ProductKey])
             ,   CLUSTERED COLUMNSTORE INDEX
             ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
-                                (20010101,20020101
+                                (20000101,20010101
                                 )
                             )
             )
 AS
 SELECT  *
-FROM	[dbo].[FactInternetSales_20010101]
-WHERE	[OrderDateKey] >= 20010101
-AND     [OrderDateKey] <  20020101
+FROM    [dbo].[FactInternetSales_20000101]
+WHERE   [OrderDateKey] >= 20000101
+AND     [OrderDateKey] <  20010101
+;
 
-ALTER TABLE FactInternetSales_20010101_20020101 SWITCH PARTITION 3 TO  FactInternetSales PARTITION 3
+ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2;
 ```
 
 После завершения перемещение данных рекомендуется обновить статистику для целевой таблицы, чтобы убедиться, что она точно отражает новое распределение данных в соответствующих разделах:
 
 ```
-UPDATE STATISTICS [dbo].[FactInternetSales]
+UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### Система управления версиями секционирования таблиц
@@ -280,11 +287,11 @@ FROM    (
 -- Iterate over the partition boundaries and split the table
 
 DECLARE @c INT = (SELECT COUNT(*) FROM #partitions)
-,       @i INT = 1                     --iterator for while loop
-,       @q NVARCHAR(4000)              --query
-,       @p NVARCHAR(20)     = N''      --partition_number
-,       @s NVARCHAR(128)    = N'dbo'   --schema
-,       @t NVARCHAR(128)    = N'table' --table
+,       @i INT = 1                                 --iterator for while loop
+,       @q NVARCHAR(4000)                          --query
+,       @p NVARCHAR(20)     = N''                  --partition_number
+,       @s NVARCHAR(128)    = N'dbo'               --schema
+,       @t NVARCHAR(128)    = N'FactInternetSales' --table
 ;
 
 WHILE @i <= @c
@@ -326,4 +333,4 @@ DROP TABLE #partitions;
 
 <!-- Other web references -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-web"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
@@ -95,7 +95,6 @@
 2. Щелкните правой кнопкой мыши узел **Azure**, а затем нажмите **Подключиться к Microsoft Azure**. ![Подключение к Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Выполните вход с использованием учетных данных Azure.
-
 5. Щелкните правой кнопкой мыши **Хранилище** в узле Azure и выберите пункт **Создать учетную запись хранения**.
 ![Создать учетную запись хранения](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
@@ -826,4 +825,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 * Руководство по смене портала Azure на портал предварительной версии Azure см. в разделе [Справочная информация о навигации по предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

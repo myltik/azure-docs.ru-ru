@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="09/23/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -153,4 +153,4 @@
 Сравнение службы очередей Azure, описанной в этой статье, и очередей Service Bus Azure, описанных в статье [Использование очередей Service Bus](/develop/ruby/how-to-guides/service-bus-queues/), см. в статье [Очереди Azure и очереди Service Bus Azure — сходство и отличия](http://msdn.microsoft.com/library/azure/hh767287.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

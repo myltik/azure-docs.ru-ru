@@ -35,7 +35,7 @@
 
 ИЛИ
 
-* [Интерфейс командной строки Azure для Mac, Linux и Windows](../xplat-cli.md).
+* [Интерфейс командной строки Azure для Mac, Linux и Windows](../xplat-cli-install.md).
 
 ##Что такое SSH?
 
@@ -242,4 +242,4 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

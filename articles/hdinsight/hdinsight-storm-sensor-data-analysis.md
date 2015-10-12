@@ -20,6 +20,8 @@
 
 Узнайте, как с помощью Apache Storm в службе HDInsight можно обрабатывать данные, отправленные с датчиков в концентратор событий Azure, и визуализировать эти данные с помощью D3.js. В этом документе также описывается, как с помощью виртуальной сети Azure соединить кластеры Storm в HDInsight и HBase в HDInsight и хранить данные из топологии в базе данных HBase.
 
+> [AZURE.NOTE]Информация, представленная в данном документе, основана на использовании кластера Storm под управлением Windows в HDInsigh. Сведения о работе с концентратором событий Azure из кластера Storm под управлением Linux в HDInsight можно найти в разделе [Обработка событий из концентраторов событий Azure с помощью Storm в HDInsight](hdinsight-storm-develop-java-event-hub-topology.md).
+
 ## Предварительные требования
 
 * Подписка Azure. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -420,4 +422,4 @@
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

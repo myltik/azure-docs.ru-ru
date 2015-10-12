@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="09/25/2015" 
 	ms.author="spelluru"/>
 
 # Перемещение данных в локальную файловую систему или из нее с помощью фабрики данных Azure
@@ -571,7 +571,19 @@ encodingName | Имя кодировки. Список допустимых им
 
 | Свойство | Описание | Допустимые значения | Обязательно |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Определяет поведение функции копирования, когда в качестве источника используется BlobSource или FileSystem. | <p>Для свойства copyBehavior можно использовать три значения. </p><ul><li>PreserveHierarchy: сохраняет иерархии файлов в папку назначения, т. е. относительный путь исходного файла к исходной папке идентичен относительному пути целевого файла к папке назначения.</li><li>FlattenHierarchy: все файлы из исходной папки будут на первом уровне целевой папки. Целевые файлы будут иметь автоматически созданные имена. </li><li>MergeFiles: объединяет все файлы из исходной папки в один файл. Если указано имя файла или большого двоичного объекта, именем объединенного файла будет указанное имя; в противном случае имя файла будет автоматически сформировано.</li></ul> | Нет |
+| copyBehavior | Это свойство определяет поведение функции копирования, когда в качестве источника используется BlobSource или FileSystem. | <p>Для свойства copyBehavior можно использовать три значения. </p><ul><li>PreserveHierarchy: сохраняет иерархии файлов в папку назначения, т. е. относительный путь исходного файла к исходной папке идентичен относительному пути целевого файла к папке назначения.</li><li>FlattenHierarchy: все файлы из исходной папки будут на первом уровне целевой папки. Целевые файлы будут иметь автоматически созданные имена. </li><li>MergeFiles: объединяет все файлы из исходной папки в один файл. Если указано имя файла или большого двоичного объекта, именем объединенного файла будет указанное имя; в противном случае имя файла будет автоматически сформировано.</li></ul> | Нет |
+
+### Примеры recursive и copyBehavior
+В данном разделе описываются результаты выполнения операции копирования при использовании различных сочетаний значений recursive и copyBehavior.
+
+recursive | copyBehavior | Результаты выполнения операции
+--------- | ------------ | --------
+Да | preserveHierarchy | <p>Для исходной папки "Папка1" со структурой</p> <p>Папка1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Файл1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Файл2<br/>&nbsp;&nbsp;&nbsp;&nbsp;ВложеннаяПапка1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл5</p>целевая папка "Папка1" будет иметь такую же структуру, как исходная<p>Папка1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Файл1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Файл2<br/>&nbsp;&nbsp;&nbsp;&nbsp;ВложеннаяПапка1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл5</p>.  
+Да | flattenHierarchy | <p>Для исходной папки "Папка1" со структурой</p> <p>Папка1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Файл1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Файл2<br/>&nbsp;&nbsp;&nbsp;&nbsp;ВложеннаяПапка1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл5</p>целевая папка "Папка1" будет иметь структуру<p>Папка1<br/>&nbsp;&nbsp;&nbsp;&nbsp;автоматически созданное имя для файла "Файл1"<br/>&nbsp;&nbsp;&nbsp;&nbsp;автоматически созданное имя для файла "Файл2"<br/>&nbsp;&nbsp;&nbsp;&nbsp;автоматически созданное имя для файла "Файл3"<br/>&nbsp;&nbsp;&nbsp;&nbsp;автоматически созданное имя для файла "Файл4"<br/>&nbsp;&nbsp;&nbsp;&nbsp;автоматически созданное имя для файла "Файл5"</p>
+Да | mergeFiles | <p>Для исходной папки "Папка1" со структурой</p> <p>Папка1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Файл1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Файл2<br/>&nbsp;&nbsp;&nbsp;&nbsp;ВложеннаяПапка1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл5</p>целевая папка "Папка1" будет иметь структуру <p>Папка1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Содержимое файлов "Файл1", "Файл2", "Файл3", "Файл4" и "Файл5" будет объединено в одном файле с автоматически созданным именем файла</p>
+нет | preserveHierarchy | <p>Для исходной папки "Папка1" со структурой</p> <p>Папка1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Файл1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Файл2<br/>&nbsp;&nbsp;&nbsp;&nbsp;ВложеннаяПапка1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл5</p>целевая папка "Папка1" будет иметь структуру<p>Папка1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Файл1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Файл2<br/></p><p>"ВложеннаяПапка1" с файлами "Файл3", "Файл4" и "Файл5" не будут включены в эту папку.</p>.
+нет | flattenHierarchy | <p>Для исходной папки "Папка1" со структурой</p> <p>Папка1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Файл1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Файл2<br/>&nbsp;&nbsp;&nbsp;&nbsp;ВложеннаяПапка1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл5</p>целевая папка "Папка1" будет иметь структуру<p>Папка1<br/>&nbsp;&nbsp;&nbsp;&nbsp;автоматически созданное имя для файла "Файл1"<br/>&nbsp;&nbsp;&nbsp;&nbsp;автоматически созданное имя для файла "Файл2"<br/></p><p>"ВложеннаяПапка1" с файлами "Файл3", "Файл4" и "Файл5" не будут включены в эту папку.</p>.
+нет | mergeFiles | <p>Для исходной папки "Папка1" со структурой</p> <p>Папка1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Файл1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Файл2<br/>&nbsp;&nbsp;&nbsp;&nbsp;ВложеннаяПапка1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Файл5</p>целевая папка "Папка1" будет иметь структуру<p>Папка1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Содержимое файлов "Файл1" и "Файл2" будет объединено в одном файле с автоматически созданным именем. Автоматически созданное имя для файла "Файл1"</p><p>"ВложеннаяПапка1" с файлами "Файл3", "Файл4" и "Файл5" не будут включены в эту папку.</p>.
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -587,4 +599,4 @@ encodingName | Имя кодировки. Список допустимых им
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

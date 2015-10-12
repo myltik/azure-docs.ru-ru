@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Введение в Microsoft Azure DocumentDB — бесплатная пробная версия | Microsoft Azure"
-	description="Дополнительные сведения об Azure DocumentDB, базе данных документов NoSQL и ее значении для облачных и мобильных приложений. Узнайте, каким образом она осуществляет управление данными и как ее можно использовать при разработке приложений."
-	services="documentdb"
-	authors="mimig1"
-	manager="jhubbard"
-	editor="monicar"
+	pageTitle="Введение в Microsoft Azure DocumentDB — бесплатная пробная версия | Microsoft Azure" 
+	description="Дополнительные сведения об Azure DocumentDB, базе данных документов NoSQL и ее значении для облачных и мобильных приложений. Узнайте, каким образом она осуществляет управление данными и как ее можно использовать при разработке приложений." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/25/2015" 
 	ms.author="mimig"/>
 
 # Введение в Microsoft Azure DocumentDB
@@ -110,4 +110,4 @@ DocumentDB позволяет вам реализовать логику при�
 [1]: ./media/documentdb-introduction/resources1.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -13,10 +13,22 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/16/2015" 
+	ms.date="09/29/2015" 
 	ms.author="jeffstok"/>
 
 #Заметки о выпуске Microsoft Stream Analytic
+
+## Заметки о выпуске Stream Analytics от 29.09.2015 ##
+
+Этот выпуск содержит следующие обновления.
+
+Название | Описание
+---|---
+Общедоступная предварительная версия Azure IoT | Служба Stream Analytics включена в общедоступную предварительную версию пакета Azure IoT.
+Интеграция портала предварительной версии Azure | Помимо постоянного присутствия на портале управления Azure, служба Stream Analytics теперь интегрировано в [портал предварительной версии Azure](http://azure.microsoft.com/overview/preview-portal/). Обратите внимание, что функции Stream Analytics на портале предварительной версии в настоящий момент являются подмножеством функций портала управления Azure без поддержки тестирования запросов в браузере, настройки выходных данных Power BI и перехода ко входным и выходным ресурсам в доступных вам подписках, а также создания новых.
+Поддержка выходных данных DocumentDB | Теперь задания Stream Analytics могут отправлять выходные данные в [DocumentDB](http://azure.microsoft.com/services/documentdb/).
+Поддержка ввода из центра IoT | Теперь задания Stream Analytics могут принимать данные из центров IoT.
+TIMESTAMP BY для разнородных событий | Если один поток данных содержит события нескольких типов с временными метками в разных полях, то вы можете использовать команду [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) с выражениями, чтобы указывать разные поля временных меток для каждого случая.
 
 ## Заметки о выпуске Stream Analytics 10.09.2015 ##
 
@@ -24,7 +36,7 @@
 
 Название|Описание
 ---|---
-Поддержка групп PowerBI|Чтобы разрешить совместное использование данных с другими пользователями Power BI, теперь задания Stream Analytics могут выполнять запись в группы [Power BI](stream-analytics-define-outputs.md#power-bi) внутри вашей учетной записи Power BI.
+Поддержка групп PowerBI|Чтобы разрешить совместное использование данных с другими пользователями Power BI, теперь задания Stream Analytics могут выполнять запись в [группы Power BI](stream-analytics-define-outputs.md#power-bi) внутри вашей учетной записи Power BI.
 
 ## Заметки о выпуске Stream Analytics от 20.08.2015 ##
 
@@ -92,4 +104,4 @@
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

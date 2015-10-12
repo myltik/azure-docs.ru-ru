@@ -1,7 +1,17 @@
+<properties services="virtual-machines" title="Setting up Azure CLI for service management" authors="squillace" solutions="" manager="timlt" editor="tysonn" />
+
+<tags
+   ms.service="virtual-machine"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="linux"
+   ms.workload="infrastructure"
+   ms.date="04/13/2015"
+   ms.author="rasquill" />
 
 ## Использование Azure CLI
 
-Описанные ниже действия помогут вам установить последнюю версию Azure CLI и выбрать подходящую подписку. Если сначала вам необходимо установить интерфейс Azure CLI и подключить его к своей учетной записи, см. статью [Интерфейс командной строки Azure (Azure CLI)](xplat-cli.md).
+Описанные ниже действия помогут вам установить последнюю версию Azure CLI и выбрать подходящую подписку. Если сначала вам необходимо установить интерфейс Azure CLI и подключить его к своей учетной записи, см. статью [Интерфейс командной строки Azure (Azure CLI)](xplat-cli-install.md).
 
 ### Шаг 1. Обновление версии Azure CLI
 
@@ -24,4 +34,4 @@
 
 > [AZURE.NOTE]Если вас еще нет учетной записи Azure, но есть подписка MSDN, вы можете получать бесплатные кредиты Azure, активировав [здесь преимущества подписчика MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Также можно использовать бесплатную учетную запись. Для доступа к Azure подойдут оба способа.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

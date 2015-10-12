@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
-	ms.author="wesmc"/>
+	ms.date="09/24/2015" 
+	ms.author="ricksal"/>
 
 # Регистрация приложений для входа с использованием учетной записи Azure Active Directory
 
@@ -66,4 +66,4 @@
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

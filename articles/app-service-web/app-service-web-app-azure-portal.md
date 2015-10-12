@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Краткий справочник по навигации на портале Azure"
 	description="Узнайте о различиях в пользовательском интерфейсе для веб-службы приложений между порталом управления и порталом Azure."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="jaime-espinosa"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -88,4 +88,4 @@
 * Руководство по смене старого портала на новый портал см. в [справочнике по навигации на новом портале](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

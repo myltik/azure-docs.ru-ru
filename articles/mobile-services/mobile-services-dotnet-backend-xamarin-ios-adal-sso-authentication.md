@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="09/28/2015" 
 	ms.author="mahender"/>
 
 # Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory
@@ -141,4 +141,4 @@
 [расширением Xamarin]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

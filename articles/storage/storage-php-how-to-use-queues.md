@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="07/29/2015"
+	ms.date="09/23/2015"
 	ms.author="tomfitz"/>
 
 # Использование хранилища очередей из PHP
@@ -53,7 +53,7 @@
 	use WindowsAzure\Common\ServicesBuilder;
 
 
-В приведенных ниже примерах всегда будет отображаться оператор `require_once`, но ссылки будут приводиться только на классы, которые необходимы для выполнения этого примера.
+В приведенных ниже примерах всегда будет отображаться оператор￼￼￼ `require_once`, но ссылки будут приводиться только на классы, которые необходимы для выполнения этого примера.
 
 ## Настройка подключения к службе хранилища Azure
 
@@ -378,9 +378,11 @@
 - См. справочник MSDN: [Хранилище Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx).
 - Посетите [блог команды разработчиков службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
+Дополнительные сведения также можно найти в [Центре разработчика PHP](/develop/php/).
+
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Management Portal]: http://manage.windowsazure.com/
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -1,5 +1,5 @@
 <properties   
-	pageTitle="Перенос решений EDI для BizTalk Server в службы BizTalk: техническое руководство"
+	pageTitle="Техническое руководство по переносу решений EDI для BizTalk Server в службы BizTalk | Microsoft Azure"
 	description="Перенос EDI в MABS; Службы BizTalk Microsoft Azure"
 	services="biztalk-services"
 	documentationCenter="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="09/24/2015"
 	ms.author="mandia"/>
 
 
@@ -142,4 +142,4 @@
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

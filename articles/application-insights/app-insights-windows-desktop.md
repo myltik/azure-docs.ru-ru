@@ -200,6 +200,8 @@
     ``` 
 3. Используйте вызов `telemetryClient.Flush()` перед закрытием приложения, чтобы обеспечить отправку данных на портал или их сохранение в файле данных.
 
+    Обратите внимание, что метод Flush() является синхронным для постоянного канала и асинхронным для остальных каналов.
+
  
 Канал сохраняемости оптимизирован для устройств, где число событий, созданных приложением, относительно небольшое, а соединение часто ненадежное. Этот канал сначала записывает события на диск в надежном хранилище, а затем пытается отправить их.
 
@@ -226,7 +228,7 @@ private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionE
 
 ``` 
 
-Когда приложение завершит работу, в расположении `%LocalAppData%\Microsoft\ApplicationInsights` появится файл, содержащий сжатые события.
+Когда приложение завершит работу, в расположении `%LocalAppData%\Microsoft\ApplicationInsights` появится файл, содержащий сжатые данные событий.
  
 При следующем запуске приложения канал выберет этот файл и отправит данные телеметрии в Application Insights, если это возможно.
 
@@ -272,7 +274,7 @@ namespace ConsoleApplication1
 ```
 
 
-Код канала сохраняемости можно найти на сайте [GitHub](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/master/src/TelemetryChannels/PersistenceChannel).
+Код постоянного канала см. на веб-сайте [GitHub](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/master/src/TelemetryChannels/PersistenceChannel).
 
 
 ## <a name="usage"></a>Дальнейшие действия
@@ -297,4 +299,4 @@ namespace ConsoleApplication1
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Могут ли облачные службы Azure предоставить вам необходимые параметры вычислений?"
-	description="Узнайте о размещении параметров вычислений Azure и их работе: службе приложений, облачных службах и виртуальных машинах"
+	pageTitle="Могут ли облачные службы Azure предоставить вам необходимые параметры вычислений?" 
+	description="Узнайте о размещении параметров вычислений Azure и их работе: службе приложений, облачных службах и виртуальных машинах" 
 	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
+    documentationCenter=""
+	authors="Thraka" 
 	manager="timlt"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="adegeo"/>
 
 # Стоит ли сделать выбор в пользу облачных служб?
@@ -33,7 +33,7 @@ Azure предоставляет разные модели размещения 
 [Создание приложения облачной службы в .NET](cloud-services-dotnet-get-started.md)<br/> [Создание приложения облачной службы на Node.js](cloud-services-nodejs-develop-deploy-app.md)<br/> [Создание приложения облачной службы на PHP](../cloud-services-php-create-web-role.md)<br/> [Создание приложения облачной службы на Python](../cloud-services-python-ptvs.md)<br/>
 
 [Служба приложений]: app-service-choose-me.md
-[Виртуальные машины]: ../virtual-machines-choose-me.md
+[Виртуальные машины]: ../virtual-machines-about.md
 [Облачные службы]: #tellmecs
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

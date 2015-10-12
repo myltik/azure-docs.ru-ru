@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/11/2015"
-   ms.author="bwren" />
+   ms.date="09/28/2015"
+   ms.author="bwren;sngun"/>
 
 # Запуск модуля Runbook в службе автоматизации Azure
 
@@ -49,7 +49,6 @@
   </td>
  </tr>
  <tr>
- <tr>
   <td><a href="http://msdn.microsoft.com/library/azure/mt163849.aspx">API-интерфейс в службе автоматизации Azure</a></td>
   <td>
    <ul>
@@ -62,7 +61,6 @@
   </td>
  </tr>
  <tr>
- <tr>
   <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Webhook</a></td>
   <td>
    <ul>
@@ -74,6 +72,16 @@
   </td>
  </tr>
  <tr>
+  <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Ответ на оповещение Azure</a></td>
+  <td>
+   <ul>
+    <li>Запуск Runbook в ответ на оповещение Azure.</li>
+    <li>Настройка веб-перехватчика для Runbook и ссылки на оповещение.</li>
+    <li>Проверка подлинности с помощью токена безопасности в URL-адресе.</li>
+    <li>В настоящее время поддерживает оповещения только для метрик.</li>
+   </ul>
+  </td>
+ </tr>
  <tr>
   <td><a href="http://azure.microsoft.com/documentation/articles/automation-scheduling-a-runbook">Расписание</a></td>
   <td>
@@ -232,4 +240,4 @@
 
 - [Запуск модуля Runbook из другого модуля Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

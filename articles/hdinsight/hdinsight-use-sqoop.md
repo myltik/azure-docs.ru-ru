@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/22/2015"
 	ms.author="jgao"/>
 
 #Использование Sqoop с Hadoop в HDInsight (Windows)
@@ -224,7 +224,7 @@ HDInsight использует для хранения данных хранил
 		Write-Host "Done" -ForegroundColor Green
 
 5. Для выполнения скрипта щелкните **Выполнить скрипт** или нажмите клавишу **F5**.
-6. Используйте [портал Аzure][azure-management-portal] для анализа таблиц и кластеризованных индексов.
+6. Используйте [портал предварительной версии][azure-management-portal] для анализа таблиц и кластеризованных индексов.
 
 **Для SQL Server**
 
@@ -412,7 +412,7 @@ HDInsight использует для хранения данных хранил
 	Обратите внимание на то, что в качестве разделителя полей используется **\0x20**, то есть пробел. Разделитель определяется в файле sample.log сценария Azure PowerShell. Чтобы узнать о **-m 1**, см. [руководство пользователя Sqoop][sqoop-user-guide-1.4.4].
 
 5. Для выполнения скрипта щелкните **Выполнить скрипт** или нажмите клавишу **F5**.
-6. Используйте [портал Azure][azure-management-portal] для анализа экспортированных данных.
+6. Используйте [портал предварительной версии][azure-management-portal] для анализа экспортированных данных.
 
 **Экспорт таблицы hivesampletable Hive**
 
@@ -463,7 +463,7 @@ HDInsight использует для хранения данных хранил
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. Для выполнения скрипта щелкните **Выполнить скрипт** или нажмите клавишу **F5**.
-6. Используйте [портал Azure][azure-management-portal] для анализа экспортированных данных.
+6. Используйте [портал предварительной версии][azure-management-portal] для анализа экспортированных данных.
 
 
 
@@ -522,14 +522,14 @@ HDInsight использует для хранения данных хранил
 	            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
 	            JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
 
-	            // Submit the Hive job
+	            // Submit the Sqoop job
 	            var jobClient = JobSubmissionClientFactory.Connect(creds);
 	            JobCreationResults jobResults = jobClient.CreateSqoopJob(sqoopJobDefinition);
 
 	            // Wait for the job to complete
 	            WaitForJobCompletion(jobResults, jobClient);
 
-	            // Print the Hive job output
+	            // Print the Sqoop job output
 	            System.IO.Stream stream = jobClient.GetJobErrorLogs(jobResults.JobId);
 
 	            StreamReader reader = new StreamReader(stream);
@@ -648,4 +648,4 @@ HDInsight использует для хранения данных хранил
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

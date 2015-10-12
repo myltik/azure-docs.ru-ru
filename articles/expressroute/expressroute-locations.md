@@ -56,7 +56,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Поставщик услуг** |**Microsoft Azure** | **Office 365** | **Расположения** |
 |-----------------------|--------------------|----------------|---------------|
 | **[Aryaka Networks](http://www.aryaka.com/)** | Поддерживаются | Не поддерживается | Кремниевая долина, Сингапур, Вашингтон, округ Колумбия |
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Поддерживаются | Поддерживаются | Амстердам+, Лондон+, Даллас, Кремниевая долина, Вашингтон, округ Колумбия |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Поддерживаются | Скоро | Амстердам+, Лондон+, Даллас, Кремниевая долина, Вашингтон, округ Колумбия |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Поддерживаются | Поддерживаются | Амстердам, Лондон, Кремниевая долина+, Вашингтон, округ Колумбия |
 |**China Telecom Global** | Скоро | Не поддерживается | Гонконг+ |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Поддерживаются | Не поддерживается | Амстердам, Лондон |
@@ -77,7 +77,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Поддерживаются | Поддерживаются | Амстердам, Ченнаи+, Гонконг, Лондон, Мумбаи+, Сингапур |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Поддерживаются | Поддерживаются | Амстердам, Лондон |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Поддерживаются | Не поддерживается | Мельбурн+, Сидней |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Поддерживаются | Поддерживаются | Лондон, Гонконг, Кремниевая долина, Вашингтон, округ Колумбия |
+| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Поддерживаются | Поддерживаются | Лондон, Гонконг, Кремниевая долина, Вашингтон, округ Колумбия |
 | **[Zayo Group](http://www.zayo.com/)** | Поддерживаются | Не поддерживается | Вашингтон, округ Колумбия |
 
  Символ **+** означает "скоро"
@@ -127,4 +127,4 @@ ExpressRoute поддерживается во всех регионах и ра
 - Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 - Убедитесь, что выполнены все необходимые условия. См. [необходимые условия для ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

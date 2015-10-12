@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Использование соединителя Wait в приложениях логики | Служба приложений Microsoft Azure"
-	description="Как создать и настроить соединитель Wait или приложение API и использовать его в приложении логики в службе приложений Azure"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="Использование соединителя Wait в приложениях логики | Служба приложений Microsoft Azure" 
+   description="Как создать и настроить соединитель Wait или приложение API и использовать его в приложении логики в службе приложений Azure" 
+   services="app-service\logic" 
+   documentationCenter=".net,nodejs,java" 
+   authors="rajeshramabathiran" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="rajram"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="08/23/2015"
+   ms.author="rajram"/>
 
 # Приступая к работе с соединителем Wait: добавление в приложение логики
 Соединитель Wait позволяет задержать выполнение приложения на указанный срок или до наступления указанного момента времени. Соединитель Wait можно добавить в рабочий процесс компании и обрабатывать данные в рамках этого процесса в приложении логики. При использовании в приложении логики его можно использовать для задержки выполнения.
@@ -42,7 +42,9 @@
 ## Дополнительные возможности соединителя
 После создания соединителя его можно добавить в бизнес-процесс с помощью приложения логики. См. раздел [Что такое приложения логики?](app-service-logic-what-are-logic-apps.md).
 
-Справку по REST API Swagger см. в статье [Справочник по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
+>[AZURE.NOTE]Если вы хотите начать работу с приложениями логики Azure до создания учетной записи Azure, перейдите на веб-сайт [пробного использования приложений логики](https://tryappservice.azure.com/?appservice=logic). На этом сайте вы сможете быстро создать кратковременное приложение логики начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+
+Справочные материалы по REST API Swagger см. в статье [Справочные материалы по соединителям и приложениям API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
 Можно также просматривать статистику производительности и управлять безопасностью соединителя. См. раздел [Управление приложениями API и соединителем, а также их отслеживание](../app-service-api/app-service-api-manage-in-portal.md).
 
@@ -51,4 +53,4 @@
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

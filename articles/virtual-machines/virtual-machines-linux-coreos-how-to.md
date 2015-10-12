@@ -198,8 +198,8 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 
 <!--Link references-->
-[интерфейс командной строки Azure (CLI Azure)]: ../xplat-cli.md
-[интерфейса командной строки Azure (Azure CLI)]: ../xplat-cli.md
+[интерфейс командной строки Azure (CLI Azure)]: ../xplat-cli-install.md
+[интерфейса командной строки Azure (Azure CLI)]: ../xplat-cli-install.md
 [CoreOS]: https://coreos.com/
 [Обзор CoreOS]: https://coreos.com/using-coreos/
 [CoreOS в Azure]: https://coreos.com/docs/running-coreos/cloud-providers/azure/
@@ -209,4 +209,4 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 [YAML]: http://yaml.org/
 [Начало работы с Fleet на CoreOS в Azure]: virtual-machines-linux-coreos-fleet-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

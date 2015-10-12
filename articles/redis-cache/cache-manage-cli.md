@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="09/30/2015" 
 	ms.author="sdanie"/>
 
 # Как создать кэш Redis для Azure и управлять им с помощью интерфейса командной строки Azure (Azure CLI)
@@ -25,9 +25,9 @@
 Для создания экземпляров кэша Redis для Azure и управления ими с помощью Azure CLI необходимо выполнить следующие действия.
 
 -	Необходимо иметь учетную запись Azure. Если ее нет, можно создать [бесплатную пробную учетную запись](http://azure.microsoft.com/pricing/free-trial/) всего за пару минут.
--	[Установите Azure CLI](../xplat-cli.md#install).
--	Подключите установленный интерфейс Azure CLI к личной либо рабочей или учебной учетной записи Azure, затем выполните вход из Azure CLI с помощью команды `azure login`. Ознакомьтесь с различными возможностями подписок в разделе [Подключение к подписке Azure](../xplat-cli.md#configure) и выберите нужную подписку.
--	Перед выполнением любой из следующих команд переключите Azure CLI в режим диспетчера ресурсов, выполнив следующую команду. `azure config mode arm` Дополнительную информацию см. в разделе [Настройка режима диспетчера ресурсов Azure](../virtual-machines/xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
+-	[Установите Azure CLI](../xplat-cli-install.md).
+-	Подключите установленный интерфейс Azure CLI к личной либо рабочей или учебной учетной записи Azure, затем выполните вход из Azure CLI с помощью команды `azure login`. Чтобы разобраться в различиях и сделать правильный выбор, изучите статью [Подключение к подписке Azure с использованием интерфейса командной строки Azure (Azure CLI)](../xplat-cli-connect.md).
+-	Перед выполнением любой из указанных ниже команд переключите Azure CLI в режим диспетчера ресурсов, выполнив команду `azure config mode arm`. Дополнительные сведения см. в подразделе [Настройка режима диспетчера ресурсов Azure](../virtual-machines/xplat-cli-azure-resource-manager.md#setting-the-azure-resource-manager-mode).
 
 ## Свойства кэша Redis
 
@@ -254,4 +254,4 @@
 	help:
 	help:    Current Mode: arm (Azure Resource Management)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

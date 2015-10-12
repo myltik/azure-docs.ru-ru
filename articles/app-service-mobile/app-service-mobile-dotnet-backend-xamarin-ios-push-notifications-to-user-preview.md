@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/25/2015"
+	ms.date="09/25/2015"
 	ms.author="yuaxu"/>
 
 # Отправка кроссплатформенных уведомлений определенному пользователю
@@ -110,6 +110,6 @@
 <!-- URLs. -->
 [Приступая к работе с аутентификацией в мобильных службах]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md
 [Приступая к работе с push-уведомлениями]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
-[шаблонов]: https://msdn.microsoft.com/ru-ru/library/dn530748.aspx
+[шаблонов]: https://msdn.microsoft.com/ru-RU/library/dn530748.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->
