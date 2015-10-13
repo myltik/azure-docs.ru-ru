@@ -52,15 +52,13 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nod
 ## 2. Создание приложения
 
 Теперь необходимо создать приложение в каталоге B2C. Оно будет передавать в Azure AD сведения, необходимые для безопасного взаимодействия с вашим приложением. В этом случае как клиентское приложение, так и веб-API будут представлены одним **идентификатором приложения**, поскольку они включают в себя одно приложение логики. Создайте приложение, выполнив [эти инструкции](active-directory-b2c-app-registration.md). Не забудьте
-follow [these instructions](active-directory-b2c-app-registration.md).  Be sure to
 
 - Включить в приложение **веб-приложение или веб-API**.
 - Введите `http://localhost/TodoListService` как **URL-адрес ответа**. Это URL-адрес по умолчанию для этого примера кода.
 - Создайте для своего приложения **секрет приложения** и скопируйте его. Скоро он вам понадобится.
 - Скопируйте **идентификатор приложения**, назначенный приложению. Он также вам скоро понадобится.
 
-    > [AZURE.IMPORTANT]
-    Вам не удастся использовать для этой цели приложения, зарегистрированные на вкладке **Приложения** [портала Azure](https://manage.windowsazure.com/).
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3. Создание политик
 
@@ -70,9 +68,11 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 - Выберите утверждения приложения **Отображаемое имя** и **Идентификатор объекта** в каждой политике. Можно также выбрать другие утверждения.
 - Скопируйте **имя** каждой политики после ее создания. Оно должно включать префикс `b2c_1_`. Эти имена политик понадобятся вам через некоторое время.
 
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+
 Создав три политики, можно приступать к созданию приложения.
 
-Обратите внимание, что в данной статье не рассматривается использование политик, которые вы только что создали. Дополнительные сведения о работе политик в Azure AD B2C см. в [руководстве по началу работы с веб-приложением .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
+Обратите внимание, что в данной статье не рассматривается использование политик, которые вы только что создали. Сведения о работе политик в Azure AD B2C см. в [руководстве по началу работы с веб-приложениями .NET](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## Шаг 4. Загрузка node.js для своей платформы
 Чтобы успешно использовать этот пример, необходимо иметь рабочую установку Node.js.
@@ -85,7 +85,7 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 
 Установите MongoDB с сайта [http://mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE] Данное пошаговое руководство предполагает, что вы используете стандартные установку и конечные точки сервера для MongoDB, которыми на момент написания этой статьи являются: mongodb://localhost
+> [AZURE.NOTE]В данном руководстве предполагается, что вы используете стандартный установочный пакет и стандартные конечные точки сервера для MongoDB, которыми на момент написания этой статьи являются mongodb://localhost
 
 ## Шаг 6. Установка модулей Restify для вашего веб-API
 
@@ -220,7 +220,7 @@ passport-azure-ad@1.0.0 node_modules/passport-azure-ad
 `cd azuread`
 
 
-Введите следующие команды для установки следующих модулей в каталоге node\_modules :
+Введите следующие команды для установки следующих модулей в каталоге node\_modules:
 
 * `npm install crypto`
 * `npm install assert-plus`
@@ -268,7 +268,7 @@ var passport = require('passport');
 var OIDCBearerStrategy = require('passport-azure-ad').BearerStategy;
 ```
 
-Сохраните файл . Мы вернемся к нему позже.
+Сохраните файл. Мы вернемся к нему позже.
 
 ## Шаг 12. Создание файла конфигурации для сохранения параметров Azure AD
 
@@ -891,4 +891,4 @@ git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nod
 
 [Подключение к веб API с помощью iOS с B2C >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->

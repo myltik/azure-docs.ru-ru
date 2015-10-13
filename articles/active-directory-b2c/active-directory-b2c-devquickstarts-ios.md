@@ -642,7 +642,9 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
 
 Готовый пример в виде ZIP-файла находится [здесь](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip). Кроме того, можно клонировать его с GitHub.
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS
+```
 
 ## Дальнейшие действия
 
@@ -652,4 +654,4 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
 
 [Настройка UX приложения B2C >>]()
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->
