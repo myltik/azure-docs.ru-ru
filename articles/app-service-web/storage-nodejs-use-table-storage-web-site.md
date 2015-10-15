@@ -177,7 +177,7 @@
 - RowKey
 - name (строка)
 - category (строка)
-- completed (логическое значение)
+- completed (логическое значение) 
 
 Поля **PartitionKey** и **RowKey** используются службой таблиц в качестве ключей. Дополнительную информацию см. в разделе [Общие сведения о модели данных службы таблиц](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
@@ -616,7 +616,7 @@
 [удаленный репозиторий Git]: http://git-scm.com/docs/git-remote
 
 [Создание веб-приложения Node.js в Azure с MongoDB на виртуальной машине]: web-sites-nodejs-store-data-mongodb.md
-[интерфейс командной строки Azure]: ../xplat-cli-install.md
+[Интерфейс командной строки Azure]: ../xplat-cli-install.md
 
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
 [azure]: https://github.com/Azure/azure-sdk-for-node
@@ -643,4 +643,4 @@
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->

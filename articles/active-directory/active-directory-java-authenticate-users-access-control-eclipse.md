@@ -75,7 +75,7 @@
 - Java Developer Kit (JDK), версия 1.6 или более поздняя.
 - Интегрированная среда разработки Eclipse для разработчиков Java EE, версия Indigo или более поздняя. Среду также можно загрузить с веб-страницы <http://www.eclipse.org/downloads/>. 
 - Дистрибутив веб-сервера или сервера приложений на основе Java, например Apache Tomcat, GlassFish, сервера приложений JBoss или Jetty.
-- Подписка на Azure, которую можно получить на веб-странице http://www.microsoft.com/windowsazure/offers/.
+- Подписка на Azure, которую можно получить на веб-странице <http://www.microsoft.com/windowsazure/offers/>.
 - Подключаемый модуль Azure для Eclipse с Java (на основе Microsoft Open Technologies), выпуск от апреля 2014 г. Дополнительные сведения см. в разделе [Установка подключаемого модуля Azure для Eclipse с Java (от Microsoft Open Technologies)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 - Сертификат X.509 для использования с приложением. Этот сертификат потребуется в обоих форматах: открытый сертификат (CER) и файл обмена личной информацией (PFX). (Возможности для создания этого сертификата будут описаны далее в этом руководстве.)
 - Знакомство с эмулятором среды выполнения приложений Azure и методами развертывания, которые обсуждаются в разделе [Создание приложения Hello World для Azure в Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
@@ -310,4 +310,4 @@ Azure создает и активирует пространство имен. 
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->

@@ -53,7 +53,7 @@
 	use WindowsAzure\Common\ServicesBuilder;
 
 
-В приведенных ниже примерах всегда будет отображаться оператор￼￼￼ `require_once`, но ссылки будут приводиться только на классы, которые необходимы для выполнения этого примера.
+В приведенных ниже примерах всегда будет отображаться оператор `require_once`, но ссылки будут приводиться только на классы, которые необходимы для выполнения этого примера.
 
 ## Настройка подключения к службе хранилища Azure
 
@@ -385,4 +385,4 @@
 [Azure Management Portal]: http://manage.windowsazure.com/
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->
