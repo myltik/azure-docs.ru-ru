@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="10/07/2015" 
 	ms.author="awills"/>
  
 # Диагностика ошибок и исключений в приложениях ASP.NET с помощью Application Insights  
@@ -418,11 +418,10 @@ VB
 
     namespace WcfService4
     {
-        [ServiceContract]
         [AiLogException]
-        public interface IService1
-        {
-     ...
+        public class Service1 : IService1 
+        { 
+         ...
 
 [Пример](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
@@ -449,4 +448,4 @@ VB
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

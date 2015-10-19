@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/05/2015" 
 	ms.author="awills"/>
 
 #  Application Insights: примеры кода и пошаговые руководства
@@ -35,7 +35,7 @@
 Чтобы проанализировать данные телеметрии с помощью своих инструментов, [экспортируйте их](app-insights-export-telemetry.md) в хранилище, где можно выполнить их анализ и обработку.
 
 * [Экспорт в Power BI](app-insights-export-power-bi.md) 
-* [Экспорт в SQL с использованием рабочей роли](app-insights-code-sample-export-telemetry-sql-database.md)
+* [Анализ экспортированных данных с помощью рабочей роли](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Экспорт в SQL с использованием Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
 * [Включение телеметрии для Microsoft CRM](app-insights-sample-mscrm.md)
 
@@ -53,4 +53,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

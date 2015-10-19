@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Linux и вычисления с открытым кодом в Azure"
-	description="Этот раздел содержит перечень тем по Linux и вычислениям с открытым кодом в Azure, включая базовые принципы использования Linux, некоторые основные понятия о запуске или отправке образов Linux в Azure, а также другие сведения о конкретных технологиях и оптимизациях."
+	pageTitle="Linux и вычисления с открытым кодом в Azure | Microsoft Azure"
+	description="Содержит перечень тем по Linux и вычислениям с открытым кодом в Azure, включая базовые принципы использования Linux, некоторые основные понятия о запуске или отправке образов Linux в Azure, а также другие сведения о конкретных технологиях и оптимизациях."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -21,6 +22,8 @@
 # Linux и вычисления с открытым кодом в Azure
 
 В этом документе предпринята попытка собрать в одном месте список всех разделов, написанных сотрудниками и партнерами корпорации Майкрософт о запуске виртуальных машин под управлением Linux, а также других открытых вычислительных сред и приложений на платформе Microsoft Azure. Так как и платформа Azure, и мир вычислений с открытым исходным кодом активно развиваются, можно с большой вероятностью утверждать, что этот документ уже устарел, *хотя* мы стараемся постоянно добавлять новые разделы и удалять неактуальные. Если мы что-то упустили, напишите об этом в комментариях или направьте запрос на получение в наш [репозиторий Github](https://github.com/Azure/azure-content/).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Разделы в этой статье приводятся независимо от модели развертывания.
 
 ## Общие примечания
 Разделы расположены в правой части этой страницы. (Ссылки могут указываться в нескольких подразделах, так как разделы могут охватывать несколько концепций, дистрибутивов или технологий.) Кроме того, существует несколько разделов, описывающих различные параметры Linux и репозитории образов, которые содержат примеры и инструкции по отправке пользовательских образов.
@@ -244,7 +247,7 @@ CoreOS — это небольшой оптимизированный дистр
 
 Запуск высокопроизводительных рабочих нагрузок на кластерах виртуальных машин Linux, построенных с помощью средств с открытым исходным кодом или пакета Microsoft HPC.
 
-1.	Шаблон быстрого запуска [Развертывание кластера SLURM](http://azure.microsoft.com/documentation/templates/slurm/) и [запись в блоге](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
+1.	[Шаблон быстрого запуска: развертывание кластера SLURM](http://azure.microsoft.com/documentation/templates/slurm/) и [запись в блоге](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 2.	[Шаблон быстрого запуска: развертывание кластера Torque](http://azure.microsoft.com/documentation/templates/torque-cluster/)
 3.	[Шаблон краткого руководства: создание кластера HPC с вычислительными узлами Linux](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)
 4.	[Учебник: начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](virtual-machines-linux-cluster-hpcpack.md)
@@ -307,4 +310,4 @@ CoreOS — это небольшой оптимизированный дистр
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

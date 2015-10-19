@@ -43,7 +43,7 @@
 
 - [Пакет SDK для службы Azure IoT для Node.js][]
 
-## Справочная документация по API
+## Справочная документация по API в Интернете
 
 Ниже приведен список ссылок на электронную справочную документацию по API для библиотек устройств Azure IoT.
 
@@ -73,4 +73,4 @@
 [Пакет SDK для устройств Microsoft Azure IoT для Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/index.html
 [REST для центра IoT]: https://msdn.microsoft.com/library/mt548492.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

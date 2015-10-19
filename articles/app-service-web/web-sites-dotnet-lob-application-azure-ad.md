@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="07/07/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Создание веб-приложения .NET MVC в службе приложений Azure с аутентификацией Azure Active Directory #
@@ -256,9 +256,9 @@ public class GroupClaimContext : DbContext
 	}</pre>
 	Поскольку нас интересует сопоставление ролей к контроллере ролей, достаточно просто убедиться, что каждое действие авторизует соответствующую роль.
 
-	> [AZURE.NOTE]В некоторых действиях вы можете заметить оформление <code>[ValidateAntiForgeryToken]</code>. Из-за поведения, описанного [Алленом Броком](https://twitter.com/BrockLAllen) в статье [MVC 4, AntiForgeryToken и утверждения](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), команда HTTP POST может завершиться ошибкой при проверке маркеров защиты от подделки по следующей причине.
+	> [AZURE.NOTE]В некоторых действиях вы можете заметить оформление <code>[ValidateAntiForgeryToken]</code>. Из-за поведения, описанного [Алленом Броком (Brock Allen)](https://twitter.com/BrockLAllen) в статье [MVC 4, AntiForgeryToken и утверждений](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), команда HTTP POST может завершиться ошибкой при проверке маркеров защиты от подделки по следующей причине:
 	> + Azure Active Directory не отправляет http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, который по умолчанию требуется для маркера защиты от подделки.
-	> + Если каталог Azure Active Directory синхронизирован с AD FS, доверие AD FS также по умолчанию не отправляет утверждение http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, хотя вы можете вручную настроить AD FS для отправки этого утверждения.
+	> + Если каталог Azure Active Directory синхронизирован с AD FS, в связи с установленным доверием AD FS также по умолчанию не отправляется утверждение http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider. Однако вы можете вручную настроить AD FS для отправки этого утверждения.
 	> Мы займемся этим на следующем шаге.
 
 12.  В файле App_Start\Startup.Auth.cs добавьте следующую строку кода в метод `ConfigureAuth`:
@@ -271,7 +271,7 @@ public class GroupClaimContext : DbContext
             ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value);
             ViewData["tenant"] = ConfigHelper.Tenant;
 
-14.	В файле Views\WorkItems\Create.cshtml (автоматически сформированный на основе шаблона элемент) найдите вспомогательный метод `Html.BeginForm` и измените его следующим:
+14.	В файле Views\\WorkItems\\Create.cshtml (автоматически сформированный на основе шаблона элемент) найдите вспомогательный метод `Html.BeginForm` и измените его следующим:
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
 {
     @Html.AntiForgeryToken()
@@ -329,7 +329,7 @@ public class GroupClaimContext : DbContext
 
             var picker = new AadPicker(searchUrl, maxResultsPerPage, input, token, tenant);
 
-	            // Отправьте выбранного пользователя или группу для назначения.
+            // Отправьте выбранного пользователя или группу для назначения.
             $("#submit-button").click({ picker: picker }, function () {
                 if (!picker.Selected())
                     return;
@@ -338,7 +338,7 @@ public class GroupClaimContext : DbContext
     &lt;/script></mark>
 	}</pre>
 
-	В скрипте объект AadPicker ищет в действии `~/Roles/Search` пользователей и группы Azure Active Directory, которые соответствуют введенным данным. Затем при нажатии кнопки «Отправить» объект AadPicker сохраняет идентификатор пользователя в скрытом поле `AssignedToID`.  
+	В сценарии объект AadPicker ищет в действии `~/Roles/Search` пользователей и группы Azure Active Directory, которые соответствуют введенным данным. Затем при нажатии кнопки «Отправить» объект AadPicker сохраняет идентификатор пользователя в скрытом поле `AssignedToID`.
 
 15. Теперь можно либо запустить приложение в отладчике Visual Studio, либо опубликовать его в веб-приложениях службы приложений Azure. Войдите в систему как владелец приложения и перейдите на страницу `~/WorkItems/Create`. Для своего опубликованного бизнес-приложения я перехожу на страницу `https://mylobapp.azurewebsites.net/WorkItems/Create`. Теперь вы увидите, что можно использовать тот же фильтр поиска AadPicker для выбора пользователя Azure Active Directory.
 
@@ -375,4 +375,4 @@ public class GroupClaimContext : DbContext
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Управление Service Bus с помощью PowerShell"
+	pageTitle="Управление служебной шиной с помощью PowerShell | Microsoft Azure"
 	description="Управление Service Bus с помощью сценариев PowerShell вместо .NET"
 	services="service-bus"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/18/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # Управление Service Bus с помощью PowerShell
@@ -45,8 +45,7 @@ Microsoft Azure PowerShell — это среда сценариев, котор
 
 В сценарии PowerShell эти действия выполняются следующим образом:
 
-```powershell
-
+```
 try
 {
     # WARNING: Make sure to reference the latest version of Microsoft.ServiceBus.dll
@@ -63,12 +62,11 @@ catch [System.Exception]
 {
     Write-Error("Could not add the Microsoft.ServiceBus.dll assembly to the script. Make sure you build the solution before running the provisioning script.")
 }
-
 ```
 
 ## Подготовка пространства имен Service Bus
 
-Два командлета PowerShell поддерживают операции пространства имен служебной шины. Вместо интерфейсов API для пакета SDK .NET можно использовать [Get-AzureSBNamespace] и [New-AzureSBNamespace].
+Два командлета PowerShell поддерживают операции пространства имен служебной шины. Вместо интерфейсов API для пакета SDK .NET можно использовать [Get-AzureSBNamespace][] и [New-AzureSBNamespace][].
 
 В этом примере мы создадим несколько локальных переменных в сценарии, в частности `$Namespace` и `$Location`.
 
@@ -84,8 +82,7 @@ catch [System.Exception]
 2. Если пространство имен найдено, появляется сообщение о том, что именно нашел сценарий.
 3. Если пространство имен не найдено, сценарий создает его и возвращает созданное пространство.
 
-	``` powershell
-	
+	```
 	$Namespace = "MyServiceBusNS"
 	$Location = "West US"
 	
@@ -105,10 +102,9 @@ catch [System.Exception]
 	    $CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
 	    Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
 	}
-
 	```
 
-Чтобы подготовить другие сущности служебной шины к работе, создайте экземпляр класса `NamespaceManager` из пакета SDK. Получить правило авторизации для указания строки подключения можно с помощью командлета [Get-AzureSBAuthorizationRule]. Ссылка на экземпляр `NamespaceManager` будет сохранена в переменной `$NamespaceManager`. В дальнейшем мы используем переменную `$NamespaceManager` в сценарии для подготовки к работе других сущностей.
+Чтобы подготовить другие сущности служебной шины к работе, создайте экземпляр класса [NamespaceManager][] из пакета SDK. Получить правило авторизации для указания строки подключения можно с помощью командлета [Get-AzureSBAuthorizationRule][]. Ссылка на экземпляр `NamespaceManager` будет сохранена в переменной `$NamespaceManager`. В дальнейшем мы используем переменную `$NamespaceManager` в сценарии для подготовки к работе других сущностей.
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -120,7 +116,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 ## Подготовка других сущностей Service Bus
 
-Чтобы подготовить к работе другие сущности, такие как очереди, разделы и концентраторы событий, используйте [API .NET для служебной шины]. В этой статье рассматриваются только концентраторы событий, но действия для других сущностей выполняются таким же образом. Кроме того, в конце статьи приведены более подробные примеры, включая примеры с другими сущностями.
+Чтобы подготовить к работе другие сущности, такие как очереди, разделы и концентраторы событий, используйте [API .NET для служебной шины][]. В этой статье рассматриваются только концентраторы событий, но действия для других сущностей выполняются таким же образом. Кроме того, в конце статьи приведены более подробные примеры, включая примеры с другими сущностями.
 
 В этой части сценария мы создадим четыре дополнительных локальных переменных, которые будут использоваться для создания экземпляра объекта `EventHubDescription`. Сценарий выполняет следующее:
 
@@ -128,8 +124,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 2. Если он не существует, создает и передает `EventHubDescription` в класс `NamespaceManager` метода `CreateEventHubIfNotExists`.
 3. Когда концентратор событий становится доступен, сценарий создает группу потребителей с помощью `ConsumerGroupDescription` и `NamespaceManager`.
 
-	``` powershell
-		
+	```
 	$Path  = "MyEventHub"
 	$PartitionCount = 12
 	$MessageRetentionInDays = 7
@@ -170,7 +165,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 - [Как создать запросы, разделы и подписки Service Bus с помощью сценария PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [Как создать пространство имен и концентратор событий служебной шины с помощью сценария PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-Некоторые готовые сценарии также доступны для скачивания на странице [Сценарии PowerShell для служебной шины](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
+Некоторые готовые сценарии также доступны для скачивания на странице [Сценарии PowerShell для служебной шины](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059).
 
 <!--Link references-->
 [Варианты приобретения]: http://azure.microsoft.com/pricing/purchase-options/
@@ -181,7 +176,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[API .NET для служебной шины]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
- 
+[API .NET для служебной шины]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
+[NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

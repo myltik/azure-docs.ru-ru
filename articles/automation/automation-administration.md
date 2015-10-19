@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/06/2015"
+   ms.date="10/01/2015"
    ms.author="bwren" />
 
 # Администрирование службы автоматизации Azure
@@ -60,4 +60,4 @@
 
 Нельзя экспортировать сертификаты из службы автоматизации Azure. Необходимо обеспечить, чтобы все сертификаты были доступны за пределами Azure.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

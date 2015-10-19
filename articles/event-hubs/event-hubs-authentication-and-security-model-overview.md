@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Обзор проверки подлинности концентраторов событий и модели безопасности"
+   pageTitle="Обзор проверки подлинности концентраторов событий и модели безопасности | Microsoft Azure"
    description="Концентраторы событий: часто задаваемые вопросы"
    services="event-hubs"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/09/2015"
+   ms.date="10/07/2015"
    ms.author="sethm" />
 
 # Обзор проверки подлинности концентраторов событий и модели безопасности
@@ -20,14 +20,12 @@
 Модель безопасности концентраторов событий соответствует следующим требованиям.
 
 - Только устройства, предоставляющие действительные учетные данные, могут передать данные концентратору событий.
-
 - Устройство не может действовать от имени другого устройства.
-
 - Постороннему устройству можно запретить отправку данных в концентратор событий.
 
 ## Проверка подлинности устройства
 
-Модель безопасности концентраторов событий основана на сочетании маркеров [подписи общего доступа (SAS)](https://msdn.microsoft.com/library/dn170477.aspx) и издателей событий. Издатель событий определяет виртуальную конечную точку для концентратора событий. Издатель можно использовать только для отправки сообщений в концентратор событий. Получать сообщения от издателя невозможно.
+Модель безопасности концентраторов событий основана на сочетании маркеров [подписи общего доступа (SAS)](service-bus-shared-access-signature-authentication.md) и издателей событий. Издатель событий определяет виртуальную конечную точку для концентратора событий. Издатель можно использовать только для отправки сообщений в концентратор событий. Получать сообщения от издателя невозможно.
 
 Как правило концентратор событий использует один издатель на устройство. Все сообщения, отправленные любому из издателей концентратора событий, добавляются в очередь этого концентратора событий. Издатели обеспечивают структурированный контроль доступа и регулирование.
 
@@ -37,14 +35,13 @@
 
 Все маркеры подписаны с помощью ключа SAS. Как правило, все маркеры должны быть подписаны тем же ключом. Устройства не имеют сведений о ключе. Это не дает устройствам создавать маркеры.
 
-### Создание ключа
+### Создание ключа SAS
 
 При создании пространства имен служебная шина создает 256-битный ключ SAS с именем **RootManageSharedAccessKey**. Этот ключ дает пространству имен право на отправку, прослушивание и управление. Можно создать дополнительные ключи. Рекомендуется создать ключ, дающий разрешения на отправку в конкретный концентратор событий. Далее в этом разделе предполагается, что вы дали ключу имя `EventHubSendKey`.
 
 В следующем примере при создании концентратора событий создается ключ только для отправки:
 
-```C#
-
+```
 // Create namespace manager.
 string serviceNamespace = "YOUR_NAMESPACE";
 string namespaceManageKeyName = "RootManageSharedAccessKey";
@@ -60,24 +57,29 @@ string eventHubSendKey = SharedAccessAuthorizationRule.GenerateRandomKey();
 SharedAccessAuthorizationRule eventHubSendRule = new SharedAccessAuthorizationRule(eventHubSendKeyName, eventHubSendKey, new[] { AccessRights.Send });
 ed.Authorization.Add(eventHubSendRule); 
 nm.CreateEventHub(ed);
-
 ```
 
 ### Создание маркеров
 
 Маркеры можно создать с помощью ключа SAS. Следует создавать только один маркер на устройство. Маркеры можно создать с помощью следующего метода. Все маркеры создаются с помощью ключа **EventHubSendKey**. Каждому маркеру назначается уникальный URI.
 
-	public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
+```
+public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
+```
 
 При вызове этого метода URI должен быть указан как `//<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. URI идентичен для всех маркеров за исключением класса `PUBLISHER_NAME`, который должен быть уникальным для каждого маркера. В идеальном случае `PUBLISHER_NAME` представляет идентификатор устройства, которое получает маркер.
 
 Этот метод создает маркер со следующей структурой:
 
-	SharedAccessSignature sr={URI}&sig={HMAC_SHA256_SIGNATURE}&se={EXPIRATION_TIME}&skn={KEY_NAME}
+```
+SharedAccessSignature sr={URI}&sig={HMAC_SHA256_SIGNATURE}&se={EXPIRATION_TIME}&skn={KEY_NAME}
+```
 
 Срок действия маркера указывается в секундах от 1 января 1970 г. Ниже приведен пример маркера:
 
-	SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFmBHG77A%3d&se=1403130337&skn=RootManageSharedAccessKey
+```
+SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFmBHG77A%3d&se=1403130337&skn=RootManageSharedAccessKey
+```
 
 Как правило, срок существования маркера соответствует времени существования устройства или превышает его. Если устройство имеет возможность получить новый маркер, можно использовать маркеры с более коротким временем существования.
 
@@ -101,43 +103,55 @@ nm.CreateEventHub(ed);
 
 ### Создание удостоверений службы, проверяющих сторон и правил в ACS
 
-ACS поддерживает несколько способов создания удостоверений службы, проверяющих сторон и правил, но проще всего это можно сделать с помощью [SBAZTool](http://code.msdn.microsoft.com/windowsazure/Authorization-SBAzTool-6fd76d93). Например:
+ACS поддерживает несколько способов создания удостоверений службы, проверяющих сторон и правил, но проще всего это можно сделать с помощью [SBAZTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93). Например:
 
 1. Создайте удостоверение службы для **EventHubSender**. Возвращается имя созданного удостоверения службы и его ключ:
 
-		sbaztool.exe exe -n <namespace> -k <key>  makeid eventhubsender
+	```
+	sbaztool.exe exe -n <namespace> -k <key>  makeid eventhubsender
+	```
 
 2. Предоставьте **EventHubSender** право на отправку утверждений в концентратор событий:
 
-		sbaztool.exe -n <namespace> -k <key> grant Send /AuthTestEventHub eventhubsender
+	```
+	sbaztool.exe -n <namespace> -k <key> grant Send /AuthTestEventHub eventhubsender
+	```
 
 3. Создайте удостоверение службы для получателя группы потребителей Consumer Group 1:
 
-		sbaztool.exe exe -n <namespace> -k <key> makeid consumergroup1receiver
+	```
+	sbaztool.exe exe -n <namespace> -k <key> makeid consumergroup1receiver
+	```
 
 4. Предоставьте `consumergroup1receiver` право на прослушивание утверждений группе **ConsumerGroup1**:
 
-		sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup1 consumergroup1receiver
+	```
+	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup1 consumergroup1receiver
+	```
 
 5. Создайте удостоверение службы для получателя группы потребителей **Consumer Group 2**:
 
-		sbaztool.exe exe -n <namespace> -k <key>  makeid consumergroup2receiver
+	```
+	sbaztool.exe exe -n <namespace> -k <key>  makeid consumergroup2receiver
+	```
 
 6. Предоставьте `consumergroup2receiver` право на прослушивание утверждений группе **ConsumerGroup2**:
 
-		sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup2 consumergroup2receiver
+	```
+	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup2 consumergroup2receiver
+	```
 
 ## Дальнейшие действия
 
 Чтобы узнать больше о концентраторах событий, посетите следующие разделы:
 
-- [Общие сведения о концентраторах событий]
+- [Обзор концентраторов событий].
 - Полный [пример приложения, использующего концентраторы событий].
 - [Решение для обмена сообщениями в очереди] при помощи очередей служебной шины.
 
-[Общие сведения о концентраторах событий]: event-hubs-overview.md
-[пример приложения, использующего концентраторы событий]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[Решение для обмена сообщениями в очереди]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
+[Обзор концентраторов событий]: event-hubs-overview.md
+[пример приложения, использующего концентраторы событий]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Решение для обмена сообщениями в очереди]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

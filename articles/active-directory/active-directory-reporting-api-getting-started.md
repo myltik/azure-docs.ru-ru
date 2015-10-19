@@ -1,20 +1,20 @@
 <properties
    pageTitle="Приступая к работе с API отчетов Azure AD"
-	description="Как начать работу с API отчетов Azure Active Directory"
-	services="active-directory"
-	documentationCenter=""
-	authors="kenhoff"
-	manager="mbaldwin"
-	editor=""/>
+   description="Как начать работу с API отчетов Azure Active Directory"
+   services="active-directory"
+   documentationCenter=""
+   authors="kenhoff"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="07/17/2015"
-	ms.author="kenhoff;yossib"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="07/17/2015"
+   ms.author="kenhoff;yossib"/>
 
 
 # Приступая к работе с API отчетов Azure AD
@@ -157,10 +157,15 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 
 Сценарий возвращает список всех доступных отчетов, а в окне PowerShell — выходные данные в отчете AccountProvisioningEvents в формате JSON. Он также создает файлы с такими же выходными JSON-, текстовыми и XML-данными. Эксперимент можно настроить, изменив его сценарий так, чтобы он возвращал данные из других отчетов, и закомментировав необходимые форматы выходных данных.
 
+## Примечания
+
+- Количество событий, возвращаемых API отчетов Azure AD (с помощью разбиения на страницы OData), не ограничено.
+	- Сведения о предельных показателях хранения данных отчетов приведены в статье [Политики хранения отчетов](active-directory-reporting-retention.md).
+
 
 ## Дальнейшие действия
 - Интересуют доступные отчеты о безопасности, аудиту и действиях? См. [Отчеты Azure AD о безопасности, аудите и активности](active-directory-view-access-usage-reports.md)
 - Дополнительную информацию об отчетах об аудите см. в статье [События отчетов AD Azure об аудите ](active-directory-reporting-audit-events.md)
 - Дополнительную информацию о службе Graph API REST см. в разделе [Отчеты и события Azure AD (предварительная версия)](https://msdn.microsoft.com/library/azure/mt126081.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

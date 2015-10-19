@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/29/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 
@@ -487,14 +487,17 @@ URL-адрес приема используется динамическим к
 	
 
 
+##Дальнейшие действия
 
-##Схемы обучения работе со службами мультимедиа
+###Схемы обучения работе со службами мультимедиа
 
 Схемы обучения AMS можно просмотреть здесь:
 
 - [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
- 
+### Не нашли ответа?
 
-<!---HONumber=Oct15_HO1-->
+Если содержание этого раздела не соответствует вашим ожиданиям или не содержит ответов на ваши вопросы, оставьте отзыв в обсуждении Disqus ниже.
+
+<!---HONumber=Oct15_HO2-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="10/01/2015"
    ms.author="bwren" />
 
 # Создание расписания для Runbook в службе автоматизации Azure
@@ -96,4 +96,4 @@
 - [Создание расписания для средств в службе автоматизации Azure](http://msdn.microsoft.com/library/azure/dn940016.aspx)
 - [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

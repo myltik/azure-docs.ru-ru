@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="10/05/2015"
 	ms.author="szarkos"/>
 
 # <a id="nonendorsed"> </a>Информация о нерекомендованных дистрибутивах #
@@ -191,4 +191,4 @@
 
 - Затем необходимо завершить работу виртуальной машины и передать виртуальный жесткий диск в Azure.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

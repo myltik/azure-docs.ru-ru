@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="10/05/2015" 
 	ms.author="glenga"/>
 
 # Добавление проверки подлинности к приложению мобильных служб 
@@ -26,7 +26,7 @@
 
 Этот учебник создан на основе краткого руководства по мобильным службам. Предварительно вам необходимо пройти учебник [Приступая к работе с мобильными службами] или [Добавление мобильных служб в существующее приложение](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
 
->[AZURE.NOTE]В этом учебнике показано, как проводить управляемую сервером проверку подлинности пользователей в приложениях для Магазина Windows и Магазина Windows Phone 8.1. Инструкции для приложения Windows Phone 8.0 или Windows Phone Silverlight 8.1 см. в этой версии раздела [Приступая к работе с проверкой подлинности в мобильных службах](mobile-services-dotnet-backend-windows-phone-get-started-users.md). Сведения о проверке подлинности, управляемой клиентом, см. в статье [Вход в мобильные службы Azure с помощью пакетов SDK Google, Facebook и корпорации Майкрософт](http://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/).
+>[AZURE.NOTE]В этом учебнике показано, как проводить управляемую сервером проверку подлинности пользователей в приложениях для Магазина Windows и Магазина Windows Phone 8.1. Сведения о проверке подлинности, управляемой клиентом, см. в статье [Вход в мобильные службы Azure с помощью пакетов SDK Google, Facebook и корпорации Майкрософт](http://azure.microsoft.com/blog/2014/10/27/logging-in-with-google-microsoft-and-facebook-sdks-to-azure-mobile-services/).
 
 ##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
 
@@ -67,7 +67,7 @@
 
 ##Дополнительные материалы
 
-+ [Расширенные возможности пользователей](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/>Вы можете получить дополнительные данные пользователя, которые хранит поставщик удостоверений в мобильной службе, вызвав в серверной части .NET метод **ServiceUser.GetIdentitiesAsync()**. 
++ [Расширенные возможности пользователей](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> Вы можете получить дополнительные данные пользователя, которые хранит поставщик удостоверений в мобильной службе, вызвав в серверной части .NET метод **ServiceUser.GetIdentitiesAsync()**. 
 
 + [Справочник принципов использования мобильных служб .NET]<br/> Узнайте больше об использовании мобильных служб с помощью клиента .NET.
 
@@ -84,7 +84,6 @@
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Single sign-on for Windows Store apps by using Live Connect]: mobile-services-windows-store-dotnet-single-sign-on.md
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Get started with data]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Get started with authentication]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
@@ -97,4 +96,4 @@
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

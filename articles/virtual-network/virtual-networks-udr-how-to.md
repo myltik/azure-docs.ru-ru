@@ -24,30 +24,27 @@
 ### Как создать таблицу маршрутов
 Чтобы создать таблицу маршрутов *FrontEndSubnetRouteTable*, выполните следующую команду PowerShell:
 
-```powershell
-New-AzureRouteTable -Name FrontEndSubnetRouteTable `
-	-Location uscentral `
-	-Label "Route table for frontend subnet"
-```
+	```powershell
+	New-AzureRouteTable -Name FrontEndSubnetRouteTable `
+		-Location uscentral `
+		-Label "Route table for front end subnet"
+	```
 
 Выходные данные команды выше должны выглядеть следующим образом:
 
-	Error          :
-	HttpStatusCode : OK
-	Id             : 085ac8bf-26c3-9c4c-b3ae-ebe880108c70
-	Status         : Succeeded
-	StatusCode     : OK
-	RequestId      : a8cc03ca42d39f27adeaa9c1986c14f7
+	Name                      Location   Label                          
+	----                      --------   -----                          
+	FrontEndSubnetRouteTable  West US    Route table for front end subnet
 
 ### Как добавить маршрут в таблицу маршрутов
 Чтобы добавить в таблицу маршрутов маршрут, который задает *10.1.1.10* в качестве следующего прыжка для подсети *10.2.0.0/16*, созданной ранее, выполните следующую команду PowerShell:
 
-```powershell
-Get-AzureRouteTable FrontEndSubnetRouteTable `
-	|Set-AzureRoute -RouteName FirewallRoute -AddressPrefix 10.2.0.0/16 `
-	-NextHopType VirtualAppliance `
-	-NextHopIpAddress 10.1.1.10
-```
+	```powershell
+	Get-AzureRouteTable FrontEndSubnetRouteTable `
+		|Set-AzureRoute -RouteName FirewallRoute -AddressPrefix 10.2.0.0/16 `
+		-NextHopType VirtualAppliance `
+		-NextHopIpAddress 10.1.1.10
+	```
 
 Выходные данные команды выше должны выглядеть следующим образом:
 
@@ -62,21 +59,21 @@ Get-AzureRouteTable FrontEndSubnetRouteTable `
 ### Как связать маршрут с подсетью
 Таблица маршрутов должна быть связана с одной или несколькими подсетями, чтобы ее можно было использовать. Чтобы связать таблицу маршрутов *FrontEndSubnetRouteTable* с подсетью *FrontEndSubnet* в виртуальной сети *ProductionVnet*, выполните следующую команду PowerShell:
 
-```powershell
-Set-AzureSubnetRouteTable -VirtualNetworkName ProductionVnet `
-	-SubnetName FrontEndSubnet `
-	-RouteTableName FrontEndSubnetRouteTable
-```
+	```powershell
+	Set-AzureSubnetRouteTable -VirtualNetworkName ProductionVnet `
+		-SubnetName FrontEndSubnet `
+		-RouteTableName FrontEndSubnetRouteTable
+	```
 
 ### Как просмотреть примененные маршруты на виртуальной машине
 Можно отправить запрос в Azure, чтобы просмотреть фактические маршруты, применяемые для конкретного экземпляра виртуальной машины или роли. Показанные маршруты включают в себя маршруты по умолчанию, предоставляемые Azure, а также маршруты, объявленные шлюзом VPN. Ограничение показанных маршрутов равно 800.
 
 Чтобы просмотреть маршруты, связанные с основной сетевой картой на виртуальной машине *FWAppliance1*, выполните следующую команду PowerShell:
 
-```powershell
-Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
-	| Get-AzureEffectiveRouteTable
-```
+	```powershell
+	Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
+		| Get-AzureEffectiveRouteTable
+	```
 
 Выходные данные команды выше должны выглядеть следующим образом:
 
@@ -93,17 +90,17 @@ Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
 
 Чтобы просмотреть маршруты, связанные с дополнительной сетевой картой *backendnic* на виртуальной машине *FWAppliance1*, выполните следующую команду PowerShell:
 
-```powershell
-Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
-	| Get-AzureEffectiveRouteTable -NetworkInterfaceName backendnic
-```
+	```powershell
+	Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
+		| Get-AzureEffectiveRouteTable -NetworkInterfaceName backendnic
+	```
 
 Чтобы просмотреть маршруты, связанные с основной сетевой картой в экземпляре роли *myRole*, являющемся частью облачной службы *ProductionVMs*, выполните следующую команду PowerShell:
 
-```powershell
-Get-AzureEffectiveRouteTable -ServiceName ProductionVMs `
-	-RoleInstanceName myRole
-```
+	```powershell
+	Get-AzureEffectiveRouteTable -ServiceName ProductionVMs `
+		-RoleInstanceName myRole
+	```
 
 ## Как управлять IP-пересылкой
 Как упоминалось выше, необходимо включить IP-пересылку на любом экземпляре виртуальной машины или роли, который будет выступать в качестве виртуального устройства.
@@ -127,7 +124,7 @@ Set-AzureIPForwarding -ServiceName DMZService `
 Чтобы отключить IP-пересылку на виртуальной машине *FWAppliance1*, выполните следующую команду PowerShell:
 
 ```powershell
-Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
+Get-AzureVM -Name FWAppliance1 -ServiceName DMZService `
 	| Set-AzureIPForwarding -Disable
 ```
 
@@ -146,4 +143,4 @@ Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
 	| Get-AzureIPForwarding
 ``` 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/05/2015"
 	ms.author="dkshir"/>
 
 # Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure
@@ -112,4 +112,4 @@
 
 [Устранение неполадок с подключением Secure Shell (SSH) к виртуальной машине Azure под управлением Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

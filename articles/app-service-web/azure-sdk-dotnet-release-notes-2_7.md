@@ -1,21 +1,21 @@
 
 <properties 
-   pageTitle="Заметки о выпуске пакета SDK для Azure для .NET 2.7 и .NET 2.7.1"
-	description="Заметки о выпуске пакета SDK для Azure для .NET 2.7 и .NET 2.7.1"
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="Juliako"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="Заметки о выпуске пакета SDK для Azure для .NET 2.7 и .NET 2.7.1" 
+   description="Заметки о выпуске пакета SDK для Azure для .NET 2.7 и .NET 2.7.1" 
+   services="app-service\web" 
+   documentationCenter=".net" 
+   authors="Juliako" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
    ms.service="app-service"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/26/2015"
-	ms.author="juliako"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="08/26/2015"
+   ms.author="juliako"/>
 
 
 # Заметки о выпуске пакета SDK для Azure для .NET 2.7 и .NET 2.7.1
@@ -150,6 +150,7 @@
 
 При установке пакета SDK для Azure 2.6 и 2.7.1 для Visual Studio Community 2013 в операционных системах с языковым стандартом, отличающимся от английского, отображается предупреждение о том, что ресурсы на соответствующем языке могут не соответствовать ресурсам на английском языке. Такое предупреждение можно спокойно закрыть. Это несоответствие может возникнуть, только если на компьютере нет предварительно установленного Visual Studio Community 2013 и вы устанавливаете пакет SDK в операционной системе с языковым стандартом, отличающимся от английского. Это предупреждение отображается после того, как языковой пакет применил ресурсы окончательной первоначальной версии к Visual Studio, но до применения обновления 4. Если закрыть это предупреждение, языковой пакет продолжит выполнение и завершит применение версии обновления 4 содержимого языкового пакета.
 
+Проекты LightSwitch не совместимы с этим выпуском. Эта проблема будет устранена в следующем выпуске пакета SDK.
 
 ##См. также:
 [Объявление о пакете SDK для Azure 2.7.1](http://go.microsoft.com/fwlink/?LinkId=623850)
@@ -158,4 +159,4 @@
 
 [Сведения о поддержке и прекращении использования пакета Azure SDK для .NET и API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

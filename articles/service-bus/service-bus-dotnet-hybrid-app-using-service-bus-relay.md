@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="06/02/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # Создание локального или облачного гибридного приложения .NET с использованием ретранслятора служебной шины Azure
@@ -551,9 +551,8 @@
 
 Дополнительную информацию о Service Bus см. на следующих ресурсах.
 
-* [Служебная шина Azure][sbmsdn]  
-* [Практические руководства по работе со служебной шиной][sbwacom]  
-* [Использование очередей Service Bus][sbwacomqhowto]  
+* [Служебная шина Azure][sbwacom]  
+* [Использование очередей служебной шины][sbwacomqhowto]  
 
 
   [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
@@ -561,7 +560,7 @@
   [Получить инструменты и SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   [2]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-3.png
-  [3]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-4-2-WebPI.png
+  [3]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-42-webpi.png
 
 
   [портал Azure]: http://manage.windowsazure.com
@@ -608,9 +607,8 @@
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
   [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
 
-  [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

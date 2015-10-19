@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Обмен сообщений через служебную шину с ретрансляцией"
+	pageTitle="Обмен сообщениями с ретрансляцией через служебную шину | Microsoft Azure"
 	description="Обзор ретранслятора служебной шины."
 	services="service-bus"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/04/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 
@@ -33,10 +33,10 @@
 
 Дополнительные сведения о ретрансляторе служебной шины см. в следующих разделах.
 
-- [Обзор архитектуры служебной шины Azure](fundamentals-service-bus-hybrid-solutions.md)
+- [Обзор архитектуры служебной шины Azure](service-bus-fundamentals-hybrid-solutions.md)
 
 - [Как использовать службу ретранслятора служебной шины](service-bus-dotnet-how-to-use-relay.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

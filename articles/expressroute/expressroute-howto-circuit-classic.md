@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 # Создание и изменение канала ExpressRoute
@@ -153,27 +153,27 @@
 
 	При создании нового канала ExpressRoute он будет иметь следующее состояние:
 	
-		**ServiceProviderProvisioningState :** NotProvisioned
+		ServiceProviderProvisioningState : NotProvisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
-	Параметр ServiceProviderProvisioningState сообщает сведения о текущем состоянии подготовки на стороне поставщика службы, а параметр Status — состояние на стороне Майкрософт. Для того чтобы канал ExpressRoute можно было использовать, он должен находиться в следующем состоянии:
+	Параметр *ServiceProviderProvisioningState* сообщает сведения о текущем состоянии подготовки на стороне поставщика службы, а параметр Status — состояние на стороне Майкрософт. Для того чтобы канал ExpressRoute можно было использовать, он должен находиться в следующем состоянии.
 
-		**ServiceProviderProvisioningState :** Provisioned
+		ServiceProviderProvisioningState : Provisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
 	Когда поставщик услуг подключения находится в процессе его активации, канал переходит в следующее состояние:
 
-		**ServiceProviderProvisioningState :** Provisioned
+		ServiceProviderProvisioningState : Provisioned
 		
-		**Status                           :** Enabled
+		Status                           : Enabled
 
 
 
 5. **Периодически проверяйте состояние и статус ключа канала.**
 
-	Это позволяет узнать, когда поставщик включил ваш канал. После настройки канала значение параметра *ServiceProviderProvisioningState* изменится на *Provisioned* (Подготовлен), как показано в следующем примере.
+	Это позволяет узнать, когда поставщик включил ваш канал. После настройки канала значение параметра *ServiceProviderProvisioningState* изменится на *Подготовлен*, как показано в следующем примере.
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -192,11 +192,11 @@
 
 7. **Свяжите виртуальную сеть с каналом ExpressRoute.**
 
-	Теперь свяжите виртуальную сеть с каналом ExpressRoute. Пошаговые инструкции см. на странице [Связывание виртуальных сетей с каналами ExpressRoute](expressroute-howto-linkvnet-classic.md). Инструкции по созданию виртуальной сети для ExpressRoute см. в [этой статье](expressroute-howto-createvnet-classic.md).
+	Теперь свяжите виртуальную сеть с каналом ExpressRoute. Пошаговые инструкции см. на странице [Связывание виртуальных сетей с каналами ExpressRoute](expressroute-howto-linkvnet-classic.md). Инструкции по созданию виртуальной сети для ExpressRoute см. в статье [Создание виртуальной сети для ExpressRoute](expressroute-howto-createvnet-classic.md).
 
 ##  Получение состояния канала ExpressRoute
 
-Эти сведения можно получить в любое время с помощью командлета *Get-AzureCircuit*. Если выполнить этот вызов без параметров, то будут перечислены все каналы.
+Вы можете получить эти сведения в любое время с помощью командлета *Get-AzureCircuit*. Если выполнить этот вызов без параметров, то будут перечислены все каналы.
 
 		PS C:\> Get-AzureDedicatedCircuit
 
@@ -276,8 +276,8 @@
 		ServiceKey                       : *********************************
 		ServiceProviderName              : equinix
 		ServiceProviderProvisioningState : Provisioned
-		Sku                              : Premium
-		Status                           : Standard
+		Sku                              : Standard
+		Status                           : Enabled
 
 Теперь надстройка Premium для вашего канала выключена.
 
@@ -315,13 +315,13 @@
 
 Обратите внимание, что для успешного выполнения этой операции необходимо разорвать связи между ExpressRoute и всеми виртуальными сетями. Если операция завершится ошибкой, проверьте, не привязаны ли к каналу какие-либо виртуальные сети.
 
-Если подготовка поставщика услуг канала ExpressRoute включена, ее состояние изменится с включенного на *выключенное*. Свяжитесь с поставщиком услуг, чтобы отменить подготовку канала с его стороны. Мы будем резервировать ресурсы и выставлять вам счета до тех пор, пока поставщик услуг не завершит отзыв канала и не отправит нам соответствующее уведомление.
+Если подготовка поставщика услуг канала ExpressRoute включена, ее состояние изменится с «включено» на *отключено*. Свяжитесь с поставщиком услуг, чтобы отменить подготовку канала с его стороны. Мы будем резервировать ресурсы и выставлять вам счета до тех пор, пока поставщик услуг не завершит отзыв канала и не отправит нам соответствующее уведомление.
 
 Если поставщик услуг отзовет канал (состояние подготовки у поставщика услуг изменилось на *не подготовлено*) до выполнения указанного выше командлета, мы отзовем канал и перестанем выставлять вам счета.
 
 ## Дальнейшие действия
 
-- [Настройка маршрутизации ExpressRoute (управление пирингами канала)](expressroute-howto-routing-classic.md)
-- [Свяжите виртуальные сети с каналом ExpressRoute](expresssroute-howto-linkvnet-classic.md) 
+- [Настройка маршрутизации](expressroute-howto-routing-classic.md)
+- [Связывание виртуальной сети с каналом ExpressRoute](expresssroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

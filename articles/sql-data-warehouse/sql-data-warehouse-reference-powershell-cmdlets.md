@@ -101,7 +101,7 @@ RestorePointCreationDate |Время создания моментального
 
 <!--Article references-->
 [Общие справочные сведения о хранилище данных SQL]: sql-data-warehouse-overview-reference.md
-[How to install and configure Azure PowerShell]: powershell-install-configure.md
+[How to install and configure Azure PowerShell]: ../articles/powershell-install-configure.md
 
 <!--MSDN references-->
 
@@ -111,4 +111,4 @@ RestorePointCreationDate |Время создания моментального
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

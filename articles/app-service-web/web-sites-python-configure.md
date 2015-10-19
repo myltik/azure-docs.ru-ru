@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="09/29/2015" 
 	ms.author="huguesv"/>
 
 
@@ -137,8 +137,8 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
       <system.webServer>
         <modules runAllManagedModulesForAllRequests="true" />
         <handlers>
-          <remove name="Python273_via_FastCGI" />
-          <remove name="Python340_via_FastCGI" />
+          <remove name="Python27_via_FastCGI" />
+          <remove name="Python34_via_FastCGI" />
           <add name="Python FastCGI"
                path="handler.fcgi"
                verb="*"
@@ -157,6 +157,7 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
             <rule name="Configure Python" stopProcessing="true">
               <match url="(.*)" ignoreCase="false" />
               <conditions>
+                <add input="{REQUEST_URI}" pattern="^/static/.*" ignoreCase="true" negate="true" />
               </conditions>
               <action type="Rewrite"
                       url="handler.fcgi/{R:1}"
@@ -186,8 +187,8 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
       <system.webServer>
         <modules runAllManagedModulesForAllRequests="true" />
         <handlers>
-          <remove name="Python273_via_FastCGI" />
-          <remove name="Python340_via_FastCGI" />
+          <remove name="Python27_via_FastCGI" />
+          <remove name="Python34_via_FastCGI" />
           <add name="Python FastCGI"
                path="handler.fcgi"
                verb="*"
@@ -206,6 +207,7 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
             <rule name="Configure Python" stopProcessing="true">
               <match url="(.*)" ignoreCase="false" />
               <conditions>
+                <add input="{REQUEST_URI}" pattern="^/static/.*" ignoreCase="true" negate="true" />
               </conditions>
               <action type="Rewrite" url="handler.fcgi/{R:1}" appendQueryString="true" />
             </rule>
@@ -218,13 +220,6 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
 Для повышения производительности статические файлы будут непосредственно обрабатываться веб-сервером без использования кода Python.
 
 В приведенных выше примерах расположение статических файлов на диске должно совпадать с расположением в поле URL-адреса. Это означает, что запрос `http://pythonapp.azurewebsites.net/static/site.css` будет использовать файл на диске в расположении `\static\site.css`.
-
-Можно настроить правило `Static Files` для передачи файлов из расположения на диске, которое отличается от расположения в поле URL-адреса. В следующем определении правила запрос `http://pythonapp.azurewebsites.net/static/site.css` будет использовать файл на диске в расположении `\FlaskWebProject\static\site.css`, а не `\static\site.css`.
-
-    <rule name="Static Files" stopProcessing="true">
-      <match url="^/static/.*" ignoreCase="true" />
-      <action type="Rewrite" url="^/FlaskWebProject/static/.*" appendQueryString="true" />
-    </rule>
 
 `WSGI_ALT_VIRTUALENV_HANDLER` — здесь указывается обработчик WSGI. А в приведенных выше примерах обработчик указывается в файле `app.wsgi_app`, так как обработчик является функцией с именем `wsgi_app` в файле `app.py` в корневой папке.
 
@@ -254,6 +249,7 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
     import datetime
     import os
     import sys
+    import traceback
 
     if sys.version_info[0] == 3:
         def to_str(value):
@@ -294,20 +290,22 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
 
     def get_wsgi_handler(handler_name):
         if not handler_name:
-            raise Exception('WSGI_HANDLER env var must be set')
-        
+            raise Exception('WSGI_ALT_VIRTUALENV_HANDLER env var must be set')
+    
         if not isinstance(handler_name, str):
             handler_name = to_str(handler_name)
-
+    
         module_name, _, callable_name = handler_name.rpartition('.')
         should_call = callable_name.endswith('()')
         callable_name = callable_name[:-2] if should_call else callable_name
         name_list = [(callable_name, should_call)]
         handler = None
+        last_tb = ''
 
         while module_name:
             try:
                 handler = __import__(module_name, fromlist=[name_list[0][0]])
+                last_tb = ''
                 for name, should_call in name_list:
                     handler = getattr(handler, name)
                     if should_call:
@@ -319,10 +317,11 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
                 callable_name = callable_name[:-2] if should_call else callable_name
                 name_list.insert(0, (callable_name, should_call))
                 handler = None
-
+                last_tb = ': ' + traceback.format_exc()
+    
         if handler is None:
-            raise ValueError('"%s" could not be imported' % handler_name)
-
+            raise ValueError('"%s" could not be imported%s' % (handler_name, last_tb))
+    
         return handler
 
     activate_this = os.getenv('WSGI_ALT_VIRTUALENV_ACTIVATE_THIS')
@@ -343,9 +342,9 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
         import site
         sys.executable = activate_this
         old_sys_path, sys.path = sys.path, []
-        
+    
         site.main()
-        
+    
         sys.path.insert(0, '')
         for item in old_sys_path:
             if item not in sys.path:
@@ -387,4 +386,4 @@ WSGI — это стандарт Python, описываемый в [PEP 3333](ht
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

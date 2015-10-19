@@ -29,8 +29,6 @@
 Во время работы с этим учебником вы обновите универсальный проект приложения, созданный при выполнении заданий учебника [Приступая к работе с мобильными службами], чтобы добавить поддержку автономных функций мобильных служб Azure. Затем вы добавите данные в автономном сценарии без подключения, синхронизируете эти элементы с оперативной базой данных и войдете на портал управления Azure для просмотра изменений, внесенных в данные после запуска приложения.
 
 >[AZURE.NOTE]Этот учебник поможет вам лучше понять, как с помощью мобильных служб можно использовать Windows Azure для хранения и извлечения данных из приложения Магазина Windows. Если ранее вы не работали с мобильными службами, сначала ознакомьтесь с учебником [Приступая к работе с мобильными службами].
->
->Более ранняя версия учебника по Windows Phone 8 для Visual Studio 2012 доступна по этой ссылке: [Учебник по Windows Phone 8 для Visual Studio 2012].
 
 ##Предварительные требования 
 
@@ -253,7 +251,6 @@
 [Next Steps]: #next-steps
 
 <!-- Images -->
-[0]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-todoitem-data-browse.png
 [1]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
 [2]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-sqlitestore-nuget.png
 [6]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-data-browse.png
@@ -270,11 +267,9 @@
 [Пример автономного приложения TodoList]: http://go.microsoft.com/fwlink/?LinkId=394777
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
 [Getting Started]: ../mobile-services-dotnet-backend-windows-phone-get-started.md
-[Get started with data]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Приступая к работе с мобильными службами]: ../mobile-services-windows-store-get-started.md
 [SQLite для Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [SQLite для Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
-[Учебник по Windows Phone 8 для Visual Studio 2012]: mobile-services-windows-phone-get-started-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 [обратимое удаление]: mobile-services-using-soft-delete.md
 
@@ -283,4 +278,4 @@
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

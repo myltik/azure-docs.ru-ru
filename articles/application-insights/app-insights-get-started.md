@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/04/2015"
+	ms.date="10/05/2015"
 	ms.author="awills"/>
 
 # Начало работы с Visual Studio Application Insights
@@ -46,14 +46,17 @@
 
 ## Поддержка и обратная связь
 
+
 * Вопросы и проблемы
  * [Устранение неполадок][qna]
- * [Форум MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+ * [Форум MSDN](https://social.msdn.microsoft.com/Forums/vstudio/RU-RU/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Ошибки
  * [Подключение](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Предложения
  * [Пользовательское мнение](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
+* Примеры кода
+ * [Примеры кода](app-insights-code-samples.md)
 
 
 
@@ -72,4 +75,4 @@
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

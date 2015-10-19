@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Начало работы с мобильными службами Azure для приложений PhoneGap или Cordova"
+	pageTitle="Начало работы с мобильными службами Azure для приложений PhoneGap или Cordova | Microsoft Azure"
 	description="Следуйте указаниям этого учебника, чтобы приступить к использованию мобильных служб Azure для разработки приложений PhoneGap для iOS, Android и Windows Phone."
 	services="mobile-services"
 	documentationCenter=""
@@ -12,13 +12,15 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="07/21/2015"
+	ms.topic="get-started-article" 
+	ms.date="10/05/2015"
 	ms.author="ggailey777"/>
 
 # Приступая к работе с мобильными службами
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 В этом учебнике показано, как добавить облачную серверную службу в приложение с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение _To do list_, хранящее данные приложения в новой мобильной службе.
 
@@ -151,9 +153,13 @@
 ## Дальнейшие действия
 Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах:
 
-* [Добавление аутентификации в приложение] <br/>Узнайте, как аутентифицировать пользователей приложения с помощью поставщика удостоверений.
+* **[Добавление аутентификации в приложение]** Узнайте, как аутентифицировать пользователей приложения с помощью поставщика удостоверений.  
 
-* [Добавление push-уведомлений в приложение](https://msdn.microsoft.com/magazine/dn879353.aspx) <br/>Узнайте, как зарегистрироваться для использования push-уведомлений и отправлять их в приложение.
+* **[Добавление push-уведомлений в приложение](https://msdn.microsoft.com/magazine/dn879353.aspx)** Узнайте, как зарегистрироваться для использования push-уведомлений и отправлять их в приложение.
+
+* **[Справочник принципов использования мобильных служб HTML/JavaScript](mobile-services-html-how-to-use-client-library.md)** Узнайте, как использовать клиентскую библиотеку JavaScript для доступа к данным, вызова настраиваемых API и выполнения проверки подлинности.
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Images. -->
 [0]: ./media/mobile-services-javascript-backend-phonegap-get-started/portal-screenshot1.png
@@ -163,7 +169,6 @@
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[Add Mobile Services to an existing app]: mobile-services-html-get-started-data.md
 [Добавление аутентификации в приложение]: mobile-services-html-get-started-users.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Management Portal]: https://manage.windowsazure.com/
@@ -171,4 +176,4 @@
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

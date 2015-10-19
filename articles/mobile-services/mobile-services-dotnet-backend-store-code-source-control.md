@@ -24,7 +24,7 @@
 
 В этой статье показано, как использовать систему управления версиями, предоставленную мобильными службами Azure, для хранения проекта серверной службы для .NET. Чтобы опубликовать проект, просто отправьте его из локального репозитория Git в рабочую мобильную службу.
 
-Для работы с этим учебником вам понадобится мобильная служба, созданная во время прохождения учебника [Приступая к работе с мобильными службами] или [Добавление мобильных служб в существующее приложение].
+Мобильную службу для работы с этим учебником вы должны были создать при изучении учебника [Приступая к работе с мобильными службами].
 
 ##<a name="enable-source-control"></a>Включение системы управления версиями в вашей мобильной службе
 
@@ -97,9 +97,7 @@
 [Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Установка Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-ios-get-started.md
-[Добавление мобильных служб в существующее приложение]: mobile-services-dotnet-backend-ios-get-started-data.md
-[портал управления Azure]: https://manage.windowsazure.com/
-[Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Изменение модели данных в серверной мобильной службе для .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

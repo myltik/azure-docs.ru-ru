@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Разработка службы Service Fabric"
+   pageTitle="Разработка службы Service Fabric | Microsoft Azure"
    description="Тематические статьи и учебники, помогающие научиться разрабатывать службы Service Fabric с использованием моделей программирования на основе надежных субъектов и служб."
    services="service-fabric"
    documentationCenter=".net"
@@ -87,4 +87,4 @@
 
 - [Диагностика надежных служб с отслеживанием состояния](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

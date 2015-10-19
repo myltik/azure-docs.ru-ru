@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/10/2015"
+   ms.date="10/07/2015"
    ms.author="seanmck"/>
 
 # Настройка среды разработки Service Fabric
@@ -66,7 +66,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
     ```powershell
     cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"
     ```
-    
+
 3. Выполнить
 
     ```powershell
@@ -81,7 +81,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 
 Вы можете проверить, успешно ли создан кластер, используя инструмент Service Fabric Explorer, который входит в пакет SDK.
 
-1. Запустите Service Fabric Explorer с помощью команды 
+1. Запустите Service Fabric Explorer с помощью команды
 
     ```powershell
     . "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"
@@ -106,4 +106,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Ссылка WebPI"
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

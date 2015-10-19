@@ -139,9 +139,8 @@ SendGrid — это [облачная служба электронной поч
     // Create an Web transport for sending email.
     var transportWeb = new Web(credentials);
 
-    // Send the email.
-    // You can also use the **DeliverAsync** method, which returns an awaitable task.
-    transportWeb.Deliver(myMessage);
+    // Send the email, which returns an awaitable task.
+    transportWeb.DeliverAsync(myMessage);
 
 ## Практическое руководство. Добавление вложения
 
@@ -240,4 +239,4 @@ SendGrid поддерживает веб-интерфейсы API и метод�
   [доставки электронной почты]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

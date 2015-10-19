@@ -3,7 +3,7 @@
    description="Общие сведения о модели программирования на основе надежных субъектов Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Общие сведения о надежных субъектах Service Fabric
 API надежных субъектов — это одна из двух высокоуровневых платформ, предоставляемых службой [Service Fabric](service-fabric-technical-overview.md), наряду с [API надежных служб](service-fabric-reliable-services-introduction.md).
@@ -198,4 +198,4 @@ public interface IVoicemailBoxActor : IActor
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

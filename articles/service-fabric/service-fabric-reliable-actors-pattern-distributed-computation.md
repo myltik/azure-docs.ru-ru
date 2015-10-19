@@ -3,7 +3,7 @@
    description="Надежные субъекты Service Fabric отлично подходят для работы с параллельным асинхронным обменом сообщениями, параллельными вычислениями и для управления состояниями в распределенных средах."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/08/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Шаблон разработки надежных субъектов: распределенные вычисления
 Этот шаблон возник отчасти благодаря реальной ситуации: наш клиент смог в рекордно короткие сроки выполнить финансовый расчет с помощью надежных субъектов Service Fabric, а точнее рассчитать риски с помощью моделирования по методу Монте-Карло.
@@ -206,4 +206,4 @@ public class Finaliser : Actor<FinalizerState>, IFinaliser
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="10/06/2015" 
 	ms.author="glenga"/>
 
 # Добавление проверки подлинности в универсальное приложение для Windows 8.1
@@ -22,11 +22,9 @@
 
 В этом разделе показано, как выполнять проверку подлинности пользователей в мобильных службах Azure из универсального приложения Windows 8.1. В этом учебнике вы добавите проверку подлинности к проекту быстрого запуска, используя поставщик удостоверений, поддерживаемый мобильными службами. После выполнения успешной проверки подлинности и авторизации мобильными службами отображается значение идентификатора пользователя.
 
-Этот учебник создан на основе краткого руководства по мобильным службам. Предварительно вам необходимо пройти учебник [Приступая к работе с мобильными службами] или [Добавление мобильных служб в существующее приложение](mobile-services-javascript-backend-windows-universal-dotnet-get-started-data.md).
+Этот учебник создан на основе краткого руководства по мобильным службам. Вам также необходимо сначала ознакомиться с учебником [Приступая к работе с мобильными службами].
 
 >[AZURE.NOTE]В этом учебнике показано, как проводить проверку подлинности пользователей в приложениях для Магазина Windows и Магазина Windows Phone 8.1. Инструкции для приложения Windows Phone 8.0 или Windows Phone Silverlight 8.1 см. в этой версии раздела [Приступая к работе с проверкой подлинности в мобильных службах](mobile-services-windows-phone-get-started-users.md).
-
->В этом учебнике показан управляемый службами поток проверки подлинности с помощью различных поставщиков удостоверений. Этот метод можно легко настроить, и он поддерживает нескольких поставщиков. Чтобы узнать, как вместо этого использовать управляемый клиентом поток проверки подлинности с помощью службы Live SDK в приложении Windows Store, см. раздел [Управляемая клиентом проверка подлинности приложения Windows Store с использованием учетной записи Майкрософт](mobile-services-windows-store-dotnet-single-sign-on.md).
 
 ##<a name="register"></a> Регистрация приложения для проверки подлинности и конфигурация мобильных служб
 
@@ -73,15 +71,13 @@
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Приступая к работе с мобильными службами]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
-[Get started with data]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-data.md
 [Get started with authentication]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-users.md
 [Get started with push notifications]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Authorize users with scripts]: ../mobile-services-windows-store-dotnet-authorize-users-in-scripts.md
-[JavaScript and HTML]: mobile-services-windows-store-javascript-get-started-users.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Справочник принципов использования мобильных служб .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

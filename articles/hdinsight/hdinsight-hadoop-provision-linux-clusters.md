@@ -386,7 +386,7 @@ Azure PowerShell — это полнофункциональная среда с
 ###<a id="sdk"></a> Использование пакета SDK для HDInsight .NET
 Пакет SDK для HDInsight .NET предоставляет клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из приложения .NET Framework. Следуйте инструкциям ниже, чтобы создать консольное приложение Visual Studio и вставить код для создания кластера.
 
-**Создание консольного приложения Visual Studio**
+**Создание консольного приложения C# в Visual Studio**
 
 1. Откройте Visual Studio 2013 или 2015.
 2. Создайте новый проект Visual Studio со следующими параметрами:
@@ -406,6 +406,8 @@ Azure PowerShell — это полнофункциональная среда с
 
 6. В обозревателе решений дважды щелкните файл **Program.cs**, чтобы открыть его, вставьте указанный ниже код и укажите значения для переменных:
 
+		using System;
+		using System.Security;
 		using Microsoft.Azure;
 		using Microsoft.Azure.Common.Authentication;
 		using Microsoft.Azure.Common.Authentication.Factories;
@@ -512,7 +514,7 @@ Azure PowerShell — это полнофункциональная среда с
 
 
 
-##<a id="nextsteps"></a>Дальнейшие действия
+## Дальнейшие действия
 В этой статье вы ознакомились с несколькими способами подготовки кластера HDInsight Hadoop в Linux. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
 - [Работа с HDInsight в Linux](hdinsight-hadoop-linux-information.md) — узнайте об особенностях работы с кластером HDInsight в Linux.
@@ -571,4 +573,4 @@ Azure PowerShell — это полнофункциональная среда с
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Использование Sqoop вместе с HDInsight"
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

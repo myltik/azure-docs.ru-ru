@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="cherylmc"/>
 
 # Требования к качеству обслуживания для ExpressRoute
@@ -44,9 +44,10 @@
 ## Дальнейшие действия
 
 - См. сведения о требованиях для [маршрутизации](expressroute-routing.md) и [преобразования сетевых адресов (NAT)](expressroute-nat.md).
-- Настройте подключение ExpressRoute.
+- Чтобы настроить подключение ExpressRoute, см. следующие статьи:
+
 	- [Создание канала ExpressRoute](expressroute-howto-circuit-classic.md)
 	- [Настройка маршрутизации](expressroute-howto-routing-classic.md)
 	- [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

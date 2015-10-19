@@ -93,17 +93,17 @@
 6. Откроется панель **Настраиваемое развертывание** на портале предварительной версии Azure. Выберите место для установки модуля — **новую или существующую учетную запись службы автоматизации**, — а также **имя учетной записи службы автоматизации**. Если выбрана существующая учетная запись, поле **Расположение учетной записи службы автоматизации** не используется. 
 7. Выберите элемент **Группа ресурсов** и укажите для этого модуля существующую группу ресурсов или создайте новую.
 6. Установите флажок, чтобы принять **условия**, и нажмите кнопку **Купить**. Несмотря на такое название кнопки, платить за установку модуля не нужно.
-7. Щелкните **Создать**, чтобы импортировать модуль.  
+7. Щелкните **Создать**, чтобы импортировать модуль. Это может занять несколько минут, поскольку каждое действие необходимо извлечь.  
 8. Вы получите уведомления о начале и завершении развертывания модуля. 
 
 
 ## Запрос на создание модуля Runbook или другого модуля
 
-Запросы можно отправлять на сайте [User Voice](http://feedback.azure.com/[forum](http://social.msdn.microsoft.com/Forums/windowsazure/ru-RU/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)s/246290-azure-automation). Если вам нужна помощь в написании модуля Runbook или в освоении PowerShell, опубликуйте вопрос на нашем [форуме](http://social.msdn.microsoft.com/Forums/windowsazure/ru-RU/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
+Свой запрос можно отправить на сайте [User Voice](http://feedback.azure.com/forums/246290-azure-automation). Если вам нужна помощь в написании модуля Runbook или в освоении PowerShell, опубликуйте вопрос на нашем [форуме](http://social.msdn.microsoft.com/Forums/windowsazure/RU-RU/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
 ## Связанные статьи
 
 - [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creating-importing-runbook.md)
 - [Изучение рабочего процесса Windows PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

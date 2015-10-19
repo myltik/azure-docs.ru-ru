@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="10/01/2015"
 	ms.author="ricksal"/>
 
 # Добавление синхронизации автономных данных в приложение мобильных служб Android
@@ -33,7 +33,6 @@
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
-
 ## Обновление приложения для поддержки синхронизации автономных данных
 
 При включенной синхронизации автономных данных операции чтения и записи осуществляются с помощью *таблицы синхронизации* (с помощью интерфейса *IMobileServiceSyncTable*), которая является частью базы данных **SQL Light** на устройстве.
@@ -48,14 +47,14 @@
 2. Добавьте следующие операторы **import** в файл *ToDoActivity.java*.
 
 		import java.util.Map;
-		
+
 		import android.widget.Toast;
-		
-		import com.microsoft.windowsazure.mobileservices.table.query.Query; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncTable; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore; 
+
+		import com.microsoft.windowsazure.mobileservices.table.query.Query;
+		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext;
+		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncTable;
+		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType;
+		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore;
 
 3. В верхней части класса `ToDoActivity` замените в объявлении переменной `mToDoTable` класс `MobileServiceTable<ToDoItem>` на класс `MobileServiceSyncTable<ToDoItem>`.
 
@@ -109,7 +108,7 @@
 		public void syncAsync(){
 			if (isNetworkAvailable()) {
 				new AsyncTask<Void, Void, Void>() {
-	
+
 					@Override
 					protected Void doInBackground(Void... params) {
 						try {
@@ -136,7 +135,7 @@
 	В результате при запуске устройства будет выполняться синхронизация с таблицей Azure. В противном случае будет отображаться содержимое, добавленное ранее в локальное хранилище в автономном режиме.
 
 
- 
+
 9. Измените метод `refreshItemsFromTable`, чтобы он использовал этот запрос (первая строка в блоке `try`):
 
 		final MobileServiceList<ToDoItem> result = mToDoTable.read(mPullQuery).get();
@@ -162,8 +161,8 @@
 
 В рамках этого сценария выполните следующие действия.
 
-1. Добавьте несколько новых элементов на устройстве. 
-2. Убедитесь, что элементы не отображаются на портале. 
+1. Добавьте несколько новых элементов на устройстве.
+2. Убедитесь, что элементы не отображаются на портале.
 3. Нажмите кнопку **Обновить** и убедитесь, что они появились.
 4. Измените или добавьте элемент на портале, затем нажмите кнопку **Обновить** и убедитесь, что изменения отображаются на устройстве.
 
@@ -212,7 +211,6 @@ One thing which is important to point out: if there are pending changes in the l
 
 
 [Get started with Mobile Services]: mobile-services-android-get-started.md
-[Get started with data]: mobile-services-android-get-started-data.md
 [Handling Conflicts with Offline Support for Mobile Services]: mobile-services-android-handling-conflicts-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 
@@ -221,4 +219,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [Быстрый запуск мобильных служб]: mobile-services-android-get-started.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

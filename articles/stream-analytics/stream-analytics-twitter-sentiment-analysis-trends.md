@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Анализ тональности данных Twitter в режиме реального времени с помощью Stream Analytics | Microsoft Azure"
 	description="Информация об использовании Stream Analytics для анализа тональности данных Twitter в режиме реального времени. Пошаговое руководство с шагами от создания событий до отображения данных на динамической панели мониторинга."
+	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/04/2015"
+	ms.date="10/05/2015"
 	ms.author="jeffstok"/>
 
 
@@ -223,7 +224,7 @@ Stream Analytics поддерживает простую декларативн�
 ![Анализ социальных сетей: вывод данных об анализе тональности (интеллектуальный анализ данных) Stream Analytics на панель мониторинга Power BI.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## Получение поддержки
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/RU-RU/home?forum=AzureStreamAnalytics).
 
 
 ## Дальнейшие действия
@@ -235,4 +236,4 @@ Stream Analytics поддерживает простую декларативн�
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

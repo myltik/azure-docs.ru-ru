@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Использование очередей служебной шины (Java) | Microsoft Azure"
+	pageTitle="Использование очередей служебной шины с Java | Microsoft Azure"
 	description="Узнайте, как использовать очереди служебной шины в Azure. Примеры кода написаны на Java."
 	services="service-bus"
 	documentationCenter="java"
@@ -13,27 +13,32 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/19/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # Как использовать очереди служебной шины
 
-В этом руководстве показано, как использовать очереди служебной шины. Примеры написаны на Java и используют [Пакет Azure SDK для Java][]. Здесь описаны такие сценарии, как **создание очередей**, **отправка и получение сообщений**, а также **удаление очередей**.
+В этой статье показано, как использовать очереди служебной шины. Примеры написаны на Java и используют [Пакет Azure SDK для Java][]. Здесь описаны такие сценарии, как **создание очередей**, **отправка и получение сообщений**, а также **удаление очередей**.
 
 [AZURE.INCLUDE [service-bus-java-how-to-create-queue](../../includes/service-bus-java-how-to-create-queue.md)]
 
 ## Настройка приложения для использования служебной шины
-Перед созданием этого образца убедитесь, что вы установили [пакет SDK Azure для Java][]. При использовании Eclipse можно установить [набор средств Azure для Eclipse][], включающий пакет SDK Azure для Java. Затем можно добавить **библиотеки Microsoft Azure для Java** в проект: ![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
-Добавьте в начало Java-файла следующие инструкции import:
+Перед созданием этого образца убедитесь, что вы установили [пакет SDK Azure для Java][]. При использовании Eclipse можно установить [набор средств Azure для Eclipse][], включающий пакет SDK Azure для Java. Затем можно добавить **библиотеки Microsoft Azure для Java** в проект:
 
-	// Include the following imports to use Service Bus APIs
-	import com.microsoft.windowsazure.services.servicebus.*;
-	import com.microsoft.windowsazure.services.servicebus.models.*;
-	import com.microsoft.windowsazure.core.*;
-	import javax.xml.datatype.*;
+![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
-## Как создать очередь
+Добавьте в начало Java-файла следующие инструкции `import`:
+
+```
+// Include the following imports to use Service Bus APIs
+import com.microsoft.windowsazure.services.servicebus.*;
+import com.microsoft.windowsazure.services.servicebus.models.*;
+import com.microsoft.windowsazure.core.*;
+import javax.xml.datatype.*;
+```
+
+## Создание очереди
 
 Операции управления для очередей служебной шины можно выполнять с помощью класса **ServiceBusContract**. Объект **ServiceBusContract** создается с соответствующей конфигурацией, которая инкапсулирует маркер SAS с разрешениями на управление им, а класс **ServiceBusContract** является единственной точкой связи с Azure.
 
@@ -60,7 +65,7 @@
         System.exit(-1);
     }
 
-Существуют методы QueueInfo, позволяющие свойства настройки очереди (например: значение по умолчанию «время жизни» для применения к сообщениям, отправленным в очередь). Следующий пример показывает, как создать очередь с именем TestQueue и размером не более 5 ГБ.
+Существуют методы **QueueInfo**, позволяющие свойства настройки очереди (например: значение «времени жизни» (Time to Live, TTL) по умолчанию для применения к сообщениям, отправленным в очередь). Следующий пример показывает, как создать очередь с именем `TestQueue` и размером не более 5 ГБ.
 
     long maxSizeInMegabytes = 5120;
     QueueInfo queueInfo = new QueueInfo("TestQueue");
@@ -69,9 +74,9 @@
 
 Обратите внимание, что метод **listQueues** можно использовать для объектов **ServiceBusContract**, чтобы проверить, существует ли уже очередь с указанным именем в пространстве имен службы.
 
-## Как отправлять сообщения в очередь
+## Отправка сообщений в очередь
 
-Чтобы отправить сообщение в очередь служебной шины, приложение получает объект **ServiceBusContract**. В приведенном ниже образце кода показано, как отправить сообщение, созданное ранее в пространстве имен "HowToSample" службы, в очередь "TestQueue":
+Чтобы отправить сообщение в очередь служебной шины, приложение получает объект **ServiceBusContract**. В следующем примере кода показано, как отправить сообщение в очередь `TestQueue`, созданную ранее в пространстве имен `HowToSample`.
 
     try
     {
@@ -85,9 +90,9 @@
         System.exit(-1);
     }
 
-Сообщения, отправляемые в очереди служебной шины и получаемые из них, представляют собой экземпляры класса **BrokeredMessage**. Объекты **BrokeredMessage** содержат набор стандартных методов (таких как **getLabel**, **getTimeToLive**, **setLabel** и **setTimeToLive**), словарь, который используется для хранения настраиваемых свойств приложения, и текст, состоящий из произвольных данных приложения. Приложение может задать текст сообщения, передав любой сериализуемый объект конструктору **BrokeredMessage**, после чего для сериализации объекта будет использоваться соответствующий сериализатор. Кроме того, может быть предоставлен объект **java.IO.InputStream**.
+Сообщения, отправляемые в очереди служебной шины и получаемые из них, представляют собой экземпляры класса [BrokeredMessage][]. Объекты [BrokeredMessage][] обладают набором стандартных свойств, (таких как [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) и [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), словарем, хранящим разные пользовательские свойства, зависящие от приложения, и основным набором произвольных данных приложения. Приложение может задать текст сообщения, передав любой сериализуемый объект конструктору [BrokeredMessage][], после чего для сериализации объекта будет использоваться соответствующий сериализатор. Вы также можете указать объект **java.IO.InputStream**.
 
-В следующем примере показано, как отправить пять тестовых сообщений в очередь TestQueue объекта **MessageSender**, полученного в предыдущем фрагменте кода:
+В следующем примере показано, как отправить пять тестовых сообщений в очередь `TestQueue` объекта **MessageSender**, полученного в предыдущем фрагменте кода:
 
     for (int i=0; i<5; i++)
     {
@@ -101,7 +106,7 @@
 
 Очереди служебной шины поддерживают максимальный размер сообщения 256 КБ (максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 КБ). Ограничения на количество сообщений в очереди нет, но есть максимальный общий размер сообщений, содержащихся в очереди. Этот размер очереди, определяемый в момент ее создания, не должен превышать 5 ГБ.
 
-## Как получать сообщения из очереди
+## Получение сообщений из очереди
 
 Самым простым способом получения сообщений из очереди является использование объекта **ServiceBusContract**. Полученные сообщения могут работать в двух различных режимах: **ReceiveAndDelete** и **PeekLock**.
 
@@ -109,7 +114,7 @@
 
 В режиме **PeekLock** процесс получения становится двухэтапной операцией, что позволяет поддерживать приложения, неустойчивые к пропуску сообщений. Получив запрос, служебная шина находит следующее сообщение, блокирует его, чтобы предотвратить его получение другими получателями, и возвращает его приложению. Когда приложение завершает обработку сообщения (или сохраняет его для будущей обработки), оно завершает второй этап процесса получения, вызывая метод **Delete** для полученного сообщения. Когда служебная шина обнаруживает вызов метода **Delete**, она помечает сообщение как использованное и удаляет его из очереди.
 
-В следующем примере показано, как получать и обрабатывать сообщения с помощью режима **PeekLock** (не используется по умолчанию): В примере ниже создается бесконечный цикл и сообщения обрабатываются по мере поступления в нашу "TestQueue":
+В следующем примере показано, как получать и обрабатывать сообщения с помощью режима **PeekLock** (не используется по умолчанию). В примере ниже создается бесконечный цикл и сообщения обрабатываются по мере поступления в нашу "TestQueue":
 
     	try
 	{
@@ -174,23 +179,14 @@
 
 Вы познакомились с основами использования очередей служебной шины. Дополнительные сведения см. в статье [Очереди, темы и подписки][].
 
-Дополнительную информацию см. также в [Центре разработчика Java](/develop/java/).
+Дополнительную информацию см. в [Центре разработчика Java](/develop/java/).
 
 
   [Пакет Azure SDK для Java]: http://azure.microsoft.com/develop/java/
   [пакет SDK Azure для Java]: http://azure.microsoft.com/develop/java/
-  [набор средств Azure для Eclipse]: https://msdn.microsoft.com/ru-RU/library/azure/hh694271.aspx
-  [What are Service Bus Queues?]: #what-are-service-bus-queues
-  [Create a Service Namespace]: #create-a-service-namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
-  [Configure Your Application to Use Service Bus]: #bkmk_ConfigApp
-  [How to: Create a Security Token Provider]: #bkmk_HowToCreateQueue
-  [How to: Send Messages to a Queue]: #bkmk_HowToSendMsgs
-  [How to: Receive Messages from a Queue]: #bkmk_HowToReceiveMsgs
-  [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrashes
-  [Next Steps]: #bkmk_NextSteps
+  [набор средств Azure для Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
   [Azure Management Portal]: http://manage.windowsazure.com/
   [Очереди, темы и подписки]: service-bus-queues-topics-subscriptions.md
- 
+  [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

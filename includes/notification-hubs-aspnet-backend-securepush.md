@@ -61,7 +61,7 @@
             var usernameTag = "username:" + HttpContext.Current.User.Identity.Name;
 
             // windows
-            var rawNotificationToBeSent = new Microsoft.ServiceBus.Notifications.WindowsNotification(secureNotificationInTheBackend.Id.ToString(),
+            var rawNotificationToBeSent = new Microsoft.Azure.NotificationHubs.WindowsNotification(secureNotificationInTheBackend.Id.ToString(),
                             new Dictionary<string, string> {
                                 {"X-WNS-Type", "wns/raw"}
                             });
@@ -84,4 +84,4 @@
 
 24. Выберите в качестве цели публикации веб-сайт Azure. Войдите с помощью учетной записи Azure, выберите существующий или новый веб-сайт и запишите свойство **URL-адрес назначения** во вкладке **Подключение**. Далее в учебнике этот URL-адрес будет называться *конечная точка сервера*. Щелкните **Опубликовать**.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

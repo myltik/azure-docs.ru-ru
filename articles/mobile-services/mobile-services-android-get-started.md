@@ -12,17 +12,21 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
-	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.topic="hero-article"
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 # Начало работы с мобильными службами для Android (серверная часть JavaScript)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
+&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+
 В этом учебнике показано, как добавить облачную серверную службу в приложение Android с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение **To do list**, хранящее данные приложения в новой мобильной службе.
 
-> [AZURE.VIDEO android-support-in-windows-azure-mobile-services]
+> [AZURE.VIDEO mobile-get-started-android]
 
 Снимок экрана завершенного приложения приведен ниже: ![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
 
@@ -87,7 +91,7 @@
 * [Приступая к работе с push-уведомлениями] <br/>Сведения об отправке в приложение простейших push-уведомлений.
 
 
-
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -117,4 +121,4 @@
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

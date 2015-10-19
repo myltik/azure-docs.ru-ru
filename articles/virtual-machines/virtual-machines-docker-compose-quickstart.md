@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Начало работы с решениями Docker и Compose на виртуальной машине Azure"
-   description="Краткое введение по использованию решений Compose и Docker в Azure"
+   pageTitle="Docker и Compose на виртуальной машине | Microsoft Azure"
+   description="Краткое введение по использованию решений Compose и Docker на виртуальных машинах Azure."
    services="virtual-machines"
    documentationCenter=""
    authors="dlepow"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -19,6 +20,8 @@
 # Начало работы с решениями Docker и Compose на виртуальной машине Azure
 
 В этой статье показано, как приступить к работе с решениями Docker и [Compose](http://github.com/docker/compose) с целью определения и запуска сложного приложения на виртуальной машине Linux в Azure. Решение Compose (преемник решения *Fig*) позволяет определить приложение, состоящее из нескольких контейнеров Docker, с помощью простого текстового файла. После этого приложение разворачивается с помощью одной команды, которая инициирует все действия, необходимые для его запуска на виртуальной машине. В этой статье показано, как быстро настроить блог WordPress с серверной базой данных SQL MariaDB, однако решение Compose можно использовать для настройки и более сложных приложений.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Эта статья распространяется на виртуальные машины, создаваемые как с помощью диспетчера ресурсов, так и с помощью классической модели развертывания.
 
 Если вы не знакомы с решением Docker и контейнерами, посмотрите это [видео о решении Docker](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
 
@@ -125,4 +128,4 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

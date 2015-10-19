@@ -7,9 +7,13 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2015" ms.author="sammehta"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/05/2015" ms.author="sammehta"; "jimpark"/>
 
 # Подготовка к архивированию рабочих нагрузок в Azure с помощью DPM
+
+> [AZURE.SELECTOR]
+- [Azure Backup](backup-azure-microsoft-azure-backup.md)
+- [SCDPM](backup-azure-dpm-introduction.md)
 
 В этой статье содержатся общие сведения о защите серверов и рабочих нагрузок System Center Data Protection Manager (DPM) с помощью службы архивации Microsoft Azure. Здесь можно найти информацию по перечисленным ниже темам.
 
@@ -81,4 +85,4 @@
 
 >[AZURE.NOTE]Начиная с версии System Center 2012 DPM с пакетом обновления 1 (SP1) и выше, в службе Azure можно создавать резервные копии рабочих нагрузок, защищенных DPM, с помощью службы архивации Microsoft Azure.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="10/05/2015"
 	ms.author="szarkos"/>
 
 # Подготовка виртуальной машины Ubuntu для Azure
@@ -36,7 +36,7 @@
 - Все VHD-диски должны иметь размер, кратный 1 МБ.
 
 
-## <a id="ubuntu"> </a>Ubuntu 12.04 и более поздних версий ##
+## <a id="ubuntu"> </a>Ubuntu 12.04 ##
 
 1. На центральной панели диспетчера Hyper-V выберите виртуальную машину.
 
@@ -44,7 +44,7 @@
 
 3.	Замените текущие репозитории в образе на репозитории Ubuntu Azure. Эти действия могут незначительно отличаться в зависимости от версии Ubuntu.
 
-	Перед редактированием файла /etc/apt/sources.list рекомендуется сделать резервную копию
+	Перед редактированием файла /etc/apt/sources.list рекомендуется сделать резервную копию:
 
 		# sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
@@ -54,38 +54,26 @@
 		# sudo apt-add-repository 'http://archive.canonical.com/ubuntu precise-backports main'
 		# sudo apt-get update
 
-	Ubuntu 12.10:
-
-		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
-		# sudo apt-add-repository 'http://archive.canonical.com/ubuntu quantal-backports main'
-		# sudo apt-get update
-
-	Ubuntu 14.04+
+	Ubuntu 14.04:
 
 		# sudo sed -i "s/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g" /etc/apt/sources.list
 		# sudo apt-get update
 
-4. Обновите операционную систему до последней версии ядра, выполнив следующие команды:
+4. Теперь образы Azure Ubuntu используют ядро с расширенной поддержкой оборудования *HardWare Enablement* (HWE). Обновите операционную систему до последней версии ядра, выполнив следующие команды.
 
 	Ubuntu 12,04:
 
 		# sudo apt-get update
-		# sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-precise-virtual
+		# sudo apt-get install linux-image-generic-lts-trusty linux-cloud-tools-generic-lts-trusty
+		# sudo apt-get install hv-kvp-daemon-init
 		(recommended) sudo apt-get dist-upgrade
 
 		# sudo reboot
 
-	Ubuntu 12.10:
+	Ubuntu 14.04:
 
 		# sudo apt-get update
-		# sudo apt-get install hv-kvp-daemon-init linux-backports-modules-hv-quantal-virtual
-		(recommended) sudo apt-get dist-upgrade
-
-		# sudo reboot
-
-	Ubuntu 14.04+
-
-		# sudo apt-get update
+		# sudo apt-get install linux-image-virtual-lts-vivid linux-lts-vivid-tools-common
 		# sudo apt-get install hv-kvp-daemon-init
 		(recommended) sudo apt-get dist-upgrade
 
@@ -124,4 +112,11 @@
 
 11. В диспетчере Hyper-V выберите **Действие -> Завершение работы**. Виртуальный жесткий диск Linux готов к передаче в Azure.
 
-<!---HONumber=Sept15_HO4-->
+## Ссылки ##
+
+Ядро Ubuntu с расширенной поддержкой оборудования HardWare Enablement (HWE)
+
+- [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
+- [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
+
+<!---HONumber=Oct15_HO2-->

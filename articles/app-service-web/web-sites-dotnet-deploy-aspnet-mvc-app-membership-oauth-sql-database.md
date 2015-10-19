@@ -41,7 +41,7 @@
 
 ## Предварительные требования
 
-Для работы с этим учебником необходимо использовать учетную запись Microsoft Azure. Если у вас нет учетной записи, можно [активировать преимущества для подписчиков MSDN](../ru-RU/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) или [подписаться на бесплатную пробную версию](../ru-RU/pricing/free-trial/?WT.mc_id=A261C142F).
+Для работы с этим учебником необходимо использовать учетную запись Microsoft Azure. Если у вас нет учетной записи, можно [активировать преимущества для подписчиков MSDN](../RU-RU/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) или [подписаться на бесплатную пробную версию](../RU-RU/pricing/free-trial/?WT.mc_id=A261C142F).
 
 Чтобы настроить среду разработки, необходимо установить [Visual Studio 2013 с обновлением 4](http://go.microsoft.com/fwlink/?LinkId=390521) или более позднюю версию и последнюю версию [Azure SDK для Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Эта статья была написана для версий Visual Studio с обновлением 4 и пакета SDK 2.5.1.
 
@@ -97,7 +97,7 @@
 		
 		</head>
 		<body>
-		    <div class="navbar navbar-inverase navbar-fixed-top">
+		    <div class="navbar navbar-inverse navbar-fixed-top">
 		        <div class="container">
 		            <div class="navbar-header">
 		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -212,7 +212,7 @@
 
 	![Диалоговое окно "Добавление нового элемента"][adddb002]
 
-3. Замените содержимое файла Contacts.cs на код, приведенный ниже.
+3. Замените содержимое файла Contact.cs на код, приведенный ниже.
 
         using System.ComponentModel.DataAnnotations;
         using System.Globalization;
@@ -230,7 +230,7 @@
                 public string Email { get; set; }
             }
         }
-Класс **Contacts** определяет данные, которые будут храниться для каждого контакта, а также первичный ключ, *ContactID*, необходимый для базы данных.
+Класс **Contact** определяет данные, которые будут храниться для каждого контакта, а также первичный ключ, *ContactID*, необходимый для базы данных.
 
 ### Создание веб-страниц, позволяющих пользователям приложений работать с контактами
 
@@ -369,7 +369,7 @@
 ## Использование API членства
 В этом разделе в базу данных членства будут добавлены локальный пользователь и роль *canEdit*. Только пользователи, входящие в роль *canEdit*, смогут изменять данные. Рекомендуется именовать роли по выполняемым ими действиям, например имя *canEdit* предпочтительнее имени *admin*. По мере развития приложения можно добавлять новые роли, например роль *canDeleteMembers*, имя которой предпочтительнее, чем менее описательное имя *superAdmin*.
 
-1. Откройте файл *migrations\configuration.cs* и добавьте следующие инструкции `using`:
+1. Откройте файл *migrations\\configuration.cs* и добавьте следующие инструкции `using`:
 
         using Microsoft.AspNet.Identity;
         using Microsoft.AspNet.Identity.EntityFramework;
@@ -724,4 +724,4 @@
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

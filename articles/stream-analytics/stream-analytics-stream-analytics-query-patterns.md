@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Шаблоны запросов Azure Stream Analytics | Microsoft Azure"
 	description="Общие шаблоны запросов Azure Stream Analytics"
+	keywords="stream analytics, sample, query, language, guide, patterns"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/19/2015"
+	ms.date="10/05/2015"
 	ms.author="jeffstok"/>
 
 
@@ -443,7 +444,7 @@
 Собираем все вместе и получаем хорошее -> плохое -> хорошее без другого хорошего события между ними. Теперь можно вычислить длительность между началом и концом хорошего события, что дает длительность ошибки.
 
 ## Получение справки
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/RU-RU/home?forum=AzureStreamAnalytics).
 
 ## Дальнейшие действия
 
@@ -454,4 +455,4 @@
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Управление виртуальными машинами Azure с помощью диспетчера ресурсов и PowerShell | Microsoft Azure"
+	pageTitle="Виртуальные машины диспетчера ресурсов Azure | Microsoft Azure"
 	description="Управление виртуальными машинами с помощью диспетчера ресурсов Azure, шаблонов и PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
@@ -379,4 +379,4 @@
 
 [Документация по виртуальным машинам](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -131,11 +131,10 @@
 
 <!-- URLs. -->
 [Приступая к работе с мобильными службами]: mobile-services-html-get-started.md
-[Get started with data]: mobile-services-html-get-started-data.md
 [Авторизация пользователей с помощью скриптов]: mobile-services-javascript-backend-service-side-authorization.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Справочник принципов использования мобильных служб HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

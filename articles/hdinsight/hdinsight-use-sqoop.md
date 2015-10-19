@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/02/2015"
 	ms.author="jgao"/>
 
 #Использование Sqoop с Hadoop в HDInsight (Windows)
@@ -50,6 +50,8 @@
 	<tr><td>Имя учетной записи хранения Azure</td><td>$storageAccountName</td><td></td><td>Учетная запись хранения Azure, доступная для кластера HDInsight. В этом учебнике используйте учетную запись хранения по умолчанию, указанную в процессе подготовки кластера.</td></tr>
 	<tr><td>Имя контейнера BLOB-объектов Azure</td><td>$containerName</td><td></td><td>Для этого примера используйте имя большого двоичного объекта, который применяется для стандартной файловой системы кластера HDInsight. По умолчанию его имя совпадает с именем кластера HDInsight.</td></tr>
 	</table>
+
+- **** База данных SQL Azure или SQL Server
 
 - **База данных SQL Azure**: необходимо настроить правило брандмауэра для сервера базы данных SQL Azure, чтобы разрешить доступ с рабочей станции. Инструкции по созданию базы данных SQL Azure и настройке брандмауэра см. в статье [Приступая к работе с базой данных SQL Azure][sqldatabase-get-started]. Эта статья включает сценарий Windows PowerShell для создания таблицы базы данных SQL Azure, необходимой в рамках этого учебника.
 
@@ -103,19 +105,19 @@
 - Таблица Hive с именем *hivesampletable*, которая ссылается на файл данных, расположенный в */hive/warehouse/hivesampletable*. Эта таблица содержит некоторые данные о мобильных устройствах. Схема таблицы Hive:
 
 	<table border="1">
-	<tr><th>Поле</th><th>Тип данных</th></tr>
-	<tr><td>clientid</td><td>string</td></tr>
-	<tr><td>querytime</td><td>string</td></tr>
-	<tr><td>market</td><td>string</td></tr>
-	<tr><td>deviceplatform</td><td>string</td></tr>
-	<tr><td>devicemake</td><td>string</td></tr>
-	<tr><td>devicemodel</td><td>string</td></tr>
-	<tr><td>state</td><td>string</td></tr>
-	<tr><td>country</td><td>string</td></tr>
-	<tr><td>querydwelltime</td><td>double</td></tr>
-	<tr><td>sessionid</td><td>bigint</td></tr>
-	<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
-	</table>
+<tr><th>Поле</th><th>Тип данных</th></tr>
+<tr><td>clientid</td><td>string</td></tr>
+<tr><td>querytime</td><td>string</td></tr>
+<tr><td>market</td><td>string</td></tr>
+<tr><td>deviceplatform</td><td>string</td></tr>
+<tr><td>devicemake</td><td>string</td></tr>
+<tr><td>devicemodel</td><td>string</td></tr>
+<tr><td>state</td><td>string</td></tr>
+<tr><td>country</td><td>string</td></tr>
+<tr><td>querydwelltime</td><td>double</td></tr>
+<tr><td>sessionid</td><td>bigint</td></tr>
+<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
+</table>
 
 Сначала вы экспортируете *sample.log* и *hivesampletable* в базу данных SQL Azur или на SQL Server, а затем импортируете таблицу с данными о мобильных устройствах обратно в HDInsight, используя следующий путь:
 
@@ -127,11 +129,11 @@ HDInsight использует для хранения данных хранил
 
 В процессе подготовки кластера HDInsight в качестве файловой системы по умолчанию задаются учетная запись хранения Azure и конкретный контейнер хранилища больших двоичных объектов из этой учетной записи (как и в HDFS). Помимо этой учетной записи хранения в процессе подготовки вы можете добавить дополнительные учетные записи хранения из той же или других подписок на Azure.
 
-Инструкции по добавлению дополнительных учетных записей хранения см. в разделе [Подготовка кластеров HDInsight][hdinsight-provision]. Чтобы упростить сценарий Windows PowerShell, используемый в этом учебнике, все файлы хранятся в контейнере файловой системы по умолчанию, расположенном в */tutorials/usesqoop*. Имя контейнера по умолчанию совпадает с именем кластера HDInsight. Синтаксис :
+Инструкции по добавлению дополнительных учетных записей хранения см. в разделе [Подготовка кластеров HDInsight][hdinsight-provision]. Чтобы упростить сценарий Windows PowerShell, используемый в этом учебнике, все файлы хранятся в контейнере файловой системы по умолчанию, расположенном в */tutorials/usesqoop*. Имя контейнера по умолчанию совпадает с именем кластера HDInsight. Синтаксис:
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE]Кластер HDInsight версии 3.0 поддерживает только синтаксис *wasb://*. Прежний синтаксис *asv://* поддерживается в кластерах HDInsight 2.1 и 1.6, однако не поддерживается в кластерах HDInsight 3.0.
+> [AZURE.NOTE]Кластер HDInsight версии 3.0 поддерживает только синтаксис **wasb://*. Прежний синтаксис **asv://* поддерживается в кластерах HDInsight 2.1 и 1.6, однако не поддерживается в кластерах HDInsight 3.0.
 
 > [AZURE.NOTE]Путь **wasb://* является виртуальным. Дополнительную информацию см. в статье [Использование хранилища больших двоичных объектов Azure с HDInsight][hdinsight-storage].
 
@@ -409,7 +411,7 @@ HDInsight использует для хранения данных хранил
 		Write-Host "Standard Output" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
-	Обратите внимание на то, что в качестве разделителя полей используется **\0x20**, то есть пробел. Разделитель определяется в файле sample.log сценария Azure PowerShell. Чтобы узнать о **-m 1**, см. [руководство пользователя Sqoop][sqoop-user-guide-1.4.4].
+	Обратите внимание на то, что в качестве разделителя полей используется **\\0x20**, то есть пробел. Разделитель определяется в файле sample.log сценария Azure PowerShell. Чтобы узнать о **-m 1**, см. [руководство пользователя Sqoop][sqoop-user-guide-1.4.4].
 
 5. Для выполнения скрипта щелкните **Выполнить скрипт** или нажмите клавишу **F5**.
 6. Используйте [портал предварительной версии][azure-management-portal] для анализа экспортированных данных.
@@ -465,104 +467,66 @@ HDInsight использует для хранения данных хранил
 5. Для выполнения скрипта щелкните **Выполнить скрипт** или нажмите клавишу **F5**.
 6. Используйте [портал предварительной версии][azure-management-portal] для анализа экспортированных данных.
 
-
-
 ##Использование SDK HDInsight .NET для экспорта Sqoop
 
-Ниже приведен пример на C#, использующий пакет SDK HDInsight .NET для экспорта Sqoop. Общие сведения об использовании пакета SDK HDInsight .NET см. в статье [Отправка заданий Hadoop программными средствами][hdinsight-submit-jobs].
+В этом разделе вы создадите и настроите консольное приложение C# для экспорта hivesampletable в созданную ранее таблицу базы данных SQL.
 
+**Отправка задания Sqoop**
 
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
-	using System.Threading.Tasks;
-	using System.IO;
-	using System.Threading;
-	using System.Security.Cryptography.X509Certificates;
-	using Microsoft.WindowsAzure.Management.HDInsight;
-	using Microsoft.Hadoop.Client;
+1. В Консоли диспетчера пакетов Visual Studio выполните следующую команду Nuget, чтобы импортировать пакет:
 
-	namespace sqoopSDKSample
-	{
-	    class Program
-	    {
-	        static void Main(string[] args)
-	        {
-	            // Set the variables
-	            string subscriptionID = "<AzureSubscriptionID>";
-	            string clusterName = "<HDInsightClusterName>";
-	            string certFriendlyName = "<AzureCertificateFriendlyName>";
-	            string sqlDatabaseServerName = "<SQLDatabaseServerName>";
-	            string sqlDatabaseLogin = "<SQLDatabaseLogin>";
-	            string sqlDatabaseLoginPassword = "<SQLDatabaseLoginPassword>";
-	            string sqlDatabaseDatabaseName = "hdisqoop";
-	            string sqlDatabaseTableName = "log4jlogs";
+		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
+2. Используйте следующие инструкции using в файле Program.cs:
 
-	            cmdExport = @"export";
-				// Connection string for using Azure SQL Database.
-				// Comment if using SQL Server
-	            cmdExport = cmdExport + @" --connect jdbc:sqlserver://" + sqlDatabaseServerName + ".database.windows.net;user=" + sqlDatabaseLogin + "@" + sqlDatabaseServerName + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName;
-				// Connection string for using SQL Server.
-				// Uncomment if using SQL Server
-				//cmdExport = cmdExport + @" --connect jdbc:sqlserver://" + sqlDatabaseServerName + ";user=" + sqlDatabaseLogin + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName;
-	            cmdExport = cmdExport + @" --table " + sqlDatabaseTableName;
-	            cmdExport = cmdExport + @" --export-dir /tutorials/usesqoop/data";
-	            cmdExport = cmdExport + @" --input-fields-terminated-by \0x20 -m 1";
+		using System;
+		using Microsoft.Azure.Management.HDInsight.Job;
+		using Microsoft.Azure.Management.HDInsight.Job.Models;
+		using Hyak.Common;
+3. Добавьте следующий код в функцию Main(): Общие сведения об использовании пакета SDK HDInsight .NET см. в статье [Отправка заданий Hadoop программными средствами][hdinsight-submit-jobs].
 
-	            SqoopJobCreateParameters sqoopJobDefinition = new SqoopJobCreateParameters()
-	            {
-	                Command = cmdExport,
-	                StatusFolder = "/tutorials/usesqoop/jobStatus"
-	            };
+		var ExistingClusterName = "<HDInsightClusterName>";
+		var ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
+		var ExistingClusterUsername = "<HDInsightClusterHttpUsername>";
+		var ExistingClusterPassword = "<HDInsightClusterHttpUserPassword>";
+		
+		var sqlDatabaseServerName = "<AzureSQLDatabaseServerName>";
+		var sqlDatabaseLogin = "<AzureSQLDatabaseLogin>";
+		var sqlDatabaseLoginPassword = "<AzureSQLDatabaseLoginPassword>";
+		var sqlDatabaseDatabaseName = "<AzureSQLDatabaseDatabaseName>";
+		
+		var sqlDatabaseTableName = "log4jlogs";
+		var exportDir = "/hive/warehouse/hivesampletable";
 
-	            // Get the certificate object from certificate store using the friendly name to identify it
-	            X509Store store = new X509Store();
-	            store.Open(OpenFlags.ReadOnly);
-	            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
-	            JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
+		var cmdExport = @"export";
+		// Connection string for using Azure SQL Database.
+		// Comment if using SQL Server
+		cmdExport = cmdExport + @" --connect 'jdbc:sqlserver://" + sqlDatabaseServerName + ".database.windows.net;user=" + sqlDatabaseLogin + "@" + sqlDatabaseServerName + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName +"'"; 
+		// Connection string for using SQL Server.
+		// Uncomment if using SQL Server
+		//cmdExport = cmdExport + @" --connect jdbc:sqlserver://" + sqlDatabaseServerName + ";user=" + sqlDatabaseLogin + ";password=" + sqlDatabaseLoginPassword + ";database=" + sqlDatabaseDatabaseName;
+		cmdExport = cmdExport + @" --table " + sqlDatabaseTableName;
+		cmdExport = cmdExport + @" --export-dir " + exportDir;
+		cmdExport = cmdExport + @" --input-fields-terminated-by \0x20 -m 1";
+		
+		HDInsightJobManagementClient _hdiJobManagementClient;
+		var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
+		_hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
 
-	            // Submit the Sqoop job
-	            var jobClient = JobSubmissionClientFactory.Connect(creds);
-	            JobCreationResults jobResults = jobClient.CreateSqoopJob(sqoopJobDefinition);
-
-	            // Wait for the job to complete
-	            WaitForJobCompletion(jobResults, jobClient);
-
-	            // Print the Sqoop job output
-	            System.IO.Stream stream = jobClient.GetJobErrorLogs(jobResults.JobId);
-
-	            StreamReader reader = new StreamReader(stream);
-	            Console.WriteLine(reader.ReadToEnd());
-
-	            Console.WriteLine("Press ENTER to continue.");
-	            Console.ReadLine();
-	        }
-
-	        private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
-	        {
-	            JobDetails jobInProgress = client.GetJob(jobResults.JobId);
-	            while (jobInProgress.StatusCode != JobStatusCode.Completed && jobInProgress.StatusCode != JobStatusCode.Failed)
-	            {
-	                jobInProgress = client.GetJob(jobInProgress.JobId);
-	                Thread.Sleep(TimeSpan.FromSeconds(10));
-	            }
-	        }
-	    }
-	}
-
-Чтобы выполнить файл скрипта, можно заменить:
-
-	Command = cmdExport,
-
- на:
-
-	File = "/tutorials/usesqoop/sqoopexport.txt",
-
-Этот файл сценария должен находиться в хранилище больших двоичных объектов Azure.
-
-
-
+		var parameters = new SqoopJobSubmissionParameters
+		{
+		    UserName = ExistingClusterUsername,
+		    Command = cmdExport
+		};
+		
+		System.Console.WriteLine("Submitting the Sqoop job to the cluster...");
+		var response = _hdiJobManagementClient.JobManagement.SubmitSqoopJob(parameters);
+		System.Console.WriteLine("Validating that the response is as expected...");
+		System.Console.WriteLine("Response status code is " + response.StatusCode);
+		System.Console.WriteLine("Validating the response object...");
+		System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
+		Console.WriteLine("Press ENTER to continue ...");
+		Console.ReadLine();
+4. Нажмите клавишу **F5** для запуска программы. 
 
 ##Использование Azure PowerShell для импорта Sqoop
 
@@ -621,9 +585,9 @@ HDInsight использует для хранения данных хранил
 
 Теперь вы узнали, как использовать Sqoop. Дополнительные сведения см. на следующих ресурсах:
 
-- [Использование Oozie с HDInsight][hdinsight-use-oozie]: используйте действие Sqoop в рабочем процессе Oozie.
-- [Анализ данных о задержке рейсов с помощью HDInsight][hdinsight-analyze-flight-data]: используйте Hive для анализа данных о задержке рейсов, а затем используйте Sqoop для экспорта данных в базу данных SQL Azure.
-- [Передача данных в HDInsight][hdinsight-upload-data]: узнайте о других способах отправки данных в HDInsight и хранилище больших двоичных объектов Azure.
+- [Использование Oozie с HDInsight][hdinsight-use-oozie]\: используйте действие Sqoop в рабочем процессе Oozie.
+- [Анализ данных о задержке рейсов с помощью HDInsight][hdinsight-analyze-flight-data]\: используйте Hive для анализа данных о задержке рейсов, а затем используйте Sqoop для экспорта данных в базу данных SQL Azure.
+- [Передача данных в HDInsight][hdinsight-upload-data]\: узнайте о других способах отправки данных в HDInsight и хранилище больших двоичных объектов Azure.
 
 
 
@@ -648,4 +612,4 @@ HDInsight использует для хранения данных хранил
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

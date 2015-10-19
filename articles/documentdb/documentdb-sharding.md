@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="10/05/2015" 
 	ms.author="arramac"/>
 
 # Секционирование данных в DocumentDB с помощью пакета SDK для .NET
@@ -167,4 +167,4 @@ DocumentDB поддерживает клиентское секциониров�
 * [Блог с советами по повышению производительности DocumentDB](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

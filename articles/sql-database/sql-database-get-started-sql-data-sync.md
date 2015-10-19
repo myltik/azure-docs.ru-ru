@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/01/2015"
 	ms.author="jhubbard"/>
 
 
@@ -195,11 +195,11 @@
 ## Дальнейшие действия
 Дополнительные сведения о синхронизации данных SQL и базе данных SQL см. в следующих документах:
 
-* [Содержимое для синхронизации данных SQL в библиотеке MSDN](https://msdn.microsoft.com/library/azure/hh456371.aspx)
+* [Скачивание технической документации по синхронизации данных SQL](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
 * [Обзор Базы данных SQL](sql-database-technical-overview.md)
 * [Управление жизненным циклом базы данных](https://msdn.microsoft.com/library/jj907294.aspx)
  
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

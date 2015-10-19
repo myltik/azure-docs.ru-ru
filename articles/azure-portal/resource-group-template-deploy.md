@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="10/02/2015"
    ms.author="tomfitz"/>
 
 # Развертывание приложения с использованием шаблона диспетчера ресурсов Azure
@@ -240,9 +240,10 @@
 ## Дальнейшие действия
 - Пример развертывания ресурсов через клиентскую библиотеку .NET см. в статье [Развертывание ресурсов с использованием библиотек .NET и шаблона](../arm-template-deployment.md).
 - Подробный пример развертывания приложения см. в статье [Предсказуемые подготовка и развертывание микрослужб в Azure.](../app-service-web/app-service-deploy-complex-application-predictably.md)
+- Инструкции по развертыванию вашего решения для различных сред см. в статье [Среды разработки и тестирования в Microsoft Azure](../solution-dev-test-environments-preview-portal.md).
 - Дополнительную информацию о разделах в шаблоне диспетчера ресурсов Azure см. в статье [Создание шаблонов](../resource-group-authoring-templates.md).
 - Список функций, которые можно использовать в шаблоне диспетчера ресурсов Azure, см. в статье [Функции шаблонов](../resource-group-template-functions.md).
 
  
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->
