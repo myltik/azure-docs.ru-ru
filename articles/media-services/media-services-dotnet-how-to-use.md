@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 #Разработка служб мультимедиа с помощью .NET 
@@ -28,9 +28,9 @@
 ##Предварительные требования
 
 -   Учетная запись служб мультимедиа в новой или существующей подписке Azure. Дополнительные сведения см. в разделе [Создание учетной записи служб мультимедиа](media-services-create-account.md).
--   Операционные системы: Windows 7, Windows 2008 R2 или Windows 8.
--   .NET Framework 4.5.
--   Visual Studio 2013, Visual Studio 2012 или Visual Studio 2010 с пакетом обновления 1 (SP1) (Professional, Premium, Ultimate или Express). 
+-   Операционные системы: Windows 10, Windows 7, Windows 2008 R2 или Windows 8.
+-   .NET Framework 4.5
+-    Visual Studio 2015, Visual Studio 2013, Visual Studio 2012 или Visual Studio 2010 с пакетом обновления 1 (SP1) (Professional, Premium, Ultimate или Express). 
   
 
 ##Создание и настройка проекта Visual Studio 
@@ -75,15 +75,9 @@
 	Чтобы получить **имя учетной записи** и **ключ учетной записи**, откройте **портал управления Azure**, выберите учетную запись служб мультимедиа и нажмите кнопку **УПРАВЛЕНИЕ КЛЮЧАМИ**.
 
 
-	<pre><code>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</code></pre>
-
+	<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
+	  
+	</configuration>
 
 5. Замените существующие инструкции using в начале файла Program.cs на следующий код.
 
@@ -108,4 +102,4 @@
 - [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

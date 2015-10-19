@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="10/06/2015" 
 	ms.author="spelluru"/>
 
 # Перемещение данных в таблицу SQL Azure и из нее с помощью фабрики данных Azure
 
-В этой статье рассказывается, как с помощью действия копирования в фабрике данных Azure можно перемещать данные в таблицу Azure из другого хранилища данных и обратно. Эта статья основана на статье о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования и поддерживаемых сочетаниях хранилищ данных.
+В этой статье рассказывается, как с помощью действия копирования в фабрике данных Azure можно перемещать данные из другого хранилища данных в таблицу Azure и обратно. Эта статья основана на статье о [действиях перемещения данных](data-factory-data-movement-activities.md), в которой приведены общие сведения о перемещении данных с помощью действия копирования и поддерживаемых сочетаниях хранилищ данных.
 
 ## Пример копирования данных из таблицы Azure в большой двоичный объект Azure
 
@@ -384,6 +384,26 @@ azureTableInsertType | Режим для вставки данных в табл
 writeBatchSize | Вставка данных в таблицу Azure при достижении writeBatchSize или writeBatchTimeout. | Целое число от 1 до 100 (единица = количество строк) | Нет (значение по умолчанию — 100) 
 writeBatchTimeout | Вставка данных в таблицу Azure при достижении writeBatchSize или writeBatchTimeout | Значение — промежуток времени. Пример: 00:20:00 (20 минут). | Нет (по умолчанию используется время ожидания, стандартное для клиента хранения — 90 секунд)
 
+### azureTablePartitionKeyName
+Для того чтобы вы могли использовать целевой столбец как azureTablePartitionKeyName, необходимо сопоставить исходный столбец с целевым столбцом с помощью JSON свойства translator.
+
+В следующем примере исходный столбец DivisionID сопоставляется с целевым столбцом: DivisionID.
+
+	"translator": {
+		"type": "TabularTranslator",
+		"columnMappings": "DivisionID: DivisionID, FirstName: FirstName, LastName: LastName"
+	} 
+
+EmpID указывается в качестве ключа секции.
+
+	"sink": {
+		"type": "AzureTableSink",
+		"azureTablePartitionKeyName": "DivisionID",
+		"writeBatchSize": 100,
+		"writeBatchTimeout": "01:00:00"
+	}
+
+
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ### Сопоставление типов для таблиц Azure
@@ -484,4 +504,4 @@ lastlogindate | Edm.DateTime
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Отслеживание заданий Stream Analytics и управление ими с помощью PowerShell | Microsoft Azure" 
 	description="Сведения об использовании Azure PowerShell и командлетов для отслеживания заданий Stream Analytics и управления ими." 
+	keywords="azure powershell,azure powershell cmdlets,powershell command"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/04/2015" 
+	ms.date="10/05/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -258,7 +259,7 @@
 Эта команда PowerShell проверяет состояние подключения выходных данных Output в StreamingJob.
 
 ## Получение поддержки
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/RU-RU/home?forum=AzureStreamAnalytics).
 
 
 ## Дальнейшие действия
@@ -287,4 +288,4 @@
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

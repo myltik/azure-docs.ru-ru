@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Использование динамического шифрования c помощью алгоритма AES-128 и службы доставки ключей"
+	pageTitle="Использование динамического шифрования AES-128 и службы доставки ключей"
 	description="Службы мультимедиа Microsoft Azure позволяют доставлять содержимое, зашифрованное с помощью 128-битных ключей шифрования AES. Они также включают в себя службу доставки ключей, которая доставляет ключи шифрования авторизованным пользователям. В этой статье показано, как динамически шифровать содержимое с помощью алгоритма AES-128 и службы доставки ключей."
 	services="media-services"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/16/2015"
+	ms.date="10/07/2015"
 	ms.author="juliako"/>
 
-#Использование динамического шифрования c помощью алгоритма AES-128 и службы доставки ключей
+#Использование динамического шифрования AES-128 и службы доставки ключей
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-protect-with-aes128.md)
@@ -66,93 +66,25 @@
 
 Для кодирования и потоковой передачи видео, а также управления ими необходимо сначала отправить содержимое в службы мультимедиа Microsoft Azure. Оно будет сохранено в безопасном облачном хранилище для последующей обработки и потоковой передачи.
 
-В следующем фрагменте кода показано, как создать ресурс-контейнер и отправить в него указанный файл.
-	
-	static public IAsset UploadFileAndCreateAsset(string singleFilePath)
-	{
-	    if(!File.Exists(singleFilePath))
-	    {
-	        Console.WriteLine("File does not exist.");
-	        return null;
-	    }
-	
-	    var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
-	    IAsset inputAsset = _context.Assets.Create(assetName, AssetCreationOptions.StorageEncrypted);
-	
-	    var assetFile = inputAsset.AssetFiles.Create(Path.GetFileName(singleFilePath));
-	
-	    Console.WriteLine("Created assetFile {0}", assetFile.Name);
-	
-	    var policy = _context.AccessPolicies.Create(
-	                            assetName,
-	                            TimeSpan.FromDays(30),
-	                            AccessPermissions.Write | AccessPermissions.List);
-	
-	    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
-	
-	    Console.WriteLine("Upload {0}", assetFile.Name);
-	
-	    assetFile.Upload(singleFilePath);
-	    Console.WriteLine("Done uploading {0}", assetFile.Name);
-	
-	    locator.Delete();
-	    policy.Delete();
-	
-	    return inputAsset;
-	}
+Дополнительные сведения см. в разделе [Передача файлов в учетную запись служб мультимедиа](media-services-dotnet-upload-files.md).
 
-##<a id="encode_asset"></a>Кодирование ресурса-контейнера с файлами в набор MP4-файлов с переменной скоростью
+##<a id="encode_asset"></a>Закодируйте ресурс-контейнер с файлами в набор MP4-файлов с переменной скоростью.
 
 При использовании динамического шифрования вам достаточно создать ресурс-контейнер, содержащий набор многоскоростных MP4-файлов или многоскоростных исходных файлов Smooth Streaming. Затем с учетом формата, указанного в манифесте или запросе фрагмента, сервер потоковой передачи по запросу организует передачу содержимого по выбранному протоколу. В результате вы сможете хранить и оплачивать файлы только в одном формате, а службы мультимедиа выполнят сборку и будут обслуживать соответствующий ответ на основе запросов клиента. Дополнительные сведения см. в разделе [Динамическое упаковывание](media-services-dynamic-packaging-overview.md).
 
-В следующем фрагменте кода показано, как закодировать ресурс-контейнер в набор MP4-файлов с переменной скоростью.
-	
-	static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
-	{
-	    var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
-	
-	    IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
-	                            inputAsset.Name,
-	                            encodingPreset));
-	
-	    var mediaProcessors = 
-	        _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder")).ToList();
-	
-	    var latestMediaProcessor = 
-	        mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
-	
-	
-	
-	    ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
-	    encodeTask.InputAssets.Add(inputAsset);
-	    encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), AssetCreationOptions.StorageEncrypted);
-	
-	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-	    job.Submit();
-	    job.GetExecutionProgressTask(CancellationToken.None).Wait();
-	
-	    return job.OutputMediaAssets[0];
-	}
-	
-	static private void JobStateChanged(object sender, JobStateChangedEventArgs e)
-	{
-	    Console.WriteLine(string.Format("{0}\n  State: {1}\n  Time: {2}\n\n",
-	        ((IJob)sender).Name,
-	        e.CurrentState,
-	        DateTime.UtcNow.ToString(@"yyyy_M_d__hh_mm_ss")));
-	}
+Инструкции по выполнению шифрования см. в статье [Порядок кодирования актива с использованием стандартного кодировщика мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md).
 
 ##<a id="create_contentkey"></a>Создание ключа содержимого и связывание его с закодированным ресурсом-контейнером
 
 В службах мультимедиа ключ содержимого содержит ключ, который используется для шифрования ресурса-контейнера.
 
-Дополнительные сведения см. в разделе [Создание ContentKey с использованием .NET](media-services-dotnet-create-contentkey.md).
+Дополнительные сведения см. в статье [Создание ключа содержимого](media-services-dotnet-create-contentkey.md).
 
-##<a id="configure_key_auth_policy"></a>Настройка политики авторизации для ключа содержимого
+##<a id="configure_key_auth_policy"></a>Настройка политики авторизации ключа содержимого
 
 Службы мультимедиа поддерживают несколько способов аутентификации пользователей, которые запрашивают ключи. Чтобы получить ключ содержимого, клиент (проигрыватель) должен соответствовать заданной для этого ключа политике авторизации. Для политики авторизации ключа содержимого можно задать одно или несколько из ограничений авторизации: открытая авторизация, с ограничением по маркеру или с ограничением по IP-адресу.
 
-Подробную информацию см. в разделе [Динамическое шифрование: настройка политики авторизации ключа содержимого](media-services-dotnet-configure-content-key-auth-policy.md).
+Подробную информацию см. в разделе [Динамическое шифрование. Настройка политики авторизации ключа содержимого](media-services-dotnet-configure-content-key-auth-policy.md).
 
 ##<a id="configure_asset_delivery_policy"></a>Настройка политики доставки для ресурса-контейнера 
 
@@ -163,7 +95,7 @@
 - Протокол доставки ресурсов-контейнеров (например, MPEG-DASH, HLS, HDS, Smooth Streaming или все перечисленные).
 - Тип динамического шифрования (например, конвертное шифрование с помощью AES), если оно используется. 
 
-Подробную информацию см. в разделе [Практическое руководство: настройка политик доставки ресурсов](media-services-rest-configure-asset-delivery-policy.md).
+Подробную информацию см. в статье [Настройка политики доставки для ресурса-контейнера](media-services-rest-configure-asset-delivery-policy.md).
 
 ##<a id="create_locator"></a>Создание указателя OnDemand для получения URL-адреса для потоковой передачи
 
@@ -671,4 +603,4 @@
 - [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

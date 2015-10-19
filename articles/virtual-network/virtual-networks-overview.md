@@ -93,4 +93,4 @@
 - [Резервирование общедоступного IP-адреса](../virtual-networks-reserved-public-ip.md).
 - Узнайте больше об [определяемых пользователем маршрутах и IP-пересылке](virtual-networks-udr-overview.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

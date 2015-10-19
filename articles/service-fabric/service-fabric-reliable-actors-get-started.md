@@ -3,7 +3,7 @@
    description="Это пошаговое руководство проведет вас по этапам создания, отладки и развертывания примера службы HelloWorld с использованием надежных субъектов Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Надежные субъекты: пошаговое руководство по началу работы на примере HelloWorld
 В данной статье объясняются основы надежных субъектов Service Fabric Reliable Actors и описывается процесс создания, отладки и развертывания простого приложения HelloWorld в Visual Studio.
@@ -158,4 +158,4 @@ fabricRuntime.RegisterActor(typeof(MyNewActor));
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

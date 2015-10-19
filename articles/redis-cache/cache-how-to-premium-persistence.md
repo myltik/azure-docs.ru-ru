@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/01/2015" 
 	ms.author="sdanie"/>
 
 # Настройка постоянного хранения для кэша Redis для Azure уровня Премиум
@@ -81,8 +81,10 @@
 Все резервные копии за исключением последней автоматически удаляются. Это удаление может происходить не сразу, но старые резервные копии не хранятся в течение неограниченного периода времени.
 
 ## Дальнейшие действия
+Узнайте, как использовать расширенные функции кэша.
 
-Ознакомьтесь с другими функциями кэша уровня Премиум. – [Настройка кластеризации для кэша Redis для Azure уровня Премиум](cache-how-to-premium-clustering.md) – [Настройка поддержки виртуальной сети для кэша Redis для Azure уровня Премиум](cache-how-to-premium-vnet.md).
+-	[Настройка кластеризации для кэша Redis для Azure уровня Премиум](cache-how-to-premium-clustering.md)
+-	[Настройка поддержки виртуальной сети для кэша Redis для Azure уровня Премиум](cache-how-to-premium-vnet.md)
   
 <!-- IMAGES -->
 
@@ -94,4 +96,4 @@
 
 [redis-cache-persistence-selected]: ./media/cache-how-to-premium-persistence/redis-cache-persistence-selected.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

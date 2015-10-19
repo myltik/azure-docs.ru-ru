@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="08/05/2015"
+	ms.date="10/07/2015"
 	ms.author="raynew"/>
 
 
@@ -135,4 +135,4 @@ VM2 (реплика VM1) | VMNetwork1-Chicago
 
 Теперь, когда вы получили представление о сетевом сопоставлении, изучите [рекомендации](site-recovery-best-practices.md) для подготовки к развертыванию.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

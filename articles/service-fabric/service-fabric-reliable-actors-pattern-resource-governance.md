@@ -3,7 +3,7 @@
    description="Шаблон разработки, показывающий, как можно использовать субъекты Service Fabric для моделирования приложения, которое требуется масштабировать с использованием ограниченных ресурсов"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Шаблон разработки надежных субъектов: управление ресурсами
 Этот шаблон и связанные сценарии легко распознаются корпоративными или другими разработчиками, у которых ограничены ресурсы на локальной площадке или в облаке, масштабирование которых невозможно или которые хотят отправить крупномасштабные приложения и данные в облако.
@@ -417,4 +417,4 @@ public class EventWriter : Actor<EventWriterState>, IEventWriter
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

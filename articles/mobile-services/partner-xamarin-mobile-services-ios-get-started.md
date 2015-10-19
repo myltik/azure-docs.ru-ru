@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с мобильными службами для приложений Xamarin iOS"
+	pageTitle="Приступая к работе с мобильными службами для приложений Xamarin для iOS | Microsoft Azure"
 	description="Этот учебник поможет приступить к использованию мобильных служб Azure для разработки приложений Xamarin для iOS."
 	services="mobile-services"
 	documentationCenter="xamarin"
@@ -12,23 +12,23 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.topic="hero-article"
+	ms.date="10/06/2015"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-В этом учебнике показано, как с помощью мобильных служб Azure добавить облачную серверную службу в приложение Xamarin.iOS. В этом учебнике вы создадите новую мобильную службу и простое приложение <em>To do list</em>, хранящее данные приложения в новой мобильной службе.
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+
+В этом учебнике показано, как с помощью мобильных служб Azure добавить облачную серверную службу в приложение Xamarin.iOS. В этом учебнике вы создадите новую мобильную службу и простое приложение *To do list*, хранящее данные приложения в новой мобильной службе.
 
 Кроме того, можно посмотреть видеоклип (см. ниже), где приведены те же действия, что и в учебнике.
 
 Видео: «Приступая к работе с мобильными службами Xamarin и Azure» с участием Крейга Данна (Craig Dunn), ИТ-пропагандиста продукции Xamarin (длительность: 10:05 мин)
 
 > [AZURE.VIDEO getting-started-with-xamarin-and-mobile-services]
-
-
 
 Снимок экрана завершенного приложения приведен ниже:
 
@@ -98,13 +98,16 @@
 ## Дальнейшие действия
 Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах:
 
-* [Начало работы с данными] <br/>Узнайте, как добавить новую таблицу в мобильную службу, а затем считывать и записывать данные в этой таблице.
+* [Приступая к работе с синхронизацией автономных данных] Узнайте, как использовать синхронизацию автономных данных, чтобы приложения были более быстрыми и надежными.
 
-* [Приступая к работе с синхронизацией автономных данных] <br/>Узнайте, как использовать синхронизацию автономных данных, чтобы приложения были более быстрыми и надежными.
+* [Приступая к работе с проверкой подлинности] Дополнительные сведения о проверке подлинности учетных данных пользователей приложения с помощью поставщика удостоверений.
 
-* [Приступая к работе с проверкой подлинности ] <br/>Дополнительные сведения о проверке подлинности учетных данных пользователей приложения с помощью поставщика удостоверений.
+* [Приступая к работе с push-уведомлениями] Сведения об отправке в приложение базовых push-уведомлений.
 
-* [Приступая к работе с push-уведомлениями] <br/>Сведения об отправке в приложение простейших push-уведомлений.
+* [Использование клиентского компонента Xamarin для мобильных служб Azure](partner-xamarin-mobile-services-how-to-use-client-library.md) Узнайте, как отправлять запросы в мобильную службу, работать с данными и обращаться к настраиваемым API.
+  
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -124,9 +127,8 @@
 
 
 <!-- URLs. -->
-[Начало работы с данными]: partner-xamarin-mobile-services-ios-get-started-data.md
 [Приступая к работе с синхронизацией автономных данных]: mobile-services-xamarin-ios-get-started-offline-data.md
-[Приступая к работе с проверкой подлинности ]: partner-xamarin-mobile-services-ios-get-started-users.md
+[Приступая к работе с проверкой подлинности]: partner-xamarin-mobile-services-ios-get-started-users.md
 [Приступая к работе с push-уведомлениями]: partner-xamarin-mobile-services-ios-get-started-push.md
 
 [Xamarin Studio]: http://xamarin.com/download
@@ -134,4 +136,4 @@
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

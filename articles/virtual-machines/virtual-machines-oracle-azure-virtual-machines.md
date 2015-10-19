@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="07/09/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 # Программное обеспечение Oracle, размещенное в виртуальных машинах Azure
@@ -43,14 +43,6 @@
 
 В статье [Создание виртуальной машины Oracle WebLogic Server 12c и Oracle Database 12c в Azure](virtual-machines-creating-oracle-weblogic-server-12c-oracle-database-12c-virtual-machine.md) описаны этапы создания и настройки виртуальной машины и базы данных.
 
-## Кластер Oracle WebLogic Server 12c
-
-В статье [Создание виртуальной машины Oracle WebLogic Server 12c и Oracle Database 12c в Azure](virtual-machines-creating-oracle-weblogic-server-12c-cluster.md) описаны этапы создания кластера и развертывания приложений.
-
-## Oracle WebLogic Server 11g
-
-В разделе [Создание виртуальной машины Oracle WebLogic Server 11g в Azure](virtual-machines-creating-oracle-weblogic-server-11g-virtual-machine.md) описаны этапы создания и настройки виртуальной машины, а также установки приложений.
-
 ## Подготовка виртуальной машины Oracle Linux
 
 В статье [Подготовка виртуальной машины Oracle Linux для Azure](virtual-machines-prepare-oracle-linux-virtual-machine.md) описаны предварительные требования и этапы создания виртуальных машин Oracle Linux 6.4+ и Oracle Linux 7.0+.
@@ -63,4 +55,4 @@
 
 В статье [Настройка Oracle GoldenGate для Azure](virtual-machines-configuring-oracle-goldengate.md) описаны этапы настройки базы данных и репликации.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

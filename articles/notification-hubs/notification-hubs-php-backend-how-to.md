@@ -17,11 +17,7 @@
 	ms.author="yuaxu"/>
 
 # Использование концентраторов уведомлений из PHP
-> [AZURE.SELECTOR] 
-- [Java](notification-hubs-php-backend-how-to.md)
-- [PHP](notification-hubs-python-backend-how-to.md)
-- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
-- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+[AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 Вы можете обращаться ко всем функциям концентраторов уведомлений из серверной части Java/PHP/Ruby, используя интерфейс REST концентраторов уведомлений в соответствии с описанием в разделе MSDN [Интерфейсы REST концентраторов уведомлений](http://msdn.microsoft.com/library/dn223264.aspx).
 
@@ -254,7 +250,7 @@
 * Продолжить изучение функции тегов в концентраторах уведомлений в [учебнике "Срочные новости"]
 * Изучить отправку уведомлений отдельным пользователям в [учебнике "Уведомление пользователей"]
 
-Дополнительную информацию можно найти также в [Центре разработчика PHP](/develop/php/).
+Дополнительные сведения также можно найти в [Центре разработчика PHP](/develop/php/).
 
 [Образец оболочки PHP REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [Примере оболочки PHP REST]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
@@ -262,4 +258,4 @@
 [учебнике по началу работы]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

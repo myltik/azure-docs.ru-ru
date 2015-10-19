@@ -3,7 +3,7 @@
    description="Шаблон разработки, показывающий, как можно использовать субъекты Service Fabric для моделирования приложения с помощью распределенных сетей и графов."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Шаблон разработки надежных субъектов: распределенные сети и графы
 Надежные субъекты Service Fabric очень удобны для моделирования комплексных решений на основе связей, в которых связи моделируются с помощью объектов.
@@ -224,4 +224,4 @@ public Task PublishMessageAsync(long participantId, string message)
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

@@ -4,7 +4,7 @@
    description="Шаблон разработки надежных субъектов Service Fabric, в котором используются субъекты с отслеживанием состояния для поддержания состояния между вызовами служб, а также для кэширования предыдущих результатов работы служб. Состояние может быть постоянным или переходным."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Шаблон проектирования надежных субъектов Service Fabric: построение служб с отслеживанием состояния
 Разработчики последние полтора десятилетия строили N-уровневые службы без отслеживания состояния на предприятиях. Они создавали службы поверх баз данных, службы высокого порядка поверх других служб, а также механизмы оркестрации и ориентированный на сообщения промежуточный слой для координации этих служб. По мере эволюции пользовательских рабочих нагрузок, будь то требование к большей интерактивности или масштабу, архитектура, ориентированная на службы без отслеживания состояния, начала показывать свои слабости.
@@ -91,4 +91,4 @@
 [2]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-3.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="10/07/2015"
 	ms.author="raynew"/>
 
 # Настройка защиты между локальными виртуальными машинами VMWare или физическими серверами и Azure
@@ -273,12 +273,12 @@ Standard DS4 | 1 диск (1 * 1023 ГБ) | 1 диск (1 * 1023 ГБ) | 15 ди
 	- При нажатии кнопки **Далее** будет выполнен тест для проверки подключения прокси-сервера.
 	- Если вы используете настраиваемый прокси-сервер или прокси-сервер по умолчанию требует выполнения проверки подлинности, вам потребуется указать сведения о прокси-сервере, включая его адрес, порт и учетные данные.
 	- Следующие URL-адреса должны быть доступны через прокси-сервер.
-		- *.hypervrecoverymanager.windowsazure.com 
-		- *.accesscontrol.windows.net 
-		- *.backup.windowsazure.com 
-		- *.blob.core.windows.net 
-		- *.store.core.windows.net 
-	- При наличии правил брандмауэра на основе IP-адресов убедитесь, что они разрешают подключение с сервера конфигурации к IP-адресам, описанным в статье [Диапазоны IP-адресов центра обработки данных Azure](https://msdn.microsoft.com/ru-ru/library/azure/dn175718.aspx), и по протоколу HTTPS (443). Необходимо разрешить диапазоны IP-адресов утвержденного списка для региона Azure, который вы планируете использовать, и для Запада США.
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- При наличии правил брандмауэра на основе IP-адресов убедитесь, что они разрешают подключение с сервера конфигурации к IP-адресам, описанным в статье [Диапазоны IP-адресов центра обработки данных Azure](https://msdn.microsoft.com/RU-RU/library/azure/dn175718.aspx), и по протоколу HTTPS (443). Необходимо разрешить диапазоны IP-адресов утвержденного списка для региона Azure, который вы планируете использовать, и для Запада США.
 
 	![Регистрация прокси-сервера](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationProxy.png)
 
@@ -379,9 +379,9 @@ Standard DS4 | 1 диск (1 * 1023 ГБ) | 1 диск (1 * 1023 ГБ) | 15 ди
 	![Главный целевой сервер Windows](./media/site-recovery-vmware-to-azure/ASRVMWare_TSRegister.png)
 
 8. На сервере под управлением Linux
-	1. Перед установкой программного обеспечения главного целевого сервера установите последнюю версию Linux Integration Services (LIS). Последнюю версию LIS и указания по установке можно найти [здесь](https://www.microsoft.com/ru-ru/download/details.aspx?id=46842). После установки LIS перезапустите компьютер.
+	1. Перед установкой программного обеспечения главного целевого сервера установите последнюю версию Linux Integration Services (LIS). Последнюю версию LIS и указания по установке можно найти [здесь](https://www.microsoft.com/RU-RU/download/details.aspx?id=46842). После установки LIS перезапустите компьютер.
 	2. В окне **Подготовка целевых ресурсов (Azure)** щелкните **Скачать и установить дополнительное программное обеспечение (только для главного целевого сервера Linux)**, чтобы скачать пакет главного целевого сервера Linux. Скопируйте загруженный TAR-файл в виртуальную машину с помощью клиента SFTP. Можно также войти на развернутый главный целевой сервер Linux и использовать *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409* для скачивания файла.
-	2. Войдите в систему сервера, используя клиент SSH. Примечание. Если подключение к сети Azure выполняется через VPN, используйте внутренний IP-адрес. В противном случае используйте внешний IP-адрес и общедоступную конечную точку SSH.
+2. Войдите в систему сервера, используя клиент SSH. Примечание. Если подключение к сети Azure выполняется через VPN, используйте внутренний IP-адрес. В противном случае используйте внешний IP-адрес и общедоступную конечную точку SSH.
 	3. Извлеките файлы из пакета GZIP установщика, выполнив следующую команду: **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64***.![Главный целевой сервер Linux](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
 	4. Перейдите в каталог, в который вы извлекли содержимое TAR-файла.
 	5. Скопируйте парольную фразу сервера конфигурации в локальный файл с помощью команды **echo *`<passphrase>`* >passphrase.txt**.
@@ -587,7 +587,7 @@ Standard DS4 | 1 диск (1 * 1023 ГБ) | 1 диск (1 * 1023 ГБ) | 15 ди
 | Oracle Enterprise Linux 6.4, 6.5 (только 64-разрядная версия) | `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_OL6-64_GA_28Jul2015_release.tar.gz` |
 
 
-**Чтобы вручную установить службу Mobility Service на сервер Windows**, выполните следующие действия:
+**Чтобы вручную установить службу Mobility Service на сервер Windows**, выполните следующие действия.
 
 1. Скопируйте пакет **Microsoft-ASR\_UA\_8.4.0.0\_Windows\_GA\_28Jul2015\_release.exe** из каталога сервера обработки, указанного в приведенной выше таблице, на исходный компьютер.
 2. Установите службу Mobility Service, запустив исполняемый файл на исходном компьютере.
@@ -612,7 +612,7 @@ Standard DS4 | 1 диск (1 * 1023 ГБ) | 1 диск (1 * 1023 ГБ) | 15 ди
 
     `C:\Microsoft-ASR_UA_8.2.0.0_Windows_PREVIEW_20Mar2015_Release.exe" -ip 104.40.75.37 -port 62519 -mode UA /LOG="C:\stdout.txt" /DIR="C:\Program Files (x86)\Microsoft Azure Site Recovery" /VERYSILENT  /SUPPRESSMSGBOXES /norestart  -usesysvolumes  /CommunicationMode https /PassphrasePath "C:\connection.passphrase"`
 
-**Установка службы Mobility Service вручную на сервере Linux:**
+**Установка службы Mobility Service вручную на сервере Linux**
 
 1. Скопируйте соответствующий TAR-архив, согласно приведенной выше таблице, с сервера обработки на исходный компьютер.
 2. Откройте программу оболочки и извлеките TAR-архив в формате ZIP по локальному пути, выполнив команду `tar -xvzf Microsoft-ASR_UA_8.2.0.0*`.
@@ -623,7 +623,7 @@ Standard DS4 | 1 диск (1 * 1023 ГБ) | 1 диск (1 * 1023 ГБ) | 15 ди
 	- при подключении к серверу конфигурации через Интернет укажите общедоступный виртуальный IP-адрес сервера конфигурации и общедоступную конечную точку HTTPS в полях `<IP address>` и `<port>`;
 	- при подключении через VPN укажите внутренний IP-адрес и порт 443.
 
-**Запуск из командной строки:**
+**Запуск из командной строки**
 
 1. Скопируйте парольную фразу из CX в файл passphrase.txt на сервере и выполните данную команду. В нашем примере CX имеет значение 104.40.75.37, а порт HTTPS имеет значение 62519:
 
@@ -761,14 +761,14 @@ Standard DS4 | 1 диск (1 * 1023 ГБ) | 1 диск (1 * 1023 ГБ) | 15 ди
 
 ## Уведомления и сведения о стороннем программном обеспечении
 
-Do Not Translate or Localize
+Не подлежит переводу и локализации
 
-The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”).  Microsoft is the not original author of the Third Party Code.  The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
+Программное обеспечение и встроенное ПО, выполняющееся в продуктах или службах Майкрософт, основано на или включает материалы из проектов, перечисленных ниже (собирательно — «сторонний код»). Корпорация Майкрософт не является автором стороннего кода. Исходные уведомления об авторских правах и лицензии, в рамках которых корпорация Майкрософт получила такой сторонний код, приведены ниже.
 
-The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only.  This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.  
+Сведения в разделе А относятся к компонентам стороннего кода из проектов, перечисленных ниже. Такие лицензии и сведения приводятся только в информационных целях. Этот сторонний код предоставляется вам в рамках повторной лицензии Майкрософт согласно условиям лицензирования программного обеспечения Майкрософт для продуктов или служб Майкрософт.
 
-The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
+Сведения в разделе B относятся к компонентам стороннего кода, предоставляемым вам корпорацией Майкрософт в рамках первоначальной лицензии.
 
-The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+Полный файл можно найти в [центре загрузки Майкрософт](http://go.microsoft.com/fwlink/?LinkId=529428). Корпорация Майкрософт оставляет за собой все права, не предоставленные явно в настоящем документе, косвенно, в силу конклюдентных действий или иным образом.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

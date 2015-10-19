@@ -1,20 +1,20 @@
 <properties 
    pageTitle="Настройка Expressroute через поставщиков сетевых услуг"
-	description="В этом учебнике описан пошаговый процесс настройки ExpressRoute через поставщиков сетевых услуг (NSP)."
-	documentationCenter="na"
-	services="expressroute"
-	authors="cherylmc"
-	manager="adinah"
-	editor="tysonn"/>
+   description="В этом учебнике описан пошаговый процесс настройки ExpressRoute через поставщиков сетевых услуг (NSP)."
+   documentationCenter="na"
+   services="expressroute"
+   authors="cherylmc"
+   manager="adinah"
+   editor="tysonn"/>
 
 <tags 
    ms.service="expressroute"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="06/29/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article" 
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="09/29/2015"
+   ms.author="cherylmc"/>
 
 #  Настройка подключения ExpressRoute через поставщика сетевых услуг
 
@@ -150,4 +150,4 @@ Windows PowerShell — это полнофункциональная среда 
 		
 		Provisioned 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

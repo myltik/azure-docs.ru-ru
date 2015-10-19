@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Использование расширения виртуальных машин Docker для Linux на Azure"
-	description="Описание механизма Docker и расширений Виртуальных машин Azure, а также программного создания виртуальных машин в Azure как узлов Docker с помощью интерфейса CLI Azure."
+	pageTitle="Использование расширения виртуальных машин Docker для Linux | Microsoft Azure"
+	description="Описывает расширения виртуальных машин Azure и Docker, а также создание виртуальных машин Azure, являющихся узлами Docker, с помощью Azure CLI в классической модели развертывания."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -19,9 +20,9 @@
 
 # Использование расширения виртуальных машин Docker на портале Azure
 
-[Docker](https://www.docker.com/) — один из самых популярных подходов к виртуализации, использующий [контейнеры Linux](http://en.wikipedia.org/wiki/LXC) вместо виртуальных машин как способ изоляции данных и вычислений при использовании общих ресурсов. Вы можете использовать расширение виртуальных машин Docker, управляемое [агентом Linux для Azure], чтобы создать виртуальную машину Docker, в которой будет размещено любое количество контейнеров с приложениями в Azure.
-
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+
+[Docker](https://www.docker.com/) — один из самых популярных подходов к виртуализации, использующий [контейнеры Linux](http://en.wikipedia.org/wiki/LXC) вместо виртуальных машин как способ изоляции данных и вычислений при использовании общих ресурсов. Вы можете использовать расширение виртуальных машин Docker, управляемое [агентом Linux для Azure], чтобы создать виртуальную машину Docker, в которой будет размещено любое количество контейнеров с приложениями в Azure.
 
 > [AZURE.NOTE]В этом разделе описывается создание виртуальной машины Docker на портале Azure. Информацию о создании виртуальной машины Docker с помощью командной строки см. в статье [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)]. Обзорное обсуждение контейнеров и их преимуществ см. на [доске по Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 
@@ -144,6 +145,5 @@ WARNING: No swap limit support
 
 [Работа Docker с https]: http://docs.docker.com/articles/https/
 [Руководству пользователя Docker]: https://docs.docker.com/userguide/
- 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

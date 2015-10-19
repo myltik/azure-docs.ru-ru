@@ -3,7 +3,7 @@
    description="Сведения о базовых требованиях к определению сериализуемых классов, которые можно использовать для определения интерфейсов и состояний надежных субъектов Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Примечания о сериализации типов надежных субъектов Service Fabric
 
@@ -82,4 +82,4 @@ public class VoicemailBox
 
 ```
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

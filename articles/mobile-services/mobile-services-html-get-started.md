@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с мобильными службами Azure для приложений HTML 5"
+	pageTitle="Приступая к работе с мобильными службами Azure для приложений HTML/JavaScript | Microsoft Azure"
 	description="Этот учебник поможет приступить к использованию мобильных служб Azure для разработки приложений HTML."
 	services="mobile-services"
 	documentationCenter=""
@@ -12,14 +12,16 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
-	ms.topic="article" 
-	ms.date="07/25/2015"
+	ms.topic="get-started-article" 
+	ms.date="10/05/2015"
 	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 ##Обзор 
 
@@ -46,7 +48,7 @@
 	Можно использовать любой веб-сервер для размещения приложения, однако ниже приведены веб-серверы, которые поддерживаются доступными для загрузки сценариями.
 
 + Браузер, который поддерживает HTML5.
-+ Учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-ru%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
++ Учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2FRU-RU%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
 
 
 ## <a name="create-new-service"> </a>Создание мобильной службы
@@ -117,13 +119,12 @@
 ## <a name="next-steps"> </a>Дальнейшие действия
 Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах:
 
-* **[Приступая к работе с данными]** <br/>Узнайте больше о хранении данных и запросах к ним при помощи мобильных служб.
+* **[Добавление аутентификации в приложение]** Узнайте, как аутентифицировать пользователей приложения с помощью поставщика удостоверений.
 
-* **[Вызов настраиваемого API из приложения на HTML]** <br/>Подключите приложение HTML к настраиваемому API, размещенному в мобильных службах.
+* **[Справочник принципов использования мобильных служб HTML/JavaScript]** Узнайте больше о том, как использовать мобильные службы с HTML и JavaScript.
 
-* **[Приступая к работе с аутентификацией]** <br/>Узнайте, как аутентифицировать пользователей приложения с помощью поставщика удостоверений.
 
-* **[Справочник принципов использования мобильных служб HTML/JavaScript]** <br/>Узнайте больше о том, как использовать мобильные службы с HTML и JavaScript.
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -144,9 +145,7 @@
 
 
 <!-- URLs. -->
-[Приступая к работе с данными]: mobile-services-html-get-started-data.md
-[Приступая к работе с аутентификацией]: mobile-services-html-get-started-users.md
-[Вызов настраиваемого API из приложения на HTML]: mobile-services-html-call-custom-api.md
+[Добавление аутентификации в приложение]: mobile-services-html-get-started-users.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [установщиком веб-платформы Майкрософт]: http://go.microsoft.com/fwlink/p/?LinkId=286333
@@ -155,4 +154,4 @@
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

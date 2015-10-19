@@ -5,6 +5,7 @@
 	services="mobile-services, notification-hubs"
 	documentationCenter="android"
 	authors="RickSaling"
+	writer="ricksal"
 	manager="dwrede"
 	editor=""/>
 
@@ -14,7 +15,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="10/06/2015"
 	ms.author="ricksal"/>
 
 
@@ -24,21 +25,24 @@
 
 ## Сводка
 
-В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Android с помощью Google Cloud Messaging (GCM). Вы добавите push-уведомления в проект быстрого запуска, что является необходимым условием для этого учебника. Push-уведомления включаются с помощью центра уведомлений Azure, который включен мобильную службу. По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
+В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Android с помощью Google Cloud Messaging (GCM). Вы добавите push-уведомления в проект быстрого запуска, что является необходимым условием для этого руководства. Push-уведомления включаются с помощью центра уведомлений Azure, который включен мобильную службу. По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
 
 ## Предварительные требования
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
-##<a id="register"></a>Включение Google Cloud Messaging
+## Пример кода
+Просмотреть полный исходный код можно [здесь](https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPush).
+
+## Включение Google Cloud Messaging
 
 [AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
-##<a id="configure"></a>Настройка мобильных служб для отправки push-запросов
+## Настройка мобильных служб для отправки push-запросов
 
 [AZURE.INCLUDE [mobile-services-android-configure-push](../../includes/mobile-services-android-configure-push.md)]
 
-##<a id="add-push"></a>Добавление push-уведомлений в приложение
+## Добавление push-уведомлений в приложение
 
 
 
@@ -55,12 +59,12 @@
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push.md)]
 
 
-##<a id="update-scripts"></a>Обновление зарегистрированных скриптов вставки на портале управления
+## Обновление зарегистрированных сценариев вставки на портале управления
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
 
-##<a id="test"></a>Тестирование push-уведомлений в приложении
+## Тестирование push-уведомлений в приложении
 
 Приложение можно проверить, подключив телефон Android напрямую с помощью USB-кабеля или используя виртуальное устройство в эмуляторе.
 
@@ -97,23 +101,9 @@
 
 [AZURE.INCLUDE [Проверка пакета SDK](../../includes/mobile-services-verify-android-sdk-version.md)]
 
-
-## Более ранние версии кода
-
-Чтобы просмотреть версию этого учебника для Eclipse, перейдите к следующей статье: [Приступая к работе с push-уведомлениями (Eclipse)].
-
-
-<!--
-To see a completed version of the source code in an Eclipse project, go <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">here</a>.
--->
-
-
-## <a name="next-steps"> </a>Дальнейшие действия
+## Дальнейшие действия
 
 <!---This tutorial demonstrated the basics of enabling an Android app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
-
-+ [Send push notifications to authenticated users]
-	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
 + [Send broadcast notifications to subscribers]
 	<br/>Learn how users can register and receive push notifications for categories they're interested in.
@@ -124,9 +114,7 @@ To see a completed version of the source code in an Eclipse project, go <a href=
 
 Дополнительные сведения о мобильных службах и концентраторах уведомлений см. в следующих разделах.
 
-* [Приступая к работе с данными] <br/>Дополнительные сведения о хранении данных и запросах к ним при помощи мобильных служб.
-
-* [Приступая к работе с проверкой подлинности] <br/>Дополнительные сведения о проверке подлинности пользователей приложения с разными типами учетных записей с помощью мобильных служб.
+* [Приступая к работе с проверкой подлинности] <br/>Узнайте, как проверять подлинность пользователей приложения с разными типами учетных записей, используя мобильные службы.
 
 * [Что такое концентраторы уведомлений?] <br/>Дополнительные сведения о работе концентраторов уведомлений по доставке уведомлений в приложения на всех основных клиентских платформах.
 
@@ -149,11 +137,9 @@ To see a completed version of the source code in an Eclipse project, go <a href=
 
 
 <!-- URLs. -->
-[Приступая к работе с push-уведомлениями (Eclipse)]: mobile-services-javascript-backend-android-get-started-push-ec.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Get started with Mobile Services]: mobile-services-android-get-started.md
-[Приступая к работе с данными]: mobile-services-android-get-started-data.md
 [Приступая к работе с проверкой подлинности]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
 [Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-js
@@ -166,11 +152,8 @@ To see a completed version of the source code in an Eclipse project, go <a href=
 [gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645
 
 [Справочник серверных скриптов мобильных служб]: http://go.microsoft.com/fwlink/?LinkId=262293
-
-[Send push notifications to authenticated users]: mobile-services-javascript-backend-android-push-notifications-app-users.md
-
 [Что такое концентраторы уведомлений?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -12,17 +12,19 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.topic="get-started-article"
+	ms.date="10/09/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Начало работы с мобильными службами и Sencha Touch
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 ##Обзор
 
-В этом учебнике показано, как использовать мобильные службы Azure в приложении Sencha Touch. Вы создадите простое приложение списка дел с помощью системы Sencha Touch, которая использует мобильные службы, определяемые на портале управления. Этот учебник предназначен для разработчиков веб-приложений среднего и высокого уровня, которые хорошо понимают принципы работы JavaScript и знакомы с платформой Sencha Touch.
+В этом учебнике показано, как использовать мобильные службы Azure в приложении Sencha Touch. Вы создадите простое приложение *списка дел* с помощью системы Sencha Touch, которая использует мобильные службы, определяемые на портале управления. Этот учебник предназначен для разработчиков веб-приложений среднего и высокого уровня, которые хорошо понимают принципы работы JavaScript и знакомы с платформой Sencha Touch.
 
 Кроме того, можно посмотреть видеоклип (см. ниже), где приведены те же действия, что и в учебнике. В этом видеоклипе Артур Кэй (Arthur Kay) объясняет, как создать приложение Sencha Touch с помощью серверного компонента мобильных служб Azure.
 
@@ -667,7 +669,7 @@
 
     ![sencha web start](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
 
-  3. Откройте указанный в терминале URL-адрес в веб-браузере, чтобы запустить приложение (например, http://localhost:1841)).
+  3. Откройте указанный в терминале URL-адрес в веб-браузере, чтобы запустить приложение (например, http://localhost:1841).
 
   4. В приложении введите содержательный текст, например "Завершение работы с учебником", и нажмите кнопку **Добавить**.
 
@@ -708,7 +710,10 @@
 
 Дополнительные сведения о начале работы с Sencha Touch см. в полном наборе [руководств](http://docs.sencha.com/touch/#!/guide)
 
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
+
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

@@ -35,9 +35,9 @@
 
 Для работы с данным учебником требуется следующее:
 
-* XCode 4.5 и iOS 6.0 (или более поздние версий)
-* Изучение учебника [Приступая к работе с мобильными службами] или [Приступая к работе с данными].
-* Пакет SDK для мобильных служб Microsoft Azure
+* XCode 4.5 и iOS 6.0 (или более поздние версии)
+* Выполнение заданий учебника [Приступая к работе с мобильными службами]
+* Microsoft Azure Mobile Services SDK
 * Библиотека проверки подлинности [Active Directory для iOS]
 
 [AZURE.INCLUDE [mobile-services-dotnet-adal-register-client](../../includes/mobile-services-dotnet-adal-register-client.md)]
@@ -114,11 +114,10 @@
 
 
 <!-- URLs. -->
-[Приступая к работе с данными]: mobile-services-ios-get-started-data.md
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-ios-get-started.md
 [Регистрация в Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [портале управления Azure]: https://manage.windowsazure.com/
 [Active Directory для iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 [библиотеку проверки подлинности Active Directory для iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

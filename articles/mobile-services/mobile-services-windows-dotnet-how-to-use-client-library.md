@@ -22,7 +22,7 @@
 
 ##Обзор
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием клиента .NET для мобильных служб Azure в приложениях для Магазина Windows и Windows Phone. В сценарии входят запрос данных, вставка, обновление и удаление данных, проверка подлинности пользователей и обработка ошибок. Если вы еще не работали с мобильными службами, сначала мы рекомендуем ознакомиться с [кратким руководством по мобильным службам](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) или учебником [Добавление мобильных служб в существующее приложение](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md).
+В этом руководстве показано, как реализовать типичные сценарии с использованием клиента .NET для мобильных служб Azure в приложениях для Магазина Windows и Windows Phone. В сценарии входят запрос данных, вставка, обновление и удаление данных, проверка подлинности пользователей и обработка ошибок. Если вы не знакомы с мобильными службами, сначала мы рекомендуем прочитать [краткое руководство по мобильным службам](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md).
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -744,7 +744,6 @@
 [Take]: http://msdn.microsoft.com/library/windowsazure/dn250574.aspx
 [Fiddler]: http://www.telerik.com/fiddler
 [Custom API in Azure Mobile Services Client SDKs]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
-[Call a custom API from the client]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

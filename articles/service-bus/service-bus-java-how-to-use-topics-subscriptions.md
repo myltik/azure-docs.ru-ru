@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Использование разделов служебной шины (Java) | Microsoft Azure"
+	pageTitle="Использование разделов служебной шины с Java | Microsoft Azure"
 	description="Узнайте, как использовать разделы и подписки служебной шины в Azure. Примеры кода написаны для приложений Java."
 	services="service-bus"
 	documentationCenter="java"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/19/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # Использование разделов и подписок служебной шины
@@ -23,7 +23,10 @@
 [AZURE.INCLUDE [service-bus-java-how-to-create-topic](../../includes/service-bus-java-how-to-create-topic.md)]
 
 ## Настройка приложения для использования служебной шины
-Перед созданием этого образца убедитесь, что вы установили [пакет SDK Azure для Java][]. При использовании Eclipse можно установить [набор средств Azure для Eclipse][], включающий пакет SDK Azure для Java. Затем можно добавить **библиотеки Microsoft Azure для Java** в проект: ![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
+
+Перед созданием этого образца убедитесь, что вы установили [пакет SDK Azure для Java][]. При использовании Eclipse можно установить [набор средств Azure для Eclipse][], включающий пакет SDK Azure для Java. Затем можно добавить **библиотеки Microsoft Azure для Java** в проект:
+
+![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
 Добавьте в начало Java-файла следующие инструкции import:
 
@@ -35,11 +38,11 @@
 
 Добавьте библиотеки Azure для Java в путь построения и включите его в сборку развертывания проекта.
 
-## Как создать раздел
+## Создание раздела
 
 Операции управления для разделов служебной шины можно выполнять с помощью класса **ServiceBusContract**. Объект **ServiceBusContract** создается с соответствующей конфигурацией, которая инкапсулирует маркер SAS с разрешениями на управление им, а класс **ServiceBusContract** является единственной точкой связи с Azure.
 
-Класс **ServiceBusService** предоставляет методы для создания, перечисления и удаления разделов. В следующем примере показано, как можно использовать объект **ServiceBusService** для создания раздела с именем "TestTopic" и пространством имен "HowToSample":
+Класс **ServiceBusService** предоставляет методы для создания, перечисления и удаления разделов. В следующем примере показано, как можно использовать объект **ServiceBusService** для создания раздела с именем `TestTopic` и пространством имен `HowToSample`:
 
     Configuration config =
     	ServiceBusConfiguration.configureWithSASAuthentication(
@@ -61,7 +64,7 @@
 		System.exit(-1);
 	}
 
-Существуют методы **TopicInfo**, позволяющие настроить свойства раздела (например, задавать значение по умолчанию "время жизни", применяемое к сообщениям, отправленным в раздел). В следующем примере показано, как создать раздел с именем «TestTopic» с максимальным размером 5 ГБ:
+Существуют методы **TopicInfo**, позволяющие настроить свойства раздела (например, задавать значение «время жизни» (Time to Live, TTL) по умолчанию, применяемое к сообщениям, отправленным в раздел). Следующий пример показывает, как создать раздел с именем `TestTopic` и размером не более 5 ГБ.
 
     long maxSizeInMegabytes = 5120;  
 	TopicInfo topicInfo = new TopicInfo("TestTopic");  
@@ -70,7 +73,7 @@
 
 Обратите внимание, что метод **listTopics** можно использовать для объектов **ServiceBusContract**, чтобы проверить, существует ли уже раздел с указанным именем в пространстве имен службы.
 
-## Как создавать подписки
+## Создание подписок
 
 Подписки на разделы также создаются с помощью класса **ServiceBusService**. Подписки имеют имена и могут использовать дополнительный фильтр, ограничивающий набор сообщений, доставляемых в виртуальную очередь подписки.
 
@@ -86,9 +89,9 @@
 
 Вы также можете настроить фильтры, позволяющие определять, какие сообщения, отправленные в раздел, будут отображаться в определенной подписке раздела.
 
-Самый гибкий тип фильтра, который поддерживается подписками, — это **SqlFilter**, реализующий подмножество SQL92. Фильтры SQL работают со свойствами сообщений, которые опубликованы в разделе. Дополнительную информацию о выражениях, которые можно использовать с фильтром SQL, см. в описании синтаксиса SqlFilter.SqlExpression.
+Самый гибкий тип фильтра, который поддерживается подписками, — это [SqlFilter][], реализующий подмножество SQL92. Фильтры SQL работают со свойствами сообщений, которые опубликованы в разделе. Дополнительные сведения о выражениях, которые можно использовать с SQL-фильтром, см. в описании синтаксиса [SqlFilter.SqlExpression][].
 
-В следующем примере создается подписка с именем HighMessages, содержащая фильтр **SqlFilter**, который выбирает только сообщения, значение настраиваемого свойства **MessageNumber** которых превышает 3:
+В следующем примере создается подписка с именем `HighMessages`, содержащая объект [SqlFilter][], который выбирает только сообщения, значение настраиваемого свойства **MessageNumber** которых превышает 3.
 
     // Create a "HighMessages" filtered subscription  
 	SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
@@ -101,7 +104,7 @@
     // Delete the default rule, otherwise the new rule won't be invoked.
     service.deleteRule("TestTopic", "HighMessages", "$Default");
 
-Аналогично, следующий пример создает подписку с именем "LowMessages" и фильтром SqlFilter, который выбирает только сообщения, у которых значение свойства MessageNumber меньше или равно 3:
+Аналогичным образом в следующем примере создается подписка с именем `LowMessages` и фильтром [SqlFilter][], который выбирает только те сообщения, у которых значение свойства **messagenumber** меньше или равно 3:
 
     // Create a "LowMessages" filtered subscription
 	SubscriptionInfo subInfo = new SubscriptionInfo("LowMessages");
@@ -115,18 +118,18 @@
     service.deleteRule("TestTopic", "LowMessages", "$Default");
 
 
-Когда сообщение будет отправлено в раздел «testtopic», всегда будет доставляться в приемники, подписанные на подписку раздела «AllMessages» и выборочно доставляться получателям подписаться на «HighMessages» и «LowMessages» подписки раздела (в зависимости от содержимого сообщений).
+Если сообщение отправляется в раздел `TestTopic`, оно всегда будет доставляться в приемники, подписанные на подписку `AllMessages`, и в отдельные приемники, подписанные на подписки `HighMessages` и `LowMessages` (в зависимости от содержимого сообщений).
 
-## Как отправлять сообщения в раздел
+## Отправка сообщений в раздел
 
-Чтобы отправить сообщение в раздел служебной шины, приложение получает объект **ServiceBusContract**. В примере кода ниже показано, как отправить сообщение в раздел "TestTopic", созданный ранее в пространстве имен службы "HowToSample":
+Чтобы отправить сообщение в раздел служебной шины, приложение получает объект **ServiceBusContract**. В следующем примере кода показано, как отправить сообщение в раздел `TestTopic`, созданный ранее в пространстве имен `HowToSample`.
 
     BrokeredMessage message = new BrokeredMessage("MyMessage");
     service.sendTopicMessage("TestTopic", message);
 
-Сообщения, отправляемые в разделы служебной шины и получаемые из них, — это экземпляры класса **BrokeredMessage**. Объекты **BrokeredMessage** имеют набор стандартных методов (например, **setLabel** и **TimeToLive**), словарь, используемый для хранения настраиваемых свойств приложения, и текст из произвольных данных приложения. Приложение может задать текст сообщения, передав конструктору **BrokeredMessage** любой сериализуемый объект, после чего для сериализации объекта будет использоваться соответствующий **DataContractSerializer**. Кроме того, может быть предоставлен **java.io.InputStream**.
+Сообщения, отправляемые в разделы Service Bus и получаемые из них, — это экземпляры класса [BrokeredMessage][]. Объекты [BrokeredMessage][] имеют набор стандартных методов (например, **setLabel** и **TimeToLive**), словарь, используемый для хранения настраиваемых свойств приложения, и текст из произвольных данных приложения. Приложение может задать текст сообщения, передав конструктору [BrokeredMessage][] любой сериализуемый объект, после чего для сериализации объекта будет использоваться соответствующий **DataContractSerializer**. Кроме того, может быть предоставлен объект **java.io.InputStream**.
 
-В следующем примере показано, как отправить пять тестовых сообщений в раздел "TestTopic" **MessageSender**, полученный в предыдущем фрагменте кода. Обратите внимание, что значение свойства **MessageNumber** всех сообщений зависит от итерации цикла (определяет, какие подписки получают их):
+В следующем примере показано, как отправить пять тестовых сообщений в очередь `TestTopic` объекта **MessageSender**, полученного в предыдущем фрагменте кода: Обратите внимание, что значение свойства **MessageNumber** всех сообщений зависит от итерации цикла (определяет, какие подписки получают их):
 
     for (int i=0; i<5; i++)  {
        	// Create message, passing a string message for the body
@@ -208,7 +211,7 @@
 
 Если сбой приложения происходит после обработки сообщения, но перед отправкой запроса **deleteMessage** это сообщение будет повторно доставлено в приложение после его перезапуска. Часто этот подход называют **обработать хотя бы один раз**, т. е. каждое сообщение будет обрабатываться по крайней мере один раз, но в некоторых случаях это же сообщение может быть доставлено повторно. Если повторная обработка недопустима, разработчики приложения должны добавить дополнительную логику для обработки повторной доставки сообщений. Часто это достигается с помощью метода **getMessageId** сообщения, которое остается постоянным для различных попыток доставки.
 
-## Как удалять разделы и подписки
+## Удаление разделов и подписок
 
 Основным способом удаления разделов и подписок является использование объекта **ServiceBusContract**. При удалении раздела также удаляются все подписки, зарегистрированные в этом разделе. Подписки также можно удалять по отдельности.
 
@@ -226,26 +229,11 @@
 
   [Пакет Azure SDK для Java]: http://azure.microsoft.com/develop/java/
   [пакет SDK Azure для Java]: http://azure.microsoft.com/develop/java/
-  [набор средств Azure для Eclipse]: https://msdn.microsoft.com/ru-RU/library/azure/hh694271.aspx
-  [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
-  [Create a Service Namespace]: #create-a-service-namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
-  [Configure Your Application to Use Service Bus]: #bkmk_ConfigYourApp
-  [How to: Create a Topic]: #bkmk_HowToCreateTopic
-  [How to: Create Subscriptions]: #bkmk_HowToCreateSubscrip
-  [How to: Send Messages to a Topic]: #bkmk_HowToSendMsgs
-  [How to: Receive Messages from a Subscription]: #bkmk_HowToReceiveMsgs
-  [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrash
-  [How to: Delete Topics and Subscriptions]: #bkmk_HowToDeleteTopics
-  [Next Steps]: #bkmk_NextSteps
-  [Service Bus Topics diagram]: ../../../DevCenter/Java/Media/SvcBusTopics_01_FlowDiagram.jpg
-  [Azure Management Portal]: http://manage.windowsazure.com/
-  [Service Bus Node screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
-  [Create a New Namespace ]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
-  [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
-  [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
-  [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
+  [набор средств Azure для Eclipse]: https://msdn.microsoft.com/RU-RU/library/azure/hh694271.aspx
+  [Azure portal]: http://manage.windowsazure.com/
   [Очереди, темы и подписки]: service-bus-queues-topics-subscriptions.md
- 
+  [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
+  [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+  [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

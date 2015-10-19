@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.workload="mobile"
-	ms.date="06/10/2015"
-	ms.author="normesta"/>
+	ms.date="10/05/2015"
+	ms.author="wesmc"/>
 
 # Добавление push-уведомлений в приложение Xamarin.Forms
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
@@ -293,7 +293,7 @@ APNS использует сертификаты для аутентификац
             const string template = "{"aps":{"alert":"$(message)"}}";
 
             var expiryDate = DateTime.Now.AddDays(90).ToString
-                (System.Globalization.CultureInfo.CreateSpecificCulture("ru-RU"));
+                (System.Globalization.CultureInfo.CreateSpecificCulture("RU-RU"));
 
             var push = client.GetPush();
 
@@ -847,4 +847,4 @@ APNS использует сертификаты для аутентификац
 [Готовый образец push-уведомления Azure для приложения Xamarin.Forms ]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->
