@@ -83,7 +83,12 @@
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/select-user-group.png)
 
-	> [AZURE.NOTE]В файле Views\\Roles\\Index.cshtml вы увидите, что представление использует объект JavaScript с именем <code>AadPicker</code> (определенный в Scripts\\AadPickerLibrary.js) для доступа к действию <code>Search</code> в контроллере <code>Roles</code>. <pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>"; ... var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre> В файле Controllers\\RolesController.cs вы увидите действие <code>Search</code>, которое отправляет непосредственный запрос к API Graph Azure Active Directory и возвращает ответ обратно на страницу. Позднее вы будете использовать этот же метод для создания простой функциональности в приложении.
+	> [AZURE.NOTE]В файле Views\\Roles\\Index.cshtml вы увидите, что представление использует объект JavaScript с именем <code>AadPicker</code> (определенный в Scripts\\AadPickerLibrary.js) для доступа к действию <code>Search</code> в контроллере <code>Roles</code>.
+		<pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>";
+	...
+    var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre>
+		В Controllers\\RolesController.cs вы увидите действие <code>Search</code>, которое отправляет непосредственный запрос к API Graph Azure Active Directory и возвращает ответ обратно на страницу.
+		 Позднее вы будете использовать этот же метод для создания простой функциональности в приложении.
 
 6.	Выберите пользователя или группу в раскрывающемся списке, выберите роль и щелкните **Назначить роль**.
 
@@ -151,7 +156,8 @@
    &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-&lt;/appSettings></pre>Убедитесь, что значение ida:PostLogoutRedirectUri заканчивается косой чертой "/".
+&lt;/appSettings></pre>
+	Убедитесь, что значение ida:PostLogoutRedirectUri заканчивается косой чертой "/".
 
 1. Щелкните правой кнопкой мыши свой проект и выберите **Опубликовать**.
 
@@ -164,7 +170,7 @@
 <a name="bkmk_crud"></a>
 ## Добавление функциональности бизнес-приложения к примеру приложения
 
-В этой части учебника вы научитесь создавать необходимую функциональность бизнес-приложения на основе примера приложения. Вы займетесь созданием простого приложения CRUD для отслеживания рабочих элементов, аналогичного контроллеру TaskTracker, но с использованием формирования стандартного шаблона CRUD и шаблона разработки. Кроме этого, будут использоваться приведенные скрипты Scripts\\AadPickerLibrary.js для обогащения приложения данными из API Azure Active Directory Graph.
+В этой части учебника вы научитесь создавать необходимую функциональность бизнес-приложения на основе примера приложения. Вы займетесь созданием простого приложения CRUD для отслеживания рабочих элементов, аналогичного контроллеру TaskTracker, но с использованием формирования стандартного шаблона CRUD и шаблона разработки. Кроме этого, будут использоваться приведенные скрипты Scripts\AadPickerLibrary.js для обогащения приложения данными из API Azure Active Directory Graph.
 
 5.	В папке Models создайте новую модель с именем WorkItem.cs и замените код следующим кодом:
 
@@ -191,7 +197,7 @@
 		    }
 		}
 
-6.	Откройте DAL\\GroupClaimContext.cs и добавьте выделенный код:
+6.	Откройте DAL\GroupClaimContext.cs и добавьте выделенный код:
 	<pre class="prettyprint">
 public class GroupClaimContext : DbContext
 {
@@ -213,51 +219,57 @@ public class GroupClaimContext : DbContext
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/8-add-scaffolded-controller.png)
 
-9.	Откройте Controllers\\WorkItemsController.cs
+9.	Откройте Controllers\WorkItemsController.cs
 
 11. Добавьте выделенные оформления [Authorize] к соответствующим действиям ниже.
 	<pre class="prettyprint">
-...
-
-<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-public class WorkItemsController : Controller
-{
 	...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public ActionResult Create()
-    ...
+    <mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+    public class WorkItemsController : Controller
+    {
+		...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public ActionResult Create()
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Edit(int? id)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Create([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer")]</mark>
-    public async Task&lt;ActionResult> Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Edit(int? id)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-    public async Task&lt;ActionResult> Delete(int? id)
-    ...
+        <mark>[Authorize(Roles = "Admin, Writer")]</mark>
+        public async Task&lt;ActionResult&gt; Edit([Bind(Include = "ItemID,AssignedToID,AssignedToName,Description,Status")] WorkItem workItem)
+        ...
 
-    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-    public async Task&lt;ActionResult> DeleteConfirmed(int id)
-    ...
-}</pre>Поскольку нас интересует сопоставление ролей к контроллере ролей, достаточно просто убедиться, что каждое действие авторизует соответствующую роль.
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        public async Task&lt;ActionResult&gt; Delete(int? id)
+        ...
 
-	> [AZURE.NOTE]В некоторых действиях вы можете заметить оформление <code>[ValidateAntiForgeryToken]</code>. Из-за поведения, описанного [Алленом Броком (Brock Allen)](https://twitter.com/BrockLAllen) в статье [MVC 4, AntiForgeryToken и утверждений](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), команда HTTP POST может завершиться ошибкой при проверке маркеров защиты от подделки по следующей причине: + Azure Active Directory не отправляет http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, который по умолчанию требуется для маркера защиты от подделки. + Если каталог Azure Active Directory синхронизирован с AD FS, в связи с установленным доверием AD FS также по умолчанию не отправляется утверждение http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider. Однако вы можете вручную настроить AD FS для отправки этого утверждения. Мы займемся этим на следующем шаге.
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        public async Task&lt;ActionResult&gt; DeleteConfirmed(int id)
+        ...
+	}</pre>
+	Поскольку нас интересует сопоставление ролей к контроллере ролей, достаточно просто убедиться, что каждое действие авторизует соответствующую роль.
 
-12.  В файле App\_Start\\Startup.Auth.cs добавьте следующую строку кода в метод `ConfigureAuth`:
+	> [AZURE.NOTE]В некоторых действиях вы можете заметить оформление <code>[ValidateAntiForgeryToken]</code>. Из-за поведения, описанного [Алленом Броком (Brock Allen)](https://twitter.com/BrockLAllen) в статье [MVC 4, AntiForgeryToken и утверждений](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), команда HTTP POST может завершиться ошибкой при проверке маркеров защиты от подделки по следующей причине:
+	> + Azure Active Directory не отправляет http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, который по умолчанию требуется для маркера защиты от подделки.
+	> + Если каталог Azure Active Directory синхронизирован с AD FS, в связи с установленным доверием AD FS также по умолчанию не отправляется утверждение http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider. Однако вы можете вручную настроить AD FS для отправки этого утверждения.
+	> Мы займемся этим на следующем шаге.
+
+12.  В файле App_Start\Startup.Auth.cs добавьте следующую строку кода в метод `ConfigureAuth`:
 
 		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
 	
 	`ClaimTypes.NameIdentifies` определяет утверждение `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, которое служба Azure Active Directory не предоставляет. Теперь после того, как решен вопрос с авторизацией (честно говоря, на это ушло немного времени), можно посвятить свое время фактической функциональности действий.
 
-13.	В Create() и Edit() добавьте следующий код для предоставления JavaScript доступа к некоторым переменным в дальнейшем: ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value); ViewData["tenant"] = ConfigHelper.Tenant;
+13.	В Create() и Edit() добавьте следующий код для предоставления JavaScript доступа к некоторым переменным в дальнейшем:
+            ViewData["token"] = GraphHelper.AcquireToken(ClaimsPrincipal.Current.FindFirst(Globals.ObjectIdClaimType).Value);
+            ViewData["tenant"] = ConfigHelper.Tenant;
 
 14.	В файле Views\\WorkItems\\Create.cshtml (автоматически сформированный на основе шаблона элемент) найдите вспомогательный метод `Html.BeginForm` и измените его следующим:
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
@@ -324,18 +336,19 @@ public class WorkItemsController : Controller
                 $("#main-form").get()[0].elements["AssignedToID"].value = picker.Selected().objectId;
             });
     &lt;/script></mark>
+	}</pre>
 
-}</pre>В сценарии объект AadPicker ищет в действии `~/Roles/Search` пользователей и группы Azure Active Directory, которые соответствуют введенным данным. Затем при нажатии кнопки «Отправить» объект AadPicker сохраняет идентификатор пользователя в скрытом поле `AssignedToID`.
+	В сценарии объект AadPicker ищет в действии `~/Roles/Search` пользователей и группы Azure Active Directory, которые соответствуют введенным данным. Затем при нажатии кнопки «Отправить» объект AadPicker сохраняет идентификатор пользователя в скрытом поле `AssignedToID`.
 
 15. Теперь можно либо запустить приложение в отладчике Visual Studio, либо опубликовать его в веб-приложениях службы приложений Azure. Войдите в систему как владелец приложения и перейдите на страницу `~/WorkItems/Create`. Для своего опубликованного бизнес-приложения я перехожу на страницу `https://mylobapp.azurewebsites.net/WorkItems/Create`. Теперь вы увидите, что можно использовать тот же фильтр поиска AadPicker для выбора пользователя Azure Active Directory.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/9-create-workitem.png)
 
-16. Заполните оставшуюся часть формы и щелкните **Создать**. На странице ~/WorkItems/Index теперь отображается вновь созданный элемент. На приведенном ниже снимке экрана вы увидите, что я удалил столбец `AssignedToID` в файле Views\\WorkItems\\Index.cshtml.
+16. Заполните оставшуюся часть формы и щелкните **Создать**. На странице ~/WorkItems/Index теперь отображается вновь созданный элемент. На приведенном ниже снимке экрана вы увидите, что я удалил столбец `AssignedToID` в файле Views\WorkItems\Index.cshtml.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/10-workitem-index.png)
 
-11.	Сейчас необходимо сделать аналогичные изменения в представлении **Изменение**. В файле Views\\WorkItems\\Edit.cshtml внесите такие же изменения во вспомогательном методе `Html.BeginForm`, которые были сделаны на предыдущем шаге в Views\\WorkItems\\Create.cshtml(замените Create на Edit в выделенном коде выше).
+11.	Сейчас необходимо сделать аналогичные изменения в представлении **Изменение**. В файле Views\WorkItems\Edit.cshtml внесите такие же изменения во вспомогательном методе `Html.BeginForm`, которые были сделаны на предыдущем шаге в Views\WorkItems\Create.cshtml(замените Create на Edit в выделенном коде выше).
 
 Вот и все!
 
