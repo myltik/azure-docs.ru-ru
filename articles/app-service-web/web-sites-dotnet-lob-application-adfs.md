@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="07/07/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Создание веб-приложения .NET MVC в службе приложений Azure с аутентификацией AD FS
@@ -354,4 +354,4 @@ public ActionResult Contact()
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

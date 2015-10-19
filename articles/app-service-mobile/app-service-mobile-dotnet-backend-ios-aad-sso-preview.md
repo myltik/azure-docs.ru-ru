@@ -1,5 +1,5 @@
 <properties
-        pageTitle="Проверка подлинности приложения iOS с помощью единого входа Azure Active Directory"
+        pageTitle="Проверяйте подлинность пользователей приложения iOS с помощью проверки подлинности Azure Active Directory."
         description="Выполнение входа пользователей в приложение iOS с помощью библиотеки проверки подлинности Active Directory."
         documentationCenter="Mobile"
         authors="mattchenderson"
@@ -14,7 +14,7 @@ ms.topic="article"
 ms.date="09/14/2015"
 ms.author="mahender" />
 
-# Добавление единого входа Azure Active Directory в приложение iOS
+# Добавление проверки подлинности Azure Active Directory в приложение iOS
 
 [AZURE.INCLUDE [app-service-mobile-selector-aad-sso](../../includes/app-service-mobile-selector-aad-sso.md)]
 
@@ -124,4 +124,4 @@ ms.author="mahender" />
  [Начало работы с мобильными приложениями]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  [Добавление проверки подлинности в приложение]: app-service-mobile-dotnet-backend-ios-get-started-users-preview.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

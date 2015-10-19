@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Мониторинг локальной инфраструктуры идентификации в облаке."
 	description="В этой статье описаны принципы работы и предназначение службы Azure AD Connect Health."
 	services="active-directory"
@@ -7,7 +7,7 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
@@ -70,7 +70,7 @@ Azure AD Connect Health для AD FS поддерживает AD FS 2.0 в Wind
 ![Портал Azure AD Connect Health](./media/active-directory-aadconnect-health/portal2.png)
 
 - Если нажать кнопку **Быстрый запуск**, откроется колонка «Быстрый запуск». С ее помощью можно скачать агент Azure AD Connect Health, выбрав «Получить средства», ознакомиться с документацией и отправить отзыв.
-- Раздел **Службы федерации Active Directory** представляют все службы AD FS, которые в настоящее время отслеживает служба Azure AD Connect Health. Если выбрать один из экземпляров, откроется колонка сведений об этом экземпляре служб. Сюда входит обзор, свойства, оповещения, мониторинг и аналитика по использованию. 
+- Раздел **Службы федерации Active Directory** представляют все службы AD FS, которые в настоящее время отслеживает служба Azure AD Connect Health. Если выбрать один из экземпляров, откроется колонка сведений об этом экземпляре служб. Сюда входит обзор, свойства, оповещения, мониторинг и аналитика по использованию.
 - «Настройка» позволяет включить или отключить следующие функции:
 <ol>
 1. Автоматическое обновление агента Azure AD Connect Health до последней версии — это означает, что агент Azure AD Connect Health будет обновлен до последней версии, когда она станет доступна. Эта функция включена по умолчанию.
@@ -95,9 +95,10 @@ Azure AD Connect Health для AD FS поддерживает AD FS 2.0 в Wind
 | Требование | Описание|
 | ----------- | ---------- |
 |Агент Azure AD Connect Health должен быть установлен на всех целевых серверах| Для предоставления данных, которые можно просматривать на портале, службе Azure AD Connect Health требуется наличие агента на целевых серверах. </br></br>Например, для получения данных о локальной инфраструктуре AD FS агент должен устанавливаться на серверы AD FS. Сюда входят прокси-серверы AD FS и прокси-серверы веб-приложений. </br></br>Дополнительные сведения см. в статье [Установка агента Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md).</br></br>**Важно.** Учетная запись, используемая при установке агентов, должна быть учетной записью организации и не может быть учетной записью Майкрософт. Дополнительные сведения см. в статье [Подписка на Azure как организация](sign-up-organization.md).|
-|Исходящие подключения к конечным точкам службы Azure|Во время установки и выполнения агенту требуется подключение к конечным точкам службы Azure AD Connect Health, перечисленным ниже. При блокировке исходящих подключений убедитесь, что в список разрешенных адресов добавлены следующие адреса: </br></br><li>&#42;.servicebus.windows.net - Порт: 5671</li><li>https://&#42;.adhybridhealth.azure.com/</li><li>https://&#42;.table.core.windows.net/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
-|Порты брандмауэра на сервере с агентом.| Агент требует открытия следующих портов брандмауэра, чтобы он мог взаимодействовать с конечными точками службы Azure AD Health.</br></br><li>Порт TCP или UDP 80</li><li>Порт TCP или UDP 443</li>
-|Внесите следующие веб-сайты в список разрешенных, если включена политика усиленной безопасности IE|Если на сервере, на котором будет установлен агент, включена конфигурация усиленной безопасности Internet Explorer, потребуется открыть доступ для следующих веб-сайтов.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Сервер федерации вашей организации должен быть доверенным для Azure Active Directory. Например: https://sts.contoso.com</li> 
+|Исходящие подключения к конечным точкам службы Azure|Во время установки и выполнения агенту требуется подключение к конечным точкам службы Azure AD Connect Health, перечисленным ниже. При блокировке исходящего подключения убедитесь, что в список разрешенных добавлены следующие адреса: </br></br><li>**new**: &#42;.blob.core.windows.net </li><li>**new**: &#42;.queue.core.windows.net</li><li>&#42;.servicebus.windows.net — порт: 5671</li><li>https://&#42;.adhybridhealth.azure.com/</li><li>https://&#42;.table.core.windows.net/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li>. |
+|Порты брандмауэра на сервере с агентом.| Для взаимодействия агента с конечными точками службы Azure AD Health должны быть открыты следующие порты брандмауэра:</br></br><li>TCP/UDP-порт 80</li><li>TCP/UDP-порт 443</li><li>TCP/UDP-порт 5671</li>.
+
+|Открыть доступ для следующих веб-сайтов, если включена конфигурация усиленной безопасности Internet Explorer|Если на сервере, на котором будет установлен агент, включена конфигурация усиленной безопасности Internet Explorer, потребуется открыть доступ для следующих веб-сайтов.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Сервер федерации вашей организации должен быть доверенным для Azure Active Directory. Например: https://sts.contoso.com</li>.
 
 ## Загрузка агента.
 
@@ -111,7 +112,4 @@ Azure AD Connect Health для AD FS поддерживает AD FS 2.0 в Wind
 * [Использование Azure AD Connect Health с AD FS](active-directory-aadconnect-health-adfs.md)
 * [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-
- 
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

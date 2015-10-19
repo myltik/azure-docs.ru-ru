@@ -22,9 +22,9 @@
 
    ![](./media/app-service-mobile-adal-register-app/aad-native-client-add-permissions.png)
 
-Теперь ваше приложение настроено в AAD и пользователи могут входить в него с помощью процедуры единого входа AAD.
+Теперь ваше приложение настроено в AAD и пользователи могут входить в него с помощью процедуры входа AAD.
 
 [портале управления Azure]: https://manage.windowsazure.com/
 [Настройка мобильного приложения в Azure Active Directory]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

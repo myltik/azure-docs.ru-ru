@@ -127,7 +127,7 @@ HDS
 	
 	}
 
->[AZURE.NOTE]При шифровании с помощью Widevine будет возможна только доставка посредством DASH. Обязательно укажите DASH (2) в протоколе доставки ресурсов-контейнеров.
+>[AZURE.NOTE]При шифровании с помощью Widevine будет возможна только доставка посредством DASH. Обязательно укажите DASH в протоколе доставки ресурсов-контейнеров.
 
 
 ##Политика доставки ресурсов DynamicEnvelopeEncryption 
@@ -328,4 +328,4 @@ HDS
 - [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

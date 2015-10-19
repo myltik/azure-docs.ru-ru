@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="10/01/2015" 
 	ms.author="awills"/>
  
 # Ресурсы, роли и контроль доступа в Application Insights
@@ -38,7 +38,6 @@
 
     
     ![Выберите «Обзор», «Группы ресурсов», а затем выберите группу](./media/app-insights-resources-roles-access-control/11-group.png)
-
 
 * [**Подписка**](https://manage.windowsazure.com) — чтобы использовать Application Insights или другие ресурсы Azure, следует войти в подписку Azure. Каждая группа ресурсов относится к одной подписке Azure, где вы выбираете пакет по цене и, при использовании подписки для организации, выбираете участников и права доступа для них.
 * [**Учетная запись Майкрософт**][account] — предусматривает имя пользователя и пароль, используемые для входа в подписки Microsoft Azure, XBox Live, Outlook.com и другие службы Майкрософт.
@@ -111,4 +110,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -12,17 +12,17 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.topic="get-started-article"
+	ms.date="10/06/2015"
 	ms.author="glenga"/>
 
 # Приступая к работе с мобильными службами
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-В этом учебнике показано, как добавить облачную серверную службу в приложение Магазина Windows на JavaScript с помощью мобильных служб Azure.
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
-В этом учебнике вы создадите новую мобильную службу и простое приложение *To do list*, хранящее данные приложения в новой мобильной службе. Мобильная служба, которая будет создана, использует JavaScript для бизнес-логики на стороне сервера. Сведения о создании мобильной службы, которая позволит создавать в Visual Studio бизнес-логику на серверной стороне на языках, поддерживаемых платформой .NET, см. в [разделе о серверной версии .NET](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md).
+В этом учебнике показано, как добавить облачную серверную службу в приложение Магазина Windows на JavaScript с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение *To do list*, хранящее данные приложения в новой мобильной службе. Мобильная служба, которая будет создана, использует JavaScript для бизнес-логики на стороне сервера.
 
 Для работы с этим учебником требуется:
 
@@ -41,8 +41,6 @@
 
 
 2. На вкладке быстрого начала работы щелкните **Windows** в разделе **Выбор платформы**, а затем разверните узел **Создание нового приложения для магазина Windows**.
-
-   	![](./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-portal-quickstart.png)
 
 3. Если вы еще не сделали этого, загрузите и установите [Visual Studio 2013][Visual Studio 2013 Express for Windows] на локальном компьютере или виртуальной машине.
 
@@ -72,6 +70,11 @@
 
 >[AZURE.NOTE]Можно просмотреть код доступа к мобильной службе для запроса и вставки данных, который находится в файле default.js.
 
+## Дальнейшие действия
+Теперь, когда вы закончили изучение краткого руководства, узнайте, как работать с [клиентом мобильных служб для HTML/JavaScript](mobile-services-html-how-to-use-client-library.md).
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
+
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
 [Create a new mobile service]: #create-new-service
@@ -81,12 +84,9 @@
 <!-- Images. -->
 
 <!-- URLs. -->
-[Get started with data]: ../mobile-services-javascript-backend-windows-universal-javascript-get-started-data.md
-[Get started with authentication]: mobile-services-windows-store-javascript-get-started-users.md
-[Get started with push notifications]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Visual Studio 2013 Express для Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

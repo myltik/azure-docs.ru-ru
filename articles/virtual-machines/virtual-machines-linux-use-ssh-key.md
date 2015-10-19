@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/15/2015" 
+	ms.date="10/05/2015" 
 	ms.author="szark"/>
 
 #Использование SSH с Linux в Azure
@@ -179,4 +179,4 @@
 5.	Щелкните **Открыть**, чтобы подключится к виртуальной машине.
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

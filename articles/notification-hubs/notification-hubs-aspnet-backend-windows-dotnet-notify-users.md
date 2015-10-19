@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/05/2015"
 	ms.author="wesmc"/>
 
 #Уведомление пользователей посредством центров уведомлений
@@ -26,6 +26,10 @@
 Поддержка push-уведомлений в Azure позволяет получить доступ к простой в использовании, многоплатформенной и масштабируемой инфраструктуре для отправки push-уведомлений, которая значительно упрощает реализацию push-уведомлений как для индивидуальных пользователей, так и для корпоративных приложений для мобильных платформ. В этом учебнике показано, как использовать концентраторы уведомлений Azure для отправки push-уведомлений пользователю определенного приложения на конкретном устройстве. Для проверки подлинности клиентов используется серверная часть веб-API ASP.NET. С помощью пользователя, прошедшего проверку подлинности клиента, тег будет добавляться автоматически на серверной части для регистрации уведомлений. Этот тег будет использоваться для отправки с серверной части для создания уведомлений конкретному пользователю. Дополнительные сведения о регистрации уведомлений с помощью серверной части приложения см. в разделе руководства [Регистрация из серверной части приложения](http://msdn.microsoft.com/library/dn743807.aspx). В этом учебнике используется центр уведомлений и проект, созданный вами при работе с учебником [Приступая к работе с Центры уведомлений].
 
 Этот учебник также необходимо изучить перед обращением к учебнику [Безопасные push-уведомления]. После выполнения действий, о которых рассказывается в данном учебнике, вы можете приступать к работе с учебником [Безопасные push-уведомления], в котором рассказывается, как изменить код, указанный в этом учебнике, для безопасной отправки push-уведомлений.
+
+
+Полный код для этого учебника можно найти в [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers).
+
 
 
 ##Предварительные требования
@@ -111,7 +115,7 @@
                     <TextBox Name="ToUserTagTextBox" Grid.Row="7" Grid.ColumnSpan="3" Margin="20,0,20,0" TextWrapping="Wrap" />
                     <TextBlock Grid.Row="8" Grid.ColumnSpan="3" Text="Enter Notification Message" FontSize="24" Margin="20,0,20,0"/>
                     <TextBox Name="NotificationMessageTextBox" Grid.Row="9" Grid.ColumnSpan="3" Margin="20,0,20,0" TextWrapping="Wrap" />
-                    <Button Grid.Row="10" Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="2. Send push" Click="PushClick" />
+                    <Button Grid.Row="10" Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="2. Send push" Click="PushClick" Name="SendPushButton" />
                 </Grid>
             </StackPanel>
         </Grid>
@@ -254,7 +258,7 @@
 
         public RegisterClient(string backendEndpoint)
         {
-            PostURL = backendEndpoint + "/api/register";
+            POST_URL = backendEndpoint + "/api/register";
         }
 
         public async Task RegisterAsync(string handle, IEnumerable<string> tags)
@@ -374,4 +378,4 @@
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [руководстве по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

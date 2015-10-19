@@ -4,7 +4,7 @@
    description="Надежные субъекты Service Fabric являются ключевым стандартным блоком (в качестве среднего уровня) в системе, которая объединяет внешний интерфейс системы обмена сообщениями, поддерживающий множество средств транспорта, таких как HTTPS, MQTT или AMQP, затем взаимодействует с субъектами, представляющими отдельные устройства."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # Шаблон разработки надежных субъектов: Интернет вещей
 Поскольку IoT стал новым трендом технологического прогресса устройств и облачных служб, разработчики начали рассматривать ключевые строительные блоки для разработки своих систем. На следующей схеме показаны ключевые сценарии, созданные с помощью надежных субъектов Service Fabric:
@@ -217,4 +217,4 @@ Sending an engineer to repair/replace devices in Richmond
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

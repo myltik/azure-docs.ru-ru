@@ -44,8 +44,6 @@
 
 В учебнике [Добавление проверки подлинности в приложение] во время выполнения шага [Регистрация для использования имени входа Azure Active Directory] вы создали регистрацию для встроенного приложения. В этом разделе предстоит создать ключ для использования при чтении сведений каталога с помощью идентификатора клиента встроенного приложения.
 
-Если вы выполнили задания учебника [Получение доступа к сведениям Graph Azure Active Directory], значит, вы уже выполнили этот шаг, поэтому этот раздел можно пропустить.
-
 [AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 
@@ -390,7 +388,6 @@
 [Регистрация для использования имени входа Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Graph REST API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
-[Получение доступа к сведениям Graph Azure Active Directory]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [Библиотека проверки подлинности Azure AD для .NET]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

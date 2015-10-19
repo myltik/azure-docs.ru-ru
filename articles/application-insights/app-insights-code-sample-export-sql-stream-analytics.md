@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/07/2015" 
 	ms.author="awills"/>
  
 # Пошаговое руководство. Экспорт в SQL из Application Insights с использованием Stream Analytics
@@ -258,7 +258,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
       ,A.context.location.province as province
       ,A.context.location.city as city
     INTO
-      AIOuput
+      AIOutput
     FROM AIinput A
     CROSS APPLY GetElements(A.[view]) as flat
 
@@ -314,4 +314,4 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

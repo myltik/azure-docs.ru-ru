@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="10/07/2015" 
 	ms.author="tomfitz"/>
 
 # Операции аудита с помощью диспетчера ресурсов
@@ -26,15 +26,15 @@
 
 ## PowerShell
 
-Чтобы получить записи журнала, выполните команду **Get-AzureResourceGroupLog**. Предоставьте дополнительные параметры, чтобы отфильтровать список записей.
+Для получения записей журнала запустите команду **Get AzureRmLog** (или **Get-AzureResourceGroupLog** для более ранних версий PowerShell, чем предварительная версия 1.0). Предоставьте дополнительные параметры, чтобы отфильтровать список записей.
 
 В следующем примере показано, как использовать журнал аудита для анализа действий, выполненных во время жизненного цикла решения. Можно просмотреть дату и время выполнения действия, а также пользователя, который его вызвал.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00
 
 В зависимости от указанного времени начала предыдущая команда может вернуть длинный список действий для данной группы ресурсов. Чтобы найти в результатах нужную информацию, отфильтруйте их, используя условия поиска. Например, если нужно проанализировать, как было остановлено веб-приложение, выполните приведенную ниже команду. Вы увидите, что действие остановки было выполнено пользователем someone@example.com.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
 
     Authorization     :
                         Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
@@ -54,11 +54,11 @@
 
 В следующем примере мы просто будем искать действия, завершившиеся сбоем после указанного времени запуска. Мы также включим параметр **DetailedOutput**, чтобы просмотреть сообщения об ошибках.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-27T12:00 -Status Failed –DetailedOutput
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-27T12:00 -Status Failed –DetailedOutput
     
 Если эта команда возвращает слишком много записей и свойств, можно ограничиться данными аудита, получив свойство **properties**.
 
-    PS C:\> (Get-AzureResourceGroupLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
 
     Content
     -------
@@ -68,7 +68,7 @@
 
 И наоборот, можно уточнить результаты, просмотрев сообщение о состоянии.
 
-    PS C:\> (Get-AzureResourceGroupLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
 
     Code       : Conflict
     Message    : Website with given name mysite already exists.
@@ -131,7 +131,7 @@
 
 ## Интерфейс REST API
 
-Операции REST для работы с журналом аудита являются частью [REST API Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Сведения о событиях журнала аудита можно получить с помощью [перечисления событий управления в подписке](https://msdn.microsoft.com/library/azure/dn931934.aspx).
+Операции REST для работы с журналом аудита являются частью [REST API Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Для получения событий журнала аудита обратитесь к статье [Получение списка событий управления в подписке](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## Портал предварительной версии
 
@@ -151,4 +151,4 @@
 - Инструкции по предоставлению доступа к ресурсам субъекта-службы см. в статье [Проверка подлинности субъекта-службы в диспетчере ресурсов Azure](resource-group-authenticate-service-principal.md).
 - Дополнительные сведения о действиях ресурса для всех пользователей см. в статье [Блокировка ресурсов с помощью диспетчера ресурсов Azure](resource-group-lock-resources.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

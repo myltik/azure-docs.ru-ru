@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием [пакета SDK iOS] для мобильных служб Azure. Если вы еще не работали с мобильными службами, сначала мы рекомендуем ознакомиться с [кратким руководством по мобильным службам] или учебником [Добавление мобильных служб в существующее приложение], чтобы научиться настраивать учетную запись, а также создавать таблицу и мобильную службу.
+В этом руководстве показано, как реализовать типичные сценарии с использованием [пакета SDK iOS] для мобильных служб Azure. Если вы еще не работали с мобильными службами, сначала изучите [краткое руководство по мобильным службам], чтобы научиться настраивать учетную запись, а также создавать таблицу и мобильную службу.
 
 > [AZURE.NOTE]В этом руководстве используется последняя версия [пакета SDK iOS для мобильных служб](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Если в проекте используется пакет SDK предыдущей версии, сначала обновите платформу в Xcode.
 
@@ -28,7 +28,7 @@
 
 ##<a name="Setup"></a>Настройка и необходимые компоненты
 
-В этом руководстве предполагается, что вы создали мобильную службу и таблицу. Дополнительные сведения см. в разделе [Создание таблицы]. Также можно повторно использовать таблицу `TodoItem`, созданную при работе с [кратким руководством по мобильным службам] или учебником [Добавление мобильных служб в существующее приложение]. В этом руководстве предполагается, что в таблице используется та же схему, что и в таблицах, приведенных в этих учебниках. Кроме того, в этом руководстве предполагается, что Xcode ссылается на `WindowsAzureMobileServices.framework` и импортирует `WindowsAzureMobileServices/WindowsAzureMobileServices.h`.
+В этом руководстве предполагается, что вы создали мобильную службу и таблицу. Дополнительные сведения см. в разделе [Создание таблицы] или воспользуйтесь таблицей `TodoItem`, созданной при работе с [кратким учебником по мобильным службам]. В этом руководстве предполагается, что в таблице используется та же схему, что и в таблицах, приведенных в этих учебниках. Кроме того, в этом руководстве предполагается, что Xcode ссылается на `WindowsAzureMobileServices.framework` и импортирует `WindowsAzureMobileServices/WindowsAzureMobileServices.h`.
 
 ##<a name="create-client"></a>Практическое руководство. Создание клиента мобильных служб
 
@@ -311,11 +311,10 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 <!-- Images. -->
 
 <!-- URLs. -->
-[Добавление мобильных служб в существующее приложение]: /develop/mobile/tutorials/get-started-data
-[быстрого запуска мобильных служб]: /develop/mobile/tutorials/get-started-ios
-[кратким руководством по мобильным службам]: /develop/mobile/tutorials/get-started-ios
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
+[быстрого запуска мобильных служб]: mobile-services-ios-get-started.md
+[кратким учебником по мобильным службам]: mobile-services-ios-get-started.md
+[краткое руководство по мобильным службам]: mobile-services-ios-get-started.md
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [статье о проверке подлинности]: /develop/mobile/tutorials/get-started-with-users-ios
 [статью о проверке подлинности]: /develop/mobile/tutorials/get-started-with-users-ios
@@ -325,13 +324,11 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
 [Разрешения]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [статье об авторизации на стороне службы]: mobile-services-javascript-backend-service-side-authorization.md
-[Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [динамическая схема]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-[How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [Создание таблицы]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [статье об обработчике конфликтов]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

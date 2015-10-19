@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Использование пакета iOS SDK для мобильных приложений Azure"
 	description="Использование пакета iOS SDK для мобильных приложений Azure"
-	services="mobile-services"
+	services="app-service\mobile"
 	documentationCenter="ios"
 	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-	ms.service="mobile-services"
+	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
@@ -249,4 +249,4 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [статье об обработчике конфликтов]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!-----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

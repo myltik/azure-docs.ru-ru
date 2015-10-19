@@ -1,25 +1,28 @@
 <properties
-   pageTitle="Просмотр и выбор образов виртуальных машин Azure с помощью оболочки PowerShell и инфраструктуры Azure CLI"
-	description="Узнайте, как определить издателя, предложение и SKU для образов при создании виртуальной машины Azure с помощью диспетчера ресурсов."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+   pageTitle="Поиск и выбор образов виртуальных машин | Microsoft Azure"
+   description="Узнайте, как определить издателя, предложение и SKU для образов при создании виртуальной машины Azure с помощью развертывания диспетчера ресурсов."
+   services="virtual-machines"
+   documentationCenter=""
+   authors="squillace"
+   manager="timlt"
+   editor=""
+   tags="azure-resource-manager"
+   />
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="command-line-interface"
-	ms.workload="infrastructure"
-	ms.date="08/25/2015"
-	ms.author="rasquill"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="command-line-interface"
+   ms.workload="infrastructure"
+   ms.date="08/25/2015"
+   ms.author="rasquill"/>
 
 # Просмотр и выбор образов виртуальных машин Azure с помощью оболочки Windows PowerShell и инфраструктуры Azure CLI
 
-> [AZURE.NOTE]При поиске образов виртуальных машин в этом разделе используется [режим управления ресурсами Azure](../resource-group-overview.md) с помощью интерфейса командной строки Azure для Mac, Linux и Windows или Windows PowerShell последней версии. В случае использования интерфейса командной строки Azure запустите этот режим, введя `azure config mode arm`. При использовании PowerShell введите `Switch-AzureMode AzureResourceManager`. Полную информацию об обновлении и настройке см. в статье [Использование интерфейса командной строки Azure в режиме управления ресурсами](xplat-cli-azure-resource-manager.md) и [Использование Azure PowerShell в режиме управления ресурсами Azure](../powershell-azure-resource-manager.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье рассматривается поиск образов виртуальных машин в модели развертывания диспетчера ресурсов. Вы также можете искать образы в [классической модели развертывания](https://msdn.microsoft.com/library/azure/dn499770.aspx).
+
+В этой статье описывается, как найти и выбрать образы виртуальных машин, используя CLI Azure или Azure PowerShell последней версии. Для начала необходимо изменить режим диспетчера ресурсов. В случае использования интерфейса командной строки Azure запустите этот режим, введя `azure config mode arm`. При использовании PowerShell введите `Switch-AzureMode AzureResourceManager`. Полную информацию об обновлении и настройке см. в статьях [Использование интерфейса командной строки Azure в режиме управления ресурсами](xplat-cli-azure-resource-manager.md) и [Использование Azure PowerShell в режиме управления ресурсами Azure](../powershell-azure-resource-manager.md).
 
 ## Таблица часто используемых образов
 
@@ -67,7 +70,7 @@
 
 Столбец **Urn** — это форма, которая передается `azure vm quick-create`.
 
-Однако часто нам неизвестно, какие именно образы доступны. В этом случае можно просмотреть их список, сначала получив список издателей с помощью `azure vm image list-publishers` и указав в качестве расположения центр обработки данных, в котором вы собираетесь использовать группу ресурсов. Например, в приведенном ниже списке содержатся все издатели образов из западной части США (при передаче аргумента расположения необходимо привести стандартное название расположения в нижний регистр и удалить из него все пробелы).
+Однако часто нам неизвестно, какие именно образы доступны. В этом случае можно просмотреть их список, сначала получив список издателей с помощью `azure vm image list-publishers`, а затем указав в качестве расположения центр обработки данных, в котором вы собираетесь использовать группу ресурсов. Например, в приведенном ниже списке содержатся все издатели образов из западной части США (при передаче аргумента расположения необходимо привести стандартное название расположения в нижний регистр и удалить из него все пробелы).
 
     azure vm image list-publishers
     info:    Executing command vm image list-publishers
@@ -134,7 +137,7 @@
     data:    canonical  ubuntuserver  14.04.2-LTS  14.04.201504270  westus    canonical:ubuntuserver:14.04.2-LTS:14.04.201504270
     info:    vm image list command OK
 
-Теперь мы можем выбрать именно тот образ, который нам нужен. Инструкции, с помощью которых можно быстро создать виртуальную машину на основе полученных нами данных URN или воспользоваться шаблоном с этими данными, см. в статье [Использование инфраструктуры Azure CLI для Mac, Linux и Windows со средствами управления ресурсами Azure](xplat-cli-azure-resource-manager.md).
+Теперь мы можем выбрать именно тот образ, который нам нужен. Инструкции, с помощью которых можно быстро создать виртуальную машину на основе полученных нами данных URN или воспользоваться шаблоном с этими данными, см. в статье [Использование CLI Azure для Mac, Linux и Windows с диспетчером ресурсов Azure](xplat-cli-azure-resource-manager.md).
 
 ### Видеоруководство
 
@@ -240,4 +243,4 @@
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

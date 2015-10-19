@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета SDK фабрики данных"
-	description="Узнайте, как программным способом создавать, отслеживать и контролировать фабрики данных Azure с помощью пакета SDK фабрики данных."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета SDK фабрики данных" 
+	description="Узнайте, как программным способом создавать, отслеживать и контролировать фабрики данных Azure с помощью пакета SDK фабрики данных." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/06/2015" 
 	ms.author="spelluru"/>
 
 # Создание, отслеживание фабрик данных Azure и управление ими с помощью пакета .NET SDK фабрики данных
@@ -56,8 +56,8 @@
 		    <add key="AdfClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
 		    <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
 		    <!--Make sure to write your own tenenat id and subscription ID here-->
-		    <add key="SubscriptionId" value="<subscription ID>" />
-    		<add key="ActiveDirectoryTenantId" value="<tenant ID" />
+		    <add key="SubscriptionId" value="your subscription ID" />
+    		<add key="ActiveDirectoryTenantId" value="your tenant ID" />
 		</appSettings>
 6. Добавьте следующие операторы **using** в файл исходного кода (Program.cs) в проекте.
 
@@ -71,7 +71,7 @@
 		
 		using Microsoft.IdentityModel.Clients.ActiveDirectory;
 		using Microsoft.Azure;
-6. Добавьте в метод **Main** следующий код, который создает экземпляр класса **DataPipelineManagementClient**. Этот объект служит для создания фабрики данных, связанной службы, входных и выходных таблиц и конвейера. Кроме того, этот объект используется для отслеживания фрагментов таблицы во время выполнения.    
+6. Добавьте в метод **Main** следующий код, который создает экземпляр класса **DataPipelineManagementClient**. Этот объект служит для создания фабрики данных, связанной службы, входных и выходных наборов данных и конвейера. Кроме того, этот объект используется для отслеживания фрагментов набора данных во время выполнения.    
 
         // create data factory management client
         string resourceGroupName = "resourcegroupname";
@@ -123,25 +123,25 @@
                 }
             }
         );
-9. Добавьте следующий код, создающий **входные и выходные таблицы**, в метод **Main**. 
+9. Добавьте следующий код, создающий **входные и выходные наборы данных**, в метод **Main**. 
 
 	Обратите внимание, что **FolderPath** для входного большого двоичного объекта задан как **adftutorial/**, где **adftutorial** — это имя контейнера в хранилище больших двоичных объектов. Если этот контейнер не существует в хранилище больших двоичных объектов Azure, создайте контейнер с именем **adftutorial** и отправьте в него текстовый файл.
 	
 	Обратите внимание, что FolderPath для выходного большого двоичного объекта задан как **adftutorial/apifactoryoutput/{срез}**, где **срез** динамически рассчитывается на основе значения **SliceStart** (начальные дата и время каждого среза).
 
  
-        // create input and output tables
-        Console.WriteLine("Creating input and output tables");
-        string Table_Source = "TableBlobSource";
-        string Table_Destination = "TableBlobDestination";
+        // create input and output datasets
+        Console.WriteLine("Creating input and output datasets");
+        string Dataset_Source = "DatasetBlobSource";
+        string Dataset_Destination = "DatasetBlobDestination";
 
-        client.Tables.CreateOrUpdate(resourceGroupName, dataFactoryName,
-            new TableCreateOrUpdateParameters()
+        client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
+            new DatasetCreateOrUpdateParameters()
             {
-                Table = new Table()
+                Dataset = new Dataset()
                 {
-                    Name = Table_Source,
-                    Properties = new TableProperties()
+                    Name = Dataset_Source,
+                    Properties = new DatasetProperties()
                     {
                         LinkedServiceName = "LinkedService-AzureStorage",
                         TypeProperties = new AzureBlobDataset()
@@ -167,13 +167,13 @@
                 }
             });
 
-        client.Tables.CreateOrUpdate(resourceGroupName, dataFactoryName,
-            new TableCreateOrUpdateParameters()
+        client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
+            new DatasetCreateOrUpdateParameters()
             {
-                Table = new Table()
+                Dataset = new Dataset()
                 {
-                    Name = Table_Destination,
-                    Properties = new TableProperties()
+                    Name = Dataset_Destination,
+                    Properties = new DatasetProperties()
                     {
 
                         LinkedServiceName = "LinkedService-AzureStorage",
@@ -233,14 +233,14 @@
                                 Inputs = new List<ActivityInput>()
                                 {
                                     new ActivityInput() {
-                                        Name = Table_Source
+                                        Name = Dataset_Source
                                     }
                                 },
                                 Outputs = new List<ActivityOutput>()
                                 {
                                     new ActivityOutput()
                                     {
-                                        Name = Table_Destination
+                                        Name = Dataset_Destination
                                     }
                                 },
                                 TypeProperties = new CopyActivity()
@@ -297,7 +297,7 @@
             throw new InvalidOperationException("Failed to acquire token");
         }  
  
-13. Добавьте следующий код в метод **Main**, чтобы получить состояние среза данных выходной таблицы. Существует только срез, ожидаемый в этом образце.
+13. Добавьте следующий код в метод **Main**, чтобы получить состояние среза данных выходного набора данных. Существует только срез, ожидаемый в этом образце.
  
         // Pulling status within a timeout threshold
         DateTime start = DateTime.Now;
@@ -309,7 +309,7 @@
             // wait before the next status check
             Thread.Sleep(1000 * 12);
 
-            var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Table_Destination,
+            var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Dataset_Destination,
                 new DataSliceListParameters()
                 {
                     DataSliceRangeStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString(),
@@ -342,7 +342,7 @@
         var datasliceRunListResponse = client.DataSliceRuns.List(
                 resourceGroupName,
                 dataFactoryName,
-                Table_Destination,
+                Dataset_Destination,
                 new DataSliceRunListParameters()
                 {
                     DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
@@ -363,7 +363,8 @@
         Console.WriteLine("\nPress any key to exit.");
         Console.ReadKey();
 
-15. Постройте консольное приложение. В меню щелкните **Построить** и выберите **Построить решение**. При отображении сообщения об ошибке с классом **ConfigurationManager** добавьте ссылку на сборку **System.Configuration** и повторите попытку сборки.
+15. В обозревателе решений разверните проект (**DataFactoryAPITestApp**), щелкните правой кнопкой мыши **Ссылки** и затем щелкните **Добавить ссылку**. Установите флажок для сборки **System.Configuration** и нажмите кнопку **ОК**.
+16. Постройте консольное приложение. В меню щелкните **Построить** и выберите **Построить решение**. 
 16. Убедитесь, что как минимум один файл существует в контейнере adftutorial в хранилище больших двоичных объектов Azure. В противном случае создайте файл Emp.txt в блокноте со следующим содержимым и передайте его в контейнер adftutorial.
 
         John, Doe
@@ -372,7 +373,7 @@
 17. Запустите пример, щелкнув **Отладка** > **Начать отладку** в меню. При появлении сообщения **Получение сведений о выполнении для среза данных** подождите несколько минут и нажмите клавишу **ВВОД**.
 18. Используйте портал предварительной версии Azure, чтобы убедиться, что фабрика данных **APITutorialFactory** создана с использованием следующих артефактов: 
 	- Связанная служба: **LinkedService\_AzureStorage**. 
-	- Таблицы: **TableBlobSource** и **TableBlobDestination**.
+	- Набор данных: **DatasetBlobSource** и **DatasetBlobDestination**.
 	- Конвейер: **PipelineBlobSample**. 
 18. Убедитесь, что выходной файл создан в папке **apifactoryoutput** в контейнере **adftutorial**.
 
@@ -394,4 +395,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

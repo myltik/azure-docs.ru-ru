@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/09/2015" 
+	ms.date="10/05/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -43,7 +43,7 @@ Azure Stream Analytics (ASA) — это полностью управляемы
 -   **Возможности подключения.** Stream Analytics подключается непосредственно к концентраторам событий Azure для получения потока, а также к службе BLOB-объектов Azure для получения данных журналов. Результаты могут записываться из Stream Analytics в BLOB-объекты или таблицы службы хранилища Azure, базу данных SQL Azure, концентраторы событий, разделы или очереди сервисной шины Azure, а также в Power BI. Затем результаты можно визуализировать, дополнительно обрабатывать в рамках рабочих процессов, использовать в пакете аналитики с помощью [Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) или повторно обрабатывать как последовательность событий. При использовании концентраторов событий можно объединить несколько служб Stream Analytics с другими источниками данных и модулями обработки без потери потока вычислений.
 
 ## Получение справки
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/RU-RU/home?forum=AzureStreamAnalytics).
 
 ## Дальнейшие действия
 Вы получили основные сведения о Stream Analytics, управляемой службе аналитики потоковой передачи данных из Интернета вещей. Дополнительные сведения об этой службе см. на следующих ресурсах:
@@ -53,4 +53,4 @@ Azure Stream Analytics (ASA) — это полностью управляемы
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

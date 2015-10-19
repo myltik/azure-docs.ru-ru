@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="10/05/2015" 
 	ms.author="awills"/>
  
 # Что такое Azure Application Insights?
@@ -115,7 +115,7 @@ Application Insights может также получать данные тел�
 
 * Вопросы и проблемы
  * [Устранение неполадок][qna]
- * [Форум MSDN](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+ * [Форум MSDN](https://social.msdn.microsoft.com/Forums/vstudio/RU-RU/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Ошибки
  * [Подключение](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -152,4 +152,4 @@ Application Insights может также получать данные тел�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

@@ -150,7 +150,7 @@
 
 	Или в системах на основе SUSE Linux может потребоваться использовать другой формат:
 
-		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /   ext3   defaults   1   2
+		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext3   defaults   1   2
 
 	Теперь можно проверить, правильно ли подключена файловая система, просто отключив и повторно подключив файловую систему, т. е. используя типовую точку подключения `/datadrive`, созданную на предыдущих этапах:
 
@@ -173,4 +173,4 @@
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

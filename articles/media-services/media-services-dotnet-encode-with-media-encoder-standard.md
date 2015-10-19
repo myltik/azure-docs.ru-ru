@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015"    
+	ms.date="10/07/2015"    
 	ms.author="juliako"/>
 
 
@@ -40,7 +40,7 @@
 - Добавление обработчика событий для проверки хода выполнения задания.
 - Отправка задания.
 		
-		static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset, string pathToLocalPresetFile)
+		static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
 		{
 		    // Declare a new job.
 		    IJob job = _context.Jobs.Create("Media Encoder Standard Job");
@@ -125,4 +125,4 @@
 
 [Как создать эскиз с помощью стандартного кодировщика мультимедиа и .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Обзор кодирования в службах мультимедиа](media-services-encode-asset.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

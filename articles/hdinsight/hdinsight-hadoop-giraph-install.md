@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Установка и использование Giraph для кластеров Hadoop в HDInsight | Microsoft Azure"
-	description="Дополнительные сведения о настройке кластера HDInsight с Giraph. Вы воспользуетесь параметром конфигурации действия скрипта (Script Action), чтобы использовать скрипт для установки Giraph."
+	description="Дополнительные сведения о настройке кластера HDInsight с Giraph и использование Giraph."
 	services="hdinsight"
 	documentationCenter=""
 	authors="nitinme"
@@ -14,22 +14,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/11/2015"
+	ms.date="10/02/2015"
 	ms.author="nitinme"/>
 
-# Установка Giraph в кластерах HDInsight Hadoop и использование Giraph для обработки диаграмм больших объемов
+# Установка и использование Giraph в HDInsight
 
-Giraph можно установить в любой тип кластера Hadoop в Azure HDInsight с помощью параметра кластера **Действие сценария**. Действие скрипта позволяет выполнять скрипты для настройки кластера только во время его создания. Дополнительную информацию см. в статье [Настройка кластеров HDInsight с помощью действия сценария][hdinsight-cluster-customize].
 
-> [AZURE.NOTE]Информация, приведенная в этой статье, относится только к кластерам HDInsight под управлением Windows. Сведения о работе R с кластером под управлением Linux см. в статье [Установка Giraph в кластерах HDInsight Hadoop (Linux)](hdinsight-hadoop-giraph-install-linux.md).
+Научитесь настраивать кластер HDInsight на основе Windows с Giraph с помощью сценария действия и использовать Giraph для обработки диаграмм больших объемов. Сведения об использовании Giraph с кластером под управлением Linux см. в разделе [Установка Giraph в кластерах HDInsight Hadoop (Linux)](hdinsight-hadoop-giraph-install-linux.md).
+ 
+Giraph можно установить в кластере любого типа (Hadoop, Storm, HBase, Spark) в HDInsight в Azure, воспользовавшись *Действием сценария*. Пример сценария для установки Giraph в кластере HDInsight доступен в большом двоичном объекте службы хранилища Azure (доступ только для чтения): [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). Пример скрипта работает только с кластером HDInsight версии 3.1. Дополнительную информацию о версиях кластера HDInsight см. в статье [Новые возможности версий кластеров Hadoop, предоставляемых HDInsight](hdinsight-component-versioning.md).
 
-В этом разделе описано, как установить Giraph с помощью действия скрипта. После установки Giraph вы также научитесь использовать Giraph для наиболее типичных приложений для обработки крупномасштабных графов.
+**Связанные статьи**
 
-[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+- [Установка Giraph на кластерах HDInsight Hadoop (Linux)](hdinsight-hadoop-giraph-install-linux.md)
+- [Создание кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md). Общие сведения о создании кластеров HDInsight
+- [Настройка кластеров HDInsight с помощью действия сценария][hdinsight-cluster-customize]. Общая информация о настройке кластеров HDInsight с помощью действия сценария
+- [Разработка скриптов действия сценария для HDInsight](hdinsight-hadoop-script-actions.md)
 
-* [Установка Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install-v1.md)
-
-## <a name="whatis"></a>Что такое Giraph
+## Что такое Giraph?
 
 <a href="http://giraph.apache.org/" target="_blank">Apache Giraph</a> позволяет выполнять обработку графов с использованием Hadoop и может использоваться с Azure HDInsight. Графы моделируют взаимоотношения между объектами, такие как подключения между маршрутизаторами в большой сети, подобной Интернету, или взаимоотношения между людьми в социальных сетях (иногда называется социальным графом). Обработка графов дает возможность делать выводы о взаимоотношениях объектов в графе, таких как:
 
@@ -38,13 +40,13 @@ Giraph можно установить в любой тип кластера Had
 - вычисление ранга страницы для веб-страниц.
 
 
-## <a name="install"></a>Как установить Giraph
+## Установка Giraph с помощью портала
 
-Пример сценария для установки Giraph в кластере HDInsight доступен в большом двоичном объекте службы хранилища Azure (доступ только для чтения): [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). Этот раздел содержит инструкции по использованию примера скрипта при подготовке кластера с помощью портала Azure.
+[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
 
-> [AZURE.NOTE]Пример скрипта работает только с кластером HDInsight версии 3.1. Дополнительную информацию о версиях кластера HDInsight см. в статье [Новые возможности версий кластеров Hadoop, предоставляемых HDInsight](hdinsight-component-versioning.md).
+* [Установка Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install-v1.md)
 
-1. Начните подготовку кластера с помощью параметра **НАСТРАИВАЕМОЕ СОЗДАНИЕ**, как описано в статье [Подготовка кластера с использованием пользовательских параметров](hdinsight-provision-clusters.md#portal).
+1. Начните создание кластера с помощью параметра **НАСТРАИВАЕМОЕ СОЗДАНИЕ**, как описано в разделе [Создание кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md#portal).
 2. На странице **Действия сценариев** мастера щелкните **Добавить действие сценария** для предоставления информации о данном действии сценария, как показано ниже:
 
 	![Использование действия сценария для настройки кластера](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "Использование действия сценария для настройки кластера")
@@ -59,9 +61,9 @@ Giraph можно установить в любой тип кластера Had
 		<td>Укажите узлы, на которых выполняется сценарий настройки. Можно выбрать одно из трех значений: <b>Все узлы</b>, <b>Только головные узлы</b> или <b>Только рабочие узлы</b>.
 	<tr><td>Параметры</td>
 		<td>Укажите параметры, если они требуются для сценария. Скрипт для установки Giraph не требует никаких параметров, поэтому можно оставить это поле пустым.</td></tr>
-</table>Можно добавить несколько действий сценария для установки нескольких компонентов в кластере. После добавления скриптов щелкните значок с галочкой, чтобы начать подготовку кластера.
+</table>Можно добавить несколько действий сценария для установки нескольких компонентов в кластере. После добавления скриптов щелкните флажок, чтобы начать создание кластера.
 
-## <a name="usegiraph"></a>Как использовать Giraph в HDInsight
+## Использование Giraph
 
 Мы используем пример SimpleShortestPathsComputation, который демонстрирует базовую реализацию <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> для поиска кратчайшего пути между объектами графа. Выполните следующие действия, чтобы отправить данные и JAR-файл примера, запустить задание с использованием примера SimpleShortestPathsComputation, а затем просмотреть результаты.
 
@@ -151,12 +153,24 @@ Giraph можно установить в любой тип кластера Had
 
 	![Представление объектов в виде кругов с кратчайшими путями между ними](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
+## Установка Giraph с помощью Azure PowerShell
+
+Обратитесь к статье [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster.md#call_scripts_using_powershell). В этом примере показано, как установить Spark с помощью Azure PowerShell. Необходимо изменить сценарий для использования [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
+
+## Установка Giraph с помощью пакета SDK для .NET
+
+Обратитесь к статье [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster.md#call_scripts_using_azure_powershell). В этом примере показано, как установить Spark с помощью пакета SDK для .NET. Необходимо изменить сценарий для использования [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
 
-## См. также##
-- Статья [Установка и использование Spark в кластерах HDInsight][hdinsight-install-spark] содержит указания по применению настройки кластера для установки и использования Spark в кластерах HDInsight Hadoop. Spark — это платформа параллельной обработки с открытым исходным кодом, которая поддерживает обработку в памяти, чтобы повысить производительность приложений для анализа данных большого объема.
-- Статья [Установка R в кластерах HDInsight][hdinsight-install-r] содержит указания по применению настройки кластера для установки и использования R в кластерах HDInsight Hadoop. R — это открытый язык программирования и свободная программная среда для статистических вычислений. Он предоставляет сотни встраиваемых статистических функций и собственный язык программирования, который сочетает аспекты функционального и объектно-ориентированного программирования. Этот проект также обеспечивает обширные графические возможности.
-- [Установка Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md). Используйте настройки кластера для установки Solr в кластерах HDInsight Hadoop. Solr позволяет вести расширенный поиск по хранимым данным.
+## См. также
+
+- [Установка Giraph на кластерах HDInsight Hadoop (Linux)](hdinsight-hadoop-giraph-install-linux.md)
+- [Создание кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md). Общие сведения о создании кластеров HDInsight
+- [Настройка кластеров HDInsight с помощью действия сценария][hdinsight-cluster-customize]. Общая информация о настройке кластеров HDInsight с помощью действия сценария
+- [Разработка скриптов действия сценария для HDInsight](hdinsight-hadoop-script-actions.md)
+- [Установка и использование Spark в HDInsight][hdinsight-install-spark]. Пример действия сценария для установки Spark
+- [Установка R в кластерах HDInsight][hdinsight-install-r]. Пример действия сценария для установки R
+- [Установка Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md). Пример действия сценария для установки Solr
 
 
 
@@ -169,4 +183,4 @@ Giraph можно установить в любой тип кластера Had
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

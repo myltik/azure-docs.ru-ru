@@ -35,7 +35,7 @@
 Для работы с данным учебником требуется следующее:
 
 * Visual Studio 2013 в Windows 8.1.
-* Изучение учебника [Приступая к работе с мобильными службами] или [Приступая к работе с данными].
+* Выполнение заданий учебника [Приступая к работе с мобильными службами]
 * Пакет NuGet пакета SDK мобильных служб Microsoft Azure
 * Пакет NuGet библиотеки проверки подлинности Active Directory
 
@@ -213,8 +213,7 @@
 [Регистрация в Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Active Directory]: https://manage.windowsazure.com/
 [портале управления Azure]: https://manage.windowsazure.com/
-[Приступая к работе с данными]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [панель мониторинга Центра разработки для Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

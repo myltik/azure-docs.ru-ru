@@ -1,21 +1,38 @@
-<properties pageTitle="Создание виртуальной машины Oracle WebLogic Server 12c и Oracle Database 12c в Azure" description="Пошагово создайте пример образа Oracle WebLogic Server 12c и Oracle Database 12c под управлением Windows Server 2012 в Microsoft Azure." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties
+	pageTitle="Виртуальная машина Oracle WebLogic Server и Oracle Database | Microsoft Azure"
+	description="Создайте образ Azure Oracle WebLogic Server 12c и Oracle Database 12c под управлением Windows Server 2012 с помощью модели развертывания диспетчера ресурсов."
+	services="virtual-machines"
+	authors="bbenz"
+	documentationCenter=""
+	tags="azure-resource-manager"/>
+
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
+	ms.author="bbenz" />
 
 #Создание виртуальной машины Oracle WebLogic Server 12c и Oracle Database 12c в Azure
 
 В этой статье показано, как создать в Azure виртуальную машину на основе предоставленного корпорацией Майкрософт образа Oracle WebLogic Server 12c и Oracle Database 12c под управлением Windows Server 2012 12c.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается создание Oracle WebLogic Server и Oracle Database с помощью модели развертывания диспетчера ресурсов.
+
+
 ##Создание виртуальной машины Oracle WebLogic Server 12c и Oracle Database 12c в Azure
 
 1. Войдите на [портал Azure](https://ms.portal.azure.com/).
 
-2.	Щелкните **Marketplace**, щелкните **Среда выполнения приложений**, а затем введите **Oracle** в поле поиска.
+2.	Щелкните **Marketplace**, выберите **Среда выполнения приложений**, а затем введите **Oracle** в поле поиска.
 
 3.	Выберите образ **Oracle Database 12c и WebLogic Server 12c Standard Edition на Windows Server 2012** или **Oracle Database 12c и WebLogic Server 12c Enterprise Edition на Windows Server 2012**. Просмотрите информацию о выбранном образе (например, минимальный рекомендуемый размер) и нажмите кнопку **Далее**.
 
-4.	Укажите **имя узла** виртуальной машины.
+4.	Укажите **Имя узла** виртуальной машины.
 
-5.	Укажите **имя пользователя** виртуальной машины. Обратите внимание, что это имя пользователя для удаленного входа в виртуальную машину, а не для базы данных Oracle.
+5.	Укажите **Имя пользователя** виртуальной машины. Обратите внимание, что это имя пользователя для удаленного входа в виртуальную машину, а не для базы данных Oracle.
 
 6.	Укажите и подтвердите пароль для виртуальной машины или предоставьте открытый ключ SSH.
 
@@ -23,13 +40,13 @@
 
 8. При необходимости установите дополнительные настройки. Следуйте указанным далее рекомендациям.
 
-	а. Не изменяйте запись **Учетная запись хранения**, чтобы создать учетную запись хранения с именем виртуальной машины.
+	а. Оставьте значение **Учетная запись хранения** без изменений, чтобы создать новую учетную запись хранения с именем виртуальной машины.
 
 	b. Оставьте в поле **Группа доступности** значение **Не настроено**.
 
 	c. Пока не добавляйте конечные точки.
 
-9.	Выберите или создайте группу ресурсов. Подробные сведения см. в статье [Управление ресурсами Azure с помощью портала предварительной версии Azure](resource-group-portal.md).
+9.	Выберите или создайте группу ресурсов. Дополнительные сведения см. в статье [Управление ресурсами Azure с помощью портала предварительной версии Azure](resource-group-portal.md).
 
 10. Выберите **подписку**.
 
@@ -54,4 +71,4 @@
 
 [Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

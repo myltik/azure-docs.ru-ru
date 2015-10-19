@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/01/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Начало работы. Подключение к хранилищу данных Azure SQL
@@ -179,9 +179,9 @@ C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Pas
 	Чтобы выполнить запрос, щелкните зеленую стрелку или воспользуйтесь сочетанием клавиш `CTRL`+`SHIFT`+`F5`.
 
 ## Дальнейшие действия ##
-Теперь, когда вы можете подключиться и отправить запрос, попробуйте [загрузить демонстрационные данные][] или [создать код][].
+Теперь, когда вы можете подключиться и отправить запрос, попробуйте [загрузить демонстрационные данные][].
 
 [загрузить демонстрационные данные]: ./sql-data-warehouse-get-started-load-samples.md
-[создать код]: ./articles/sql-data-warehouse-overview-develop/
+[developing code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

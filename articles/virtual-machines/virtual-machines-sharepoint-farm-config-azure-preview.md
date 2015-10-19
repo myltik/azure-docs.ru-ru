@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 
@@ -113,7 +113,7 @@
 -	Серверы баз данных:
 	-	Образ виртуальной машины: SQL Server 2014 RTM Enterprise на Windows Server 2012 R2.
 	-	Префикс имени узла: задается при первоначальной настройке.
-	-	Размер: A5 (по умолчанию) для серверов баз данных, A0 (по умолчанию) для файлового ресурса-свидетеля
+	-	Размер: A5 (по умолчанию) для серверов баз данных, A0 (по умолчанию) для файлового ресурса-свидетеля (SQL0).
 	-	Имя учетной записи для доступа к базе данных: задается при первоначальной настройке.
 	-	Пароль учетной записи для доступа к базе данных: задается при первоначальной настройке.
 	-	Имя учетной записи службы SQL Server: sqlservice (по умолчанию).
@@ -137,8 +137,8 @@
 
 [Ферма серверов SharePoint](virtual-machines-sharepoint-farm-azure-preview.md)
 
-[Сервер SharePoint в службах инфраструктуры Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+[Фермы SharePoint, размещенные в службах инфраструктуры Azure](virtual-machines-sharepoint-infrastructure-services.md)
 
 [Настройка фермы SharePoint интрасети в гибридном облаке для тестирования](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

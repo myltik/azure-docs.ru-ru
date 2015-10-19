@@ -261,7 +261,6 @@
 
 
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
-[Get started with data]: mobile-services-ios-get-started-data.md
 [Обработка конфликтов с автономной поддержкой мобильных служб]: mobile-services-ios-handling-conflicts-offline-data.md
 [статье об обработке конфликтов с автономной поддержкой мобильных служб]: mobile-services-ios-handling-conflicts-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
@@ -272,4 +271,4 @@
 
 [краткого учебника по быстрому запуску мобильных служб]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

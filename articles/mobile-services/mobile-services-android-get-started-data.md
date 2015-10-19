@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 # Добавление мобильных служб в существующее приложение Android (серверная часть JavaScript)
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
 ## Сводка
 
@@ -35,7 +33,7 @@
 </div>
 
 
-<p>Этот учебник поможет лучше понять, как мобильные службы Azure могут сохранять данные приложения Android и извлекать их из него. В этом разделе рассматриваются многие действия, которые уже выполнялись в кратком руководстве по использованию мобильных служб. Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником <a href="/ru-RU/develop/mobile/tutorials/get-started-android">Приступая к работе с мобильными службами</a>.</p>
+<p>Этот учебник поможет лучше понять, как мобильные службы Azure могут сохранять данные приложения Android и извлекать их из него. В этом разделе рассматриваются многие действия, которые уже выполнялись в кратком руководстве по использованию мобильных служб. Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником <a href="/RU-RU/develop/mobile/tutorials/get-started-android">Приступая к работе с мобильными службами</a>.</p>
 
 ## Предварительные требования
 
@@ -151,4 +149,4 @@
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

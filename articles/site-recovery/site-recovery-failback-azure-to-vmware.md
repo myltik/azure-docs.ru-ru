@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="08/05/2015"
+   ms.date="10/07/2015"
    ms.author="ruturajd@microsoft.com"/>
 
 # Пошаговое руководство по восстановлению размещения в VMware после использования Azure для отработки отказа
@@ -558,4 +558,4 @@ IP-адрес сервера обработки | Выберите сервер 
 
  
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

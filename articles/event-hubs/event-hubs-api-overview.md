@@ -1,25 +1,25 @@
 <properties 
    pageTitle="Общие сведения об API концентраторов событий"
-	description="Сводные сведения о некоторых ключевых клиентских API .NET концентраторов событий."
-	services="event-hubs"
-	documentationCenter="na"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+   description="Сводные сведения о некоторых ключевых клиентских API .NET концентраторов событий."
+   services="event-hubs"
+   documentationCenter="na"
+   authors="sethmanheim"
+   manager="timlt"
+   editor="" />
 <tags 
    ms.service="event-hubs"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="07/10/2015"
-	ms.author="sethm"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="tbd"
+   ms.date="07/10/2015"
+   ms.author="sethm" />
 
 # Общие сведения об API концентраторов событий
 
 В этой статье перечислены некоторые ключевые клиентские API .NET концентраторов событий. Существует две категории: API управления и API среды выполнения. API среды выполнения состоят из всех операций, необходимых для отправки и получения сообщения. Операции управления позволяют управлять состоянием сущности концентраторов событий путем создания, обновления и удаления сущностей.
 
-Сценарии мониторинга распространяются как на управление, так и на среду выполнения. Подробную справочную документацию по API .NET см. в разделах [Библиотека классов .NET](https://msdn.microsoft.com/library/jj933431.aspx) и [API EventProcessorHost](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.aspx).
+Сценарии мониторинга распространяются как на управление, так и на среду выполнения. Подробную справочную документацию по API .NET см. в разделах [Библиотека классов .NET](https://msdn.microsoft.com/library/azure/jj933431.aspx) и [API EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.aspx).
 
 ## API управления
 
@@ -50,7 +50,7 @@ namespaceManager.UpdateEventHubAsync(ehd).Wait();
 ### Удалить
 
 ```
-namespaceManager.DeleteEventHubAsync("event hub name").Wait();
+namespaceManager.DeleteEventHubAsync("Event Hub name").Wait();
 ```
 
 ## API среды выполнения
@@ -59,7 +59,7 @@ namespaceManager.DeleteEventHubAsync("event hub name").Wait();
 
 ```
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
-EventHubClient eventHubClient = EventHubClient.Create("event hub name");
+EventHubClient eventHubClient = EventHubClient.Create("Event Hub name");
 ```
 
 ### Публикация сообщения
@@ -131,7 +131,7 @@ EventProcessorHost host = new EventProcessorHost(WorkerName, EventHubName, defau
 host.UnregisterEventProcessorAsync().Wait();   
 ```
 
-Интерфейс [IEventProcessor](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.ieventprocessor.aspx) определяется следующим образом:
+Интерфейс [IEventProcessor](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.aspx) определяется следующим образом:
 
 ```
 public class SimpleEventProcessor : IEventProcessor
@@ -184,7 +184,7 @@ public class SimpleEventProcessor : IEventProcessor
 
 Ссылки на API-интерфейсы .NET:
 
-- [Справочник по служебной шине и API .NET концентраторов событий](https://msdn.microsoft.com/library/jj933424.aspx)
-- [Справочник по API узла обработчика событий](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
+- [Справочник по служебной шине и API .NET концентраторов событий](https://msdn.microsoft.com/library/azure/jj933424.aspx)
+- [Справочник по API узла обработчика событий](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

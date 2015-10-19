@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="10/01/2015"
 	ms.author="jolevy"/>
 
 
@@ -53,4 +53,4 @@
  * Прочитайте запись блога [Автоматизация Azure: ваш агент SQL в облаке](http://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

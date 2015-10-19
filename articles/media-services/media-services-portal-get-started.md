@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с доставкой видео по запросу (VoD) с помощью портала Azure| Microsoft Azure"
+	pageTitle="Приступая к работе с доставкой содержимого по запросу с помощью портала Azure | Microsoft Azure"
 	description="В этом учебнике показаны шаги по реализации приложения доставки видео по запросу с помощью служб мультимедиа Azure с использованием портала Azure."
 	services="media-services"
 	documentationCenter=""
@@ -11,13 +11,14 @@
 	ms.service="media-services"
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
-	ms.devlang="ne"
+	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/18/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 
-# Приступая к работе с доставкой видео по запросу (VoD) с помощью портала Azure
+# Приступая к работе с доставкой содержимого по запросу с помощью портала Azure
+
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -222,12 +223,18 @@ URL-адрес потоковой передачи имеет следующий
 
 
 
-##Схемы обучения работе со службами мультимедиа
+##Дальнейшие действия
+
+###Схемы обучения работе со службами мультимедиа
 
 Схемы обучения AMS можно просмотреть здесь:
 
 - [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+### Не нашли ответа?
+
+Если содержание этого раздела не соответствует вашим ожиданиям или не содержит ответов на ваши вопросы, оставьте отзыв в обсуждении Disqus ниже.
 
 ### Дополнительные ресурсы
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now! (Службы мультимедиа Azure 101. Передача видео в Интернет)</a>
@@ -254,4 +261,4 @@ URL-адрес потоковой передачи имеет следующий
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

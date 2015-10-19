@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Использование HTML-клиента | Microsoft Azure" 
-	description="Узнайте, как использовать клиент HTML для мобильных служб Azure." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Использование HTML-клиента | Microsoft Azure"
+	description="Узнайте, как использовать клиент HTML для мобильных служб Azure."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-html" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="09/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-html"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="09/24/2015"
 	ms.author="glenga"/>
 
 # Использование клиента HTML/JavaScript для мобильных служб Azure
@@ -43,7 +43,7 @@
 	var MobileServiceClient = WindowsAzure.MobileServiceClient;
     var client = new MobileServiceClient('AppUrl', 'AppKey');
 
-Замените заполнитель `AppUrl` на URL-адрес приложения мобильной службы, а заполнитель `AppKey` — на ключ приложения. Чтобы узнать, как получить URL-адрес приложения и ключ приложения для мобильной службы, обратитесь к учебнику [Добавление мобильных служб в существующее приложение](mobile-services-html-get-started-data.md).
+Замените заполнитель `AppUrl` на URL-адрес приложения мобильной службы, а заполнитель `AppKey` — на ключ приложения, который вы найдете на [портале Azure](http://manage.windowsazure.com/).
 
 >[AZURE.IMPORTANT]Ключ приложения предназначен для фильтрации случайных запросов в мобильной службе и распространяется вместе с приложением. Поскольку этот ключ не зашифрован, он не может считаться безопасным. Чтобы обеспечить надежную защиту данных мобильной службы, необходимо выполнять проверку подлинности пользователей перед предоставлением им доступа. Дополнительные сведения см. в разделе [Практическое руководство. Проверка подлинности пользователей](#authentication).
 
@@ -364,7 +364,7 @@
 
 В приложении для Магазина Windows результаты запроса могут быть использованы для создания объекта [WinJS.Binding.List], который может быть привязан в качестве источника данных к объекту [ListView]. Дополнительные сведения см. в разделе [Привязка данных (приложения Магазина Windows с использованием JavaScript и HTML)].
 
-##<a name="#custom-api"></a>Практическое руководство. Вызов настраиваемого интерфейса API
+##<a name="custom-api"></a>Практическое руководство. Вызов настраиваемого интерфейса API
 
 Настраиваемый интерфейс API позволяет определить пользовательские конечные точки, которые предоставляют функциональные возможности сервера, не сопоставляемые с операциями вставки, обновления, удаления или чтения. При использовании настраиваемого интерфейса API вы получаете больше возможностей для управления сообщениями, в том числе для чтения и установки заголовков HTTP-сообщений, а также определения форматов текста сообщений, отличных от JSON. Пример создания настраиваемого интерфейса API в мобильной службе см. в разделе [Как определить конечную точку настраиваемого интерфейса API](mobile-services-dotnet-backend-define-custom-api.md).
 
@@ -381,7 +381,7 @@
         alert(error.message);
     });
 
- 
+
 Практические примеры и дополнительную информацию о методе **invokeApi** см. на [странице, посвященной настраиваемому интерфейсу API в пакетах SDK для клиента мобильных служб Azure](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 
 ##<a name="authentication"></a>Практическое руководство. Проверка подлинности пользователей
@@ -465,7 +465,7 @@
 					mobileClient.login(result.session.authentication_token)
 				]).done(function (results) {
 					// Build the welcome message from the Microsoft account info.
-					var profile = results[0];                            
+					var profile = results[0];
 					var title = "Welcome " + profile.first_name + "!";
 					var message = "You are now logged in as: "
 						+ mobileClient.currentUser.userId;
@@ -474,7 +474,7 @@
 						// Reload items from the mobile service.
 						refreshTodoItems();
 					}).done(complete);
-					
+
 				}, function (error) {
 
 				});
@@ -662,10 +662,7 @@
 [ListView]: http://msdn.microsoft.com/library/windows/apps/br211837.aspx
 [Привязка данных (приложения Магазина Windows с использованием JavaScript и HTML)]: http://msdn.microsoft.com/library/windows/apps/hh758311.aspx
 [login]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/Javascript/src/MobileServiceClient.js#L301
-[Authenticate your app with single sign-in]: mobile-services-windows-store-javascript-single-sign-on.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [справочнике по параметрам системных запросов OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
-[Call a custom API from the client]: mobile-services-html-call-custom-api.md
- 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

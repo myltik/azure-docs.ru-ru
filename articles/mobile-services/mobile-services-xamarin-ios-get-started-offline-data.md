@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Использование автономных данных в мобильных службах (Xamarin для iOS) | Microsoft Azure"
-	description="Узнайте, как использовать мобильные службы Azure для кэширования и синхронизации автономных данных в приложении на Xamarin для iOS"
-	documentationCenter="xamarin"
-	authors="lindydonna"
-	editor="wesmc"
-	manager="dwrede"
+	pageTitle="Использование автономных данных в мобильных службах (Xamarin для iOS) | Microsoft Azure" 
+	description="Узнайте, как использовать мобильные службы Azure для кэширования и синхронизации автономных данных в приложении на Xamarin для iOS" 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	editor="wesmc" 
+	manager="dwrede" 
 	services="mobile-services"/>
 
 <tags 
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
 	ms.date="07/01/2015"
 	ms.author="donnam"/>
 
@@ -174,7 +174,6 @@
 
 <!-- URLs. -->
 [Обработка конфликтов с автономной поддержкой мобильных служб]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md
-[Get started with data]: mobile-services-ios-get-started-data.md
 [Приступая к работе с мобильными службами]: mobile-services-ios-get-started.md
 [Использование клиентского компонента Xamarin для мобильных служб Azure]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [обратимое удаление]: mobile-services-using-soft-delete.md
@@ -183,4 +182,4 @@
 [расширением Xamarin]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

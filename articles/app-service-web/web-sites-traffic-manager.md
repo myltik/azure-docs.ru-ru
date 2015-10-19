@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Управление трафиком веб-приложений Azure с помощью диспетчера трафика Azure"
-	description="В этой статье представлена сводная информация об использовании диспетчера трафика Azure с веб-приложениями Azure."
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="Управление трафиком веб-приложений Azure с помощью диспетчера трафика Azure" 
+	description="В этой статье представлена сводная информация об использовании диспетчера трафика Azure с веб-приложениями Azure." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="cephalin" 
+	writer="cephalin" 
+	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Управление трафиком веб-приложений Azure с помощью диспетчера трафика Azure
@@ -62,4 +63,4 @@
 Дополнительные сведения об использовании диспетчера трафика совместно с веб-приложениями см. в статьях [Использование диспетчера трафика Azure c веб-сайтами Azure](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) и [Диспетчер трафика Azure теперь можно интегрировать с веб-сайтами Azure](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

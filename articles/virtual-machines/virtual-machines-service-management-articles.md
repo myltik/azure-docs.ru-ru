@@ -14,12 +14,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.workload="infrastructure-services"
-	ms.date="07/28/2015"
+	ms.date="10/01/2015"
 	ms.author="danlep"/>
 
 # Статьи по виртуальным машинам в управлении службами
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается управление ресурсами с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Это список статей, посвященных созданию ресурсов с помощью классической модели развертывания и управлению ими.
 
 ## Приступая к работе
 
@@ -39,7 +39,7 @@
 
 [Создание виртуальной машины Windows и управление ею с помощью Azure PowerShell](virtual-machines-create-windows-powershell-service-manager.md)
 
-[Создание виртуальной машины с помощью интерфейса командной строки Azure](virtual-machines-xplat-getting-started.md)
+[Создание настраиваемой виртуальной машины с помощью интерфейса командной строки Azure (Azure CLI)](virtual-machines-linux-create-custom.md)
 
 [Развертывание нескольких виртуальных машин с помощью интерфейса командной строки Azure](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
@@ -87,11 +87,13 @@
 
 [Настройка конечных точек виртуальной машины](virtual-machines-set-up-endpoints.md)
 
+[Управление виртуальными машинами с помощью Azure CLI для Mac, Linux и Windows](virtual-machines-manage-vms-azure-cli.md)
+
 ## Создание рабочих нагрузок
 
-[Active Directory](https://msdn.microsoft.com/library/azure/jj156090.aspx)
+[Active Directory](../active-directory/active-directory-new-forest-virtual-machine.md)
 
-[BizTalk Server](https://msdn.microsoft.com/library/azure/jj248689)
+<!-- [BizTalk Server](https://msdn.microsoft.com/library/azure/jj248689) -->
 
 [Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
 
@@ -99,11 +101,11 @@
 
 [Exchange Server](https://technet.microsoft.com/library/jj619301.aspx)
 
-[Пакет HPC](https://msdn.microsoft.com/library/azure/dn518135.aspx)
+[Пакет HPC](virtual-machines-hpcpack-cluster-options.md)
 
 [Стек LAMP](virtual-machines-linux-install-lamp-stack.md)
 
-[Очередь сообщений (MSMQ)](https://msdn.microsoft.com/library/azure/dn529082.aspx)
+<!-- [Message Queuing (MSMQ)](https://msdn.microsoft.com/library/azure/dn529082.aspx) -->
 
 [Microsoft Dynamics AX](https://technet.microsoft.com/library/dn741581.aspx)
 
@@ -115,7 +117,7 @@
 
 [Oracle](virtual-machines-oracle-azure-virtual-machines.md)
 
-[SAP](https://msdn.microsoft.com/library/azure/dn745892.aspx)
+<!-- [SAP](https://msdn.microsoft.com/library/azure/dn745892.aspx) -->
 
 [SharePoint Server](virtual-machines-workload-intranet-sharepoint-farm.md)
 
@@ -125,15 +127,15 @@
 
 [System Center Operations Manager](https://technet.microsoft.com/library/dn249696.aspx#BKMK_Azure)
 
-[Team Foundation Server](https://msdn.microsoft.com/library/azure/dn769056.aspx)
+<!-- [Team Foundation Server](https://msdn.microsoft.com/library/azure/dn769056.aspx) -->
 
-[Режим Windows Server Essentials](https://msdn.microsoft.com/library/azure/dn520827.aspx)
+<!-- [Windows Server Essentials Experience](https://msdn.microsoft.com/library/azure/dn520827.aspx) -->
 
 ## Монитор
 
 [Включение диагностики в облачных службах и виртуальных машинах Azure](../cloud-services/cloud-services-dotnet-diagnostics.md)
 
-[Отладка облачной службы или виртуальной машины в Visual Studio](https://msdn.microsoft.com/library/azure/ff683670.aspx)
+<!-- [Debugging a cloud service or virtual machine in Visual Studio](https://msdn.microsoft.com/library/azure/ff683670.aspx) -->
 
 [Использование скриптов Windows PowerShell для публикации в средах разработки и тестирования](https://msdn.microsoft.com/library/azure/dn642480.aspx)
 
@@ -147,8 +149,8 @@
 
 [Командлеты для управления службами Azure](https://msdn.microsoft.com/library/azure/dn708504.aspx)
 
-[Справочник по API-интерфейсу управления службами REST](https://msdn.microsoft.com/library/azure/ee460799.aspx)
-
 [Управление службами Azure с помощью интерфейса командной строки Azure на компьютерах Mac, а также на компьютерах с ОС Linux и Windows](virtual-machines-command-line-tools.md)
 
-<!---HONumber=Oct15_HO1-->
+[Справочник по API-интерфейсу управления службами REST](https://msdn.microsoft.com/library/azure/ee460799.aspx)
+
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="10/07/2015"
 	ms.author="raynew"/>
 
 # Настройка защиты между локальными виртуальными машинами VMWare или физическими серверами и Azure
@@ -587,7 +587,7 @@ Standard DS4 | 1 диск (1 * 1023 ГБ) | 1 диск (1 * 1023 ГБ) | 15 ди
 | Oracle Enterprise Linux 6.4, 6.5 (только 64-разрядная версия) | `C:\pushinstallsvc\repository\Microsoft-ASR_UA_8.4.0.0_OL6-64_GA_28Jul2015_release.tar.gz` |
 
 
-**Чтобы вручную установить службу Mobility Service на сервер Windows**, выполните следующие действия:
+**Чтобы вручную установить службу Mobility Service на сервер Windows**, выполните следующие действия.
 
 1. Скопируйте пакет **Microsoft-ASR\_UA\_8.4.0.0\_Windows\_GA\_28Jul2015\_release.exe** из каталога сервера обработки, указанного в приведенной выше таблице, на исходный компьютер.
 2. Установите службу Mobility Service, запустив исполняемый файл на исходном компьютере.
@@ -623,7 +623,7 @@ Standard DS4 | 1 диск (1 * 1023 ГБ) | 1 диск (1 * 1023 ГБ) | 15 ди
 	- при подключении к серверу конфигурации через Интернет укажите общедоступный виртуальный IP-адрес сервера конфигурации и общедоступную конечную точку HTTPS в полях `<IP address>` и `<port>`;
 	- при подключении через VPN укажите внутренний IP-адрес и порт 443.
 
-**Запуск из командной строки:**
+**Запуск из командной строки**
 
 1. Скопируйте парольную фразу из CX в файл passphrase.txt на сервере и выполните данную команду. В нашем примере CX имеет значение 104.40.75.37, а порт HTTPS имеет значение 62519:
 
@@ -761,14 +761,14 @@ Standard DS4 | 1 диск (1 * 1023 ГБ) | 1 диск (1 * 1023 ГБ) | 15 ди
 
 ## Уведомления и сведения о стороннем программном обеспечении
 
-Do Not Translate or Localize
+Не подлежит переводу и локализации
 
-The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”).  Microsoft is the not original author of the Third Party Code.  The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
+Программное обеспечение и встроенное ПО, выполняющееся в продуктах или службах Майкрософт, основано на или включает материалы из проектов, перечисленных ниже (собирательно — «сторонний код»). Корпорация Майкрософт не является автором стороннего кода. Исходные уведомления об авторских правах и лицензии, в рамках которых корпорация Майкрософт получила такой сторонний код, приведены ниже.
 
-The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only.  This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.  
+Сведения в разделе А относятся к компонентам стороннего кода из проектов, перечисленных ниже. Такие лицензии и сведения приводятся только в информационных целях. Этот сторонний код предоставляется вам в рамках повторной лицензии Майкрософт согласно условиям лицензирования программного обеспечения Майкрософт для продуктов или служб Майкрософт.
 
-The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
+Сведения в разделе B относятся к компонентам стороннего кода, предоставляемым вам корпорацией Майкрософт в рамках первоначальной лицензии.
 
-The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+Полный файл можно найти в [центре загрузки Майкрософт](http://go.microsoft.com/fwlink/?LinkId=529428). Корпорация Майкрософт оставляет за собой все права, не предоставленные явно в настоящем документе, косвенно, в силу конклюдентных действий или иным образом.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

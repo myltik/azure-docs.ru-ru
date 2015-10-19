@@ -209,7 +209,6 @@
 
 6. Сопоставьте созданную выше сетевую группу безопасности с подсетью *BackEnd*.
 
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
 
@@ -236,4 +235,4 @@
                         "ProvisioningState": "Succeeded"
                       }
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

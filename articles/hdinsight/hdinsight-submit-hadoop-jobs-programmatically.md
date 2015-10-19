@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/02/2015"
 	ms.author="jgao"/>
 
 # Отправка заданий Hadoop в HDInsight
@@ -31,7 +31,7 @@
 
 Перед началом работы с этой статьей необходимо иметь следующее:
 
-* **Кластер Azure HDInsight**. Инструкции см. в разделе [Приступая к работе с HDInsight][hdinsight-get-started] или [Подготовка кластеров HDInsight][hdinsight-provision].
+* **Кластер Azure HDInsight**. Инструкции см. в разделе [Приступая к работе с HDInsight][hdinsight-get-started] или [Создание кластеров в HDInsight][hdinsight-provision].
 - **Рабочая станция с Azure PowerShell**. См. раздел [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 
@@ -94,7 +94,7 @@ Hadoop MapReduce — это программная платформа для н
 		$storageAccountName = "<StorageAccountName>"
 		$containerName = "<ContainerName>"
 
-	Учетная запись хранения Azure — та, которую вы указали во время подготовки кластера HDInsight. Она используется для размещения контейнера BLOB-объектов, используемого в кластере HDInsight в качестве файловой системы по умолчанию. Имя контейнера хранилища BLOB-объектов обычно совпадает с именем кластера HDInsight, если при подготовке кластера вы не указали другое имя.
+	Учетная запись хранения Azure — та, которую вы указали при создании кластера HDInsight. Она используется для размещения контейнера BLOB-объектов, используемого в кластере HDInsight в качестве файловой системы по умолчанию. Имя контейнера хранилища больших двоичных объектов обычно совпадает с именем кластера HDInsight, если при создании кластера вы не указали другое имя.
 
 3. Создайте объект контекста хранилища BLOB-объектов Azure, выполнив следующие команды.
 
@@ -301,264 +301,149 @@ Hadoop MapReduce — это программная платформа для н
 См. раздел [Использование Sqoop с HDInsight][hdinsight-use-sqoop].
 
 ##Отправка заданий MapReduce с использованием пакета SDK для HDInsight .NET
-Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. Кластеры HDInsight содержат JAR-файл (в папке *\\example\\jars\\hadoop-mapreduce-examples.jar*), в котором есть несколько примеров MapReduce. Один из примеров предназначен для подсчета частоты слов в исходных файлах. В этом сеансе вы узнаете, как создать приложение .NET для запуска примера подсчета слов. Дополнительные сведения о создании и выполнении заданий MapReduce см. в статье [Использование MapReduce в Hadoop в HDInsight][hdinsight-use-mapreduce].
+Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. Кластеры HDInsight содержат JAR-файл (в папке *\\example\\jars\\hadoop-mapreduce-examples.jar*), в котором есть несколько примеров MapReduce. Один из примеров предназначен для подсчета частоты слов в исходных файлах. В этом сеансе вы узнаете, как создать приложение .NET для запуска примера подсчета слов. Дополнительные сведения о создании и выполнении заданий MapReduce см. в статье [￼Использование MapReduce в Hadoop в HDInsight][hdinsight-use-mapreduce].
 
+**Отправка задания WordCount MapReduce**
 
-Подготовка кластера HDInsight с использованием пакета SDK предусматривает следующие процедуры.
+1. Создайте в Visual Studio консольное приложение C#.
+2. Введите следующую команду в окне консоли диспетчера пакетов NuGet.
 
-- Установка пакета SDK для HDInsight .NET
-- Создание консольного приложение
-- Выполнение приложения
+		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
 
+2. Используйте следующие инструкции using в файле Program.cs:
 
-**Установка пакета SDK для HDInsight .NET** Последнюю опубликованную сборку пакета SDK можно установить из [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started). Инструкции будут показаны в следующей процедуре.
+		using System;
+		using System.Collections.Generic;
+		using Microsoft.Azure.Management.HDInsight.Job;
+		using Microsoft.Azure.Management.HDInsight.Job.Models;
+		using Hyak.Common;
 
-**Создание консольного приложения Visual Studio**
+3. Добавьте следующий код в функцию Main():
 
-1. Откройте Visual Studio.
+		var ExistingClusterName = "<HDInsightClusterName>";
+		var ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
+		var ExistingClusterUsername = "<HDInsightClusterHttpUsername>";
+		var ExistingClusterPassword = "<HDInsightClusterHttpUserPassword>";
+	    HDInsightJobManagementClient _hdiJobManagementClient;
 
-2. В меню **Файл** выберите команду **Создать**, а затем — **Проект**.
+	    List<string> arguments = new List<string> { { "wasb:///example/data/gutenberg/davinci.txt" }, { "wasb:///example/data/WordCountOutput" } };
+	
+	    var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
+	    _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
+	
+	    var parameters = new MapReduceJobSubmissionParameters
+	    {
+	        UserName = ExistingClusterUsername,
+	        JarFile = "wasb:///example/jars/hadoop-mapreduce-examples.jar",
+	        JarClass = "wordcount",
+	        Arguments = ConvertArgsToString(arguments)
+	    };
+	
+	    System.Console.WriteLine("Submitting the MapReduce job to the cluster...");
+	    var response = _hdiJobManagementClient.JobManagement.SubmitMapReduceJob(parameters);
+	    System.Console.WriteLine("Validating that the response is as expected...");
+	    System.Console.WriteLine("Response status code is " + response.StatusCode);
+	    System.Console.WriteLine("Validating the response object...");
+	    System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
+	    Console.WriteLine("Press ENTER to continue ...");
+	    Console.ReadLine();
 
-3. В окне **Новый проект** введите или выберите следующие значения.
+4. Добавьте в класс следующие вспомогательные методы:
 
-	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-<tr>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Свойство</th>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">Значение</th></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Категория</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Шаблон</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Консольное приложение</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Имя</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">SubmitMapReduceJob</td></tr>
-</table>
-
-4. Нажмите кнопку **ОК**, чтобы создать проект.
-
-
-5. В меню **Инструменты** последовательно выберите **Диспетчер пакетов библиотеки** и **Консоль диспетчера пакетов**.
-
-6. Для установки пакетов выполните следующие команды на консоли:
-
-		Install-Package Microsoft.WindowsAzure.Management.HDInsight
-
-
-	Эта команда добавляет библиотеки .NET и ссылки на них в текущий проект Visual Studio. У версии должен быть номер не ниже 0.11.0.1.
-
-7. В **обозревателе решений** дважды щелкните файл **Program.cs**, чтобы открыть его.
-
-8. Добавьте в начало файла следующие инструкции using:
-
-		using System.IO;
-		using System.Threading;
-		using System.Security.Cryptography.X509Certificates;
-
-		using Microsoft.WindowsAzure.Storage;
-		using Microsoft.WindowsAzure.Storage.Blob;
-
-		using Microsoft.WindowsAzure.Management.HDInsight;
-		using Microsoft.Hadoop.Client;
-
-9. Добавьте в класс следующее определение функции. Эта функция используется для ожидания завершения задания Hadoop.
-
-        private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
+        private static string ConvertArgsToString(List<string> args)
         {
-            JobDetails jobInProgress = client.GetJob(jobResults.JobId);
-            while (jobInProgress.StatusCode != JobStatusCode.Completed && jobInProgress.StatusCode != JobStatusCode.Failed)
+            if (args.Count == 0)
             {
-                jobInProgress = client.GetJob(jobInProgress.JobId);
-                Thread.Sleep(TimeSpan.FromSeconds(10));
+                return null;
             }
+
+            return string.Join("&arg=", args.ToArray());
         }
 
-10. Вставьте в функцию **Main()** следующий код.
-
-		// Set the variables
-		string subscriptionID = "<Azure subscription ID>";
-		string certFriendlyName = "<certificate friendly name>";
-
-		string clusterName = "<HDInsight cluster name>";
-
-		string storageAccountName = "<Azure storage account name>";
-		string storageAccountKey = "<Azure storage account key>";
-		string containerName = "<Blob container name>";
+5. Нажмите клавишу **F5** для запуска приложения.
 
 
-	Это все переменные, которые необходимо задать для программы. Узнать имя подписки Azure можно на [портале предварительной версии Azure][azure-management-portal].
-
-	Сведения о сертификате см. в статье [Создание и передача сертификата управления для Azure][azure-certificate]. Чтобы быстро настроить сертификат, выполните командлеты PowerShell **Get-AzurePublishSettingsFile** и **Import-AzurePublishSettingsFile**. Они создадут и автоматически отправят сертификат управления. После выполнения командлетов откройте **certmgr.msc** на рабочей станции и найдите сертификаты в узле **Личные** > **Сертификаты**. В сертификате, который создан командлетами PowerShell, в полях **Кому выдан** и **Кем выдан** указано значение «Средства Azure».
-
-	Имя учетной записи хранения Azure относится к учетной записи, которую вы указали во время подготовки кластера HDInsight. По умолчанию имя контейнера совпадает с именем кластера HDInsight.
-
-11. В функции **Main()** определите задание MapReduce, добавив следующий код.
 
 
-        // Define the MapReduce job
-        MapReduceJobCreateParameters mrJobDefinition = new MapReduceJobCreateParameters()
-        {
-            JarFile = "wasb:///example/jars/hadoop-mapreduce-examples.jar",
-            ClassName = "wordcount"
-        };
 
-        mrJobDefinition.Arguments.Add("wasb:///example/data/gutenberg/davinci.txt");
-        mrJobDefinition.Arguments.Add("wasb:///example/data/WordCountOutput");
 
-	Существует два аргумента. Первый из них — имя исходного файла, а второй — путь выходного файла. Дополнительные сведения о префиксе wasb:// см. в статье [Использование хранилища BLOB-объектов Azure с HDInsight][hdinsight-storage].
 
-12. В функции **Main()** создайте объект JobSubmissionCertificateCredential, добавив следующий код.
 
-        // Get the certificate object from certificate store using the friendly name to identify it
-        X509Store store = new X509Store();
-        store.Open(OpenFlags.ReadOnly);
-        X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
-        JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
 
-13. В функции **Main()** запустите задание и дождитесь его завершения, добавив следующий код.
-
-        // Create a hadoop client to connect to HDInsight
-        var jobClient = JobSubmissionClientFactory.Connect(creds);
-
-        // Run the MapReduce job
-        JobCreationResults mrJobResults = jobClient.CreateMapReduceJob(mrJobDefinition);
-
-        // Wait for the job to complete
-        WaitForJobCompletion(mrJobResults, jobClient);
-
-14. В функции **Main()** отправьте на печать выходные данные задания MapReduce, добавив следующий код.
-
-		// Print the MapReduce job output
-		Stream stream = new MemoryStream();
-
-		CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=" + storageAccountName + ";AccountKey=" + storageAccountKey);
-		CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-		CloudBlobContainer blobContainer = blobClient.GetContainerReference(containerName);
-		CloudBlockBlob blockBlob = blobContainer.GetBlockBlobReference("example/data/WordCountOutput/part-r-00000");
-
-		blockBlob.DownloadToStream(stream);
-		stream.Position = 0;
-
-		StreamReader reader = new StreamReader(stream);
-		Console.WriteLine(reader.ReadToEnd());
-
-        Console.WriteLine("Press ENTER to continue.");
-		Console.ReadLine();
-
-	Папка выходных данных указывается при определении задания MapReduce. Имя файла по умолчанию: **part-r-00000**.
-
-**Запуск приложения**
-
-Когда приложение открыто в Visual Studio, нажмите клавишу **F5** для запуска приложения. Должно открыться окно консоли, в котором отображается состояние приложения и выходные данные приложения.
 
 ##Отправка заданий MapReduce для потоковой передачи Hadoop с использованием пакета SDK для HDInsight .NET
-Кластеры HDInsight поставляются с программой потоковой передачи Hadoop, которая подсчитывает слова. Эта программа написана на C\#. Программа mapper — */example/apps/cat.exe*, а программа reduce — */example/apps/wc.exe*. В этом разделе вы узнаете, как создать приложение .NET, которое выполняет пример с подсчетом слов.
+Кластеры HDInsight поставляются с программой потоковой передачи Hadoop, которая подсчитывает слова. Эта программа написана на C#. Программа mapper — */example/apps/cat.exe*, а программа reduce — */example/apps/wc.exe*. В этом разделе вы узнаете, как создать приложение .NET, которое выполняет пример с подсчетом слов.
 
 Более подробную информацию о создании приложения .Net для отправки заданий MapReduce см. в разделе [Отправка заданий MapReduce с использованием пакета SDK для HDInsight .NET](#mapreduce-sdk).
 
 Более подробную информацию о разработке и развертывании заданий потоковой передачи Hadoop см. в разделе [Разработка программ потоковой передачи Hadoop на C# для HDInsight][hdinsight-develop-streaming-jobs].
 
-	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
-	using System.Threading.Tasks;
+Описанная ниже процедура подходит только для кластеров HDInsight под управлением Windows. В кластерах Linux потоковая передача пока не поддерживается. При этом программа .NET позволяет отправлять задания потоковой передачи на других языках программирования, которые поддерживаются кластерами Linux, например на языке Python. Пример задания потоковой передачи на языке Python см. в статье [Разработка программ потоковой передачи Python для HDInsight](hdinsight-hadoop-streaming-python.md).
 
-	using System.IO;
-	using System.Threading;
-	using System.Security.Cryptography.X509Certificates;
+**Отправка задания WordCount MapReduce**
 
-	using Microsoft.WindowsAzure.Management.HDInsight;
-	using Microsoft.Hadoop.Client;
+1. В Консоли диспетчера пакетов Visual Studio выполните следующую команду Nuget, чтобы импортировать пакет:
 
-	namespace SubmitStreamingJob
-	{
-	    class Program
-	    {
-	        static void Main(string[] args)
-	        {
+		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
 
-				// Set the variables
-				string subscriptionID = "<Azure subscription ID>";
-				string certFriendlyName = "<certificate friendly name>";
+2. Используйте следующие инструкции using в файле Program.cs:
 
-				string clusterName = "<HDInsight cluster name>";
-				string statusFolderName = @"/tutorials/wordcountstreaming/status";
+		using System;
+		using System.Collections.Generic;
+		using Microsoft.Azure.Management.HDInsight.Job;
+		using Microsoft.Azure.Management.HDInsight.Job.Models;
+		using Hyak.Common;
 
-	            // Define the Hadoop streaming MapReduce job
-	            StreamingMapReduceJobCreateParameters myJobDefinition = new StreamingMapReduceJobCreateParameters()
-	            {
-	                JobName = "my word counting job",
-	                StatusFolder = statusFolderName,
-	                Input = "/example/data/gutenberg/davinci.txt",
-	                Output = "/tutorials/wordcountstreaming/output",
-	                Reducer = "wc.exe",
-	                Mapper = "cat.exe"
-	            };
+3. Добавьте следующий код в функцию Main():
 
-	            myJobDefinition.Files.Add("/example/apps/wc.exe");
-	            myJobDefinition.Files.Add("/example/apps/cat.exe");
+		var ExistingClusterName = "<HDInsightClusterName>";
+		var ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
+		var ExistingClusterUsername = "<HDInsightClusterHttpUsername>";
+		var ExistingClusterPassword = "<HDInsightClusterHttpUserPassword>";
 
-	            // Get the certificate object from certificate store using the friendly name to identify it
-	            X509Store store = new X509Store();
-	            store.Open(OpenFlags.ReadOnly);
-	            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
+        List<string> arguments = new List<string> { { "/example/apps/cat.exe" }, { "/example/apps/wc.exe" } };
 
-	            JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
+        HDInsightJobManagementClient _hdiJobManagementClient;
+        var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
+        _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
 
-	            // Create a hadoop client to connect to HDInsight
-	            var jobClient = JobSubmissionClientFactory.Connect(creds);
+        var parameters = new MapReduceStreamingJobSubmissionParameters
+        {
+            UserName = ExistingClusterUsername,
+            File = ConvertArgsToString(arguments),
+            Mapper = "cat.exe",
+            Reducer = "wc.exe",
+            Input = "/example/data/gutenberg/davinci.txt",
+            Output = "/tutorials/wordcountstreaming/output"
+        };
 
-	            // Run the MapReduce job
-	            Console.WriteLine("----- Submit the Hadoop streaming job ...");
-	            JobCreationResults mrJobResults = jobClient.CreateStreamingJob(myJobDefinition);
+        System.Console.WriteLine("Submitting the MapReduce job to the cluster...");
+        var response = _hdiJobManagementClient.JobManagement.SubmitMapReduceStreamingJob(parameters);
+        System.Console.WriteLine("Validating that the response is as expected...");
+        System.Console.WriteLine("Response status code is " + response.StatusCode);
+        System.Console.WriteLine("Validating the response object...");
+        System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
+        Console.WriteLine("Press ENTER to continue ...");
+        Console.ReadLine();
 
-	            // Wait for the job to complete
-	            Console.WriteLine("----- Wait for the Hadoop streaming job to complete ...");
-	            WaitForJobCompletion(mrJobResults, jobClient);
+4. Добавьте в класс функцию справки:
 
-	            // Display the error log
-	            Console.WriteLine("----- The hadoop streaming job error log.");
-	            using (Stream stream = jobClient.GetJobErrorLogs(mrJobResults.JobId))
-	            {
-	                var reader = new StreamReader(stream);
-	                Console.WriteLine(reader.ReadToEnd());
-	            }
+        private static string ConvertArgsToString(List<string> args)
+        {
+            if (args.Count == 0)
+            {
+                return null;
+            }
 
-	            // Display the output log
-	            Console.WriteLine("----- The hadoop streaming job output log.");
-	            using (Stream stream = jobClient.GetJobOutput(mrJobResults.JobId))
-	            {
-	                var reader = new StreamReader(stream);
-	                Console.WriteLine(reader.ReadToEnd());
-	            }
+            return string.Join("&arg=", args.ToArray());
+        }
 
-	            Console.WriteLine("----- Press ENTER to continue.");
-	            Console.ReadLine();
-	        }
-
-	        private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
-	        {
-	            JobDetails jobInProgress = client.GetJob(jobResults.JobId);
-	            while (jobInProgress.StatusCode != JobStatusCode.Completed && jobInProgress.StatusCode != JobStatusCode.Failed)
-	            {
-	                jobInProgress = client.GetJob(jobInProgress.JobId);
-	                Thread.Sleep(TimeSpan.FromSeconds(10));
-	            }
-	        }
-	    }
-	}
-
-
-
-
-
+5. Нажмите клавишу **F5** для запуска приложения.
 
 ##Отправка заданий Hive с помощью пакета SDK для HDInsight .NET
 Кластеры HDInsight поставляются с примером таблицы Hive, которая называется *hivesampletable*. Сейчас вы создадите приложение .NET, которое выполнит задание Hive по получению списка таблиц Hive, созданных в кластере HDInsight. Дополнительные сведения об использовании Hive см. в статье [Использование Hive с HDInsight][hdinsight-use-hive].
 
-Подготовка кластера HDInsight с использованием пакета SDK предусматривает следующие процедуры.
+Создание кластера HDInsight с использованием пакета SDK предусматривает следующие процедуры.
 
 - Установка пакета SDK для HDInsight .NET
 - Создание консольного приложение
@@ -587,7 +472,7 @@ Hadoop MapReduce — это программная платформа для н
 
 	Эти команды добавляют библиотеки .NET и ссылки на них в текущий проект Visual Studio.
 
-5. В обозревателе решений дважды щелкните файл **Program.cs**, чтобы открыть его, вставьте указанный ниже код и задайте значения для переменных:
+5. В обозревателе решений дважды щелкните файл **Program.cs**, чтобы открыть его, вставьте указанный ниже код и укажите значения для переменных:
 
 		using System.Collections.Generic;
 		using System.Linq;
@@ -663,14 +548,14 @@ Hadoop MapReduce — это программная платформа для н
 
 ##Отправка заданий с помощью инструментов HDInsight для Visual Studio
 
-С помощью инструментов HDInsight для Visual Studio можно выполнять запросы Hive и сценарии Pig. Ознакомьтесь с разделом [Приступая к работе с инструментами Hadoop в Visual Studio для HDInsight](hdinsight-hadoop-visual-studio-tools-get-started.md).
+С помощью инструментов HDInsight для Visual Studio можно выполнять запросы Hive и сценарии Pig. См. статью [Приступая к работе с инструментами Hadoop в Visual Studio для HDInsight для выполнения запроса Hive](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 
 ##Дальнейшие действия
-В этой статье вы ознакомились с несколькими способами подготовки кластера HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
+В этой статье вы ознакомились с несколькими способами создания кластера HDInsight. Для получения дополнительных сведений ознакомьтесь со следующими статьями:
 
 * [Приступая к работе с Azure HDInsight][hdinsight-get-started]
-* [Подготовка кластеров HDInsight к работе][hdinsight-provision]
+* [Создание кластеров Hadoop в HDInsight][hdinsight-provision]
 * [Управление службой HDInsight с помощью PowerShell][hdinsight-admin-powershell]
 * [Справочная документация по командлетам HDInsight][hdinsight-powershell-reference]
 * [Использование Hive с HDInsight][hdinsight-use-hive]
@@ -700,4 +585,4 @@ Hadoop MapReduce — это программная платформа для н
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

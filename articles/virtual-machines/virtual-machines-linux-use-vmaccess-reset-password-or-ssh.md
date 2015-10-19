@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Сброс пароля виртуальной машины Linux с помощью Azure CLI"
+	pageTitle="Сброс пароля виртуальной машины Linux с помощью Azure CLI | Microsoft Azure"
 	description="Как использовать расширение VMAccess на портале Azure или Azure CLI для сброса паролей и ключей SSH, конфигурации SSH и удаления учетных записей пользователей виртуальной машины Linux."
 	services="virtual-machines"
 	documentationCenter=""
@@ -18,6 +18,8 @@
 	ms.author="cynthn"/>
 
 # Как сбросить пароль или ключ SSH в виртуальных машинах Linux #
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
 
 Если вы не можете подключиться к виртуальной машине Linux из-за забытого пароля, неверного ключа Secure Shell (SSH) или проблем с конфигурацией SSH, воспользуйтесь порталом предварительной версии Azure или расширением VMAccessForLinux, чтобы сбросить пароль или ключ SSH либо исправить конфигурацию SSH. Обратите внимание, что сведения в этой статье применимы к виртуальным машинам, созданным с использованием **классической** модели развертывания.
 
@@ -263,4 +265,4 @@
 [Расширения и компоненты виртуальных машин Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Подключение к виртуальной машине Azure с помощью RDP или SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->
