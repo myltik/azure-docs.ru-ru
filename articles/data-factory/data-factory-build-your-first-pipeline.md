@@ -62,8 +62,8 @@
 ## Подготовка хранилища Azure для выполнения инструкций учебника
 Прежде чем приступить к работе с учебником, необходимо подготовить хранилище Azure и необходимые файлы.
 
-1. Откройте блокнот, вставьте следующий текст в файл и сохраните его с именем **partitionweblogs.hql** в папке C:\\adfgettingstarted. Этот сценарий Hive создает две внешние таблицы: **WebLogsRaw** и **WebLogsPartitioned**.
-
+1. Запустите **Блокнот** и вставьте следующий сценарий HQL. Этот сценарий Hive создает две внешние таблицы: **WebLogsRaw** и **WebLogsPartitioned**. Щелкните **Файл** в меню и выберите команду **Сохранить как**. Перейдите в папку **C:\\adfgettingstarted** на жестком диске. Выберите **Все файлы (*.*)** в поле **Тип файла**. Введите **partitionweblogs.hql** в поле **Имя файла**. Убедитесь, что в поле **Кодировка** в нижней части диалогового окна выбрано значение **ANSI**. Если значение **ANSI** не выбрано, выберите его.  
+	
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
 		DROP TABLE IF EXISTS WebLogsRaw; 
@@ -142,19 +142,18 @@
 		  year(date),
 		  month(date)
 		FROM WebLogsRaw
-	
- 
+	 
 2. Чтобы подготовить хранилище Azure для использования с учебником:
-	1. Скачайте [последнюю версию программы **AzCopy**](http://aka.ms/downloadazcopy) или [последнюю предварительную версию](http://aka.ms/downloadazcopypr). Инструкции по использованию этой программы вы найдете в статье [Использование AzCopy](../storage/storage-use-azcopy.md).
+	1. Загрузите [последнюю версию средства **AzCopy**](http://aka.ms/downloadazcopy) или [последнюю предварительную версию](http://aka.ms/downloadazcopypr). Инструкции по использованию этой служебной программы см. в статье [Использование AzCopy](../storage/storage-use-azcopy.md).
 	2. После установки программы AzCopy вы можете добавить путь к ней в переменную PATH, выполнив следующую команду в командной строке. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy			 
 
-	3. Перейдите в папку c:\\adfgettingstarted и выполните следующую команду, чтобы загрузить HQL-файл Hive в учетную запись хранения. Замените **StorageAccountName** и **Storage Key** на имя вашей учетной записи хранения Azure и ключ к ней соответственно.
+	3. Перейдите в папку c:\\adfgettingstarted и выполните следующую команду, чтобы загрузить HQL-файл Hive в учетную запись хранения. Замените значения **StorageAccountName** и **Storage Key** именем и ключом своей учетной записи хранения Azure.
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
 
-		> [AZURE.NOTE]Указанная выше команда создает контейнер с именем **script** в вашем хранилище больших двоичных объектов Azure и копирует файл **partitionweblogs.hql** с локального диска в контейнер больших двоичных объектов.
+		> [AZURE.NOTE]Указанная выше команда создает контейнер с именем **script** в вашем хранилище BLOB-объектов Azure и копирует файл **partitionweblogs.hql** с локального диска в контейнер BLOB-объектов.
 	>
 	5. После успешной загрузки файла будут отображены следующие данные из AzCopy.
 	
@@ -171,9 +170,9 @@
 
 - Щелкните ссылку [Использование редактора фабрики данных](data-factory-build-your-first-pipeline-using-editor.md) вверху, чтобы пройти учебник, используя редактор фабрики данных, который является компонентом портала Azure.
 - Щелкните ссылку [Использование PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) вверху, чтобы пройти учебник с помощью Azure PowerShell.
-- Щелкните ссылку [Использование Visual Studio](data-factory-build-your-first-pipeline-using-vs.md), чтобы изучить учебник с помощью Visual Studio 2013. 
+- Щелкните ссылку [Использование Visual Studio](data-factory-build-your-first-pipeline-using-vs.md), чтобы изучить учебник с применением Visual Studio. 
 
 ## Отправить отзыв
-Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
+Мы будем очень благодарны за ваш отзыв об этой статье. Потратьте несколько минут, чтобы отправить его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

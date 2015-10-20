@@ -171,7 +171,7 @@
 
 В этом разделе создается локальный репозиторий Git и выполняется принудительная отправка данных из этого репозитория в Azure для развертывания образца приложения в приложение API, работающее в службе приложений Azure.
 
-1. Если Git не установлен, установите его со [страницы загрузки Git](http://git-scm.com/download%20target="_blank").
+1. Если Git не установлен, установите его со [страницы загрузки Git](http://git-scm.com/download).
 
 1. С помощью командной строки измените каталоги на каталог примера приложения и введите следующие команды для инициализации локального репозитория Git.
 
@@ -249,4 +249,4 @@
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

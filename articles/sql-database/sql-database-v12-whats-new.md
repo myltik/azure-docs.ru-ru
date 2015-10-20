@@ -161,4 +161,4 @@
 
 [Дополнительные условия использования для предварительных версий Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

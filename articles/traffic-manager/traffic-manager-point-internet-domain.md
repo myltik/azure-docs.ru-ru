@@ -1,19 +1,19 @@
 <properties
    pageTitle="Направление интернет-домена компании на домен диспетчера трафика | Microsoft Azure"
-	description="В этой статье вы узнаете, как направить доменное имя вашей компании на доменное имя диспетчера трафика."
-	services="traffic-manager"
-	documentationCenter=""
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="В этой статье вы узнаете, как направить доменное имя вашей компании на доменное имя диспетчера трафика."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Указание домена Traffic Manager для интернет-домена компании
 
@@ -37,4 +37,4 @@
 
 [Что такое диспетчер трафика](traffic-manager-overview.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Приступая к работе с командлетами PowerShell Пакетной службы Azure | Microsoft Azure"
-	description="Предоставляет командлеты Azure PowerShell, используемые для управления Пакетной службой Azure"
-	services="batch"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""/>
+   description="Предоставляет командлеты Azure PowerShell, используемые для управления Пакетной службой Azure"
+   services="batch"
+   documentationCenter=""
+   authors="dlepow"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="batch"
-	ms.devlang="NA"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="big-compute"
-	ms.date="08/07/2015"
-	ms.author="danlep"/>
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="big-compute"
+   ms.date="08/07/2015"
+   ms.author="danlep"/>
 
 # Приступая к работе с командлетами Azure PowerShell
 В этой статье представлено краткое введение в командлеты Azure PowerShell, которые можно использовать для управления учетными записями Пакетной службы и получения сведений о заданиях, задачах Пакетной службы и других сведений.
@@ -162,4 +162,4 @@ Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 * [Справка по командлету Пакетной службы Azure](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [Эффективные запросы списков](batch-efficient-list-queries.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

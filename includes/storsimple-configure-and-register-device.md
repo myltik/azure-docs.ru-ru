@@ -76,4 +76,4 @@
 
 Чтобы просмотреть видеоролик, демонстрирующий способы настройки и регистрации устройства через Windows PowerShell для StorSimple, щелкните [здесь](http://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

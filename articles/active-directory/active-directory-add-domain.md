@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="msStevenPo"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -212,4 +212,4 @@ Azure AD использует запись DNS, созданную на сайт
 - [Регистрация организации в Azure](sign-up-organization.md)
 - [Управление доменами в Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

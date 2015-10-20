@@ -49,7 +49,7 @@
 
 * Вопросы и проблемы
  * [Устранение неполадок][qna]
- * [Форум MSDN](https://social.msdn.microsoft.com/Forums/vstudio/RU-RU/home?forum=ApplicationInsights)
+ * [Форум MSDN](https://social.msdn.microsoft.com/Forums/vstudio/ru-RU/home?forum=ApplicationInsights)
  * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * Ошибки
  * [Подключение](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -75,4 +75,4 @@
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="09/30/2015" 
+	ms.date="10/13/2015" 
 	ms.author="sdanie"/>
 
 # Как использовать кэш Azure Redis
@@ -208,7 +208,7 @@
 
 ![Пакет Redis NuGet для состояний сеансов][SessionStateNuGet]
 
-Пакет NuGet загружает и добавляет требуемые ссылки на сборки и добавляет в файл web.config следующий раздел, который содержит необходимые в приложении ASP.NET настройки для использования кэширующего поставщика состояний сеансов Redis.
+Пакет NuGet загружает и добавляет требуемые ссылки на сборку и добавляет следующий раздел в файл web.config, который содержит требуемые настройки для приложения ASP.NET, позволяющие использовать поставщик состояний сеанса кэша Redis.
 
     <sessionState mode="Custom" customProvider="MySessionStateStore">
       <providers>
@@ -369,4 +369,4 @@
 
 [Бесплатная пробная версия Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

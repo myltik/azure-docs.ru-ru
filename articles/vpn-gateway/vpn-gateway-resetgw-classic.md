@@ -59,4 +59,4 @@
 	
 Дополнительные сведения об этом командлете см. в статье [Справочник PowerShell](https://msdn.microsoft.com/library/azure/mt270366.aspx).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

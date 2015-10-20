@@ -813,4 +813,4 @@
 * [Управление облачными службами](cloud-services-how-to-manage.md)
 * [Хранилище Azure](/documentation/services/storage/)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

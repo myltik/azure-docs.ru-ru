@@ -1,19 +1,19 @@
 <properties
  pageTitle="Что такое планировщик Azure? | Microsoft Azure"
-	description="Планировщик Azure позволяет описывать действия, которые выполняются в облаке. Затем он планирует и выполняет эти действия автоматически."
-	services="scheduler"
-	documentationCenter=".NET"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+ description="Планировщик Azure позволяет описывать действия, которые выполняются в облаке. Затем он планирует и выполняет эти действия автоматически."
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
+ editor=""/>
 <tags
  ms.service="scheduler"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="08/04/2015"
-	ms.author="krisragh"/>
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="get-started-article"
+ ms.date="08/04/2015"
+ ms.author="krisragh"/>
 
 # Что такое планировщик Azure?
 
@@ -50,4 +50,4 @@
 
  [Исходящая аутентификация планировщика Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

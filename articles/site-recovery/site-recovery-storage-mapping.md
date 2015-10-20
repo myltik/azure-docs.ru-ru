@@ -105,4 +105,4 @@ VM5 | C:\\ClusterStorage\\SourceVolume3 | Недоступно | Без сопо
 
 Теперь, когда вы получили представление о сопоставлении хранилищ, изучите [рекомендации](site-recovery-best-practices.md) для подготовки к развертыванию.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

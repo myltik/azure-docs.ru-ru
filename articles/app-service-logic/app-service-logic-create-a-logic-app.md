@@ -21,8 +21,8 @@
 | Краткий справочник |
 | --------------- |
 | [Язык описания приложений логики](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
-| [Документация по соединителям приложений логики](https://azure.microsoft.com/ru-RU/documentation/articles/app-service-logic-connectors-list/) |
-| [Форум о приложениях логики](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=azurelogicapps) |
+| [Документация по соединителям приложений логики](https://azure.microsoft.com/ja-jp/documentation/articles/app-service-logic-connectors-list/) |
+| [Форум о приложениях логики](https://social.msdn.microsoft.com/Forums/ja-jp/home?forum=azurelogicapps) |
 
 В этом разделе будет показано, как всего за несколько минут создать [приложение логики службы приложений](app-service-logic-what-are-logic-apps.md). Мы рассмотрим рабочий процесс, который позволяет получать набор интересующих твитов в папку Dropbox.
 
@@ -46,7 +46,7 @@
 4. Выберите **Параметры пакета** и введите данные из своего приложения Twitter. Чтобы настроить бесплатное приложение, выполните следующие действия.
 	1. Откройте [страницу регистрации приложения Twitter](http://apps.twitter.com).
 	2. Создайте новое приложение.
-	3. Присвойте ему имя и описание. Введите любой URL-адрес для веб-сайта. Поле «URL-адрес обратного вызова» оставьте пустым.
+	3. Присвойте ему имя и описание. Можно ввести любой URL-адрес веб-сайта, а также любой URL-адрес обратного вызова (не оставляйте это поле пустым).
 	4. После регистрации скопируйте **ключ пользователя** и **секрет потребителя** в Twitter и вставьте их в поля **clientId** и **clientSecret** соответственно.
 	5. Нажмите кнопку **ОК** в области Azure, чтобы вернуться к другим параметрам API.
 
@@ -184,4 +184,4 @@
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Использование функций приложения логики]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -20,4 +20,4 @@
 
 Visual Studio создает проект веб-API, настроенный для развертывания в виде приложения API.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -14,12 +14,13 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.workload="infrastructure-services"
-	ms.date="10/01/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # Статьи по виртуальным машинам в управлении службами
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Это список статей, посвященных созданию ресурсов с помощью классической модели развертывания и управлению ими.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 ## Приступая к работе
 
@@ -87,8 +88,6 @@
 
 [Настройка конечных точек виртуальной машины](virtual-machines-set-up-endpoints.md)
 
-[Управление виртуальными машинами с помощью Azure CLI для Mac, Linux и Windows](virtual-machines-manage-vms-azure-cli.md)
-
 ## Создание рабочих нагрузок
 
 [Active Directory](../active-directory/active-directory-new-forest-virtual-machine.md)
@@ -153,4 +152,4 @@
 
 [Справочник по API-интерфейсу управления службами REST](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

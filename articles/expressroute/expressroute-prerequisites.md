@@ -71,4 +71,4 @@
 	- [Настройте маршрутизацию](expressroute-howto-routing-classic.md).
 	- [Свяжите виртуальную сеть с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

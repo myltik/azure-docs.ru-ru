@@ -1,20 +1,20 @@
 
 <properties 
-	pageTitle="Использование Azure AD Connect Health с AD FS | Microsoft Azure"
-	description="В этой статье описывается, как Azure AD Connect Health отслеживает локальную инфраструктуру AD FS."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Использование Azure AD Connect Health с AD FS | Microsoft Azure" 
+	description="В этой статье описывается, как Azure AD Connect Health отслеживает локальную инфраструктуру AD FS." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/14/2015"
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="08/14/2015" 
 	ms.author="billmath"/>
 
 # Использование Azure AD Connect Health с AD FS 
@@ -73,4 +73,4 @@
 * [Операции Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->
