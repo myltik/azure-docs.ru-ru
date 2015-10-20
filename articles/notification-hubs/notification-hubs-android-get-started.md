@@ -74,6 +74,9 @@
 ###Добавление кода
 
 1. Загрузите <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">пакет SDK Android для центров уведомлений</a>. Извлеките содержимое ZIP-файла и скопируйте файлы **notificationhubs\\notification-hubs-0.3.jar** и **notifications\\notifications-1.0.1.jar** в каталог **app\\libs** проекта. Это можно сделать, перетащив файлы в папку **libs** в окне представления проекта Android Studio. Обновите папку **libs**.
+	Справочная документация по этим двум пакетам доступна по ссылкам ниже:
+	* [com.microsoft.windowsazure.messaging](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/messaging/package-summary.html)
+	* [com.microsoft.windowsazure.notifications](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/notifications/package-summary.html)
 
 
     > [AZURE.NOTE]Числа в конце этого имени файла могут меняться в последующих выпусках SDK.
@@ -110,7 +113,10 @@
 	    private static Boolean isVisible = false;
 
 
-	Обязательно обновите три заполнителя: * **SENDER\_ID** — укажите для `SENDER_ID` номер проекта, полученный ранее из проекта, созданного в [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString** — укажите для `HubListenConnectionString` строку подключения **DefaultListenAccessSignature** к центру. Можно скопировать эту строку подключения, щелкнув элемент **Просмотреть строку подключения** на вкладке **Панель мониторинга** центра на [портале Azure]. * **HubName** — имя центра уведомлений, которое отображается в верхней части страницы в Azure для вашего центра (**не** полный URL-адрес). Например, воспользуйтесь `"myhub"`.
+	Обязательно измените три заполнителя:
+	* **SENDER\_ID**: задайте для `SENDER_ID` номер проекта, полученный ранее из проекта, созданного в [Google Cloud Console](http://cloud.google.com/console).
+	* **HubListenConnectionString**: задайте для `HubListenConnectionString` строку подключения **DefaultListenAccessSignature** к центру. Можно скопировать эту строку подключения, щелкнув **Просмотреть строку подключения** на вкладке **Панель мониторинга** центра на [портале Azure].
+	* **HubName**: имя центра уведомлений, которое отображается в верхней части страницы в Azure для вашего центра (**не** полный URL-адрес). Например, используйте `"myhub"`.
 
 
 
