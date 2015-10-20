@@ -41,9 +41,9 @@
 
 Дополнительные сведения о DocumentDB см. в следующих разделах:
 
--	[О карте для DocumentDB](documentdb-learning-map.md)
+-	[Схема обучения для DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[Модель ресурсов и понятия DocumentDB](documentdb-resources.md)
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

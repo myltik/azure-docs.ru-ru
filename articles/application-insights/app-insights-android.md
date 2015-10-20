@@ -1,19 +1,19 @@
 <properties
     pageTitle="Application Insights для приложений Android | Microsoft Azure"
-	description="Анализ использования и производительности приложения Windows с помощью Application Insights."
-	services="application-insights"
-	documentationCenter="android"
-	authors="alancameronwills"
-	manager="ronmart"/>
+    description="Анализ использования и производительности приложения Windows с помощью Application Insights."
+    services="application-insights"
+    documentationCenter="android"
+    authors="alancameronwills"
+    manager="ronmart"/>
 
 <tags
     ms.service="application-insights"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="na"
-	ms.topic="get-started-article"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="na"
+    ms.topic="get-started-article"
 	ms.date="04/28/2015"
-	ms.author="awills"/>
+    ms.author="awills"/>
 
 # Application Insights для приложений Android
 
@@ -197,4 +197,4 @@ Visual Studio Application Insights позволяет отслеживать м�
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

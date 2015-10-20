@@ -43,4 +43,4 @@ GRS хранит шесть копий ваших данных. С GRS ваши 
 
 ![LRS](./media/backup-create-vault/lrs.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

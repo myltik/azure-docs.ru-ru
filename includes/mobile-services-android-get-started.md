@@ -1,31 +1,31 @@
 Последний раздел учебника — построение и выполнение нового приложения.
 
+### Загрузка проекта в Android Studio и синхронизация с Gradle
+
 1. Перейдите в расположение, где сохранены сжатые файлы проекта, и извлеките файлы на компьютере в каталог проектов Android Studio.
 
 2. Откройте Android Studio. Если вы работаете с некоторым проектом и он отображается, закройте этот проект ("Файл" = > "Закрыть проект").
 
-3. Выберите **Открыть существующий проект Android Studio**, перейдите к папке с проектом и нажмите кнопку **ОК**.
+3. Выберите **Открыть существующий проект Android Studio**, перейдите к папке с проектом и нажмите кнопку **ОК**. Проект буден загружен, и начнется его синхронизация с Gradle.
 
  	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
 
-4. Убедитесь, что в левом окне **обозревателя проектов** открыта вкладка *Проект*, а затем откройте **app**, **src**, **java** и дважды щелкните **ToDoactivity**.
+4. Дождитесь завершения синхронизации с Gradle. Если версия, используемая в Android Studio, не совпадает с версией примера, может появиться ошибка «Не удалось найти целевой объект». Чтобы устранить эту проблему, щелкните в окне сообщения об ошибке ссылку **Установить отсутствующие платформы и синхронизировать проект**. Если будут появляться дополнительные сообщения об ошибке версии, просто повторяйте эту процедуру, пока все ошибки не исчезнут.
+    - Если вы хотите использовать последнюю версию Android, существует другой способ устранить эту проблему. В каталоге *app* в файле *build.gradle* установите для параметра **targetSdkVersion** значение, которое соответствует версии установленной на компьютере пакета SDK. Чтобы узнать номер установленной версии, откройте **диспетчер пакетов SDK**. Затем щелкните **Синхронизировать проект с файлами Gradle**. Если появится сообщение об ошибке версии Build Tools, исправьте ее таким же образом.
 
-   	![](./media/mobile-services-android-get-started/Android-Studio-quickstart.png)
+### Выполнение приложения
 
+Приложение можно запустить в эмуляторе или на фактическом устройстве.
 
-5. Если вы загрузили пакет SDK версии 2.0, необходимо обновить код URL-адресом и ключом вашей мобильной службы:
-	- 	Найдите метод **OnCreate** в **TodoActivity.java** и найдите код, который создает экземпляр клиента мобильных служб. Код отображается на предыдущем изображении.
-	- 	Замените "MobileServiceUrl" фактическим URL-адресом вашей мобильной службы.
-	- 	Замените "AppKey" ключом вашей мобильной службы.
-	- 	Для получения дополнительных сведений обратитесь к учебнику [Добавление мобильных служб к существующему приложению](../articles/mobile-services/mobile-services-android-get-started-data.md). 
+1. Чтобы запустить приложение на устройстве, подключите его к компьютеру с помощью USB-кабеля. Устройство необходимо [настроить для разработки](https://developer.android.com/training/basics/firstapp/running-app.html). Если вы работаете на компьютере с ОС Windows, вам также необходимо скачать и установить драйвер USB.
 
-6. Для запуска проекта в эмуляторе Android в меню **Запуск** щелкните **Выполнить**.
+2. Чтобы запустить приложение в эмуляторе Android, необходимо определить как минимум одно виртуальное устройство на платформе Android (AVD). Для создания этих устройств и управления ими используйте диспетчер AVD.
 
-	> [AZURE.IMPORTANT]Чтобы запустить проект в эмуляторе Android, необходимо определить как минимум одно виртуальное устройство Android (AVD). Для создания этих устройств и управления ими используйте диспетчер AVD.
+3. В меню **Выполнить** щелкните **Выполнить**, чтобы запустить проект, и в открывшемся диалоговом окне выберите нужное устройство или эмулятор.
 
-7. В приложении введите содержательный текст, например _Завершение работы с учебником_, и нажмите кнопку **Добавить**.
+4. При отображении приложения введите содержательный текст, например _Завершить работу с учебником_, и нажмите кнопку **Добавить**.
 
-   	![][10]
+   	![](./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png)
 
    	Отправляет запрос POST в новую мобильную службу, размещенную в Azure. Данные из запроса вставляются в таблицу TodoItem. Элементы, хранящиеся в таблице, возвращаются мобильной службой, а данные отображаются в списке.
 
@@ -39,26 +39,4 @@
 
    	![](./media/mobile-services-android-get-started/mobile-data-browse.png)
 
-
-<!-- Images. -->
-[0]: ./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png
-[6]: ./media/mobile-services-android-get-started/mobile-portal-quickstart-android.png
-[7]: ./media/mobile-services-android-get-started/mobile-quickstart-steps-android.png
-[8]: ./media/mobile-services-android-get-started/Android-Studio-quickstart.png
-[10]: ./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png
-[11]: ./media/mobile-services-android-get-started/mobile-data-tab.png
-[12]: ./media/mobile-services-android-get-started/mobile-data-browse.png
-[14]: ./media/mobile-services-android-get-started/android-studio-import-project.png
-[15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
-
-<!-- URLs. -->
-[Add Mobile Services to an existing app]: ../articles/mobile-services/mobile-services-android-get-started-data.md
-[Get started with authentication]: ../articles/mobile-services/mobile-services-android-get-started-users.md
-[Get started with push notifications]: ../articles/mobile-services/mobile-services-javascript-backend-android-get-started-push.md
-[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-[Android Studio]: https://developer.android.com/sdk/index.html
-[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-
-[Management Portal]: https://manage.windowsazure.com/
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

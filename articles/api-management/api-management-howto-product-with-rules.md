@@ -292,4 +292,4 @@
 [Ограничить скорость вызова]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Задать квоту использования]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

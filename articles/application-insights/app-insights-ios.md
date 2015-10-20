@@ -1,19 +1,19 @@
 <properties
     pageTitle="Application Insights для приложений iOS | Microsoft Azure"
-	description="Анализ использования и производительности приложения iOS с помощью Application Insights."
-	services="application-insights"
-	documentationCenter="ios"
-	authors="alancameronwills"
-	manager="ronmart"/>
+    description="Анализ использования и производительности приложения iOS с помощью Application Insights."
+    services="application-insights"
+    documentationCenter="ios"
+    authors="alancameronwills"
+    manager="ronmart"/>
 
 <tags
     ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="04/27/2015"
-	ms.author="awills"/>
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="04/27/2015"
+    ms.author="awills"/>
 
 # Application Insights для приложений iOS
 
@@ -137,4 +137,4 @@ Visual Studio Application Insights позволяет отслеживать м�
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

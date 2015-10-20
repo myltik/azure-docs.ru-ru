@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Учебник по Apache Storm: начало работы со Storm | Microsoft Azure"
-	description="Начало работы с анализом больших объемов данных с помощью Apache Storm и примеров Storm Starter в HDInsight. Информация об использовании Storm для обработки данных в режиме реального времени."
+	pageTitle="Учебник по Apache Storm: начало работы со Storm под управлением Linux в HDInsight | Microsoft Azure"
+	description="Начало работы с аналитикой больших данных с помощью Apache Storm и примеров Storm Starter под управлением Linux в HDInsight. Информация об использовании Storm для обработки данных в режиме реального времени."
 	keywords="apache storm,apache storm tutorial,big data analytics,storm starter"
 	services="hdinsight"
 	documentationCenter=""
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/18/2015"
+   ms.date="10/09/2015"
    ms.author="larryfr"/>
 
 
@@ -233,4 +233,4 @@ Storm в HDInsight использует хранилище BLOB-объектов
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

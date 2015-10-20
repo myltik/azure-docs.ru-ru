@@ -50,4 +50,4 @@
 	- [Настройка маршрутизации](expressroute-howto-routing-classic.md)
 	- [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

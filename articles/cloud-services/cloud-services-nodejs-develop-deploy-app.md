@@ -41,7 +41,7 @@
 > [AZURE.NOTE]В этом учебнике используется Azure PowerShell, для которого требуется операционная система Windows.
 
 - Установите и настройте [Azure PowerShell](../install-configure-powershell.md).
-- Скачайте и установите [пакет SDK для Azure для .NET 2.7](http://www.microsoft.com/ru-ru/download/details.aspx?id=48178). В параметрах установки выберите:
+- Скачайте и установите [пакет SDK для Azure для .NET 2.7](http://www.microsoft.com/ru-RU/download/details.aspx?id=48178). В параметрах установки выберите:
     - MicrosoftAzureAuthoringTools
     - MicrosoftAzureComputeEmulator
 
@@ -197,4 +197,4 @@
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

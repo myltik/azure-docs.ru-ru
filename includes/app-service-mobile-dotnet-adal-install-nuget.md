@@ -4,4 +4,4 @@
 
 [пакет NuGet библиотеки проверки подлинности Active Directory]: http://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

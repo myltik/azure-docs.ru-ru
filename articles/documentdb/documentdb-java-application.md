@@ -19,7 +19,13 @@
 
 # Создание веб-приложения Node.js с использованием DocumentDB
 
-В этом руководстве показано, как использовать службу [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) для хранения данных и обеспечения доступа к ним из приложения Java, размещенного на веб-сайтах Azure. В этом разделе вы узнаете…
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
+
+В этом учебнике по разработке веб-приложения Java показано, как использовать службу [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) для хранения данных и обеспечения к ним доступа из приложения Java, размещенного на веб-сайтах Azure. В этом разделе вы узнаете…
 
 - Как создать основное приложение JSP в Eclipse
 - Как работать со службой Azure DocumentDB с помощью пакета [DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java).
@@ -35,7 +41,7 @@
 
 - Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](../../pricing/free-trial/).
 - [Комплект разработчика Java (JDK 7 +)](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
-- [IDE Eclipse для разработчиков Java EE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
+- [Интегрированная среда разработки Eclipse для разработчиков Java EE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 - [Открытый веб-сайт Azure со средой выполнения Java (например, Tomcat или Jetty).](../web-sites-java-get-started.md)
 
 При первой установке этих средств воспользуйтесь пошаговым руководством по установке, представленным на сайте coreservlets.com в разделе «Быстрый запуск» статьи [Учебник по установке TomCat7 и его использованию с Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
@@ -733,7 +739,7 @@
 
 5. Отлично! Теперь осталось протестировать приложение. Запустите приложение локально и добавьте несколько элементов Todo, заполнив имя элемента и категории и нажав кнопку **Add Task** (Добавить задачу).
 
-6. После появления элемента можно проверить его завершение, отметив флажком и щелкнув команду **Update Tasks** (Обновить задачи).
+6. Как только элемент появится, вы можете проверить его завершение, отметив флажком и щелкнув команду **Update Tasks** (Обновить задачи).
 
 ##<a id="Deploy"></a>Шаг 6. Развертывание приложения Java на веб-сайтах Azure
 
@@ -780,4 +786,4 @@
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

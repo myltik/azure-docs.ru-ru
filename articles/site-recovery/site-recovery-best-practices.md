@@ -82,7 +82,7 @@ VMM в System Center 2012 с пакетом обновления 1 (SP1) и по
 - [Новые возможности частного облака с VMM в System Center 2012 R2](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/MDC-B357#fbid=)
 - [VMM 2012 и облака](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html)
 - [Настройка структуры облака VMM](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
-- [Создание частного облака в VMM](https://technet.microsoft.com/ru-ru/library/jj860425.aspx)
+- [Создание частного облака в VMM](https://technet.microsoft.com/ru-RU/library/jj860425.aspx)
 - [Пошаговое руководство. Создание частных облаков с помощью VMM в System Center 2012 с пакетом обновления 1](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
 
 
@@ -194,4 +194,4 @@ VMM в System Center 2012 с пакетом обновления 1 (SP1) и по
 - [Настройка защиты с одним сервером VMM](site-recovery-single-vmm.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

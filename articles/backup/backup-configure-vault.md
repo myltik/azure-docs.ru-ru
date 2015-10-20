@@ -34,4 +34,4 @@
 - [Часто задаваемые вопросы о службе архивации Azure](backup-azure-backup-faq.md)
 - [Форум по службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Приступая к работе с Azure Multi-Factor Authentication в облаке"
-	description="Эта страница посвящена службе Azure Multi-Factor Authentication. Она содержит сведения по началу работы с Azure Multi-Factor Authentication в облаке."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Приступая к работе с Azure Multi-Factor Authentication в облаке" 
+	description="Эта страница посвящена службе Azure Multi-Factor Authentication. Она содержит сведения по началу работы с Azure Multi-Factor Authentication в облаке." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Приступая к работе с Azure Multi-Factor Authentication в облаке
@@ -99,8 +99,8 @@
 --------------------------------------------------------------------------------
 1.  Войдите на портал управления Azure с учетной записью администратора.
 2.  Слева щелкните элемент Active Directory.
-3.  В разделе «Каталог» выберите каталог пользователя, которого вы хотите включить.
-4.  В верхней части щелкните «Пользователи».
+3.  В разделе "Каталог" выберите каталог пользователя, которого вы хотите включить.
+4.  В верхней части щелкните "Пользователи".
 5.  В нижней части страницы щелкните «Управление Multi-Factor Authentication».
 6.  Найдите пользователя, для которого нужно включить многофакторную проверку подлинности. Возможно, потребуется изменить представление в верхней части страницы. Убедитесь, что пользователь имеет состояние «Отключен», и установите флажок рядом с его именем.
 7.  Справа появятся две команды — «Включить» и «Управление параметрами пользователя». Выберите команду «Включить». Появится всплывающее окно с дальнейшими действиями, которые необходимо выполнить с пользователями. Щелкните «Включить многофакторную проверку подлинности».
@@ -156,4 +156,4 @@
 ## Дальнейшие действия
 Настроив многофакторную проверку подлинности в облаке, можно перейти к следующему шагу, описанному в разделе [Настройка Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md). Вы узнаете о создании отчетов, предупреждении о мошенничестве, настройке голосовых сообщений и всех функциях, которые предлагает служба Azure Multi-Factor Authentication.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

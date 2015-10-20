@@ -19,7 +19,7 @@
 
 # Развертывание ферм SharePoint с помощью шаблонов диспетчера ресурсов Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса с помощью модели развертывания на основе диспетчера ресурсов. Создать ресурс с помощью классической модели развертывания невозможно.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания. Создать ресурс с помощью классической модели развертывания невозможно.
 
 Используйте указания в этой статье для развертывания новой трех- или девятисерверной фермы SharePoint Server 2013 с помощью шаблонов диспетчера ресурсов.
 
@@ -184,4 +184,4 @@
 
 [Установка и настройка Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

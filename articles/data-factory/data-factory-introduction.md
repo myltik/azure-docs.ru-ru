@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Введение в фабрику данных Azure"
-	description="Узнайте, как использовать службу фабрики данных Azure для формирования обработки данных, хранилища данных и служб перемещения данных, чтобы создавать конвейеры, производящие надежные данные."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Введение в фабрику данных Azure" 
+	description="Узнайте, как использовать службу фабрики данных Azure для формирования обработки данных, хранилища данных и служб перемещения данных, чтобы создавать конвейеры, производящие надежные данные." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="08/05/2015" 
 	ms.author="spelluru"/>
 
 # Введение в службу фабрики данных Azure
@@ -56,6 +56,6 @@
 Уяснив смысл четырех простых понятий (набор данных, действие, конвейер и связанная служба), можно приступать к работе с фабрикой данных. Вы можете [создать первый конвейер](data-factory-build-your-first-pipeline.md) с нуля или развернуть готовый пример, следуя указаниям в нашей статье [Примеры фабрики данных](data-factory-samples.md).
 
 ## Отправить отзыв
-Мы будем весьма признательны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-introduction.md).
+Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-introduction.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

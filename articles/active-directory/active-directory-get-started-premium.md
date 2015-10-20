@@ -4,6 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="MarkusVi"
+	writer="markvi"
 	manager="stevenpo" 
 	editor="LisaToft"/>
 
@@ -18,17 +19,17 @@
 
 # Приступая к работе с Azure Active Directory Premium
 
-Существуют три выпуска Azure Active Directory: Free, Basic и Premium. Выпуск Free входит в состав подписки Azure или Office 365. Выпуски Basic и Premium доступны через [Соглашение Microsoft Enterprise Agreement](https://www.microsoft.com/ru-ru/licensing/licensing-programs/enterprise.aspx) или в рамках программы [Открытая корпоративная лицензия](https://www.microsoft.com/ru-ru/licensing/licensing-programs/open-license.aspx). Подписчики Azure и Office 365 также могут купить выпуск Active Directory Premium через Интернет. [Войдите здесь](https://portal.office.com/Commerce/Catalog.aspx), чтобы купить выпуск.
+Существуют три выпуска Azure Active Directory: Free, Basic и Premium. Выпуск Free входит в состав подписки Azure или Office 365. Выпуски Basic и Premium доступны через [Соглашение Microsoft Enterprise Agreement](https://www.microsoft.com/ru-RU/licensing/licensing-programs/enterprise.aspx) или в рамках программы [Открытая корпоративная лицензия](https://www.microsoft.com/ru-RU/licensing/licensing-programs/open-license.aspx). Подписчики Azure и Office 365 также могут купить выпуск Active Directory Premium через Интернет. [Войдите здесь](https://portal.office.com/Commerce/Catalog.aspx), чтобы купить выпуск.
 
 > [AZURE.NOTE]Выпуски Azure Active Directory Premium и Basic доступны для клиентов в Китае, использующих всемирный экземпляр Azure Active Directory. Эти выпуски в настоящее время не поддерживает служба Microsoft Azure под управлением 21Vianet в Китае. Чтобы получить дополнительную информацию, свяжитесь с нами на [форуме Azure Active Directory](http://feedback.azure.com/forums/169401-azure-active-directory).
 
-Выпуск Azure Active Directory Premium также включен в **набор корпоративных служб мобильности**. Набор корпоративных служб мобильности представляет собой экономичный способ, благодаря которому организации могут совместно использовать службы Microsoft Intune, Azure Rights Management и Active Directory Premium в рамках одного плана лицензирования. Дополнительные сведения см. на веб-сайте [Набор корпоративных служб мобильности](https://www.microsoft.com/ru-ru/server-cloud/enterprise-mobility/overview.aspx).
+Выпуск Azure Active Directory Premium также включен в **набор корпоративных служб мобильности**. Набор корпоративных служб мобильности представляет собой экономичный способ, благодаря которому организации могут совместно использовать службы Microsoft Intune, Azure Rights Management и Active Directory Premium в рамках одного плана лицензирования. Дополнительные сведения см. на веб-сайте [Набор корпоративных служб мобильности](https://www.microsoft.com/ru-RU/server-cloud/enterprise-mobility/overview.aspx).
 
 Чтобы начать использовать выпуск Azure Active Directory Premium, выполните следующие действия. Эти же действия относятся к выпуску Azure Active Directory Basic.
 
 ## Шаг 1. Регистрация на Active Directory Premium
 
-Для регистрации зайдите на веб-сайт [Корпоративное лицензирование](http://www.microsoft.com/ru-ru/licensing/how-to-buy/how-to-buy.aspx).
+Для регистрации зайдите на веб-сайт [Корпоративное лицензирование](http://www.microsoft.com/ru-RU/licensing/how-to-buy/how-to-buy.aspx).
 
 ## Шаг 2. Активирование плана лицензирования
 
@@ -121,4 +122,4 @@
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

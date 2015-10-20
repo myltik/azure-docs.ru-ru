@@ -77,4 +77,4 @@ Azure RemoteApp поддерживается в клиентских прило�
 - [Azure RemoteApp: вопросы и ответы](remoteapp-faq.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

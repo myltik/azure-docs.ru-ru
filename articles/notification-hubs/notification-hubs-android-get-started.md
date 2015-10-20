@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="10/15/2015"
 	ms.author="wesmc"/>
 
 # Приступая к работе с Центрами уведомлений для приложений Android
@@ -26,12 +26,19 @@
 В этом учебнике описывается простой сценарий вещания с использованием Центров уведомлений. Рекомендуем вам изучить следующий учебник, чтобы узнать об использовании Центров уведомлений для охвата определенных пользователей и групп устройств.
 
 
+## Перед началом работы
+
+[AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
+
+Полный код для этого учебника можно найти на портале [GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted).
+
+
 ##Предварительные требования
 
 Для работы с данным учебником требуется следующее:
 
-+ ПО Android Studio, которое можно скачать с <a href="http://go.microsoft.com/fwlink/?LinkId=389797">сайта Android</a>.
-+ Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F).
++ ПО Android Studio, которое можно загрузить с <a href="http://go.microsoft.com/fwlink/?LinkId=389797">сайта Android</a>.
++ Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fja-jp%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F).
 
 
 Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными Центрам уведомлений для приложений Android.
@@ -58,21 +65,15 @@
 
    	![][14]
 
-3. Выберите **Blank Activity** (Пустое действие) для основного действия, нажмите кнопку **Next** (Далее), а затем нажмите кнопку **Finish** (Готово).
+3. Выберите значение **Blank Activity** (Пустое действие) для основного действия, нажмите кнопку **Next** (Далее), а затем нажмите кнопку **Finish** (Готово).
 
 ###Добавление служб Google Play в проект
 
-[AZURE.INCLUDE [Добавление служб Play](../../includes/mobile-services-add-google-play-services.md)]
+[AZURE.INCLUDE [Добавление служб Play](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
 ###Добавление кода
 
-1. Скачайте <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">пакет SDK Android для Центров уведомлений</a>. Извлеките содержимое ZIP-файла и скопируйте файлы **notificationhubs\\notification-hubs-0.4.jar** и **notifications\\notifications-1.0.1.jar** в каталог **app\\libs** проекта. Это можно сделать, перетащив файлы в папку **libs** в окне представления проекта Android Studio. Обновите папку **libs**.
-
-
-
-	Справочная документация по этим двум пакетам доступна по ссылкам ниже:
-	* [com.microsoft.windowsazure.messaging](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/messaging/package-summary.html)
-	* [com.microsoft.windowsazure.notifications](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/notifications/package-summary.html)
+1. Загрузите <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">пакет SDK Android для центров уведомлений</a>. Извлеките содержимое ZIP-файла и скопируйте файлы **notificationhubs\\notification-hubs-0.3.jar** и **notifications\\notifications-1.0.1.jar** в каталог **app\\libs** проекта. Это можно сделать, перетащив файлы в папку **libs** в окне представления проекта Android Studio. Обновите папку **libs**.
 
 
     > [AZURE.NOTE]Числа в конце этого имени файла могут меняться в последующих выпусках SDK.
@@ -109,14 +110,11 @@
 	    private static Boolean isVisible = false;
 
 
-	Обязательно измените три заполнителя:
-	* **SENDER\_ID**: задайте для `SENDER_ID` номер проекта, полученный ранее из проекта, созданного в [Google Cloud Console](http://cloud.google.com/console).
-	* **HubListenConnectionString**: задайте для `HubListenConnectionString` строку подключения **DefaultListenAccessSignature** к центру. Можно скопировать эту строку подключения, щелкнув **Просмотреть строку подключения** на вкладке **Панель мониторинга** центра на [портале Azure].
-	* **HubName**: имя центра уведомлений, которое отображается в верхней части страницы в Azure для вашего центра (**не** полный URL-адрес). Например, используйте `"myhub"`.
+	Обязательно обновите три заполнителя: * **SENDER\_ID** — укажите для `SENDER_ID` номер проекта, полученный ранее из проекта, созданного в [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString** — укажите для `HubListenConnectionString` строку подключения **DefaultListenAccessSignature** к центру. Можно скопировать эту строку подключения, щелкнув элемент **Просмотреть строку подключения** на вкладке **Панель мониторинга** центра на [портале Azure]. * **HubName** — имя центра уведомлений, которое отображается в верхней части страницы в Azure для вашего центра (**не** полный URL-адрес). Например, воспользуйтесь `"myhub"`.
 
 
 
-5. В метод **OnCreate** класса **MainActivity** добавьте следующий код для выполнения регистрации в момент создания действия.
+5. В метод **OnCreate** класса **MainActivity** добавьте следующий код для выполнения регистрации в центре уведомлений в момент создания действия.
 
         MyHandler.mainActivity = this;
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
@@ -145,7 +143,7 @@
     	}
 
 
-7. Добавьте в действие метод **DialogNotify** для отображения уведомления, когда приложение запущено и отображается. Кроме того, переопределите параметры **onStart** и **onStop** для указания того, видимо ли действие для отображения диалогового окна.
+7. Добавьте в действие метод **DialogNotify** для отображения уведомления, когда приложение запущено и отображается. Кроме того, переопределите параметры **onStart** и **onStop**. Это позволит определить, будет ли действие видимым для отображения диалогового окна.
 
 	    @Override
 	    protected void onStart() {
@@ -211,7 +209,7 @@
 
 	![][6]
 
-10. В поле **Name** (Имя) для нового класса введите **MyHandler** и нажмите кнопку **ОК**.
+10. В поле **Name** для нового класса введите **MyHandler** и нажмите кнопку **ОК**.
 
 
 11. Добавьте следующие операторы import в начало файла **MyHandler.java**:
@@ -232,7 +230,7 @@
 
 13. Добавьте в класс `MyHandler` следующий код:
 
-	Этот код переопределяет метод `OnReceive` таким образом, чтобы обработчик показывал `AlertDialog` для отображения полученных уведомлений. Обработчик также отправляет уведомление в диспетчер уведомлений Android с помощью метода `sendNotification()`.
+	Этот код переопределяет метод `OnReceive` так, чтобы обработчик показывал `AlertDialog` для отображения полученных уведомлений. Обработчик также отправляет уведомление в диспетчер уведомлений Android с помощью метода `sendNotification()`.
 
     	public static final int NOTIFICATION_ID = 1;
     	private NotificationManager mNotificationManager;
@@ -281,7 +279,9 @@
 
 [AZURE.INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-![][31]
+
+## (Необязательно) Отправка уведомлений из приложения
+
 
 1. В представлении проекта Android Studio разверните узел **App** > **src** > **main** > **res** > **layout**. Откройте файл макета **activity\_main.xml** и щелкните вкладку **Text** (Текст), чтобы обновить текстовое содержимое файла. Добавьте приведенный ниже код, который добавляет новые элементы управления `Button` и `EditText` для отправки уведомлений в центр уведомлений. Добавьте этот код в конец, непосредственно перед `</RelativeLayout>`.
 
@@ -328,7 +328,7 @@
 
 3. В файле **MainActivity.java** в начало класса `MainActivity` добавьте следующие члены:
 
-	Введите имя своего центра для `HubName` (не пространства имен). Например, введите "myhub". Кроме того, введите строку подключения **DefaultFullSharedAccessSignature**. Эту строку подключения можно скопировать на [портале Azure], щелкнув **Просмотреть строку подключения** на вкладке **Панель мониторинга** для центра уведомлений.
+	Обновите `HubFullAccess` с использованием строки подключения к центру **DefaultFullSharedAccessSignature**. Эту строку подключения можно скопировать на [портале Azure], щелкнув **Просмотреть строку подключения** на вкладке **Панель мониторинга** для центра уведомлений.
 
 	    private String HubEndpoint = null;
 	    private String HubSasKeyName = null;
@@ -493,7 +493,13 @@
 
 ##Дальнейшие действия
 
-В этом простом примере осуществляется рассылка уведомлений на все устройства Android. Чтобы сориентироваться на определенных пользователей, см. учебник [Использование концентраторов уведомлений для отправки push-уведомлений пользователям]. Если необходимо разделить пользователей по группам интересов, см. раздел [Использование концентраторов уведомлений для передачи экстренных новостей]. Дополнительные сведения об использовании концентраторов уведомлений см. в [руководстве по использованию концентраторов уведомлений].
+В этом простом примере осуществляется рассылка уведомлений на все устройства Windows через портал или консольное приложение. На следующем этапе рекомендуем ознакомиться с учебником [Использование центров уведомлений для отправки push-уведомлений пользователям]. В нем описана процедура отправки уведомлений с сервера ASP.NET определенным пользователям с использованием тегов.
+
+Если необходимо разделить пользователей по группам интересов, см. раздел [Использование концентраторов уведомлений для передачи экстренных новостей].
+
+Дополнительные сведения о центрах уведомлений см. в [руководстве по использованию центров уведомлений].
+
+
 
 
 <!-- Images. -->
@@ -527,12 +533,12 @@
 
 
 <!-- URLs. -->
-[Приступая к работе с push-уведомлениями в мобильных службах]: ../mobile-services-javascript-backend-android-get-started-push.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [портале Azure]: https://manage.windowsazure.com/
-[руководстве по использованию концентраторов уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[руководстве по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Использование центров уведомлений для отправки push-уведомлений пользователям]: notification-hubs-aspnet-backend-android-notify-users.md
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

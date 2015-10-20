@@ -1,20 +1,20 @@
 
 <properties
    pageTitle="Приступая к настройке подсистемы балансировки нагрузки, доступной в Интернете | Microsoft Azure"
-	description="Начните использовать свою первую подсистему балансировки нагрузки, доступную в Интернете, для виртуальных машин или облачных служб."
-	services="load-balancer"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Начните использовать свою первую подсистему балансировки нагрузки, доступную в Интернете, для виртуальных машин или облачных служб."
+   services="load-balancer"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags
    ms.service="load-balancer"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/12/2015"
+   ms.author="joaoma" />
 
 # Приступая к настройке подсистемы балансировки нагрузки, доступной в Интернете
 
@@ -136,4 +136,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->
