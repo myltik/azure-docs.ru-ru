@@ -29,4 +29,4 @@
 
 Чтобы просмотреть видеоролик о том, как получить резервную копию StorSimple, щелкните [здесь](http://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

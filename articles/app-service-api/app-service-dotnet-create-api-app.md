@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/14/2015"
+	ms.date="10/08/2015"
 	ms.author="tdykstra"/>
 
 # Создание приложения API ASP.NET в службе приложений Azure
@@ -28,7 +28,7 @@
 
 В этом учебнике показывается, как создать проект веб-API ASP.NET и настроить его для развертывания в облаке в виде [приложения API в службе приложений Azure](app-service-api-apps-why-best-platform.md). Информацию о настройке существующего проекта веб-API для развертывания в качестве приложения API см. в статье [Настройка проекта веб-API как приложения API](app-service-dotnet-create-api-app-visual-studio.md).
 
-В последующих учебниках из этой серии показывается, как [развертывать](app-service-dotnet-deploy-api-app.md) и [отлаживать](../app-service-dotnet-remotely-debug-api-app.md) проект приложения API, который будет создаваться в этом учебнике.
+Этот быстрый и простой учебник объясняет, как создать проект Visual Studio с помощью шаблона. Этот учебник является первым в серии, которая также поясняет [развертывание](app-service-dotnet-deploy-api-app.md) и [отладку](../app-service-dotnet-remotely-debug-api-app.md) проекта приложения API, который будет создаваться в этом учебнике. Дополнительные сведения о работе с приложениями API см. в разделе [Дальнейшие действия](#next-steps) в конце учебника.
 
 [AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
 
@@ -50,4 +50,14 @@
 
 Теперь ваше приложение API готово к развертыванию, и вы можете перейти к учебнику [Развертывание приложения API](app-service-dotnet-deploy-api-app.md).
 
-<!---HONumber=Oct15_HO1-->
+Сведения об использовании автоматически создаваемого клиентского кода для вызова приложений API см. в статье [Использование приложения API из клиента .NET](app-service-api-dotnet-consume.md).
+
+Сведения о настройке автоматически созданных метаданных Swagger для приложения API см. в статье [Настройка определений API, созданных Swashbuckle](app-service-api-dotnet-swashbuckle-customize.md).
+
+Сведения о способах создания, удаления и настройки приложений API на портале предварительной версии Azure см. в статье [Управление приложениями API](app-service-api-manage-in-portal.md).
+
+Сведения о проверке подлинности пользователей приложений API см. в статье [Проверка подлинности для приложений API и мобильных приложений в службе приложений Azure](../app-service/app-service-authentication-overview.md).
+
+Сведения о функциях приложений API см. в разделе [Что такое приложения API?](app-service-api-apps-why-best-platform.md).
+
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties
  pageTitle="Основные понятия, терминология и иерархия сущностей планировщика | Microsoft Azure"
-	description="Основные понятия, терминология и иерархия сущностей планировщика, включая задания и коллекции заданий. Подробный пример запланированного задания."
-	services="scheduler"
-	documentationCenter=".NET"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+ description="Основные понятия, терминология и иерархия сущностей планировщика, включая задания и коллекции заданий. Подробный пример запланированного задания."
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
+ editor=""/>
 <tags
  ms.service="scheduler"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="08/04/2015"
-	ms.author="krisragh"/>
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="get-started-article"
+ ms.date="08/04/2015"
+ ms.author="krisragh"/>
 
 # Основные понятия, терминология и иерархия сущностей планировщика
 
@@ -207,4 +207,4 @@ errorAction ― это обработчик ошибок, действие, ко
 
  [Исходящая аутентификация планировщика Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

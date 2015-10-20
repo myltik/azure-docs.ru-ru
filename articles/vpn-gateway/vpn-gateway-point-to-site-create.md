@@ -162,4 +162,4 @@
 
 В виртуальную сеть можно добавлять виртуальные машины. См. раздел [Создание настраиваемой виртуальной машины](../virtual-machines/virtual-machines-create-custom.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

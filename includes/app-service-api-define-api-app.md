@@ -103,4 +103,4 @@
 
 3. В Visual Studio выберите **Отладка > Остановить отладку**.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

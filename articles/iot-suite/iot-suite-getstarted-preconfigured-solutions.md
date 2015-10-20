@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Приступая к работе с предварительно настроенными решениями набора IoT Microsoft Azure | Microsoft Azure"
+	pageTitle="Приступая к работе с решениями с предварительно заданными параметрами | Microsoft Azure"
 	description="Следуйте инструкциям этого учебника, чтобы научиться развертывать предварительно настроенные решения набора IoT Microsoft Azure"
 	services=""
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="aguilaaj"
 	manager="timlt"
 	editor=""/>
@@ -12,11 +12,11 @@
      ms.devlang="na"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="araguila"/>
 
-# Приступая к работе с предварительно настроенными решениями IoT
+# Учебник: начало работы с решениями IoT с предварительно заданными параметрами
 
 ## Введение
 
@@ -110,9 +110,9 @@
 
 -   [Обзор набора IoT][]
 
-[Бесплатная пробная версия Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2FRU-RU%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target=
+[Бесплатная пробная версия Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fja-jp%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target=
 
 [Рекомендации по настройке предварительно настроенных решений]: https://azure.microsoft.com/documentation/articles/iot-suite-guidance-on-customizing-preconfigured-solutions/
 [Обзор набора IoT]: https://azure.microsoft.com/documentation/articles/iot-suite-overview/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

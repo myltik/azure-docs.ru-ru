@@ -39,4 +39,4 @@
 - [Создайте API веб-службы](machine-learning-publish-a-machine-learning-web-service.md)
 - [Просмотрите приложения, готовые к использованию](https://datamarket.azure.com/browse?query=machine+learning)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

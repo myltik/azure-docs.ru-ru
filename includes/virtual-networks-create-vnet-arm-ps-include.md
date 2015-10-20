@@ -3,19 +3,10 @@
 Чтобы создать виртуальную сеть с помощью PowerShell, выполните указанные ниже действия.
 
 1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md). Войдите в Azure и выберите подписку.
-2. В командной строке Azure PowerShell выполните командлет **Switch-AzureMode**, чтобы включить режим диспетчера ресурсов, как показано ниже.
-
-		Switch-AzureMode AzureResourceManager
 	
-	Ожидаемые выходные данные:
+3. При необходимости выполните командлет **New-AzureRMResourceGroup**, чтобы создать новую группу ресурсов (см. рисунок ниже). В нашем случае нужно создать группу ресурсов с именем *TestRG*. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md/#resource-groups).
 
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-	>[AZURE.WARNING]Командлет Switch-AzureMode является устаревшим. По этой причине все командлеты диспетчера ресурсов вскоре будут переименованы.
-	
-3. При необходимости выполните командлет **New-AzureResourceGroup**, как показано ниже, чтобы создать новую группу ресурсов. В нашем сценарии необходимо создать группу ресурсов с именем *TestRG*. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md/#resource-groups).
-
-		New-AzureResourceGroup -Name TestRG -Location centralus
+		New-AzureRMResourceGroup -Name TestRG -Location centralus
 
 	Ожидаемые выходные данные:
 	
@@ -28,11 +19,11 @@
 		                    =======  ==========
 		                    *
 		
-		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG	
+		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG	
 
-4. Выполните командлет **New-AzureVirtualNetwork**, как показано ниже, чтобы создать виртуальную сеть.
+4. Выполните командлет **New-AzureRMVirtualNetwork**, чтобы создать виртуальную сеть (см. рисунок ниже).
 
-		New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
+		New-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
 			-AddressPrefix 192.168.0.0/16 -Location centralus	
 		
 	Ожидаемые выходные данные:
@@ -40,8 +31,8 @@
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
-		Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		Etag              : W/"5b89894f-db7f-4634-9870-f9b97e209510"
+		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+		Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 		ProvisioningState : Succeeded
 		Tags              :
 		AddressSpace      : {
@@ -55,15 +46,15 @@
 		NetworkInterfaces : null
 		Subnets           : []
 
-5. Выполните командлет **Get-AzureVirtualNetwork**, чтобы сохранить объект виртуальной сети в переменной, как показано ниже.
+5. Выполните командлет **Get-AzureRMVirtualNetwork**, чтобы сохранить объект виртуальной сети в переменной (см. рисунок ниже).
 
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		$vnet = Get-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 	
-	>[AZURE.TIP]Можно объединить шаги 4 и 5, выполнив команду **$vnet = New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
+	>[AZURE.TIP]Можно объединить шаги 4 и 5, выполнив команду **$vnet = New-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
 
-6. Выполните командлет **Add-AzureVirtualNetworkSubnetConfig**, чтобы добавить подсеть в новую виртуальную сеть, как показано ниже.
+6. Выполните командлет **Add-AzureRMVirtualNetworkSubnetConfig**, чтобы добавить подсеть в новую виртуальную сеть (см. рисунок ниже).
 
-		Add-AzureVirtualNetworkSubnetConfig -Name FrontEnd `
+		Add-AzureRMVirtualNetworkSubnetConfig -Name FrontEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
 		
 	Ожидаемые выходные данные:
@@ -71,8 +62,8 @@
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
-		Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		Etag              : W/"5b89894f-db7f-4634-9870-f9b97e209510"
+		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+		Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 		ProvisioningState : Succeeded
 		Tags              :
 		AddressSpace      : {
@@ -99,20 +90,20 @@
 
 7. Повторите шаг 6 выше для каждой подсети, которую необходимо создать. Приведенная ниже команда создает подсеть *BackEnd* для нашего сценария.
 
-		Add-AzureVirtualNetworkSubnetConfig -Name BackEnd `
+		Add-AzureRMVirtualNetworkSubnetConfig -Name BackEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
 
-8. Несмотря на создание подсетей, в настоящее время они существуют только в локальной переменной, используемой для получения виртуальной сети, созданной на шаге 4. Чтобы сохранить изменения в Azure, выполните командлет **Set-AzureVirtualNetwork**, как показано ниже.
+8. Несмотря на создание подсетей, в настоящее время они существуют только в локальной переменной, используемой для получения виртуальной сети, созданной на шаге 4. Чтобы сохранить изменения в Azure, выполните командлет **Set-AzureRMVirtualNetwork** (см. рисунок ниже).
 
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet	
+		Set-AzureRMVirtualNetwork -VirtualNetwork $vnet	
 		
 	Ожидаемые выходные данные:
 
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
-		Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		Etag              : W/"2d3496d8-2b85-4238-bde2-377fe660aa4a"
+		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+		Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 		ProvisioningState : Succeeded
 		Tags              :
 		AddressSpace      : {
@@ -127,8 +118,8 @@
 		Subnets           : [
 		                      {
 		                        "Name": "FrontEnd",
-		                        "Etag": "W/"2d3496d8-2b85-4238-bde2-377fe660aa4a"",
-		                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+		                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
 		                        "AddressPrefix": "192.168.1.0/24",
 		                        "IpConfigurations": [],
 		                        "NetworkSecurityGroup": null,
@@ -137,8 +128,8 @@
 		                      },
 		                      {
 		                        "Name": "BackEnd",
-		                        "Etag": "W/"2d3496d8-2b85-4238-bde2-377fe660aa4a"",
-		                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+		                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
 		                        "AddressPrefix": "192.168.2.0/24",
 		                        "IpConfigurations": [],
 		                        "NetworkSecurityGroup": null,
@@ -147,4 +138,4 @@
 		                      }
 		                    ]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

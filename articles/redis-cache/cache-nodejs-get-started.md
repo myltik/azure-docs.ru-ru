@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/25/2015"
+	ms.date="10/05/2015"
 	ms.author="sdanie"/>
 
 # Использование кэша Redis для Azure с Node.js
@@ -91,4 +91,4 @@
 
 [Создание приложения для разговоров на Node.js с использованием Socket.IO в службе приложений Azure]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

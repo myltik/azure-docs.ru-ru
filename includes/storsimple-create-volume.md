@@ -23,8 +23,8 @@
 
 4. Щелкните значок галочки ![значок галочки](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Будет создан том с указанными настройками.
 
-![Доступный видеоролик](./media/storsimple-create-volume/Video_icon.png) **Доступный видеоролик**
+![Доступно видео](./media/storsimple-create-volume/Video_icon.png) **Доступный видеоролик**
 
 Чтобы просмотреть видеоролик о том, как создать том StorSimple, щелкните [здесь](http://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

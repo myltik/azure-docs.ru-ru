@@ -1,19 +1,19 @@
 <properties
    pageTitle="Управление конечными точками в диспетчере трафика Azure | Microsoft Azure"
-	description="В этой статье вы узнаете, как добавлять, удалять, включать и отключать конечные точки в диспетчере трафика Azure."
-	services="traffic-manager"
-	documentationCenter=""
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="В этой статье вы узнаете, как добавлять, удалять, включать и отключать конечные точки в диспетчере трафика Azure."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # Добавление, отключение, включение и удаление конечных точек
 
@@ -78,4 +78,4 @@
 
 [Веб-сайты](http://go.microsoft.com/fwlink/p/?LinkId=393327)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

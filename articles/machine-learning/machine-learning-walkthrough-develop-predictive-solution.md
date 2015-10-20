@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2015"
+	ms.date="10/13/2015"
 	ms.author="garye"/>
 
 
@@ -30,6 +30,8 @@
 
 Откройте Студию машинного обучения: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). Дополнительную информацию о начале работы со Студией машинного обучения см. на [домашней странице Студии машинного обучения Microsoft Azure](https://studio.azureml.net/).
 
+>[AZURE.TIP]Чтобы загрузить и распечатать схему, на которой представлены общие возможности Студии машинного обучения, см. раздел [Обзорная схема возможностей Студии машинного обучения Azure](machine-learning-studio-overview-diagram.md).
+
 Создание нашего решения для оценки кредитных рисков предполагает такие действия:
 
 1.	[Создание рабочей области машинного обучения](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -41,4 +43,4 @@
 
 Это пошаговое руководство построено на упрощенной версии [примера эксперимента прогнозирования кредитных рисков](../machine-learning-sample-credit-risk-prediction.md), включенного в Студию машинного обучения.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

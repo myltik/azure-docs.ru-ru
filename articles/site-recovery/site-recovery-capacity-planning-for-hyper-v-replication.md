@@ -239,4 +239,4 @@ c. Любой узел кластера
 - [Настройка защиты с одним сервером VMM](site-recovery-single-vmm)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

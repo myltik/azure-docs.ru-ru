@@ -129,7 +129,7 @@
 
 Уведомления можно отправлять с помощью Центров уведомлений из любого серверного компонента через <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">интерфейс REST</a>. В этом учебнике мы будем отправлять уведомления с помощью консольного приложения .NET. Примеры отправки уведомлений из серверных компонентов мобильных служб Azure, интегрированных с Центрами уведомлений, можно найти в разделе "Приступая к работе с push-уведомлениями в мобильных службах" ([Серверная часть .NET](../mobile-services-javascript-backend-windows-phone-get-started-push.md) | [Серверная часть JavaScript](../mobile-services-javascript-backend-windows-phone-get-started-push.md)). Примеры отправки уведомлений с использованием API REST можно найти в разделе "Использование Центров уведомлений из Java/PHP" ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
-1. Щелкните правой кнопкой мыши решение, выберите **Добавить** и **Новый проект**. После этого в разделе **Visual C#** последовательно выберите **Windows** и **Консольное приложение**, а затем нажмите кнопку **ОК**.
+1. Щелкните правой кнопкой мыши решение, выберите **Добавить** и **Новый проект...**. После этого в разделе **Visual C#** последовательно выберите **Windows** и **Консольное приложение**, а затем нажмите кнопку **ОК**.
 
    	![][6]
 
@@ -215,4 +215,4 @@
 [каталоге уведомлений на плитке]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -14,4 +14,4 @@
 
 Xcode создаст демоверсию приложения, в которую мы интегрируем Mobile Engagement.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

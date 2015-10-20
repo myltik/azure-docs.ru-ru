@@ -14,13 +14,15 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="10/05/2015"
+	ms.date="10/07/2015"
 	ms.author="ricksal"/>
 
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 В этом учебнике показано, как добавить облачную серверную службу в приложение Android с помощью мобильных служб Azure. В этом учебнике вы создадите новую мобильную службу и простое приложение _To do list_, хранящее данные приложения в новой мобильной службе. В создаваемой мобильной службе с помощью Visual Studio используются поддерживаемые языки .NET для серверной бизнес-логики, а также для управления мобильной службой. Сведения о создании мобильной службы, которая позволит создавать в JavaScript серверную бизнес-логику, см. в подразделе [Серверная версия JavaScript](mobile-services-android-get-started.md) этого раздела.
 
@@ -34,9 +36,6 @@
 
 > [AZURE.IMPORTANT]Для работы с этим учебником требуется учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных служб, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
 
-<!-- -->
-
-> [AZURE.NOTE]Чтобы просмотреть версию этого учебника для Eclipse, перейдите к следующей статье: [Приступая к работе (Eclipse)].
 
 ## <a name="create-new-service"> </a>Создание мобильной службы
 
@@ -117,7 +116,7 @@
 [15]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Приступая к работе (Eclipse)]: mobile-services-dotnet-backend-android-get-started-ec.md
+[Get started (Eclipse)]: mobile-services-dotnet-backend-android-get-started-ec.md
 [Добавление push-уведомлений в приложение]: mobile-services-dotnet-backend-android-get-started-push.md
 [Добавление проверки подлинности в приложение]: mobile-services-dotnet-backend-android-get-started-auth.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
@@ -127,4 +126,4 @@
 
 [портале управления]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

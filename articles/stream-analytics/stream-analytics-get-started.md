@@ -246,7 +246,7 @@ Stream Analytics поддерживает простую декларативн�
 ![Выявление мошенничества. Связанные с мошенническими действиями события, просмотренные в режиме реального времени](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## Получение поддержки
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/RU-RU/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
 
 
 ## Дальнейшие действия
@@ -257,4 +257,4 @@ Stream Analytics поддерживает простую декларативн�
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

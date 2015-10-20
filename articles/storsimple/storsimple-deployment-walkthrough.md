@@ -290,4 +290,4 @@
 
 - Для управления устройством StorSimple используется [служба Диспетчера StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

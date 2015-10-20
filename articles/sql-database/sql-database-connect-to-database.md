@@ -1,23 +1,20 @@
 <properties
-	urlDisplayName="How to connect to an Azure SQL database using SQL Server Management Studio (SSMS)"
-	pageTitle="Как подключиться к базе данных SQL Azure с помощью среды SSMS | Microsoft Azure"
-	metaKeywords=""
-	description="Узнайте, как подключиться к базе данных SQL Azure с помощью среды SSMS."
-	metaCanonical=""
-	services="sql-database"
-	documentationCenter=""
-	title="How to connect to an Azure SQL database using SSMS"
-	authors="sidneyh" solutions=""
-	manager="jhubbard" editor="" />
-
+   pageTitle="Как подключиться к базе данных SQL Azure с помощью среды SSMS | Microsoft Azure"
+   description="Узнайте, как подключиться к базе данных SQL Azure с помощью среды SSMS."
+   services="sql-database"
+   documentationCenter=""
+   authors="sidneyh"
+   manager="jhubbard"
+   editor=""
+   tags=""/>
 <tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/14/2015"
-	ms.author="sidneyh" />
+   ms.service="sql-database"
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="data-management"
+   ms.date="09/14/2015"
+   ms.author="sidneyh"/>
 
 # Соединение с SQL Server Management Studio (SSMS)
 
@@ -98,4 +95,4 @@
 [6]: ./media/sql-database-connect-to-database/server-name.png
 [7]: ./media/sql-database-connect-to-database/connect-dbengine.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

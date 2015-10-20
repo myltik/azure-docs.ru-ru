@@ -479,4 +479,4 @@ Push-облако Baidu — это китайская облачная служ
 [портал Azure]: https://manage.windowsazure.com/
 [портал Baidu]: http://www.baidu.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

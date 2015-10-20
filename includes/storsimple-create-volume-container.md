@@ -16,8 +16,8 @@
 
   Вновь созданный контейнер томов появится в списке на странице **Контейнеры томов**.
 
-![Доступный видеоролик](./media/storsimple-create-volume-container/Video_icon.png) **Доступный видеоролик**
+![Доступно видео](./media/storsimple-create-volume-container/Video_icon.png) **Доступный видеоролик**
 
 Чтобы просмотреть видеоролик о том, как создать контейнер тома в решении StorSimple, щелкните [здесь](http://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -3,19 +3,10 @@
 Чтобы развернуть шаблон ARM, загруженный с помощью PowerShell, выполните описанные ниже действия.
 
 1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md). Войдите в Azure и выберите подписку.
-2. Выполните командлет **Switch-AzureMode**, чтобы включить режим диспетчера ресурсов, как показано ниже.
 
-		Switch-AzureMode AzureResourceManager
+3. При необходимости выполните командлет **New-AzureRMResourceGroup**, чтобы создать новую группу ресурсов. Представленная ниже команда создает группу ресурсов с именем *TestRG* в регионе Azure *Центральная часть США*. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md).
 
-	Вот результат, ожидаемый для указанной выше команды:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-	>[AZURE.WARNING]Командлет Switch-AzureMode является устаревшим. По этой причине все командлеты диспетчера ресурсов вскоре будут переименованы.
-
-3. При необходимости выполните командлет **New-AzureResourceGroup**, чтобы создать новую группу ресурсов. Представленная ниже команда создает группу ресурсов с именем *TestRG* в регионе Azure *Central US*. Дополнительные сведения о группах ресурсов см. в разделе [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md).
-
-		New-AzureResourceGroup -Name TestRG -Location centralus
+		New-AzureRMResourceGroup -Name TestRG -Location centralus
 		
 	Вот результат, ожидаемый для указанной выше команды:
 
@@ -27,11 +18,11 @@
 		                    Actions  NotActions
 		                    =======  ==========
 		                    *
-		ResourceId        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
-4. Выполните командлет **New-AzureResourceGroupDeployment**, чтобы развернуть новую виртуальную сеть с помощью шаблона и файлов параметров, которые вы скачали и изменили раньше.
+4. Выполните командлет **New-AzureRMResourceGroupDeployment**, чтобы развернуть новую виртуальную сеть с помощью шаблона и файлов параметров, которые вы скачали и изменили раньше.
 
-		New-AzureResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
+		New-AzureRMResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
 			-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 			
 	Вот результат, ожидаемый для указанной выше команды:
@@ -55,18 +46,18 @@
 		
 		Outputs           :
 
-5. Выполните командлет **Get-AzureVirtualNetwork**, как показано ниже, чтобы просмотреть свойства новой виртуальной сети.
+5. Выполните командлет **Get-AzureRMVirtualNetwork**, как показано ниже, чтобы просмотреть свойства новой виртуальной сети.
 
 
-		Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		Get-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 		
 	Вот результат, ожидаемый для указанной выше команды:
 		
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
-		Id                : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		Etag              : W/"2ed52eec-8c92-471f-b43b-2914d69f3f04"
+		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+		Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 		ProvisioningState : Succeeded
 		Tags              :
 		AddressSpace      : {
@@ -81,8 +72,8 @@
 		Subnets           : [
 		                      {
 		                        "Name": "FrontEnd",
-		                        "Etag": "W/"2ed52eec-8c92-471f-b43b-2914d69f3f04"",
-		                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+		                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
 		                        "AddressPrefix": "192.168.1.0/24",
 		                        "IpConfigurations": [],
 		                        "NetworkSecurityGroup": null,
@@ -91,8 +82,8 @@
 		                      },
 		                      {
 		                        "Name": "BackEnd",
-		                        "Etag": "W/"2ed52eec-8c92-471f-b43b-2914d69f3f04"",
-		                        "Id": "/subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+		                        "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
 		                        "AddressPrefix": "192.168.2.0/24",
 		                        "IpConfigurations": [],
 		                        "NetworkSecurityGroup": null,
@@ -101,4 +92,4 @@
 		                      }
 		                    ]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

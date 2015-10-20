@@ -138,4 +138,4 @@ Azure предоставляет три вычислительных модел�
 [Python 2.7 (32-разрядный)]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 (32-разрядный)]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

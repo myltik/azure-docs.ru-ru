@@ -188,4 +188,4 @@
 [Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [Расширение службы приложений серверной части .NET мобильных приложений]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

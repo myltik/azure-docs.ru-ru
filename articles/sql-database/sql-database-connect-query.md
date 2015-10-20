@@ -13,12 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="10/09/2015"
 	ms.author="genemi"/>
 
 
 # Подключение к базе данных SQL и отправка запросов в нее с помощью языка C&#x23;
 
+> [AZURE.SELECTOR]
+- [C#](sql-database-connect-query.md)
+- [SSMS](sql-database-connect-query-ssms.md)
+- [Excel](sql-database-connect-excel.md)
 
 Вы хотите написать программу на языке C#, в которой используется технология ADO.NET для подключения к базе данных SQL Azure в облаке.
 
@@ -54,7 +58,7 @@
 Установить Visual Studio можно следующим образом.
 
 - Установите бесплатную версию Visual Studio Community. Для этого откройте в браузере страницу с продуктами Visual Studio, на которой представлены ссылки для скачивания бесплатных и других версий.
-- С помощью [портала предварительной версии Azure](http://portal.azure.com/) перейдите на страницу загрузки. Ниже приведено подробное описание этой возможности.
+- С помощью [портала предварительной версии Azure](http://portal.azure.com/) перейдите на страницу загрузки, как описано ниже.
 
 
 ### Установка Visual Studio с помощью портала предварительной версии Azure
@@ -82,7 +86,7 @@
 
 10. Для удобства использования панели **Обозреватель объектов SQL Server** в среде Visual Studio откроется диалоговое окно для ввода строки подключения.
  - Выберите пункт **Аутентификация SQL Server**, не **Аутентификация Windows**.
- - Не забудьте указать свою базу данных **AdventureWorksLT** (**Параметры** > **Свойства соединения** в диалоговом окне).
+ - Не забудьте указать свою базу данных **AdventureWorksLT** (в диалоговом окне **Параметры** > **Свойства соединения**).
 
 11. В **обозревателе объектов SQL Server** разверните узел своей базы данных.
 
@@ -136,7 +140,7 @@
 1. В Visual Studio откройте в обозревателе решений файл App.config.
 
 2. Добавьте элемент **&#x3c;configuration&#x3e; &#x3c;/configuration&#x3e;**, как показано в приведенном ниже примере кода App.config.
- - Замените значения *{your\_placeholders}* собственными значениями.
+ - Замените заполнитель *{your\_placeholders}* собственными значениями.
 
 ```
 	<?xml version="1.0" encoding="utf-8" ?>
@@ -280,7 +284,7 @@ namespace ConnectAndQuery_Example
 ### Компиляция программы
 
 
-1. Скомпилируйте программу в Visual Studio, последовательно щелкнув **Сборка** > **Построить решение**.
+1. Скомпилируйте программу в Visual Studio, последовательно щелкнув **Сборка** > **Собрать решение**.
 
 
 ### Краткое описание действий, выполняемых в примере программы
@@ -319,7 +323,7 @@ namespace ConnectAndQuery_Example
 
 
 
-Дополнительные сведения см. в такой статье:<br/> [Практическое руководство: настройка параметров брандмауэра для базы данных SQL Azure](sql-database-configure-firewall-settings.md).
+Дополнительную информацию см. в статье <br/> [Как настроить параметры брандмауэра для базы данных SQL Azure](sql-database-configure-firewall-settings.md).
 
 
 
@@ -353,4 +357,4 @@ namespace ConnectAndQuery_Example
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

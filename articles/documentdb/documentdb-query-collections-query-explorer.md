@@ -78,4 +78,4 @@
 - Дополнительные сведения о грамматике SQL DocumentDB, поддерживаемой в обозревателе запросов, см. [здесь](documentdb-sql-query.md).
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->
