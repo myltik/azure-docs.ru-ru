@@ -19,7 +19,8 @@
 
 # Использование наборов балансировки нагрузки для кластеризации MySQL в Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 Целью этой статьи является исследование и демонстрация разных возможных подходов к развертыванию высокодоступных служб на основе Linux в Microsoft Azure на примере MySQL Server. Видеоролик, демонстрирующий этот подход, см. на [канале 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL).
 
@@ -339,4 +340,4 @@ Pacemaker использует кластер для мониторинга ре
 - Настройка MySQL необходима, чтобы гарантировать выполнение операций записи в разумном темпе и запись кэша на диск с максимально возможной частотой для сокращения потерь памяти.
 - Производительность операций записи будет зависеть от межсоединения ВМ в виртуальном коммутаторе, поскольку это механизм, используемый DRBD для репликации устройства.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

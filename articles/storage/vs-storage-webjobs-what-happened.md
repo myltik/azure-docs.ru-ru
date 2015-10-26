@@ -41,4 +41,4 @@
 
 Дополнительные сведения см. в разделе [Рекомендуемые ресурсы для веб-заданий Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

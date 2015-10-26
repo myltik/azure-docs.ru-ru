@@ -18,7 +18,8 @@
 
 # Как быстро приступить к работе с Docker в Azure Marketplace
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+ 
 
 Самый быстрый способ приступить к работе с [Docker] — перейти в Azure Marketplace и создать виртуальную машину с помощью шаблона образа **Docker on Ubuntu Server**, созданного [Canonical] при сотрудничестве с [MSOpenTech]. При этом создается виртуальная машина Ubuntu Server и автоматически устанавливается [расширение виртуальных машин Docker](virtual-machines-docker-vm-extension.md) вместе с **последней** версией ядра Docker, которая предварительно установлена и запущена в Azure.
 
@@ -77,4 +78,4 @@
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

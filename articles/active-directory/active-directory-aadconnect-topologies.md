@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="10/13/2015"
    ms.author="andkjell"/>
 
 # Топологии Azure AD Connect.
@@ -108,8 +108,8 @@
 
 | Рабочая нагрузка | |
 | --------- | --------- |
-| Exchange Online |	Если есть несколько локальных организаций Exchange (сервер Exchange развернут для нескольких лесов), необходимо использовать Exchange 2013 с пакетом обновления 1 или более поздней версии. Больше можно узнать в статье [Гибридные развертывания в нескольких лесах Active Directory](https://technet.microsoft.com/ru-ru/library/jj873754.aspx) |
-| Skype для бизнеса | При использовании нескольких локальных лесов единственной поддерживаемой топологией является лес ресурсов учетной записи. Больше о поддерживаемых топологиях можно узнать в статье [Требования к среде Skype для бизнеса Server 2015](https://technet.microsoft.com/ru-ru/library/dn933910.aspx) |
+| Exchange Online |	Если есть несколько локальных организаций Exchange (сервер Exchange развернут для нескольких лесов), необходимо использовать Exchange 2013 с пакетом обновления 1 или более поздней версии. Больше можно узнать в статье [Гибридные развертывания в нескольких лесах Active Directory](https://technet.microsoft.com/ru-RU/library/jj873754.aspx) |
+| Skype для бизнеса | При использовании нескольких локальных лесов единственной поддерживаемой топологией является лес ресурсов учетной записи. Больше о поддерживаемых топологиях можно узнать в статье [Требования к среде Skype для бизнеса Server 2015](https://technet.microsoft.com/ru-RU/library/dn933910.aspx) |
 
 ## Промежуточный сервер.
 ![StagingServer](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
@@ -159,7 +159,12 @@ Azure AD Connect поддерживает установку второго се
 
 Для синхронизации пользователей между двумя организациями Exchange с помощью GALsync можно использовать FIM2010/MIM2016. Пользователи из одной организации будут отображаться как внешние пользователи/контакты из другой организации. Затем эти локальные каталоги AD можно синхронизировать с их собственными каталогами Azure AD.
 
-## Дальнейшие действия
-Больше об установке Azure AD Connect для этих сценариев можно узнать в статье [Выборочная установка Azure AD Connect](active-directory-aadconnect-get-started-custom.md). Больше о конфигурации служб синхронизации Azure AD Connect можно узнать в статье [Синхронизация Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-<!---HONumber=Sept15_HO4-->
+## Дальнейшие действия
+Больше об установке Azure AD Connect для этих сценариев можно узнать в статье [Выборочная установка Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
+
+Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+
+Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
+
+<!---HONumber=Oct15_HO3-->

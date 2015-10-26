@@ -120,4 +120,4 @@ Azure RemoteApp будет использовать пользовательск
 - [Развертывание и обновление Office 365 профессиональный плюс с помощью средства развертывания Office](https://channel9.msdn.com/Events/Ignite/2015/BRK3168) (видео)
 - [Настройка параметров обновления для Office 365 профессиональный плюс](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

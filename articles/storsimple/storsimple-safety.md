@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Обновление устройства StorSimple | Microsoft Azure"
-	description="Описание соглашений, правил и рекомендаций в области безопасности, а также безопасная установка и эксплуатация устройства StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Описание соглашений, правил и рекомендаций в области безопасности, а также безопасная установка и эксплуатация устройства StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/26/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/26/2015"
+   ms.author="alkohli" />
 
 # Безопасная установка и эксплуатация устройства StorSimple
 
@@ -179,4 +179,4 @@
 
 - Для устройства 8600 перейдите к разделу [Установите ваше устройство StorSimple 8600](storsimple-8600-hardware-installation.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

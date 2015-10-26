@@ -152,4 +152,4 @@ PHP | [Образец приложения PHP для API Graph Azure AD](http:/
 
 [Разработка современных приложений с помощью OAuth и служб федерации Active Directory](http://msdn.microsoft.com/library/dn633593.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,5 +1,7 @@
-- [Configuring access rules](active-directory-conditional-access-azuread-connected-apps.md)
-- [Requiring user assignment](active-directory-applications-guiding-developers-requiring-user-assignment.md)
-- [Assigning users to an application](active-directory-applications-guiding-developers-assigning-users.md)
-- [Assigning groups to an application](active-directory-applications-guiding-developers-assigning-groups.md)
-- [Integrating applications with Azure Active Directory](active-directory-integrating-applications.md)
+- [Настройка правил доступа](active-directory-conditional-access-azuread-connected-apps.md)
+- [Требование назначения пользователей](active-directory-applications-guiding-developers-requiring-user-assignment.md)
+- [Назначение пользователей приложения](active-directory-applications-guiding-developers-assigning-users.md)
+- [Назначение групп для приложения](active-directory-applications-guiding-developers-assigning-groups.md)
+- [Интеграция приложений с Azure Active Directory](active-directory-integrating-applications.md)
+
+<!---HONumber=Oct15_HO3-->

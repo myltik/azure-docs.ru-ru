@@ -351,4 +351,4 @@ Visual Studio создает в решении папку **PublishScripts**, в
 
 Дополнительные сведения о сценариях PowerShell см. в статье [Работа со сценариями в Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx). Также рекомендуем посетить [центр сценариев](https://azure.microsoft.com/ru-RU/documentation/scripts/) и ознакомиться с другими сценариями Azure PowerShell.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

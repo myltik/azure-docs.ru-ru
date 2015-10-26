@@ -19,7 +19,8 @@
 
 #Установка MongoDB на виртуальной машине под управлением Windows Server в Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье рассматривается установка приложений на виртуальную машину, созданную с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 [MongoDB][MongoDB] является популярной высокопроизводительной базой данных NoSQL с открытым кодом. С помощью [портала Azure][AzureManagementPortal] можно создать виртуальную машину под управлением Windows Server из коллекции образов с помощью классической модели развертывания. Затем можно установить и настроить базу данных MongoDB на виртуальной машине.
 
@@ -50,4 +51,4 @@
 [MongoDB]: http://www.mongodb.org/
 [AzureManagementPortal]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

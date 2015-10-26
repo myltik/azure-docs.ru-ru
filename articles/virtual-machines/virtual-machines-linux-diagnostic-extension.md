@@ -35,7 +35,8 @@
 - все системные данные, перечисленные в этом [документе](https://scx.codeplex.com/wikipage?title=xplatproviders");
 - файлы журналов, выбранные пользователем.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс управления ресурсом с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 ## Как включить расширение
 Расширение можно включить с помощью [портала Azure](https://ms.portal.azure.com/#), Azure PowerShell или сценариев интерфейса командной строки Azure.
@@ -143,4 +144,4 @@
 - В версии 2.0 доступ к данным Rsyslog и файлам журнала, указанным клиентом, можно получить только с помощью сценариев.
 - Если в версии 2.0 диагностическое расширение Linux будет сначала включено в сценарии, данные с портала Azure отображаться не будут. Если расширение будет сначала включено на портале, сценарии будут работать по-прежнему.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

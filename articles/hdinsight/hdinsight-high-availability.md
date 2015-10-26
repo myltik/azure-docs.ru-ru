@@ -98,4 +98,4 @@ HDInsight позволяет клиентам развертывать разл�
 - [Подключение к кластерам HDInsight с использованием RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Использование пакета SDК для HDInsight .NET](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

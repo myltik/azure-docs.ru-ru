@@ -18,7 +18,8 @@
 
 # Использование PowerShell для создания виртуальной машины Azure с помощью сервера отчетов, работающего в собственном режиме
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+ 
 
 В этом разделе описывается процесс развертывания и настройки сервера отчетов собственного режима служб Reporting Services SQL Server на виртуальной машине Azure. Процедуры, описанные в этом документе, сочетают в себе выполняемые вручную действия для создания виртуальной машины и использование сценария Windows PowerShell для настройки служб Reporting Services на виртуальной машине. Сценарий конфигурации включает в себя открытие порта брандмауэра для протоколов HTTP и HTTPS.
 
@@ -704,4 +705,4 @@
 
 [Обзор. SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

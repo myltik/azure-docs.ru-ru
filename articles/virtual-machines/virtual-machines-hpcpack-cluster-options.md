@@ -13,12 +13,13 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="big-compute"
- ms.date="09/28/2015"
+ ms.date="10/08/2015"
  ms.author="danlep"/>
 
 # Варианты создания кластера высокопроизводительных вычислений (HPC) в Azure и управления им с помощью пакета Microsoft HPC
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса с помощью модели развертывания на основе диспетчера ресурсов, а также классической модели.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Используйте преимущества пакета Microsoft HPC и служб вычислений и инфраструктуры Azure для создания кластера высокопроизводительных вычислений (HPC) и управления им. [Пакет HPC](https://technet.microsoft.com/library/jj899572.aspx) — это бесплатное решение Майкрософт для высокопроизводительных вычислений, созданное на основе технологий Microsoft Azure и Windows Server, которое поддерживает рабочие нагрузки HPC как в Windows, так и в Linux. Облачный кластер пакета HPC предоставляет администратору кластера или независимому поставщику ПО (ISV) гибкую, масштабируемую платформу для запуска приложений с большим количеством вычислений, сокращая инвестиции в инфраструктуру локального вычислительного кластера.
 
@@ -46,7 +47,7 @@ ms.service="virtual-machines"
 
 ### Сценарий развертывания PowerShell
 
-* [Создание кластера HPC с помощью сценария развертывания IaaS пакета HPC](virtual-machines-hpcpackcluster-powershell-script.md)
+* [Создание кластера HPC с помощью сценария развертывания IaaS пакета HPC](virtual-machines-hpcpack-cluster-powershell-script.md)
 
 ### Учебники
 
@@ -94,4 +95,4 @@ ms.service="virtual-machines"
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

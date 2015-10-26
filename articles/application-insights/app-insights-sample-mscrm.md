@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Пошаговое руководство. Отслеживание работы Microsoft Dynamics CRM с помощью Application Insights"
-	description="Получение данных телеметрии из Microsoft Dynamics CRM Online с помощью Application Insights. Пошаговое руководство по настройке, получению данных, визуализации и экспорту."
-	services="application-insights"
-	documentationCenter=""
-	authors="mazharmicrosoft"
+	pageTitle="Пошаговое руководство. Отслеживание работы Microsoft Dynamics CRM с помощью Application Insights" 
+	description="Получение данных телеметрии из Microsoft Dynamics CRM Online с помощью Application Insights. Пошаговое руководство по настройке, получению данных, визуализации и экспорту." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="mazharmicrosoft" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Пошаговое руководство. Включение телеметрии для Microsoft Dynamics CRM Online с помощью Application Insights
@@ -60,7 +60,7 @@
 
     ![](./media/app-insights-sample-mscrm/08.png)
     
-4. Скопируйте код из Application Insights.
+4. Скопируйте код из Application Insights. При копировании обязательно игнорируйте теги <script>. См. ниже снимок экрана.
 
     ![](./media/app-insights-sample-mscrm/09.png)
 
@@ -143,7 +143,7 @@
 
 ## Пример кода
 
-[Получите пример кода](https://dynamicsandappinsights.codeplex.com/).
+[Просмотрите пример кода](https://dynamicsandappinsights.codeplex.com/).
 
 ## Power BI
 
@@ -161,4 +161,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

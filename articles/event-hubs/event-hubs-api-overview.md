@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Общие сведения об API концентраторов событий"
+   pageTitle="Обзор API концентраторов событий Azure | Microsoft Azure"
    description="Сводные сведения о некоторых ключевых клиентских API .NET концентраторов событий."
    services="event-hubs"
    documentationCenter="na"
@@ -8,18 +8,18 @@
    editor="" />
 <tags 
    ms.service="event-hubs"
-   ms.devlang="na"
+   ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/10/2015"
+   ms.workload="na"
+   ms.date="10/14/2015"
    ms.author="sethm" />
 
 # Общие сведения об API концентраторов событий
 
 В этой статье перечислены некоторые ключевые клиентские API .NET концентраторов событий. Существует две категории: API управления и API среды выполнения. API среды выполнения состоят из всех операций, необходимых для отправки и получения сообщения. Операции управления позволяют управлять состоянием сущности концентраторов событий путем создания, обновления и удаления сущностей.
 
-Сценарии мониторинга распространяются как на управление, так и на среду выполнения. Подробную справочную документацию по API .NET см. в разделах [Библиотека классов .NET](https://msdn.microsoft.com/library/azure/jj933431.aspx) и [API EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.aspx).
+Сценарии мониторинга распространяются как на управление, так и на среду выполнения. Подробную справочную документацию по API .NET см. в разделах [Библиотека классов .NET](https://msdn.microsoft.com/library/azure/mt419900.aspx) и [API EventProcessorHost](https://msdn.microsoft.com/library/azure/mt445521.aspx).
 
 ## API управления
 
@@ -115,7 +115,7 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 
 ## API узла обработчика событий
 
-Эти API-интерфейсы обеспечивают отказоустойчивость рабочих процессов, которые могут стать недоступными, и распространяют сегменты между всеми имеющимися исполнителями.
+Эти API обеспечивают отказоустойчивость рабочих процессов, которые могут стать недоступными, и распределяют сегменты между всеми имеющимися исполнителями.
 
 ```
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
@@ -178,13 +178,14 @@ public class SimpleEventProcessor : IEventProcessor
 
 Дополнительные сведения о сценариях концентраторов событий см. в разделах, ссылки на которые указаны ниже.
 
-- [Руководство по программированию концентраторов событий](event-hubs-programming-guide.md)
+- [Что такое концентраторы событий Azure?](event-hubs-what-is-event-hubs.md)
 - [Обзор концентраторов событий](event-hubs-overview.md)
-- [Примеры кода концентраторов событий](http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hub&f[0].Type=SearchText&ac=5)
+- [Руководство по программированию концентраторов событий](event-hubs-programming-guide.md)
+- [Примеры кода концентраторов событий] (http://code.msdn.microsoft.com/site/search?query=event hub&f[0].Value=event hubs&f[0].Type=SearchText&ac=5)
 
 Ссылки на API-интерфейсы .NET:
 
-- [Справочник по служебной шине и API .NET концентраторов событий](https://msdn.microsoft.com/library/azure/jj933424.aspx)
-- [Справочник по API узла обработчика событий](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
+- [Справочник по служебной шине и API .NET концентраторов событий](https://msdn.microsoft.com/library/azure/mt419900.aspx)
+- [Справочник по API узла обработчика событий](https://msdn.microsoft.com/library/azure/mt445521.aspx)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -21,11 +21,10 @@
 
 В этой статье представлен пример конфигурации для настройки расширений виртуальной машины Azure для виртуальных машин Windows.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
-Чтобы узнать больше об этих расширениях, щелкните здесь: [Расширения виртуальных машин Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+Чтобы узнать подробнее об этих расширениях, щелкните здесь: [Расширения виртуальных машин Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
-Чтобы узнать больше о разработке шаблонов расширения, щелкните здесь: [Разработка шаблонов расширения.](virtual-machines-extensions-authoring-templates.md)
+Чтобы узнать дополнительные сведения о разработке шаблонов расширения, щелкните здесь: [Разработка шаблонов расширения.](virtual-machines-extensions-authoring-templates.md)
 
 В данной статье содержатся предполагаемые значения конфигурации для некоторых расширений Windows.
 
@@ -282,7 +281,7 @@
 
 ### Диагностика Azure
 
-Щелкните здесь, чтобы получить общие сведения о [расширении для системы диагностики Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx/).
+Щелкните здесь, чтобы узнать общие сведения о [расширении для системы диагностики Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx/).
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
@@ -305,4 +304,4 @@
 
 [Расширение Custom Script на виртуальной машине Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -68,4 +68,4 @@
 <!--Links -->
 [Создание приложения логики]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

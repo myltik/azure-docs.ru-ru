@@ -153,4 +153,4 @@
 
 Дополнительные сведения о публикации приложений в Azure из Visual Studio см. в статье [Публикация облачной службы с помощью средств Azure](vs-azure-tools-publishing-a-cloud-service.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

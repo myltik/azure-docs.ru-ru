@@ -14,18 +14,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/10/2015"
+	ms.date="10/08/2015"
 	ms.author="davidmu"/>
 
 # Управление виртуальными машинами с помощью диспетчера ресурсов Azure и PowerShell
 
 > [AZURE.SELECTOR]
-- [Portal](virtual-machines-windows-tutorial.md)
-- [PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
+- [Preview Portal](virtual-machines-windows-tutorial.md)
+- [PowerShell - Windows](virtual-machines-deploy-rmtemplates-powershell.md)
+- [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 Использование шаблонов Azure PowerShell и диспетчера ресурсов предоставляет разнообразные гибкие возможности для управления ресурсами в Microsoft Azure. Задачи, описанные в этой статье, можно использовать для создания ресурсов виртуальных машин и управления ими.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается управление ресурсами с помощью модели развертывания диспетчера ресурсов. Ресурсами также можно управлять с помощью [классической модели развертывания](virtual-machines-windows-tutorial-classic-portal.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-tutorial-classic-portal.md).
 
 Шаблон диспетчера ресурсов и PowerShell используются в следующих задачах:
 
@@ -58,7 +59,7 @@
 
 Ресурсы, созданные с использованием шаблонов диспетчера ресурсов Azure, развертываются как в новой, так и в существующей *группе ресурсов Azure*. Группа ресурсов позволяет совокупно управлять несколькими развернутыми ресурсами как логической группой. Это означает, что вы можете управлять общим жизненным циклом группы или приложения.
 
-Если вас интересует разработка шаблонов, см. статью [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
+Если вас интересует разработка шаблонов, ознакомьтесь со статьей [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 
 ### Создание группы ресурсов
 
@@ -66,7 +67,7 @@
 
 В следующей команде замените *resource group name* именем новой группы ресурсов, а *Azure location* — расположением центра обработки данных Azure, в котором необходимо разместить ресурс. Затем выполните эту команду.
 
-	New-AzureResourceGroup -Name "resource group name" -Location "Azure location"
+	New-AzureRmResourceGroup -Name "resource group name" -Location "Azure location"
 
 ## <a id="windowsvm"></a>ЗАДАЧА: создание виртуальной машины
 
@@ -76,15 +77,15 @@
 
 В следующей команде замените *deployment name* именем, которое вы хотите использовать для развертывания, а *resource group name* — именем существующей группы ресурсов. Затем выполните эту команду.
 
-	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
+	New-AzureRmResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
 Ниже приведен пример:
 
-	New-AzureResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
+	New-AzureRmResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
 Появится запрос на ввод значений параметров в разделе **parameters** JSON-файла:
 
-	cmdlet New-AzureResourceGroupDeployment at command pipeline position 1
+	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
 	newStorageAccountName: saacct
@@ -133,15 +134,15 @@
 
 В следующей команде замените *deployment name* именем, которое вы хотите использовать для развертывания, а *resource group name* — именем существующей группы ресурсов. Затем выполните эту команду.
 
-	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
+	New-AzureRmResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
 Ниже приведен пример:
 
-	New-AzureResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
+	New-AzureRmResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
 Появится запрос на ввод значений параметров в разделе **parameters** JSON-файла:
 
-	cmdlet New-AzureResourceGroup at command pipeline position 1
+	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
 	osDiskVhdUri: http://saacct.blob.core.windows.net/vhds/osdiskforwindows.vhd
@@ -164,11 +165,11 @@
 
 В следующей команде замените *deployment name* именем, которое вы хотите использовать для развертывания, а *resource group name* — именем существующей группы ресурсов. Затем выполните эту команду.
 
-	New-AzureResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
+	New-AzureRmResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
 
 Появится запрос на ввод значений параметров в разделе **parameters** JSON-файла:
 
-	cmdlet New-AzureResourceGroup at command pipeline position 1
+	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
 	newStorageAccountName: saTest
@@ -187,7 +188,7 @@
 
 В следующей команде замените *resource group name* именем группы ресурсов, которую требуется удалить. Затем выполните эту команду.
 
-	Remove-AzureResourceGroup  -Name "resource group name"
+	Remove-AzureRmResourceGroup  -Name "resource group name"
 
 > [AZURE.NOTE]Чтобы пропустить запрос на подтверждение, используйте параметр **–Force**.
 
@@ -205,7 +206,7 @@
 
 В следующей команде замените *resource group name* именем группы ресурсов, содержащей виртуальную машину, а *VM name* — именем виртуальной машины. Затем выполните эту команду.
 
-	Get-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
+	Get-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
 
 Результат буде выглядеть примерно так:
 
@@ -276,7 +277,7 @@
 
 В следующей команде замените *resource group name* именем группы ресурсов, содержащей виртуальную машину, а *VM name* — именем виртуальной машины. Затем выполните эту команду.
 
-	Start-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
+	Start-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
 
 Результат буде выглядеть примерно так:
 
@@ -297,7 +298,7 @@
 
 В следующей команде замените *resource group name* именем группы ресурсов, содержащей виртуальную машину, а *VM name* — именем виртуальной машины. Затем выполните эту команду.
 
-	Stop-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
+	Stop-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
 
 Появится запрос на подтверждение:
 
@@ -324,7 +325,7 @@
 
 В следующей команде замените *resource group name* именем группы ресурсов, содержащей виртуальную машину, а *VM name* — именем виртуальной машины. Затем выполните эту команду.
 
-	Restart-AzureVM -ResourceGroupName "resource group name" -Name "VM name"
+	Restart-AzureRmVM -ResourceGroupName "resource group name" -Name "VM name"
 
 Результат буде выглядеть примерно так:
 
@@ -345,7 +346,7 @@
 
 В следующей команде замените *resource group name* именем группы ресурсов, содержащей виртуальную машину, а *VM name* — именем виртуальной машины. Затем выполните эту команду.
 
-	Remove-AzureVM -ResourceGroupName "resource group name" –Name "VM name"
+	Remove-AzureRmVM -ResourceGroupName "resource group name" –Name "VM name"
 
 > [AZURE.NOTE]Чтобы пропустить запрос на подтверждение, используйте параметр **–Force**.
 
@@ -379,4 +380,4 @@
 
 [Документация по виртуальным машинам](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

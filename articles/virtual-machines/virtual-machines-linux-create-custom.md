@@ -19,7 +19,7 @@
 
 # Как создать настраиваемую виртуальную машину под управлением Linux в Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания. Для создания ресурса вы также можете использовать [модель развертывания диспетчера ресурсов](virtual-machines-linux-tutorial.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] []Модель диспетчера ресурсов (virtual-machines-linux-tutorial.md).
 
 В этом разделе описано создание *настраиваемой* виртуальной машины с помощью интерфейса командной строки Azure и использованием классической модели развертывания. Мы будем использовать образ Linux из раздела **ОБРАЗЫ** в Azure. Интерфейс командной строки Azure позволяет настраивать, помимо прочих, следующие параметры:
 
@@ -40,4 +40,4 @@
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

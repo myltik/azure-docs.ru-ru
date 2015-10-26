@@ -20,7 +20,8 @@
 #Создание настраиваемой виртуальной машины
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+ 
 
 
 *Настраиваемая* виртуальная машина — это просто виртуальная машина, созданная с помощью параметра **Из коллекции**, что дает больший выбор настроек, чем параметр **Быстрое создание**. Вот какие параметры доступны:
@@ -35,4 +36,4 @@
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

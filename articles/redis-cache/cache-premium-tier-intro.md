@@ -54,4 +54,4 @@
 -	[Настройка кластеризации для кэша Redis для Azure уровня Премиум](cache-how-to-premium-clustering.md)
   
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

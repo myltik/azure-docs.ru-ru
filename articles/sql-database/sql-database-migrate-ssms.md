@@ -1,20 +1,20 @@
 <properties
    pageTitle="Миграция в Базу данных SQL с помощью среды SSMS"
-	description="База данных SQL Microsoft Azure, перенос базы данных sql, перенос с помощью среды ssms"
-	services="sql-database"
-	documentationCenter=""
-	authors="carlrabeler"
-	manager="jeffreyg"
-	editor=""/>
+   description="База данных SQL Microsoft Azure, перенос базы данных sql, перенос с помощью среды ssms"
+   services="sql-database"
+   documentationCenter=""
+   authors="carlrabeler"
+   manager="jeffreyg"
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="08/24/2015"
-	ms.author="carlrab"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management"
+   ms.date="08/24/2015"
+   ms.author="carlrab"/>
 
 #Миграция совместимой базы данных с помощью среды SSMS
 
@@ -76,4 +76,4 @@ BACPAC можно экспортировать в локальный файл и
 ##Альтернативные варианты
 Для развертывания базы данных или экспорта и импорта BACPAC также можно воспользоваться служебной программой командной строки sqlpackage.exe. Sqlpackage.exe использует ту же технологию DAC, что и среда SSMS, поэтому результат будет одинаковым. Дополнительные сведения можно найти в разделе [SqlPackage.exe на веб-сайте MSDN](https://msdn.microsoft.com/library/hh550080.aspx).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -21,7 +21,8 @@
 
 В данной статье рассказывается, как установить интерфейс командной строки Azure (Azure CLI). В Azure CLI реализован набор консольных команд с открытым кодом для управления ресурсами среды Microsoft Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-include.md)]В данной статье описывается процесс создания и администрирования ресурсов с помощью модели развертывания (которая использует менеджер ресурсов), а также с помощью классической модели.
+[AZURE.INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-both-include.md)]
+
 
 Интерфейс Azure CLI написан на языке JavaScript, и для его использования необходим файл [Node.js](https://nodejs.org). Он реализован с помощью [Azure SDK для Node.js ](https://github.com/azure/azure-sdk-for-node) и выпущен по лицензии Apache 2.0. Репозиторий проекта расположен по адресу [https://github.com/azure/azure-xplat-cli](https://github.com/azure/azure-xplat-cli).
 
@@ -155,4 +156,4 @@
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

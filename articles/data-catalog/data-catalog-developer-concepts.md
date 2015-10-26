@@ -1,20 +1,20 @@
 <properties
    pageTitle="Концепции каталога данных Azure для разработчиков"
-	description="Введение в основные понятия концептуальной модели каталога данных Azure, предоставляемой через каталог REST API."
-	services="data-catalog"
-	documentationCenter=""
-	authors="dvana"
-	manager="mblythe"
-	editor=""
-	tags=""/>
+   description="Введение в основные понятия концептуальной модели каталога данных Azure, предоставляемой через каталог REST API."
+   services="data-catalog"
+   documentationCenter=""
+   authors="dvana"
+   manager="mblythe"
+   editor=""
+   tags=""/>
 <tags 
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="07/13/2015"
-	ms.author="derrickv"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="07/13/2015"
+   ms.author="derrickv"/>
 
 # Концепции каталога данных Azure для разработчиков
 
@@ -258,4 +258,4 @@
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

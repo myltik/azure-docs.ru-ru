@@ -23,8 +23,7 @@
 
 Из этой статьи вы узнаете, как установить и настроить СУБД MySQL на виртуальной машине Azure под управлением Linux.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса с помощью модели развертывания на основе диспетчера ресурсов, а также классической модели.
-
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
 ##Установка MySQL в виртуальной машине
@@ -186,4 +185,4 @@
 ###Дальнейшее действие
 Дополнительную информацию и сведения об использовании MySQL см. [здесь](https://www.mysql.com/).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

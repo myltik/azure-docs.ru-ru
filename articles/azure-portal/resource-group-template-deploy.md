@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/02/2015"
+   ms.date="10/14/2015"
    ms.author="tomfitz"/>
 
 # Развертывание приложения с использованием шаблона диспетчера ресурсов Azure
@@ -27,27 +27,37 @@
 
 ## Развертывание с помощью PowerShell
 
-Вы можете скачать и установить модуль Azure PowerShell, запустив [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+
 
 1. Войдите в свою учетную запись Azure. После предоставления учетных данных команда возвращает информацию о вашей учетной записи.
 
+    До предварительной версии Azure PowerShell 1.0:
+
+        PS C:\> Switch-AzureMode AzureResourceManager
+        ...
         PS C:\> Add-AzureAccount
 
         Id                             Type       ...
         --                             ----    
         someone@example.com            User       ...   
 
-2. Если у вас несколько подписок, укажите идентификатор подписки, которую вы хотите использовать для развертывания.
+    Предварительная версия Azure PowerShell 1.0:
 
-        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+         PS C:\> Login-AzureRmAccount
 
-3. Переключитесь на модуль диспетчера ресурсов Azure.
+         Evironment : AzureCloud
+         Account    : someone@example.com
+         ...
 
-        PS C:\> Switch-AzureMode AzureResourceManager
 
-4. Создайте группу ресурсов, если у вас нет существующей группы ресурсов. Введите имя группы ресурсов и расположение, необходимое для решения. Появится сводка по новой группе ресурсов.
+2. Если у вас несколько подписок, укажите идентификатор подписки, которую хотите использовать для развертывания, с помощью команды **Select-AzureRmSubscription**.
 
-        PS C:\> New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
+        PS C:\> Select-AzureRmSubscription -SubscriptionID <YourSubscriptionId>
+
+3. Если у вас нет существующей группы ресурсов, создайте группу ресурсов с помощью команды **New-AzureRmResourceGroup**. Введите имя группы ресурсов и расположение, необходимое для решения. Появится сводка по новой группе ресурсов.
+
+        PS C:\> New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    
         ResourceGroupName : ExampleResourceGroup
         Location          : westus
@@ -59,22 +69,22 @@
                     *
         ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
-5. Чтобы создать новое развертывание для группы ресурсов, выполните команду **New-AzureResourceGroupDeployment** и укажите необходимые параметры. Параметры будут включать в себя имя развертывания, имя группы ресурсов, путь или URL-адрес созданного шаблона и другие параметры, необходимые для вашего сценария.
+5. Чтобы создать новое развертывание для группы ресурсов, выполните команду **New-AzureRmResourceGroupDeployment** и укажите необходимые параметры. Параметры будут включать в себя имя развертывания, имя группы ресурсов, путь или URL-адрес созданного шаблона и другие параметры, необходимые для вашего сценария.
    
      Для предоставления значений параметров доступны следующие способы:
    
      - Использование встроенных параметров.
 
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
+            PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
      - Использование объекта параметра.
 
             PS C:\> $parameters = @{"<ParameterName>"="<Parameter Value>"}
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
+            PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
 
      - Использование файла параметров. Дополнительную информацию о файле шаблона см. в разделе [Файл параметров](./#parameter-file).
 
-            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
+            PS C:\> New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
 
      После развертывания группы ресурсов вы увидите сводку по развертыванию.
 
@@ -87,11 +97,8 @@
 
 6. Вот как можно получить информацию о сбоях развертывания.
 
-        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
+        PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup -Name ExampleDeployment
 
-7. Вот как можно получить подробную информацию о сбоях развертывания.
-
-        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
         
 ### Видео
 
@@ -246,4 +253,4 @@
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

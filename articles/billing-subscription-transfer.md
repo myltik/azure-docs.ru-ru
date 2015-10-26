@@ -111,4 +111,4 @@
 4. Обновите оповещения о выставлении счетов для этой подписки в [центре учетных записей Azure](https://account.windowsazure.com/Subscriptions) [Подробнее](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. 	Если вы работаете с партнером, рекомендуется обновить ИД партнера для этой подписки. Это можно сделать в [центре учетных записей Azure](https://account.windowsazure.com/Subscriptions).
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

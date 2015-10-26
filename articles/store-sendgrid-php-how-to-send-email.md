@@ -404,4 +404,4 @@ SendGrid поддерживает дополнительные функцион�
   [sendgrid-php library]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Редактор]: https://getcomposer.org/download/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

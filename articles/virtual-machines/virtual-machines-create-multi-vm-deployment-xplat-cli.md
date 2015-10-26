@@ -19,7 +19,8 @@
 
 # Развертывание нескольких виртуальных машин с помощью Azure CLI
 
-> [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+ 
 
 В описанном ниже сценарии показано, как настроить развертывание нескольких виртуальных машин c несколькими облачными службами в виртуальной сети с помощью интерфейса командной строки Azure.
 
@@ -27,7 +28,7 @@
 
 ![](./media/virtual-machines-create-multi-vm-deployment-xplat-cli/multi-vm-xplat-cli.png)
 
-Этот сценарий создаст одну виртуальную машину (**servervm**) с двумя подключенными дисками данных в облачной службе **servercs** и две виртуальные машины (**clientvm1 и clientvm2**) в облачной службе **workercs**. Обе облачные службы будут размещены в виртуальной сети **samplevnet**. Кроме того, в облачной службе **servercs** будет настроена конечная точка для внешних подключений.
+Этот сценарий создает одну виртуальную машину (**servervm**) с двумя подключенными дисками данных в облачной службе **servercs** и две виртуальные машины (**clientvm1 и clientvm2**) в облачной службе **workercs**. Обе облачные службы будут размещены в виртуальной сети **samplevnet**. Кроме того, в облачной службе **servercs** будет настроена конечная точка для внешних подключений.
 
 ## Сценарий CLI для выполнения развертывания
 Код для настройки относительно прост:
@@ -35,9 +36,9 @@
 >[AZURE.NOTE]Возможно, вам понадобится задать вместо имен облачных служб servercs и workercs уникальные имена.
 
     azure network vnet create samplevnet -l "West US"
-    azure vm create -l "West US" -w samplevnet -e 10000 -z Small -n servervm servercs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ru-ru-30GB azureuser Password@1
-    azure vm create -l "West US" -w samplevnet -e 10001 -z Small –n clientvm1 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ru-ru-30GB azureuser Password@1
-    azure vm create -l "West US" -w samplevnet -e 10002 -c -z Small -n clientvm2 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ru-ru-30GB azureuser Password@1
+    azure vm create -l "West US" -w samplevnet -e 10000 -z Small -n servervm servercs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ru-RU-30GB azureuser Password@1
+    azure vm create -l "West US" -w samplevnet -e 10001 -z Small –n clientvm1 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ru-RU-30GB azureuser Password@1
+    azure vm create -l "West US" -w samplevnet -e 10002 -c -z Small -n clientvm2 clientcs b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ru-RU-30GB azureuser Password@1
     azure vm disk attach-new servervm 100
     azure vm disk attach-new servervm 500
     azure vm endpoint create servervm 443 443 -n https -o tcp
@@ -70,4 +71,4 @@
 * [Вход в виртуальную машину под управлением ОС Linux](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

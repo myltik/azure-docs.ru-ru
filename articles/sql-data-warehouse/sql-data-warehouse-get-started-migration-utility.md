@@ -57,4 +57,4 @@
 [разработки]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-develop/
 [здесь]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Просмотр и изменение имен узлов | Microsoft Azure"
-	description="Просмотр и изменение имен узлов для виртуальных машин Azure, веб- и рабочих ролей для разрешения имен"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="Просмотр и изменение имен узлов для виртуальных машин Azure, веб- и рабочих ролей для разрешения имен"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="jdial"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/25/2015"
+   ms.author="joaoma" />
 
 # Просмотр и изменение имен узлов
 
@@ -71,4 +71,4 @@
 
 [Укажите параметры DNS с помощью файлов конфигурации сети](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

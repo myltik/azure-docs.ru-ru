@@ -142,4 +142,4 @@
 
 Перед заменой компонентов оборудования StorSimple ознакомьтесь со всеми [мерами предосторожности](storsimple-safety.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -21,7 +21,8 @@
 
 Это расширение позволяет серверу SQL Server в инфраструктуре виртуальных машинах Azure использовать описанные в этой статье службы, которые будут работать, только если установлено данное расширение. Расширение автоматически устанавливается для образов из коллекции SQL Server на портале предварительной версии Azure, и его можно установить на любую виртуальную машину SQL Server в Azure, на которой установлен гостевой агент виртуальной машины Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается использование ресурса с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+ 
  
 ## Предварительные требования
 Требования для использования командлетов Powershell:
@@ -77,4 +78,4 @@ Get-AzureVMSqlServerExtension [[-VM] <IPersistentVM>] [[-Version] <string>] [<Co
 ### Синтаксис
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

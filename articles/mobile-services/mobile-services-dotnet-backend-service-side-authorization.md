@@ -79,4 +79,4 @@
 <!-- URLs. -->
 [Добавление проверки подлинности в существующее приложение мобильных служб]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

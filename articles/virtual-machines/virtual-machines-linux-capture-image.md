@@ -20,7 +20,8 @@
 
 # Как записать образ виртуальной машины Linux для использования в качестве шаблона
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается запись образа с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 В этой статье показано, как записать виртуальную машину Azure под управлением Linux, чтобы использовать ее в качестве шаблона при создании других виртуальных машин. Данный шаблон виртуальной машины включает в себя диск операционной системы и прочие диски данных, присоединенные к виртуальной машине. Он не включает в себя сетевую конфигурацию, поэтому ее необходимо настроить при создании других виртуальных машин, использующих шаблон.
 
@@ -100,4 +101,4 @@ Azure воспринимает этот шаблон как образ и хра
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Создание виртуальной машины с ОС Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

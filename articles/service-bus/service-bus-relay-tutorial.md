@@ -841,4 +841,4 @@ namespace Microsoft.ServiceBus.Samples
 - [Базовая информация о служебной шине](service-bus-fundamentals-hybrid-solutions.md)
 - [Архитектура служебной шины](service-bus-architecture.md)
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

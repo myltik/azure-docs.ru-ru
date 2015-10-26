@@ -68,4 +68,4 @@
 [портал управления Azure]: https://manage.windowsazure.com
 [Общие сведения о Pusher]: http://pusher.com/docs
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

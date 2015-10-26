@@ -48,4 +48,4 @@
 
 * [Как обнаруживать несанкционированные облачные приложения, которые используются в моей организации](active-directory-cloudappdiscovery-whatis.md) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

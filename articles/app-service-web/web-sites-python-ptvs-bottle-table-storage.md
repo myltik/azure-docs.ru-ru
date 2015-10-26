@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Использование Bottle и табличного хранилища Azure в Azure с помощью инструментов Python 2.2 для Visual Studio"
-	description="Информация о том, как создать приложение Bottle, которое хранит данные в табличном хранилище Azure, с помощью инструментов Python для Visual Studio и развернуть его в веб-приложениях службы приложений Azure."
-	services="app-service\web"
-	documentationCenter="python"
-	authors="huguesv"
-	manager="wpickett"
+	pageTitle="Использование Bottle и табличного хранилища Azure в Azure с помощью инструментов Python 2.2 для Visual Studio" 
+	description="Информация о том, как создать приложение Bottle, которое хранит данные в табличном хранилище Azure, с помощью инструментов Python для Visual Studio и развернуть его в веб-приложениях службы приложений Azure." 
+	services="app-service\web" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -216,4 +216,4 @@
 [Пакет SDK для Azure для Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -226,7 +226,6 @@
 	<p>Начнем создавать строку запроса. Будет написан запрос Hive, который принимает все системные отметки времени документа(_ts)и уникальные идентификаторы (_rid) из коллекции DocumentDB, подсчитывает все документы поминутно, а затем сохраняет результаты в новую коллекцию DocumentDB. </p>
 
     <p>Сначала создадим таблицу Hive из коллекции DocumentDB. Добавьте следующий фрагмент кода в область сценариев PowerShell <strong>после</strong> фрагмента кода с шага&#160;1. Убедитесь, что включен дополнительный параметр DocumentDB.query для обрезки документов до вида _ts и _rid. </p>
-
     > [AZURE.NOTE] **Именование DocumentDB.inputCollections не было ошибочным.** Да, разрешается добавление нескольких коллекций в качестве входных данных: </br>
     '*DocumentDB.inputCollections*' = '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*' </br> Имена коллекций отделены одной запятой, без пробелов.
 
@@ -493,4 +492,4 @@
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

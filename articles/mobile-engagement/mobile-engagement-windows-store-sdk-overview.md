@@ -53,4 +53,4 @@
 
 См. статью [Процедуры обновления](mobile-engagement-windows-store-upgrade-procedure/).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

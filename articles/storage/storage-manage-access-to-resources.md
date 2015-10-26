@@ -81,4 +81,4 @@
 - [Подписи общего доступа: общие сведения о модели SAS](storage-dotnet-shared-access-signature-part-1.md)
 - [Делегирование доступа с помощью подписанного URL-адреса](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

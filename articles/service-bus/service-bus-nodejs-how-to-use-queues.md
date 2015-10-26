@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Использование очередей служебной шины (Node.js) | Microsoft Azure" 
+	pageTitle="Как использовать очереди служебной шины в Node.js | Microsoft Azure" 
 	description="Узнайте, как использовать очереди служебной шины в Azure в приложении Node.js." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	authors="sethmanheim" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
@@ -13,30 +13,31 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
-	ms.author="mwasson"/>
+	ms.date="10/06/2015" 
+	ms.author="sethm"/>
 
 # Как использовать очереди служебной шины
 
-В этом руководстве показано, как использовать очереди служебной шины. Примеры написаны на JavaScript и используют модуль Node.js для Azure. Здесь описаны такие сценарии, как **создание очередей, отправка и получение сообщений**, а также **удаление очередей**. Дополнительные сведения об очередях см. в разделе [Дальнейшие действия].
+В этой статье показано, как использовать очереди служебной шины. Примеры написаны на JavaScript и используют модуль Node.js для Azure. Здесь описаны такие сценарии, как **создание очередей**, **отправка и получение сообщений**, а также **удаление очередей**. Дополнительные сведения об очередях см. в разделе [Дальнейшие действия][].
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## Создание приложения Node.js
 
-Создайте пустое приложение Node.js. Инструкции по созданию приложения Node.js можно найти в статьях [Создание и развертывание веб-приложения Node.js в службе приложений Azure] или [Построение и развертывание приложения Node.js в облачной службе Azure][Node.js Cloud Service] (с помощью Windows PowerShell).
+Создайте пустое приложение Node.js. Указания по созданию приложения Node.js можно найти в статьях [Создание и развертывание веб-приложения Node.js в службе приложений Azure][] или [Построение и развертывание приложения Node.js в облачной службе Azure][] (с помощью Windows PowerShell).
 
 ## Настройка приложения для использования служебной шины
 
-Чтобы использовать служебную шину Azure, необходимо загрузить и запустить пакет Azure Node.js. Пакет содержит набор библиотек, взаимодействующих со службами REST служебной шины.
+Чтобы использовать служебную шину Azure, необходимо скачать и запустить пакет Azure для Node.js. Пакет содержит набор библиотек, взаимодействующих со службами REST Service Bus.
 
 ### Использование диспетчера пакета Node (NPM) для получения пакета
 
-1.  Используя **окно командной строки Windows PowerShell для Node.js**, перейдите в папку **c:\\node\\sbqueues\\WebRole1**, в которой создан пример приложения.
+1. Используя командное окно **Windows PowerShell для Node.js**, перейдите в папку **c:\\node\\sbqueues\\WebRole1**, в которой создан пример приложения.
 
-2.  Введите в командной строке **npm install azure**, что должно привести к результату, аналогичному следующему:
+2. Введите в командном окне **npm install azure**, что должно привести к результату, аналогичному следующему.
 
-        azure@0.7.5 node_modules\azure
+	```
+	azure@0.7.5 node_modules\azure
 		├── dateformat@1.0.2-1.2.3
 		├── xmlbuilder@0.4.2
 		├── node-uuid@1.2.0
@@ -47,87 +48,104 @@
 		├── wns@0.5.3
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
+	```
 
-3.  Вы можете выполнить команду **ls** вручную, чтобы убедиться, что папка **node\_modules** создана. В этой папке находится пакет **azure**, содержащий библиотеки, необходимые для доступа к очередям служебной шины.
+3. Можно вручную выполнить команду **ls**, чтобы убедиться, что папка **node\_modules** создана. В этой папке находится пакет **azure**, содержащий библиотеки, необходимые для доступа к очередям служебной шины.
 
 ### Импорт модуля
 
-С помощью Блокнота или другого текстового редактора добавьте следующее в начало файла **server.js** приложения:
+С помощью Блокнота или другого текстового редактора добавьте следующее в начало файла **server.js** приложения.
 
-    var azure = require('azure');
+```
+var azure = require('azure');
+```
 
 ### Настройка подключения к служебной шине Azure
 
 Модуль Azure считывает переменные среды AZURE\_SERVICEBUS\_NAMESPACE и AZURE\_SERVICEBUS\_ACCESS\_KEY для получения сведений, необходимых для подключения к служебной шине. Если эти переменные среды не заданы, при вызове **createServiceBusService** необходимо указать сведения об учетной записи.
 
-Пример настройки переменных среды в файле конфигурации для облачной службы Azure см. в статье [Облачная служба Node.js с хранилищем].
+Пример настройки переменных среды в файле конфигурации для облачной службы Azure см. в статье [Облачная служба Node.js с хранилищем][].
 
-Пример настройки переменных среды на портале управления для веб-сайта Azure см. в статье [Веб-приложение Node.js с хранилищем]
+Пример настройки переменных среды для веб-сайта Azure на портале Azure см. в статье [Веб-приложение Node.js с хранилищем][].
 
-## Как создать очередь
+## Создание очереди
 
-Объект **ServiceBusService** позволяет работать с очередями. Следующий код создает объект **ServiceBusService**. Добавьте его в начало файла **server.js** после оператора импорта модуля Azure.
+Объект **ServiceBusService** позволяет работать с очередями служебной шины. Следующий код создает объект **ServiceBusService**. Добавьте его в начало файла **server.js** после инструкции импорта модуля Аzure.
 
-    var serviceBusService = azure.createServiceBusService();
+```
+var serviceBusService = azure.createServiceBusService();
+```
 
-Вызов **createQueueIfNotExists** для объекта **ServiceBusService** возвратит указанную очередь (если она существует) или создаст новую очередь с указанным именем. В этом коде используется метод **createQueueIfNotExists**, чтобы создать очередь с именем "myqueue" или подключиться к ней.
+Вызов **createQueueIfNotExists** для объекта **ServiceBusService** возвращает указанную очередь (если она существует) или создает новую очередь с указанным именем. В этом коде используется метод **createQueueIfNotExists**, чтобы создать очередь `myqueue` или подключиться к ней.
 
-    serviceBusService.createQueueIfNotExists('myqueue', function(error){
-        if(!error){
-            // Queue exists
-        }
-    });
+```
+serviceBusService.createQueueIfNotExists('myqueue', function(error){
+    if(!error){
+        // Queue exists
+    }
+});
+```
 
-**createServiceBusService** также поддерживает дополнительные параметры, позволяющие переопределить настройки очереди по умолчанию, такие как срок жизни сообщения или максимальный размер очереди. В следующем примере показано, как установить максимальный размер очереди 5 ГБ и срок жизни 1 минуту:
+**createServiceBusService** также поддерживает дополнительные параметры, позволяющие переопределить настройки очереди по умолчанию, такие как срок жизни сообщения или максимальный размер очереди. В следующем примере показано, как установить максимальный размер очереди 5 ГБ и срок жизни 1 минуту.
 
-    var queueOptions = {
-          MaxSizeInMegabytes: '5120',
-          DefaultMessageTimeToLive: 'PT1M'
-        };
+```
+var queueOptions = {
+      MaxSizeInMegabytes: '5120',
+      DefaultMessageTimeToLive: 'PT1M'
+    };
 
-    serviceBusService.createQueueIfNotExists('myqueue', queueOptions, function(error){
-        if(!error){
-            // Queue exists
-        }
-    });
+serviceBusService.createQueueIfNotExists('myqueue', queueOptions, function(error){
+    if(!error){
+        // Queue exists
+    }
+});
+```
 
 ### Фильтры
 
 Дополнительные операции фильтрации можно применить к выполняемым операциям, используя **ServiceBusService** К операциям фильтрации могут относиться ведение журнала, автоматический повтор и т. д. Фильтры являются объектами, реализующими метод со следующей сигнатурой:
 
-		function handle (requestOptions, next)
+```
+function handle (requestOptions, next)
+```
 
 Выполнив предварительную обработку параметров запроса, метод должен вызвать `next`, передавая обратный вызов со следующей сигнатурой:
 
-		function (returnObject, finalCallback, next)
+```
+function (returnObject, finalCallback, next)
+```
 
 В этой функции обратного вызова и после обработки **returnObject** (ответ на запрос к серверу) функция обратного вызова должна либо вызвать `next` (если существует), чтобы продолжить обработку других фильтров, либо в противном случае просто вызвать `finalCallback` для завершения обращения к службе.
 
 В Azure SDK для Node.js включены два фильтра, реализующие логику повторных попыток: **ExponentialRetryPolicyFilter** и **LinearRetryPolicyFilter** Следующий код создает объект **ServiceBusService**, использующий **ExponentialRetryPolicyFilter**
 
-	var retryOperations = new azure.ExponentialRetryPolicyFilter();
-	var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
+```
+var retryOperations = new azure.ExponentialRetryPolicyFilter();
+var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
+```
 
-## Как отправлять сообщения в очередь
+## Отправка сообщений в очередь
 
-Чтобы отправить сообщение в очередь служебной шины, приложение вызывает метод **sendQueueMessage** для объекта **ServiceBusService**. Сообщения, отправляемые в очереди служебной шины и получаемые из них, — это объекты **BrokeredMessage**, которые имеют набор стандартных свойств (таких как **Label** и **TimeToLive**), словарь, используемый для хранения настраиваемых свойств приложения, и текст из произвольных данных приложения. Приложение может задать текст сообщения, передав строку как сообщение. Все необходимые стандартные свойства будут заполнены значениями по умолчанию.
+Чтобы отправить сообщение в очередь служебной шины, в приложении вызывается метод **sendQueueMessage** для объекта **ServiceBusService**. Сообщения, отправляемые в очереди служебной шины и получаемые из них, — это объекты **BrokeredMessage**, которые имеют набор стандартных свойств (таких как, **Label** и **TimeToLive**), словарь, используемый для хранения настраиваемых свойств приложения, и текст из произвольных данных приложения. Приложение может задать текст сообщения, передав строку как сообщение. Все необходимые стандартные свойства будут заполнены значениями по умолчанию.
 
 В следующем примере показано, как отправить тестовое сообщение в очередь с именем `myqueue` с помощью метода **sendQueueMessage**:
 
-    var message = {
-        body: 'Test message',
-        customProperties: {
-            testproperty: 'TestValue'
-        }};
-    serviceBusService.sendQueueMessage('myqueue', message, function(error){
-        if(!error){
-            // message sent
-        }
-    });
+```
+var message = {
+    body: 'Test message',
+    customProperties: {
+        testproperty: 'TestValue'
+    }};
+serviceBusService.sendQueueMessage('myqueue', message, function(error){
+    if(!error){
+        // message sent
+    }
+});
+```
 
-Очереди служебной шины поддерживают максимальный размер сообщения 256 КБ (максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 КБ). Ограничения на количество сообщений в очереди нет, но есть максимальный общий размер сообщений, содержащихся в очереди. Этот размер очереди, определяемый в момент ее создания, не должен превышать 5 ГБ.
+Очереди служебной шины поддерживают максимальный размер сообщения 256 КБ (максимальный размер заголовка, который содержит стандартные и настраиваемые свойства приложения, — 64 КБ). Ограничения на количество сообщений в очереди нет, но есть максимальный общий размер сообщений, содержащихся в очереди. Этот размер очереди, определяемый в момент ее создания, не должен превышать 5 ГБ. Дополнительные сведения о квотах см. в статье [Очереди Azure и очереди служебной шины][].
 
-## Как получать сообщения из очереди
+## Получение сообщений из очереди
 
 Сообщения извлекаются из очереди с помощью метода **receiveQueueMessage** объекта **ServiceBusService**. По умолчанию прочитанные сообщения удаляются из очереди. Но можно прочитать (извлечь) сообщение и заблокировать его без удаления из очереди, задав для необязательного параметра **isPeekLock** значение **true**.
 
@@ -137,21 +155,23 @@
 
 В следующем примере показано, как получать и обрабатывать сообщения с помощью **receiveQueueMessage**. Сначала сообщение в примере получается и удаляется, затем оно получается с помощью параметра **isPeekLock**, для которого задано значение **true**, а затем удаляется с помощью метода **deleteMessage**:
 
-    serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
-        if(!error){
-            // Message received and deleted
-        }
-    });
-    serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(error, lockedMessage){
-        if(!error){
-            // Message received and locked
-            serviceBusService.deleteMessage(lockedMessage, function (deleteError){
-                if(!deleteError){
-                    // Message deleted
-                }
-            });
-        }
-    });
+```
+serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
+    if(!error){
+        // Message received and deleted
+    }
+});
+serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(error, lockedMessage){
+    if(!error){
+        // Message received and locked
+        serviceBusService.deleteMessage(lockedMessage, function (deleteError){
+            if(!deleteError){
+                // Message deleted
+            }
+        });
+    }
+});
+```
 
 ## Как обрабатывать сбои приложения и нечитаемые сообщения
 
@@ -159,35 +179,25 @@
 
 Кроме того, с сообщением, заблокированным в очереди, связано время ожидания. Если приложение не сможет обработать сообщение в течение времени ожидания (например, при сбое приложения), служебная шина разблокирует сообщение автоматически и сделает его доступным для приема.
 
-Если в приложении происходит сбой после обработки сообщения, но перед вызовом метода **deleteMessage**, сообщение будет повторно доставлено в приложение после его перезапуска. Часто этот подход называют **обработать хотя бы один раз**, т. е. каждое сообщение будет обрабатываться по крайней мере один раз, но в некоторых случаях это же сообщение может быть доставлено повторно. Если повторная обработка недопустима, разработчики приложения должны добавить дополнительную логику для обработки повторной доставки сообщений. Часто это достигается с помощью свойства **MessageId** сообщения, которое остается постоянным для различных попыток доставки.
+Если в приложении происходит сбой после обработки сообщения, но перед вызовом метода **deleteMessage**, сообщение будет повторно доставлено в приложение после его перезапуска. Часто этот подход называют **обработать хотя бы один раз**, т. е. каждое сообщение будет обрабатываться по крайней мере один раз, но в некоторых случаях это же сообщение может быть доставлено повторно. Если повторная обработка недопустима, разработчики приложения должны добавить дополнительную логику для обработки повторной доставки сообщений. Часто это достигается с помощью свойства **MessageId** сообщения, которое остается постоянным при разных попытках доставки.
 
 ## Дальнейшие действия
 
-Для получения дополнительных сведений см. следующие ресурсы.
+Чтобы узнать больше, ознакомьтесь со следующими материалами.
 
--   [очереди, разделы и подписки][]
+-   [Очереди, разделы и подписки][]
 -   Репозиторий [Пакет SDK для Azure для Node][] на сайте GitHub.
--   [Центр разработчика Node.js](/develop/nodejs/).
+-   [Центр разработчиков Node.js](/develop/nodejs/).
 
   [Пакет SDK для Azure для Node]: https://github.com/Azure/azure-sdk-for-node
-  [Дальнейшие действия]: #next-steps
-  [What are Service Bus Queues?]: #what-are-service-bus-queues
-  [Create a Service Namespace]: #create-a-service-namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
-  [Create a Node.js Application]: #create-app
-  [Configure Your Application to Use Service Bus]: #configure-app
-  [How to: Create a Queue]: #create-queue
-  [How to: Send Messages to a Queue]: #send-messages
-  [How to: Receive Messages from a Queue]: #receive-messages
-  [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
-  [Queue Concepts]: ../../dotNet/Media/sb-queues-08.png
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Azure portal]: http://manage.windowsazure.com
   
-  [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-  [очереди, разделы и подписки]: service-bus-queues-topics-subscriptions.md
+  [Построение и развертывание приложения Node.js в облачной службе Azure]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+  [Очереди, разделы и подписки]: service-bus-queues-topics-subscriptions.md
   [Создание и развертывание веб-приложения Node.js в службе приложений Azure]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Облачная служба Node.js с хранилищем]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Веб-приложение Node.js с хранилищем]: ../storage/storage-nodejs-how-to-use-table-storage.md
+  [Очереди Azure и очереди служебной шины]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -96,4 +96,4 @@
 ## Дальнейшие действия
 • [Часто задаваемые вопросы о службе архивации Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

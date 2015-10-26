@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Интеграция облачной службы с Azure CDN"
-	description="В этом учебнике объясняется, как развернуть облачную службу, которая обслуживает содержимое из интегрированной конечной точки CDN Azure"
-	services="cdn, cloud-services"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="Интеграция облачной службы с Azure CDN" 
+	description="В этом учебнике объясняется, как развернуть облачную службу, которая обслуживает содержимое из интегрированной конечной точки CDN Azure" 
+	services="cdn, cloud-services" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor="tysonn"/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="cephalin"/>
 
 
@@ -622,4 +622,4 @@
 - [Объединение и минификация ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 - [Использование CDN для Azure](cdn-how-to-use.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

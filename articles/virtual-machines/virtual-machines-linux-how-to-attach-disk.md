@@ -19,7 +19,8 @@
 
 # Подключение диска данных к виртуальной машине Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается подключение диска с использованием классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 Можно присоединять пустые диски и диски с данными. В обоих случаях это фактически файлы .vhd, которые размещаются в вашей учетной записи хранения Azure. Также в обоих случаях после присоединения диска необходимо его инициализировать, чтобы подготовить к использованию. В этой статье говорится о виртуальных машинах, созданных с использованием классической модели развертывания.
 
@@ -173,4 +174,4 @@
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

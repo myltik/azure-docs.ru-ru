@@ -13,4 +13,4 @@
 
 	Дополнительные сведения см. в разделе [Подключение к Azure из Visual Studio](http://go.microsoft.com/fwlink/?LinkId=324796).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

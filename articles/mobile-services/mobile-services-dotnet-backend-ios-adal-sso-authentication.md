@@ -120,4 +120,4 @@
 [Active Directory для iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 [библиотеку проверки подлинности Active Directory для iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

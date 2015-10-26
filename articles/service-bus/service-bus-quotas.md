@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Квоты на служебную шину"
-   description="Ограничения и квоты на служебную шину."
+   pageTitle="Квоты и ограничения служебной шины Microsoft Azure | Microsoft Azure"
+   description="Ограничения и квоты для служебной шины Azure"
    services="service-bus"
    documentationCenter="na"
    authors="sethmanheim"
@@ -11,8 +11,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/10/2015"
+   ms.workload="na"
+   ms.date="10/14/2015"
    ms.author="sethm" />
 
 # Квоты на служебную шину
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [service-bus-quotas-table](../../includes/service-bus-quotas-table.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/05/2015" 
+	ms.date="10/06/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -35,20 +35,20 @@ Azure Stream Analytics является полностью управляемо�
 - Создайте группу ресурсов Azure в своей подписке. Ниже приведен пример сценария Azure PowerShell. Дополнительную информацию об Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell](../install-configure-powershell.md).  
 
 
-		# Configure the Azure PowerShell session to access Azure Resource Manager
-		Switch-AzureMode AzureResourceManager
-
 		# Log in to your Azure account
 		Add-AzureAccount
 
 		# Select the Azure subscription you want to use to create the resource group
 		Select-AzureSubscription -SubscriptionName <subscription name>
 
-		# Create an Azure resource group	
-		New-AzureResourceGroup -Name <YOUR RESORUCE GROUP NAME> -Location <LOCATION>
+			# If Stream Analytics has not been registered to the subscription, remove the remark symbol (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+			#Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
+		# Create an Azure resource group
+		New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
+		
 
--	Задайте источник входных данных и назначение выходных данных. См. раздел [Приступая к работе с Azure Stream Analytics](stream-analytics-get-started.md), чтобы задать пример входных или выходных данных для этой статьи.
+-	Задайте источник входных данных и назначение выходных данных. Дальнейшие указания по настройке примера входных данных см. в разделе [Добавление входных данных](stream-analytics-add-inputs.md), а по настройке примера выходных данных — в разделе [Добавление выходных данных](stream-analytics-add-outputs.md).
 
 
 ## Настройка проекта
@@ -326,7 +326,7 @@ Azure Stream Analytics является полностью управляемо�
 
 
 ## Получение поддержки
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/RU-RU/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
 
 
 ## Дальнейшие действия
@@ -365,4 +365,4 @@ Azure Stream Analytics является полностью управляемо�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -58,4 +58,4 @@
 
 Сведения о настройке ролей в Visual Studio см. в статье [Настройка ролей для облачной службы Azure с помощью Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

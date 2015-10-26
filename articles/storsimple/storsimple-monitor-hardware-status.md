@@ -133,4 +133,4 @@
 
 - Если проблемы с устройством не исчезают, [обратитесь в службу поддержки Майкрософт](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

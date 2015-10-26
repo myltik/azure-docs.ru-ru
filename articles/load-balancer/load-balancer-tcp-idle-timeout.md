@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="08/12/2015"
    ms.author="joaoma" />
 
 # Как изменить параметры времени ожидания простоя TCP для подсистемы балансировки нагрузки
@@ -166,4 +166,4 @@ IdleTimeoutInMinutes — необязательный параметр. Если
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/21/2015" 
+	ms.date="10/09/2015" 
 	ms.author="femila"/>
 
 
@@ -124,7 +124,7 @@
 | passwordPolicies | None, DisableStrongPassword, DisablePasswordExpiration, DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName | Любое строковое значение или $null. | (user.physicalDeliveryOfficeName -eq "value") |
 | postalCode | Любое строковое значение или $null. | (user.postalCode -eq "value") |
-| preferredLanguage | Код ISO 639-1. | (user.preferredLanguage -eq "ru-ru") |
+| preferredLanguage | Код ISO 639-1. | (user.preferredLanguage -eq "ru-RU") |
 | sipProxyAddress | Любое строковое значение или $null. | (user.sipProxyAddress -eq "value") |
 | state | Любое строковое значение или $null. | (user.state -eq "value") |
 | streetAddress | Любое строковое значение или $null. | (user.streetAddress -eq "value") |
@@ -168,4 +168,4 @@
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

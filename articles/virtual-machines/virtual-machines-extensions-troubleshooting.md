@@ -19,7 +19,8 @@
 
 # Устранение сбоев в расширениях виртуальных машин Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается использование модели развертывания на основе диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
+
 
 ## Общие сведения о шаблонах диспетчере ресурсов Azure
 
@@ -84,4 +85,4 @@ Azure Powershell:
 
 После удаления расширения шаблон можно выполнить повторно, чтобы запустить скрипты на виртуальной машине.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

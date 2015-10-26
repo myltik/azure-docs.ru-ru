@@ -103,7 +103,11 @@
        "<parameterName>" : {
          "type" : "<type-of-parameter-value>",
          "defaultValue": "<optional-default-value-of-parameter>",
-         "allowedValues": [ "<optional-array-of-allowed-values>" ]
+         "allowedValues": [ "<optional-array-of-allowed-values>" ],
+         "minValue": <optional-minimum-value-for-int-parameters>,
+         "maxValue": <optional-maximum-value-for-int-parameters>,
+         "minLength": <optional-minimum-length-for-string-secureString-array-parameters>,
+         "maxLength": <optional-maximum-length-for-string-secureString-array-parameters>
        }
     }
 
@@ -113,6 +117,10 @@
 | type | Да | Тип значения параметра. Ниже приведен список разрешенных типов.
 | defaultValue | Нет | Значение параметра, используемое по умолчанию, если пользователь не задал иное значение.
 | allowedValues | Нет | Массив допустимых значений параметра, по которому сверяются правильные значения.
+| minValue | Нет | Минимальное значение для параметров типа int. Это включающее значение.
+| maxValue | Нет | Максимальное значение для параметров типа int. Это включающее значение.
+| minLength | Нет | Минимальная длина параметров типа string, secureString и array. Это включающее значение.
+| maxLength | Нет | Максимальная длина параметров типа string, secureString и array. Это включающее значение.
 
 Допустимые типы и значения:
 
@@ -130,10 +138,13 @@
 
     "parameters": {
        "siteName": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 60
        },
        "siteLocation": {
-          "type": "string"
+          "type": "string",
+          "minLength": 2
        },
        "hostingPlanName": {
           "type": "string"
@@ -148,6 +159,14 @@
             "Premium"
           ],
           "defaultValue": "Free"
+       },
+       "instancesCount": {
+          "type": "int",
+          "maxValue": 10
+       },
+       "numberOfWorkers": {
+          "type": "int",
+          "minValue": 1
        }
     }
 
@@ -407,7 +426,7 @@
 ## Дальнейшие действия
 - Дополнительные сведения о функциях, которые можно использовать в шаблонах, см. в статье [Функции шаблонов в диспетчере ресурсов Azure](resource-group-template-functions.md).
 - Указания по развертыванию созданного шаблона см. в статье [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](azure-portal/resource-group-template-deploy.md).
-- Подробный пример развертывания приложения см. в статье [Предсказуемые подготовка и развертывание микрослужб в Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
+- Подробный пример развертывания приложения см. в статье [Предсказуемые подготовка и развертывание микрослужб в Azure.](app-service-web/app-service-deploy-complex-application-predictably.md)
 - Список доступных схем см. в статье [Схемы диспетчера ресурсов Azure](https://github.com/Azure/azure-resource-manager-schemas).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Подготовка кластеров HBase в виртуальной сети | Microsoft Azure"
 	description="Приступите к работе с HBase в Azure HDInsight. Узнайте, как создать кластеры HDInsight HBase в виртуальной сети Azure."
+	keywords=""
 	services="hdinsight,virtual-network"
 	documentationCenter=""
 	authors="mumian"
@@ -9,12 +10,12 @@
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/07/2015"
-	ms.author="jgao"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/07/2015"
+   ms.author="jgao"/>
 
 # Подготовка кластеров HBase в виртуальной сети Azure
 
@@ -433,4 +434,4 @@ DNS-сервер является необязательным, но в неко
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "Подготовка сведений для нового кластера HBase"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Использование действия сценария для настройки кластера HBase"
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

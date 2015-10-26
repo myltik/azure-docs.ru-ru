@@ -151,4 +151,4 @@ RBAC работает только с диспетчером ресурсов Az
 - [Настройка управления доступом на основе ролей с помощью Windows PowerShell](role-based-access-control-powershell.md)
 - [Устранение неполадок управления доступом на основе ролей](role-based-access-control-troubleshooting.md)
 
-<!----HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

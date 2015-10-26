@@ -13,12 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="10/14/2015"
    ms.author="tomfitz"/>
 
-# Управление доступом к ресурсам и его аудит
+# Управление доступом к ресурсам
 
 Благодаря диспетчеру ресурсов Azure, вы сможете убедиться, что сотрудники вашей организации имеют соответствующие разрешения управлять ресурсами и получать доступ к ресурсам. Диспетчер ресурсов использует управление доступом на основе ролей (RBAC), поэтому вы с легкостью сможете применить политики безопасности к отдельным ресурсам или группам ресурсов. Например вы можете предоставить пользователю доступ к определенной виртуальной машине в подписке, или предоставить пользователю возможность управлять всеми веб-сайтами в подписке, но не другими ресурсами.
+
+Этот раздел посвящен командам, которые можно использовать для назначения ролей и разрешений. Общие сведения об управлении доступом на основе ролей см. в статье [Управление доступом на основе ролей на портале Microsoft Azure](../active-directory/role-based-access-control-configure.md).
 
 ## Основные понятия
 
@@ -55,90 +57,86 @@
 
 
 ## Как использовать PowerShell для управления доступом
-Если вы еще не установили последнюю версию Azure PowerShell, см. статью [Установка и настройка Azure PowerShell](../powershell-install-configure.md). Откройте консоль Azure PowerShell.
 
-1. Войдите в свою учетную запись Azure с помощью своих учетных данных. Команда возвращает информацию о вашей учетной записи.
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
 
-        PS C:\> Add-AzureAccount
-          
-        Id                             Type       ...
-        --                             ----    
-        someone@example.com            User       ...   
-
-2. Если у вас несколько подписок, укажите идентификатор подписки, которую вы хотите использовать для развертывания.
-
-        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
-
-3. Переключитесь на модуль диспетчера ресурсов Azure.
-
-        PS C:\> Switch-AzureMode AzureResourceManager
 
 ### Просмотр доступных ролей
-Чтобы просмотреть все доступные роли для подписки, выполните команду **Get AzureRoleDefinition**.
+Чтобы просмотреть все доступные роли для подписки, выполните команду **Get-AzureRmRoleDefinition**.
 
-    PS C:\> Get-AzureRoleDefinition
+    PS C:\> Get-AzureRmRoleDefinition
+    
+    Name             : API Management Service Contributor
+    Id               : /subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{guid}
+    IsCustom         : False
+    Description      : Lets you manage API Management services, but not access to them.
+    Actions          : {Microsoft.ApiManagement/Services/*, Microsoft.Authorization/*/read,
+                       Microsoft.Resources/subscriptions/resourceGroups/read,
+                       Microsoft.Resources/subscriptions/resourceGroups/resources/read...}
+    NotActions       : {}
+    AssignableScopes : {/}
 
-    Name                          Id                            Actions                  NotActions
-    ----                          --                            -------                  ----------
-    API Management Service Con... /subscriptions/####... {Microsoft.ApiManagement/S...   {}
-    Application Insights Compo... /subscriptions/####... {Microsoft.Insights/compon...   {}
+    Name             : Application Insights Component Contributor
+    Id               : /subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{guid}
+    IsCustom         : False
+    Description      : Lets you manage Application Insights components, but not access to them.
+    Actions          : {Microsoft.Insights/components/*, Microsoft.Insights/webtests/*, Microsoft.Authorization/*/read,
+                       Microsoft.Resources/subscriptions/resourceGroups/read...}
+    NotActions       : {}
+    AssignableScopes : {/}
     ...
 
 ### Предоставление разрешений для чтения группе для подписки.
-1. Просмотрите определение роли **Чтение**, указав имя роли при выполнении команды **Get AzureRoleDefinition**. Убедитесь, что разрешены именно те действия, которые вы хотите назначить.
+1. Просмотрите определение роли **Модуль чтения**, указав имя роли при выполнении команды **Get-AzureRmRoleDefinition**. Убедитесь, что разрешены именно те действия, которые вы хотите назначить.
 
-        PS C:\> Get-AzureRoleDefinition Reader
+        PS C:\> Get-AzureRmRoleDefinition Reader
    
-        Name            Id                            Actions           NotActions
-        ----            --                            -------           ----------
-        Reader          /subscriptions/####...        {*/read}          {}
+        Name             : Reader
+        Id               : /subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{guid}
+        IsCustom         : False
+        Description      : Lets you view everything, but not make any changes.
+        Actions          : {*/read}
+        NotActions       : {}
+        AssignableScopes : {/}
 
-2. Найдите нужную группу безопасности, выполнив команду **Get AzureADGroup**. Укажите фактическое имя группы в своей подписке. Ниже приведен пример группы ExampleAuditorGroup.
+2. Найдите нужную группу безопасности, выполнив команду **Get-AzureRmADGroup**. Укажите фактическое имя группы в своей подписке. Ниже приведен пример группы ExampleAuditorGroup.
 
-        PS C:\> $group = Get-AzureAdGroup -SearchString ExampleAuditorGroup
+        PS C:\> $group = Get-AzureRmAdGroup -SearchString ExampleAuditorGroup
 
 3. Создайте назначение ролей для группы безопасности аудитора. По завершении выполнения команды возвращается новое назначение ролей.
 
-        PS C:\> New-AzureRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
+        PS C:\> New-AzureRmRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
 
-        Mail               :
-        RoleAssignmentId   : /subscriptions/####/providers/Microsoft.Authorization/roleAssignments/####
-        DisplayName        : Auditors
-        RoleDefinitionName : Reader
-        Actions            : {*/read}
-        NotActions         : {}
-        Scope              : /subscriptions/####
-        ObjectId           : ####
 
 ###Предоставьте разрешение участника приложению для группы ресурсов.
-1. Просмотрите определение роли **Участник**, указав имя роли при выполнении команды **Get-AzureRoleDefinition**. Убедитесь, что разрешены именно те действия, которые вы хотите назначить.
+1. Просмотрите определение роли **Участник**, указав имя роли при выполнении команды **Get-AzureRmRoleDefinition**. Убедитесь, что разрешены именно те действия, которые вы хотите назначить.
 
-        PS C:\> Get-AzureRoleDefinition Contributor
+        PS C:\> Get-AzureRmRoleDefinition Contributor
 
-2. Получите ObjectId субъекта-службы, выполнив команду **Get AzureADServicePrincipal** и указав имя приложения в вашей подписке. Ниже приведен пример приложения ExampleApplication.
+2. Получите ObjectId субъекта-службы, выполнив команду **Get-AzureRmADServicePrincipal** и указав имя приложения в вашей подписке. Ниже приведен пример приложения ExampleApplication.
 
-        PS C:\> $service = Get-AzureADServicePrincipal -SearchString ExampleApplicationName
+        PS C:\> $service = Get-AzureRmADServicePrincipal -SearchString ExampleApplicationName
 
-3. Создайте назначения ролей для субъекта-службы, выполнив команду **New-AzureRoleAssignment**.
+3. Создайте назначения ролей для субъекта-службы, выполнив команду **New-AzureRmRoleAssignment**.
 
-        PS C:\> New-AzureRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
+        PS C:\> New-AzureRmRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
 
 Более подробное описание настройки приложения Azure Active Directory и субъекта-службы см. в разделе [Аутентификация субъекта-службы с помощью диспетчера ресурсов Azure](../resource-group-authenticate-service-principal.md).
 
 ###Предоставление разрешения владельца пользователю для ресурса.
-1. Просмотрите определение роли **Владелец**, указав имя роли при выполнении команды **Get AzureRoleDefinition**. Убедитесь, что разрешены именно те действия, которые вы хотите назначить.
+1. Просмотрите определение роли **Владелец**, указав имя роли при выполнении команды **Get-AzureRmRoleDefinition**. Убедитесь, что разрешены именно те действия, которые вы хотите назначить.
 
-        PS C:\> Get-AzureRoleDefinition Owner
+        PS C:\> Get-AzureRmRoleDefinition Owner
 
 2. Создайте назначения ролей для пользователя.
 
-        PS C:\> New-AzureRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
+        PS C:\> New-AzureRmRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
 
 
 ###Составление списка журналов аудита группы ресурсов.
-Чтобы получить журнал аудита для группы ресурсов, выполните команду **Get-AzureResourceGroupLog**.
+Чтобы получить журнал аудита для группы ресурсов, выполните команду **Get-AzureRmLog** (или **Get-AzureResourceGroupLog** для версий Azure PowerShell, выпущенных до предварительной версии 1.0).
 
-      PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroupName
+      PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroupName
 
 ## Использование интерфейса командной строки Azure для Mac, Linux и Windows
 
@@ -264,10 +262,10 @@
 
 ## Дальнейшие действия
 
-- [Контроль доступа на основе ролей на портале Microsoft Azure](../role-based-access-control-configure.md)
-- [Создание нового субъекта-службы Azure с помощью классического портала Azure](../resource-group-create-service-principal-portal.md)
-- [Проверка подлинности субъекта-службы в диспетчере ресурсов Azure](../resource-group-authenticate-service-principal.md)
+- Чтобы больше узнать об управлении доступом на основе ролей, см. статью [Управление доступом на основе ролей на портале Microsoft Azure](../role-based-access-control-configure.md).
+- Чтобы больше узнать о работе с субъектами-службами для управления доступом к приложениям в своей подписке, см. разделы [Проверка подлинности субъекта-службы в диспетчере ресурсов Azure](../resource-group-authenticate-service-principal.md) и [Создание нового субъекта-службы Azure с помощью портала Azure](../resource-group-create-service-principal-portal.md).
+- Чтобы больше узнать об аудите операций в организации, см. раздел [Операции аудита с помощью диспетчера ресурсов](../resource-group-audit.md).
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

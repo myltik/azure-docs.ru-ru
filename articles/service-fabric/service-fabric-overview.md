@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Общие сведения о Service Fabric | Microsoft Azure"
-	description="Обзор платформы Service Fabric для разработки приложений на основе микрослужб. Service Fabric представляет собой платформу для распределенных систем, используемую для создания масштабируемых, надежных и легко управляемых облачных приложений."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="msfussell"
-	manager="timlt"
-	editor="masnider"/>
+   pageTitle="Общие сведения о Service Fabric | Microsoft Azure" 
+   description="Обзор платформы Service Fabric для разработки приложений на основе микрослужб. Service Fabric представляет собой платформу для распределенных систем, используемую для создания масштабируемых, надежных и легко управляемых облачных приложений." 
+   services="service-fabric" 
+   documentationCenter=".net" 
+   authors="msfussell" 
+   manager="timlt" 
+   editor="masnider"/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/25/2015"
-	ms.author="mfussell"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA" 
+   ms.date="08/25/2015"
+   ms.author="mfussell"/>
 
 # Общие сведения о Service Fabric
 Service Fabric представляет собой платформу распределенных систем, используемых для создания масштабируемых, надежных и легко управляемых приложений в облаке. Она позволяет решать сложные задачи, возникающие при разработке облачных приложений и управлении ими. Service Fabric гарантирует масштабируемость, надежность и управляемость. Используя эту платформу, разработчики и администраторы могут сосредоточиться на решении важных ресурсоемких задач вместо того, чтобы тратить силы на решение комплексных инфраструктурных проблем. Service Fabric — это принципиально новая платформа промежуточного слоя, позволяющая создавать облачные службы корпоративного уровня и управлять ими.
@@ -98,4 +98,4 @@ Service Fabric предоставляет широкие возможности 
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

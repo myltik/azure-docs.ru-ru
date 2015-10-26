@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Устранение неполадок в работе локального кластера"
+   pageTitle="Устранение неполадок в настройке кластера локальной службы Service Fabric | Microsoft Azure"
    description="В этой статье описываются рекомендации по устранению неполадок с кластером локальной разработки."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="timlt"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="10/13/2015"
    ms.author="seanmck"/>
 
 # Устранение неполадок в работе кластера локальной разработки
@@ -86,4 +86,4 @@
 - [Обзор и диагностика кластера с помощью системных отчетов о работоспособности](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Визуализация кластера с помощью обозревателя Service Fabric](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

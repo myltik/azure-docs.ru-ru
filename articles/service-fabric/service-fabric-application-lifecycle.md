@@ -118,4 +118,4 @@
 - [Пример жизненного цикла приложения на основе REST](service-fabric-rest-based-application-lifecycle-sample.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

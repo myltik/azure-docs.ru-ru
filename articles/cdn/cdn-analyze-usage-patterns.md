@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Анализ вариантов использования CDN"
-	description="Вы можете просмотреть способы использования CDN, опираясь на следующие отчеты: ";Пропускная способность";, ";Переданные данные";, ";Попадания";, ";Состояния кэша";, ";Коэффициент попадания в кэш";, ";Данные, переданные по протоколам IPV4/IPV6";."
-	services="cdn"
-	documentationCenter=".NET"
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Анализ вариантов использования CDN" 
+	description="Вы можете просмотреть способы использования CDN, опираясь на следующие отчеты: ";Пропускная способность";, ";Переданные данные";, ";Попадания";, ";Состояния кэша";, ";Коэффициент попадания в кэш";, ";Данные, переданные по протоколам IPV4/IPV6";." 
+	services="cdn" 
+	documentationCenter=".NET" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="juliako"/>
 
 #Анализ вариантов использования CDN 
@@ -139,4 +139,4 @@
 
 Отчеты могут формироваться только за последние 18 месяцев.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

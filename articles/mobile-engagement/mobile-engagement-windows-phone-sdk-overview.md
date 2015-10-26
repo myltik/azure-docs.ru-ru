@@ -55,4 +55,4 @@
 См. статью [Процедуры обновления](mobile-engagement-windows-phone-upgrade-procedure/).
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

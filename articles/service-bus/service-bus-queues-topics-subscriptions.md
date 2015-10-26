@@ -171,4 +171,4 @@ namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFi
 - [Руководство разработчика по концентраторам событий](../event-hubs-programming-guide.md)
 - [Обмен сообщениями через посредника: расширенные фильтры](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

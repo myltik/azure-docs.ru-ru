@@ -59,4 +59,4 @@
 
 - [Общие сведения об ограничениях на размещение](service-fabric-placement-constraint.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

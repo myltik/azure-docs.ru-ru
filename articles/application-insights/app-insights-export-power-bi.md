@@ -36,7 +36,7 @@
 
 ## Мониторинг приложения с помощью Application Insights
 
-Если вы еще не пробовали это, начните сейчас. Application Insights может осуществлять мониторинг любого устройства или веб-приложения на разных платформах, включая Windows, iOS, Android, J2EE и др. [Приступая к работе](app-insights-get-started.md).
+Если вы еще не пробовали это, начните сейчас. Application Insights может осуществлять мониторинг любого устройства или веб-приложения на разных платформах, включая Windows, iOS, Android, J2EE и др. [Приступая к работе](app-insights-overview.md).
 
 ## Создание хранилища в Azure
 
@@ -239,4 +239,4 @@
 * [Application Insights](app-insights-overview.md)
 * [Дополнительные примеры и пошаговые руководства](app-insights-code-samples.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

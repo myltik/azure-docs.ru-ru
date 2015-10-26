@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Учебник. Создание конвейера с действием копирования с помощью редактора фабрики данных"
-	description="В этом учебнике вы создадите конвейер фабрики данных Azure с действием копирования при помощи редактора фабрики данных на портале Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Учебник. Создание конвейера с действием копирования с помощью редактора фабрики данных" 
+	description="В этом учебнике вы создадите конвейер фабрики данных Azure с действием копирования при помощи редактора фабрики данных на портале Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 # Учебник. Создание конвейера с действием копирования с помощью редактора фабрики данных
@@ -382,7 +382,7 @@
 Чтобы выполнить задания этого учебника при помощи Azure PowerShell, см. раздел [Создание и отслеживание фабрики данных при помощи Azure PowerShell][monitor-manage-using-powershell].
 
 ## Отправить отзыв
-Мы будем весьма признательны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-editor.md).
+Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-editor.md).
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -501,4 +501,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

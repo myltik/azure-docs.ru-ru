@@ -241,4 +241,4 @@
 
 Если у вас возникнут проблемы после включения или завершения работы устройства StorSimple, [обратитесь в службу поддержки Microsoft](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

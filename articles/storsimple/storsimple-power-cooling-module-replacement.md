@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Замена БПО на устройстве StorSimple | Microsoft Azure"
-	description="Объясняется процесс снятия и замены блока питания и охлаждения модуля (БПО) на устройстве StorSimple"
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Объясняется процесс снятия и замены блока питания и охлаждения модуля (БПО) на устройстве StorSimple"
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # Замена блока питания и охлаждения на устройстве StorSimple
 
@@ -152,4 +152,4 @@
 
 Узнайте подробнее о [замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

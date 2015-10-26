@@ -1,3 +1,3 @@
 ![Уровни обслуживания для пулов эластичных БД](./media/sql-database-service-tiers-table-elastic-db-pools/sql-database-service-tiers-table-elastic-db-pools.png)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -59,4 +59,4 @@
 
 [Поиск Azure;](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -63,4 +63,4 @@
 Дополнительные сведения об использовании диспетчера трафика совместно с веб-приложениями см. в статьях [Использование диспетчера трафика Azure c веб-сайтами Azure](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) и [Диспетчер трафика Azure теперь можно интегрировать с веб-сайтами Azure](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

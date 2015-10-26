@@ -151,4 +151,4 @@
 - [Узнайте о больше о безопасности StorSimple](storsimple-security.md).
 - Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

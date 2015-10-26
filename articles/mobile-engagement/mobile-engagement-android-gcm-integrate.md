@@ -112,7 +112,7 @@
 
 ##Тест
 
-Теперь проверьте интеграцию, ознакомившись со статьей «Тестирование интеграции Engagement в Android».
+Теперь проверьте интеграцию, ознакомившись со статьей "Тестирование интеграции Engagement в Android".
 
 
 [отправки для синхронизации]: http://developer.android.com/google/gcm/adv.html#collapsible
@@ -124,4 +124,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

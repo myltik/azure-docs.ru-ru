@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Известные сети"
-	description="Настроив известные сети, вы избавитесь от ситуации, при которой IP-адреса вашей организации попадают в отчеты ";Операции входа из нескольких географических регионов"; и ";Операции входа с IP-адресов с подозрительными действиями";."
-	services="active-directory"
-	documentationCenter=""
-	authors="markusvi"
-	manager="msStevenPo"
+	pageTitle="Известные сети" 
+	description="Настроив известные сети, вы избавитесь от ситуации, при которой IP-адреса вашей организации попадают в отчеты ";Операции входа из нескольких географических регионов"; и ";Операции входа с IP-адресов с подозрительными действиями";." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="markusvi" 
+	manager="msStevenPo"  
 	editor=""/>
 
 <tags 
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/03/2015" 
 	ms.author="markvi"/>
 
 # Известные сети
@@ -56,4 +56,4 @@
 * [Операции входа с IP-адресов с подозрительными действиями](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [Операции входа из нескольких географических регионов](active-directory-reporting-sign-ins-from-multiple-geographies.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

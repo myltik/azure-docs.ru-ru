@@ -56,4 +56,4 @@
 - [Использование разделов служебной шины](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

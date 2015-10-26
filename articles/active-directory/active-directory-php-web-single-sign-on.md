@@ -125,7 +125,7 @@
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-	> [AZURE.NOTE]Значения **audienceuris** и **realm** должны иметь префикс «spn:».
+> [AZURE.NOTE]Значения **audienceuris** и **realm** должны иметь префикс «spn:».
 
 4. В Eclipse щелкните правой кнопкой мыши проект **phpSample**, выберите **Создать**, затем щелкните **Файл PHP**.
 
@@ -206,4 +206,4 @@
 [Пример PHP-кода для Azure Active Directory]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

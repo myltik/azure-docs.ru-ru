@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Миграция с помощью Visual Studio и SSDT"
-	description="База данных SQL Microsoft Azure, перенос базы данных, импорт базы данных, экспорт базы данных, мастер миграции"
-	services="sql-database"
-	documentationCenter=""
-	authors="carlrabeler"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="Миграция с помощью Visual Studio и SSDT" 
+   description="База данных SQL Microsoft Azure, перенос базы данных, импорт базы данных, экспорт базы данных, мастер миграции" 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="carlrabeler" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="08/24/2015"
-	ms.author="carlrab"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="08/24/2015"
+   ms.author="carlrab"/>
 
 #Обновление базы данных на месте с последующим развертыванием в Базе данных SQL Azure
 
@@ -82,4 +82,4 @@
 
 14.	Разверните схему базы данных, совместимую с Azure SQL версии 12, и данные в Базу данных SQL Azure SQL с помощью среды SSMS. Ознакомьтесь с разделом [Миграция совместимой базы данных с помощью среды SSMS.](sql-database-migrate-ssms.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -7,7 +7,7 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/21/2015" ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
 
 
 # Развертывание резервного копирования в Azure для серверов Data Protection Manager (DPM) и управление им с помощью PowerShell
@@ -30,20 +30,39 @@ Sample DPM scripts: Get-DPMSampleScript
 ```
 
 ## Настройка и регистрация
+Чтобы начать работу, сделайте следующее:
 
-### создать хранилище архивации;
-Можно создать новое хранилище архивов с помощью командлета **New-AzureBackupVault**. Хранилище архивов представляет собой ресурс ARM, поэтому вам потребуется разместить его в группе ресурсов. В консоли Azure PowerShell с повышенными привилегиями выполните следующие команды:
+1. [Скачайте последнюю версию PowerShell](https://github.com/Azure/azure-powershell/releases) (минимальная требуемая версия — 1.0.0)
+2. Включите командлеты службы архивации Azure. Для этого перейдите в режим *AzureResourceManager* с помощью командлета **Switch-AzureMode**:
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Location “West US”
+PS C:\> Switch-AzureMode AzureResourceManager
+```
+
+С помощью PowerShell можно автоматизировать указанные ниже задачи по настройке и регистрации.
+
+- создать хранилище архивации;
+- Установка агента службы архивации Azure.
+- Регистрация в службе архивации Azure
+- Параметры сети
+- Параметры шифрования
+
+### создать хранилище архивации;
+
+> [AZURE.WARNING]Для клиентов, использующих службу архивации Azure впервые, необходимо зарегистрировать поставщика службы архивации для использования с вашей подпиской. Для этого выполните следующую команду: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+
+Вы можете создать новое хранилище архивации с помощью командлета **New-AzureRMBackupVault**. Хранилище архивов представляет собой ресурс ARM, поэтому вам потребуется разместить его в группе ресурсов. В консоли Azure PowerShell с повышенными привилегиями выполните следующие команды:
+
+```
+PS C:\> New-AzureResourceGroup –Name “test-rg” -Region “West US”
 PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
 ```
 
-Вы можете получить список всех хранилищ архивов в данной подписке при помощи командлета **Get-AzureBackupVault**.
+Чтобы получить список всех хранилищ архивации в данной подписке, используйте командлет **Get-AzureRMBackupVault**.
 
 
 ### Установка агента службы архивации Azure на сервер DPM
-Прежде чем устанавливать агент службы архивации Azure, необходимо загрузить установщик и разместить его в системе Windows Server. Последнюю версию установщика можно загрузить в [центре загрузки Майкрософт](http://aka.ms/azurebackup_agent) или на странице панели мониторинга хранилища архивов. Сохраните установщик в удобном для вас месте, например в папке *C:\\Downloads*.
+Прежде чем устанавливать агент службы архивации Azure, необходимо загрузить установщик и разместить его в системе Windows Server. Последнюю версию установщика можно скачать в [Центре загрузки Майкрософт](http://aka.ms/azurebackup_agent) или на странице панели мониторинга хранилища архивации. Сохраните установщик в удобном для вас месте, например в папке *C:\\Downloads*.
 
 Чтобы установить агент, в консоли PowerShell с повышенными привилегиями **на сервере DPM** выполните следующую команду:
 
@@ -84,7 +103,7 @@ PS C:\> MARSAgentInstaller.exe /?
 - Действующая подписка на Azure
 - Хранилище архивов
 
-Чтобы загрузить учетные данные хранилища, запустите командлет **Get-AzureBackupVaultCredentials** в консоли Azure PowerShell и сохраните их в удобном месте, например в папке *C:\\Загрузки*.
+Чтобы скачать учетные данные хранилища, запустите командлет **Get-AzureBackupVaultCredentials** в консоли Azure PowerShell и сохраните их в удобном месте, например в папке *C:\\Downloads*.
 
 ```
 PS C:\> $credspath = "C:"
@@ -111,7 +130,7 @@ PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredenti
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-Все изменения вносятся в этот локальный объект ```$setting``` PowerShell, а затем полный объект фиксируется в DPM и сохраняется в службе архивации Azure с помощью командлета [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791). Чтобы гарантировать, что изменения будут сохранены, необходимо использовать флаг ```–Commit```. Параметры не будут применяться и использоваться службой архивации Azure до тех пор, пока они не будут зафиксированы.
+Все изменения вносятся в этот локальный объект ```$setting``` PowerShell, а затем полный объект фиксируется в DPM и службе архивации Azure с помощью командлета [Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791). Таким образом он сохраняется. Чтобы гарантировать, что изменения будут сохранены, необходимо использовать флаг ```–Commit```. Параметры не будут применяться и использоваться службой архивации Azure до тех пор, пока они не будут зафиксированы.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
@@ -137,7 +156,7 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
 ```
 
-В примере выше задается промежуточная область хранения *C:\\StagingArea* в объекте ```$setting``` PowerShell. Убедитесь, что указанная папка уже существует, иначе финальная фиксация параметров подписки завершится ошибкой.
+В примере выше задается промежуточная область *C:\\StagingArea* в объекте ```$setting``` PowerShell. Убедитесь, что указанная папка уже существует, иначе финальная фиксация параметров подписки завершится ошибкой.
 
 
 ### Параметры шифрования
@@ -205,7 +224,7 @@ PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
 При необходимости повторите этот шаг несколько раз, пока все выбранные источники данных не будут добавлены в группу защиты. Для начала можно выполнить рабочий процесс создания группы защиты только для одного источника данных, а затем позже добавить в эту группу дополнительные источники данных.
 
 ### Выбор способа защиты данных
-После добавления в группу защиты источников данных необходимо указать метод защиты, воспользовавшись для этого командлетом [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725). В этом примере группа защиты будет настроена для резервного копирования на локальный диск и в облако. Необходимо также указать источник данных, который вы хотите защитить в облаке, с помощью командлета [Add-DPMChildDatasource](https://technet.microsoft.com/ru-ru/library/hh881732.aspx) с флагом -Online.
+После добавления в группу защиты источников данных необходимо указать метод защиты, воспользовавшись для этого командлетом [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725). В этом примере группа защиты будет настроена для резервного копирования на локальный диск и в облако. Необходимо также указать источник данных, который вы хотите защитить в облаке, с помощью командлета [Add-DPMChildDatasource](https://technet.microsoft.com/ru-RU/library/hh881732.aspx) с флагом -Online.
 
 ```
 PS C:\> Set-DPMProtectionType -ProtectionGroup $MPG -ShortTerm Disk –LongTerm Online
@@ -260,7 +279,7 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
 ### Изменение размера реплики DPM и тома точек восстановления
-Вы также можете изменить размер тома реплики DPM и тома теневого копирования с помощью командлета [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/ru-ru/library/hh881618(v=sc.20).aspx), как показано в примере ниже: Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
+Вы также можете изменить размер тома реплики DPM и тома теневых копий с помощью командлета [Set-DPMDatasourceDiskAllocation] (https://technet.microsoft.com/ru-RU/library/hh881618(v=sc.20).aspx), как показано в примере ниже: Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
 
 ### Фиксация изменений в группу защиты
 Наконец, необходимо зафиксировать изменения до того, как DPM выполнит резервное копирование в соответствии с новой конфигурацией группы защиты. Для этого воспользуйтесь командлетом [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758).
@@ -299,6 +318,6 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 Команды можно с легкостью расширить для любого типа источника данных.
 
 ## Дальнейшие действия
-Дополнительные сведения о службе архивации Azure для DPM см. в разделе [Общие сведения о службе архивации DPM Azure](backup-azure-dpm-introduction.md)
+Дополнительные сведения о службе архивации Azure для DPM см. в разделе [Введение в службу архивации DPM](backup-azure-dpm-introduction.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Администрирование с помощью диспетчера моментальных снимков StorSimple | Microsoft Azure"
-	description="Общие сведения и ссылки на дополнительную информацию о задачах администрирования и рабочих процессах, которые можно выполнять с помощью диспетчера моментальных снимков StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Общие сведения и ссылки на дополнительную информацию о задачах администрирования и рабочих процессах, которые можно выполнять с помощью диспетчера моментальных снимков StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/28/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/28/2015"
+   ms.author="v-sharos" />
 
 # Использование диспетчера моментальных снимков StorSimple для администрирования решения StorSimple
 
@@ -60,4 +60,4 @@
 
 [Скачать диспетчер моментальных снимков StorSimple](https://www.microsoft.com/download/details.aspx?id=44220).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

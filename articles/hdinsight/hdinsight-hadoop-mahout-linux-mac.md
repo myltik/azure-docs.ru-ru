@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Создание рекомендаций с помощью Mahout и Hadoop | Microsoft Azure"
+	pageTitle="Создание рекомендаций с помощью HDInsight на основе Mahout и Linux | Microsoft Azure"
 	description="Узнайте, как использовать библиотеку машинного обучения Apache Mahout для создания списка рекомендуемых фильмов с помощью HDInsight (Hadoop) на платформе Linux."
 	services="hdinsight"
 	documentationCenter=""
@@ -264,4 +264,4 @@ Mahout — это библиотека [машинного обучения][ml]
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

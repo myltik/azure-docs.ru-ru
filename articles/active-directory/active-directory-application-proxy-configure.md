@@ -31,4 +31,4 @@
 
 [Блог Microsoft Azure](http://azure.microsoft.com/blog/) [Включение служб прокси-сервера приложений](active-directory-application-proxy-enable.md) [Публикация приложений с помощью прокси-сервера приложений](active-directory-application-proxy-publish.md) [Устранение неполадок прокси-сервера приложений](active-directory-application-proxy-troubleshoot.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -2,4 +2,4 @@
 
 Дополнительные сведения об использовании SQL Server в Azure см. в разделе [SQL Server на виртуальных машинах Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

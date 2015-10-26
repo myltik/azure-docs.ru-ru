@@ -91,4 +91,4 @@
 [Создание экземпляра службы API Management]: api-management-get-started.md#create-service-instance
 [Настройка почтовых шаблонов]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

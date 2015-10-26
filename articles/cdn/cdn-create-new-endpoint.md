@@ -1,19 +1,19 @@
 <properties 
-	 pageTitle="Включение сети доставки содержимого (CDN) для Azure"
-	description="В этом разделе показано, как включить сеть доставки содержимого (CDN) для Azure."
-	services="cdn"
-	documentationCenter=""
-	authors="zhangmanling"
-	manager="dwrede"
-	editor=""/>
+	 pageTitle="Включение сети доставки содержимого (CDN) для Azure" 
+	 description="В этом разделе показано, как включить сеть доставки содержимого (CDN) для Azure." 
+	 services="cdn" 
+	 documentationCenter="" 
+	 authors="zhangmanling" 
+	 manager="dwrede" 
+	 editor=""/>
 <tags 
-	 ms.service="cdn"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mazha"/>
+	 ms.service="cdn" 
+	 ms.workload="media" 
+	 ms.tgt_pltfrm="na" 
+	 ms.devlang="na" 
+	 ms.topic="article" 
+	 ms.date="09/01/2015" 
+	 ms.author="mazha"/>
 
 
 
@@ -54,4 +54,4 @@ CDN для вашего источника можно включить на по
 [customorigin]: ./media/cdn-create-new-endpoint/cdn-custom-origin.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

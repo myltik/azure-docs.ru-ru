@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="msStevenPo"
+	manager="StevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="10/07/2015"
 	ms.author="rkarlin"/>
 
 
@@ -81,13 +81,22 @@
 
 
 ## См. также
+У прокси приложения гораздо больше возможностей:
 
-[Использование прокси-сервера приложений для публикации приложений для безопасного удаленного доступа](active-directory-application-proxy-configure.md)
 
-[Включение служб прокси-сервера приложений](active-directory-application-proxy-enable.md)
+- [Опубликуйте приложения с помощью прокси-сервера приложений.](active-directory-application-proxy-publish.md)
+- [Публикация приложений с помощью доменного имени](active-directory-application-proxy-custom-domains.md)
+- [Включение единого входа](active-directory-application-proxy-sso-using-kcd.md)
+- [Включение условного доступа](active-directory-application-proxy-conditional-access.md)
+- [Работа с приложениями, поддерживающими утверждения](active-directory-application-proxy-claims-aware-apps.md)
+
+## Узнайте больше о прокси приложения
+- [Просмотрите нашу справку в Интернете](active-directory-application-proxy-enable.md)
+- [Ознакомьтесь с блогом о прокси приложения](http://blogs.technet.com/b/applicationproxyblog/)
+- [Смотрите наши видео на Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 <!--Image references-->
 [1]: ./media/active-directory-application-proxy-troubleshoot/connectorproperties.png
 [2]: ./media/active-directory-application-proxy-troubleshoot/sessionlog.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

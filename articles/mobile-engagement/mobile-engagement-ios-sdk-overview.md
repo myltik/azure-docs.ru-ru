@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="piyushjo"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr"/>
+	ms.author="MehrdadMzfr" />
 
 #Пакет SDK для Azure Mobile Engagement (iOS)
 
@@ -32,9 +32,12 @@
 
 ##Заметки о выпуске
 
-###3\.1.0 (26.08.2015)
+##3\.2.0 (08.10.2015)
 
--   Исправьте ошибку совместимости iOS 9 с библиотекой стороннего производителя. Она вызывала сбои при отправке результатов опросов, сведений о приложении или дополнительных данных.
+-   В пакете SDK включен Bitcode для работы с **Xcode 7**.
+-   Исправлены ошибки, связанные с уведомлениями в приложении.
+-   Уведомления в приложении стали более надежными при низком уровне заряда аккумулятора и в других подобных ситуациях.
+-   Удалены лишние журналы консоли, созданные библиотекой сторонних производителей.
 
 Информацию о предыдущих версиях см. в [полных заметках о выпуске](mobile-engagement-ios-release-notes.md).
 
@@ -53,10 +56,10 @@
 
 Метод `application:didReceiveRemoteNotification:` необходимо заменить на `application:didReceiveRemoteNotification:fetchCompletionHandler:` в делегате приложения.
 
-"AEPushDelegate.h" — нерекомендуемый интерфейс, поэтому все ссылки на него необходимо удалить. Это, в частности, подразумевает удаление `[[EngagementAgent shared] setPushDelegate:self]` и методов делегата в делегате приложения:
+"AEPushDelegate.h" — нерекомендуемый интерфейс, поэтому все ссылки на него необходимо удалить. Это, в частности, подразумевает удаление `[[EngagementAgent shared] setPushDelegate:self]` и методов делегата из делегата приложения:
 
 	-(void)willRetrieveLaunchMessage;
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

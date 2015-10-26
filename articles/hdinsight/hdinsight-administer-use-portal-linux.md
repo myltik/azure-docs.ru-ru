@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Управление кластерами Hadoop в HDInsight с помощью портала Azure | Microsoft Azure"
-	description="Сведения об управлении службой HDInsight. Создайте кластер HDInsight, откройте интерактивную консоль JavaScript и командную консоль Hadoop."
+	pageTitle="Управление кластерами Hadoop на основе Linux в HDInsight с помощью портала Azure | Microsoft Azure"
+	description="Узнайте, как создавать кластеры HDInsight на основе Linux и управлять ими с помощью портала Azure."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 # Управление кластерами Hadoop в HDInsight с помощью портала предварительной версии Azure
@@ -195,4 +195,4 @@
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

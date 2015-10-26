@@ -3,8 +3,8 @@
    description="В статье описаны распространенные проблемы развертывания ресурсов, созданных с помощью модели развертывания диспетчера ресурсов, и показано, как обнаружить и устранить эти проблемы."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
-   authors="squillace"
-   manager="timlt"
+   authors="tfitzmac"
+   manager="wpickett"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="09/18/2015"
-   ms.author="rasquill"/>
+   ms.date="10/14/2015"
+   ms.author="tomfitz;rasquill"/>
 
 # Устранение неполадок при развертывании групп ресурсов в Azure
 
@@ -26,14 +26,16 @@
 
 В этом разделе также описываются решения стандартных проблем, с которыми сталкиваются пользователи.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс устранения неполадок для групп ресурсов с помощью модели развертывания диспетчера ресурсов. Создать группы ресурсов с классической модели развертывания невозможно.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания. Создать группы ресурсов с классической модели развертывания невозможно.
 
 
 ## Устранение неполадок с помощью PowerShell
 
-Общее состояние развертывания можно получить с помощью команды **Get-AzureResourceGroupDeployment**. В следующем примере развертывание завершилось неудачно.
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
 
-    PS C:\> Get-AzureResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
+Общее состояние развертывания можно получить с помощью команды **Get-AzureRmResourceGroupDeployment**. В следующем примере развертывание завершилось неудачно.
+
+    PS C:\> Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName ExampleDeployment
 
     DeploymentName    : ExampleDeployment
     ResourceGroupName : ExampleGroup
@@ -52,9 +54,9 @@
 
     Outputs           :
 
-Каждое развертывание обычно состоит из нескольких операций, каждая из которых представляет шаг процесса развертывания. Чтобы определить, что пошло не так при развертывании, обычно требуется просмотреть сведения об операциях развертывания. Состояние операций можно просмотреть с помощью команды **Get AzureResourceGroupDeploymentOperation**.
+Каждое развертывание обычно состоит из нескольких операций, каждая из которых представляет шаг процесса развертывания. Чтобы определить, что пошло не так при развертывании, обычно требуется просмотреть сведения об операциях развертывания. Состояние операций можно просмотреть с помощью команды **Get AzureRmResourceGroupDeploymentOperation**.
 
-    PS C:\> Get-AzureResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup
+    PS C:\> Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup
     Id                        OperationId          Properties         
     -----------               ----------           -------------
     /subscriptions/xxxxx...   347A111792B648D8     @{ProvisioningState=Failed; Timestam...
@@ -64,7 +66,7 @@
 
 Сообщение о состоянии можно получить с помощью следующей команды:
 
-    PS C:\> (Get-AzureResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties.StatusMessage
+    PS C:\> (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName ExampleDeployment -ResourceGroupName ExampleGroup).Properties.StatusMessage
 
     Code       : Conflict
     Message    : Website with given name mysite already exists.
@@ -157,7 +159,7 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 Если срок действия учетных данных Azure истек или вы не вошли в учетную запись Azure, развертывание завершится неудачно. Срок действия учетных данных может истечь, если сеанс открыт слишком долго. Обновить учетные данные можно следующими способами:
 
-- В PowerShell используйте командлет **Add-AzureAccount**. Учетных данных в файле параметров публикации недостаточно для командлетов в модуле AzureResourceManager.
+- В PowerShell используйте командлет **Login-AzureRmAccount** (или **Add-AzureAccount** для версий PowerShell, предшествующих предварительной версии 1.0). Учетных данных в файле параметров публикации недостаточно для командлетов в модуле AzureResourceManager.
 - В интерфейсе командной строки Azure используйте команду **azure login**. Если возникают ошибки проверки подлинности, убедитесь, что вы [правильно настроили CLI Azure](../xplat-cli-connect.md).
 
 ## Проверка формата шаблонов и параметров
@@ -166,9 +168,9 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 ### PowerShell
 
-В PowerShell используйте командлет **Test-AzureResourceGroupTemplate**.
+В PowerShell используйте команду **Test-AzureRmResourceGroupDeployment** (или **Test-AzureResourceGroupTemplate** для версий PowerShell, предшествующих предварительной версии 1.0).
 
-    PS C:\> Test-AzureResourceGroupTemplate -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
+    PS C:\> Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile c:\Azure\Templates\azuredeploy.json -TemplateParameterFile c:\Azure\Templates\azuredeploy.parameters.json
     VERBOSE: 12:55:32 PM - Template is valid.
 
 ### Инфраструктура CLI Azure
@@ -198,7 +200,7 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 ### PowerShell
 
-В PowerShell полный список ресурсов и расположений можно просмотреть с помощью команды **Get-AzureLocation**.
+Для версий PowerShell, предшествующих предварительной версии 1.0, полный список ресурсов и расположений можно просмотреть с помощью команды **Get-AzureLocation**.
 
     PS C:\> Get-AzureLocation
 
@@ -219,6 +221,33 @@ API-Интерфейс REST диспетчера ресурсов содержи
                                                                 North Europe, West Europe, East Asia, Southeast Asia,
                                                                 Japan East, Japan West
 
+В предварительной версии PowerShell 1.0 для получения списка поддерживаемых расположений используйте команду **Get AzureRmResourceProvider**.
+
+    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
+
+    ProviderNamespace RegistrationState ResourceTypes               Locations
+    ----------------- ----------------- -------------               ---------
+    Microsoft.Web     Registered        {sites/extensions}          {Brazil South, ...
+    Microsoft.Web     Registered        {sites/slots/extensions}    {Brazil South, ...
+    Microsoft.Web     Registered        {sites/instances}           {Brazil South, ...
+    ...
+
+Определенный тип ресурса можно указать с помощью:
+
+    PS C:\> ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+
+    Brazil South
+    East Asia
+    East US
+    Japan East
+    Japan West
+    North Central US
+    North Europe
+    South Central US
+    West Europe
+    West US
+    Southeast Asia
+
 ### Инфраструктура CLI Azure
 
 В интерфейсе командной строки Azure можно использовать команду **azure location list**. Так как список расположений может быть длинным и включать множество поставщиков, с помощью предлагаемых средств можно изучить поставщики и расположения, прежде чем использовать расположение, которое еще не доступно. Следующий сценарий использует средство **jq** для поиска расположений, в которых доступен поставщик ресурсов для виртуальных машин Azure.
@@ -231,7 +260,7 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 ### Интерфейс REST API
         
-Для API-интерфейса REST см. [Получение сведений о поставщике ресурсов](https://msdn.microsoft.com/library/azure/dn790534.aspx).
+Для API REST см. [Получение сведений о поставщике ресурсов](https://msdn.microsoft.com/library/azure/dn790534.aspx).
 
 ## Создание уникальных имен ресурсов
 
@@ -239,13 +268,13 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 ## Проблемы с проверкой подлинности, подпиской, ролями и квотами
 
-Успешному развертыванию могут препятствовать одна или несколько из проблем, касающихся проверки подлинности, авторизации и Azure Active Directory. Независимо от того, как вы управляете группами ресурсов Azure, удостоверение, используемое для входа в учетную запись, должно быть объектом Azure Active Directory, субъектом-службой, также называемым рабочей или учебной учетной записью, или идентификатором организации.
+Успешному развертыванию могут препятствовать одна или несколько из проблем, касающихся проверки подлинности, авторизации и Azure Active Directory. Независимо от того, как вы управляете группами ресурсов Azure, удостоверение, используемое для входа в учетную запись, должно быть объектом Azure Active Directory. Вы можете использовать рабочую или учебную учетную запись, которую создали или которая была вам назначена, либо создать субъект-службу для приложений.
 
 Но Azure Active Directory позволяет вам или вашему администратору точно управлять тем, какие удостоверения могут получать доступ к тем или иным ресурсам. Если происходит сбой развертывания, проверьте запросы на наличие проблем с проверкой подлинности или авторизацией, а также изучите журналы развертывания для своей группы ресурсов. Может оказаться, что, хотя у вас есть разрешения для некоторых ресурсов, для других ресурсов их нет. Используя CLI Azure, вы можете проверить клиенты и пользователей Azure Active Directory с помощью команд `azure ad`. (Полный список команд интерфейса командной строки Azure см. в статье [Использование интерфейса командной строки Azure для Mac, Linux и Windows с диспетчером ресурсов Azure](azure-cli-arm-commands.md).)
 
 Кроме того, могут возникнуть проблемы при достижении развертыванием квоты по умолчанию, которая может задаваться для группы ресурсов, подписок, учетных записей, а также других областей. Убедитесь, что у вас достаточно ресурсов для надлежащего развертывания. Полные сведения о квотах см. в статье [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md).
 
-Чтобы проверить квоты ядер своей собственной подписки, воспользуйтесь командой `azure vm list-usage` в командной строке Azure и командлетом **Get-AzureVMUsage** в PowerShell. Ниже приведена команда в Azure CLI и показано, что квота ядер для бесплатно пробной учетной записи равна 4:
+Чтобы проверить квоты ядер своей подписки, воспользуйтесь командой `azure vm list-usage` в командной строке Azure и командлетом **Get-AzureVMUsage** в PowerShell. Ниже приведена команда в Azure CLI и показано, что квота ядер для бесплатно пробной учетной записи равна 4:
 
     azure vm list-usage
     info:    Executing command vm list-usage
@@ -272,7 +301,7 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 ### PowerShell
 
-Чтобы получить список поставщиков ресурсов и состояние регистрации, воспользуйтесь командлетом **Get-AzureProvider**.
+Чтобы получить список поставщиков ресурсов и состояние регистрации, воспользуйтесь командлетом **Get-AzureProvider** (для версий PowerShell, предшествующих предварительной версии 1.0).
 
     PS C:\> Get-AzureProvider
 
@@ -283,7 +312,19 @@ API-Интерфейс REST диспетчера ресурсов содержи
     microsoft.cache                         Registered                              {Redis, checkNameAvailability, opera...
     ...
 
-Чтобы зарегистрировать поставщика, воспользуйтесь командлетом **Register-AzureProvider**.
+Чтобы зарегистрировать поставщика, воспользуйтесь командой **Register-AzureProvider**.
+
+В предварительной версии PowerShell 1.0 используйте команду **Get AzureRmResourceProvider**.
+
+    PS C:\> Get-AzureRmResourceProvider -ListAvailable
+
+    ProviderNamespace               RegistrationState ResourceTypes
+    -----------------               ----------------- -------------
+    Microsoft.ApiManagement         Unregistered      {service, validateServiceName, checkServiceNameAvailability}
+    Microsoft.AppService            Registered        {apiapps, appIdentities, gateways, deploymenttemplates...}
+    Microsoft.Batch                 Registered        {batchAccounts}
+
+Чтобы зарегистрировать поставщика, воспользуйтесь командой **Register-AzureRmResourceProvider**.
 
 ### Инфраструктура CLI Azure
 
@@ -375,4 +416,4 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

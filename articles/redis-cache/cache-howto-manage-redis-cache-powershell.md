@@ -1,20 +1,20 @@
 <properties
  pageTitle="Управление кэшем Redis для Azure с использованием Azure PowerShell | Microsoft Azure"
-	description="Узнайте, как осуществлять администрирование кэша Redis для Azure с помощью Azure PowerShell."
-	services="redis-cache"
-	documentationCenter=""
-	authors="Rick-Anderson"
-	manager="wpickett"
-	editor="v-lincan"/>
+ description="Узнайте, как осуществлять администрирование кэша Redis для Azure с помощью Azure PowerShell."
+ services="redis-cache"
+   documentationCenter=""
+   authors="Rick-Anderson"
+   manager="wpickett"
+   editor="v-lincan"/>
 
 <tags
    ms.service="cache"
-	ms.devlang="all"
-	ms.topic="article"
-	ms.tgt_pltfrm="cache-redis"
-	ms.workload="multiple"
-	ms.date="08/26/2015"
-	ms.author="riande"/>
+   ms.devlang="all"
+   ms.topic="article"
+   ms.tgt_pltfrm="cache-redis"
+   ms.workload="multiple"
+   ms.date="08/26/2015"
+   ms.author="riande"/>
 
 # Управление кэшем Redis для Azure с использованием Azure PowerShell
 
@@ -95,4 +95,4 @@
 - [Блог Windows PowerShell](http://blogs.msdn.com/powershell): узнайте о новых возможностях в Windows PowerShell.
 - [Блог "Hey, Scripting Блог](http://blogs.technet.com/b/heyscriptingguy/): реальные советы и рекомендации от сообщества Windows PowerShell.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

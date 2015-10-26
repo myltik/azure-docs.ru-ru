@@ -102,10 +102,10 @@ Visual Studio Application Insights позволяет отслеживать д�
 
 * [Использование веб-тестов](app-insights-monitor-web-app-availability.md) для мониторинга доступности сайта.
 
-* [Использование Application Insights](app-insights-get-started.md) для других типов приложений.
+* [Использование Application Insights](app-insights-overview.md) для других типов приложений.
 
 
 
 <!--Link references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

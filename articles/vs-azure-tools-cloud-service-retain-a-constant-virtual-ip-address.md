@@ -45,4 +45,4 @@
 
 Дополнительные сведения о публикации в Azure в среде Visual Studio см. в статье [Мастер публикации приложений Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

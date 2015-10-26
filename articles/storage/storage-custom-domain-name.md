@@ -117,4 +117,4 @@ BLOB-объект|**URL-адрес по умолчанию:** http://mystorageac
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">Сопоставление содержимого CDN с личным доменом</a>
  
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

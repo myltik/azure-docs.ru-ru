@@ -40,4 +40,4 @@
 
 Общие сведения о лицензировании Azure AD и рекомендации по работе с этой службой см. в статье [Общие сведения о лицензировании Azure Active Directory](active-directory-licensing-what-is.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

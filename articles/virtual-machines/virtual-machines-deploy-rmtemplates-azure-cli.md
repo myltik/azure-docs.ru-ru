@@ -21,7 +21,7 @@
 
 В этой статье рассказывается, как c помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure выполнять указанные ниже стандартные задачи по развертыванию виртуальных машин Azure и управлению ими. Дополнительные шаблоны см. на странице [Шаблоны быстрого запуска Azure](http://azure.microsoft.com/documentation/templates/) и в статье [Создание платформ приложений с помощью шаблонов](virtual-machines-app-frameworks.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс развертывания виртуальной машины и управления ей с помощью шаблонов в модели развертывания на основе диспетчера ресурсов. Вы не можете использовать шаблоны в классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания. Вы не можете использовать шаблоны в классической модели развертывания.
 
 
 - [Быстрое создание виртуальной машины в Azure](#quick-create-a-vm-in-azure)
@@ -1306,4 +1306,4 @@
 
 Дополнительные шаблоны см. на странице [Шаблоны быстрого запуска Azure](http://azure.microsoft.com/documentation/templates/) и в статье [Создание платформ приложений с помощью шаблонов](virtual-machines-app-frameworks.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

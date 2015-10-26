@@ -91,4 +91,4 @@ None | <ul><li>Удалить файл</li><li>Получить файл</li><li
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

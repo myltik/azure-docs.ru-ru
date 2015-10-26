@@ -115,4 +115,4 @@
 - Узнайте об [общедоступных IP-адресах уровня экземпляра (ILPIP)](../virtual-networks-instance-level-public-ip).
 - Ознакомьтесь с [REST API зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

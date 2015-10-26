@@ -107,4 +107,4 @@
 
 - [Использование связей при создании графических модулей](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

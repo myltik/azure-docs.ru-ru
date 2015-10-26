@@ -20,7 +20,8 @@
 
 #Изменение буквы временного диска Windows на виртуальной машине, созданной на основе классической модели развертывания
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 Если вам нужно использовать диск D для хранения данных, следуйте приведенным указаниям, чтобы использовать другой диск в качестве временного. Никогда не используйте временный диск для хранения данных, которые нужно сохранить.
 
@@ -74,4 +75,4 @@
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

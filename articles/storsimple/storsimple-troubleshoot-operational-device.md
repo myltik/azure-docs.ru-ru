@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Устранение неполадок в работе развернутого устройства StorSimple | Microsoft Azure"
-	description="Описание способов диагностики и устранения ошибок, возникающих в работе развернутого устройства StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Описание способов диагностики и устранения ошибок, возникающих в работе развернутого устройства StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="v-sharos" />
 
 # Устранение неполадок в работающем устройстве StorSimple
 
@@ -67,4 +67,4 @@
 [1]: https://technet.microsoft.com/ru-RU/%5Clibrary/Dn688135(v=WPS.630).aspx
 [2]: https://technet.microsoft.com/ru-RU/%5Clibrary/Dn715782(v=WPS.630).aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

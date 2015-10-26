@@ -13,19 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="10/13/2015"
    ms.author="ryanwi"/>
 
 # Управление службами Service Fabric
 Эта страница содержит ссылки на обзорные, концептуальные и справочные статьи, которые помогут вам глубже изучить управление службами Service Fabric.
 
-- [Жизненный цикл приложения](service-fabric-application-lifecycle.md)
-- [Визуализация кластера с помощью обозревателя Service Fabric](service-fabric-visualizing-your-cluster.md)
-
 ## Упаковка, развертывание и удаление приложения
 В следующих разделах рассматривается модель приложений Service Fabric, а также создание пакетов приложений и их развертывание.
 
 - [Модель приложения](service-fabric-application-model.md)
+- [Жизненный цикл приложения](service-fabric-application-lifecycle.md)
 - [Ресурсы манифеста службы](service-fabric-service-manifest-resources.md)
 - [Создание пакета приложения](service-fabric-application-model.md)
 - [Развертывание и удаление приложения](service-fabric-deploy-remove-applications.md)
@@ -39,7 +37,7 @@
 - [Параметры обновления](service-fabric-application-upgrade-parameters.md)
 - [Дополнительные разделы](service-fabric-application-upgrade-advanced.md)
 - [Устранение неполадок при обновлении приложения](service-fabric-application-upgrade-troubleshooting.md)
-- [Пошаговое руководство по обновлению приложений](service-fabric-application-upgrade-tutorial.md)
+- [Пошаговое руководство по обновлению приложения](service-fabric-application-upgrade-tutorial.md)
 - [Обновление приложения Service Fabric: сериализация данных](service-fabric-application-upgrade-data-serialization.md)
 
 ## Масштабирование и разделение служб приложений
@@ -48,4 +46,7 @@
 - [Разделение служб Service Fabric](service-fabric-concepts-partitioning.md)
 - [Масштабирование приложений Service Fabric](service-fabric-concepts-scalability.md)
 
-<!---HONumber=Sept15_HO4-->
+## Управление кластером
+- [Визуализация кластера с помощью обозревателя Service Fabric](service-fabric-visualizing-your-cluster.md)
+
+<!---HONumber=Oct15_HO3-->

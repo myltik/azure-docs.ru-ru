@@ -392,4 +392,4 @@
 
 Узнайте, как [восстановить том StorSimple из набора архивации](storsimple-restore-from-backup-set.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

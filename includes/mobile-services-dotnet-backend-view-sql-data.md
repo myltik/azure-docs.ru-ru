@@ -13,4 +13,4 @@
 
 	Обратите внимание: таблица содержит столбцы Id, \_\_createdAt, \_\_updatedAt и \_\_version. Эти столбцы поддерживают синхронизацию автономных данных и реализованы в базовом классе [EntityData](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx). Дополнительные сведения см. в разделе [Приступая к работе с синхронизацией автономных данных].
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

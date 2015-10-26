@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Фабрика данных Azure — терминология"
-	description="В этой статье разъясняется терминология, используемая при создании фабрик данных с помощью службы фабрики данных Azure"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Фабрика данных Azure — терминология" 
+	description="В этой статье разъясняется терминология, используемая при создании фабрик данных с помощью службы фабрики данных Azure" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 #Фабрика данных Azure — терминология
@@ -110,4 +110,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

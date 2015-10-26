@@ -97,4 +97,4 @@
 [созданию приложения логики]: app-service-logic-create-a-logic-app.md
 [Определение API OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

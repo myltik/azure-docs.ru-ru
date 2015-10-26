@@ -183,4 +183,4 @@ Azure PowerShell — это модуль, предоставляющий ком�
 
 Вопросы и замечания по этому сценарию вы можете оставить на [форуме службы Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

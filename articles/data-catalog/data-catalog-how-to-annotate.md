@@ -1,20 +1,20 @@
 <properties
    pageTitle="Создание заметок к источникам данных"
-	description="В статье описывается создание заметок к ресурсам данных в каталоге данных Azure, включая добавление понятных имен, тегов, описаний и экспертных мнений."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="В статье описывается создание заметок к ресурсам данных в каталоге данных Azure, включая добавление понятных имен, тегов, описаний и экспертных мнений."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/17/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="08/17/2015"
+   ms.author="maroche"/>
 
 
 # Создание заметок к источникам данных
@@ -57,4 +57,4 @@
 ## Сводка
 Регистрация источников данных в **каталоге данных Azure** позволяет быстрее обнаруживать эти данные благодаря тому, что из источника в службу каталога копируются структурные и описательные метаданные. После регистрации источника данных пользователи могут оставлять заметки, упрощающие обнаружение и понимание информации, представленной на портале **каталога данных Azure**.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -50,7 +50,7 @@
 
 	![sendgrid-connection-info][sendgrid-connection-info]
 
-	Чтобы задать параметры доставки электронной почты, нажмите кнопку **Управление**. После этого откроется веб-интерфейс Sendgrid.com, где вы сможете войти в систему и открыть панель управления SendGrid.
+	Чтобы задать параметры доставки электронной почты, нажмите кнопку **Управление**. Откроется панель управления SendGrid.
 
 	![sendgrid-control-panel][sendgrid-control-panel]
 
@@ -76,4 +76,4 @@
 [процесс подготовки SendGrid к работе]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [всем интерфейсам API]: https://sendgrid.com/docs/API_Reference/index.html
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

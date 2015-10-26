@@ -53,8 +53,8 @@
 <!--Image references-->
 
 <!--Article references-->
-[документации по миграции]: https://azure.microsoft.com/RU-RU/documentation/articles/sql-data-warehouse-overview-migrate/
-[разработки]: https://azure.microsoft.com/RU-RU/documentation/articles/sql-data-warehouse-overview-develop/
+[документации по миграции]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-migrate/
+[разработки]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-develop/
 [здесь]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

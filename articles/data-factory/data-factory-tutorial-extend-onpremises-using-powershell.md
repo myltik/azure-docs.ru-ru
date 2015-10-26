@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Скопируйте выходные данные в базу данных локального сервера SQL Server (в Azure PowerShell)"
+	pageTitle="Скопируйте выходные данные в базу данных локального сервера SQL Server (в Azure PowerShell)" 
 	description="Данное пошаговое руководство представляет собой расширенную версию учебника. В нем используется Azure PowerShell, за счет чего конвейер копирует выходные данные в базу данных SQL Server."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 
@@ -117,10 +117,10 @@
 ### Создание локальной логической таблицы
 
 1.	В **Azure PowerShell** перейдите к папке **C:\\ADFWalkthrough\\OnPremises**. 
-2.	Воспользуйтесь командлетом **New-AzureDataFactoryTable**, чтобы создать таблицы, как показано для **MarketingCampaignEffectivenessOnPremSQLTable.json**.
+2.	Воспользуйтесь командлетом **New-AzureDataFactoryDataset**, чтобы создать таблицы для файла **MarketingCampaignEffectivenessOnPremSQLTable.json**, как показано ниже.
 
 			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
+		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### Создание конвейера для копирования данных из большого двоичного объекта Azure на сервер SQL Server
 
@@ -171,4 +171,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

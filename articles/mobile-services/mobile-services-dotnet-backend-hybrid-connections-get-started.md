@@ -134,4 +134,4 @@
 [портале управления Azure]: http://manage.windowsazure.com
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

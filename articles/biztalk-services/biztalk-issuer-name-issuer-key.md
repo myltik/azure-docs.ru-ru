@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Имя издателя и ключ издателя в службах BizTalk | Microsoft Azure"
-	description="Узнайте, как извлечь имя и ключ издателя для Service Bus или управления доступом (ACS) в службах BizTalk. MABS, WABS"
-	services="biztalk-services"
-	documentationCenter=""
-	authors="MandiOhlinger"
-	manager="dwrede"
+	pageTitle="Имя издателя и ключ издателя в службах BizTalk | Microsoft Azure" 
+	description="Узнайте, как извлечь имя и ключ издателя для Service Bus или управления доступом (ACS) в службах BizTalk. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="biztalk-services"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="mandia"/>
 
 
@@ -72,8 +72,8 @@
 3. Выберите пространство имен. На панели задач выберите **Сведения о подключении**. Появятся поля **Издатель по умолчанию** (имя издателя) и **Ключ по умолчанию** (ключ издателя). Эти значения можно скопировать.  
 
 Итого:  
-имя издателя = издатель по умолчанию  
-ключ издателя = ключ по умолчанию
+имя издателя = издатель по умолчанию;  
+ключ издателя = ключ по умолчанию.
 
 ## Далее
 Дополнительные разделы по службам BizTalk в Azure:
@@ -94,4 +94,4 @@
 - [Службы BizTalk: регулирование](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

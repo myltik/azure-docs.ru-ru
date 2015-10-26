@@ -168,4 +168,4 @@ Windows PowerShell использует [привилегированные пе
 - [Отслеживание задания Runbook](automation-runbook-execution.md)
 - [Дочерние Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

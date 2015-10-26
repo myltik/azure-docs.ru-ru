@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Создание и предварительная настройка виртуальной машины | Microsoft Azure"
-	description="Создание и предварительная настройка виртуальных машин Windows с использованием классической модели развертывания и PowerShell"
+	pageTitle="Создание виртуальной машины Windows с помощью PowerShell | Microsoft Azure"
+	description="Создание виртуальных машин Windows с использованием Azure PowerShell и классической модели развертывания."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,17 +14,21 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="10/13/2015"
 	ms.author="cynthn"/>
 
-# Создание и предварительная настройка виртуальной машины Windows с использованием классической модели развертывания и PowerShell
+# Создание виртуальных машин Windows с использованием PowerShell и классической модели развертывания 
 
 > [AZURE.SELECTOR]
-- [Portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [Portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
+- [Powershell - Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [PowerShell - Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания. Для создания ресурсов также можно использовать [модель развертывания на основе диспетчера ресурсов](virtual-machines-deploy-rmtemplates-powershell.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md).
+
 
 Ниже показано, как настроить набор команд Azure PowerShell для создания и предварительной настройки виртуальной машины Azure под управлением Windows, используя подход на базе стандартных блоков. Этот процесс можно использовать для быстрого создания набора команд для новой виртуальной машины под управлением Windows и расширения существующего развертывания либо создания нескольких наборов команд, позволяющих быстро создать настраиваемую среду для разработки/тестирования или для ИТ-специалистов.
 
@@ -32,9 +36,6 @@
 
 Дополнительные сведения о настройке виртуальных машин под управлением Linux см. в разделе [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Linux](virtual-machines-ps-create-preconfigure-linux-vms.md).
 
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
-
-- [Создание и предварительная настройка виртуальной машины Windows с помощью диспетчера ресурсов и Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
 ## Шаг 1. Установка Azure PowerShell
 
@@ -53,11 +54,7 @@
 
 ## Шаг 3. Определение ImageFamily
 
-Затем необходимо определить значение ImageFamily или Label для определенного образа, соответствующего создаваемой виртуальной машине Azure. Ниже приведены некоторые примеры из коллекции на портале управления Azure.
-
-![](./media/virtual-machines-ps-create-preconfigure-windows-vms/PSPreconfigWindowsVMs_1.png)
-
-Список доступных значений ImageFamily можно получить с помощью данной команды.
+Затем необходимо определить значение ImageFamily или Label для определенного образа, соответствующего создаваемой виртуальной машине Azure. Список доступных значений ImageFamily можно получить с помощью данной команды.
 
 	Get-AzureVMImage | select ImageFamily -Unique
 
@@ -268,8 +265,4 @@
 
 [Установка и настройка Azure PowerShell](../install-configure-powershell.md)
 
-[Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
-
-[Создание и предварительная настройка виртуальной машины Windows с помощью диспетчера ресурсов и Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
-
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

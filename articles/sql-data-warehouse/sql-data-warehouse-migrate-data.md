@@ -194,4 +194,4 @@ PolyBase также поддерживает так называемую фун�
 [Адаптер загрузки данных ADO.NET]: https://msdn.microsoft.com/ru-RU/library/bb934041.aspx
 [документации по службам SSIS]: https://msdn.microsoft.com/ru-RU/library/ms141026.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

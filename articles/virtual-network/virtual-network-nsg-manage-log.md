@@ -114,4 +114,4 @@
 - Запись блога [Визуализация журналов аудита Azure с помощью Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx).
 - Запись блога [Просмотр и анализ журналов аудита Azure с помощью Power BI и других средств](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

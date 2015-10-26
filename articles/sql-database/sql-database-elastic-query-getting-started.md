@@ -1,6 +1,8 @@
 <properties
+	title="Getting started with elastic database query"
 	pageTitle="Приступая к работе с запросом к эластичной базе данных"
 	description="как использовать запрос к эластичной базе данных"
+	metaKeywords="azure sql database elastic queries"
 	services="sql-database"
 	documentationCenter=""  
 	manager="jeffreyg"
@@ -142,4 +144,4 @@
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

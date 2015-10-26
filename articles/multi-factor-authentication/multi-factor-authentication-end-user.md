@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Что для меня означает Azure Multi-Factor Authentication"
-	description="Приведенные на этой странице сведения о многофакторной проверке подлинности в службе Azure помогут пользователям начать работу с Azure Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Что для меня означает Azure Multi-Factor Authentication" 
+	description="Приведенные на этой странице сведения о многофакторной проверке подлинности в службе Azure помогут пользователям начать работу с Azure Multi-Factor Authentication." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 
@@ -45,8 +45,8 @@
 [Процесс входа](multi-factor-authentication-end-user-signin.md)|Описание входа в систему с помощью различных методов, включая использование телефона или приложения.
 [Изменение параметров](multi-factor-authentication-end-user-manage-settings.md)|Описание способа изменения параметров, включая номер телефона или предпочтительный метод регистрации.
 [Справка о паролях приложений](multi-factor-authentication-end-user-app-passwords.md)| Информация о создании и использовании паролей приложений.
-[Использование мобильного приложения](multi-factor-authentication-azure-authenticator.md)|Приложение Azure Authenticator доступно для [Windows Phone](http://www.windowsphone.com/ru-ru/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) и [iOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+[Использование мобильного приложения](multi-factor-authentication-azure-authenticator.md)|Приложение Azure Authenticator доступно для [Windows Phone](http://www.windowsphone.com/ru-RU/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) и [iOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

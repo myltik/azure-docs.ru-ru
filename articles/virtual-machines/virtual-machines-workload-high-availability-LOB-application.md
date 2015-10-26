@@ -19,7 +19,8 @@
 
 # Службы инфраструктуры Azure: высокодоступное бизнес-приложение
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью модели развертывания, которая использует менеджер ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
+
 
 Настройте свое первое или очередное специализированное веб-приложение для интрасети в Microsoft Azure и получите такие преимущества, как простота настройки и возможность быстрого развертывания приложения для увеличения его емкости.
  
@@ -105,4 +106,4 @@
 
 [Рабочая нагрузка служб инфраструктуры Azure: ферма SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

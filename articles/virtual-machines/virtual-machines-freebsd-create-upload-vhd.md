@@ -21,7 +21,8 @@
 
 В этой статье показано, как создать и передать виртуальный жесткий диск с операционной системой FreeBSD, чтобы использовать его в качестве образа для создания виртуальной машины в Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 ##Предварительные требования##
 В данной статье предполагается, что у вас есть следующие элементы:
@@ -208,4 +209,4 @@
 
 	![образ FreeBSD в Azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

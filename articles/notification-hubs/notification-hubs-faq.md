@@ -130,4 +130,4 @@
 [Центр уведомлений — пример метрик]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Экспорт и импорт регистраций]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

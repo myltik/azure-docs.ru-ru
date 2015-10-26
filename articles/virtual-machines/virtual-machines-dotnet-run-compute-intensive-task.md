@@ -21,7 +21,8 @@
 
 В Azure для обработки ресурсоемких задач можно использовать виртуальную машину. Например, виртуальная машина может обрабатывать задачи и предоставлять результаты на клиентские компьютеры или в мобильные приложения. После изучения этого учебника вы будете иметь представление о создании виртуальной машины с выполняемым ресурсоемким приложением .NET, за работой которого может следить другое приложение .NET.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 В этом учебнике предполагается, что вы знаете, как создавать консольные приложения .NET. Знания о платформе Azure не требуются.
 
@@ -549,4 +550,4 @@
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

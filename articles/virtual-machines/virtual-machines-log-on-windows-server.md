@@ -26,7 +26,8 @@
 
 Хотите подключиться к виртуальной машине Linux? См. статью [Как войти в виртуальную машину под управлением Linux](virtual-machines-linux-how-to-log-on.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается управление ресурсами с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 ## Видеоруководство
 
@@ -60,4 +61,4 @@
 
 Если эти рекомендации не помогли устранить проблему или они вам не подходят, см. статью [Устранение неполадок с подключением к удаленному рабочему столу виртуальной машины Windows в службе Azure](virtual-machines-troubleshoot-remote-desktop-connections.md). В ней описывается процесс диагностики и решения распространенных проблем.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

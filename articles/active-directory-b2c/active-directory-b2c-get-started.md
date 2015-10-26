@@ -70,4 +70,4 @@
 
 Перейдите к этапу [регистрации приложения с помощью Azure AD B2C и создания приложения быстрого запуска](active-directory-b2c-app-registration.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

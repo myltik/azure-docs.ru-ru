@@ -7,4 +7,4 @@
 | [Вызов REST API Office 365 из приложения](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) | [Защита веб-API NodeJS](active-directory-v2-devquickstarts-node-api.md) | Серверные управляющие программы (ожидаются в ближайшее время) |
 | | [Вызов REST API Office 365 из Интернета](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) |
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

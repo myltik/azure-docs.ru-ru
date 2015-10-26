@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="swkrish"/>
 
 # Предварительная версия Azure Active Directory B2C: вспомогательное средство, используемое для демонстрации настройки пользовательского интерфейса страницы
@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-## Получение клиента B2C
+## Получение клиента Azure AD B2C
 
 Прежде чем выполнять какую-либо настройку, необходимо [получить клиент Azure AD B2C](active-directory-b2c-get-started.md) (если у вас еще нет его).
 
@@ -90,4 +90,4 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
         
 Теперь еще раз запустите политику с помощью кнопки **Запустить** или вашего приложения. Результат выглядит практически так же, поскольку в обоих случаях использовался один и тот же образец HTML- и CSS-кода. Однако теперь политики ссылаются на наш собственный экземпляр хранилища больших двоичных объектов Azure, а значит, вы можете спокойно редактировать и перезагружать файлы. Дополнительные сведения о настройке HTML- и CSS-кода см. в [статье о настройке основного пользовательского интерфейса](active-directory-b2c-reference-ui-customization.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

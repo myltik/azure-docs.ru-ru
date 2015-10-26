@@ -36,4 +36,4 @@
 Дополнительные сведения см. в статье [Архитектура балансировщика ресурсов](service-fabric-resource-balancer-architecture.md).
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

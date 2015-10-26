@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # Автоматическое масштабирование вычислительных ресурсов Azure в кластере пакета HPC согласно рабочей нагрузке кластера
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс управления ресурсом, созданным с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 Если вы развертываете в кластере пакета HPC «расширительные» узлы Azure или создаете кластер пакета HPC на виртуальных машинах Azure, вам может потребоваться способ автоматического увеличения или сжатия вычислительных ресурсов Azure в соответствии с текущей рабочей нагрузкой заданий и задач в кластере. Это позволяет более эффективно использовать ресурсы Azure и управлять затратами на них. Чтобы сделать это, используйте сценарий PowerShell HPC **AzureAutoGrowShrink.ps1**, который устанавливается вместе с пакетом HPC.
 
@@ -101,4 +102,4 @@ AzureAutoGrowShrink.ps1
 .\AzureAutoGrowShrink.ps1 -NodeTemplates 'Default ComputeNode Template' -JobTemplates 'Default' -NodeType ComputeNodes -NumOfActiveQueuedTasksPerNodeToGrow 10 -NumOfActiveQueuedTasksToGrowThreshold 15 -NumOfInitialNodesToGrow 5 -GrowCheckIntervalMins 1 -ShrinkCheckIntervalMins 1 -ShrinkCheckIdleTimes 10 -ArgFile 'IaaSVMComputeNodes_Arg.xml' -LogFilePrefix 'IaaSVMComputeNodes_log'
 ```
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

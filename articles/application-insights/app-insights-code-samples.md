@@ -19,7 +19,7 @@
 
 *Доступна только предварительная версия Application Insights.*
 
-Здесь собраны примеры кода, которые показывают, как использовать [Visual Studio Application Insights](app-insights-get-started.md).
+Здесь собраны примеры кода, которые показывают, как использовать [Visual Studio Application Insights](app-insights-overview.md).
 
 ## Лабораторные работы с пакетом SDK
 
@@ -37,7 +37,7 @@
 * [Экспорт в Power BI](app-insights-export-power-bi.md) 
 * [Анализ экспортированных данных с помощью рабочей роли](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Экспорт в SQL с использованием Stream Analytics](app-insights-code-sample-export-sql-stream-analytics.md)
-* [Включение телеметрии для Microsoft CRM](app-insights-sample-mscrm.md)
+* [Включение телеметрии для Microsoft Dynamics CRM](app-insights-sample-mscrm.md)
 
 
 ## Автоматизация задач
@@ -53,4 +53,4 @@
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

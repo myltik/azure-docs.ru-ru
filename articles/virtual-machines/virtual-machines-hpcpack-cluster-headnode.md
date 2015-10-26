@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # Создание головного узла кластера пакета HPC на виртуальной машине Azure с помощью образа Marketplace
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается создание ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 В статье показано, как использовать [образ виртуальной машины пакета Microsoft HPC](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) из Azure Marketplace для создания головного узла кластера HPC Windows в Azure в классической модели развертывания (управление службами). Головной узел требуется присоединить к домену Active Directory в виртуальной сети Azure. Этот головной узел можно использовать для экспериментального развертывания пакета HPC в Azure и добавления вычислительных ресурсов в кластер для выполнения рабочих нагрузок HPC.
 
@@ -101,4 +102,4 @@ ms.service="virtual-machines"
 <!--Image references-->
 [headnode]: ./media/virtual-machines-hpcpack-cluster-headnode/headnode.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

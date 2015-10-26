@@ -1,20 +1,20 @@
 <properties
    pageTitle="Рекомендации по производительности для диспетчера трафика Azure | Microsoft Azure"
-	description="Общие сведения о производительности диспетчера трафика и о проверке производительности веб-сайта при использовании диспетчера трафика"
-	services="traffic-manager"
-	documentationCenter=""
-	authors="kwill-MSFT"
-	manager="adinah"
-	editor="joaoma"/>
+   description="Общие сведения о производительности диспетчера трафика и о проверке производительности веб-сайта при использовании диспетчера трафика"
+   services="traffic-manager"
+   documentationCenter=""
+   authors="kwill-MSFT"
+   manager="adinah"
+   editor="joaoma" />
 
 <tags 
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 
 # Рекомендации по безопасности для диспетчера трафика
@@ -98,4 +98,4 @@ http://www.digwebinterface.com — сайт, аналогичный сайту w
 [Командлеты для диспетчера трафика Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

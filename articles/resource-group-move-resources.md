@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="10/14/2015" 
 	ms.author="tomfitz"/>
 
 # Перемещение ресурсов в новую группу ресурсов или подписку
@@ -50,11 +50,12 @@
 
 Службы с поддержкой перемещения в новую группу ресурсов, но не в новую подписку:
 
-- служба вычислений (классическая);
+- виртуальные машины (классические);
 - служба хранилища (классическая).
 
 Службы, которые в настоящее время не поддерживают перемещение ресурсов:
 
+- Виртуальные машины
 - Виртуальные сети
 
 При работе с веб-приложениями невозможно переместить только план службы приложения. Варианты перемещения веб-приложений:
@@ -64,17 +65,19 @@
 
 ## Перемещение ресурсов с помощью PowerShell
 
-Чтобы переместить существующие ресурсы в другую группу или подписку, используйте команду **Move-AzureResource**.
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+
+Чтобы переместить существующие ресурсы в другую группу или подписку, используйте команду **Move-AzureRmResource**.
 
 В первом примере показано, как переместить один ресурс в новую группу ресурсов.
 
-    PS C:\> Move-AzureResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
+    PS C:\> Move-AzureRmResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
 
 Во втором примере показано, как переместить несколько ресурсов в новую группу ресурсов.
 
-    PS C:\> $webapp = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExampleSite -ResourceType Microsoft.Web/sites
-    PS C:\> $plan = Get-AzureResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
-    PS C:\> Move-AzureResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
+    PS C:\> $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite -ResourceType Microsoft.Web/sites
+    PS C:\> $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
+    PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
 
 Чтобы переместить ресурс в новую подписку, добавьте значение параметра **DestinationSubscriptionId**.
 
@@ -84,7 +87,7 @@
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-Замените **{source-subscription-id}** и **{source-resource-group-name}** идентификатором подписки и группы, которая сейчас содержит необходимые ресурсы. В качестве {api-version} используйте **2015-01-01**.
+Замените **{source-subscription-id}** и **{source-resource-group-name}** идентификатором подписки и именем группы ресурсов, которая сейчас содержит перемещаемые ресурсы. В качестве {api-version} используйте **2015-01-01**.
 
 В запросе включите объект JSON, который определяет целевую группу ресурсов и ресурсы, которые нужно переместить.
 
@@ -103,4 +106,4 @@
 - [Управление ресурсами с помощью портала Azure](azure-portal/resource-group-portal.md)
 - [Использование тегов для организации ресурсов](./resource-group-using-tags.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

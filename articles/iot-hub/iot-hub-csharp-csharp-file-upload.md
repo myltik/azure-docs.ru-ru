@@ -4,19 +4,19 @@
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="csharp"
+     ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# Передача файлов из устройств в облако в центре IoT
+# Учебник: как передать файлы из устройств в облако с помощью центра IoT
 
 ## Введение
 
@@ -33,7 +33,7 @@
 * **SimulatedDevice**, измененную версию приложения, созданного в учебнике [Отправка сообщений с облака на устройства в центре IoT]. Это приложение подключается к центру IoT и получает сообщения, отправленные с облака на устройство, которые содержат универсальный код ресурса (URI) больших двоичных объектов Azure. Для каждого полученного сообщения инициируется передача файла на указанный универсальный код ресурса (URI) большого двоичного объекта.
 * **SendCloudToDevice**, которое создает универсальный код ресурса (URI) большого двоичного объекта Azure (как описано в разделе [Создание и использование SAS с помощью службы BLOB-объектов](../storage/storage-dotnet-shared-access-signature-part-2.md)), отправляет его в виде сообщения на виртуальное устройство с помощью центра IoT и затем получает подтверждение доставки этого сообщения.
 
-> [AZURE.NOTE]Для центра IoT существуют пакеты SDK для многих платформ устройств и языков (включая C, Java и Javascript). Эти пакеты работают на основе пакетов SDK для устройств IoT Azure. Пошаговые инструкции по подключению устройства к коду этого учебника и к центру IoT Azure в целом см. в [Центре разработчика IoT в Azure]. Пакеты SDK службы IoT Azure для Java и Node будут выпущены в ближайшее время.
+> [AZURE.NOTE]Для центра IoT существуют пакеты SDK для многих платформ устройств и языков (включая C, Java и Javascript). Эти пакеты работают на основе пакетов SDK для устройств IoT Azure. Пошаговые указания по подключению устройства к коду этого учебника и к центру IoT Azure в целом см. в [Центре разработчика IoT в Azure]. Пакеты SDK службы IoT Azure для Java и Node будут выпущены в ближайшее время.
 
 Чтобы пройти этот учебник, требуется:
 
@@ -97,11 +97,7 @@
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Приступая к работе с центром IoT]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Центр разработчика IoT Azure]: http://www.azure.com/iotdev
-[Центре разработчика IoT в Azure]: http://www.azure.com/iotdev
+[Центр разработчика IoT Azure]: http://www.azure.com/develop/iot
+[Центре разработчика IoT в Azure]: http://www.azure.com/develop/iot
 
-
-
- 
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

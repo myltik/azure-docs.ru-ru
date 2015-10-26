@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Поставщик сетевых ресурсов"
-	description="Поставщик сетевых ресурсов"
-	services="azure-portal"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Поставщик сетевых ресурсов"
+   services="azure-portal"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="azure-portal"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="04/22/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="04/22/2015"
+   ms.author="telmos" />
 
 # Поставщик сетевых ресурсов
 В современных условиях для успеха бизнеса необходима возможность быстрого, гибкого, безопасного и воспроизводимого создания и администрирования крупномасштабных сетевых приложений. Диспетчер ресурсов Azure (ARM) позволяет создавать такие приложения в виде единой коллекции ресурсов в группах ресурсов. Для управления такими ресурсами используются различные поставщики ресурсов в ARM.
@@ -363,4 +363,4 @@ API Rest соответствует спецификации протокола 
 
 [Развертывания шаблонов](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

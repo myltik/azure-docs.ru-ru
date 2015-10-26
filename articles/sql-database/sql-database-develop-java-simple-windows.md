@@ -230,4 +230,4 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
 Дополнительную информацию см. в [Центре разработчика Java](/develop/java/).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

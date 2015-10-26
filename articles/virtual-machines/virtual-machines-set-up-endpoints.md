@@ -96,4 +96,4 @@
 
 [Балансировка нагрузки для служб инфраструктуры Azure](virtual-machines-load-balance.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

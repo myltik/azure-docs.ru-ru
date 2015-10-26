@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Процедура настройки канала ExpressRoute | Microsoft Azure"
+   pageTitle="Процедуры настройки канала ExpressRoute | Microsoft Azure"
    description="На этой странице описана процедура настройки канала ExpressRoute и пирингов"
    documentationCenter="na"
    services="expressroute"
@@ -12,10 +12,10 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="10/12/2015"
    ms.author="cherylmc"/>
 
-# Процедуры подготовки каналов ExpressRoute и состояния каналов
+# Процедуры ExpressRoute для подготовки каналов и состояний каналов
 На этой странице описаны процедуры подготовки служб и настройки маршрутизации на высоком уровне.
 
 ![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
@@ -121,4 +121,4 @@
 	- [Настройка маршрутизации](expressroute-howto-routing-classic.md)
 	- [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

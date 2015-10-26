@@ -44,4 +44,4 @@ SQL Server Management Studio (SSMS) и SQL Server Data Tools (SSDT) в Visual St
 Дополнительные сведения об управлении Базами данных SQL Azure с помощью средств командной строки см. [здесь](sql-database-command-line-tools.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

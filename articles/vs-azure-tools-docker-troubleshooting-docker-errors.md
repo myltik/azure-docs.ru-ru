@@ -1,19 +1,19 @@
 <properties
    pageTitle="Устранение неполадок клиента Docker в Windows с помощью Visual Studio | Microsoft Azure"
-	description="Устранение неполадок, которые возникают при использовании Visual Studio для создания и развертывания веб-приложений в Docker в Windows с помощью Visual Studio."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="Устранение неполадок, которые возникают при использовании Visual Studio для создания и развертывания веб-приложений в Docker в Windows с помощью Visual Studio."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/20/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/20/2015"
+   ms.author="kempb" />
 
 # Устранение ошибок Docker
 
@@ -100,4 +100,4 @@
 
 Другой вариант — загрузить OpenSSL для Windows и создать необходимые сертификаты и ключи и затем загрузить ЦС, серверные сертификаты и ключи на компьютер Linux. Дополнительные сведения о настройке защищенного подключения к Docker см. в статье [Защита сокета управляющей программы Docker с помощью HTTPS](https://docs.docker.com/articles/https/).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

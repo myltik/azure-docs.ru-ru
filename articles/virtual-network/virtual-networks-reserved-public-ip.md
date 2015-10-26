@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Зарезервированный IP-адрес"
-	description="Общие сведения об общедоступных IP-адресах уровня экземпляра, зарезервированных и виртуальных IP-адресах и управлении ими"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Общие сведения об общедоступных IP-адресах уровня экземпляра, зарезервированных и виртуальных IP-адресах и управлении ими"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/17/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/17/2015"
+   ms.author="telmos" />
 
 # Обзор зарезервированных IP-адресов
 IP-адреса в Azure делятся на две категории: динамические и зарезервированные. Общедоступные IP-адреса, управляемые Azure, являются динамическими по умолчанию. Это означает, что IP-адрес, используемый для заданной облачной службы (VIP) или для прямого доступа к виртуальной машине или экземпляру роли (ILPIP), время от времени может изменяться, при отключении или высвобождении ресурсов.
@@ -119,4 +119,4 @@ IP-адреса в Azure делятся на две категории: дина
 
 - Ознакомьтесь с информацией о [REST API зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -44,4 +44,4 @@ Azure RemoteApp использует образ Windows Server 2012 R2 для р
  
 Сведения о создании образов для Azure RemoteApp см. в разделе [Создание образа Azure RemoteApp](remoteapp-imageoptions.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

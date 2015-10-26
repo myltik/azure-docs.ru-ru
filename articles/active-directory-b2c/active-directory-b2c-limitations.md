@@ -88,4 +88,4 @@
 
 Вам не удастся удалить клиент Azure AD B2C на портале Azure.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

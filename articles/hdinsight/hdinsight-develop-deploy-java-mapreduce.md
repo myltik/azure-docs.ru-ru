@@ -400,7 +400,7 @@ Azure HDInsight использует для хранения данных хра
 		$jarFile = "C:\Tutorials\WordCountJava\wordcountjava\target\wordcountjava-1.0-SNAPSHOT.jar"
 		$blobFolder = "WordCount/jars"
 
-	Значения переменных **$storageAccountName\\\_Data** и **$containerName\\\_Data** — те же, что вы определили в последней процедуре, то есть файл данных и приложение будут переданы в тот же контейнер в той же учетной записи хранения.
+	Значения переменных **$storageAccountName\\_Data** и **$containerName\\_Data** — те же, что вы определили в последней процедуре, то есть файл данных и приложение будут переданы в тот же контейнер в той же учетной записи хранения.
 
 	Заметьте, целевой является папка **WordCount/jars**.
 
@@ -610,4 +610,4 @@ Azure HDInsight использует для хранения данных хра
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

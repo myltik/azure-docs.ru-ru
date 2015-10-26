@@ -18,7 +18,8 @@
 
 # Создание высокопроизводительных вычислительных кластеров (HPC-кластеров) на виртуальных машинах Azure с помощью скрипта развертывания пакета HPC по модели IaaS
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается создание ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 
 Выполните скрипт PowerShell для развертывания пакета HPC по модели IaaS на клиентском компьютере, чтобы развернуть полный HPC-кластер в службах инфраструктуры Azure (IaaS). Этот скрипт поддерживает несколько вариантов развертывания, в том числе добавление узлов кластера под управлением поддерживаемых операционных систем Linux и Windows Server.
@@ -389,4 +390,4 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName
 
 * Поэкспериментируйте со средствами HPC для запуска, остановки, добавления и удаления вычислительных узлов в кластере. См. статью [Управление вычислительными узлами в кластере на основе пакета HPC в Azure](virtual-machines-hpcpack-cluster-node-manage.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

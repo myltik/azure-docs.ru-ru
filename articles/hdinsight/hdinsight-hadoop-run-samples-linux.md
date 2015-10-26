@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Выполнение учебных задач Hadoop в Azure HDInsight | Microsoft Azure"
+	pageTitle="Выполнение примеров Hadoop в HDInsight на основе Linux | Microsoft Azure"
 	description="Приступая к работе с примерами MapReduce в службе HDInsight под управлением Linux. Для подключения к кластеру используйте SSH, после чего используйте команду Hadoop для запуска примеров заданий."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
 	editor="cgronlun"
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 
@@ -243,4 +243,4 @@ GraySort — это измерение производительности с�
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

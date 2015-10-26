@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="09/30/2015"
+   ms.date="10/09/2015"
    ms.author="sdanie" />
 
 # Настройка кэша Redis для Azure
@@ -163,19 +163,24 @@
 
 ## Консоль Redis
 
-В экземплярах кэша Redis для Azure можно безопасно выполнять команды с помощью **консоли Redis**, доступной для кэшей уровней Standard и Premium. Для доступа к консоли Redis в колонке **Кэш Redis** щелкните **Консоль**.
+В экземплярах кэша Redis для Azure можно безопасно выполнять команды с помощью **консоли Redis**, доступной для кэшей уровней Standard и Premium.
+
+>[AZURE.IMPORTANT]Консоль Redis не работает с виртуальной сетью или кластеризацией.
+>
+>-	[Виртуальная сеть.](cache-how-to-premium-vnet.md) Если кэш является частью виртуальной сети, к нему могут обращаться только клиенты в этой виртуальной сети. Так как консоль Redis использует клиент redis-cli.exe, размещенный на виртуальных машинах, которые не являются частью виртуальной сети, она не может подключиться к кэшу.
+>-	[Кластеризация.](cache-how-to-premium-clustering.md) Консоль Redis использует клиент redis-cli.exe, который сейчас не поддерживает кластеризацию. Служебная программа redis-cli в ветви [нестабильных версий](http://redis.io/download) репозитория Redis в GitHub реализует базовую поддержку, если ее запустить с параметром `-c`. Дополнительные сведения см. в разделе [Эксперименты с кластером](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) [учебника по кластерам Redis](http://redis.io/topics/cluster-tutorial) на сайте [http://redis.io](http://redis.io).
+
+Для доступа к консоли Redis в колонке **Кэш Redis** щелкните **Консоль**.
 
 ![Консоль Redis](./media/cache-configure/redis-console-menu.png)
-
->[AZURE.IMPORTANT]Консоль Redis доступна только для кэшей уровней Standard и Premium.
 
 Чтобы выполнить команду в своем экземпляре кэша, просто введите нужную команду в консоль.
 
 ![Консоль Redis](./media/cache-configure/redis-console.png)
 
-Список команд Redis, отключенных в кэше Redis для Azure, см. в предыдущем разделе [Команды Redis, не поддерживаемые в кэше Redis для Azure](#redis-commands-not-supported-in-azure-redis-cache). Дополнительные сведения о командах Redis см. по ссылке [http://redis.io/commands](http://redis.io/commands).
+Список команд Redis, отключенных в кэше Redis для Azure, см. в предыдущем разделе, [Команды Redis не поддерживаются в кэше Redis для Azure](#redis-commands-not-supported-in-azure-redis-cache). Дополнительные сведения о командах Redis см. по адресу [http://redis.io/commands](http://redis.io/commands).
 
 ## Дальнейшие действия
 -	Дополнительные сведения о работе с командами Redis см. в разделе [Как выполнять команды Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

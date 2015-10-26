@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Разработка базы данных SQL с учетом требований непрерывности бизнес-процессов"
-	description="Рекомендации по выбору. В этом разделе представлены рекомендации по выбору функций аварийного восстановления и обеспечения непрерывности бизнес-процессов. Также описаны возможности, предоставляемые для всех баз данных SQL автоматически."
-	services="sql-database"
-	documentationCenter=""
-	authors="elfisher"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="Разработка базы данных SQL с учетом требований непрерывности бизнес-процессов" 
+   description="Рекомендации по выбору. В этом разделе представлены рекомендации по выбору функций аварийного восстановления и обеспечения непрерывности бизнес-процессов. Также описаны возможности, предоставляемые для всех баз данных SQL автоматически."
+   services="sql-database" 
+   documentationCenter="" 
+   authors="elfisher" 
+   manager="jeffreyg" 
+   editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="07/14/2015"
-	ms.author="elfish"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="07/14/2015"
+   ms.author="elfish"/>
 
 #Разработка с учетом требований непрерывности бизнес-процессов
 
@@ -102,4 +102,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

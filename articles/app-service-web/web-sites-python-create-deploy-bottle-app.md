@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Создание веб-приложений на Python с помощью Bottle в Azure"
-	description="Учебник, в котором вы ознакомитесь с запуском веб-приложения Python в веб-приложениях службы приложений Azure."
-	services="app-service\web"
-	documentationCenter="python"
+	pageTitle="Создание веб-приложений на Python с помощью Bottle в Azure" 
+	description="Учебник, в котором вы ознакомитесь с запуском веб-приложения Python в веб-приложениях службы приложений Azure." 
+	services="app-service\web" 
+	documentationCenter="python" 
 	tags="python"
-	authors="huguesv"
-	manager="wpickett"
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -391,11 +391,11 @@
 [Git для Windows]: http://msysgit.github.io/
 [GitHub для Windows]: https://windows.github.com/
 [средствами Python для Visual Studio]: http://aka.ms/ptvs
-[инструменты Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Инструменты Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
 [Документация по средствам Python для Visual Studio]: http://aka.ms/ptvsdocs
 [документации по инструментам Python для Visual Studio]: http://aka.ms/ptvsdocs
 [Документация по работе с Bottle]: http://bottlepy.org/docs/dev/index.html
  
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Примеры приложений машинного обучения в Azure Marketplace | Microsoft Azure"
-	description="Примеры приложений Marketplace Машинного обучения Azure, демонстрирующие, как можно опубликовать службы машинного обучения на Azure Marketplace, чтобы платящие подписчики могли использовать их в своих приложениях."
-	services="machine-learning"
-	documentationCenter=""
-	authors="LuisCabrer"
-	manager="paulettm"
+	pageTitle="Примеры приложений машинного обучения в Azure Marketplace | Microsoft Azure" 
+	description="Примеры приложений Marketplace Машинного обучения Azure, демонстрирующие, как можно опубликовать службы машинного обучения на Azure Marketplace, чтобы платящие подписчики могли использовать их в своих приложениях." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="LuisCabrer" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="luisca"/>
 
 # Приложения машинного обучения в Azure Marketplace
@@ -63,4 +63,4 @@ API, который может обнаруживает аномальные с�
 
 [Документация](https://churn.cloudapp.net/documentation)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

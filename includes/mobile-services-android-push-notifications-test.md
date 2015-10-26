@@ -24,4 +24,4 @@
 
 	![Просмотр уведомления в центре уведомлений](./media/mobile-services-android-push-notifications-test/notification-area-received.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

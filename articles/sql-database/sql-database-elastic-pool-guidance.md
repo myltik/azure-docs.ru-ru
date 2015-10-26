@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/23/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -216,8 +216,8 @@ STA оценивает историю использования баз данн
 
 Когда сценарий завершает работу, он выдает оценочное число единиц eDTU, необходимых для пула эластичных баз данных, чтобы содержать все рассматриваемые базы данных на целевом сервере. Оценку числа единиц eDTU можно использовать для создания и конфигурации пула эластичных баз данных для этих баз данных. После создания пула и перемещения баз данных в пул следует внимательно следить за пулом в течение нескольких дней и при необходимости вносить изменения в конфигурацию eDTU пула.
 
+> [AZURE.IMPORTANT]Этот сценарий содержит команды для Azure PowerShell версии вплоть до 1.0, *но не включая* саму версию 1.0 и более поздние версии. Используемую версию Azure PowerShell можно проверить с помощью команды **Get-Module azure | format-table version**. Дополнительные сведения см. в разделе [Устаревший командлет Switch-AzureMode в Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
-Чтобы выбрать весь сценарий для копирования, щелкните любой текст в сценарии 3 раза (тройной щелчок).
 
     
     param (
@@ -435,4 +435,4 @@ STA оценивает историю использования баз данн
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

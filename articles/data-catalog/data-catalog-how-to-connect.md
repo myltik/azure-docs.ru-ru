@@ -1,20 +1,20 @@
 <properties
    pageTitle="Подключение к источникам данных"
-	description="В статье описывается подключение к источникам данных, обнаруженных в каталоге данных Azure."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="В статье описывается подключение к источникам данных, обнаруженных в каталоге данных Azure."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/19/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="08/19/2015"
+   ms.author="maroche"/>
 
 
 # Подключение к источникам данных
@@ -51,4 +51,4 @@
 ##Сводка
 Регистрация источников данных в **каталоге данных Azure** позволяет быстрее обнаруживать эти данные благодаря тому, что из источника в службу каталога копируются структурные и описательные метаданные. После регистрации и обнаружения источника данных пользователи могут подключаться к источнику данных на портале **каталога данных Azure** с помощью меню «Открыть в...» или выбранных средств для работы с данными.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

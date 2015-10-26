@@ -111,4 +111,4 @@
 *    [Как использовать API службы сообщений Java (JMS) со служебной шиной и AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
 *    [Как использовать AMQP 1.0 с API .NET служебной шины](service-bus-dotnet-advanced-message-queuing.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

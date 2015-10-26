@@ -337,4 +337,4 @@ Azure использует таблицу маршрутизации, чтобы
 - Инструкции по настройке маршрутизации и IP-пересылку см. в статье [Как создать маршруты и включить IP-пересылку в Azure](virtual-network/virtual-networks-udr-how-to.md). 
 - Общие сведения о контроле доступа на основе ролей см. в статье [Контроль доступа на основе ролей на портале Microsoft Azure](role-based-access-control-configure.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

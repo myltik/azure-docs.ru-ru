@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/13/2015"
+   ms.date="10/12/2015"
    ms.author="cherylmc" />
 
 # Шлюзы VPN
@@ -79,4 +79,4 @@ VPN-шлюзы используются для обмена сетевым тр�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -1,4 +1,4 @@
 
 >[AZURE.TIP]Пакеты расширений для обработки данных входят в пакет расширений для быстрого запуска. В серверном проекте, загруженном с портала, доступ к данным с использованием Entity Framework уже включен. Узнайте, как установить и инициализировать Entity Framework для доступа к данным без использования расширения для быстрого запуска, в статье [Практическое руководство. Определение контроллера таблиц](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

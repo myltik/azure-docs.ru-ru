@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="bradsev"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun" />
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2015"
-	ms.author="msolhab;bradsev"/>
+	ms.author="msolhab;bradsev" />
 
 
 # Подготовка данных для использования в машинном обучении
@@ -104,4 +104,4 @@
 >_Интеллектуальный анализ данных: концепции и методы_. Издание третье, Morgan Kaufmann Publishers, 2011. Цзявей Хань (Jiawei Han), Мишлин Кэмбер (Micheline Kamber) и Цзянь Пей (Jian Pei)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

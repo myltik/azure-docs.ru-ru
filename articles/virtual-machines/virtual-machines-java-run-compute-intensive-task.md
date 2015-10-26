@@ -19,7 +19,8 @@
 
 # Выполнение ресурсоемкой задачи в Java-коде на виртуальной машине
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+ 
 
 В Azure для обработки ресурсоемких задач можно использовать виртуальную машину. Например, виртуальная машина может обрабатывать задачи и предоставлять результаты на клиентские компьютеры или в мобильные приложения. После прочтения этой статьи вы получите представление о создании виртуальной машины для выполнения ресурсоемкого приложения Java, за работой которого может следить другое приложение Java.
 
@@ -519,4 +520,4 @@
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

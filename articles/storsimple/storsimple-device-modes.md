@@ -97,4 +97,4 @@
 
 Узнайте, как [применить обновления нормального режима и режима обслуживания](storsimple-update-device.md) к своему устройству StorSimple.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

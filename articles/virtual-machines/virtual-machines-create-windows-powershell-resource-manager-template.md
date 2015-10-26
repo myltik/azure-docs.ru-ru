@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Создание виртуальной машины с помощью шаблона ARM | Microsoft Azure"
-	description="Используйте шаблон диспетчера ресурсов, чтобы с легкостью создать виртуальную машину Windows с помощью Azure PowerShell или интерфейса командной строки Azure."
+	pageTitle="Создание виртуальной машины с помощью шаблона | Microsoft Azure"
+	description="Используйте шаблон диспетчера ресурсов, чтобы с легкостью создать виртуальную машину Windows с помощью Azure PowerShell."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -14,22 +14,20 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="10/08/2015"
 	ms.author="davidmu"/>
 
 # Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса с помощью модели развертывания на основе диспетчера ресурсов. Создать этот ресурс с помощью классической модели развертывания невозможно.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания. Создать ресурс с помощью классической модели развертывания невозможно.
 
-Вы можете легко создать виртуальную машину Azure под управлением Windows, используя шаблон диспетчера ресурсов с помощью Azure PowerShell или интерфейса командной строки Azure. Этот шаблон позволяет создать одну виртуальную машину под управлением Windows в новой виртуальной сети с единой подсетью в новой группе ресурсов.
+Вы можете с легкостью создать виртуальную машину Azure под управлением Windows, используя шаблон диспетчера ресурсов и Azure PowerShell. Этот шаблон позволяет создать одну виртуальную машину под управлением Windows в новой виртуальной сети с единой подсетью в новой группе ресурсов.
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template/windowsvm.png)
 
-Перед началом работы убедитесь, что Azure, PowerShell и интерфейс командной строки Azure настроены и готовы к работе.
+Перед началом работы убедитесь, что среда Azure PowerShell настроена и готова к работе.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
-
-[AZURE.INCLUDE [xplat-getting-set-up-arm](../../includes/xplat-getting-set-up-arm.md)]
 
 ## Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов и Azure PowerShell
 
@@ -224,10 +222,10 @@
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup –Name $RGName –Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-При выполнении команды **New-AzureResourceGroupDeployment** вы увидите запрос на ввод значений для параметров раздела parameters, который находится в JSON-файле. Если вы указали значения всех параметров, команда создаст группу ресурсов и виртуальную машину.
+При выполнении команды **New-AzureRmResourceGroupDeployment** вы увидите запрос на ввод значений для параметров раздела parameters, который находится в JSON-файле. Если вы указали значения всех параметров, команда создаст группу ресурсов и виртуальную машину.
 
 Ниже приведен пример.
 
@@ -235,12 +233,12 @@
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup –Name $RGName –Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Должно отобразиться примерно следующее:
 
-	cmdlet New-AzureResourceGroupDeployment at command pipeline position 1
+	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
 	newStorageAccountName: newsaacct
@@ -278,49 +276,6 @@
 
 Теперь в новой группе ресурсов есть новая виртуальная машина Windows с именем MyWindowsVM.
 
-## Создание виртуальной машины Windows с использованием шаблона диспетчера ресурсов и интерфейса командной строки Azure
-
-Выполните следующие шаги, чтобы создать виртуальную машину Windows с использованием шаблона диспетчера ресурсов в репозитории шаблонов Github с помощью команд интерфейса командной строки Azure (CLI).
-
-Введите имя группы ресурсов и расположение Azure (например, westsib для Западной Сибири, удалив скобки), а затем выполните следующие команды.
-
-	azure group create [resource group] [location]
-	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json [resource group] firstdeployment
-
-Вот пример команды интерфейса командной строки Azure для шаблона.
-
-	azure group create testrg westus
-	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json testrg firstdeployment
-
-Должно отобразиться примерно следующее:
-
-	azure group create testrg westus
-	info:    Executing command group create
-	+ Getting resource group testrg
-	+ Creating resource group testrg
-	info:    Created resource group testrg
-	data:    Id:                  /subscriptions/2c73c582-4b11-4800-96f9-a9bd790a861c/resourceGroups/testrg
-	data:    Name:                testrg
-	data:    Location:            westus
-	data:    Provisioning State:  Succeeded
-	data:    Tags:
-	data:
-	info:    group create command OK
-
-	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json testrg firstdeployment
-	info:    Executing command group deployment create
-	info:    Supply values for the following parameters
-	newStorageAccountName: newstorage
-	adminUsername: ops
-	adminPassword: Pa$$W0rd1
-	dnsNameForPublicIP: contoso
-	windowsOSVersion: 2012-R2-Datacenter
-	+ Initializing template configurations and parameters
-	+ Creating a deployment
-	info:    Created template deployment "firstdeployment"
-	+ Registering providers
-
-
 ## Дополнительные ресурсы
 
 [Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения Azure в диспетчере ресурсов Azure](virtual-machines-azurerm-versus-azuresm.md)
@@ -335,4 +290,4 @@
 
 [Установка и настройка Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

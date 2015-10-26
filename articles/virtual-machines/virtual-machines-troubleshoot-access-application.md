@@ -19,7 +19,8 @@
 
 # Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается устранение неполадок доступа к приложению на виртуальной машине, созданной с помощью классической модели развертывания или модели развертывания на основе диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 В этой статье можно узнать о методах выявления причин возникновения и исправления проблемы, из-за которой не удается получить доступ к приложению, выполняющемуся в виртуальной машине Azure.
 
@@ -112,4 +113,4 @@
 
 [Устранение неполадок с подключением Secure Shell (SSH) к виртуальной машине Azure под управлением Linux](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

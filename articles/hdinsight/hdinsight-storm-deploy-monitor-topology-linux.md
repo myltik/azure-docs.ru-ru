@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Развертывание топологий Apache Storm в HDInsight и управление ими |Microsoft Azure"
-   description="Узнайте, как развертывать и отслеживать топологии Apache Storm, а также управлять ими с помощью панели мониторинга Storm в HDInsight. Использование инструментов Hadoop для Visual Studio."
+   pageTitle="Развертывание топологий Apache Storm в HDInsight на основе Linux и управление ими | Microsoft Azure"
+   description="Узнайте, как развертывать и отслеживать топологии Apache Storm, а также управлять ими с помощью панели мониторинга Storm в HDInsight на основе Linux. Использование инструментов Hadoop для Visual Studio."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/14/2015"
+   ms.date="10/04/2015"
    ms.author="larryfr"/>
 
 # Развертывание топологий Apache Storm в HDInsight под управлением Linux и управление ими
@@ -161,4 +161,4 @@
 
 Другие примеры топологий Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

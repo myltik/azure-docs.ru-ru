@@ -271,4 +271,4 @@
 [Учебник по центрам уведомлений для Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [учебника по центрам уведомлений для Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -378,4 +378,4 @@ ACL реализуется с помощью массива политик до�
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [Справочник по пакету SDK службы хранилища Azure для API Node]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

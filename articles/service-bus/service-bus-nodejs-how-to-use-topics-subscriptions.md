@@ -325,4 +325,4 @@ for (i = 0;i < 5;i++) {
   [Веб-приложение Node.js с хранилищем]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -28,7 +28,7 @@
 
 * [Azure Web App — веб-роли и рабочие роли](app-insights-cloudservices.md)
 * [Веб-приложение в службах IIS на виртуальной машине Azure](../insights-perf-analytics.md)
-* [Приложения за пределами Azure](app-insights-get-started.md)
+* [Приложения за пределами Azure](app-insights-overview.md)
 
 
 
@@ -39,4 +39,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

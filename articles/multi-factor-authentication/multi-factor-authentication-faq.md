@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Часто задаваемые вопросы о службе Azure Multi-Factor Authentication"
-	description="Azure Multi-factor Authentication — это метод проверки идентичности пользователя, при котором используются дополнительные средства, а не только имя пользователя и пароль. Это второй уровень безопасности, который применяется для входа пользователя в систему и выполнения транзакций."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Часто задаваемые вопросы о службе Azure Multi-Factor Authentication" 
+	description="Azure Multi-factor Authentication — это метод проверки идентичности пользователя, при котором используются дополнительные средства, а не только имя пользователя и пароль. Это второй уровень безопасности, который применяется для входа пользователя в систему и выполнения транзакций." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Часто задаваемые вопросы о службе Azure Multi-Factor Authentication
@@ -145,4 +145,4 @@
 
 Для решения этой проблемы нужно иметь отдельные учетные записи пользователя для операций, связанных с администрированием, и для операций, и не связанных с администрированием. И уже потом эти почтовые ящики можно связать, чтобы входить в Outlook с помощью учетной записи без прав администратора. Дополнительные сведения об этом см. в статье [Предоставление администратору возможности открывать и просматривать содержимое почтового ящика пользователя] (http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

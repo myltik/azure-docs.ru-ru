@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Изменение параметров сетевого интерфейса DATA 0 на устройстве StorSimple | Microsoft Azure"
-	description="Узнайте, как перенастроить сетевой интерфейс DATA 0 на устройстве StorSimple с помощью Windows PowerShell для StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Узнайте, как перенастроить сетевой интерфейс DATA 0 на устройстве StorSimple с помощью Windows PowerShell для StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/02/2015"
+   ms.author="alkohli" />
 
 # Изменение параметров сетевого интерфейса DATA 0 на устройстве StorSimple
 
@@ -71,4 +71,4 @@
 
 Для настройки сетевых интерфейсов, отличных от DATA 0, можно использовать [страницу "Настройка" на портале управления](storsimple-modify-device-config.md). Если у вас возникли проблемы при настройке сетевых интерфейсов, см. раздел [Устранение неполадок при развертывании](storsimple-troubleshoot-deployment.md).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

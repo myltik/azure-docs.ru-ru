@@ -19,7 +19,6 @@
 
 # Подготовка виртуальной машины SLES или openSUSE для Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 - [Подготовка виртуальной машины SLES 11 с пакетом обновления 3 (SP3) для Azure](#sles11)
 - [Подготовка виртуальной машины openSUSE версии 13.1 или более поздней для Azure](#osuse)
@@ -179,4 +178,4 @@
 
 13. В диспетчере Hyper-V выберите **Действие -> Завершение работы**. Виртуальный жесткий диск Linux готов к передаче в Azure.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

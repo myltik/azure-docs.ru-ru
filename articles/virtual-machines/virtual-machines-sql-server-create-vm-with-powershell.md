@@ -27,7 +27,8 @@
 
 В данной статье описаны шаги по созданию виртуальной машины SQL Server в Azure с помощью командлетов PowerShell.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания. Если вы хотите создать виртуальную машину SQL Server с помощью диспетчера ресурсов PowerShell, воспользуйтесь общими инструкциями для диспетчера ресурсов виртуальных машин в следующем разделе: [Создание и предварительная настройка виртуальной машины под управлением Windows с помощью диспетчера ресурсов и Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 ## Установка и настройка PowerShell
 
@@ -35,7 +36,7 @@
  
 2. [Установите последнюю версию командлетов Azure PowerShell](../powershell-install-configure.md/#how-to-install-azure-powershell).
 
-3. [Подключитесь к PowerShell со своей подпиской Azure](../powershell-install-configure.md/#how-to-connect-to-your-subscription).
+3. [Подключитесь к PowerShell с помощью своей подписки Azure](../powershell-install-configure.md/#how-to-connect-to-your-subscription).
 
 ## Определение целевого региона Azure
 
@@ -67,14 +68,14 @@
 
 	>[AZURE.NOTE]Если требуется создать новую учетную запись хранения, сначала создайте имя учетной записи в строчном регистре командой New-AzureStorageAccount, как в следующем примере: **New-AzureStorageAccount -StorageAccountName "<storage account name>" -Location $dcLocation**.
 
-1. Назначьте имя целевой учетной записи хранения переменной **$staccount**. Затем установите текущую учетную запись хранения и подписку с помощью **Set-AzureSubscription**.
+1. Присвойте имя целевой учетной записи хранения переменной **$staccount**. Затем установите текущую учетную запись хранения и подписку с помощью **Set-AzureSubscription**.
 
 		$staccount="<storage account name>"
 		Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
 ## Выбор образа виртуальной машины SQL Server
 
-1. Получите список доступных образов виртуальных машин SQL Server из коллекции. Свойство **ImageFamily** для этих образов начинается со строки "SQL". Следующий запрос отображает доступное для вас семейство образов с предустановленным сервером SQL Server.
+1. Получите список доступных образов виртуальных машин SQL Server из коллекции. Свойство **ImageFamily** для этих образов начинается с «SQL». Следующий запрос отображает доступное для вас семейство образов с предустановленным сервером SQL Server.
 
 		Get-AzureVMImage | where { $_.ImageFamily -like "SQL*" } | select ImageFamily -Unique | Sort-Object -Property ImageFamily
 
@@ -110,7 +111,7 @@
 
 		New-AzureVM –ServiceName $svcname -VMs $vm1
 
->[AZURE.NOTE]Дополнительные сведения и параметры конфигурации см. в подразделе **Создание своего набора команд** раздела [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
+>[AZURE.NOTE]Дополнительные сведения и параметры конфигурации см. в подразделе **Создание своего набора команд** раздела [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
 ## Пример сценария PowerShell
 
@@ -161,16 +162,16 @@
 
 ## Завершение настройки виртуальной машины SQL Server для удаленного доступа
 
-Войдя в виртуальную машину с помощью удаленного рабочего стола, настройте SQL Server в соответствии с инструкциями в подразделе [Действия по настройке подключения к SQL Server на виртуальной машине Azure](virtual-machines-sql-server-connectivity.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
+Войдя в виртуальную машину с помощью удаленного рабочего стола, настройте SQL Server в соответствии с указаниями в подразделе [Действия по настройке подключения к SQL Server на виртуальной машине Azure](virtual-machines-sql-server-connectivity.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
 ## Дальнейшие действия
 
-Дополнительные инструкции по подготовке виртуальных машин с помощью PowerShell можно найти в [документации по виртуальным машинам](virtual-machines-ps-create-preconfigure-windows-vms.md). Дополнительные сценарии для SQL Server и хранилища класса Premium см. в статье [Использование хранилища Azure Premium Storage с SQL Server на виртуальных машинах](virtual-machines-sql-server-use-premium-storage.md).
+Дополнительные указания по подготовке виртуальных машин с помощью PowerShell можно найти в [документации по виртуальным машинам](virtual-machines-ps-create-preconfigure-windows-vms.md). Дополнительные сценарии для SQL Server и хранилища Premium см. в статье [Использование хранилища Azure Premium Storage с SQL Server на виртуальных машинах](virtual-machines-sql-server-use-premium-storage.md).
 
-Во многих случаях следующим этапом является миграция баз данных на новую виртуальную машину SQL. Руководство по переносу баз данных см. в статье [Перенос базы данных в SQL Server на виртуальной машине Azure](virtual-machines-migrate-onpremises-database.md).
+Во многих случаях следующим этапом является миграция баз данных на новую виртуальную машину SQL. Руководство по миграции баз данных см. в статье [Миграция базы данных в SQL Server на виртуальной машине Azure](virtual-machines-migrate-onpremises-database.md).
 
 Если вам также интересно выполнение этих действий на портале управления Azure, см. статью [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-provision-sql-server.md).
 
 В дополнение к этим ресурсам рекомендуем ознакомиться с [другими статьями, связанными с запуском SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

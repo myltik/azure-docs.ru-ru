@@ -223,4 +223,4 @@
 [Руководство по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Инструкции по использованию концентраторов уведомлений для iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

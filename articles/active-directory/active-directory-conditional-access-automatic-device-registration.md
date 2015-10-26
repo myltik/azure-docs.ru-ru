@@ -85,4 +85,4 @@
 
 Дополнительную информацию о развертывании службы регистрации устройств с помощью AD FS см. [здесь](https://technet.microsoft.com/ru-RU/library/dn486831.aspx).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

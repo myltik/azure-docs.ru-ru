@@ -105,19 +105,19 @@
 - Таблица Hive с именем *hivesampletable*, которая ссылается на файл данных, расположенный в */hive/warehouse/hivesampletable*. Эта таблица содержит некоторые данные о мобильных устройствах. Схема таблицы Hive:
 
 	<table border="1">
-<tr><th>Поле</th><th>Тип данных</th></tr>
-<tr><td>clientid</td><td>string</td></tr>
-<tr><td>querytime</td><td>string</td></tr>
-<tr><td>market</td><td>string</td></tr>
-<tr><td>deviceplatform</td><td>string</td></tr>
-<tr><td>devicemake</td><td>string</td></tr>
-<tr><td>devicemodel</td><td>string</td></tr>
-<tr><td>state</td><td>string</td></tr>
-<tr><td>country</td><td>string</td></tr>
-<tr><td>querydwelltime</td><td>double</td></tr>
-<tr><td>sessionid</td><td>bigint</td></tr>
-<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
-</table>
+	<tr><th>Поле</th><th>Тип данных</th></tr>
+	<tr><td>clientid</td><td>string</td></tr>
+	<tr><td>querytime</td><td>string</td></tr>
+	<tr><td>market</td><td>string</td></tr>
+	<tr><td>deviceplatform</td><td>string</td></tr>
+	<tr><td>devicemake</td><td>string</td></tr>
+	<tr><td>devicemodel</td><td>string</td></tr>
+	<tr><td>state</td><td>string</td></tr>
+	<tr><td>country</td><td>string</td></tr>
+	<tr><td>querydwelltime</td><td>double</td></tr>
+	<tr><td>sessionid</td><td>bigint</td></tr>
+	<tr><td>sessionpagevieworder</td><td>bigint</td></tr>
+	</table>
 
 Сначала вы экспортируете *sample.log* и *hivesampletable* в базу данных SQL Azur или на SQL Server, а затем импортируете таблицу с данными о мобильных устройствах обратно в HDInsight, используя следующий путь:
 
@@ -129,11 +129,11 @@ HDInsight использует для хранения данных хранил
 
 В процессе подготовки кластера HDInsight в качестве файловой системы по умолчанию задаются учетная запись хранения Azure и конкретный контейнер хранилища больших двоичных объектов из этой учетной записи (как и в HDFS). Помимо этой учетной записи хранения в процессе подготовки вы можете добавить дополнительные учетные записи хранения из той же или других подписок на Azure.
 
-Инструкции по добавлению дополнительных учетных записей хранения см. в разделе [Подготовка кластеров HDInsight][hdinsight-provision]. Чтобы упростить сценарий Windows PowerShell, используемый в этом учебнике, все файлы хранятся в контейнере файловой системы по умолчанию, расположенном в */tutorials/usesqoop*. Имя контейнера по умолчанию совпадает с именем кластера HDInsight. Синтаксис:
+Инструкции по добавлению дополнительных учетных записей хранения см. в разделе [Подготовка кластеров HDInsight][hdinsight-provision]. Чтобы упростить сценарий Windows PowerShell, используемый в этом учебнике, все файлы хранятся в контейнере файловой системы по умолчанию, расположенном в */tutorials/usesqoop*. Имя контейнера по умолчанию совпадает с именем кластера HDInsight. Синтаксис :
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE]Кластер HDInsight версии 3.0 поддерживает только синтаксис **wasb://*. Прежний синтаксис **asv://* поддерживается в кластерах HDInsight 2.1 и 1.6, однако не поддерживается в кластерах HDInsight 3.0.
+> [AZURE.NOTE]Кластер HDInsight версии 3.0 поддерживает только синтаксис *wasb://*. Прежний синтаксис *asv://* поддерживается в кластерах HDInsight 2.1 и 1.6, однако не поддерживается в кластерах HDInsight 3.0.
 
 > [AZURE.NOTE]Путь **wasb://* является виртуальным. Дополнительную информацию см. в статье [Использование хранилища больших двоичных объектов Azure с HDInsight][hdinsight-storage].
 
@@ -411,7 +411,7 @@ HDInsight использует для хранения данных хранил
 		Write-Host "Standard Output" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
-	Обратите внимание на то, что в качестве разделителя полей используется **\\0x20**, то есть пробел. Разделитель определяется в файле sample.log сценария Azure PowerShell. Чтобы узнать о **-m 1**, см. [руководство пользователя Sqoop][sqoop-user-guide-1.4.4].
+	Обратите внимание на то, что в качестве разделителя полей используется **\0x20**, то есть пробел. Разделитель определяется в файле sample.log сценария Azure PowerShell. Чтобы узнать о **-m 1**, см. [руководство пользователя Sqoop][sqoop-user-guide-1.4.4].
 
 5. Для выполнения скрипта щелкните **Выполнить скрипт** или нажмите клавишу **F5**.
 6. Используйте [портал предварительной версии][azure-management-portal] для анализа экспортированных данных.
@@ -585,9 +585,9 @@ HDInsight использует для хранения данных хранил
 
 Теперь вы узнали, как использовать Sqoop. Дополнительные сведения см. на следующих ресурсах:
 
-- [Использование Oozie с HDInsight][hdinsight-use-oozie]\: используйте действие Sqoop в рабочем процессе Oozie.
-- [Анализ данных о задержке рейсов с помощью HDInsight][hdinsight-analyze-flight-data]\: используйте Hive для анализа данных о задержке рейсов, а затем используйте Sqoop для экспорта данных в базу данных SQL Azure.
-- [Передача данных в HDInsight][hdinsight-upload-data]\: узнайте о других способах отправки данных в HDInsight и хранилище больших двоичных объектов Azure.
+- [Использование Oozie с HDInsight][hdinsight-use-oozie]: используйте действие Sqoop в рабочем процессе Oozie.
+- [Анализ данных о задержке рейсов с помощью HDInsight][hdinsight-analyze-flight-data]: используйте Hive для анализа данных о задержке рейсов, а затем используйте Sqoop для экспорта данных в базу данных SQL Azure.
+- [Передача данных в HDInsight][hdinsight-upload-data]: узнайте о других способах отправки данных в HDInsight и хранилище больших двоичных объектов Azure.
 
 
 
@@ -612,4 +612,4 @@ HDInsight использует для хранения данных хранил
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

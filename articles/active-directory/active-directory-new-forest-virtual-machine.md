@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Установка леса Active Directory в виртуальной сети Azure"
-	description="В этом учебнике объясняется, как создать новый лес Active Directory на виртуальной машине (ВМ) в виртуальной сети Windows Azure."
-	services="active-directory, virtual-network"
-	documentationCenter=""
-	authors="markusvi"
-	manager="TerryLan"
+	pageTitle="Установка леса Active Directory в виртуальной сети Azure" 
+	description="В этом учебнике объясняется, как создать новый лес Active Directory на виртуальной машине (ВМ) в виртуальной сети Windows Azure." 
+	services="active-directory, virtual-network" 
+	documentationCenter="" 
+	authors="markusvi" 
+	manager="TerryLan" 
 	editor="LisaToft"
 	tags="azure-classic-portal"/>
 
 <tags 
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="07/23/2015"
+	ms.service="active-directory" 
+	ms.devlang="na" 
+	ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+	ms.date="07/23/2015" 
 	ms.author="markusvi"/>
 
 
@@ -138,4 +138,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

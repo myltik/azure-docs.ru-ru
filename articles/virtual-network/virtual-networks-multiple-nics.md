@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Создание виртуальной машины с несколькими сетевыми адаптерами"
-	description="Узнайте, как создавать и настраивать виртуальные машины с несколькими сетевыми адаптерами."
-	services="virtual-network, virtual-machines"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Узнайте, как создавать и настраивать виртуальные машины с несколькими сетевыми адаптерами."
+   services="virtual-network, virtual-machines"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/10/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/10/2015"
+   ms.author="telmos" />
 
 # Создание виртуальной машины с несколькими сетевыми адаптерами
 
@@ -249,4 +249,4 @@
 
 Так как для виртуальных машин Linux по умолчанию используется слабая модель маршрутизации узла, мы советуем ограничивать поток трафика сетевых карт той же подсетью. Однако, если в определенных сценариях требуется подключение вне подсети, необходимо включить маршрутизацию на основе политики, чтобы для входящего и исходящего трафика использовалась одна сетевая карта.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

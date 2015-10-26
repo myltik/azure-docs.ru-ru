@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Отчеты Azure Multi-Factor Authentication"
-	description="Эта статья содержит информацию о том, как изменить параметры пользователя (например, чтобы от пользователей требовалось повторно проходить проверку)."
-	documentationCenter=""
-	services="multi-factor-authentication"
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Отчеты Azure Multi-Factor Authentication" 
+	description="Эта статья содержит информацию о том, как изменить параметры пользователя (например, чтобы от пользователей требовалось повторно проходить проверку)." 
+	documentationCenter="" 
+	services="multi-factor-authentication" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Управление параметрами пользователей в облаке с помощью Azure Multi-Factor Authentication
@@ -80,4 +80,4 @@
 <li>В верхней части щелкните «Пользователи».</li>
 <li>В нижней части страницы щелкните «Управление Multi-Factor Auth». Откроется страница многофакторной проверки подлинности. <li>Выберите пользователя, параметры которого необходимо изменить, и установите флажок рядом с его именем. Возможно, потребуется изменить представление в верхней части страницы.</li> <li>Справа отобразится ссылка **Управление параметрами пользователя**. Нажмите ее.</li> <li>Установите флажок «Восстановить Multi-Factor Authentication на всех приостановленных устройствах».</li> ![Удаление паролей приложений](./media/multi-factor-authentication-manage-users-and-devices/rememberdevices.png) <li>Нажмите кнопку «Сохранить».</li> <li>Нажмите кнопку «Закрыть».</li>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

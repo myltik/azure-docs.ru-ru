@@ -61,4 +61,4 @@
 
 Дополнительные сведения о настройке проектов облачной службы Azure в Visual Studio см. в статье [Настройка проекта Azure с помощью нескольких конфигураций службы](vs-azure-tools-multiple-services-project-configurations.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

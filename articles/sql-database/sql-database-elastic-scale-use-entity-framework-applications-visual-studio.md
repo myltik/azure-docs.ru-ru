@@ -281,4 +281,4 @@ MyContext(DbConnection, DbCompiledModel,bool) |ElasticScaleContext(ShardMap, TKe
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

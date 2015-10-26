@@ -274,4 +274,4 @@ catch [System.Exception]
 [API .NET для служебной шины]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
 [Установка и настройка Azure PowerShell]: ../install-configure-powershell.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

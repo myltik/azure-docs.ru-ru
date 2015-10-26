@@ -129,4 +129,4 @@
   [TimeToLive]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx
   [Шаблоны асинхронного обмена сообщениями и высокий уровень доступности]: service-bus-async-messaging.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -50,4 +50,4 @@ XPath|string|Путь запроса внутри XML.
 <!-- Links -->
 [Создайте новое приложение логики]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

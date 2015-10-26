@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Создание паролей приложений на портале Office 365 для службы Azure Multi-Factor Authentication"
-	description="Эта страница содержит сведения о том, как пользователи могут создавать дополнительные пароли приложений на портале Office 365."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenp"
+	pageTitle="Создание паролей приложений на портале Office 365 для службы Azure Multi-Factor Authentication" 
+	description="Эта страница содержит сведения о том, как пользователи могут создавать дополнительные пароли приложений на портале Office 365." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenp" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Создание и удаление паролей приложений на портале Office 365 для службы Azure Multi-Factor Authentication
@@ -68,4 +68,4 @@
 <li>Появится всплывающее окно с предложением подтвердить удаление.</li>
 <li>Щелкните **Да**.</li>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

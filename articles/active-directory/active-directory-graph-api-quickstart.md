@@ -1,22 +1,22 @@
 <properties
    pageTitle="Краткое руководство по API Graph Azure AD | Microsoft Aure"
-	description="API Graph Azure Active Directory обеспечивает программный доступ к Azure AD через конечные точки REST API OData. Приложения могут использовать Graph API для выполнений операций создания, чтения, обновления и удаления (CRUD) с данными и объектами каталогов."
-	services="active-directory"
-	documentationCenter="n/a"
-	authors="JimacoMS"
-	manager="msmbaldwin"
-	editor=""
-	tags=""/>
+   description="API Graph Azure Active Directory обеспечивает программный доступ к Azure AD через конечные точки REST API OData. Приложения могут использовать Graph API для выполнений операций создания, чтения, обновления и удаления (CRUD) с данными и объектами каталогов."
+   services="active-directory"
+   documentationCenter="n/a"
+   authors="JimacoMS"
+   manager="msmbaldwin"
+   editor=""
+   tags=""/>
 
 
    <tags
       ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/24/2015"
-	ms.author="v-jibran@microsoft.com"/>
+      ms.devlang="na"
+      ms.topic="article"
+      ms.tgt_pltfrm="na"
+      ms.workload="identity"
+      ms.date="08/24/2015"
+      ms.author="v-jibran@microsoft.com"/>
 
 # Краткое руководство по API Graph Azure AD
 
@@ -123,4 +123,4 @@ Content-Type: application/json
 
 Узнайте больше о [API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

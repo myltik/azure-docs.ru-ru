@@ -238,4 +238,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Приступая к работе с концентраторами уведомлений]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

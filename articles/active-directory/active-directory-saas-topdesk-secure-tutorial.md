@@ -41,7 +41,7 @@
 
 5.  В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
 
-    ![Добавление приложения из коллекции](./media/active-directory-saas-topdesk-secure-tutorial/IC749322.png "Добавление приложения из коллекции")
+    ![Добавить приложение из коллекции](./media/active-directory-saas-topdesk-secure-tutorial/IC749322.png "Добавить приложение из коллекции")
 
 6.  В **поле поиска** введите **TOPdesk - Secure**.
 
@@ -95,9 +95,9 @@
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-topdesk-secure-tutorial/IC790604.png "Настройка URL-адреса приложения")
 
-    1.  В текстовом поле **URL-адрес входа в TOPdesk — Secure** введите URL-адрес, используемый пользователями для входа в приложение TOPdesk — Secure (например, "*https://qssolutions.topdesk.net*").
-    2.  В текстовое поле **URL-адрес ответа TOPdesk — Secure** вставьте значение **URL-адрес AssertionConsumerService для TOPdesk — Secure** (например: "*https://qssolutions.topdesk.net/tas/public/login/saml*")
-    3.  Нажмите кнопку **Далее**.
+    1.  В текстовом поле **URL-адрес входа в TOPdesk — Secure** введите URL-адрес, используемый пользователями для входа в приложение TOPdesk — Secure (например, "**https://qssolutions.topdesk.net*").
+2.  В текстовое поле **URL-адрес ответа TOPdesk — Secure** вставьте значение **URL-адрес AssertionConsumerService для TOPdesk — Secure** (например: "**https://qssolutions.topdesk.net/tas/public/login/saml*")
+3.  Нажмите кнопку **Далее**.
 
 10. На странице **Настройка единого входа в TOPdesk — Secure** нажмите кнопку **Загрузить метаданные**, чтобы загрузить метаданные, а затем сохраните файл данных на локальный компьютер.
 
@@ -185,4 +185,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

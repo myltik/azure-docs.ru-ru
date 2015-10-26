@@ -272,4 +272,4 @@ Here is the entire flow for a native  app; each request is detailed in the secti
 - [Создайте приложение](active-directory-b2c-app-registration.md) для получения идентификатора приложения и URI перенаправления. Включите **собственный клиент** в свое приложение.
 - [Создайте собственные политики](active-directory-b2c-reference-policies.md) для получения имен политик.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

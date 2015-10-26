@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Перемещение данных из базы данных MySQL | Фабрика данных Azure"
-	description="Узнайте, как перемещать данные из базы данных MySQL с использованием фабрики данных Azure."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Перемещение данных из базы данных MySQL | Фабрика данных Azure" 
+	description="Узнайте, как перемещать данные из базы данных MySQL с использованием фабрики данных Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # Перемещение данных из MySQL с помощью фабрики данных Azure
@@ -165,7 +165,7 @@
 
 **Конвейер с действием копирования**
 
-Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **RelationalSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, указанный для свойства **query**, выбирает для копирования данные за последний час.
+Конвейер содержит действие копирования (Copy), которое использует входной и выходной наборы данных (см. выше) и выполняется каждый час. В определении JSON конвейера для типа **source** установлено значение **RelationalSource**, а для типа **sink** — значение **BlobSink**. SQL-запрос, указанный для свойства **query**, выбирает для копирования данные за последний час.
 	
 	{
 	    "name": "CopyMySqlToBlob",
@@ -177,7 +177,7 @@
 	                "typeProperties": {
 	                    "source": {
 	                        "type": "RelationalSource",
-	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \'{0:yyyy-MM-ddTHH:mm:ss}\' AND timestamp < \'{1:yyyy-MM-ddTHH:mm:ss}\'', WindowStart, WindowEnd)"
+	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink",
@@ -310,4 +310,4 @@
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

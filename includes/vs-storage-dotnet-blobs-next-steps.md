@@ -9,4 +9,4 @@
   - Использование [Хранилища очередей](./storage-dotnet-how-to-use-queues.md) для хранения неструктурированных данных.
   - Использование [Базы данных SQL](../sql-database/sql-database-dotnet-how-to-use.md) для хранения реляционных данных.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

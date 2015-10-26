@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Добавление мобильных служб с помощью подключенных служб Visual Studio | Microsoft Azure"
-	description="Добавление мобильных служб с помощью диалогового окна Добавление подключенных служб в Visual Studio"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
+   description="Добавление мобильных служб с помощью диалогового окна ";Добавление подключенных служб"; в Visual Studio"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="mobile"
-	ms.date="08/12/2015"
-	ms.author="patshea"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="mobile"
+   ms.date="08/12/2015"
+   ms.author="patshea" />
 
 # Добавление мобильных служб с помощью подключенных служб Visual Studio
 
@@ -89,4 +89,4 @@ Visual Studio 2015 позволяет устанавливать подключ�
 
  - [Документация к мобильным службам Azure на сайте azure.microsoft.com](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

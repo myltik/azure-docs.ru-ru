@@ -263,4 +263,4 @@
 - Узнайте об [использовании диспетчера моментальных снимков StorSimple для администрирования решения StorSimple](storsimple-snapshot-manager-admin.md).
 - Узнайте о [просмотре заданий архивации и управлении ими с помощью диспетчера моментальных снимков StorSimple](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

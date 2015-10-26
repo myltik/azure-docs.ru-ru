@@ -21,7 +21,8 @@
 
 В этом разделе описано, как использовать [Docker](https://www.docker.com/) с [машиной](https://github.com/docker/machine) и [CLI Azure](https://github.com/Azure/azure-xplat-cli), чтобы создать виртуальную машину Azure для быстрого и легкого управления контейнерами Linux с компьютера под управлением Ubuntu. Для демонстрации в учебнике показано, как развернуть [образ Docker Hub для BusyBox](https://registry.hub.docker.com/_/busybox/) и [образ Docker Hub для nginx](https://registry.hub.docker.com/_/nginx/), а также настроить контейнер для маршрутизации веб-запросов в контейнер nginx. (В документации по **машине** Docker описано, как изменить эти указания для других платформ.)
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
 
 
 Есть некоторые предварительные требования к изучению этого учебника. Кроме этого, понадобится установить следующее ПО.
@@ -213,4 +214,4 @@
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

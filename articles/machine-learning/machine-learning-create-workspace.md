@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
-	ms.author="garye"/>
+	ms.date="10/13/2015" 
+	ms.author="garye;bradsev"/>
 
 
 # Создание рабочей области машинного обучения Azure 
+
+Это меню содержит ссылки на разделы, описывающие настройку различных сред обработки и анализа данных, используемых процессом аналитики Cortana (CAP).
+
+[AZURE.INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
 
 Для использования Студии машинного обучения Azure требуется рабочая область машинного обучения. Такая рабочая область содержит инструменты, необходимые для создания, публикации экспериментов и управления ими.
 
@@ -63,4 +67,4 @@
 
 <!--Link references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

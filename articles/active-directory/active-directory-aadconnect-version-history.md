@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure AD Connect: история выпусков версий | Microsoft Azure"
-	description="В этой статье перечислены все выпуски Azure AD Connect и Azure AD Sync"
-	services="active-directory"
-	documentationCenter=""
-	authors="AndKjell"
-	manager="stevenpo"
-	editor=""/>
+   description="В этой статье перечислены все выпуски Azure AD Connect и Azure AD Sync"
+   services="active-directory"
+   documentationCenter=""
+   authors="AndKjell"
+   manager="stevenpo"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/24/2015"
-	ms.author="andkjell"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="10/13/2015"
+   ms.author="andkjell"/>
 
 # Azure AD Connect: история выпусков версий
 
@@ -137,9 +137,7 @@
 
 **Первоначальный выпуск Azure AD Sync.**
 
-## Дополнительные ресурсы
-[Службы синхронизации Azure AD Connect: настройка параметров синхронизации](active-directory-aadconnectsync-whatis.md)
+## Дальнейшие действия
+Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-[Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

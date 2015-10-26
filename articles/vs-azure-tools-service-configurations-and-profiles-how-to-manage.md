@@ -131,4 +131,4 @@
 
 Дополнительные сведения о настройке других частей проекта Azure в Visual Studio см. в статье [Настройка проекта Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

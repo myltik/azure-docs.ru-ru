@@ -18,7 +18,7 @@
 	- [Как интегрировать Box](https://msdn.microsoft.com/library/azure/dn308589.aspx)
 	- [Как интегрировать ServiceNow](https://msdn.microsoft.com/library/azure/dn510971.aspx)
 	- [Как интегрировать Dropbox для бизнеса](https://msdn.microsoft.com/library/azure/dn510978.aspx)
-	- [Как интегрировать Workday](https://msdn.microsoft.com/library/azure/dn510972.aspx) 
+	- [Как интегрировать Workday](http://go.microsoft.com/fwlink/?LinkId=690250) 
 	- [Дополнительные учебники по приложениям SaaS...](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

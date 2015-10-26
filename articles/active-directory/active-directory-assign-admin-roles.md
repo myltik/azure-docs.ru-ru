@@ -85,4 +85,4 @@
 - [Управление паролями](active-directory-manage-passwords.md)
 - [Управление группами](active-directory-manage-groups.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

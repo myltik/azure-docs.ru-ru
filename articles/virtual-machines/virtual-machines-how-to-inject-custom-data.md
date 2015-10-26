@@ -22,7 +22,8 @@
 
 Включение сценария или других данных в виртуальную машину Azure при ее подготовке является очень распространенным сценарием, независимо от используемой операционной системы, Windows или Linux.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 В этом разделе описываются следующие действия:
 
@@ -82,4 +83,4 @@
 
 [Интерфейс командной строки Azure](https://github.com/Azure/azure-sdk-tools-xplat)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

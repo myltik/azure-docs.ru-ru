@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Проверка подлинности IIS и сервер Azure Multi-Factor Authentication"
-	description="Это страница Azure Multi-Factor Authentication, которая будет полезна при развертывании проверки подлинности IIS для сервера Azure Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Проверка подлинности IIS и сервер Azure Multi-Factor Authentication" 
+	description="Это страница Azure Multi-Factor Authentication, которая будет полезна при развертывании проверки подлинности IIS для сервера Azure Multi-Factor Authentication." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Проверка подлинности IIS
@@ -76,4 +76,4 @@
 3. Когда появится диалоговое окно «Добавление надежных IP-адресов», с помощью переключателя выберите один IP-адрес, диапазон IP-адресов или подсеть.
 4. Укажите IP-адрес, диапазон IP-адресов или подсеть, которые следует внести в список разрешений. При указании подсети выберите соответствующую маску сети и нажмите кнопку «ОК». После этого список разрешений будет добавлен.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

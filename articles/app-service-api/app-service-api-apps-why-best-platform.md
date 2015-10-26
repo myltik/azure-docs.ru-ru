@@ -70,10 +70,10 @@
 
 Чтобы начать работу с приложениями API, пройдите учебник [Создание приложения API](app-service-dotnet-create-api-app.md).
 
-Список известных проблем с приложениями API см. в [этом сообщении на форуме MSDN](https://social.msdn.microsoft.com/Forums/RU-RU/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
+Список известных проблем с приложениями API см. в [этом сообщении на форуме MSDN](https://social.msdn.microsoft.com/Forums/ru-RU/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
 
 Дополнительные сведения о платформе службы приложений Azure см. в статье [Служба приложений Azure](../app-service/app-service-value-prop-what-is.md).
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

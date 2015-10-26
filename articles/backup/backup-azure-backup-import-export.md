@@ -1,11 +1,11 @@
 <properties
    pageTitle="Служба архивации Azure: автономное резервное копирование и начальное заполнение с помощью службы импорта и экспорта Azure | Microsoft Azure"
-	description="Узнайте, как служба архивации Azure позволяет отправлять данные с помощью службы импорта и экспорта Azure без использования сети. В этой статье описывается автономное заполнение начальных резервных копий данных с помощью службы импорт и экспорт Azure."
-	services="backup"
-	documentationCenter=""
-	authors="aashishr"
-	manager="shreeshd"
-	editor=""/>
+   description="Узнайте, как служба архивации Azure позволяет отправлять данные с помощью службы импорта и экспорта Azure без использования сети. В этой статье описывается автономное заполнение начальных резервных копий данных с помощью службы импорт и экспорт Azure."
+   services="backup"
+   documentationCenter=""
+   authors="aashishr"
+   manager="shreeshd"
+   editor=""/>
 <tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/28/2015" ms.author="aashishr"; "jimpark"/>
 
 # Автономное резервное копирование в службе архивации Azure
@@ -108,4 +108,4 @@
 - Если у вас возникли вопросы о процессе импорта и экспорта Azure, см. эту [статью](../storage-import-export-service.md).
 - Дополнительные сведения об автономном резервном копировании см. в [часто задаваемых вопросах о службе архивации Azure](backup-azure-backup-faq.md) в разделе «Автономное резервное копирование».
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

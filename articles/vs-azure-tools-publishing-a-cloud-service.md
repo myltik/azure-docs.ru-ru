@@ -173,4 +173,4 @@
 
 Дополнительные сведения о публикации в Azure из Visual Studio см. в статье [Мастер публикации приложения Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

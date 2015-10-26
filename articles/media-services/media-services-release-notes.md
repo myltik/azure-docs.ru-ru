@@ -605,4 +605,4 @@ API REST служб мультимедиа обновлены до версии 
 [Обработка уведомлений из заданий служб мультимедиа]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

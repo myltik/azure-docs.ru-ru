@@ -1,10 +1,10 @@
 <properties
- pageTitle="Описание предварительно настроенных решений IoT Azure | Microsoft Azure"
+ pageTitle="Предварительно настроенные решения IoT Azure | Microsoft Azure"
  description="Описание предварительно настроенных решений IoT Azure и их архитектуры со ссылками на дополнительные ресурсы."
  services=""
- documentationCenter=".net"
+ documentationCenter=""
  authors="aguilaaj"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="araguila"/>
 
@@ -91,4 +91,4 @@
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [Azure Stream Analytics]: https://azure.microsoft.com/services/stream-analytics/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

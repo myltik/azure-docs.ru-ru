@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Руководство по созданию виртуальной сети для подключений между организациями по типу «сеть-сеть»"
-	description="Узнайте в этом учебнике, как создать виртуальную сеть Azure с подключениями между локальными сетями."
-	services="virtual-network"
-	documentationCenter=""
-	authors="cherylmc"
-	manager="adinah"
+	pageTitle="Руководство по созданию виртуальной сети для подключений между организациями по типу «сеть-сеть»" 
+	description="Узнайте в этом учебнике, как создать виртуальную сеть Azure с подключениями между локальными сетями." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
 	editor="tysonn"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/17/2015" 
 	ms.author="cherylmc"/>
 
 
@@ -271,4 +271,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

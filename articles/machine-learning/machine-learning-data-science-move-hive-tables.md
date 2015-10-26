@@ -1,32 +1,37 @@
 <properties 
-	pageTitle="Создание и загрузка данных в таблицы Hive из хранилища больших двоичных объектов | Microsoft Azure"
-	description="Создание таблиц Hive и загрузка в них данных больших двоичных объектов"
-	services="machine-learning,storage"
-	documentationCenter=""
-	authors="hangzh-msft"
-	manager="jacob.spoelstra"
-	editor="cgronlun"/>
+	pageTitle="Создание и загрузка данных в таблицы Hive из хранилища больших двоичных объектов | Microsoft Azure" 
+	description="Создание таблиц Hive и загрузка в них данных больших двоичных объектов" 
+	services="machine-learning,storage" 
+	documentationCenter="" 
+	authors="hangzh-msft" 
+	manager="jacob.spoelstra" 
+	editor="cgronlun"  />
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
-	ms.author="hangzh;bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/12/2015" 
+	ms.author="hangzh;bradsev" />
 
  
 #Создание и загрузка данных в таблицы Hive из хранилища больших двоичных объектов Azure
+
+Это **меню** содержит ссылки на разделы, описывающие прием данных в целевых средах, где они могут храниться и обрабатываться процессом аналитики Cortana (CAP).
+
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
+
  
 ## Введение
-В этом документе рассматриваются общие запросы Hive, которые создают таблицы Hive и загружают данные из хранилищ больших двоичных объектов Azure. Здесь также приведены некоторые указания по секционированию таблиц Hive и использованию формата Optimized Row Columnar (ORC) для улучшения производительности запросов.
+В **этом документе** рассматриваются общие запросы Hive, которые создают таблицы Hive и загружают данные из хранилищ больших двоичных объектов Azure. Здесь также приведены некоторые указания по секционированию таблиц Hive и использованию формата Optimized Row Columnar (ORC) для улучшения производительности запросов.
 
 ## Предварительные требования
 В этой статье предполагается, что вы:
  
 * Создали учетную запись хранения Azure. Инструкции можно найти в статье [Создание учетной записи хранения в Azure](../hdinsight-get-started.md#storage). 
-* Подготовили настраиваемый кластер Hadoop с помощью службы HDInsight. Инструкции см. в разделе [Настройка кластеров Azure HDInsight Hadoop для обработки аналитических данных и технологии расширенного анализа](machine-learning-data-science-customize-hadoop-cluster.md).
+* Подготовили настраиваемый кластер Hadoop с помощью службы HDInsight. Инструкции см. в статье [Настройка кластеров Azure HDInsight Hadoop для расширенного процесса обработки аналитических данных](machine-learning-data-science-customize-hadoop-cluster.md).
 * включили удаленный доступ к кластеру, вошли в систему и открыли окно командной строки Hadoop Инструкции можно найти в разделе [Доступ к головному узлу в кластере Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode). 
 
 ## Отправка данных в хранилище больших двоичных объектов Azure
@@ -41,11 +46,11 @@
 
 Кроме того, можно использовать консоль запросов (редактор Hive). Для этого нужно ввести URL-адрес
 
-https://&#60;Hadoop имя кластера>.azurehdinsight.net/Home/HiveEditor в адресной строке браузера
+https://&#60;Hadoop имя\_кластера>.azurehdinsight.net/Home/HiveEditor
 
 . Обратите внимание, что для входа в систему будет предложено ввести учетные данные кластера Hadoop, поэтому заранее подготовьте их.
 
-Кроме того, вы можете [отправить задания Hive с помощью PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
+Также вы можете [отправить задания Hive с помощью PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
 
 
 ## <a name="create-tables"></a>Создание базы данных и таблиц Hive
@@ -147,17 +152,17 @@ https://&#60;Hadoop имя кластера>.azurehdinsight.net/Home/HiveEditor 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name>
             SELECT * FROM <database name>.<external textfile table name>;
 
-	>[AZURE.NOTE]Если в таблице В ВИДЕ ТЕКСТОВОГО ФАЙЛА *&#60;имя базы данных>.&#60;имя таблицы внешнего текстового файла>* есть разделы, команда `SELECT * FROM <database name>.<external textfile table name>`, выполняемая на ШАГЕ 3, выберет переменную раздела в качестве поля в возвращенном наборе данных. Если вставить ее в *&#60;имя базы данных>.&#60;имя таблицы ORC>*, возникнет ошибка, так как в схеме таблицы *&#60;имя базы данных>.&#60;имя таблицы ORC>* нет переменной раздела в виде поля. В этом случае пользователям нужно указывать поля, которые необходимо вставить в таблицу *&#60;имя базы данных>.&#60;имя таблицы ORC>*, следующим образом:
+	>[AZURE.NOTE]Если в таблице В ВИДЕ ТЕКСТОВОГО ФАЙЛА *&#60;имя базы данных>.&#60;имя таблицы внешнего текстового файла>* есть разделы, команда `SELECT * FROM <database name>.<external textfile table name>`, выполняемая на ШАГЕ 3, выберет переменную раздела в качестве поля в возвращенном наборе данных. Если вставить ее в *&#60;имя базы данных>.&#60;имя таблицы ORC>*, возникнет ошибка, так как в схеме таблицы *&#60;имя базы данных>.&#60;имя таблицы ORC>* нет переменной раздела в виде поля. В этом случае пользователям нужно указывать поля, которые необходимо вставить в таблицу *&#60;имя базы данных>.&#60;имя таблицы ORC>*, следующим образом.
 
 		INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
 		   SELECT field1, field2, ..., fieldN
 		   FROM <database name>.<external textfile table name> 
 		   WHERE <partition variable>=<partition value>;
 
-4. Когда все данные будут вставлены в таблицу *&#60;имя базы данных>.&#60;имя таблицы ORC>*, можно безопасно удалить таблицу *&#60;имя таблицы внешнего текстового файла>*, используя следующий запрос:
+4. Когда все данные будут вставлены в таблицу *&#60;имя базы данных>.&#60;имя таблицы ORC>*, можно безопасно удалить таблицу *&#60;имя таблицы внешнего текстового файла>*, используя следующий запрос.
 
 		DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 
 После выполнения этой процедуры у вас должна быть готовая к использованию таблица с данными в формате ORC.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

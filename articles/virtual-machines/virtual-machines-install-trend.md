@@ -20,7 +20,8 @@
 
 # Установка и настройка Trend Micro Deep Security как услуги на ВМ Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье рассматривается установка приложений на виртуальную машину, созданную с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 В этой статье показывается, как можно установить и настроить Trend Micro Deep Security как услуги на новой или существующей виртуальной машине (ВМ) под управлением Windows Server. Deep Security как услуга включает защиту от вредоносных программ, брандмауэр, систему предотвращения вторжений и мониторинг целостности.
 
@@ -86,4 +87,4 @@
 [Как войти в виртуальную машину под управлением Windows Server]: virtual-machines-log-on-windows-server.md
 [Расширения и компоненты виртуальных машин Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

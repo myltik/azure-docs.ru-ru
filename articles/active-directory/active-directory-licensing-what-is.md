@@ -131,4 +131,4 @@ Azure Active Directory (AD) — это служба идентификации 
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [Прямое приобретение лицензий Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

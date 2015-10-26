@@ -197,7 +197,7 @@ Azure Stream Analytics позволяет воспользоваться одн�
 ![рисунок13][graphic13]
 
 ## Получение справки ##
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-ru/home?forum=AzureStreamAnalytics).
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
 
 ## Дальнейшие действия ##
 
@@ -222,4 +222,4 @@ Azure Stream Analytics позволяет воспользоваться одн�
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Каталог данных Azure — Что такое каталог данных"
-	description="Обзор каталога данных Microsoft Azure, в том числе его возможностей, а также проблем, для решения которых он предназначен. Возможности каталога данных Azure позволяют любому пользователю — от аналитиков до специалистов по анализу данных и разработчиков — регистрировать, обнаруживать, анализировать и использовать источники данных."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Обзор каталога данных Microsoft Azure, в том числе его возможностей, а также проблем, для решения которых он предназначен. Возможности каталога данных Azure позволяют любому пользователю — от аналитиков до специалистов по анализу данных и разработчиков — регистрировать, обнаруживать, анализировать и использовать источники данных."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/21/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="08/21/2015"
+   ms.author="maroche"/>
 
 # Что такое каталог данных Azure?
 
@@ -122,4 +122,4 @@
 
 > [AZURE.NOTE]В предварительной версии каталога данных Azure в меню **Открыть в** будут непосредственно поддерживаться и доступными только приложения Microsoft Excel и SQL Server Reporting Services Report Manager.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

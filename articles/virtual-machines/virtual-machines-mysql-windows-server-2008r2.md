@@ -20,7 +20,8 @@
 
 # Установка MySQL на виртуальной машине под управлением Windows Server 2012 R2, созданной с помощью классической модели развертывания.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 [MySQL](http://www.mysql.com) является популярной базой данных SQL с открытым исходным кодом. С помощью [портала Azure](http://manage.windowsazure.com) можно создать виртуальную машину под управлением Windows Server 2012 R2 из коллекции образов. Затем можно установить и настроить ее в качестве сервера MySQL.
 
@@ -129,4 +130,4 @@
 
 Дополнительную информацию о MySQL см. в [документации по MySQL](http://dev.mysql.com/doc/).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

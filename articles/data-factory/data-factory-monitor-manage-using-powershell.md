@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Учебник. Создание конвейера с действием копирования с помощью Azure PowerShell"
-	description="В этом учебнике вы создадите конвейер фабрики данных Azure с действием копирования с помощью Azure PowerShell."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Учебник. Создание конвейера с действием копирования с помощью Azure PowerShell" 
+	description="В этом учебнике вы создадите конвейер фабрики данных Azure с действием копирования с помощью Azure PowerShell." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Учебник. Создание и мониторинг фабрики данных с помощью Azure PowerShell
@@ -229,9 +229,9 @@
 
 	Подробную информацию о свойствах JSON см. в [Справочнике по сценариям JSON](http://go.microsoft.com/fwlink/?LinkId=516971).
 
-2.	Выполните следующую команду для создания таблицы фабрики данных.
+2.	Выполните следующую команду для создания набора данных фабрики данных.
 
-		New-AzureDataFactoryTable $df -File .\EmpBlobTable.json
+		New-AzureDataFactoryDataset $df -File .\EmpBlobTable.json
 
 ### Создание выходной таблицы
 В этой части шага создается выходная таблица с именем **EmpSQLTable**, которая указывает на таблицу SQL (**emp**) в базе данных SQL Azure, представленную связанной службой **AzureSqlLinkedService**. Конвейер копирует данные из входного большого двоичного объекта в таблицу **emp**.
@@ -271,9 +271,9 @@
 	* В таблице emp базы данных имеются три столбца: **ID**, **FirstName** и **LastName**, но ID — это столбец идентификаторов, поэтому здесь необходимо задать только **FirstName** и **LastName**.
 	* Параметр **availability** имеет значение **hourly**, при этом **frequency** получает значение **hour**, а **interval** получает значение **1**; Служба фабрики данных будет создавать срез выходных данных каждый час в таблице **emp** в базе данных SQL Azure.
 
-2.	Выполните следующую команду для создания таблицы фабрики данных.
+2.	Выполните следующую команду для создания набора данных фабрики данных.
 	
-		New-AzureDataFactoryTable $df -File .\EmpSQLTable.json
+		New-AzureDataFactoryDataset $df -File .\EmpSQLTable.json
 
 
 ## <a name="CreateAndRunAPipeline"></a>Шаг 4. Создание и запуск конвейера
@@ -410,7 +410,7 @@
 Полную документацию по командлетам фабрики данных см. в [справочнике по командлетам фабрики данных][cmdlet-reference].
 
 ## Отправить отзыв
-Мы будем весьма признательны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-using-powershell.md).
+Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-using-powershell.md).
 
 
 [adf-tutorial]: data-factory-tutorial.md
@@ -432,4 +432,4 @@
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

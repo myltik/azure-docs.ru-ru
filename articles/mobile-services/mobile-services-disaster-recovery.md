@@ -104,4 +104,4 @@
 [Автоматизация мобильных служб с помощью Azure CLI]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

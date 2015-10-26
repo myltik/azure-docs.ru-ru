@@ -19,7 +19,8 @@
 
 # Развертывание ресурсов Azure с помощью библиотек компонентов Compute, Network и Storage для .NET
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается управление ресурсом с помощью модели развертывания диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
+
 
 В этом учебнике рассказывается, как использовать некоторые из доступных клиентов в библиотеках компонентов Compute, Network и Storage для .NET, чтобы создавать и удалять ресурсы в Microsoft Azure. Кроме того, в нем имеются сведения о том, как проверить подлинность запросов к диспетчеру ресурсов Azure с помощью Azure Active Directory.
 
@@ -29,7 +30,7 @@
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Учетная запись хранения Azure.](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/RU-RU/download/details.aspx?id=34595) или [Windows Management Framework 4.0.](http://www.microsoft.com/RU-RU/download/details.aspx?id=40855)
+- [Windows Management Framework 3.0](http://www.microsoft.com/ru-RU/download/details.aspx?id=34595) или [Windows Management Framework 4.0.](http://www.microsoft.com/ru-RU/download/details.aspx?id=40855)
 - [Azure PowerShell](../install-configure-powershell.md)
 
 На выполнение этих действий требуется примерно 30 минут.
@@ -38,31 +39,23 @@
 
 Чтобы использовать Azure AD для аутентификации запросов к диспетчеру ресурсов Azure, необходимо добавить приложение в каталог по умолчанию. Чтобы добавить приложение, выполните указанные ниже действия.
 
-1. Откройте командную строку Azure PowerShell и выполните следующую команду:
+1. Откройте командную строку Azure PowerShell и выполните следующую команду. При появлении соответствующего запроса введите учетные данные своей подписки.
 
-        Switch-AzureMode –Name AzureResourceManager
+	    Login-AzureRmAccount
 
-2. Настройте учетную запись Azure, которую вы собираетесь использовать для работы с данным учебником. Выполните следующую команду и при появлении соответствующего запроса введите учетные данные для вашей подписки:
+2. В следующей команде замените слово "{password}" паролем, который вы будете использовать, а затем выполните ее, чтобы создать приложение:
 
-	    Add-AzureAccount
+	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-3. В следующей команде замените слово "{password}" паролем, который вы будете использовать, а затем выполните ее, чтобы создать приложение:
+	>[AZURE.NOTE]Запишите идентификатор приложения, который возвращается после создания приложения, так как он потребуется для следующего шага. Кроме того, идентификатор приложения отображается в поле идентификатора клиента приложения в разделе «Active Directory» портала.
 
-	    New-AzureADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
+3. Замените {application-id} только что записанным идентификатором, а затем создайте субъект-службу для приложения:
 
-4. Запишите значение идентификатора приложения, полученное в результате выполнения предыдущего действия. Оно потребуется при дальнейшей работе с данным учебником:
+        New-AzureRmADServicePrincipal -ApplicationId {application-id}
 
-	![Создание приложения AD](./media/virtual-machines-arm-deployment/azureapplicationid.png)
+4. Настройте разрешение на использование приложения:
 
-	>[AZURE.NOTE]Кроме того, идентификатор приложения отображается в поле идентификатора клиента приложения на портале управления.
-
-5. Замените {application-id} только что записанным идентификатором, а затем создайте субъект-службу для приложения:
-
-        New-AzureADServicePrincipal -ApplicationId {application-id}
-
-6. Настройте разрешение на использование приложения:
-
-	    New-AzureRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
+	    New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
 
 ## Действие 2. Создание проекта Visual Studio и установка библиотек
 
@@ -390,4 +383,4 @@
 
 	![Создание приложения AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -75,4 +75,4 @@
 [replicadetails]: ./media/service-fabric-visualizing-your-cluster/replicadetails.png
 [servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

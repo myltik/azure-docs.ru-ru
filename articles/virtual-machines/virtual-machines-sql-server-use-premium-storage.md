@@ -24,7 +24,8 @@
 
 [Хранилище Azure Premium Storage](../storage-premium-storage-preview-portal.md) — это хранилище нового поколения, обеспечивающее малую задержку и высокую пропускную способность ввода-вывода. Данное хранилище лучше справляется с интенсивными нагрузками ввода-вывода, как, например, SQL Server на [виртуальных машинах](http://azure.microsoft.com/services/virtual-machines/) IaaS.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается использование ресурсов с классической моделью развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+ 
 
 Данная статья содержит информацию о планировании и осуществлении миграции виртуальной машины под управлением SQL Server для использования хранилища Premium Storage. Она включает описание этапов работы с инфраструктурой Azure (сеть, хранилище) и гостевой виртуальной машиной Windows. В примере из [приложения](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) приведена комплексная схема миграции, описывающая перенос более крупных виртуальных машин, что позволит воспользоваться преимуществами улучшенного локального хранилища SSD с помощью PowerShell.
 
@@ -1148,4 +1149,4 @@
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

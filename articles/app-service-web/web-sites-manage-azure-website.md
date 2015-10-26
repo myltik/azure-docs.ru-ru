@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Управление веб-приложением в службе приложений Azure"
-	description="Ссылки на ресурсы, посвященные управлению веб-приложением в службе приложений Azure."
-	services="app-service\web"
-	documentationCenter=""
-	authors="erikre"
-	manager="wpickett"
+	pageTitle="Управление веб-приложением в службе приложений Azure" 
+	description="Ссылки на ресурсы, посвященные управлению веб-приложением в службе приложений Azure." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="erikre" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/31/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/31/2015" 
 	ms.author="erikre"/>
 
 # Управление веб-приложением в службе приложений Azure
@@ -103,4 +103,4 @@
 
   
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

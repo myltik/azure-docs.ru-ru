@@ -131,4 +131,4 @@ API REST состоит из HTTP-запросов и ответов с соде
 
 [Использование службы поиска Azure в .NET](search-howto-dotnet-sdk.md) [Начало работы со службой поиска Azure в .NET](search-get-started-dotnet.md) [Поиск Azure: учебники, видеодемонстрации и примеры](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

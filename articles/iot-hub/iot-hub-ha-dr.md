@@ -1,10 +1,10 @@
 <properties
- pageTitle="Высокий уровень доступности и аварийное восстановление центра IoT Azure | Microsoft Azure"
- description="В статье описывается ряд возможностей для создания решений с функциями аварийного восстановления."
+ pageTitle="Высокий уровень доступности и аварийное восстановление центра IoT | Microsoft Azure"
+ description="В статье описывается ряд возможностей для создания высокодоступных решений с функциями аварийного восстановления."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="10/02/2015"
  ms.author="elioda"/>
 
@@ -48,4 +48,4 @@
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Что такое центр IoT в Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

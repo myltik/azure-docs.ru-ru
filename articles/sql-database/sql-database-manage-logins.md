@@ -169,4 +169,4 @@ SELECT * FROM sys.databases;
 
 [Безопасность в Базе данных SQL Azure: рекомендации и ограничения](sql-database-security-guidelines.md) [Подключение к Базе данных SQL с помощью проверки подлинности Azure Active Directory](sql-database-aad-authentication.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

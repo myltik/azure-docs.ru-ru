@@ -77,8 +77,8 @@
 <!-- URLs. -->
 [разработчиков для Facebook]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
-[Get started with authentication]: /ru-ru/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with authentication]: /ru-RU/develop/mobile/tutorials/get-started-with-users-dotnet/
 [портал управления Azure]: https://portal.azure.com/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

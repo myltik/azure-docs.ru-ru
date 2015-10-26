@@ -162,4 +162,4 @@ SSL-шифрование — это наиболее распространен
 * Настройте [пользовательское доменное имя](cloud-services-custom-domain-name-portal.md).
 * [Управляйте облачной службой](cloud-services-how-to-manage-portal.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

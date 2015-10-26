@@ -46,4 +46,4 @@
 1. Включить прокси-сервер приложений в Azure AD, установить и зарегистрировать соединитель. Подробные инструкции см. в статье [Включение прокси-сервера приложений Azure AD](active-directory-application-proxy-enable/#step-1-enable-application-proxy-in-azure-ad.md).
 2. Опубликовать приложения с помощью прокси-сервера приложений Azure AD. Подробные инструкции см. в статье [Публикация приложений с помощью прокси-сервера приложений Azure AD](active-directory-application-proxy-publish.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

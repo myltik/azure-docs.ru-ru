@@ -19,7 +19,8 @@
 
 # Пятый этап развертывания бизнес-приложений: создание группы доступности и добавление баз данных приложений
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью модели развертывания, которая использует менеджер ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
+
 
 На последнем этапе развертывания высокодоступных бизнес-приложений в службах инфраструктуры Azure вы создадите новую группу доступности AlwaysOn для SQL Server и добавите базы данных приложения.
 
@@ -127,4 +128,4 @@
 
 [Рабочая нагрузка служб инфраструктуры Azure: ферма SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Отсоединение диска от виртуальной машины Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается удаление диска с использованием классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-linux.md)]
 
@@ -29,4 +30,4 @@
 
 [Управление службами Azure с помощью интерфейса командной строки Azure](virtual-machines-command-line-tools.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

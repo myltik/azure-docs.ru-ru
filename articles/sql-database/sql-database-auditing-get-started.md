@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="10/08/2015" 
 	ms.author="jeffreyg"/>
  
 # Приступая к работе с аудитом базы данных SQL 
@@ -139,12 +139,15 @@
 4. В интерфейсе хранилища **повторно создайте** *вторичный ключ доступа* (для подготовки к следующему циклу обновления ключей).
   
 ##<a id="subheading-4"></a>Автоматизация
-Существует несколько командлетов PowerShell, которые можно использовать для настройки аудита в базе данных SQL Azure. Для доступа к аудиту командлетов необходимо наличие PowerShell в режиме диспетчера ресурсов Azure.
+Существует несколько командлетов PowerShell, которые можно использовать для настройки аудита в базе данных SQL Azure:
 
-> [AZURE.NOTE]Модуль [диспетчера ресурсов Azure](https://msdn.microsoft.com/library/dn654592.aspx) в настоящее время находится на стадии предварительной версии. Он может не обеспечивать те же возможности управления, что и модуль Azure.
-
-При работе в режиме диспетчера ресурсов Azure выполните команду `Get-Command *AzureSql*`, чтобы получить список доступных командлетов.
-
+- [Get-AzureRMSqlDatabaseAuditingPolicy](https://msdn.microsoft.com/library/azure/mt603731.aspx)
+- [Get-AzureRMSqlServerAuditingPolicy](https://msdn.microsoft.com/library/azure/mt619329.aspx)
+- [Remove-AzureRMSqlDatabaseAuditing](https://msdn.microsoft.com/library/azure/mt603796.aspx)
+- [Remove-AzureRMSqlServerAuditing](https://msdn.microsoft.com/library/azure/mt603574.aspx)
+- [Set-AzureRMSqlDatabaseAuditingPolicy](https://msdn.microsoft.com/library/azure/mt603531.aspx)
+- [Set-AzureRMSqlServerAuditingPolicy](https://msdn.microsoft.com/library/azure/mt603794.aspx)
+- [Use-AzureRMSqlServerAuditingPolicy](https://msdn.microsoft.com/library/azure/mt619353.aspx)
 
 
 
@@ -182,4 +185,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

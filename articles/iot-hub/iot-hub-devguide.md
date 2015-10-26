@@ -1,6 +1,6 @@
 <properties
- pageTitle="Руководство разработчика по центру Azure IoT (IoT — Интернет вещей) | Microsoft Azure"
- description="Руководство разработчика по центру Azure IoT, содержащее информацию о конечных точках центра, его безопасности, реестре удостоверений устройств и обмене сообщениями в центре."
+ pageTitle="Разделы руководства разработчика для центра IoT | Microsoft Azure"
+ description="Руководство разработчика для центра IoT Azure, содержащее информацию о конечных точках центра IoT, его безопасности, реестре удостоверений устройств и обмене сообщениями."
  services="iot-hub"
  documentationCenter=".net"
  authors="fsautomata"
@@ -9,10 +9,10 @@
 
 <tags
  ms.service="iot-hub"
- ms.devlang="na"
+ ms.devlang="multiple"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
@@ -488,6 +488,7 @@
 
 - [Приступая к работе с центром IoT (руководство)][lnk-get-started]
 - [Платформы ОС и совместимость оборудования][lnk-compatibility]
+- [Центр разработчика IoT Azure][lnk-iotdev]
 - [Планирование реализации IoT][lnk-guidance]
 
 [концентраторов событий и узла обработчика событий]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
@@ -531,5 +532,6 @@
 [lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
 [lnk-servicebus]: http://azure.microsoft.com/services/service-bus/
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
+[lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

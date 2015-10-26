@@ -19,7 +19,9 @@
 
 # Архитектура диспетчера ресурсов Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
+
+
 
 В этой статье приведен обзор архитектур управления службами и диспетчера ресурсов, используемых для создания приложений и рабочих нагрузок на основе инфраструктуры.
 
@@ -81,4 +83,4 @@
 
 [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

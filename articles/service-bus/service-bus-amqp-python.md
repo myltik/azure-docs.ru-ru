@@ -166,19 +166,11 @@ if message.properties != None:
 Хотите узнать больше? Перейдите по следующим ссылкам:
 
 - [Протокол AMQP служебной шины — обзор]
-- [Использование служебной шины на платформе .NET с протоколом AMQP]
-- [Использование служебной шины на платформе Java с протоколом AMQP]
-- [Использование служебной шины на платформе PHP с протоколом AMQP]
-- [Установка Apache Qpid Proton-C на виртуальной машине Azure под управлением Linux]
 - [Протокол AMQP служебной шины для Windows Server]
 
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 [Протокол AMQP служебной шины для Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
-[Использование служебной шины на платформе .NET с протоколом AMQP]: service-bus-amqp-dotnet.md
-[Использование служебной шины на платформе Java с протоколом AMQP]: service-bus-amqp-java.md
-[Использование служебной шины на платформе PHP с протоколом AMQP]: service-bus-amqp-php.md
-[Установка Apache Qpid Proton-C на виртуальной машине Azure под управлением Linux]: service-bus-amqp-apache.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -87,4 +87,4 @@
 * [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-overview.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

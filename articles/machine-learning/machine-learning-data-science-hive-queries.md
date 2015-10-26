@@ -2,6 +2,7 @@
 	pageTitle="Отправка запросов Hive в кластеры Hadoop при обработке данных в облаке | Microsoft Azure" 
 	description="Обработка данных в таблицах Hive" 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -325,4 +326,4 @@ Hive поставляется с набором определяемых пол�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

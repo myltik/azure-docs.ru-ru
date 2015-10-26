@@ -19,7 +19,8 @@
 
 # Первый этап развертывания бизнес-приложений: настройка Azure
  
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью модели развертывания, которая использует менеджер ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
+
  
 На этом этапе развертывания высокодоступного бизнес-приложения в интрасети на базе служб инфраструктуры Azure вы создадите инфраструктуру сети и хранения Azure. Его необходимо выполнить, прежде чем переходить к [этапу 2](virtual-machines-workload-high-availability-LOB-application-phase2.md). Все этапы перечислены в статье [Развертывание высокодоступных бизнес-приложений в Azure](virtual-machines-workload-high-availability-LOB-application-overview.md).
 
@@ -249,4 +250,4 @@
 
 [Рабочая нагрузка служб инфраструктуры Azure: ферма SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

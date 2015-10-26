@@ -289,7 +289,7 @@ VB на стороне сервера
 
 <!--Link references-->
 
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

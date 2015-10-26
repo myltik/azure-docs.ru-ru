@@ -177,4 +177,4 @@
 
 Дополнительные сведения о создании виртуальных машин см. в статьях [Создание виртуальной машины под управлением Linux](virtual-machines-linux-tutorial.md) и [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](virtual-machines-windows-tutorial.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

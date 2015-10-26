@@ -20,7 +20,8 @@
 
 В этой статье показано, как развернуть кластер Microsoft HPC в Azure и выполнить задание [NAMD](http://www.ks.uiuc.edu/Research/namd/) с помощью служебной программы **charmrun** на нескольких вычислительных узлах Linux в сети виртуального кластера, чтобы вычислить и визуализировать структуру большой биомолекулярной системы.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье рассматриваются ресурсы, созданные с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 
 NAMD (программа Nanoscale Molecular Dynamics) — это пакет для параллельных вычислений молекулярной динамики, разработанный для высокопроизводительного моделирования больших биомолекулярных систем с миллионами атомов, таких как вирусы, клеточные структуры и большие белки. NAMD масштабируется до сотен ядер для стандартного моделирования и более чем 500 000 ядер для моделирования самых крупных систем.
@@ -407,4 +408,4 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 [task_details]: ./media/virtual-machines-linux-cluster-hpcpack-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-cluster-hpcpack-namd/vmd_view.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

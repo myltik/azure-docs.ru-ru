@@ -16,9 +16,10 @@
  ms.date="08/25/2015"
  ms.author="rasquill"/>
 #Управление расширениями виртуальной машины
+
 Эта статья описывает методы поиска, добавления, изменения и удаления расширений ВМ на виртуальных машинах Azure Windows или Linux.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Эта статья описывает управление расширениями с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
 
 
 ##Использование расширений виртуальной машины
@@ -141,4 +142,4 @@
 
 >[AZURE.NOTE]Кроме того, расширения могут использовать конфигурации, заданные с помощью JSON. При использовании расширений такого типа применяется только элемент **SampleConfig**.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Устранение неполадок: элемент Active Directory отсутствует или недоступен | Microsoft Azure"
-	description="Что делать, если пункт меню Active Directory не отображается на портале управления Azure."
-	services="active-directory"
-	documentationCenter="na"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   description="Что делать, если пункт меню Active Directory не отображается на портале управления Azure."
+   services="active-directory"
+   documentationCenter="na"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/24/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="08/24/2015"
+   ms.author="mbaldwin"/>
 
 # Устранение неполадок: элемент Active Directory отсутствует или недоступен
 
@@ -54,4 +54,4 @@
 
 ![Снимок экрана: Active Directory недоступен](./media/active-directory-troubleshooting/not-available.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

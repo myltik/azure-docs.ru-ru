@@ -160,4 +160,4 @@ Azure HDInsight поддерживает несколько версий кла�
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

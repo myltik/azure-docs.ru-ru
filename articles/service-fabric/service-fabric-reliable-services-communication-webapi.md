@@ -614,4 +614,4 @@ New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -Servi
 
 [Отладка приложения Service Fabric в Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

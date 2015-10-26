@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="09/23/2015"
+   ms.date="10/08/2015"
    ms.author="adamkr; sstein"/>
 
 # Создание эластичного пула баз данных для Базы данных SQL и управление им с помощью PowerShell
@@ -28,25 +28,15 @@
 
 Эта статья рассказывает о создании пула эластичных баз данных SQL и управлении им с помощью PowerShell.
 
+> [AZURE.IMPORTANT]Начиная с выпуска предварительной версии Azure PowerShell 1.0 командлет Switch-AzureMode больше не доступен, а командлеты, которые были в модуле Azure ResourceManger, переименованы. В примерах в этой статье используется новое соглашение об именовании предварительной версии PowerShell 1.0. Дополнительные сведения см. в разделе [Устаревший командлет Switch-AzureMode в Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
+
+Чтобы выполнить командлеты PowerShell, необходимо установить и запустить Azure PowerShell. А из-за удаления Switch-AzureMode необходимо скачать и установить последнюю версию Azure PowerShell, запустив [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 Для наглядности разбираются и поясняются отдельные шаги по созданию пула эластичных баз данных с помощью Azure PowerShell. Если вам нужен только краткий список команд, перейдите в раздел **Сборка** в нижней части этой статьи.
 
-В этой статье рассказывается, как подготовить все необходимое для создания и настройки пула эластичных баз данных (кроме подписки Azure). Если вам требуется подписка Azure, нажмите в верхней части этой страницы кнопку **БЕСПЛАТНАЯ ПРОБНАЯ ВЕРСИЯ**. Оформив подписку, вернитесь к этой статье.
+В этой статье показано, как подготовить все необходимое для создания и настройки пула эластичных баз данных (кроме подписки Azure). Если вам требуется подписка Azure, нажмите в верхней части этой страницы кнопку **БЕСПЛАТНАЯ ПРОБНАЯ ВЕРСИЯ**. Оформив подписку, вернитесь к этой статье.
 
 > [AZURE.NOTE]Сейчас пулы эластичных баз данных предоставляются в виде предварительной версии, которая доступна только с серверами Базы данных SQL версии 12.
-
-
-## Предварительные требования
-
-Для создания пула эластичных баз данных с помощью PowerShell необходимо иметь установленный и запущенный Azure PowerShell и перевести его в режим диспетчера ресурсов, чтобы получить доступ к командлетам PowerShell диспетчера ресурсов Azure.
-
-Вы можете скачать и установить модуль Azure PowerShell, запустив [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md).
-
-Командлеты для создания баз данных SQL Azure и пулов эластичных баз данных находятся в модуле диспетчера ресурсов Azure. При запуске Azure PowerShell командлеты в модуле Azure импортируются по умолчанию. Для перехода в модуль диспетчера ресурсов Azure используйте командлет Switch-AzureMode.
-
-	Switch-AzureMode -Name AzureResourceManager
-
-Дополнительную информацию можно узнать в статье [Использование Windows PowerShell с диспетчером ресурсов](powershell-azure-resource-manager.md).
 
 
 ## Настройка учетных данных и выбор подписки
@@ -67,17 +57,17 @@
 
 ## Создание группы ресурсов, сервера и правила брандмауэра
 
-Теперь вы можете запустить командлеты под вашей подпиской Azure, и следующим шагом станет установка группы ресурсов, содержащей сервер, на котором будет создаваться пул эластичных баз данных. Вы можете отредактировать следующую команду, чтобы использовать любое допустимое расположение. Выполните команду **(Get-AzureLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** для получения списка допустимых расположений.
+Теперь вы можете запустить командлеты под вашей подпиской Azure, и следующим шагом станет установка группы ресурсов, содержащей сервер, на котором будет создаваться пул эластичных баз данных. Вы можете отредактировать следующую команду, чтобы использовать любое допустимое расположение. Выполните команду **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** для получения списка допустимых расположений.
 
 Если у вас уже есть группа ресурсов, вы можете перейти к следующему шагу или выполнить команду ниже, чтобы создать новую группу ресурсов:
 
-	New-AzureResourceGroup -Name "resourcegroup1" -Location "West US"
+	New-AzureRMResourceGroup -Name "resourcegroup1" -Location "West US"
 
 ### Создание сервера 
 
 Пулы эластичных баз данных создаются внутри серверов баз данных SQL Azure. Если у вас уже есть сервер, вы можете перейти к следующему шагу или выполнить команду ниже, чтобы создать новый сервер версии 12. Замените строку ServerName на имя вашего сервера. Это имя должно быть уникальным для серверов SQL Azure, поэтому, если оно уже занято, может появиться ошибка. Кроме того, выполнение этой команды может занять несколько минут. После успешного создания сервера будут запрошены сведения о сервере и PowerShell. Вы можете отредактировать эту команду, чтобы использовать любое другое допустимое расположение.
 
-	New-AzureSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
+	New-AzureRMSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
 При выполнении этой команды появится окно, запрашивающее **Имя пользователя** и **Пароль**. Это не учетные данные Azure; введите имя пользователя и пароль, которые станут учетными данными администратора нового сервера.
 
@@ -88,7 +78,7 @@
 
 Если ваш сервер должен предоставлять доступ к другим службам Azure, добавьте параметр **-AllowAllAzureIPs**, который добавит специальное правило брандмауэра и предоставит всему трафику Azure доступ к серверу.
 
-	New-AzureSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
+	New-AzureRMSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 
 Дополнительные сведения см. в статье [Брандмауэр Базы данных SQL Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx).
 
@@ -98,41 +88,41 @@
 Сейчас у вас есть группа ресурсов, сервер и правило брандмауэра, настроенные для получения доступа к серверу. Следующая команда создаст пул эластичных баз данных. Данная команда создает пул, использующий 400 единиц eDTU. Каждая база данных в пуле всегда гарантированно имеет 10 доступных единиц eDTU (DatabaseDtuMin). Отдельные базы данных в пуле могут использовать максимум 100 единиц eDTU (DatabaseDtuMax). Более подробные сведения см. в статье [Эластичные пулы Базы данных SQL Azure](sql-database-elastic-pool.md).
 
 
-	New-AzureSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
+	New-AzureRMSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
 ### Создание эластичных баз данных или их добавление в пул эластичных баз данных
 
 Пул, созданный на предыдущем шаге, пуст, в нем не содержится ни одной эластичной базы данных. В следующих разделах рассказывается, как создавать эластичные базы данных в пуле, а также о том, как добавлять уже существующие базы данных в пул.
 
-*Кроме того, после создания пула можно использовать Transact-SQL для создания новых эластичных баз данных в пуле и перемещения существующих баз данных в пул и из него. Дополнительные сведения можно найти в разделе [Справочник по пулу эластичных баз данных — Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Кроме того, после создания пула можно использовать Transact-SQL для создания новых эластичных баз данных в пуле и перемещения существующих баз данных в пул и из него. Дополнительные сведения см. в разделе [Справочник по пулам эластичных баз данных — Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 ### Создание эластичной базы данных внутри пула эластичных баз данных
 
-Для создания новой базы данных прямо в пуле воспользуйтесь командлетом **New-AzureSqlDatabase** и задайте параметр **ElasticPoolName**.
+Для создания новой базы данных прямо в пуле воспользуйтесь командлетом **New-AzureRMSqlDatabase** и задайте параметр **ElasticPoolName**.
 
 
-	New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+	New-AzureRMSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
 
 ### Перемещение существующей базы данных в пул эластичных баз данных
 
-Для перемещения существующей базы данных в пул воспользуйтесь командлетом **Set-AzurSqlDatabase** и задайте параметр **ElasticPoolName**.
+Для перемещения существующей базы данных в пул воспользуйтесь командлетом **Set-AzureRMSqlDatabase** и задайте параметр **ElasticPoolName**.
 
 
 В качестве примера создайте базу данных, которая не входит в пул эластичных баз данных.
 
-	New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -Edition "Standard"
+	New-AzureRMSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -Edition "Standard"
 
 Переместите существующую базу данных в пул эластичных баз данных.
 
-	Set-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+	Set-AzureRMSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 ## Изменение параметров производительности пула эластичных баз данных
 
 
-    Set-AzureSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
+    Set-AzureRMSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
 
 
 ## Мониторинг эластичных баз данных и пулов эластичных баз данных
@@ -141,12 +131,12 @@
 
 Вы можете отслеживать состояние операций пула эластичных баз данных, включая создание и обновления.
 
-	Get-AzureSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
+	Get-AzureRMSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
 
 
 ### Получение состояния перемещения эластичной базы данных в пул эластичных баз данных и из него
 
-	Get-AzureSqlElasticPoolDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+	Get-AzureRMSqlElasticPoolDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 ### Получение показателей потребления ресурсов для пула эластичных баз данных
 
@@ -211,15 +201,14 @@
 ## Сборка
 
 
-    Switch-AzureMode -Name AzureResourceManager
     Add-AzureAccount
     Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
-    New-AzureResourceGroup -Name "resourcegroup1" -Location "West US"
-    New-AzureSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
-    New-AzureSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
-    New-AzureSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
-    New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1" -MaxSizeBytes 10GB
-    Set-AzureSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
+    New-AzureRMResourceGroup -Name "resourcegroup1" -Location "West US"
+    New-AzureRMSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
+    New-AzureRMSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
+    New-AzureRMSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
+    New-AzureRMSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1" -MaxSizeBytes 10GB
+    Set-AzureRMSqlElasticPool –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” –Dtu 1200 –DatabaseDtuMax 100 –DatabaseDtuMin 50 
     
     $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
     $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015")
@@ -240,4 +229,4 @@
 
 Дополнительные сведения об эластичных базах данных и их пулах, включая интерфейс API и сведения об ошибках, можно узнать в статье [Справка по эластичным пулам баз данных](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

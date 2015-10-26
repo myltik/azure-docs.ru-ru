@@ -79,7 +79,7 @@
 [Фабрика данных Azure](http://azure.microsoft.com/documentation/services/data-factory/) может использоваться для управления заданием по созданию обновленных BLOB-объектов, необходимых службе Stream Analytics для обновления определений ссылочных данных. Фабрика данных представляет собой облачную службу интеграции информации, которая организует и автоматизирует перемещение и преобразование данных. Фабрика данных позволяет [подключаться к большому количеству облачных и локальных хранилищ данных](./articles/data-factory-data-movement-activities.md), а также легко перемещать данные по заданному расписанию. Дополнительные сведения и пошаговые инструкции, с помощью которых можно настроить конвейер фабрики данных и создать ссылочные данные для службы Stream Analytics, обновляемые по заданному расписанию, см. в этом [примере на сайте GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
 
 ## Получение справки
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/RU-RU/home?forum=AzureStreamAnalytics).
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
 
 ## Дальнейшие действия
 Вы получили основные сведения о Stream Analytics, управляемой службе аналитики потоковой передачи данных из Интернета вещей. Дополнительные сведения об этой службе см. на следующих ресурсах:
@@ -97,4 +97,4 @@
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

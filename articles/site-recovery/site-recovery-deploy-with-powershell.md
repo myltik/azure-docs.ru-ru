@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>При наличии вопросов обращайтесь на <a href="http://go.microsoft.com/fwlink/?LinkId=313628">форум по службам восстановления Azure</a>.</LI> </UL>
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

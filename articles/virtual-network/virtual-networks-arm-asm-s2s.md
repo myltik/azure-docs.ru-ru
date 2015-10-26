@@ -363,4 +363,4 @@
 - Узнайте больше о [поставщике сетевых ресурсов (NRP) для ARM](../resource-groups-networking.md).
 - Просмотрите общие рекомендации по [созданию VPN-подключения S2S между классической виртуальной сетью и виртуальной сетью ARM](../virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

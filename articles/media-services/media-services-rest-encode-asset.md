@@ -274,4 +274,4 @@
 
 [Получение обработчиков мультимедиа](media-services-rest-get-media-processor.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

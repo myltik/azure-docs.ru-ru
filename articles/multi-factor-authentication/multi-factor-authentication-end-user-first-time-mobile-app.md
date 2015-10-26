@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Использование мобильного приложения для связи при работе со службой Azure MFA"
-	description="На этой странице пользователи могут узнать, как использовать мобильное приложение в качестве основного способа связи при работе со службой Azure MFA."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenp"
+	pageTitle="Использование мобильного приложения для связи при работе со службой Azure MFA" 
+	description="На этой странице пользователи могут узнать, как использовать мобильное приложение в качестве основного способа связи при работе со службой Azure MFA." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenp" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Использование мобильного приложения для связи при работе со службой Azure Multi-Factor Authentication
 
 В этой статье вы узнаете, как использовать мобильное приложение в качестве основного способа связи. Здесь описана настройка многофакторной проверки подлинности с использованием мобильного приложения в качестве основного способа связи.
 
-Приложение Azure Authenticator доступно для [Windows Phone](http://www.windowsphone.com/ru-ru/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) и [iOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+Приложение Azure Authenticator доступно для [Windows Phone](http://www.windowsphone.com/ru-RU/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) и [iOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
 ## Использование мобильного приложения для связи
 
@@ -73,4 +73,4 @@
 >[AZURE.NOTE]Если отображается параметр «Добавить рабочую учетную запись», он относится к присоединению к рабочему месту, а не к многофакторной проверке подлинности. Не обращайте на него внимания.
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->
