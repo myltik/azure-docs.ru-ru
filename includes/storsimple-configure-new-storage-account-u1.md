@@ -35,7 +35,7 @@
 	  		
  - Если в качестве поставщика облачных служб вы выбрали **Openstack**, введите **Имя узла**, **Ключ доступа** и **Секретный ключ**.
 
-        > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
+        > [AZURE.NOTE] Для всех поставщиков облачных услуг, за исключением Azure, допускается понятное имя. Вы можете использовать понятные имена и создавать более одной учетной записи хранения с одним набором учетных данных.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 

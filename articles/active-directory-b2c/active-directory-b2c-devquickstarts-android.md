@@ -891,7 +891,16 @@ ADAL для Android представляет пользователя в вид�
  
  **В тот же файл** с именем `ToDoActivity.java` добавим указанный ниже код.
  
- ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
+```
+    private URL getEndpointUrl() {
+        URL endpoint = null;
+        try {
+            endpoint = new URL(Constants.SERVICE_URL);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return endpoint;
+    }
 
  ```
 
@@ -964,7 +973,9 @@ ADAL для Android представляет пользователя в вид�
 
 Готовый пример [в виде ZIP-файла предоставлен здесь](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip). Кроме того, можно клонировать его с GitHub.
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android
+```
 
 
 ### Важная информация

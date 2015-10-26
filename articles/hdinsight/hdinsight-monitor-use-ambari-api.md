@@ -50,7 +50,7 @@
 Имя пользователя кластера|$clusterUsername||Имя пользователя кластера, указанное при подготовке.
 Пароль кластера|$clusterPassword||Пароль пользователя кластера.
 
-	> [AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
+	> [AZURE.NOTE] Введите значения в таблицу. Это будет полезно для изучения данного учебника.
 
 
 

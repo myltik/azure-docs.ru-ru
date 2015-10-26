@@ -46,7 +46,7 @@
 
         ![preview portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        For Compute, Storage, and Networking resources, you have the option of using either Resourece Manager or Classic deployment. Select **Resource Manager**.
+        Для вычислительных, сетевых ресурсов и ресурсов хранения можно выбрать модель развертывания с использованием диспетчера ресурсов или классическую модель. Выберите **Диспетчер ресурсов**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -77,7 +77,7 @@
 
         ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        Либо просмотрите портал предварительной версии и выберите **классическое** развертывание (для вычислений, хранения и работы по сети).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 

@@ -114,13 +114,13 @@
 
     ![Атрибут](./media/active-directory-saas-airwatch-tutorial/IC791927.png "Атрибут")
 
-    1.  В текстовом поле **Идентификатор объекта** введите ****http://schemas.microsoft.com/identity/claims/objectidentifier**.
-2.  В текстовом поле **Пользователь** введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-3.  В текстовом поле **Отображаемое имя** введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-4.  В текстовом поле **Имя** введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
-5.  В текстовом поле **Фамилия** введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
-6.  В текстовом поле **Электронная почта** введите ****http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
-7.  Щелкните **Сохранить**.
+    1.  В текстовом поле **Идентификатор объекта** введите **http://schemas.microsoft.com/identity/claims/objectidentifier**.
+    2.  В текстовом поле **Пользователь** введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    3.  В текстовом поле **Отображаемое имя** введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    4.  В текстовом поле **Имя** введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname**.
+    5.  В текстовом поле **Фамилия** введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname**.
+    6.  В текстовом поле **Электронная почта** введите **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**.
+    7.  Щелкните **Сохранить**.
 
 14. На портале Azure AD выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 

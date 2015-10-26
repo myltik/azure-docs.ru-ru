@@ -34,7 +34,13 @@ Azure Service Fabric можно использовать для разверты
 
   Ниже приводится пример манифеста приложения.
 
-  ```xml <?xml version="1.0" encoding="utf-8"?> <ApplicationManifest ApplicationTypeName="actor2Application" ApplicationTypeVersion="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <ApplicationManifest ApplicationTypeName="actor2Application"
+                       ApplicationTypeVersion="1.0.0.0"
+                       xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
     <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="actor2Pkg" ServiceManifestVersion="1.0.0.0" />
@@ -49,7 +55,8 @@ Azure Service Fabric можно использовать для разверты
       </Service>
     </DefaultServices>
 
-  </ApplicationManifest> ```
+  </ApplicationManifest>
+  ```
 
 * **Манифест службы**
 
@@ -57,7 +64,16 @@ Azure Service Fabric можно использовать для разверты
 
   Ниже приводится пример манифеста службы.
 
-  ```xml <?xml version="1.0" encoding="utf-8"?> <ServiceManifest Name="actor2Pkg" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ServiceTypes> <StatelessServiceType ServiceTypeName="actor2Type" /> </ServiceTypes>
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <ServiceManifest Name="actor2Pkg"
+                   Version="1.0.0.0"
+                   xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ServiceTypes>
+      <StatelessServiceType ServiceTypeName="actor2Type" />
+    </ServiceTypes>
 
     <CodePackage Name="Code" Version="1.0.0.0">
       <EntryPoint>
@@ -74,7 +90,8 @@ Azure Service Fabric можно использовать для разверты
         <Endpoint Name="ServiceEndpoint" />
       </Endpoints>
     </Resources>
-  </ServiceManifest> ```
+  </ServiceManifest>
+  ```
 
 ## Структура файла пакета приложения
 Для развертывания приложения с помощью, к примеру, командлетов PowerShell приложение должно следовать предопределенной структуре каталогов.
@@ -115,7 +132,7 @@ Azure Service Fabric можно использовать для разверты
 ### Добавление файлов кода и конфигурации приложения
 После создания структуры каталогов вы можете добавить файлы кода и конфигурации приложения в каталоги Code и Config. Вы также можете создавать дополнительные каталоги или дочерние папки в каталогах Code и Config. Service Fabric выполняет операцию xcopy для содержимого корневого каталога, поэтому, за исключением каталогов верхнего уровня Code и Settings, не существует предопределенной структуры (вы можете выбрать другие имена каталогов, подробнее см. в следующем разделе).
 
->[AZURE.NOTE]Убедитесь, что включены все файлы и зависимости, необходимые приложению. Service Fabric скопирует содержимое пакета приложения на все узлы кластера, где будут развертываться службы приложения. Пакет должен содержать весь код, необходимый для работы приложения. Не рекомендуется рассчитывать на то, что зависимости уже установлены.
+>[AZURE.NOTE] Убедитесь, что включены все файлы и зависимости, необходимые приложению. Service Fabric скопирует содержимое пакета приложения на все узлы кластера, где будут развертываться службы приложения. Пакет должен содержать весь код, необходимый для работы приложения. Не рекомендуется рассчитывать на то, что зависимости уже установлены.
 
 ### Редактирование файла манифеста службы
 Следующий этап — редактирование файла манифеста служб с добавлением следующих сведений:

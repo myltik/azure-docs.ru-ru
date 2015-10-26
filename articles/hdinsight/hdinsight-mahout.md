@@ -32,7 +32,7 @@ Mahout — это библиотека [машинного обучения][ml]
 
 * Как запускать задания Mahout с помощью Windows PowerShell.
 
-* - как запускать задания Mahout из командной строки Hadoop;
+* как запускать задания Mahout из командной строки Hadoop;
 
 * Как устанавливать Mahout на кластерах HDInsight версий 3.0 и 2.0.
 
@@ -81,7 +81,7 @@ Mahout — это библиотека [машинного обучения][ml]
 
     	PS C:\> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
 
-    Она передает файл __u.data__ в каталог __example/data/u.data__ в хранилище по умолчанию вашего кластера. Теперь получить доступ к этим данным можно будет с помощью универсального кода ресурса (URI) \_\___wasb:///example/data/u.data__ из заданий HDInsight.
+    Она передает файл __u.data__ в каталог __example/data/u.data__ в хранилище по умолчанию вашего кластера. Теперь получить доступ к этим данным можно будет с помощью __универсального кода ресурса (URI) wasb:///example/data/u.data__ из заданий HDInsight.
 
 ###Выполнение задания
 
@@ -93,7 +93,7 @@ Mahout — это библиотека [машинного обучения][ml]
 	# NOTE: The version number portion of the file path
 	# may change in future versions of HDInsight.
 	# So dynamically grab it using Hive.
-	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar' | where {$_.startswith("C:\apps\dist")}
+	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar' | where {$_.startswith("C:\apps\dist")}
 	$noCRLF = $mahoutPath -replace "`r`n", ""
 	$cleanedPath = $noCRLF -replace "\", "/"
 	$jarFile = "file:///$cleanedPath"
@@ -302,7 +302,7 @@ Mahout — это библиотека [машинного обучения][ml]
 
 		hadoop jar c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasb:///example/data/KDDTrain+.arff -ds wasb:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
 
-    Ее выходные данные сохраняются в каталоге __nsl-forest__, который расположен в хранилище для вашего кластера HDInsight по адресу \_\___wasb://user/&lt;username>/nsl-forest/nsl-forest.seq. &lt;username> — это имя пользователя, которое используется для сеанса удаленного рабочего стола. Этот файл имеет машиночитаемый формат.
+    Ее выходные данные сохраняются в каталоге __nsl-forest__, который расположен в хранилище для вашего кластера HDInsight по адресу __wasb://user/&lt;username>/nsl-forest/nsl-forest.seq. &lt;username> — это имя пользователя, которое используется для сеанса удаленного рабочего стола. Этот файл имеет машиночитаемый формат.
 
 5. Протестируйте лес путем классификации набора данных __KDDTest+.arff__. Используйте следующую команду:
 
@@ -334,7 +334,7 @@ Mahout — это библиотека [машинного обучения][ml]
 	    Reliability                                53.4921%
 	    Reliability (standard deviation)            0.4933
 
-  Это задание также создает файл, расположенный в \_\___wasb:///example/data/predictions/KDDTest+.arff.out__. Однако этот файл имеет машиночитаемый формат.
+  Это задание также создает файл, расположенный в __wasb:///example/data/predictions/KDDTest+.arff.out__. Однако этот файл имеет машиночитаемый формат.
 
 > [AZURE.NOTE]Задания Mahout не перезаписывают существующие файлы. Если вы хотите заново запустить эти задания, то нужно удалить файлы, созданные предыдущими заданиями.
 
@@ -344,7 +344,7 @@ Mahout — это библиотека [машинного обучения][ml]
 
 Mahout устанавливается на кластерах HDInsight версии 3.1, а также может устанавливаться вручную на кластерах HDInsight версии 3.0 или 2.1 следующим образом:
 
-1. Используемая версия Mahout зависит от версии HDInsight вашего кластера. Вы можете узнать версию кластера с помощью следующей команды [Azure PowerShell][aps]\:
+1. Используемая версия Mahout зависит от версии HDInsight вашего кластера. Вы можете узнать версию кластера с помощью следующей команды [Azure PowerShell][aps]:
 
     	PS C:\> Get-AzureHDInsightCluster -Name YourClusterName | Select version
 
@@ -355,9 +355,9 @@ Mahout устанавливается на кластерах HDInsight верс
 
 			mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
-    	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
+    	После того как построение завершится, вы сможете найти JAR-файл здесь: __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
+    	> [AZURE.NOTE] После выпуска Mahout 1.0 появится возможность использовать встроенные пакеты с HDInsight 3.0.
 
 2. Загрузите файл jar в каталог __example/jars__ в хранилище по умолчанию для вашего кластера. В следующем примере add-hdinsightfile из [средств HDInsight][tools] используется для отправки файла:
 
@@ -374,7 +374,7 @@ Mahout устанавливается на кластерах HDInsight верс
 Кластеры HDInsight 3.1 содержат Mahout. Путь и имя файла включают в себя версию Mahout, установленную в кластере. Пример сценария Windows PowerShell в этом учебнике использует путь, который действителен по состоянию на июль 2014 года, однако в будущем он изменится при обновлении HDInsight из-за изменения номера версии. Чтобы определить текущий путь к JAR-файлу Mahout для своего кластера, используйте следующую команду Windows PowerShell, затем внесите изменения в сценарий, указав полученный путь к файлу:
 
 	Use-AzureHDInsightCluster -Name $clusterName
-	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar'
+	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar'
 
 ###<a name="nopowershell"></a>Классы, которые не работают с Windows PowerShell
 

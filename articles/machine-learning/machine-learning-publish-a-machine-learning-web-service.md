@@ -96,7 +96,8 @@
 
 На портале управления Azure можно управлять веб-службами. Для этого можно щелкнуть службу **машинного обучения**, открыть рабочую область машинного обучения, а затем открыть веб-службу на вкладке **Веб-службы**. На этой странице можно наблюдать за веб-службой, а также обновить или удалить ее. Можно также добавить вторую конечную точку для веб-службы в дополнение к конечной точке по умолчанию, которая создается при публикации.
 
-Дополнительную информацию см. в разделе [Управление рабочей областью машинного обучения Azure](machine-learning-manage-workspace.md). <!-- When this article gets published, fix the link and uncomment
+Дополнительную информацию см. в разделе [Управление рабочей областью машинного обучения Azure](machine-learning-manage-workspace.md).
+<!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
 

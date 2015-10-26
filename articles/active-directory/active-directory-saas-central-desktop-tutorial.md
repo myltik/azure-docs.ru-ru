@@ -49,7 +49,9 @@
     ![Central Desktop](./media/active-directory-saas-central-desktop-tutorial/IC769560.png "Central Desktop")
 ##Настройка единого входа
 
-В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Central Desktop со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. В рамках этой процедуры потребуется передать в клиент Central Desktop сертификат в кодировке Base-64. Если вы не знакомы с этой процедурой, посмотрите видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
+В этом разделе показано, как разрешить пользователям проходить проверку подлинности в Central Desktop со своей учетной записью Azure AD, используя федерацию на основе протокола SAML.  
+В рамках этой процедуры потребуется передать в клиент Central Desktop сертификат в кодировке Base-64.  
+Если вы не знакомы с этой процедурой, посмотрите видео [Преобразование двоичного сертификата в текстовый файл](http://youtu.be/PlgrzUZ-Y1o).
 
 
 
@@ -65,10 +67,10 @@
 
 3.  На странице **Настройка URL-адреса приложения** выполните следующие действия и нажмите кнопку **Далее**.
 
-    -   В текстовом поле **URL-адрес входа в Central Desktop** введите URL-адрес вашего клиента Central Desktop (например: **http://contoso.centraldesktop.com*).
--   В текстовом поле "URL-адрес ответа Central Desktop" введите URL-адрес службы AssertionConsumerService Central Desktop (например, https://contoso.centraldesktop.com/saml2-assertion.php).
+    -   В текстовом поле **URL-адрес входа в Central Desktop** введите URL-адрес вашего клиента Central Desktop (например: *http://contoso.centraldesktop.com*).
+    -   В текстовом поле "URL-адрес ответа Central Desktop" введите URL-адрес службы AssertionConsumerService Central Desktop (например, https://contoso.centraldesktop.com/saml2-assertion.php).
 
-    >[AZURE.NOTE]Это значение можно найти в метаданных Central Desktop (например: **http://contoso.centraldesktop.com*).
+    >[AZURE.NOTE]Это значение можно найти в метаданных Central Desktop (например: *http://contoso.centraldesktop.com*).
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-central-desktop-tutorial/IC769561.png "Настройка URL-адреса приложения")
 

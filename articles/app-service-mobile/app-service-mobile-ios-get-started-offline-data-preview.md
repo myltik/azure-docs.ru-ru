@@ -18,7 +18,9 @@
 
 # Включение автономной синхронизации для мобильного приложения iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 ## Обзор
 
@@ -88,7 +90,7 @@
 
     Второй параметр для `pullWithQuery` — это идентификатор запроса, который используется для *добавочной синхронизации*. Добавочная синхронизация извлекает только те записи, которые были изменены с момента последней синхронизации, используя для этого метку времени `UpdatedAt` записи (в локальном хранилище она называется `ms_updatedAt`). Идентификатор запроса должен быть описательной строкой, уникальной для каждого логического запроса в приложении. Чтобы явно отказаться от добавочной синхронизации, передайте `nil` в качестве идентификатора запроса. Помните, что это может привести к снижению производительности, поскольку при каждой операции принудительного получения будут извлекаться все записи.
 
-	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
+	<!--     >[AZURE.NOTE] Чтобы удалить записи из локального хранилища устройства, если они удалены из базы данных мобильной службы, вам следует включить [Обратимое удаление]. В противном случае приложение должно периодически вызывать {MSSyncTable.purgeWithQuery} для очистки локального хранилища
  -->
 
 5. В классе `QSTodoService` метод `syncData` вызывается после операций, которые изменяют данные, — `addItem` и `completeItem`. Он также вызывается из `QSTodoListViewController.refresh`, поэтому пользователь получает последние данные при каждом выполнении жеста обновления. Приложение также выполняет синхронизацию при запуске, поскольку `QSTodoListViewController.init` вызывает `refresh`.
@@ -158,7 +160,9 @@
     | id | Строка, помеченная как обязательная | первичный ключ в удаленном хранилище |
     | complete | Логический | поле элемента todo |
     | text | Строка | поле элемента todo |
-    | ms\_createdAt | Дата | (необязательно) сопоставляется с системным свойством createdAt | | ms\_updatedAt | Дата | (необязательно) сопоставляется с системным свойством updatedAt | | ms\_version | Строка | (необязательно) используется для обнаружения конфликтов, сопоставляется с версией |
+    | ms\_createdAt | Дата | (необязательно) сопоставляется с системным свойством createdAt | 
+    | ms\_updatedAt | Дата | (необязательно) сопоставляется с системным свойством updatedAt | 
+    | ms\_version | Строка | (необязательно) используется для обнаружения конфликтов, сопоставляется с версией |
 
 
 ## <a name="setup-sync"></a>Изменение режима синхронизации приложения
@@ -222,14 +226,14 @@
 
     Если вы хотите явно отказаться от добавочной синхронизации, передайте `nil` в качестве идентификатора запроса. В этом случае при каждом вызове `pullWithQuery` будут извлекаться все записи, что может снижать уровень производительности.
 
-<!-- * To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
+<!-- * Чтобы удалить записи из локального хранилища устройства, если они удалены из базы данных мобильной службы, вам следует включить [Обратимое удаление]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to remove records from the local database, in case they have been deleted in the remote service.
  -->
 
 ## Дополнительные ресурсы
 
 * [Автономная синхронизация данных в мобильных приложениях Azure]
 
-* [Облачное покрытие: автономная синхронизация в мобильных службах Azure] (Примечание. Видео рассказывает о мобильных службах, однако точно так же автономная синхронизация работает в мобильных приложениях Azure)
+* [Облачное покрытие: автономная синхронизация в мобильных службах Azure] \(Примечание. Видео рассказывает о мобильных службах, однако точно так же автономная синхронизация работает в мобильных приложениях Azure)
 
 <!-- URLs. -->
 

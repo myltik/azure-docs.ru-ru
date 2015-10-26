@@ -215,30 +215,30 @@
 3.	Проверьте подключение, выполнив одну из следующих команд:
 
 	<table border="1">
-<tr>
-<th>-</th>
-<th>Cisco ASA</th>
-<th>Cisco ISR/ASR</th>
-<th>Juniper SSG/ISG</th>
-<th>Juniper SRX/J</th>
-</tr>
+	<tr>
+	<th>-</th>
+	<th>Cisco ASA</th>
+	<th>Cisco ISR/ASR</th>
+	<th>Juniper SSG/ISG</th>
+	<th>Juniper SRX/J</th>
+	</tr>
 
-<tr>
-<td><b>Проверка сопоставлений безопасности основного режима</b></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
-</tr>
+	<tr>
+	<td><b>Проверка сопоставлений безопасности основного режима</b></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto isakmp sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">get ike cookie</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show security ike security-association</FONT></td>
+	</tr>
 
-<tr>
-<td><b>Проверка сопоставлений безопасности быстрого режима</b></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
-<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
-</tr>
-</table>
+	<tr>
+	<td><b>Проверка сопоставлений безопасности быстрого режима</b></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show crypto ipsec sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">get sa</FONT></td>
+	<td><FONT FACE="courier" SIZE="-1">show security ipsec security-association</FONT></td>
+	</tr>
+	</table>
 
 
 ##  Дальнейшие действия

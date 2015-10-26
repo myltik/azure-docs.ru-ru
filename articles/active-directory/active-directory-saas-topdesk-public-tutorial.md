@@ -96,9 +96,9 @@
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "Настройка URL-адреса приложения")
 
-    1.  В текстовом поле **URL-адрес входа в TOPdesk — Public** введите URL-адрес, используемый пользователями для входа в приложение TOPdesk — Public (например, "**https://qssolutions.topdesk.net*").
-2.  В текстовое поле **URL-адрес ответа TOPdesk — Public** вставьте значение **URL-адрес AssertionConsumerService для TOPdesk — Public** (например: "**https://qssolutions.topdesk.net/tas/public/login/saml*")
-3.  Нажмите кнопку **Далее**.
+    1.  В текстовом поле **URL-адрес входа в TOPdesk — Public** введите URL-адрес, используемый пользователями для входа в приложение TOPdesk — Public (например, "*https://qssolutions.topdesk.net*").
+    2.  В текстовое поле **URL-адрес ответа TOPdesk — Public** вставьте значение **URL-адрес AssertionConsumerService для TOPdesk — Public** (например: "*https://qssolutions.topdesk.net/tas/public/login/saml*")
+    3.  Нажмите кнопку **Далее**.
 
 10. На странице **Настройка единого входа в TOPdesk — Public** нажмите кнопку **Загрузить метаданные**, чтобы скачать метаданные, а затем сохраните файл данных на локальный компьютер.
 

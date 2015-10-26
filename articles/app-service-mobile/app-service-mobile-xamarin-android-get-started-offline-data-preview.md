@@ -18,7 +18,9 @@
 
 # Включение автономной синхронизации для мобильного приложения Xamarin.Android
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 ## Обзор
 
@@ -40,7 +42,8 @@
 
 * Прежде чем можно будет выполнить операции с таблицами, необходимо инициализировать локальное хранилище. Инициализация базы данных локального хранилища происходит, когда `ToDoActivity.OnCreate()` выполняет `ToDoActivity.InitLocalStoreAsync()`. При этом создается новая локальная база данных SQLite с помощью класса `MobileServiceSQLiteStore`, предоставленного клиентским пакетом SDK для мобильных приложений Azure. 
  
-	Метод `DefineTable` создает в локальном хранилище таблицу, соответствующую полям в указанном типе, в данном случае это `ToDoItem`. Тип необязательно должен включать в себя все столбцы, которые находятся в удаленной базе данных. Можно хранить и подмножество столбцов. // ToDoActivity.cs
+	Метод `DefineTable` создает в локальном хранилище таблицу, соответствующую полям в указанном типе, в данном случае это `ToDoItem`. Тип необязательно должен включать в себя все столбцы, которые находятся в удаленной базе данных. Можно хранить и подмножество столбцов.  
+		// ToDoActivity.cs
 
         private async Task InitLocalStoreAsync()
         {
@@ -70,7 +73,10 @@
     В представленном коде запрашиваются все записи из удаленной таблицы `TodoItem`, однако их можно также отфильтровать путем передачи идентификатора запроса и запроса в `PushAsync`. Дополнительные сведения см. в подразделе *Добавочная синхронизация* раздела [Автономная синхронизация данных в мобильных приложениях Azure].
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
--->	// ToDoActivity.cs
+ 	-->
+
+
+		// ToDoActivity.cs
 
         private async Task SyncAsync()
         {
@@ -124,7 +130,7 @@
 
 5. (Необязательно.) С помощью Visual Studio просмотрите таблицу базы данных SQL Azure, чтобы увидеть, что данные в серверной базе данных не изменились.
 
-   В Visual Studio в откройте **обозреватель сервера**. Перейдите к своей базе данных в **Azure** > **Базы данных SQL**. Щелкните правой кнопкой мыши базу данных и выберите пункт **Открыть в обозревателе объектов SQL Server**. Теперь можно перейти к таблице базы данных SQL и ее содержимому.
+   В Visual Studio в откройте **обозреватель сервера**. Перейдите к своей базе данных в **Azure**->**Базы данных SQL**. Щелкните правой кнопкой мыши базу данных и выберите пункт **Открыть в обозревателе объектов SQL Server**. Теперь можно перейти к таблице базы данных SQL и ее содержимому.
 
 6. (Необязательно.) Воспользуйтесь инструментом REST, например Fiddler или Postman, чтобы выполнить запрос к мобильной серверной части с помощью запроса GET вида `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`. 
 
@@ -145,7 +151,7 @@
 
 * [Автономная синхронизация данных в мобильных приложениях Azure]
 
-* [Облачное покрытие: автономная синхронизация в мобильных службах Azure] (примечание: видео рассказывает о мобильных службах, однако точно так же автономная синхронизация работает в мобильных службах Azure)
+* [Облачное покрытие: автономная синхронизация в мобильных службах Azure] \(примечание: видео рассказывает о мобильных службах, однако точно так же автономная синхронизация работает в мобильных службах Azure)
 
 <!-- ##Summary
 
