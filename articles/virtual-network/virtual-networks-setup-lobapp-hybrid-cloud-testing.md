@@ -19,7 +19,8 @@
 
 # Настройка веб бизнес-приложения в гибридном облаке для тестирования
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 В этом разделе описываются шаги по созданию гибридной облачной среды для тестирования бизнес-приложения интрасети, размещенного в Microsoft Azure. Это конфигурация, которая получается в результате.
 
@@ -198,4 +199,4 @@
 [Руководство по реализации служб инфраструктуры Azure](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

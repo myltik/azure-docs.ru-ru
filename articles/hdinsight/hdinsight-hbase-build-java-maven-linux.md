@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Создание приложения HBase с помощью Maven | Microsoft Azure"
+	pageTitle="Создание приложения HBase с помощью Maven или Java с последующим развертыванием в HDInsight на основе Linux | Microsoft Azure"
 	description="Узнайте, как использовать Apache Maven для создания приложения Java Apache HBase и его последующего развертывания в кластере HDInsight под управлением Linux в облаке Azure."
 	services="hdinsight"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 #Использование Maven для сборки приложений Java, которые используют HBase с HDInsight (Hadoop)
@@ -361,4 +361,4 @@
 
 	hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

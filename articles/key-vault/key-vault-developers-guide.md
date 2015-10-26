@@ -67,4 +67,4 @@ API-интерфейс Node.js — набор оболочек, обеспеч�
 
 - В данной загрузке содержится и пример приложения HelloKeyVault, и пример веб-службы Azure. [Azure Key Vault code samples](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

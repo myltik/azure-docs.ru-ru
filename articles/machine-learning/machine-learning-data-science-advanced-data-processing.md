@@ -2,6 +2,7 @@
 	pageTitle="Руководство по обучению. Расширенная обработка данных в Azure | Microsoft Azure" 
 	description="Подготовка и обработка аналитических данных и использование технологии расширенного анализа (ADAPT) для машинного обучения Azure." 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev"  
 	manager="paulettm" />
@@ -24,4 +25,4 @@
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-prepare-data-for-ml.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

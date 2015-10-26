@@ -180,7 +180,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
 
 Следующим шагом является написание метода, который использует команду HTTP PUT в стиле REST для создания очереди.
 
-Вставьте следующий код сразу после кода `GetToken()`, добавленного на предыдущем шаге.
+Вставьте следующий код сразу после кода `GetSASToken()`, добавленного на предыдущем шаге.
 
 ```
 // Uses HTTP PUT to create the queueprivatestaticstring CreateQueue(string queueName, string token)
@@ -629,4 +629,4 @@ namespace Microsoft.ServiceBus.Samples
 - [Базовая информация о служебной шине Azure](fundamentals-service-bus-hybrid-solutions.md)
 - [Руководство по использованию ретранслятора служебной шины на основе REST](service-bus-relay-rest-tutorial.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="«Панель мониторинга», «Монитор», «Масштаб», «Настройка» и «Гибридные подключения» | Microsoft Azure"
-	description="Дополнительная информация об элементах управления и наблюдении за производительностью на вкладках портала управления для служб BizTalk: панель мониторинга, монитор, масштаб, настройка и гибридные подключения. MABS, WABS"
-	services="biztalk-services"
-	documentationCenter=""
-	authors="MandiOhlinger"
-	manager="dwrede"
+	pageTitle="«Панель мониторинга», «Монитор», «Масштаб», «Настройка» и «Гибридные подключения» | Microsoft Azure" 
+	description="Дополнительная информация об элементах управления и наблюдении за производительностью на вкладках портала управления для служб BizTalk: панель мониторинга, монитор, масштаб, настройка и гибридные подключения. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="biztalk-services"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="mandia"/>
 
 
@@ -28,23 +28,20 @@
 Будет открыто новое окно со вкладками. В данном разделе приведено описание этих вкладок.
 
 ## Быстрый запуск (![Быстрый запуск][QuickStart])
-В зависимости от версии служб BizTalk не все параметры в списке могут быть доступны.
-<table border="1">
-    <tr>
-        <td><strong>Получение инструментов</strong></td>
+В зависимости от версии служб BizTalk не все параметры в списке могут быть доступны. <table border="1"> <tr> <td><strong>Получение инструментов</strong></td>
 
-        <td>Загрузите пакет SDK служб BizTalk для установки шаблонов проектов Visual Studio на локальном компьютере, предназначенном для разработки. Эти шаблоны создают проекты Visual Studio для <strong>служб BizTalk </strong> (мост) и <strong>артефактов служб BizTalk</strong> (преобразование), которые развертываются в службе BizTalk.
+        <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
         <br/><br/>
-		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335">Использование пакета SDK для служб BizTalk в Azure</a> и <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Установка пакета SDK для служб BizTalk в Azure</a> — разделы с инструкциями по началу работы.
+		<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
         </td>
     </tr>
 
     <tr>
-        <td><strong>Создать партнерские соглашения</strong></td>
+        <td><strong>Create partner agreements</strong></td>
 
-        <td>Открывает портал служб BizTalk в Azure (размещенный в Azure), где выполняется добавление партнеров, а также создание соглашений X12, AS2 и EDIFACT EDI.
+        <td>Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12, AS2, and EDIFACT EDI agreements.
         <br/><br/>
-        Шаги для начала работы приводятся в разделе <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Настройка компонентов для обмена сообщениями EDI на портале служб BizTalk</a>.
+        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
         </td>
     </tr>
 
@@ -236,17 +233,14 @@
 
 ##### Отображение метрик на диаграмме и их удаление.
 1. Выберите вкладку **Монитор**.
-2. Выберите **Добавить метрики** на панели задач:  
-![Выберите «Добавить метрику»][AddMetrics]
+2. Выберите **Добавить метрики** на панели задач: ![Выберите «Добавить метрику»][AddMetrics]
 3. Проверьте метрики производительности, которые должны отображаться.
 4. Щелкните по флажку, чтобы вернуться на вкладку **Монитор**.
-5. Чтобы вывести значение метрики на диаграмме, щелкните кружок рядом с этой метрикой.
+5. Чтобы вывести значение метрики на диаграмме, щелкните кружок рядом с этой метрикой.  
 
-	Например, метрика **Использование ЦП** затенена, и ее выходные данные не отображаются на графике:  
-![Метрика загрузки ЦП неактивна][GrayedMetric]  
+	Например, метрика **Загрузка ЦП** отображается серым цветом (неактивна), и ее выходные данные не отображаются на диаграмме.![Метрика загрузки ЦП неактивна][GrayedMetric]
 
-	Выберите серый кружок, чтобы включить метрику **Использование ЦП** для вывода ее данных на графике:  
-![Метрика загрузки ЦП активна][EnabledMetric]
+	Чтобы активировать метрику **Загрузка ЦП** и отобразить ее выходные данные на диаграмме, щелкните выделенный серым цветом кружок.![Метрика загрузки ЦП активна][EnabledMetric]
 
 6. Чтобы удалить метрику из диаграммы и списка, выберите **Удалить метрики** на панели задач. Чтобы вернуть метрику в список, выберите **Добавить метрики** на панели задач, отметьте нужную метрику, а затем щелкните по флажку, чтобы вернуться на вкладку **Монитор**. Выберите серый кружок, чтобы включить метрику.
 
@@ -365,4 +359,4 @@
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

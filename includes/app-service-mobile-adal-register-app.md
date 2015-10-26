@@ -27,4 +27,4 @@
 [портале управления Azure]: https://manage.windowsazure.com/
 [Настройка мобильного приложения в Azure Active Directory]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

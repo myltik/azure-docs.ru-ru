@@ -30,4 +30,4 @@ Azure PowerShell | Загрузите последнюю версию [Azure Pow
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

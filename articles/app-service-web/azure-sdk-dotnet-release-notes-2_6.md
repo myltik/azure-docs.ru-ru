@@ -106,4 +106,4 @@
 
 [Сведения о поддержке и прекращении использования пакета Azure SDK для .NET и API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

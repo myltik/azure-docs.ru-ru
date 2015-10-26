@@ -20,7 +20,7 @@
 
 Вы можете подключить веб-приложение службы приложений Azure к любому локальному ресурсу, который использует статический TCP-порт, например к SQL Server, MySQL, веб-интерфейсам API HTTP, мобильным службам и большинству настраиваемых веб-служб. В этой статье показано, как создать гибридное подключение между веб-приложением в службе приложений и локальной базой данных SQL Server.
 
-> [AZURE.NOTE] Часть функции "Веб-приложения" гибридных подключений доступна только на [портале Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Сведения о создании подключения в службах BizTalk см. в разделе [Гибридные подключения](http://go.microsoft.com/fwlink/p/?LinkID=397274).
+> [AZURE.NOTE]Часть функции "Веб-приложения" гибридных подключений доступна только на [портале Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Сведения о создании подключения в службах BizTalk см. в разделе [Гибридные подключения](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
 ## Предварительные требования
 - Подписка Azure. Бесплатную подписку можно найти на сайте [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/). 
@@ -37,7 +37,7 @@
 
 ## Создание веб-приложения на портале Azure ##
 
-> [AZURE.NOTE] Если вы уже создали веб-приложение на портале Azure, которое хотите использовать в этом учебнике, можно пропустить этот шаг и начать с раздела [Создание гибридного подключения и службы BizTalk](#CreateHC).
+> [AZURE.NOTE]Если вы уже создали веб-приложение на портале Azure, которое хотите использовать в этом учебнике, можно пропустить этот шаг и начать с раздела [Создание гибридного подключения и службы BizTalk](#CreateHC).
 
 1. В нижнем левом углу [портала Azure](https://portal.azure.com) нажмите **Создать** > **Интернет + мобильные устройства** > **Веб-сайт**.
 	
@@ -77,11 +77,7 @@
 	
 	![Создание гибридного подключения][TwinCreateHCBlades]
 	
-	В колонке **Создание гибридного подключения**:
-	- в поле **Имя** укажите имя подключения,
-	- в поле **Имя узла** введите имя локального компьютера, на котором размещен ресурс,
-	- в поле **Порт** введите номер порта, который использует локальный ресурс (1433 для экземпляра SQL Server по умолчанию).
-	- Нажмите **Служба Biz Talk**
+	В колонке **Создание гибридного подключения**: в поле **Имя** укажите имя подключения, в поле **Имя узла** введите имя локального компьютера, на котором размещен ресурс, в поле **Порт** введите номер порта, который использует локальный ресурс (1433 для экземпляра SQL Server по умолчанию). Нажмите **Служба Biz Talk**
 
 
 4. Откроется колонка **Создание службы BizTalk**. Введите имя службы BizTalk и нажмите кнопку **ОК**.
@@ -97,16 +93,16 @@
 6. После завершения процесса в области уведомлений на портале появится сообщение об успешном создании подключения.
 	<!-- TODO
 
-    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
-	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
-	Create hybrid conn step, you get the following error
-	Failed to create hybrid connection RelecIoudHC. The 
-	resource type could not be found in the namespace 
-	'Microsoft.BizTaIkServices for api version 2014-06-01'.
+Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
+(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+Create hybrid conn step, you get the following error
+Failed to create hybrid connection RelecIoudHC. The 
+resource type could not be found in the namespace 
+'Microsoft.BizTaIkServices for api version 2014-06-01'.
 
-	The error indicates it couldn't find the type, not the instance.
-	![Success notification][CreateHCSuccessNotification]
-	-->
+The error indicates it couldn't find the type, not the instance.
+![Success notification][CreateHCSuccessNotification]
+-->
 7. Теперь в колонке веб-приложения значок **Гибридные подключения** показывает, что создано одно гибридное подключение.
 	
 	![Создано одно гибридное подключение][CreateHCOneConnectionCreated]
@@ -211,4 +207,4 @@
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Памятка по запросам DocumentDB | Microsoft Azure"
-	description="Доступная для печати памятка, которая содержит сведения об использовании для DocumentDB грамматики, похожей на SQL, для отправки запросов документов JSON в базе данных NoSQL."
-	services="documentdb"
-	documentationCenter=""
-	authors="mimig1"
-	manager="jhubbard"
+	pageTitle="Памятка по запросам DocumentDB | Microsoft Azure" 
+	description="Доступная для печати памятка, которая содержит сведения об использовании для DocumentDB грамматики, похожей на SQL, для отправки запросов документов JSON в базе данных NoSQL." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/20/2015" 
 	ms.author="mimig"/>
 
 # Загружаемая памятка по запросам SQL DocumentDB
@@ -38,4 +38,4 @@ DocumentDB поддерживает реляционные, иерархичес
 - Подробное описание параметров запросов, доступных в DocumentDB, см. в разделе [Запросы DocumentDB](documentdb-sql-query.md).
 - Связанную справочную документацию см. в разделе [Язык запросов SQL DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

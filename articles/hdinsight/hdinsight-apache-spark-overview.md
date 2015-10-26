@@ -100,4 +100,4 @@ Spark в HDInsight также включает [драйвер ODBC](http://go.m
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

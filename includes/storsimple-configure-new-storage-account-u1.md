@@ -35,7 +35,7 @@
 	  		
  - Если в качестве поставщика облачных служб вы выбрали **Openstack**, введите **Имя узла**, **Ключ доступа** и **Секретный ключ**.
 
-        > [AZURE.NOTE] Для всех поставщиков облачных услуг, за исключением Azure, допускается понятное имя. Вы можете использовать понятные имена и создавать более одной учетной записи хранения с одним набором учетных данных.
+        > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 
@@ -47,4 +47,4 @@
 
 7. Только что созданная учетная запись хранения будет отображаться на странице **Настройка** в разделе **Учетные записи хранения**. Щелкните **Сохранить**, чтобы сохранить новую учетную запись хранения. При выводе запроса подтверждения щелкните **ОК**.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -50,4 +50,4 @@
 См. [Учебник по началу работы](../automation-create-runbook-from-samples.md) в службе автоматизации Azure
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

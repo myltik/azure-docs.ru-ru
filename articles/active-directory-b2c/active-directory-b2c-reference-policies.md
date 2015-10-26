@@ -115,4 +115,4 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
     > [AZURE.NOTE]Создание, обновление и вступление политики в силу занимает около минуты.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

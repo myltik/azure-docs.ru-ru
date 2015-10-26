@@ -204,4 +204,4 @@ Azure предоставляет несколько способов разме�
   [служба хранилища]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

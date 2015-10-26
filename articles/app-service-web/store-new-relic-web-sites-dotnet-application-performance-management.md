@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Веб-приложение .NET в службе приложений Azure с управлением производительностью приложения от New Relic"
-	description="Узнайте, как использовать средство мониторинга производительности для приложений ASP.NET, работающих в службе приложений Azure."
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="Веб-приложение .NET в службе приложений Azure с управлением производительностью приложения от New Relic" 
+	description="Узнайте, как использовать средство мониторинга производительности для приложений ASP.NET, работающих в службе приложений Azure." 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="07/30/2015" 
 	ms.author="stepsic"/>
 
 
@@ -39,7 +39,7 @@ New Relic Standard для пользователей Azure предлагает�
 Клиенты Azure получают пробную двухнедельную подписку на New Relic Pro при развертывании агента New Relic.
 
 Подписка на New Relic с использованием Azure Marketplace
---
+
 New Relic тесно интегрируется с веб-ролями и рабочими ролями Azure, а также службой приложений Azure.
 
 Чтобы подписаться на New Relic непосредственно из Azure Marketplace, выполните четыре простых шага, как указано далее.
@@ -178,4 +178,4 @@ New Relic тесно интегрируется с веб-ролями и раб
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

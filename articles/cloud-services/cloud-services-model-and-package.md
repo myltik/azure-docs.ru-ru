@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Что такое модель и пакет облачной службы в Azure"
+    pageTitle="Что такое модель и пакет облачной службы | Microsoft Azure"
     description="Описание модели (CSDEF-файл, CSCFG-файл) и пакета облачной службы (CSPKG-файл) в Azure"
     services="cloud-services"
     documentationCenter=""
@@ -12,10 +12,10 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/06/2015"
+    ms.date="10/09/2015"
     ms.author="adegeo"/>
 
-# Что такое модель облачных служб и как создать ее пакет
+# Что такое модель облачных служб и как создать ее пакет?
 Облачная служба создается из трех компонентов: определения службы _(CSDEF-файл)_, конфигурации службы _(CSCFG-файл)_ и пакета службы _(CSPKG-файл)_. Файлы **ServiceDefinition.csdef** и **ServiceConfig.cscfg** являются XML-файлами, которые описывают структуру облачной службы и ее конфигурацию; совокупность файлов и называются моделью. **ServicePackage.cspkg** — это ZIP-файл, который создается на основе файла **ServiceDefinition.csdef** и который, помимо прочего, содержит все необходимые зависимости двоичном формате. Azure создает облачную службу из двух файлов: **ServicePackage.cspkg** и **ServiceConfig.cscfg**.
 
 После запуска облачной службы в Azure вы можете перенастроить ее с помощью файла **ServiceConfig.cscfg**, но вы не сможете изменить определение.
@@ -251,11 +251,7 @@ Azure разрешает только одну точку входа для ве
 
 Я создаю пакет облачной службы и я хочу выполнить следующие действия.
 
-<!--
-* [Configure Sizes for Cloud Services](!!!!!https://msdn.microsoft.com/library/azure/ee814754.aspx)  
-* [Configure Local Storage Resources](!!!!!https://azure.microsoft.com/documentation/articles/cloud-services-configure-local-storage-resources/)
--->
-
+* [Настройка локальных ресурсов хранилища](cloud-services-configure-local-storage-resources.md)
 * [Настроить удаленный рабочий стол для экземпляра облачной службы][remotedesktop]
 * [Развернуть проект облачной службы][deploy]
 
@@ -269,9 +265,9 @@ Azure разрешает только одну точку входа для ве
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/ru-RU/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/ru-RU/library/ee460772.aspx
+[vs_remote]: https://msdn.microsoft.com/library/gg443832.aspx
+[vs_deploy]: https://msdn.microsoft.com/library/ee460772.aspx
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/ru-RU/library/ee405487.aspx
+[vs_create]: https://msdn.microsoft.com/library/ee405487.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

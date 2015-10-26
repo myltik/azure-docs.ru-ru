@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Архивация сообщений соединителя AS2 | Служба приложений Microsoft Azure"
-	description="Как архивировать или сохранить сообщения соединителя AS2 в службе приложений Azure"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="rajram"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="Архивация сообщений соединителя AS2 | Служба приложений Microsoft Azure" 
+   description="Как архивировать или сохранить сообщения соединителя AS2 в службе приложений Azure" 
+   services="app-service\logic" 
+   documentationCenter=".net,nodejs,java" 
+   authors="rajram" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="rajram"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="08/23/2015"
+   ms.author="rajram"/>
 
 
 # Обзор архивации сообщений соединителя AS2
@@ -39,4 +39,4 @@
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

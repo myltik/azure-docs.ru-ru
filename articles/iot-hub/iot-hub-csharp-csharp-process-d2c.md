@@ -4,7 +4,7 @@
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -12,11 +12,11 @@
      ms.devlang="csharp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# Обработка сообщений, отправляемых с устройства в облако, в центре IoT
+# Учебник: как обрабатывать сообщения, отправляемые с устройства в облако, с помощью центра IoT
 
 ## Введение
 
@@ -41,7 +41,7 @@
 * **ProcessDeviceToCloudMessages**, которое использует [EventProcessorHost] для надежного хранения сообщения *точек данных* в большом двоичном объекте Azure и направляет *интерактивные* сообщения в очередь служебной шины.
 * **ProcessD2cInteractiveMessages**, которое удаляет сообщения из очереди.
 
-> [AZURE.NOTE]Для центра IoT существуют пакеты SDK для многих платформ устройств и языков (включая C, Java и Javascript). Эти пакеты работают на основе пакетов SDK для устройств IoT Azure. Пошаговые инструкции по подключению устройства к коду этого учебника и к центру IoT Azure в целом см. в [Центре разработчика IoT в Azure].
+> [AZURE.NOTE]Для центра IoT существуют пакеты SDK для многих платформ устройств и языков (включая C, Java и Javascript). Эти пакеты работают на основе пакетов SDK для устройств IoT Azure. Пошаговые указания по подключению устройства к коду этого учебника и к центру IoT Azure в целом см. в [Центре разработчика IoT в Azure].
 
 > [AZURE.NOTE]Содержимое данного руководства можно применить к другим способам использования сообщений, совместимых с концентраторами событий, например в проектах [Hadoop], таких как Storm. Для получения дополнительных сведений обратитесь к документу [Руководство по центру IoT. Совместимость с концентраторами событий].
 
@@ -117,11 +117,7 @@
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Приступая к работе с центром IoT]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Центр разработчика IoT Azure]: http://www.azure.com/iotdev
-[Центре разработчика IoT в Azure]: http://www.azure.com/iotdev
+[Центр разработчика IoT Azure]: http://www.azure.com/develop/iot
+[Центре разработчика IoT в Azure]: http://www.azure.com/develop/iot
 
-
-
- 
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

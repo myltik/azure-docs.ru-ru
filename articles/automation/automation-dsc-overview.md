@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="09/24/2015"
+   ms.date="10/09/2015"
    ms.author="coreyp"/>
 
 # Обзор DSC службы автоматизации Azure #
@@ -107,9 +107,9 @@ DSC службы автоматизации Azure поставляется с т
 
 Сейчас DSC службы автоматизации Azure предоставляет в [модуле PowerShell диспетчера ресурсов Azure](https://msdn.microsoft.com/library/mt244122.aspx) следующие командлеты для управления заданиями компиляции:
 
--	`Get-AzureAutomationDscCompilationJob`
--	`Get-AzureAutomationDscCompilationJobOutput`
--	`Start-AzureAutomationDscCompilationJob`
+-	`Get-AzureRmAutomationDscCompilationJob`
+-	`Get-AzureRmAutomationDscCompilationJobOutput`
+-	`Start-AzureRmAutomationDscCompilationJob`
 
 ##Жизненный цикл Azure Automation DSC##
 Для перехода от пустой учетной записи автоматизации к управляемому набор правильно настроенных узлов требуется ряд процессов для определения конфигураций, их преобразования в конфигурации узлов, перенос узлов в Azure Automation DSC и применение этих конфигураций узлов. На следующей схеме показан жизненный цикл Azure Automation DSC:
@@ -143,5 +143,6 @@ DSC службы автоматизации Azure поставляется с т
 
 - [Командлеты Automation DSC Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Цены на Automation DSC Azure](http://azure.microsoft.com/pricing/details/automation/)
+- [Непрерывное развертывание на виртуальные машины IaaS с помощью Azure Automation DSC и Chocolatey](automation-dsc-cd-chocolatey.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

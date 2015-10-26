@@ -23,7 +23,7 @@
 
 Общие сведения о расширении Custom Script см. в [этой статье](virtual-machines-extensions-customscript.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса с помощью модели развертывания на основе диспетчера ресурсов. Для создания ресурса вы также можете использовать [классическую модель развертывания](virtual-machines-extensions-customscript.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-extensions-customscript.md).
 
 Расширение Custom Script широко применяется для конфигурации рабочей нагрузки на виртуальных машинах Windows и Linux с момента своего появления. С введением шаблонов диспетчера ресурсов Azure пользователи получили возможность создавать такие шаблоны, которые не только инициализируют виртуальную машину, но и управляют ее рабочей нагрузкой.
 
@@ -35,7 +35,7 @@
 
 ### Предварительные требования для запуска расширения Custom Script
 
-1. Установите последние командлеты Azure PowerShell или интерфейса командной строки Azure, которые можно загрузить <a href="http://azure.microsoft.com/downloads" target="_blank">здесь</a>.
+1. Установите последние командлеты Azure PowerShell или интерфейса командной строки Azure, которые можно скачать <a href="http://azure.microsoft.com/downloads" target="_blank">здесь</a>.
 2. Если сценарии будут запускаться на существующей виртуальной машине, убедитесь, что на ней включен агент виртуальной машины. Если агент не включен, установите его, следуя указаниям в этой <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">статье</a>.
 3. Передайте сценарии, которые требуется запускать на виртуальной машине, в службу хранилища Azure. Сценарии могут поступать как из одного, так и из нескольких контейнеров хранилища.
 4. Кроме того, скрипты можно загрузить в учетную запись Github.
@@ -100,4 +100,4 @@
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Расширение Custom Script на виртуальной машине Linux</a>. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Расширение Custom Script на виртуальной машине Windows</a>.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

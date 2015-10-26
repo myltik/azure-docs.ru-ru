@@ -155,4 +155,4 @@
 |ActorActivated|5|Информация|0x1|Субъект активирован.|
 |ActorDeactivated|6|Информация|0x1|Субъект отключен.|
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

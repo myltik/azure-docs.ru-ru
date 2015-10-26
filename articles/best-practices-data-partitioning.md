@@ -477,4 +477,4 @@ _Рисунок 10. Предлагаемая структура в хранил
 - На странице [Запуск Redis на виртуальной машине CentOS Linux в Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) на веб-сайте Майкрософт содержится пример, показывающий, как создать и настроить узел Redis, запущенный в качестве виртуальной машины Azure.
 - На странице [Типы данных](http://redis.io/topics/data-types) на веб-сайте Redis описаны типы данных, которые доступны в Redis и кэш Redis для Azure.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

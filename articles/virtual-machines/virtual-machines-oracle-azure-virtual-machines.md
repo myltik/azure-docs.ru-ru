@@ -19,7 +19,8 @@
 
 # Программное обеспечение Oracle, размещенное в виртуальных машинах Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+ 
 
 Настройте первую или очередную базу данных Oracle для разработки и тестирования или рабочую базу данных Oracle на виртуальной машине в службах инфраструктуры Azure. Воспользуйтесь такими преимуществами, как простота конфигурации и возможность быстро развернуть рабочую нагрузку базы данных Oracle для увеличения емкости.
 
@@ -55,4 +56,4 @@
 
 В статье [Настройка Oracle GoldenGate для Azure](virtual-machines-configuring-oracle-goldengate.md) описаны этапы настройки базы данных и репликации.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -119,4 +119,4 @@ Windows PowerShell для StorSimple используется, чтобы при
 - Узнайте больше об [ использовании Windows PowerShell для администрирования устройства StorSimple](storsimple-windows-powershell-administration.md).
 - Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

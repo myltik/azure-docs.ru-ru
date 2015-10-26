@@ -1,13 +1,12 @@
-<properties pageTitle="Configure Forced Tunneling for Microsoft Azure VPN Gateways | Microsoft Azure" description="Если у вас есть виртуальная сеть с распределенным шлюзом VPN, вы можете перенаправить или «принудительно направить» весь интернет-трафик обратно в локальное расположение." services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor=""/>
-
+<properties pageTitle="Configure Forced Tunneling for Microsoft Azure VPN Gateways | Microsoft Azure" description="Если у вас есть виртуальная сеть с распределенным шлюзом VPN, вы можете перенаправить или «принудительно направить» весь интернет-трафик обратно в локальное расположение." services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="carolz" editor="" />
 <tags  
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/20/2015"
+   ms.author="cherylmc" />
 
 # Настройка принудительного туннелирования
 
@@ -152,4 +151,4 @@
 
 Дополнительные сведения о защите сетевого трафика см. в статье [Группа безопасности сети](../virtual-network/virtual-networks-nsg.md).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

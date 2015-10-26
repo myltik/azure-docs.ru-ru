@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Создание веб-приложения Orchard CMS из Azure Marketplace"
-	description="Учебник, в котором показано, как создать новое веб-приложение в Azure и использовать портал Azure для запуска веб-приложений и управления ими."
+	pageTitle="Создание веб-приложения Orchard CMS из Azure Marketplace" 
+	description="Учебник, в котором показано, как создать новое веб-приложение в Azure и использовать портал Azure для запуска веб-приложений и управления ими." 
 	tags="azure-portal"
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="tfitzmac"
-	manager="wpickett"
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="tfitzmac" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
 
 # Создание веб-приложения Orchard CMS из Azure Marketplace
@@ -91,4 +91,4 @@ Marketplace предоставляет широкий выбор популяр�
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

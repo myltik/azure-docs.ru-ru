@@ -71,4 +71,4 @@ Azure Stream Analytics — это сложная полностью управ�
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

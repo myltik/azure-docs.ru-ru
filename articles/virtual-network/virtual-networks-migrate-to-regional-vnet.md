@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Переход от территориальных групп к региональной виртуальной сети"
-	description="Узнайте, как перейти от территориальных групп к региональным виртуальным сетям."
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="Узнайте, как перейти от территориальных групп к региональным виртуальным сетям."
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/02/2015"
+   ms.author="telmos" />
 
 # Переход от территориальных групп к региональной виртуальной сети
 
@@ -41,9 +41,9 @@
 	
 	Измените следующие строки в файле конфигурации сети, заменив значения собственными.
 
-	**Старое значение:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
+	**Старое значение:** <VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG">
 
-	**Новое значение:** \<VirtualNetworkSitename="VNetUSWest" Location="West US">
+	**Новое значение:** <VirtualNetworkSitename="VNetUSWest" Location="West US">
 
 1. Сохраните изменения и [импортируйте](../virtual-networks-using-network-configuration-file/) конфигурацию сети в Azure.
 
@@ -66,4 +66,4 @@
 При развертывании виртуальной машины она попадает в одну единицу масштабирования. Территориальные группы могут ограничивать набор доступных размеров виртуальных машин для нового развертывания виртуальных машин, но существующая развернутая виртуальная машина уже ограничена набором размеров, доступных в единице масштабирования, в которой она развернута. По этой причине удаление виртуальной машины из территориальной группы не имеет смысла.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

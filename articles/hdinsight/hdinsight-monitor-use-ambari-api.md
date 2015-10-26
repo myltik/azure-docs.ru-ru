@@ -50,7 +50,7 @@
 Имя пользователя кластера|$clusterUsername||Имя пользователя кластера, указанное при подготовке.
 Пароль кластера|$clusterPassword||Пароль пользователя кластера.
 
-	> [AZURE.NOTE] Введите значения в таблицу. Это будет полезно для изучения данного учебника.
+	> [AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
 
 
 
@@ -175,4 +175,4 @@
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

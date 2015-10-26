@@ -37,25 +37,27 @@
 Готовое приложение также приводится в конце этого руководства.
 
 
-## 1. Регистрация приложения
-Создайте приложение на сайте [apps.dev.microsoft.com](https://apps.dev.microsoft.com) или выполните инструкции, приведенные в [этой статье](active-directory-v2-app-registration.md). Обязательно сделайте вот что:
+## 1\. Регистрация приложения
+Создайте приложение на странице [apps.dev.microsoft.com](https://apps.dev.microsoft.com) или выполните [эти подробные указания](active-directory-v2-app-registration.md). Не забудьте:
 
 - запишите назначенный вашему приложению **идентификатор**. Он вскоре вам понадобится.
 
 В этом решении Visual Studio также содержится клиент TodoListClient, который представляет собой простое приложение WPF. TodoListClient используется для того, чтобы показать, как пользователь входит в систему и как клиент может отправлять запросы к вашему веб-API. В этом случае и TodoListClient, и TodoListService представлены одним приложением. Чтобы настроить TodoListClient, вам нужно также:
 
-- добавить для своего приложения **мобильную** платформу;
-- записать **URI перенаправления** с портала. Необходимо использовать стандартное значение `urn:ietf:wg:oauth:2.0:oob`.
+- Добавьте для приложения **мобильную** платформу.
+- Скопируйте с портала **URI перенаправления**. Необходимо использовать стандартное значение `urn:ietf:wg:oauth:2.0:oob`.
 
 
-## 2. Настройка в приложении проверки подлинности OWIN
+## 2\. Настройка в приложении проверки подлинности OWIN
 
 Зарегистрировав приложение, вам нужно настроить в нем обмен данными с конечной точкой v2.0. Это позволит проверять входящие запросы и маркеры.
 
--	Сначала откройте решение и добавьте к проекту TodoListService пакеты NuGet ПО промежуточного слоя OWIN при помощи консоли диспетчера пакетов.
+-	Для начала откройте решение и добавьте пакеты NuGet промежуточного слоя OWIN в проект TodoListService с помощью консоли диспетчера пакетов.
 
 ```
-PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService 
+PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService
+PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService
+PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
 ```
 
 -	Добавьте класс OWIN Startup в проект TodoListService под именем `Startup.cs`. Щелкните правой кнопкой мыши проект и выберите в контекстном меню **Добавить**, затем **Новый элемент** и найдите OWIN. При запуске приложения промежуточный слой OWIN вызовет метод `Configuration(…)`.
@@ -108,7 +110,7 @@ public void ConfigureAuth(IAppBuilder app)
 }
 ```
 
--	Теперь можно использовать атрибуты `[Authorize]` для защиты контроллеров и действий с помощью проверки подлинности OAuth 2.0. Снабдите класс `Controllers\TodoListController.cs` тегом авторизации. Пользователь будет вынужден войти в систему, прежде чем сможет обратиться к этой странице.
+-	Теперь можно использовать атрибуты `[Authorize]` для защиты контроллеров и действий с помощью аутентификации OAuth 2.0. Снабдите класс `Controllers\TodoListController.cs` тегом авторизации. Пользователь будет вынужден войти в систему, прежде чем сможет обратиться к этой странице.
 
 ```C#
 [Authorize]
@@ -140,12 +142,12 @@ public IEnumerable<TodoItem> Get()
 Чтобы увидеть службу To Do List в действии, необходимо настроить To Do List Client для получения маркеров от конечной точки версии 2.0 и выполнения вызовов службы.
 
 - Откройте файл `App.config` проекта TodoListClient и введите значения конфигурации в разделе `<appSettings>`.
-  -	Идентификатор приложения `ida:ClientId`, скопированный из портала.
-	- `ida:RedirectUri` — это **URI перенаправления** с портала.
+  -	Идентификатор приложения `ida:ClientId`, скопированный на портале.
+	- `ida:RedirectUri` — это **универсальный код ресурса (URI) перенаправления** с портала.
 
 Наконец, выполните очистку, соберите и запустите каждый из проектов. Теперь у вас есть веб-API .NET MVC, принимающий маркеры доступа личных учетных записей Майкрософт, а также рабочих и учебных учетных записей. Войдите в TodoListClient и вызовите веб-API для добавления задач в список дел пользователя.
 
-Для справки следует отметить, что готовый пример (без ваших значений конфигурации) в виде ZIP-файла находится [здесь](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip). Также можно клонировать его с GitHub:
+Готовый пример (без ваших значений конфигурации) [можно скачать в виде ZIP-файла здесь](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip) или клонировать с портала GitHub.
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
@@ -154,6 +156,6 @@ public IEnumerable<TodoItem> Get()
 
 [Вызов веб-API из веб-приложения с помощью модели приложения версии 2.0 >>](active-directory-devquickstarts-webapp-webapi-dotnet.md)
 
-Дополнительные ресурсы: -[Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) -[Тег StackOverflow "azure active directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+Дополнительные ресурсы: - [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow: тег azure-active-directory >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

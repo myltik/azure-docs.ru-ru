@@ -19,7 +19,8 @@
 
 # Кластер MariaDB (MySQL) — учебник по Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания кластера MariaDB с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 Мы создаем кластер [Galera](http://galeracluster.com/products/) с несколькими базами данных master [MariaDB](https://mariadb.org/en/about/) — надежную и масштабируемую замену для MySQL для работы в высокодоступной среде в виртуальных машинах Azure.
 
@@ -372,4 +373,4 @@
 [проблема № 1268 со средствами CLI Azure]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [другим способом кластеризации MySQL в ОС Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

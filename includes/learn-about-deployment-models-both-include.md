@@ -1,1 +1,3 @@
-> [AZURE.NOTE] Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using both models, but Microsoft recommends that most new deployments use the Resource Manager model.
+> [AZURE.NOTE]В Azure предлагаются две модели развертывания для создания ресурсов и работы с ними: [модель диспетчера ресурсов и классическая модель](../resource-manager-deployment-model.md). В этой статье описывается использование обеих моделей, но для большинства новых развертываний корпорация Майкрософт рекомендует использовать модель диспетчера ресурсов.
+
+<!---HONumber=Oct15_HO3-->

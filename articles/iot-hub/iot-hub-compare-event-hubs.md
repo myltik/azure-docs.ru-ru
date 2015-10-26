@@ -1,10 +1,10 @@
 <properties
- pageTitle="Сравнение центра IoT и концентраторов событий Azure | Microsoft Azure"
- description="Сравнение центра IoT и концентраторов событий."
+ pageTitle="Сравнение центра IoT Azure и концентраторов событий Azure | Microsoft Azure"
+ description="Сравнение центра IoT Azure и служб концентраторов событий Azure, в котором выделены функциональные различия и случаи использования."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="10/02/2015"
  ms.author="elioda"/>
 
@@ -49,4 +49,4 @@
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Что такое центр IoT в Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

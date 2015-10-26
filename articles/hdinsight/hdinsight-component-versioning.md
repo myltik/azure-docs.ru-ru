@@ -162,4 +162,4 @@ HDI 1.6|HDP 1.1|Нет|28\.10.2013|Нет|26\.04.2014|31\.05.2015
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

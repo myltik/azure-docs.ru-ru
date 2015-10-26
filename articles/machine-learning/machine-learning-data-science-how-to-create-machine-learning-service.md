@@ -2,8 +2,11 @@
 	pageTitle="Разработка расширенных аналитических решений в Azure | Microsoft Azure" 
 	description="Используйте это руководство, чтобы ознакомиться с шагами по использованию Azure для обработки и анализа данных, а также машинного обучения в облаке." 
 	services="machine-learning,hdinsight" 
+	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
+	videoId="" 
+	scriptId="" 
 	manager="paulettm" />
 
 <tags 
@@ -26,4 +29,4 @@
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/machine-learning-how-to-create-ml-service.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

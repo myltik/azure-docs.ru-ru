@@ -94,4 +94,4 @@
 - [Создание первой базы данных SQL Azure](sql-database-get-started.md)
 - [Entity Framework 6 здесь, EF 7 на GitHub](http://entityframework.codeplex.com/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

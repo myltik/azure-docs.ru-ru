@@ -21,7 +21,8 @@
 
 Существует множество факторов, влияющих на производительность MySQL в Azure, как при выборе виртуального оборудования, так и при конфигурации программного обеспечения. Эта статья посвящена оптимизации производительности с помощью конфигураций хранилища, системы и базы данных.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс управления ресурсом с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 ##Использование RAID в виртуальной машине Azure
 Хранилище — ключевой фактор, влияющий на производительность базы данных в облачных средах. По сравнению с одним диском, RAID может обеспечить более быстрый доступ за счет параллелизма. Дополнительную информацию см. в [статье о стандартных уровнях RAID](http://en.wikipedia.org/wiki/Standard_RAID_levels).
@@ -347,4 +348,4 @@ MySQL — база данных с высокой степенью паралл
 [13]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-13.png
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

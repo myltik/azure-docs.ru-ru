@@ -1,20 +1,20 @@
 <properties
    pageTitle="Обзор модели программирования надежных служб Service Fabric"
-	description="Сведения о модели программирования надежных служб Service Fabric, позволяющие приступить к написанию собственных служб."
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="masnider"
-	manager="timlt"
-	editor="jessebenson; mani-ramaswamy"/>
+   description="Сведения о модели программирования надежных служб Service Fabric, позволяющие приступить к написанию собственных служб."
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="masnider"
+   manager="timlt"
+   editor="jessebenson; mani-ramaswamy"/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="masnider;jesseb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="masnider;jesseb"/>
 
 # Обзор надежных служб
 Платформа Service Fabric упрощает написание надежных служб с отслеживанием или без отслеживания состояния и управление ими. В этом документе:
@@ -130,4 +130,4 @@ Service Fabric управляет временем существования с
 + [Прочитайте о модели программирования надежных субъектов](service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

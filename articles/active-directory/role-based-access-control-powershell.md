@@ -164,4 +164,4 @@ RBAC работает только с диспетчером ресурсов Az
 - [Настройка управления доступом на основе ролей с помощью Azure CLI](role-based-access-control-xplat-cli-install.md)
 - [Устранение неполадок управления доступом на основе ролей](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

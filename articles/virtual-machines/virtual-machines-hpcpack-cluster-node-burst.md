@@ -10,7 +10,8 @@ ms.service="virtual-machines"
 
 # Добавление запущенных по запросу расширительных узлов (экземпляры рабочей роли) в качестве вычислительных ресурсов в кластер пакета HPC в Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается создание ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 В этой статье показано, как добавить «расширительные» узлы Azure (экземпляры рабочей роли, запущенные в облачной службе) по запросу в качестве вычислительных ресурсов в существующий головной узел пакета HPC в Azure. Это позволяет увеличить масштаб вычислительной мощности кластера HPC в Azure без обслуживания набора предварительно настроенных виртуальных машин вычислительных узлов.
 
@@ -79,4 +80,4 @@ ms.service="virtual-machines"
 <!--Image references-->
 [burst]: ./media/virtual-machines-hpcpack-cluster-node-burst/burst.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

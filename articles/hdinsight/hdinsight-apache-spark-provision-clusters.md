@@ -438,4 +438,4 @@ Azure PowerShell — это полнофункциональная среда с
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "Использование Sqoop вместе с HDInsight"
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

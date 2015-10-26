@@ -19,7 +19,8 @@
 
 # Устранение неполадок с подключением Secure Shell (SSH) к виртуальной машине Azure под управлением Linux
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье рассматривается устранение неполадок SSH-подключений к виртуальным машинам, созданным с помощью классической модели развертывания или модели развертывания на основе диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 
 Сбои SSH в виртуальной машине Azure под управлением Linux могут возникать по различным причинам. Эта статья поможет вам выявить и устранить причины сбоя.
@@ -30,23 +31,20 @@
 
 Если в любой момент при изучении этой статьи вам потребуется дополнительная помощь, вы можете обратиться к экспертам по Azure на [форумах MSDN Azure и Stack Overflow](http://azure.microsoft.com/support/forums/).
 
-Кроме того, можно зарегистрировать обращение в службу поддержки Azure. Перейдите на [сайт службы поддержки Azure](http://azure.microsoft.com/support/options/) и нажмите **Поддержка**. Дополнительные сведения об использовании службы поддержки Azure см. в статье [Часто задаваемые вопросы о поддержке Microsoft Azure](http://azure.microsoft.com/support/faq/).
+Кроме того, можно зарегистрировать обращение в службу поддержки Azure. Перейдите на [сайт службы поддержки Azure](http://azure.microsoft.com/support/options/) и щелкните **Получение поддержки**. Дополнительные сведения об использовании службы поддержки Azure см. в статье [Часто задаваемые вопросы о поддержке Microsoft Azure](http://azure.microsoft.com/support/faq/).
 
 
-## Основные шаги
-
-
-### Классическая модель развертывания
+## Основные шаги: классическая модель развертывания.
 
 Для устранения наиболее распространенных сбоев SSH-подключения в виртуальных машинах, созданных с помощью классической модели развертывания, попробуйте выполнить следующие действия.
 
-1. Выполните сброс удаленного доступа на [портале Azure](https://portal.azure.com). Последовательно выберите **Просмотреть все** > **Виртуальные машины (классика)** > имя вашей виртуальной машины Windows > **Сброс удаленного доступа**.
+1. **Выполните сброс удаленного доступа** на [портале предварительной версии Azure](https://portal.azure.com). Последовательно выберите **Просмотреть все** > **Виртуальные машины (классика)** > имя вашей виртуальной машины Windows > **Сброс удаленного доступа**.
 
 	![Сброс удаленного доступа](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Reset-Windows.png)
 
-2. Перезапустите виртуальную машину, как указано выше. На [портале предварительной версии Azure](https://portal.azure.com) последовательно выберите **Просмотреть все** > **Виртуальные машины (классика)** > имя вашей виртуальной машины Windows > **Перезагрузить**. На [портале управления Azure](https://manage.windowsazure.com) откройте **Виртуальные машины** > **Экземпляры** и выберите **Перезагрузить**.
+2. **Перезапустите** виртуальную машину. На [портале предварительной версии Azure](https://portal.azure.com) последовательно выберите **Просмотреть все** > **Виртуальные машины (классика)** > имя вашей виртуальной машины Windows > **Перезагрузить**. На [портале управления Azure](https://manage.windowsazure.com) откройте **Виртуальные машины** > **Экземпляры** и выберите **Перезагрузить**.
 
-3. [Измените размер виртуальной машины](https://msdn.microsoft.com/library/dn168976.aspx).
+3. [**Измените размер** виртуальной машины.](https://msdn.microsoft.com/library/dn168976.aspx)
 
 4. Выполните на виртуальной машине действия, описанные в статье [Как сбросить пароль или ключ SSH в виртуальных машинах Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md), чтобы:
 
@@ -55,94 +53,113 @@
 	- сбросить конфигурацию SSH.
 
 
-### Модель развертывания диспетчера ресурсов
+## Основные шаги: модель развертывания диспетчера ресурсов
 
 Для устранения распространенных проблем SSH на виртуальных машинах, созданных с помощью модели развертывания диспетчера ресурсов, попробуйте выполнить следующие действия.
 
-1. Выполните сброс SSH-подключения к виртуальной машине Linux в командной строке. Убедитесь, что у вас установлен [агент Linux для Microsoft Azure](virtual-machines-linux-agent-user-guide.md) версии 2.0.5 или более поздней.
+1. **Сбросьте SSH-подключение** к виртуальной машине Linux в командной строке с помощью Azure CLI или Azure PowerShell. Убедитесь, что у вас установлен [агент Linux для Microsoft Azure](virtual-machines-linux-agent-user-guide.md) версии 2.0.5 или более поздней.
 
-	[A] С помощью Azure CLI
+	**Использование Azure CLI**
 
-	Шаг 1. [Установите Azure CLI и подключитесь к подписке Azure](../xplat-cli-install.md) с помощью команды `azure login` (если вы еще этого не сделали).
+	а. [Установите Azure CLI и подключитесь к подписке Azure](../xplat-cli-install.md) с помощью команды `azure login` (если вы еще этого не сделали).
 
-	Шаг 2. Переключитесь в режим диспетчера ресурсов.
+	b. Переключитесь в режим диспетчера ресурсов.
 
-		azure config mode arm
+	```
+	azure config mode arm
+	```
 
-	Шаг 3. Сброс SSH-подключения можно выполнить с помощью любого из следующих методов.
+	c. Сброс SSH-подключения можно выполнить с помощью любого из следующих методов.
 
-	(i) Используйте команду `vm reset-access`, как в следующем примере.
+	* Используйте команду `vm reset-access`, как в следующем примере.
 
-		azure vm reset-access -g TestRgV2 -n TestVmV2 -r
+	```
+	azure vm reset-access -g TestRgV2 -n TestVmV2 -r
+	```
 
 	При этом на виртуальную машину будет установлено расширение `VMAccessForLinux`.
 
-	(ii) Создайте файл с именем PrivateConf.json со следующим содержимым:
+	* Создайте файл с именем PrivateConf.json со следующим содержимым:
 
-		{
-			"reset_ssh":"True"
-		}
+	```
+	{  
+	"reset_ssh":"True"
+	}
+	```
 
 	Затем вручную запустите расширение `VMAccessForLinux`, чтобы сбросить SSH-подключение.
 
-		azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
+	```
+	azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
+	```
 
-	[B] С помощью Azure PowerShell
+	**Использование Azure PowerShell**
 
-	Шаг 1. [Установите Azure PowerShell и подключитесь к подписке Azure](../powershell-install-configure.md) с помощью метода Azure AD (если вы еще этого не сделали).
+	а. [Установите Azure PowerShell и подключитесь к подписке Azure](../powershell-install-configure.md) с помощью метода Azure AD (если вы еще этого не сделали).
 
-	Шаг 2. Переключитесь в режим диспетчера ресурсов.
+	b. Переключитесь в режим диспетчера ресурсов.
 
-		Switch-AzureMode -Name AzureResourceManager
+	```
+	Switch-AzureMode -Name AzureResourceManager
+	```
 
-	Шаг 3. Запустите расширение `VMAccessForLinux` для сброса SSH-подключения, как в следующем примере.
+	c. Запустите расширение `VMAccessForLinux` для сброса SSH-подключения, как в следующем примере.
 
-		Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
+	```
+	Set-AzureVMExtension -ResourceGroupName "testRG" -VMName "testVM" -Location "West US" -Name "VMAccessForLinux" -Publisher "Microsoft.OSTCExtensions" -ExtensionType "VMAccessForLinux" -TypeHandlerVersion "1.2" -SettingString "{}" -ProtectedSettingString '{"reset_ssh":true}'
+	```
 
-2. Перезапустите виртуальную машину Linux через портал. На [портале предварительной версии Azure](https://portal.azure.com) последовательно выберите **Просмотреть все** > **Виртуальные машины** > имя вашей виртуальной машины Windows > **Перезагрузить**.
+2. **Перезапустите** виртуальную машину Linux через портал. На [портале предварительной версии Azure](https://portal.azure.com) последовательно выберите **Просмотреть все** > **Виртуальные машины** > имя вашей виртуальной машины Windows > **Перезагрузить**.
 
 	![Перезапуск v2](./media/virtual-machines-troubleshoot-ssh-connections/Portal-SSH-Restart-V2-Windows.png)
 
-3. Сбросьте пароль и (или) ключ SSH для виртуальной машины Linux в командной строке. Также можно создать новое имя пользователя и пароль с полномочиями sudo, как в следующем примере.
+3. **Сбросьте пароль или ключ SSH** для виртуальной машины Linux в командной строке с помощью Azure CLI или Azure PowerShell. Также можно создать новое имя пользователя и пароль с полномочиями sudo, как в следующем примере.
 
-	[A] С помощью Azure CLI
+	**Использование Azure CLI**
 
 	Установите и настройте Azure CLI, как описано выше. Переключитесь в режим диспетчера ресурсов, а затем запустите расширение, используя один из следующих методов.
 
-	(i) Выполните команду `vm reset-access`, чтобы задать учетные данные SSH.
+	* Выполните команду `vm reset-access`, чтобы задать учетные данные SSH.
 
-		azure vm reset-access TestRgV2 TestVmV2 -u NewUser -p NewPassword
+	```
+	azure vm reset-access TestRgV2 TestVmV2 -u NewUser -p NewPassword
+	```
 
 	Чтобы получить дополнительные сведения об этой команде, введите `azure vm reset-access -h` в командную строку.
 
-	(ii) Создайте файл с именем PrivateConf.json со следующим содержимым.
-
-		{
-			"username":"NewUsername", "password":"NewPassword", "expiration":"2016-01-01", "ssh_key":"", "reset_ssh":false, "remove_user":""
-		}
+	* Создайте файл с именем PrivateConf.json со следующим содержимым: ```
+	{
+	"username":"NewUsername", "password":"NewPassword", "expiration":"2016-01-01", "ssh_key":"", "reset_ssh":false, "remove_user":""
+	}
+	```
 
 	Затем запустите расширение Linux с помощью указанного выше файла.
 
-		$azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
+	```
+	$azure vm extension set "testRG" "testVM" VMAccessForLinux Microsoft.OSTCExtensions "1.2" --private-config-path PrivateConf.json
+	```
 
 	Вы можете попробовать другие методы, выполнив действия, подобные описанным в статье [Как сбросить пароль или ключ SSH в виртуальных машинах Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md). Не забудьте изменить инструкции Azure CLI для режима диспетчера ресурсов.
 
-	[B] С помощью Azure PowerShell
+	**Использование Azure PowerShell**
 
 	Установите и настройте Azure PowerShell, как описано выше. Переключитесь в режим диспетчера ресурсов, а затем запустите расширение, как указано ниже.
 
-		$RGName = 'testRG'
-		$VmName = 'testVM'
-		$Location = 'West US'
+	```
+	$RGName = 'testRG'
+	$VmName = 'testVM'
+	$Location = 'West US'
 
-		$ExtensionName = 'VMAccessForLinux'
-		$Publisher = 'Microsoft.OSTCExtensions'
-		$Version = '1.2'
+	$ExtensionName = 'VMAccessForLinux'
+	$Publisher = 'Microsoft.OSTCExtensions'
+	$Version = '1.2'
 
-		$PublicConf = '{}'
-		$PrivateConf = '{"username":"NewUsername", "password":"NewPassword", "ssh_key":"", "reset_ssh":false, "remove_user":""}'
+	$PublicConf = '{}'
+	$PrivateConf = '{"username":"NewUsername", "password":"NewPassword", "ssh_key":"", "reset_ssh":false, "remove_user":""}'
 
-		Set-AzureVMExtension -ResourceGroupName $RGName -VMName $VmName -Location $Location -Name $ExtensionName -Publisher $Publisher -ExtensionType $ExtensionName -TypeHandlerVersion $Version -SettingString $PublicConf -ProtectedSettingString $PrivateConf
+	Set-AzureVMExtension -ResourceGroupName $RGName -VMName $VmName -Location $Location -Name $ExtensionName -Publisher $Publisher -ExtensionType $ExtensionName -TypeHandlerVersion $Version -SettingString $PublicConf -ProtectedSettingString $PrivateConf
+
+	```
 
 	Не забудьте заменить значения $RGName, $VmName, $Location и учетные данные SSH значениями, относящимися к вашей установке.
 
@@ -158,14 +175,14 @@
 
 Сначала проверьте состояние виртуальной машины на портале Azure.
 
-На [портале управления Azure](https://manage.windowsazure.com) для виртуальных машин в классической модели развертывания сделайте следующее:
+На [портале управления Azure](https://manage.windowsazure.com) для виртуальных машин в классической модели развертывания сделайте следующее.
 
 1. Щелкните **Виртуальные машины** > *Имя виртуальной машины*.
 2. Щелкните **Панель мониторинга** виртуальной машины, чтобы проверить ее состояние.
 3. Щелкните **Монитор** для просмотра последних действий в ресурсах вычислений, хранения и сетевых ресурсах.
 4. Щелкните **Конечные точки**, чтобы убедиться, что SSH-трафика существует конечная точка.
 
-На [портале предварительной версии Azure](https://portal.azure.com) выполните следующие действия:
+На [портале предварительной версии Azure](https://portal.azure.com) выполните следующие действия.
 
 1. Для виртуальной машины, созданной в классической модели развертывания, щелкните **Обзор** > **Виртуальные машины (классика)** > *имя виртуальной машины*. Для виртуальной машины, созданной с помощью диспетчера ресурсов, щелкните **Обзор** > **Виртуальные машины** > *имя виртуальной машины*. Панель состояния виртуальной машины должна отображать состояние **Работает**. Прокрутите страницу вниз для просмотра последних действий в ресурсах вычислений, хранения и сетевых ресурсах.
 2. Щелкните **Параметры**, чтобы проверить конечные точки, IP-адреса и другие параметры. Для идентификации конечных точек в виртуальных машинах, созданных с помощью диспетчера ресурсов, проверьте, определена ли [группа безопасности сети](../traffic-manager/virtual-networks-nsg.md), применены ли к ней правила и имеется ли на них ссылка в подсети.
@@ -209,7 +226,7 @@
 
 #### Источник 2: пограничное устройство организации
 
-Чтобы исключить пограничное устройство организации из числа возможных источников ошибок, убедитесь, что компьютер, подключенный к Интернету напрямую, может устанавливать SSH-подключения к виртуальной машине Azure. Если вы обращаетесь к виртуальной машине через VPN типа «сеть-сеть» или подключение ExpressRoute, перейдите к разделу [Источник 4: группы безопасности сети](#nsg).
+Чтобы исключить пограничное устройство организации из числа возможных источников ошибок, убедитесь, что компьютер, подключенный к Интернету напрямую, может устанавливать SSH-подключения к виртуальной машине Azure. Если вы обращаетесь к виртуальной машине через VPN типа "сеть-сеть" или подключение ExpressRoute, перейдите к разделу [Источник 4: группы безопасности сети](#nsg).
 
 ![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot3.png)
 
@@ -269,4 +286,4 @@
 
 [Устранение неполадок доступа к приложению, выполняющемуся в виртуальной машине Azure](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

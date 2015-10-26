@@ -1,20 +1,20 @@
 
 <properties 
-    pageTitle="Использование Office с Azure RemoteApp"
-	description="Узнайте, как Office и Azure RemoteApp работают вместе"
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+    pageTitle="Использование Office с Azure RemoteApp" 
+    description="Узнайте, как Office и Azure RemoteApp работают вместе" 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
-    ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/02/2015" 
+    ms.author="elizapo" />
 
 # Использование Office с Azure RemoteApp
 
@@ -50,4 +50,4 @@ RemoteApp поддерживает активацию на общедоступ�
 Если по окончании пробного периода не переключиться в рабочий режим, коллекции RemoteApp будут отключены. Не волнуйтесь — ваши параметры и данные пользователей хранятся в течение дополнительных 90 дней, поэтому вы все еще можете активировать свою службу и переключиться в рабочий режим, не теряя данные.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

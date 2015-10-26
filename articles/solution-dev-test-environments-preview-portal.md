@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/17/2015"
+   ms.date="10/08/2015"
    ms.author="jdial"/>
 
 # Среды разработки и тестирования в Microsoft Azure
@@ -178,9 +178,9 @@
 
   **Метод 2.** PowerShell
 
-  Убедитесь, что среда PowerShell установлена на компьютере под управлением Windows и подключена к вашей подписке, как описано в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md). Чтобы создать группу ресурсов для среды разработки, введите в командной строке PowerShell следующую команду.
+  Убедитесь, что среда PowerShell установлена на компьютере под управлением Windows и подключена к вашей подписке, как описано в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md). Чтобы создать группу ресурсов для среды разработки, введите в командной строке PowerShell следующую команду. При использовании предварительной версии Azure PowerShell 1.0 это команда **New-AzureRmResourceGroup**, как показано ниже. Если вы используете версию Azure PowerShell, выпущенную до предварительной версии 1.0, то используется команда **New-AzureResourceGroup**.
 
-	New-AzureResourceGroup -Name TestApp1-Development -Location "Central US"
+	New-AzureRmResourceGroup -Name TestApp1-Development -Location "Central US"
 
   В случае успешного выполнения команда вернет следующий результат:
 
@@ -200,11 +200,11 @@
 
   Чтобы создать группу ресурсов для тестовой среды, введите следующую команду:
 
-	New-AzureResourceGroup -Name TestApp1-Test -Location "Central US"
+	New-AzureRmResourceGroup -Name TestApp1-Test -Location "Central US"
 
   Чтобы создать группу ресурсов для подготовительной среды, введите следующую команду:
 
-	New-AzureResourceGroup -Name TestApp1-Pre-Production -Location "Central US"
+	New-AzureRmResourceGroup -Name TestApp1-Pre-Production -Location "Central US"
 
  **Шаг 6.** Разверните ресурсы Azure в группах ресурсов для каждой среды с помощью файла шаблона для приложения и файлов параметров для каждой среды. Для этого можно использовать один из описанных ниже методов. Оба метода приводят к одному и тому же результату.
 
@@ -256,9 +256,9 @@
   
   **Метод 2.** PowerShell
 
-  В командной строке PowerShell введите следующую команду, чтобы развернуть ресурсы в группу ресурсов, созданную для среды разработки. При этом элемент [path] нужно заменить на путь к файлам, сохраненным на предыдущих шагах.
+  В командной строке PowerShell введите следующую команду, чтобы развернуть ресурсы в группу ресурсов, созданную для среды разработки. При этом элемент [path] нужно заменить на путь к файлам, сохраненным на предыдущих шагах. При использовании предварительной версии Azure PowerShell 1.0 это команда **New-AzureRmResourceGroupDeployment**, как показано ниже. Если вы используете версию Azure PowerShell, выпущенную до предварительной версии 1.0, то используется команда **New-AzureResourceGroupDeployment**.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName TestApp1-Development -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Development.json -Name Deployment1 
+	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Development -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Development.json -Name Deployment1 
 
   В случае успешного выполнения команда вернет следующий результат:
 
@@ -292,18 +292,18 @@
 
   В командной строке PowerShell введите следующую команду, чтобы развернуть ресурсы в группу ресурсов, созданную для тестовой среды. При этом [path] нужно заменить на путь к файлам, сохраненным на предыдущих шагах.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName TestApp1-Test -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Test.json -Name Deployment1
+	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Test -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Test.json -Name Deployment1
 
   В командной строке PowerShell введите следующую команду, чтобы развернуть ресурсы в группу ресурсов, созданную для подготовительной среды. При этом [path] нужно заменить на путь к файлам, сохраненным на предыдущих шагах.
 
-	New-AzureResourceGroupDeployment -ResourceGroupName TestApp1-Pre-Production -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Pre-Production.json -Name Deployment1
+	New-AzureRmResourceGroupDeployment -ResourceGroupName TestApp1-Pre-Production -TemplateFile [path]TestApp1-Template.json -TemplateParameterFile [path]TestApp1-Parameters-Pre-Production.json -Name Deployment1
 
 Для файла шаблона и файлов параметров можно создавать версии и вести их вместе с кодом приложения в системе управления исходным кодом. Вы также можете сохранить использованные выше команды в файлы скриптов и сохранить их вместе с кодом.
 
 ## Поддержка сред
 В процессе разработки конфигурация ресурсов Azure в одной среде может быть изменена — случайно или преднамеренно — независимо от других сред. Это может приводить к дополнительным проблемам в рамках цикла разработки приложения.
 
-  **Шаг 7.** Измените среды. Откройте [портал предварительной версии Azure](https://portal.azure.com) и выполните вход с учетной записью, с помощью которой вы выполняли предыдущие инструкции. Выберите «Просмотреть все» -> «Группы ресурсов» (возможно, потребуется прокрутить колонку вниз до групп ресурсов), как показано на следующем рисунке. Вы увидите три группы ресурсов, созданные с помощью методов, описанных на предыдущих этапах. Щелкните группу ресурсов TestApp1-Development (см. ниже).
+  **Шаг 7.** Измените среды. Откройте [портал предварительной версии Azure](https://portal.azure.com) и выполните вход с учетной записью, с помощью которой вы выполняли предыдущие действия. Выберите «Просмотреть все» -> «Группы ресурсов» (возможно, потребуется прокрутить колонку вниз до групп ресурсов), как показано на следующем рисунке. Вы увидите три группы ресурсов, созданные с помощью методов, описанных на предыдущих этапах. Щелкните группу ресурсов TestApp1-Development (см. ниже).
 
   ![Портал](./media/solution-dev-test-environments-preview-portal/portal1.png)
 
@@ -313,7 +313,7 @@
 
   Выберите «Да», когда появится запрос на подтверждение удаления ресурса. Состав группы ресурсов теперь отличается от требуемого. Вы можете дополнительно поэкспериментировать с удалением нескольких ресурсов из разных групп ресурсов или даже с изменением параметров конфигурации некоторых ресурсов.
 
-> [AZURE.NOTE]Помимо портала предварительной версии Azure, для удаления ресурса из группы ресурсов вы можете также использовать команду [Remove-AzureResource](https://msdn.microsoft.com/library/azure/dn757676.aspx) в PowerShell или команду «azure resource delete» в интерфейсе CLI.
+> [AZURE.NOTE]Помимо портала предварительной версии Azure, для удаления ресурса из группы ресурсов вы можете также использовать команду [Remove-AzureResource](https://msdn.microsoft.com/library/azure/dn757676.aspx) в PowerShell или команду azure resource delete в CLI.
 
   **Шаг 8.** Повторно разверните среду для групп ресурсов с помощью тех же команд, что использовались на шаге 6, при этом замените Deployment1 на Deployment2. Вы увидите, что все ресурсы из шаблона снова появились в группе ресурсов TestApp1-Development (см. раздел «Сводка» на следующем рисунке). Одним из преимуществ развертывания среды с помощью шаблонов диспетчера ресурсов Azure является возможность в любое время быстро повторно развернуть любое известное состояние среды.
 
@@ -346,9 +346,9 @@
   
   **Метод 2.** PowerShell
 
-  Введите следующую команду в командной строке PowerShell:
+  В предварительной версии Azure PowerShell 1.0 для удаления группы ресурсов используется команда **Remove-AzureRmResourceGroup**, как показано ниже. Если вы используете версию Azure PowerShell, выпущенную до предварительной версии 1.0, то используется команда **Remove-AzureResourceGroup**. Введите следующую команду в командной строке PowerShell:
 
-	Remove-AzureResourceGroup -Name TestApp1-Development
+	Remove-AzureRmResourceGroup -Name TestApp1-Development
 
   Если при появлении запроса ввести «y», команда вернет следующий результат:
 
@@ -358,8 +358,8 @@
 
   Введите следующую команду в командной строке PowerShell, чтобы удалить остальные среды:
 
-	Remove-AzureResourceGroup -Name TestApp1-Test
-	Remove-AzureResourceGroup -Name TestApp1-Pre-Production
+	Remove-AzureRmResourceGroup -Name TestApp1-Test
+	Remove-AzureRmResourceGroup -Name TestApp1-Pre-Production
 
 Вне зависимости от того, какой метод используется, после выполнения команд группы ресурсов и все ресурсы в них будут удалены и вам не придется за них платить.
 
@@ -374,14 +374,14 @@
 
 - [Делегирование администрирования](role-based-access-control-configure.md) ресурсами в разных средах посредством назначения пользователям и группам Microsoft Azure AD определенных ролей с привилегиями на выполнения определенного набора операций с ресурсами Azure.
 - [Назначение тегов](resource-group-using-tags.md) отдельным ресурсам или группам ресурсов для каждой среды. Вы можете добавить тег «Environment» для групп ресурсов и присвоить ему значение, соответствующее имени конкретной среды. Теги особенно помогут, когда требуется организовать ресурсы для выставления счетов или управления.
-- Мониторинг предупреждений и оплата счетов за использование ресурсов в группе ресурсов с помощью [портала предварительной версии Azure](https://portal.azure.com).
+- Мониторинг предупреждений и выставление счетов за использование ресурсов в группе ресурсов с помощью [портала предварительной версии Azure](https://portal.azure.com).
 
 ## Дополнительные ресурсы
 
-- [Создание и развертывание шаблонов диспетчера ресурсов Azure в Visual Studio](http://msdn.microsoft.com/library/azure/Dn872471.aspx) с помощью пакета Azure SDK 2.6.
-- Создание приложения с помощью [Visual Studio Enterprise](https://www.visualstudio.com/products/visual-studio-enterprise-vs), [Visual Studio Code](http://www.visualstudio.com/products/code-vs) или [Web Matrix](http://www.microsoft.com/web/webmatrix/).
-- [Развертывание веб-приложения](app-service-web/web-sites-deploy.md) в созданных средах.
-- Используйте [Управление выпусками в Visual Studio](http://msdn.microsoft.com/Library/vs/alm/Release/overview), чтобы создавать управляемые конвейеры непрерывной разработки для регулярных и частых выпусков новых версий.
+- [Создавайте и развертывайте шаблоны диспетчера ресурсов Azure в Visual Studio](http://msdn.microsoft.com/library/azure/Dn872471.aspx) с помощью пакета SDK для Azure 2.6.
+- Создайте приложение с помощью [Visual Studio Enterprise](https://www.visualstudio.com/products/visual-studio-enterprise-vs), [Visual Studio Code](http://www.visualstudio.com/products/code-vs) или [Web Matrix](http://www.microsoft.com/web/webmatrix/).
+- [Разверните веб-приложение](app-service-web/web-sites-deploy.md) в созданных средах.
+- Используйте [управление выпусками в Visual Studio](http://msdn.microsoft.com/Library/vs/alm/Release/overview), чтобы создавать управляемые конвейеры непрерывной разработки для регулярных и частых выпусков новых версий.
 - Запросите приглашение на использование предварительной версии [лаборатории для разработки и тестирования Azure](http://azure.microsoft.com/campaigns/devtest-lab/). Она позволяет управлять средами разработки и тестирования с помощью шаблонов, а также настраивать квоты и политики для использования внутри организации.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

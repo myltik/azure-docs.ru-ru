@@ -99,11 +99,11 @@
 
 ## Запрос на создание модуля Runbook или другого модуля
 
-Свой запрос можно отправить на сайте [User Voice](http://feedback.azure.com/forums/246290-azure-automation). Если вам нужна помощь в написании модуля Runbook или в освоении PowerShell, опубликуйте вопрос на нашем [форуме](http://social.msdn.microsoft.com/Forums/windowsazure/RU-RU/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
+Свой запрос можно отправить на сайте [User Voice](http://feedback.azure.com/forums/246290-azure-automation). Если вам нужна помощь в написании модуля Runbook или в освоении PowerShell, опубликуйте вопрос на нашем [форуме](http://social.msdn.microsoft.com/Forums/windowsazure/ru-RU/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
 ## Связанные статьи
 
 - [Создание или импорт модуля Runbook в службе автоматизации Azure](automation-creating-importing-runbook.md)
 - [Изучение рабочего процесса Windows PowerShell](automation-powershell-workflow.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

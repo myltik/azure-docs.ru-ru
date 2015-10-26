@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Создание проекта Azure в Visual Studio"
-	description="Создание проекта Azure в Visual Studio"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
+   description="Создание проекта Azure в Visual Studio"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Создание проекта Azure в Visual Studio
 
@@ -62,4 +62,4 @@
 
 1. Чтобы переименовать роль, добавленную в проект, выберите роль в диалоговом окне **Новый проект Azure** и щелкните значок **Переименовать** справа от нее. Вы также можете переименовать роль в решении после ее добавления.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

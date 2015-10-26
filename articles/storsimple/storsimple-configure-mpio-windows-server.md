@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Настройка MPIO для устройства StorSimple | Microsoft Azure"
-	description="В этой статье описывается настройка функции Multipath I/O (MPIO) для устройства StorSimple, подключенного к узлу под управлением Windows Server 2012 R2."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="В этой статье описывается настройка функции Multipath I/O (MPIO) для устройства StorSimple, подключенного к узлу под управлением Windows Server 2012 R2."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # Настройка функции Multipath I/O для устройства StorSimple
 
@@ -173,4 +173,4 @@ MPIO необходимо настроить для идентификации �
 Дополнительные сведения см. в статье [Использование службы диспетчера StorSimple для изменения конфигурации устройства StorSimple](storsimple-modify-device-config.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -91,4 +91,4 @@ Azure RemoteApp поддерживает как учетные записи Ма
 
 [Создайте облачную](remoteapp-create-cloud-deployment.md) или [гибридную коллекцию](remoteapp-create-hybrid-deployment.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

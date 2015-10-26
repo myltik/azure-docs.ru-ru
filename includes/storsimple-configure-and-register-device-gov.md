@@ -36,7 +36,7 @@
 
       4. (Необязательно.) Настройте прокси-сервер доступа в Интернет.
 
-      >[AZURE.IMPORTANT]Хотя использовать прокси-сервер доступа в Интернет не обязательно, следует знать, что, если в вашей сети он имеется, настройку для работы с ним можно выполнить только в этом разделе. Дополнительные сведения см. в статье [Настройка прокси-сервера доступа в Интернет для устройства](https://msdn.microsoft.com/library/azure/dn764937.aspx).
+      >[AZURE.IMPORTANT]Хотя использовать прокси-сервер доступа в Интернет не обязательно, следует знать, что, если в вашей сети он имеется, настройку для работы с ним можно выполнить только в этом разделе. Дополнительные сведения см. в статье [Настройка прокси-сервера доступа в Интернет для устройства](storsimple-configure-web-proxy.md).
 
 6. Нажмите CTRL+C, чтобы выйти из мастера установки.
  
@@ -79,10 +79,7 @@
 
      `Get-HcsSystem`
 
-    Вы должны увидеть следующие версии:
-    - HcsSoftwareVersion: 6.3.9600.17491
-    - CisAgentVersion: 1.0.9037.0
-    - MdsAgentVersion: 26.0.4696.1433
+    Вы должны увидеть следующие версии:-HcsSoftwareVersion: 6.3.9600.17491 - CisAgentVersion: 1.0.9037.0 - MdsAgentVersion: 26.0.4696.1433
  
 9. Выполните следующий командлет, чтобы подтвердить правильность применения обновления встроенного ПО:
 
@@ -131,10 +128,10 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
   
-        Если состояние устройства **Вне сети**, подождите несколько минут, чтобы устройство могло перейти в оперативный режим. 
+        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
       
-        Если по прошествии нескольких минут устройство все еще находится не в сети, убедитесь, что защищенная брандмауэром сеть настроена в соответствии [с требованиями к сети для вашего устройства StorSimple](https://msdn.microsoft.com/library/dn772371.aspx).Если поддержка HTTP 1.1 отсутствует, проверьте порт 9354 и убедитесь в том, что он открыт для исходящей связи. Этот порт используется для связи между службой StorSimple Manager и вашим устройством StorSimple.
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
      
         
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

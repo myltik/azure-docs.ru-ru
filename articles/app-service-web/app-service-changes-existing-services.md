@@ -93,4 +93,4 @@
 Дополнительные сведения см. в [документации по службе приложений](http://azure.microsoft.com/documentation/services/app-service/).
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

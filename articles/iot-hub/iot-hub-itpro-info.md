@@ -2,7 +2,7 @@
  pageTitle="Сведения о центре IoT в Azure для ИТ-специалистов | Microsoft Azure"
  description="Сведения, которые помогут ИТ-специалистам работать с центром IoT Azure, например требования к портам и безопасности."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
@@ -12,8 +12,8 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
- ms.date="09/04/2015"
+ ms.workload="na"
+ ms.date="09/28/2015"
  ms.author="dobett"/>
 
 # Настройка и управление доступом к центру IoT
@@ -49,4 +49,4 @@
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

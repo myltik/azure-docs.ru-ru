@@ -260,4 +260,4 @@ Azure PowerShell — это модуль, предоставляющий ком
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

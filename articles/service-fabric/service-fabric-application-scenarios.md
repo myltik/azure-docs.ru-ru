@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Сценарии приложений и разработка в структуре служб"
-	description="Категории приложений. Разработка приложений при помощи служб с отслеживанием состояния и без него"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="msfussell"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Сценарии приложений и разработка в структуре служб" 
+   description="Категории приложений. Разработка приложений при помощи служб с отслеживанием состояния и без него" 
+   services="service-fabric" 
+   documentationCenter=".net" 
+   authors="msfussell" 
+   manager="timlt" 
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/21/2015"
-	ms.author="mfussell"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA" 
+   ms.date="08/21/2015"
+   ms.author="mfussell"/>
 
 # Сценарии приложений структуры служб
 
@@ -68,4 +68,4 @@ Microsoft Azure Service Fabric — это надежная и гибкая пл
  
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

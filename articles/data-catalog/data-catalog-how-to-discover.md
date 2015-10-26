@@ -1,20 +1,20 @@
 <properties
    pageTitle="Обнаружение источников данных"
-	description="В статье описывается обнаружение зарегистрированных ресурсов данных с помощью каталога данных Azure, в том числе возможности поиска, фильтрации и выделения совпадений, предоставляемые порталом каталога данных Azure."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="В статье описывается обнаружение зарегистрированных ресурсов данных с помощью каталога данных Azure, в том числе возможности поиска, фильтрации и выделения совпадений, предоставляемые порталом каталога данных Azure."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/17/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="08/17/2015"
+   ms.author="maroche"/>
 
 
 # Обнаружение источников данных
@@ -60,4 +60,4 @@
 ## Сводка
 Регистрация источников данных в **каталоге данных Azure** позволяет быстрее обнаруживать и оценивать эти источники благодаря тому, что из источника в службу каталога копируются структурные и описательные метаданные. Зарегистрированный источник данных пользователи смогут обнаружить на портале **каталога данных Azure** с помощью функций фильтрации и поиска.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

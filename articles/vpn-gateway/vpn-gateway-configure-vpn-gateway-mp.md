@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Настройка VPN-шлюза на портале Azure | Microsoft Azure"
-	description="В этой статье приведены инструкции по настройке VPN-шлюза виртуальной сети и изменению типа маршрутизации VPN-шлюза со статического на динамический или с динамического на статический."
-	services="vpn-gateway"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   description="В этой статье приведены инструкции по настройке VPN-шлюза виртуальной сети и изменению типа маршрутизации VPN-шлюза со статического на динамический или с динамического на статический."
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/25/2015"
+   ms.author="cherylmc" />
 
 # Настройка VPN-шлюза на портале Azure
 
@@ -151,4 +151,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

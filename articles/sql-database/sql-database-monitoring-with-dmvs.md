@@ -33,9 +33,7 @@
 
 В Базе данных SQL для запроса динамического представления управления требуется наличие разрешений **VIEW DATABASE STATE**. Разрешение **VIEW DATABASE STATE** возвращает сведения обо всех объектах в текущей базе данных. Чтобы предоставить разрешение **VIEW DATABASE STATE** определенному пользователю базы данных, выполните следующий запрос:
 
-```
-GRANT VIEW DATABASE STATE TO database_user;
-```
+```GRANT VIEW DATABASE STATE TO database_user; ```
 
 В экземпляре локального сервера SQL Server динамические административные представления возвращают сведения о состоянии сервера. В базе данных SQL они возвращают сведения только о текущей логической базе данных.
 
@@ -44,10 +42,10 @@ GRANT VIEW DATABASE STATE TO database_user;
 Следующий запрос возвращает размер базы данных в мегабайтах:
 
 ```
--- Вычисление размера базы данных. 
-SELECT SUM(reserved\_page\_count)*8.0/1024
-FROM sys.dm\_db\_partition\_stats;
-GO 
+-- Calculates the size of the database. 
+SELECT SUM(reserved_page_count)*8.0/1024
+FROM sys.dm_db_partition_stats; 
+GO
 ```
 
 Следующий запрос возвращает размер отдельных объектов базы данных в мегабайтах:
@@ -137,4 +135,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [Введение в базы данных SQL](sql-database-technical-overview.md)
 
-<!-----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

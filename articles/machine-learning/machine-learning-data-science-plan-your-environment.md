@@ -2,6 +2,7 @@
 	pageTitle="Планирование среды обработки данных для расширенной аналитики в Машинном обучении Azure | Microsoft Azure" 
 	description="Планирование среды обработки данных для расширенной аналитики путем анализа ключевых вопросов." 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="msolhab"
 	manager="paulettm" 
@@ -79,4 +80,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

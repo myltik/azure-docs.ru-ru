@@ -91,4 +91,4 @@ Azure ExpressRoute позволяет создавать частные подк
 
 Дополнительную информацию см. в разделах [Часто задаваемые вопросы об ExpressRoute](../expressroute/expressroute-faqs.md) и [Часто задаваемые вопросы о VPN-шлюзе](vpn-gateway-vpn-faq.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

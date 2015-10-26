@@ -211,4 +211,4 @@
 Ознакомившись с основами подключения к базе данных SQL, просмотрите раздел [Разработка в базе данных SQL Azure: инструкции](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

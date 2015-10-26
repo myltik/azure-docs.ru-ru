@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/05/2015" 
+	ms.date="10/06/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -25,24 +25,23 @@
 
 ## Необходимые условия для запуска командлетов Azure PowerShell службы Stream Analytics
 
-1.	Установите и настройте Azure PowerShell.
+ - Создайте группу ресурсов Azure в своей подписке. Ниже приведен пример сценария Azure PowerShell. Дополнительную информацию об Azure PowerShell см. в разделе [Установка и настройка Azure PowerShell](../install-configure-powershell.md).  
 
-	Следуйте инструкциям по [установке и настройке Azure PowerShell][powershell-install].
 
-	Подключитесь к подписке Azure, используя следующий метод Azure Active Directory.
-
+ 		# Log in to your Azure account
 		Add-AzureAccount
 
-	Выберите подписку Azure с включенной службой Azure Stream Analytics. Для этого выполните следующие действия:
+		# Select the Azure subscription you want to use to create the resource group
+		Select-AzureSubscription -SubscriptionName <subscription name>
+ 
+		# Create an Azure resource group	
+			# If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
+			#Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
-		Select-AzureSubscription
+		# Create an Azure resource group
+		New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
+		
 
-
-2.	Настройте режим Azure.
-
-	После установки Azure PowerShell запустите командлет [Switch-AzureMode][msdn-switch-azuremode], чтобы установить необходимый режим Azure для доступа к командлетам Stream Analytics.
-
-		Switch-AzureMode AzureResourceManager
 
 > [AZURE.NOTE]Отслеживание заданий Stream Analytics, созданных программным путем, по умолчанию отключено. Вы можете вручную включить отслеживание на портале Azure. Для этого перейдите на страницу "Отслеживание" задания и нажмите кнопку "Включить". Это также можно сделать программным путем, выполнив действия, приведенные в [статье об отслеживании заданий Stream Analytics в службе Azure Stream Analytics программным путем](stream-analytics-monitor-jobs.md).
 
@@ -259,7 +258,7 @@
 Эта команда PowerShell проверяет состояние подключения выходных данных Output в StreamingJob.
 
 ## Получение поддержки
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/RU-RU/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
 
 
 ## Дальнейшие действия
@@ -288,4 +287,4 @@
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

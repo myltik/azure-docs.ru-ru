@@ -67,4 +67,4 @@
 - Узнайте о том, как настроить индекс DocumentDB, [здесь](documentdb-indexing-policies.md).
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

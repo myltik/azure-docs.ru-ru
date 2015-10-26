@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Использование удаленного рабочего стола с ролями Azure"
-	description="Использование удаленного рабочего стола с ролями Azure"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
+   description="Использование удаленного рабочего стола с ролями Azure"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Использование удаленного рабочего стола с ролями Azure
 
@@ -75,4 +75,4 @@
 
 1. Введите имя пользователя и пароль, созданный ранее. Вы вошли в удаленный сеанс.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="10/05/2015"
+	ms.date="10/09/2015"
 	ms.author="jeffstok"/>
 
 
@@ -55,7 +55,7 @@
 
 Вот как можно настроить приложение.
 
-1.	[Загрузите решение TwitterClient](https://github.com/streamanalytics/samples/tree/master/TwitterClient).
+1.	[Загрузите решение TwitterClient](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient).
 2.	Откройте файл App.config и замените маркеры Twitter oauth\_consumer\_key, oauth\_consumer\_secret, oauth\_token, oauth\_token\_secret требуемыми значениями.  
 
 	[Выполните процедуру создания маркера доступа OAuth](https://dev.twitter.com/oauth/overview/application-owner-access-tokens).
@@ -224,7 +224,7 @@ Stream Analytics поддерживает простую декларативн�
 ![Анализ социальных сетей: вывод данных об анализе тональности (интеллектуальный анализ данных) Stream Analytics на панель мониторинга Power BI.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## Получение поддержки
-За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/RU-RU/home?forum=AzureStreamAnalytics).
+За дополнительной помощью обращайтесь на наш [форум Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
 
 
 ## Дальнейшие действия
@@ -236,4 +236,4 @@ Stream Analytics поддерживает простую декларативн�
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

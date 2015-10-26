@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="10/12/2015" 
 	ms.author="genemi"/>
 
 # Использование базы данных SQL Azure в Java
@@ -37,7 +37,7 @@
 
 * Java Developer Kit (JDK), версия 1.6 или более поздняя.
 * Подписка на Azure, которую можно получить на веб-странице <http://www.microsoft.com/windowsazure/offers/>.
-* Если вы используете Eclipse, потребуется интегрированная среда разработки Eclipse для разработчиков Java EE, версии Indigo или более поздней. Среду также можно загрузить с веб-страницы <http://www.eclipse.org/downloads/>. Вам также понадобится подключаемый модуль Azure для Eclipse с Java (от Microsoft Open Technologies). В процессе установки этого подключаемого модуля убедитесь, что в его состав входит Microsoft JDBC Driver 4.0 для SQL Server. Дополнительные сведения см. в разделе [Установка подключаемого модуля Azure для Eclipse с Java (от Microsoft Open Technologies)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
+* Если вы используете Eclipse, потребуется интегрированная среда разработки Eclipse для разработчиков Java EE, версии Indigo или более поздней. Среду также можно загрузить с веб-страницы <http://www.eclipse.org/downloads/>. Также понадобится набор средств Azure для Eclipse. В процессе установки этого подключаемого модуля убедитесь, что в его состав входит Microsoft JDBC Driver 4.0 для SQL Server. Дополнительные сведения см. в разделе [Установка набора средств Azure для Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 * Если вы не используете Eclipse, вам потребуется Microsoft JDBC Driver 4.0 для SQL Server, который можно скачать по адресу <http://www.microsoft.com/download/details.aspx?id=11774>.
 
 ## Создание базы данных SQL Azure
@@ -688,7 +688,7 @@
 3. В диалоговом окне **Новая директива сборки** щелкните **Записи пути построения Java** и нажмите кнопку **Далее**.
 4. Выберите **Microsoft JDBC Driver 4.0 для SQL Server** и нажмите кнопку **Готово**.
 5. Нажмите **OK**, чтобы закрыть диалоговое окно **Свойства**.
-6. Экспортируйте WAR-файл проекта в папку approot и заново постройте проект Azure в соответствии с процедурой, описанной в разделе [Создание приложения Hello World с использованием подключаемого модуля Azure для Eclipse с помощью Java (Microsoft Open Technologies)](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx). В этом разделе также описывается выполнение приложения в эмуляторе вычислений и в Azure.
+6. Экспортируйте WAR-файл проекта в папку approot и повторите сборку проекта Azure в соответствии с процедурой, описанной в разделе [Создание приложения Hello World с помощью набора средств Azure для Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx). В этом разделе также описывается выполнение приложения в эмуляторе вычислений и в Azure.
 
 **Упаковка Microsoft JDBC Driver 4.0 для SQL Server, когда Eclipse не используется**
 
@@ -728,4 +728,4 @@
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -26,7 +26,7 @@
 
 ## Обзор
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
 
 Коллекция виртуальных машин в Azure включает в себя несколько образов, содержащих Microsoft SQL Server. Можно выбрать один из образов виртуальных машин из коллекции и несколькими щелчками подготовить виртуальную машину в среде Azure.
 
@@ -155,4 +155,4 @@
 
 - [Шаблоны приложений и стратегии разработки для SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -257,4 +257,4 @@ Liferay поддерживается в веб-приложениях служб
 <!-- External Links -->
 [службы приложений Azure]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

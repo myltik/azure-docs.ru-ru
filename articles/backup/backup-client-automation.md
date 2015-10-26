@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/21/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # Развертывание резервного копирования в Azure для Windows Server или клиента Windows и управление им с помощью PowerShell
@@ -16,6 +16,15 @@
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## Настройка и регистрация
+Чтобы начать работу, сделайте следующее:
+
+1. [Скачайте последнюю версию PowerShell](https://github.com/Azure/azure-powershell/releases) (минимальная требуемая версия — 1.0.0)
+2. Включите командлеты службы архивации Azure. Для этого перейдите в режим *AzureResourceManager* с помощью командлета **Switch-AzureMode**:
+
+```
+PS C:\> Switch-AzureMode AzureResourceManager
+```
+
 С помощью PowerShell можно автоматизировать указанные ниже задачи по настройке и регистрации.
 
 - создать хранилище архивации;
@@ -25,18 +34,21 @@
 - Параметры шифрования
 
 ### создать хранилище архивации;
-Можно создать новое хранилище архивов с помощью командлета **New-AzureBackupVault**. Хранилище архивов представляет собой ресурс ARM, поэтому вам потребуется разместить его в группе ресурсов. В консоли Azure PowerShell с повышенными привилегиями выполните следующие команды:
+
+> [AZURE.WARNING]Для клиентов, использующих службу архивации Azure впервые, необходимо зарегистрировать поставщика службы архивации для использования с вашей подпиской. Для этого выполните следующую команду: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+
+Вы можете создать новое хранилище службы архивации с помощью командлета **New-AzureRMBackupVault**. Хранилище архивов представляет собой ресурс ARM, поэтому вам потребуется разместить его в группе ресурсов. В консоли Azure PowerShell с повышенными привилегиями выполните следующие команды:
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Location “West US”
-PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+PS C:\> New-AzureResourceGroup –Name “test-rg” -Region “West US”
+PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
-Вы можете получить список всех хранилищ архивов в данной подписке при помощи командлета **Get-AzureBackupVault**.
+Чтобы получить список всех хранилищ службы архивации в данной подписке, используйте командлет **Get-AzureRMBackupVault**.
 
 
 ### Установка агента службы архивации Azure.
-Прежде чем устанавливать агент службы архивации Azure, необходимо загрузить установщик и разместить его в системе Windows Server. Последнюю версию установщика можно загрузить в [центре загрузки Майкрософт](http://aka.ms/azurebackup_agent) или на странице панели мониторинга хранилища архивов. Сохраните установщик в удобном для вас месте, например в папке *C:\\Downloads*.
+Прежде чем устанавливать агент службы архивации Azure, необходимо загрузить установщик и разместить его в системе Windows Server. Последнюю версию установщика можно скачать в [Центре загрузки Майкрософт](http://aka.ms/azurebackup_agent) или на странице панели мониторинга хранилища архивов. Сохраните установщик в удобном для вас месте, например в папке *C:\\Downloads*.
 
 Чтобы установить агент, в консоли PowerShell с повышенными привилегиями выполните следующую команду:
 
@@ -62,16 +74,7 @@ PS C:\> MARSAgentInstaller.exe /?
 
 | Параметр | Сведения | значение по умолчанию |
 | ---- | ----- | ----- |
-| /q | Тихая установка | - |
-| /p:"местоположение" | Путь к папке установки агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent |
-| /s:"местоположение" | Путь к папке кэша агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
-| /m | Согласиться на получение обновлений от Майкрософт | - |
-| /nu | Не проверять наличие обновлений после завершения установки | - |
-| /d | Удаляет агент служб восстановления Microsoft Azure | - |
-| /ph | Адрес узла прокси-сервера | - |
-| /po | Номер порта узла прокси-сервера | - |
-| /pu | Имя пользователя узла прокси-сервера | - |
-| /pw | Пароль прокси-сервера | - |
+| /q | Тихая установка | - | | / p:"местоположение" | Путь к папке установки агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"местоположение" | Путь к папке кэша агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | Согласиться на получение обновлений от Майкрософт | - | | /nu | Не проверять наличие обновлений после завершения установки | - | | /d | Удаляет агент служб восстановления Microsoft Azure | - | | /ph | Адрес узла прокси-сервера | - | | /po | Номер порта узла прокси-сервера | - | | / pu | Имя пользователя узла прокси-сервера | - | | /pw | Пароль прокси-сервера | - |
 
 
 ### Регистрация в службе архивации Azure
@@ -80,7 +83,7 @@ PS C:\> MARSAgentInstaller.exe /?
 - Действующая подписка на Azure
 - Хранилище архивов
 
-Чтобы загрузить учетные данные хранилища, запустите командлет **Get-AzureBackupVaultCredentials** в консоли Azure PowerShell и сохраните их в удобном месте, например в папке *C:\\Загрузки*.
+Чтобы скачать учетные данные хранилища, выполните командлет **Get-AzureRMBackupVaultCredentials** в консоли Azure PowerShell и сохраните их в удобном месте, например в папке *C:\\Downloads*.
 
 ```
 PS C:\> $credspath = "C:"
@@ -580,7 +583,7 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Дальнейшие действия
 Дополнительная информация о службе архивации Azure для сервера или клиента Windows
 
-- [Общие сведения о службе архивации Azure](backup-introduction-to-azure-backup.md)
+- [Общие сведения о службе архивации Azure](backup-configure-vault.md)
 - [Резервное копирование серверов Windows](backup-azure-backup-windows-server.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

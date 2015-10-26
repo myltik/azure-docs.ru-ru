@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Непрерывная доставка в Azure с использованием Git и Visual Studio Online"
+	pageTitle="Непрерывная доставка в Azure с использованием Git и Visual Studio Online" 
 	description="В данном разделе приводится информация о том, как с помощью Git настроить автоматическое создание и развертывание веб-приложений и облачных служб Azure в командных проектах Visual Studio Online."
 	services="cloud-services"
 	documentationCenter=".net"
@@ -23,8 +23,7 @@
 В данном учебнике требуются установленные Visual Studio 2013 и пакет SDK Azure. Чтобы загрузить Visual Studio 2013, щелкните ссылку **Начните работу бесплатно** на сайте [www.visualstudio.com](http://www.visualstudio.com). Пакет SDK Azure можно установить по [этой ссылке](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 
-> [AZURE.NOTE]Для работы с этим учебником необходима учетная запись Visual Studio Online.
-> Вы можете [бесплатно зарегистрировать учетную запись Visual Studio Online](http://go.microsoft.com/fwlink/p/?LinkId=512979).
+> [AZURE.NOTE]Для работы с этим учебником необходима учетная запись Visual Studio Online. Вы можете [бесплатно зарегистрировать учетную запись Visual Studio Online](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Чтобы настроить автоматическое построение и развертывание облачной службы в Azure с использованием Visual Studio Online, выполните следующие действия.
 
@@ -273,4 +272,4 @@
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

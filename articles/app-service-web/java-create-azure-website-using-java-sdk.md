@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Создание веб-приложения в службе приложений Azure с использованием пакета SDK для Azure для Java"
-	description="Узнайте, как программным путем создать веб-приложение в службе приложений Azure, используя пакет SDK для Azure для Java."
+	pageTitle="Создание веб-приложения в службе приложений Azure с использованием пакета SDK для Azure для Java" 
+	description="Узнайте, как программным путем создать веб-приложение в службе приложений Azure, используя пакет SDK для Azure для Java." 
 	tags="azure-classic-portal"
-	services="app-service\web"
-	documentationCenter="Java"
-	authors="donntrenton"
-	manager="wpickett"
+	services="app-service\web" 
+	documentationCenter="Java" 
+	authors="donntrenton" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/12/2015" 
 	ms.author="v-donntr"/>
 
 
@@ -432,7 +432,7 @@
 
 Выберите сторонний FTP-клиент для публикации приложения. Эта процедура описана в двух вариантах — использование консоли Kudu, встроенной в Azure, и использование FileZilla, популярного инструмента с удобным графическим пользовательским интерфейсом.
 
-> **Примечание.** Подключаемый модуль Azure для Eclipse с Java 2.4 поддерживает развертывание в учетных записях хранения и облачных службах, но сейчас не поддерживает развертывание в веб-приложения. Вы можете выполнять развертывание в учетных записях хранения или облачных службах, используя проект развертывания Azure, как описано в разделе [Создание приложения Hello World для Azure в Eclipse](http://msdn.microsoft.com/library/azure/hh690944.aspx), но не можете выполнять развертывания в веб-приложения. Используйте другие способы передачи файлов в свое веб-приложение, например с использованием FTP или GitHub.
+> **Примечание.** Набор средств Azure для Eclipse поддерживает развертывание в учетных записях хранения и облачных службах, но сейчас не поддерживает развертывание в веб-приложениях. Вы можете выполнять развертывание в учетных записях хранения или облачных службах, используя проект развертывания Azure, как описано в разделе [Создание приложения Hello World для Azure в Eclipse](http://msdn.microsoft.com/library/azure/hh690944.aspx), но не можете выполнять развертывания в веб-приложения. Используйте другие способы передачи файлов в свое веб-приложение, например с использованием FTP или GitHub.
 
 > **Примечание.** Мы не советуем использовать FTP через командную строку Windows (служебную программу командной строки FTP.EXE, которая включена в комплект Windows). FTP-клиенты, использующие FTP в активном режиме, например FTP.EXE, зачастую дают сбой при работе с брандмауэрами. FTP в активном режиме задает внутренний адрес локальной сети, к которой FTP-серверу, скорее всего, не удастся подключится.
 
@@ -600,4 +600,4 @@
 [WebSpaceNames]: http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html
 [портале Azure]: https://portal.azure.com
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

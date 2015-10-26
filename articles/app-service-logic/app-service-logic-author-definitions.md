@@ -723,4 +723,4 @@ Content-type: application/json
 
 В [документации по интерфейсу API REST](https://msdn.microsoft.com/library/azure/dn948513.aspx) описаны все параметры для создания приложений логики и управления ими.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

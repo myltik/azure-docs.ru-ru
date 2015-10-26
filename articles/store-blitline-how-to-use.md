@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Использование Blitline для работы с изображениями — руководство по компонентам Azure"
-	description="Узнайте, как использовать службу Blitline для обработки изображений в приложении Azure."
-	services=""
-	documentationCenter=".net"
-	authors="blitline-dev"
-	manager="jason@blitline.com"
+	pageTitle="Использование Blitline для работы с изображениями — руководство по компонентам Azure" 
+	description="Узнайте, как использовать службу Blitline для обработки изображений в приложении Azure." 
+	services="" 
+	documentationCenter=".net" 
+	authors="blitline-dev" 
+	manager="jason@blitline.com" 
 	editor="jason@blitline.com"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/09/2014"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/09/2014" 
 	ms.author="support@blitline.com"/>
 # Как использовать Blitline с Azure и службой хранилища Azure
 
@@ -132,4 +132,4 @@ Blitline использует JSON для определения действи�
 * Примеры API Blitline <http://www.blitline.com/docs/examples>
 * Библиотека сторонних пакетов NuGet <http://nuget.org/packages/Blitline.Net>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -21,8 +21,8 @@
 | Краткий справочник |
 | --------------- |
 | [Язык описания приложений логики](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
-| [Документация по соединителям приложений логики](https://azure.microsoft.com/RU-RU/documentation/articles/app-service-logic-connectors-list/) |
-| [Форум о приложениях логики](https://social.msdn.microsoft.com/Forums/RU-RU/home?forum=azurelogicapps) |
+| [Документация по соединителям приложений логики](https://azure.microsoft.com/ru-RU/documentation/articles/app-service-logic-connectors-list/) |
+| [Форум о приложениях логики](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=azurelogicapps) |
 
 Служба приложений Azure является полностью управляемой PaaS («платформа как услуга») для разработчиков, которая облегчает создание веб-приложений, мобильных приложений и приложений интеграции. Приложения логики являются частью этого пакета и позволяют любому техническому пользователю или разработчику автоматизировать выполнение бизнес-процессов и рабочих процессов с помощью простого в использовании визуального конструктора.
 
@@ -75,4 +75,4 @@
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

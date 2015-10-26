@@ -82,4 +82,4 @@ Docker и контейнеры Linux не являются [гипервизор
 [Расширения виртуальных машин для Linux и Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

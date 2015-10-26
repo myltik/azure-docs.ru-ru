@@ -289,4 +289,4 @@ H, I | Узлы (например, файловые серверы)
 Теперь вы готовы к [Развертыванию и настройке локального устройства StorSimple](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

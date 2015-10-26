@@ -1,8 +1,8 @@
 <properties
- pageTitle="Набор Microsoft Azure IoT Suite и ";Интернет вещей"; (IoT) | Microsoft Azure"
- description="Общие сведения об IoT в Azure, включая пример архитектуры решения IoT, а также его связь с центром Azure IoT, пакеты Device SDK и предварительно настроенные решения"
+ pageTitle="Решения Azure для «Интернета вещей» | Microsoft Azure"
+ description="Общие сведения об IoT в Azure, включая пример архитектуры решения, а также о его связи с набором Azure IoT Suite и предварительно настроенных решениях."
  services=""
- documentationCenter=".net"
+ documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="dobett"/>
 
@@ -44,7 +44,7 @@
 [центра Azure IoT]: https://azure.microsoft.com/services/iot-hub/
 [концентраторы событий Azure]: https://azure.microsoft.com/services/event-hubs/
 [Azure Stream Analytics]: https://azure.microsoft.com/services/stream-analytics/
-[машинное обучение Azure]: https://azure.microsoft.com/RU-RU/services/machine-learning/
-[службу хранилища Azure]: https://azure.microsoft.com/RU-RU/services/storage/
+[машинное обучение Azure]: https://azure.microsoft.com/ru-RU/services/machine-learning/
+[службу хранилища Azure]: https://azure.microsoft.com/ru-RU/services/storage/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

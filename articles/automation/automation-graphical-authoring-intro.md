@@ -291,4 +291,4 @@
 - [Ресурсы службы автоматизации](http://msdn.microsoft.com/library/azure/dn939988.aspx)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

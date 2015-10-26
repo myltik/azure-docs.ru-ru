@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/28/2015" 
+	ms.date="10/08/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -254,9 +254,9 @@
 | Инструмент управления | Для изменения уровня служб и уровня производительности базы данных|
 | :---| :---|
 | [Портал управления Azure](https://manage.windowsazure.com) | Щелкните вкладку **МАСШТАБ** на странице панели мониторинга вашей базы данных. |
-| [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | Используйте командлет [Set-AzureSqlDatabase](http://msdn.microsoft.com/library/azure/dn546732.aspx). |
-| [Интерфейс REST API управления службой](http://msdn.microsoft.com/library/azure/dn505719.aspx) | Используйте команду [Обновить базу данных](http://msdn.microsoft.com/library/dn505718.aspx).|
-| [Transact-SQL](http://msdn.microsoft.com/library/bb510741.aspx) | Используйте оператор [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/ms174269.aspx). |
+| [Azure PowerShell](http://msdn.microsoft.com/library/azure/dn546726.aspx) | Используйте командлет [Set-AzureRMSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx). |
+| [ИНТЕРФЕЙС REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx) | Используйте команду [Create or Update Database](https://msdn.microsoft.com/library/azure/mt163685.aspx).|
+| [Transact-SQL](http://msdn.microsoft.com/library/azure/bb510741.aspx) | Используйте оператор [ALTER DATABASE (Transact-SQL)](http://msdn.microsoft.com/library/azure/ms174269.aspx). |
 
 Дополнительную информацию см. в разделе [Изменение уровней служб и уровней производительности базы данных](sql-database-scale-up.md).
 
@@ -317,4 +317,4 @@
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

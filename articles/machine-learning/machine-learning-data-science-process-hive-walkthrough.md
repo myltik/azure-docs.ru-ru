@@ -142,7 +142,7 @@
 
 	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-Эти две команды загрузят все необходимые в этом пошаговом руководстве HQL-файлы в локальный каталог ***C:\temp&#92;*** головного узла.
+Эти две команды загрузят все необходимые в этом пошаговом руководстве HQL-файлы в локальный каталог ***C:\\temp&#92;*** головного узла.
 
 ## <a name="#hive-db-tables"></a>Создание базы данных Hive и таблиц, секционированных по месяцам
 
@@ -794,9 +794,7 @@ b. Для задач регрессии мы измеряем величины �
 
 ## Ссылки
 
-•	[Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/)  
-•	[FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/) • [FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/) • [NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -810,4 +808,4 @@ b. Для задач регрессии мы измеряем величины �
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

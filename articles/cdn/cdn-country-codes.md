@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="CDN — коды стран"
-	description="Функция фильтрации по странам использует коды стран для определения стран, из которых запрос к защищаемому каталогу будет разрешаться или блокироваться."
-	services="cdn"
-	documentationCenter=".NET"
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="CDN — коды стран" 
+	description="Функция фильтрации по странам использует коды стран для определения стран, из которых запрос к защищаемому каталогу будет разрешаться или блокироваться." 
+	services="cdn" 
+	documentationCenter=".NET" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="juliako"/>
 
 #Коды стран
@@ -268,4 +268,4 @@
 | ZM | Замбия | |
 | ZW | Зимбабве | |
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

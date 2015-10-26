@@ -34,4 +34,4 @@
 
 > [AZURE.NOTE]Если вас еще нет учетной записи Azure, но есть подписка MSDN, вы можете получать бесплатные кредиты Azure, активировав [здесь преимущества подписчика MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Также можно использовать бесплатную учетную запись. Для доступа к Azure подойдут оба способа.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

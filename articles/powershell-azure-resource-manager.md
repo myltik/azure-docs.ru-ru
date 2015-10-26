@@ -377,4 +377,4 @@ PowerShell завершает имя параметра. Для цикличес
 - Инструкции по развертыванию шаблонов см. в статье [Развертывание приложения с помощью шаблона диспетчера ресурсов Azure](./resource-group-template-deploy.md).
 - Подробный пример развертывания проекта см. в статье [Предсказуемое развертывание микрослужб в Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

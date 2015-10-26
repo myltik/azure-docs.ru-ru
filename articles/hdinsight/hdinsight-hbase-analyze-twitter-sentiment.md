@@ -75,11 +75,11 @@
 
 
 	<table border="1">
-	<tr><th>Свойство кластера</th><th>Описание</th></tr>
-	<tr><td>Имя кластера HBase</td><td>Имя вашего кластера HBase в HDInsight. Пример: https://myhbase.azurehdinsight.net/</td></tr>
-	<tr><td>Имя пользователя кластера</td><td>Имя учетной записи пользователя Hadoop. Имя пользователя Hadoop по умолчанию&#160;— <strong>admin</strong>.</td></tr>
-	<tr><td>Пароль пользователя кластера</td><td>Пароль пользователя кластера Hadoop.</td></tr>
-	</table>
+<tr><th>Свойство кластера</th><th>Описание</th></tr>
+<tr><td>Имя кластера HBase</td><td>Имя вашего кластера HBase в HDInsight. Пример: https://myhbase.azurehdinsight.net/</td></tr>
+<tr><td>Имя пользователя кластера</td><td>Имя учетной записи пользователя Hadoop. Имя пользователя Hadoop по умолчанию&#160;— <strong>admin</strong>.</td></tr>
+<tr><td>Пароль пользователя кластера</td><td>Пароль пользователя кластера Hadoop.</td></tr>
+</table>
 
 - **Рабочая станция**, на которой установлено программное обеспечение Visual Studio 2013. Инструкции см. в разделе [Установка Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
@@ -98,13 +98,11 @@
 3. Введите **имя**, **описание** и **веб-сайт**. Поле "Веб-сайт" на самом деле не используется. В нем не обязательно указывать действительный URL-адрес. В следующей таблице приведены некоторые примеры значений:
 
 	<table border="1">
-	<tr><th>Поле</th><th>Значение</th></tr>
-	<tr><td>Имя</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>Описание</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>Веб-сайт</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-	</table>
-
-	> [AZURE.NOTE]Имя приложения Twitter должно быть уникальным.
+<tr><th>Поле</th><th>Значение</th></tr>
+<tr><td>Имя</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>Описание</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>Веб-сайт</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+</table>> [AZURE.NOTE]Имя приложения Twitter должно быть уникальным.
 
 4. Установите значок **Да, я согласен** и нажмите кнопку **Создать приложение Twitter**.
 5. Выберите вкладку **Разрешения**. Разрешение по умолчанию: **Только для чтения**. Этого разрешения достаточно для данного учебника. 
@@ -163,7 +161,7 @@
 
 	- Шаблон: **Visual C# / Рабочий стол Windows / Консольное приложение**
 	- Имя: **TweetSentimentStreaming** 
-	- Расположение: **C:\Tutorials**
+	- Расположение: **C:\\Tutorials**
 	- Имя решения: **TweetSentimentStreaming**
 
 4. Чтобы продолжить, нажмите кнопку **ОК**.
@@ -220,9 +218,9 @@
         const string HBASETABLENAME = "tweets_by_words";
 
         // Sentiment dictionary file and the punctuation characters
-        const string DICTIONARYFILENAME = @"....\data\dictionary\dictionary.tsv";
+        const string DICTIONARYFILENAME = @"..\..\data\dictionary\dictionary.tsv";
         private static char[] _punctuationChars = new[] { 
-            ' ', '!', '"', '#', '$', '%', '&', ''', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
+            ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
             ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };   //ascii 58--64 + misc.
 
         // For writting to HBase
@@ -541,7 +539,7 @@
 	- Категория шаблона: **Visual C# или веб-сайт**
 	- Шаблон: **веб-приложение ASP.NET**
 	- Имя: **TweetSentimentWeb**
-	- Расположение: **C:\Tutorials** 
+	- Расположение: **C:\\Tutorials** 
 4. Нажмите кнопку **ОК**.
 5. В разделе **Выбор шаблона** щелкните **MVC**. 
 6. В **Microsoft Azure** щелкните **Управление подписками**.
@@ -678,9 +676,9 @@
 	- **CLUSTERNAME**: имя кластера HBase, например, *https://<HBaseClusterName>.azurehdinsight.net/*. 
     - **HADOOPUSERNAME**: имя пользователя Hadoop в кластере HBase. Имя по умолчанию — *admin*.
     - **HADOOPUSERPASSWORD**: пароль пользователя Hadoop в кластере HBase.
-    - **HBASETABLENAME** = "tweets_by_words".
+    - **HBASETABLENAME** = "tweets\_by\_words".
 
-	Имя таблицы HBase — **"tweets_by_words";**. Значения должны совпадать со значениями, отправленными в службу потоковой передачи, чтобы веб-приложение считывало данные из той же таблицы HBase.
+	Имя таблицы HBase — **"tweets\_by\_words";**. Значения должны совпадать со значениями, отправленными в службу потоковой передачи, чтобы веб-приложение считывало данные из той же таблицы HBase.
 
 
 
@@ -1177,7 +1175,7 @@
 
 **Изменение файла layout.cshtml**
 
-1. В **обозревателе решений** последовательно разверните узлы **TweetSentimentWeb**, **Представления**, **Общий ресурс**, а затем дважды щелкните элемент _**Layout.cshtml**.
+1. В **обозревателе решений** последовательно разверните узлы **TweetSentimentWeb**, **Представления**, **Общий ресурс**, а затем дважды щелкните элемент \__**Layout.cshtml**.
 2. Замените содержимое на приведенное ниже:
 
 		<!DOCTYPE html>
@@ -1283,7 +1281,7 @@
 
 		using System.Web.Http;
 
-2. Добавьте в функцию **Application_Start()** следующие строки:
+2. Добавьте в функцию **Application\_Start()** следующие строки:
 
 		// Register API routes
 		GlobalConfiguration.Configure(WebApiConfig.Register);
@@ -1357,4 +1355,4 @@
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

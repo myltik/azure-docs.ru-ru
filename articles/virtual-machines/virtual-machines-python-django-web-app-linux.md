@@ -25,7 +25,8 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 В этом учебнике описывается, как разместить веб-сайт на основе Django в Microsoft Azure с помощью виртуальной машины Linux. В данном учебнике предполагается, что у вас нет опыта использования платформы Azure. По завершении изучения этого учебника вы получите приложение на основе Django, выполняемое в облаке.
 
@@ -84,10 +85,7 @@
 		$ cd /var/www
 		$ sudo django-admin.py startproject helloworld
 
-    Сценарий **django admin.py** создает базовую структуру для веб-сайтов на базе Django:
-    -   **helloworld/manage.py** помогает вам начать и остановить размещение вашего веб-сайта на базе Django; 
-    -   **helloworld/helloworld/settings.py** содержит параметры Django для приложения;
-    -   **helloworld/helloworld/urls.py** содержит код сопоставления между каждым URL-адресом и его представлением.
+    Сценарий **django admin.py** создает базовую структуру для веб-сайтов на базе Django: - **helloworld/manage.py** помогает вам начать и остановить размещение вашего веб-сайта на базе Django; - **helloworld/helloworld/settings.py** содержит параметры Django для приложения; - **helloworld/helloworld/urls.py** содержит код сопоставления между каждым URL-адресом и его представлением.
 
 1.  Создайте новый файл с именем **views.py** в каталоге **/var/www/helloworld/helloworld**. Он будет содержать представление, которое осуществляет отрисовку страницы "hello world". Запустите редактор и введите следующую команду:
 		
@@ -135,4 +133,4 @@
 [portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

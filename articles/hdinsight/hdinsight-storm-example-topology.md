@@ -37,6 +37,7 @@
 | [Шаблон проекта топологии на C# и Storm для работы с сервисами Azure из Storm в HDInsight][ce0c02a2] | Концентраторы событий, DocumentDb, база данных SQL, HBase, SignalR | C#, Java |
 | [Тестирование масштабируемости для считывания данных из концентраторов событий Azure с использованием Storm в HDInsight][d6c540e3] | Скорость обработки сообщений, концентраторы событий, база данных SQL | C#, Java |
 | [Сопоставление событий с помощью Storm и HBase в HDInsight](hdinsight-storm-correlation-topology.md) | HBase | C# |
+| [Использование Python со Storm в HDInsight](hdinsight-storm-develop-python-topology.md) | Компоненты Python с топологиями Storm на основе Java и Clojure | Python |
 
 ## Дальнейшие действия
 
@@ -59,4 +60,4 @@
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Этот проект содержит шаблоны для «воронок», «сит» и топологий, обеспечивающих взаимодействие с различными сервисами Azure, такими как концентраторы событий, DocumentDB и база данных SQL."
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

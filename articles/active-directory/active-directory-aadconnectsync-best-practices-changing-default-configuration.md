@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -55,11 +55,11 @@
 
 
 
-## Дополнительные ресурсы
+## Дальнейшие действия
+Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-* [Службы синхронизации Azure AD Connect: настройка параметров синхронизации](active-directory-aadconnectsync-whatis.md)
-* [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
+Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
 <!--Image references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

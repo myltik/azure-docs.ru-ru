@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Обзор подсистемы балансировки нагрузки | Microsoft Azure"
-	description="Обзор функций подсистемы балансировки нагрузки Azure, ее архитектуры и реализации. Эта статья помогает понять принципы работы подсистемы балансировки нагрузки и использовать ее в облаке."
-	services="load-balancer"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="Обзор функций подсистемы балансировки нагрузки Azure, ее архитектуры и реализации. Эта статья помогает понять принципы работы подсистемы балансировки нагрузки и использовать ее в облаке."
+   services="load-balancer"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="load-balancer"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="07/10/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="07/10/2015"
+   ms.author="joaoma" />
 
 
 # Обзор подсистемы балансировки нагрузки 
@@ -99,4 +99,4 @@
 [Приступая к работе с подсистемой балансировки нагрузки, доступной в Интернете](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

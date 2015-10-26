@@ -16,7 +16,8 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается управление ресурсами с помощью модели развертывания диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
+
 
 В этой статье описано, как создавать и удалять ресурсы и виртуальные машины Azure, а также управлять ими с использованием интерфейса командной строки (CLI) Azure для Mac, Linux и Windows в режиме диспетчера ресурсов Azure.
 
@@ -341,4 +342,4 @@
 [clisetup]: ../xplat-cli-install.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

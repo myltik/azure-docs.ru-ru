@@ -99,4 +99,4 @@ ACL — это объект, содержащий список правил. П
 
 [Управление списками управления доступом для конечных точек с помощью PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

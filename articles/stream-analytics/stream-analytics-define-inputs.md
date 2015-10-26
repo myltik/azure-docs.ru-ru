@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/29/2015" 
+	ms.date="10/13/2015"
 	ms.author="jeffstok"/>
 
 # Основные сведения о входных данных Stream Analytics
@@ -94,15 +94,15 @@ FROM Input
 
 | СВОЙСТВО | ОПИСАНИЕ |
 |------|------|
-| System.Input.EventProcessedUtcTime | Дата и время обработки события. |
-| System.Input.EventEnqueuedUtcTime | Дата и время получения события центром IoT. |
-| System.Input.PartitionId | Идентификатор секции для входного адаптера (нумерация идет от нуля). |
-| System.Input.MessageId | Используется для корреляции двустороннего обмена данными в центре IoT. |
-| System.Input.CorrelationId | Используется в ответах на сообщения и отзывах в центре IoT. |
-| System.Input.ConnectionDeviceId | Идентификатор, прошедший проверку подлинности, который используется для отправки этого сообщения, помещается в сообщения, связанные со службой, центром IoT. |
-| System.Input.ConnectionDeviceGenerationId | Идентификатор создания устройства, прошедшего проверку подлинности, используемый для отправки этого сообщения, помещается в сообщения, связанные со службой, центром IoT. |
-| System.Input.EnqueuedTime | Время, когда центр IoT получил сообщение. |
-| System.Input.StreamId | Настраиваемое свойство события, добавленное устройством отправителя. |
+| EventProcessedUtcTime | Дата и время обработки события. |
+| EventEnqueuedUtcTime | Дата и время получения события центром IoT. |
+| PartitionId | Идентификатор секции для входного адаптера (нумерация идет от нуля). |
+| IoTHub.MessageId | Используется для корреляции двустороннего обмена данными в центре IoT. |
+| IoTHub.CorrelationId | Используется в ответах на сообщения и отзывах в центре IoT. |
+| IoTHub.ConnectionDeviceId | Идентификатор, прошедший проверку подлинности, который используется для отправки этого сообщения, помещается в сообщения, связанные со службой, центром IoT. |
+| IoTHub.ConnectionDeviceGenerationId | Идентификатор создания устройства, прошедшего проверку подлинности, используемый для отправки этого сообщения, помещается в сообщения, связанные со службой, центром IoT. |
+| IoTHub.EnqueuedTime | Время, когда центр IoT получил сообщение. |
+| IoTHub.StreamId | Настраиваемое свойство события, добавленное устройством отправителя. |
 
 ## Создание потока входных данных с помощью хранилища BLOB-объектов ##
 
@@ -201,4 +201,4 @@ FROM Input
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

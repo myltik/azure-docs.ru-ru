@@ -376,4 +376,4 @@
 ## Дальнейшие действия
 Дополнительные сведения о проектах Azure в Visual Studio см. в статье [Настройка проекта Azure](vs-azure-tools-configuring-an-azure-project.md). Дополнительные сведения о схеме облачной службы см. в статье [Справка по схемам](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

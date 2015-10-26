@@ -15,20 +15,10 @@
 
 7. На [портале управления Azure](https://manage.windowsazure.com/) вернитесь к мобильной службы и откройте вкладку **Настройка**. Прокрутите вниз к разделу **Параметры приложения**, добавьте следующие параметры приложения и нажмите кнопку **Сохранить**.
 
-    <table border="1">
-    <tr>
-    <th>Имя параметра приложения</th><th>Описание</th>
-    </tr>
-    <tr> <td>AAD_CLIENT_ID</td><td>Идентификатор клиента, скопированный из интегрированного приложения на предыдущих этапах.</td>
-    </tr>
-    <tr> <td>AAD_CLIENT_KEY</td><td>Ключ приложения, созданный в интегрированном приложении AAD на предыдущих этапах.</td>
-     </tr>
-     <tr> <td>AAD_TENANT_DOMAIN</td><td>Доменное имя AAD. Должно быть аналогично "mydomain.onmicrosoft.com"</td>
-     </tr>
-     </table><br/>
+    <table border="1"> <tr> <th>Имя параметра приложения</th><th>Описание</th> </tr> <tr> <td>AAD\_CLIENT\_ID</td><td>Идентификатор клиента, скопированный из интегрированного приложения на предыдущих этапах.</td> </tr> <tr> <td>AAD\_CLIENT\_KEY</td><td>Ключ приложения, созданный в интегрированном приложении AAD на предыдущих этапах.</td> </tr> <tr> <td>AAD\_TENANT\_DOMAIN</td><td>Доменное имя AAD. Должно быть аналогично "mydomain.onmicrosoft.com"</td> </tr> </table><br/>
 
  
     ![](./media/mobile-services-generate-aad-app-registration-access-key/aad-app-settings.png)
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

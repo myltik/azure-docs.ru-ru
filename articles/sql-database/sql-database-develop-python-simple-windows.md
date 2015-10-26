@@ -118,4 +118,4 @@
 
 Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

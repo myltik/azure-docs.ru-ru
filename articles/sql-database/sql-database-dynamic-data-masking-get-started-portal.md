@@ -100,4 +100,4 @@
 
 См. статью [Операции для Баз данных SQL Azure](https://msdn.microsoft.com/library/dn505719.aspx).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

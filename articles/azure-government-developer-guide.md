@@ -105,4 +105,4 @@ Service Management|management.core.windows.net|management.core.usgovcloudapi.net
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

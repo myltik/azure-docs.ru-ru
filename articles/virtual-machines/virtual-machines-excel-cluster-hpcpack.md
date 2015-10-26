@@ -21,7 +21,8 @@
 
 В этой статье показано, как развернуть кластер пакета HPC в службах инфраструктуры Azure (IaaS) с помощью шаблона быстрого запуска Azure или сценария развертывания Azure PowerShell. Вы будете использовать образы виртуальных машин Azure Marketplace, разработанные для запуска рабочих нагрузок Microsoft Excel или серверно-ориентированной архитектуры (SOA), с пакетом HPC. Кластер можно использовать для запуска простых служб HPC Excel и SOA на локальном клиентском компьютере. Службы Excel HPC включают функцию разгрузки книг и пользовательские функции Excel (или UDF).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье рассматриваются ресурсы, созданные с помощью модели развертывания диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
+
 
 На верхнем уровне следующей схемы показан создаваемый кластер пакета HPC.
 
@@ -234,7 +235,7 @@ You have enabled REST API or web portal on HPC Pack head node. Please import the
 ```
 4.	Скачайте полную [установку пакета HPC 2012 R2 с обновлением 2](http://www.microsoft.com/download/details.aspx?id=47755) и установите клиент пакета HPC либо скачайте и установите [служебные программы клиента пакета HPC 2012 R2 с обновлением 2](https://www.microsoft.com/download/details.aspx?id=47754) и соответствующий дистрибутив Visual C++ 2010 для своего компьютера ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555)).
 
-5.	В этом примере мы используем пример книги Excel под названием ConvertiblePricing\_Complete.xlsb, который можно скачать [здесь](https://www.microsoft.com/RU-RU/download/details.aspx?id=2939).
+5.	В этом примере мы используем пример книги Excel под названием ConvertiblePricing\_Complete.xlsb, который можно скачать [здесь](https://www.microsoft.com/ru-RU/download/details.aspx?id=2939).
 
 6.	Скопируйте книгу Excel в рабочую папку, например D:\\Excel\\Run.
 
@@ -271,7 +272,7 @@ You have enabled REST API or web portal on HPC Pack head node. Please import the
 
 Для выполнения пользовательских функций Excel выполните предыдущие этапы 1–3, чтобы настроить клиентский компьютер. Для пользовательских функций Excel не требуется устанавливать приложение Excel на вычислительных узлах, поэтому на этапе 1 можно выбрать обычный образ вычислительного узла, а не образ с Excel.
 
->[AZURE.NOTE]В диалоговом окне соединителя кластера Excel 2010 и 2013 действует ограничение в 34 знака. Если полное имя кластера имеет большую длину, например hpcexcelhn01.southeastasia.cloudapp.azure.com, оно не поместится в диалоговом окне. Обходным путем является применение исправления QFE KB3085833 обновления 2 (скачать его можно [здесь](http://www.microsoft.com/RU-RU/download/details.aspx?id=48725)) для API сеанса SOA на клиентском компьютере, после чего необходимо задать для переменной, являющейся глобальной для компьютера, например *CCP\_IAASHN*, значение в виде длинного имени кластера и ввести *% CCP\_IAASHN%* в диалоговом окне в качестве имени головного узла кластера.
+>[AZURE.NOTE]В диалоговом окне соединителя кластера Excel 2010 и 2013 действует ограничение в 34 знака. Если полное имя кластера имеет большую длину, например hpcexcelhn01.southeastasia.cloudapp.azure.com, оно не поместится в диалоговом окне. Обходным путем является применение исправления QFE KB3085833 обновления 2 (скачать его можно [здесь](http://www.microsoft.com/ru-RU/download/details.aspx?id=48725)) для API сеанса SOA на клиентском компьютере, после чего необходимо задать для переменной, являющейся глобальной для компьютера, например *CCP\_IAASHN*, значение в виде длинного имени кластера и ввести *% CCP\_IAASHN%* в диалоговом окне в качестве имени головного узла кластера.
 
 После успешного развертывания кластера выполните следующие действия, чтобы запустить встроенные образцы пользовательских функций Excel. Для собственных пользовательских функций Excel см. эти [ресурсы](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx), чтобы создать XLL-файлы и развернуть их в кластере IaaS.
 
@@ -388,4 +389,4 @@ binding.Security.Message.ClientCredentialType = BasicHttpMessageCredentialType.U
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

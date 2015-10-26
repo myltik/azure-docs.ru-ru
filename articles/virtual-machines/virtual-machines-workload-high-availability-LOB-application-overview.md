@@ -19,7 +19,8 @@
 
 # Развертывание высокодоступных бизнес-приложений в Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью модели развертывания, которая использует менеджер ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
+
 
 В этой статье приведены пошаговые инструкции по развертыванию в службах инфраструктуры Azure высокодоступных специализированных веб-приложений для интрасети с группами доступности AlwaysOn для SQL Server. Приложение размещается на следующих компьютерах:
 
@@ -68,4 +69,4 @@
 
 [Рабочая нагрузка служб инфраструктуры Azure: ферма SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

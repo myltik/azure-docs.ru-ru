@@ -1,3 +1,3 @@
 > [AZURE.NOTE]Информация, содержащаяся данном документе, относится к кластерам HDInsight под управлением Windows.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

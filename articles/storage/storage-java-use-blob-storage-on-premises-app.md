@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # Локальное приложение с хранилищем больших двоичных объектов
@@ -358,7 +358,7 @@
 - [REST API службы хранилища Azure][]
 - [Блог рабочей группы службы хранилища Azure][]
 
-  [Скачивание пакета SDK для Azure для Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+  [Download the Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
   [Создание учетной записи хранения]: storage-create-storage-account.md#create-a-storage-account
   [Управление учетными записями хранения]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
   [Использование хранилища BLOB-объектов из Java]: storage-java-how-to-use-blob-storage.md
@@ -367,4 +367,4 @@
   [REST API службы хранилища Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

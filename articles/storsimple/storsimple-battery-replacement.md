@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Замена аккумулятора на устройстве StorSimple | Microsoft Azure"
-	description="Описывает процедуры снятия, замены и обслуживания модуля резервного аккумулятора на устройстве StorSimple."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Описывает процедуры снятия, замены и обслуживания модуля резервного аккумулятора на устройстве StorSimple."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/31/2015"
+   ms.author="alkohli" />
 
 # Замена резервного аккумулятора на устройстве StorSimple
 
@@ -115,4 +115,4 @@
 
 Узнайте больше о [Замене компонентов оборудования StorSimple](storsimple-hardware-component-replacement.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

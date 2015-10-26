@@ -168,10 +168,6 @@ API-интерфейсы .NET предоставляют несколько па
 Хотите узнать больше? Перейдите по следующим ссылкам:
 
 - [Протокол AMQP служебной шины — обзор]
-- [Использование служебной шины на платформе Java с протоколом AMQP]
-- [Использование служебной шины на платформе Python с протоколом AMQP]
-- [Использование служебной шины на платформе PHP с протоколом AMQP]
-- [Установка Apache Qpid Proton-C на виртуальной машине Azure под управлением Linux]
 - [Протокол AMQP служебной шины для Windows Server]
 
   [Использование очередей Service Bus]: service-bus-dotnet-how-to-use-queues.md
@@ -203,10 +199,6 @@ API-интерфейсы .NET предоставляют несколько па
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
-[Использование служебной шины на платформе Java с протоколом AMQP]: service-bus-amqp-java.md
-[Использование служебной шины на платформе Python с протоколом AMQP]: service-bus-amqp-python.md
-[Использование служебной шины на платформе PHP с протоколом AMQP]: service-bus-amqp-php.md
-[Установка Apache Qpid Proton-C на виртуальной машине Azure под управлением Linux]: service-bus-amqp-apache.md
 [Протокол AMQP служебной шины для Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -164,4 +164,4 @@
 - [Создайте группы безопасности сети на основе классической модели развертывания](virtual-networks-create-nsg-classic-ps.md).
 - [Разверните группы безопасности сети в диспетчере ресурсов](virtual-networks-create-nsg-arm-pportal.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

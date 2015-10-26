@@ -66,4 +66,4 @@
 
 [Обновление баз данных SQL уровня Web или Business до новых уровней служб](sql-database-upgrade-new-service-tiers.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

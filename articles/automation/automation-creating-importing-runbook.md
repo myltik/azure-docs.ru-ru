@@ -131,4 +131,4 @@
 - [Изменение текстовых модулей Runbook в службе автоматизации Azure](automation-edit-textual-runbook.md)
 - [Графическая разработка в службе автоматизации Azure](automation-graphical-authoring-intro.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

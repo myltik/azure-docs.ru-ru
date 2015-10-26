@@ -234,4 +234,4 @@
 + [Интеграция облачной службы с Azure CDN](cdn-cloud-service-with-cdn.md)
 + [Рекомендации по сети доставки содержимого Azure](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

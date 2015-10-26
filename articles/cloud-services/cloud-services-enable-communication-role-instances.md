@@ -359,4 +359,4 @@ namespace WorkerRole1
 ## Дальнейшие действия
 Дополнительная информация о [модели](cloud-services-model-and-package.md) облачной службы
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -13,9 +13,12 @@
 	ms.workload="infrastructure-services"
 	ms.date="06/22/2015"
 	ms.author="bbenz" />
+
+	
 #Настройка Oracle GoldenGate для Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс управления ресурсом, созданным с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 В этом учебнике показано, как настроить Oracle GoldenGate для среды виртуальных машин Azure, чтобы обеспечить высокий уровень доступности и аварийное восстановление. Учебник посвящен [двунаправленной репликации](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_about_gg.htm) баз данных Oracle, не являющихся кластерами реальных приложений (RAC), и для него требуется, чтобы оба сайта были активны.
 
@@ -599,4 +602,4 @@ Oracle GoldenGate состоит из следующих основных ком
 ##Дополнительные ресурсы
 [Образы виртуальных машин Oracle для Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

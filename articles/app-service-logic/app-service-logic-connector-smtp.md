@@ -59,30 +59,25 @@ None | Отправка электронной почты
 ## Использование соединителя SMTP в приложении логики
 После создания соединителя SMTP его можно использовать в качестве действия в приложении логики. Для этого:
 
-1.	Создайте новое приложение логики:
-![][2]
-2.	Перейдите в раздел **Триггеры и действия**, чтобы открыть конструктор приложений логики и настроить рабочий процесс:
-![][3]
-3.	Соединитель SMTP отображается в разделе коллекции "Приложения API в этой группе ресурсов" с правой стороны. Выберите его:
-![][4]
+1.	Создайте новое приложение логики: ![][2]
+2.	Перейдите в раздел **Триггеры и действия**, чтобы открыть конструктор приложений логики и настроить рабочий процесс: ![][3]
+3.	Соединитель SMTP отображается в разделе коллекции «Приложения API в этой группе ресурсов» с правой стороны. Выберите его: ![][4]
 4.	Выберите соединитель SMTP, чтобы автоматически добавить его в конструктор рабочих процессов.
 
 Теперь можно настроить соединитель SMTP для использования в рабочем процессе. Выберите действие **Отправить письмо** и настройте входные свойства следующим образом:
 
-	Свойство | Описание
+	Property | Description
 	--- | ---
-	Кому | Введите адрес электронной почты получателя. При вводе нескольких адресов электронной почты отделите их точкой с запятой (;). Например, введите recipient1@domain.com;recipient2@domain.com.
-	Копия | Введите адрес электронной почты получателя копии письма. При вводе нескольких адресов электронной почты отделите их точкой с запятой (;). Например, введите recipient1@domain.com;recipient2@domain.com.
-	Тема | Введите тему электронного сообщения.
-	Сообщение | Введите текст электронного сообщения.
-	В формате HTML | Если для этого свойства установлено значение true, содержимое письма отправляется как HTML.
-	СК | Введите адрес электронной почты получателя скрытой копии письма. При вводе нескольких адресов электронной почты отделите их точкой с запятой (;). Например, введите recipient1@domain.com;recipient2@domain.com.
-	Важность | Укажите важность письма (нормальная, низкая, высокая).
-	Вложения | Вложения, отправляемые вместе с сообщением электронной почты. Доступны следующие поля: <ul><li>Содержимое (строка)</li><li>Кодировка для пересылки содержимого (массив) (“none”|”base64”)</li><li>Тип содержимого (строка)</li><li>Идентификатор содержимого (строка)</li><li>Имя файла (строка)</li><li>
+	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Subject | Enter the subject of the email.
+	Body | Enter body of the email.
+	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
+	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
+	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
+	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
-
-![][5]
-![][6]
+![][5] ![][6]
 
 ## Дополнительные возможности соединителя
 После создания соединителя его можно добавить в рабочий бизнес-процесс с помощью приложения логики. См. раздел [Что такое приложения логики?](app-service-logic-what-are-logic-apps.md).
@@ -101,4 +96,4 @@ None | Отправка электронной почты
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

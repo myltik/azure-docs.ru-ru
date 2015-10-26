@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/06/2015" 
-    ms.author="luisca"/>
+    ms.date="10/14/2015" 
+    ms.author="olgali"/>
 #Получение справки с помощью чата в реальном времени, поддерживаемого в машинном обучении
 
 [Студия машинного обучения Azure](machine-learning-what-is-ml-studio.md) обеспечивает интуитивно понятный интерфейс для построения моделей машинного обучения. Чтобы помочь вам в этом, существует [коллекция](machine-learning-gallery-how-to-use-contribute-publish.md) и [форумы](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
@@ -31,4 +31,4 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

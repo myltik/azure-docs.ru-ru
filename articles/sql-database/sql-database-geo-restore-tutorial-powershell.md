@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="07/24/2015"
-   ms.author="elfish; v-romcal; v-stste"/>
+   ms.date="10/08/2015"
+   ms.author="elfish; v-romcal; sstein"/>
 
 # Восстановление базы данных SQL Azure с использованием географического восстановления в Azure PowerShell
 
@@ -25,6 +25,8 @@
 ## Обзор
 
 В этом учебнике показано, как восстановить базу данных SQL Azure с помощью географического восстановления в [Azure PowerShell](../powershell-install-configure.md). Географическое восстановление — это основной механизм защиты для аварийного восстановления баз данных SQL Azure на всех уровнях обслуживания — Basic, Standard и Premium.
+
+> [AZURE.IMPORTANT]Эта статья содержит команды для Azure PowerShell версии вплоть до 1.0, *но не включая* саму версию 1.0 и более поздние версии. Используемую версию Azure PowerShell можно проверить с помощью команды **Get-Module azure | format-table version**.
 
 ## Ограничения и безопасность
 
@@ -39,13 +41,13 @@
 1. Получите список баз данных, которые можно восстановить, используя командлет [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx). Укажите следующий параметр:
 	* **ServerName** для имени сервера, на котором находится база данных.	
 
-	`PS C:\>Get-AzureSqlRecoverableDatabase -ServerName "myserver"`
+	`Get-AzureSqlRecoverableDatabase -ServerName "myserver"`
 
 2. Выберите базу данных для восстановления, используя командлет [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx). Укажите следующие параметры:
 	* **ServerName** для имени сервера, на котором находится база данных.
 	* **DatabaseName** для имени базы данных, из которой необходимо выполнить восстановление.
 
-	`PS C:\>$Database = Get-AzureSqlRecoverableDatabase -ServerName "myserver" –DatabaseName “mydb”`
+	`$Database = Get-AzureSqlRecoverableDatabase -ServerName "myserver" –DatabaseName “mydb”`
 	 
 3. Начните восстановление, используя командлет [Start-AzureSqlDatabaseRecovery](http://msdn.microsoft.com/library/dn720224.aspx). Укажите следующие параметры:
 	* **SourceDatabase** для исходной базы данных, которую требуется восстановить.
@@ -54,14 +56,14 @@
 
 	Сохраните результат, возвращенный переменной с именем **$RestoreRequest**. Эта переменная содержит идентификатор запроса восстановления, который используется для мониторинга состояния восстановления.
 
-	`PS C:\>$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “myrecoveredDB” –TargetServerName “mytargetserver”`
+	`$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “myrecoveredDB” –TargetServerName “mytargetserver”`
 	
 Восстановление базы данных может занять некоторое время. Для мониторинга состояния восстановления используйте командлет [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) и укажите следующие параметры:
 
 * **ServerName** для имени базы данных, в которую необходимо выполнить восстановление.
 * **OperationGuid** для глобального уникального идентификатора, которым является идентификатор запроса восстановления, хранимый в переменной **$RecoveryRequest** на шаге 3.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation –ServerName “mytargetserver” –OperationGuid $RecoveryRequest.ID`
+	`Get-AzureSqlDatabaseOperation –ServerName “mytargetserver” –OperationGuid $RecoveryRequest.ID`
 
 В полях **State** и **PercentComplete** отображается состояние восстановления.
 
@@ -82,4 +84,4 @@
 [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

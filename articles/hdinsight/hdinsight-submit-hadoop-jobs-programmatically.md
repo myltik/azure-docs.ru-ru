@@ -112,7 +112,7 @@ Hadoop MapReduce — это программная платформа для н
 
 	Папка *example/data/WordCountOutput* — выходная папка, указанная при запуске задания MapReduce. *part-r-00000* — имя файла по умолчанию для выходных данных задания MapReduce. Файл будет загружен в локальную папку с сохранением структуры каталогов. Например, на приведенном ниже снимке экрана текущая папка — корневая папка C:. Файл будет скачан в такой каталог:
 
-*C:\example\data\WordCountOutput*
+**C:\\example\\data\\WordCountOutput*
 
 5. Выполните следующую команду, чтобы напечатать выходной файл задания MapReduce:
 
@@ -301,7 +301,7 @@ Hadoop MapReduce — это программная платформа для н
 См. раздел [Использование Sqoop с HDInsight][hdinsight-use-sqoop].
 
 ##Отправка заданий MapReduce с использованием пакета SDK для HDInsight .NET
-Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. Кластеры HDInsight содержат JAR-файл (в папке *\\example\\jars\\hadoop-mapreduce-examples.jar*), в котором есть несколько примеров MapReduce. Один из примеров предназначен для подсчета частоты слов в исходных файлах. В этом сеансе вы узнаете, как создать приложение .NET для запуска примера подсчета слов. Дополнительные сведения о создании и выполнении заданий MapReduce см. в статье [Использование MapReduce в Hadoop в HDInsight][hdinsight-use-mapreduce].
+Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. Кластеры HDInsight содержат JAR-файл (в папке *\\example\\jars\\hadoop-mapreduce-examples.jar*), в котором есть несколько примеров MapReduce. Один из примеров предназначен для подсчета частоты слов в исходных файлах. В этом сеансе вы узнаете, как создать приложение .NET для запуска примера подсчета слов. Дополнительные сведения о создании и выполнении заданий MapReduce см. в статье [￼Использование MapReduce в Hadoop в HDInsight][hdinsight-use-mapreduce].
 
 **Отправка задания WordCount MapReduce**
 
@@ -585,4 +585,4 @@ Hadoop MapReduce — это программная платформа для н
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

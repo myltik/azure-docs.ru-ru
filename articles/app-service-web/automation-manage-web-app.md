@@ -43,4 +43,4 @@
 * См. [Учебник по началу работы](../automation-intro.md) в службе автоматизации Azure
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -119,4 +119,4 @@
 [Устранение неполадок с состоянием «Деградация» в диспетчере трафика Azure](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

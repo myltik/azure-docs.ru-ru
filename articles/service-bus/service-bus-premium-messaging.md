@@ -57,4 +57,4 @@
 - [Обзор архитектуры служебной шины Azure](fundamentals-service-bus-hybrid-solutions.md)
 - [Как использовать очереди служебной шины](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -124,4 +124,4 @@
 - [Установка обновления 1.2 на устройство](storsimple-install-update-1.md).
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

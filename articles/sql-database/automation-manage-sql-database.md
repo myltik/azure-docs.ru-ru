@@ -53,4 +53,4 @@
  * Прочитайте запись блога [Автоматизация Azure: ваш агент SQL в облаке](http://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/)
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

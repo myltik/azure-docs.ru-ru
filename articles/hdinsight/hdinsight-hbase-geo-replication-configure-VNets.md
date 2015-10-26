@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Настройка VPN-подключения между двумя виртуальными сетями Azure | Microsoft Azure"
-	description="Узнайте, как настроить VPN-подключения между двумя виртуальными сетями Azure, как настроить разрешения доменных имен между двумя виртуальными сетями, а также о настройке географической репликации HBase."
-	services="hdinsight,virtual-network"
-	documentationCenter=""
-	authors="mumian"
-	manager="paulettm"
-	editor="cgronlun"/>
+   pageTitle="Настройка VPN-подключения между двумя виртуальными сетями Azure | Microsoft Azure" 
+   description="Узнайте, как настроить VPN-подключения между двумя виртуальными сетями Azure, как настроить разрешения доменных имен между двумя виртуальными сетями, а также о настройке географической репликации HBase." 
+   services="hdinsight,virtual-network" 
+   documentationCenter="" 
+   authors="mumian" 
+   manager="paulettm" 
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="07/08/2015"
-	ms.author="jgao"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data" 
+   ms.date="07/08/2015"
+   ms.author="jgao"/>
 
 # Настройка VPN-подключения между двумя виртуальными сетями Azure  
 
@@ -270,4 +270,4 @@
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Развертывание частного реестра Docker в Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Эта статья посвящена виртуальным машинам, созданным с помощью модели развертывания на основе диспетчера ресурсов, а также классической модели.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 
 В этой статье объясняется, что представляет собой частный реестр Docker и как можно развернуть образ контейнера Docker Registry 2.0 в частный реестр Docker в Microsoft Azure, используя хранилище BLOB-объектов Azure.
@@ -96,4 +97,4 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 [registry-config]: http://docs.docker.com/registry/configuration/
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

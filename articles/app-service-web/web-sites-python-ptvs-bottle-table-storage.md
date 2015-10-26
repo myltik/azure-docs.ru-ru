@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Использование Bottle и табличного хранилища Azure в Azure с помощью инструментов Python 2.2 для Visual Studio"
-	description="Информация о том, как создать приложение Bottle, которое хранит данные в табличном хранилище Azure, с помощью инструментов Python для Visual Studio и развернуть его в веб-приложениях службы приложений Azure."
-	services="app-service\web"
-	documentationCenter="python"
-	authors="huguesv"
-	manager="wpickett"
+	pageTitle="Использование Bottle и табличного хранилища Azure в Azure с помощью инструментов Python 2.2 для Visual Studio" 
+	description="Информация о том, как создать приложение Bottle, которое хранит данные в табличном хранилище Azure, с помощью инструментов Python для Visual Studio и развернуть его в веб-приложениях службы приложений Azure." 
+	services="app-service\web" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -71,9 +71,7 @@
 
 2. Щелкните значок **Создать** в левом нижнем углу страницы, затем выберите **Данные + Хранилище** > **Хранилище**. Присвойте учетной записи хранения уникальное имя и создайте для нее новую [группу ресурсов](../resource-group-overview.md).
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->
-
-	После создания учетной записи хранения на кнопке **Уведомления**загорится зеленым слово **УСПЕШНО** и откроется колонка учетной записи хранения, в которой будет видно, что учетная запись относится к созданной вами группе ресурсов.
+  	<!-- ![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png) -->После создания учетной записи хранения на кнопке **Уведомления**загорится зеленым слово **УСПЕШНО** и откроется колонка учетной записи хранения, в которой будет видно, что учетная запись относится к созданной вами группе ресурсов.
 
   	<!-- ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png) -->
 
@@ -158,7 +156,7 @@
 
   	<!-- ![Top Menu](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteTopMenu.png) -->
 
-1.  Прокрутите список вниз до раздела **Параметры приложения** и присвойте переменным **REPOSITORY_NAME**, **STORAGE_NAME** и **STORAGE_KEY** значения, описанные в разделе **Настройка проекта**.
+1.  Прокрутите список вниз до раздела **Параметры приложения** и присвойте переменным **REPOSITORY\_NAME**, **STORAGE\_NAME** и **STORAGE\_KEY** значения, описанные в разделе **Настройка проекта**.
 
   	<!-- ![App Settings](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png) -->
 
@@ -216,4 +214,4 @@
 [Пакет SDK для Azure для Python]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -38,7 +38,7 @@
 
 **3) TinyTDS:** выполните указанную ниже команду из терминала. На компьютере установится TinyTDS.
 
-    sudo ARCHFLAGS="-arch x86_64" gem install tiny_tds
+    gem install tiny_tds
 
 ## Создание базы данных и получение строки подключения
 
@@ -104,4 +104,4 @@
     puts row
     end
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

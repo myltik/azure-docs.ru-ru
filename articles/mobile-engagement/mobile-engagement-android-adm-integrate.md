@@ -113,4 +113,4 @@
 [следующую процедуру]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

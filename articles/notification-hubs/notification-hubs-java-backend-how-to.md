@@ -304,4 +304,4 @@ API установки — это альтернативный механизм 
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

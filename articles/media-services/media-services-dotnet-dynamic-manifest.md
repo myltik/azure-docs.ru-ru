@@ -147,4 +147,4 @@
 [Обзор динамических манифестов](media-services-dynamic-manifest-overview.md)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -168,7 +168,7 @@
 
 </td>
 <td>
-\~ 5 Мбит/с
+~ 5 Мбит/с
 
 </td>
 </tr>
@@ -190,7 +190,7 @@
 
 </td>
 <td>
-\~ 100 Мбит/с
+~ 100 Мбит/с
 
 </td>
 </tr>
@@ -212,7 +212,7 @@
 
 </td>
 <td>
-\~ 200 Мбит/с
+~ 200 Мбит/с
 
 </td>
 </tr>
@@ -234,7 +234,7 @@
 
 </td>
 <td>
-\~ 400 Мбит/с
+~ 400 Мбит/с
 
 </td>
 </tr>
@@ -256,7 +256,7 @@
 
 </td>
 <td>
-\~ 800 Мбит/с
+~ 800 Мбит/с
 
 </td>
 </tr>
@@ -346,4 +346,4 @@
   [Миграция приложений в Azure]: http://msdn.microsoft.com/library/gg186051.aspx
   [Настройка приложения в Azure]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

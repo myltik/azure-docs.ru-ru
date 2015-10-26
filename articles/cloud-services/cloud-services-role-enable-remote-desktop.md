@@ -1,19 +1,19 @@
 <properties 
-pageTitle="Включение подключения к удаленному рабочему столу для роли в облачных службах Azure"
-	description="Настройка приложения в облачной службе Azure для удаленного подключения."
-	services="cloud-services"
-	documentationCenter=""
-	authors="sbtron"
-	manager="timlt"
-	editor=""/>
+pageTitle="Включение подключения к удаленному рабочему столу для роли в облачных службах Azure" 
+description="Настройка приложения в облачной службе Azure для удаленного подключения." 
+services="cloud-services" 
+documentationCenter="" 
+authors="sbtron" 
+manager="timlt" 
+editor=""/>
 <tags 
-ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/06/2015"
-	ms.author="saurabh"/>
+ms.service="cloud-services" 
+ms.workload="tbd" 
+ms.tgt_pltfrm="na" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="10/14/2015" 
+ms.author="saurabh"/>
 
 # Включение подключения к удаленному рабочему столу для роли в облачных службах Azure
 
@@ -147,4 +147,4 @@ RDP-файл можно получить с помощью командлета 
 
 [Настройка облачных служб](cloud-services-how-to-configure.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

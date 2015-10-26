@@ -104,4 +104,4 @@ ms.author="cristyg"/>
 
 - [Настройка облачной службы для Azure](https://msdn.microsoft.com/library/azure/hh124108.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

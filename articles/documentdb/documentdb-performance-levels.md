@@ -122,4 +122,4 @@ DocumentDB предлагает широкий набор операций в б
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

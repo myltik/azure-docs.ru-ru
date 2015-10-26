@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Перемещение данных из PostgreSQL | Фабрика данных Azure"
-	description="Узнайте, как перемещать данные из базы данных PostgreSQL с использованием фабрики данных Azure"
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Перемещение данных из PostgreSQL | Фабрика данных Azure" 
+	description="Узнайте, как перемещать данные из базы данных PostgreSQL с использованием фабрики данных Azure" 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # Перемещение данных из PostgreSQL с помощью фабрики данных Azure
@@ -306,4 +306,4 @@ text | | Строка
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

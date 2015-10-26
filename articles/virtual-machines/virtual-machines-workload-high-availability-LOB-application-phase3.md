@@ -19,7 +19,8 @@
 
 # Третий этап развертывания бизнес-приложений: настройка инфраструктуры SQL Server
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью модели развертывания, которая использует менеджер ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
+
 
 На этом этапе развертывания высокодоступного бизнес-приложения на базе служб инфраструктуры Azure настраиваются два компьютера: компьютер с SQL Server и компьютер с узлом большинства кластера. Затем они объединяются в кластер Windows Server.
 
@@ -274,4 +275,4 @@
 
 [Рабочая нагрузка служб инфраструктуры Azure: ферма SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

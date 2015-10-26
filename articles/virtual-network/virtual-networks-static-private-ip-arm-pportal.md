@@ -54,9 +54,7 @@
 
 6. Убедитесь, что в колонке **Параметры** заданы значения свойств, указанные ниже, и нажмите кнопку **ОК**.
 
-	-**Учетная запись хранения**: *vnetstorage*.
-	- **Сеть**: *TestVNet*.
-	- **Подсеть**: *FrontEnd*.
+	-**Учетная запись хранения**: *vnetstorage*. - **Сеть**: *TestVNet*. - **Подсеть**: *FrontEnd*.
 
 	![Колонка «Выбор размера»](./media/virtual-networks-static-ip-arm-pportal/figure05.png)
 
@@ -97,4 +95,4 @@
 - Узнайте об [общедоступных IP-адресах уровня экземпляра (ILPIP)](../virtual-networks-instance-level-public-ip).
 - Ознакомьтесь с [REST API зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

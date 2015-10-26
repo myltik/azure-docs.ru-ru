@@ -313,4 +313,4 @@
 
 Дополнительные сведения об использовании служб хранилища Azure см. в статье [Доступ к службам хранилища Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -70,7 +70,7 @@
     │   │   │   VoiceMailBox.exe.config
     │   │   │   VoiceMailBox.Interfaces.dll
     │   │   │
-    │   │   └───ru-ru
+    │   │   └───ru-RU
     │   │           System.Fabric.Common.Internal.Strings.resources.dll
     │   │
     │   └───Config
@@ -91,7 +91,7 @@
             │   VoicemailBoxWebService.exe
             │   VoicemailBoxWebService.exe.config
             │
-            └───ru-ru
+            └───ru-RU
                     System.Fabric.Common.Internal.Strings.resources.dll
 
 В листинге выше отображаются сборки, которые реализуют субъект VoicemailBox, включаемый в пакет кода внутри пакета службы, который находится внутри пакета приложения.
@@ -242,4 +242,4 @@ public class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

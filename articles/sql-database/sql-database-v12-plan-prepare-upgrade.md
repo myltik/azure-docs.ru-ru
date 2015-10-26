@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/08/2015"
 	ms.author="genemi"/>
 
 
@@ -149,7 +149,7 @@
 - Разработка базы данных, работающей в сети или в автономном режиме.
 
 
-Вместо этого можно подключиться с помощью [Visual Studio Community 2013](https://www.visualstudio.com/RU-RU/news/vs2013-community-vs.aspx/) — бесплатной и полнофункциональной версии VS2013.
+Вместо этого можно подключиться с помощью [Visual Studio Community 2013](https://www.visualstudio.com/ru-RU/news/vs2013-community-vs.aspx/) — бесплатной и полнофункциональной версии VS2013.
 
 
 На странице базы данных на старом портале Azure можно щелкнуть **Открыть в Visual Studio**, чтобы запустить VS2013 на компьютере для подключения к базе данных SQL Azure.
@@ -223,15 +223,16 @@
 ### Командлеты PowerShell
 
 
-Командлеты PowerShell доступны для запуска, остановки и мониторинга обновления версии 11 или другой более ранней версии Базы данных SQL Azure до версии 12.
+Командлеты PowerShell доступны для запуска, остановки и мониторинга обновления Базы данных SQL Azure версии 11 или другой более ранней версии до версии 12.
 
+- [Обновление до версии V12 Базы данных SQL с помощью PowerShell](sql-database-upgrade-server.md)
 
 Справочную документацию по этим командлетам PowerShell см. в таких разделах:
 
 
-- [Get-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143621.aspx)
-- [Start-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143623.aspx)
-- [Stop-AzureSqlServerUpgrade](http://msdn.microsoft.com/library/mt143622.aspx)
+- [Get-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582.aspx)
+- [Start-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
+- [Stop-AzureRMSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
 
 Командлет Stop- означает отмену, а не приостановку. После его выполнения возобновить обновление невозможно, можно только запустить его сначала. Командлет Stop- очищает и высвобождает все соответствующие ресурсы.
@@ -253,4 +254,4 @@
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -94,4 +94,4 @@
 - [Запуск модуля Runbook в службе автоматизации Azure](automation-starting-a-runbook.md)
 - [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

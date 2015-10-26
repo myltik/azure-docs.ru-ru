@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Анализ данных о задержке рейсов с помощью Hadoop в HDInsight | Microsoft Azure" 
-	description="Узнайте, как использовать один скрипт Windows PowerShell для подготовки кластера HDInsight, выполнения задания Hive, выполнения задания Sqoop и удаления кластера." 
+	pageTitle="Анализ данных о задержке рейсов с помощью Hive в HDInsight на основе Linux | Microsoft Azure" 
+	description="Узнайте, как анализировать данные о задержке рейсов с помощью Hive в HDInsight под управлением Linux, а затем экспортировать их в Базу данных SQL с помощью Sqoop." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="Blackmist" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="10/09/2015" 
 	ms.author="larryfr"/>
 
 #Анализ данных о задержке рейсов с помощью Hive в HDInsight
@@ -305,4 +305,4 @@
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

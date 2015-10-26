@@ -82,8 +82,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
   
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Сведения о том, как веб-API безопасно выполняет проверку подлинности запросов с помощью Azure AD B2C, см. в
-[статье о начале работы с веб-API](active-directory-b2c-devquickstarts-api-dotnet.md).
+Сведения о том, как веб-API безопасно выполняет проверку подлинности запросов с помощью Azure AD B2C, см. в [статье о начале работы с веб-API](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ## 6\. Выполнение политик
 Теперь, когда проект `TaskService` готов к проверке подлинности запросов, можно реализовать `TaskClient`. Приложение взаимодействует с Azure AD B2C, отправляя HTTP-запросы проверки подлинности и указывая политику, которую необходимо выполнить как часть запроса. Для классических приложений .NET можно использовать **библиотеку проверки подлинности Active Directory (ADAL)**, чтобы отправлять сообщения проверки подлинности OAuth 2.0, выполнять политики и получать маркеры для вызова веб-API.
@@ -330,9 +329,7 @@ private void SignOut(object sender, RoutedEventArgs e)
 
 Готовый пример [в виде ZIP-файла предоставлен здесь](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). Кроме того, можно клонировать его с GitHub.
 
-```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
-```
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
 
 <!--
 
@@ -346,4 +343,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

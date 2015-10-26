@@ -29,4 +29,4 @@
 
 Для диспетчера ресурсов Azure действуют ограничения для вызовов API. Можно вызывать API с частотой, соответствующей [ограничениям API диспетчера ресурсов Azure](azure-subscription-service-limits/#resource-group-limits).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

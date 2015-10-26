@@ -22,4 +22,4 @@
 
 > [AZURE.NOTE]Эти сведения относятся к общедоступной предварительной версии модели приложений 2.0. Инструкции по интеграции с общедоступной службой Azure AD можно найти в статье [Руководство разработчика по Azure Active Directory](active-directory-developers-guide.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

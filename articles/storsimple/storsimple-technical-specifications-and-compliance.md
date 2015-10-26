@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Технические спецификации StorSimple | Microsoft Azure"
-	description="Описание технических характеристик и информация о соответствии нормативным стандартам для аппаратных компонентов устройства StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Описание технических характеристик и информация о соответствии нормативным стандартам для аппаратных компонентов устройства StorSimple."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
  <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/26/2015"
+   ms.author="alkohli" />
 
 # Технические характеристики и информация о соответствии нормативным требованиям для устройства StorSimple
 
@@ -172,4 +172,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

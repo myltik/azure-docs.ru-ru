@@ -45,4 +45,4 @@
 [учебника по концентраторам событий]: service-bus-event-hubs-csharp-ephcs-getstarted.md
 [пример приложения, использующего концентраторы событий]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

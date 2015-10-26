@@ -73,4 +73,4 @@
 
 [Рекомендации по резервному копированию и восстановлению (служба хранилища BLOB-объектов Azure)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

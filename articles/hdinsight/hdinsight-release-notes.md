@@ -1346,4 +1346,4 @@ Hive 0.13 доступен в HDInsight 3.1 и может выполнять з�
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

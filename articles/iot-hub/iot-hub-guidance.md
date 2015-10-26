@@ -1,10 +1,10 @@
 <properties
- pageTitle="Центр IoT Azure: руководство | Microsoft Azure"
- description="Рекомендации для решений, в которых используется центр IoT Azure."
+ pageTitle="Разделы руководства по использованию центра IoT Azure | Microsoft Azure"
+ description="Коллекция рекомендаций по решениям для разработки, в которых используется центр IoT Azure."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
@@ -88,4 +88,4 @@
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Что такое центр IoT в Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

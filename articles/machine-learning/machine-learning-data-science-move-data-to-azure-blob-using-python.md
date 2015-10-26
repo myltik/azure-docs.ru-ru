@@ -121,4 +121,4 @@ API на языке Python, предоставляемый с пакетом SDK
 	    except:
 	        print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

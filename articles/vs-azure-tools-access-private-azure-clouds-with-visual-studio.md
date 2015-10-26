@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Доступ к частным облакам Azure с помощью Visual Studio"
-	description="Узнайте, как получить доступ к ресурсам частного облака с помощью Visual Studio."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="Узнайте, как получить доступ к ресурсам частного облака с помощью Visual Studio."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags 
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # Доступ к частным облакам Azure с помощью Visual Studio
 
@@ -43,4 +43,4 @@
 
 [Практическое руководство. Загрузка и импорт параметров публикации и сведений о подписке](https://msdn.microsoft.com/library/dn385850(v=nav.70).aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

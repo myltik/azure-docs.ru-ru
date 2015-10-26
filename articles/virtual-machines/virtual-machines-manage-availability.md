@@ -70,4 +70,4 @@
 [Избежание наличия одиночных экземпляров виртуальных машин в группах доступности]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Настройка группы доступности для виртуальных машин]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,3 +1,3 @@
 Набор данных содержит около 228 000 оценок фильмов, извлеченных из хорошо структурированных твитов в Twitter. Каждый экземпляр представляет собой твит и является кортежем: идентификатор пользователя, идентификатор фильма IMDB, оценка и метка времени. Набор данных был представлен в документе "S. Dooms, T. De Pessemier and L. Martens. MovieTweetings: a Movie Rating Dataset Collected From Twitter. Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013."
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

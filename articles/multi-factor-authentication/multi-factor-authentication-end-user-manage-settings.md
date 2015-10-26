@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Управление параметрами многофакторной проверки подлинности Azure"
-	description="Этот документ предоставляет пользователям информацию о способах управления параметрами многофакторной проверки подлинности Azure."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Управление параметрами многофакторной проверки подлинности Azure" 
+	description="Этот документ предоставляет пользователям информацию о способах управления параметрами многофакторной проверки подлинности Azure." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Изменение параметров многофакторной проверки подлинности Azure
@@ -71,4 +71,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

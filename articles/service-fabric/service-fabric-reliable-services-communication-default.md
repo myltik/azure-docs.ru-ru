@@ -1,20 +1,20 @@
 <properties
    pageTitle="Стек связи, предоставляемый по умолчанию Service Fabric"
-	description="В этой статье описывается стек связи по умолчанию, предоставляемый платформой надежных служб для взаимодействия служб и клиентов."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="BharatNarasimman"
-	manager="timlt"
-	editor=""/>
+   description="В этой статье описывается стек связи по умолчанию, предоставляемый платформой надежных служб для взаимодействия служб и клиентов."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="BharatNarasimman"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="required"
-	ms.date="08/27/2015"
-	ms.author="bharatn@microsoft.com"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="required"
+   ms.date="08/27/2015"
+   ms.author="bharatn@microsoft.com"/>
 
 # Стек связи, предоставляемый по умолчанию платформой надежных служб
 Для создателей служб, которые не привязаны к конкретной реализации стека связи (WebAPI, WCF и т. д.), платформа предоставляет элементы связи на стороне клиента и службы, с помощью которых можно установить взаимодействие между службой и клиентом.
@@ -107,4 +107,4 @@ Console.WriteLine("Greeting is {0}", message.Content);
 >[AZURE.NOTE]Распространением исключений, выданных на стороне службы клиенту, занимается платформа связи. Поэтому логика обработки исключений на стороне клиента с использованием ServiceProxy может непосредственно обрабатывать исключения, которые служба потенциально может выдавать.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

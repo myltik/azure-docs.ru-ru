@@ -43,4 +43,4 @@
 
 Ваш класс **ToDoActivity** теперь готов для добавления push-уведомлений.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

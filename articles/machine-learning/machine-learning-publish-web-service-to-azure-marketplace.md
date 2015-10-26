@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Публикация веб-службы машинного обучения в Azure Marketplace | Microsoft Azure"
-	description="Публикация веб-службы машинного обучения Azure в Azure Marketplace"
-	services="machine-learning"
-	documentationCenter=""
-	authors="LuisCabrer"
-	manager="paulettm"
+	pageTitle="Публикация веб-службы машинного обучения в Azure Marketplace | Microsoft Azure" 
+	description="Публикация веб-службы машинного обучения Azure в Azure Marketplace" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="LuisCabrer" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="bharaths"/>
 
 # Публикация веб-службы Машинного обучения Azure в Azure Marketplace 
@@ -109,4 +109,4 @@
 [odata]: ./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

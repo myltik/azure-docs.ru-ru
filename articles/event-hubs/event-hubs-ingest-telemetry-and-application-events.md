@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Получение данных телеметрии и событий приложения в нужном масштабе" 
+	pageTitle="Прием данных телеметрии и событий приложения в нужном масштабе | Microsoft Azure" 
 	description="Узнайте, как при реализации собственных бизнес-решений получить данные телеметрии и событий приложения в нужном масштабе." 
 	services="event-hubs,service-bus" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="10/06/2015" 
 	ms.author="sethm"/>
 
 # Получение данных телеметрии и событий приложения в нужном масштабе
@@ -29,11 +29,12 @@
  
 ## Создание
 - [Справочник по API REST концентраторов событий](https://msdn.microsoft.com/library/azure/dn790674.aspx)
-- [Примеры кода концентраторов событий](https://code.msdn.microsoft.com/windowsazure/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
+- [Примеры кода концентраторов событий](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
  
 ## Связанные службы
-- [Хранилище Azure](http://azure.microsoft.com/documentation/services/storage/)
-- [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
+- [Служебная шина](http://azure.microsoft.com/services/service-bus/)
+- [Хранилище Azure](http://azure.microsoft.com/services/storage/)
+- [HDInsight](http://azure.microsoft.com/services/hdinsight/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

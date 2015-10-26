@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Добавление хранилища Azure с использованием подключенных служб в Visual Studio | Microsoft Azure"
-	description="Добавление хранилища Azure в приложение с помощью диалогового окна Добавление подключенных служб в Visual Studio"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
+   description="Добавление хранилища Azure в приложение с помощью диалогового окна ";Добавление подключенных служб"; в Visual Studio"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="mobile"
-	ms.date="08/12/2015"
-	ms.author="patshea"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="mobile"
+   ms.date="08/12/2015"
+   ms.author="patshea" />
 
 # Добавление хранилища Azure с использованием подключенных служб Visual Studio
 
@@ -94,4 +94,4 @@ Visual Studio 2015 позволяет подключить любую облач
 
      - [Хранилище документации на сайте azure.microsoft.com](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -42,4 +42,4 @@
 
 [Подключение диска данных к виртуальной машине Windows](../articles/virtual-machines/storage-windows-attach-disk.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # Сведения об экземплярах A8, A9, A10 и A11 с большим объемом вычислений
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса с помощью модели развертывания на основе диспетчера ресурсов, а также классической модели.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 В этой статье приводятся общие сведения и рекомендации по использованию экземпляров Azure A8, A9, A10 и A11 (*ресурсоемких* экземпляров). Ключевые функции из этих экземпляров:
 
@@ -133,4 +134,4 @@ MPI | MS-MPI 2012 R2 или более поздней версии, автоно
 * Инструкции по развертыванию и настройке кластера на базе Linux с экземплярами A8 и A9 для доступа к сети Azure RDMA см. в разделе [Настройка кластера Linux RDMA для выполнения приложений MPI](virtual-machines-linux-cluster-rdma.md).
 * Чтобы приступить к развертыванию и использованию экземпляров A8 и A9 с помощью пакета HPC в Windows, см. статью [Настройка кластера RDMA в Windows с помощью пакета HPC для запуска приложений MPI](virtual-machines-windows-hpcpack-cluster-rdma.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

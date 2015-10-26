@@ -1,20 +1,20 @@
 <properties
-    pageTitle="Разработка действий сценариев с помощью HDInsight | Microsoft Azure"
-	description="Дополнительные сведения о настройке кластеров Hadoop с помощью действия скрипта."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"/>
+    pageTitle="Разработка действий сценариев с помощью HDInsight на основе Linux | Microsoft Azure"
+    description="Узнайте, как настроить кластеры HDInsight на основе Linux с помощью действия сценария."
+    services="hdinsight"
+    documentationCenter=""
+    authors="Blackmist"
+    manager="paulettm"
+    editor="cgronlun"/>
 
 <tags
     ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/18/2015"
-	ms.author="larryfr"/>
+    ms.workload="big-data"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="10/09/2015"
+    ms.author="larryfr"/>
 
 # Разработка действий сценариев с помощью HDInsight
 
@@ -213,4 +213,4 @@ _Решение._ Сохраните файл в формате ASCII или UTF
 
 [Настройка кластеров HDInsight с помощью действия сценария](hdinsight-hadoop-customize-cluster-linux.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

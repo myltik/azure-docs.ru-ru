@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Azure AD Connect — вход пользователя"
+<properties
+	pageTitle="Azure AD Connect — вход пользователя| Microsoft Azure"
 	description="Вход пользователя в Azure AD с пользовательскими настройками."
 	services="active-directory"
 	documentationCenter=""
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 
@@ -62,6 +62,5 @@
 	- Локальная многофакторная проверка подлинности с помощью стороннего поставщика или смарт-карт (узнайте больше о сторонних поставщиках многофакторной проверки подлинности для службы AD FS в Windows Server 2012 R2).
 	- Средства интеграции каталога Active Directory, например программная блокировка учетной записи или политики AD относительно паролей и рабочих часов.
 	- Условный доступ к локальным и облачным ресурсам с помощью регистрации устройств, присоединения к Azure AD или политик Intune MDM.
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

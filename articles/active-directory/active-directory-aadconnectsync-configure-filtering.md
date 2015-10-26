@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -276,10 +276,9 @@
 7. Выполните полную синхронизацию: на вкладке «Соединители» щелкните правой кнопкой мыши пункт SourceAD, последовательно выберите «Выполнить» и «Полная синхронизация», а затем нажмите кнопку «ОК».
 
 
+## Дальнейшие действия
+Узнайте больше о настройке [служб синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-## Дополнительные ресурсы
+Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-* [Службы синхронизации Azure AD Connect: настройка параметров синхронизации](active-directory-aadconnectsync-whatis.md)
-* [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

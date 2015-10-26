@@ -21,7 +21,8 @@
 
 Приведенные здесь информация и ссылки позволят вам ускорить процесс создания необходимых объектов.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса с помощью модели развертывания на основе диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
+
 
 | Шаблон | Описание | Просмотрите шаблон | Разверните его прямо сейчас |
 |:---|:---|:---:|:---:|
@@ -52,4 +53,4 @@
 
 Узнайте больше о [диспетчере ресурсов Azure](../resource-group-template-deploy.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

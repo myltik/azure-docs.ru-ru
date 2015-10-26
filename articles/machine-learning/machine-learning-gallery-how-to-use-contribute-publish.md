@@ -136,4 +136,4 @@
 
 **[ПЕРЕЙТИ К КОЛЛЕКЦИИ >>](http://gallery.cortanaanalytics.com)**
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -7,4 +7,4 @@
 | | [Защита веб-API NodeJS](active-directory-b2c-devquickstarts-api-node.md) | Серверные управляющие программы (ожидаются в ближайшее время) |
 | | [Вызов веб-API из веб-приложения .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md) | Серверные управляющие программы (ожидаются в ближайшее время) |
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

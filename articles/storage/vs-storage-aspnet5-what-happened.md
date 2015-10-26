@@ -47,4 +47,4 @@
 
 Дополнительную информацию см. на веб-сайте, посвященном [ASP.NET 5](http://www.asp.net/vnext).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

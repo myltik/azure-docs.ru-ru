@@ -97,4 +97,4 @@
 
 [Настройка связи с виртуальной машиной](http://go.microsoft.com/fwlink/?LinkId=303938)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

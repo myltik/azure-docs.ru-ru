@@ -10,4 +10,4 @@
 - [Как сделать MFA обязательной](active-directory-privileged-identity-management-how-to-require-mfa.md)
 - [Как использовать журнал аудита](active-directory-privileged-identity-management-how-to-use-audit-log.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

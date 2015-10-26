@@ -41,8 +41,7 @@
 
 1. [Установите Git][install-git].
 
-> [AZURE.NOTE]
-> В системе Windows необходимо также добавить исполняемый файл Git в переменную среды PATH.
+	> [AZURE.NOTE]В системе Windows необходимо также добавить исполняемый файл Git в переменную среды PATH.
 
 2. Создайте файл с именем **composer.json** в корневой папке проекта и добавьте в него следующий код:
 
@@ -281,7 +280,7 @@
 
 * Первым действием при передаче объекта является его извлечение из таблицы:
 		
-		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq ''.$_GET['pk'].'' and RowKey eq ''.$_GET['rk'].''');		
+		$result = $tableRestProxy->queryEntities('tasks', 'PartitionKey eq \''.$_GET['pk'].'\' and RowKey eq \''.$_GET['rk'].'\'');		
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 
@@ -431,4 +430,4 @@
 [git-instructions]: ./media/web-sites-php-storage/git-instructions.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

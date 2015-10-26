@@ -58,7 +58,7 @@ Active Directory Premium Edition — это платный выпуск Azure A
 
 - **Диспетчер удостоверений Microsoft** — выпуск Премиум позволяет предоставлять права на использование сервера MIM (и клиентских лицензий) в вашей локальной сети для поддержки любого сочетания решений гибридной идентификации. Это очень удобно в тех случаях, когда имеется несколько локальных каталогов и баз данных, которые необходимо синхронизировать непосредственно в Azure Active Directory. Ограничения на количество серверов MIM, которые можно использовать, отсутствуют, однако клиентские лицензии MIM предоставляются с учетом выделения лицензии пользователя на Azure Active Directory Premium.
 
-    Дополнительные сведения см. в статье [Диспетчер удостоверений Microsoft](http://www.microsoft.com/RU-RU/server-cloud/products/microsoft-identity-manager/default.aspx).
+    Дополнительные сведения см. в статье [Диспетчер удостоверений Microsoft](http://www.microsoft.com/ru-RU/server-cloud/products/microsoft-identity-manager/default.aspx).
 
 - **SLA корпоративного уровня до 99,9 %** — для службы Azure Active Directory Premium мы гарантируем минимальный уровень доступности 99,9 %.
 
@@ -396,7 +396,7 @@ Active Directory Premium Edition — это платный выпуск Azure A
 	<tr>
 		<td>
 		<p>
-		<a href="https://msdn.microsoft.com/RU-RU/library/azure/dn906722.aspx">Azure&#160;Active&#160;Directory Connect Health</a> для наблюдения за работоспособностью локальной инфраструктуры Active&#160;Directory и получения аналитических данных об использовании</p>
+		<a href="https://msdn.microsoft.com/ru-RU/library/azure/dn906722.aspx">Azure&#160;Active&#160;Directory Connect Health</a> для наблюдения за работоспособностью локальной инфраструктуры Active&#160;Directory и получения аналитических данных об использовании</p>
 		</td>
 		<td>
 		<p></p>
@@ -450,4 +450,4 @@ Active Directory Premium Edition — это платный выпуск Azure A
 - [Добавление фирменной символики компании на страницах входа и панели доступа](active-directory-add-company-branding.md)
 - [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Ресурсы манифеста служб Service Fabric"
-	description="Описание ресурсов в манифесте служб"
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="sumukhs"
-	manager="anuragg"
-	editor=""/>
+   description="Описание ресурсов в манифесте служб"
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="sumukhs"
+   manager="anuragg"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="sumukhs"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="sumukhs"/>
 
 # Ресурсы манифеста служб
 
@@ -69,4 +69,4 @@ Service Fabric автоматически создает список управ
 ```
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

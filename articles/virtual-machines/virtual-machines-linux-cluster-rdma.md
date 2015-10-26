@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # Настройка кластера Linux RDMA для выполнения приложений MPI
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс настройки ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 В этой статье показано, как настроить кластер Linux RDMA в Azure с [экземплярами виртуальных машин A8 и A9](virtual-machines-a8-a9-a10-a11-specs.md) для выполнения приложений MPI. При настройке виртуальных машин A8 и A9 под управлением Linux для выполнения поддерживаемой реализации MPI приложения MPI будут эффективно взаимодействовать по сети Azure с низкой задержкой и высокой пропускной способностью, которая основана на технологии удаленного прямого доступа к памяти (RDMA).
 
@@ -369,4 +370,4 @@ cluster12
 
 * Рекомендации по Intel MPI см. в [документации для библиотеки Intel MPI](https://software.intel.com/ru-RU/articles/intel-mpi-library-documentation/).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

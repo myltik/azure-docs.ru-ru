@@ -117,4 +117,4 @@ InMage Scout в Azure Site Recovery обеспечивает репликаци�
 
 Вы можете задать любые вопросы на [форуме по службам восстановления Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).<
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

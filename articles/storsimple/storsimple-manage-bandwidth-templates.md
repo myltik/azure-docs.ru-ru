@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
 # Использование службы диспетчера StorSimple для управления шаблонами пропускной способности StorSimple
@@ -68,7 +68,7 @@
    3. В раскрывающемся списке выберите **Время начала**. Это время, с которого начнется выполнение расписания.
    4. В раскрывающемся списке выберите **Время окончания**. Это время завершения расписания.
    
-         > [AZURE.NOTE] Пересечения временных интервалов не допускаются. Если начальное и конечное время таковы, что в расписании появляются пересекающиеся временные интервалы, будет выдано соответствующее сообщение об ошибке.
+         > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
 
    5. Задайте **Скорость пропускной способности**. Это значение пропускной способности (в Мбит/с), которое используется устройством StorSimple в операциях, включающих облако. Укажите в этом поле число от 1 до 1000.
    
@@ -174,7 +174,6 @@
 
 ## Дальнейшие действия
 
-- Узнайте больше о [компонентах StorSimple](storsimple-components.md). 
-- Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

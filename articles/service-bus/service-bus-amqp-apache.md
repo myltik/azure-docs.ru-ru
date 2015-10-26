@@ -105,10 +105,6 @@
 Хотите узнать больше? Перейдите по следующим ссылкам:
 
 - [Протокол AMQP служебной шины — обзор]
-- [Использование служебной шины на платформе .NET с протоколом AMQP]
-- [Использование служебной шины на платформе Java с протоколом AMQP]
-- [Использование служебной шины на платформе Python с протоколом AMQP]
-- [Использование служебной шины на платформе PHP с протоколом AMQP]
 
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
 [0]: ./media/service-bus-amqp-apache/amqp-apache-1.png
@@ -117,9 +113,5 @@
 [3]: ./media/service-bus-amqp-apache/amqp-apache-4.png
 
 [портале Azure]: http://manage.windowsazure.com
-[Использование служебной шины на платформе .NET с протоколом AMQP]: service-bus-amqp-dotnet.md
-[Использование служебной шины на платформе Java с протоколом AMQP]: service-bus-amqp-java.md
-[Использование служебной шины на платформе Python с протоколом AMQP]: service-bus-amqp-python.md
-[Использование служебной шины на платформе PHP с протоколом AMQP]: service-bus-amqp-php.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

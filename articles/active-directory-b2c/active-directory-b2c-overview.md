@@ -62,4 +62,4 @@
 - [Часто задаваемые вопросы о Azure Active Directory B2C](active-directory-b2c-faqs.md)
 - [Регистрация запросов на поддержку для Azure Active Directory B2C](active-directory-b2c-support.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

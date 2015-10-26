@@ -193,4 +193,4 @@
 [примеров кода для разработчиков]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

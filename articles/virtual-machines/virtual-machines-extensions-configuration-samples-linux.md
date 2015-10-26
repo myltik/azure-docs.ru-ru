@@ -21,7 +21,8 @@
 
 В этой статье представлен пример конфигурации для настройки расширений виртуальной машины Azure для виртуальных машин Linux.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
+
 
 Чтобы узнать больше об этих расширениях, щелкните здесь: [Расширения виртуальных машин Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
@@ -189,4 +190,4 @@
 
 [Расширение Custom Script на виртуальной машине Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Примеры кэша Redis для Azure"
-	description="Сведения об использовании кэша Redis для Azure."
-	services="redis-cache"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
+	pageTitle="Примеры кэша Redis для Azure" 
+	description="Сведения об использовании кэша Redis для Azure." 
+	services="redis-cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cache"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="cache-redis"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="sdanie"/>
 
 # Примеры кэша Redis для Azure 
@@ -75,4 +75,4 @@
 
 Пример [Монитор пропускной способности](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) позволяет наблюдать за пропускной способностью, используемой на клиентском компьютере. Чтобы измерить пропускную способность, запустите пример на клиентском компьютере кэша, выполните вызовы кэша и отследите пропускную способность, передаваемую примером монитора пропускной способности.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

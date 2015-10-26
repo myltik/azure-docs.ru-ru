@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Восстановление Базы данных SQL после ошибок пользователей"
-	description="Вы узнаете, как выполнить восстановление базы данных после ошибки пользователя, случайного повреждения данных или удаления с помощью функции восстановления на момент времени (PITR) Базы данных SQL Azure."
-	services="sql-database"
-	documentationCenter=""
-	authors="elfisher"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="Восстановление Базы данных SQL после ошибок пользователей" 
+   description="Вы узнаете, как выполнить восстановление базы данных после ошибки пользователя, случайного повреждения данных или удаления с помощью функции восстановления на момент времени (PITR) Базы данных SQL Azure." 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="elfisher" 
+   manager="jeffreyg" 
+   editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="07/23/2015"
-	ms.author="elfish"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="10/08/2015"
+   ms.author="elfish"/>
 
 # Восстановление базы данных SQL Azure после ошибки пользователя
 
@@ -44,6 +44,8 @@
 После завершения восстановления вы можете настроить восстановленную базу данных. Для этого следуйте инструкциям руководства [Завершение восстановленной базы данных](sql-database-recovered-finalize.md).
 ###PowerShell
 Используйте PowerShell для программного восстановления базы данных.
+
+> [AZURE.IMPORTANT]Эта статья содержит команды для Azure PowerShell версии вплоть до 1.0, *но не включая* саму версию 1.0 и более поздние версии. Используемую версию Azure PowerShell можно проверить с помощью команды **Get-Module azure | format-table version**.
 
 Чтобы восстановить базу данных на момент времени, используйте командлет [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Пошаговую инструкцию см. в [видеоинструкции](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
 
@@ -113,4 +115,4 @@
 После завершения восстановления вы можете настроить восстановленную базу данных. Для этого следуйте инструкциям руководства [Завершение восстановленной базы данных](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

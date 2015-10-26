@@ -13,20 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="10/12/2015" 
 	ms.author="bradsev;sunliangms;sachouks;mohabib" />
 
 # Перемещение данных в хранилище больших двоичных объектов Azure и из него
 
-[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
+[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
 ## Введение
 
-В этом разделе описаны три способа перемещения данных в хранилище больших двоичных объектов Azure и из него:
+В этом разделе описаны три методики перемещения данных в хранилище больших двоичных объектов Azure и из него.
 
-- Использование обозревателя хранилищ Azure
-- Использование служебной программы командной строки AzCopy
-- Использование пакета SDK для Azure на языке Python
+[AZURE.INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
 Выбор метода зависит от сценария. Статья [Процесс обработки и анализа данных в облаке в Машинном обучении Azure](../machine-learning-data-science-plan-sample-scenarios.md) помогает определить ресурсы, необходимые для различных процедур обработки и анализа данных в рамках расширенного аналитического процесса.
 
@@ -46,4 +44,4 @@
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

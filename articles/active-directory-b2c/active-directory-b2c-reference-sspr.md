@@ -36,4 +36,4 @@
 
 > [AZURE.NOTE]Страницы самостоятельного сброса пароля можно настраивать с помощью [функции фирменной символики](active-directory-add-company-branding.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

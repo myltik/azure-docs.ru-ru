@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Анализ использования для веб-приложений с помощью Application Insights"
-	description="Общие сведения об аналитике использования с помощью Application Insights"
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Анализ использования для веб-приложений с помощью Application Insights" 
+	description="Общие сведения об аналитике использования с помощью Application Insights" 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="awills"/>
  
 # Анализ использования для веб-приложений с помощью Application Insights
@@ -391,4 +391,4 @@ Application Insights старается автоматически опреде�
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

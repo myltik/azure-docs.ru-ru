@@ -130,9 +130,9 @@ Spark SQL позволяет использовать Spark для выполн�
 
 6. Вы должны увидеть подобные выходные данные:
 
-		[820,11:35:17,RU-RU,Android,HTC,Inspire 4G,Louisiana,UnitedStates, 2.7383836,0,1]
-		[1055,17:24:08,RU-RU,Android,HTC,Incredible,Ohio,United States,18.0894738,0,0]
-		[1067,03:42:29,RU-RU,Windows Phone,HTC,HD7,District Of Columbia,United States,null,0,0]
+		[820,11:35:17,ru-RU,Android,HTC,Inspire 4G,Louisiana,UnitedStates, 2.7383836,0,1]
+		[1055,17:24:08,ru-RU,Android,HTC,Incredible,Ohio,United States,18.0894738,0,0]
+		[1067,03:42:29,ru-RU,Windows Phone,HTC,HD7,District Of Columbia,United States,null,0,0]
 
 7. Введите :q, чтобы выйти из строки Scala.
 
@@ -208,7 +208,7 @@ Spark SQL позволяет использовать Spark для выполн�
 6. Введите следующую команду для запуска программы SimpleApp.scala:
 
 
-		/usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master local target/scala-2.10/simpleapp_2.10-1.0.jar
+		/usr/hdp/current/spark/bin/spark-submit --class "SimpleApp" --master yarn target/scala-2.10/simpleapp_2.10-1.0.jar
 
 4. После завершения работы программы вывод отображается на консоли.
 
@@ -234,4 +234,4 @@ Spark SQL позволяет использовать Spark для выполн�
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->
