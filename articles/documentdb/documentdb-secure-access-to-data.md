@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Сведения о защите доступа к данным в DocumentDB | Microsoft Azure"
-	description="Узнайте об основных понятиях управления доступом в DocumentDB, включая главные ключи, ключи только для чтения, пользователей и разрешения."
-	services="documentdb"
-	authors="stephbaron"
-	manager="jhubbard"
-	editor="monicar"
+	pageTitle="Сведения о защите доступа к данным в DocumentDB | Microsoft Azure" 
+	description="Узнайте об основных понятиях управления доступом в DocumentDB, включая главные ключи, ключи только для чтения, пользователей и разрешения." 
+	services="documentdb" 
+	authors="stephbaron" 
+	manager="jhubbard" 
+	editor="monicar" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="stbaro"/>
 
 # Защита доступа к данным DocumentDB #
@@ -163,4 +163,4 @@ DocumentDB содержит понятия первого класса, позв
 - Сведения о создании маркеров авторизации DocumentDB можно узнать [здесь](https://msdn.microsoft.com/library/azure/dn783368.aspx).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

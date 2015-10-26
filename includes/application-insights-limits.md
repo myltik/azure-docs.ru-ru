@@ -21,4 +21,4 @@
  
 [Цены и квоты для Application Insights](app-insights-pricing.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

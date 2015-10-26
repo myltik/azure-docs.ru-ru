@@ -7,4 +7,4 @@
 
 * Наконец, [обновите профили подготовки в проекте быстрого запуска Xcode](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW10) и [убедитесь, что профиль подготовки был создан или повторно сгенерирован, чтобы включить push-уведомления](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW12).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -266,4 +266,4 @@
 [дополнительным требованиям к приложениям определенных типов]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

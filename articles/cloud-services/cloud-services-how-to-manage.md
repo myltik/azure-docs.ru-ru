@@ -164,4 +164,4 @@
 * Настройте [пользовательское доменное имя](cloud-services-custom-domain-name.md).
 * Настройте [SSL-сертификаты](cloud-services-configure-ssl-certificate.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

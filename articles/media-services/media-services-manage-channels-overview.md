@@ -266,4 +266,4 @@ SCTE-35|Цифровая система передачи сигналов, ко�
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

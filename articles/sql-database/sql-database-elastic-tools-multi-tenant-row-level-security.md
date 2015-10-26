@@ -1,6 +1,8 @@
-<properties  
+<properties 
+	title="Multi-tenant applications with elastic database tools and row-level security" 
 	pageTitle="Мультитенантные приложения со средствами эластичных баз данных и безопасностью на уровне строк" 
-	description="Узнайте, как использовать средства эластичных баз данных совместно с безопасностью на уровне строк для создания приложения с высокомасштабируемым уровнем данных в базе данных SQL Azure, поддерживающей мультитенантные сегменты."  
+	description="Узнайте, как использовать средства эластичных баз данных совместно с безопасностью на уровне строк для создания приложения с высокомасштабируемым уровнем данных в базе данных SQL Azure, поддерживающей мультитенантные сегменты." 
+	metaKeywords="azure sql database elastic tools multi tenant row level security rls" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="tmullaney"/>
@@ -339,4 +341,4 @@ GO
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

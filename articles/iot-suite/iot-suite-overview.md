@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Обзор набора Microsoft Azure IoT Suite | Microsoft Azure"
-	description="Здесь представлены общие сведения о наборе IoT Azure Suite."
+	description="Содержит обзор набора Azure IoT Suite, включая упаковку и предварительно настроенные решения."
 	services=""
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="aguilaaj"
 	manager="timlt"
 	editor=""/>
@@ -12,7 +12,7 @@
      ms.devlang="na"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="10/06/2015"
      ms.author="araguila"/>
 
@@ -38,4 +38,4 @@
 
 Первое доступное предварительно настроенное решение — это [удаленный мониторинг](iot-suite-what-are-preconfigured-solutions.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

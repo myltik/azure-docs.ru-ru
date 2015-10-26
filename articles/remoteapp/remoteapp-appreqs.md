@@ -1,20 +1,20 @@
 
 <properties 
     pageTitle="Требования к приложениям для Azure RemoteApp"
-	description="Узнайте подробнее о требованиях для приложений, которые вы хотите использовать в Azure RemoteApp"
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+    description="Узнайте подробнее о требованиях для приложений, которые вы хотите использовать в Azure RemoteApp" 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
-    ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2015"
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="08/12/2015" 
+    ms.author="elizapo" />
 
 
 
@@ -56,4 +56,4 @@ Azure RemoteApp поддерживает потоковую передачу 32-
 - Чтобы оптимизировать производительность, рекомендуется [определить](https://msdn.microsoft.com/library/aa380798.aspx) для приложений, выполняются ли они в сеансе клиента. 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

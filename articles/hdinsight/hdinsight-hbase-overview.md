@@ -94,4 +94,4 @@ HDInsight HBase предлагается в форме управляемого 
 
 [apache-hadoop]: http://hadoop.apache.org/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

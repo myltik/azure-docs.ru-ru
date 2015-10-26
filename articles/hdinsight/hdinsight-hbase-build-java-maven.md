@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Создание приложения HBase с помощью Maven | Microsoft Azure"
-	description="Узнайте, как использовать Apache Maven для создания приложения Java Apache HBase и его последующего развертывания в Azure HDInsight."
+	pageTitle="Создание приложения HBase с помощью Maven с последующим развертыванием в HDInsight на основе Windows | Microsoft Azure"
+	description="Узнайте, как использовать Apache Maven для создания приложения Java для Apache HBase и его последующего развертывания в кластере Azure HDInsight на основе Windows."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 #Использование Maven для сборки приложений Java, которые используют HBase с HDInsight (Hadoop)
@@ -592,4 +592,4 @@
 
 Используйте параметр `-showErr` для просмотра стандартной ошибки (STDERR), выдаваемой при выполнении задания.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

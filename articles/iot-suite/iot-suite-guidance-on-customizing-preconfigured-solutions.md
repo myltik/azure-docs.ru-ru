@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Руководство по настройке предварительно настроенных решений набора IoT Microsoft Azure | Microsoft Azure"
-	description="Эта статья содержит руководство по настройке предварительно настроенных решений набора IoT Azure."
+	pageTitle="Настройка предварительно настроенных решений | Microsoft Azure"
+	description="Руководство по настройке предварительно настроенных решений набора Azure IoT Suite."
 	services=""
 	documentationCenter=".net"
 	authors="stevehob"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="na"
-     ms.devlang="na"
+     ms.devlang="dotnet"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="stevehob"/>
 
@@ -69,4 +69,4 @@
 
 [пакета SDK устройства IoT]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

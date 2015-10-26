@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Подключение каталогов с помощью Azure AD Connect"
+<properties
+	pageTitle="Подключение каталогов с помощью Azure AD Connect | Microsoft Azure"
 	description="Описание пользовательских параметров каталогов, подключенных с помощью Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -7,13 +7,13 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory"
+<tags
+	ms.service="active-directory"  
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="billmath"/>
 
 
@@ -29,7 +29,7 @@
 Синхронизация паролей| <li>Реплицирование изменений каталога.</li> <li>Реплицирование всех изменений каталога.</li>
 Гибридное развертывание Exchange|См. раздел [Атрибуты и разрешения обратной записи AAD Sync для гибридного развертывания в Office 365 и Exchange](https://msdn.microsoft.com/library/azure/dn757602.aspx#exchange).
 Обратная запись паролей | <li>Изменение паролей.</li><li>Сброс паролей.</li>
-Обратная запись пользователей, групп и устройств|Разрешения на запись в объекты и атрибуты каталога, которые вы хотите «записать обратно».
+Обратная запись пользователей, групп и устройств|Разрешения на запись в объекты и атрибуты каталога, которые вы хотите "записать обратно".
 Единый вход и AD FS| Разрешения администратора домена в том домене, где расположены ваши федеративные серверы.
 
 
@@ -44,6 +44,5 @@
 * [Разрешения для обратной записи паролей](https://msdn.microsoft.com/library/azure/dn757602.aspx#pwriteback)
 * [Выборочная установка Azure AD Connect](active-directory-aadconnect-get-started-custom.md)
 * [Azure AD Connect на портале MSDN](active-directory-aadconnect.md)
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

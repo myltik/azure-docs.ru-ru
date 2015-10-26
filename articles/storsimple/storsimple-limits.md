@@ -27,4 +27,4 @@ StorSimple обеспечивает масштабируемое и гибкое
 
 Ознакомьтесь с [Требованиями к системе StorSimple](storsimple-system-requirements.md).
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

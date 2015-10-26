@@ -46,4 +46,4 @@ Azure поддерживает любой адрес электронной по
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

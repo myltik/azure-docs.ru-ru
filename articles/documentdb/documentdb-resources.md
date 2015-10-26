@@ -411,4 +411,4 @@ DocumentDB позволяет хранить двоичные BLOB-объект�
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

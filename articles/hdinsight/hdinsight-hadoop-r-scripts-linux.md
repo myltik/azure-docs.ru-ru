@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Использование R в HDInsight для настройки кластеров | Microsoft Azure"
-	description="Узнайте, как установить и использовать R для настройки кластеров Hadoop."
+	pageTitle="Установка R в HDInsight на основе Linux | Microsoft Azure"
+	description="Узнайте, как установить и использовать R для настройки кластеров Hadoop на основе Linux."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 # Установка и использование R на кластерах HDInsight Hadoop
@@ -148,4 +148,4 @@ R можно установить в любой тип кластера Hadoop �
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

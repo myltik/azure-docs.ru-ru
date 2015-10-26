@@ -184,4 +184,4 @@ API-интерфейсы отложенного перечисления вкл�
 -	[Блог рабочей группы службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Документация по хранилищу Azure](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

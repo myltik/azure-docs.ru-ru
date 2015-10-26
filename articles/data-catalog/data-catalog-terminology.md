@@ -1,20 +1,20 @@
 <properties
    pageTitle="Терминология каталога данных Azure"
-	description="Введение в основные понятия и термины, используемые в документации по каталогу данных Azure"
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Введение в основные понятия и термины, используемые в документации по каталогу данных Azure"
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/20/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="08/20/2015"
+   ms.author="maroche"/>
 
 # Терминология каталога данных Azure
 
@@ -80,4 +80,4 @@
 
 - [Начало работы с каталогом данных Azure](data-catalog-get-started.md) — в этой статье представлен полный учебник, демонстрирующий использование каталога данных Azure для обнаружения источника данных.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

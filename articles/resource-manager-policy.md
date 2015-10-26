@@ -115,7 +115,7 @@
       "if" : {
         "not" : {
           "field" : "location",
-          "in" : ["north europe" , "west europe"]
+          "in" : ["northeurope" , "westeurope"]
         }
       },
       "then" : {
@@ -213,11 +213,31 @@
 
 Определение политики может быть задано как в показанном выше примере. В качестве версии API укажите *2015-10-01-preview*. Примеры и дополнительные сведения см. в разделе [API REST для определения политик](https://msdn.microsoft.com/library/azure/mt588471.aspx).
 
+### Создание определения политики с помощью PowerShell
+
+Можно создать новое определение политики с помощью командлета New-AzureRmPolicyDefinition, как показано ниже. Приведенные ниже примеры создают политику, разрешающую использовать только ресурсы в Северной и Западной Европе.
+
+    $policy = New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation onlyin certain regions" -Policy '{	"if" : {
+    	    			    "not" : {
+    	      			    	"field" : "location",
+    	      			    		"in" : ["northeurope" , "westeurope"]
+    	    			    	}
+    	    		          },
+    	      		    		"then" : {
+    	    			    		"effect" : "deny"
+    	      			    		}
+    	    		    	}'    		
+
+Результат выполнения сохраняется в объекте $policy, так как его можно использовать позже, при назначении политики. Вместо встроенного указания политики для параметра политики также можно указать путь к JSON-файлу, содержащему политику, как показано ниже.
+
+    New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
+
+
 ## Применение политики
 
 ### Назначение политики с использованием API REST
 
-Определение политики можно применить к требуемой области с помощью [API REST для назначения политик](https://msdn.microsoft.com/library/azure/mt588466.aspx). API REST позволяет создавать и удалять назначения политик и получать сведения о существующих назначениях.
+Определение политики можно применить к требуемой области с помощью [ REST API для назначения политик](https://msdn.microsoft.com/library/azure/mt588466.aspx). API REST позволяет создавать и удалять назначения политик и получать сведения о существующих назначениях.
 
 Чтобы создать назначение политики, выполните следующую команду:
 
@@ -238,6 +258,22 @@
       "name":"VMPolicyAssignment"
     }
 
-Примеры и дополнительные сведения см. в разделе [API REST для назначения политик](https://msdn.microsoft.com/library/azure/mt588466.aspx).
+Примеры и дополнительные сведения см. в разделе [REST API для назначения политик](https://msdn.microsoft.com/library/azure/mt588466.aspx).
 
-<!---HONumber=Oct15_HO2-->
+### Назначение политики с помощью PowerShell
+
+Политику, созданную выше, можно применить к требуемой области с помощью командлета PowerShell New-AzureRmPolicyAssignment, как показано ниже.
+
+    New-AzureRmPolicyAssignment -Name regionPolicyAssignment -PolicyDefinition $policy -Scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+        
+Здесь $policy — объект политики, который был возвращен в результате выполнения командлета New-AzureRmPolicyDefinition, как показано выше. Область — это указанное имя группы ресурсов.
+
+Если вы хотите удалить приведенное выше назначение политики, это можно сделать следующим образом.
+
+    Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+
+Можно получать, изменять или удалять определения политик с помощью командлетов Get-AzureRmPolicyDefinition, Set-AzureRmPolicyDefinition и Remove-AzureRmPolicyDefinition, соответственно.
+
+Аналогично, вы можете получать, изменять или удалять назначения политик с помощью командлетов Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment и Remove-AzureRmPolicyAssignment, соответственно.
+
+<!---HONumber=Oct15_HO3-->

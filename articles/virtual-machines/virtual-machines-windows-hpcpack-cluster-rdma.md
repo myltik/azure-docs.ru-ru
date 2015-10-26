@@ -18,7 +18,8 @@ ms.service="virtual-machines"
 
 # Настройка кластера Windows RDMA с пакетом HPC Pack и экземплярами A8 и A9 для запуска приложений MPI
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается создание ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 В статье показано, как настроить кластер Windows RDMA в Azure с [пакетом Microsoft HPC](https://technet.microsoft.com/library/cc514029) и [экземплярами A8 и A9 для интенсивных вычислений](virtual-machines-a8-a9-a10-a11-specs.md) для запуска параллельных приложений MPI. Если настроить экземпляры размера A8 и A9 под управлением Windows Server для выполнения поддерживаемой реализации MPI, приложения MPI будут эффективно взаимодействовать по сети Azure с низкой задержкой и высокой пропускной способностью, которая работает на базе технологии удаленного прямого доступа к памяти (RDMA).
 
@@ -245,4 +246,4 @@ ms.service="virtual-machines"
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

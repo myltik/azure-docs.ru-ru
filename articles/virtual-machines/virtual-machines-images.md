@@ -57,4 +57,4 @@
 
 [Различные способы создания виртуальной машины Windows](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

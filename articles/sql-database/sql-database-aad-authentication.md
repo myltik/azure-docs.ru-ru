@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/28/2015"
+   ms.date="10/08/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Подключение к базе данных SQL с использованием проверки подлинности Azure Active Directory 
@@ -151,39 +151,42 @@
 
 ### Подготовка администратора Azure AD для сервера Azure SQL Server с помощью PowerShell 
 
-Теперь следует установить и настроить Azure PowerShell (версия не ниже 0.9.8). Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md#Install).
+> [AZURE.IMPORTANT]Начиная с выпуска предварительной версии Azure PowerShell 1.0 командлет Switch-AzureMode больше не требуется, а командлеты, которые были в модуле Azure ResourceManger, переименованы. В примерах в этой статье используется новое соглашение об именовании предварительной версии PowerShell 1.0. Дополнительные сведения см. в разделе [Устаревший командлет Switch-AzureMode в Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
+
+
+Чтобы выполнить командлеты PowerShell, необходимо установить и запустить Azure PowerShell. А из-за удаления Switch-AzureMode необходимо скачать и установить последнюю версию Azure PowerShell, запустив [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 Для подготовки администратора Azure AD необходимо выполнить следующие команды Azure PowerShell:
 
 - Add-AzureAccount
 - Select-AzureSubscription
-- Switch-AzureMode -Name AzureResourceManager.
+
 
 Командлеты, используемые для подготовки администратора Azure AD и управления им:
 
 | Имя командлета | Описание |
 |---------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| Set-AzureSqlServerActiveDirectoryAdministrator | Подготавливает администратора Azure Active Directory для сервера Azure SQL Server (должен входить в текущую подписку). |
-| Remove-AzureSqlServerActiveDirectoryAdministrator | Удаляет администратора Azure Active Directory для сервера Azure SQL Server. |
-| Get-AzureSqlServerActiveDirectoryAdministrator | Возвращает сведения о текущем администраторе Azure Active Directory, настроенном для сервера Azure SQL Server. |
+| [Set-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603544.aspx) | Подготавливает администратора Azure Active Directory для сервера Azure SQL Server (должен входить в текущую подписку). |
+| [Remove-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt619340.aspx) | Удаляет администратора Azure Active Directory для сервера Azure SQL Server. |
+| [Get-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603737.aspx) | Возвращает сведения о текущем администраторе Azure Active Directory, настроенном для сервера Azure SQL Server. |
 
-Чтобы получить дополнительные сведения о каждой из этих команд, используйте команду PowerShell get-help, например ``get-help Set-AzureSqlServerActiveDirectoryAdministrator``.
+Чтобы получить дополнительные сведения о каждой из этих команд, используйте команду PowerShell get-help, например ``get-help Set-AzureRMSqlServerActiveDirectoryAdministrator``.
 
 Приведенный ниже сценарий выполняет подготовку группы администраторов Azure AD с именем **DBA\_Group** (идентификатор объекта `40b79501-b343-44ed-9ce7-da4c8cc7353f`) для сервера **demo\_server** в группе ресурсов с именем **Group-23**.
 
 ```
-Set-AzureSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
+Set-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
 –ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
 Входной параметр **DisplayName** принимает отображаемое имя Azure AD или имя участника-пользователя. Например, ``DisplayName="John Smith"`` и ``DisplayName="johns@contoso.com"``. Для групп Azure AD поддерживается только отображаемое имя Azure AD.
 
-> [AZURE.NOTE]Команда Azure PowerShell ```Set-AzureSqlServerActiveDirectoryAdministrator``` не запрещает подготовку администраторов Azure AD для неподдерживаемых пользователей. Неподдерживаемого пользователя можно подготовить, но он не сможет подключиться к базе данных (см. список поддерживаемых администраторов в разделе **Функции и ограничения Azure AD** выше).
+> [AZURE.NOTE]Команда Azure PowerShell ```Set-AzureRMSqlServerActiveDirectoryAdministrator``` не запрещает подготовку администраторов Azure AD для неподдерживаемых пользователей. Неподдерживаемого пользователя можно подготовить, но он не сможет подключиться к базе данных (см. список поддерживаемых администраторов в разделе **Функции и ограничения Azure AD** выше).
 
 В следующем примере используется необязательный параметр **ObjectID**:
 
 ```
-Set-AzureSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
+Set-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
 –ServerName "demo_server" -DisplayName "DBA_Group" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353f"
 ```
 
@@ -192,11 +195,11 @@ Set-AzureSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23"
 Следующий пример возвращает сведения о текущем администраторе Azure AD для сервера Azure SQL Server:
 
 ```
-Get-AzureSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
+Get-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
 ```
 
 В следующем примере выполняется удаление администратора Azure AD: ```
-Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
+Remove-AzureRMSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
 ```
 
 ## 5\. Настройка клиентских компьютеров
@@ -322,4 +325,4 @@ Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" 
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

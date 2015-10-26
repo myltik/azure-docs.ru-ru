@@ -2,10 +2,11 @@
 	pageTitle="Выборка данных в таблицах Azure HDInsight Hive | Microsoft Azure"
 	description="Уменьшение выборки данных в таблицах Azure HDInsight Hive"
 	services="machine-learning,hdinsight"
+	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm"
-	editor="cgronlun"/>
+	manager="paulettm" 
+	editor="cgronlun"  />
 
 <tags
 	ms.service="machine-learning"
@@ -14,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2015"
-	ms.author="hangzh;bradsev"/>
+	ms.author="hangzh;bradsev" />
 
 # Выборка данных в таблицах Azure HDInsight Hive
 
@@ -99,4 +100,4 @@
 Сведения о дополнительных методах выборки, доступных в Hive, см. в статье [Руководство по языку: выборка](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

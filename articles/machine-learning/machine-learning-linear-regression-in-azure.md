@@ -1,7 +1,9 @@
 <properties 
 	pageTitle="Использование линейной регрессии в машинном обучении | Microsoft Azure" 
 	description="Сравнение моделей линейной регрессии в Excel и Студии машинного обучения Azure" 
+	metaKeywords="" 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="garyericson" 
 	manager="paulettm" 
@@ -156,4 +158,4 @@
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

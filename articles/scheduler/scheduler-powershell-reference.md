@@ -21,18 +21,18 @@
 
 |Командлет|Описание командлета|
 |---|---|
-|**[Get-AzureSchedulerJob](https://msdn.microsoft.com/ru-ru/library/azure/dn722516.aspx)**|Получает список заданий планировщика или конкретное задание планировщика.|
-|**[Get-AzureSchedulerJobCollection](https://msdn.microsoft.com/ru-ru/library/azure/dn722471.aspx)**|Получает коллекции заданий планировщика.|
-|**[Get-AzureSchedulerJobHistory](https://msdn.microsoft.com/ru-ru/library/azure/dn722514.aspx)**|Получает журнал задания планировщика.|
-|**[Get-AzureSchedulerLocation](https://msdn.microsoft.com/ru-ru/library/azure/dn722505.aspx)**|Получает доступные расположения планировщика.|
-|**[New-AzureSchedulerHttpJob](https://msdn.microsoft.com/ru-ru/library/azure/dn722492.aspx)**|Создает задание планировщика с действием HTTP.|
-|**[New-AzureSchedulerJobCollection](https://msdn.microsoft.com/ru-ru/library/azure/dn759640.aspx)**|Создает коллекцию заданий планировщика.|
-|**[New-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/ru-ru/library/azure/dn722518.aspx)**|Создает задание планировщика с действием хранилища.|
-|**[Remove-AzureSchedulerJob](https://msdn.microsoft.com/ru-ru/library/azure/dn722477.aspx)**|Удаляет задание планировщика.|
-|**[Remove-AzureSchedulerJobCollection](https://msdn.microsoft.com/ru-ru/library/azure/dn722530.aspx)**|Удаляет коллекцию заданий планировщика.|
-|**[Set-AzureSchedulerHttpJob](https://msdn.microsoft.com/ru-ru/library/azure/dn722474.aspx)**|Обновляет задание планировщика с действием HTTP.|
-|**[Set-AzureSchedulerJobCollection](https://msdn.microsoft.com/ru-ru/library/azure/dn759626.aspx)**|Обновляет коллекцию заданий планировщика.|
-|**[Set-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/ru-ru/library/azure/dn722476.aspx)**|Обновляет задание планировщика с действием хранилища.|
+|**[Get-AzureSchedulerJob](https://msdn.microsoft.com/ru-RU/library/azure/dn722516.aspx)**|Получает список заданий планировщика или конкретное задание планировщика.|
+|**[Get-AzureSchedulerJobCollection](https://msdn.microsoft.com/ru-RU/library/azure/dn722471.aspx)**|Получает коллекции заданий планировщика.|
+|**[Get-AzureSchedulerJobHistory](https://msdn.microsoft.com/ru-RU/library/azure/dn722514.aspx)**|Получает журнал задания планировщика.|
+|**[Get-AzureSchedulerLocation](https://msdn.microsoft.com/ru-RU/library/azure/dn722505.aspx)**|Получает доступные расположения планировщика.|
+|**[New-AzureSchedulerHttpJob](https://msdn.microsoft.com/ru-RU/library/azure/dn722492.aspx)**|Создает задание планировщика с действием HTTP.|
+|**[New-AzureSchedulerJobCollection](https://msdn.microsoft.com/ru-RU/library/azure/dn759640.aspx)**|Создает коллекцию заданий планировщика.|
+|**[New-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/ru-RU/library/azure/dn722518.aspx)**|Создает задание планировщика с действием хранилища.|
+|**[Remove-AzureSchedulerJob](https://msdn.microsoft.com/ru-RU/library/azure/dn722477.aspx)**|Удаляет задание планировщика.|
+|**[Remove-AzureSchedulerJobCollection](https://msdn.microsoft.com/ru-RU/library/azure/dn722530.aspx)**|Удаляет коллекцию заданий планировщика.|
+|**[Set-AzureSchedulerHttpJob](https://msdn.microsoft.com/ru-RU/library/azure/dn722474.aspx)**|Обновляет задание планировщика с действием HTTP.|
+|**[Set-AzureSchedulerJobCollection](https://msdn.microsoft.com/ru-RU/library/azure/dn759626.aspx)**|Обновляет коллекцию заданий планировщика.|
+|**[Set-AzureSchedulerStorageQueueJob](https://msdn.microsoft.com/ru-RU/library/azure/dn722476.aspx)**|Обновляет задание планировщика с действием хранилища.|
 
 
 ## См. также
@@ -55,4 +55,4 @@
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

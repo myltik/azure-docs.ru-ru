@@ -56,7 +56,7 @@
 
 + Убедитесь, что вы предоставили правильные учетные данные для учетной записи Azure. В некоторых предыдущих версиях этих средств учетные данные Microsoft Azure, которые отображаются в диалоговом окне "Новый проект", могут отличаться от учетных данных, отображаемых в правом верхнем углу окна Visual Studio.
 + В браузере убедитесь, что у вас есть доступ к [порталу Azure](https://portal.azure.com). Откройте параметры и проверьте, нет ли каких-либо ограничений.
-+ [Добавьте Application Insights в существующий проект][start]. В обозревателе решений щелкните проект правой кнопкой мыши и выберите команду «Добавить Application Insights».
++ [Добавьте Application Insights в существующий проект][start]. В обозревателе решений щелкните проект правой кнопкой мыши и выберите пункт «Добавить Application Insights».
 + Если устранить проблему не удалось, добавьте ресурс на портал [вручную](app-insights-start-monitoring-app-health-usage.md), а затем добавьте в проект пакет SDK. 
 
 #### <a name="emptykey"></a>Появляется сообщение об ошибке «ключ инструментирования не может быть пустым»
@@ -238,9 +238,9 @@
 [azurediagnostic]: ../insights-how-to-use-diagnostics.md
 [data]: app-insights-data-retention-privacy.md
 [platforms]: app-insights-platforms.md
-[start]: app-insights-get-started.md
+[start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

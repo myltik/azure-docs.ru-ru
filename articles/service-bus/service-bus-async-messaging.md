@@ -172,4 +172,4 @@ if (sendAvailabilityOptions.BacklogQueueCount < 1)
   [BacklogQueueCount]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.backlogqueuecount.aspx
   [сопряженным пространствам имен и их стоимости]: service-bus-paired-namespaces.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

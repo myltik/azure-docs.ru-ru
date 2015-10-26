@@ -109,4 +109,4 @@
 - [Резервное копирование виртуальных машин Azure](backup-azure-vms-introduction.md)
 - [Резервное копирование рабочих нагрузок Майкрософт](backup-azure-dpm-introduction.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

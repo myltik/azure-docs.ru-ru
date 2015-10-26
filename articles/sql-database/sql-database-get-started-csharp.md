@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Создание базы данных SQL Azure c помощью C#"
-	description="В этой статье показано, как создавать базы данных SQL Azure с помощью C#, используя библиотеку баз данных SQL Azure для .NET."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="Создание базы данных SQL Azure c помощью C#" 
+   description="В этой статье показано, как создавать базы данных SQL Azure с помощью C#, используя библиотеку баз данных SQL Azure для .NET." 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="stevestein" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="data-management"
-	ms.date="09/01/2015"
-	ms.author="sstein"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="data-management" 
+   ms.date="09/01/2015"
+   ms.author="sstein"/>
 
 # Создание базы данных SQL с помощью C&#x23;
 
@@ -434,4 +434,4 @@
 [8]: ./media/sql-database-get-started-csharp/add-application2.png
 [9]: ./media/sql-database-get-started-csharp/clientid.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

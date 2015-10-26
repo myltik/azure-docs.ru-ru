@@ -63,4 +63,4 @@ ADAL доступна на различных платформах.
 
 [Примеры кода Azure Active Directory](active-directory-code-samples.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

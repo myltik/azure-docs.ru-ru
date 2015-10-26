@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/15/2015"
+   ms.date="10/12/2015"
    ms.author="alkohli" />
 
 # Удаленное подключение к устройству StorSimple
@@ -234,7 +234,7 @@
 
 Выполните следующую процедуру на компьютере, с которого будет выполняться удаленное подключение Windows PowerShell.
 
-### Создание сеанса SSAdmin на устройстве с помощью Windows PowerShell и SSL
+#### Создание сеанса SSAdmin на устройстве с помощью Windows PowerShell и SSL
 
 1. Запустите сеанс Windows PowerShell от имени администратора.
 
@@ -256,9 +256,9 @@
 
      `$session = new-pssession -usessl -CN <Serial number of target device> -credential $cred -configurationname "SSAdminConsole"`
 
-    Для CN-имени в командлете укажите *<serial number of target device>*. Этот серийный номер был сопоставлен IP-адресу данных 0 в файле hosts на удаленном узле; например **SHX0991003G44MT**, как показано на следующем рисунке.
+    В качестве CN-имени в командлете предоставьте <*серийный номер целевого устройства*>. Этот серийный номер был сопоставлен с IP-адресом DATA 0 в файле hosts на удаленном узле. Пример — **SHX0991003G44MT**, как показано на следующем рисунке.
 
-5. Введите:
+5. Тип:
 
      `Enter-PSSession $session`
 
@@ -272,4 +272,4 @@
 
 - Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

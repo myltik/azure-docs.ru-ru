@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Скачивание пакета Azure SDK для Java (Mac)" 
-	description="Скачивание пакета SDK для Azure для Java. Код предоставляется для случая, если для сборки используется Maven." 
+	description="Скачивание пакета SDK для Azure для Java. Код предоставляется для случая, если для сборки используется Maven. Шаги по установке набора средств Azure для Eclipse." 
 	services="" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
@@ -13,11 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="10/12/2015" 
 	ms.author="robmcm"/>
 
 #Загрузка пакета Azure SDK для Java
 
 [AZURE.INCLUDE [download\_libraries](../includes/download_libraries.md)]
 
-<!---HONumber=August15_HO6-->
+[AZURE.INCLUDE [download\_eclipse](../includes/download_eclipse.md)]
+
+## Дальнейшие действия
+
+Дополнительную информацию см. в [Центре разработчика Java](/develop/java/).
+
+<!---HONumber=Oct15_HO3-->

@@ -11,7 +11,8 @@ ms.author="bbenz" />
 
 #Список образов виртуальных машин Oracle
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса с помощью модели развертывания на основе диспетчера ресурсов, а также классической модели.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Чтобы создать виртуальную машину на основе образа Oracle, войдите на [портал Azure](https://ms.portal.azure.com/), щелкните **Marketplace**, выберите меню **Вычисление**, а затем в поле поиска введите **Oracle**. Выберите образ и следуйте указаниям, чтобы установить образ в Microsoft Azure. Обратите внимание, что в образах Oracle корпорации Майкрософт на [портале Azure](https://ms.portal.azure.com/) используется Windows, а в образах Oracle корпорации Oracle используется Oracle Linux.
 
@@ -62,4 +63,4 @@ ms.author="bbenz" />
 
 [Образы виртуальных машин Oracle. Различные рекомендации](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

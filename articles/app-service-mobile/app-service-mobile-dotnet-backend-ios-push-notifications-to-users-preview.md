@@ -108,4 +108,4 @@
 [шаблонов]: https://msdn.microsoft.com/ru-RU/library/dn530748.aspx
  
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

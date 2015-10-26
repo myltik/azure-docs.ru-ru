@@ -48,4 +48,4 @@
 <!--Other web references-->
 [Портал Azure]: http://portal.azure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

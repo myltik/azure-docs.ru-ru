@@ -22,7 +22,6 @@
 
 В этом руководстве представлена служба автоматизации Azure и описано, как ее использовать, чтобы упростить управление виртуальными машинами Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## Что такое служба автоматизации Azure
 
@@ -44,4 +43,4 @@
 
 [Приступая к работе со службой автоматизации Azure](../automation-create-runbook-from-samples.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/04/2015"
+   ms.date="10/09/2015"
    ms.author="larryfr"/>
 
 #Разработка программ потоковой передачи на Python для HDInsight
@@ -205,4 +205,4 @@ Python позволяет с легкостью выполнить эти тре
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

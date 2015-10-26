@@ -1,20 +1,20 @@
 <properties
    pageTitle="Работа с источниками больших данных"
-	description="Статья, описывающая подходы к использованию каталога данных Azure при работе с источниками больших данных, в том числе с хранилищем BLOB-объектов Azure и Hadoop HDFS."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Статья, описывающая подходы к использованию каталога данных Azure при работе с источниками больших данных, в том числе с хранилищем BLOB-объектов Azure и Hadoop HDFS."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/25/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="08/25/2015"
+   ms.author="maroche"/>
 
 
 # Работа с источниками больших данных в каталоге данных Azure
@@ -68,4 +68,4 @@
 ## Сводка
 Регистрация источников данных в **каталоге данных Azure** упрощает их поиск и интерпретацию. Регистрация и аннотирование файлов и каталогов, содержащих большие объемы данных и представляющих логические наборы данных, помогают пользователям находить и использовать необходимую информацию в источниках больших данных.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

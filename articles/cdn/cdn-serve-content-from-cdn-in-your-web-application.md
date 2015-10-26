@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Обслуживание содержимого из CDN Azure в вашем веб-приложении"
-	description="В этом учебнике объясняется, как использовать содержимое из CDN для повышения производительности веб-приложения."
-	services="cdn"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="Обслуживание содержимого из CDN Azure в вашем веб-приложении" 
+	description="В этом учебнике объясняется, как использовать содержимое из CDN для повышения производительности веб-приложения." 
+	services="cdn" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="cephalin"/>
 
 # Обслуживание содержимого из CDN Azure в вашем веб-приложении #
@@ -271,4 +271,4 @@
 - [Использование CDN для Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

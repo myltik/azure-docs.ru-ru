@@ -19,7 +19,8 @@
 
 # Создание распределенной виртуальной сети с использованием таблиц конфигурации
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+ 
 
 В этой статье рассматривается создание распределенной виртуальной сети на основе параметров, ранее заданных в перечисленных ниже таблицах конфигурации.
 
@@ -69,4 +70,4 @@
 
 [Настройка виртуальной сети с VPN-подключением "сеть-сеть"](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

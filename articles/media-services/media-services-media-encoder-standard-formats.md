@@ -58,6 +58,7 @@ QuickTime (.mov) |Да
 AVC 8-разрядный/10-разрядный, до 4:2:2, включая AVCIntra |8 бит 4:2:0 и 4:2:2 
 Avid DNxHD (в MXF) |Да 
 DVCPro/DVCProHD (в MXF) |Да 
+Цифровое видео (DV) (в AVI-файлах) |Да
 JPEG 2000 |Да 
 MPEG-2 (до 422 Profile и High Level, включая такие варианты, как XDCAM, XDCAM HD, XDCAM IMX, CableLabs® и D10)|До 422 Profile 
 MPEG-1 |Да 
@@ -85,7 +86,7 @@ MP3 (MPEG-1 Audio Layer 3)|Да
 Windows Media Audio|Да 
 WAV/PCM|Да 
 [FLAC](https://en.wikipedia.org/wiki/FLAC)</a>|Да 
-[Opus](https://en.wikipedia.org/wiki/Opus_(audio_format) |Да 
+[Opus] (https://en.wikipedia.org/wiki/Opus_(audio_format) |Да 
 [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a>|Да 
 AMR (adaptive multi-rate)|Да
 AES (SMPTE 331M и 302M, AES3-2003) |Нет 
@@ -101,7 +102,7 @@ Dolby® Digital Plus (E-AC3) |Нет
 
 Формат файла|Видеокодек|Аудиокодек
 ---|---|---
-MP4 <br/><br/>(включая контейнеры MP4 с несколькими скоростями) |H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC v2 
+MP4 <br/><br/>(включая контейнеры MP4-файлов с несколькими скоростями) |H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC v2 
 MPEG2-TS |H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC v2 
 
 
@@ -118,4 +119,4 @@ MPEG2-TS |H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC
 
 [Кодирование с помощью стандартного кодировщика мультимедиа](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

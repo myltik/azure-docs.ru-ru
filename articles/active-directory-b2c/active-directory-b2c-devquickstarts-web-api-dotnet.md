@@ -87,9 +87,10 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Web
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 
-В данной статье не рассматриваются вопросы защиты `TaskService`. Сведения о том, как веб-API надежно выполняет проверку подлинности запросов с помощью Azure AD B2C, см. в [статье о начале работы с веб-API](active-directory-b2c-devquickstarts-api-dotnet.md).
+В данной статье не рассматриваются вопросы защиты `TaskService`. Сведения о том, как веб-API надежно выполняет проверку подлинности запросов с помощью Azure AD B2C, см. в 
+[статье о начале работы с веб-API](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-## 6\. Настройка веб-приложения для задач
+## 6. Настройка веб-приложения для задач
 
 Чтобы обеспечить обмен данными между `TaskWebApp` и Azure AD B2C, необходимо указать несколько общих параметров. В корне проекта `TaskWebApp` откройте файл `web.config` и замените значения в разделе `<appSettings>`. Эти значения будут использоваться в веб-приложении.
 
@@ -389,4 +390,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

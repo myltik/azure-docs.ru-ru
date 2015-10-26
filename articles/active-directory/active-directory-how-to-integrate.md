@@ -90,4 +90,4 @@ Azure Active Directory предоставляет организациям фу�
 
 [Вход пользователей с помощью в Azure AD](active-directory-authentication-scenarios.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

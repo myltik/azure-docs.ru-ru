@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Аварийное восстановление базы данных SQL"
-	description="Информация о восстановлении базы данных после сбоя регионального центра обработки данных с помощью георепликации и геовосстановления базы данных SQL Azure."
-	services="sql-database"
-	documentationCenter=""
-	authors="elfisher"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="Аварийное восстановление базы данных SQL" 
+   description="Информация о восстановлении базы данных после сбоя регионального центра обработки данных с помощью георепликации и геовосстановления базы данных SQL Azure." 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="elfisher" 
+   manager="jeffreyg" 
+   editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="07/14/2015"
-	ms.author="elfish"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="07/14/2015"
+   ms.author="elfish"/>
 
 # Восстановление базы данных SQL Azure после сбоя
 
@@ -103,4 +103,4 @@
 После восстановления базы данных вы можете настроить ее для использования. Для этого следуйте инструкциям руководства [Завершение восстановленной базы данных](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -752,9 +752,9 @@ Azure PowerShell — это полнофункциональная среда с
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
-[connectionmanager]: http://msdn.microsoft.com/RU-RU/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/RU-RU/library/mt146770(v=sql.120).aspx
-[ssisclustercreate]: http://msdn.microsoft.com/RU-RU/library/mt146774(v=sql.120).aspx
-[ssisclusterdelete]: http://msdn.microsoft.com/RU-RU/library/mt146778(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/ru-RU/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/ru-RU/library/mt146770(v=sql.120).aspx
+[ssisclustercreate]: http://msdn.microsoft.com/ru-RU/library/mt146774(v=sql.120).aspx
+[ssisclusterdelete]: http://msdn.microsoft.com/ru-RU/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

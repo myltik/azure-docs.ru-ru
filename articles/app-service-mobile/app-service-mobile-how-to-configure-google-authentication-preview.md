@@ -1,9 +1,9 @@
 <properties
 	pageTitle="Настройка проверки подлинности Google для приложения служб приложений"
 	description="Настройка проверки подлинности Google для приложения служб приложений."
-	services="app-service\mobile"
+    services="app-service\mobile"
 	documentationCenter=""
-	authors="mattchenderson"
+	authors="mattchenderson" 
 	manager="dwrede"
 	editor=""/>
 
@@ -68,4 +68,4 @@
 [портале управления Azure]: https://portal.azure.com/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Облачные службы Azure — все что нужно знать о сертификатах" 
+	pageTitle="Облачные службы и сертификаты управления | Microsoft Azure" 
 	description="Узнайте, как создавать и использовать сертификаты с помощью Microsoft Azure" 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015"
+	ms.date="10/09/2015"
 	ms.author="adegeo"/>
 
 # Общие сведения о сертификатах для облачных служб Azure
@@ -69,12 +69,15 @@
 ### Java
 Для [создания сертификата](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate) можно использовать Java.
 
+### Linux
+В [этой](..\virtual-machines\virtual-machines-linux-use-ssh-key.md) статье рассматривается создание сертификатов с использованием SSH.
+
 ## Дальнейшие действия
 
-[Загрузите на портал Azure ](cloud-services-configure-ssl-certificate.md) (или [портал предварительной версии](cloud-services-configure-ssl-certificate-portal.md)) сертификат службы и [настройте его](cloud-services-xml-certs.md) для облачной службы.
+[Передайте на портал Azure ](cloud-services-configure-ssl-certificate.md) (или [портал предварительной версии](cloud-services-configure-ssl-certificate-portal.md)) сертификат службы и [настройте его](cloud-services-xml-certs.md) для облачной службы.
 
-Загрузите на портал Azure [сертификат API управления](../azure-api-management-certs.md).
+Передайте на портал Azure [сертификат API управления](../azure-api-management-certs.md).
 
 >[AZURE.NOTE]Портал предварительной версии Azure не использует сертификаты управления для доступа к API, обращаясь вместо этого к учетным записям пользователей.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -18,7 +18,8 @@
 #Создание виртуальной машины Oracle WebLogic Server 12c в Azure
 В следующем примере показано, как можно создать в Azure виртуальную машину на основе предоставленного корпорацией Майкрософт образа Oracle WebLogic Server 12c под управлением Windows Server 2012.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается создание Oracle WebLogic Server с помощью модели развертывания диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
+
 
 
 ##Создание виртуальной машины Oracle WebLogic Server 12c в Azure
@@ -186,4 +187,4 @@
 
 -	[Образы виртуальных машин Oracle для Azure](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

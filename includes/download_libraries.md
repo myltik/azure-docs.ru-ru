@@ -4,7 +4,7 @@
 
 ## Библиотеки Azure для Java — Maven
 
-Если проект уже настроен для сборки с использованием Maven, добавьте следующую зависимость в файл pom.xml. Примечание. Чтобы узнать о создании проектов Maven с библиотеками Azure для Java в Eclipse, перейдите по ссылке [http://go.microsoft.com/fwlink/?LinkId=622998]().
+Если проект уже настроен для сборки с использованием Maven, добавьте следующую зависимость в файл pom.xml. Примечание. Чтобы больше узнать о создании проектов Maven с библиотеками Azure для Java в Eclipse, см. раздел [Приступая к работе с библиотеками управления Azure для Java][maven-getting-started].
 
 	<dependency>
 	    <groupId>com.microsoft.azure</groupId>
@@ -56,6 +56,7 @@
 В элементе `<version>` вместо номера версии в этом примере введите допустимые номера версий, которые можно получить в [Хранилище библиотек Azure в Maven](http://go.microsoft.com/fwlink/?LinkID=286274).
 
 [license]: http://www.apache.org/licenses/LICENSE-2.0.html
-[zip-download]: http://go.microsoft.com/fwlink/?LinkId=253887
+[zip-download]: http://go.microsoft.com/fwlink/?LinkId=690320
+[maven-getting-started]: http://go.microsoft.com/fwlink/?LinkID=622998
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

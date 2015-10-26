@@ -32,7 +32,7 @@ Socket.IO обеспечивает связь в режиме реального
 
 Убедитесь, что следующие продукты и версии установлены для успешного завершения примера, описанного в этой статье.
 
-* Установите [Visual Studio 2013](https://www.visualstudio.com/ru-ru/downloads/download-visual-studio-vs.aspx).
+* Установите [Visual Studio 2013](https://www.visualstudio.com/ru-RU/downloads/download-visual-studio-vs.aspx).
 * Установите [Node.js](https://nodejs.org/download/).
 * Установите [Python версии 2.7.10](https://www.python.org/).
 
@@ -174,4 +174,4 @@ Socket.IO обеспечивает связь в режиме реального
   
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

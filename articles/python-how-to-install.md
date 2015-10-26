@@ -205,4 +205,4 @@ PTVS работает с установленными экземплярами V
 [хранилища очередей]: storage-python-how-to-use-queue-storage.md
 [хранилища BLOB-объектов]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -227,4 +227,4 @@
 [портале Azure]: https://manage.windowsazure.com/
 [портале предварительной версии Azure]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

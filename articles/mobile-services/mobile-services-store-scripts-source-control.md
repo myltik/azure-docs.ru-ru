@@ -152,7 +152,8 @@
 [Приступая к работе с мобильными службами]: mobile-services-ios-get-started.md
 [Работа с серверными сценариями в мобильных службах]: mobile-services-how-to-use-server-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
+[портал управления Azure]: https://manage.windowsazure.com/
 [Модули]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

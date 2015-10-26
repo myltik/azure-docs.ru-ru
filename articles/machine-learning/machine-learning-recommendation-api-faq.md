@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Настройка и использование API рекомендаций для машинного обучения | Microsoft Azure"
-	description="Microsoft RECOMMENDATIONS API, созданный с помощью часто задаваемых вопросов и ответов по Машинному обучению Azure"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="Настройка и использование API рекомендаций для машинного обучения | Microsoft Azure" 
+	description="Microsoft RECOMMENDATIONS API, созданный с помощью часто задаваемых вопросов и ответов по Машинному обучению Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="luisca"/>
 
 #Часто задаваемые вопросы о настройке и использовании API рекомендаций для машинного обучения
@@ -130,4 +130,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

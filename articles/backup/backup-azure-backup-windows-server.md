@@ -47,4 +47,4 @@
 - [Восстановление Windows Server или клиента Windows из Azure](backup-azure-restore-windows-server.md)
 - [Часто задаваемые вопросы о службе архивации Azure](backup-azure-backup-faq.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

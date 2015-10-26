@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr"/>
+	ms.author="MehrdadMzfr" />
 
 #Интеграция службы Engagement в iOS
 
@@ -151,7 +151,7 @@
 
 Если вы хотите получать отчеты о событиях, ошибках и заданиях, относящихся к конкретному приложению, следует использовать API Engagement при помощи методов класса `EngagementAgent`. Объект этого класса можно получить с помощью вызова статического метода `[EngagementAgent shared]`.
 
-API службы Engagement позволяет использовать все расширенные возможности Engagement и подробно описывается в разделе «Как использовать API Engagement в iOS» (а также в технической документации по классу `EngagementAgent`).
+API службы Engagement позволяет использовать все расширенные возможности Engagement и подробно описывается в разделе "Как использовать API Engagement в iOS" (а также в технической документации по классу `EngagementAgent`).
 
 ##Отключение сбора IDFA
 
@@ -207,4 +207,4 @@ API службы Engagement позволяет использовать все �
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

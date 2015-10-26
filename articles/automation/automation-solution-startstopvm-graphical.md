@@ -153,4 +153,4 @@
 - [Дочерние модули Runbook в службе автоматизации Azure](automation-child-runbooks.md) 
 - [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

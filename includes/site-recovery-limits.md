@@ -1,3 +1,19 @@
+<properties
+   pageTitle="Таблица со сведениями об ограничениях для Site Recovery"
+   description="В таблице описаны системные ограничения для Site Recovery."
+   services="site recovery"
+   documentationCenter="NA"
+   authors="csilauraa"
+   manager="jwhit"
+   editor="" />
+<tags
+   ms.service="site recovery"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="07/06/2015"
+   ms.author="lauraa" />
 
 
 Ниже указаны ограничения, применяемые к Azure Site Recovery.
@@ -12,4 +28,4 @@
 |Количество серверов на одну группу защиты|Без ограничений|
 |Количество серверов на один план восстановления|50|
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

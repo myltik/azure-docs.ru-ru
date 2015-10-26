@@ -1,20 +1,20 @@
 <properties
    pageTitle="Действия, доступные благодаря Testability | Microsoft Azure"
-	description="В этой статье рассматриваются действия по тестированию, доступные в Microsoft Azure Service Fabric."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="heeldin"
-	manager="timlt"
-	editor=""/>
+   description="В этой статье рассматриваются действия по тестированию, доступные в Microsoft Azure Service Fabric."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="heeldin"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/31/2015"
-	ms.author="heeldin;motanv"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/31/2015"
+   ms.author="heeldin;motanv"/>
 
 # Действия, доступные благодаря Testability
 Для моделирования ненадежной инфраструктуры платформа Service Fabric предоставляет разработчикам несколько способов имитировать различные реалистичные ошибки и смены состояний. Такие действия доступны благодаря компоненту Testability. Эти действия представляют из себя интерфейсы API низкого уровня, которые вызывают определенную ошибку, смену состояния или проверку. Сочетая эти действия, разработчик служб может написать комплексный сценариев тестирования своих служб.
@@ -234,4 +234,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [Ошибки обмена данными между службами](service-fabric-testability-scenarios-service-communication.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

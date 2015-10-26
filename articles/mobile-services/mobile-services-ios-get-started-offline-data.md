@@ -271,4 +271,4 @@
 
 [краткого учебника по быстрому запуску мобильных служб]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

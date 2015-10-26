@@ -85,4 +85,4 @@
 [Определение API соединителя File]: https://msdn.microsoft.com/library/dn936296.aspx
 [Использование диспетчера гибридных соединений]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

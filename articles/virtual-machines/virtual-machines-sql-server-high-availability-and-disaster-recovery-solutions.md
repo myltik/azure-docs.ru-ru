@@ -22,7 +22,8 @@
 
 Виртуальные машины Microsoft Azure с SQL Server могут помочь удешевить базу данных, обеспечивающую высокий уровень доступности и аварийное восстановление (HADR). Виртуальные машины Azure поддерживают большинство решений HADR для SQL Server как для использования только в службе Azure, так и в качестве гибридных решений. Если решение предназначено только для использования в службе Azure, в ней выполняется вся система HADR. В гибридной конфигурации часть решения выполняется в Azure, а другая часть — в локальной сети организации. Гибкость среды Azure позволяет полностью или частично перемещать ресурсы в Azure в соответствии с бюджетом и требованиями систем баз данных SQL Server к HADR.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 ## Целесообразность использования решения HADR
 
@@ -146,4 +147,4 @@
 - [Установка нового леса Active Directory в виртуальной сети Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Создание кластера WSFC для групп доступности AlwaysOn на виртуальной машине Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

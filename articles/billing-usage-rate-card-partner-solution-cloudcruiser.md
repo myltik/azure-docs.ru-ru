@@ -234,4 +234,4 @@ Cloud Cruiser может по-разному использовать интег
 [13]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/4_NewTagField.png "Рис. 13 — создание новых полей для информации тега"
 [14]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/5_PopulateAccountStructure.png "Рис. 14 — заполнение структуры учетной записи данными из результатов поиска"
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

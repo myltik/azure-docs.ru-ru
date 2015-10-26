@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure AD Connect Sync: общие сведения о выражениях декларативной подготовки"
+	pageTitle="Служба синхронизации Azure AD Connect: общие сведения о выражениях декларативной подготовки | Microsoft Azure"
 	description="Описание выражений декларативной подготовки."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi"/>
 
 
@@ -66,9 +66,9 @@
 
 Соединитель Active Directory предоставляет следующие параметры для входящих правил синхронизации.
 
- 
+
 | Domain.Netbios | Domain.FQDN | Domain.LDAP | | Forest.Netbios | Forest.FQDN | Forest.LDAP |
- 
+
 
 Система предоставляет следующий параметр:
 
@@ -132,7 +132,7 @@ domain <- %Domain.Netbios%
 
 * [Azure AD Connect Sync: настройка параметров синхронизации](active-directory-aadconnectsync-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
- 
+
 <!--Image references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

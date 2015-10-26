@@ -1,20 +1,20 @@
 
 <properties 
     pageTitle="Выбор размера виртуальной сети при работе в среде Azure RemoteApp"
-	description="Узнайте о требованиях к IP-адресам для Azure RemoteApp в виртуальной сети"
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+    description="Узнайте о требованиях к IP-адресам для Azure RemoteApp в виртуальной сети" 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
 <tags 
-    ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/02/2015" 
+    ms.author="elizapo" />
 
 
 
@@ -31,4 +31,4 @@
   
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

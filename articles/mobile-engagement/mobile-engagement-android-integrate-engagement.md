@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement"
+	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement" 
 	description="Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
-	services="mobile-engagement"
-	documentationCenter="mobile"
-	authors="piyushjo"
-	manager="dwrede"
-	editor=""/>
+	services="mobile-engagement" 
+	documentationCenter="mobile" 
+	authors="piyushjo" 
+	manager="dwrede" 
+	editor="" />
 
 <tags 
-	ms.service="mobile-engagement"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/10/2015"
-	ms.author="piyushjo"/>
+	ms.service="mobile-engagement" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 #Интеграция службы Engagement на Android
 
@@ -382,4 +382,4 @@ API службы Engagement позволяет использовать все �
 [Device API]: http://go.microsoft.com/?linkid=9876094
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

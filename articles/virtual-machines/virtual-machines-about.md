@@ -19,7 +19,8 @@
 
 #О виртуальных машинах Azure 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описываются ресурсы, созданные с помощью модели развертывания на основе диспетчера ресурсов, а также классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Виртуальные машины Azure — один из нескольких типов запрашиваемых масштабируемых вычислительных ресурсов, которые предоставляет Azure. Обычно виртуальную машину выбирают, если требуется больший контроль над вычислительной средой, чем обеспечивают другие варианты.
 
@@ -51,4 +52,4 @@
 [Виртуальные машины]: #tellmevm
 [Облачные службы]: cloud-services-choose-me.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

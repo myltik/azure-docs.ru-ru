@@ -3,9 +3,9 @@
 	description="Настройка виртуальной машины Azure для использования в среде обработки и анализа данных с сервером IPython для расширенной аналитики."
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"  />
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mohabib;xibingao;bradsev"/>
+	ms.date="10/13/2015"
+	ms.author="mohabib;xibingao;bradsev" />
 
 # Настройка виртуальной машины Azure как сервера IPython Notebook для расширенной аналитики
 
@@ -122,7 +122,7 @@ Chrome: ![Создание рабочей области][21]
 
 ## Виртуальная машина Azure готова к использованию: что дальше
 
-Теперь вы можете использовать свою виртуальную машину для обработки и анализа данных. Кроме того, ее можно использовать в качестве сервера IPython Notebook для просмотра и обработки данных, а также для других задач, связанных с Машинным обучением Azure и расширенным процессом аналитики и технологии в действии.
+Теперь вы можете использовать свою виртуальную машину для обработки и анализа данных. Кроме того, ее можно использовать в качестве сервера IPython Notebook для просмотра и обработки данных, а также для других задач, связанных с Машинным обучением Azure и процессом аналитики Cortana (CAP).
 
 Сведения о дальнейших действиях, связанных с процессом и технологией расширенного анализа, вы можете найти в статье [Руководство по обучению. Расширенная обработка данных в Azure](machine-learning-data-science-advanced-data-processing.md). Это могут быть действия по перемещению данных в HDInsight, их обработке и составлению выборки из них в рамках машинного обучения Azure.
 
@@ -143,4 +143,4 @@ Chrome: ![Создание рабочей области][21]
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

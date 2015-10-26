@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Вход Azure MFA при помощи Azure Multi-Factor Authentication"
-	description="На этой странице предоставлены рекомендации о том, где можно воспользоваться разными методами входа с помощью Azure MFA."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Вход Azure MFA при помощи Azure Multi-Factor Authentication" 
+	description="На этой странице предоставлены рекомендации о том, где можно воспользоваться разными методами входа с помощью Azure MFA." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Варианты входа при помощи Azure Multi-Factor Authentication
@@ -33,4 +33,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

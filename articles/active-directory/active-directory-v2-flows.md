@@ -125,4 +125,4 @@ Accept: application/json
 
 Сценарий связанных веб-API может поддерживаться с помощью разрешения OAuth 2.0 Jwt Bearer Credential или [потока On-Behalf-Of](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). Однако поток "On-Behalf-Of" еще не реализован в предварительной версии модели приложений 2.0. Чтобы увидеть его в общедоступной службе Azure AD, изучите [пример кода On-Behalf-Of на GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

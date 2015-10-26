@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/20/2015"
+	ms.date="10/13/2015"
 	ms.author="tdykstra"/>
 
 # Использование интерфейса командной строки Azure (Azure CLI)
@@ -288,4 +288,4 @@ CLI можно использовать в режиме [управления с
 * [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

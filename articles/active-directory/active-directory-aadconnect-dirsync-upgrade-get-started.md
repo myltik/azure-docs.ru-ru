@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Microsoft Azure AD Connect — обновление средства синхронизации Windows Azure AD (DirSync)"
+   pageTitle="Microsoft Azure AD Connect — обновление средства синхронизации Windows Azure AD (DirSync) | Microsoft Azure"
    description="Узнайте, как обновить DirSync до Azure AD Connect. В этой статье описывается процедура обновления текущего средства синхронизации Windows Azure AD (DirSync) до Azure AD Connect."
    services="active-directory"
    documentationCenter=""
    authors="shoatman"
-   manager="terrylanfear"
+   manager="stevenpo"
    editor="billmath"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="09/02/2015" 
+   ms.date="09/02/2015"
    ms.author="shoatman"/>
 
 # Обновление службы синхронизации Azure Active Directory sync (DirSync) до Azure Active Directory Connect
@@ -143,7 +143,7 @@ Azure AD Connect выполнит подключение и отобразит
 
 ![Введите учетные данные Azure AD.](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 
-7. Нажмите кнопку "Далее". 
+7. Нажмите кнопку "Далее".
 8. Не снимайте флажок "Запустить синхронизацию сразу после завершения настройки" на странице "Готово к настройке".[AZURE.NOTE]Между Windows Server Active Directory и Azure Active Directory начнется синхронизация, однако изменения не будут экспортированы в Azure AD. В каждый момент времени активно экспортировать изменения может только одно средство синхронизации.
 9. Нажмите кнопку "Установить".
 
@@ -205,4 +205,4 @@ Azure AD Connect выполнит подключение и отобразит
 * [Подробнее](active-directory-aadconnect-learn-more.md)
 * [Azure AD Connect на портале MSDN](active-directory-aadconnect.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

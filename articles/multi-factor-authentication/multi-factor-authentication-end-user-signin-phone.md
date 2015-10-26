@@ -1,20 +1,20 @@
 
 <properties 
-	pageTitle="Вход с помощью вызова на рабочий или мобильный телефон при работе со службой Azure Multi-Factor Authentication"
-	description="На этой странице описана процедура входа пользователей с использованием мобильных телефонов."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Вход с помощью вызова на рабочий или мобильный телефон при работе со службой Azure Multi-Factor Authentication" 
+	description="На этой странице описана процедура входа пользователей с использованием мобильных телефонов." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Вход с помощью вызова на рабочий или мобильный телефон при работе со службой Azure Multi-Factor Authentication
@@ -38,4 +38,4 @@
 
 <li>После этого вы войдете в систему.</li>
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

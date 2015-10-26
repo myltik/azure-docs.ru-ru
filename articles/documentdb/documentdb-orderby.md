@@ -177,4 +177,4 @@ DocumentDB поддерживает сортировку по одиночном
 * [Образцы Order By в DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

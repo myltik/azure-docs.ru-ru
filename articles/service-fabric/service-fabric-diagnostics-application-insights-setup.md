@@ -89,4 +89,4 @@
 - [Создание собственных событий и метрик](../app-insights-custom-events-metrics-api.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

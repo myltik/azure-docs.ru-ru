@@ -90,4 +90,4 @@
 ## Дальнейшие действия
 Просмотрите последние [выпуски гостевой ОС](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

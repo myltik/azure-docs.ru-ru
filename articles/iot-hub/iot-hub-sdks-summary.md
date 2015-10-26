@@ -1,19 +1,19 @@
 <properties
  pageTitle="Список пакетов SDK для центра Azure IoT | Microsoft Azure"
- description="Сведения и ссылки на различные пакеты SDK для устройств и служб центра IoT"
+ description="Информация и ссылки на различные пакеты SDK для устройств и служб центра IoT Azure."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="dominicbetts"
  manager="timlt"
  editor=""/>
 
 <tags
  ms.service="iot-hub"
- ms.devlang="na"
+ ms.devlang="multiple"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
- ms.date="09/04/2015"
+ ms.workload="na"
+ ms.date="10/01/2015"
  ms.author="dobett"/>
 
 # Пакеты SDK для центра IoT
@@ -73,4 +73,4 @@
 [Пакет SDK для устройств Microsoft Azure IoT для Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/index.html
 [REST для центра IoT]: https://msdn.microsoft.com/library/mt548492.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

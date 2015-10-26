@@ -30,7 +30,7 @@
 4. Если вы используете Eclipse для создания Java-приложения, включите JAR-файл Twilio в файл развертывания приложения (WAR) с помощью компонента сборки развертывания Eclipse. Если среда Eclipse не используется, включите JAR-файл Twilio в ту же роль Azure, которой принадлежит ваше Java-приложение, после чего добавьте в приложение путь к классу.
 5. Убедитесь, что в хранилище ключей cacerts содержится сертификат Equifax Secure Certificate Authority с отпечатком MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (серийный номер 35:DE:F4:CF, отпечаток SHA1 D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). Это сертификат центра сертификации (ЦС) для службы [https://api.twilio.com][twilio_api_service], которая вызывается при использовании интерфейсов API Twilio. Дополнительные сведения о добавлении этого сертификата центра сертификации в хранилище JDK cacert см. в разделе [Добавление сертификата в хранилище сертификатов ЦС Java][add_ca_cert].
 
-Кроме того, если вы не используете среду Eclipse, мы настоятельно рекомендуем вам ознакомиться с разделом [Создание приложения Hello World с использованием подключаемого модуля Azure для Eclipse с помощью Java (Microsoft Open Technologies)][azure_java_eclipse_hello_world], а также другими способами размещения Java-приложений в Azure.
+Кроме того, если вы не используете среду Eclipse, мы настоятельно рекомендуем вам ознакомиться с разделом [Создание приложения Hello World с помощью набора средств Azure для Eclipse][azure_java_eclipse_hello_world], а также другими способами размещения приложений Java в Azure.
 
 ## Создание веб-формы для выполнения звонка
 
@@ -163,7 +163,7 @@
 ![Ответ на звонок Azure с помощью Twilio и Java][twilio_java_response]
 
 ## Выполнение приложения
-Ниже приводятся пошаговые инструкции по запуску приложения. Подробное описание этих шагов см. в разделе [Создание приложения Hello World с использованием подключаемого модуля Azure для Eclipse с помощью Java (Microsoft Open Technologies)][azure_java_eclipse_hello_world].
+Ниже приводятся общие указания по запуску приложения. Подробное описание этих шагов см. в разделе [Создание приложения Hello World с помощью набора средств Azure для Eclipse][azure_java_eclipse_hello_world].
 
 1. Экспортируйте WAR-файл TwilioCloud в папку **approot** Azure. 
 2. Измените файл **startup.cmd**, чтобы распаковать WAR-файл TwilioCloud.
@@ -209,4 +209,4 @@
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

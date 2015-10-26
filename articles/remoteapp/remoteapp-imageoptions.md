@@ -32,4 +32,4 @@
 Независимо от источника и способа создания образа необходимо понимать [требования к приложениям](remoteapp-appreqs.md) для их эффективной работы в среде RemoteApp. Затем нужно создать [облачную](remoteapp-create-cloud-deployment.md) или [гибридную](remoteapp-create-hybrid-deployment.md) коллекцию.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

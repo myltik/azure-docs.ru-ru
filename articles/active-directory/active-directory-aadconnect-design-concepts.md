@@ -1,20 +1,20 @@
 <properties
    pageTitle="Принципы проектирования Azure AD Connect | Microsoft Azure"
-	description="В этой статье описываются факторы, которые необходимо учитывать при проектировании реализации"
-	services="active-directory"
-	documentationCenter=""
-	authors="AndKjell"
-	manager="stevenpo"
-	editor=""/>
+   description="В этой статье описываются факторы, которые необходимо учитывать при проектировании реализации"
+   services="active-directory"
+   documentationCenter=""
+   authors="AndKjell"
+   manager="stevenpo"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="Identity"
-	ms.date="09/03/2015"
-	ms.author="andkjell"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="Identity"
+   ms.date="10/13/2015"
+   ms.author="andkjell"/>
 
 # Принципы проектирования Azure AD Connect
 В этой статье приведено описание факторов, которые должны учитываться при проектировании реализации Azure AD Connect. Здесь подробно рассмотрены некоторые вопросы, которые кратко описывались в других статьях.
@@ -66,4 +66,7 @@
 - При установке другого сервера Azure AD Connect необходимо выбрать уже используемый атрибут sourceAnchor. Если вы ранее использовали DirSync и переходите на Azure AD Connect, вам потребуется использовать **objectGUID**, так как этот атрибут использовался в DirSync.
 - Если после экспорта объекта в Azure AD значение sourceAnchor будет изменено, синхронизация Azure AD Connect выдаст ошибку. После этого вы не сможете вносить изменения в объект до устранения проблемы и возврата sourceAnchor в исходный каталог.
 
-<!---HONumber=September15_HO1-->
+## Дальнейшие действия
+Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
+
+<!---HONumber=Oct15_HO3-->

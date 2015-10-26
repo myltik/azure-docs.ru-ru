@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="10/09/2015"
 	ms.author="larryfr"/>
 
 # Установка Giraph в кластерах HDInsight Hadoop и использование Giraph для обработки диаграмм больших объемов
@@ -148,4 +148,4 @@ Giraph можно установить в любой тип кластера Had
 
 - [Установка Solr в кластерах HDInsight](hdinsight-hadoop-solr-install-linux.md). Используйте настройки кластера для установки Solr в кластерах HDInsight Hadoop. Solr позволяет вести расширенный поиск по хранимым данным.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

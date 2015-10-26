@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="10/13/2015"
 	ms.author="brandwe"/>
 
 # Приступая к работе с веб-интерфейсом API для узла
@@ -197,7 +197,7 @@ Restify предоставляет мощный механизм для трас
 `cd azuread`
 
 
-Введите следующие команды для установки следующих модулей в каталоге node\_modules :
+Введите следующие команды для установки следующих модулей в каталоге node\_modules:
 
 * `npm install crypto`
 * `npm install assert-plus`
@@ -247,7 +247,7 @@ Restify предоставляет мощный механизм для трас
 	var restify = require('restify');
 ```
 
-Сохраните файл . Мы вернемся к нему позже.
+Сохраните файл. Мы вернемся к нему позже.
 
 ## Шаг 11. Создание файла конфигурации для сохранения параметров Azure AD
 
@@ -1180,4 +1180,4 @@ server.get('/tasks', passport.authenticate('provider', { session: false }), list
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

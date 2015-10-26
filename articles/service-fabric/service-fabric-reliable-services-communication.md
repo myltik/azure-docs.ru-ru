@@ -1,20 +1,20 @@
 <properties
    pageTitle="Обзор модели взаимодействия со службами"
-	description="В этой статье описаны основы модели взаимодействия, поддерживаемой интерфейсом API надежных служб."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="BharatNarasimman"
-	manager="vipulm"
-	editor=""/>
+   description="В этой статье описаны основы модели взаимодействия, поддерживаемой интерфейсом API надежных служб."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="BharatNarasimman"
+   manager="vipulm"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="required"
-	ms.date="08/27/2015"
-	ms.author="bharatn@microsoft.com"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="required"
+   ms.date="08/27/2015"
+   ms.author="bharatn@microsoft.com"/>
 
 # Модель взаимодействия со службами
 
@@ -230,4 +230,4 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 * [Написание службы с помощью интерфейса API надежных служб, использующего стек связи WebAPI](service-fabric-reliable-services-communication-webapi.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

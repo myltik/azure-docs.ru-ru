@@ -64,7 +64,7 @@ Azure PowerShell — это полнофункциональная среда с
 
 	New-AzureStorageAccount -ResourceGroupName <AzureResourceGroupName> -Name <AzureStorageAccountName> -Location <AzureDataCneter> -Type <AccountType> # account type example: Standard_ZRS for zero redundancy storage
 
-	For a full list of the storage account types, see [https://msdn.microsoft.com/ru-ru/library/azure/hh264518.aspx](https://msdn.microsoft.com/ru-ru/library/azure/hh264518.aspx).
+	For a full list of the storage account types, see [https://msdn.microsoft.com/ru-RU/library/azure/hh264518.aspx](https://msdn.microsoft.com/ru-RU/library/azure/hh264518.aspx).
 
 
 Сведения о создании новой учетной записи хранения Azure с помощью портала предварительной версии Azure см. в статье [Создание и удаление учетной записи хранения, а также управление ею](storage-create-storage-account.md).
@@ -343,4 +343,4 @@ Azure PowerShell не может создать контейнер больши�
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

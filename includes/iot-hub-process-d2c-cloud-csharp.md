@@ -53,7 +53,7 @@
 
 5. Щелкните правой кнопкой мыши проект **ProcessDeviceToCloudMessages**, выберите команду **Добавить**, а затем щелкните элемент **Класс**. Присвойте классу имя **StoreEventProcessor**, а затем нажмите кнопку **ОК**, чтобы создать класс.
 
-6. Добавьте в начало файла SimpleEventProcessor.cs следующие инструкции:
+6. Добавьте в начало файла StoreEventProcessor.cs следующие инструкции:
 
         using System.IO;
         using System.Diagnostics;
@@ -96,7 +96,7 @@
 
             Task IEventProcessor.OpenAsync(PartitionContext context)
             {
-                Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
+                Console.WriteLine("StoreEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
 
                 if (!long.TryParse(context.Lease.Offset, out currentBlockInitOffset))
                 {
@@ -126,7 +126,7 @@
                         WriteHighlightedMessage(string.Format("Received interactive message: {0}", messageId));
                         continue;
                     }
-                    
+
                     if (toAppend.Length + data.Length > MAX_BLOCK_SIZE || stopwatch.Elapsed > MAX_CHECKPOINT_TIME)
                     {
                         await AppendAndCheckpoint(context);
@@ -229,7 +229,7 @@
 > [AZURE.NOTE]В целях упрощения в данном руководстве используется один экземпляр [EventProcessorHost]. Дополнительные сведения об обработке сообщений, передаваемых с устройства в облако, см. в [руководстве по программированию концентраторов событий] и руководстве [Обработка сообщений, передаваемых с устройства в облако].
 
 ## Прием интерактивных сообщений
-В этом разделе вам предстоит написать консольное приложение Windows, которое принимает интерактивные сообщения из очереди служебной шины. Дополнительные сведения о том, как разработать решение с использованием служебной шины, см. в разделе [Создание многоуровневых приложений с помощью служебной шины].
+В этом разделе вам предстоит написать консольное приложение Windows, которое принимает интерактивные сообщения из очереди служебной шины. Дополнительные сведения о том, как разработать решение с использованием служебной шины, см. в разделе [Создание многоуровневых приложений с помощью служебной шины][].
 
 1. В текущем решении Visual Studio создайте новый проект классического приложения Visual C# с помощью шаблона проекта **Консольное приложение**. Присвойте проекту имя **ProcessD2cInteractiveMessages**.
 
@@ -309,9 +309,11 @@
 
 [Service Bus Queue]: ../service-bus/service-bus-dotnet-how-to-use-queues.md
 
+[Создание многоуровневых приложений с помощью служебной шины]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+
 
 <!-- Images -->
-[10]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp1.png
+[10]: ./media/iot-hub-process-d2c-cloud-csharp/create-identity-csharp1.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
 [20]: ./media/iot-hub-getstarted-cloud-csharp/create-storage1.png
@@ -322,4 +324,4 @@
 [31]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue3.png
 [32]: ./media/iot-hub-process-d2c-cloud-csharp/createqueue4.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

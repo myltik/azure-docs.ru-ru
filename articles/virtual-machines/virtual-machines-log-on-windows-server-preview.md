@@ -19,7 +19,7 @@
 
 # Вход в виртуальную машину под управлением Windows Server 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается вход в виртуальную машину Windows с использованием модели развертывания на основе диспетчера ресурсов. Для создания ресурса вы также можете использовать [классическую модель развертывания](virtual-machines-log-on-windows-server.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-log-on-windows-server.md).
 
 Для запуска сеанса удаленного рабочего стола используйте кнопку **Подключить** на портале предварительной версии Azure. Сначала вы подключитесь к виртуальной машине, а затем сможете войти в систему.
 
@@ -47,4 +47,4 @@
 
 Если советы по входу не помогли устранить проблему или они вам не подходят, см. статью [Устранение неполадок с подключением к удаленному рабочему столу виртуальной машины Windows в службе Azure](virtual-machines-troubleshoot-remote-desktop-connections.md). В ней описывается процесс диагностики и решения распространенных проблем.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

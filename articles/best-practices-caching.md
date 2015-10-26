@@ -809,4 +809,4 @@ subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
 - Страница [Транзакции в Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) в репозитории StackExchange.Redis.
 - [Руководство по секционированию данных](http://msdn.microsoft.com/library/dn589795.aspx) на веб-сайте Майкрософт.
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

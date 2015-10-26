@@ -285,4 +285,4 @@
 
        В этом коде `RefreshTokenCacheFilter` используется в дополнение к `ProgressFilter`. Также во время `onCreate` нужно загрузить кэш маркеров. Поэтому методу `authenticate` передается значение `false`.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

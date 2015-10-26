@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="Индикаторы мониторинга StorSimple | Microsoft Azure"
-	description="В статье описываются светодиодные индикаторы и звуковые сигналы, которые позволяют отслеживать состояние устройства StorSimple."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+    pageTitle="Индикаторы мониторинга StorSimple | Microsoft Azure" 
+    description="В статье описываются светодиодные индикаторы и звуковые сигналы, которые позволяют отслеживать состояние устройства StorSimple."
+    services="storsimple"
+    documentationCenter="NA"
+    authors="SharS"
+    manager="carolz"
+    editor="" />
  <tags 
     ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="v-sharos"/>
+    ms.devlang="NA"
+    ms.topic="article"
+    ms.tgt_pltfrm="NA"
+    ms.workload="TBD"
+    ms.date="08/31/2015"
+    ms.author="v-sharos" />
 
 # Использование индикаторов мониторинга StorSimple для управления устройством   
 
@@ -256,4 +256,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

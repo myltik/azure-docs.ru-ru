@@ -6,13 +6,13 @@
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="NA"
 	ms.workload="search"
-	ms.topic="article"
+	ms.topic="article" 
 	ms.tgt_pltfrm="na"
 	ms.date="08/18/2015"
 	ms.author="heidist"/>
@@ -131,4 +131,4 @@
 - Максимум 1000 документов на одну страницу результатов поиска.
 - Максимум 100 предложений на один запрос API предложений.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

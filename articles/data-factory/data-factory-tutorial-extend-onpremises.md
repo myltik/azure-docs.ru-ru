@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Скопируйте выходные данные в базу данных локального сервера SQL Server (на портале Azure)"
+	pageTitle="Скопируйте выходные данные в базу данных локального сервера SQL Server (на портале Azure)" 
 	description="Данное пошаговое руководство представляет собой расширенную версию учебника. В нем используется редактор фабрики данных на портале Azure, за счет чего конвейер копирует выходные данные в базу данных SQL Server."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="spelluru"/>
 
 
@@ -170,4 +170,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

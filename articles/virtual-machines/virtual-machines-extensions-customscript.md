@@ -23,7 +23,7 @@
 
 Расширения виртуальной машины разработаны корпорацией Майкрософт и доверенными сторонними компаниями для расширения функциональных возможностей виртуальной машины. Общие сведения о расширениях виртуальных машин см. в статье [Расширения и компоненты виртуальных машин Azure](virtual-machines-extensions-features.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания. Для создания ресурса вы также можете использовать [модель развертывания диспетчера ресурсов](virtual-machines-extensions-customscript%20-with%20template.md).
+Ссылка:[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript%20-with%20template.md).
 
 
 ## Общие сведения о расширении Custom Script
@@ -32,7 +32,7 @@
 
 ### Предварительные требования для запуска расширения Custom Script
 
-1. Установите командлеты Azure PowerShell версии 0.8.0 или более поздней <a href="http://azure.microsoft.com/downloads" target="_blank">здесь</a>.
+1. Установите командлеты Azure PowerShell версии 0.8.0 или более поздней, скачав их <a href="http://azure.microsoft.com/downloads" target="_blank">здесь</a>.
 2. Если сценарии будут запускаться на существующей виртуальной машине, убедитесь, что на ней включен агент виртуальной машины. Если агент не включен, установите его, следуя указаниям в этой <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">статье</a>.
 3. Передайте сценарии, которые требуется запускать на виртуальной машине, в службу хранилища Azure. Сценарии могут поступать как из одного, так и из нескольких контейнеров хранилища.
 4. Сценарий должен быть создан таким образом, чтобы запущенный с помощью расширения первый сценарий запускал в свою очередь другие сценарии.
@@ -73,7 +73,7 @@
 
 ### Добавление расширения Custom Script из портала
 
-Перейдите к виртуальной машине на <a href="https://portal.azure.com/ " target="_blank">портале предварительной версии Azure </a> и добавьте это расширение, указав нужный файл сценария.
+Перейдите к виртуальной машине на <a href="https://portal.azure.com/ " target="_blank">портале предварительной версии Azure</a> и добавьте это расширение, указав нужный файл сценария.
 
   ![][5]
 
@@ -91,4 +91,4 @@
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="CDN — увеличьте производительность путем сжатия файлов"
-	description="Вы можете увеличить скорость передачи файлов и увеличить производительность загрузки страницы с помощью сжатия файлов."
-	services="cdn"
-	documentationCenter=".NET"
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="CDN — увеличьте производительность путем сжатия файлов" 
+	description="Вы можете увеличить скорость передачи файлов и увеличить производительность загрузки страницы с помощью сжатия файлов." 
+	services="cdn" 
+	documentationCenter=".NET" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cdn"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="juliako"/>
 
 #Увеличьте производительность путем сжатия файлов
@@ -54,4 +54,4 @@ CDN поддерживает два способа сжатия.
 1. Для конечных точек потоковой передачи с CDN служб мультимедиа сжатие включено по умолчанию для следующих типов содержимого: application/vnd.ms-sstr+xml,application/dash+xml,application/vnd.apple.mpegurl,application/f4m+xml. Вы не может включить или отключить сжатие для упомянутых выше типов с помощью портала Azure.  
 2. Только одна версия файла (сжатая или несжатая) будет кэширована на граничном сервере. Запрос другой версии приведет к перекодированию содержимого граничным сервером.  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

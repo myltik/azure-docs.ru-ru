@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Настройка параметров DNS в файле конфигурации службы | Microsoft Azure"
-	description="Настройка пользовательских параметров DNS с помощью файла конфигурации службы для виртуальной сети"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="Настройка пользовательских параметров DNS с помощью файла конфигурации службы для виртуальной сети"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="jdial"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="joaoma" />
 
 # Настройка параметров DNS в файле конфигурации службы
 
@@ -41,4 +41,4 @@
 
 [Параметры виртуальной сети на портале управления](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

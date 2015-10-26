@@ -55,4 +55,4 @@
 - [Изменение текстовых модулей Runbook в службе автоматизации Azure](automation-edit-textual-runbook.md)
 - [Выходные данные и сообщения Runbook в службе автоматизации Azure](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

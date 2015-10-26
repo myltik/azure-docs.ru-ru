@@ -19,7 +19,8 @@
 
 # Установка и настройка Symantec Endpoint Protection на виртуальной машине Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье рассматривается установка приложений на виртуальную машину, созданную с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 В этой статье показывается, как можно установить и настроить клиент Symantec Endpoint Protection на новой или существующей виртуальной машине (ВМ) под управлением Windows Server. Это полный клиент, включающий такие службы, как защита от вирусов и шпионских программ, брандмауэр и система предотвращения вторжений.
 
@@ -97,4 +98,4 @@
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

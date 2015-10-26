@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Загрузка пакета SDK Azure для Java (Windows)" 
-	description="Скачивание пакета SDK для Azure для Java. Код предоставлен для Maven. Шаги по установке предоставлены для подключаемого модуля Azure для Eclipse с Java." 
+	description="Скачивание пакета SDK для Azure для Java. Код предоставлен для Maven. Шаги по установке набора средств Azure для Eclipse." 
 	services="" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="08/14/2015" 
+	ms.date="10/12/2015" 
 	ms.author="robmcm"/>
 
 #Загрузка пакета Azure SDK для Java
@@ -26,4 +26,4 @@
 
 Дополнительную информацию см. в [Центре разработчика Java](/develop/java/).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

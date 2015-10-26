@@ -1,19 +1,19 @@
 <properties
    pageTitle="Настройка именованных учетных данных для проверки подлинности"
-	description="Узнайте, как указать учетные данные, которые Visual Studio сможет использовать для проверки подлинности запросов к Azure, чтобы опубликовать приложение из Visual Studio в Azure или отслеживать существующую облачную службу."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
+   description="Узнайте, как указать учетные данные, которые Visual Studio сможет использовать для проверки подлинности запросов к Azure, чтобы опубликовать приложение из Visual Studio в Azure или отслеживать существующую облачную службу."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
 <tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="09/02/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="09/02/2015"
+   ms.author="kempb" />
 
 # Настройка именованных учетных данных для проверки подлинности
 
@@ -71,4 +71,4 @@ Visual Studio использует в качестве учетных данны
 
     1. Вставьте полный путь к CER-файлу, который вы только что создали, а затем введите выбранный вами пароль.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

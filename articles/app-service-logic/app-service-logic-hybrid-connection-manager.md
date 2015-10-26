@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Использование диспетчера гибридных подключений | Служба приложений Microsoft Azure"
-	description="Установка и настройка диспетчера гибридных подключений и подключение к локальным соединителям, размещенным в службе приложений Azure"
-	services="app-service\logic"
+	pageTitle="Использование диспетчера гибридных подключений | Служба приложений Microsoft Azure" 
+	description="Установка и настройка диспетчера гибридных подключений и подключение к локальным соединителям, размещенным в службе приложений Azure" 
+	services="app-service\logic" 
 	documentationCenter=".net,nodejs,java"
-	authors="MandiOhlinger"
-	manager="dwrede"
+	authors="MandiOhlinger" 
+	manager="dwrede" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/23/2015"
+	ms.service="app-service-logic" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/23/2015" 
 	ms.author="mandia"/>
 
 # Подключение к локальным соединителям, размещенным в службе приложений Azure, с помощью диспетчера гибридных подключений
@@ -133,4 +133,4 @@ TCP-порт | Назначение
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

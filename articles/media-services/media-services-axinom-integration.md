@@ -3,7 +3,7 @@
 	description="В этой статье описывается использование служб мультимедиа Azure (AMS) для доставки потока, который зашифрован динамически службой AMS, с помощью лицензий DRM PlayReady и Widevine. Лицензию PlayReady выдает сервер лицензирования служб мультимедиа PlayReady, а лицензию Widevine — сервер лицензирования Axinom." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="willzhan,Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015"  
+	ms.date="10/14/2015"  
 	ms.author="juliako"/>
 
 #Использование Axinom для доставки лицензий Widevine в службы мультимедиа Azure  
@@ -24,7 +24,7 @@
 
 ##Обзор
 
-В службы мультимедиа Azure (AMS) добавлена динамическая защита Google Widevine (подробные сведения см. [в блоге Мингфей Ян (Mingfei Yan)](https://azure.microsoft.com/RU-RU/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)). Кроме того, в мультимедиапроигрыватель Azure (AMP) добавлена поддержка Widevine (подробные сведения см. в [документации по AMP](http://amp.azure.net/libs/amp/latest/docs/)). Это большое достижение в потоковой передаче содержимого DASH, защищенного с помощью CENC с несколькими собственными технологиями DRM (PlayReady и Widevine) в современных браузерах, оснащенных MSE и EME.
+В службы мультимедиа Azure (AMS) добавлена динамическая защита Google Widevine (подробные сведения см. [в блоге Мингфей Ян (Mingfei Yan)](https://azure.microsoft.com/ru-RU/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)). Кроме того, в мультимедиапроигрыватель Azure (AMP) добавлена поддержка Widevine (подробные сведения см. в [документации по AMP](http://amp.azure.net/libs/amp/latest/docs/)). Это большое достижение в потоковой передаче содержимого DASH, защищенного с помощью CENC с несколькими собственными технологиями DRM (PlayReady и Widevine) в современных браузерах, оснащенных MSE и EME.
 
 >[AZURE.NOTE]В настоящее время службы мультимедиа не предоставляют сервер лицензирования Widevine. Вы можете использовать следующие партнеры AMS для доставки лицензий Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) и [castLabs](http://castlabs.com/company/partners/azure/).
 
@@ -56,7 +56,7 @@
 
 ##Подготовка мультимедиапроигрывателя Azure
 
-Проигрыватель AMP 1.4.0 поддерживает воспроизведение содержимого AMS, которое динамически упаковывается с помощью DRM PlayReady и Widevine. Если сервер лицензирования Widevine не требует проверки подлинности маркера, для тестирования содержимого DASH, защищенного с помощью Widevine, не требуются никакие дополнительные действия. Например, команда AMP предоставляет простой пример [http://amp.azure.net/libs/amp/latest/samples/dynamic\_multiDRM\_PlayReadyWidevine\_notoken.html](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html). Вы сможете увидеть, как он работает в браузерах Edge и IE11 с помощью PlayReady и в Chrome с помощью Widevine. Сервер лицензирования Widevine, предоставляемый Axinom, требует проверки подлинности маркера JWT. Маркер JWT должен передаваться с запросом лицензии через заголовок HTTP X-AxDRM-Message. Для этого перед тем, как задавать источник, на веб-страницу, где размещается AMP, необходимо добавить следующий код JavaScript:
+Проигрыватель AMP 1.4.0 поддерживает воспроизведение содержимого AMS, которое динамически упаковывается с помощью DRM PlayReady и Widevine. Если сервер лицензирования Widevine не требует проверки подлинности маркера, для тестирования содержимого DASH, защищенного с помощью Widevine, не требуются никакие дополнительные действия. Например, группа разработчиков для AMP предоставляет простой [пример](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html), где можно просмотреть его работу в Edge и IE11 с PlayReady и в Chrome с Widevine. Сервер лицензирования Widevine, предоставляемый Axinom, требует проверки подлинности маркера JWT. Маркер JWT должен передаваться с запросом лицензии через заголовок HTTP X-AxDRM-Message. Для этого перед тем, как задавать источник, на веб-страницу, где размещается AMP, необходимо добавить следующий код JavaScript:
 
 	<script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
 
@@ -188,7 +188,15 @@
 Для мини-решения, в котором используется сервер лицензирования Axinom Widevine, требуются следующие параметры. Все параметры, кроме ключа идентификатора, предоставляются Axinom в соответствии с настройками сервера Widevine.
 
 
-![Параметры](./media/media-services-axinom-integration/media-services-axinom2.png)
+Параметр|Использование
+---|---
+Идентификатор ключа обмена данными|Должен быть включен в качестве значения утверждения com\_key\_id в маркере JWT (см. [этот](media-services-axinom-integration.md#jwt-token-generation) раздел).
+Ключ обмена данными|Должен использоваться в качестве ключа подписывания маркера JWT (см. [этот](media-services-axinom-integration.md#jwt-token-generation) раздел).
+Начальное значение ключа|Должно использоваться для создания ключа содержимого с любым заданным идентификатором ключа содержимого (см. [этот](media-services-axinom-integration.md#content-protection) раздел).
+URL-адрес для приобретения лицензии Widevine|Должен использоваться при настройке политики доставки ресурсов-контейнеров для потоковой передачи DASH (см. [этот](media-services-axinom-integration.md#content-protection) раздел).
+Идентификатор ключа содержимого|Должен быть включен в значение утверждения сообщения об обслуживании маркера JWT (см. [этот](media-services-axinom-integration.md#jwt-token-generation) раздел). 
+
+
 
 
 ##Схемы обучения работе со службами мультимедиа
@@ -198,4 +206,4 @@
 - [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

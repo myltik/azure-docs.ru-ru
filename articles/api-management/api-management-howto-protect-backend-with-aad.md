@@ -547,4 +547,4 @@
 [Создание экземпляра службы управления API]: api-management-get-started.md#create-service-instance
 [Управление первым API]: api-management-get-started.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

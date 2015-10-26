@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/13/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -71,7 +71,7 @@
 | facsimiletelephonenumber| X| X| | |
 | givenName| X| X| | |
 | homePhone| X| X| | |
-| info| X| X| X| |
+| info| X| X| X| Сейчас этот атрибут не используется для групп.|
 | Initials| X| X| | |
 | l| X| X| | |
 | legacyExchangeDN| X| X| X| |
@@ -97,11 +97,11 @@
 | msExchELCExpirySuspensionStart| X| | | |
 | msExchELCMailboxFlags| X| | | |
 | msExchEnableModeration| X| | X| |
-| msExchExtensionCustomAttribute1| X| X| X| |
-| msExchExtensionCustomAttribute2| X| X| X| |
-| msExchExtensionCustomAttribute3| X| X| X| |
-| msExchExtensionCustomAttribute4| X| X| X| |
-| msExchExtensionCustomAttribute5| X| X| X| |
+| msExchExtensionCustomAttribute1| X| X| X| Сейчас этот атрибут не используется Exchange Online. |
+| msExchExtensionCustomAttribute2| X| X| X| Сейчас этот атрибут не используется Exchange Online. |
+| msExchExtensionCustomAttribute3| X| X| X| Сейчас этот атрибут не используется Exchange Online. |
+| msExchExtensionCustomAttribute4| X| X| X| Сейчас этот атрибут не используется Exchange Online. |
+| msExchExtensionCustomAttribute5| X| X| X| Сейчас этот атрибут не используется Exchange Online. |
 | msExchHideFromAddressLists| X| X| X| |
 | msExchImmutableID| X| | | |
 | msExchLitigationHoldDate| X| X| X| |
@@ -409,11 +409,9 @@
 - Если используется альтернативный идентификатор, локальный атрибут userPrincipalName будет синхронизирован с атрибутом Azure AD onPremisesUserPrincipalName. Атрибут «Альтернативный идентификатор», например почта, будет синхронизирован с атрибутом Azure AD userPrincipalName.
 
 
-## Дополнительные ресурсы
+## Дальнейшие действия
+Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-* [Службы синхронизации Azure AD Connect: настройка параметров синхронизации](active-directory-aadconnectsync-whatis.md)
-* [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
+Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!--Image references-->
-
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

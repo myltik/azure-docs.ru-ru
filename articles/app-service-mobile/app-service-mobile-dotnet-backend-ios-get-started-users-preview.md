@@ -3,7 +3,7 @@
 	description="Узнайте, как использовать мобильные приложения для проверки подлинности пользователей приложения iOS с помощью разных поставщиков удостоверений, включая AAD, Google, Facebook, Twitter и Майкрософт."
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="krisragh"
+	authors="krisragh" 
 	manager="dwrede"
 	editor=""/>
 
@@ -50,4 +50,4 @@
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

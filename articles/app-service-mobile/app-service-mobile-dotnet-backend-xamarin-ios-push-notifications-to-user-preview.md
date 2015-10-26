@@ -114,4 +114,4 @@
 [Приступая к работе с push-уведомлениями]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [шаблонов]: https://msdn.microsoft.com/ru-RU/library/dn530748.aspx
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

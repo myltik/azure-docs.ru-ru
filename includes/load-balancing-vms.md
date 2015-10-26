@@ -1,3 +1,7 @@
+<properties title="Load Balancing for Azure Infrastructure Services" pageTitle="Балансировка нагрузки для служб инфраструктуры Azure" description="Описываются возможности для осуществления балансировки нагрузки с помощью Traffic Manager и специализированных средств балансировки нагрузки." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="cherylmc" videoId="" scriptId="" manager="adinah" />
+
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="cherylmc" />
+
 #Балансировка нагрузки для служб инфраструктуры Azure#
 
 В службах инфраструктуры Azure доступны два уровня балансировки нагрузки.
@@ -58,4 +62,4 @@ Azure также может распределять нагрузку внутр
 
 <!-- LINKS -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

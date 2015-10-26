@@ -18,7 +18,8 @@ ms.author="bbenz" />
 
 #Подготовка виртуальной машины Oracle Linux для Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Эта статья посвящена виртуальным машинам, созданным с помощью модели развертывания на основе диспетчера ресурсов, а также классической модели.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 -   [Подготовка виртуальной машины Oracle Linux версии 6.4 или более поздней для Azure](virtual-machines-linux-create-upload-vhd-oracle.md)
 
@@ -221,4 +222,4 @@ ms.author="bbenz" />
 
 15.  В диспетчере Hyper-V выберите **Действие -> Завершение работы**. Виртуальный жесткий диск Linux готов к передаче в Azure.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

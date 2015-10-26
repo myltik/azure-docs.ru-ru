@@ -32,9 +32,9 @@
 
 - **Visual Studio**. Загрузить бесплатную пробную версию Visual Studio 2013 или Visual Studio 2015 можно по ссылке [Загружаемые файлы для Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs). Прежде чем продолжить, установите одну из этих версий. (Приведенные в этом учебнике снимки экрана сделаны с использованием Visual Studio 2013.)
 
-- **SQL Server 2014 Express с инструментами** — загрузите Microsoft SQL Server Express бесплатно на [странице базы данных веб-платформы Майкрософт](https://www.microsoft.com/ru-ru/download/details.aspx?id=42299). Далее из этой статьи вы узнаете, как [установить SQL Server](#InstallSQLDB). Это позволит вам правильно его настроить.
+- **SQL Server 2014 Express с инструментами** — загрузите Microsoft SQL Server Express бесплатно на [странице базы данных веб-платформы Майкрософт](https://www.microsoft.com/ru-RU/download/details.aspx?id=42299). Далее из этой статьи вы узнаете, как [установить SQL Server](#InstallSQLDB). Это позволит вам правильно его настроить.
 
-- **SQL Server Management Studio Express**. Сюда включается SQL Server 2014, экспресс-выпуск с инструментами, указанный выше, но если требуется установить его отдельно, можно скачать и установить его на [странице скачивания SQL Server Express](https://www.microsoft.com/ru-ru/download/details.aspx?id=42299).
+- **SQL Server Management Studio Express**. Сюда включается SQL Server 2014, экспресс-выпуск с инструментами, указанный выше, но если требуется установить его отдельно, можно скачать и установить его на [странице скачивания SQL Server Express](https://www.microsoft.com/ru-RU/download/details.aspx?id=42299).
 
 В учебнике предполагается, что у вас есть подписка Azure, установлена служба Visual Studio 2013 и установлена или включена .NET Framework 3.5. В учебнике показано, как установить SQL Server 2014 Express в конфигурации, которая хорошо работает с функцией гибридных подключений Azure (экземпляр по умолчанию со статическим TCP-портом). Перед началом работы с учебником загрузите (но не устанавливайте) SQL Server 2014 Express с инструментами из указанного выше расположения, если SQL Server не установлен.
 
@@ -430,4 +430,4 @@
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

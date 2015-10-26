@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/06/2015"
+   ms.date="10/13/2015"
    ms.author="cherylmc"/>
 
 # Создание и изменение канала ExpressRoute
@@ -322,6 +322,6 @@
 ## Дальнейшие действия
 
 - [Настройка маршрутизации](expressroute-howto-routing-classic.md)
-- [Связывание виртуальной сети с каналом ExpressRoute](expresssroute-howto-linkvnet-classic.md) 
+- [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

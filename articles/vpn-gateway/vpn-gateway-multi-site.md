@@ -171,4 +171,4 @@
 
 Чтобы больше узнать о VPN-шлюзах, см. статью [Шлюзы VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

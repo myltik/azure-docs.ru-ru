@@ -171,7 +171,7 @@
 
 Виртуальную машину можно готовить и запускать из доступных образов с помощью команды `vm create`. В следующем примере показано, как создать виртуальную машину Linux (с именем `myVM`) из образа в коллекции (CentOS 6.2). Имя пользователя root и пароль для виртуальной машины: `myusername` и `Mypassw0rd`. (Обратите внимание что параметр `--location` указывает центр обработки данных, в котором создается виртуальная машина. Если параметр `--location` опущен, появится запрос выбрать расположение.)
 
-	azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-ru-ru-30GB.vhd myusername --location "West US"
+	azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-ru-RU-30GB.vhd myusername --location "West US"
 
 Вы можете передать флажок `--ssh` (Linux) или `--rdp` (Windows) `vm create`, чтобы включить удаленные подключения к новой виртуальной машине.
 
@@ -220,4 +220,4 @@
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

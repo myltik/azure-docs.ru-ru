@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="10/05/2015"
+	ms.date="10/13/2015"
 	ms.author="jeffstok"/>
 
 # Сравнение служб Apache Storm и Azure Stream Analytics #
@@ -578,7 +578,7 @@
             </td>
             <td width="204" valign="top">
                 <p>
-                    Да, путем настройки опубликованных моделей машинного обучения Azure в виде функций во время создания задания ASA.
+                    Путем настройки опубликованных моделей машинного обучения Azure в виде функций во время создания задания ASA <a href="http://blogs.msdn.com/b/streamanalytics/archive/2015/05/24/real-time-scoring-of-streaming-data-using-machine-learning-models.aspx">(закрытая предварительная версия)</a>.
                 </p>
             </td>
             <td width="246" valign="top">
@@ -590,4 +590,4 @@
     </tbody>
 </table>
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

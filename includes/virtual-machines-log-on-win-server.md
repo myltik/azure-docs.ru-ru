@@ -18,4 +18,4 @@
 
 	![Проверьте удостоверение машины](./media/virtual-machines-log-on-win-server/connectverify.png)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

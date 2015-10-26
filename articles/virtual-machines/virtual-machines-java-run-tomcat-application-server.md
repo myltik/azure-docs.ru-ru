@@ -19,7 +19,8 @@
 
 # Использование сервера приложений Java на виртуальной машине, созданной с помощью классической модели развертывания.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 В Azure можно использовать виртуальную машину для обеспечения возможностей сервера. Например, виртуальную машину, работающую в Azure, можно настроить для размещения сервера приложений Java, такого как Apache Tomcat. Изучив данное руководство, вы получите представление о том, как создавать виртуальные машины в Azure и настраивать их для работы сервера приложений Java.
 
@@ -145,4 +146,4 @@
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

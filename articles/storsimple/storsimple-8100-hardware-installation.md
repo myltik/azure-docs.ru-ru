@@ -275,4 +275,4 @@ Microsoft Azure StorSimple 8100 представляет собой единый
 Теперь вы готовы к [Развертыванию и настройке локального устройства StorSimple](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -241,4 +241,4 @@ Hive и Pig идеально подходят для работы с данны�
 
 * [Использование MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

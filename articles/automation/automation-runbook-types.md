@@ -109,4 +109,4 @@ Runbook рабочих процессов PowerShell представляют с
 - [Изучение рабочего процесса Windows PowerShell](automation-powershell-workflow.md)
 - [Создание или импорт модуля Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

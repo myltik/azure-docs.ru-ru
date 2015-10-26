@@ -1,7 +1,5 @@
 <properties pageTitle="Учебник. Интеграция Azure Active Directory с Panopto | Microsoft Azure" description="Узнайте, как использовать Panopto с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi"/>
-
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
 #Учебник. Интеграция Azure Active Directory с Panopto
 >[AZURE.TIP]Чтобы оставить отзыв, щелкните [здесь](http://go.microsoft.com/fwlink/?LinkId=524766).
   
@@ -126,4 +124,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

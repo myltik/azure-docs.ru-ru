@@ -163,4 +163,4 @@ HDInsight использует контейнер хранилища BLOB-объ
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Отображение кластеров"
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

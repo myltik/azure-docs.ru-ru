@@ -68,4 +68,4 @@
 - Узнайте, как [разрабатывать шаблоны](/best-practices-resource-manager-design-templates.md).
 - Используйте [рекомендации](/best-practices-resource-manager-examples.md).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

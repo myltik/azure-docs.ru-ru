@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor="tysonn"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
 # Общие сведения о службе архивации Azure
 В этой статье приводится краткий обзор решения Майкрософт для резервного копирования с использованием облачных технологий, которое позволяет клиентам выполнять резервное копирование данных, хранящихся локально или в Azure.
@@ -43,22 +43,31 @@
 7. **Резервное копирование в облаке**: служба архивации Azure использует службу теневого копирования томов для создания согласованных с приложениями резервных копий виртуальных машин IaaS Azure. Чтобы создать резервную копию, завершать работу виртуальной машины не нужно. Служба архивации также может создавать резервные копии виртуальных машин Linux в Azure с учетом специфики их файловой системы.
 
 
+## Сценарии развертывания
+| Компонент | Можно развернуть в Azure? | Можно развернуть локально? | Поддерживаемое целевое хранилище|
+| --- | --- | --- | --- |
+| Агент службы архивации Azure | **Да** <br><br>Агент службы архивации Azure можно развернуть на любой виртуальной машине Windows Server в Azure. | **Да** <br><br>Агент службы архивации Azure можно развернуть на любой виртуальной машине Windows Server или физическом компьютере. | Хранилище службы архивации Azure |
+| System Center Data Protection Manager (SCDPM) | **Да** <br><br>Узнайте больше о [защите рабочих нагрузок в Azure с помощью SCDPM](http://blogs.technet.com/b/dpm/archive/2014/09/02/azure-iaas-workload-protection-using-data-protection-manager.aspx). | **Да** <br><br>Узнайте больше о [защите рабочих нагрузок и виртуальных машин в центре обработки данных](https://technet.microsoft.com/ru-RU/library/hh758173.aspx). | Локально подключенный диск,<br>хранилище службы архивации Azure,<br>ленточный накопитель (только локальный) |
+| Служба архивации Azure (расширение виртуальной машины) | **Да** <br><br>Специально предназначена для [резервного копирования виртуальных машин IaaS Azure](backup-azure-vms-introduction.md). | **Не** <br><br>Используйте SCDPM для резервного копирования виртуальных машин в центре обработки данных. | Хранилище службы архивации Azure |
+
+
 ## Приложения и рабочие нагрузки
 
 | Рабочая нагрузка | Исходный компьютер | Решение службы архивации Azure |
 | --- | --- |---|
-| Файлы и папки | Windows Server, клиент Windows | Агент службы архивации Azure |
-| Файлы и папки | Windows Server, клиент Windows | System Center DPM |
+| Файлы и папки | Windows Server | [Агент службы архивации Azure](backup-configure-vault.md),<br> [System Center DPM](backup-azure-dpm-introduction.md) |
+| Файлы и папки | Клиент Windows | [Агент службы архивации Azure](backup-configure-vault.md),<br> [System Center DPM](backup-azure-dpm-introduction.md) |
 | Виртуальные машины Hyper-V (Windows) | Windows Server | System Center DPM |
 | Виртуальные машины Hyper-V (Linux) | Windows Server | System Center DPM |
-| Microsoft SQL Server | Windows Server | System Center DPM |
-| Microsoft SharePoint | Windows Server | System Center DPM |
+| Microsoft SQL Server | Windows Server | [System Center DPM](backup-azure-backup-sql.md) |
+| Microsoft SharePoint | Windows Server | [System Center DPM](backup-azure-backup-sharepoint.md) |
 | Microsoft Exchange | Windows Server | System Center DPM |
-| Виртуальные машины IaaS Azure (Windows)| - | Служба архивации Azure | | Виртуальные машины IaaS Azure (Linux) | - | Служба архивации Azure |
+| Виртуальные машины IaaS Azure (Windows)| - | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) | | Виртуальные машины IaaS Azure (Linux) | - | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
+
 
 ## Дальнейшие действия
 - [Знакомство со службой архивации Azure](backup-try-azure-backup-in-10-mins.md)
 - Часто задаваемые вопросы о службе архивации Azure можно найти [здесь](backup-azure-backup-faq.md).
 - Посетите [форум о службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

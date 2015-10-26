@@ -83,4 +83,4 @@
 <!--Other Web references-->
 [образцы сценариев данных]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

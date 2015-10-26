@@ -50,4 +50,4 @@ DNS основана на *записях*. Записи связывают ко
 
 	![](./media/custom-dns-web-site/managecustomdomains.png)
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

@@ -84,4 +84,4 @@
 [Переполнение стека]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [форуме MSDN, посвященном хранилищу данных SQL Azure]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

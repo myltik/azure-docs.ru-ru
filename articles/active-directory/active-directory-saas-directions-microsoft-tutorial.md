@@ -40,7 +40,7 @@
 
     ![Добавление приложения](./media/active-directory-saas-directions-microsoft-tutorial/IC749321.png "Добавление приложения")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
 
     ![Добавить приложение из коллекции](./media/active-directory-saas-directions-microsoft-tutorial/IC749322.png "Добавить приложение из коллекции")
 
@@ -99,4 +99,4 @@
 
     ![Да](./media/active-directory-saas-directions-microsoft-tutorial/IC767830.png "Да")
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

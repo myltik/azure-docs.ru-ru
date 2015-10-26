@@ -452,4 +452,4 @@ URL-адрес перенаправления после входа в Dropbox �
 [портала предварительной версии Azure]: https://portal.azure.com/
 [портала Azure]: https://manage.windowsazure.com/
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

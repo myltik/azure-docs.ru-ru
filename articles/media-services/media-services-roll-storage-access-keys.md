@@ -85,25 +85,64 @@
 
 ##Шаг 3. Обновление указателей 
 
-Через 30 минут обновите существующие указатели, чтобы установилась зависимость с новым дополнительным ключом хранилища.
+Через 30 минут можно будет повторно создать указатели OnDemand, чтобы они приняли зависимость с новым вторичным ключом к хранилищу данных и обслуживали существующий URL-адрес.
 
-Чтобы обновить срок действия указателя, используйте [REST API](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) или [API .NET](http://go.microsoft.com/fwlink/?LinkID=533259). Обратите внимание, что при обновлении срока действия указателя SAS изменяется URL-адрес.
+Обратите внимание, что при обновлении (или повторном создании) указателя SAS URL-адрес всегда меняется.
+
+>[AZURE.NOTE]Чтобы наверняка сохранить существующие URL-адреса указателей OnDemand, надо удалить существующий указатель и создать новый с таким же идентификатором.
+ 
+В примере .NET ниже показано, как повторно создать указатель с тем же идентификатором.
+	
+	private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
+	{
+	    // Save properties of existing locator.
+	    var asset = locator.Asset;
+	    var accessPolicy = locator.AccessPolicy;
+	    var locatorId = locator.Id;
+	    var startDate = locator.StartTime;
+	    var locatorType = locator.Type;
+	    var locatorName = locator.Name;
+	
+	    // Delete old locator.
+	    locator.Delete();
+	
+	    if (locator.ExpirationDateTime <= DateTime.UtcNow)
+	    {
+	        throw new Exception(String.Format(
+	            "Cannot recreate locator Id={0} because its locator expiration time is in the past",
+	            locator.Id));
+	    }
+	
+	    // Create new locator using saved properties.
+	    var newLocator = context.Locators.CreateLocator(
+	        locatorId,
+	        locatorType,
+	        asset,
+	        accessPolicy,
+	        startDate,
+	        locatorName);
+	
+	
+	
+	    return newLocator;
+	}
+
 
 ##Шаг 5. Повторное создание основного ключа доступа к хранилищу
 
-Создайте основной ключ доступа к хранилищу. Информацию о смене ключей доступа к хранилищу см. в статье [Практическое руководство. Просмотр, копирование и повторное создание ключей доступа к хранилищу](../storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Создайте основной ключ доступа к хранилищу. Информацию о смене ключей к хранилищу данных см. в статье [Практическое руководство. Просмотр, копирование и повторное создание ключей доступа к хранилищу](../storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 
 ##Шаг 6. Обновление служб мультимедиа для использования нового основного ключа хранилища
 	
-Используйте процедуру, описанную на [шаге 2](media-services-roll-storage-access-keys.md#step2), только в этот раз синхронизируйте с учетной записью служб мультимедиа новый основной ключ доступа к хранилищу.
+Используйте процедуру, описанную на [шаге 2](media-services-roll-storage-access-keys.md#step2), только в этот раз синхронизируйте с учетной записью служб мультимедиа новый первичный ключ доступа к хранилищу.
 
 >[AZURE.NOTE]Подождите 30 минут перед выполнением любых действий со службами мультимедиа (например, создание новых указателей), чтобы предотвратить проблемы с ожидающими заданиями.
 
 ##Шаг 7. Обновление указателей  
 
-Через 30 минут обновите существующие указатели, чтобы установилась зависимость с новым основным ключом хранилища.
+Через 30 минут можно будет повторно создать указатели OnDemand, чтобы они приняли зависимость с новым первичным ключом к хранилищу данных и обслуживали существующий URL-адрес.
 
-Чтобы обновить срок действия указателя, используйте [REST API](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator) или [API .NET](http://go.microsoft.com/fwlink/?LinkID=533259). Обратите внимание, что при обновлении срока действия указателя SAS изменяется URL-адрес.
+Используйте ту же процедуру, что описана на [шаге 3](media-services-roll-storage-access-keys.md#step-3-update-locators).
 
  
 ##Схемы обучения работе со службами мультимедиа
@@ -113,4 +152,4 @@
 - [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

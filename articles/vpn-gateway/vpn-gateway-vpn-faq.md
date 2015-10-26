@@ -1,19 +1,19 @@
 <properties 
    pageTitle="VPN-шлюз виртуальной сети: вопросы и ответы | Microsoft Azure"
-	description="VPN-шлюз: вопросы и ответы Распределенные подключения в виртуальной сети Microsoft Azure, подключения гибридных конфигураций и VPN-шлюзы: вопросы и ответы"
-	services="vpn-gateway"
-	documentationCenter="na"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   description="VPN-шлюз: вопросы и ответы Распределенные подключения в виртуальной сети Microsoft Azure, подключения гибридных конфигураций и VPN-шлюзы: вопросы и ответы"
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="vpn-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/20/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/20/2015"
+   ms.author="cherylmc" />
 
 # VPN-шлюз: вопросы и ответы
 
@@ -252,4 +252,4 @@ Azure взимает плату за трафик, проходящий межд
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

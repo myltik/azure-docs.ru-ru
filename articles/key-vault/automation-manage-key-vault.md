@@ -45,4 +45,4 @@
 * Изучите [руководство по началу работы](../automation-create-runbook-from-samples.md) со службой автоматизации Azure.
 * Изучите раздел [Скрипты PowerShell хранилища ключей Azure](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

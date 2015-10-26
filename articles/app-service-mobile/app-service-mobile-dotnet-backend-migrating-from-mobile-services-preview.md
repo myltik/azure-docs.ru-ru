@@ -145,4 +145,4 @@
 [Отправка кроссплатформенных push-уведомлений]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
 [Как использовать пакет SDK для сервера .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

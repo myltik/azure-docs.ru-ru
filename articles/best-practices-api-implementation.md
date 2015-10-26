@@ -1,21 +1,21 @@
 <properties
    pageTitle="Руководство по реализации API | Microsoft Azure"
-	description="Рекомендации по реализации API."
-	services=""
-	documentationCenter="na"
-	authors="dragon119"
-	manager="masimms"
-	editor=""
-	tags=""/>
+   description="Рекомендации по реализации API."
+   services=""
+   documentationCenter="na"
+   authors="dragon119"
+   manager="masimms"
+   editor=""
+   tags=""/>
 
 <tags
    ms.service="best-practice"
-	ms.devlang="rest-api"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="05/13/2015"
-	ms.author="masashin"/>
+   ms.devlang="rest-api"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="05/13/2015"
+   ms.author="masashin"/>
 
 # Руководство по реализации API
 
@@ -1152,4 +1152,4 @@ Azure предоставляет [службу управления API](http://
 - На странице [Проверка кода при помощи модульных тестов](https://msdn.microsoft.com/library/dd264975.aspx) на веб-сайте Майкрософт предоставлены подробные сведения о создании модульных тестов и управлении ими с помощью Visual Studio.
 - На странице [Запуск тестов производительности в приложении](https://msdn.microsoft.com/library/dn250793.aspx) на веб-сайте Майкрософт описывается порядок использования Visual Studio Ultimate для создания веб-тестов производительности и загрузки тестового проекта.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

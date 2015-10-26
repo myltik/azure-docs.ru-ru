@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Непрерывная доставка в Azure с использованием Git и Visual Studio Online"
+	pageTitle="Непрерывная доставка в Azure с использованием Git и Visual Studio Online" 
 	description="В данном разделе приводится информация о том, как с помощью Git настроить автоматическое создание и развертывание веб-приложений и облачных служб Azure в командных проектах Visual Studio Online."
 	services="cloud-services"
 	documentationCenter=".net"
@@ -273,4 +273,4 @@
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

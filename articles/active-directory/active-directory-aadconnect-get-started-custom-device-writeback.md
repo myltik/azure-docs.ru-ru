@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Включение обратной записи устройств в службе Azure AD Connect" 
-	description="В этом документе объясняется, как включить функцию обратной записи устройств с помощью службы Azure AD Connect" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="msStevenPo" 
+<properties
+	pageTitle="Включение обратной записи устройств в службе Azure AD Connect | Microsoft Azure"
+	description="В этом документе объясняется, как включить функцию обратной записи устройств с помощью службы Azure AD Connect"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="StevenPo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"  
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="09/15/2015"
 	ms.author="billmath"/>
 
@@ -62,7 +62,7 @@
 Параметры
 
 
-- DomainName: домен Active Directory, в котором будут созданы объекты устройства. Примечание: все устройства для отдельно взятого леса Active Directory будут созданы в одном домене. 
+- DomainName: домен Active Directory, в котором будут созданы объекты устройства. Примечание: все устройства для отдельно взятого леса Active Directory будут созданы в одном домене.
 
 
 - AdConnectorAccount: учетная запись Active Directory, которая будет использоваться службой Azure AD Connect для управления объектами в каталоге.
@@ -83,17 +83,18 @@
 
 ## Проверка синхронизации устройств с Active Directory
 Функция обратной записи устройств должна теперь работать правильно. Имейте в виду, что обратная запись объектов устройств в AD может выполняться до 3 часов. Проверить, правильно ли синхронизированы устройства после выполнения правила синхронизации, можно так.
- 
-1.	Запустите центр администрирования Active Directory. 
+
+1.	Запустите центр администрирования Active Directory.
 2.	Разверните раздел RegisteredDevices в домене, который включается в федерацию. ![Выборочная установка](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback5.png)
-3.	Там будут перечислены зарегистрированные в настоящий момент устройства. 
+3.	Там будут перечислены зарегистрированные в настоящий момент устройства.
 
 ![Выборочная установка](./media/active-directory-aadconnect-get-started-custom-device-writeback/devicewriteback6.png)
 
-## Дополнительная информация 
-
-
+## Дополнительная информация
 - [Управление рисками с помощью условного доступа](active-directory-conditional-access.md)
 - [Настройка локального условного доступа с помощью регистрации устройств в Azure Active Directory](https://msdn.microsoft.com/library/azure/dn788908.aspx)
 
-<!---HONumber=Sept15_HO3-->
+## Дальнейшие действия
+Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
+
+<!---HONumber=Oct15_HO3-->

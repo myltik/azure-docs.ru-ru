@@ -729,4 +729,4 @@
 * [Дополнительные сведения](active-directory-passwords-learn-more.md)
 * [Управление паролями в сети MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

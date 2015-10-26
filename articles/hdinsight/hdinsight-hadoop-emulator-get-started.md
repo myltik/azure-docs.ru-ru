@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Начало работы с эмулятором Hadoop для HDInsight | Microsoft Azure"
 	description="Используйте установленный эмулятор, учебник MapReduce и другие образцы, чтобы познакомиться с экосистемой Hadoop. Эмулятор HDInsight работает в качестве изолированной среды Hadoop."
+	keywords="emulator,hadoop ecosystem,hadoop sandbox,mapreduce tutorial"
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -196,7 +197,7 @@
 
 ###<a name="scenarios"></a>Сценарии данных журнала IIS W3C
 
-Сценарий W3C создает и импортирует наборы данных журнала IIS W3C трех размеров в HDFS или хранилище больших двоичных объектов Azure: 1 МБ (небольшой), 500 МБ (средний) и 2 ГБ (большой). Он предоставляет три типа заданий и реализует каждое из них на C\#, Java, Pig и Hive.
+Сценарий W3C создает и импортирует наборы данных журнала IIS W3C трех размеров в HDFS или хранилище больших двоичных объектов Azure: 1 МБ (небольшой), 500 МБ (средний) и 2 ГБ (большой). Он предоставляет три типа заданий и реализует каждое из них на C#, Java, Pig и Hive.
 
 - **totalhits** — вычисление общего числа запросов для конкретной страницы.
 - **avgtime** — вычисление среднего времени (в секундах) для запроса на страницу.
@@ -241,7 +242,7 @@
 
 ###<a name="javamapreduce"></a>Выполнение заданий MapReduce на Java
 
-MapReduce — основной механизм вычислений для Hadoop. По умолчанию он реализован на языке Java, но существуют также примеры, в которых используются .NET и Hadoop Streaming, использующие C\#. Синтаксис для выполнения задания MapReduce :
+MapReduce — основной механизм вычислений для Hadoop. По умолчанию он реализован на языке Java, но существуют также примеры, в которых используются .NET и Hadoop Streaming, использующие C#. Синтаксис для выполнения задания MapReduce :
 
 	hadoop jar <jarFileName>.jar <className> <inputFiles> <outputFolder>
 
@@ -497,4 +498,4 @@ The samples currently contain all the required binaries, so building is not requ
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

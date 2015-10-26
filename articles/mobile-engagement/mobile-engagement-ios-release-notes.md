@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,9 +14,16 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr"/>
+	ms.author="MehrdadMzfr" />
 
 #Заметки о выпуске
+
+##3\.2.0 (08.10.2015)
+
+-   В пакете SDK включен Bitcode для работы с **Xcode 7**.
+-   Исправлены ошибки, связанные с уведомлениями в приложении.
+-   Уведомления в приложении стали более надежными при низком уровне заряде аккумулятора и в других подобных ситуациях.
+-   Удалены лишние журналы консоли, созданные библиотекой сторонних производителей.
 
 ##3\.1.0 (26.08.2015)
 
@@ -47,4 +54,4 @@
 -   Улучшения безопасности.
 -   Удалено средство отслеживания SmartAd.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

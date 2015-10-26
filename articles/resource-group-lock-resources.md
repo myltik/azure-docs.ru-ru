@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="10/14/2015" 
 	ms.author="tomfitz"/>
 
 # Блокировка ресурсов с помощью диспетчера ресурсов Azure
@@ -93,16 +93,18 @@
 
 ## Создание блокировки с помощью Azure PowerShell
 
-Заблокировать развернутые ресурсы можно с помощью Azure PowerShell, используя командлет **New-AzureResourceLock**, как показано ниже. С помощью PowerShell **Уровень блокировки** можно установить только в **CanNotDelete**.
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-    PS C:\> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
+Заблокировать развернутые ресурсы можно с помощью Azure PowerShell, используя командлет **New-AzureRmResourceLock**, как показано ниже. С помощью PowerShell для параметра **LockLevel** можно задать только значение **CanNotDelete**.
 
-В PowerShell доступны другие команды для рабочих блокировок, такие как **Set-AzureResourceLock** для обновления блокировки и **Remove-AzureResourceLock** для удаления блокировки.
+    PS C:\> New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites
+
+В Azure PowerShell доступны другие команды для рабочих блокировок, такие как **Set-AzureRmResourceLock** для обновления блокировки и **Remove-AzureRmResourceLock** для удаления блокировки.
 
 ## Дальнейшие действия
 
 - Дополнительные сведения о работе с блокировкой ресурсов см. в статье [Блокировка ресурсов Azure](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx).
 - Дополнительные сведения о логической организации ресурсов см. в статье [Использование тегов для организации ресурсов](resource-group-using-tags.md).
-- Для изменения группы ресурса обратитесь к статье [Перемещение ресурсов в новую группу ресурсов](resource-group-move-resources.md).
+- Для изменения группы ресурса см. статью [Перемещение ресурсов в новую группу ресурсов](resource-group-move-resources.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

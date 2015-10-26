@@ -1,2 +1,4 @@
 
->[AZURE.TIP] This topic shows you how to get started with App Service Mobile Apps as quickly as possible. It is designed for customers new to this Azure feature. If you are already familiar with Mobile Apps, are looking for more in-depth information, or want to learn more about Azure App Service, please select a topic from the left-navigation or see the relevant links in [Next steps](#next-steps).
+>[AZURE.TIP]В этом разделе показано, как максимально быстро приступить к работе с мобильными приложениями службы приложений. Он предназначен для тех пользователей, которые еще не знакомы с этим компонентом Azure. Если вы уже знакомы с мобильными приложениями, ищете более подробные сведения или хотите больше узнать о службе приложений Azure, выберите раздел в области навигации слева или соответствующие ссылки в разделе [Дальнейшие действия](#next-steps).
+
+<!---HONumber=Oct15_HO3-->

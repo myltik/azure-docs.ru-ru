@@ -1,20 +1,21 @@
-<properties
-	pageTitle="Репликация службы хранилища Azure | Microsoft Azure"
-	description="Данные в учетной записи хранения Microsoft Azure реплицируются для обеспечения устойчивости и высокого уровня доступности. Варианты репликации включают локально избыточное хранилище (LRS), хранилище, избыточное в пределах зоны (ZRS), геоизбыточное хранилище (GRS) и геоизбыточное хранилище с доступом для чтения (RA-GRS)." 
-	services="storage" 
-	documentationCenter=""
-	authors="tamram"
-	manager="adinah"
-	editor=""/>
 
-<tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="tamram"/>
+<properties 
+  pageTitle="Репликация службы хранилища Azure | Microsoft Azure" 
+  description="Данные в учетной записи хранения Microsoft Azure реплицируются для обеспечения устойчивости и высокого уровня доступности. Варианты репликации включают локально избыточное хранилище (LRS), хранилище, избыточное в пределах зоны (ZRS), геоизбыточное хранилище (GRS) и геоизбыточное хранилище с доступом для чтения (RA-GRS)." 
+  services="storage" 
+  documentationCenter="" 
+  authors="tamram" 
+  manager="adinah" 
+  editor=""/>
+
+<tags 
+  ms.service="storage" 
+  ms.workload="storage" 
+  ms.tgt_pltfrm="na" 
+  ms.devlang="na" 
+  ms.topic="article" 
+  ms.date="10/07/2015" 
+  ms.author="tamram"/>
 
 # Репликация службы хранилища Azure
 
@@ -55,7 +56,7 @@
 Хранилище, избыточное в пределах зоны (ZRS), реплицирует данные в двух-трех помещениях в одном или двух регионах, предоставляя более высокую доступность по сравнению с LRS. Если в вашей учетной записи хранения включена репликация ZRS, данные будут устойчивы даже в случае сбоя в одном из помещений.
 
 
->[AZURE.NOTE]ZRS в настоящее время доступно только для блочных BLOB-объектов. Обратите внимание, что после создания учетной записи хранения и выбора хранилища, избыточного в пределах зоны, это хранилище невозможно преобразовать для использования другого типа репликации, и наоборот.
+>[AZURE.NOTE]Сейчас ZRS доступно только для блочных BLOB-объектов и поддерживается только в версии 2014-02-14 и более поздних версиях. Обратите внимание, что после создания учетной записи хранения и выбора хранилища, избыточного в пределах зоны, это хранилище невозможно преобразовать для использования другого типа репликации, и наоборот.
 
 
 ## Геоизбыточное хранилище
@@ -103,4 +104,4 @@
 - [Эмулятор хранения Microsoft Azure 3.1 с RA-GRS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/08/microsoft-azure-storage-emulator-3-1-with-ra-grs.aspx)
 - [Документ SOSP службы хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

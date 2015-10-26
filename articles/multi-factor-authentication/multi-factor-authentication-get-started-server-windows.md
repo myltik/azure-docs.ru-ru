@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Проверка подлинности Windows и сервер Azure Multi-Factor Authentication"
-	description="Это страница Azure Multi-Factor Authentication, которая будет полезна при развертывании проверки подлинности Windows и сервера Azure Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Проверка подлинности Windows и сервер Azure Multi-Factor Authentication" 
+	description="Это страница Azure Multi-Factor Authentication, которая будет полезна при развертывании проверки подлинности Windows и сервера Azure Multi-Factor Authentication." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Проверка подлинности Windows и сервер Azure Multi-Factor Authentication
@@ -49,4 +49,4 @@
 10. Выберите подсеть, если необходимо указать диапазон IP-адресов с помощью подсети. Введите начальный IP-адрес подсети и выберите соответствующую маску сети в раскрывающемся списке. 
 11. Нажмите кнопку «ОК».
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

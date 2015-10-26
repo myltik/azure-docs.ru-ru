@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015" 
+	ms.date="10/09/2015" 
 	ms.author="sdanie"/>
 
 # Как отслеживать кэш Redis для Azure
@@ -143,6 +143,33 @@
 
 ![Просмотр подробных сведений о диаграмме][redis-cache-view-chart-details]
 
+## Как наблюдать за кэшем (цен. категория «Премиум») с кластеризацией
+
+Кэши (цен. категория «Премиум»), использующие [кластеризацию](cache-how-to-premium-clustering.md), могут содержать до 10 сегментов. У каждого сегмента есть свои собственные метрики, которые объединяются, чтобы представить метрики кэша в целом. Каждый показатель имеет две версии. Одна метрика измеряет производительность всего кэша, а вторая версия метрики, имя которой содержит `(Shard 0-9)`, измеряет производительность отдельного сегмента в кэше. Например, если кэш содержит 3 сегмента, `Cache Hits` отражает общее количество попаданий для всего кэша, а `Cache Hits (Shard 2)` — количество попаданий для отдельного сегмента кэша.
+
+Каждая диаграмма мониторинга отображает общие метрики для кэша, а также метрики для каждого сегмента в кэше.
+
+![Монитор][redis-cache-premium-monitor]
+
+При наведении указателя мыши на точку данных отображаются сведения для этой точки времени.
+
+![Монитор][redis-cache-premium-point-summary]
+
+Обычно большие значения — это объединенные значения для кэша, тогда как небольшие значения относятся к отдельным метрикам для сегмента. Обратите внимание, что в этом примере имеется три сегмента, и попадания в кэш равномерно распределены по сегментам.
+
+![Монитор][redis-cache-premium-point-shard]
+
+Для просмотра дополнительных сведений щелкните диаграмму, чтобы отобразить развернутое представление в колонке **Метрика**.
+
+![Монитор][redis-cache-premium-chart-detail]
+
+По умолчанию каждая диаграмма включает в себя общий счетчик производительности кэша, а также счетчики производительности для отдельных сегментов. Их можно настроить в колонке **Изменение диаграммы**.
+
+![Монитор][redis-cache-premium-edit]
+
+Дополнительные сведения о доступных счетчиках производительности см. в разделе [Доступные метрики и интервалы отчетности](#available-metrics-and-reporting-intervals).
+
+
 ## Операции и оповещения
 
 Раздел **Операции** состоит из подразделов **События** и **Правила оповещений**.
@@ -222,4 +249,14 @@
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
 
-<!---HONumber=Oct15_HO2-->
+[redis-cache-premium-monitor]: ./media/cache-how-to-monitor/redis-cache-premium-monitor.png
+
+[redis-cache-premium-edit]: ./media/cache-how-to-monitor/redis-cache-premium-edit.png
+
+[redis-cache-premium-chart-detail]: ./media/cache-how-to-monitor/redis-cache-premium-chart-detail.png
+
+[redis-cache-premium-point-summary]: ./media/cache-how-to-monitor/redis-cache-premium-point-summary.png
+
+[redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
+
+<!---HONumber=Oct15_HO3-->

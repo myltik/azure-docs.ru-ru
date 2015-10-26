@@ -18,7 +18,7 @@ ms.service="virtual-machines"
 
 # Отправка заданий HPC c локального компьютера в кластер на основе пакета HPC в Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс управления ресурсом, созданным в рамках модели развертывания на основе диспетчера ресурсов, а также классической модели.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Вы узнаете, как настроить локальный клиентский компьютер под управлением Windows для запуска средств отправки заданий HPC, взаимодействующих с кластером на основе пакета HPC в Azure по протоколу HTTPS. В статье представлен простой и гибкий способ отправки заданий в облачный HPC-кластер, при котором для запуска средств отправки заданий пользователям кластера не требуется напрямую подключаться к виртуальной машине головного узла.
 
@@ -183,4 +183,4 @@ net start hpcscheduler
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-hpcpack-cluster-submit-jobs/jobsubmit.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

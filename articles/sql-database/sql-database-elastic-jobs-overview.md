@@ -1,8 +1,9 @@
 <properties 
+	title="Elastic database jobs overview" 
 	pageTitle="Обзор заданий обработки эластичных баз данных" 
 	description="Описание службы заданий обработки эластичных баз данных" 
-	services="sql-database" 
-	documentationCenter=""  
+	metaKeywords="azure sql database elastic databases" 
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -86,4 +87,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -20,7 +20,7 @@
 # Учебник. Создание виртуальной сети только для облака в Azure.
 
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса с помощью модели развертывания на основе диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
 
 
 В этом учебнике будет описана последовательность действий на портале управления Azure по созданию только облачной виртуальной сети Azure, которая будет содержать две подсети. Полученная виртуальная сеть будет выглядеть так.
@@ -123,4 +123,4 @@
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

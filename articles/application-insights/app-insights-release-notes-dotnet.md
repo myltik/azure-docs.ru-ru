@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Заметки о выпуске Application Insights для .NET"
-	description="Последние обновления."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Заметки о выпуске Application Insights для .NET" 
+	description="Последние обновления." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2015" 
 	ms.author="sergkanz"/>
  
 # Заметки о выпуске пакета SDK Application Insights для .NET
@@ -32,9 +32,20 @@
 * Сравните файл ApplicationInsights.config со старой копией. Большинство изменений, которые отобразятся, обусловлены тем, что одни модули были удалены, а другие теперь подлежат параметризации. Возобновите использование настроек, выполненных в старом файле.
 * Перестройте свое решение.
 
+## Версия 2.0.0-beta1
+- TrackDependency будет выдавать правильные данные JSON, если были указаны не все обязательные поля.
+- Избыточные свойство ```RequestTelemetry.ID``` теперь является просто прокси-объектом для ```RequestTelemetry.Operation.Id```.
+- Новый интерфейс ```ISupportSampling``` и его явная реализация для большинства типов элементов данных.
+- Свойство ```Count``` в DependencyTelemetry помечено как устаревшее. Вместо него используйте ```SamplingPercentage```.
+- Представлен новый ```CloudContext```, в который перемещены свойства ```RoleName``` и ```RoleInstance``` из ```DeviceContext```.
+- Новое свойство ```AuthenticatedUserId``` для ```UserContext```, позволяющее указать удостоверение аутентифицированного пользователя.
+- Добавлен `Microsoft.ApplicationInsights.Web.AccountIdTelemetryInitializer`, `Microsoft.ApplicationInsights.Web.AuthenticatedUserIdTelemetryInitializer`, который инициализирует контекст аутентифицированного пользователя согласно настройкам пакета SDK для JavaScript.
+- Добавлен `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor` и поддержка фиксированной частоты выборки в качестве его реализации.
+- Добавлен `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.TelemetryChannelBuilder`, который позволяет создавать `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` с набором `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor`.
+
 ## Версия 1.2
 
-- Инициализаторы телеметрии, не имеющие зависимостей на базе библиотек ASP.NET, были перемещены из `Microsoft.ApplicationInsights.Web` в новый пакет NuGet зависимостей `Microsoft.ApplicationInsights.WindowsServer`.
+- Инициализаторы телеметрии, не имеющие зависимостей от библиотек ASP.NET, были перемещены из `Microsoft.ApplicationInsights.Web` в новый пакет NuGet зависимостей `Microsoft.ApplicationInsights.WindowsServer`.
 - Библиотека `Microsoft.ApplicationInsights.Web.dll` переименована в `Microsoft.AI.Web.dll`.
 - Пакет NuGet `Microsoft.ApplicationInsights.Web.TelemetryChannel` переименован в `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`. Сборка `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` переименована в `Microsoft.AI.ServerTelemetryChannel.dll`. Класс `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` переименован в `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
 - Из всех пространств имен, которые являются частью пакета Web SDK, исключена часть `Extensibility`. Это касается всех инициализаторов телеметрии в файле ApplicationInsights.config и модуля `ApplicationInsightsWebTracking` в файле web.config.
@@ -53,11 +64,11 @@
 ## Версия 1.0
 
 - Инициализаторы и модули телеметрии перемещены из отдельных вложенных пространств имен в корневое пространство имен `Microsoft.ApplicationInsights.Extensibility.Web`.
-- Из имен инициализаторов и модулей телеметрии удален префикс Web, поскольку он уже присутствует в имени пространства имен `Microsoft.ApplicationInsights.Extensibility.Web`.
+- Из имен инициализаторов и модулей телеметрии удален префикс Web, так как он уже присутствует в имени пространства имен `Microsoft.ApplicationInsights.Extensibility.Web`.
 - `DeviceContextInitializer` перемещен из сборки `Microsoft.ApplicationInsights` в сборку `Microsoft.ApplicationInsights.Extensibility.Web` и преобразован в `ITelemetryInitializer`.
 - Имена пространств имен и сборок изменены с `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry` на `Microsoft.ApplicationInsights.Extensibility.DependencyCollector` для согласования с именем пакета NuGet.
-- Модуль `RemoteDependencyModule` переименован в `DependencyTrackingTelemetryModule`.
-- Запрос `CustomPerformanceCounterCollectionRequest` переименован в `PerformanceCounterCollectionRequest`.
+- `RemoteDependencyModule` переименован в `DependencyTrackingTelemetryModule`.
+- `CustomPerformanceCounterCollectionRequest` переименован в `PerformanceCounterCollectionRequest`.
 
 ## Версия 0.17
 - Удалена зависимость EventSource NuGet для приложений Framework 4.5.
@@ -76,7 +87,7 @@
 
 ## Версия 0.15
 
-- Новое свойство ```Operation.SyntheticSource``` теперь доступно в ```TelemetryContext```. Теперь можно отметить элементы телеметрии, такие как «трафик нереального пользователя», и указать, как был создан этот трафик. Например, установив это свойство, можно легко отличить трафик автоматизации тестирования от трафика нагрузочного теста.
+- Новое свойство ```Operation.SyntheticSource``` теперь доступно в ```TelemetryContext```. Теперь можно отметить элементы телеметрии, такие как "трафик нереального пользователя", и указать, как был создан этот трафик. Например, установив это свойство, можно легко отличить трафик автоматизации тестирования от трафика нагрузочного теста.
 - Логика канала перемещена в отдельный NuGet, который называется Microsoft.ApplicationInsights.PersistenceChannel. Канал по умолчанию теперь называется InMemoryChannel
 - Новый метод ```TelemetryClient.Flush``` позволяет синхронно очищать элементы телеметрии из буфера
 
@@ -86,4 +97,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

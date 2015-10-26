@@ -19,7 +19,6 @@
 
 # Подготовка виртуальной машины Oracle Linux для Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 - [Подготовка виртуальной машины Oracle Linux версии 6.4 или более поздней для Azure](#oracle6)
 - [Подготовка виртуальной машины Oracle Linux версии 7.0 или более поздней для Azure](#oracle7)
@@ -230,4 +229,4 @@
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -933,4 +933,4 @@
 [Приступая к работе с мобильными службами]: mobile-services-android-get-started.md
 [Управляющие коды ASCII C0 и C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

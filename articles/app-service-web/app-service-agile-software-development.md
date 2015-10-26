@@ -281,4 +281,4 @@
 -	[Создание и изменение пользователей в Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[Вики-сайт проекта Kudu](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

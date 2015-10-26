@@ -1,20 +1,20 @@
 <properties
    pageTitle="Выполнение теста Chaos Test."
-	description="В этой статье рассматриваются предустановленные сценарии Service Fabric, поставляемые корпорацией Майкрософт."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="anmolah"
-	manager="timlt"
-	editor=""/>
+   description="В этой статье рассматриваются предустановленные сценарии Service Fabric, поставляемые корпорацией Майкрософт."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="anmolah"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="anmola"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="anmola"/>
 
 # Сценарии Testability
 Крупные распределенные системы, такие как облачные инфраструктуры, ненадежные по своей сути. Платформа Service Fabric предоставляет разработчикам возможность создавать службы, которые работают в ненадежных инфраструктурах. Чтобы создать высококачественные службы, разработчики должны иметь возможность проверить стабильность работы своих служб в таких ненадежных инфраструктурах. Платформа Service Fabric позволяет разработчикам вызывать сбои для тестирования служб на наличие ошибок. Однако на этом преимущества целевого моделирования ошибок заканчиваются. Для дальнейшего тестирования в комплект поставки платформы Service Fabric входят предустановленные сценарии тестирования. Они моделируют на кластере непрерывные ошибки с чередованием, как нормальные, так и ненормальные, на протяжении долгого периода времени. После настройки коэффициента и типа ошибок сценарии выполняются как клиентские средства через интерфейсы API C# или PowerShell, создавая ошибки на кластере и в службе. В компонент тестирования входят следующие сценарии:
@@ -251,4 +251,4 @@ Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxService
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

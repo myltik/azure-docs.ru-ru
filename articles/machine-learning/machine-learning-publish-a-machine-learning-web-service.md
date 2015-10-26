@@ -112,4 +112,4 @@ For more information on how to manage Azure Machine Learning web service endpoin
 
 Один из вариантов обновления веб-службы — переобучить модель программно. Дополнительные сведения см. в статье [Программное переобучение моделей машинного обучения](machine-learning-retrain-models-programmatically.md).
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

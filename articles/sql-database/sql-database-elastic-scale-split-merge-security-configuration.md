@@ -1,8 +1,9 @@
 <properties 
+    title="Elastic Scale Security Configurations" 
     pageTitle="Конфигурации безопасности гибкого масштабирования" 
     description="Настройка сертификатов x409 для шифрования" 
-    services="sql-database" 
-	documentationCenter="" 
+    metaKeywords="Elastic Database certificates security" 
+    services="sql-database" documentationCenter="" 
     manager="jhubbard" 
     authors="sidneyh"/>
 
@@ -473,4 +474,4 @@ SSL-сертификат требуется для шифрования при �
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

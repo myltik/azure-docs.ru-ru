@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight | Azure"
+   pageTitle="Обработка событий из концентраторов событий с помощью Storm в HDInsight с использованием Java | Microsoft Azure"
    description="Узнайте, как обрабатывать данные концентраторов событий, используя топологии Java Storm, созданные с помощью Maven."
    services="hdinsight,notification hubs"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/12/2015"
+   ms.date="10/09/2015"
    ms.author="larryfr"/>
 
 # Обработка событий из службы концентраторов событий Azure с помощью Storm в HDInsight (Java)
@@ -282,7 +282,7 @@
 	<table>
 <tr><th>Имя</th><th>Разрешения</th></tr>
 <tr><td>Модуль записи</td><td>Отправка</td></tr>
-<tr><td>Модуль чтения</td><td>Прослушивание</td></tr>
+<tr><td>читатель.</td><td>Прослушивание</td></tr>
 </table>После создания разрешений выберите значок **Сохранить** в нижней части страницы. Будут созданы политики совместного доступа, которые будут использоваться для отправки (writer) сообщений этому концентратору событий и их прослушивания (reader).
 
 	![политики](./media/hdinsight-storm-develop-csharp-event-hub-topology/policy.png)
@@ -476,4 +476,4 @@ EventHubSpout периодически передает информацию о 
 
 * [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

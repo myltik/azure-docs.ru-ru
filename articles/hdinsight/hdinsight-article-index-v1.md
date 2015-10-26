@@ -133,4 +133,4 @@
 * [Значение сообщений об ошибках](hdinsight-debug-jobs.md)
 * [Получить помощь на форуме](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -19,7 +19,8 @@
 
 # Сведения о конфигурации фермы серверов SharePoint
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурсов с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+ 
 
 Ферма серверов SharePoint — это компонент портала предварительной версии Azure, автоматически создающий предварительно настроенную ферму SharePoint Server 2013. Существует две следующих конфигурации фермы:
 
@@ -141,4 +142,4 @@
 
 [Настройка фермы SharePoint интрасети в гибридном облаке для тестирования](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -38,4 +38,4 @@
 - [Использование отчетов о работоспособности системы для устранения неполадок](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Добавление настраиваемых отчетов о работоспособности Service Fabric](service-fabric-report-health.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

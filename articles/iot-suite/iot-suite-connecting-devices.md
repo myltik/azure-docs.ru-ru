@@ -1,18 +1,18 @@
 <properties
-   pageTitle="Подключение устройства к решению для удаленного мониторинга Azure IoT | Microsoft Azure"
-   description="Описание способов подключения устройства к предварительно настроенному решению для удаленного мониторинга Azure IoT на примере датчиков температуры и влажности."
-   services="iot-hub"
+   pageTitle="Подключение устройства к предварительно настроенному решению | Microsoft Azure"
+   description="Описывает, как подключить устройство к предварительно настроенному решению для удаленного мониторинга из набора Azure IoT Suite на примере, использующем данные температуры и влажности."
+   services=""
    documentationCenter="na"
    authors="hegate"
-   manager="jamesosb"
+   manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="iot-hub"
+   ms.service="na"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="na"
+   ms.workload="nana"
    ms.date="09/29/2015"
    ms.author="hegate"/>
 
@@ -28,7 +28,7 @@
 
 ### Подготовка набора IoT
 
-Если вы еще не подготовили свое предварительно настроенное решение для удаленного мониторинга, это можно сделать [здесь](http://www.microsoft.com/RU-RU/server-cloud/internet-of-things/getting-started.aspx).
+Если вы еще не подготовили свое предварительно настроенное решение для удаленного мониторинга, это можно сделать [здесь](http://www.microsoft.com/ru-RU/server-cloud/internet-of-things/getting-started.aspx).
 
 
 ### Подготовка устройства в решении для удаленного мониторинга
@@ -309,4 +309,4 @@ node .
 
 Есть несколько способов расширить функциональные возможности, описываемые в данной статье. Например, можно подключить датчик к устройству для отправки реальных данных или реализовать функциональность управления и отправки команд. Дополнительные сведения о расширении решения для удаленного мониторинга см. в соответствующем [руководстве](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

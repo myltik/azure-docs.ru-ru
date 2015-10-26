@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="Управление Azure AD Connect"
+<properties
+	pageTitle="Управление Azure AD Connect | Microsoft Azure"
 	description="Узнайте, как расширить конфигурацию по умолчанию и операционные задачи для Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -7,19 +7,16 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="10/01/2015"
 	ms.author="billmath"/>
 
-# Управление Azure AD Connect 
-
-
-
+# Управление Azure AD Connect
 Ниже приведены дополнительные сведения, которые помогут вам настроить Azure Active Directory Connect в соответствии с потребностями вашей организации.
 
 ## Назначение пользователям лицензий Azure AD Premium и Enterprise Mobility
@@ -41,7 +38,6 @@
 
 ### Чтобы проверить выполнение запланированной задачи синхронизации:
 --------------------------------------------------------------------------------
-
 1. Войдите на портал Azure с учетной записью администратора.
 2. Выберите **Active Directory** слева.
 3. На странице "Active Directory" дважды щелкните каталог пользователей, которых вы хотите активировать.
@@ -56,8 +52,6 @@
 <center>![Cloud](./media/active-directory-aadconnect-whats-next/startsynch.png)</center>
 
 
-
-
 ## Дополнительные задачи в Azure AD Connect
 После установки Azure AD Connect вы можете повторно запускать мастер с начальной страницы Azure AD Connect или используя ярлык на рабочем столе. При повторном запуске мастера будут доступны дополнительные задачи.
 
@@ -66,31 +60,13 @@
 ![Правило присоединения](./media/active-directory-aadconnect-whats-next/addtasks.png)
 
 
-Дополнительная задача | Описание 
+Дополнительная задача | Описание
 ------------- | ------------- |
 Просмотр выбранного сценария |Позволяет просматривать текущее решение Azure AD Connect. Включает общие параметры, синхронизированные каталоги, параметры синхронизации и т. д.
 Настройка параметров синхронизации | Позволяет изменить текущую конфигурацию, например добавить в нее дополнительный лес Active Directory или активировать параметры синхронизации, такие как обратная запись для пользователей, групп, устройств или паролей.
 Включение промежуточного режима | Позволяет сохранять сведения для последующей синхронизации. При этом никакие данные не экспортируются в Azure AD или Active Directory. Позволяет просмотреть результаты синхронизации до ее выполнения.
 
+## Дальнейшие действия
+Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
- 
-
-
-
-
-
-
-## Дополнительная документация
-Дополнительные сведения о работе с Azure AD Connect см. в следующих статьях:
-
-- [Azure AD Connect Sync: настройка параметров синхронизации](active-directory-aadconnectsync-whatis.md)
-- [Изменение используемой по умолчанию конфигурации Azure AD Connect](active-directory-aadconnect-whats-next-change-default-config.md)
-- [Использование редактора правил синхронизации Azure AD Connect](active-directory-aadconnect-whats-next-synch-rules-editor.md)
-- [Использование декларативной подготовки](active-directory-aadconnect-whats-next-declarative-prov.md)
-
-Часть документации, разработанной для службы синхронизации Azure AD Sync, актуальна и для Azure AD Connect. Хотя мы прикладываем все усилия, чтобы перенести эту документацию на сайт Azure.com, ее часть по-прежнему находится в библиотеке с областью MSDN. Дополнительную документацию см. в разделе [Azure Connect AD на портале MSDN](active-directory-aadconnect.md) и [Служба синхронизации Azure AD Sync на портале MSDN](https://msdn.microsoft.com/library/azure/dn790204.aspx).
-
-
- 
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -1,11 +1,11 @@
 <properties
     pageTitle="Использование подчиненного подключаемого модуля Azure на сервере непрерывной интеграции Jenkins | Microsoft Azure"
-	description="Описание использования подчиненного подключаемого модуля Azure на сервере непрерывной интеграции Jenkins."
+    description="Описание использования подчиненного подключаемого модуля Azure на сервере непрерывной интеграции Jenkins."
 	services="storage"
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor="jimbe"/>
+	editor="jimbe" />
 
 <tags
 	ms.service="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="Java"
 	ms.topic="article"
 	ms.date="09/01/2015"
-	ms.author="v-dedomi"/>
+    ms.author="v-dedomi"/>
 
 # Использование подчиненного подключаемого модуля Azure на сервере непрерывной интеграции Jenkins
 
@@ -204,4 +204,4 @@
 
 Затем на основании шаблона, созданного в предыдущем разделе, Jenkins создаст подчиненный узел и выполнит сценарий, который вы указали на этапе сборки данной задачи.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

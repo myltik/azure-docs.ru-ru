@@ -226,4 +226,4 @@ DPM выполняется как локальная система и для с
 - См. [Заметки о выпуске System Center 2012 — Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 - См. [Заметки о выпуске Data Protection Manager в System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

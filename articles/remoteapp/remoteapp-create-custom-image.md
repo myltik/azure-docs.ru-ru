@@ -142,4 +142,4 @@ Azure RemoteApp использует образ шаблона Windows Server 20
 - [Создание облачной коллекции RemoteApp](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

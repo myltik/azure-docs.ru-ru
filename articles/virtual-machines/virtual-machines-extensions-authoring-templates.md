@@ -19,7 +19,8 @@
 
 # Создание шаблонов диспетчера ресурсов Azure с расширениями виртуальных машин
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается использование модели развертывания на основе диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
+ 
 
 ## Общие сведения о шаблонах диспетчере ресурсов Azure
 
@@ -88,4 +89,4 @@
 
 Развернуть созданный шаблон можно с помощью интерфейса командной строки Azure или Azure Powershell.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

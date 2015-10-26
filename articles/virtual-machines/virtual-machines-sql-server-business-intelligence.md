@@ -18,7 +18,8 @@
 
 # Бизнес-аналитика SQL Server на виртуальных машинах Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается использование ресурсов с классической моделью развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+ 
  
 Коллекция виртуальных машин Microsoft Azure включает в себя образы, содержащие установки SQL Server. Выпуски SQL Server, поддерживаемые в образах коллекции, представляют сбой те же файлы установки, которые можно установить на локальных компьютерах и виртуальных машинах. В этом разделе приведены сводные данные об установленных в образах компонентах бизнес-аналитики SQL Server, а также о настройке, необходимой после подготовки виртуальной машины. Кроме того, в этом разделе описаны поддерживаемые топологии развертывания для компонентов бизнес-аналитики и рекомендации.
 
@@ -430,4 +431,4 @@
 
 - [Управление базой данных SQL Azure с помощью PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

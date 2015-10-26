@@ -126,4 +126,4 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 [Xamarin Android: включение автономной синхронизации]: ../app-service-mobile-xamarin-ios-get-started-offline-data-preview.md
 [Windows 8.1: включение автономной синхронизации]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data-preview.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

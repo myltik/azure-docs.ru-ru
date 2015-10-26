@@ -25,7 +25,8 @@
 1. работающая виртуальная машина Linux в Azure;
 2. подключение к этой виртуальной машине Linux с помощью протокола SSH.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс управления ресурсом с помощью модели развертывания на основе диспетчера ресурсов, а также классической модели.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 > [AZURE.NOTE]Если эта задача выполняется на компьютере Windows, можно использовать Putty, чтобы подключиться по протоколу SSH к компьютеру Linux. Дополнительную информацию см. в разделе [Как войти в виртуальную машину под управлением Linux](virtual-machines-linux-how-to-log-on.md).
 
@@ -125,4 +126,4 @@
 
 Дополнительную информацию об агенте Azure для Linux см. в [файле сведений агента Linux для Azure](https://github.com/Azure/WALinuxAgent).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

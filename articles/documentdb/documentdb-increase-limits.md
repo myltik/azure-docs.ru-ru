@@ -91,4 +91,4 @@
 - Для получения дополнительных сведений о DocumentDB щелкните [здесь](http://azure.com/docdb).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

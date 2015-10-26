@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Вопросы и ответы о публикации и использовании приложений машинного обучения в магазине Azure Marketplace | Microsoft Azure"
-	description="Часто задаваемые вопросы"
-	services="machine-learning"
-	documentationCenter=""
-	authors="LuisCabrer"
-	manager="paulettm"
+	pageTitle="Вопросы и ответы о публикации и использовании приложений машинного обучения в магазине Azure Marketplace | Microsoft Azure" 
+	description="Часто задаваемые вопросы" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="LuisCabrer" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="luisca"/>
 
 #Вопросы и ответы о публикации и использовании приложений машинного обучения в магазине Azure Marketplace
@@ -77,4 +77,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

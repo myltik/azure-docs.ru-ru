@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Знакомство с пакетом SDK для устройств Azure IoT для C"
-	description="Основные понятия и начало работы с примерами кода из пакета SDK для устройств Azure IoT для C"
+	pageTitle="Использование пакета SDK для устройств Azure IoT для C | Microsoft Azure"
+	description="Основные понятия и начало работы с примерами кода из пакета SDK для устройств Azure IoT для C."
 	services="iot-hub"
-	documentationCenter="na"
+	documentationCenter=""
 	authors="MichelBarnett"
 	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="na"
+     ms.devlang="cpp"
      ms.topic="article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/30/2015"
      ms.author="michelb"/>
 
@@ -455,4 +455,4 @@ serializer_deinit();
 
 В этой статье описываются основы использования библиотек, включенных в **пакет SDK для устройств Azure IoT для C**. В ней содержатся сведения, которых будет достаточно для понимания содержимого пакета SDK и его архитектуры, а также для начала работы с примерами для Windows. В следующей статье также рассказывается о пакете SDK и приводятся [дополнительные сведения о библиотеке IoTHubClient](iot-hub-device-sdk-c-iothubclient.md).
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

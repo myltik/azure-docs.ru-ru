@@ -21,7 +21,8 @@
 
 В этой статье показано, как приступить к работе с решениями Docker и [Compose](http://github.com/docker/compose) с целью определения и запуска сложного приложения на виртуальной машине Linux в Azure. Решение Compose (преемник решения *Fig*) позволяет определить приложение, состоящее из нескольких контейнеров Docker, с помощью простого текстового файла. После этого приложение разворачивается с помощью одной команды, которая инициирует все действия, необходимые для его запуска на виртуальной машине. В этой статье показано, как быстро настроить блог WordPress с серверной базой данных SQL MariaDB, однако решение Compose можно использовать для настройки и более сложных приложений.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]Эта статья распространяется на виртуальные машины, создаваемые как с помощью диспетчера ресурсов, так и с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 Если вы не знакомы с решением Docker и контейнерами, посмотрите это [видео о решении Docker](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
 
@@ -120,7 +121,7 @@ $ azure vm endpoint create <machine-name> 80 8080
 ## Дальнейшие действия
 
 * Дополнительные примеры сборки и развертывания многоконтейнерных приложений см. в [справке по интерфейсу командной строки Compose](http://docs.docker.com/compose/cli/) и [руководстве пользователя](http://docs.docker.com/compose/).
-* Воспользуйтесь шаблоном диспетчера ресурсов Azure (собственным или полученным из [сообщества](http://azure.microsoft.com/documentation/templates/)), чтобы развернуть виртуальную машину Azure с Docker и настроить приложение при помощи решения Compose. Например: в шаблоне [Развертывание блога WordPress с помощью Docker](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/) решения Docker и Compose используются для быстрого развертывания WordPress с серверной базой данных MySQL на виртуальной машине Ubuntu.
+* Воспользуйтесь шаблоном диспетчера ресурсов Azure (собственным или полученным из [сообщества](http://azure.microsoft.com/documentation/templates/)), чтобы развернуть виртуальную машину Azure с Docker и настроить приложение при помощи решения Compose. Например, в шаблоне [Развертывание блога WordPress с помощью Docker](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/) решения Docker и Compose используются для быстрого развертывания WordPress с серверной базой данных MySQL на виртуальной машине Ubuntu.
 * Попытайтесь интегрировать Docker Compose с кластером [Docker Swarm](virtual-machines-docker-swarm.md). Доступные сценарии приведены в
 [статье об интеграции Docker Compose и Swarm](https://github.com/docker/compose/blob/master/SWARM.md).
 
@@ -128,4 +129,4 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

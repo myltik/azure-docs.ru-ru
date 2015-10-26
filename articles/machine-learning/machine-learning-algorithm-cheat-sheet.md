@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="10/13/2015"
 	ms.author="brohrer;garye" />
 
 
@@ -42,6 +42,8 @@
 * Более глубокое обсуждение различных типов алгоритмов машинного обучения, их использования и выбора правильного алгоритма с использованием этой памятки см. в статье [Выбор алгоритмов машинного обучения Microsoft Azure](machine-learning-algorithm-choice.md).
 * Список всех категорий алгоритмов, доступных в Студии машинного обучения, см. в разделе [Инициализация модели][initialize-model] в справке по алгоритмам и модулям Студии машинного обучения.
 * Полный список всех алгоритмов и модулей машинного обучения, доступных в Студии машинного обучения, см. в разделе [Полный список модулей Студии машинного обучения][a-z-list] в справке по алгоритмам и модулям Студии машинного обучения.
+* Чтобы скачать и распечатать схему, на которой представлены общие возможности Студии машинного обучения, см. раздел [Обзорная схема возможностей Студии машинного обучения Azure](machine-learning-studio-overview-diagram.md).
+
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -85,4 +87,4 @@
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

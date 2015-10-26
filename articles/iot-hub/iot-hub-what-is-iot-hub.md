@@ -1,10 +1,10 @@
 <properties
- pageTitle="Что такое центр IoT в Azure | Microsoft Azure"
- description="Обзор службы центра IoT Azure, включая подключения устройств, шаблоны взаимодействия и шаблон взаимодействия с поддержкой службы"
+ pageTitle="Обзор центра IoT Azure | Microsoft Azure"
+ description="Обзор службы центра IoT Azure, включая подключения устройств, шаблоны взаимодействия и шаблон взаимодействия с поддержкой службы."
  services="iot-hub"
- documentationCenter=".net"
+ documentationCenter=""
  authors="fsautomata"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -12,13 +12,13 @@
  ms.devlang="na"
  ms.topic="article"
  ms.tgt_pltfrm="na"
- ms.workload="tbd"
+ ms.workload="na"
  ms.date="09/29/2015"
  ms.author="elioda"/>
 
 # Что такое центр IoT в Azure?
 
- Центр IoT Azure — полностью управляемая служба, которая обеспечивает надежный и защищенный двунаправленный обмен данными между миллионами устройств IoT и серверной частью приложения. Центр IoT Azure предлагает глобальный и надежный обмен сообщениями между устройством и облаком и в обратном направлении, обеспечивает безопасное подключение с использованием учетных данных и контроля доступа для каждого устройства и включает библиотеки устройств для наиболее популярных языков и платформ.
+Центр IoT Azure — полностью управляемая служба, которая обеспечивает надежный и защищенный двунаправленный обмен данными между миллионами устройств IoT и серверной частью приложения. Центр IoT Azure предлагает глобальный и надежный обмен сообщениями между устройством и облаком и в обратном направлении, обеспечивает безопасное подключение с использованием учетных данных и контроля доступа для каждого устройства и включает библиотеки устройств для наиболее популярных языков и платформ.
 
 ![Центр IoT как облачный шлюз?][img-architecture]
 
@@ -92,11 +92,11 @@
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Приступая к работе с центром IoT]: iot-hub-csharp-csharp-getstarted.md
 [Поддерживаемые платформы устройств и языки]: iot-hub-sdks-summary.md#os-platforms-and-hardware-compatibility
-[Центр разработчика IoT Azure]: http://www.azure.com/iotdev
+[Центр разработчика IoT Azure]: https://azure.microsoft.com/develop/iot/
 
 [img-why-use]: media/iot-hub-what-is-iot-hub/image1.png
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
 
 [lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "Взаимодействие с поддержкой службы, запись в блоге Клеменса Вастерса (Clemens Vasters)"
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

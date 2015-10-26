@@ -475,4 +475,4 @@ error=access_denied
 
 На текущий момент предварительная версия модели приложений 2.0 не поддерживает этот поток. Увидеть, как он работает в общедоступной службе Azure AD, можно в [этом примере кода Azure AD](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

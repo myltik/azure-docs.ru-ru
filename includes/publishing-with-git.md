@@ -298,4 +298,4 @@ Azure создаст связь с выбранным репозиторием �
 [Использование Dropbox для общего доступа к репозиториям Git]: https://gist.github.com/trey/2722927
 [Непрерывная доставка в Azure с помощью Visual Studio Online]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

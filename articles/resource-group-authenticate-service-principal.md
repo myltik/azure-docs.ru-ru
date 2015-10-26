@@ -1,20 +1,20 @@
 <properties
    pageTitle="Проверка подлинности субъекта-службы в диспетчере ресурсов Azure"
-	description="В статье объясняется, как предоставить доступ субъекту-службе с помощью управления доступом на основе ролей, а также проверить его подлинность. Показано, как выполнять эти задачи с помощью PowerShell и CLI Azure."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="В статье объясняется, как предоставить доступ субъекту-службе с помощью управления доступом на основе ролей, а также проверить его подлинность. Показано, как выполнять эти задачи с помощью PowerShell и CLI Azure."
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/25/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="multiple"
+   ms.workload="na"
+   ms.date="10/14/2015"
+   ms.author="tomfitz"/>
 
 # Проверка подлинности субъекта-службы в диспетчере ресурсов Azure
 
@@ -33,14 +33,15 @@
 
 В этом разделе вы выполните действия, необходимые для создания субъекта-службы Azure Active Directory, назначите роль субъекту-службе и пройдете проверку подлинности, используя идентификатор приложения и пароль.
 
-1. Переключитесь в режим диспетчера ресурсов Azure и войдите учетную запись.
+[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-        PS C:\> Switch-AzureMode AzureResourceManager
-        PS C:\> Add-AzureAccount
+1. Войдите в свою учетную запись.
 
-1. Создайте приложение AAD, выполнив команду **New-AzureADApplication**. Укажите отображаемое имя для вашего приложения, URI страницы, описывающей его (ссылка не проверяется), коды URI, идентифицирующие приложение, и пароль для его удостоверения.
+        PS C:\> Login-AzureRmAccount
 
-        PS C:\> $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password "<Your_Password>"
+1. Создайте новое приложение AAD, выполнив команду **New-AzureRmADApplication**. Укажите отображаемое имя для вашего приложения, URI страницы, описывающей его (ссылка не проверяется), коды URI, идентифицирующие приложение, и пароль для его удостоверения.
+
+        PS C:\> $azureAdApplication = New-AzureRmADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password "<Your_Password>"
 
      Проверьте новый объект приложения. Свойство **ApplicationId** требуется для создания субъектов-служб, назначения ролей и получения токенов JWT.
 
@@ -73,17 +74,17 @@
 
 2. Создайте субъект-службу для своего приложения.
 
-        PS C:\> New-AzureADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+        PS C:\> New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
      Вы создали субъект-службу в каталоге, но службе не назначены разрешения и область. Необходимо явным образом предоставить субъекту-службе разрешения на выполнение операций в некоторой области.
 
 3. Предоставьте субъекту-службе разрешения на вашу подписку. В этом примере вы предоставите субъекту-службе разрешение на чтение всех ресурсов в подписке. Для параметра **ServicePrincipalName** укажите значение **ApplicationId** или **IdentifierUris**, которое использовалось при создании приложения. Дополнительные сведения об управлении доступом на основе ролей см. в статье [Управление доступом к ресурсам и его аудит](azure-portal/resource-group-rbac.md).
 
-        PS C:\> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
+        PS C:\> New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
 4. Получите подписку, в которой было создано назначение ролей. Эта подписка будет использоваться позднее для получения **TenantId** клиента, к которому относится назначение ролей для данного субъекта-службы.
 
-        PS C:\> $subscription = Get-AzureSubscription | where { $_.IsCurrent }
+        PS C:\> $subscription = Get-AzureRmSubscription
 
      Если вы создали назначение ролей в подписке, которая отличается от выбранной в данный момент, можно указать параметр **SubscriptoinId** или **SubscriptionName**, чтобы получить другую подписку.
 
@@ -99,7 +100,13 @@
 
 6. Используйте введенные учетные данные в качестве входных данных для командлета **Add-AzureAccount**, который выполнит вход для субъекта-службы:
 
-        PS C:\> Add-AzureAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
+        PS C:\> Login-AzureRmAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
+        
+        Environment           : AzureCloud
+        Account               : {guid}
+        Tenant                : {guid}
+        Subscription          : {guid}
+        CurrentStorageAccount :
 
      После этого субъект-служба для приложения AAD, которое вы создали, пройдет проверку.
 
@@ -130,10 +137,9 @@
 
 Для начала задайте в PowerShell определенные значения, которые потребуются вам позднее при создании приложении.
 
-1. Переключитесь в режим диспетчера ресурсов Azure и войдите учетную запись.
+1. Войдите в свою учетную запись.
 
-        PS C:\> Switch-AzureMode AzureResourceManager
-        PS C:\> Add-AzureAccount
+        PS C:\> Login-AzureRmAccount
 
 1. Для обоих подходов создайте объект X509Certificate из сертификата и извлеките значение ключа. Используйте путь сертификата и соответствующий пароль.
 
@@ -155,11 +161,11 @@
 
 3. Создайте приложение в каталоге. Первая команда показывает, как использовать значения ключа.
 
-        $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -KeyValue $keyValue -KeyType AsymmetricX509Cert       
+        $azureAdApplication = New-AzureRmADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -KeyValue $keyValue -KeyType AsymmetricX509Cert       
         
     Второй пример демонстрирует назначение учетных данных ключа.
 
-         $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -KeyCredentials $keyCredential
+         $azureAdApplication = New-AzureRmADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -KeyCredentials $keyCredential
 
     Проверьте новый объект приложения. Свойство **ApplicationId** требуется для создания субъектов-служб, назначения ролей и получения токенов JWT.
 
@@ -192,13 +198,13 @@
 
 4. Создайте субъект-службу для своего приложения.
 
-        PS C:\> New-AzureADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+        PS C:\> New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
     Вы создали субъект-службу в каталоге, но службе не назначены разрешения и область. Необходимо явным образом предоставить субъекту-службе разрешения на выполнение операций в некоторой области.
 
 5. Предоставьте субъекту-службе разрешения на вашу подписку. В этом примере вы предоставите субъекту-службе разрешение на чтение всех ресурсов в подписке. Для параметра **ServicePrincipalName** укажите значение **ApplicationId** или **IdentifierUris**, которое использовалось при создании приложения. Дополнительные сведения об управлении доступом на основе ролей см. в статье [Управление доступом к ресурсам и его аудит](azure-portal/resource-group-rbac.md).
 
-        PS C:\> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
+        PS C:\> New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
 6. Для проверки подлинности из приложения добавьте следующий код .NET. После извлечения клиента вы сможете получить доступ к ресурсам в подписке.
 
@@ -286,11 +292,11 @@
 ## Дальнейшие действия
   
 - Общие сведения об управлении доступом на основе ролей см. в статье [Управление доступом к ресурсам и его аудит](azure-portal/resource-group-rbac.md).  
-- Инструкции по использованию портала с субъектами-службами см. в статье [Создание нового субъекта-службы Azure с помощью портала Azure](./resource-group-create-service-principal-portal.md).  
+- Указания по использованию портала с субъектами-службами см. в статье [Создание нового субъекта-службы Azure с помощью портала Azure](./resource-group-create-service-principal-portal.md).  
 - Рекомендации по обеспечению безопасной работы с диспетчером ресурсов Azure см. в статье [Вопросы безопасности при работе с диспетчером ресурсов Azure](best-practices-resource-manager-security.md).
 
 
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

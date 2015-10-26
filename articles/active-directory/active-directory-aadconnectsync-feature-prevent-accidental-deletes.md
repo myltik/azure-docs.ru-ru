@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="msStevenPo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/09/2015"
+   ms.date="10/13/2015"
    ms.author="andkjell"/>
 
 # Предотвращение случайного удаления
@@ -44,7 +44,8 @@
 3. Чтобы повторно включить защиту, выполните командлет PowerShell: `Enable-ADSyncExportDeletionThreshold`
 
 ## Дальнейшие действия
+Узнайте больше о настройке [служб синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-Дополнительные сведения о настройке синхронизации в Azure AD Connect см. в статье [Синхронизация в Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Настройка и использование эмулятора хранения с помощью Visual Studio"
-	description="Настройка и использование эмулятора хранения с помощью Visual Studio"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
+   description="Настройка и использование эмулятора хранения с помощью Visual Studio"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="storage"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Настройка и использование эмулятора хранения с помощью Visual Studio
 
@@ -43,4 +43,4 @@
 
 С помощью узла «Хранилище Azure» в обозревателе сервера вы можете просматривать данные и изменять параметры для данных BLOB-объектов и таблиц в своих учетных записях хранения, включая эмулятор хранения. Дополнительную информацию см. в статье [Обзор ресурсов хранения и управление ими в обозревателе серверов](https://msdn.microsoft.com/library/azure/ff683677.aspx).
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

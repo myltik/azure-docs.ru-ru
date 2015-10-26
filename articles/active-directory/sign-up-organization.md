@@ -35,4 +35,4 @@
 * [Что такое Azure AD?](active-directory-whatis.md)
 * [Использование локальной инфраструктуры удостоверений в облаке](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

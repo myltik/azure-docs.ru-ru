@@ -20,7 +20,8 @@
 
 В этой статье показано, как использовать сценарий Azure PowerShell для настройки кластера пакета Microsoft HPC в Azure, содержащий головной узел под управлением Windows Server и несколько вычислительных узлов под управлением дистрибутива CentOS Linux. Мы также покажем вам несколько способов перемещения файлов с данными в вычислительные узлы Linux. Этот кластер можно использовать для запуска рабочих нагрузок Linux HPC в Azure.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье рассматриваются ресурсы, созданные с помощью классической модели развертывания.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+
 
 На верхнем уровне следующей схемы показан создаваемый кластер пакета HPC.
 
@@ -312,4 +313,4 @@ PS > clusrun /nodegroup:LinuxNodes mount CentOS7RDMA-HN:/nfs /nfsshared
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

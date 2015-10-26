@@ -256,4 +256,4 @@ sendClient.Send(helloMessage);
 
 Дополнительные сведения о проверке подлинности при доступе к служебной шине см. в статье [Проверка подлинности и авторизация в служебной шине](service-bus-authentication-and-authorization.md).
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

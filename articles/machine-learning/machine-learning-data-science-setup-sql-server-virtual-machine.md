@@ -3,9 +3,9 @@
 	description="Настройте виртуальную машину для обработки данных с использованием SQL Server и IPython Server."
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev" 
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun" />
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="mohabib;xibingao;bradsev"/>
+	ms.date="10/13/2015"
+	ms.author="mohabib;xibingao;bradsev" />
 
 # Настройка SQL Server на виртуальной машине Azure как сервера IPython Notebook для расширенной аналитики
 
@@ -277,7 +277,7 @@
 
 ## Виртуальная машина Azure SQL Server готова к использованию: что дальше?
 
-Теперь вы можете использовать свою виртуальную машину для обработки и анализа данных. Кроме того, ее можно использовать в качестве сервера IPython Notebook для просмотра и обработки данных, а также для других задач, связанных с Машинным обучением Azure и расширенным процессом аналитики и технологии в действии.
+Теперь вы можете использовать свою виртуальную машину для обработки и анализа данных. Кроме того, ее можно использовать в качестве сервера IPython Notebook для просмотра и обработки данных, а также для других задач, связанных с Машинным обучением Azure и процессом аналитики Cortana (CAP).
 
 Дальнейшие действия по обработке данных можно найти в статье: [Руководство по обучению. Расширенная обработка данных в Azure](machine-learning-data-science-advanced-data-processing.md). Они могут содержать действия, результатом которых будет перемещение данных в HDInsight, их обработка и испытание для подготовки к изучению в рамках машинного обучения Azure.
 
@@ -298,4 +298,4 @@
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -612,7 +612,7 @@ Standard DS4 | 1 диск (1 * 1023 ГБ) | 1 диск (1 * 1023 ГБ) | 15 ди
 
     `C:\Microsoft-ASR_UA_8.2.0.0_Windows_PREVIEW_20Mar2015_Release.exe" -ip 104.40.75.37 -port 62519 -mode UA /LOG="C:\stdout.txt" /DIR="C:\Program Files (x86)\Microsoft Azure Site Recovery" /VERYSILENT  /SUPPRESSMSGBOXES /norestart  -usesysvolumes  /CommunicationMode https /PassphrasePath "C:\connection.passphrase"`
 
-**Установка службы Mobility Service вручную на сервере Linux:**
+**Установка службы Mobility Service вручную на сервере Linux**
 
 1. Скопируйте соответствующий TAR-архив, согласно приведенной выше таблице, с сервера обработки на исходный компьютер.
 2. Откройте программу оболочки и извлеките TAR-архив в формате ZIP по локальному пути, выполнив команду `tar -xvzf Microsoft-ASR_UA_8.2.0.0*`.
@@ -771,4 +771,4 @@ Standard DS4 | 1 диск (1 * 1023 ГБ) | 1 диск (1 * 1023 ГБ) | 15 ди
 
 Полный файл можно найти в [центре загрузки Майкрософт](http://go.microsoft.com/fwlink/?LinkId=529428). Корпорация Майкрософт оставляет за собой все права, не предоставленные явно в настоящем документе, косвенно, в силу конклюдентных действий или иным образом.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

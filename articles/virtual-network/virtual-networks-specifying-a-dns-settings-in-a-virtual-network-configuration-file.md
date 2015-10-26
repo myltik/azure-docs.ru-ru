@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Задание параметров DNS в файле конфигурации виртуальной сети | Microsoft Azure"
-	description="Изменение параметров DNS-сервера в виртуальной сети с помощью файла конфигурации виртуальной сети"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="Изменение параметров DNS-сервера в виртуальной сети с помощью файла конфигурации виртуальной сети"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="jdial"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/25/2015"
+   ms.author="joaoma" />
 
 # Задание параметров DNS в файле конфигурации виртуальной сети
 
@@ -53,4 +53,4 @@
 
 [Схема конфигурации службы Azure](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -42,30 +42,30 @@
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-Alternatively, you can [download the completed app as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) or clone the completed app:
+Кроме того, можно [скачать завершенное приложение как ZIP-файл](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) или клонировать его.
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
 ## 1. Регистрация приложения
-Создайте приложение на странице [apps.dev.microsoft.com](https://apps.dev.microsoft.com) или выполните следующие [действия](active-directory-v2-app-registration.md). Не забудьте:
+Создайте приложение на странице [apps.dev.microsoft.com](https://apps.dev.microsoft.com) или выполните [эти подробные указания](active-directory-v2-app-registration.md). Не забудьте:
 
-- скопировать **идентификатор приложения**, назначенный вашему приложению (он скоро вам понадобится);
-- создать **секрет приложения** типа **Пароль** и скопировать его;
-- добавить **веб-платформу** для приложения;
-- ввести правильный **URI перенаправления**. URI перенаправления сообщает Azure AD, куда следует направлять ответы проверки подлинности. Значение по умолчанию для этого учебника — `https://localhost:44326/`.
+- запишите назначенный вашему приложению **идентификатор**. Он вскоре вам понадобится.
+- Создайте **секрет приложения** типа **Пароль** и скопируйте его.
+- Добавьте **веб-платформу** для своего приложения.
+- Введите правильный **универсальный код ресурса (URI) перенаправления**. Универсальный код ресурса (URI) перенаправления сообщает Azure AD, куда следует направлять ответы аутентификации. Значение по умолчанию в этом руководстве — `https://localhost:44326/`.
 
 
 ## 2. Вход пользователя с помощью OpenID Connect
-Здесь мы настроим промежуточный слой OWIN для использования [протокола проверки подлинности OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). Кроме всего прочего, OWIN будет использоваться для выдачи запросов входа и выхода, управления сеансом пользователя и получения сведений о пользователе.
+Здесь мы настроим ПО промежуточного слоя OWIN для использования [протокола аутентификации OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). Кроме всего прочего, OWIN будет использоваться для выдачи запросов входа и выхода, управления сеансом пользователя и получения сведений о пользователе.
 
--	Для начала откройте файл `web.config` в корне проекта `TodoList-WebApp`, а затем введите значения конфигурации приложения в разделе `<appSettings>`.
-    -	`ida:ClientId` — это **идентификатор приложения**, назначенный приложению на портале регистрации.
+-	Сначала откройте файл `web.config` в корневом каталоге проекта `TodoList-WebApp`, а затем укажите параметры конфигурации приложения в разделе `<appSettings>`.
+    -	`ida:ClientId` — это **идентификатор приложения**, присвоенный приложению на портале регистрации.
 	- `ida:ClientSecret`— это **секрет приложения**, созданный на портале регистрации.
-    -	`ida:RedirectUri` — это **URI перенаправления**, который был введен на портале.
-- Откройте файл `web.config` в корне проекта `TodoList-Service` и замените `ida:Audience` на **идентификатор приложения**, указанный выше.
+    -	`ida:RedirectUri` — это **универсальный код ресурса (URI) перенаправления**, который вы указали на портале.
+- Откройте файл `web.config` в корневом каталоге проекта `TodoList-Service` и замените `ida:Audience` на **идентификатор приложения**, указанный выше.
 
 
--	Теперь добавьте пакеты NuGet промежуточного слоя OWIN в проект `TodoList-WebApp` с помощью консоли диспетчера пакетов.
+-	Теперь добавьте пакеты NuGet для ПО промежуточного слоя OWIN в проект `TodoList-WebApp` с помощью консоли диспетчера пакетов.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OpenIdConnect -ProjectName TodoList-WebApp
@@ -120,8 +120,8 @@ public void ConfigureAuth(IAppBuilder app)
 - Сначала установите предварительную версию ADAL:
 
 ```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
-- And add another `using` statement to the `App_Start\Startup.Auth.cs` file for ADAL.
-- Now add a new method, the `OnAuthorizationCodeReceived` event handler.  This handler will use ADAL to acquire an access token to the To-Do List API, and will store the token in ADAL's token cache for later:
+И добавьте еще одну инструкцию`using` в файл `App_Start\Startup.Auth.cs` для ADAL. 
+- Теперь добавьте новый метод, обработчик событий `OnAuthorizationCodeReceived`. Этот обработчик будет обращаться к ADAL для получения маркера доступа к API списка дел и сохранять этот маркер в кэше маркеров ADAL для последующего использования.
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -144,13 +144,13 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 
 
 ## 4\. Вызов веб-API списка дел
-Теперь настало время использовать маркер доступа, полученный на шаге 3. Откройте файл `Controllers\TodoListController.cs` веб-приложения, который выполняет все запросы CRUD интерфейсу API списка дел.
+Теперь настало время использовать маркер доступа, полученный на шаге 3. Откройте файл `Controllers\TodoListController.cs` веб-приложения, который выполняет все запросы CRUD к интерфейсу API списка дел.
 
 - Здесь снова можно использовать ADAL маркеров доступа из кэша ADAL. Сначала добавьте оператор `using` для ADAL в этот файл.
 
     `using Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory;`
 
-- В действии `Index` используйте метод `AcquireTokenSilentAsync` ADAL, чтобы получить маркер доступа, который может использоваться для чтения данных из службы списка дел:
+- В действии `Index` используйте метод `AcquireTokenSilentAsync` ADAL, чтобы получить маркер доступа, который может использоваться для чтения данных из службы списка дел.
 
 ```C#
 ...
@@ -165,8 +165,8 @@ result = await authContext.AcquireTokenSilentAsync(new string[] { Startup.client
 ...
 ```
 
-- Затем пример добавляет полученный маркер в запрос HTTP GET в качестве заголовка `Authorization`, который служба списка дел использует для проверки подлинности запроса.
-- Если служба списка дел возвращает ответ `401 Unauthorized`, маркеры доступа в ADAL стали недействительными по какой-либо причине. В этом случае следует удалить все маркеры доступа из кэша ADAL и показать пользователю сообщение о том, что требуется снова войти в систему, после чего будет перезапущен поток получения маркера.
+- Затем пример добавляет полученный маркер в HTTP-запрос GET в качестве заголовка `Authorization`, который служба списка дел использует для аутентификации запроса.
+- Если служба списка дел возвращает ответ `401 Unauthorized`, по какой-либо причине маркеры доступа в ADAL стали недействительными. В этом случае следует удалить все маркеры доступа из кэша ADAL и показать пользователю сообщение о том, что требуется снова войти в систему, после чего будет перезапущен поток получения маркера.
 
 ```C#
 ...
@@ -205,6 +205,6 @@ catch (AdalException ee)
 
 Дополнительные ресурсы:
 - [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md)
-- [Тег StackOverflow "adal" >>](http://stackoverflow.com/questions/tagged/adal)
+- [StackOverflow: тег adal >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -313,4 +313,4 @@ CloudServiceName | Имя облачной службы Azure, под котор
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

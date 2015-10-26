@@ -22,7 +22,7 @@
 
 #Как войти в виртуальную машину под управлением Linux #
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье рассматривается использование виртуальной машины, созданной с помощью классической модели развертывания. Вы можете выполнить аналогичные действия для виртуальной машины, созданной с помощью [модели развертывания диспетчера ресурсов](virtual-machines-linux-tutorial-portal-rm.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-linux-tutorial-portal-rm.md).
 
 Для входа на виртуальную машину под управлением операционной системы Linux используется клиент SSH.
 
@@ -56,4 +56,4 @@
 <!-- LINKS -->
 [Как сбросить пароль или ключ SSH в виртуальных машинах Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -256,4 +256,4 @@ NetApp, EMC и HP поддерживают репликацию SAN Azure Site R
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

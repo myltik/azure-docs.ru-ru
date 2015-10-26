@@ -125,4 +125,4 @@
 
 ![Ресурсы хранилища Azure](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -22,7 +22,7 @@
 
 Используемый клиент Azure Active Directory может представлять собой только каталог Azure или синхронизироваться с локальной службой Active Directory (AD) для создания возможности единого входа локальных или удаленных сотрудников.
 
->[AZURE.NOTE]Для веб-приложений службы приложений Azure вы можете настроить проверку подлинности с помощью клиента Azure Active Directory всего несколькими нажатиями кнопки. Дополнительную информацию см. в разделе [Использование Active Directory для проверки подлинности в службе приложений Azure](web-sites-authentication-authorization.md).
+>[AZURE.NOTE] Для веб-приложений службы приложений Azure вы можете настроить проверку подлинности с помощью клиента Azure Active Directory всего несколькими нажатиями кнопки. Дополнительную информацию см. в разделе [Использование Active Directory для проверки подлинности в службе приложений Azure](web-sites-authentication-authorization.md).
 
 <a name="bkmk_build"></a>
 ## Что будет строиться ##
@@ -40,7 +40,7 @@
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
->[AZURE.NOTE]Если вы хотите приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
+>[AZURE.NOTE] Если вы хотите приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
 Чтобы выполнить инструкции этого учебника, необходимо следующее:
 
@@ -67,7 +67,7 @@
 
 2.	Следуйте указаниям в файле [README.md](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/blob/master/README.md), чтобы настроить приложение Azure Active Directory и проект.
 
-	> [AZURE.NOTE]Разрешения, настроенные в приложении Azure Active Directory, требуют наличия только роли <strong>Пользователь</strong>, а не **Глобальный администратор**.
+	> [AZURE.NOTE] Разрешения, настроенные в приложении Azure Active Directory, требуют наличия только роли <strong>Пользователь</strong>, а не **Глобальный администратор**.
 	
 3.	Завершив настройку приложения, введите `F5`, чтобы запустит его.
 
@@ -75,7 +75,7 @@
 
 5.	Если приложение Azure Active Directory настроено правильно и заданы соответствующие параметры в файле Web.config, вы будете перенаправлены на страницу входа. Войдите с помощью учетной записи, используемой для создания приложения Azure Active Directory на портале Azure, так как эта учетная запись является владельцем приложения Azure Active Directory по умолчанию.
 	
-	> [AZURE.NOTE]В файле Startup.Auth.cs примера проекта обратите внимание на то, что в приложении есть метод с именем <code>AddOwnerAdminClaim</code>, который используется для добавления владельца приложения в роль администратора. Это позволяет немедленно приступить к управлению ролями приложения в контроллере <code>Roles</code>.
+	> [AZURE.NOTE] В файле Startup.Auth.cs примера проекта обратите внимание на то, что в приложении есть метод с именем <code>AddOwnerAdminClaim</code>, который используется для добавления владельца приложения в роль администратора. Это позволяет немедленно приступить к управлению ролями приложения в контроллере <code>Roles</code>.
 	
 4.	После входа щелкните **Роли**, чтобы начать управление ролями приложения.
 
@@ -83,11 +83,11 @@
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/select-user-group.png)
 
-	> [AZURE.NOTE]В файле Views\\Roles\\Index.cshtml вы увидите, что представление использует объект JavaScript с именем <code>AadPicker</code> (определенный в Scripts\\AadPickerLibrary.js) для доступа к действию <code>Search</code> в контроллере <code>Roles</code>.
+	> [AZURE.NOTE] В файле Views\\Roles\\Index.cshtml вы увидите, что представление использует объект JavaScript с именем <code>AadPicker</code> (определенный в Scripts\\AadPickerLibrary.js) для доступа к действию <code>Search</code> в контроллере <code>Roles</code>.
 		<pre class="prettyprint">var searchUrl = window.location.protocol + "//" + window.location.host + "<mark>/Roles/Search</mark>";
 	...
-    var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre>
-		В Controllers\\RolesController.cs вы увидите действие <code>Search</code>, которое отправляет непосредственный запрос к API Graph Azure Active Directory и возвращает ответ обратно на страницу.
+    var picker = new <mark>AadPicker(searchUrl, maxResultsPerPage, input, token, tenant)</mark>;</pre> 
+    		В файле Controllers\\RolesController.cs вы увидите действие <code>Search</code>, которое отправляет непосредственный запрос к API Graph Azure Active Directory и возвращает ответ обратно на страницу.
 		 Позднее вы будете использовать этот же метод для создания простой функциональности в приложении.
 
 6.	Выберите пользователя или группу в раскрывающемся списке, выберите роль и щелкните **Назначить роль**.
@@ -141,7 +141,7 @@
 
 8. В разделе **Разрешения для других приложений** для записи **Azure Active Directory** выберите **Доступ к каталогу вашей организации** в раскрывающемся списке **Делегированные разрешения**.
 
-	> [AZURE.NOTE]Необходимые разрешения зависят от желаемой функциональности приложения. Чтобы задать некоторые разрешения, требуется роль **глобального администратора**, но разрешения, необходимые для этого учебника, требуют использования только роли **Пользователь**.
+	> [AZURE.NOTE] Необходимые разрешения зависят от желаемой функциональности приложения. Чтобы задать некоторые разрешения, требуется роль **глобального администратора**, но разрешения, необходимые для этого учебника, требуют использования только роли **Пользователь**.
 
 9.  Щелкните **Сохранить**.
 
@@ -256,7 +256,7 @@ public class GroupClaimContext : DbContext
 	}</pre>
 	Поскольку нас интересует сопоставление ролей к контроллере ролей, достаточно просто убедиться, что каждое действие авторизует соответствующую роль.
 
-	> [AZURE.NOTE]В некоторых действиях вы можете заметить оформление <code>[ValidateAntiForgeryToken]</code>. Из-за поведения, описанного [Алленом Броком (Brock Allen)](https://twitter.com/BrockLAllen) в статье [MVC 4, AntiForgeryToken и утверждений](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), команда HTTP POST может завершиться ошибкой при проверке маркеров защиты от подделки по следующей причине:
+	> [AZURE.NOTE] В некоторых действиях вы можете заметить оформление <code>[ValidateAntiForgeryToken]</code>. Из-за поведения, описанного [Алленом Броком (Brock Allen)](https://twitter.com/BrockLAllen) в статье [MVC 4, AntiForgeryToken и утверждений](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), команда HTTP POST может завершиться ошибкой при проверке маркеров защиты от подделки по следующей причине:
 	> + Azure Active Directory не отправляет http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, который по умолчанию требуется для маркера защиты от подделки.
 	> + Если каталог Azure Active Directory синхронизирован с AD FS, в связи с установленным доверием AD FS также по умолчанию не отправляется утверждение http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider. Однако вы можете вручную настроить AD FS для отправки этого утверждения.
 	> Мы займемся этим на следующем шаге.
@@ -375,4 +375,4 @@ public class GroupClaimContext : DbContext
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

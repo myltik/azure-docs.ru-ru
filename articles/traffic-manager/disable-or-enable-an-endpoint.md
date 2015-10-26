@@ -50,4 +50,4 @@
 [Операции с диспетчером трафика (справочник по REST API)](http://go.microsoft.com/fwlink/?LinkId=313584)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

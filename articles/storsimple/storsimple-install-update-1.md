@@ -153,4 +153,4 @@
 
 Дополнительные сведения об [обновлении 1.2](storsimple-update1-release-notes.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

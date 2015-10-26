@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Создание Базы данных SQL и управление ею с помощью C#"
-	description="В этой статье показано, как создавать Базы данных SQL Azure и управлять ими с помощью C# и библиотеки Базы данных SQL Azure для .NET."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
-	editor=""/>
+   pageTitle="Создание Базы данных SQL и управление ею с помощью C#" 
+   description="В этой статье показано, как создавать Базы данных SQL Azure и управлять ими с помощью C# и библиотеки Базы данных SQL Azure для .NET." 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="stevestein" 
+   manager="jeffreyg" 
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="data-management"
-	ms.date="08/25/2015"
-	ms.author="sstein"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="data-management" 
+   ms.date="08/25/2015"
+   ms.author="sstein"/>
 
 # Создание Базы данных SQL и управление ею с помощью C&#x23;
 
@@ -798,4 +798,4 @@
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

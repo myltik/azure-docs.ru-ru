@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="07/24/2015"
-   ms.author="elfish; v-romcal; v-stste"/>
+   ms.date="10/08/2015"
+   ms.author="elfish; v-romcal; sstein"/>
 
 # Восстановление базы данных SQL Azure с использованием восстановления на момент времени в Azure PowerShell
 
@@ -38,11 +38,13 @@
 
 Вам необходимо использовать аутентификацию на основе сертификата для выполнения следующих командлетов. Дополнительную информацию см. в разделе *Использование сертификата* в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md#use-the-certificate-method).
 
+> [AZURE.IMPORTANT]Эта статья содержит команды для Azure PowerShell версии вплоть до 1.0, *но не включая* саму версию 1.0 и более поздние версии. Используемую версию Azure PowerShell можно проверить с помощью команды **Get-Module azure | format-table version**.
+
 1. Получите базу данных, которую необходимо восстановить, используя командлет [Get-AzureSqlDatabase](http://msdn.microsoft.com/library/azure/dn546735.aspx). Укажите следующие параметры:
 	* **ServerName** для имени сервера, на котором находится база данных.
 	* **DatabaseName** для имени базы данных, которую хотите восстановить.	
 
-	`PS C:\>$Database = Get-AzureSqlDatabase -ServerName "myserver" –DatabaseName “mydb”`
+	`$Database = Get-AzureSqlDatabase -ServerName "myserver" –DatabaseName “mydb”`
 
 2. Начните восстановление, используя командлет [Start-AzureSqlDatabaseRestore](http://msdn.microsoft.com/library/azure/dn720218.aspx). Укажите следующие параметры:
 	* **SourceDatabase** для исходной базы данных, из которой требуется выполнить восстановление.
@@ -51,14 +53,14 @@
 
 	Сохраните результат, возвращенный переменной с именем **$RestoreRequest**. Эта переменная содержит идентификатор запроса восстановления, который используется для мониторинга состояния восстановления.
 
-	`PS C:\>$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “myrestoredDB” –PointInTime “2015-01-01 06:00:00”`
+	`$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “myrestoredDB” –PointInTime “2015-01-01 06:00:00”`
 
 Восстановление может занять некоторое время. Для мониторинга состояния восстановления используйте командлет [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) и укажите следующие параметры:
 
 * **ServerName** для имени базы данных, в которую необходимо выполнить восстановление.
 * **OperationGuid** для глобального уникального идентификатора, которым является идентификатор запроса восстановления, хранимый в переменной **$RestoreRequest** на шаге 2.
 
-	`PS C:\>Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
+	`Get-AzureSqlDatabaseOperation –ServerName "myserver" –OperationGuid $RestoreRequest.RequestID`
 
 В полях **State** и **PercentComplete** отображается состояние восстановления.
 
@@ -66,13 +68,11 @@
 
 Дополнительные сведения см. в следующих разделах.
 
-[Обеспечение непрерывности работы базы данных SQL Azure](http://msdn.microsoft.com/library/azure/hh852669.aspx)
-
-[Резервное копирование и восстановление баз данных SQL Azure](http://msdn.microsoft.com/library/azure/jj650016.aspx)
+[Обеспечение непрерывности работы базы данных SQL Azure](sql-database-business-continuity.md)
 
 [Восстановление базы данных SQL Azure на определенный момент времени (блог)](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/)
 
 [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->
