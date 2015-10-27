@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="10/15/2015"
+	ms.date="10/19/2015"
 	ms.author="wesmc"/>
 
 # Приступая к работе с Центрами уведомлений для приложений iOS
@@ -46,54 +46,31 @@
 
 Изучение этого руководства является необходимым условием для работы со всеми другими руководствами, посвященными Центрам уведомлений для приложений iOS.
 
-> [AZURE.NOTE]Для работы с этим учебником необходима активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fja-jp%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
+> [AZURE.NOTE]Для работы с этим учебником необходима активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
 
 [AZURE.INCLUDE [Включение push-уведомлений Apple через центры уведомлений](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
 ##Настройка концентратора уведомлений
 
-В этом разделе приведены пошаговые инструкции по созданию и настройке нового концентратора уведомлений с помощью созданного вами ранее сертификата push-уведомлений. Если вы хотите использовать уже созданный концентратор уведомлений, шаги 2–5 можно пропустить.
+В этом разделе приведены пошаговые инструкции по созданию нового центра уведомлений и настройке проверки подлинности с помощью службы APNS, использующей раннее созданный вами сертификат push-уведомлений (файл с расширением **P12**). Если вы хотите использовать уже созданный центр уведомлений, перейдите к шагу 5.
+
+[AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
+
+<ol start="7">
+<li>
+<p>Перейдите на вкладку <b>Настройка</b> вверху, а затем в параметрах службы уведомлений Apple нажмите кнопку <b>Отправить</b>, чтобы отправить отпечаток сертификата. Выберите ранее экспортированный сертификат (файл с расширением <b>P12</b>) и пароль для него.</p>
+<p>Убедитесь, что вы работаете в режиме <b>песочницы</b>, так как это необходимо для разработки. Используйте <b>рабочую среду</b>, только если вы хотите отправлять push-уведомления пользователям, которые приобрели ваше приложение в магазине.</p>
+</li>
+</ol>
+&emsp;&emsp;![](./media/notification-hubs-ios-get-started/notification-hubs-upload-cert.png)
+
+&emsp;&emsp;![](./media/notification-hubs-ios-get-started/notification-hubs-configure-ios.png)
 
 
-1. В программе Keychain Access щелкните правой кнопкой мыши новый сертификат push-уведомлений, созданный в категории **Certificates** (Сертификаты). Щелкните элемент **Export** (Экспорт), укажите имя файла, выберите формат **.p12** и нажмите кнопку **Save** (Сохранить).
 
-    ![][1]
+Центр уведомлений теперь настроен для работы с APNS, и у вас есть строки подключения, чтобы зарегистрировать приложение и отправлять уведомления.
 
-	Запишите имя файла и расположение экспортируемого сертификата.
-
-	>[AZURE.NOTE]В этом учебнике создается файл Quickstart.p12. Имя файла и расположение могут отличаться.
-
-2. Войдите на [портал Azure] и нажмите кнопку **+СОЗДАТЬ**, расположенную в нижней части экрана.
-
-3. Щелкните элемент **Службы приложений**, выберите пункт **Служебная шина**, затем щелкните элемент **Центр уведомлений** и нажмите кнопку **Быстрое создание**.
-
-   	![][2]
-
-4. Введите имя для концентратора уведомлений, выберите нужный регион и щелкните элемент **Создать новый концентратор уведомлений**.
-
-   	![][3]
-
-5. Щелкните только что созданное пространство имен (обычно это ***имя центра уведомлений*-ns**), чтобы открыть соответствующую панель мониторинга.
-
-   	![][4]
-
-6. Перейдите на расположенную сверху вкладку **Центры уведомлений** и выберите недавно созданный центр уведомлений.
-
-   	![][5]
-
-7. Перейдите на вкладку **Настройка** в верхней части, а затем щелкните кнопку **Отправить** в параметрах службы уведомлений Apple для отправки отпечатка сертификата. Выберите ранее экспортированный сертификат **.p12** и пароль для него.
- 
-	Убедитесь, что вы работаете в режиме **песочницы**, поскольку это необходимо для разработки. Используйте **рабочую среду**, только если вы хотите отправлять push-уведомления пользователям, которые приобрели ваше приложение в магазине.
-
-   	![](./media/notification-hubs-ios-get-started/notification-hubs-configure-ios.png)
-
-8. Перейдите на расположенную вверху вкладку **Панель мониторинга**, затем щелкните **Просмотреть строку подключения**. Запишите две строки подключения. Строки подключения будут использованы в коде, приведенном в разделе ниже.
-
-   	![][7]
-
-Концентратор уведомлений теперь настроен для работы с APNS, и у вас есть строки подключения, чтобы зарегистрировать приложение и отправлять уведомления.
-
-##Подключение приложения к концентратору уведомлений
+##Подключение приложения к центру уведомлений
 
 1. В XCode создайте новый проект iOS и выберите шаблон **Single View Application** (Приложение с одним представлением).
 
@@ -113,11 +90,22 @@
 
    	![][10]
 
-5. Откройте файл AppDelegate.h и добавьте следующую директиву импорта:
+5. Добавьте новый файл заголовка в проект с именем **HubInfo.h**. Этот файл будет содержать константы для центра уведомлений. Добавьте указанные ниже определения и замените буквенные заполнители строки *именем концентратора* и значением *DefaultListenSharedAccessSignature*, которые вы записали ранее.
 
-         #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
+		#ifndef HubInfo_h
+		#define HubInfo_h
+		
+			#define HUBNAME @"<Enter the name of your hub>"
+			#define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
+		
+		#endif /* HubInfo_h */
 
-6. В файле AppDelegate.m добавьте приведенный ниже код в метод `didFinishLaunchingWithOptions` в зависимости от используемой версии iOS. Этот код регистрирует маркер вашего устройства в APNs.
+6. Откройте файл AppDelegate.h и добавьте следующие директивы импорта:
+
+         #import <WindowsAzureMessaging/WindowsAzureMessaging.h> 
+		 #import "HubInfo.h"
+		
+7. В файле AppDelegate.m добавьте приведенный ниже код в метод `didFinishLaunchingWithOptions` в зависимости от используемой версии iOS. Этот код регистрирует маркер вашего устройства в APNs.
 
 	Для iOS 8:
 
@@ -132,11 +120,11 @@
          [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
 
-7. В том же файле добавьте указанные ниже методы и замените буквенные заполнители строки *именем центра* и значением *DefaultListenSharedAccessSignature*, которые вы записали ранее. Этот код передает маркер устройства в концентратор уведомлений, чтобы последний мог отправлять уведомления:
+8. В том же файле добавьте следующие методы. Этот код подключается к центру уведомлений, используя сведения о соединении, указанные в проекте HubInfo.h. Затем он передает маркер устройства в центр уведомлений, чтобы центр мог отправлять уведомления:
 
 	    - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
-		    SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:@"<Enter your listen connection string>"
-										notificationHubPath:@"<Enter your hub name>"];
+		    SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:HUBLISTENACCESS
+										notificationHubPath:HUBNAME];
 
 		    [hub registerNativeWithDeviceToken:deviceToken tags:nil completion:^(NSError* error) {
 		        if (error != nil) {
@@ -156,7 +144,7 @@
 		}
 
 
-8. В том же файле добавьте следующий метод для отображения **UIAlert**, если уведомление получено, когда приложение активно:
+9. В том же файле добавьте следующий метод для отображения **UIAlert**, если уведомление получено, когда приложение активно:
 
 
         - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
@@ -164,7 +152,7 @@
 		    [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
 		}
 
-8. Выполните сборку приложения и запустите его на устройстве, чтобы убедиться в отсутствии сбоев.
+10. Выполните сборку приложения и запустите его на устройстве, чтобы убедиться в отсутствии сбоев.
 
 ## Отправка уведомлений
 
@@ -192,26 +180,11 @@
 	![][32]
 
 
-2. Откройте файл ViewController.h и добавьте следующие инструкции `#import` и `#define`. Замените буквенную строку заполнителя фактической строкой подключения *DefaultFullSharedAccessSignature* и *именем центра*.
-
-
-		#import <CommonCrypto/CommonHMAC.h>
-
-		#define API_VERSION @"?api-version=2015-01"
-		#define HUBFULLACCESS @"<Enter Your DefaultFullSharedAccess Connection string>"
-		#define HUBNAME @"<Enter the name of your hub>"
-
-
-3. Добавьте выходы для метки и текстового поля, которые связаны с представлением, и обновите определение `interface`, добавив в него поддержку `UITextFieldDelegate` и `NSXMLParserDelegate`. Добавьте три нижеуказанных объявления свойств для обеспечения вызова API REST и синтаксического анализа ответа.
+2. [Добавьте выходы](https://developer.apple.com/library/ios/recipes/xcode_help-IB_connections/chapters/CreatingOutlet.html) для метки и текстового поля, которые связаны с представлением, и обновите определение `interface`, добавив в него поддержку `UITextFieldDelegate` и `NSXMLParserDelegate`. Добавьте три нижеуказанных объявления свойств для обеспечения вызова API REST и синтаксического анализа ответа.
 
 	Ваш файл ViewController.h должен выглядеть следующим образом:
 
 		#import <UIKit/UIKit.h>
-		#import <CommonCrypto/CommonHMAC.h>
-
-		#define API_VERSION @"?api-version=2015-01"
-		#define HUBFULLACCESS @"<Enter Your DefaultFullSharedAccess Connection string>"
-		#define HUBNAME @"<Enter the name of your hub>"
 
 		@interface ViewController : UIViewController <UITextFieldDelegate, NSXMLParserDelegate>
 		{
@@ -227,8 +200,17 @@
 
 		@end
 
+3. Откройте проект HubInfo.h и добавьте следующие константы, которые будут использоваться для отправки уведомлений в концентратор. Замените буквенную строку заполнителя фактической строкой подключения *DefaultFullSharedAccessSignature*.
 
-4. Откройте ViewController.m и добавьте следующий код, чтобы проанализировать строку подключения *DefaultFullSharedAccessSignature*. Как уже говорилось в [справочнике по REST API](http://msdn.microsoft.com/library/azure/dn495627.aspx), проанализированная информация будет использоваться при создании маркера SAS для заголовка **запроса авторизации**.
+		#define API_VERSION @"?api-version=2015-01"
+		#define HUBFULLACCESS @"<Enter Your DefaultFullSharedAccess Connection string>"
+
+4. Добавьте инструкции `#import` в файл ViewController.h.
+
+		#import <CommonCrypto/CommonHMAC.h>
+		#import "HubInfo.h"
+
+5. Откройте файл ViewController.m и добавьте следующий код в раздел реализации интерфейса: Этот код будет анализировать строку подключения *DefaultFullSharedAccessSignature* Как уже говорилось в [справочнике по REST API](http://msdn.microsoft.com/library/azure/dn495627.aspx), проанализированная информация будет использоваться при создании маркера SAS для заголовка **запроса авторизации**.
 
 		NSString *HubEndpoint;
 		NSString *HubSasKeyName;
@@ -264,7 +246,7 @@
 			}
 		}
 
-5. В файле ViewController.m обновите метод `viewDidLoad`, чтобы проанализировать строку подключения во время загрузки представления. Также добавьте служебные методы, как показано ниже.
+6. В файле ViewController.m обновите метод `viewDidLoad`, чтобы проанализировать строку подключения во время загрузки представления. Кроме того, добавьте в раздел реализации интерфейса служебные методы, показанные ниже.
 
 
 		- (void)viewDidLoad
@@ -290,7 +272,7 @@
 
 
 
-6. В файле ViewController.m добавьте следующий код, чтобы создать маркер авторизации SAS, который будет предоставляться в заголовке **запроса авторизации**, как указано в [справочнике по REST API](http://msdn.microsoft.com/library/azure/dn495627.aspx).
+7. В файле ViewController.m добавьте в раздел реализации интерфейса следующий код, чтобы создать маркер авторизации SAS, который будет указан в заголовке **запроса авторизации**, как оговорено в [справочнике по REST API](http://msdn.microsoft.com/library/azure/dn495627.aspx).
 
 		-(NSString*) generateSasToken:(NSString*)uri
 		{
@@ -339,7 +321,7 @@
 		}
 
 
-7. Удерживая клавишу CONTROL, проведите от кнопки **Send Notification** (Отправить уведомление) к файлу ViewController.m, чтобы добавить действие для события **Touch Down**, которое вызывает REST API, с помощью следующего кода.
+8. Используйте «CTRL + перетащить» из кнопки **Отправить уведомление** в файл ViewController.m, чтобы добавить действие с именем **SendNotificationMessage** для события **Touch Down**. Обновите метод с помощью следующего кода, чтобы отправить уведомление с помощью интерфейса REST API.
 
 		- (IBAction)SendNotificationMessage:(id)sender
 		{
@@ -398,7 +380,7 @@
 		}
 
 
-8. В ViewController.m добавьте следующий метод делегата, чтобы обеспечить закрытие клавиатуры для текстового поля. Удерживая клавишу CONTROL, проведите от текстового поля к значку контроллера представления в конструкторе интерфейса, чтобы задать контроллер представления в качестве делегата выхода.
+9. В ViewController.m добавьте следующий метод делегата, чтобы обеспечить закрытие клавиатуры для текстового поля. Удерживая клавишу CONTROL, проведите от текстового поля к значку контроллера представления в конструкторе интерфейса, чтобы задать контроллер представления в качестве делегата выхода.
 
 		//===[ Implement UITextFieldDelegate methods ]===
 
@@ -409,7 +391,7 @@
 		}
 
 
-9. В файле ViewController.m добавьте следующие методы делегата для поддержки анализа ответа с помощью `NSXMLParser`.
+10. В файле ViewController.m добавьте следующие методы делегата для поддержки анализа ответа с помощью `NSXMLParser`.
 
 		//===[ Implement NSXMLParserDelegate methods ]===
 
@@ -448,7 +430,7 @@
 
 
 
-10. Выполните сборку проекта и убедитесь в отсутствии ошибок.
+11. Выполните сборку проекта и убедитесь в отсутствии ошибок.
 
 
 
@@ -477,23 +459,17 @@
 
 ##Дальнейшие действия
 
-В этом простом примере осуществляется широковещательная рассылка уведомлений на все устройства iOS. Вы можете продолжить свое обучение, ознакомившись с учебником [Использование центров уведомлений для отправки push-уведомлений пользователям]. В этом учебнике рассматривается создание серверной части для отправки уведомлений с помощью тегов.
+В этом простом примере осуществляется широковещательная рассылка уведомлений на все устройства iOS. Вы можете продолжить свое обучение, ознакомившись с учебником [Использование Центров уведомлений для отправки push-уведомлений пользователям]. В этом учебнике рассматривается создание серверной части для отправки уведомлений с помощью тегов.
 
-Если вам требуется разделить пользователей по группам интересов, см. также раздел [Использование центров уведомлений для передачи экстренных новостей].
+Если вам требуется разделить пользователей по группам интересов, см. также раздел [Использование Центров уведомлений для передачи экстренных новостей].
 
-Дополнительные сведения о центрах уведомлений см. в [руководстве по использованию центров уведомлений].
+Дополнительные сведения о Центрах уведомлений см. в [руководстве по использованию Центров уведомлений].
 
 
 
 <!-- Images. -->
 
-[1]: ./media/notification-hubs-ios-get-started/notification-hubs-export-cert-p12.png
-[2]: ./media/notification-hubs-ios-get-started/notification-hubs-create-from-portal.png
-[3]: ./media/notification-hubs-ios-get-started/notification-hubs-create-from-portal2.png
-[4]: ./media/notification-hubs-ios-get-started/notification-hubs-select-from-portal.png
-[5]: ./media/notification-hubs-ios-get-started/notification-hubs-select-from-portal2.png
 [6]: ./media/notification-hubs-ios-get-started/notification-hubs-configure-ios.png
-[7]: ./media/notification-hubs-ios-get-started/notification-hubs-connection-strings.png
 [8]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app.png
 [9]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app2.png
 [10]: ./media/notification-hubs-ios-get-started/notification-hubs-create-ios-app3.png
@@ -517,15 +493,15 @@
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[портал Azure]: https://manage.windowsazure.com/
-[руководстве по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[Azure portal]: https://manage.windowsazure.com/
+[руководстве по использованию Центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Использование центров уведомлений для отправки push-уведомлений пользователям]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Использование центров уведомлений для передачи экстренных новостей]: notification-hubs-ios-send-breaking-news.md
+[Использование Центров уведомлений для отправки push-уведомлений пользователям]: notification-hubs-aspnet-backend-ios-notify-users.md
+[Использование Центров уведомлений для передачи экстренных новостей]: notification-hubs-ios-send-breaking-news.md
 
 [руководстве по программированию локальных и push-уведомлений]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

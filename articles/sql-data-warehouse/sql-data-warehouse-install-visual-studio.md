@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Установка Visual Studio 2015 | Microsoft Azure"
-   description="Установка Visual Studio и SSDT для хранилища данных SQL Azure"
+   pageTitle="Установка Visual Studio и (или) SSDT для хранилища данных SQL | Microsoft Azure"
+   description="Установка Visual Studio и (или) средств разработки SSDT для хранилища данных SQL Azure"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager=""
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,36 +13,40 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/07/2015"
-   ms.author="twounder"/>
+   ms.date="10/21/2015"
+   ms.author="twounder;barbkess"/>
 
-# Установка Visual Studio 2015.
+# Установка Visual Studio 2015 и (или) SSDT для хранилища данных SQL
 
-Группа по работе с хранилищем данных SQL Azure рекомендует использовать для разработки Visual Studio 2013 или более поздней версии в сочетании со средствами SQL Server Data Tools (SSDT). Далее рассматривается загрузка и обновление Visual Studio 2015, если у вас еще не установлена последняя версия этого продукта. Выполнив следующие инструкции, вы сможете загрузить и установить необходимые компоненты для работы с хранилищем данных SQL Azure.
+При разработке приложений для хранилища данных SQL рекомендуется использовать Visual Studio 2013 или более поздней версии в сочетании с последней версией SQL Server Data Tools (SSDT).
 
-+ [Загрузите и установите Visual Studio 2015](#Download-and-Install-Visual-Studio-2015).
-+ [Загрузите и установите предварительную версию SQL Server Data Tools (SSDT)] (#Download-and-Install-SQL-Server-Data-Tools-(SSDT)-Preview)
- 
-> [AZURE.NOTE]С хранилищем данных SQL Azure также можно использовать предварительную версию Visual Studio 2013 и SQL Server Data Tools (SSDT).
- 
-##Загрузка и установка Visual Studio 2015.
+Для запуска запросов из интегрированной среды разработки (IDE) Visual Studio необходимо установить только SSDT. Будет выполнена установка IDE Visual Studio и SSDT, и вы сможете использовать обозреватель объектов SQL Server для подключения к серверу Azure SQL Server. После этого вы сможете просматривать и выполнять запросы к базам данных в хранилище данных SQL.
 
-Чтобы установить Visual Studio 2015, выполните следующие действия.
 
-1. [Загрузите Visual Studio 2015](https://www.visualstudio.com/downloads) с сайта Visual Studio.
-2. Следуйте инструкциям с сайта MSDN [Установка Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx), выбрав конфигурации по умолчанию 
+## Шаг 1. Загрузите и установите Visual Studio.
 
-##Загрузка и установка предварительной версии SQL Server Data Tools (SSDT)
+Если вы решили установить Visual Studio, можно использовать Visual Studio 2013 или Visual Studio 2015 с хранилищем данных SQL. Если приложение Visual Studio 2013 или 2015 уже установлено, перейдите к шагу 2 и установите SSDT.
 
-Хранилище данных Azure SQL использует последнюю доступную версию SQL Server Data Tools (SSDT).
+Чтобы установить Visual Studio 2015, сделайте следующее.
 
-1. [Загрузите предварительную версию SQL Server Data Tools](https://msdn.microsoft.com/mt429383.aspx) для Visual Studio 2013 или 2015.
-2. Следуйте инструкциям по установке, чтобы установить средства для работы с данными.
+1. [Загрузите Visual Studio 2015](https://www.visualstudio.com/downloads) с сайта Visual Studio Online. 
+2. Выполните установку, следуя инструкциям [Установка Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx) с сайта MSDN, а затем выберите конфигурации по умолчанию.
 
+## Шаг 2. Загрузка и установка последней версии SQL Server Data Tools (SSDT) 
+
+Независимо от того, установлено ли приложение Visual Studio, необходимо установить последнюю версию SQL Server Data Tools (SSDT), поддерживающую хранилище данных SQL.
+
+Чтобы установить последнюю версию SSDT, сделайте следующее.
+
+1. [Загрузите предварительную версию SQL Server Data Tools](https://msdn.microsoft.com/library/mt204009.aspx) для Visual Studio 2013 или 2015.
+2. Выполните установку, следуя инструкциям на сайте загрузки.
+
+## Дальнейшие действия
+
+Теперь, когда у вас установлена последняя версия SSDT, можно приступать к [подключению](./sql-data-warehouse-get-started-connect.md) к базе данных.
 
 <!--Anchors-->
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-auditing-get-started/sql-data-warehouse-auditing.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

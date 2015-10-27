@@ -2,7 +2,7 @@
 	pageTitle="Просмотр, изменение, создание и отправка документов JSON с помощью обозревателя документов DocumentDB | Microsoft Azure"
 	description="Сведения об обозревателе документов DocumentDB, средстве портала предварительной версии Azure для просмотра, изменения, создания и отправки документов JSON с помощью DocumentDB."
 	services="documentdb"
-	authors="stephbaron"
+	authors="AndrewHoh"
 	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article" 
 	ms.date="09/09/2015"
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # Просмотр, изменение, создание и отправка документов JSON с помощью обозревателя документов DocumentDB #
 
@@ -144,4 +144,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

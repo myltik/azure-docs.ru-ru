@@ -1,7 +1,7 @@
 >[AZURE.NOTE]Для выполнения этой процедуры необходима учетная запись Google с проверенным электронным адресом. Чтобы создать новую учетную запись Google, перейдите по ссылке <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
 
-1. Перейдите на веб-сайт <a href="http://cloud.google.com/console" target="_blank">Консоль Google Cloud</a> и войдите с помощью учетной записи Google. Щелкните элемент **Создать проект**.
+1. Перейдите на веб-сайт [Google Cloud Console](https://console.developers.google.com/project) и войдите с помощью учетной записи Google. Щелкните элемент **Create Project** (Создать проект).
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-new-project.png)
 
@@ -17,7 +17,7 @@
 
 	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
-5. Щелкните **Credentials** (Учетные данные), а затем нажмите кнопку **Create new Key** (Создать новый ключ)
+5. Щелкните элемент **Credentials** (Учетные данные), а затем — элементы **Add credentials** (Добавить учетные данные) и **API key** (Ключ API).
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
 
@@ -25,10 +25,11 @@
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
 
-7. Запишите значение **API KEY** (Ключ API).
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2-2.png)
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png)
+
+7. Запишите значение **API KEY** (Ключ API).
 
 	Этот ключ API службы Azure будут использовать для аутентификации в службе GCM и отправки push-уведомлений от имени вашего приложения.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

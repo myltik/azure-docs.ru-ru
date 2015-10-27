@@ -1,12 +1,11 @@
 ## Создание виртуальной сети с помощью PowerShell
-
 Чтобы создать виртуальную сеть с помощью PowerShell, выполните указанные ниже действия.
 
 1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md). Войдите в Azure и выберите подписку.
 	
-3. При необходимости выполните командлет **New-AzureRMResourceGroup**, чтобы создать новую группу ресурсов (см. рисунок ниже). В нашем случае нужно создать группу ресурсов с именем *TestRG*. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md/#resource-groups).
+3. При необходимости создайте новую группу ресурсов, как показано ниже. В нашем случае нужно создать группу ресурсов с именем *TestRG*. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md).
 
-		New-AzureRMResourceGroup -Name TestRG -Location centralus
+		New-AzureResourceGroup -Name TestRG -Location centralus
 
 	Ожидаемые выходные данные:
 	
@@ -21,9 +20,9 @@
 		
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG	
 
-4. Выполните командлет **New-AzureRMVirtualNetwork**, чтобы создать виртуальную сеть (см. рисунок ниже).
+4. Создайте новую виртуальную сеть с именем *TestVNet*, как показано ниже.
 
-		New-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
+		New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
 			-AddressPrefix 192.168.0.0/16 -Location centralus	
 		
 	Ожидаемые выходные данные:
@@ -46,15 +45,15 @@
 		NetworkInterfaces : null
 		Subnets           : []
 
-5. Выполните командлет **Get-AzureRMVirtualNetwork**, чтобы сохранить объект виртуальной сети в переменной (см. рисунок ниже).
+5. Сохраните объект виртуальной сети в переменной, как показано ниже.
 
-		$vnet = Get-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 	
-	>[AZURE.TIP]Можно объединить шаги 4 и 5, выполнив команду **$vnet = New-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
+	>[AZURE.TIP]Можно объединить шаги 4 и 5, выполнив команду **$vnet = New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
 
-6. Выполните командлет **Add-AzureRMVirtualNetworkSubnetConfig**, чтобы добавить подсеть в новую виртуальную сеть (см. рисунок ниже).
+6. Добавьте подсеть к переменной новой виртуальной сети, как показано ниже.
 
-		Add-AzureRMVirtualNetworkSubnetConfig -Name FrontEnd `
+		Add-AzureVirtualNetworkSubnetConfig -Name FrontEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
 		
 	Ожидаемые выходные данные:
@@ -90,12 +89,12 @@
 
 7. Повторите шаг 6 выше для каждой подсети, которую необходимо создать. Приведенная ниже команда создает подсеть *BackEnd* для нашего сценария.
 
-		Add-AzureRMVirtualNetworkSubnetConfig -Name BackEnd `
+		Add-AzureVirtualNetworkSubnetConfig -Name BackEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
 
-8. Несмотря на создание подсетей, в настоящее время они существуют только в локальной переменной, используемой для получения виртуальной сети, созданной на шаге 4. Чтобы сохранить изменения в Azure, выполните командлет **Set-AzureRMVirtualNetwork** (см. рисунок ниже).
+8. Несмотря на создание подсетей, в настоящее время они существуют только в локальной переменной, используемой для получения виртуальной сети, созданной на шаге 4. Чтобы сохранить изменения в Azure, выполните командлет **Set-AzureVirtualNetwork**, как показано ниже.
 
-		Set-AzureRMVirtualNetwork -VirtualNetwork $vnet	
+		Set-AzureVirtualNetwork -VirtualNetwork $vnet	
 		
 	Ожидаемые выходные данные:
 
@@ -138,4 +137,4 @@
 		                      }
 		                    ]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

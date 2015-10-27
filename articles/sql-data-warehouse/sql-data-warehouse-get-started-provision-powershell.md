@@ -10,10 +10,10 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/08/2015"
+   ms.date="10/20/2015"
    ms.author="lodipalm"/>
 
 # Создание хранилища данных SQL с помощью Powershell
@@ -30,7 +30,7 @@
 
 1. Чтобы загрузить модуль Azure PowerShell, запустите [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409).
 2. Чтобы запустить модуль, введите в окне запуска **Microsoft Azure PowerShell**.
-3. Если ваша учетная запись не добавлена на компьютер, запустите приведенный ниже командлет. (Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell][]).
+3. Если вы еще не добавили свою учетную запись на компьютер, запустите следующий командлет. (Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell][]).
 
             Add-AzureAccount
 
@@ -71,4 +71,4 @@
 [firewall rules]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-database-configure-firewall-settings/
 [Установка и настройка Azure PowerShell]: powershell-install-configure.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

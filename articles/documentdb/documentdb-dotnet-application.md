@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Разработка веб-приложения ASP.NET MVC с использованием DocumentDB | Microsoft Azure" 
 	description="Узнайте, как использовать DocumentDB с .NET для создания веб-приложения «Список дел». Вы будете хранить данные в веб-приложении ASP.NET MVC, размещенном в Azure, в этом же приложении вы будет их использовать." 
-	keywords="Github, visual studio, web application development, application development, database tutorial, mvc applications, json data, documentdb, azure, Microsoft azure"
+	keywords="Github, visual studio, разработка веб-приложений, разработка приложений, учебник по базам данных, приложения mvc, данные json, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter=".net" 
 	authors="ryancrawcour" 
@@ -91,7 +91,7 @@
 
 	Мы не станем запускать этот проект локально, потому что я уверена, что мы все видели приложение ASP.NET «Hello World». Пойдем непосредственно к добавлению DocumentDB в этом проекте и созданию приложения.
 
-## <a name="_Toc395637767"></a>Шаг 3. Добавление DocumentDB в проект веб-приложения
+## <a name="_Toc395637767"></a>Шаг 3. Добавление DocumentDB в проект веб-приложения
 
 Теперь, когда мы установили большую часть коммуникаций ASP.NET MVC, необходимых для этого решения, перейдем к основной цели этого учебника, т. е. к добавлению базы данных Azure DocumentDB в наше веб-приложение.
 
@@ -255,7 +255,7 @@
 - [Добавление элементов](#_Toc395637771).
 - [Редактирование элементов](#_Toc395637772).
 
-### <a name="_Toc395637770"></a>Вывод списка незавершенных элементов в веб-приложении
+### <a name="_Toc395637770"></a>Описание незавершенных элементов в веб-приложении
 
 Прежде всего следует добавить класс, который содержит всю необходимую логику для подключения к базе данных DocumentDB и ее использования. В этом учебнике мы оформим всю эту логику в класс репозитория с именем DocumentDBRepository.
 
@@ -454,7 +454,7 @@
 
 Теперь приложение ASP.NET MVC будет знать, что, если вы не указали значение в поле URL-адреса для управления поведением маршрутизации, вместо **Главный** нужно использовать **Элемент** в качестве контроллера, а пользовательский **индекс** — в качестве представления.
 
-Теперь при запуске приложение вызовет **ItemController**, который, в свою очередь, вызовет класс репозитория и вернет с использованием метода GetItems все незавершенные элементы в представление **Представления**\**Элемент**\**Индекс**.
+Теперь при запуске приложение вызовет объект **ItemController**, который, в свою очередь, вызовет класс репозитория и вернет, используя метод GetItems, все незавершенные элементы в представление **Представления**\**Элемент**\**Индекс**.
 
 Если создать и запустить этот проект сейчас, отобразится примерно следующие данные.
 
@@ -540,19 +540,6 @@
 
 2. Добавьте следующие методы в класс **ItemController**.
 
-    	[HttpPost]
-   		[ValidateAntiForgeryToken]
-    	public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description,Completed")] Item item)
-    	{
-     	   if (ModelState.IsValid)
-    	    {
-    	        await DocumentDBRepository<Item>.UpdateItemAsync(item.Id, item);
-    	        return RedirectToAction("Index");
-    	    }
-
-  	      return View(item);
- 	   	}
-		
 		public ActionResult Edit(string id)
 		{
 		    if (string.IsNullOrEmpty(id))
@@ -569,6 +556,19 @@
 		 	
 		    return View(item);
 		}
+		
+    	[HttpPost]
+   		[ValidateAntiForgeryToken]
+    	public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Description,Completed")] Item item)
+    	{
+     	   if (ModelState.IsValid)
+    	    {
+    	        await DocumentDBRepository<Item>.UpdateItemAsync(item.Id, item);
+    	        return RedirectToAction("Index");
+    	    }
+
+  	      return View(item);
+ 	   	}
 		
 	
 	Первый метод обрабатывает команду HTTP GET, которая формируется, когда пользователь нажимает ссылку **Изменить** в представлении **Индекс**. Этот метод извлекает [**документ**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) из DocumentDB и передает его в представление **Изменить**.
@@ -633,4 +633,4 @@
 [Основные операции CRUD в ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

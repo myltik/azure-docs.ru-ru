@@ -2,7 +2,7 @@
 	pageTitle="Создание, изменение и выполнение запросов SQL к коллекции DocumentDB с помощью обозревателя запросов | Microsoft Azure" 
 	description="Узнайте об обозревателе запросов DocumentDB — средстве портала предварительной версии Azure — для создания, изменения и выполнения запросов SQL к коллекции DocumentDB." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="get-started-article"
 	ms.date="09/08/2015" 
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # Создание, изменение и выполнение запросов SQL к коллекции DocumentDB с помощью обозревателя запросов #
 
@@ -78,4 +78,4 @@
 - Дополнительные сведения о грамматике SQL DocumentDB, поддерживаемой в обозревателе запросов, см. [здесь](documentdb-sql-query.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

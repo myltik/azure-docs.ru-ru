@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/07/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm"/>
 
 #Создание хранилища данных SQL с помощью TSQL 
@@ -30,7 +30,7 @@
 - приведенному. Бесплатный экземпляр Visual Studio см. на странице [Загрузки Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 - Используйте SQL Server версии 12. Для создания хранилища данных SQL вам потребуется SQL Server версии 12. Если у вас нет Server SQL версии 12, рекомендуется создать сервер на портале предварительной версии, чтобы вы могли создать хранилище данных SQL на новом сервере.
 
-В данной статье не рассматривается правильная настройка базы данных и подключение к ней с помощью Visual Studio. Полное описание этих процедур см. в документации по [Подключению и созданию запросов][]. Сначала откройте обозреватель объектов SQL Server в Visual Studio и подключитесь к серверу, который будет использоваться для создания хранилища данных SQL. Теперь вы можете создать хранилище данных SQL. Для этого запустите следующую команду для основной базы данных:
+В данной статье не рассматривается правильная настройка базы данных и подключение к ней с помощью Visual Studio. Полное описание этих процедур см. в документации по [подключению и созданию запросов][]. Сначала откройте обозреватель объектов SQL Server в Visual Studio и подключитесь к серверу, который будет использоваться для создания хранилища данных SQL. Теперь вы можете создать хранилище данных SQL. Для этого запустите следующую команду для основной базы данных:
 
         CREATE DATABASE <Name> (EDITION='datawarehouse', SERVICE_OBJECTIVE = '<Compute Size - DW####>', MAXSIZE= <Storage Size - #### GB>);
 
@@ -64,16 +64,16 @@
 + DW1500
 + DW2000
 
-Сведения о влиянии этих параметров на выставление счетов см. на нашей [странице цен][].
+Сведения о влиянии этих параметров на стоимость см. на нашей [странице цен][].
 
 ## Дальнейшие действия
-После завершения подготовки хранилища данных SQL вы можете [загрузить демонстрационные данные][] или ознакомиться с возможностями [разработки][], [загрузки][] или [переноса][].
+После завершения подготовки хранилища данных SQL вы можете [загрузить демонстрационные данные][] или ознакомиться с возможностями [разработки][], [загрузки][] и [переноса][].
 
-[Подключению и созданию запросов]: ./sql-data-warehouse-get-started-connect-query.md
-[переноса]: https://azure.microsoft.com/ja-jp/documentation/articles/sql-data-warehouse-overview-migrate/
-[разработки]: https://azure.microsoft.com/ja-jp/documentation/articles/sql-data-warehouse-overview-develop/
-[загрузки]: https://azure.microsoft.com/ja-jp/documentation/articles/sql-data-warehouse-overview-load/
-[загрузить демонстрационные данные]: https://azure.microsoft.com/ja-jp/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[странице цен]: https://azure.microsoft.com/ja-jp/pricing/details/sql-data-warehouse/
+[подключению и созданию запросов]: ./sql-data-warehouse-get-started-connect.md
+[переноса]: ./sql-data-warehouse-overview-migrate.md
+[разработки]: ./sql-data-warehouse-overview-develop.md
+[загрузки]: ./sql-data-warehouse-overview-load.md
+[загрузить демонстрационные данные]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[странице цен]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

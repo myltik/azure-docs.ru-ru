@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
-	ms.date="09/03/2015"
+	ms.date="10/19/2015"
 	ms.author="wesmc"/>
 
 # Приступая к работе с Центрами уведомлений с помощью Baidu
@@ -398,21 +398,46 @@ Push-облако Baidu — это китайская облачная служ
 
 ##Отправка уведомлений в приложение
 
-Уведомления можно отправлять с помощью концентраторов уведомлений Azure из любого серверного компонента, использующего <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">интерфейс REST</a>. В этом руководстве описано использование консольного приложения .NET.
+
+Можно проверить получение уведомлений в приложении, отправив уведомления на портале Azure с помощью вкладки отладки центра уведомлений, как показано на следующем экране.
+
+![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
+
+Push-уведомления обычно отправляются в серверной службе, например мобильными службами или ASP.NET, с помощью совместимой библиотеки. Также можно напрямую использовать REST API для отправки уведомлений, если для серверной части библиотека недоступна.
+
+В этом учебнике мы пойдем по простому пути и продемонстрируем тестирование клиентского приложения, отправляя уведомления с помощью пакета SDK для .NET для центров уведомлений не в серверную службу, а в консольное приложение. В качестве следующего шага по отправке уведомлений с сервера ASP.NET рекомендуем ознакомиться с учебником [Уведомление пользователей посредством Центров уведомлений](notification-hubs-aspnet-backend-windows-dotnet-notify-users.md). Можно использовать следующие способы отправки уведомлений.
+
+* **Интерфейс REST**. [Интерфейс REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) поддерживает уведомления на любой серверной платформе.
+
+* **Пакет SDK .NET для Центров уведомлений Microsoft Azure**. В диспетчере пакетов NuGet для Visual Studio выполните команду [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+
+* **Node.js**. [Использование Центров уведомлений с Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md).
+
+* **Мобильные службы Azure**. Примеры отправки уведомлений из интерфейса мобильных служб Azure, интегрированного с Центрами уведомлений, см. в статье «Приступая к работе с push-уведомлениями в мобильных службах» ([Серверная часть .NET](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [Серверная часть JavaScript](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).
+
+* **Java или PHP**. Примеры отправки уведомлений с использованием REST API см. в статье «Использование Центров уведомлений в Java/PHP» ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
+
+##(Необязательно) Отправление уведомлений из консольного приложения .NET
+
+В этом разделе мы будем отправлять уведомление, используя консольное приложение .NET.
 
 1. Создайте новое консольное приложение Visual C#.
 
 	![][30]
 
-2. Добавьте ссылку на пакет Azure Service Bus SDK с помощью <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">пакета NuGet WindowsAzure.ServiceBus</a>. В главном меню Visual Studio последовательно выберите **Инструменты** > **Диспетчер пакетов библиотеки** > **Консоль диспетчера пакетов**. Затем в окне консоли введите следующее и нажмите клавишу ВВОД:
+2. В окне консоли диспетчера пакетов задайте свойство **Проект по умолчанию** для нового проекта консольного приложения, а затем в окне консоли выполните следующую команду:
 
-        Install-Package WindowsAzure.ServiceBus
+        Install-Package Microsoft.Azure.NotificationHubs
 
-3. Откройте файл **Program.cs** и добавьте следующий оператор Using.
+	После этого будет добавлена ссылка на пакет SDK для Центров уведомлений Azure с помощью <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">пакета NuGet Microsoft.Azure.NotificationHubs</a>.
 
-        using Microsoft.ServiceBus.Notifications;
+	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
-4. В класс `Program` добавьте следующий метод, а затем замените *DefaultFullSharedAccessSignatureSASConnectionString* и *NotificationHubName* имеющимися у вас значениями.
+3. Откройте файл **Program.cs** и добавьте следующий оператор using:
+
+        using Microsoft.Azure.NotificationHubs;
+
+4. В класс `Program` добавьте следующий метод, а затем замените *DefaultFullSharedAccessSignatureSASConnectionString* и *NotificationHubName* своими значениями.
 
 		private static async void SendNotificationAsync()
 		{
@@ -421,7 +446,7 @@ Push-облако Baidu — это китайская облачная служ
 			var result = await hub.SendBaiduNativeNotificationAsync(message);
 		}
 
-5. Затем добавьте следующие строки в метод **Main**.
+5. Затем добавьте следующие строки в метод **Main**:
 
          SendNotificationAsync();
 		 Console.ReadLine();
@@ -434,7 +459,7 @@ Push-облако Baidu — это китайская облачная служ
 
 Приложение получает значения userId и channelId из службы push-уведомлений Baidu с последующей регистрацией в концентраторе уведомлений.
 
-Чтобы отправить тестовое уведомление с использованием консольного приложения .Net, нажмите клавишу F5 в Visual Studio для запуска приложения. Приложение отправит уведомление, которое появится в верхней части области уведомлений устройства или эмулятора.
+Для отправки тестового уведомления вы можете использовать вкладку отладки на портале. Если вы собрали консольное приложение .NET для Visual Studio, нажмите клавишу F5 в Visual Studio для запуска приложения. Приложение отправит уведомление, которое появится в верхней части области уведомлений устройства или эмулятора.
 
 
 <!-- Images. -->
@@ -479,4 +504,4 @@ Push-облако Baidu — это китайская облачная служ
 [портал Azure]: https://manage.windowsazure.com/
 [портал Baidu]: http://www.baidu.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

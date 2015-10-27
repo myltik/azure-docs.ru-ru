@@ -35,7 +35,7 @@
 
 > [AZURE.IMPORTANT]Выполнение этого учебника является необходимым условием для работы со всеми остальными учебниками, посвященными Mobile Engagement для приложений Android. Для его выполнения необходимо иметь активную учетную запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fru-RU%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Бесплатная пробная версия Azure</a>.
 
-##<a id="setup-azme"></a>Настройка Mobile Engagement для вашего приложения iOS
+##<a id="setup-azme"></a>Настройка Mobile Engagement для вашего приложения Android
 
 [AZURE.INCLUDE [Создание приложения Mobile Engagement на портале](../../includes/mobile-engagement-create-app-in-portal.md)]
 
@@ -327,4 +327,4 @@ Mobile Engagement позволяет взаимодействовать и СВ�
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
