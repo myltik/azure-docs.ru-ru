@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/08/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Создание хранилища данных SQL с помощью портала предварительной версии Azure#
@@ -121,6 +121,6 @@
 
 ## Дальнейшие действия
 
-После создания образца базы данных для хранилища данных SQL ознакомьтесь со сведениями об использовании хранилища данных SQL в разделе [Подключение и создание запросов](./sql-data-warehouse-get-started-connect-query.md).
+Теперь, когда создан пример базы данных для хранилища данных SQL, вы можете [подключиться](./sql-data-warehouse-get-started-connect.md) к этой базе данных.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

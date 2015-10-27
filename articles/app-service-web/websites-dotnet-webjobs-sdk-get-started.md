@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Создание веб-задания .NET в службе приложений Azure | Microsoft Azure"
 	description="Создание многоуровневого приложения с помощью ASP.NET MVC и Azure. Внешний сервер запускается как веб-приложение в службе приложений Azure, а внутренний сервер — как веб-задание. Приложение использует Entity Framework, базу данных SQL, очереди службы хранилища Azure и большие двоичные объекты."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=".net"
 	authors="tdykstra"
 	manager="wpickett"
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -799,4 +799,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 Дополнительные сведения см. в разделе [Документация по веб-заданиям Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

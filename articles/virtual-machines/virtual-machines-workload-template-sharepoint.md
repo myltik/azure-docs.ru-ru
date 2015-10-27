@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/05/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # Развертывание ферм SharePoint с помощью шаблонов диспетчера ресурсов Azure
@@ -31,35 +31,35 @@
 
 Шаблон можно запустить с помощью портала предварительной версии Azure, Azure PowerShell или интерфейса командной строки Azure.
 
+> [AZURE.NOTE]Кроме того, эту конфигурацию вы можете создать с помощью элемента [SharePoint 2013 non-HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) в Azure Marketplace или на портале предварительной версии Azure.
+
 ### Портал предварительной версии Azure
 
-Для развертывания этой рабочей нагрузки с помощью шаблона диспетчера ресурсов и портала предварительной версии Azure щелкните [здесь](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
+Чтобы развернуть эту рабочую нагрузку с помощью шаблона диспетчера ресурсов и портала предварительной версии Azure, щелкните [здесь](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Щелкните **Параметры**. В области **Параметры** введите новые значения, выберите среди допустимых значений или примите значения по умолчанию и нажмите кнопку **ОК**.
-2.	При необходимости щелкните **Подписка** и выберите правильную подписку Azure.
-3.	Щелкните **Группа ресурсов** и выберите существующую группу ресурсов. Или щелкните **Или создать новую**, чтобы создать группу для этой рабочей нагрузки.
-4.	При необходимости щелкните **Расположение группы ресурсов** и укажите правильное расположение Azure.
-6.	При необходимости выберите **Юридические условия**, чтобы ознакомиться с условиями и соглашением об использовании шаблона.
+1.	Щелкните элемент **Параметры**. В области **Параметры** введите новые значения, выберите нужные из допустимых значений или примите значения по умолчанию, а затем нажмите кнопку **ОК**.
+2.	При необходимости щелкните элемент **Подписка** и выберите нужную подписку Azure.
+3.	Щелкните элемент **Группа ресурсов** и выберите существующую группу ресурсов. Либо щелкните элемент **Или создайте новую**, чтобы создать группу для этой рабочей нагрузки.
+4.	При необходимости щелкните элемент **Расположение группы ресурсов** и укажите правильное расположение в Azure.
+6.	Выберите элемент **Юридические условия**, чтобы ознакомиться с условиями и соглашением об использовании шаблона, и нажмите кнопку **Купить**.
 7.	Щелкните **Создать**.
 
 В зависимости от шаблона для создания рабочей нагрузки в Azure может потребоваться некоторое время. По завершении вы получите новую трехсерверную ферму SharePoint в существующей или новой группе ресурсов.
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]Эта статья содержит команды для Azure PowerShell версии вплоть до 1.0.0, *но не включая* саму версию 1.0.0 и более поздние версии. Используемую версию Azure PowerShell можно проверить с помощью команды **Get-Module azure | format-table version**. Приведенные в этой статье блоки команд Azure PowerShell проходят тестирование и обновление для обеспечения поддержки новых командлетов в Azure PowerShell 1.0.0 и более поздних версий. Благодарим вас за терпение.
+> [AZURE.NOTE]Эта статья содержит команды для предварительной версии Azure PowerShell 1.0. Для запуска этих команд в Azure PowerShell 0.9.8 и более ранних версий замените **New-AzureRMResourceGroup** командой **New-AzureResourceGroup**, **New-AzureResourceGroupDeployment** — командой **New-AzureResourceGroupDeployment** и добавьте команду **Switch-AzureMode AzureResourceManager** перед командой **New-AzureResourceGroup**. Дополнительные сведения см. в статье [Предварительная версия Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
-Прежде чем начать, убедитесь, что у вас установлена подходящая версия Azure PowerShell, выполнен вход и включен новый режим диспетчера ресурсов. Дополнительные сведения см. [здесь](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates).
-
-Введите имя развертывания Azure, новое имя группы ресурсов и расположение центра обработки данных Azure в следующем наборе команд. Удалите все содержимое кавычек, включая знаки < and >.
+Введите имя развертывания Azure, новое имя группы ресурсов и расположение центра обработки данных Azure в следующем наборе команд. Удалите все содержимое кавычек, включая символы < and >.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRMResourceGroup -Name $RGName -Location $locName
+	New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Ниже приведен пример.
 
@@ -67,12 +67,12 @@
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRMResourceGroup -Name $RGName -Location $locName
+	New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Далее выполните свой блок команд в командной строке Azure PowerShell.
 
-При выполнении команды **New-AzureResourceGroupDeployment** появится запрос на ввод значений для ряда параметров. После указания всех значений параметров **New-AzureResourceGroupDeployment** создает и настраивает виртуальные машины.
+При выполнении команды **New-AzureRMResourceGroupDeployment** появится запрос на ввод значений для ряда параметров. После указания всех значений параметров команда **New-AzureRMResourceGroupDeployment** создает и настраивает виртуальные машины.
 
 По завершении выполнения шаблона вы получите новую трехсерверную ферму SharePoint в новой группе ресурсов.
 
@@ -103,33 +103,35 @@
 
 ![](./media/virtual-machines-workload-template-sharepoint/nine-server-sharepoint-farm.png)
 
+> [AZURE.NOTE]Кроме того, эту конфигурацию можно создать с помощью элемента [SharePoint 2013 HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) в Azure Marketplace или на портале предварительной версии Azure.
+
 ### Портал предварительной версии Azure
 
-Для развертывания этой рабочей нагрузки с помощью шаблона диспетчера ресурсов и портала предварительной версии Azure щелкните [здесь](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
+Чтобы развернуть эту рабочую нагрузку с помощью шаблона диспетчера ресурсов и портала предварительной версии Azure, щелкните [здесь](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	Щелкните **Параметры**. В области **Параметры** введите новые значения, выберите нужные из допустимых значений или примите значения по умолчанию, а затем нажмите кнопку **ОК**.
-2.	При необходимости щелкните **Подписка** и выберите правильную подписку Azure.
-3.	Щелкните **Группа ресурсов** и выберите существующую группу ресурсов. Или щелкните **Или создать новую**, чтобы создать группу для этой рабочей нагрузки.
-4.	При необходимости щелкните **Расположение группы ресурсов** и укажите правильное расположение Azure.
-5.	При необходимости выберите **Юридические условия**, чтобы ознакомиться с условиями и соглашением об использовании шаблона.
+1.	Щелкните элемент **Параметры**. В области **Параметры** введите новые значения, выберите нужные из допустимых значений или примите значения по умолчанию, а затем нажмите кнопку **ОК**.
+2.	При необходимости щелкните элемент **Подписка** и выберите нужную подписку Azure.
+3.	Щелкните элемент **Группа ресурсов** и выберите существующую группу ресурсов. Либо щелкните элемент **Или создайте новую**, чтобы создать группу для этой рабочей нагрузки.
+4.	При необходимости щелкните элемент **Расположение группы ресурсов** и укажите правильное расположение в Azure.
+5.	Выберите элемент **Юридические условия**, чтобы ознакомиться с условиями и соглашением об использовании шаблона, и нажмите кнопку **Купить**.
 6.	Щелкните **Создать**.
 
 В зависимости от шаблона для создания рабочей нагрузки в Azure может потребоваться некоторое время. По завершении вы получите новую девятисерверную ферму SharePoint в существующей или новой группе ресурсов.
 
 ### Azure PowerShell
 
-Прежде чем начать, убедитесь, что у вас установлена подходящая версия Azure PowerShell, выполнен вход и включен новый режим диспетчера ресурсов. Дополнительные сведения см. [здесь](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates).
+> [AZURE.NOTE]Эта статья содержит команды для предварительной версии Azure PowerShell 1.0. Для запуска этих команд в Azure PowerShell 0.9.8 и более ранних версий замените **New-AzureRMResourceGroup** командой **New-AzureResourceGroup**, **New-AzureResourceGroupDeployment** — командой **New-AzureResourceGroupDeployment** и добавьте команду **Switch-AzureMode AzureResourceManager** перед командой **New-AzureResourceGroup**. Дополнительные сведения см. в статье [Предварительная версия Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
-Введите имя развертывания Azure, новое имя группы ресурсов и расположение центра обработки данных Azure в следующем наборе команд. Удалите все содержимое кавычек, включая знаки < and >.
+Введите имя развертывания Azure, новое имя группы ресурсов и расположение центра обработки данных Azure в следующем наборе команд. Удалите все содержимое кавычек, включая символы < and >.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-server-farm-ha/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRMResourceGroup -Name $RGName -Location $locName
+	New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Ниже приведен пример.
 
@@ -137,12 +139,12 @@
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-server-farm-ha/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRMResourceGroup -Name $RGName -Location $locName
+	New-AzureRMResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 Далее выполните свой блок команд в командной строке Azure PowerShell.
 
-При выполнении команды **New-AzureResourceGroupDeployment** появится запрос на ввод значений для ряда параметров. После указания всех значений параметров **New-AzureResourceGroupDeployment** создает и настраивает виртуальные машины.
+При выполнении команды **New-AzureRMResourceGroupDeployment** появится запрос на ввод значений для ряда параметров. После указания всех значений параметров команда **New-AzureRMResourceGroupDeployment** создает и настраивает виртуальные машины.
 
 По завершении выполнения шаблона вы получите новую девятисерверную ферму SharePoint в новой группе ресурсов.
 
@@ -184,4 +186,4 @@
 
 [Установка и настройка Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

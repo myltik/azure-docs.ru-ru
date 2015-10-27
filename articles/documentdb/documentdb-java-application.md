@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Учебник по разработке приложений Java с использованием DocumentDB | Microsoft Azure"
 	description="В этом руководстве показано, как использовать службу Azure DocumentDB для хранения данных и обеспечения доступа к ним из приложения Java, размещенного на веб-сайтах Azure."
-	keywords="Application development, database tutorial, java application, java web application tutorial, documentdb, azure, Microsoft azure"
+	keywords="Разработка приложений, учебник по базе данных, приложение java, учебник по веб-приложениям java, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="java" 
 	authors="aliuy" 
@@ -14,7 +14,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="07/21/2015" 
+	ms.date="10/20/2015" 
 	ms.author="andrl"/>
 
 # Создание веб-приложения Node.js с использованием DocumentDB
@@ -34,7 +34,7 @@
 
 ![Приложение My ToDo List на Java](./media/documentdb-java-application/image1.png)
 
-> [AZURE.TIP]В данном учебнике по разработке приложения предполагается, что у вас имеется некоторый опыт использования Java. Если вы никогда не работали с Java или [необходимыми инструментами](#Prerequisites), рекомендуется загрузить полный учебный проект [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) с портала [GitHub](https://github.com/Azure/azure-documentdb-java) и создать его, следуя [инструкциям в конце этой статьи](#GetProject). После создания ознакомьтесь со статьей, чтобы разобраться в коде этого проекта.
+> [AZURE.TIP]В данном учебнике по разработке приложения предполагается, что у вас имеется некоторый опыт использования Java. Если вы никогда не работали с Java или [необходимыми инструментами](#Prerequisites), рекомендуется загрузить полный учебный проект [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) с портала GitHub и создать его, следуя [инструкциям, приведенным в конце этой статьи](#GetProject). После создания ознакомьтесь со статьей, чтобы разобраться в коде этого проекта.
 
 ##<a id="Prerequisites"></a>Необходимые условия для изучения этого учебника по разработке веб-приложения Java
 Для работы с этим учебником необходимы:
@@ -55,7 +55,7 @@
 ![Создание учетной записи DocumentDB — учебник по базам данных. Снимок экрана портала предварительной версии Azure, на котором показана учетная запись DocumentDB с выделенным АКТИВНЫМ концентратором, выделенной кнопкой «Ключи» в колонке учетной записи DocumentDB и выделенными универсальным кодом ресурса, ПЕРВИЧНЫМ КЛЮЧОМ И ВТОРИЧНЫМ КЛЮЧОМ в колонке «Ключи».][1]
 
 
-##<a id="CreateJSP"></a>Шаг 2. Создание приложения Java JSP
+##<a id="CreateJSP"></a>Шаг 2. Создание приложения Java JSP
 
 Для создания приложения JSP:
 
@@ -95,7 +95,7 @@
 4. В окне **Select Dependency** (Выбор зависимости) выполните следующие действия.
  - В поле **GroupId** (Идентификатор группы) введите com.microsoft.azure.
  - В поле **Artifact Id** (Идентификатор артефакта) введите azure-documentdb.
- - В поле **Version** (Версия) введите 1.1.0.
+ - В поле **Version** (Версия) введите 1.4.0.
 
 	![Установка пакета DocumentDB Java Application SDK](./media/documentdb-java-application/image13.png)
 
@@ -104,7 +104,7 @@
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>1.1.0</version>
+		    <version>1.4.0</version>
 	    </dependency>
 
 5. После нажатия кнопки **Ok** Maven установит пакет DocumentDB Java SDK.
@@ -364,7 +364,7 @@
 	    }
 
 
-##<a id="Wire"></a>Шаг 5. Подключение другой части проекта приложения Java
+##<a id="Wire"></a>Шаг 5. Подключение другой части проекта по разработке приложений Java
 
 Теперь после завершения построения битов необходимо создать пользовательский интерфейс и привязать его к нашей DAO.
 
@@ -758,14 +758,14 @@
 
 ##<a id="GetProject"></a>Получение проекта из GitHub
 
-Все примеры, используемые в этом учебнике, включены в проект [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) в GitHub, который является частью репозитория[azure-documentdb-java](https://github.com/Azure/azure-documentdb-java). Чтобы импортировать проект todo в Eclipse, убедитесь, что у вас есть программное обеспечение и ресурсы, перечисленные в разделе [Необходимые условия](#Prerequisites), а затем выполните следующие действия.
+Все примеры в этом учебнике включены в проект [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) на портале GitHub. Чтобы импортировать проект todo в Eclipse, убедитесь, что у вас есть программное обеспечение и ресурсы, перечисленные в разделе [Необходимые условия](#Prerequisites), а затем выполните следующие действия.
 
 1. Установите [проект Lombok](http://projectlombok.org/). Lombok используется для формирования конструкторов, получателей и заданий в проекте. Дважды щелкните загруженный файл lombok.jar для установки или установите его из командной строки. 
 2. Если открыта рабочая область Eclipse, закройте ее и запустите снова для загрузки проекта Lombok.
 3. В Eclipse откройте меню **File** (Файл) и щелкните **Import** (Импорт).
 4. В окне **Import** (Импорт) щелкните **Git**, затем выберите **Projects from Git** (Проекты из Git) и нажмите кнопку **Next** (Далее). 
 5. На экране **Select Repository Source** (Выбрать источник репозитория) щелкните **Clone URI** (Клон URI).
-6. На экране **Source Git Repository** (Исходный репозиторий Git) в поле **URI** введите https://github.com/Azure/azure-documentdb-java.git и нажмите кнопку **Next** (Далее).
+6. На экране **Source Git Repository** (Исходный репозиторий Git) в поле **URI** введите https://github.com/Azure-Samples/documentdb-java-todo-app.git и нажмите кнопку **Next** (Далее).
 7. На экране **Branch Selection** (Выбор ветви) выберите значение **master** и нажмите кнопку **Next** (Далее).
 8. На экране **Local Destination** (Локальная папка назначения) нажмите кнопку **Browse** (Обзор), выберите папку, в которую можно копировать репозитории, и нажмите кнопку **Next** (Далее).
 9. На экране **Select a wizard to use for importing projects** (Выбор мастера для импорта проектов) убедитесь, что установлен флажок **Import existing projects** (Импортировать существующие проекты) и нажмите кнопку **Next** (Далее).
@@ -786,4 +786,4 @@
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

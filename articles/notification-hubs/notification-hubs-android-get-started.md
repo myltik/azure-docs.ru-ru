@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/15/2015"
+	ms.date="10/21/2015"
 	ms.author="wesmc"/>
 
 # Приступая к работе с Центрами уведомлений для приложений Android
@@ -38,7 +38,7 @@
 Для работы с данным учебником требуется следующее:
 
 + ПО Android Studio, которое можно загрузить с <a href="http://go.microsoft.com/fwlink/?LinkId=389797">сайта Android</a>.
-+ Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fja-jp%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F).
++ Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F).
 
 
 Завершение изучения этого учебника является необходимым условием для работы со всеми другими учебниками, посвященными Центрам уведомлений для приложений Android.
@@ -51,7 +51,17 @@
 
 ##Настройка нового центра уведомлений
 
-[AZURE.INCLUDE [notification-hubs-android-configure-push](../../includes/notification-hubs-android-configure-push.md)]
+
+[AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
+
+
+<ol start="7">
+<li><p>Перейдите на расположенную сверху вкладку <b>Настройка</b>, введите значение <b>Ключ API</b>, полученное в предыдущем разделе, а затем нажмите кнопку <b>Сохранить</b>.</p>
+</li>
+</ol>
+&emsp;&emsp;![](./media/notification-hubs-android-get-started/notification-hub-configure-android.png)
+
+Концентратор уведомлений теперь настроен для работы с GCM. Также у вас есть строки подключения, с помощью которых вы можете зарегистрировать приложение для получения уведомлений и отправки push-уведомлений.
 
 ##<a id="connecting-app"></a>Подключение приложения к центру уведомлений
 
@@ -61,7 +71,7 @@
 
    	![][13]
 
-2. Выберите форм-фактор **Phone and Tablet** (Телефон и планшет) и значение параметра **Minimum SDK** (Минимальная версия пакета SDK). Нажмите кнопку **Далее**.
+2. Выберите форм-фактор **Phone and Tablet** (Телефон и планшет) и минимальную версию пакета SDK (с помощью параметра **Minimum SDK**), которые нужно поддерживать. Нажмите кнопку **Далее**.
 
    	![][14]
 
@@ -73,10 +83,7 @@
 
 ###Добавление кода
 
-1. Загрузите <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">пакет SDK Android для центров уведомлений</a>. Извлеките содержимое ZIP-файла и скопируйте файлы **notificationhubs\\notification-hubs-0.3.jar** и **notifications\\notifications-1.0.1.jar** в каталог **app\\libs** проекта. Это можно сделать, перетащив файлы в папку **libs** в окне представления проекта Android Studio. Обновите папку **libs**.
-	Справочная документация по этим двум пакетам доступна по ссылкам ниже:
-	* [com.microsoft.windowsazure.messaging](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/messaging/package-summary.html)
-	* [com.microsoft.windowsazure.notifications](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/notifications/package-summary.html)
+1. Загрузите <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">пакет SDK Android для Центров уведомлений</a>. Извлеките содержимое ZIP-файла и скопируйте файлы **notificationhubs\\notification-hubs-0.3.jar** и **notifications\\notifications-1.0.1.jar** в каталог **app\\libs** проекта. Это можно сделать, перетащив файлы в папку **libs** в окне представления проекта Android Studio. Обновите папку **libs**.
 
 
     > [AZURE.NOTE]Числа в конце этого имени файла могут меняться в последующих выпусках SDK.
@@ -113,10 +120,7 @@
 	    private static Boolean isVisible = false;
 
 
-	Обязательно измените три заполнителя:
-	* **SENDER\_ID**: задайте для `SENDER_ID` номер проекта, полученный ранее из проекта, созданного в [Google Cloud Console](http://cloud.google.com/console).
-	* **HubListenConnectionString**: задайте для `HubListenConnectionString` строку подключения **DefaultListenAccessSignature** к центру. Можно скопировать эту строку подключения, щелкнув **Просмотреть строку подключения** на вкладке **Панель мониторинга** центра на [портале Azure].
-	* **HubName**: имя центра уведомлений, которое отображается в верхней части страницы в Azure для вашего центра (**не** полный URL-адрес). Например, используйте `"myhub"`.
+	Обязательно обновите три заполнителя: * **SENDER\_ID** — укажите для `SENDER_ID` номер проекта, полученный ранее из проекта, созданного в [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString** — укажите для `HubListenConnectionString` строку подключения **DefaultListenAccessSignature** к центру. Вы можете скопировать эту строку подключения, щелкнув элемент **Просмотреть строку подключения** на вкладке **Панель мониторинга** центра на [портале Azure]. * **HubName** — имя центра уведомлений, которое отображается в верхней части страницы в Azure для вашего центра (**не** полный URL-адрес). Например, используйте `"myhub"`.
 
 
 
@@ -236,7 +240,7 @@
 
 13. Добавьте в класс `MyHandler` следующий код:
 
-	Этот код переопределяет метод `OnReceive` так, чтобы обработчик показывал `AlertDialog` для отображения полученных уведомлений. Обработчик также отправляет уведомление в диспетчер уведомлений Android с помощью метода `sendNotification()`.
+	Этот код переопределяет метод `OnReceive` так, чтобы обработчик показывал `AlertDialog` для отображения полученных уведомлений. Кроме того, обработчик отправляет уведомление в диспетчер уведомлений Android с помощью метода `sendNotification()`.
 
     	public static final int NOTIFICATION_ID = 1;
     	private NotificationManager mNotificationManager;
@@ -341,7 +345,7 @@
 	    private String HubSasKeyValue = null;
 		private String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
 
-4. Действие содержит имя центра и строку подключения с полным общим доступом к центру. Необходимо создать токен подписи программного доступа (SaS) для аутентификации запроса POST для отправки сообщений в центр уведомлений. Это делается путем анализа данных ключа из строки подключения и создания токена SaS, как упоминалось в справочнике по [основным понятиям](http://msdn.microsoft.com/library/azure/dn495627.aspx) API REST.
+4. Действие содержит имя центра и строку подключения с полным общим доступом к центру. Необходимо создать токен подписи программного доступа (SaS) для аутентификации запроса POST для отправки сообщений в центр уведомлений. Это делается путем анализа данных ключа из строки подключения и создания токена SaS, как упоминалось в справочнике по [основным понятиям](http://msdn.microsoft.com/library/azure/dn495627.aspx) REST API.
 
 	В **MainActivity.java** добавьте в класс `MainActivity` следующий метод для анализа строки подключения.
 
@@ -424,7 +428,7 @@
         }
 
 
-6. В **MainActivity.java** добавьте в класс `MainActivity` следующий метод для обработки нажатия кнопки **Send Notification** и отправки уведомления в центр с помощью API REST.
+6. В **MainActivity.java** добавьте в класс `MainActivity` следующий метод для обработки нажатия кнопки **Send Notification** и отправки уведомления в центр с помощью REST API.
 
         /**
          * Send Notification button click handler. This method parses the
@@ -479,7 +483,7 @@
 
 ####Тестирование в эмуляторе
 
-Если требуется выполнить тестирование в эмуляторе, убедитесь, что образ эмулятора поддерживает уровень API Google, выбранный для приложения. Если образ не поддерживает API Google, будет создано исключение **SERVICE\_NOT\_AVAILABLE**.
+Если требуется выполнить тестирование в эмуляторе, убедитесь, что образ эмулятора поддерживает уровень API Google, выбранный для приложения. Если образ не поддерживает интерфейс API Google, будет создано исключение **SERVICE\_NOT\_AVAILABLE**.
 
 Кроме того, убедитесь, что вы добавили учетную запись Google в запущенный эмулятор, выбрав **Параметры** > **Учетные записи**. В противном случае попытки регистрации в GCM могут привести к порождению исключения **AUTHENTICATION\_FAILED**.
 
@@ -499,21 +503,16 @@
 
 ##Дальнейшие действия
 
-В этом простом примере осуществляется рассылка уведомлений на все устройства Windows через портал или консольное приложение. На следующем этапе рекомендуем ознакомиться с учебником [Использование центров уведомлений для отправки push-уведомлений пользователям]. В нем описана процедура отправки уведомлений с сервера ASP.NET определенным пользователям с использованием тегов.
+В этом простом примере осуществляется рассылка уведомлений на все устройства Windows через портал или консольное приложение. В качестве следующего шага рекомендуем ознакомиться с учебником [Уведомление пользователей посредством Центров уведомлений]. В нем описана процедура отправки уведомлений с сервера ASP.NET определенным пользователям с использованием тегов.
 
 Если необходимо разделить пользователей по группам интересов, см. раздел [Использование концентраторов уведомлений для передачи экстренных новостей].
 
-Дополнительные сведения о центрах уведомлений см. в [руководстве по использованию центров уведомлений].
+Дополнительные сведения о Центрах уведомлений см. в статье [Общие сведения о Центрах уведомлений].
 
 
 
 
 <!-- Images. -->
-[1]: ./media/notification-hubs-android-get-started/mobile-services-google-new-project.png
-[2]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png
-[3]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png
-[4]: ./media/notification-hubs-android-get-started/mobile-services-google-create-server-key3.png
-[5]: ./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png
 [6]: ./media/notification-hubs-android-get-started/notification-hub-android-new-class.png
 
 [12]: ./media/notification-hubs-android-get-started/notification-hub-connection-strings.png
@@ -543,8 +542,8 @@
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [портале Azure]: https://manage.windowsazure.com/
-[руководстве по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
-[Использование центров уведомлений для отправки push-уведомлений пользователям]: notification-hubs-aspnet-backend-android-notify-users.md
+[Общие сведения о Центрах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[Уведомление пользователей посредством Центров уведомлений]: notification-hubs-aspnet-backend-android-notify-users.md
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

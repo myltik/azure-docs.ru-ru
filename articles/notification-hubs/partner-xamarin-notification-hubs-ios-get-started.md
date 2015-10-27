@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="07/28/2015"
+	ms.date="10/21/2015"
 	ms.author="yuaxu"/>
 
 # Приступая к работе с центрами уведомлений
@@ -42,185 +42,42 @@
 
 > [AZURE.IMPORTANT]Для работы с этим учебником необходима активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fru-RU%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
 
-Служба push-уведомлений Apple использует сертификаты для аутентификации вашей мобильной службы. Выполните следующие действия, чтобы создать необходимые сертификаты и передать их в мобильную службу. Официальную документацию по APNS см. в разделе [Служба push-уведомлений Apple].
+[AZURE.INCLUDE [Включение push-уведомлений Apple через центры уведомлений](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
 
-##<a name="certificates"></a>Создание файла запроса подписи сертификата
+##Настройка концентратора уведомлений
 
-Сначала необходимо создать файл запроса подписи сертификата (с расширением CSR), используемый Apple для создания подписанного сертификата.
+В этом разделе приведены пошаговые инструкции по созданию нового центра уведомлений и настройке проверки подлинности с помощью службы APNS, использующей раннее созданный вами сертификат push-уведомлений (файл с расширением **P12**). Если вы хотите использовать уже созданный центр уведомлений, перейдите к шагу 5.
 
-1. В папке "Служебные программы" запустите средство Keychain Access.
+[AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-2. Щелкните **Keychain Access**, разверните **Certificate Assistant** (Помощник по сертификатам), а затем щелкните **Request a Certificate from a Certificate Authority** (Запросить сертификат в центре сертификации).
 
-  	![][5]
+<ol start="7">
+<li>
+<p>Перейдите на вкладку <b>Настройка</b> вверху, а затем в параметрах службы уведомлений Apple нажмите кнопку <b>Отправить</b>, чтобы отправить отпечаток сертификата. Выберите ранее экспортированный сертификат (файл с расширением <b>P12</b>) и пароль для него.</p>
+<p>Убедитесь, что вы работаете в режиме <b>песочницы</b>, так как это необходимо для разработки. Используйте <b>рабочую среду</b>, только если вы хотите отправлять push-уведомления пользователям, которые приобрели ваше приложение в магазине.</p>
+</li>
+</ol>
+&emsp;&emsp;![](./media/notification-hubs-ios-get-started/notification-hubs-upload-cert.png)
 
-3. Выберите **User Email Address** (Адрес электронной почты пользователя), введите значения **Common Name** (Общее имя) и **CA Email Address** (Адрес электронной почты ЦС), убедитесь, что установлен флажок **Saved to disk** (Сохранено на диск), а затем щелкните **Continue** (Продолжить).
+&emsp;&emsp;![](./media/notification-hubs-ios-get-started/notification-hubs-configure-ios.png)
 
-  	![][6]
 
-4. Введите имя файл CSR в поле **Save As** (Сохранить как), выберите расположение в поле **Where** (Папка) и нажмите кнопку **Save** (Сохранить).
+Центр уведомлений теперь настроен для работы с APNS, и у вас есть строки подключения, чтобы зарегистрировать приложение и отправлять уведомления.
 
-  	![][7]
 
-  	При этом CSR-файл сохраняется в выбранном месте; по умолчанию — на рабочем столе. Запомните расположение, выбранное для этого файла.
 
-Затем зарегистрируйте свое приложение в Apple, включите push-уведомления и передайте этот экспортированный CSR-файл для создания сертификата push-уведомлений.
 
-##<a name="register"></a>Регистрация приложения для получения push-уведомлений
 
-Чтобы иметь возможность отправлять push-уведомления в приложение для iOS из мобильных служб, необходимо зарегистрировать ваше приложение в Apple, а также зарегистрировать его для получения push-уведомлений.
+##Подключение приложения к центру уведомлений
 
-1. Если ваше приложение еще не зарегистрировано, перейдите на <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">портал подготовки iOS</a> в центре разработчиков Apple, выполните вход с использованием вашего идентификатора Apple, щелкните **Идентификаторы**, а затем — **Идентификаторы приложений** и, наконец, нажмите кнопку **+**, чтобы зарегистрировать новое приложение.
+#### Создание нового проекта
 
-   	![][105]
-
-2. Введите имя приложения в поле **Description** (Описание) и введите значение в поле **Bundle Identifier** (Идентификатор набора), выберите вариант **Push Notifications** (Push-уведомления) в разделе **App Services** (Службы приложений), а затем нажмите **Continue** (Продолжить).
-
-   	![][106]
-
-   	![][107]
-
-   	![][108]
-
-
-	При этом будет создан идентификатор вашего приложения и появится запрос об отправке введенной информации. Нажмите кнопку **Submit** (Отправить).
-
-   	![][109]
-
-	После нажатия кнопки **Submit** (Отправить) вы увидите экран **Registration complete** (Регистрация выполнена), представленный ниже. Нажмите кнопку **Done** (Готово).
-
-   	![][110]
-
-	> [AZURE.NOTE]Если вы хотите указать значение **Идентификатор набора**, отличное от **MobileServices.Quickstart**, необходимо также обновить значение идентификатора набора в проекте Xcode.
-
-3. Найдите созданный вами идентификатор приложения и щелкните его строку.
-
-   	![][111]
-
-	Если щелкнуть идентификатор приложения, отобразятся сведения о приложении и идентификаторе приложения.
-
-   	![][112]
-
-   	![][113]
-
-4. Щелкните **Изменить**, затем прокрутите страницу до нижней части экрана и нажмите кнопку **Create Certificate** (Создать сертификат) в разделе **Development Push SSL Certificate** (SSL-сертификат разработки push-уведомлений).
-
-   	![][114]
-
-	Откроется помощник Add iOS Certificate (Добавление сертификата iOS).
-
-   	![][115]
-
-	> [AZURE.NOTE]В этом учебнике используется сертификат разработки. При регистрации сертификата производства используется тот же процесс. Просто убедитесь, что задается тот же тип сертификата при отправке сертификата в мобильные службы.
-
-5. Щелкните **Choose File** (Выбрать файл), перейдите к папке, где был сохранен CSR-файл, созданный в первой задаче, а затем щелкните **Generate** (Создать).
-
-  	![][116]
-
-6. После создания сертификата с помощью портала нажмите кнопку **Download** (Загрузить) и **Done** (Готово).
-
-  	![][118]
-
-  	![][119]
-
-   	При этом сертификат подписи загружается и сохраняется на вашем компьютере в папке **Загрузки**.
-
-  	![][9]
-
-    > [AZURE.NOTE]По умолчанию загруженный файл сертификата разработки называется **aps\_development.cer**.
-
-7. Дважды щелкните скачанный сертификат push-уведомлений **aps\_development.cer**.
-
-	При этом новый сертификат устанавливается в Keychain, как показано ниже:
-
-   	![][10]
-
-	> [AZURE.NOTE]Имя вашего сертификата может отличаться, но оно будет начинаться с префикса <strong>Apple Development iOS Push Notification Services:</strong>.
-
-	Позже этот сертификат будет использоваться для создания файла P12 и отправки его в центр уведомлений для включения push-уведомлений через APNS.
-
-##<a name="profile"></a>Создание профиля подготовки для приложения
-
-1. На <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">портале подготовки iOS</a> выберите **Профили подготовки**, затем щелкните **Все** и нажмите кнопку **+**, чтобы создать новый профиль. Отобразится мастер **Add iOS Provisioning Profile** (Добавление профиля подготовки для iOS).
-
-   	![][120]
-
-2. Выберите **iOS App Development** (Разработка приложений для iOS) в разделе **Development** (Разработка) в качестве типа профиля подготовки и нажмите кнопку **Continue** (Продолжить).
-
-   	![][121]
-
-3. Затем в раскрывающемся списке **App ID** (Идентификатор приложения) выберите идентификатор приложения для приложения быстрого начала работы с мобильными службами и нажмите кнопку **Continue** (Продолжить).
-
-   	![][122]
-
-4. На экране **Select certificates** (Выбор сертификатов) выберите ранее созданный сертификат и нажмите кнопку **Continue** (Продолжить).
-
-   	![][123]
-
-5. Затем выберите Devices (Устройства) для тестирования и нажмите кнопку **Continue** (Продолжить).
-
-   	![][124]
-
-6. Наконец, выберите имя профиля в поле **Profile Name** (Имя профиля), щелкните **Generate** (Создать) и нажмите кнопку **Done** (Готово).
-
-   	![][125]
-
-   	![][126]
-
-  	В результате создается новый профиль подготовки.
-
-7. В Xcode откройте Organizer (Диспетчер), выберите представление Devices (Устройства), выберите **Provisioning Profiles** (Профили подготовки) в разделе **Library** (Библиотека) на панели слева и импортируйте недавно созданный профиль подготовки.
-
-8. В левой части окна выберите устройство и снова импортируйте профиль подготовки.
-
-9. В Keychain Access щелкните правой кнопкой мыши новый сертификат, выберите **Export** (Экспорт), введите имя для сертификата, выберите формат **.p12**, а затем нажмите кнопку **Save** (Сохранить).
-
-   	![][18]
-
-  	Запишите имя файла и расположение экспортируемого сертификата.
-
-Это гарантирует, что проект Xcode использует новый профиль для подписывания кода. Затем необходимо загрузить этот сертификат в концентратор уведомлений.
-
-##<a name="configure-hub"></a>Настройка центра уведомлений
-
-1. Войдите на [портал Azure] и нажмите **+СОЗДАТЬ** в нижней части экрана.
-
-2. Щелкните **Службы приложений**, выберите **Служебная шина**, затем щелкните **Центр уведомлений** и нажмите кнопку **Быстрое создание**.
-
-   	![][27]
-
-3. Введите имя для центра уведомлений, выберите нужный регион и нажмите кнопку **Создать новый Центр уведомлений**.
-
-   	![][28]
-
-4. Выберите недавно созданное пространство имен (обычно это ***имя центра уведомлений*-ns**) и щелкните расположенную сверху вкладку **Настройка**.
-
-   	![][29]
-
-5. Откройте расположенную сверху вкладку **Центры уведомлений** и выберите недавно созданный центр уведомлений.
-
-   	![][210]
-
-6. Откройте расположенную сверху вкладку **Настройка**, а затем щелкните элемент **Загрузить** для параметров службы уведомлений Apple. Выберите ранее экспортированный сертификат **P12** и пароль для него. Обязательно укажите, следует ли использовать службу push-уведомлений **Рабочая среда** (если вы хотите отправлять push-уведомления пользователям, которые приобрели ваше приложение в Магазине) или **Песочница** (во время разработки).
-
-   	![][211]
-
-7. Откройте расположенную сверху вкладку **Панель мониторинга** и щелкните элемент **Сведения о подключении**. Запишите две строки подключения.
-
-   	![][212]
-
-Концентратор уведомлений теперь настроен для работы с APNS, и у вас есть строки подключения, чтобы зарегистрировать приложение и отправлять уведомления.
-
-##<a name="connecting-app"></a>Подключение приложения к центру уведомлений
-
-### Создание нового проекта
-
-1. В Xamarin Studio создайте новый проект iOS и выберите шаблон **Unified API** (Единый API) > **Single View Application** (Приложение одного представления).
+1. В Xamarin Studio создайте новый проект iOS и выберите шаблон **Unified API** (Единый API) > **Single View Application** (Приложение с одним представлением).
 
    	![][31]
 
-2. Добавьте ссылку на компонент обмена сообщениями Azure. В представлении "Решение" щелкните правой кнопкой мыши папку **Компоненты** для вашего проекта и выберите **Получить больше компонентов**. Найдите компонент **Мобильные службы Azure** и добавьте его в проект.
+2. Добавьте ссылку на компонент обмена сообщениями Azure. В представлении Solution (Решение) щелкните правой кнопкой мыши папку **Components** (Компоненты) для вашего проекта и выберите элемент **Get More Components** (Получить дополнительные компоненты). Найдите компонент **Мобильные службы Azure** и добавьте его в проект.
 
 3. В файле **AppDelegate.cs** добавьте следующий оператор using:
 
@@ -237,7 +94,7 @@
         public const string NotificationHubPath = "<Azure hub path>";
 
 
-6. В **AppDelegate.cs** обновите **FinishedLaunching()**, как указано ниже.
+6. В файле **AppDelegate.cs** обновите метод **FinishedLaunching()**, как указано ниже.
 
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
@@ -317,23 +174,53 @@
 
 10. Запустите приложение на устройстве.
 
-##<a name="send"></a>Отправка уведомлений из серверной части
 
-Уведомления можно отправлять с помощью Центров уведомлений из любого серверного компонента через <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">интерфейс REST</a>. В этом учебнике уведомления отправляются с помощью консольного приложения .NET, а также с помощью мобильных служб с использованием скрипта узла.
+## Отправка уведомлений
 
-Отправка уведомлений с помощью приложения .NET
+
+Можно проверить получение уведомлений в приложении, отправив уведомления на портале Azure с помощью вкладки отладки центра уведомлений, как показано на следующем экране.
+
+![](./media/notification-hubs-ios-get-started/notification-hubs-debug-hub-ios.png)
+
+Push-уведомления обычно отправляются в серверной службе, например мобильными службами или ASP.NET, с помощью совместимой библиотеки. Также можно напрямую использовать REST API для отправки уведомлений, если для серверной части библиотека недоступна.
+
+В этом учебнике мы пойдем по простому пути и продемонстрируем тестирование клиентского приложения, отправляя уведомления с помощью пакета SDK для .NET для центров уведомлений не в серверную службу, а в консольное приложение. В качестве следующего шага по отправке уведомлений с сервера ASP.NET рекомендуем ознакомиться с учебником [Уведомление пользователей посредством Центров уведомлений](notification-hubs-aspnet-backend-ios-notify-users.md). Можно использовать следующие способы отправки уведомлений.
+
+* **Интерфейс REST**. [Интерфейс REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) поддерживает уведомления на любой серверной платформе.
+
+* **Пакет SDK .NET для Центров уведомлений Microsoft Azure**. В диспетчере пакетов NuGet для Visual Studio выполните команду [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+
+* **Node.js**. [Использование Центров уведомлений с Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md).
+
+* **Мобильные службы Azure**. Примеры отправки уведомлений из интерфейса мобильных служб Azure, интегрированного с Центрами уведомлений, см. в статье «Приступая к работе с push-уведомлениями в мобильных службах» ([Серверная часть .NET](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [Серверная часть JavaScript](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).
+
+* **Java или PHP**. Примеры отправки уведомлений с использованием REST API см. в статье «Использование Центров уведомлений в Java/PHP» ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
+
+
+####(Необязательно) Отправка уведомлений из консольного приложения .NET
+
+В этом разделе мы будем отправлять уведомления с помощью консольного приложения .NET.
 
 1. Создайте новое консольное приложение Visual C#.
 
    	![][213]
 
-2. Добавьте ссылку на пакет SDK служебной шины Azure с помощью <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">пакета NuGet WindowsAzure.ServiceBus</a>. В главном меню Visual Studio последовательно выберите **Сервис** > **Диспетчер пакетов библиотеки** > **Консоль диспетчера пакетов**. Затем в окне консоли введите следующее и нажмите клавишу ВВОД:
+2. В Visual Studio последовательно выберите элементы **Сервис**, **Диспетчер пакетов NuGet** и **Консоль диспетчера пакетов**.
 
-        Install-Package WindowsAzure.ServiceBus
+	В результате в Visual Studio откроется консоль диспетчера пакетов.
 
-2. Откройте файл Program.cs и добавьте следующий оператор using:
+3. В окне консоли диспетчера пакетов задайте свойство **Проект по умолчанию** для нового проекта консольного приложения, а затем в окне консоли выполните следующую команду:
 
-        using Microsoft.ServiceBus.Notifications;
+        Install-Package Microsoft.Azure.NotificationHubs
+
+	После этого будет добавлена ссылка на пакет SDK для Центров уведомлений Azure с помощью <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">пакета NuGet Microsoft.Azure.NotificationHubs</a>.
+
+	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+
+
+4. Откройте файл Program.cs и добавьте следующий оператор `using`:
+
+        using Microsoft.Azure.NotificationHubs;
 
 3. Добавьте в класс `Program` следующий метод:
 
@@ -344,7 +231,7 @@
             await hub.SendAppleNativeNotificationAsync(alert);
         }
 
-4. Затем добавьте следующие строки в метод `Main`:
+4. Затем добавьте в метод `Main` следующие строки:
 
          SendNotificationAsync();
 		 Console.ReadLine();
@@ -353,7 +240,12 @@
 
 Все возможные виды полезных нагрузок можно найти в [руководстве по программированию локальных и push-уведомлений] Apple.
 
-Чтобы отправить уведомление с помощью мобильной службы, следуйте инструкциям из раздела [Приступая к работе с мобильными службами], а затем выполните указанные ниже действия.
+
+####(Необязательно) Отправка уведомлений с помощью мобильной службы
+
+В этом разделе мы будем отправлять уведомления с помощью мобильной службы, используя скрипт узла.
+
+Чтобы отправить уведомление с помощью мобильной службы, следуйте инструкциям из статьи [Приступая к работе с мобильными службами], а затем выполните указанные ниже действия.
 
 1. Войдите на [портал Azure] и выберите мобильную службу.
 
@@ -389,62 +281,14 @@
 
 6. Нажмите кнопку **Запустить один раз** на нижней панели. На устройстве должно отобразиться оповещение.
 
-## <a name="next-steps"> </a>Дальнейшие действия
+##Дальнейшие действия
 
-В этом простом примере осуществляется широковещательная рассылка уведомлений на все устройства iOS. Чтобы сориентироваться на определенных пользователей, см. учебник [Использование концентраторов уведомлений для отправки push-уведомлений пользователям]. Если необходимо разделить пользователей по группам интересов, см. раздел [Использование концентраторов уведомлений для передачи экстренных новостей]. Дополнительные сведения об использовании Центров уведомлений см. в разделах [Руководство по использованию Центров уведомлений] и [Инструкции по использованию Центров уведомлений для iOS].
+В этом простом примере осуществляется широковещательная рассылка уведомлений на все устройства iOS. Чтобы сориентироваться на определенных пользователей, см. учебник [Использование концентраторов уведомлений для отправки push-уведомлений пользователям]. Если необходимо разделить пользователей по группам интересов, см. раздел [Использование концентраторов уведомлений для передачи экстренных новостей]. Дополнительные сведения об использовании Центров уведомлений см. в статьях [Общие сведения о Центрах уведомлений] и [Инструкции по использованию Центров уведомлений для iOS].
 
-<!-- Anchors. -->
-[Generate the certificate signing request]: #certificates
-[Register your app and enable push notifications]: #register
-[Create a provisioning profile for the app]: #profile
-[Configure your Notification Hub]: #configure-hub
-[Connecting your app to the Notification Hub]: #connecting-app
-[Send notifications from your back-end]: #send
-[Next Steps]: #next-steps
 
 <!-- Images. -->
-[5]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step5.png
-[6]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step6.png
-[7]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step7.png
-
-[9]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step9.png
-[10]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step10.png
-[18]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step18.png
-[105]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-05.png
-[106]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-06.png
-[107]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-07.png
-[108]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-08.png
-[109]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-09.png
-[110]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-10.png
-[111]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-11.png
-[112]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-12.png
-[113]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-13.png
-[114]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-14.png
-[115]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-15.png
-[116]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-16.png
-
-[118]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-18.png
-[119]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-19.png
-
-[120]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-20.png
-[121]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-21.png
-[122]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-22.png
-[123]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-23.png
-[124]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-24.png
-[125]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-25.png
-[126]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-26.png
-
-[27]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-from-portal.png
-[28]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-from-portal2.png
-[29]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-select-from-portal.png
-[210]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-select-from-portal2.png
-[211]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-configure-ios.png
-[212]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-connection-strings.png
-
 
 [213]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-console-app.png
-
-
 
 [215]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-scheduler1.png
 [216]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-scheduler2.png
@@ -463,7 +307,7 @@
 
 [Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started-xamarin-ios
 [портал Azure]: https://manage.windowsazure.com/
-[Руководство по использованию Центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[Общие сведения о Центрах уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Инструкции по использованию Центров уведомлений для iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
@@ -472,11 +316,11 @@
 [Использование концентраторов уведомлений для передачи экстренных новостей]: /manage/services/notification-hubs/breaking-news-dotnet
 
 [руководстве по программированию локальных и push-уведомлений]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
-[Служба push-уведомлений Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 
 [Компонент мобильных служб Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

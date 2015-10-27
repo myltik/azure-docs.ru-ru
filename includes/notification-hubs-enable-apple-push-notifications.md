@@ -93,7 +93,14 @@
 
     > [AZURE.NOTE]Имя вашего сертификата может отличаться, но оно будет начинаться с префикса **Apple Development iOS Push Services:**.
 
-Далее вы используете этот сертификат для создания P12-файла, чтобы включить аутентификацию в APNs.
+8. В программе Keychain Access щелкните правой кнопкой мыши новый сертификат push-уведомлений, созданный в категории **Certificates** (Сертификаты). Щелкните **Export** (Экспорт), укажите имя файла, выберите формат **.p12** и нажмите кнопку **Save** (Сохранить).
+
+	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
+
+	Запишите имя файла и расположение экспортируемого сертификата в формате P12. Он будет использоваться для проверки подлинности с помощью имен точек доступа.
+
+	>[AZURE.NOTE]В этом учебнике создается файл Quickstart.p12. Имя файла и расположение могут отличаться.
+
 
 ##Создание профиля подготовки для приложения
 
@@ -128,4 +135,4 @@
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
