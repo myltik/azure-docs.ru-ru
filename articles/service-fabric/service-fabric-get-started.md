@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Настройка среды разработки Service Fabric | Microsoft Azure"
-   description="Установка среды выполнения, пакета SDK и инструментов, а также создание локального кластера разработки."
+   pageTitle="Настройка среды разработки | Microsoft Azure"
+   description="Установите среду выполнения, пакет SDK и инструменты и создайте локальный кластер разработки. После этого вы сможете создавать приложения."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
-   manager="samgeo"
+   manager="coreysa"
    editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/07/2015"
+   ms.date="10/15/2015"
    ms.author="seanmck"/>
 
-# Настройка среды разработки Service Fabric
- В этой статье рассматриваются все, что требуется для начала разработки приложений на платформе [Service Fabric][1], включая установку среды выполнения, пакет SDK и инструменты, а также настройку локального кластера.
+# Подготовка среды разработки
+ Чтобы создавать и запускать [приложения Service Fabric][1] на компьютере для разработки, вам нужно установить среду выполнения, пакет SDK и инструменты и настроить локальный кластер.
 
- >[AZURE.NOTE]Эти инструкции предназначены для настройки новых компьютеров. Если на вашем компьютере установлена предыдущая версия Service Fabric, выполните следующие [инструкции по обновлению среды разработки](service-fabric-update-your-development-environment.md).
+ >[AZURE.NOTE]Эти инструкции предназначены для настройки новых компьютеров. Если на вашем компьютере установлена предыдущая версия Service Fabric, выполните [инструкции по обновлению среды разработки](service-fabric-update-your-development-environment.md).
 
 ## Предварительные требования
 ### Поддерживаемые версии операционных систем
@@ -33,7 +33,7 @@
 
 В случае установки Visual Studio 2015 набор инструментов в Service Fabric может отличаться. Загрузить Visual Studio 2015 можно [здесь][2].
 
-> [AZURE.NOTE]Если у вас не установлена ни одна из поддерживаемых операционных систем или вы не хотите устанавливать на компьютер Visual Studio 2015, настройте виртуальную машину Azure c предустановленными Windows Server 2012 R2 и Visual Studio 2015, используя образ из галереи виртуальных машин.
+> [AZURE.NOTE]Если у вас не установлена ни одна из поддерживаемых операционных систем или вы не хотите устанавливать на компьютер решение Visual Studio 2015, настройте виртуальную машину Azure c предустановленными Windows Server 2012 R2 и Visual Studio 2015, используя образ из коллекции виртуальных машин Azure.
 
 ## Установка среды выполнения, пакета SDK и инструментов
 
@@ -106,4 +106,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Ссылка WebPI"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

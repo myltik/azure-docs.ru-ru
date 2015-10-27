@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Подключение мобильного приложения Azure к локальному серверу SQL Server с помощью гибридных подключений | Microsoft Azure"
 	description="Узнайте, как подключиться к локальному серверу SQL Server из мобильного приложения службы приложений с помощью гибридных подключений"
-	services="app-service"
+	services="app-service\mobile"
 	documentationCenter=""
 	authors="ggailey777"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-mobile"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
@@ -165,4 +165,4 @@
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
