@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="active-directory-b2c"
-	ms.workload="identity Ã©"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -20,8 +20,7 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-## Предварительные требования </br>[‎10/‎28/‎2015 10:54 AM] Sunny Deng: 
-Ã© 
+## Предварительные требования
 
 Чтобы создать приложение, в котором можно выполнять регистрацию и вход потребителей, сначала необходимо зарегистрировать его для использования клиента Azure Active Directory B2C. Получите собственный клиент, как описано [здесь](active-directory-b2c-get-started.md). Если вы выполнили все шаги в этой статье, то к вашей начальной панели будет прикреплена колонка функций B2C.
 
