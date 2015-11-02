@@ -24,7 +24,11 @@
 
 Действие преобразования | Вычислительная среда 
 ----------------------- | --------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Потоковая передача Hadoop] (https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop] [пакетное выполнение в машинном обучении] (data-factory-azure-ml-batch-execution-activity.md) | Azure 
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
+[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop]  
+[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop]  
+[Потоковая передача Hadoop](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop]
+[Пакетная оценка машинного обучения](data-factory-create-predictive-pipelines.md) | Azure 
 [Хранимая процедура](data-factory-stored-proc-activity.md) | Azure SQL; | 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] или пакетная служба Azure    
 
