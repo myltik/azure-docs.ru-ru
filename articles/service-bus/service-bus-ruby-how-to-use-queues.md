@@ -3,8 +3,8 @@
 	description="Узнайте, как использовать очереди служебной шины в Azure. Примеры кода написаны на Ruby."
 	services="service-bus"
 	documentationCenter="ruby"
-	authors="tfitzmac"
-	manager="wpickett"
+	authors="sethmanheim"
+	manager="timlt"
 	editor=""/>
 
 <tags
@@ -14,12 +14,11 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="08/31/2015"
-	ms.author="tomfitz"/>
-
-
-
+	ms.author="sethm"/>
 
 # Как использовать очереди служебной шины
+
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 В этом руководстве показано, как использовать очереди служебной шины. Примеры написаны с помощью Ruby и используют пакет Azure. Здесь описаны такие сценарии, как **создание очередей, отправка и получение сообщений**, а также **удаление очередей**. Дополнительные сведения об очередях см. в разделе [Дальнейшие действия](#next-steps).
 
@@ -152,4 +151,4 @@
 Сравнение очередей служебной шины Azure, описанных в этой статье, и очередей служебной шины Azure, описанных в статье [Использование службы очередей Azure](/develop/ruby/how-to-guides/queue-service/), см. в статье [Очереди Azure и очереди служебной шины Azure — сходство и отличия](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -2,7 +2,6 @@
 	pageTitle="Отправка запросов Hive в кластеры Hadoop: процесс и технология расширенного анализа | Microsoft Azure"
 	description="Обработка данных, которые есть в таблицах Hive, с помощью запросов Hive."
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -320,4 +319,4 @@
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/16/2015"
 	ms.author="ryanwi"/>
 
 # Развертывание, обновление, тестирование и удаления приложений Service Fabric с помощью PowerShell
@@ -34,13 +34,13 @@ Connect-ServiceFabricCluster
 
 ## ЗАДАЧА: развернуть приложение Service Fabric
 
-Собрав приложение и упаковав его тип, можно развернуть приложение в кластере Service Fabric. Для начала упакуйте приложение HelloWorldStateful в Visual Studio, щелкнув **HelloWorldStatefulApplication** в обозревателе решений правой кнопкой мыши и выбрав параметр **Пакет**. Информацию о манифестах службы и приложения и макета пакета см. в статье [Моделирование приложения в Service Fabric](service-fabric-application-model.md). Развертывание включает отправку пакета приложения, регистрацию типа приложения и создание экземпляра приложения. В этом разделе приводятся инструкции по развертыванию нового приложения в кластере.
+Собрав приложение и упаковав его тип, можно развернуть приложение в локальном кластере Service Fabric. Для начала упакуйте приложение HelloWorldStateful в Visual Studio, щелкнув **HelloWorldStatefulApplication** в обозревателе решений правой кнопкой мыши и выбрав параметр **Пакет**. Информацию о манифестах службы и приложения и макета пакета см. в статье [Моделирование приложения в Service Fabric](service-fabric-application-model.md). Развертывание включает отправку пакета приложения, регистрацию типа приложения и создание экземпляра приложения. В этом разделе приводятся инструкции по развертыванию нового приложения в кластере.
 
 ### Шаг 1. Отправка пакета приложения
 Отправка пакета приложения в ImageStore означает, что он помещается в расположение, доступное внутренним компонентам Service Fabric. Пакет приложения содержит необходимый манифест приложения, манифесты служб и пакеты данных, конфигурации и кода для создания экземпляров приложения и служб. Отправить пакет позволяет команда [ServiceFabricApplicationPackage копирования](https://msdn.microsoft.com/library/azure/mt125905.aspx). Например:
 
 ```powershell
-Copy-ServiceFabricApplicationPackage C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
+Copy-ServiceFabricApplicationPackage C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
 ```
 
 ### Шаг 2. Регистрация пакета приложения
@@ -107,7 +107,7 @@ Get-ServiceFabricApplication | Get-ServiceFabricService
 Теперь скопируем обновленный пакет приложения в ImageStore (место, в которое Service Fabric сохраняет пакеты приложений). Параметр *ApplicationPackagePathInImageStore* информирует структуру служб о том, где находится пакет приложения. Следующая команда позволит скопировать пакет приложения *HelloWorldStatefulV2* в ImageStore:
 
 ```powershell
-Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore   -ApplicationPackagePathInImageStore HelloWorldStatefulV2
+Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath C:\ServiceFabricSamples\Services\VS2015\HelloWorldStateful\HelloWorldStatefulApplication\pkg\Debug -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore HelloWorldStatefulV2
 ```
 
 Далее необходимо зарегистрировать новую версию приложения в Service Fabric, выполнив для этого командлет [Register-ServiceFabricApplicationType](https://msdn.microsoft.com/library/azure/mt125958.aspx):
@@ -190,7 +190,7 @@ Unregister-ServiceFabricApplicationType HelloWorldStatefulApplication 1.0.0.0
 После отмены регистрации типа приложения пакет приложения можно удалить из ImageStore с помощью командлета [Remove-ServiceFabricApplicationPackage](https://msdn.microsoft.com/library/azure/mt163532.aspx).
 
 ```powershell
-Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDevCluster\Data\ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
+Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString fabric:ImageStore -ApplicationPackagePathInImageStore HelloWorldStateful
 ```
 
 ## Дополнительные ресурсы
@@ -202,4 +202,4 @@ Remove-ServiceFabricApplicationPackage -ImageStoreConnectionString file:C:\SfDev
 
 [Командлеты Azure Service Fabric Testability](https://msdn.microsoft.com/library/azure/mt125844.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

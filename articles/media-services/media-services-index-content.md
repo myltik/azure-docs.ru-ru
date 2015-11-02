@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Индексирование файлов мультимедиа с помощью индексатора мультимедийных данных Azure" 
-	description="Индексатор мультимедийных данных Azure позволяет искать содержимое файлов мультимедиа и создавать полнотекстовую транскрипцию для скрытых субтитров и ключевых слов. В этом разделе показано, как использовать индексатор мультимедийных данных." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+<properties
+	pageTitle="Индексирование файлов мультимедиа с помощью индексатора мультимедийных данных Azure"
+	description="Индексатор мультимедийных данных Azure позволяет искать содержимое файлов мультимедиа и создавать полнотекстовую транскрипцию для скрытых субтитров и ключевых слов. В этом разделе показано, как использовать индексатор мультимедийных данных."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako,johndeu"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/21/2015"   
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="10/15/2015"   
 	ms.author="juliako"/>
 
 
@@ -29,14 +29,14 @@
 >[AZURE.IMPORTANT]При индексировании содержимого обязательно используйте файлы мультимедиа, содержащие отчетливую речь (без фоновой музыки, шума, эффектов или шипения микрофона). Примерами подходящего содержимого могут служить записи собраний, лекций или презентаций. Для индексирования, как правило, не подходит такое содержимое, как фильмы, телепередачи, любые материалы со смешанными аудио- и звуковыми эффектами, записи плохого качества с фоновым шумом (шипением).
 
 
-Задание индексирования создает следующие выходные данные:
+Задание индексирования может создавать следующие выходные данные:
 
 - Файлы скрытых субтитров в следующих форматах: **SAMI**, **TTML** и **WebVTT**.
 
 	Файлы скрытых субтитров содержат тег Recognizability, который используется для оценки задания индексирования в зависимости от степени разборчивости речи в исходном видео. Значение Recognizability можно использовать для отбора пригодных для использования выходных файлов. Низкая оценка означает, что результаты индексирования не точны из-за качества звука.
 - Файл с ключевыми словами (XML).
 - Файл большого двоичного объекта аудиоиндексации (AIB) для использования с SQL Server.
-	
+
 	Дополнительные сведения см. в разделе [Использование файлов AIB с индексатором мультимедийных данных Azure и SQL Server](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
 
 
@@ -44,84 +44,84 @@
 
 Последние новости об индексаторе мультимедийных данных см. в [блогах служб мультимедиа](http://azure.microsoft.com/blog/topics/media-services/).
 
-##Использование файлов конфигурации и манифеста для задач индексирования
+## Использование файлов конфигурации и манифеста для задач индексирования
 
-С помощью конфигурации задачи можно задать дополнительные параметры задач индексирования. Например, можно указать, какие метаданные будут использоваться для файла мультимедиа. Эти метаданные используются для пополнения словаря обработчика языка и существенно повышают точность распознавания речи.
+С помощью конфигурации задачи можно задать дополнительные параметры задач индексирования. Например, можно указать, какие метаданные будут использоваться для файла мультимедиа. Эти метаданные используются для пополнения словаря обработчика языка и существенно повышают точность распознавания речи. Вы также можете указать нужные выходные файлы.
 
 С помощью файла манифеста можно также обработать несколько файлов мультимедиа одновременно.
 
 Дополнительные сведения см. в разделе [Предустановка задачи для индексатора мультимедийных данных Azure](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
-##Индексирование ресурса
+## Индексирование ресурса
 
 Следующий метод передает файл мультимедиа как ресурс и создает задание для индексирования ресурса.
 
 Обратите внимание, что если файл конфигурации не указан, файл мультимедиа будет индексирован со всеми параметрами по умолчанию.
-	
+
 	static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
 	{
 	    // Create an asset and upload the input media file to storage.
 	    IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
 	        "My Indexing Input Asset",
 	        AssetCreationOptions.None);
-	
+
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job");
-	
+
 	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer",
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
-	
+
 	    // Read configuration from file if specified.
 	    string configuration = string.IsNullOrEmpty(configurationFile) ? "" : File.ReadAllText(configurationFile);
-	
+
 	    // Create a task with the encoding details, using a string preset.
 	    ITask task = job.Tasks.AddNew("My Indexing Task",
 	        processor,
 	        configuration,
 	        TaskOptions.None);
-	
+
 	    // Specify the input asset to be indexed.
 	    task.InputAssets.Add(asset);
-	
-	    // Add an output asset to contain the results of the job. 
+
+	    // Add an output asset to contain the results of the job.
 	    task.OutputAssets.AddNew("My Indexing Output Asset", AssetCreationOptions.None);
-	
+
 	    // Use the following event handler to check job progress.  
 	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
-	
+
 	    // Launch the job.
 	    job.Submit();
-	
-	    // Check job execution and wait for job to finish. 
+
+	    // Check job execution and wait for job to finish.
 	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 	    progressJobTask.Wait();
-	
-	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.  Here we check 
+
+	    // If job state is Error, the event handling
+	    // method for job progress should log errors.  Here we check
 	    // for error state and exit if needed.
 	    if (job.State == JobState.Error)
 	    {
 	        Console.WriteLine("Exiting method due to job error.");
 	        return false;
 	    }
-	
+
 	    // Download the job outputs.
 	    DownloadAsset(task.OutputAssets.First(), outputFolder);
-	
+
 	    return true;
 	}
-	
+
 	static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
 	{
 	    IAsset asset = _context.Assets.Create(assetName, options);
-	
+
 	    var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
 	    assetFile.Upload(filePath);
-	
+
 	    return asset;
 	}
-	        
+
 	static void DownloadAsset(IAsset asset, string outputDirectory)
 	{
 	    foreach (IAssetFile file in asset.AssetFiles)
@@ -129,7 +129,7 @@
 	        file.Download(Path.Combine(outputDirectory, file.Name));
 	    }
 	}
-	
+
 	static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
 	{
 	    var processor = _context.MediaProcessors
@@ -137,17 +137,17 @@
 	    .ToList()
 	    .OrderBy(p => new Version(p.Version))
 	    .LastOrDefault();
-	
+
 	    if (processor == null)
 	        throw new ArgumentException(string.Format("Unknown media processor",
 	                                                   mediaProcessorName));
-	
-	    return processor;
-	} 
-	
-###<a id="output_files"></a>Выходные файлы
 
-Задание индексирования создает следующие выходные файлы. Файлы будут храниться в первом выходном ресурсе.
+	    return processor;
+	}
+
+### <a id="output_files"></a>Выходные файлы
+
+По умолчанию задание индексирования создает следующие выходные файлы. Файлы будут храниться в первом выходном ресурсе.
 
 
 <table border="1">
@@ -162,105 +162,110 @@
 Чтобы загрузить надстройку, щелкните ссылку <a href="http://aka.ms/indexersql">Надстройка SQL "Индексатор мультимедийных данных Azure"</a>.
 <br/><br/>
 Кроме того, можно использовать другие поисковые системы, например Apache Lucene/Solr, чтобы просто проиндексировать видео на основе скрытых субтитров и XML-файлов ключевых слов, но в этом случае результаты поиска будут менее точными.</td></tr>
-<tr><td>InputFileName.smi<br/>InputFileName.ttml</td>
+<tr><td>InputFileName.smi<br/>InputFileName.ttml<br/>Имя_входного_файла.vtt</td>
 <td>Файлы скрытых субтитров в форматах SAMI, TTML и WebVTT.
 <br/><br/>
 С их помощью аудио- и видеофайлы можно сделать доступным для людей с нарушениями слуха.
 <br/><br/>
 Файлы скрытых субтитров содержат тег <b>Recognizability</b>, который используется для оценки задания индексирования в зависимости от степени разборчивости речи в исходном видео. Значение <b>Recognizability</b> можно использовать для отбора пригодных для использования выходных файлов. Низкая оценка означает, что результаты индексирования не точны из-за качества звука.</td></tr>
-<tr><td>InputFileName.kw.xml</td>
-<td>Файл ключевых слов.
+<tr><td>InputFileName.kw.xml
+<br/>
+Имя_входного_файла.info
+</td>
+<td>Файлы ключевых слов и сведений.
 <br/><br/>
 Файл ключевых слов — это XML-файл, содержащий ключевые слова, извлеченные из речевого содержимого вместе с информацией о частоте и смещении.
 <br/><br/>
-Этот файл можно использовать для различных целей, например для анализа речи, улучшения обнаружения файлов мультимедиа такими поисковыми системами, как Bing, Google или Microsoft SharePoint, или повышения релевантности рекламы.</td></tr>
+Файл сведений — это обычный текстовый файл, который содержит подробные сведения о каждом распознанном термине. Первая строка является особой и содержит коэффициент узнаваемости. Каждая следующая строка представляет собой следующие данные с разделителями табуляцией: начальное время, конечное время, слово или фраза, достоверность. Значения времени указаны в секундах, а значение достоверности принадлежит диапазону от 0 до 1.  <br/><br/>Пример строки: «1.20 &#160;&#160;&#160;1.45 &#160;&#160;&#160;word &#160;&#160;&#160;0.67».
+<br/><br/>
+Этот файл можно использовать для различных целей, например для анализа речи, улучшения обнаружения файлов мультимедиа такими поисковыми системами, как Bing, Google или Microsoft SharePoint, или даже для повышения релевантности рекламы.</td></tr>
 </table>
 
 Если не все входные файлы мультимедиа проиндексированы успешно, задание индексирования завершится ошибкой с кодом 4000. Дополнительные сведения см. в разделе [Коды ошибок](#error_codes).
 
-##Индексация нескольких файлов
+## Индексация нескольких файлов
 
 Следующий метод передает несколько файлов мультимедиа в виде ресурса и создает задание для индексации этих файлов в пакете.
 
 При этом создается файл манифеста с расширением LST, который затем отправляется в ресурс. Файл манифеста содержит список всех файлов ресурсов. Дополнительные сведения см. в разделе [Предустановка задачи для индексатора мультимедийных данных Azure](https://msdn.microsoft.com/library/azure/dn783454.aspx).
-	
+
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
 	    // Create an asset and upload to storage.
 	    IAsset asset = CreateAssetAndUploadMultipleFiles(inputMediaFiles,
 	        "My Indexing Input Asset - Batch Mode",
 	        AssetCreationOptions.None);
-	
+
 	    // Create a manifest file that contains all the asset file names and upload to storage.
 	    string manifestFile = "input.lst";            
 	    File.WriteAllLines(manifestFile, asset.AssetFiles.Select(f => f.Name).ToArray());
 	    var assetFile = asset.AssetFiles.Create(Path.GetFileName(manifestFile));
 	    assetFile.Upload(manifestFile);
-	
+
 	    // Declare a new job.
 	    IJob job = _context.Jobs.Create("My Indexing Job - Batch Mode");
-	
+
 	    // Get a reference to the Azure Media Indexer.
 	    string MediaProcessorName = "Azure Media Indexer";
 	    IMediaProcessor processor = GetLatestMediaProcessorByName(MediaProcessorName);
-	
+
 	    // Read configuration.
 	    string configuration = File.ReadAllText("batch.config");
-	
+
 	    // Create a task with the encoding details, using a string preset.
 	    ITask task = job.Tasks.AddNew("My Indexing Task - Batch Mode",
 	        processor,
 	        configuration,
 	        TaskOptions.None);
-	
+
 	    // Specify the input asset to be indexed.
 	    task.InputAssets.Add(asset);
-	
+
 	    // Add an output asset to contain the results of the job.
 	    task.OutputAssets.AddNew("My Indexing Output Asset - Batch Mode", AssetCreationOptions.None);
-	
+
 	    // Use the following event handler to check job progress.  
 	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
-	
+
 	    // Launch the job.
 	    job.Submit();
-	
-	    // Check job execution and wait for job to finish. 
+
+	    // Check job execution and wait for job to finish.
 	    Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 	    progressJobTask.Wait();
-	
-	    // If job state is Error, the event handling 
-	    // method for job progress should log errors.  Here we check 
+
+	    // If job state is Error, the event handling
+	    // method for job progress should log errors.  Here we check
 	    // for error state and exit if needed.
 	    if (job.State == JobState.Error)
 	    {
 	        Console.WriteLine("Exiting method due to job error.");
 	        return false;
 	    }
-	
+
 	    // Download the job outputs.
 	    DownloadAsset(task.OutputAssets.First(), outputFolder);
-	
+
 	    return true;
 	}
-	
+
 	private static IAsset CreateAssetAndUploadMultipleFiles(string[] filePaths, string assetName, AssetCreationOptions options)
 	{
 	    IAsset asset = _context.Assets.Create(assetName, options);
-	
+
 	    foreach (string filePath in filePaths)
 	    {
 	        var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
 	        assetFile.Upload(filePath);
 	    }
-	
+
 	    return asset;
 	}
 
 
-###Выходные файлы
+### Выходные файлы
 
-При наличии нескольких входных файлов мультимедиа WAMI создаст файл манифеста для выходных данных задания с именем JobResult.txt. Полученные для каждого входного файла мультимедиа AIB-, SAMI-, TTML-, WebVTT-файлы и файлы ключевых слов последовательно нумеруются, как показано ниже.
+При наличии нескольких входных файлов мультимедиа индексатор создаст файл манифеста для выходных данных задания с именем JobResult.txt. Полученные для каждого входного файла мультимедиа AIB-, SAMI-, TTML-, WebVTT-файлы и файлы ключевых слов последовательно нумеруются, как показано ниже.
 
 Описание выходных файлов см. в разделе [Выходные файлы](#output_files)
 
@@ -300,7 +305,7 @@ Error — указывает, успешно ли проиндексирован
 
 Если не все входные файлы мультимедиа проиндексированы успешно, задание индексирования завершится ошибкой с кодом 4000. Дополнительные сведения см. в разделе [Коды ошибок](#error_codes).
 
-###Частично успешно выполненное задание
+### Частично успешно выполненное задание
 
 Если не все входные файлы мультимедиа проиндексированы успешно, задание индексирования завершится ошибкой с кодом 4000. Дополнительные сведения см. в разделе [Коды ошибок](#error_codes).
 
@@ -354,4 +359,4 @@ Error — указывает, успешно ли проиндексирован
 
 <!-- URLs. -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

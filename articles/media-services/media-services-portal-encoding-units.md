@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Масштабирование зарезервированных единиц кодирования" 
+	pageTitle="Масштабирование кодирования зарезервированных модулей с помощью портала Azure" 
 	description="Узнайте, как можно масштабировать службы мультимедиа, указав число зарезервированных единиц потоковой передачи по требованию и зарезервированных единиц кодирования, которые требуется подготовить для вашей учетной записи." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,milangada" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="10/15/2015"
 	ms.author="juliako"/>
 
 
-#Масштабирование кодирования
+#Масштабирование кодирования с помощью портала Azure
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-encoding-units.md)
@@ -69,4 +69,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

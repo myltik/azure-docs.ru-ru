@@ -3,7 +3,7 @@
     description="В этой статье показано, как использовать индексатор службы поиска Azure с DocumentDB в качестве источника данных."
     services="documentdb" 
     documentationCenter="" 
-    authors="aliuy" 
+    authors="AndrewHoh" 
     manager="jhubbard" 
     editor="mimig"/>
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
     ms.date="06/16/2015" 
-    ms.author="andrl"/>
+    ms.author="anhoh"/>
 
 #Подключение DocumentDB к службе поиска Azure с помощью индексаторов
 
@@ -270,4 +270,4 @@
  - Дополнительные сведения о службе Поиск Azure можно узнать [здесь](/services/search/).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

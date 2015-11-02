@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Пример кода: анализ данных, экспортированных из Application Insights" 
-	description="Напишите код анализа телеметрии в Application Insights с помощью функции непрерывного экспорта." 
+	description="Напишите код анализа телеметрии в Application Insights с помощью функции непрерывного экспорта. Сохраните данные в SQL." 
 	services="application-insights" 
     documentationCenter=""
 	authors="mazharmicrosoft" 
@@ -543,4 +543,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

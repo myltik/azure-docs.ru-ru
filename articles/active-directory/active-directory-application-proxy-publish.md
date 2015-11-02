@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Публикация приложений с помощью прокси приложения Azure AD"
+	pageTitle="Публикация приложений с помощью прокси приложения Azure AD | Microsoft Azure"
 	description="Описывается публикация локальных приложений с помощью прокси приложения Azure AD."
 	services="active-directory"
 	documentationCenter=""
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 
 # Публикация приложений с помощью прокси приложения Azure AD
 
-> [AZURE.NOTE]Прокси приложения — это функция, которая доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-edition.md).
+> [AZURE.NOTE]Прокси приложения — это функция, которая доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
 
 После включения прокси приложения Microsoft Azure AD можно публиковать приложения, чтобы сделать их доступными для пользователей за пределами частной сети.
 
@@ -94,4 +94,4 @@
 
 * [Об ограниченном делегировании Kerberos](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

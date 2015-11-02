@@ -46,9 +46,9 @@
 
 ## Azure PowerShell
 
-Прежде чем начать, убедитесь, что у вас установлена подходящая версия Azure PowerShell, выполнен вход и включен новый режим диспетчера ресурсов. Дополнительные сведения см. [здесь](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates).
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
-Введите имя развертывания Azure, новое имя группы ресурсов и расположение центра обработки данных Azure в следующем наборе команд. Удалите все содержимое кавычек, включая знаки < and >.
+Введите имя развертывания Azure, новое имя группы ресурсов и расположение центра обработки данных Azure в следующем наборе команд. Удалите все содержимое кавычек, включая символы < and >.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
@@ -68,7 +68,7 @@
 
 Далее выполните свой блок команд в командной строке Azure PowerShell.
 
-При выполнении команды **New-AzureRmResourceGroupDeployment** появится запрос на ввод значений для ряда параметров. После указания всех значений параметров **New-AzureRmResourceGroupDeployment** создает и настраивает виртуальные машины.
+При выполнении команды **New-AzureRmResourceGroupDeployment** появится запрос на ввод значений для ряда параметров. После указания всех значений параметров команда **New-AzureRmResourceGroupDeployment** создает и настраивает виртуальные машины.
 
 По завершении выполнения шаблона вы получите новую конфигурацию двухсерверного домена Active Directory в новой группе ресурсов.
 
@@ -108,4 +108,4 @@
 
 [Установка и настройка Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

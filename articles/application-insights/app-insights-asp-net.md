@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Application Insights для ASP.NET" 
-	description="Анализ использования, доступности и производительности локального приложения или веб-приложения Microsoft Azure с помощью Application Insights." 
+	description="Выполните анализ производительности, доступности и использования локального приложения или веб-приложения Microsoft Azure с помощью Application Insights." 
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
@@ -174,4 +174,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Панель мониторинга Power BI в Stream Analytics | Microsoft Azure" 
 	description="Используйте панель мониторинга Power BI для потоковой передачи, чтобы собирать данные бизнес-аналитики и анализировать большие объемы данных из задания Stream Analytics." 
-	keywords="business intelligence tools,power bi,streaming data,power bi dashboard"	
+	keywords="средства бизнес-аналитики, power bi, потоковая передача данных, панель мониторинга power bi"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -35,7 +35,7 @@ Azure Stream Analytics позволяет воспользоваться одн�
 
 ## Создание задания Azure Stream Analytics ##
 
-На [портале Azure](https://manage.windowsazure.com) щелкните **Создать, Службы данных, Stream Analytics, Быстро создать**.
+На [портале управления Azure](https://manage.windowsazure.com) щелкните **Создать, Службы данных, Stream Analytics, Быстро создать**.
 
 Укажите следующие значения и щелкните **Создать задание Stream Analytics**:
 
@@ -197,7 +197,7 @@ Azure Stream Analytics позволяет воспользоваться одн�
 ![рисунок13][graphic13]
 
 ## Получение справки ##
-Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
+Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-ru/home?forum=AzureStreamAnalytics).
 
 ## Дальнейшие действия ##
 
@@ -222,4 +222,4 @@ Azure Stream Analytics позволяет воспользоваться одн�
 [graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
 [graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

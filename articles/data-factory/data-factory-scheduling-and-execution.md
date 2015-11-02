@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="10/20/2015" 
 	ms.author="spelluru"/>
 
 # Планирование и исполнение с использованием фабрики данных
@@ -676,4 +676,4 @@ DateTime | Ticks(X) | X: DateTime | Получает свойство такто
 
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

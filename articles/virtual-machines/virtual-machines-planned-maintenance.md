@@ -20,6 +20,8 @@
 
 # Плановое обслуживание виртуальных машин Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ## Причины выполнения Azure планового обслуживания
 
 Microsoft Azure периодически выполняет обновления своих систем по всему миру, чтобы повысить надежность, производительность и безопасность инфраструктуры узлов, в которой работают виртуальные машины. Многие из таких обновлений, включая обновления с сохранением памяти, выполняются без какого-либо влияния на виртуальные машины и облачные службы.
@@ -118,4 +120,4 @@ Azure упорядочивает набор пар регионов. Во вре
 [Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
 [Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

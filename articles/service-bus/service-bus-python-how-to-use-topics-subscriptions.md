@@ -18,6 +18,8 @@
 
 # Использование разделов и подписок служебной шины
 
+[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+
 В этой статье описывается использование разделов и подписок служебной шины. Примеры написаны на Python и используют пакет [Azure для Python][]. В этой статье описаны такие сценарии, как **создание разделов и подписок**, **создание фильтров подписок**, **отправка сообщений в раздел**, **получение сообщений из подписки** и **удаление разделов и подписок**. Дополнительные сведения о разделах и подписках см. в разделе [Дальнейшие действия](#next-steps).
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
@@ -41,7 +43,7 @@ bus_service = ServiceBusService(
 	shared_access_key_value='sharedaccesskey')
 ```
 
-Можно получить значения для имени ключа SAS и значение из [портал Azure][] **сведения о соединении** окна.
+Можно получить значения для имени ключа SAS и значение из окна [портал Azure][] **сведения о подключении**.
 
 ```
 bus_service.create_topic('mytopic')
@@ -79,7 +81,7 @@ bus_service.create_subscription('mytopic', 'AllMessages')
 
 Фильтры можно добавить в подписку с помощью метода **create\_rule** объекта **ServiceBusService**. Этот метод позволяет добавлять новые фильтры в существующую подписку.
 
-> [AZURE.NOTE]Поскольку ко всем новым подпискам автоматически применяется фильтр по умолчанию, сначала необходимо удалить фильтр по умолчанию, либо **MatchAll** переопределит поведение всех остальных заданных фильтров. Вы можете удалить правило по умолчанию с помощью метода **delete\_rule** объекта **ServiceBusService**.
+> [AZURE.NOTE]Так как ко всем новым подпискам автоматически применяется фильтр по умолчанию, сначала необходимо удалить фильтр по умолчанию, иначе **MatchAll** переопределит поведение всех остальных заданных фильтров. Вы можете удалить правило по умолчанию с помощью метода **delete\_rule** объекта **ServiceBusService**.
 
 В следующем примере создается подписка с именем `HighMessages`, содержащая объект **SqlFilter**, который выбирает только сообщения, значение настраиваемого свойства **MessageNumber** которых превышает 3.
 
@@ -107,7 +109,7 @@ bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 ```
 
-Теперь, когда в раздел `mytopic` отправляется сообщение, оно будет всегда доставляться получателям, подписанным на раздел **AllMessages**, и выборочно доставляться получателям, подписанным на разделы **HighMessages** и **LowMessages** в зависимости от содержания сообщения.
+Теперь, когда в раздел `mytopic` отправляется сообщение, оно будет всегда доставляться получателям, подписанным на раздел **AllMessages**, и выборочно доставляться получателям, подписанным на разделы **HighMessages** и **LowMessages**, в зависимости от содержания сообщения.
 
 ## Отправка сообщений в раздел
 
@@ -181,4 +183,4 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Очереди Azure и очереди служебной шины]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Выбор платформы Service Fabric | Microsoft Azure"
-   description="Структура служб предлагает две высокоуровневые платформы для создания служб: платформу субъектов действий и платформу служб. Понимание значения каждой платформы поможет принять верные архитектурные решения для вашего приложения."
+   pageTitle="Модели программирования в Service Fabric | Microsoft Azure"
+   description="Service Fabric предлагает две платформы для создания служб: платформу субъектов действий и платформу служб. Платформы отличаются уровнем сложности и контроля."
    services="service-fabric"
    documentationCenter=".net"
    authors="seanmck"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/13/2015"
+   ms.date="10/15/2015"
    ms.author="seanmck"/>
 
 # Выбор платформы для службы
@@ -36,4 +36,4 @@
 - [Подробнее об API Reliable Actors](service-fabric-reliable-actors-introduction.md)
 - [Подробнее об API Reliable Services](../Service-Fabric/service-fabric-reliable-services-introduction.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/27/2015"
+   ms.date="10/20/2015"
    ms.author="tomfitz"/>
 
 # Создание нескольких экземпляров ресурсов в диспетчере ресурсов Azure
@@ -61,12 +61,14 @@
           "name": "[concat('examplecopy-', copyIndex())]", 
           "type": "Microsoft.Web/sites", 
           "location": "East US", 
-          "apiVersion": "2014-06-01",
+          "apiVersion": "2015-08-01",
           "copy": { 
              "name": "websitescopy", 
              "count": "[parameters('count')]" 
           }, 
-          "properties": {} 
+          "properties": {
+              "serverFarmId": "hostingPlanName"
+          }
       } 
     ]
 
@@ -103,20 +105,55 @@
           "name": "[concat('examplecopy-', parameters('org')[copyIndex()])]", 
           "type": "Microsoft.Web/sites", 
           "location": "East US", 
-          "apiVersion": "2014-06-01",
+          "apiVersion": "2015-08-01",
           "copy": { 
              "name": "websitescopy", 
              "count": "[length(parameters('org'))]" 
           }, 
-          "properties": {} 
+          "properties": {
+              "serverFarmId": "hostingPlanName"
+          } 
       } 
     ]
 
 Конечно, вы указали число копий, отличное от длины массива. Например, вы могли создать массив с большим количеством значений, а затем передать значение параметра, указывающее, сколько элементов массива следует развернуть. В этом случае задайте число копий, как показано в первом примере.
 
+## Зависимость от ресурсов в цикле
+
+С помощью элемента **dependsOn** можно указать, что один ресурс должен развертываться после другого. Если необходимо развернуть ресурс, который зависит от коллекции ресурсов в цикле, можно указать имя цикла копирования в элементе **dependsOn**. В следующем примере показано, как развернуть 3 учетные записи хранения до развертывания виртуальной машины. Полное определение виртуальной машины не показано. Обратите внимание, что **имя** элемента копии установлено в **storagecopy** и элемент **dependsOn** для виртуальных машин также установлен в **storagecopy**.
+
+    {
+	    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	    "contentVersion": "1.0.0.0",
+	    "parameters": {},
+	    "resources": [
+	        {
+		        "apiVersion": "2015-06-15",
+		        "type": "Microsoft.Storage/storageAccounts",
+		        "name": "[concat('storage', uniqueString(resourceGroup().id), copyIndex())]",
+		        "location": "[resourceGroup().location]",
+		        "properties": {
+                    "accountType": "Standard_LRS"
+            	 },
+		        "copy": { 
+         	        "name": "storagecopy", 
+         	        "count": 3 
+      		    }
+	        },
+           {
+               "apiVersion": "2015-06-15", 
+               "type": "Microsoft.Compute/virtualMachines", 
+               "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+               "dependsOn": ["storagecopy"],
+               ...
+           }
+	    ],
+	    "outputs": {}
+    }
+
 ## Дальнейшие действия
-- Сведения о разделах шаблона см. в статье [Создание шаблонов диспетчера ресурсов](./resource-group-authoring-templates.md).
+- Сведения о разделах шаблона см. в статье [Создание шаблонов диспетчера ресурсов Azure](./resource-group-authoring-templates.md).
 - Список функций, которые можно использовать в шаблоне, см. в статье [Функции шаблонов в диспетчере ресурсов Azure](./resource-group-template-functions.md).
 - Инструкции по развертыванию шаблонов см. в статье [Развертывание приложения с помощью шаблона диспетчера ресурсов Azure](azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

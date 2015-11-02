@@ -3,8 +3,8 @@
 	description="Как управлять параллелизмом для служб BLOB-объектов, очередей, таблиц и файлов" 
 	services="storage" 
 	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
+	authors="jasonnewyork" 
+	manager="tadb" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/03/2015" 
-	ms.author="tamram"/>
+	ms.author="jahogg"/>
 
 # Управление параллелизмом в службе хранилища Microsoft Azure
 
@@ -273,4 +273,4 @@ Insert or Merge Entity (Вставка или слияние сущностей)
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

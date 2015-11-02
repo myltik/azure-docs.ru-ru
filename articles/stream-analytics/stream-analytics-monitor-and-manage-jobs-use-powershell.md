@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Отслеживание заданий Stream Analytics и управление ими с помощью PowerShell | Microsoft Azure" 
 	description="Сведения об использовании Azure PowerShell и командлетов для отслеживания заданий Stream Analytics и управления ими." 
-	keywords="azure powershell,azure powershell cmdlets,powershell command"	
+	keywords="powershell azure, командлеты powershell azure, команда powershell"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -287,4 +287,4 @@
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

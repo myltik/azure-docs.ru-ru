@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # Службы инфраструктуры Azure: интрасетевая ферма SharePoint
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
-
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Модель развертывания диспетчера ресурсов.
 
 Работа с фермой SharePoint в Microsoft Azure имеет целый ряд преимуществ: простота настройки, возможность быстро увеличить емкость фермы или оптимизировать основные функции. Многие фермы SharePoint перерастают из стандартных высокодоступных трехуровневых конфигураций в фермы с десятком, а то и больше серверов, оптимизированных для повышения производительности или выполнения определенных задач (например, распределенное кэширование или поиск).
 
@@ -129,4 +128,4 @@
 
 [Службы инфраструктуры Azure: высокодоступное бизнес-приложение](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

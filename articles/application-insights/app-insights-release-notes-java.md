@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Заметки о выпуске Application Insights для Java" 
-	description="Последние обновления." 
+	description="Последние обновления для пакета SDK Java." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -68,4 +68,4 @@
 - Возможность отметить элемент телеметрии как искусственный, добавив свойство ```SyntheticSource``` к элементу отчета.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

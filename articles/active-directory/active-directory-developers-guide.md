@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2015"
+   ms.date="10/16/2015"
    ms.author="mbaldwin"/>
 
 
@@ -46,9 +46,9 @@ Azure Active Directory является платформой для управл
 
 ### Краткие руководства по началу работы с веб-приложениями
 
-|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![JavaScript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs)
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![JavaScript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md)
 |:--:|:--:|:--:|
-|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-openidconnect-nodejs)
+|[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md)
 
 ### Краткие руководства по началу работы с веб-интерфейсами API
 
@@ -137,4 +137,4 @@ Azure Active Directory является платформой для управл
 
 - [Azure Active Directory в Твиттере](https://twitter.com/azuread). Объявления Azure Active Directory длиной не более 140 символов.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

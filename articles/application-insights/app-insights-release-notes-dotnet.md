@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Заметки о выпуске Application Insights для .NET" 
-	description="Последние обновления." 
+	description="Последние обновления для пакета SDK .NET." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -97,4 +97,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

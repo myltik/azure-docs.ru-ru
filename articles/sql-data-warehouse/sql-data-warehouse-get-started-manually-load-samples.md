@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
 #Загрузка образца данных в хранилище данных SQL
@@ -42,7 +42,7 @@
 
 ## Подключение к образцу и отправка запроса
 
-Как описано в документации по [подключению и запросам][], можно подключиться к базе данных с помощью Visual Studio и SSDT. Теперь, когда некоторые образцы данных загружены в хранилище данных SQL, можно быстро запустить несколько запросов, чтобы приступить к работе.
+Как описано в документации по [подключению][], можно подключиться к базе данных с помощью Visual Studio и SSDT. Теперь, когда некоторые образцы данных загружены в хранилище данных SQL, можно быстро запустить несколько запросов, чтобы приступить к работе.
 
 Можно запустить простой оператор select для получения всех сведений о сотрудниках:
 
@@ -71,16 +71,16 @@
 <!--Image references-->
 
 <!--Article references-->
-[переносить]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-migrate/
-[разрабатывать]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-develop/
-[загружать]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-load/
-[подключению и запросам]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-get-started-connect-query/
-[Перенос кода]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-migrate-code/
+[переносить]: ./sql-data-warehouse-overview-migrate.md
+[разрабатывать]: ./sql-data-warehouse-overview-develop.md
+[загружать]: ./sql-data-warehouse-overview-load.md
+[подключению]: ./sql-data-warehouse-get-started-connect.md
+[Перенос кода]: ./sql-data-warehouse-migrate-code.md
 
 <!--MSDN references-->
-[программы командной строки Microsoft для SQL Server]: http://www.microsoft.com/ru-RU/download/details.aspx?id=36433
+[программы командной строки Microsoft для SQL Server]: http://www.microsoft.com/download/details.aspx?id=36433/
 
 <!--Other Web references-->
-[образцы сценариев данных]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
+[образцы сценариев данных]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

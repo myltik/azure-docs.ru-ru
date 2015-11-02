@@ -2,7 +2,7 @@
 	pageTitle="Запрос увеличения ограничений учетной записи DocumentDB | Microsoft Azure" 
 	description="Узнайте, как запросить изменение ограничений DocumentDB, например допустимого числа коллекций, хранимых процедур и предложений запросов." 
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/28/2015" 
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # Запрос увеличения ограничения учетной записи DocumentDB
 
@@ -91,4 +91,4 @@
 - Для получения дополнительных сведений о DocumentDB щелкните [здесь](http://azure.com/docdb).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

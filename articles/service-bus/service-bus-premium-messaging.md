@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Уровни обмена сообщениями через служебную шину Premium и Standard | Microsoft Azure"
+	pageTitle="Обзор ценовых категорий уровней обмена сообщениями через служебную шину Premium и Standard | Microsoft Azure"
 	description="Обмен сообщениями через служебную шину уровня Premium и Standard"
 	services="service-bus"
 	documentationCenter=".net"
@@ -9,12 +9,12 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="tbd"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
-	ms.author="sethm"/>
+	ms.date="10/15/2015"
+	ms.author="darosa"/>
 
 # Уровни обмена сообщениями через служебную шину Premium и Standard 
 
@@ -41,7 +41,7 @@
 
 ### Секционированные сущности
 
-Секционированные сущности поддерживаются уровнем Premium, но работают не так, как на уровнях обмена сообщениями через служебную шину уровня Standard и Basic. Обмен сообщениями уровня Premium не использует SQL как хранилище данных и не участвует в борьбе за ресурсы, которая может быть связана с общей платформой. В результате необходимость в секционировании отпадает. Кроме того, для обмена сообщениями на уровне Standard используется 16 разделов, а на уровне Premium — два. Два раздела обеспечивают высокую доступность и больше подходят для среды выполнения Premium. Дополнительную информацию см. в разделе [Разделение сущностей обмена сообщениями](https://msdn.microsoft.com/library/dn520246.aspx).
+Секционированные сущности поддерживаются уровнем Premium, но работают не так, как на уровнях обмена сообщениями через служебную шину уровня Standard и Basic. Обмен сообщениями уровня Premium не использует SQL как хранилище данных и не участвует в борьбе за ресурсы, которая может быть связана с общей платформой. В результате необходимость в секционировании отпадает. Кроме того, для обмена сообщениями на уровне Standard используется 16 разделов, а на уровне Premium — два. Два раздела обеспечивают высокую доступность и больше подходят для среды выполнения Premium. Дополнительную информацию см. в разделе [Секционированные сущности обмена сообщениями](service-bus-partitioning.md).
 
 ### Экспресс-сущности
 
@@ -54,7 +54,7 @@
 - [Общие сведения об обмене сообщениями через служебную шину Azure уровня Premium (запись в блоге)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Общие сведения об обмене сообщениями через служебную шину Azure уровня Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Основные сведения об обмене сообщениями через служебную шину](service-bus-messaging-overview.md)
-- [Обзор архитектуры служебной шины Azure](fundamentals-service-bus-hybrid-solutions.md)
+- [Обзор архитектуры служебной шины Azure](service-bus-fundamentals-hybrid-solutions.md)
 - [Как использовать очереди служебной шины](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -43,11 +43,7 @@
 - [Перезапуск виртуальной машины](#restart)
 - [Удаление виртуальной машины](#delete)
 
-Перед началом работы убедитесь, что среда Azure PowerShell готова к работе.
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
-
-
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Шаблоны диспетчера ресурсов Azure и группы ресурсов
 
@@ -380,4 +376,4 @@
 
 [Документация по виртуальным машинам](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

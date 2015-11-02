@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="10/20/2015" 
 	ms.author="arramac"/>
 
 # Сортировка данных DocumentDB с помощью Order By
@@ -125,7 +125,7 @@ DocumentDB поддерживает сортировку по одиночном
         });
 
 ## Примеры
-Обратите внимание на этот [проект образцов Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby), который показывает, как использовать Order By, включая создание политик индексации и разбиение по страницам с помощью Order By. Образцы содержат открытый исходный код, и мы рекомендуем вам отправлять запросы с материалами, которые могут принести пользу другим разработчикам DocumentDB. Инструкции о том, как принять участие, см. в разделе [Рекомендации по участию](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md).
+Обратите внимание на этот [проект образцов Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy), который показывает, как использовать Order By, включая создание политик индексации и разбиение по страницам с помощью Order By. Образцы содержат открытый исходный код, и мы рекомендуем вам отправлять запросы с материалами, которые могут принести пользу другим разработчикам DocumentDB. Инструкции о том, как принять участие, см. в разделе [Рекомендации по участию](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md).
 
 ## Что дальше?
 
@@ -152,7 +152,7 @@ DocumentDB поддерживает сортировку по одиночном
 
 **Как запросить существующие данные в DocumentDB с помощью Order By?**
 
-Эта возможность будет поддерживаться за счет доступности улучшения политик динамической индексации, упомянутого в разделе [Что дальше?](what's-coming-next). В настоящее время для этого необходимо экспортировать данные и повторно импортировать их в новую коллекцию DocumentDB, созданную с индексом Range/Order By. Средство импорта DocumentDB можно использовать для переноса данных между коллекциями.
+Для сортировки результатов запроса с помощью Order By необходимо изменить политику индексирования коллекции, чтобы использовать тип индекса диапазона для свойства, применяемого для сортировки. См. раздел [Изменение политики индексирования](documentdb-indexing-policies.md#modifying-the-indexing-policy-of-a-collection).
 
 **Каковы текущие ограничения Order By?**
 
@@ -168,13 +168,13 @@ DocumentDB поддерживает сортировку по одиночном
 
 ## Дальнейшие действия
 
-Скопируйте [проект образцов Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby) и запустите упорядочение данных!
+Скопируйте [проект образцов Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy) и запустите упорядочение данных!
 
 ## Ссылки
 * [Справочник по запросам DocumentDB](documentdb-sql-query.md)
 * [Справочник по политике индексации DocumentDB](documentdb-indexing-policies.md)
 * [Справочник по языку SQL DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-* [Образцы Order By в DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
+* [Образцы Order By в DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

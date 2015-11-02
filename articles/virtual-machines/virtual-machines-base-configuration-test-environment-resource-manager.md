@@ -14,11 +14,10 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/23/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # Создание тестовой среды с базовой конфигурацией с помощью Azure Resource Manager
-
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-base-configuration-test-environment.md).
 
@@ -57,62 +56,37 @@
 
 ## Этап 1. Создание виртуальной сети
 
-Сначала установите модуль Azure PowerShell на локальный компьютер (если он еще не установлен), следуя указаниям в статье [Установка и настройка Azure PowerShell](../install-configure-powershell.md). Откройте командную строку Azure PowerShell.
+> [AZURE.NOTE]Эта статья содержит команды для предварительной версии Azure PowerShell 1.0. Для выполнения этих команд в Azure PowerShell 0.9.8 или предыдущих версиях замените все случаи «-AzureRM» на «-Azure» и добавьте команду **Switch-AzureMode AzureResourceManager** до выполнения всех остальных команд. Дополнительные сведения см. в статье [Предварительная версия Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
-> [AZURE.NOTE]Эта статья содержит команды для Azure PowerShell версии вплоть до 1.0.0, *но не включая* саму версию 1.0 и более поздние версии. Используемую версию Azure PowerShell можно проверить с помощью команды **Get-Module azure | format-table version**. Приведенные в этой статье блоки команд Azure PowerShell проходят тестирование и обновление для обеспечения поддержки новых командлетов в Azure PowerShell 1.0.0 и более поздних версий. Благодарим вас за терпение.
-
-Затем выберите правильную подписку Azure, выполнив следующие команды: Замените все содержимое внутри кавычек, включая символы < and >, правильным именем.
-
-	$subscr="<Subscription name>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current
-
-Правильное имя подписки можно узнать в свойстве SubscriptionName в выходных данных команды **Get-AzureSubscription**.
-
-Перейдите в режим диспетчера ресурсов Azure PowerShell.
-
-	Switch-AzureMode AzureResourceManager 
+Для начала откройте командную строку Azure PowerShell.
 
 Создайте группу ресурсов для лаборатории тестирования с базовой конфигурацией. Чтобы вывести список существующих групп ресурсов и выбрать уникальное имя для новой группы, используйте эту команду.
 
-	Get-AzureResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
-
-Следующие команды помогут получить список расположений Azure, в которых можно создать виртуальные машины на основе диспетчера ресурсов.
-
-	$loc=Get-AzureLocation | where { $_.Name –eq "Microsoft.Compute/virtualMachines" }
-	$loc.Locations
+	Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
 
 Создайте группу ресурсов, выполнив следующие команды. Замените все содержимое внутри кавычек, включая символы < and >, на правильные имена.
 
 	$rgName="<resource group name>"
 	$locName="<location name, such as West US>"
-	New-AzureResourceGroup -Name $rgName -Location $locName
+	New-AzureRMResourceGroup -Name $rgName -Location $locName
 
 Для виртуальных машин на основе диспетчера ресурсов требуется учетная запись хранения на основе диспетчера ресурсов. Необходимо выбрать для нее глобально уникальное имя, содержащее только строчные буквы и цифры. Чтобы вывести список существующих учетных записей хранения, используйте эту команду.
 
-	Get-AzureStorageAccount | Sort Name | Select Name
-
-Чтобы убедиться, что выбранное имя учетной записи хранения глобально уникально, запустите команду **Test-AzureName** в режиме управления службами Azure PowerShell. Используйте следующие команды.
-
-	Switch-AzureMode AzureServiceManagement
-	Test-AzureName -Storage <Proposed storage account name>
-
-Если в результате выполнения команды Test-AzureName отображается значение **False**, предложенное имя является уникальным. После выбора уникального имени вернитесь в режим диспетчера ресурсов Azure PowerShell, используя эту команду.
-
-	Switch-AzureMode AzureResourceManager 
+	Get-AzureRMStorageAccount | Sort Name | Select Name
 
 Создайте для новой тестовой среды учетную запись хранения, выполнив следующие команды.
 
 	$rgName="<your new resource group name>"
 	$locName="<the location of your new resource group>"
 	$saName="<storage account name>"
-	New-AzureStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
+	New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
 
 Затем необходимо создать виртуальную сеть Azure TestLab, в которой будет размещена подсеть базовой конфигурации Corpnet.
 
 	$rgName="<name of your new resource group>"
 	$locName="<Azure location name, such as West US>"
-	$corpnetSubnet=New-AzureVirtualNetworkSubnetConfig -Name Corpnet -AddressPrefix 10.0.0.0/24
-	New-AzurevirtualNetwork -Name TestLab -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/8 -Subnet $corpnetSubnet –DNSServer 10.0.0.4
+	$corpnetSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name Corpnet -AddressPrefix 10.0.0.0/24
+	New-AzureRMVirtualNetwork -Name TestLab -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/8 -Subnet $corpnetSubnet –DNSServer 10.0.0.4
 
 Это текущая конфигурация.
 
@@ -127,20 +101,20 @@ DC1 — это контроллер домена для доменных слу�
 	$rgName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$saName="<storage account name>"
-	$vnet=Get-AzurevirtualNetwork -Name TestLab -ResourceGroupName $rgName
-	$pip = New-AzurePublicIpAddress -Name DC1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
-	$nic = New-AzureNetworkInterface -Name DC1-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -PrivateIpAddress 10.0.0.4
-	$vm=New-AzureVMConfig -VMName DC1 -VMSize Standard_A1
-	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vnet=Get-AzureRMVirtualNetwork -Name TestLab -ResourceGroupName $rgName
+	$pip = New-AzureRMPublicIpAddress -Name DC1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$nic = New-AzureRMNetworkInterface -Name DC1-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -PrivateIpAddress 10.0.0.4
+	$vm=New-AzureRMVMConfig -VMName DC1 -VMSize Standard_A1
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/DC1-TestLab-ADDSDisk.vhd"
-	Add-AzureVMDataDisk -VM $vm -Name ADDS-Data -DiskSizeInGB 20 -VhdUri $vhdURI  -CreateOption empty
+	Add-AzureRMVMDataDisk -VM $vm -Name ADDS-Data -DiskSizeInGB 20 -VhdUri $vhdURI  -CreateOption empty
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account for DC1." 
-	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName DC1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName DC1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
 	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/DC1-TestLab-OSDisk.vhd"
-	$vm=Set-AzureVMOSDisk -VM $vm -Name DC1-TestLab-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name DC1-TestLab-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
 Затем подключитесь к виртуальной машине DC1.
 
@@ -208,18 +182,18 @@ APP1 предоставляет веб-службы общего доступа 
 	$rgName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$saName="<storage account name>"
-	$vnet=Get-AzurevirtualNetwork -Name TestLab -ResourceGroupName $rgName
-	$pip = New-AzurePublicIpAddress -Name APP1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
-	$nic = New-AzureNetworkInterface -Name APP1-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-	$vm=New-AzureVMConfig -VMName APP1 -VMSize Standard_A1
-	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vnet=Get-AzureRMVirtualNetwork -Name TestLab -ResourceGroupName $rgName
+	$pip = New-AzureRMPublicIpAddress -Name APP1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$nic = New-AzureRMNetworkInterface -Name APP1-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+	$vm=New-AzureRMVMConfig -VMName APP1 -VMSize Standard_A1
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account for APP1." 
-	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName APP1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName APP1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
 	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/APP1-TestLab-OSDisk.vhd"
-	$vm=Set-AzureVMOSDisk -VM $vm -Name APP1-TestLab-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name APP1-TestLab-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
 Затем подключитесь к виртуальной машине APP1, используя имя пользователя и пароль учетной записи локального администратора APP1, после чего откройте командную строку Windows PowerShell с правами администратора.
 
@@ -257,18 +231,18 @@ CLIENT1 работает в интрасети Contoso как обычный н�
 	$rgName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$saName="<storage account name>"
-	$vnet=Get-AzurevirtualNetwork -Name TestLab -ResourceGroupName $rgName
-	$pip = New-AzurePublicIpAddress -Name CLIENT1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
-	$nic = New-AzureNetworkInterface -Name CLIENT1-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-	$vm=New-AzureVMConfig -VMName CLIENT1 -VMSize Standard_A1
-	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vnet=Get-AzureRMVirtualNetwork -Name TestLab -ResourceGroupName $rgName
+	$pip = New-AzureRMPublicIpAddress -Name CLIENT1-NIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$nic = New-AzureRMNetworkInterface -Name CLIENT1-NIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+	$vm=New-AzureRMVMConfig -VMName CLIENT1 -VMSize Standard_A1
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account for CLIENT1." 
-	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName CLIENT1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id	
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName CLIENT1 -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id	
 	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/CLIENT1-TestLab-OSDisk.vhd"
-	$vm=Set-AzureVMOSDisk -VM $vm -Name CLIENT1-TestLab-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name CLIENT1-TestLab-OSDisk -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
 Затем подключитесь к виртуальной машине CLIENT1, используя имя пользователя и пароль учетной записи локального администратора CLIENT1, после чего откройте командную строку Windows PowerShell с правами администратора.
 
@@ -319,9 +293,9 @@ CLIENT1 работает в интрасети Contoso как обычный н�
 Чтобы завершить работу виртуальных машин с помощью Azure PowerShell, введите имя группы ресурсов и выполните следующие команды.
 
 	$rgName="<your resource group name>"
-	Stop-AzureVM -ResourceGroupName $rgName -Name "CLIENT1"
-	Stop-AzureVM -ResourceGroupName $rgName -Name "APP1"
-	Stop-AzureVM -ResourceGroupName $rgName -Name "DC1" -Force -StayProvisioned
+	Stop-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
+	Stop-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
+	Stop-AzureRMVM -ResourceGroupName $rgName -Name "DC1" -Force -StayProvisioned
 
 Чтобы при запуске виртуальные машины, которые пребывают в состоянии «Остановлена» («Освобождена»), работали надлежащим образом, эти машины следует запустить в следующем порядке:
 
@@ -332,8 +306,8 @@ CLIENT1 работает в интрасети Contoso как обычный н�
 Чтобы запустить виртуальные машины с помощью Azure PowerShell, введите имя группы ресурсов и выполните следующие команды.
 
 	$rgName="<your resource group name>"
-	Start-AzureVM -ResourceGroupName $rgName -Name "DC1"
-	Start-AzureVM -ResourceGroupName $rgName -Name "APP1"
-	Start-AzureVM -ResourceGroupName $rgName -Name "CLIENT1"
+	Start-AzureRMVM -ResourceGroupName $rgName -Name "DC1"
+	Start-AzureRMVM -ResourceGroupName $rgName -Name "APP1"
+	Start-AzureRMVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

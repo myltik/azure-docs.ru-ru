@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Анализ использования для веб-приложений с помощью Application Insights" 
-	description="Общие сведения об аналитике использования с помощью Application Insights" 
+	description="Общие сведения об аналитике использования для веб-приложений с помощью Application Insights" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -391,4 +391,4 @@ Application Insights старается автоматически опреде�
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

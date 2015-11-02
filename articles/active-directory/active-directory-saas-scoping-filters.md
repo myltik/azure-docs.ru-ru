@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Подготовка приложений на основе атрибутов с использованием фильтров области"
+	pageTitle="Подготовка приложений на основе атрибутов с использованием фильтров области | Microsoft Azure"
 	description="Узнайте, как использовать фильтры области, чтобы предотвратить подготовку объектов, которые поддерживают автоматическую подготовку пользователей, но не отвечают требованиям компании."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -77,4 +77,4 @@
 [2]: ./media/active-directory-saas-scoping-filters/ic782812.png
 [3]: ./active-directory-saas-scoping-filters/ic782813.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

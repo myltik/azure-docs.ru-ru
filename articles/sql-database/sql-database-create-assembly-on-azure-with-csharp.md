@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="10/19/2015" 
 	ms.author="genemi"/>
 
 
@@ -328,4 +328,4 @@ Converting plain text "CREATE ASSEMBLY" into a link to the MSDN topic, ms189524.
 
 <!-- EndOfFile -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

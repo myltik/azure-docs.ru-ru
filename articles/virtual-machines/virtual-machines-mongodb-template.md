@@ -36,7 +36,7 @@ MongoDB — это база данных документов с открыты
 
 Прежде чем углубляться в дополнительную информацию, связанную с диспетчером ресурсов Azure и шаблоном, который мы использовали для этого развертывания, проверьте правильность настроек Azure PowerShell или интерфейса командной строки Azure.
 
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/powershell-preview-inline-include.md)]
 
 [AZURE.INCLUDE [xplat-getting-set-up-arm](../../includes/xplat-getting-set-up-arm.md)]
 
@@ -694,4 +694,4 @@ MongoDB — это база данных документов с открыты
 
 Дополнительную информацию см. в разделе [Язык шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

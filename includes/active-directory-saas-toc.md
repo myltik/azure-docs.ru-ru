@@ -15,10 +15,10 @@
 - [Список учебников по интеграции приложений SaaS](active-directory-saas-tutorial-list.md)
 	- [Как интегрировать Salesforce](active-directory-saas-salesforce-tutorial.md)
 	- [Как интегрировать Google Apps](active-directory-saas-google-apps-tutorial.md)
-	- [Как интегрировать Box](https://msdn.microsoft.com/library/azure/dn308589.aspx)
-	- [Как интегрировать ServiceNow](https://msdn.microsoft.com/library/azure/dn510971.aspx)
-	- [Как интегрировать Dropbox для бизнеса](https://msdn.microsoft.com/library/azure/dn510978.aspx)
-	- [Как интегрировать Workday](http://go.microsoft.com/fwlink/?LinkId=690250) 
+	- [Как интегрировать Box](active-directory-saas-box-tutorial.md)
+	- [Как интегрировать ServiceNow](active-directory-saas-servicenow-tutorial.md)
+	- [Как интегрировать Dropbox для бизнеса](active-directory-saas-dropboxforbusiness-tutorial.md)
+	- [Как интегрировать Workday](active-directory-saas-workday-tutorial.md) 
 	- [Дополнительные учебники по приложениям SaaS...](active-directory-saas-tutorial-list.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

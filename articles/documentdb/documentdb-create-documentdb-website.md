@@ -2,7 +2,7 @@
 	pageTitle="Развертывание DocumentDB и веб-приложений службы приложений Azure с помощью шаблона диспетчера ресурсов Azure | Microsoft Azure" 
 	description="В этом учебном курсе показано, как выполнять развертывание учетной записи DocumentDB, веб-приложений службы приложений Azure и примера веб-приложения с использованием шаблона диспетчера ресурсов Azure." 
 	services="documentdb, app-service\web" 
-	authors="stephbaron" 
+	authors="ryancrawcour" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
-	ms.author="stbaro"/>
+	ms.date="10/16/2015" 
+	ms.author="ryancraw"/>
 
 # Развертывание DocumentDB и веб-приложений службы приложений Azure с помощью шаблона диспетчера ресурсов Azure #
 
@@ -33,7 +33,7 @@
 
 - Подписка Azure. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения](http://azure.microsoft.com/pricing/purchase-options/), [Предложения для участников](http://azure.microsoft.com/pricing/member-offers/) или [Бесплатное пробное использование](http://azure.microsoft.com/pricing/free-trial/).
 - Учетная запись хранения Azure Инструкции см. в разделе [Сведения об учетных записях хранения Azure](../storage-whatis-account.md).
-- Рабочая станция с Azure PowerShell. Инструкции см. в разделе [Установка и настройка Azure PowerShell](../install-configure-powershell.md).
+- Рабочая станция с Azure PowerShell 0.9.8. Инструкции см. в разделе [Установка и настройка Azure PowerShell](../install-configure-powershell.md). В это руководство еще не были внесены данные о предварительной версии Azure PowerShell 1.0. 
 
 ##<a id="CreateDB"></a>Шаг 1: Загрузка и распаковка файлов примера ##
 Давайте начнем с загрузки файлов примеров, которые будем использовать в этом уроке.
@@ -210,4 +210,4 @@
 >[AZURE.NOTE]Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

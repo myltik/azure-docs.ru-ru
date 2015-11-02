@@ -34,6 +34,8 @@
 
 Подробный обзор горизонтального масштабирования с помощью нескольких сред службы приложений см. в статье о настройке [географически распределенного приложения][GeodistributedAppFootprint].
 
+Чтобы ознакомиться с настройкой архитектуры в подробном обзоре AzureCon, обратитесь к статье о реализации [многоуровневой архитектуры безопасности](app-service-app-service-environment-layered-security.md) со средами службы приложений.
+
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Выделенные вычислительные ресурсы ##
@@ -101,4 +103,4 @@
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

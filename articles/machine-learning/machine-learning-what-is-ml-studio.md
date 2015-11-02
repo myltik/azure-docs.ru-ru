@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Что такое Студия машинного обучения Azure | Microsoft Azure"
 	description="Обзор Студии машинного обучения Azure, инструмента с поддержкой функции перетаскивания объектов, предназначенного для быстрого создания моделей на основе библиотеки готовых алгоритмов и модулей."
-	keywords="azure machine learning,azure ml, ml studio"
+	keywords="машинное обучение azure, azure mlazure ml, студия машинного обучения"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -115,4 +115,4 @@
 [linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

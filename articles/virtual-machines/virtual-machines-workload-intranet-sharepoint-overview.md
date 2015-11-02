@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # Развертывание среды SharePoint с группами доступности AlwaysOn для SQL Server на платформе Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
-
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Модель развертывания диспетчера ресурсов.
 
 В этом разделе приведены пошаговые инструкции по развертыванию фермы SharePoint 2013 для интрасети с группами доступности AlwaysOn для SQL Server с помощью классической модели развертывания. В состав фермы входят перечисленные ниже компьютеры.
 
@@ -77,4 +76,4 @@
 
 [Службы инфраструктуры Azure: высокодоступное бизнес-приложение](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

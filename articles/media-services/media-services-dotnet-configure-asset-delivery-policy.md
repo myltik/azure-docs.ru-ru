@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Настройка политик доставки ресурсов с помощью .NET" 
-	description="В этом разделе показано, как настроить различные политики доставки ресурсов." 
+	pageTitle="Настройка политик доставки ресурсов-контейнеров с помощью пакета SDK для .NET" 
+	description="В этом разделе демонстрируется настройка различных политик доставки ресурсов-контейнеров с помощью пакета SDK для .NET служб мультимедиа." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,Mingfeiy" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/20/2015"  
+	ms.date="10/18/2015"  
 	ms.author="juliako"/>
 
-#Практическое руководство: настройка политик доставки ресурсов
+#Настройка политик доставки ресурсов-контейнеров с помощью пакета SDK для .NET
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
 Если вы планируете доставлять зашифрованные ресурсы-контейнеры, вам следует настроить политику доставки таких ресурсов (один из этапов рабочего процесса доставки содержимого в службах мультимедиа). Политика доставки ресурсов сообщает службам мультимедиа способ доставки ресурса: какие протоколы передачи следует использовать для динамической упаковки ресурса (например, MPEG DASH, HLS, Smooth Streaming или все), следует ли использовать динамическое шифрование и как (конвертное или общее шифрование).
@@ -328,4 +328,4 @@ HDS
 - [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

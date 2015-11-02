@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Основные сведения о мониторинге заданий в Stream Analytics | Microsoft Azure" 
 	description="Основные сведения о мониторинге заданий в Stream Analytics" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="аналитика больших данных, облачная служба, интернет вещей, управляемые службы, потоковая обработка, аналитика потока, потоковая передача данных"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -31,7 +31,7 @@
 
   ![Панель мониторинга на портале предварительной версии Azure](./media/stream-analytics-monitoring/06-stream-analytics-monitoring.png)
 
-Когда в регионе создается первое задание Stream Analytics, необходимо настроить диагностику для этого региона. Для этого щелкните в любом месте разделе **Мониторинг**, после чего появится колонка **Диагностика**. В ней можно включить диагностику и указать учетную запись хранения для мониторинга данных.
+Когда в регионе создается первое задание Stream Analytics, необходимо настроить диагностику для этого региона. Для этого щелкните в любом месте раздела **Мониторинг**, после чего появится колонка **Диагностика**. В ней можно включить диагностику и указать учетную запись хранения для мониторинга данных.
 
   ![Настройка диагностики на портале предварительной версии Azure](./media/stream-analytics-monitoring/07-stream-analytics-monitoring.png)
 
@@ -104,4 +104,4 @@
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

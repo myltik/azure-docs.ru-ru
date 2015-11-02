@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/15/2015" 
 	ms.author="mandia"/>
 
 # Соединители «бизнес — бизнес» и приложения API в службе приложений Microsoft Azure
@@ -206,4 +206,4 @@ BizTalk X12 | Приложение API, которое получает и от�
 
 [Список соединителей и приложений API в приложениях логики](app-service-logic-connectors-list.md)<br/><br/> [Что такое соединители и приложения API BizTalk](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Задания по масштабированию в Azure Stream Analytics для увеличения пропускной способности | Microsoft Azure"
 	description="Узнайте, как масштабировать задания Stream Analytics с помощью настройки входных разделов, настройки определения запроса и определения единиц потоковой передачи."
-	keywords="analytics jobs,data stream,data streaming"
+	keywords="задания аналитики, поток данных, потоковая передача данных"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -265,4 +265,4 @@
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

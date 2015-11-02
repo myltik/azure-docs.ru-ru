@@ -3,7 +3,7 @@
 	description="В этом разделе показано, как настроить кодировщик Elemental Live для отправки односкоростного потока в каналы AMS, которые выполняют кодирование в реальном времени." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako,cenkdin,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,9 +11,9 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/29/2015"    
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #Использование кодировщика Elemental Live для отправки односкоростного обновляющегося потока 
@@ -171,4 +171,4 @@
 - [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

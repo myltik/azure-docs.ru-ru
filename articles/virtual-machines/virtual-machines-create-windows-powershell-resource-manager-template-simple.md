@@ -26,9 +26,7 @@
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template-simple/windowsvm.png)
 
-Перед началом работы убедитесь, что среда Azure PowerShell настроена и готова к работе.
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 ## Создание виртуальной машины Windows
 
@@ -106,4 +104,4 @@
 
 [Установка и настройка Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

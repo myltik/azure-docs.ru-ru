@@ -28,9 +28,9 @@
 
 Многие решения IoT позволяют пользователям просматривать и анализировать данные, собранные с их устройств. Эти представления могут быть выполнены в форме панелей мониторинга или отчетов бизнес-аналитики.
 
-[img-solution-architecture]: media/iot-azure-and-iot/iot-reference-architecture.png
+[img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 
 [lnk-machinelearning]: http://azure.microsoft.com/services/machine-learning/
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

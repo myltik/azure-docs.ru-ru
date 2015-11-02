@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/15/2015" 
 	ms.author="spelluru"/>
 
 # Перемещение данных в хранилище данных DocumentDB и из него с помощью фабрики данных Azure
@@ -416,4 +416,4 @@ DocumentDB — это хранилище NoSQL для JSON-документов
 	**Ответ.** Нет. Сейчас можно указать только одну коллекцию.
      
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

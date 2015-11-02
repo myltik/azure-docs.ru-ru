@@ -21,6 +21,8 @@
 
 #Руководство пользователя агента Linux для Azure
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ##Введение
 
 Агент Linux для Azure (/usr/sbin/waagent) управляет взаимодействием виртуальной машины с контроллером структуры Azure. Он выполняет следующие действия:
@@ -318,4 +320,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
