@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="10/12/2015"
+  ms.date="10/20/2015"
   ms.author="andrl"/>
 
 # Портал сообщества
@@ -126,7 +126,8 @@
 | ------------------------------------------- | ------------------ | ------- |
 | Integration User Group | 5 октября 2015 г. | [Использование Azure DocumentDB для интеграции в здравоохранении](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
 | Италия DX — #TecHeroes | 2 октября 2015 г. | [#TecHeroes — DocumentDB](https://channel9.msdn.com/Shows/TecHeroes/TecHeroes-DocumentDB) |
-| .NET рулит! Подкаст | 29 сентября 2015 г. | [Данные в DocumentDB с Райаном Кроукуром (Ryan CrawCour)](https://www.dotnetrocks.com/?show=1197) |
+| Microsoft Cloud Show— подкаст | 30 сентября 2015 г. | [Эпизод 099 — Azure DocumentDB с Эндрю Лю (Andrew Liu)](http://www.microsoftcloudshow.com/podcast/Episodes/099-azure-documentdb-with-andrew-liu) |
+| .NET Rocks! — подкаст | 29 сентября 2015 г. | [Данные в DocumentDB с Райаном Кроукуром (Ryan CrawCour)](https://www.dotnetrocks.com/?show=1197) |
 | Данные представлены | 28 сентября 2015 г. | [Новые возможности в Azure DocumentDB начиная с общедоступной версии](https://channel9.msdn.com/Shows/Data-Exposed/Whats-New-with-Azure-DocumentDB-Since-GA) |
 | Подкаст Azure | 17 сентября 2015 г. | [Эпизод 94: повторное проектирование архитектуры azpodcast.com](http://azpodcast.azurewebsites.net/post/Episode-94-azpodcastcom-re-architecture) |
 | Облачное покрытие | 4 сентября 2015 г. | [Эпизод 185: Обновления DocumentDB с Райаном Кроукуром (Ryan CrawCour)](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-185-DocDB-Updates-with-Ryan-CrawCour) |
@@ -142,9 +143,9 @@
 
 | Партнер по обучению | Описание |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Виртуальная академия Майкрософт**](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554)<br/><br/>Виртуальная академия Майкрософт предоставляет возможность обучения у специалистов, которые участвуют в создании Azure DocumentDB. |
-| [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction)<br/><br/>Pluralsight — основной партнер компании Майкрософт по обучению Azure. Если вы являетесь подписчиком MSDN, воспользуйтесь своими преимуществами для доступа к курсу обучения Microsoft Azure. |
-| [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)<br/><br/>OpsGility предоставляет глубокое техническое обучение Microsoft Azure. Пройдите обучение под руководством инструктора на месте или с квалифицированными преподавателями удаленно. |
+| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Академия Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554)<br/><br/>Академия Microsoft Virtual Academy предоставляет возможность обучения у специалистов, которые участвуют в создании Azure DocumentDB. |
+| [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction)<br/><br/>Pluralsight — основной партнер корпорации Майкрософт по обучению Azure. Если вы являетесь подписчиком MSDN, воспользуйтесь своими преимуществами для доступа к курсу обучения Microsoft Azure. |
+| [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)<br/><br/>OpsGility предоставляет углубленное техническое обучение по Microsoft Azure. Пройдите обучение под руководством инструктора на месте или с квалифицированными преподавателями удаленно. |
 
 <br/><br/>
 
@@ -172,7 +173,7 @@
 
 ### Internet Relay Chat + рабочие часы
 
-Вы можете общаться с нами в реальном времени на сайте `chat.freenode.net` (канал `#documentdb`), используя [клиент IRC](http://www.irchelp.org/) или подключаясь через веб-интерфейс с помощью [Freenode WebChat](http://webchat.freenode.net/?channels=documentdb).
+Вы можете общаться с нами в реальном времени на сайте `chat.freenode.net` (канал `#documentdb`), используя [клиент IRC](http://www.irchelp.org/) или подключаясь через веб-интерфейс с помощью Freenode [WebChat](http://webchat.freenode.net/?channels=documentdb).
 
 Наши офисные часы в IRC: пятница с 11:00 до 24:00 по тихоокеанскому времени.
 
@@ -184,7 +185,7 @@
 
 | | |
 | -------------------------------------------------------- | --- |
-|![Группа](./media/documentdb-community/documentdb-team.png) | Требуется техническая помощь? Есть вопросы? Сомневаетесь, подходит ли вам NoSQL?<br/><br/>Вы можете [запланировать беседу один на один непосредственно с командой разработчиков DocumentDB](http://www.askdocdb.com/).<br/><br/>Также можете отправить нам [электронное письмо](mailto:askdocdb@microsoft.com) или твит [@DocumentDB](https://twitter.com/DocumentDB). |
+|![Группа](./media/documentdb-community/documentdb-team.png) | Требуется техническая помощь? Есть вопросы? Сомневаетесь, подходит ли вам NoSQL?<br/><br/>Вы можете [запланировать беседу один на один непосредственно с представителем команды разработчиков DocumentDB](http://www.askdocdb.com/).<br/><br/>Также вы можете отправить нам [электронное письмо](mailto:askdocdb@microsoft.com) или твит по адресу [@DocumentDB](https://twitter.com/DocumentDB). |
 
 
 <br/><br/>
@@ -213,4 +214,4 @@
 | Соединитель Hadoop | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | Инструмент переноса данных | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Центр загрузки Майкрософт](http://www.microsoft.com/ru-RU/download/details.aspx?id=46436) |
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

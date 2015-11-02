@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Взаимодействие с ресурсами DocumentDB с поддержкой REST | Microsoft Azure" 
 	description="Изучите HTTP-команды в этом учебнике по веб-службам с поддержкой REST. Сведения о выполнении взаимодействий с ресурсами Microsoft Azure DocumentDB с поддержкой REST с использованием глаголов HTTP."
-	keywords="http methods, restful services tutorial, restful web services tutorial, http verbs, documentdb, azure, Microsoft azure"
+	keywords="методы HTTP, руководство по службам restful, руководство по веб-службам restful, HTTP-команды, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="h0n" 
 	manager="jhubbard" 
@@ -205,4 +205,4 @@ DocumentDB предлагает модель логической адресац
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

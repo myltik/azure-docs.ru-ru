@@ -19,6 +19,7 @@
 
 # Балансировка нагрузки для служб инфраструктуры Azure#
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 В службах инфраструктуры Azure доступны два уровня балансировки нагрузки.
 
@@ -84,4 +85,4 @@ Azure также может распределять нагрузку внутр
 
 <!-- LINKS -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

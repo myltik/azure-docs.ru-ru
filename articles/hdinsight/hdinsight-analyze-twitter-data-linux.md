@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Анализ данных Twitter с помощью Hadoop в HDInsight | Microsoft Azure"
-	description="Узнайте, как использовать Hive для анализа данных Twitter с помощью Hadoop в HDInsight, чтобы определить частоту употребления конкретного слова."
+	pageTitle="Анализ данных Twitter с помощью Apache Hive в HDInsight | Microsoft Azure"
+	description="Узнайте, как использовать Python для хранения твитов, содержащих определенные ключевые слова, а затем воспользоваться Hive и Hadoop в HDInsight для преобразования необработанных данных Twitter в поддерживающую поиск таблицу Hive."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/19/2015"
 	ms.author="larryfr"/>
 
 # Анализ данных Twitter с помощью Hive в HDInsight
@@ -319,4 +319,4 @@ Twitter позволяет получать [данные для каждого 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

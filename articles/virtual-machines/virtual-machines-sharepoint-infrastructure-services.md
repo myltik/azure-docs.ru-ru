@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="09/08/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # Фермы SharePoint, размещенные в службах инфраструктуры Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
+[AZURE.INCLUDE [learn-about-deployment-models-both-include](../../includes/learn-about-deployment-models-both-include.md)]
 
 Настройте свою первую или очередную ферму SharePoint для разработки и тестирования или производства в службах инфраструктуры Microsoft Azure, где можно воспользоваться преимуществами простоты настройки и возможностью быстро развернуть ферму, чтобы использовать новую емкость или оптимизировать основные функции.
 
@@ -28,19 +27,25 @@
 
 ## Простая ферма SharePoint для разработки и тестирования
 
-Для виртуальных машин, созданных с помощью классической модели развертывания, используйте функцию [фермы серверов SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) портала предварительной версии Azure, чтобы создать базовую ферму разработки и тестирования для веб-сайта SharePoint с доступом из Интернета.
+Для работы с виртуальными машинами, созданными с помощью модели развертывания диспетчера ресурсов, можно использовать элемент [Ферма SharePoint 2013 non-HA](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) в Azure Marketplace на портале предварительной версии Azure. Он создает простую ферму для разработки и тестирования для веб-сайта SharePoint с выходом в Интернет.
+
+Также можно использовать шаблон диспетчера ресурсов Azure. См. статью [Развертывание трехсерверной фермы SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
 
 Автоматически созданная среда состоит из трех серверов для контроллера домена, сервера SQL Server и сервера SharePoint в облачной виртуальной сети Azure.
 
-Чтобы создать подобную конфигурацию с помощью модели развертывания для диспетчера ресурсов, используйте шаблон. См. раздел [Развертывание трехсерверной фермы SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
+Чтобы создать подобную конфигурацию на основе классической модели развертывания, используйте элемент [Ферма серверов SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) в Azure Marketplace на портале предварительной версии Azure.
+
 
 ## Высокодоступная ферма SharePoint для разработки и тестирования
 
-Для классических виртуальных машин используйте функцию [фермы серверов SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) портала предварительной версии Azure, чтобы создать высокодоступную ферму SharePoint для разработки и тестирования для веб-сайта SharePoint с доступом из Интернета.
+Для работы с виртуальными машинами, созданными с помощью модели развертывания диспетчера ресурсов, можно использовать элемент [Ферма SharePoint 2013 HA](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) в Azure Marketplace на портале предварительной версии Azure. Он создает высокодоступную ферму для веб-сайта SharePoint с выходом в Интернет.
+
+Также можно использовать шаблон диспетчера ресурсов Azure. См. статью [Развертывание девятисерверной фермы SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
 
 Автоматически созданная среда состоит из девяти серверов в облачной виртуальной сети Azure: два для контроллеров домена, три для кластера SQL Server, два сервера SharePoint уровня приложений и два сервера SharePoint уровня Интернета.
 
-Чтобы создать подобную конфигурацию с помощью виртуальных машин диспетчера ресурсов, используйте шаблон. См. раздел [Развертывание девятисерверной фермы SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
+Чтобы создать подобную конфигурацию на основе классической модели развертывания, используйте элемент [Ферма серверов SharePoint](virtual-machines-sharepoint-farm-azure-preview.md) в Azure Marketplace на портале предварительной версии Azure.
+
 
 ## Гибридная облачная ферма для разработки и тестирования
 
@@ -56,16 +61,14 @@
 
 ## Дополнительные ресурсы
 
-Дополнительную информацию о SharePoint в Azure см. в следующих ресурсах:
+[Архитектуры Microsoft Azure для SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-- [Архитектуры Microsoft Azure для SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
+[Веб-сайты в Microsoft Azure с использованием SharePoint Server 2013](https://technet.microsoft.com/library/dn635307.aspx)
 
-- [Веб-сайты в Microsoft Azure с использованием SharePoint Server 2013](https://technet.microsoft.com/library/dn635307.aspx)
+[Аварийное восстановление SharePoint Server 2013 в Microsoft Azure](https://technet.microsoft.com/library/dn635313.aspx)
 
-- [Аварийное восстановление SharePoint Server 2013 в Microsoft Azure](https://technet.microsoft.com/library/dn635313.aspx)
+[Использование службы Microsoft Azure Active Directory для проверки подлинности в SharePoint 2013](https://technet.microsoft.com/library/dn635311.aspx)
 
-- [Использование службы Microsoft Azure Active Directory для проверки подлинности в SharePoint 2013](https://technet.microsoft.com/library/dn635311.aspx)
+[Развертывание службы синхронизации каталогов Office 365 (DirSync) в Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-- [Развертывание службы синхронизации каталогов Office 365 (DirSync) в Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

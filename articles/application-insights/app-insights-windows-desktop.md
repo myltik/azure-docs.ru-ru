@@ -62,11 +62,11 @@
 
     * Если установлен только основной пакет API Microsoft.ApplicationInsights, ключ необходимо задать в коде, например в main(): 
 
-     `TelemetryConfiguration.Active.InstrumentationKey = "`*ваш ключ*`";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "`*ваш ключ*`";`
 
     * Если установлен один из других пакетов, ключ можно задать в коде или в файле ApplicationInsights.config:
  
-     `<InstrumentationKey>`*ваш ключ*`</InstrumentationKey>`
+    `<InstrumentationKey>`*ваш ключ*`</InstrumentationKey>`
 
 
 
@@ -299,4 +299,4 @@ namespace ConsoleApplication1
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

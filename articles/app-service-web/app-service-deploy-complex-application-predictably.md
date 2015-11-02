@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="10/16/2015"
 	ms.author="cephalin"/>
 
 
@@ -288,7 +288,7 @@
 
 ## Дальнейшие действия ##
 
-Узнайте о [способах быстрой и непрерывной публикации приложения, состоящего из микрослужб](app-service-agile-software-development.md).
+Узнайте о том, как [применять быстрые методологии и непрерывно и удобно публиковать приложения, состоящие из микрослужб,](app-service-agile-software-development.md) и легко применять удобные технологии развертывания, такие как [развертывание в режиме фокус-тестирования](app-service-web-test-in-production-controlled-test-flight.md).
 
 <a name="resources"></a>
 ## Дополнительные ресурсы ##
@@ -305,4 +305,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

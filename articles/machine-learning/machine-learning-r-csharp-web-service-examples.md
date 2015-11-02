@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Примеры веб-служб машинного обучения на языке R | Microsoft Azure" 
 	description="Здесь вы найдете полезный набор примеров веб-служб, созданных с помощью кода R и системы машинного обучения и опубликованных в Azure Marketplace." 
-	keywords="csharp,r code,web services examples"
+	keywords="csharp, код r, примеры веб-служб"
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="jaymathe" 
@@ -74,4 +74,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

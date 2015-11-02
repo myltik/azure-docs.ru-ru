@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Устранение неполадок Application Insights в устройствах Windows" 
-	description="Руководство по устранению неполадок, а также вопросы и ответы." 
+	pageTitle="Устранение неполадок Application Insights на устройствах Windows" 
+	description="Руководство по устранению неполадок и вопросы и ответы по использованию Application Insights на устройствах Windows." 
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
@@ -120,4 +120,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

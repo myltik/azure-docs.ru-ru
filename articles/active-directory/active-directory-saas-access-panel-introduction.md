@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Общие сведения о панели доступа"
+	pageTitle="Общие сведения о панели доступа | Microsoft Azure"
 	description="Сведения об использовании различных видов панели доступа (веб-браузер, приложение Android, приложения iPhone и iPad) для доступа к приложениям SaaS, назначенных вам."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -181,4 +181,4 @@ My Apps для iOS поддерживается на всех устройств
 [3]: ./media/active-directory-saas-access-panel-introduction/ic767168.png
 [4]: ./media/active-directory-saas-access-panel-introduction/ic767169.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

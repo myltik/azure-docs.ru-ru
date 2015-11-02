@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Службы веб-API Service Fabric с саморазмещением OWIN | Microsoft Azure"
-   description="Эта статья о Service Fabric содержит сведения о том, как реализовать взаимодействие служб с использованием веб-API ASP.NET с саморазмещением OWIN в надежных службах."
+   pageTitle="Взаимодействие со службами через веб-API ASP.NET | Microsoft Azure"
+   description="Пошаговые инструкции по реализации взаимодействия со службами с помощью веб-API ASP.NET и саморазмещения OWIN в API Reliable Services."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -614,4 +614,4 @@ New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -Servi
 
 [Отладка приложения Service Fabric в Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

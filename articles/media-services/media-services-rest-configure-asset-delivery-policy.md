@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Настройка политик доставки ресурсов с помощью REST" 
-	description="В этом разделе показано, как настроить различные политики доставки ресурсов." 
+	pageTitle="Настройка политик доставки ресурсов-контейнеров с помощью API REST служб мультимедиа" 
+	description="В этом разделе демонстрируется настройка различных политик доставки ресурсов-контейнров с помощью API REST служб мультимедиа." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 #Практическое руководство: настройка политик доставки ресурсов
@@ -436,4 +436,4 @@ HDS
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

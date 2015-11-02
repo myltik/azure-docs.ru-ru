@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Перемещение ресурсов веб-приложений в другую группу ресурсов."
 	description="Описываются сценарии, в которых вы можете перемещать веб-приложения и службы приложений из одной группы ресурсов в другую."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="ZainRizvi"
 	manager="wpickett"
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -26,4 +26,4 @@
 	* Примечание. В этом сценарии конечная группа ресурсов не может содержать никаких ресурсов Microsoft.Web.
 * Перемещение отдельных веб-приложений в другую группу ресурсов с сохранением их размещения в текущем плане службы приложений (план службы приложений остается в старой группе ресурсов).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

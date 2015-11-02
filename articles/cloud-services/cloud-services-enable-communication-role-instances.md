@@ -1,6 +1,6 @@
 <properties 
-pageTitle="Включение обмена данными между экземплярами роли в облачных службах | Microsoft Azure" 
-description="" 
+pageTitle="Обмен данными между ролями в облачных службах | Microsoft Azure" 
+description="Для экземпляров ролей в облачных службах могут быть определены конечные точки (http, https, tcp, udp), взаимодействующие с внешней средой или с другими экземплярами ролей." 
 services="cloud-services" 
 documentationCenter="" 
 authors="Thraka" 
@@ -359,4 +359,4 @@ namespace WorkerRole1
 ## Дальнейшие действия
 Дополнительная информация о [модели](cloud-services-model-and-package.md) облачной службы
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

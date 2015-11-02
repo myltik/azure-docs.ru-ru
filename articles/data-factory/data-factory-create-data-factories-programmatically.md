@@ -378,11 +378,8 @@
 18. Убедитесь, что выходной файл создан в папке **apifactoryoutput** в контейнере **adftutorial**.
 
 
-## См. также
 
-Статья | Описание
------- | ---------------
-[Справочник разработчика фабрики данных Azure][developer-reference] | Справочник разработчика содержит подробные справочные материалы о библиотеке классов .NET, командлетах, скриптах JSON, функциях, и т. д. 
+> [AZURE.NOTE]Приведенный выше образец кода запускает диалоговое окно для ввода учетных данных Azure. Если требуется выполнить вход программным образом без применения диалогового окна, см. раздел [Проверка подлинности субъекта-службы в диспетчере ресурсов Azure](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell).
 
 
 [data-factory-introduction]: data-factory-introduction.md
@@ -395,4 +392,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

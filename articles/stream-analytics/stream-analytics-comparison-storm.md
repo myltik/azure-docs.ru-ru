@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Сравнение Apache Storm и Azure Stream Analytics | Microsoft Azure"
 	description="Информация об использовании Stream Analytics для анализа тональности данных Twitter в режиме реального времени. Пошаговое руководство с шагами от создания событий до отображения данных на динамической панели мониторинга."
-	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
+	keywords="анализ тональности в Twitter в режиме реального времени, аналитика социальных сетей, средства аналитики социальных сетей"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -590,4 +590,4 @@
     </tbody>
 </table>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

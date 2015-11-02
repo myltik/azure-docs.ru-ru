@@ -1,6 +1,6 @@
 <properties
-   	pageTitle="Создание кластеров Hadoop, HBase и Storm на платформе Linux в HDInsight с помощью cURL и API REST Azure | Microsoft Azure"
-   	description="Узнайте, как создавать кластеры Hadoop, HBase и Storm на платформе Linux в HDInsight с помощью cURL и API REST Azure."
+   	pageTitle="Создание кластеров Hadoop, HBase и Storm на платформе Linux в HDInsight с помощью cURL и REST API Azure | Microsoft Azure"
+   	description="Узнайте, как создать кластеры HDInsight под управлением Linux с помощью cURL, шаблонов диспетчера ресурсов Azure и Azure REST API. Вы можете указать тип кластера (Hadoop, HBase или Storm) либо использовать сценарии для установки настраиваемых компонентов."
    	services="hdinsight"
    	documentationCenter=""
    	authors="Blackmist"
@@ -351,4 +351,4 @@ API REST Azure позволяет управлять службами, разм�
 * [Использование компонентов Python в Storm в HDInsight](hdinsight-storm-develop-python.md)
 * [Развертывание и мониторинг топологий с помощью Storm в HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="10/20/2015"
    ms.author="andkjell"/>
 
 # Предотвращение случайного удаления
@@ -39,13 +39,13 @@
 
 Если удаление необходимо, сделайте следующее.
 
-1. Чтобы временно отключить эту защиту и выполнить операции удаления, запустите следующий командлет PowerShell: `Disable-ADSyncExportDeletionThreshold`
+1. Чтобы временно отключить эту защиту и выполнить операции удаления, запустите следующий командлет PowerShell: `Disable-ADSyncExportDeletionThreshold`. В ответ на запрос учетных данных укажите имя учетной записи и пароль глобального администратора Azure AD. ![Учетные данные](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
 2. С выбранным соединителем Azure Active Directory укажите действие **Запустить** и затем выберите **Экспорт**.
-3. Чтобы повторно включить защиту, выполните командлет PowerShell: `Enable-ADSyncExportDeletionThreshold`
+3. Чтобы повторно включить защиту, запустите командлет PowerShell: `Enable-ADSyncExportDeletionThreshold`.
 
 ## Дальнейшие действия
-Узнайте больше о настройке [служб синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md).
+Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

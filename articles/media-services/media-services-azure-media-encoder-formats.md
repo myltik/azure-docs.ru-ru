@@ -3,7 +3,7 @@
 	description="В этом разделе приведен обзор кодеков и форматов кодировщика служб мультимедиа Azure." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/05/2015" 
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 #Форматы и кодеки кодировщика служб мультимедиа Azure
@@ -142,4 +142,4 @@ MP4 (MP4)|H.264 (профили High, Main и Baselin)|AAC-LC, HE-AAC v1, HE-AAC
 - [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

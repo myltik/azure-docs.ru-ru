@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Выполнение сценариев машинного обучения Python | Microsoft Azure" 
 	description="Описываются принципы проектирования, лежащие в основе поддержки сценариев Python в Машинном обучении Azure, а также основные сценарии использования, возможности и ограничения." 
-	keywords="python machine learning,pandas,python pandas,python scripts, execute python scripts"
+	keywords="машинное обучение Python, pandas, python pandas, сценарии python, выполнение сценариев python"
 	services="machine-learning"
 	documentationCenter="" 
 	authors="bradsev" 
@@ -167,11 +167,11 @@
 
 ## Дальнейшие действия
 
-Дополнительную информацию можно найти в [Центре разработчика Python](/develop/python/).
+Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
 
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [инструменты Python для Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

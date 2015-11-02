@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="10/08/2015"
+   ms.date="10/20/2015"
    ms.author="elfish"/>
 
 # Восстановление базы данных SQL Azure после ошибки пользователя
@@ -23,17 +23,20 @@
 - Восстановление до точки во времени 
 - Восстановление удаленной базы данных
 
-Подробнее об этих способах вы можете узнать из этой [записи блога](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/).
+Подробнее о данных возможностях вы можете узнать из этой [записи блога](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/).
 
 База данных SQL Azure всегда восстанавливается в новую базу данных. Эти способы восстановления доступны для всех баз данных уровней Basic, Standard и Premium.
+
 ##Восстановление до точки во времени
 В случае ошибки пользователя или непреднамеренного изменения данных можно воспользоваться восстановлением до точки во времени, чтобы восстановить базу данных на любой момент времени в пределах срока хранения.
 
-Срок хранения баз данных уровня Basic составляет 7 дней, Standard — 14 дней, а Premium — 35 дней. Подробнее о хранении баз данных можно прочесть в статье [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md).
+Срок хранения баз данных уровня Basic составляет 7 дней, Standard — 14 дней, а Premium — 35 дней. Дополнительные сведения о хранении баз данных см. в статье [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md).
 
 > [AZURE.NOTE]При восстановлении базы данных создается новая база данных. Важно убедиться, что на целевом сервере восстановления есть достаточный объем DTU для новой базы данных. Можно [обратиться в службу поддержки](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/) с просьбой увеличить квоту.
 
 ###Портал Azure
+Чтобы воспользоваться функцией восстановления системы до точки во времени на портале Azure, выполните указанные ниже действия или [посмотрите эту видеоинструкцию](https://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore/).
+
 1. Войдите на [портал Azure](https://portal.Azure.com).
 2. В левой части экрана выберите **ОБЗОР**, а затем — **Базы данных SQL**.
 3. Перейдите к нужной базе данных и выберите ее.
@@ -42,12 +45,11 @@
 6. Начнется процесс восстановления базы данных, который можно отслеживать с помощью **УВЕДОМЛЕНИЙ** в левой части экрана.
 
 После завершения восстановления вы можете настроить восстановленную базу данных. Для этого следуйте инструкциям руководства [Завершение восстановленной базы данных](sql-database-recovered-finalize.md).
+
 ###PowerShell
-Используйте PowerShell для программного восстановления базы данных.
+PowerShell позволяет восстановить состояние системы до точки во времени программными средствами с помощью командлета [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Для получения подробной информации по решению этой задачи [посмотрите эту видеоинструкцию](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
 
-> [AZURE.IMPORTANT]Эта статья содержит команды для Azure PowerShell версии вплоть до 1.0, *но не включая* саму версию 1.0 и более поздние версии. Используемую версию Azure PowerShell можно проверить с помощью команды **Get-Module azure | format-table version**.
-
-Чтобы восстановить базу данных на момент времени, используйте командлет [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Пошаговую инструкцию см. в [видеоинструкции](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
+> [AZURE.IMPORTANT]Эта статья содержит команды для Azure PowerShell версии вплоть до 1.0, *но не включая* саму версию 1.0 и более поздние. Используемую версию Azure PowerShell можно проверить с помощью команды **Get-Module azure | format-table version**.
 
 		$Database = Get-AzureSqlDatabase -ServerName "YourServerName" –DatabaseName “YourDatabaseName”
 		$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –PointInTime “2015-01-01 06:00:00”
@@ -66,7 +68,7 @@
 
 После завершения восстановления вы можете настроить восстановленную базу данных. Для этого следуйте инструкциям руководства [Завершение восстановленной базы данных](sql-database-recovered-finalize.md).
 
-##Восстановление удаленной базы данных
+##Восстановление удаленной базы данных.
 Если база данных удалена, База данных SQL Azure позволяет восстановить ее на момент удаления. База данных SQL Azure хранит резервную копию удаленной базы данных в течение срока хранения.
 
 Срок хранения удаленной базы данных определяется в зависимости от уровня службы базы данных во время ее существования или от количества дней, в течение которых существовала база данных. Выбирается меньшее значение. Подробнее о хранении баз данных можно прочесть в статье [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md).
@@ -74,6 +76,8 @@
 > [AZURE.NOTE]При восстановлении базы данных создается новая база данных. Важно убедиться, что на целевом сервере восстановления есть достаточный объем DTU для новой базы данных. Можно [обратиться в службу поддержки](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/) с просьбой увеличить квоту.
 
 ###Портал Azure
+Чтобы восстановить удаленную Базу данных SQL на портале Azure, выполните указанные ниже действия или [посмотрите эту видеоинструкцию](https://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database/).
+
 1. Войдите на [портал Azure](https://portal.Azure.com).
 2. В левой части экрана выберите **ОБЗОР**, а затем — **Серверы SQL**.
 3. Перейдите к нужному серверу и выберите ее.
@@ -85,9 +89,7 @@
 После завершения восстановления вы можете настроить восстановленную базу данных. Для этого следуйте инструкциям руководства [Завершение восстановленной базы данных](sql-database-recovered-finalize.md).
 
 ###PowerShell
-Используйте PowerShell для программного восстановления базы данных.
-
-Чтобы восстановить удаленную базу данных, используйте командлет [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Пошаговую инструкцию см. в [видеоинструкции](http://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database-with-microsoft-azure-powershell/).
+Чтобы восстановить удаленную базу данных с помощью PowerShell, используйте командлет [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396). Для получения подробной информации по решению этой задачи [посмотрите эту видеоинструкцию](http://azure.microsoft.com/documentation/videos/restore-a-deleted-sql-database-with-microsoft-azure-powershell/).
 
 1. Найдите удаленную базу данных и дату ее удаления в списке удаленных баз данных.
 		
@@ -115,4 +117,4 @@
 После завершения восстановления вы можете настроить восстановленную базу данных. Для этого следуйте инструкциям руководства [Завершение восстановленной базы данных](sql-database-recovered-finalize.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

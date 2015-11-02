@@ -1,19 +1,19 @@
-<properties
-	pageTitle="Аналитическая картина на основании отчетов управления паролями в Azure AD | Microsoft Azure"
-	description="В этой статье описывается использование отчетов для получения аналитических данных по операциям управления паролями в вашей организации."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="kbrint"
+<properties 
+	pageTitle="Аналитическая картина на основании отчетов управления паролями в Azure AD | Microsoft Azure" 
+	description="В этой статье описывается использование отчетов для получения аналитических данных по операциям управления паролями в вашей организации." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="asteen" 
+	manager="kbrint" 
 	editor="billmath"/>
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/18/2015" 
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2015" 
 	ms.author="asteen"/>
 
 # Получение оперативной аналитики с помощью отчетов об управлении паролями
@@ -47,6 +47,16 @@
 5.	Выберите либо отчет **Действие сброса пароля**, либо отчет **Действие регистрации сброса пароля**.
 
     ![][001]
+
+## Доступ к отчетам об управлении паролями с помощью API
+Начиная с августа 2015 отчеты и события Azure AD поддерживают извлечение всех сведений, включаемых в отчеты о сбросе паролей и отчеты о регистрации данных для сброса паролей.
+
+Для доступа к этим данным необходимо написать небольшое приложение или сценарий получения этих данных с наших серверов. [Приступая к работе с API отчетов Azure AD](active-directory-reporting-api-getting-started.md).
+
+После создания сценария вы сможете исследовать события сброса пароля и регистрации, которые можно получить в соответствии с вашими сценариями.
+
+- [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): получает список столбцов, доступных для события сброса пароля.
+- [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): получает список столбцов, доступных для события регистрации для сброса пароля.
 
 ## Просмотр действий по регистрации сброса паролей
 
@@ -95,7 +105,6 @@
 
 ### Описание значений отчета
 В следующей таблице описаны различные значения, разрешенные для каждого столбца:
-
 
 столбец|Допустимые значения и их описание
 ---|---
@@ -163,4 +172,4 @@
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/06/2015"
+	ms.date="10/15/2015"
 	ms.author="spelluru"/>
 
 # Построение конвейера фабрики данных Azure с помощью Azure PowerShell
@@ -54,7 +54,9 @@
 
 		New-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH –Location "West US"
 
-	Имя фабрики данных Azure должно быть глобально уникальным. Если появится сообщение об ошибке **Имя фабрики данных DataFactoryMyFirstPipelinePSH недоступно**, измените имя (например, используйте [ваше\_имя]ADFTutorialDataFactoryPSH). Используйте это имя вместо ADFTutorialFactoryPSH при выполнении шагов в этом учебнике.
+	> [AZURE.IMPORTANT]Имя фабрики данных Azure должно быть глобально уникальным. Если появится сообщение об ошибке **Имя фабрики данных DataFactoryMyFirstPipelinePSH недоступно**, измените имя (например, используйте ваше\_имяADFTutorialDataFactoryPSH). Используйте это имя вместо ADFTutorialFactoryPSH при выполнении шагов в этом учебнике. Ознакомьтесь с разделом [Фабрика данных — правила именования](data-factory-naming-rules.md), чтобы узнать о правилах именования артефактов фабрики данных.
+	> 
+	> В будущем имя фабрики данных может быть зарегистрировано в качестве DNS-имени и, следовательно, стать отображаемым.
 
 Из следующих разделов учебника вы узнаете, как создать связанные службы, наборы данных и конвейер.
 
@@ -75,10 +77,10 @@
 		    }
 		}
 
-	Замените **account name** именем вашей учетной записи хранения Azure, а **account key** — ключом доступа к хранилищу. Сведения о получении ключа доступа к хранилищу см. в разделе [Просмотр, копирование и повторное создание ключей доступа к хранилищу](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
+	Замените **account name** именем вашей учетной записи хранения Azure, а **account key** — ключом доступа к учетной записи хранения Azure. Сведения о получении ключа доступа к хранилищу см. в разделе [Просмотр, копирование и повторное создание ключей доступа к хранилищу](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
 
 2.	В Azure PowerShell перейдите в папку ADFGetStartedPSH.
-3.	Чтобы создать связанную службу, можно использовать командлет **New-AzureDataFactoryLinkedService**. В этом командлете и в других командлетах фабрики данных, которые используются в этом учебнике, требуется передача значений для параметров *ResourceGroupName* и *DataFactoryName*. Или используйте командлет **Get-AzureDataFactory**, чтобы получить, а затем передать объект **DataFactory** без ввода параметров *ResourceGroupName* и *DataFactoryName* при каждом запуске командлета. Выполните следующую команду, чтобы присвоить переменной **$df** выходные данные командлета **Get-AzureDataFactory**.
+3.	Чтобы создать связанную службу, можно использовать командлет **New-AzureDataFactoryLinkedService**. В этом командлете и в других командлетах фабрики данных, которые используются в этом учебнике, требуется передача значений для параметров *ResourceGroupName* и *DataFactoryName*. Кроме того, можно использовать командлет **Get-AzureDataFactory**, чтобы получить объект **DataFactory** и передать этот объект без необходимости ввода параметров *ResourceGroupName* и *DataFactoryName* при каждом запуске командлета. Выполните следующую команду, чтобы присвоить переменной **$df** выходные данные командлета **Get-AzureDataFactory**.
 
 		$df=Get-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH
 
@@ -90,7 +92,7 @@
 
 		New-AzureDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
 
-	Если вы закроете Azure PowerShell во время выполнения описанных в учебнике инструкций, при следующем запуске Azure PowerShell вам придется запустить командлет **Get-AzureDataFactory**, чтобы выполнить инструкции учебника.
+	Если вы закроете Azure PowerShell во время выполнения описанных в руководстве инструкций, при следующем запуске Azure PowerShell вам придется запустить командлет **Get-AzureDataFactory**, чтобы выполнить инструкции руководства.
 
 ### Создание связанной службы Azure HDInsight
 Теперь будет создана связанная служба для кластера Azure HDInsight по требованию, которая будет использоваться для выполнения сценария Hive.
@@ -161,7 +163,7 @@
 
 1.	Создайте в папке C:\\ADFGetStartedPSH JSON-файл MyFirstPipelinePSH.json со следующим содержимым.
 
-	> [AZURE.IMPORTANT]В JSON-файле замените свойство **storageaccountname** именем вашей учетной записи хранения.
+	> [AZURE.IMPORTANT]Замените в нем **storageaccountname** на имя вашей учетной записи хранения.
 
 		{
 		  "name": "MyFirstPipeline",
@@ -209,7 +211,7 @@
 		New-AzureDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
 5. Поздравляем! Вы создали свой первый конвейер с помощью Azure PowerShell!
 
-### <a name="MonitorDataSetsAndPipeline"></a>Мониторинг наборов данных и конвейера
+### <a name="MonitorDataSetsAndPipeline"></a> Мониторинг наборов данных и конвейера
 На этом этапе Azure PowerShell будет использоваться для мониторинга процессов в фабрике данных Azure.
 
 1.	Выполните командлет **Get-AzureDataFactory** и присвойте выходные данные переменной **$df**.
@@ -263,9 +265,9 @@
 
 
 ## Дальнейшие действия
-В этой статье описывается создание конвейера с помощью действия преобразования (действие HDInsight), которое по требованию выполняет сценарий Hive в кластере Azure HDInsight. Сведения о том, как копировать данные из хранилища больших двоичных объектов Azure в SQL Azure с помощью действия копирования, см. в учебнике [Копирование данных из хранилища больших двоичных объектов Azure в Azure SQL](./data-factory-get-started.md).
+В этой статье описывается создание конвейера с помощью действия преобразования (действие HDInsight), которое по требованию выполняет сценарий Hive в кластере Azure HDInsight. Сведения о том, как копировать данные из хранилища больших двоичных объектов Azure в SQL Azure с помощью действия копирования, см. в разделе [Учебник. Копирование данных из хранилища больших двоичных объектов Azure в Azure SQL](./data-factory-get-started.md).
 
 ## Отправить отзыв
 Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

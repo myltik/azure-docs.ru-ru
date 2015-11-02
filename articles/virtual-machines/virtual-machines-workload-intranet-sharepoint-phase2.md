@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="10/20/2015"
 	ms.author="josephd"/>
 
 # Ферма SharePoint в интрасети, этап 2: настройка контроллеров домена
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
-
+[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Модель развертывания диспетчера ресурсов.
 
 На этом этапе развертывания фермы SharePoint 2013 в инстрасети с группами доступности AlwaysOn для SQL Server на базе служб инфраструктуры Azure создаются два контроллера домена в виртуальной сети Azure в управлении службами. Интернет-запросы клиента к ресурсам фермы SharePoint могут проходить аутентификацию в виртуальной сети Azure вместо отправки трафика аутентификации через VPN или подключение Azure ExpressRoute в локальную сеть.
 
@@ -36,7 +35,7 @@
 2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (второй контроллер домена, например DC2) | Центр обработки данных Windows Server 2012 R2 | A2 (средний)
 3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (первый компьютер SQL Server, например SQL1) | Microsoft SQL Server 2014 Enterprise — Windows Server 2012 R2 | 	A7
 4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (второй компьютер SQL Server, например SQL2) | Microsoft SQL Server 2014 Enterprise — Windows Server 2012 R2 | 	A7
-5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (ресурс-свидетель большинства узлов для кластера, например MN1) | Центр обработки данных Windows Server 2012 R2 | A1 (малый)
+5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (узел большинства кластера, например MN1) | Центр обработки данных Windows Server 2012 R2 | A1 (малый)
 6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (первый сервер приложений SharePoint, например APP1) | Microsoft SharePoint Server 2013 Trial — Windows Server 2012 R2 | A4 (очень большой)
 7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (второй сервер приложений SharePoint, например APP2) | Microsoft SharePoint Server 2013 Trial — Windows Server 2012 R2 | A4 (очень большой)
 8\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (первый веб-сервер SharePoint, например WEB1) | Microsoft SharePoint Server 2013 Trial — Windows Server 2012 R2 | A4 (очень большой)
@@ -186,7 +185,7 @@
 
 	New-ADUser -SamAccountName sp_install -AccountPassword (read-host "Set user password" -assecurestring) -name "sp_install" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
 
-	New-	ADUser -SamAccountName sqlservice -AccountPassword (read-host "Set user password" -assecurestring) -name "sqlservice" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
+	New-ADUser -SamAccountName sqlservice -AccountPassword (read-host "Set user password" -assecurestring) -name "sqlservice" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
 
 Для каждой команды вам будет предложено ввести пароль. Запишите эти имена пользователей и пароли и сохраните их в надежном месте.
 
@@ -249,4 +248,4 @@
 
 [Службы инфраструктуры Azure: высокодоступное бизнес-приложение](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

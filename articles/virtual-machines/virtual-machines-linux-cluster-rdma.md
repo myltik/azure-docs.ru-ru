@@ -146,7 +146,7 @@ azure vm create -g <username> -p <password> -c <cloud-service-name> -l <location
     cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
     ```
 
-    Измените или создайте файл ssh\_config в каталоге ~/.ssh. Укажите диапазон IP-адресов частной сети, которая будет использоваться в Azure (в данном примере, 10.32.0.0/16):
+    Измените или создайте файл config в каталоге ~/.ssh. Укажите диапазон IP-адресов частной сети, которая будет использоваться в Azure (в данном примере, 10.32.0.0/16):
 
     ```
     host 10.32.0.*
@@ -370,4 +370,4 @@ cluster12
 
 * Рекомендации по Intel MPI см. в [документации для библиотеки Intel MPI](https://software.intel.com/ru-RU/articles/intel-mpi-library-documentation/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

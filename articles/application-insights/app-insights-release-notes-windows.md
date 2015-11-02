@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Заметки о выпуске Application Insights для Windows" 
-	description="Последние обновления." 
+	description="Последние обновления для пакета SDK Магазина Windows." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -94,4 +94,4 @@
 
 Для более старых версий заметки о выпуске не доступны.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/12/2015"
+	ms.date="10/16/2015"
 	ms.author="maheshu"/>
 
 # Доменные службы Azure AD *(Предварительная версия)* — Приступая к работе
@@ -55,6 +55,18 @@
 Инструкции по установке Azure AD Connect доступны в следующей статье: [Приступая к работе с Azure AD Connect](../active-directory/active-directory-aadconnect.md)
 
 
+#### Включение синхронизации устаревших учетных данных для Azure AD
+
+Включите синхронизацию устаревших учетных данных, необходимую для проверки подлинности NTLM в доменных службах Azure AD. Это можно сделать, создав следующий ключ реестра на компьютере, на который был установлен Azure AD Connect.
+
+Создайте следующий параметр реестра типа DWORD и присвойте ему значение 1.
+
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSOLCoExistence\PasswordSync\EnableWindowsLegacyCredentialsSync
+
+Set its value to 1.
+```
+
 #### Принудительная полная синхронизация паролей в Azure AD
 
 Для включения принудительной полной синхронизации паролей и включения синхронизации хэшей паролей всех локальных пользователей (включая хэши учетных данных, необходимые для проверки подлинности NTLM или Kerberos) выполните следующий сценарий PowerShell в каждом лесу AD.
@@ -75,4 +87,4 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 
 В зависимости от размера каталога (число пользователей, групп и т. д.) синхронизация учетных данных с Azure AD, а затем с доменными службами Azure AD может занять некоторое время.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

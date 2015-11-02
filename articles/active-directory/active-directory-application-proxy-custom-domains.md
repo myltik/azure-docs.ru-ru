@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Работа с пользовательскими доменами в прокси приложения Azure AD"
+	pageTitle="Работа с пользовательскими доменами в прокси приложения Azure AD | Microsoft Azure"
 	description="Описывает работу с пользовательскими доменами в прокси приложения Azure AD."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 # Работа с пользовательскими доменами в прокси приложения Azure AD
@@ -50,7 +50,7 @@
 
 ## Дополнительные ресурсы
 
-* [Регистрация организации в Azure](..sign-up-organization.md)
-* [Удостоверение Azure](..fundamentals-identity.md)
+* [Регистрация организации в Azure](sign-up-organization.md)
+* [Удостоверение Azure](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

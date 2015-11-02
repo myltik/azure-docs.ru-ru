@@ -31,7 +31,8 @@
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Учетная запись хранения Azure.](../storage-create-storage-account.md)
 - [Windows Management Framework 3.0](http://www.microsoft.com/ru-RU/download/details.aspx?id=34595) или [Windows Management Framework 4.0.](http://www.microsoft.com/ru-RU/download/details.aspx?id=40855)
-- [Azure PowerShell](../install-configure-powershell.md)
+
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 На выполнение этих действий требуется примерно 30 минут.
 
@@ -383,4 +384,4 @@
 
 	![Создание приложения AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

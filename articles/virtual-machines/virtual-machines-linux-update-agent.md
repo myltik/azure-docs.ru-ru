@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Обновление агента Linux для Azure из Github | Microsoft Azure"
+	pageTitle="Обновление агента Linux для Azure из GitHub | Microsoft Azure"
 	description="Узнайте, как обновить агент Linux для Azure на виртуальной машине Linux до последней версии с сайта Github."
 	services="virtual-machines"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 	ms.author="mingzhan"/>
 
 
-# Как обновить агент Linux для Azure на виртуальной машине до последней версии с сайта Github
+# Как обновить агент Linux для Azure на виртуальной машине до последней версии с сайта GitHub
 
 Для обновления [агента Linux для Azure](https://github.com/Azure/WALinuxAgent) на виртуальной машине Linux требуется:
 
@@ -56,7 +56,7 @@
 
 ## Скачивание последней версии
 
-Откройте [выпуск агента Linux для Azure в Github](https://github.com/Azure/WALinuxAgent/releases) на веб-странице и узнайте номер последней версии. (Номер текущей версии можно узнать, введя `#waagent --version`.)
+Откройте [выпуск агента Linux для Azure в GitHub](https://github.com/Azure/WALinuxAgent/releases) на веб-странице и узнайте номер последней версии. (Номер текущей версии можно узнать, введя `#waagent --version`.)
 
 ###Для версии 2.0.x введите:
 
@@ -126,4 +126,4 @@
 
 Дополнительную информацию об агенте Azure для Linux см. в [файле сведений агента Linux для Azure](https://github.com/Azure/WALinuxAgent).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

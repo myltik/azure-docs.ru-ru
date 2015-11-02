@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Что такое Hive и как использовать HiveQL | Microsoft Azure"
 	description="Дополнительные сведения об инфраструктуре Apache Hive и о ее использовании с Hadoop в HDInsight. Выберите способ выполнения задания Hive и воспользуйтесь HiveQL для анализа примера файла Apache log4j."
-	keywords="hiveql,what is hive"
+	keywords="hiveql, что такое hive"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -132,7 +132,7 @@ HDInsight может выполнять задания HiveQL, использу�
 - [Диспетчер подключений по подпискам Azure][connectionmanager]
 
 
-Узнать больше о пакете дополнительных компонентов Azure для служб SSIS можно [здесь][ssispack].
+Узнать подробнее о пакете дополнительных компонентов Azure для служб SSIS можно [здесь][ssispack].
 
 
 ##<a id="nextsteps"></a>Дальнейшие действия
@@ -183,4 +183,4 @@ HDInsight может выполнять задания HiveQL, использу�
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

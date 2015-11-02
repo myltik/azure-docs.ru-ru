@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Создание фильтров с помощью пакета SDK .NET служб мультимедиа" 
+	pageTitle="Создание фильтров с помощью пакета SDK для .NET служб мультимедиа Azure" 
 	description="В этом разделе описывается создание фильтров, с помощью которых клиент может передавать определенные секции потока. Для достижения такой выборочной потоковой передачи службы мультимедиа создают динамические манифесты." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="dwrede,cenkdin" 
 	editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="10/18/2015"  
 	ms.author="juliako"/>
 
 
-#Создание фильтров с помощью пакета SDK .NET служб мультимедиа
+#Создание фильтров с помощью пакета SDK для .NET служб мультимедиа Azure
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-dotnet-dynamic-manifest.md)
@@ -147,4 +147,4 @@
 [Обзор динамических манифестов](media-services-dynamic-manifest-overview.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

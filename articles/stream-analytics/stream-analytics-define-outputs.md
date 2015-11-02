@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Определение выходных данных | Microsoft Azure" 
 	description="Основные сведения о выходных данных Stream Analytics" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="аналитика больших данных, облачная служба, интернет вещей, управляемые службы, потоковая обработка, аналитика потока, потоковая передача данных"
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -191,7 +191,7 @@
 
 ## Разделы шины обслуживания
 
-Если очереди служебной шины предоставляют метод взаимодействия "один к одному" (отправитель с получателем), то [разделы служебной шины](https://msdn.microsoft.com/library/azure/hh367516.aspx) позволяют использовать форму взаимодействия "один ко многим".
+Если очереди служебной шины предоставляют метод взаимодействия «один к одному» (отправитель с получателем), то [разделы служебной шины](https://msdn.microsoft.com/library/azure/hh367516.aspx) позволяют использовать форму взаимодействия «один ко многим».
 
 В таблице ниже приведены имена и описание свойств для создания выходных данных в табличном хранилище.
 
@@ -265,4 +265,4 @@
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

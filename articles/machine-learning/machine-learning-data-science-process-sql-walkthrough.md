@@ -1,8 +1,7 @@
 <properties
-	pageTitle="Расширенный процесс аналитики и технологии в действии: использование SQL Server | Microsoft Azure"
+	pageTitle="Процесс аналитики Кортаны в действии: использование SQL Server | Microsoft Azure"
 	description="Расширенный процесс аналитики и технологии в действии"  
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
@@ -14,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015" 
+	ms.date="10/18/2015" 
 	ms.author="mohabib;fashah;bradsev"/>
 
 
-# Расширенный процесс аналитики и технологии в действии: использование SQL Server
+# Процесс аналитики Кортаны в действии: использование SQL Server
 
 В этом учебнике представлено пошаговое руководство по созданию и развертыванию модели с помощью общедоступного набора данных [Поездки такси Нью-Йорка](http://www.andresmh.com/nyctaxitrips/). В учебнике используется схема процесса обработки аналитических данных и технологии расширенного анализа (ADAPT)
 
@@ -715,4 +714,4 @@
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

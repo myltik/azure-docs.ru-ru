@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Настройка сопоставлений атрибутов"
+	pageTitle="Настройка сопоставлений атрибутов | Microsoft Azure"
 	description="Узнайте, что такое сопоставление атрибутов для приложений SaaS в Azure Active Directory и как настроить его в соответствии с потребностями вашего бизнеса."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -90,4 +90,4 @@ Microsoft Azure AD обеспечивает поддержку для подг�
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

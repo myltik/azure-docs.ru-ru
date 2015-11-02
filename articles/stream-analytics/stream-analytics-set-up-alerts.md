@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Оповещения Stream Analytics | Microsoft Azure" 
 	description="Общая информация об оповещениях Stream Analytics" 
-	keywords="big data analytics,cloud service,internet of things,managed service,stream processing,streaming analytics,streaming data"
+	keywords="аналитика больших данных, облачная служба, интернет вещей, управляемые службы, потоковая обработка, аналитика потока, потоковая передача данных"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -85,4 +85,4 @@
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

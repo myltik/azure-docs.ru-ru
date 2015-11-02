@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="10/13/2015"
+   ms.date="10/20/2015"
    ms.author="andkjell"/>
 
 # Azure AD Connect: история выпусков версий
@@ -42,12 +42,32 @@
 - Компонент обратной записи паролей дает сбой в некоторых конфигурациях из-за недопустимого пароля в соединителе Active Directory.
 - DirSync невозможно обновить, если при фильтрации атрибутов используется DN.
 
+**Удаленные функции предварительной версии:**
+
+- функция [обратной записи пользователя](active-directory-aadconnect-feature-preview.md#user-writeback) предварительной версии была временно удалена на основе отзывов клиентов предварительной версии. Она будет повторно добавлена позже с учетом полученных отзывов.
+
 ## 1\.0.8641.0
 Выпущена: июнь 2015 г.
 
 **Первоначальный выпуск Azure AD Connect.**
 
 Имя изменено с Azure AD Sync на Azure AD Connect.
+
+**Новые функции:**
+
+- Установка со [стандартными параметрами](active-directory-aadconnect-get-started-express.md)
+- Можно [настроить ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs).
+- Можно [обновиться из DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md).
+- [Предотвращение случайного удаления](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
+- Добавлен [промежуточный режим](active-directory-aadconnectsync-operations.md#staging-mode).
+
+**Новые функции предварительной версии:**
+
+- [Обратная запись пользователей](active-directory-aadconnect-feature-preview.md#user-writeback)
+- [Обратная запись групп](active-directory-aadconnect-feature-preview.md#group-writeback)
+- [Обратная запись устройств](active-directory-aadconnect-get-started-custom-device-writeback.md)
+- [Расширения каталогов](active-directory-aadconnect-feature-preview.md#directory-extensions)
+
 
 ## 1\.0.494.0501
 Выпущена: май 2015 г.
@@ -96,7 +116,7 @@
 
 **Новые функции:**
 
-- Теперь поддерживается синхронизация паролей с фильтрацией на основе атрибутов. Дополнительные сведения см. в разделе «Синхронизация паролей с фильтрацией».
+- Теперь поддерживается синхронизация паролей с фильтрацией на основе атрибутов. Дополнительные сведения см. в разделе [Синхронизация паролей с фильтрацией](active-directory-aadconnectsync-configure-filtering.md).
 - Атрибут msDS-ExternalDirectoryObjectID записывается обратно в AD. Это добавляет поддержку приложений Office 365 с использованием OAuth2 для доступа как к сетевым, так и к локальным почтовым ящикам при гибридном развертывании Exchange.
 
 **Исправленные проблемы обновления:**
@@ -140,4 +160,4 @@
 ## Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

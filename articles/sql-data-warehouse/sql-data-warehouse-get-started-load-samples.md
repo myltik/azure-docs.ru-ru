@@ -1,6 +1,6 @@
 <properties
    pageTitle="Загрузка образца данных в хранилище данных SQL | Microsoft Azure"
-   description="Загрузка достаточных данных в хранилище данных SQL"
+   description="Узнайте, как загрузить достаточные данные в хранилище данных SQL"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="lodipalm"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/23/2015"
+   ms.date="10/21/2015"
    ms.author="lodipalm;barbkess"/>
 
-#Загрузка образца данных в хранилище данных SQL
+# Загрузка образца данных в хранилище данных SQL
 
 Создавая экземпляр хранилища данных SQL, вы можете легко загрузить в него образец данных. Если вы пропустили этот этап во время подготовки, [образец данных можно загрузить вручную][].
 
@@ -25,7 +25,7 @@
 ## Добавление образца данных во время создания
 Чтобы загрузить образец данных в хранилище данных SQL во время его развертывания, выполните следующие действия.
 
-1. Найдите на [портале Azure][] хранилище базы данных SQL, последовательно щелкнув "+Добавить" и "Данные и хранилище" или создав поисковый запрос в Marketplace по ключевой фразе "Хранилище данных SQL". 
+1. Найдите на [портале Azure][] хранилище Базы данных SQL, последовательно щелкнув «+Добавить» и «Данные и хранилище» или создав поисковый запрос в Marketplace по ключевой фразе «Хранилище данных SQL». 
  
 2. Запустив процесс создания, выберите параметр «Выбор источника» и задайте для него значение «Пример». Если вы не создаете новый сервер, вам также нужно будет указать имя для входа на сервер, которое вы используете для создания хранилища.
 
@@ -33,9 +33,9 @@
 > [AZURE.NOTE]Чтобы вы могли загрузить образец данных в экземпляр, у служб Azure должен быть доступ к серверу (при создании нового сервера доступ у служб должен быть по умолчанию). Если у служб нет доступа к серверу, загрузка данных завершится сбоем. В этом случае [образец данных можно будет загрузить вручную][].
 
 
-##Анализ данных Adventureworks с помощью Power BI
+## Анализ данных Adventureworks с помощью Power BI
 
-Образец набора данных можно эффективно использовать для изучения возможностей Power BI. После загрузки образца данных откройте подключение к хранилищу данных SQL, нажав на портале Azure кнопку "Открыть в Power BI". Вы также можете перейти на сайт [Power BI][] и [подключиться к хранилищу данных SQL][]. После подключения новый набор данных нужно создать с тем же именем, что и у хранилища данных. Для облегчения анализа мы создали представление с именем AggregateSales. Оно содержит несколько метрик, которые являются ключевыми для анализа продаж компании. Чтобы развернуть представление и просмотреть доступные столбцы, щелкните имя представления. Кроме того, выполняя приведенные ниже действия, вы сможете быстро создавать некоторые визуализации.
+Образец набора данных можно эффективно использовать для изучения возможностей Power BI. После загрузки образца данных откройте подключение к хранилищу данных SQL, нажав на портале Azure кнопку «Открыть в Power BI». Вы также можете перейти на сайт [Power BI][] и [подключиться к хранилищу данных SQL][]. После подключения новый набор данных нужно создать с тем же именем, что и у хранилища данных. Для облегчения анализа мы создали представление с именем AggregateSales. Оно содержит несколько метрик, которые являются ключевыми для анализа продаж компании. Чтобы развернуть представление и просмотреть доступные столбцы, щелкните имя представления. Кроме того, выполняя приведенные ниже действия, вы сможете быстро создавать некоторые визуализации.
 
 1. Для начала мы можем легко создать карту всех продаж, щелкнув столбцы PostalCode (почтовый индекс) и SalesAmount (сумма продаж). Power BI даже в автоматическом режиме распознает географические данные и нанесет их на карту. 
 
@@ -68,31 +68,31 @@
 	GROUP BY OrderDateKey
 	ORDER BY OrderDateKey;
 
-На самом деле хранилище данных SQL поддерживает почти все конструкции T-SQL, которые поддерживает сервер SQL Server. Некоторые различия можно найти в нашей документации по [переносу кода][].
+На самом деле хранилище данных SQL поддерживает почти все конструкции T-SQL, которые поддерживает SQL Server. Некоторые различия можно найти в нашей документации [Перенос кода][].
 
 
 
 ## Дальнейшие действия
-Теперь, когда вы разобрались с образцом данных, узнайте, как [разрабатывать хранилища данных][], [загружать данные][] и [переносить готовые решения][].
+Теперь, когда вы немного разобрались с образцом данных, узнайте, как [разрабатывать][], [загружать][] или [переносить][].
 
 <!--Image references-->
 
 <!--Article references-->
-[переносить готовые решения]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-migrate/
-[разрабатывать хранилища данных]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-develop/
-[загружать данные]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-load/
-[подключению и запросам]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-get-started-connect-query/
-[переносу кода]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-migrate-code/
-[образец данных можно будет загрузить вручную]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[образец данных можно загрузить вручную]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
-[портале Azure]: https://portal.azure.com
-[Power BI]: http://www.powerbi.com
-[подключиться к хранилищу данных SQL]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-integrate-power-bi/
+[переносить]: ./sql-data-warehouse-overview-migrate.md
+[разрабатывать]: ./sql-data-warehouse-overview-develop.md
+[загружать]: ./sql-data-warehouse-overview-load.md
+[подключению и запросам]: ./sql-data-warehouse-get-started-connect.md
+[Перенос кода]: ./sql-data-warehouse-migrate-code.md
+[образец данных можно будет загрузить вручную]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[образец данных можно загрузить вручную]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[портале Azure]: https://portal.azure.com/
+[Power BI]: http://www.powerbi.com/
+[подключиться к хранилищу данных SQL]: ./sql-data-warehouse-integrate-power-bi.md
 
 <!--MSDN references-->
-[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/ru-RU/download/details.aspx?id=36433
+[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/download/details.aspx?id=36433/
 
 <!--Other Web references-->
-[Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
+[Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

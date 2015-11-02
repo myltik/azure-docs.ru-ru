@@ -55,4 +55,4 @@
 ---
 [**Следующий шаг — включение доменных служб Azure AD.**](active-directory-ds-getting-started-enableaadds.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
