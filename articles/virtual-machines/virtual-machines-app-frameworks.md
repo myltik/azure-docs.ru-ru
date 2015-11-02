@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="07/02/2015"
+   ms.date="10/21/2015"
    ms.author="rasquill"/>
 
 # Создание платформ приложений с помощью шаблонов
 
-Приведенные здесь информация и ссылки позволят вам ускорить процесс создания необходимых объектов.
+Приведенные здесь информация и ссылки позволят вам ускорить процесс создания необходимых объектов. Наряду с этим шаблонами можно также выполнять поиск по шаблонам](https://azure.microsoft.com/documentation/templates/).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
 
@@ -53,4 +53,4 @@
 
 Узнайте больше о [диспетчере ресурсов Azure](../resource-group-template-deploy.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

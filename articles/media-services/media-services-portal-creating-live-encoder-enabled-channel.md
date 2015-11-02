@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Использование портала управления для создания каналов, выполняющих динамическое кодирование односкоростного потока в мультискоростной" 
-	description="В этом руководстве подробно описаны все этапы создания канала, который получает на вход динамический односкоростной поток данных и преобразует его в мультискоростной." 
+	pageTitle="Создание каналов, выполняющих кодирование односкоростного потока в мультискоростной в реальном времени, с помощью портала Azure" 
+	description="В этом руководстве подробно описаны все этапы создания канала, который получает на вход динамический односкоростной поток данных и преобразует его в мультискоростной, с помощью портала Azure." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,13 +11,13 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 
-#Использование портала управления для создания каналов, выполняющих динамическое кодирование односкоростного потока в мультискоростной 
+#Создание каналов, выполняющих кодирование односкоростного потока в мультискоростной в реальном времени, с помощью портала Azure
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -273,4 +273,4 @@
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

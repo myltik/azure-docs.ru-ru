@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Создание нового ресурса Application Insights" 
-	description="Настройте новое приложение и получите ключ инструментирования. Application Insights выполняет мониторинг производительности и использования живых приложений." 
+	description="Настройте мониторинг Application Insights для нового приложения в динамическом времени. Подход на основе веб-технологий." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -94,4 +94,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

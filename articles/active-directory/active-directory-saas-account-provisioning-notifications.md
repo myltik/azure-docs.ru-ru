@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Уведомления о подготовке учетных записей"
+	pageTitle="Уведомления о подготовке учетных записей | Microsoft Azure"
 	description="Узнайте, как гарантированно получать уведомления о проблемах, которые требуют вашего внимания, путем включения уведомления о проблемах связанных с подготовкой пользователей."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/20/2015"
 	ms.author="markusvi"/>
 
 
@@ -46,4 +46,4 @@
 [1]: ./media/active-directory-saas-account-provisioning-notifications/ic766307.png
 [2]: ./media/active-directory-saas-account-provisioning-notifications/ic766308.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

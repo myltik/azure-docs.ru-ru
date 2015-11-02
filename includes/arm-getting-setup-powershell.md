@@ -23,20 +23,6 @@
 
 Убедитесь, что в строке **PSVersion** указано значение 3.0 или 4.0. Если указано другое значение, см. статью [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
-У Azure PowerShell должна быть версия не ниже 1.0.0. Если вы еще не установили и не настроили Azure PowerShell, см. соответствующие инструкции [здесь](powershell-install-configure.md).
-
-Установленную версию Azure PowerShell можно узнать в командной строке Azure PowerShell с помощью такой команды:
-
-	Get-Module azure | format-table version
-
-Появятся такие сведения:
-
-	Version
-	-------
-	1.0.0
-
-Если у вас нет версии 1.0.0 (или более поздней), необходимо удалить Azure PowerShell с помощью компонента панели управления «Программы и компоненты», а затем установить последнюю версию. Дополнительные сведения см. в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md).
-
 ### Настройка учетной записи и подписки Azure
 
 Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрироваться в бесплатной пробной версии](http://azure.microsoft.com/pricing/free-trial/).
@@ -69,4 +55,4 @@
 
 Дополнительные сведения о подписках и учетных записях Azure см. в разделе [Подключение к подписке](powershell-install-configure.md#Connect).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

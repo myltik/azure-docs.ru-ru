@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Настройка политики авторизации ключа содержимого с помощью REST" 
-	description="Узнайте, как настроить политику авторизации для ключа содержимого." 
+	pageTitle="Настройка политики авторизации ключей содержимого с помощью REST API служб мультимедиа" 
+	description="Узнайте, как настроить политику авторизации для ключа содержимого с помощью API REST служб мультимедиа." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/18/2015" 
 	ms.author="juliako"/>
 
 
@@ -481,4 +481,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

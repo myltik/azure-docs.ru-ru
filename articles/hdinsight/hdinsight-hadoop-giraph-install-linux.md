@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Установка и использование Giraph для кластеров Hadoop в HDInsight | Microsoft Azure"
-	description="Дополнительные сведения о настройке кластера HDInsight с Giraph. Вы воспользуетесь параметром конфигурации действия скрипта (Script Action), чтобы использовать скрипт для установки Giraph."
+	pageTitle="Установка и использование Giraph в кластерах HDInsight (Hadoop) под управлением Linux | Microsoft Azure"
+	description="Узнайте, как устанавливать Giraph в кластерах HDInsight на основе Linux с помощью действий сценария. Действия сценария позволяют настроить кластер во время создания, изменяя его конфигурацию или устанавливая службы и служебные программы."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -148,4 +148,4 @@ Giraph можно установить в любой тип кластера Had
 
 - [Установка Solr в кластерах HDInsight](hdinsight-hadoop-solr-install-linux.md). Используйте настройки кластера для установки Solr в кластерах HDInsight Hadoop. Solr позволяет вести расширенный поиск по хранимым данным.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

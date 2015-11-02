@@ -18,6 +18,8 @@
 
 # Как использовать очереди служебной шины
 
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+
 В этой статье показано, как использовать очереди служебной шины. Примеры написаны на Java и используют [Пакет Azure SDK для Java][]. Здесь описаны такие сценарии, как **создание очередей**, **отправка и получение сообщений**, а также **удаление очередей**.
 
 [AZURE.INCLUDE [service-bus-java-how-to-create-queue](../../includes/service-bus-java-how-to-create-queue.md)]
@@ -65,7 +67,7 @@ import javax.xml.datatype.*;
         System.exit(-1);
     }
 
-Существуют методы **QueueInfo**, позволяющие свойства настройки очереди (например: значение «времени жизни» (Time to Live, TTL) по умолчанию для применения к сообщениям, отправленным в очередь). Следующий пример показывает, как создать очередь с именем `TestQueue` и размером не более 5 ГБ.
+Существуют методы **QueueInfo**, позволяющие настраивать свойства очереди (например: значение «времени жизни» (Time to Live, TTL) по умолчанию для применения к сообщениям, отправленным в очередь). Следующий пример показывает, как создать очередь с именем `TestQueue` и размером не более 5 ГБ.
 
     long maxSizeInMegabytes = 5120;
     QueueInfo queueInfo = new QueueInfo("TestQueue");
@@ -189,4 +191,4 @@ import javax.xml.datatype.*;
   [Очереди, темы и подписки]: service-bus-queues-topics-subscriptions.md
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

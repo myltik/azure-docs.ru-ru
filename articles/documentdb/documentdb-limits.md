@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Ограничения и квоты DocumentDB| Microsoft Azure" 
 	description="Узнайте об ограничениях и квотах, установленных для DocumentDB. Изучите квоты на использование служб базы данных SQL Azure."
-	keywords="Quotas, database, documentdb, azure, Microsoft azure"
+	keywords="Квоты, база данных, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="mimig1" 
 	manager="jhubbard" 
@@ -24,4 +24,4 @@
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -2,7 +2,7 @@
 	pageTitle="Просматривайте хранимые процедуры, триггеры и определяемые пользователем функции с помощью обозревателя скриптов DocumentDB | Microsoft Azure"
 	description="Узнайте об обозревателе скриптов DocumentDB, средстве портала предварительной версии Azure для просмотра артефактов программирования на стороне сервера DocumentDB, включая хранимые процедуры, триггеры и определяемые пользователем функции."
 	services="documentdb"
-	authors="stephbaron"
+	authors="AndrewHoh"
 	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article" 
 	ms.date="09/02/2015"
-	ms.author="stbaro"/>
+	ms.author="anhoh"/>
 
 # Просмотр, изменение и создание хранимых процедур, триггеров и пользовательских функций с помощью обозревателя скриптов DocumentDB
 
@@ -106,4 +106,4 @@
 Для получения дополнительных сведений о DocumentDB щелкните [здесь](http://azure.com/docdb).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

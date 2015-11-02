@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Автоматическая установка соединителя прокси приложения Azure AD"
+	pageTitle="Автоматическая установка соединителя прокси приложения Azure AD | Microsoft Azure"
 	description="Описывается, как выполнить автоматическую установку соединителя прокси приложения Azure AD для обеспечения безопасного удаленного доступа к локальным приложениям."
 	services="active-directory"
 	documentationCenter=""
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/01/2015"
+	ms.date="10/19/2015"
 	ms.author="rkarlin"/>
 
 # Автоматическая установка соединителя прокси приложения Azure AD
 
-Необходимо иметь возможность отправки сценария установки на несколько серверов или на серверы Windows, на которых отключен пользовательский интерфейс. Этот раздел описывает создание сценария Windows PowerShell, позволяющего реализовать автоматическую установку, а также устанавливающего и регистрирующего соединитель прокси приложения Azure AD.
+Необходимо иметь возможность отправки сценария установки на несколько серверов Windows или на серверы Windows, на которых отключен пользовательский интерфейс. Этот раздел описывает создание сценария Windows PowerShell, позволяющего реализовать автоматическую установку, а также устанавливающего и регистрирующего соединитель прокси приложения Azure AD.
 
 ## Включение доступа
-Прокси приложения работает путем установки в сети компактной службы Windows Server, называемой соединителем. Для работы соединителя прокси приложения он должен быть зарегистрирован в вашем каталоге Azure AD с использованием пароля и имени глобального администратора. Обычно эти сведения вводятся во всплывающем окне во время установки соединителя. Вместо этого можно использовать Windows PowerShell для создания объекта учетных данных и использовать созданный службой токен для ввода сведений о регистрации; кроме того, можно создать собственный токен, используемый для ввода сведений о регистрации.
+Прокси приложения работает путем установки в сети компактной службы Windows Server, называемой соединителем. Для работы соединителя прокси приложения он должен быть зарегистрирован в вашем каталоге Azure AD с использованием пароля и имени глобального администратора. Обычно эти сведения вводятся во всплывающем окне во время установки соединителя. Вместо этого можно использовать Windows PowerShell для создания объекта учетных данных для ввода сведений о регистрации; кроме того, можно создать собственный маркер и использовать его для ввода сведений о регистрации.
 
 ## Шаг 1. Установка соединителя без регистрации
 
@@ -35,29 +35,44 @@
         AADApplicationProxyConnectorInstaller.exe REGISTERCONNECTOR="false" /q
 
 ## Шаг 2. Регистрация соединителя в Azure Active Directory
-Эту задачу можно выполнить одним из следующих способов: — регистрация соединителя с помощью объекта учетных данных Windows PowerShell; — регистрация соединителя с помощью токена, созданного в автономном режиме.
+Регистрацию соединителя можно выполнить с помощью любого из следующих методов.
+
+
+- Регистрация соединителя с помощью объекта учетных данных Windows PowerShell
+- Регистрация соединителя с помощью токена, созданного в автономном режиме
 
 ### Регистрация соединителя с помощью объекта учетных данных Windows PowerShell
 
 
-1. Создайте объект учетных данных Windows PowerShell, выполнив следующую команду, где <username> и <password> следует заменить на имя пользователя и пароль для вашего каталога:
+1. Создайте объект учетных данных Windows PowerShell, выполнив следующую команду, в которой username и password следует заменить на имя пользователя и пароль для вашего каталога:
 
         $User = "<username>" 
         $PlainPassword = '<password>' 
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force 
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword 
     
-2. 	Перейдите в папку **C:\\Program Files\\Microsoft AAD App Proxy Connector** и запустите файл **Register Connector.PS1** в Windows PowerShell.
-3. Используйте созданный объект учетных данных PowerShell для ввода имени пользователя и пароля регистрации соединителя в сценарии, выполнив следующую команду, где $cred — это имя созданного объекта учетных данных PowerShell:
+2. Перейдите в каталог **C:\\Program Files\\Microsoft AAD App Proxy Connector** и запустите сценарий с использованием созданного объекта учетных данных PowerShell: здесь $cred — имя созданного объекта учетных данных:
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred 
 
 
 ### Регистрация соединителя с помощью токена, созданного в автономном режиме
 
-1. Создайте автономный токен с помощью класса AuthenticationContext, например:
+1. Создайте автономный маркер с помощью класса AuthenticationContext, используя значения, указанные во фрагменте кода:
 
-        #region constants /// /// The AAD authentication endpoint uri /// static readonly Uri AadAuthenticationEndpoint = new Uri("https://login.windows.net/common/oauth2/token?api-version=1.0");
+        
+        using System;
+        using System.Diagnostics;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+
+        class Program
+        {
+        #region constants
+        /// <summary>
+        /// The AAD authentication endpoint uri
+        /// </summary>
+        static readonly Uri AadAuthenticationEndpoint = new Uri("https://login.windows.net/common/oauth2/token?api-version=1.0");
+
         /// <summary>
         /// The application ID of the connector in AAD
         /// </summary>
@@ -66,37 +81,45 @@
         /// <summary>
         /// The reply address of the connector application in AAD
         /// </summary>
-		static readonly Uri ConnectorRedirectAddress = new Uri("urn:ietf:wg:oauth:2.0:oob");
-		
-		/// <summary>
-		/// The AppIdUri of the registration service in AAD
-		/// </summary>
-		static readonly Uri RegistrationServiceAppIdUri = new Uri("https://proxy.cloudwebappproxy.net/registerapp");
+        static readonly Uri ConnectorRedirectAddress = new Uri("urn:ietf:wg:oauth:2.0:oob");
 
-		#endregion
+        /// <summary>
+        /// The AppIdUri of the registration service in AAD
+        /// </summary>
+        static readonly Uri RegistrationServiceAppIdUri = new Uri("https://proxy.cloudwebappproxy.net/registerapp");
 
+        #endregion
 
-		public static void GetAuthenticationToken()
-		{
-    		AuthenticationContext authContext = new AuthenticationContext(AadAuthenticationEndpoint.AbsoluteUri);
-	    AuthenticationResult authResult = authContext.AcquireToken(RegistrationServiceAppIdUri.AbsoluteUri,
+        #region private members
+        private string token;
+        private string tenantID;
+        #endregion
+
+        public void GetAuthenticationToken()
+        {
+            AuthenticationContext authContext = new AuthenticationContext(AadAuthenticationEndpoint.AbsoluteUri);
+
+            AuthenticationResult authResult = authContext.AcquireToken(RegistrationServiceAppIdUri.AbsoluteUri,
                 ConnectorAppId,
                 ConnectorRedirectAddress,
                 PromptBehavior.Always);
 
+            if (authResult == null || string.IsNullOrEmpty(authResult.AccessToken) || string.IsNullOrEmpty(authResult.TenantId))
+            {
+                Trace.TraceError("Authentication result, token or tenant id returned are null");
+                throw new InvalidOperationException("Authentication result, token or tenant id returned are null");
+            }
 
-	        if (authResult == null || string.IsNullOrEmpty(authResult.AccessToken) || string.IsNullOrEmpty(authResult.TenantId))
-    	    {
-          Trace.TraceError("Authentication result, token or tenant id returned are null");
-          throw new InvalidOperationException("Authentication result, token or tenant id returned are null");
-    	}
+            token = authResult.AccessToken;
+            tenantID = authResult.TenantId;
+        }
 
-    	string token = authResult.AccessToken;
-    	string tenantID = authResult.TenantId;
-		}
+
+
+
 
 2. После создания токена создайте с его помощью SecureString: <br> `$SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force`
-3. Выполните следующую команду Windows PowerShell, где SecureToken — это имя, созданное ранее выше токена: <br> `RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID>`
+3. Выполните следующую команду Windows PowerShell, в которой SecureToken — это имя созданного выше маркера, а tenantID — идентификатор GUID клиента: <br> `RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID>`
 
 
 
@@ -116,7 +139,7 @@
 - [Смотрите наши видео на Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
 
 ## Дополнительные ресурсы
-* [Регистрация организации в Azure](../sign-up-organization.md)
-* [Удостоверение Azure](../fundamentals-identity.md)
+* [Регистрация организации в Azure](sign-up-organization.md)
+* [Удостоверение Azure](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

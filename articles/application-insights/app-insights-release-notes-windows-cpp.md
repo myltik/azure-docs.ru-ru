@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Заметки о выпуске пакета SDK C++ для Application Insights" 
-	description="Последние обновления." 
+	description="Последние обновления для пакета SDK C++." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -37,4 +37,4 @@
 Первый выпуск
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

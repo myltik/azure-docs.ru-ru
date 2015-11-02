@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
-# Как создать настраиваемую виртуальную машину под управлением Linux в Azure
+# Создание настраиваемой виртуальной машины Linux
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] []Модель диспетчера ресурсов (virtual-machines-linux-tutorial.md).
 
@@ -30,14 +30,9 @@
 
 > [AZURE.IMPORTANT]Если к виртуальной машине необходимо подключаться с помощью имени узла по виртуальной сети или настроить подключения между организациями, при создании виртуальной машины обязательно укажите виртуальную сеть. Виртуальную машину можно настроить для подключения к виртуальной сети только при ее создании. Дополнительную информацию о виртуальных сетях см. в разделе [Обзор виртуальных сетей Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
-<p/>
-
-
-- [Создание виртуальной машины с ОС Linux](virtual-machines-linux-tutorial.md)
-
 
 ## Создание виртуальной машины Linux с использованием классической модели развертывания
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-linuxvm.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

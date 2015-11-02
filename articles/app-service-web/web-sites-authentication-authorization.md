@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Использование Active Directory для проверки подлинности в службе приложений Azure" 
 	description="Сведения о различных параметрах проверки подлинности и авторизации для бизнес-приложений, развертываемых в веб-приложениях службы приложений Azure" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
@@ -53,4 +53,4 @@
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,11 +1,10 @@
 <properties 
-	pageTitle="Windows Server Active Directory в виртуальных машинах Azure" 
+	pageTitle="Windows Server Active Directory в виртуальных машинах Azure | Microsoft Azure" 
 	description="Вы можете запускать доменные службы Active Directory (AD DS) или службы федерации Active Directory (AD FS) Windows Server в виртуальных машинах Azure." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="markusvi" 
-	manager="terrylan" 
-	editor="LisaToft"
+	manager="stevenpo" 
 	tags="azure-classic-portal"/>
 
 <tags 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="10/20/2015" 
 	ms.author="markusvi"/>
 
 
@@ -48,4 +47,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

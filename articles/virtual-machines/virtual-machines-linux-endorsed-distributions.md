@@ -24,6 +24,8 @@
 
 Образы Linux в коллекции Azure предоставлены рядом партнеров, и мы также работаем с разными сообществами Linux, чтобы расширить список рекомендованных дистрибутивов. Пока же в случае отсутствия нужных дистрибутивов в коллекции вы всегда можете передать свой дистрибутив Linux, следуя указаниям [на этой странице](virtual-machines-linux-create-upload-vhd.md).
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 
 ## Поддерживаемые дистрибутивы и версии ##
 
@@ -35,10 +37,10 @@
 
 Дистрибутив|Версия|Драйверы|Агент
 ---|---|---|---
-Каноническая Ubuntu|Ubuntu 12.04, 14.04, 14.10 и 15.04|В ядре|Пакет: в репозитории под именем walinuxagent<p><p>Источник: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+Каноническая Ubuntu|Ubuntu 12.04, 14.04, 14.10 и 15.04|В ядре|Пакет: в репозитории под именем WALinuxAgent <p><p>Источник: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 CentOS через OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3: [скачиваемый пакет LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 и более поздних версий: в ядре|Пакет: в <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">репозитории OpenLogic под именем WALinuxAgent<p><p>Источник: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0 + |В ядре|Источник: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
-Oracle Linux| 6\.4+, 7.0+|В ядре|Пакет: в репозитоиии под именем WALinuxAgent<p><p>Источник: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+Oracle Linux| 6\.4+, 7.0+|В ядре|Пакет: в репозитории под именем WALinuxAgent<p><p>Источник: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 SUSE Linux Enterprise |SLES 11 с пакетом обновления 3 или более поздней версии, SLES 12 или более поздней версии и<p><p>SLES для SAP 11.3 или более поздней версии |В ядре|Пакет: в репозитории [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) под именем WALinuxAgent<p><p>Источник: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 openSUSE |openSUSE 13.1+|В ядре|Пакет: в репозитории [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) под именем WALinuxAgent<p><p>Исходный код: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 
@@ -79,4 +81,4 @@ SUSE Linux Enterprise Server в Azure — проверенная платфор
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

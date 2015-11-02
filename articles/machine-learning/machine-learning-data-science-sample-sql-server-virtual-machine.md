@@ -13,15 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="10/18/2015" 
 	ms.author="fashah;garye;bradsev" />
 
 #<a name="heading"></a>Выборка данных на сервере SQL Server в Azure
 
-В этом документе описывается выборка данных, хранящихся на сервере SQL Server в системе Azure, с помощью SQL и языка программирования Python.
+В этом документе описывается выборка данных, хранящихся на сервере SQL Server в системе Azure, с помощью SQL и языка программирования Python. В нем также показано, как переместить данные выборки в службу машинного обучения Azure, сохранив их в файл, передав его в большой двоичный объект Azure, а затем считав в службе машинного обучения Azure.
 
->[AZURE.NOTE]Образец кода SQL в этом документе предполагает, что данные содержатся на сервере SQL Server на платформе Azure. Если это не так, воспользуйтесь инструкциями по переносу данных в SQL Server в среде Azure, изложенными в разделе [Перемещение данных в SQL Server в Azure  
-](machine-learning-data-science-move-sql-server-virtual-machine.md) [руководства по расширенной обработке данных](machine-learning-data-science-advanced-data-processing.md).
+Процедура выборки Python использует библиотеку [pyodbc](https://code.google.com/p/pyodbc/) ODBC для подключения к SQL Server в Azure и библиотеку [Pandas](http://pandas.pydata.org/) для выполнения выборки.
+
+>[AZURE.NOTE]Образец кода SQL в этом документе предполагает, что данные содержатся на сервере SQL Server на платформе Azure. Если это не так, воспользуйтесь инструкциями по переносу данных в SQL Server в среде Azure, изложенными в разделе [Перемещение данных в SQL Server в Azure](machine-learning-data-science-move-sql-server-virtual-machine.md).
 
 ##<a name="SQL"></a>Использование SQL
 
@@ -56,13 +57,13 @@
 
 ##<a name="python"></a>Использование языка программирования Python 
 
-В этом разделе демонстрируется использование библиотеки pyodbc для подключения к базе данных SQL Server на языке Python. Строка подключения к базе данных выглядит следующим образом (замените servername, dbname, username и password соответственно именем сервера, именем базы данных, именем пользователя и паролем из вашей конфигурации):
+В этом разделе демонстрируется использование [библиотеки pyodbc](https://code.google.com/p/pyodbc/) для установки подключения ODBC к Базе данных SQL Server на языке Python. Строка подключения к базе данных выглядит следующим образом (замените servername, dbname, username и password соответственно именем сервера, именем базы данных, именем пользователя и паролем из вашей конфигурации):
 
 	#Set up the SQL Azure connection
 	import pyodbc	
 	conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-[Библиотека Pandas](http://pandas.pydata.org/) в языке Python предлагает большой выбор структур данных и средств анализа данных для манипуляций со значениями с помощью языке Python. Приведенный ниже код считывает 0,1%-ную выборку данных из таблицы базы данных Azure SQL в данные Pandas:
+Библиотека [Pandas](http://pandas.pydata.org/) в языке Python предоставляет широкий набор структур данных и средств анализа данных для манипуляций с данными при программировании на языке Python. Приведенный ниже код считывает 0,1%-ную выборку данных из таблицы базы данных Azure SQL в данные Pandas:
 
 	import pandas as pd
 
@@ -105,13 +106,13 @@
  
 ![большой двоичный объект считывателя][2]
 
-## Практический пример процесса обработки аналитических данных и технологии расширенного анализа (ADAPT)
+## Практический пример применения процесса аналитики Кортаны
 
-Полный пошаговый пример использования технологии ADAPT с общедоступным набором данных см. в статье [Обработка данных в Azure на практике с использованием SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+Полноценный пошаговый пример применения процесса аналитики Кортаны с использованием общедоступного набора данных см. в разделе [Процесс аналитики Кортаны в действии: использование SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

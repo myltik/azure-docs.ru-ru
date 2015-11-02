@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Пошаговое руководство. Экспорт телеметрии в базу данных SQL из Application Insights" 
-	description="Напишите код анализа телеметрии в Application Insights с помощью функции непрерывного экспорта." 
+	description="Осуществляйте непрерывный экспорт данных Application Insights в SQL с использованием Stream Analytics." 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -314,4 +314,4 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

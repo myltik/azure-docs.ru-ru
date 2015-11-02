@@ -3,7 +3,7 @@
 	description="В этом разделе показано, как использовать .NET для кодирования ресурса-контейнера с помощью стандартного кодировщика мультимедиа." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,anilmur" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015"    
+	ms.date="10/15/2015"  
 	ms.author="juliako"/>
 
 
@@ -125,4 +125,4 @@
 
 [Как создать эскиз с помощью стандартного кодировщика мультимедиа и .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Обзор кодирования в службах мультимедиа](media-services-encode-asset.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

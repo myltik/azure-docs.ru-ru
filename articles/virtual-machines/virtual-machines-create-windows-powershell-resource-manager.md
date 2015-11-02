@@ -29,7 +29,7 @@
 
 	Get-Module azure | format-table version
 
-Если вы еще не сделали этого или вам нужно обновить версию установленной Azure PowerShell, следуйте указаниям в разделе [Как установить и настроить Azure PowerShell](install-configure-powershell.md), чтобы установить Azure PowerShell на локальном компьютере. Затем откройте командную строку Azure PowerShell.
+[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 Сначала необходимо войти в систему Azure с помощью следующей команды.
 
@@ -137,4 +137,4 @@
 
 [Установка и настройка Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

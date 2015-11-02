@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Часто задаваемые вопросы о службе машинного обучения Azure | Microsoft Azure"
 	description="Основные сведения о службе машинного обучения Azure. Здесь предоставлена информация о выставлении счетов, а также о возможностях и ограничениях облачной службы в контексте прогнозного моделирования."
-	keywords="machine learning introduction,predictive modeling,what is machine learning"
+	keywords="введение в машинное обучение, прогнозное моделирование, описание машинного обучения"
 	services="machine-learning"
 	documentationCenter=""
 	authors="pablissima"
@@ -179,7 +179,7 @@
 
 **Предусмотрена ли среда REPL для Python?**
 
-В Студии машинного обучения можно использовать записные книжки Jupyter. Дополнительные сведения см. в статье [Введение в записные книжки Jupyter в Студии машинного обучения Azure](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx)
+В Студии машинного обучения можно использовать записные книжки Jupyter. Дополнительные сведения см. в статье [Введение в записные книжки Jupyter в Студии машинного обучения Azure](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx).
 
 ## Веб-служба
 ###Повторное обучение моделей программным способом
@@ -309,4 +309,4 @@
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

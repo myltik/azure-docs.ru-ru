@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="10/20/2015" 
 	ms.author="josephd"/>
 
 # Третий этап развертывания бизнес-приложений: настройка инфраструктуры SQL Server
@@ -26,7 +26,7 @@
 
 Этот этап необходимо выполнить, прежде чем переходить к [этапу 4](virtual-machines-workload-high-availability-LOB-application-phase4.md). Все этапы перечислены в статье [Развертывание высокодоступных бизнес-приложений в Azure.](virtual-machines-workload-high-availability-LOB-application-overview.md)
 
-> [AZURE.NOTE]В этой статье используется образ SQL Server из коллекции образов Azure. За использование лицензии SQL Server взимается соответствующая плата. Можно также создать виртуальные машины в Azure и установить собственные лицензии SQL Server. В этом случае вам потребуется наличие Software Assurance и возможности перемещать лицензии, чтобы использовать лицензию SQL Server на виртуальной машине, в том числе на виртуальной машине Azure. Дополнительные сведения об установке SQL Server на виртуальную машину см. в статье [Установка SQL Server](https://msdn.microsoft.com/library/bb500469.aspx).
+> [AZURE.NOTE]Эта статья содержит команды для предварительной версии Azure PowerShell 1.0. Для выполнения этих команд в Azure PowerShell 0.9.8 или предыдущих версиях замените все случаи «-AzureRM» на «-Azure» и добавьте команду **Switch-AzureMode AzureResourceManager** до выполнения всех остальных команд. Дополнительные сведения см. в статье [Предварительная версия Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
 ## Создание виртуальных машин кластера SQL Server в среде Azure
 
@@ -40,16 +40,11 @@
 - Таблица ST (для учетных записей хранения)
 - Таблица A (для групп доступности)
 
-Напоминаем, что вы задали значения для таблицы M на [втором](virtual-machines-workload-high-availability-LOB-application-phase2.md), а для таблиц V, S, ST и A — [на первом этапе](virtual-machines-workload-high-availability-LOB-application-phase1.md).
-
-> [AZURE.NOTE]Эта статья содержит команды для Azure PowerShell версии вплоть до 1.0.0, *но не включая* саму версию 1.0.0 и более поздние версии. Используемую версию Azure PowerShell можно проверить с помощью команды **Get-Module azure | format-table version**. Приведенные в этой статье блоки команд Azure PowerShell проходят тестирование и обновление для обеспечения поддержки новых командлетов в Azure PowerShell 1.0.0 и более поздних версий. Благодарим вас за терпение.
+Значения для таблицы M были заданы на [этапе 2](virtual-machines-workload-high-availability-LOB-application-phase2.md), а для таблиц V, S, ST и A — на [этапе 1](virtual-machines-workload-high-availability-LOB-application-phase1.md).
 
 Указав все необходимые значения, выполните полученные команды в среде Azure PowerShell.
 
-	# Set up subscription and key variables
-	$subscr="<name of the Azure subscription>"
-	Set-AzureSubscription -SubscriptionName $subscr
-	Switch-AzureMode AzureResourceManager
+	# Set up key variables
 	$rgName="<your resource group name>"
 	$locName="<Azure location of your resource group>"
 	# Change to the premium storage account
@@ -60,45 +55,45 @@
 	# Create the first SQL server
 	$vmName="<Table M – Item 3 - Virtual machine name column>"
 	$vmSize="<Table M – Item 3 - Minimum size column>"
-	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
-	$nic=New-AzureNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id
-	$avSet=Get-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName 
-	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$nic=New-AzureRMNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id
+	$avSet=Get-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName 
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
 	
 	$diskSize=<size of the extra disk for SQL data in GB>
 	$diskLabel="<the label on the disk>"
-	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-SQLDataDisk.vhd"
-	Add-AzureVMDataDisk -VM $vm -Name $diskLabel -DiskSizeInGB $diskSize -VhdUri $vhdURI  -CreateOption empty
+	Add-AzureRMVMDataDisk -VM $vm -Name $diskLabel -DiskSizeInGB $diskSize -VhdUri $vhdURI  -CreateOption empty
 	
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the first SQL Server computer." 
-	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftSQLServer -Offer SQL2014-WS2012R2 -Skus Enterprise -Version "latest"
-	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
-	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftSQLServer -Offer SQL2014-WS2012R2 -Skus Enterprise -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
-	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 	
 	# Create the second SQL Server virtual machine
 	$vmName="<Table M – Item 4 - Virtual machine name column>"
 	$vmSize="<Table M – Item 4 - Minimum size column>"
-	$nic=New-AzureNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id
-	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	$nic=New-AzureRMNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
 	
 	$diskSize=<size of the extra disk for SQL data in GB>
 	$diskLabel="<the label on the disk>"
 	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-ADDSDisk.vhd"
-	Add-AzureVMDataDisk -VM $vm -Name $diskLabel -DiskSizeInGB $diskSize -VhdUri $vhdURI  -CreateOption empty
+	Add-AzureRMVMDataDisk -VM $vm -Name $diskLabel -DiskSizeInGB $diskSize -VhdUri $vhdURI  -CreateOption empty
 	
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second SQL Server computer." 
-	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftSQLServer -Offer SQL2014-WS2012R2 -Skus Enterprise -Version "latest"
-	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
-	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftSQLServer -Offer SQL2014-WS2012R2 -Skus Enterprise -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
-	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 	
 	# Change to the standard storage account
 	$saName="<Table ST – Item 2 – Storage account name column>"
@@ -106,16 +101,16 @@
 	# Create the cluster majority node server
 	$vmName="<Table M – Item 5 - Virtual machine name column>"
 	$vmSize="<Table M – Item 5 - Minimum size column>"
-	$nic=New-AzureNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id
-	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	$nic=New-AzureRMNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the cluster majority node server." 
-	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
-	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
 	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
-	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
-	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
 > [AZURE.NOTE]Так как эти виртуальные машины предназначены для приложения интрасети, им не назначается общедоступный IP-адрес, у них нет метки DNS-имени домена и они не доступны в Интернете. Однако это также означает, что к ним невозможно подключиться с помощью портала предварительной версии Azure. Кнопка **Подключить** будет недоступна при просмотре свойств виртуальной машины. Используйте помощник "Подключение к удаленному рабочему столу" или другое аналогичное средство, чтобы подключиться к виртуальной машине с помощью частного IP-адреса или DNS-имени интрасети.
 
@@ -180,7 +175,7 @@
 
 Службе SQL Server необходим порт, по которому клиенты обращаются к серверу баз данных. Кроме того, необходимы порты для подключения к среде SQL Server Management Studio и управления группой высокой доступности. Теперь в консоли Windows PowerShell дважды выполните следующую команду с правами администратора (по одному разу для каждого сервера SQL Server). Она добавит в брандмауэр правило, которое разрешает входящий трафик этого типа.
 
-	New-NetFirewallRule -DisplayName "SQL Server ports 1433, 4234, and 5022" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action Allow
+	New-NetFirewallRule -DisplayName "SQL Server ports 1433, 1434, and 5022" -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action Allow
 
 Выйдите из учетной записи локального администратора на виртуальных машинах с SQL Server.
 
@@ -208,7 +203,7 @@
 - дополнительной виртуальной машине, на которой работает SQL Server;
 - узле большинства кластера.
 
-Для создания отказоустойчивого кластера необходимы как минимум три виртуальные машины. На двух машинах работает SQL Server, причем вторая виртуальная машина является синхронной вторичной репликой, которая позволяет исключить потерю данных в случае сбоя основной виртуальной машины. Размещать SQL Server на третьей виртуальной машине не нужно. Узел большинства кластера выступает в качестве ресурса-свидетеля кворума в схеме WSFC. Поскольку кластер WSFC отслеживает работоспособность системы на основе кворума, для его постоянной работы необходимо постоянное большинство. Если в кластере только две машины и одна из них перестает работать, большинство отсутствует. Дополнительные сведения см. в статье [Режим кворума и конфигурация голосования WSFC (SQL Server)](http://msdn.microsoft.com/library/hh270280.aspx).
+Для создания отказоустойчивого кластера необходимы как минимум три виртуальные машины. На двух машинах работает SQL Server, причем вторая виртуальная машина является синхронной вторичной репликой, которая позволяет исключить потерю данных в случае сбоя основной виртуальной машины. Размещать SQL Server на третьей виртуальной машине не нужно. Узел большинства кластера обеспечивает кворум в схеме WSFC. Поскольку кластер WSFC отслеживает работоспособность системы на основе кворума, для его постоянной работы необходимо постоянное большинство. Если в кластере только две машины и одна из них перестает работать, большинство отсутствует. Дополнительные сведения см. в статье [Режим кворума и конфигурация голосования WSFC (SQL Server)](http://msdn.microsoft.com/library/hh270280.aspx).
 
 Для обоих виртуальных машин с SQL Server и узла большинства кластера выполните в командной строке Windows PowerShell следующую команду с правами администратора.
 
@@ -223,7 +218,7 @@
 5.	На странице **Выбор серверов** введите имя виртуальной машины с сервером-источником SQL Server, нажмите кнопку **Добавить**, а затем — **Далее**.
 6.	На странице **Предупреждение проверки** выберите вариант **Нет. Для этого кластера не требуется поддержка Майкрософт, поэтому проверочные тесты не нужны. После нажатия кнопки «Далее» продолжить создание кластера**, а затем нажмите кнопку **Далее**.
 7.	На странице **Точка доступа для администрирования кластера** в поле **Имя кластера** введите имя кластера и нажмите кнопку **Далее**.
-8.	На странице **Подтверждение** нажмите кнопку **Далее**, чтобы начать создание кластера. 
+8.	На странице **подтверждения** нажмите кнопку **Далее**, чтобы начать создание кластера. 
 9.	На странице **Сводка** нажмите кнопку **Готово**.
 10.	В левой области щелкните новый кластер. В разделе **Ресурсы ядра кластера** области содержимого откройте имя кластера серверов. Для ресурса **IP-адрес** будет указано состояние **Сбой**. Его невозможно подключить к сети, так как кластеру назначен тот же IP-адрес, что и самой виртуальной машине. В результате адреса дублируются. 
 11.	Щелкните правой кнопкой мыши ресурс **IP-адреса** в состоянии сбоя и выберите **Свойства**.
@@ -275,4 +270,4 @@
 
 [Рабочая нагрузка служб инфраструктуры Azure: ферма SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -23,6 +23,8 @@
 - [Подготовка виртуальной машины Oracle Linux версии 6.4 или более поздней для Azure](#oracle6)
 - [Подготовка виртуальной машины Oracle Linux версии 7.0 или более поздней для Azure](#oracle7)
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
+
 ##Предварительные требования##
 
 В этой статье предполагается, что вы уже установили операционную систему Oracle Linux на виртуальный жесткий диск. Существует несколько средств для создания VHD-файлов, например решение для виртуализации, такое как Hyper-V. Инструкции см. в разделе [Установка роли Hyper-V и настройка виртуальной машины](http://technet.microsoft.com/library/hh846766.aspx).
@@ -229,4 +231,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

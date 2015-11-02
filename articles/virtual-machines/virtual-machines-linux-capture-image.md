@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="10/14/2015"
 	ms.author="dkshir"/>
 
 
@@ -96,9 +96,9 @@ Azure воспринимает этот шаблон как образ и хра
 [портала управления]: http://manage.windowsazure.com
 [портале управления]: http://manage.windowsazure.com
 [Как войти в виртуальную машину под управлением Linux]: virtual-machines-linux-how-to-log-on.md
-[Об образах виртуальной машины в Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
-[Как создать настраиваемую виртуальную машину]: virtual-machines-create-custom.md
+[Об образах виртуальной машины в Azure]: virtual-machines-images.md
+[Как создать настраиваемую виртуальную машину]: virtual-machines-linux-create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Создание виртуальной машины с ОС Linux]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Исследование метрик в Application Insights" 
-	description="Анализ использования, доступности и производительности локального приложения или веб-приложения Microsoft Azure с помощью Application Insights." 
+	description="Способ интерпретации диаграмм в обозревателе метрик и настройки колонок обозревателя метрик." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -212,4 +212,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

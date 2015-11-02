@@ -69,7 +69,7 @@
 
 Дополнительные сведения о центре IoT в Azure см. по следующим ссылкам:
 
-- [Приступая к работе с центрами IoT (руководство)][lnk-get-started]
+- [Начало работы с центром IoT (руководство)][lnk-get-started]
 - [Что такое центр IoT в Azure?][]
 
 [img-tokenservice]: ./media/iot-hub-guidance/tokenservice.png
@@ -88,4 +88,4 @@
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Что такое центр IoT в Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

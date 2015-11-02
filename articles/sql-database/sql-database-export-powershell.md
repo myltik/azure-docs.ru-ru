@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="10/13/2015"
+	ms.date="10/20/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -93,6 +93,9 @@ BACPAC-файл экспортируется в контейнер больши�
 
 Эта команда отправляет в службу запрос об экспорте базы данных. Операция экспорта может занять некоторое время в зависимости от размера базы данных.
 
+> [AZURE.IMPORTANT]Для получения транзакционного согласованного BACPAC-файла сначала [создайте копию базы данных](sql-database-copy-powershell.md) а затем экспортируйте эту копию.
+
+
     $exportRequest = Start-AzureSqlDatabaseExport -SqlConnectionContext $SqlCtx -StorageContainer $Container -DatabaseName $DatabaseName -BlobName $BlobName
     
 
@@ -144,4 +147,4 @@ BACPAC-файл экспортируется в контейнер больши�
 - [Отработка аварийного восстановления](sql-database-disaster-recovery-drills.md)
 - [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

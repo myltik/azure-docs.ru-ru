@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Устранение неполадок Application Insights в веб-проекте Java" 
-	description="Руководство по устранению неполадок, а также вопросы и ответы." 
+	description="Руководство по устранению неполадок — мониторинг динамических приложений Java с помощью Application Insights." 
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
@@ -138,4 +138,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

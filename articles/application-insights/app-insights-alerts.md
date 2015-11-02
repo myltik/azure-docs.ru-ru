@@ -106,14 +106,22 @@ Application Insights выполняет мониторинг живого при
 
 Если вы ранее не использовали PowerShell для подписки Azure:
 
-1. Установите модуль Azure Powershell на компьютере, где требуется выполнять сценарии. 
+Установите модуль Azure Powershell на компьютере, где требуется выполнять сценарии.
+
  * Установите [установщик веб-платформы Майкрософт (версии 5 или более поздней)](http://www.microsoft.com/web/downloads/platform.aspx).
  * Используйте его для установки Microsoft Azure PowerShell.
-2. Запустите Azure PowerShell и [подключитесь к вашей подписке](powershell-install-configure.md).
 
-    ```
+
+#### Подключение к Azure
+
+Запустите Azure PowerShell и [подключитесь к вашей подписке](powershell-install-configure.md).
+
+```PowerShell
+
     Add-AzureAccount
-    ```
+    Switch-AzureMode AzureResourceManager
+```
+
 
 #### Получение оповещений
 
@@ -217,4 +225,4 @@ request,<br/>requestFailed|[Server request](app-insights-configuration-with-appl
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

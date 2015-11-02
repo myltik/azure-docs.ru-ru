@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Начало работы с эмулятором Hadoop для HDInsight | Microsoft Azure"
 	description="Используйте установленный эмулятор, учебник MapReduce и другие образцы, чтобы познакомиться с экосистемой Hadoop. Эмулятор HDInsight работает в качестве изолированной среды Hadoop."
-	keywords="emulator,hadoop ecosystem,hadoop sandbox,mapreduce tutorial"
+	keywords="эмулятор, экосистема hadoop, песочница hadoop, руководство по mapreduce"
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -498,4 +498,4 @@ The samples currently contain all the required binaries, so building is not requ
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

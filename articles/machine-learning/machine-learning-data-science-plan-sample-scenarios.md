@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="10/18/2015"
 	ms.author="msolhab;bradsev" />
 
 
 # Сценарии для расширенной аналитики в Машинном обучении Azure
 
-В этой статье описаны различные источники образцов данных и типовые сценарии, в которых можно использовать процесс обработки аналитических данных и технологию расширенного анализа (ADAPT) в среде машинного обучения Azure. В ней продемонстрированы некоторые варианты и последовательности операций обработки на основе характеристик данных, исходного расположения и целевых репозиториев в Azure.
+В этой статье описаны различные источники образцов данных и типовые сценарии, в которых можно использовать процесс аналитики Кортаны (CAP). В ней продемонстрированы некоторые варианты и последовательности операций обработки на основе характеристик данных, исходного расположения и целевых репозиториев в Azure.
 
 В последнем разделе представлено **дерево принятия решений** для выбора сценариев, соответствующих вашим данным и задачам.
 
@@ -32,8 +32,6 @@
 
 *   [создать учетную запись хранения](storage-whatis-account.md);
 *   [создать рабочую область Машинного обучения Azure](machine-learning/machine-learning-create-workspace.md).
-
-
 
 
 ## <a name="smalllocal"></a>Сценарий №1. Набор табличных данных небольшого и среднего размера в локальных файлах
@@ -298,8 +296,8 @@
 Полные пошаговые примеры моделей машинного обучения Azure, в которых демонстрируется применение ADAPT на базе общедоступных наборов данных, см. в перечисленных ниже статьях.
 
 
-* [Обработка данных в Azure на практике с использованием SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
-* [Обработка данных в облаке Azure в действии: использование кластеров HDInsight Hadoop](machine-learning/machine-learning-data-science-process-hive-walkthrough.md).
+* [Процесс аналитики Кортаны в действии: использование SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
+* [Процесс аналитики Кортаны в действии: использование кластеров HDInsight Hadoop](machine-learning/machine-learning-data-science-process-hive-walkthrough.md).
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
@@ -316,4 +314,4 @@
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

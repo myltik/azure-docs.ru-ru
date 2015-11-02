@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="10/15/2015"
    ms.author="sethm" />
 
 # Использование служебной шины на платформе .NET с протоколом AMQP 1.0
@@ -201,4 +201,4 @@ API-интерфейсы .NET предоставляют несколько па
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
 [Протокол AMQP служебной шины для Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

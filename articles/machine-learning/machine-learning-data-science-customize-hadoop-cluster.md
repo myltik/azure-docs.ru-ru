@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Настройка кластеров Hadoop для обработки аналитических данных и технологии расширенного анализа | Microsoft Azure" 
+	pageTitle="Настройка кластеров Hadoop для процесса аналитики Кортаны | Microsoft Azure" 
 	description="Популярные модули Python становятся доступными в настраиваемых кластерах Azure HDInsight Hadoop."
 	services="machine-learning" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="10/13/2015" 
 	ms.author="hangzh;bradsev" />
 
-# Настройка кластеров Azure HDInsight Hadoop для обработки аналитических данных и технологии расширенного анализа
+# Настройка кластеров Azure HDInsight Hadoop для процесса аналитики Кортаны 
 
 Это меню содержит ссылки на разделы, описывающие настройку различных сред обработки и анализа данных, используемых процессом аналитики Cortana (CAP).
 
@@ -102,4 +102,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

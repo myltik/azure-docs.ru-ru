@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Программный доступ к журналам приложений Hadoop YARN в HDInsight | Microsoft Azure"
-	description="Программный доступ к журналам приложений в кластере Hadoop в HDInsight."
+	pageTitle="Доступ к журналам приложений Hadoop YARN в HDInsight под управлением Linux | Microsoft Azure"
+	description="Узнайте, как получить доступ к журналам приложений YARN в кластере HDInsight (Hadoop) под управлением Linux с помощью как командной строки, так и веб-браузера."
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/19/2015"
 	ms.author="larryfr"/>
 
 # Доступ к журналам приложений YARN в HDInsight под управлением Linux
@@ -96,4 +96,4 @@ YARN поддерживает несколько моделей программ
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2015" 
+	ms.date="10/20/2015" 
 	ms.author="tdykstra"/>
 
 # Вызов приложения Azure API из клиента веб-приложения, прошедшего проверку подлинности Azure Active Directory
@@ -227,4 +227,4 @@
 [портале Azure]: https://manage.windowsazure.com/
 [портале предварительной версии Azure]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

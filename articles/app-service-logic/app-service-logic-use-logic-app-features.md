@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="10/15/2015"
 	ms.author="stepsic"/>
 	
 # Использование функций приложений логики
@@ -29,7 +29,7 @@
 
 ## Справочные материалы
 
-Возможно, вы найдете полезными следующие документы.
+Возможно, вы найдете полезными следующие документы:
 
 - [API REST управления и среды выполнения](https://msdn.microsoft.com/library/azure/dn948513.aspx): содержит инструкции по вызову приложений логики напрямую.
 - [Справочник по языку](https://msdn.microsoft.com/library/azure/dn948512.aspx): полный список поддерживаемых функций и выражений.
@@ -143,4 +143,4 @@
 [Создание нового приложения логики]: app-service-logic-create-a-logic-app.md
 [портале Azure]: https://portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->

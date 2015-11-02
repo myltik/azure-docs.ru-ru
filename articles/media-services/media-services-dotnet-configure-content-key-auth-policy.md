@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Динамическое шифрование: настройка политики авторизации ключа содержимого с помощью .NET" 
-	description="Узнайте, как настроить политику авторизации для ключа содержимого." 
+	pageTitle="Настройка политики авторизации ключей содержимого с помощью пакета SDK служб мультимедиа для .NET" 
+	description="Узнайте, как настроить политику авторизации для ключа содержимого с помощью пакета SDK для .NET служб мультимедиа." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="juliako,Mingfeiy" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015"
+	ms.date="10/18/2015"
 	ms.author="juliako"/>
 
 
@@ -403,4 +403,4 @@
 Теперь, после настройки политики авторизации ключа содержимого, перейдите к разделу [Как настроить политику доставки ресурсов](media-services-dotnet-configure-asset-delivery-policy.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Oct15_HO4-->
