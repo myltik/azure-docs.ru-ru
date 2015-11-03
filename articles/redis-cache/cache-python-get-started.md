@@ -13,10 +13,16 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="10/05/2015"
+	ms.date="10/23/2015"
 	ms.author="sdanie"/>
 
 # Использование кэша Redis для Azure с Python
+
+> [AZURE.SELECTOR]
+- [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [Node.js](cache-nodejs-get-started.md)
+- [Java](cache-java-get-started.md)
+- [Python](cache-python-get-started.md)
 
 В этой статье показано, как приступить к работе с кэшем Redis для Azure, используя Python.
 
@@ -28,7 +34,7 @@
 
 ## Создание кэша Redis в Azure
 
-На [портале предварительной версии Azure](http://go.microsoft.com/fwlink/?LinkId=398536) щелкните **Создать**, **Данные + хранилище** и выберите **Кэш Redis**.
+На [портале предварительной версии Azure](http://go.microsoft.com/fwlink/?LinkId=398536) щелкните **Создать**, **Данные+хранилище** и выберите **Кэш Redis**.
 
   ![][1]
 
@@ -59,4 +65,4 @@
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

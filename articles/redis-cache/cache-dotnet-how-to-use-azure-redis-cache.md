@@ -13,27 +13,28 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="10/13/2015" 
+	ms.date="10/27/2015" 
 	ms.author="sdanie"/>
 
 # Как использовать кэш Azure Redis
 
-В этом руководстве объясняется, как приступить к использованию **кэша Redis для Azure**. Примеры написаны на C#, и в них используется клиент [StackExchange.Redis][]. Рассматриваемые сценарии включают **создание и настройку кэша**, **настройку клиентов кэша**, **добавление и удаление объектов из кэша** и **сохранение состояния сеанса ASP.NET в кэше**. Дополнительные сведения об использовании кэша Redis для Azure см. в разделе [Дальнейшие действия][].
+> [AZURE.SELECTOR]
+- [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [Node.js](cache-nodejs-get-started.md)
+- [Java](cache-java-get-started.md)
+- [Python](cache-python-get-started.md)
 
-<a name="what-is"></a>
-## Описание кэша Redis для Azure
-
-Кэш Redis для Microsoft Azure основывается на популярном продукте с открытым кодом — кэше Redis. Он дает доступ к защищенному выделенному кэшу Redis, управляемому Майкрософт. Кэш, созданный с использованием кэша Azure Redis, доступен из любого приложения в Microsoft Azure.
+В этом руководстве объясняется, как приступить к использованию **кэша Redis для Azure**. Кэш Redis для Microsoft Azure основывается на популярном продукте с открытым кодом — кэше Redis. Он дает доступ к защищенному выделенному кэшу Redis, управляемому Майкрософт. Кэш, созданный с использованием кэша Azure Redis, доступен из любого приложения в Microsoft Azure.
 
 Доступны указанные ниже уровни кэша Redis для Microsoft Azure.
 
 -	**Basic** — один узел. Множество размеров вплоть до 53 ГБ.
 -	**Standard** — два узла: основной и реплика. Множество размеров вплоть до 53 ГБ. СОГЛАШЕНИЕ ОБ УРОВНЕ ОБСЛУЖИВАНИЯ 99,9 %.
--	**Premium**. В настоящее время этот уровень находится в состоянии предварительной версии. Два узла (основной и реплика), включающие до 10 сегментов. Несколько размеров от 6 до 530 ГБ (если вам необходим больший размер, свяжитесь с нами). Все функции уровня Standard, а также дополнительные функции, включая поддержку [кластера Redis](cache-how-to-premium-clustering.md), [сохраняемости Redis](cache-how-to-premium-persistence.md) и [виртуальной сети Azure](cache-how-to-premium-vnet.md). В течение периода предварительной версии соглашение об уровне обслуживания не используется.
+-	**Премиум** — сейчас доступна предварительная версия. Два узла (основной и реплика), включающие до 10 сегментов. Несколько размеров от 6 до 530 ГБ (если вам необходим больший размер, свяжитесь с нами). Все функции категории «Стандартный», а также дополнительные функции, включая поддержку [кластера Redis](cache-how-to-premium-clustering.md), [сохраняемости Redis](cache-how-to-premium-persistence.md) и [виртуальной сети Azure](cache-how-to-premium-vnet.md). В течение периода предварительной версии соглашение об уровне обслуживания не используется.
 
-Каждый уровень отличается доступными возможностями и ценой. Конкретные возможности рассматриваются ниже в этом руководстве, а дополнительные сведения о ценах см. в разделе [Сведения о ценах — кэш][].
+Каждый уровень отличается доступными возможностями и ценой. Дополнительные сведения о ценах см. на странице [Кэш Redis. Цены][].
 
-Это руководство содержит обзор начала работы с кэшем Azure Redis. За дополнительной детальной информацией о компонентах, которые не вошли в это руководство, обратитесь к разделу [Обзор кэша Azure Redis][].
+В этом руководстве показано, как использовать клиент [StackExchange.Redis][] с помощью кода C#. Рассматриваемые сценарии включают **создание и настройку кэша**, **настройку клиентов кэша**, а также **добавление объектов в кэш и их удаление**. Дополнительные сведения об использовании кэша Redis для Azure см. в разделе [Дальнейшие действия][].
 
 <a name="getting-started-cache-service"></a>
 ## Начало работы с кэшем Redis для Azure
@@ -46,7 +47,7 @@
 <a name="create-cache"></a>
 ## Создание кэша
 
-Чтобы создать кэш, войдите на [портал предварительной версии Azure][], последовательно щелкните **Создать**, **Данные + хранилище** и **Кэш Redis**.
+Чтобы создать кэш, войдите на [портал предварительной версии Azure][] и последовательно щелкните **Создать**, **Данные+хранилище** и **Кэш Redis**.
 
 ![Новый кэш][NewCacheMenu]
 
@@ -56,17 +57,15 @@
 
 ![Создание кэша][CacheCreate]
 
-В поле **Имя DNS** введите имя поддомена для использования конечной точкой кэша. Конечная точка должна быть строкой длиной от шести до двадцати символов, содержать только строчные буквы и цифры, а также должна начинаться с буквы.
-
-Используйте **Уровень цен** для выбора желаемого размера и компонентов кэша.
-
-В поле **Группа ресурсов** выберите или создайте группу ресурсов для кэша.
-
->[AZURE.NOTE]За дополнительной информацией обратитесь к разделу [Использование групп ресурсов для управления ресурсами Azure][].
-
-В поле **Подписка** выберите подписку Azure, которую вы хотите использовать для кэша. Если у вашей учетной записи есть только одна подписка, она будет выбрана автоматически и раскрывающееся меню **Подписка** не появится.
-
-В поле поля **Расположение** укажите, где географически будет располагаться ваш кэш. Для оптимальной производительности Майкрософт настоятельно рекомендует размещать кэш в том же регионе, что и клиентское приложение кэша.
+-	В поле **Имя DNS** введите имя поддомена для использования конечной точкой кэша. Конечная точка должна быть строкой длиной от шести до двадцати символов, содержать только строчные буквы и цифры, а также должна начинаться с буквы.
+-	В поле **Подписка** выберите подписку Azure, которую вы хотите использовать для кэша. Если у вашей учетной записи есть только одна подписка, она будет выбрана автоматически и раскрывающееся меню **Подписка** не появится.
+-	В поле **Группа ресурсов** выберите или создайте группу ресурсов для кэша. За дополнительной информацией обратитесь к разделу [Использование групп ресурсов для управления ресурсами Azure][]. 
+-	В поле поля **Расположение** укажите, где географически будет располагаться ваш кэш. Для оптимальной производительности Майкрософт настоятельно рекомендует размещать кэш в том же регионе, что и клиентское приложение кэша.
+-	Используйте **Уровень цен** для выбора желаемого размера и компонентов кэша.
+-	**Кластер Redis** позволяет создавать кэши размером более 53 ГБ и сегментировать данные по нескольким узлам Redis. Дополнительные сведения см. в статье [Настройка кластеризации для кэша Redis для Azure уровня Премиум](cache-how-to-premium-clustering.md).
+-	**Функция сохраняемости Redis** дает возможность сохранять кэш в учетную запись хранения Azure. Инструкции по настройке сохраняемости см. в разделе [Настройка постоянного хранения для кэша Redis для Azure уровня Премиум](cache-how-to-premium-persistence.md).
+-	**Виртуальная сеть** обеспечивает улучшенную защиту и изоляцию, предоставляя доступ к кэшу только тем клиентам, которые входят в указанную виртуальную сеть Azure. Вы можете использовать все возможности виртуальной сети, например подсети, политики контроля доступа и другие функции, для дальнейшего ограничения доступа к Redis. Дополнительные сведения см. в статье [Настройка поддержки виртуальной сети для кэша Redis для Azure уровня Премиум](cache-how-to-premium-vnet.md).
+-	Чтобы указать учетную запись хранения для метрик кэша, щелкните **Диагностика**. Дополнительные сведения о настройке и просмотре метрик кэша см. в статье [Как отслеживать кэш Redis для Azure](cache-how-to-monitor.md).
 
 После задания настроек нового кэша щелкните **Создать**. Создание кэша может занять несколько минут. Для проверки состояния можно отслеживать прогресс на начальной панели. После создания новый кэш имеет состояние **Работает** и готов для использования со значениями по умолчанию.
 
@@ -108,12 +107,12 @@
 
 -	[Подключение к кэшу][]
 -   [Добавление в кэш объектов и их извлечение][]
--   [Сохранение состояния сеанса ASP.NET в кэше][]
+-   [Работа с объектами .NET в кэше](#work-with-net-objects-in-the-cache)
 
 <a name="connect-to-cache"></a>
 ## Подключение к кэшу
 
-Чтобы программно работать с кэшем, требуется ссылка на кэш. Добавьте следующий код вверху любого файла, из которого будет использоваться клиент StackExchange.Redis для доступа к кэшу Azure Redis.
+Чтобы программно работать с кэшем, требуется ссылка на кэш. Добавьте следующий код вверху любого файла, из которого будет использоваться клиент StackExchange.Redis для доступа к кэшу Redis для Azure.
 
     using StackExchange.Redis;
 
@@ -129,7 +128,22 @@
 
 Если вам не требуется SSL, задайте значение `ssl=false` или пропустите параметр `ssl`.
 
->[AZURE.NOTE]Для новых кэшей не SSL порт по умолчанию запрещен. Дополнительную информацию о подключении без порта SSL см. в разделе «Порты доступа» статьи [Настройка кэша в кэше Redis для Azure][].
+>[AZURE.NOTE]Для новых кэшей не SSL порт по умолчанию запрещен. Инструкции по включению портов, не использующих протокол SSL, см. в разделе [Порты доступа](cache-configure.md#access-ports).
+
+Один из способов совместного использования экземпляра `ConnectionMultiplexer` в приложении таков: нужно иметь статическое свойство, которое возвращает подключенный экземпляр (как в приведенном ниже примере). Это потокобезопасный способ инициализации только одного подключенного экземпляра `ConnectionMultiplexer`. В этих примерах для параметра `abortConnect` задано значение False. Это означает, что вызов завершается успешно, даже если подключение к кэшу Redis для Azure не установлено. Одна из ключевых особенностей `ConnectionMultiplexer` заключается в том, что этот параметр автоматически восстанавливает подключение к кэшу, когда устраняется проблема с сетью или другие проблемы.
+
+	private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+	{
+	    return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
+	});
+	
+	public static ConnectionMultiplexer Connection
+	{
+	    get
+	    {
+	        return lazyConnection.Value;
+	    }
+	}
 
 За дополнительной информацией по вариантам расширенных настроек соединения обратитесь к раз делу [Модель конфигурации StackExchange.Redis][].
 
@@ -139,16 +153,11 @@
 
 ![Управление ключами][ManageKeys]
 
-Создав подключение, верните ссылку на базу данных кэша Redis с помощью метода `ConnectionMultiplexer.GetDatabase`.
+Создав подключение, верните ссылку на базу данных кэша Redis с помощью метода `ConnectionMultiplexer.GetDatabase`. Объект, возвращенный из метода `GetDatabase`, – это упрощенный передаваемый объект, не требующий сохранения.
 
-	// connection refers to a previously configured ConnectionMultiplexer
-	IDatabase cache = connection.GetDatabase();
-
->[AZURE.NOTE]Объект, возвращенный из метода `GetDatabase`, – это упрощенный передаваемый объект, не требующий сохранения.
-
-	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
-
-	IDatabase cache = connection.GetDatabase();
+	// Connection refers to a property that returns a ConnectionMultiplexer
+	// as shown in the previous example.
+	IDatabase cache = Connection.GetDatabase();
 
 	// Perform cache operations using the cache object...
 	// Simple put of integral data types into the cache
@@ -171,9 +180,9 @@
 
 	string value = cache.StringGet("key1");
 
->[AZURE.NOTE]Redis хранит большинство данных в строках Redis, но эти строки могут содержать данные многих типов, включая сериализованные двоичные данные, которые можно использовать при сохранении объектов .NET в кэше.
+Redis хранит большинство данных в строках Redis, но эти строки могут содержать данные многих типов, включая сериализованные двоичные данные, которые можно использовать при сохранении объектов .NET в кэше.
 
-Если объект существует, метод `StringGet` возвращает его; в противном случае возвращается значение «null». В этом случае можно извлечь значение из желаемого источника данных и сохранить его в кэше для последующего использования. Это называется шаблоном "кэш на стороне".
+Если объект существует, вызов метода `StringGet` возвращает его. В противном случае возвращается значение `null`. В этом случае можно извлечь значение из желаемого источника данных и сохранить его в кэше для последующего использования. Это называется шаблоном "кэш на стороне".
 
     string value = cache.StringGet("key1");
     if (value == null)
@@ -185,97 +194,50 @@
         cache.StringSet("key1", value);
     }
 
->[AZURE.NOTE]Кэш Azure Redis может кэшировать объекты .NET, а также несложные типы данных, но прежде чем объект .NET можно будет сохранить, он должен быть сериализован. Это ответственность разработчика приложения, что дает разработчику гибкость в выборе сериализатора. За дополнительной информацией обратитесь к разделу [Работа с объектами .NET в кэше][].
-
-<a name="specify-expiration"></a>
-## Указание срока действия объекта в кэше
-
 Чтобы указать срок действия объекта в кэше, используйте параметр `TimeSpan` метода `StringSet`.
 
 	cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
+## Работа с объектами .NET в кэше
 
-<a name="store-session"></a>
-## Сохранение состояния сеанса ASP.NET в кэше
+Кэш Azure Redis может кэшировать объекты .NET, а также несложные типы данных, но прежде чем объект .NET можно будет сохранить, он должен быть сериализован. Это ответственность разработчика приложения, что дает разработчику гибкость в выборе сериализатора.
 
-Кэш Redis для Azure предоставляет поставщик состояний сеансов, который вы можете использовать для сохранения состояния сеансов в кэше, а не в памяти или базе данных SQL Server. Для использования поставщика состояний сеансов с кэшированием сначала настройте кэш, а затем настройте приложение ASP.NET для использования кэша, используя пакет Redis NuGet для состояний сеансов.
+Простой способ сериализации объектов — использовать методы сериализации `JsonConvert` в [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1) и выполнять сериализацию в нотацию JSON и из нее. В следующем примере показано получение и задание экземпляра объекта `Employee`.
 
-Для настройки клиентского приложения в Visual Studio используйте пакет StackExchange.Redis NuGet: щелкните правой кнопкой мыши **обозреватель решений** и выберите **Управление пакетами NuGet**.
 
-![Управление пакетами NuGet][NuGetMenu]
+	[Serializable]
+	class Employee
+	{
+	    public int Id { get; set; }
+	    public string Name { get; set; }
+	
+	    public Employee(int EmployeeId, string Name)
+	    {
+	        this.Id = EmployeeId;
+	        this.Name = Name;
+	    }
+	}
 
-Введите **RedisSessionStateProvider** в текстовом поле **Поиск в сети**, выберите его из результатов и щелкните **Установить**.
+    // Store to cache
+    cache.StringSet("e25", JsonConvert.SerializeObject(new Employee(25, "Clayton Gragg")));
 
-![Пакет Redis NuGet для состояний сеансов][SessionStateNuGet]
-
-Пакет NuGet загружает и добавляет требуемые ссылки на сборку и добавляет следующий раздел в файл web.config, который содержит требуемые настройки для приложения ASP.NET, позволяющие использовать поставщик состояний сеанса кэша Redis.
-
-    <sessionState mode="Custom" customProvider="MySessionStateStore">
-      <providers>
-        <!--
-          <add name="MySessionStateStore" 
-            host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            throwOnError = "true" [true|false]
-            retryTimeoutInMilliseconds = "0" [number]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-            connectionTimeoutInMilliseconds = "5000" [number]
-            operationTimeoutInMilliseconds = "5000" [number]
-          />
-        -->
-        <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" />
-      </providers>
-    </sessionState>
-
-Раздел с комментариями содержит пример атрибутов и возможные их настройки.
-
-Задайте атрибутам значения из лезвия кэша на портале предварительной версии и укажите другие желаемые величины.
-
-	<sessionState mode="Custom" customProvider="MySessionStateStore">
-      <providers>
-        <!--
-          <add name="MySessionStateStore" 
-            host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            throwOnError = "true" [true|false]
-            retryTimeoutInMilliseconds = "0" [number]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-            connectionTimeoutInMilliseconds = "5000" [number]
-            operationTimeoutInMilliseconds = "5000" [number]
-          />
-        -->
-        <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="contoso5.redis.cache.windows.net" 
-		accessKey="..." ssl="true" />
-      </providers>
-    </sessionState>
-
-Закомментируйте стандартный поставщик состояний сеансов **InProc**.
-
-    <!-- <sessionState mode="InProc" customProvider="DefaultSessionProvider">
-      <providers>
-        <add name="DefaultSessionProvider" type="System.Web.Providers.DefaultSessionStateProvider, System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" connectionStringName="DefaultConnection" />
-      </providers>
-    </sessionState> -->
-
-Дополнительные сведения о настройке этих параметров и использовании поставщика состояний сеансов кэша Redis для Azure см. в статье [Поставщик состояний сеансов Redis для Azure][].
+    // Retrieve from cache
+    Employee e25 = JsonConvert.DeserializeObject<Employee>(cache.StringGet("e25"));
 
 <a name="next-steps"></a>
 ## Дальнейшие действия
 
-После изучения основ кэша Redis для Azure просмотрите следующие ссылки, чтобы ознакомиться с тем, как выполнять более сложные задачи по кэшированию.
+Теперь, когда вы ознакомились с основными сведениями, используйте следующие ссылки для получения дополнительных сведений о кэше Redis для Azure.
 
--	[Включите диагностику кэша](cache-how-to-monitor.md#enable-cache-diagnostics), чтобы можно было наблюдать за его работоспособностью. Вы можете просматривать метрики на портале предварительной версии. Кроме того, вы можете [скачивать и изучать](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) их с помощью необходимых вам средств.
+-	Ознакомьтесь с информацией о поставщиках ASP.NET для кэша Redis для Azure.
+	-	[Поставщик состояний сеансов Redis для Azure](cache-asp.net-session-state-provider.md)
+	-	[Поставщик кэша вывода ASP.NET для кэша Redis для Azure](cache-asp.net-output-cache-provider.md)
+-	[Включите диагностику кэша](cache-how-to-monitor.md#enable-cache-diagnostics), чтобы можно было [наблюдать](cache-how-to-monitor.md) за работоспособностью кэша. Вы можете просматривать метрики на портале предварительной версии, а также [скачивать и изучать](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) их с помощью удобных для вас средств.
 -	Ознакомьтесь с [документацией по клиенту кэша StackExchange.Redis][].
 	-	Доступ к кэшу Redis для Azure можно получить из многих клиентов Redis и языков разработки. Дополнительные сведения см. в статьях [http://redis.io/clients][] и [Разработка на других языках для кэша Redis для Azure][].
 	-	Кэш Redis для Azure может также использоваться со службами, такими как Redsmin. Дополнительные сведения см. в статье [Получение строки подключения Redis для Azure и ее использование с Redsmin][].
 -	См. документацию по [redis][]\: прочитайте [статью о типах данных redis][] и [пятнадцатиминутное введение в типы данных Redis][].
--   См. справочник MSDN по [кэшу Redis для Azure][]. 
+
 
 
 <!-- INTRA-TOPIC LINKS -->
@@ -294,7 +256,7 @@
 [Подключение к кэшу]: #connect-to-cache
 [Добавление в кэш объектов и их извлечение]: #add-object
 [Specify the expiration of an object in the cache]: #specify-expiration
-[Сохранение состояния сеанса ASP.NET в кэше]: #store-session
+[Store ASP.NET session state in the cache]: #store-session
 
   
 <!-- IMAGES -->
@@ -326,7 +288,7 @@
 [http://redis.io/clients]: http://redis.io/clients
 [Разработка на других языках для кэша Redis для Azure]: http://msdn.microsoft.com/library/azure/dn690470.aspx
 [Получение строки подключения Redis для Azure и ее использование с Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
-[Поставщик состояний сеансов Redis для Azure]: http://go.microsoft.com/fwlink/?LinkId=398249
+[Azure Redis Session State Provider]: http://go.microsoft.com/fwlink/?LinkId=398249
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
@@ -339,19 +301,19 @@
 [Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
 [How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
 [How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
-[Настройка кэша в кэше Redis для Azure]: http://msdn.microsoft.com/library/azure/dn793612.aspx
+[Configure a cache in Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn793612.aspx
 
 [Модель конфигурации StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
 
-[Работа с объектами .NET в кэше]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
+[Work with .NET objects in the cache]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
 
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Сведения о ценах — кэш]: http://www.windowsazure.com/pricing/details/cache/
+[Кэш Redis. Цены]: http://www.windowsazure.com/pricing/details/cache/
 [портал предварительной версии Azure]: https://portal.azure.com/
 
-[Обзор кэша Azure Redis]: http://go.microsoft.com/fwlink/?LinkId=320830
-[кэшу Redis для Azure]: http://go.microsoft.com/fwlink/?LinkId=398247
+[Overview of Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
+[Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
 
 [Migrate to Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=317347
 [Azure Redis Cache Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
@@ -369,4 +331,4 @@
 
 [Бесплатная пробная версия Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

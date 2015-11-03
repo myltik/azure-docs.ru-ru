@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/05/2015"
+   	ms.date="10/23/2015"
    	ms.author="nitinme"/>
 
 # Учебник по Hadoop: приступая к работе с Hadoop с Hive в HDInsight на платформе Linux
@@ -101,6 +101,10 @@
 8. Щелкните **Ценовые категории узла**, чтобы отобразить сведения об узлах, которые будут созданы для этого кластера. Задайте количество рабочих узлов, необходимых для кластера. Оценочная стоимость кластера отобразится в колонке.
 
 	![Колонка "Ценовые категории узла"](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.5.png "Укажите количество узлов кластера")
+    
+    > [AZURE.IMPORTANT]Если вы планируете использовать более 32 рабочих узлов (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
+    >
+    > Дополнительные сведения о размерах узлов и связанных затратах см. в статье [Сведения о ценах на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 	Нажмите **Выбрать**, чтобы сохранить конфигурацию цен узла.
 
@@ -110,7 +114,7 @@
 ------------------|---------------------
 	![Индикатор подготовки на начальной панели](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioning.png)|![Плитка подготовки кластера](./media/hdinsight-hadoop-linux-tutorial-get-started/provisioned.png)
 
-> [AZURE.NOTE]Обычно создание кластера занимает около 15 минут. Отслеживать процесс подготовки можно с помощью элемента на начальной панели или записи **Уведомления** в левой части страницы.
+> [AZURE.NOTE]Обычно создание кластера занимает около 15 минут. С помощью элемента на начальной панели или записи **Уведомления** в левой части страницы можно отслеживать процесс подготовки к работе.
 
 После завершения подготовки щелкните плитку кластера на начальной панели, чтобы открыть колонку кластера.
 
@@ -135,7 +139,7 @@
 
 ###Подключение компьютера под управлением Windows
 
-1. Скачайте [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) для клиентов Windows.
+1. Загрузите [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) для клиентов Windows.
 
 2. Откройте PuTTY. В разделе **Категория** щелкните **Сеанс**. На экране **Основные параметры вашего сеанса PuTTY** в поле **Имя узла (или IP-адрес)** введите адрес SSH своего сервера HDInsight. Адрес SSH — это имя кластера с добавленным в конце суффиксом **-ssh.azurehdinsight.net**. Например, **myhdinsightcluster-ssh.azurehdinsight.net**.
 
@@ -282,4 +286,4 @@
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

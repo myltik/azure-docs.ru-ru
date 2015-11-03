@@ -514,4 +514,4 @@ Push-уведомления обычно отправляются в серве�
 [Компонент клиента Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Компонент обмена сообщениями в Azure]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->
