@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Изучение Node.js — учебник по использованию DocumentDB с Node.js | Microsoft Azure" 
 	description="Учите Node.js! В этом учебнике описывается использование Microsoft Azure DocumentDB для хранения данных и доступа к ним из веб-приложения Node.js Express, размещенного на веб-сайтах Azure." 
-	keywords="Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure"
+	keywords="Разработка приложений, учебник по базе данных, изучение node.js, учебник по node.js, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="nodejs" 
 	authors="ryancrawcour" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="07/24/2015" 
+	ms.date="10/20/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Создание веб-приложения Node.js с использованием DocumentDB
@@ -40,7 +40,7 @@
 
 ![Снимок экрана приложения "Мой список дел", созданного с помощью этого учебника](./media/documentdb-nodejs-application/image1.png)
 
-Нет времени на изучение учебника, и вы просто хотите получить готовое решение? Хорошо, вы можете получить полный пример решения на сайте [GitHub][].
+Нет времени на изучение учебника, и вы просто хотите получить готовое решение? Это не проблема. Вы можете получить полный пример решения на сайте [GitHub][].
 
 ## <a name="_Toc395783176"></a>Предварительные требования
 
@@ -61,7 +61,7 @@
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="_Toc395783178"></a>Шаг 2. Создание нового приложения Node.js
+## <a name="_Toc395783178"></a>Шаг 2. Создание нового приложения Node.js
 
 Теперь создадим базовый проект Node.js «Привет, мир!» с помощью платформы [Express](http://expressjs.com/).
 
@@ -562,11 +562,11 @@
 
 Исходный код полного справочного приложения можно загрузить на сайте [GitHub][].
 
-Дополнительные сведения см. в [Центре разработчика Node.js](/develop/nodejs/).
+Дополнительную информацию см. в [Центре разработчика Node.js](/develop/nodejs/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

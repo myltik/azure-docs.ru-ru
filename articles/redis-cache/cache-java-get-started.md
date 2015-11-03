@@ -13,10 +13,16 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="10/05/2015"
+	ms.date="10/23/2015"
 	ms.author="sdanie"/>
 
 # Использование кэша Redis для Azure с Java
+
+> [AZURE.SELECTOR]
+- [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [Node.js](cache-nodejs-get-started.md)
+- [Java](cache-java-get-started.md)
+- [Python](cache-python-get-started.md)
 
 Кэш Redis для Azure дает доступ к выделенному кэшу Redis, управляемому Майкрософт. Кэш доступен из любого приложения в Microsoft Azure.
 
@@ -32,7 +38,7 @@
 
 ## Создание кэша Redis в Azure
 
-На [портале предварительной версии Azure](http://go.microsoft.com/fwlink/?LinkId=398536) щелкните **Создать**, **Данные + хранилище** и выберите **Кэш Redis**.
+На [портале предварительной версии Azure](http://go.microsoft.com/fwlink/?LinkId=398536) щелкните **Создать**, **Данные+хранилище** и выберите **Кэш Redis**.
 
   ![][1]
 
@@ -49,7 +55,7 @@
 ## Включение конечной точки без SSL
 
 
-Щелкните ссылку в разделе **Порты** и нажмите кнопку **Нет** для параметра "Разрешить доступ только через SSL". Это включит для кэша порт без SSL. Клиент Jedis в настоящее время не поддерживает SSL.
+Щелкните ссылку в разделе **Порты** и нажмите кнопку **Нет** для параметра «Разрешить доступ только через SSL». Это включит для кэша порт без SSL. Клиент Jedis в настоящее время не поддерживает SSL.
 
   ![][3]
 
@@ -87,4 +93,4 @@
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

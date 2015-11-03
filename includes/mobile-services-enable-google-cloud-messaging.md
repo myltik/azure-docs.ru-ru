@@ -17,19 +17,21 @@
 
 	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 
-5. Щелкните элемент **Credentials** (Учетные данные), а затем — элементы **Add credentials** (Добавить учетные данные) и **API key** (Ключ API).
+5. Щелкните **Credentials** (Учетные данные), а затем последовательно выберите **Add Credential** (Добавить учетные данные) и **API Key** (Ключ API).
+
 
    	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key.png)
 
 6. В окне **Create a new key** (Создание нового ключа) щелкните **Server key** (Ключ сервера). В следующем окне щелкните элемент **Create** (Создать).
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2.png)
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key5.png)
 
-   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key2-2.png)
 
+   	![](./media/notification-hubs-android-get-started/mobile-services-google-create-server-key6.png)
 
 7. Запишите значение **API KEY** (Ключ API).
 
+
 	Этот ключ API службы Azure будут использовать для аутентификации в службе GCM и отправки push-уведомлений от имени вашего приложения.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

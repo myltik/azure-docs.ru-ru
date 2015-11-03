@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.date="10/27/2015"
 	ms.author="sdanie"/>
 
 # Защита API путем ограничения скорости с помощью управления API Azure
@@ -292,4 +292,4 @@
 [Ограничить скорость вызова]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Задать квоту использования]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

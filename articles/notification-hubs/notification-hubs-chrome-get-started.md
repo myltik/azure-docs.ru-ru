@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-chrome"
 	ms.devlang="JavaScript"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="10/20/2015"
 	ms.author="wesmc"/>
 
 # Приступая к работе с Центрами уведомлений для приложений Chrome
@@ -407,13 +407,13 @@
 
 3. В окне консоли выполните следующую команду:
 
-        Install-Package WindowsAzure.ServiceBus
+        Install-Package Microsoft.Azure.NotificationHubs
 
    	В результате будет добавлена ссылка на пакет Azure Service Bus SDK с помощью <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">пакета WindowsAzure.ServiceBus NuGet</a>.
 
 4. Откройте файл **Program.cs** и добавьте такой оператор `using`:
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 5. Добавьте в класс **Program** следующий метод:
 
@@ -484,4 +484,4 @@
 [Уведомление пользователей посредством центров уведомлений]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

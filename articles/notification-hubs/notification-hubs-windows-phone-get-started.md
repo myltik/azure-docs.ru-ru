@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/21/2015"
+	ms.date="10/23/2015"
 	ms.author="wesmc"/>
 
 # Приступая к работе с Центрами уведомлений для Windows Phone
@@ -51,8 +51,7 @@
 
 Концентратор будет создан и настроен для отправки уведомлений без проверки подлинности для Windows Phone.
 
-> [AZURE.NOTE]В этом учебнике используется MPNS в режиме без проверки подлинности. Режим MPNS без проверки подлинности налагает ограничения на использование уведомлений, отправляемых для каждого канала. Центры уведомлений поддерживают [режим работы MPNS с проверкой подлинности]http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx).
-<!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
+> [AZURE.NOTE]В этом учебнике используется MPNS в режиме без проверки подлинности. Режим MPNS без проверки подлинности налагает ограничения на использование уведомлений, отправляемых для каждого канала. Центры уведомлений поддерживают [Режим работы MPNS с проверкой подлинности](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx), позволяя отправить ваш сертификат.
 
 ##Подключение приложения к центру уведомлений
 
@@ -119,7 +118,7 @@
 
 	При этом в решение добавляется новое консольное приложение Visual C#. Это можно сделать также и в отдельном решении.
 
-4. Щелкните правой кнопкой мыши, последовательно выберите **Сервис**, **Диспетчер пакетов библиотеки**, а затем — **Консоль диспетчера пакетов**.
+4. Щелкните **Сервис**, **Диспетчер пакетов библиотеки**, а затем — **Консоль диспетчера пакетов**.
 
 	Отобразится консоль диспетчера пакетов.
 
@@ -199,4 +198,4 @@
 [каталоге уведомлений на плитке]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->
