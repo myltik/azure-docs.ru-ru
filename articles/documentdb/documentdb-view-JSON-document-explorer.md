@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/09/2015"
+	ms.date="10/26/2015"
 	ms.author="anhoh"/>
 
 # Просмотр, изменение, создание и отправка документов JSON с помощью обозревателя документов DocumentDB #
@@ -141,7 +141,8 @@
 ##<a name="NextSteps"></a>Дальнейшие действия
 
 - Для получения дополнительных сведений о DocumentDB щелкните [здесь](http://azure.com/docdb).
+- Чтобы приступить к работе с кодом, щелкните [здесь](documentdb-get-started.md).
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

@@ -38,7 +38,7 @@
 
 2. Выберите пункты **Создать** > **Данные + хранилище** > **Хранилище данных SQL**.
 
-	![Создание хранилища данных](./media/sql-data-warehouse-get-started-provision/new-data-warehouse.png)
+    ![Создание](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 
 1. Введите имя базы данных в колонке хранилища данных SQL. В этом примере мы назовем базу данных AdventureWorksDW.
 
@@ -128,4 +128,4 @@
 
 Теперь, когда создан пример базы данных для хранилища данных SQL, вы можете [подключиться](./sql-data-warehouse-get-started-connect.md) к этой базе данных.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

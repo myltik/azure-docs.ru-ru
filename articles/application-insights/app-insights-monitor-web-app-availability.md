@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/13/2015"
+	ms.date="10/21/2015"
 	ms.author="awills"/>
 
 # Наблюдение за доступностью и скоростью реагирования веб-сайта
@@ -21,7 +21,7 @@
 
 ![Пример веб-теста](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-Веб-тесты можно настроить для любой конечной точки HTTP, достижимой из общедоступного Интернета.
+Вы можете настроить веб-тесты для любой конечной точки HTTP или HTTPS, доступной из Интернета.
 
 Существует два типа веб-тестов:
 
@@ -246,4 +246,4 @@
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->
