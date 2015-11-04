@@ -63,6 +63,8 @@
 ||Задания|Настройка (устройство)|| 
 ||Оповещения|Обслуживание||
 
+![Доступно видео](./media/storsimple-manager-service-administration/Video_icon.png) **Доступно видео**
+
 Для просмотра видео с обзором пользовательского интерфейса службы диспетчера StorSimple щелкните [здесь](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/).
 
 ## Администрирование устройства StorSimple с помощью службы диспетчера StorSimple
@@ -117,4 +119,4 @@
 
 -  [Обращение в службу поддержки Майкрософт](storsimple-contact-microsoft-support.md).
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->
