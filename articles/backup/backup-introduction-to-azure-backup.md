@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor="tysonn"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "trinadhk"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/01/2015"
+	ms.author="aashishr"; "trinadhk"; "jimpark"/>
 
 # Общие сведения о службе архивации Azure
 В этой статье приводится краткий обзор решения Майкрософт для резервного копирования с использованием облачных технологий, которое позволяет клиентам выполнять резервное копирование данных, хранящихся локально или в Azure.
@@ -62,7 +69,8 @@
 | Microsoft SQL Server | Windows Server | [System Center DPM](backup-azure-backup-sql.md) |
 | Microsoft SharePoint | Windows Server | [System Center DPM](backup-azure-backup-sharepoint.md) |
 | Microsoft Exchange | Windows Server | System Center DPM |
-| Виртуальные машины IaaS Azure (Windows)| - | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) | | Виртуальные машины IaaS Azure (Linux) | - | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
+| Виртуальные машины IaaS Azure (Windows)| - | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
+| Виртуальные машины IaaS Azure (Linux) | - | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
 
 
 ## Дальнейшие действия
@@ -70,4 +78,4 @@
 - Часто задаваемые вопросы о службе архивации Azure можно найти [здесь](backup-azure-backup-faq.md).
 - Посетите [форум о службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
