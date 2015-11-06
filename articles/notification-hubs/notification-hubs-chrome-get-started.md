@@ -489,11 +489,11 @@
 [образце использования службы GCM для приложения Chrome]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Устанавливаемые веб-приложения]: https://developers.google.com/chrome/apps/docs/
 [Приложения Chrome на мобильных устройствах]: https://developer.chrome.com/apps/chrome_apps_on_mobile
-[Создание REST API концентратора уведомлений для регистрации]: http://msdn.microsoft.com/library/azure/dn223265.aspx
+[Создание регистрации NH REST API]: http://msdn.microsoft.com/library/azure/dn223265.aspx
 [библиотеки crypto-js]: http://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging для Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
 [Уведомление пользователей посредством центров уведомлений]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->
