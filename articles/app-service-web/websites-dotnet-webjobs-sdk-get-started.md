@@ -466,7 +466,7 @@
 	- *Global.asax.cs*  
 	- В папку *Controllers*: *AdController.cs*
 	- В папку *Views\\Shared*: файл *\_Layout.cshtml*
-- В папку *Views\\Home*: файл *Index.cshtml*
+	- В папку *Views\\Home*: файл *Index.cshtml*
 	- В папку *Views\\Ad* (сначала создайте эту папку): пять файлов *.cshtml*<br/><br/>
 
 3. В проекте ContosoAdsWebJob добавьте следующие файлы из скачанного проекта.
@@ -813,4 +813,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 Дополнительные сведения см. в разделе [Документация по веб-заданиям Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->
