@@ -105,7 +105,7 @@ Mahout — это библиотека [машинного обучения][ml]
             -Container $container `
             -Context $context
     
-    Она передает файл __u.data__ в каталог __example/data/u.data__ в хранилище по умолчанию вашего кластера. Теперь получить доступ к этим данным можно будет с помощью универсального кода ресурса (URI) \_\___wasb:///example/data/u.data__ из заданий HDInsight.
+    Она передает файл __u.data__ в каталог __example/data/u.data__ в хранилище по умолчанию вашего кластера. Теперь получить доступ к этим данным можно будет с помощью универсального кода ресурса (URI) __wasb:///example/data/u.data__ из заданий HDInsight.
 
 ###Выполнение задания
 
@@ -379,7 +379,7 @@ Mahout — это библиотека [машинного обучения][ml]
 
 		hadoop jar c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasb:///example/data/KDDTrain+.arff -ds wasb:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
 
-    Ее выходные данные сохраняются в каталоге __nsl-forest__, который расположен в хранилище для вашего кластера HDInsight по адресу \_\___wasb://user/&lt;username>/nsl-forest/nsl-forest.seq. &lt;username> — это имя пользователя, которое используется для сеанса удаленного рабочего стола. Этот файл имеет машиночитаемый формат.
+    Ее выходные данные сохраняются в каталоге __nsl-forest__, который расположен в хранилище для вашего кластера HDInsight по адресу __wasb://user/&lt;username>/nsl-forest/nsl-forest.seq. &lt;username> — это имя пользователя, которое используется для сеанса удаленного рабочего стола. Этот файл имеет машиночитаемый формат.
 
 5. Протестируйте лес путем классификации набора данных __KDDTest+.arff__. Используйте следующую команду:
 
@@ -411,7 +411,7 @@ Mahout — это библиотека [машинного обучения][ml]
 	    Reliability                                53.4921%
 	    Reliability (standard deviation)            0.4933
 
-  Это задание также создает файл, расположенный в \_\___wasb:///example/data/predictions/KDDTest+.arff.out__. Однако этот файл имеет машиночитаемый формат.
+  Это задание также создает файл, расположенный в __wasb:///example/data/predictions/KDDTest+.arff.out__. Однако этот файл имеет машиночитаемый формат.
 
 > [AZURE.NOTE]Задания Mahout не перезаписывают существующие файлы. Если вы хотите заново запустить эти задания, то нужно удалить файлы, созданные предыдущими заданиями.
 
@@ -434,7 +434,7 @@ Mahout устанавливается на кластерах HDInsight верс
 
     	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
+    	> [AZURE.NOTE] После выпуска Mahout 1.0 появится возможность использовать встроенные пакеты с HDInsight 3.0.
 
 2. Загрузите файл jar в каталог __example/jars__ в хранилище по умолчанию для вашего кластера. Замените CLUSTERNAME в следующем сценарии на имя кластера HDInsight, а FILENAME замените на путь к файлу __mahout-coure-0.9-job.jar__.
 
@@ -520,4 +520,4 @@ Mahout устанавливается на кластерах HDInsight верс
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=Oct15_HO4-->
+<!----HONumber=Oct15_HO4-->
