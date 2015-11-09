@@ -87,8 +87,7 @@
 * `ClientIpHeaderTelemetryInitializer` обновляет свойство `Ip` контекста `Location` всех элементов телеметрии в соответствии с HTTP-заголовком запроса `X-Forwarded-For`.
 * `UserAgentTelemetryInitializer` обновляет свойство `UserAgent` контекста `User` всех элементов телеметрии в соответствии с HTTP-заголовком запроса `User-Agent`.
 * `OperationNameTelemetryInitializer`обновляет свойство `Name` контекста `RequestTelemetry` и свойство `Name` контекста `Operation` всех элементов телеметрии в соответствии с методом HTTP, а также именами MVC-контроллера ASP.NET и действием, вызываемым для обработки запроса.
-* `OperationNameTelemetryInitializer` обновляет свойство Operation.Id` context property of all telemetry items tracked while 
-handling a request with the automatically generated `RequestTelemetry.Id.
+* `OperationNameTelemetryInitializer` обновляет свойство контекста `Operation.Id` всех элементов телеметрии, отслеживаемых при обработке запроса с автоматически сформированным `RequestTelemetry.Id`.
 * `UserTelemetryInitializer` обновляет свойства `Id` и `AcquisitionDate` контекста `User` для всех элементов телеметрии со значениями, извлеченными из файла cookie `ai_user`, созданного JavaScript-кодом инструментирования Application Insights, который выполняется в браузере пользователя.
 * `SessionTelemetryInitializer` обновляет свойство `Id` контекста `Session` для всех элементов телеметрии со значениями, извлеченными из файла cookie `ai_session`, созданного JavaScript-кодом инструментирования Application Insights, который выполняется в браузере пользователя. 
 * `AzureRoleEnvironmentTelemetryInitializer` обновляет свойства `RoleName` и `RoleInstance` контекста `Device` для всех элементов телеметрии с учетом данных, извлеченных из среды выполнения Azure.

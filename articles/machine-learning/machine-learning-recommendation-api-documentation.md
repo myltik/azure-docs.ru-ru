@@ -88,7 +88,10 @@
 
 |	Имя параметра |	Допустимые значения |
 |:--------			|:--------								|
-|	modelName |	Допускаются только буквы (A–Z, a–z), цифры (0–9), дефисы (-) и символы подчеркивания (\_).<br>Максимальная длина: 20. || apiVersion | 1.0 | ||| | Текст запроса | НЕТ |
+|	modelName |	Допускаются только буквы (A–Z, a–z), цифры (0–9), дефисы (-) и символы подчеркивания (\_).<br>Максимальная длина: 20. |
+| apiVersion | 1.0 | 
+||| 
+| Текст запроса | НЕТ |
 
 
 **Ответ**.
@@ -138,7 +141,8 @@ OData XML
 |:--------			|:--------								|
 |	id |	Уникальный идентификатор модели (с учетом регистра) |
 |	apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ**.
 
@@ -200,7 +204,8 @@ OData XML
 |	Имя параметра |	Допустимые значения |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ**.
 
@@ -268,7 +273,8 @@ OData XML
 |:--------			|:--------								|
 |	id | Уникальный идентификатор модели (с учетом регистра) |
 |	apiVersion | 1\.0 |
-||| | Текст запроса | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Обратите внимание на то, что XML-теги Description и ActiveBuildId необязательны. Если вы не хотите задавать Description или ActiveBuildId, удалите весь тег.|
+||| 
+| Текст запроса | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Обратите внимание на то, что XML-теги Description и ActiveBuildId необязательны. Если вы не хотите задавать Description или ActiveBuildId, удалите весь тег.|
 
 **Ответ**:
 
@@ -285,7 +291,8 @@ OData XML
 |:--------			|:--------								|
 |	id |	Уникальный идентификатор модели (с учетом регистра) |
 |	apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ**.
 
@@ -328,7 +335,8 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	Уникальный идентификатор модели |
 |	apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ**.
 
@@ -564,7 +572,8 @@ OData XML
 |	modelId |	Уникальный идентификатор модели |
 |	buildId |	Необязательно — число, которое обозначает успешную сборку. |
 |	apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ**.
 
@@ -643,7 +652,8 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	Уникальный идентификатор модели |
 |	apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ**.
 
@@ -796,7 +806,8 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 |:--------			|:--------								|
 |	modelId |	Уникальный идентификатор модели |
 |	apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ**.
 
@@ -853,7 +864,8 @@ OData XML
 |	Имя параметра |	Допустимые значения |
 |:--------			|:--------								|
 |	apiVersion | 1\.0 |
-||| | Текст запроса | <ins>Всякий раз, когда для бизнес-правил указывается идентификатор элемента, обязательно используйте внешний идентификатор этого элемента (используемый в файле каталога)</ins><br> <ins>Для добавления правила BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Для добавления правила Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Для добавления правила WhiteList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>Для добавления правила PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+||| 
+| Текст запроса | <ins>Для добавления правила BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Для добавления правила Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>Для добавления правила WhiteList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>Для добавления правила PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 **Ответ**.
 
@@ -900,7 +912,8 @@ OData XML
 |	modelId |	Уникальный идентификатор модели |
 |	filterId |	Уникальный идентификатор фильтра |
 |	apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ**.
 
@@ -916,7 +929,8 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	Уникальный идентификатор модели |
 |	apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ**.
 
@@ -940,7 +954,11 @@ OData XML
 
 | Имя | Обязательно | Тип | Описание |
 |:---|:---|:---|:---|
-| Идентификатор элемента |Да | [A–z], [a–z], [0–9], [\_] &#40;символ подчеркивания&#41;, [-] &#40;тире&#41;.<br> Максимальная длина: 50. | Уникальный идентификатор элемента. | | Имя элемента | Да | Любые алфавитно-цифровые знаки <br> Максимальная длина: 255. | Имя элемента. | | Категория элемента | Да | Любые алфавитно-цифровые знаки <br> Максимальная длина: 255. | Категория, к которой принадлежит этот элемент (например, кулинарные книги, драма и пр.); может отсутствовать. | | Описание | Нет, если только не присутствуют компоненты (но может отсутствовать). | Любые алфавитно-цифровые знаки <br> Максимальная длина: 4000. | Описание этого элемента. | | Список функций | Нет | Любые алфавитно-цифровые знаки <br> Максимальная длина: 4000. | Разделенный запятыми список значений компонента типа «имя=функция», может использоваться для улучшения рекомендаций модели. См. раздел [Дополнительные разделы](#2-advanced-topics). |
+| Идентификатор элемента |Да | [A–z], [a–z], [0–9], [\_] &#40;символ подчеркивания&#41;, [-] &#40;тире&#41;.<br> Максимальная длина: 50. | Уникальный идентификатор элемента. | 
+| Имя элемента | Да | Любые алфавитно-цифровые знаки<br> Максимальная длина: 255. | Имя элемента. | 
+| Категория элемента | Да | Любые алфавитно-цифровые знаки<br> Максимальная длина: 255. | Категория, к которой принадлежит этот элемент (например, кулинарные книги, драма…); может быть пустой. | 
+| Описание | Нет, если только не присутствуют компоненты (но может быть пустым). | Любые алфавитно-цифровые знаки<br> Максимальная длина: 4000. | Описание этого элемента. | 
+| Список функций | Не | Любые алфавитно-цифровые знаки<br> Максимальная длина: 4000. | Разделенный запятыми список значений «имя=функция» компонента, может использоваться для улучшения рекомендаций модели. См. [Дополнительные разделы](#2-advanced-topics). |
 
 
 | Метод HTTP | URI |
@@ -951,7 +969,10 @@ OData XML
 |	Имя параметра |	Допустимые значения |
 |:--------			|:--------								|
 |	modelId |	Уникальный идентификатор модели |
-| filename | Текстовый идентификатор каталога.<br>Допускаются только буквы (A–Z, a–z), цифры (0–9), дефисы (-) и символы подчеркивания (\_).<br>Максимальная длина: 50. | | apiVersion | 1.0 | ||| | Текст запроса | Пример (с компонентами):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+| filename | Текстовый идентификатор каталога.<br>Допускаются только буквы (A–Z, a–z), цифры (0–9), дефисы (-) и символы подчеркивания (\_).<br>Максимальная длина: 50. | 
+| apiVersion | 1.0 | 
+||| 
+| Текст запроса | Пример (с компонентами):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
 **Ответ**.
@@ -994,7 +1015,8 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	Уникальный идентификатор модели |
 |	apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ**.
 
@@ -1096,7 +1118,8 @@ OData XML
 |	modelId |	Уникальный идентификатор модели |
 |	token |	Токен имени элемента каталога. Должен содержать не менее трех символов. |
 |	apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ**.
 
@@ -1150,7 +1173,10 @@ OData XML
 |	Имя параметра |	Допустимые значения |
 |:--------			|:--------								|
 |	modelId |	Уникальный идентификатор модели |
-| filename | Текстовый идентификатор каталога.<br>Допускаются только буквы (A–Z, a–z), цифры (0–9), дефисы (-) и символы подчеркивания (_).<br>Максимальная длина: 50. | | apiVersion | 1.0 | ||| | Текст запроса | Данные об использовании. Формат:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Имя</th><th>Обязательный</th><th>Тип</th><th>Описание</th></tr><tr><td>Идентификатор пользователя</td><td>Да</td><td>[A–z], [a–z], [0–9], [_] &#40;символ подчеркивания&#41;, [-] &#40;дефис&#41;<br> Максимальная длина: 255.</td><td> Уникальный идентификатор пользователя.</td></tr><tr><td>Идентификатор элемента</td><td>Да</td><td>[A–z], [a–z], [0–9], [&#95;] &#40;символ подчеркивания&#41;, [-] &#40;дефис&#41;<br> Максимальная длина: 50.</td><td>Уникальный идентификатор элемента.</td></tr><tr><td>Время</td><td>Нет</td><td>Дата в формате: ГГГГ/ММ/ДДTЧЧ:ММ:СС (например, 2013/06/20T10:00:00).</td><td>Время данных.</td></tr><tr><td>Событие</td><td>Нет. Если этот параметр указан, необходимо также указать дату.</td><td>Одно из следующих значений:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Максимальный размер файла: 200 МБ.<br><br>Пример:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| filename | Текстовый идентификатор каталога.<br>Допустимы только буквы (A–Z, a–z), цифры (0–9), дефисы (-) и символы подчеркивания (_).<br>Максимальная длина: 50. | 
+| apiVersion | 1.0 | 
+||| 
+| Текст запроса | Данные об использовании. Формат:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Имя</th><th>Обязательный</th><th>Тип</th><th>Описание</th></tr><tr><td>Идентификатор пользователя</td><td>Да</td><td>[A–z], [a–z], [0–9], [_] &#40;символ подчеркивания&#41;, [-] &#40;дефис&#41;<br> Максимальная длина: 255.</td><td> Уникальный идентификатор пользователя.</td></tr><tr><td>Идентификатор элемента</td><td>Да</td><td>[A–z], [a–z], [0–9], [&#95;] &#40;символ подчеркивания&#41;, [-] &#40;дефис&#41;<br> Максимальная длина: 50.</td><td>Уникальный идентификатор элемента.</td></tr><tr><td>Время</td><td>Нет</td><td>Дата в формате: ГГГГ/ММ/ДДTЧЧ:ММ:СС (например, 2013/06/20T10:00:00).</td><td>Время данных.</td></tr><tr><td>Событие</td><td>Нет. Если этот параметр указан, необходимо также указать дату.</td><td>Одно из следующих значений:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Максимальный размер файла: 200 МБ.<br><br>Пример:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Ответ**.
 
@@ -1286,7 +1312,8 @@ OData XML
 |:--------			|:--------								|
 |	forModelId |	Уникальный идентификатор модели |
 |	apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ**.
 
@@ -1352,7 +1379,8 @@ OData XML
 | endDate |	Дата окончания. Формат: гггг/ММ/ддТЧЧ:мм:сс |
 | eventTypes |	Строка разделенных запятыми типов событий или null для получения всех событий. |
 | apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ**.
 
@@ -1434,7 +1462,8 @@ OData XML
 | modelId |	Уникальный идентификатор модели |
 | fileId |	Уникальный идентификатор файла использования модели. |
 | apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ**.
 
@@ -1456,7 +1485,8 @@ OData XML
 | fid |	Уникальный идентификатор файла использования модели. |
 | загрузить | 1 |
 | apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ**.
 
@@ -1476,7 +1506,8 @@ OData XML
 | modelId |	Уникальный идентификатор модели |
 | fileId | Уникальный идентификатор файла, который нужно удалить |
 | apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ**.
 
@@ -1494,7 +1525,8 @@ OData XML
 |:--------			|:--------								|
 | modelId |	Уникальный идентификатор модели |
 | apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ**.
 
@@ -1515,7 +1547,8 @@ OData XML
 | modelId |	Уникальный идентификатор модели |
 |samplingSize| Количество значений, которое нужно включить для каждой характеристики в соответствии с данными в каталоге. <br/>Возможные значения:<br> –1 — все образцы; <br>0 — ни одного образца; <br>N — возвращается N образцов для каждой характеристики.|
 | apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 
 **Ответ**.
@@ -1597,7 +1630,8 @@ OData XML
 |samplingSize| Количество значений, которое нужно включить для каждой характеристики в соответствии с данными в каталоге.<br/> Возможные значения:<br> –1 — все образцы; <br>0 — ни одного образца; <br>N — возвращается N образцов для каждой характеристики.|
 |rankBuildId| Уникальный идентификатор сборки рейтинга или –1 для последней сборки|
 | apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 
 **Ответ**.
@@ -1746,7 +1780,8 @@ OData
 | modelId |	Уникальный идентификатор модели |
 | userDescription | Текстовый идентификатор каталога. Обратите внимание: при использовании пробелов их необходимо заменить сочетанием символов %20 См. пример выше.<br>Максимальная длина: 50 |
 | apiVersion | 1\.0 |
-||| | Текст запроса | Если оставить это поле пустым, сборка будет выполняться с параметрами по умолчанию.<br><br>Если требуется задать параметры сборки, отправьте параметры в формате XML в текст запроса, как в примере ниже. (Описание параметров см. в разделе "Параметры сборки".)`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
+||| 
+| Текст запроса | Если оставить это поле пустым, сборка будет выполняться с параметрами по умолчанию.<br><br>Если требуется задать параметры сборки, отправьте параметры в формате XML в текст запроса, как в примере ниже. (Описание параметров см. в разделе "Параметры сборки".)`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **Ответ**:
 
@@ -1821,7 +1856,8 @@ OData XML
 | userDescription | Текстовый идентификатор каталога. Обратите внимание: при использовании пробелов их необходимо заменить сочетанием символов %20 См. пример выше.<br>Максимальная длина: 50 |
 | buildType | Тип вызываемой сборки: <br/> – Recommendation — для сборки рекомендаций; <br> – Ranking — для сборки рейтингов; <br/> – Fbt — для сборки FBT.
 | apiVersion | 1\.0 |
-||| | Текст запроса | Если оставить это поле пустым, сборка будет выполняться с параметрами по умолчанию.<br><br>Если требуется задать параметры сборки, отправьте их в формате XML в текст запроса, как в примере ниже. (Описание и полный список параметров см. в разделе "Параметры сборки".)`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
+||| 
+| Текст запроса | Если оставить это поле пустым, сборка будет выполняться с параметрами по умолчанию.<br><br>Если требуется задать параметры сборки, отправьте их в формате XML в текст запроса, как в примере ниже. (Описание и полный список параметров см. в разделе "Параметры сборки".)`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **Ответ**.
 
@@ -2785,7 +2821,8 @@ OData XML
 |:--------			|:--------								|
 | modelId | Необязательный параметр. Если он не указан, вы получите все уведомления для всех моделей. <br>Допустимое значение: уникальный идентификатор модели.|
 | apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ.**
 
@@ -2836,7 +2873,8 @@ OData XML
 |:--------			|:--------								|
 | modelId | Уникальный идентификатор модели |
 | apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ**.
 
@@ -2853,7 +2891,8 @@ OData XML
 |	Имя параметра |	Допустимые значения |
 |:--------			|:--------								|
 | apiVersion | 1\.0 |
-||| | Текст запроса | НЕТ |
+||| 
+| Текст запроса | НЕТ |
 
 **Ответ**.
 
