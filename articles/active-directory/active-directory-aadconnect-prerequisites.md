@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Необходимые условия для Azure AD Connect | Microsoft Azure"
+   pageTitle="Необходимые условия для Azure Active Directory Connect | Microsoft Azure"
    description="Описание статьи, которое будет отображаться на целевых страницах и в большинстве результатов поиска"
    services="active-directory"
    documentationCenter=""
@@ -16,7 +16,7 @@
    ms.date="10/13/2015"
    ms.author="andkjell;billmath"/>
 
-# Необходимые условия для Azure AD Connect
+# Необходимые условия для Azure Active Directory Connect (Azure AD Connect)
 В этом разделе описаны необходимые условия и требования к оборудованию для Azure AD Connect.
 
 ## Перед установкой Azure AD Connect
@@ -39,7 +39,7 @@
 **учетные записи;**
 
 - Учетная запись глобального администратора Azure AD для каталога Azure AD, с которым необходима интеграция.
-- Учетная запись администратора предприятия для локальной службы Active Directory при использовании стандартных параметров.
+- Учетная запись администратора предприятия для локальной службы Active Directory при использовании экспресс-параметров или обновлении с DirSync.
 - [Учетные записи в Active Directory](active-directory-aadconnect-accounts-permissions.md) при задании пути установки с пользовательскими параметрами.
 
 **Соединение**
@@ -114,4 +114,4 @@
 ## Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

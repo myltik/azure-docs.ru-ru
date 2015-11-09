@@ -3,7 +3,7 @@
 	description="Индексатор мультимедийных данных Azure позволяет искать содержимое файлов мультимедиа и создавать полнотекстовую транскрипцию для скрытых субтитров и ключевых слов. В этом разделе показано, как использовать индексатор мультимедийных данных."
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako,johndeu"
+	authors="Juliako,Asolanki,johndeu"
 	manager="dwrede"
 	editor=""/>
 
@@ -359,4 +359,4 @@ Error — указывает, успешно ли проиндексирован
 
 <!-- URLs. -->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

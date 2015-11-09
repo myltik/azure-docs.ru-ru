@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="09/11/2015"
+	ms.date="10/27/2015"
 	ms.author="jroth" />
 
 
@@ -51,21 +51,21 @@
 
 [Пул эластичных баз данных](sql-database-elastic-pool.md) совместно использует ресурсы между базами данных в пуле. В следующей таблице описываются характеристики пулов эластичных баз данных Basic, Standard и Premium.
 
-[AZURE.INCLUDE [Таблица уровней служб эластичных баз данных SQL](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
+[AZURE.INCLUDE [Таблица уровней службы базы данных SQL для эластичных баз данных](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
-Подробное описание уровней служб см. в статье [Уровни служб и уровни производительности базы данных SQL Azure](sql-database-service-tiers.md).
+Расширенное определение каждого ресурса, указанного в предыдущих таблицах, см. в описаниях в разделе [Возможности и ограничения уровней служб](sql-database-performance-guidance.md#service-tier-capabilities-and-limits). Общие сведения об уровнях служб см. в статье [Уровни служб и уровни производительности базы данных SQL Azure](sql-database-service-tiers.md).
 
 ## Квота DTU для каждого сервера
 
 Сейчас для базы данных SQL Azure установлена квота DTU на один логический сервер в размере 15 000 DTU. Эта квота представляет собой количество DTU, которые могут быть размещены на логическом сервере, в зависимости от суммы DTU на уровне производительности каждой базы данных на сервере. Например, сервер с 5 базами данных Basic (максимум 5 × 5 DTU), 2 базами данных Standard S1 (максимум 2 × 20 DTU) и 3 базами данных Premium P1 (максимум 3 × 100 DTU) использовал 365 DTU из своей квоты в 15 000 DTU.
 
->[AZURE.NOTE]Вы можете запросить увеличение этой квоты, [обратившись в службу поддержки](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/).
+>[AZURE.NOTE]Можно [обратиться в службу поддержки](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) с просьбой увеличить квоту.
 
 ## Другие ограничения базы данных SQL
 
 | Область | Ограничение | Описание |
 |---|---|---|
-| Баз данных, использующие автоматический экспорт для каждой подписки | 10 | Автоматический экспорт позволяет создать настраиваемое расписание резервного копирования баз данных SQL. Подробнее: [Базы данных SQL: поддержка автоматического экспорта баз данных SQL](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
+| Баз данных, использующие автоматический экспорт для каждой подписки | 10 | Автоматический экспорт позволяет создать настраиваемое расписание резервного копирования баз данных SQL. Дополнительные сведения см. в разделе [Базы данных SQL ― поддержка автоматического экспорта баз данных SQL](http://weblogs.asp.net/scottgu/windows-azure-july-updates-sql-database-traffic-manager-autoscale-virtual-machines).|
 
 ## Ресурсы
 
@@ -75,4 +75,4 @@
 
 [Сообщения об ошибках для клиентских программ базы данных SQL](sql-database-develop-error-messages.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

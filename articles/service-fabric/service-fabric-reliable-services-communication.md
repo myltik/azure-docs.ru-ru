@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="BharatNarasimman"
-   manager="vipulm"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -230,4 +230,4 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 * [Написание службы с помощью интерфейса API надежных служб, использующего стек связи WebAPI](service-fabric-reliable-services-communication-webapi.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

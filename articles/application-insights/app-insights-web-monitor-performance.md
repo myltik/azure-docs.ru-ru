@@ -135,7 +135,6 @@ HTTP-запросы включают в себя все запросы GET и PO
 Для выполнения той же процедуры при желании можно написать код:
 
     var perfCollector = new PerformanceCollectorModule();
-    perfCollector.Counters = new List<CustomPerformanceCounterCollectionRquest>();
     perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
       @"\Sales(electronics)# Items Sold", "Items sold"));
     perfCollector.Initialize(TelemetryConfiguration.Active);
@@ -194,4 +193,4 @@ HTTP-запросы включают в себя все запросы GET и PO
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

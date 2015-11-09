@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="kunaldsingh"
-   manager="samgeo"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -79,4 +79,4 @@ Service Fabric генерирует события ETW, чтобы разраб�
 * [Диагностика и мониторинг производительности субъектов в Azure Service Fabric](service-fabric-reliable-actors-diagnostics.md)
 * [Диагностика надежных служб с отслеживанием состояния](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

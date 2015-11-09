@@ -4,7 +4,7 @@
 	services="" 
 	documentationCenter="" 
 	authors="Joharve2" 
-	manager="carolz" 
+	manager="Chrisnie" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="azure-government" 
-	ms.date="01/21/2014" 
+	ms.date="10/29/2015" 
 	ms.author="jharve"/>
 
 
@@ -66,6 +66,16 @@ Azure Goverment в настоящее время имеет следующие �
 - Планировщик
 - Виртуальная сеть
 - База данных SQL
+- Файлы Azure
+- Службы носителей
+- Диспетчер трафика
+- Service Bus
+- StorSimple
+- Кэш Redis
+- Служба архивации Azure
+- Автоматизация
+- ExpressRoute
+- и т. д.
 
 Доступны и другие службы, и их список будет расширяться. Актуальный список доступных служб см. на [странице регионов](http://azure.microsoft.com/regions/#services). Там будут отмечены все доступные регионы и службы в них.
 
@@ -78,18 +88,31 @@ Azure Goverment в настоящее время имеет следующие �
 
 Тип службы|Azure Public|Azure Government
 ---|---|---
-Azure Government Home|windowsazure.com|microsoftazure.us
 Портал управления|manage.windowsazure.com|manage.windowsazure.us
 Общие сведения|*.windows.net|*.usgovcloudapi.net
 Core|*.core.windows.net|*.core.usgovcloudapi.net
 Среда выполнения приложений|*.cloudapp.net|*.usgovcloudapp.net
-Хранилище BLOB-объектов|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net Хранилище очередей|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
+Хранилище BLOB-объектов|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net Queue Storage|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
 Хранилище таблиц|*.table.core.windows.net|*.table.core.usgovcloudapi.net
 Service Management|management.core.windows.net|management.core.usgovcloudapi.net
 База данных SQL|*.database.windows.net|*.database.usgovcloudapi.net
+Конечная точка с балансировкой нагрузки ARM|https://management.windows.net|https://management.usgovcloudapi.net  
+
+* Подробнее о проверке подлинности ARM через Azure AD см. в разделе [Проверка подлинности запросов диспетчера ресурсов Azure](https://msdn.microsoft.com/library/azure/dn790557.aspx)
 
 ## <a name="next"></a>Дальнейшие действия
-Дополнительные сведения о Azure Government и о том, как ваша организация может получить доступ к этой службе, см. на странице <A href="http://azure.com/gov">http://www.azure.com/gov</a>.
+
+Если вы заинтересованы с получении более подробной информации о платформе Azure Government, воспользуйтесь некоторыми из указанных ниже ссылок.
+
+- **[Регистрация для пробного периода](https://azuregov.microsoft.com/trial/azuregovtrial)**
+
+- **[Получение доступа к платформе Azure Government](http://azure.com/gov)**
+
+- **[Обзор платформы Azure Government](/azure-government-overview)**
+
+- **[Блог по платформе Azure Government](http://blogs.msdn.com/b/azuregov/)**
+
+- **[Соответствие требованиям Azure](http://azure.microsoft.com/support/trust-center/compliance/)**
 
 <!--Anchors-->
 
@@ -105,4 +128,4 @@ Service Management|management.core.windows.net|management.core.usgovcloudapi.net
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

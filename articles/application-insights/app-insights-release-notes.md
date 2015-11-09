@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="10/23/2015" 
 	ms.author="awills"/>
  
 # Заметки о выпуске пакета SDK для Application Insights
@@ -21,16 +21,15 @@
 Ниже приведены подробные заметки о выпуске и инструкции по обновлению для наших пакетов SDK.
 
 * [.NET](app-insights-release-notes-dotnet.md)
-* [Android](https://github.com/Microsoft/ApplicationInsights-Android)
+* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
+* [Android](https://github.com/Microsoft/ApplicationInsights-Android/releases)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 * [Java](app-insights-release-notes-java.md)
 * [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/commits/master)
 * [Windows Phone и Магазин Windows C#|VB](app-insights-release-notes-windows.md)
-* [Windows Phone и Магазин Windows C++](app-insights-release-notes-windows-cpp.md)
+* [Windows Phone и Магазин Windows C++](https://github.com/Microsoft/ApplicationInsights-CPP/releases)
 * [другие платформы](https://github.com/Microsoft/ApplicationInsights-Home).
 
 Ознакомьтесь также с нашими [обновлениями службы](http://azure.microsoft.com/updates/?service=application-insights), которые содержат сводку основных улучшений службы Application Insights.
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

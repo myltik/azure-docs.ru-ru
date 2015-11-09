@@ -1,7 +1,7 @@
 
-Go back to Visual Studio and select the Shared Code Client App project (it is named like `<your app name>.Shared`)
+Вернитесь в Visual Studio и выберите проект клиентского приложения с общим кодом (его название похоже на `<your app name>.Shared`).
 
-1. Expand the **App.xaml** file and then open the **App.xaml.cs** file. Locate the declaration of the `MobileService` member which is initialized with a localhost URL. Comment out this declaration (with `CTRL+K,CTRL+C`) and uncomment the declaration (`CTRL+K,CTRL+U`) that connects to your hosted service:
+1. Разверните файл **App.xaml** и откройте файл **App.xaml.cs**. Найдите объявление члена `MobileService`, запускаемого с URL-адресом localhost. Закомментируйте это объявление (с помощью клавиш `CTRL+K,CTRL+C`) и раскомментируйте объявление (`CTRL+K,CTRL+U`), которое подключается к размещенной службе:
 
         // This MobileServiceClient has been configured to communicate with your local
         // test project for debugging purposes.
@@ -17,17 +17,18 @@ Go back to Visual Studio and select the Shared Code Client App project (it is na
             "XXXX-APPLICATION-KEY-XXXXX"
         );
 
-2. Press the F5 key to rebuild the project and start the Windows Store app, which should be your default start up project.
+2. Нажмите клавишу F5, чтобы еще раз собрать проект, после чего запустите приложение Магазина Windows. Оно должны быть вашим проектом, запускаемым по умолчанию.
 
-2. In the app, type meaningful text, such as *Complete the tutorial*, in the **Insert a TodoItem** textbox, and then click **Save**.
+2. В приложении введите содержательный текст, например *Работа с учебником*, в поле **Вставить в TodoItem**, затем щелкните **Сохранить**.
 
 	![](./media/app-service-mobile-windows-universal-test-app/mobile-quickstart-startup.png)
 
-	This sends a POST request to the new mobile app backend hosted in Azure.
+	При этом на новый внутренний сервер мобильного приложения, размещенный в Azure, отправляется запрос POST.
 
-3. Stop debugging and change the default start up project in the universal Windows solution to the Windows Phone Store app (right click the `<your app name>.WindowsPhone` project and click **Set as StartUp Project**) and press F5 again.
+3. Остановите отладку, замените запускаемый по умолчанию проект в универсальном решении Windows на приложение Магазина Windows Phone (щелкните правой кнопкой мыши проект `<your app name>.WindowsPhone` и выберите пункт **Назначить запускаемым проектом**) и снова нажмите клавишу F5.
 
 	![](./media/app-service-mobile-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
 
-	Notice that data saved from the previous step is loaded from the mobile app after the Windows app starts.
+	Обратите внимание, что данные, сохраненные на предыдущем этапе, загружаются из мобильного приложения после запуска приложения Windows.
 
+<!---HONumber=Nov15_HO1-->

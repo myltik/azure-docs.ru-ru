@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="10/09/2015"
+   ms.date="10/14/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # Серия StorSimple 8000: решение гибридного облачного хранилища 
@@ -46,7 +46,7 @@ StorSimple использует [многоуровневое хранилище
 |Доступность на портале Azure для государственных учреждений. | Теперь StorSimple доступен на портале Azure для государственных учреждений. Дополнительные сведения см. в статье [Развертывание локального устройства StorSimple на портале для государственных учреждений](storsimple-deployment-walkthrough-gov.md).|
 |Поддержка хранилищ, избыточных в пределах зоны (ZRS) | После обновления до последней версии API службы хранилища, помимо локально избыточных хранилищ (LRS) и геоизбыточных хранилищ (GRS) устройства StorSimple серии 8000 будут поддерживать хранилища, избыточные в пределах зоны (ZRS). Сведения о ZRS см. в [этой статье о способах обеспечения избыточности в службе хранилища Azure](https://azure.microsoft.com/documentation/articles/storage-redundancy/).
 
-![значок видео](./media/storsimple-overview/video_icon.png) Посмотрите [этот видеобзор](https://www.youtube.com/watch?v=4MhJT5xrvQw&feature=youtu.be) функций и преимуществ устройств StorSimple серии 8000.
+![значок видео](./media/storsimple-overview/video_icon.png) Посмотрите [этот видеоролик](http://azure.microsoft.com/documentation/videos/guru-pangals-welcome-to-wpc--july-2015), который содержит вводные сведения о компонентах и преимуществах StorSimple серии 8000.
 
 ## Компоненты StorSimple
 
@@ -65,6 +65,8 @@ StorSimple использует [многоуровневое хранилище
 ![Архитектура StorSimple](./media/storsimple-overview/overview-big-picture.png)
 
 В следующих разделах каждый из этих компонентов описывается подробно и объясняется, каким образом решение упорядочивает данные и выделяет память, а также помогает управлять хранилищем и защищать данные. В последнем разделе представлены определения некоторых важных терминов и понятий, связанных с компонентами StorSimple и управлением ими.
+
+![значок видео](./media/storsimple-overview/video_icon.png) Посмотрите [этот видеоролик](https://www.youtube.com/watch?v=4MhJT5xrvQw&feature=youtu.be), который содержит вводные сведения об устройстве StorSimple, виртуальном устройстве StorSimple и службе диспетчера StorSimple.
 
 ## Устройство StorSimple
 
@@ -149,7 +151,7 @@ Windows PowerShell для StorSimple предоставляет интерфей
 
 При возникновении сбоя или если нужно восстановить данные по другой причине, диспетчер моментальных снимков StorSimple восстанавливает их дополнительно. Восстановление данных не требует завершения работы всей системы при восстановлении файла, замене оборудования или переходе на другой сайт.
 
-Дополнительные сведения см. в разделе [Диспетчер моментальных снимков StorSimple](storsimple-what-is-snapshot-manager.md).
+Дополнительные сведения см. в разделе [Что такое диспетчер моментальных снимков StorSimple?](storsimple-what-is-snapshot-manager.md)
 
 ## Адаптер StorSimple для SharePoint
 
@@ -260,7 +262,7 @@ Microsoft Azure StorSimple использует дедупликацию и сж
 
 ## Дальнейшие действия
 
-Узнайте больше об [обеспечении безопасности StorSimple](storsimple-security.md).
+Подробнее об [обеспечении безопасности StorSimple](storsimple-security.md).
 
 
 
@@ -269,4 +271,4 @@ Microsoft Azure StorSimple использует дедупликацию и сж
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

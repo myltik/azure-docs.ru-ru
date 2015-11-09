@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="10/23/2015"
 	ms.author="jgao"/>
 
 # Управление кластерами Hadoop в HDInsight с помощью Azure PowerShell
@@ -36,7 +36,7 @@ Azure PowerShell — это полнофункциональная среда с
 
 ##Подготовка кластеров HDInsight к работе
 
-Для кластеров HDInsight требуется группа ресурсов Azure и контейнер больших двоичных объектов в учетной записи хранилища Azure.
+Кластеру HDInsight требуется группа ресурсов Azure и контейнер больших двоичных объектов в учетной записи хранения Azure:
 
 - Группа ресурсов Azure — это логический контейнер для ресурсов Azure. Группа ресурсов Azure и кластер HDInsight не обязательно должны находиться в одном расположении. Дополнительную информацию см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](powershell-azure-resource-manager.md).
 - HDInsight использует контейнер хранилища больших двоичных объектов хранилища Azure в качестве файловой системы по умолчанию. Для создания кластера HDInsight требуются учетная запись хранения Azure и контейнер хранилища. Учетная запись хранения, используемая по умолчанию, должна находиться в том же расположении, что и кластер HDInsight.
@@ -45,26 +45,24 @@ Azure PowerShell — это полнофункциональная среда с
 
 **Создание группы ресурсов Azure**
 
-1. Убедитесь, что вы находитесь в режиме диспетчера ресурсов Azure.
-
-		Switch-AzureMode -Name AzureResourceManager
-
 2. Подключитесь к учетной записи Azure и выберите подписку (если у вас несколько подписок).
 
-		Add-AzureAccount
-		Select-AzureSubscription
+		Add-AzureRmAccount
+		Get-AzureRmSubscription
+		Select-AzureRmSubscription -SubscriptionId "<Your Azure Subscription ID>"
 
 3. Создайте новую группу ресурсов:
 
-	New-AzureResourceGroup -name <AzureResourceGroupName> -Location <AzureDataCente> # Например «Запад США»
+	New-AzureResourceGroup -name <New Azure Resource Group Name> -Location <Azure Data Center> # Например, "Запад США"
 
-	[AZURE.INCLUDE [список центров обработки данных](../../includes/hdinsight-pricing-data-centers-clusters.md)]
 
 **Создание учетной записи хранения Azure**
 
-	New-AzureStorageAccount -ResourceGroupName <AzureResourceGroupName> -Name <AzureStorageAccountName> -Location <AzureDataCneter> -Type <AccountType> # account type example: Standard_ZRS for zero redundancy storage
+	New-AzureRmStorageAccount -ResourceGroupName <AzureResourceGroupName> -Name <AzureStorageAccountName> -Location <AzureDataCneter> -Type <AccountType> # account type example: Standard_ZRS for zero redundancy storage
 
-	For a full list of the storage account types, see [https://msdn.microsoft.com/ru-RU/library/azure/hh264518.aspx](https://msdn.microsoft.com/ru-RU/library/azure/hh264518.aspx).
+Полный список типов учетных записей хранения см. в разделе [https://msdn.microsoft.com/library/azure/hh264518.aspx](https://msdn.microsoft.com/library/azure/hh264518.aspx).
+
+[AZURE.INCLUDE [список центров обработки данных](../../includes/hdinsight-pricing-data-centers-clusters.md)]
 
 
 Сведения о создании новой учетной записи хранения Azure с помощью портала предварительной версии Azure см. в статье [Создание и удаление учетной записи хранения, а также управление ею](storage-create-storage-account.md).
@@ -72,9 +70,9 @@ Azure PowerShell — это полнофункциональная среда с
 Если у вас уже есть учетная запись хранения, но вы не знаете имени и ключа учетной записи, можно использовать следующие команды для получения нужных сведений:
 
 	# List Storage accounts for the current subscription
-	Get-AzureStorageAccount
+	Get-AzureRmStorageAccount
 	# List the keys for a Storage account
-	Get-AzureStorageAccountKey -ResourceGroupName <AzureResourceGroupName> -name $storageAccountName <AzureStorageAccountName>
+	Get-AzureRmStorageAccountKey -ResourceGroupName <AzureResourceGroupName> -name $storageAccountName <AzureStorageAccountName>
 
 Дополнительные сведения о получении данных с помощью портала предварительной версии см. в разделе «Просмотр, копирование и повторное создание ключей доступа к хранилищу» статьи [Создание и удаление учетной записи хранения, а также управление ею](storage-create-storage-account.md).
 
@@ -84,14 +82,14 @@ Azure PowerShell не может создать контейнер больши�
 
 	$resourceGroupName = "<AzureResoureGroupName>"
 	$storageAccountName = "<AzureStorageAccountName>"
-	$storageAccountKey = Get-AzureStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
+	$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
 	$containerName="<AzureBlobContainerName>"
 
 	# Create a storage context object
-	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+	$destContext = New-AzureRmStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 
 	# Create a Blob storage container
-	New-AzureStorageContainer -Name $containerName -Context $destContext
+	New-AzureRmStorageContainer -Name $containerName -Context $destContext
 
 **Подготовка кластера**
 
@@ -107,10 +105,10 @@ Azure PowerShell не может создать контейнер больши�
 	$clusterNodes = <ClusterSizeInNodes>
 
 	# Get the Storage account key
-	$storageAccountKey = Get-AzureStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
+	$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
 
 	# Create a new HDInsight cluster
-	New-AzureHDInsightCluster -ResourceGroupName $resourceGroupName `
+	New-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName `
 		-ClusterName $clusterName `
 		-Location $location `
 		-DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
@@ -121,16 +119,16 @@ Azure PowerShell не может создать контейнер больши�
 ##Список сведений о кластере
 Чтобы получить список всех кластеров в текущей подписке, используйте следующую команду:
 
-	Get-AzureHDInsightCluster
+	Get-AzureRmHDInsightCluster
 
 Чтобы отобразить сведения о конкретном кластере в текущей подписке, используйте следующую команду:
 
-	Get-AzureHDInsightCluster -ResourceGroupName <ResouceGroupName> -ClusterName <ClusterName>
+	Get-AzureRmHDInsightCluster -ClusterName <ClusterName>
 
 ##Удаление кластеров
 Используйте следующую команду для удаления кластера:
 
-	Remove-AzureHDInsightCluster -Name <ClusterName>
+	Remove-AzureRmHDInsightCluster -ClusterName <ClusterName>
 
 
 
@@ -147,13 +145,11 @@ Azure PowerShell не может создать контейнер больши�
 
 По умолчанию эти службы предоставляются для доступа. Вы можете отменить или предоставить доступ. Пример:
 
-	Revoke-AzureHDInsightHttpServicesAccess -Name hdiv2 -Location "East US"
-
-В этом примере <i>hdiv2</i> — это имя кластера HDInsight.
+	Revoke-AzureHDInsightHttpServicesAccess -ClusterName <Cluster Name>
 
 >[AZURE.NOTE]Предоставляя или отменяя доступ, вы сбрасываете имя пользователя и пароль кластера.
 
-Это также можно сделать с помощью портала предварительной версии. См. [Администрирование HDInsight с помощью портала предварительной версии Azure][hdinsight-admin-portal]
+Это также можно сделать с помощью портала предварительной версии. См. раздел [Администрирование HDInsight с помощью портала предварительной версии Azure][hdinsight-admin-portal].
 
 ##Масштабирование кластеров
 Масштабирование кластера позволяет изменить количество рабочих узлов в кластере, который работает под управлением Azure HDInsight. При этом не требуется повторно создавать кластер.
@@ -202,7 +198,7 @@ Azure PowerShell не может создать контейнер больши�
 
 Чтобы изменить размер кластера Hadoop с помощью Azure PowerShell, выполните следующую команду с клиентского компьютера:
 
-	Set-AzureHDInsightClusterSize -Name <ClusterName> -ClusterSizeInNodes <NewSize>
+	Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
 
 
 
@@ -216,11 +212,41 @@ Azure PowerShell не может создать контейнер больши�
 	$clusterName = "<HDInsightClusterName>"
 
 	# Define the MapReduce job
-	$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
+	$wordCountJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
+								-JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
+								-ClassName "wordcount" `
+								-Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput1"
+	
+	# Submit the job and wait for job completion
+	$cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:" 
+	$wordCountJob = Start-AzureRmHDInsightJob `
+						-ResourceGroupName $resourceGroupName `
+						-ClusterName $clusterName `
+						-HttpCredential $cred `
+						-JobDefinition $wordCountJobDefinition 
+	
+	Wait-AzureRmHDInsightJob `
+		-ResourceGroupName $resourceGroupName `
+		-ClusterName $clusterName `
+		-HttpCredential $cred `
+		-JobId $wordCountJob.JobId 
 
-	# Run the job and show the standard error
-	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $_.JobId -StandardError}
-
+	# Get the job output
+	$cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+	$defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
+	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount |  %{ $_.Key1 }
+	$defaultStorageContainer = $cluster.DefaultStorageContainer
+	
+	Get-AzureRmHDInsightJobOutput `
+		-ResourceGroupName $resourceGroupName `
+		-ClusterName $clusterName `
+		-HttpCredential $cred `
+		-DefaultStorageAccountName $defaultStorageAccount `
+		-DefaultStorageAccountKey $defaultStorageAccountKey `
+		-DefaultContainer $defaultStorageContainer  `
+		-JobId $wordCountJob.JobId `
+		-DisplayOutputType StandardError
+		
 Сведения о префиксе **wasb** см. в разделе [Использование хранилища больших двоичных объектов Azure для HDInsight][hdinsight-storage]
 
 **Загрузка выходных данных задания MapReduce**
@@ -343,4 +369,4 @@ Azure PowerShell не может создать контейнер больши�
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

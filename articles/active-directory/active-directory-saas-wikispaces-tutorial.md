@@ -1,14 +1,27 @@
-<properties pageTitle="Руководство. Интеграция Azure Active Directory с Wikispaces | Microsoft Azure" description="Узнайте, как использовать Wikispaces вместе с Azure Active Directory для настройки единого входа, автоматической подготовки пользователей и выполнения других задач." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Руководство. Интеграция Azure Active Directory с Wikispaces | Microsoft Azure" 
+    description="Узнайте, как использовать Wikispaces вместе с Azure Active Directory для настройки единого входа, автоматической подготовки пользователей и выполнения других задач." 
+    services="active-directory" 
+    authors="MarkusVi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Руководство. Интеграция Azure Active Directory с Wikispaces
->[AZURE.TIP]Чтобы оставить отзыв, нажмите [здесь](http://go.microsoft.com/fwlink/?LinkId=528443).
   
 Цель данного учебника — показать интеграцию Azure и Wikispaces. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 -   Действующая подписка на Azure
 -   Подписка с поддержкой единого входа Wikispaces.
   
-После завершения этого руководства пользователи Azure AD, назначенные Wikispaces, будут иметь возможность единого входа в приложение на сайте компании Wikispaces (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
+После прохождения этого учебника пользователи Azure AD, назначенные Wikispaces, будут иметь возможность единого входа в приложение на веб-сайте компании Wikispaces (вход, инициированный поставщиком услуг) или входа с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
   
 Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
@@ -39,7 +52,7 @@
 
     ![Добавление приложения](./media/active-directory-saas-wikispaces-tutorial/IC749321.png "Добавление приложения")
 
-5.  В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** выберите **Добавить приложение из коллекции**.
 
     ![Добавить приложение из коллекции](./media/active-directory-saas-wikispaces-tutorial/IC749322.png "Добавить приложение из коллекции")
 
@@ -124,6 +137,6 @@
 
     ![Да](./media/active-directory-saas-wikispaces-tutorial/IC767830.png "Да")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Подробнее о панели доступа см. в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

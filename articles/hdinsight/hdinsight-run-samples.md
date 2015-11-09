@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="10/23/2015"
 	ms.author="jgao"/>
 
 #Выполнение примеров Hadoop в HDInsight
@@ -87,4 +87,4 @@ HDInsight поставляется вместе со следующими при
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

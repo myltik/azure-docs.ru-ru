@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/07/2015"
+   ms.date="10/26/2015"
    ms.author="tomfitz"/>
 
 # Общие сведения о развертывании диспетчера ресурсов и классическом развертывании
@@ -46,7 +46,7 @@
 
         ![preview portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-        Для вычислительных, сетевых ресурсов и ресурсов хранения можно выбрать модель развертывания с использованием диспетчера ресурсов или классическую модель. Выберите **Диспетчер ресурсов**.
+        For Compute, Storage, and Networking resources, you have the option of using either Resourece Manager or Classic deployment. Select **Resource Manager**.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -77,7 +77,7 @@
 
         ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Либо просмотрите портал предварительной версии и выберите **классическое** развертывание (для вычислений, хранения и работы по сети).
+        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -155,15 +155,17 @@
 - Виртуальные машины, развернутые с помощью модели развертывания диспетчера ресурсов, должны быть включены в виртуальную сеть.
 - Виртуальные машины, развернутые с помощью классической модели развертывания, включать в виртуальную сеть необязательно.
 
+Если простой для виртуальных машин является допустимым, можно перенести их из классического развертывания в диспетчер ресурсов с помощью [скриптов PowerShell ASM2ARM](https://github.com/fullscale180/asm2arm).
+
 Список эквивалентных команд Azure CLI при переходе от классического развертывания к развертыванию диспетчера ресурсов см. в разделе [Эквивалентные команды диспетчера ресурсов и управления службами для задач виртуальных машин](./virtual-machines/xplat-cli-azure-manage-vm-asm-arm.md).
 
-Дополнительные сведения о процессе перехода вычислительных, сетевых ресурсов и ресурсов службы хранилища см. в статье [Поставщики вычислительных и сетевых ресурсов, а также ресурсов службы хранилища Azure в диспетчере ресурсов Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
+Дополнительные сведения о процессе перехода вычислительных, сетевых ресурсов и ресурсов хранения см. в статье [Поставщики вычислительных, сетевых ресурсов и ресурсов хранения в диспетчере ресурсов Azure](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md).
 
 Сведения о подключении виртуальных сетей с помощью различных моделей развертывания см. в статье [Подключение классических виртуальных сетей к новым виртуальным сетям](./virtual-network/virtual-networks-arm-asm-s2s.md).
 
 ## Дальнейшие действия
 
-- Чтобы узнать о создании декларативных шаблонов развертывания, см. статью [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
+- Сведения о создании декларативных шаблонов развертывания см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 - Команды для развертывания шаблонов см. в статье [Развертывание приложения с помощью шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

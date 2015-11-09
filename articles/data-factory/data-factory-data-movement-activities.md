@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2015" 
+	ms.date="10/27/2015" 
 	ms.author="spelluru"/>
 
 # Действия перемещения данных
@@ -27,25 +27,26 @@
 
 | **Источник** | **Приемник** |
 | ------ | ---- |
-| [BLOB-объекты Azure](data-factory-azure-blob-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, Azure DocumentDB, локальная файловая система |
-| [Таблица Azure](data-factory-azure-table-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, Azure DocumentDB |
-| [База данных SQL Azure](data-factory-azure-sql-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, Azure DocumentDB |
-| [Хранилище данных SQL Azure](data-factory-azure-sql-data-warehouse-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, Azure DocumentDB |
-| [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure |
-| [SQL Server в IaaS](data-factory-sqlserver-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS |
-| [Локальная файловая система](data-factory-onprem-file-system-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, локальная файловая система |
-| [Локальный сервер SQL Server](data-factory-sqlserver-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS |
-| [Локальная база данных Oracle](data-factory-onprem-oracle-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS |
-| [Локальная база данных MySQL](data-factory-onprem-mysql-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS |
-| [Локальная база данных DB2](data-factory-onprem-db2-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS |
-| [Локальная база данных Teradata](data-factory-onprem-teradata-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS |
-| [Локальная база данных Sybase](data-factory-onprem-sybase-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS |
-| [Локальная база данных PostgreSQL](data-factory-onprem-postgresql-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS |
+| [BLOB-объекты Azure](data-factory-azure-blob-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, Azure DocumentDB, локальная файловая система, хранилище озера данных Azure |
+| [Таблица Azure](data-factory-azure-table-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, Azure DocumentDB, хранилище озера данных Azure |
+| [База данных SQL Azure](data-factory-azure-sql-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, Azure DocumentDB, хранилище озера данных Azure |
+| [Хранилище данных SQL Azure](data-factory-azure-sql-data-warehouse-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, Azure DocumentDB, хранилище озера данных Azure |
+| [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, хранилище озера данных Azure |
+| [Хранилище озера данных Azure](data-factory-azure-datalake-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, Azure DocumentDB, локальная файловая система, хранилище озера данных Azure | 
+| [SQL Server в IaaS](data-factory-sqlserver-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, хранилище озера данных Azure |
+| [Локальная файловая система](data-factory-onprem-file-system-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, локальная файловая система, хранилище озера данных Azure |
+| [Локальный сервер SQL Server](data-factory-sqlserver-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, хранилище озера данных Azure |
+| [Локальная база данных Oracle](data-factory-onprem-oracle-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, хранилище озера данных Azure |
+| [Локальная база данных MySQL](data-factory-onprem-mysql-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, хранилище озера данных Azure |
+| [Локальная база данных DB2](data-factory-onprem-db2-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, хранилище озера данных Azure |
+| [Локальная база данных Teradata](data-factory-onprem-teradata-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, хранилище озера данных Azure |
+| [Локальная база данных Sybase](data-factory-onprem-sybase-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, хранилище озера данных Azure |
+| [Локальная база данных PostgreSQL](data-factory-onprem-postgresql-connector.md) | Большой двоичный объект Azure, таблица Azure, база данных SQL Azure, хранилище данных SQL Azure, локальный сервер SQL Server, сервер SQL Server в IaaS, хранилище озера данных Azure |
 
 ## <a name="copyactivity"></a>Действие копирования
 Действие копирования принимает один входной набор данных (**источник**) и копирует данные согласно настройкам действия в один выходной набор данных (**приемник**). Данные копируются в пакетном режиме в соответствии с заданным для действия расписанием.
 
-> [AZURE.NOTE]Общие сведения об определении действий, например о разделах и свойствах JSON, доступных для всех действий, см. в статье [Основные сведения о конвейерах и действиях](data-factory-create-pipelines.md).
+> [AZURE.NOTE]Общую информацию об определении действий, например о разделах и свойствах JSON, доступных для всех действий, см. в статье [Основные сведения о конвейерах и действиях](data-factory-create-pipelines.md).
 
 Действие копирования предоставляет приведенные ниже возможности.
 
@@ -76,7 +77,7 @@
 3.	Мониторинг и контроль состояния шлюза и управление им с помощью единой облачной панели мониторинга фабрики данных.
 
 
-Дополнительные сведения см. в разделе [Перемещение данных между локальными источниками и облаком](data-factory-move-data-between-onprem-and-cloud.md).
+Дополнительную информацию см. в разделе [Перемещение данных между локальными источниками и облаком](data-factory-move-data-between-onprem-and-cloud.md).
 
 ### Надежное и экономичное перемещение данных
 Действие копирования предназначено для перемещения больших объемов данных из самых разных источников с защитой от временных ошибок. Для экономии копируемые данные можно сжать.
@@ -101,4 +102,4 @@
 ## Отправить отзыв
 Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/14/2015"
+   	ms.date="10/23/2015"
    	ms.author="jgao"/>
 
 #Создание кластеров под управлением Linux в HDInsight с помощью пакета SDK для .NET
@@ -22,6 +22,10 @@
 [AZURE.INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 Пакет SDK для HDInsight .NET предоставляет клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из приложения .NET Framework. В этом документе показано, как создать кластер HDInsight под управлением Linux с помощью пакета SDK для .NET.
+
+> [AZURE.IMPORTANT]Действия, описанные в этом документе, позволяют создать кластер с одним узлом рабочей роли. Если вы планируете использовать более 32 рабочих узлов (при создании кластера или в ходе масштабирования после создания кластера), для головного узла потребуется минимум 8-ядерный процессор и 14 ГБ ОЗУ.
+>
+> Дополнительные сведения о размерах узлов и их стоимости см. в статье [Сведения о ценах на HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 ##Предварительные требования
 
@@ -49,7 +53,7 @@
 
     Эти команды добавляют библиотеки .NET и ссылки на них в текущий проект Visual Studio.
 
-6. В обозревателе решений дважды щелкните файл **Program.cs**, чтобы открыть его, вставьте следующий код и укажите значения для переменных.
+6. В обозревателе решений дважды щелкните файл **Program.cs**, чтобы открыть его, вставьте указанный ниже код и укажите значения для переменных.
 
         using System;
         using System.Security;
@@ -190,13 +194,13 @@
 
 ###Кластеры HBase
 
-* [Приступая к работе с HBase в HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
+* [Начало работы с HBase в HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
 * [Разработка приложений Java для HBase в HDInsight](hdinsight-hbase-build-java-maven-linux)
 
 ###Кластеры Storm
 
-* [Разработка топологий на Java для Storm в HDInsight](hdinsight-storm-develop-java-topology.md)
+* [Разработка приложений Java для Storm в HDInsight](hdinsight-storm-develop-java-topology.md)
 * [Использование компонентов Python в Storm в HDInsight](hdinsight-storm-develop-python.md)
-* [Развертывание и мониторинг топологий со Storm в HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
+* [Развертывание и мониторинг топологий с помощью Storm в HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

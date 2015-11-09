@@ -1,7 +1,20 @@
-<properties pageTitle="Руководство. Интеграция Azure Active Directory с LogicMonitor | Microsoft Azure" description="Узнайте, как использовать LogicMonitor вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Руководство. Интеграция Azure Active Directory с LogicMonitor | Microsoft Azure" 
+    description="Узнайте, как использовать LogicMonitor вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Руководство. Интеграция Azure Active Directory с LogicMonitor
->[AZURE.TIP]Чтобы оставить отзыв, нажмите [здесь](http://go.microsoft.com/fwlink/?LinkId=528728).
   
 Цель данного учебника — показать интеграцию Azure и LogicMonitor. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
@@ -36,7 +49,7 @@
 
     ![Добавление приложения](./media/active-directory-saas-logicmonitor-tutorial/IC749321.png "Добавление приложения")
 
-5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** выберите **Добавить приложение из коллекции**.
 
     ![Добавить приложение из коллекции](./media/active-directory-saas-logicmonitor-tutorial/IC749322.png "Добавить приложение из коллекции")
 
@@ -61,7 +74,7 @@
 
     ![Настройка единого входа](./media/active-directory-saas-logicmonitor-tutorial/IC790049.png "Настройка единого входа")
 
-3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес входа** введите URL-адрес, используемый вашими пользователями для входа в LogicMonitor (например, **http://company.logicmonitor.com*")) и нажмите кнопку **Далее**.
+3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес входа** введите URL-адрес, используемый вашими пользователями для входа в LogicMonitor (например, **http://company.logicmonitor.com*")), и нажмите кнопку **Далее**.
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-logicmonitor-tutorial/IC790050.png "Настройка URL-адреса приложения")
 
@@ -71,7 +84,7 @@
 
 5.  Выполните вход на веб-сайт компании **LogicMonitor** в качестве администратора.
 
-6.  В верхнем меню нажмите пункт **Параметры**.
+6.  В верхнем меню щелкните пункт **Параметры**.
 
     ![данных](./media/active-directory-saas-logicmonitor-tutorial/IC790052.png "данных")
 
@@ -83,7 +96,7 @@
 
     ![Параметры единого входа](./media/active-directory-saas-logicmonitor-tutorial/IC790054.png "Параметры единого входа")
 
-    1.  Выберите **Включить единый вход**.
+    1.  Выберите пункт **Включить единый вход**.
     2.  Как **Назначение ролей по умолчанию** выберите **Только для чтения**.
     3.  Откройте скачанный файл метаданных в Блокноте и вставьте содержимое этого файла в текстовое поле **Метаданные поставщика удостоверений**.
     4.  Нажмите кнопку **Сохранить изменения**.
@@ -131,6 +144,6 @@
 
     ![Да](./media/active-directory-saas-logicmonitor-tutorial/IC767830.png "Да")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 # Установка и использование R на кластерах HDInsight Hadoop
@@ -91,7 +91,7 @@ R можно установить в любой тип кластера Hadoop �
 
 	* [Использование SSH с Hadoop под управлением Linux в HDInsight в Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-2. В командной строке `username@headnode1:~$` введите следующую команду для запуска интерактивного сеанса R:
+2. В командной строке `username@hn0-CLUSTERNAME:~$` введите следующую команду для запуска интерактивного сеанса R:
 
 		R
 
@@ -148,4 +148,4 @@ R можно установить в любой тип кластера Hadoop �
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

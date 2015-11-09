@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Выполнение примеров Hadoop в HDInsight на основе Linux | Microsoft Azure"
+	pageTitle="Выполнение примеров Hadoop MapReduce в HDInsight на основе Linux | Microsoft Azure"
 	description="Приступая к работе с примерами MapReduce в службе HDInsight под управлением Linux. Для подключения к кластеру используйте SSH, после чего используйте команду Hadoop для запуска примеров заданий."
 	services="hdinsight"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/29/2015"
 	ms.author="larryfr"/>
 
 
@@ -79,7 +79,7 @@
 
     - [Использование SSH с Hadoop под управлением Linux в HDInsight в Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-2. Чтобы просмотреть список примеров, в командной строке с заголовком `username@headnode0:~$` введите следующую команду:
+2. В командной строке `username@#######:~$` введите следующую команду, чтобы вывести список примеров:
 
         hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
 
@@ -243,4 +243,4 @@ GraySort — это измерение производительности с�
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

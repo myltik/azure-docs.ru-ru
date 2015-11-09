@@ -92,7 +92,7 @@
 
 2. Затем введите следующую команду в Azure CLI, чтобы получить строку подключения для своей учетной записи:
 
-		azure storage account connectionString show youraccountname
+		azure storage account connectionstring show youraccountname
 
 3. Создайте переменную среды с только что созданной строкой подключения:
 
@@ -358,4 +358,4 @@
 [REST API службы хранилища Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

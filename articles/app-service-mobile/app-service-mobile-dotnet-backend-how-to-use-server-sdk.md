@@ -151,7 +151,7 @@
 
 3. Добавьте атрибут `[Authorize]` в контроллеры и методы, требующие аутентификации. Теперь пользователи должны пройти аутентификацию для доступа к этой конечной точке или определенным API.
 
-Сведения о том, как аутентифицировать клиенты в серверной части мобильного приложения, см. в статье [Добавление проверки подлинности в приложение](app-service-mobile-dotnet-backend-ios-get-started-users-preview.md).
+Сведения о том, как аутентифицировать клиентов в серверной части мобильного приложения, см. в статье [Добавление проверки подлинности в приложение](app-service-mobile-dotnet-backend-ios-get-started-users.md).
 
 ## Практическое руководство. Добавление push-уведомлений в серверный проект
 
@@ -191,13 +191,13 @@
         NotificationHubClient hub = NotificationHubClient
         .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-На этом этапе можно использовать клиент центров уведомлений для отправки push-уведомлений на зарегистрированные устройства. Дополнительные сведения см. в разделе [Добавление push-уведомлений в приложение](app-service-mobile-dotnet-backend-ios-get-started-push-preview.md). Дополнительные сведения обо всем, что можно сделать с помощью центров уведомлений, см. в статье [Общие сведения о концентраторах уведомлений](../notification-hubs/notification-hubs-overview.md).
+На этом этапе можно использовать клиент центров уведомлений для отправки push-уведомлений на зарегистрированные устройства. Дополнительные сведения см. в разделе [Добавление push-уведомлений в приложение](app-service-mobile-ios-get-started-push.md). Дополнительные сведения обо всем, что можно сделать с помощью центров уведомлений, см. в статье [Общие сведения о концентраторах уведомлений](../notification-hubs/notification-hubs-overview.md).
 
 ## Практическое руководство. Публикация серверного проекта
 
 Чтобы опубликовать серверный проект в Azure, выполните следующие действия:
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 
 [NuGet.org]: http://www.nuget.org/
@@ -205,4 +205,4 @@
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

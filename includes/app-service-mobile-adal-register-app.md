@@ -25,6 +25,6 @@
 Теперь ваше приложение настроено в AAD и пользователи могут входить в него с помощью процедуры входа AAD.
 
 [портале управления Azure]: https://manage.windowsazure.com/
-[Настройка мобильного приложения в Azure Active Directory]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
+[Настройка мобильного приложения в Azure Active Directory]: ../articles/app-service-how-to-configure-active-directory-authentication.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

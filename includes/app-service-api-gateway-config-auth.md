@@ -14,11 +14,11 @@
   
 3. Выберите поставщика удостоверений, которого следует использовать, и выполните шаги в соответствующей статье, чтобы настроить приложение API с помощью того же поставщика. Эти статьи были написаны для мобильных приложений, но действия не отличаются от действий для приложений API. В некоторых процедурах необходимо использовать [портал Azure].
 
- - [Учетная запись Майкрософт](../articles/app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication-preview.md)
- - [Вход в Facebook](../articles/app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication-preview.md)
- - [Вход в Twitter](../articles/app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication-preview.md)
- - [Вход в Google](../articles/app-service-mobile/app-service-mobile-how-to-configure-google-authentication-preview.md)
- - [Azure Active Directory](../articles/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication-preview.md)
+ - [Учетная запись Майкрософт](../articles/app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md)
+ - [Вход в Facebook](../articles/app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md)
+ - [Вход в Twitter](../articles/app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md)
+ - [Вход в Google](../articles/app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md)
+ - [Azure Active Directory](../articles/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)
 
 Например, на снимках экрана ниже показано, что должно отображаться на страницах [портала Azure] и в колонках [портала предварительной версии Azure] после настройки функции проверки подлинности Azure Active Directory.
 
@@ -38,4 +38,4 @@
 
 (В поле «URL-адрес ответа», показанном на рисунке, один и тот же URL-адрес отображается дважды, один раз с префиксом `http:` и второй раз с префиксом `https:`.)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

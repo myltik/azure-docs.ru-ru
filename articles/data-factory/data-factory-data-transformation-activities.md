@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="10/27/2015" 
 	ms.author="spelluru"/>
 
 # Выполняйте преобразование и анализ с фабрикой данных Azure
@@ -24,22 +24,20 @@
 
 Действие преобразования | Вычислительная среда 
 ----------------------- | --------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
-[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop]  
-[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop]  
-[Потоковая передача Hadoop](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop]
-[Пакетная оценка машинного обучения](data-factory-create-predictive-pipelines.md) | Azure 
-[Хранимая процедура](data-factory-stored-proc-activity.md) | Azure SQL; | 
-[DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] или пакетная служба Azure    
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop] [пакетное выполнение в машинном обучении] (data-factory-azure-ml-batch-execution-activity.md) | Azure 
+[Хранимая процедура](data-factory-stored-proc-activity.md) | Azure SQL; |
+[Аналитика озера данных U-SQL](data-factory-usql-activity.md) | Аналитика озера данных Azure 
+[DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] или пакетная служба Azure
+   
 
 Вам следует создать связанную службу для среды вычислений, а затем использовать связанную службу при определении действия преобразования. Фабрика данных поддерживает вычислительные среды двух типов.
 
-1. **По требованию**: в этом случае вычислительная среда полностью управляется фабрикой данных. Среда автоматически создается службой фабрики данных перед отправкой задания на обработку данных и удаляется после его выполнения. Вы можете настраивать и изменять для вычислительной среды "по требованию" детализированные параметры выполнения задания, управления кластером и действий начальной загрузки. 
-2. **Собственная**: в этом случае вы регистрируете собственную вычислительную среду (например, кластер HDInsight) и используете ее в качестве связанной службы в фабрике данных. Вы будете управлять средой вычислений, а служба фабрики данных — использовать ее для выполнения действий. 
+1. **По требованию** — в этом случае вычислительная среда полностью управляется фабрикой данных. Среда автоматически создается службой фабрики данных перед отправкой задания на обработку данных и удаляется после его выполнения. Вы можете настраивать и изменять для вычислительной среды "по требованию" детализированные параметры выполнения задания, управления кластером и действий начальной загрузки. 
+2. **Собственная** — в этом случае вы регистрируете собственную вычислительную среду (например, кластер HDInsight) и используете ее в качестве связанной службы в фабрике данных. Вы будете управлять средой вычислений, а служба фабрики данных — использовать ее для выполнения действий. 
 
 В статье [Связанные службы вычислений](data-factory-compute-linked-services.md) представлены сведения о том, какие связанные службы вычислений поддерживает фабрика данных.
 
 ## Отправить отзыв
-Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md).
+Мы будем очень благодарны за ваш отзыв об этой статье. Пожалуйста, отправьте ваши комментарии по [электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->
