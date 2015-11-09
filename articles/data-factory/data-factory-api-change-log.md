@@ -13,11 +13,27 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="10/28/2015" 
 	ms.author="spelluru"/>
 
 # Фабрика данных Azure — журнал изменений пакета SDK для .NET 
 В этой статье содержится информация об изменениях в определенной версии пакета SDK для фабрики данных Azure. Последнюю версию пакета NuGet для фабрики данных Azure можно найти [здесь](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories).
+
+## Версия 4.1.0
+Дата выпуска: 28 октября 2015 г.
+
+### Добавление функций
+* Добавлены следующие типы связанных служб: 
+    * [AzureDataLakeStoreLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)
+    * [AzureDataLakeAnalyticsLinkedService](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)
+* Добавлены следующие типы действий: 
+    * [DataLakeAnalyticsUSQLActivity](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datalakeanalyticsusqlactivity.aspx)
+* Добавлены следующие типы наборов данных: 
+    * [AzureDataLakeStoreDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoredataset.aspx)
+* Добавлены следующие типы источника и приемника для копирования:
+    * [AzureDataLakeStoreSource](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresource.aspx)
+    * [AzureDataLakeStoreSink](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
+
 
 ## Версия 4.0.1
 Дата выпуска: 13.10.2015
@@ -56,7 +72,7 @@ SqlServerDataset | [SqlServerTableDataset](https://msdn.microsoft.com/library/mi
 | TableListResponse | [DatasetListResponse](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetlistresponse.aspx) |
 | CreateOrUpdateWithRawJsonContentParameters | [DatasetCreateOrUpdateWithRawJsonContentParameters](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.datasetcreateorupdatewithrawjsoncontentparameters.aspx) | 
     
-- **Версия API** для этого выпуска: **2015-10-01**.
+- **Версия API** для этого выпуска: **1 октября 2015 г.**.
 
 - Методы **List** теперь возвращают результаты с разбивкой на страницы. Если ответ содержит непустое свойство **NextLink**, клиентскому приложению необходимо продолжить извлечение следующей страницы до тех пор, пока не будут возвращены все страницы. Пример:
 
@@ -75,8 +91,8 @@ SqlServerDataset | [SqlServerTableDataset](https://msdn.microsoft.com/library/mi
 - API конвейера **List** возвращает только сводную информацию о конвейере, а не полную информацию. Например, действия в сводной информации о конвейере содержат только имя и тип.
 
 ### Добавление функций
-- Класс [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) поддерживает два новых свойства **SliceIdentifierColumnName** и **SqlWriterCleanupScript** для поддержки идемпотентного копирования в хранилище данных SQL Azure. См. статью [Хранилище данных SQL Azure](data-factory-azure-sql-data-warehouse-connector.md), в частности разделы [Механизм 1](data-factory-azure-sql-data-warehouse-connector.md#mechanism-1) и [Механизм 2](data-factory-azure-sql-data-warehouse-connector.md#mechanism-2) для получения подробных сведений об этих свойствах.
+- Класс [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) поддерживает два новых свойства, **SliceIdentifierColumnName** и **SqlWriterCleanupScript**, для поддержки идемпотентного копирования в хранилище данных SQL Azure. См. статью [Хранилище данных SQL Azure](data-factory-azure-sql-data-warehouse-connector.md), в частности разделы [Механизм 1](data-factory-azure-sql-data-warehouse-connector.md#mechanism-1) и [Механизм 2](data-factory-azure-sql-data-warehouse-connector.md#mechanism-2), для получения подробных сведений об этих свойствах.
 
 - Теперь поддерживаются запуск хранимой процедуры для базы данных SQL Azure и источников хранилищ данных SQL в ходе операции копирования. Классы [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) и [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) имеют следующие свойства для поддержки этой возможности: **SqlReaderStoredProcedureName** и **StoredProcedureParameters**. Подробные сведения об этих свойствах см. в статьях [Базы данных SQL Azure](data-factory-azure-sql-connector.md#sqlsource) и [Хранилище данных SQL Azure](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) на сайте Azure.com.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

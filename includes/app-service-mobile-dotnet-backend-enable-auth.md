@@ -1,2 +1,4 @@
 
->[AZURE.TIP]The authentication extension package is included in the quickstart extension package. The server project that you download from the portal already has authentication enabled. To learn how to install and initialize authentication when not using the quickstart extension, see [How to: Add push notifications to a server project](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-authentication-to-a-server-project).
+>[AZURE.TIP]Пакет расширений для проверки подлинности включается в пакет расширений для быстрого запуска. В проекте сервера, загруженном с портала, проверка сервера уже включена. Узнайте, как установить и инициализировать проверку подлинности без использования расширения быстрого запуска, в статье [Практическое руководство. Добавление push-уведомлений в серверный проект](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-authentication-to-a-server-project).
+
+<!---HONumber=Nov15_HO1-->

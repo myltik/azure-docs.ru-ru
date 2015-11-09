@@ -1,7 +1,9 @@
-You can use a load balancer to provide high availability for your workloads in Azure. An Azure load balancer is a Layer-4 (TCP, UDP) type load balancer that distributes incoming traffic among healthy service instances in cloud services or virtual machines defined in a load balancer set.
+Балансировщик нагрузки позволяет обеспечить высокую степень доступности для рабочих нагрузок в Azure. Балансировщик нагрузки Azure на уровне 4 (TCP, UDP) распределяет входящий трафик между работоспособными экземплярами службы в облачных службах или виртуальных машинах, определенных в наборе балансировщика нагрузки.
  
-You can configure a load balancer to.
+Балансировщика нагрузки можно настроить для выполнения следующих задач.
 
-- Load balance incoming Internet traffic to virtual machines (VMs). We refer to a load balancer in this scenario as an [Internet facing load balancer](load-balancer-internet-overview.md).
-- Load balance traffic between VMs in a virtual network (VNet), VMs in cloud services, or between on-premises computers and VMs in a cross-premises virtual network. We refer to a load balancer in this scenario as an [internal load balancer (ILB)](load-balancer-internal-overview.md).
-- 	Forward external traffic to a specific VM instance.
+- Балансировка нагрузки входящего интернет-трафика виртуальных машин. В этом сценарии балансировщика нагрузки называют [балансировщиком нагрузки сети Интернет](load-balancer-internet-overview.md).
+- Балансировка нагрузки трафика между виртуальными машинами в виртуальной сети, между виртуальными машинами в облачных службах или между локальными компьютерами и виртуальными машинами в распределенной виртуальной сети. В этом сценарии балансировщика нагрузки называют [внутренним балансировщиком нагрузки](load-balancer-internal-overview.md).
+- 	Перенаправление внешнего трафика к определенному экземпляру виртуальной машины.
+
+<!---HONumber=Nov15_HO1-->

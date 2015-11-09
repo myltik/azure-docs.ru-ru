@@ -1,2 +1,4 @@
 
->[AZURE.TIP]The push notifications extension package is included in the quickstart extension package. The server project that you download from the portal already has push notifications enabled. To learn how to install and initialize push notifications when not using the quickstart extension, see [How to: Add push notifications to a server project](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-push-notifications-to-a-server-project).
+>[AZURE.TIP]Пакет расширений для push-уведомлений включен в пакет расширений для быстрого запуска. В проекте сервера, загруженном с портала, push-уведомления уже включены. Узнайте, как установить и инициализировать push-уведомления без использования расширения быстрого запуска, в статье [Практическое руководство. Добавление push-уведомлений в серверный проект](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-push-notifications-to-a-server-project).
+
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="10/09/2015"
+      ms.date="10/28/2015"
       ms.author="hascipio; v-divte" />
 
 # Руководство по созданию шаблона решения для Azure Marketplace
@@ -44,35 +44,25 @@
 
 Отправив ZIP-файл, нажмите кнопку **Сертификация запроса**. Команда сертификации Майкрософт проверит файлы и выполнит сертификацию топологии.
 
-Создание пакета можно также подтвердить, не разворачивая его для конечных пользователей. Для этого выполните указанные ниже действия.
-
-1. Сохраните файл *createUiDefinition.json* и сформируйте абсолютный URL-адрес. URL-адрес ДОЛЖЕН быть общедоступным.
-2. Закодируйте URL-адрес [[http://www.url-encode-decode.com/](http://www.url-encode-decode.com/)].
-3. Замените выделенный текст местоположением (закодированным URL-адресом) файла *createUiDefinition.json*, которые требует проверки.
-
-  https://portal.azure.com/?clientOptimizations=false#blade/Microsoft_Azure_Compute/CreateMultiVmWizardBlade/internal_bladeCallId/anything/internal_bladeCallerParams/ **{"initialData":{},"providerConfig":{"createUiDefinition":"http://yoururltocreateuidefinition.jsonURLencoded"}}**
-  
-4. Скопируйте и вставьте URL-адрес в любой браузер и посмотрите, что увидит конечный пользователь вашего файла createUiDefinition.json.
-
 > [AZURE.TIP]Создание и сертификацию топологий шаблонов решений осуществляют ваши разработчики, а разработкой маркетинговых и юридических материалов может заняться коммерческий, маркетинговый или юридический отдел вашей компании.
 
 ## Дальнейшие действия
-Теперь, когда вы создали шаблон решения и передали ZIP-архив с необходимыми файлами на сертификацию, выполните инструкции [руководства по продвижению контента на Marketplace](marketplace-publishing-push-to-staging.md), после чего можно будет начать подготовку вашего предложения к тестированию в промежуточной среде.
+После создания шаблона решения и отправки ZIP-файла с необходимыми файлами для сертификации выполните инструкции в [руководстве по маркетинговому содержимому Marketplace](marketplace-publishing-push-to-staging.md), прежде чем подготавливать предложение для тестирования в промежуточной среде.
 
 ## См. также
 - [Приступая к работе: как опубликовать предложение в Azure Marketplace](marketplace-publishing-getting-started.md)
 
-**Образы виртуальных машин** — [Образы виртуальных машин в Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
+**Образы виртуальных машин** — [Об образах виртуальных машин в Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
 **Расширения виртуальных машин** — [Общие сведения об агенте и расширениях виртуальных машин Azure](https://msdn.microsoft.com/library/azure/dn832621.aspx) — [Расширения и компоненты виртуальных машин Azure](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
 **ARM** — [Создание шаблонов Azure ARM](../resource-group-authoring-templates/) — [Простые примеры шаблонов ARM](https://github.com/rjmax/ArmExamples)
 
-**Регулирование учетной записи хранения** — [Как контролирование регулирования учетной записи хранения](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) — [Хранилище класса Premium](../storage/storage-premium-storage-preview-portal/#scalability-and-performance-targets-whru-RUing-premium-storage)
+**Регулирование учетной записи хранения** — [Отслеживание регулирования учетной записи хранения](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) — [Хранилище класса Premium](../storage/storage-premium-storage-preview-portal/#scalability-and-performance-targets-whru-RUing-premium-storage)
 
 [img-pubportal-menu-sol-templ]: media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
 [img-pubportal-sol-templ-new]: media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
 [link-acct-creation]: marketplace-publishing-microsoft-accounts-creation-registration.md
 [link-pubportal]: https://publish.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

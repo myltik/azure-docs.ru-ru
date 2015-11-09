@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/03/2015"
+   ms.date="10/26/2015"
    ms.author="joaoma" />
 
 # Приступая к настройке подсистемы балансировки нагрузки для Интернета с помощью диспетчера ресурсов Azure
@@ -44,7 +44,7 @@
 
 Дополнительные сведения о настройке компонентов подсистемы балансировки нагрузки при помощи диспетчера ресурсов Azure см. в статье [Поддержка диспетчера ресурсов Azure для подсистемы балансировки нагрузки](load-balancer-arm.md).
 
-В следующих шагах показана настройка подсистемы балансировки нагрузки для распределения нагрузки между двумя виртуальными машинами.
+Далее описана настройка балансировщика нагрузки для двух виртуальных машин.
 
 
 ## Пошаговая инструкция использования PowerShell
@@ -109,6 +109,7 @@
 
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip 
 
+>[AZURE.NOTE]Свойство label в имени домена общедоступного IP-адреса будет содержать полное доменное имя балансировщика нагрузки.
 
 ## Создание пула IP-адресов клиентской части и пула адресов серверной части
 
@@ -241,7 +242,37 @@ PS C:\> $backendnic1
 
 Используйте команду Add-AzureVMNetworkInterface, чтобы присвоить сетевую карту виртуальной машине.
 
-Пошаговые инструкции по созданию виртуальной машины и назначению сетевой карты см. в статье [Создание и предварительная настройка виртуальной машины под управлением Windows с помощью диспетчера ресурсов и Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example)
+Пошаговые инструкции по созданию виртуальной машины и назначению сетевой карты см. в статье [Создание и предварительная настройка виртуальной машины под управлением Windows с помощью диспетчера ресурсов и Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md#Example) (варианты 4 или 5).
+
+## Обновление существующего балансировщика нагрузки
+
+
+### Шаг 1
+
+С помощью балансировщика нагрузки из предыдущего примера присвойте объект балансировщика нагрузки переменной $slb, используя командлет Get-AzureLoadBalancer.
+
+	$slb=get-azureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
+
+### Шаг 2
+
+В следующем примере вы добавите новое входящее правило NAT для порта 81 в интерфейсном пуле и порта 8181 в серверном пуле для существующего балансировщика нагрузки.
+
+	$slb | Add-AzureLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+
+
+### Шаг 3.
+
+Сохраните новую конфигурацию, используя командлет Set-AzureLoadBalancer.
+
+	$slb | Set-AzureLoadBalancer
+
+## Удаление балансировщика нагрузки
+
+С помощью команды Remove-AzureLoadBalancer удалите ранее созданный балансировщик нагрузки с именем NRP-LB в группе ресурсов NRP-RG.
+
+	Remove-AzureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
+
+>[AZURE.NOTE]Чтобы пропустить подтверждение удаления, можно использовать необязательный ключ -Force.
 
 
 ## См. также
@@ -251,4 +282,4 @@ PS C:\> $backendnic1
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

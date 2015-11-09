@@ -1,14 +1,27 @@
-<properties pageTitle="Учебник. Интеграция Azure Active Directory с Overdrive Books | Microsoft Azure" description="Узнайте, как использовать Overdrive Books с Azure Active Directory для настройки единого входа, автоматической подготовки к работе и многого другого." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Учебник. Интеграция Azure Active Directory с Overdrive Books | Microsoft Azure" 
+    description="Узнайте, как использовать Overdrive Books с Azure Active Directory для настройки единого входа, автоматической подготовки к работе и многого другого." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Учебник. Интеграция Azure Active Directory с Overdrive Books
->[AZURE.TIP]Чтобы оставить отзыв, щелкните [здесь](http://go.microsoft.com/fwlink/?LinkId=527956).
   
 Цель данного учебника — показать интеграцию Azure и Overdrive. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 -   Действующая подписка на Azure
 -   Подписка с поддержкой единого входа Overdrive.
   
-После завершения этого учебника пользователи Azure AD, назначенные в Overdrive, будут иметь возможность единого входа в приложение на сайте Overdrive компании (вход, инициированный поставщиком услуг) или с помощью указаний из статьи [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
+После завершения этого руководства пользователи Azure AD, назначенные OverDrive, будут иметь возможность единого входа в приложение на веб-сайте компании OverDrive (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
   
 Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
@@ -38,15 +51,15 @@
 
     ![Добавление приложения](./media/active-directory-saas-overdrive-books-tutorial/IC749321.png "Добавление приложения")
 
-5.  В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** выберите **Добавить приложение из коллекции**.
 
     ![Добавить приложение из коллекции](./media/active-directory-saas-overdrive-books-tutorial/IC749322.png "Добавить приложение из коллекции")
 
-6.  В **поле поиска** введите **Overdrive**.
+6.  В **поле поиска** введите **OverDrive**.
 
     ![Коллекция приложений](./media/active-directory-saas-overdrive-books-tutorial/IC784463.png "Коллекция приложений")
 
-7.  В области результатов выберите **Overdrive** и нажмите кнопку **Завершить**, чтобы добавить приложение.
+7.  В области результатов выберите **OverDrive** и нажмите кнопку **Завершить**, чтобы добавить приложение.
 
     ![Overdrive](./media/active-directory-saas-overdrive-books-tutorial/IC799950.png "Overdrive")
 ##Настройка единого входа
@@ -90,14 +103,14 @@
 
 1.  На портале Azure AD создайте тестовую учетную запись.
 
-2.  На странице интеграции с приложением **OverDrive** щелкните **Назначить пользователей**.
+2.  На странице интеграции с приложением **OverDrive** нажмите кнопку **Назначить пользователей**.
 
     ![Назначение пользователей](./media/active-directory-saas-overdrive-books-tutorial/IC784470.png "Назначить пользователей")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да** для подтверждения назначения.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем **Да** для подтверждения назначения.
 
     ![Да](./media/active-directory-saas-overdrive-books-tutorial/IC767830.png "Да")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

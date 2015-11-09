@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/28/2015" 
 	ms.author="spelluru"/>
 
 # Связанные службы вычислений
@@ -234,9 +234,43 @@ mlEndpoint | URL-адрес пакетной оценки. | Да
 apiKey | API модели опубликованной рабочей области. | Да
 
 
+## Связанная служба аналитики озера данных Azure
+Можно создать связанную службу **аналитики озера данных Azure**, чтобы связать службу вычислений аналитики озера данных Azure с фабрикой данных Azure, прежде чем использовать [действие U-SQL в аналитике озера данных](data-factory-usql-activity.md) в конвейере.
+
+В следующем примере представлено определение JSON для связанной службы аналитики озера данных Azure.
+
+	{
+	    "name": "AzureDataLakeAnalyticsLinkedService",
+	    "properties": {
+	        "type": "AzureDataLakeAnalytics",
+	        "typeProperties": {
+	            "accountName": "adftestaccount",
+	            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
+	            "authorization": "<authcode>",
+				"sessionId": "<session ID>", 
+	            "subscriptionId": "<subscription id>",
+	            "resourceGroupName": "<resource group name>"
+	        }
+	    }
+	}
+
+
+В следующей таблице приведены описания свойств из определения JSON.
+
+Свойство | Описание | Обязательно
+-------- | ----------- | --------
+Тип | Для свойства type нужно задать значение **AzureDataLakeAnalytics**. | Да
+accountName | Имя учетной записи аналитики озера данных Azure. | Да
+dataLakeAnalyticsUri | Универсальный код ресурса (URI) аналитики озера данных Azure. | Нет 
+authorization | Код авторизации извлекается автоматически после нажатия кнопки **Авторизовать** в редакторе фабрики данных и выполнения входа с авторизацией OAuth. | Да 
+subscriptionId | Идентификатор подписки Azure | Нет (если не указан, используется подписка фабрики данных). 
+имя\_группы\_ресурсов | Имя группы ресурсов Azure. | Нет (если не указано, используется группа ресурсов фабрики данных).
+sessionid | Идентификатор сеанса из сеанса авторизации OAuth. Каждый идентификатор сеанса является уникальным и используется только один раз. Это свойство создается автоматически в редакторе фабрики данных. | Да
+
+
 ## Связанная служба SQL Azure
 
-Связанная служба SQL Azure создается и применяется к [действию хранимой процедуры](data-factory-stored-proc-activity.md) для вызова хранимой процедуры из конвейера фабрики данных. Дополнительную информацию об этой связанной службе с. в статье [Соединитель SQL Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
+Связанная служба SQL Azure создается и применяется к [действию хранимой процедуры](data-factory-stored-proc-activity.md) для вызова хранимой процедуры из конвейера фабрики данных. Дополнительную информацию об этой связанной службе см. в статье [Соединитель SQL Azure](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
 
 
   
@@ -247,4 +281,4 @@ apiKey | API модели опубликованной рабочей облас
  
    
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

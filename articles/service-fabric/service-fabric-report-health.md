@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Добавление настраиваемых отчетов о работоспособности Service Fabric"
+   pageTitle="Добавление настраиваемых отчетов о работоспособности Service Fabric | Microsoft Azure"
    description="Здесь описано, как отправлять настраиваемые отчеты о работоспособности в сущности работоспособности Azure Service Fabric. Здесь собраны рекомендации по разработке и реализации качественных отчетов о работоспособности."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Добавление настраиваемых отчетов о работоспособности Service Fabric
@@ -274,4 +274,4 @@ HealthEvents          :
 [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2015"
+	ms.date="10/23/2015"
 	ms.author="csand"/>
 
 
@@ -42,4 +42,4 @@
 
 * См. [Учебник по началу работы](../automation-create-runbook-from-samples.md) в службе автоматизации Azure
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -20,7 +20,7 @@
 
 Это **меню** содержит ссылки на разделы, описывающие выборку данных из различных сред хранения. Эта задача является одним из этапов процесса аналитики Кортаны (CAP).
 
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-explore-data-selector.md)]
+[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 ## Введение
 
@@ -32,4 +32,4 @@
 - Выборка **данных SQL Server** осуществляется с помощью как SQL, так и языка программирования Python. 
 - Выборка **данных таблицы Hive** осуществляется с помощью запросов Hive.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

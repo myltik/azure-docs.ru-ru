@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/13/2015"
+	ms.date="10/23/2015"
 	ms.author="jeffstok"/>
 
 # Основные сведения о входных данных Stream Analytics
@@ -137,7 +137,7 @@ FROM Input
 </tr>
 <tr>
 <td>Шаблон префикса пути (необязательное свойство)</td>
-<td>Путь к файлу, используемый для поиска больших двоичных объектов в указанном контейнере. В пути можно указать один или несколько экземпляров следующих трех переменных:<BR>{date}, {time},<BR>{partition}<BR>Пример&#160;1: cluster1/logs/{date}/{time}/{partition}<BR>Пример&#160;2: cluster1/logs/{date}</td>
+<td>Путь к файлу, используемый для поиска больших двоичных объектов в указанном контейнере. В пути можно указать один или несколько экземпляров следующих трех переменных:<BR>{date}, {time},<BR>{partition}<BR>Пример&#160;1: cluster1/logs/{date}/{time}/{partition}<BR>Пример&#160;2: cluster1/logs/{date}<P>Обратите внимание, что символ * не разрешен в префиксе пути. Допустимыми являются только <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">символы больших двоичных объектов Azure</a>.</td>
 </tr>
 <tr>
 <td>Формат даты (необязательное свойство)</td>
@@ -162,7 +162,7 @@ FROM Input
 </tbody>
 </table>
 
-Если данные поступают из источника, которым выступает хранилище BLOB-объектов, запрос Stream Analytics может получить доступ к нескольким полям метаданных. В таблице ниже перечислены такие поля и их описание.
+Если данные поступают из хранилища больших двоичных объектов, запрос Stream Analytics может получить доступ к нескольким полям метаданных. В таблице ниже перечислены такие поля и их описание.
 
 | СВОЙСТВО | ОПИСАНИЕ |
 |------|------|
@@ -201,4 +201,4 @@ FROM Input
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

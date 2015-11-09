@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 # Установка Giraph в кластерах HDInsight Hadoop и использование Giraph для обработки диаграмм больших объемов
@@ -99,9 +99,13 @@ Giraph можно установить в любой тип кластера Had
 
 		hadoop fs -copyFromLocal tiny_graph.txt /example/data/tiny_graph.txt
 
-4. Запустите пример SimpleShortestPathsComputation, используя следующую команду:
+3. Выполните следующие действия, чтобы получить полный доменный путь (FQDN) для головного узла кластера.
 
-		 hadoop jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=headnode0:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
+        hostname -f
+        
+4. Запустите пример SimpleShortestPathsComputation, используя следующую команду: Замените __HEADNODE__ на полное доменное имя, возвращенное на предыдущем шаге.
+
+		 hadoop jar /usr/hdp/current/giraph/giraph-examples.jar org.apache.giraph.GiraphRunner org.apache.giraph.examples.SimpleShortestPathsComputation -ca mapred.job.tracker=HEADNODE:9010 -vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat -vip /example/data/tiny_graph.txt -vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat -op /example/output/shortestpaths -w 2
 
 	В следующей таблице описаны параметры, используемые в этой команде.
 
@@ -110,14 +114,14 @@ Giraph можно установить в любой тип кластера Had
 	| `jar /usr/hdp/current/giraph/giraph-examples.jar` | JAR-файл, содержащий примеры. |
 	| `org.apache.giraph.GiraphRunner` | Класс, используемый для запуска примеров. |
 	| `org.apache.giraph.examples.SimpleShortestPathsCoputation` | Пример, который будет выполнен. В данном случае будет вычислен кратчайший путь между ИД 1 и всеми другими ИД в графе. |
-	| `-ca mapred.job.tracker=headnode0:9010` | Головной узел кластера. |
+	| `-ca mapred.job.tracker=HEADNODE:9010` | Головной узел кластера. |
 	| `-vif org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFromat` | Формат входных данных. |
 	| `-vip /example/data/tiny_graph.txt` | Файл входных данных. |
 	| `-vof org.apache.giraph.io.formats.IdWithValueTextOutputFormat` | Формат выходных данных. В данном случае — ИД и значение в виде обычного текста. |
 	| `-op /example/output/shortestpaths` | Расположение выходных данных. |
 	| `-w 2` | Количество используемых рабочих ролей. В данном случае — две роли. |
 
-	Дополнительные сведения об этих и других параметрах, используемых в примерах Giraph, см. [на сайте, посвященном основам работы с Giraph](http://giraph.apache.org/quick_start.html).
+	Дополнительные сведения об этих и других параметрах, которые используются в примерах Giraph, см. в [кратком руководстве по Giraph](http://giraph.apache.org/quick_start.html).
 
 5. После завершения задания результаты будут сохранены в папке \_\___wasb:///example/out/shotestpaths__. Созданные файлы будут начинаться с __part-m-__ и завершаться числом, указывающим номер файла (первый, второй и т. д.). Для просмотра выходных данных используйте следующую команду:
 
@@ -148,4 +152,4 @@ Giraph можно установить в любой тип кластера Had
 
 - [Установка Solr в кластерах HDInsight](hdinsight-hadoop-solr-install-linux.md). Используйте настройки кластера для установки Solr в кластерах HDInsight Hadoop. Solr позволяет вести расширенный поиск по хранимым данным.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

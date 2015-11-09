@@ -1,14 +1,27 @@
-<properties pageTitle="Учебник. Интеграция Azure Active Directory с OfficeSpace Software | Microsoft Azure" description="Узнайте, как использовать OfficeSpace Software с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Учебник. Интеграция Azure Active Directory с OfficeSpace Software | Microsoft Azure" 
+    description="Узнайте, как использовать OfficeSpace Software с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Учебник. Интеграция Azure Active Directory с OfficeSpace Software
->[AZURE.TIP]Чтобы оставить отзыв, щелкните [здесь](http://go.microsoft.com/fwlink/?LinkId=524940).
   
 Цель данного учебника — показать интеграцию Azure и OfficeSpace Software. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 -   Действующая подписка на Azure
 -   Подписка OfficeSpace Software, настроенная для единого входа.
   
-После завершения этого учебника пользователи Azure AD, назначенные в OfficeSpace Software, будут иметь возможность единого входа в приложение на сайте компании OfficeSpace Software (вход, инициированный поставщиком услуг) или с помощью указаний из статьи [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
+По завершении работы с этим руководством пользователи Azure AD, назначенные в OfficeSpace Software, будут иметь возможность единого входа в приложение на веб-сайте OfficeSpace Software компании (вход, инициированный поставщиком услуг) или следуя указаниям в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
   
 Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
@@ -42,7 +55,7 @@
 
     ![Добавить приложение из коллекции](./media/active-directory-saas-officespace-software-tutorial/IC749322.png "Добавить приложение из коллекции")
 
-6.  В **поле поиска** введите **officespace software**.
+6.  В **поле поиска** введите **OfficeSpace Software**.
 
     ![Коллекция приложений](./media/active-directory-saas-officespace-software-tutorial/IC777765.png "Коллекция приложений")
 
@@ -51,7 +64,7 @@
     ![OfficeSpace Software](./media/active-directory-saas-officespace-software-tutorial/IC781007.png "OfficeSpace Software")
 ##Настройка единого входа
   
-В этом разделе показано, как разрешить пользователям проходить аутентификацию в OfficeSpace Software со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. Чтобы настроить единый вход для OfficeSpace Software, необходимо извлечь значение отпечатка из сертификата. Если вы не знакомы с этой процедурой, посмотрите видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI).
+В этом разделе показано, как разрешить пользователям проходить аутентификацию в OfficeSpace Software со своей учетной записью Azure AD, используя федерацию на основе протокола SAML. Чтобы настроить единый вход для OfficeSpace Software, необходимо извлечь значение отпечатка из сертификата. Если вы не знакомы с этой процедурой, просмотрите видео [Как извлечь значение отпечатка из сертификата](http://youtu.be/YKQF266SAxI).
 
 ###Чтобы настроить единый вход, выполните следующие действия:
 
@@ -59,11 +72,11 @@
 
     ![Настройка единого входа](./media/active-directory-saas-officespace-software-tutorial/IC777766.png "Настройка единого входа")
 
-2.  На странице **Как пользователи должны входить в OfficeSpace Software?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
+2.  На странице **Как пользователи должны входить в OfficeSpace Software** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
     ![Настройка единого входа](./media/active-directory-saas-officespace-software-tutorial/IC777767.png "Настройка единого входа")
 
-3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес входа в OfficeSpace Software** введите URL-адрес, используемый вашими пользователями для входа в приложение OfficeSpace Software (например, **https://company.officespacesoftware.com*")) и нажмите кнопку **Далее**.
+3.  На странице **Настройка URL-адреса приложения** в текстовом поле **URL-адрес для входа в OfficeSpace Software** введите URL-адрес, используемый пользователями для входа в приложение OfficeSpace Software (например, **https://company.officespacesoftware.com*")), и нажмите кнопку **Далее**.
 
     ![Настройка URL-адреса приложения](./media/active-directory-saas-officespace-software-tutorial/IC775556.png "Настройка URL-адреса приложения")
 
@@ -73,7 +86,7 @@
 
 5.  В другом окне веб-браузера войдите на сайт OfficeSpace Software компании в качестве администратора.
 
-6.  Последовательно выберите **Администратор > Соединители**.
+6.  Выберите **Администратор > Соединители**.
 
     ![Администратор](./media/active-directory-saas-officespace-software-tutorial/IC777769.png "Администратор")
 
@@ -81,17 +94,17 @@
 
     ![Соединители](./media/active-directory-saas-officespace-software-tutorial/IC777770.png "Соединители")
 
-8.  В разделе **Авторизация SAML** выполните следующие действия:
+8.  В разделе **Авторизация SAML** сделайте следующее:
 
     ![Настройка SAML](./media/active-directory-saas-officespace-software-tutorial/IC777771.png "Настройка SAML")
 
     1.  На странице **Настройка единого входа в OfficeSpace Software** портала Azure скопируйте значение поля **URL-адрес удаленного входа** и вставьте его в текстовое поле **URL-адрес поставщика выхода**.
-    2.  На странице **Настройка единого входа в OfficeSpace Software** портала Azure скопируйте значение поля **URL-адрес удаленного выхода** и вставьте его в текстовое поле **Целевой URL-адрес поставщика удостоверений клиента**.
-    3.  Скопируйте значение поля **Отпечаток** из экспортированного сертификата и вставьте его в текстовое поле **Отпечаток сертификата поставщика удостоверений клиента**.  
+    2.  На странице **Настройка единого входа в OfficeSpace Software** портала Azure скопируйте значение поля **URL-адрес удаленного выхода** и вставьте его в текстовое поле **Целевой URL-адрес IdP клиента**.
+    3.  Скопируйте значение поля **Отпечаток** из экспортированного сертификата и вставьте его в текстовое поле **Отпечаток сертификата IdP клиента**.  
 
-        >[AZURE.TIP]Дополнительные сведения можно найти в видео [Как получить значение отпечатка сертификата](http://youtu.be/YKQF266SAxI).
+        >[AZURE.TIP]Дополнительные сведения можно узнать из видео [Как получить значение отпечатка сертификата](http://youtu.be/YKQF266SAxI).
 
-    4.  Щелкните **Сохранить параметры**.
+    4.  Нажмите кнопку **Сохранить параметры**.
 
 9.  На портале Azure AD выберите подтверждение конфигурации единого входа, а затем нажмите кнопку **Завершить**, чтобы закрыть диалоговое окно **Настройка единого входа**.
 
@@ -110,14 +123,14 @@
 
 1.  На портале Azure AD создайте тестовую учетную запись.
 
-2.  На странице интеграции с приложением **OfficeSpace Software** щелкните **Назначить пользователей**.
+2.  На странице интеграции с приложением **OfficeSpace Software** нажмите кнопку **Назначить пользователей**.
 
     ![Назначить пользователей](./media/active-directory-saas-officespace-software-tutorial/IC777773.png "Назначить пользователей")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да** для подтверждения назначения.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем нажмите кнопку **Да**, чтобы подтвердить назначение.
 
     ![Да](./media/active-directory-saas-officespace-software-tutorial/IC767830.png "Да")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

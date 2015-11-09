@@ -18,6 +18,12 @@
 
 
 # Загрузка данных с помощью PolyBase
+
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [BCP](sql-data-warehouse-load-with-bcp.md)
+
 В этом учебнике показано, как загружать данные в хранилище данных SQL Azure с помощью PolyBase.
 
 
@@ -57,16 +63,16 @@
 .\AzCopy.exe /Source:C:\Temp\ /Dest:https://pbdemostorage.blob.core.windows.net/datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
 ```
 
-Дополнительные сведения об использовании AzCopy см. в статье [Приступая к работе со служебной программой командной строки AzCopy][].
+Дополнительные сведения об AzCopy см. в статье [Начало работы с программой командной строки AzCopy][].
 
 
 ## Шаг 3. Создание внешних таблиц
 
 Теперь необходимо создать в хранилище данных SQL внешние таблицы, которые будут ссылаться на данные в хранилище больших двоичных объектов Azure. Для создания внешней таблицы выполните указанные ниже действия.
 
-- [Создание главного ключа][]\: требуется для шифрования учетных данных, позволяющих получить доступ к базе данных.
-- [Создание учетных данных для базы данных]\: требуется для указания сведений о проверке подлинности для учетной записи хранения Azure.
-- [Создания внешнего источника данных]\: позволяет указать расположение хранилища больших двоичных объектов Azure.
+- [Создание главного ключа][]\: он требуется для шифрования учетных данных, позволяющих получить доступ к базе данных.
+- [Создание учетных данных для базы данных]\: они содержат сведения для проверки подлинности для учетной записи хранения Azure.
+- [Создание внешнего источника данных]\: позволяет указать расположение хранилища больших двоичных объектов Azure.
 - [Создание формата внешних файлов]\: позволяет указать формат данных.
 - [Создание внешней таблицы]\: позволяет настроить ссылки на данные в хранилище Azure.
 
@@ -157,13 +163,13 @@ FROM   [dbo].[DimDate2External];
 
 <!-- External Links -->
 [последнюю версию AzCopy]: http://aka.ms/downloadazcopy
-[Приступая к работе со служебной программой командной строки AzCopy]: https://azure.microsoft.com/documentation/articles/storage-use-azcopy/
+[Начало работы с программой командной строки AzCopy]: https://azure.microsoft.com/documentation/articles/storage-use-azcopy/
 
-[Создания внешнего источника данных]: https://msdn.microsoft.com/library/dn935022(v=sql.130).aspx
+[Создание внешнего источника данных]: https://msdn.microsoft.com/library/dn935022(v=sql.130).aspx
 [Создание формата внешних файлов]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [Создание внешней таблицы]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 [Создание главного ключа]: https://msdn.microsoft.com/ru-RU/library/ms174382.aspx
 [Создание учетных данных для базы данных]: https://msdn.microsoft.com/ru-RU/library/mt270260.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

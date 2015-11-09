@@ -5,14 +5,14 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/07/2015"
+   ms.date="10/27/2015"
    ms.author="cherylmc" />
 
 # О VPN-устройствах для подключений виртуальной сети типа «сеть-сеть»
@@ -47,19 +47,19 @@
 | Barracuda Networks, Inc. | Barracuda Firewall | Barracuda Firewall 6.5 | [Barracuda Firewall](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) | Не совместимо |
 | Brocade | Vyatta 5400 vRouter | Virtual Router 6.6R3 GA | [Инструкции по настройке](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) | Не совместимо |
 | Check Point | Security Gateway | R75.40, R75.40VS | [Инструкции по настройке](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) | [Инструкции по настройке](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco | ASA | 8\.3 | [Примеры Cisco ASA](https://msdn.microsoft.com/library/azure/dn133793.aspx) | Не совместимо |
-| Cisco | ASR | IOS 15.1 (статическая), IOS 15.2 (динамическая) | [Примеры Cisco ASR](https://msdn.microsoft.com/library/azure/dn133802.aspx) | [Примеры Cisco ASR](https://msdn.microsoft.com/library/azure/dn133802.aspx) |
-| Cisco | ISR | IOS 15.0 (статическая), IOS 15.1 (динамическая) | [Примеры Cisco ISR](https://msdn.microsoft.com/library/azure/dn133800.aspx) | [Примеры Cisco ISR](https://msdn.microsoft.com/library/azure/dn133800.aspx) |
+| Cisco | ASA | 8\.3 | [Примеры Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) | Не совместимо |
+| Cisco | ASR | IOS 15.1 (статическая), IOS 15.2 (динамическая) | [Примеры Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Примеры Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Cisco | ISR | IOS 15.0 (статическая), IOS 15.1 (динамическая) | [Примеры Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Примеры Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Citrix | Устройство CloudBridge MPX или виртуальное устройство VPX | Недоступно | [Инструкции по интеграции](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | Не совместимо |
 | Dell SonicWALL | Серия TZ, серия NSA, серия SuperMassive, серия NSA класса E | SonicOS 5.8.x, SonicOS 5.9.x, SonicOS 6.x | [Инструкции по настройке](https://www.sonicwall.com/app/projects/file_downloader/document_lib.php?t=TN&id=348) | Не совместимо |
 | F5 | Серия BIG-IP | Недоступно | [Инструкции по настройке](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | Не совместимо |
 | Fortinet | FortiGate | FortiOS 5.0.7 | [Инструкции по настройке](http://docs.fortinet.com/fortigate/admin-guides) | [Инструкции по настройке](http://docs.fortinet.com/fortigate/admin-guides) |
 | Internet Initiative Japan (IIJ) | Серия SEIL | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 | [Инструкции по настройке](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | Не совместимо |
-| Juniper | SRX | JunOS 10.2 (статическая), JunOS 11.4 (динамическая) | [Примеры Juniper SRX](https://msdn.microsoft.com/library/azure/dn133794.aspx) | [Примеры Juniper SRX](https://msdn.microsoft.com/library/azure/dn133794.aspx) |
-| Juniper | Серия J | JunOS 10.4r9 (статическая), JunOS 11.4 (динамическая) | [Примеры Juniper серии J](https://msdn.microsoft.com/library/azure/dn133799.aspx) | [Примеры Juniper серии J](https://msdn.microsoft.com/library/azure/dn133799.aspx) |
-| Juniper | ISG | ScreenOS 6.3 (статическая и динамическая) | [Примеры Juniper ISG](https://msdn.microsoft.com/library/azure/dn133797.aspx) | [Примеры Juniper ISG](https://msdn.microsoft.com/library/azure/dn133797.aspx) |
-| Juniper | SSG | ScreenOS 6.2 (статическая и динамическая) | [Примеры Juniper SSG](https://msdn.microsoft.com/library/azure/dn133796.aspx) | [Примеры Juniper SSG](https://msdn.microsoft.com/library/azure/dn133796.aspx) |
-| Microsoft | Служба маршрутизации и удаленного доступа | Windows Server 2012 | Не совместимо | [Примеры службы маршрутизации и удаленного доступа (RRAS)](https://msdn.microsoft.com/library/azure/dn133801.aspx) |
+| Juniper | SRX | JunOS 10.2 (статическая), JunOS 11.4 (динамическая) | [Примеры Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Примеры Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Juniper | Серия J | JunOS 10.4r9 (статическая), JunOS 11.4 (динамическая) | [Примеры Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Примеры Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Juniper | ISG | ScreenOS 6.3 (статическая и динамическая) | [Примеры Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Примеры Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Juniper | SSG | ScreenOS 6.2 (статическая и динамическая) | [Примеры Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Примеры Juniper](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
+| Microsoft | Служба маршрутизации и удаленного доступа | Windows Server 2012 | Не совместимо | [Примеры Майкрософт](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Openswan | Openswan | 2\.6.32 | (Ожидается в ближайшее время) | Не совместимо |
 | Palo Alto Networks | Все устройства под управлением PAN-OS 5.0 или более поздней версии | PAN-OS 5x или более поздняя версия | [Palo Alto Networks](https://support.paloaltonetworks.com/) | Не совместимо |
 | WatchGuard | Все | Fireware XTM v11.x | [Инструкции по настройке](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/) | Не совместимо |
@@ -156,4 +156,4 @@
 
 Чтобы настроить VPN типа «сеть-сеть», см. раздел [Создание виртуальной сети с VPN-подключением «сеть-сеть»](vpn-gateway-site-to-site-create.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

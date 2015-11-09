@@ -40,10 +40,10 @@
 
 **Не закрывайте страницу с кодом**, выполняя следующий шаг в другом окне браузера. Код вскоре вам понадобится.
 
-### Создание веб-ресурса JavaScript в Microsoft CRM
+### Создание веб-ресурса JavaScript в Microsoft Dynamics CRM
 
 1. Откройте экземпляр CRM Online и войдите с правами администратора.
-2. Последовательно откройте элементы «Microsoft Dynamics CDM», «Параметры», «Настройки», «Система».
+2. Последовательно откройте элементы "Параметры Microsoft Dynamics CRM", "Настройка", "Настройка системы".
 
     ![](./media/app-insights-sample-mscrm/04.png)
     
@@ -60,7 +60,7 @@
 
     ![](./media/app-insights-sample-mscrm/08.png)
     
-4. Скопируйте код из Application Insights. При копировании обязательно игнорируйте теги <script>. См. ниже снимок экрана.
+4. Скопируйте код из Application Insights. При копировании необходимо пропускать теги скриптов. См. ниже снимок экрана.
 
     ![](./media/app-insights-sample-mscrm/09.png)
 
@@ -143,15 +143,15 @@
 
 ## Пример кода
 
-[Просмотрите пример кода](https://dynamicsandappinsights.codeplex.com/).
+[Получите пример кода](https://dynamicsandappinsights.codeplex.com/).
 
 ## Power BI
 
 Если [экспортировать данные в Microsoft Power BI](app-insights-export-power-bi.md), то можно выполнить еще более подробный анализ данных.
 
-## Образец решения Dynamics CRM
+## Образец решения Microsoft Dynamics CRM
 
-[Ниже приведен простой пример решения, реализованного в Dynamics CRM](https://dynamicsandappinsights.codeplex.com/).
+[Ниже приведен простой пример решения, реализованного в Microsoft Dynamics CRM](https://dynamicsandappinsights.codeplex.com/).
 
 ## Подробнее
 
@@ -161,4 +161,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

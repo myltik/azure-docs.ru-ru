@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Рекомендованные дистрибутивы Linux | Microsoft Azure" 
-	description="Узнайте о рекомендованных дистрибутивах Linux в Azure, включая рекомендации по Ubuntu, OpenLogic, Oracle и SUSE." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="szarkos" 
-	manager="timlt" 
+<properties
+	pageTitle="Рекомендованные дистрибутивы Linux | Microsoft Azure"
+	description="Узнайте о рекомендованных дистрибутивах Linux в Azure, включая рекомендации по Ubuntu, OpenLogic, Oracle и SUSE."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="szarkos"
+	manager="timlt"
 	editor="tysonn"
-	tags="azure-service-management,azure-resource-manager" 
+	tags="azure-service-management,azure-resource-manager"
 	/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/03/2015"
 	ms.author="szark"/>
 
 
@@ -37,7 +37,7 @@
 
 Дистрибутив|Версия|Драйверы|Агент
 ---|---|---|---
-Каноническая Ubuntu|Ubuntu 12.04, 14.04, 14.10 и 15.04|В ядре|Пакет: в репозитории под именем WALinuxAgent <p><p>Источник: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+Каноническая Ubuntu|Ubuntu 12.04, 14.04, 15.04 и 15.10|В ядре|Пакет: в репозитории под именем WALinuxAgent <p><p>Источник: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 CentOS через OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3: [скачиваемый пакет LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 и более поздних версий: в ядре|Пакет: в <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">репозитории OpenLogic под именем WALinuxAgent<p><p>Источник: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0 + |В ядре|Источник: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
 Oracle Linux| 6\.4+, 7.0+|В ядре|Пакет: в репозитории под именем WALinuxAgent<p><p>Источник: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
@@ -79,6 +79,4 @@ Oracle предлагает широкий набор решений для об
 
 SUSE Linux Enterprise Server в Azure — проверенная платформа, предоставляющая высокую степень надежности и безопасности для работы в облаке. Универсальная платформа SUSE Linux легко интегрируется с облачными службами Azure, создавая облачную среду с простым управлением. Свыше 9200 сертифицированных приложений для SUSE Linux Enterprise Server от более чем 1800 независимых поставщиков программного обеспечения гарантируют, что рабочие нагрузки, поддерживаемые в центре обработки данных, могут быть беспрепятственно развернуты в Azure.
 
- 
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

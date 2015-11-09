@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/23/2015"
+   ms.date="10/26/2015"
    ms.author="joaoma" />
 
 # Несколько виртуальных IP-адресов для облачной службы
@@ -155,4 +155,4 @@
 [API REST зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
