@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
+   ms.date="10/23/2015"
    ms.author="bwren" />
 
 # Гибридные компоненты Runbook Worker в службе автоматизации Azure
@@ -30,6 +30,8 @@
 >[AZURE.NOTE]В настоящее время идет процесс интеграции Operational Insights с Operations Management Suite, поэтому на портале и в документации вы можете встретить и то, и другое название.
 
 Для поддержки гибридных компонентов Runbook Worker отсутствуют требования к брандмауэру для входящих подключений. Агент на локальном компьютере инициирует весь обмен данными со службой автоматизации Azure в облаке. При запуске модуля Runbook служба автоматизации Azure создает инструкцию, которая извлекается агентом. После этого агент извлекает модуль Runbook и все сопутствующие параметры, применяемые перед запуском модуля. Кроме того, из службы автоматизации Azure извлекаются все [средства](http://msdn.microsoft.com/library/dn939988.aspx), которые используются в модуле Runbook.
+
+>[AZURE.NOTE]Гибридные рабочие роли Runbook в настоящее время не поддерживают [конфигурации DSC](automation-dsc-overview.md).
 
 ## Группы гибридных компонентов Runbook Worker
 
@@ -59,21 +61,21 @@
 ### 2\. Добавьте решение автоматизации в рабочую область Operations Management Suite
 Решения расширяют функциональные возможности Operations Management Suite. Решение автоматизации расширяет функциональные возможности службы автоматизации Azure, включая поддержку гибридных компонентов Runbook Worker. При добавлении решения в рабочую область она автоматически загружает компоненты Worker на компьютер агента, который вы установите на следующем этапе.
 
-Выполните инструкции в статье [Добавление решения с использованием коллекции решений](../operational-insights/operational-insights-setup-workspace.md#1-add-solutions), чтобы добавить решение **автоматизации** в рабочую область Operations Management Suite.
+Выполните инструкции в статье [Добавление решения с использованием коллекции решений](../operational-insights/operational-insights-setup-workspace.md#1-add-solutions), чтобы добавить решение **службы автоматизации** в рабочую область Operations Management Suite.
 
 ### 3\. Установите агент управления Майкрософт
 Агент управления Microsoft подключает компьютеры к Operations Management Suite. Когда агент устанавливается на локальный компьютер и подключается к рабочей области, он автоматически загружает компоненты, необходимые для гибридных модулей Runbook Worker.
 
 Установите агент на локальный компьютер согласно инструкциям в статье [Подключение компьютеров напрямую к Operational Insights](../operational-insights/operational-insights-direct-agent.md). Выполните эту процедуру на нескольких компьютерах, чтобы добавить в среду несколько компонентов Worker.
 
-Агент, успешно подключенный к Operations Management Suite, появится на вкладке **Подключенные источники** в области **Параметры** Operations Management Suite. Если агент загрузил решение автоматизации правильно, в каталоге C:\\Program Files\\Microsoft Monitoring Agent\\Agent появится папка **AzureAutomationFiles**.
+Агент, успешно подключенный к Operations Management Suite, появится на вкладке **Подключенные источники** в области **Параметры** Operations Management Suite. Если агент загрузил решение службы автоматизации правильно, в каталоге C:\\Program Files\\Microsoft Monitoring Agent\\Agent появится папка **AzureAutomationFiles**.
 
 ### 4\. Установите среду модулей Runbook и выполните подключение к службе автоматизации Azure
-При добавлении агента в Operational Management Suite решение автоматизации устанавливает модуль PowerShell **HybridRegistration**, который содержит командлет **Add-HybridRunbookWorker**. Этот командлет используется для установки среды модулей Runbook на компьютере и ее регистрации в службе автоматизации Azure.
+При добавлении агента в Operational Management Suite решение службы автоматизации устанавливает модуль PowerShell **HybridRegistration**, который содержит командлет **Add-HybridRunbookWorker**. Этот командлет используется для установки среды модулей Runbook на компьютере и ее регистрации в службе автоматизации Azure.
 
 Откройте сеанс PowerShell с правами администратора и импортируйте модуль, выполнив указанные ниже команды.
 
-	cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\5.2.20826.0\HybridRegistration"
+	cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation<version>\HybridRegistration"
 	Import-Module HybridRegistration.psd1
 
 
@@ -98,7 +100,7 @@
 
 ## Удаление гибридного компонента Runbook Worker
 
-Компонент Hybrid Worker можно удалить с локального компьютера, выполнив на нем командлет **Remove-HybridRunbookWorker**. Получить подробный журнал процедуры удаления можно с помощью переключателя **-Verbose**.
+Гибридную рабочую роль Runbook можно удалить с локального компьютера, выполнив на нем командлет **Remove-HybridRunbookWorker**. Получить подробный журнал процедуры удаления можно с помощью переключателя **-Verbose**.
 
 ## Запуск модулей Runbook на гибридном компоненте Runbook Worker
 
@@ -112,11 +114,9 @@
 
 >[AZURE.NOTE]Параметр **RunOn** был добавлен в командлет **Start-AzureAutomationRunbook** в Microsoft Azure PowerShell версии 0.9.1. Если у вас установлена более ранняя версия, следует [загрузить последнюю версию](http://azure.microsoft.com/downloads). Вам потребуется установить эту версию на рабочую станцию, на которой вы будете запускать модуль Runbook из Windows PowerShell. Вам не нужно устанавливать его на компьютер с компонентом Worker, если вы не собираетесь запускать модули Runbooks с этого компьютера. В настоящий момент вы не можете запускать модуль Runbook в гибридном компоненте Runbook Worker из другого модуля Runbook, поскольку для этого потребуется установить последнюю версию Azure Powershell в учетной записи службы автоматизации. Последняя версия будет автоматически обновлена в службе автоматизации Azure и будет автоматически принудительно установлена в компонентах Worker.
 
->[AZURE.NOTE]Гибридный компонента Runbook Worker можно запускать только в [графических модулях Runbook и модулях Runbook рабочих процессов PowerShell](automation-runbook-types.md). В настоящее время запустить [модуль Runbook PowerShell](automation-runbook-types.md) в гибридном компоненте Runbook нельзя.
-
 ## Устранение неполадок с модулями Runbook в гибридном компоненте Runbook Worker
 
-[Выходные данные Runbook и сообщения](automation-runbook-output-and-messages.md) отправляются в службу автоматизации Azure из гибридных компонентов Worker точно так же, как задания Runbook, которые выполняются в облаке. Потоки Verbose и Progress можно активировать точно так же, как и для других модулей Runbook.
+[Выходные данные Runbook и сообщения](automation-runbook-output-and-messages.md) отправляются в службу автоматизации Azure из гибридных рабочих ролей точно так же, как задания Runbook, которые выполняются в облаке. Потоки Verbose и Progress можно активировать точно так же, как и для других модулей Runbook.
 
 Журналы сохраняются локально в каждом гибридном компоненте Worker по адресу C:\\ProgramData\\Microsoft\\System Center\\Orchestrator\\7.2\\SMA\\Sandboxes.
 
@@ -164,4 +164,4 @@
 - [Редактирование модуля Runbook в службе автоматизации Azure](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="nana"
+   ms.workload="na"
    ms.date="09/29/2015"
    ms.author="hegate"/>
 
@@ -234,10 +234,10 @@ Note: if you have already provisioned a device on your solution, you can skip th
 
 
    ```
-   static const char* deviceId = "[Device Id]";
-   static const char* deviceKey = "[Device Key]";
-   static const char* hubName = "[IoTHub Name]";
-   static const char* hubSuffix = "[IoTHub Suffix, i.e. azure-devices.net]";
+   var deviceID = "[DeviceID]";
+   var deviceKey = "[Device Key]";
+   var hubName = "[IoT Hub Name]";
+   var hubSuffix = "[IoT Hub Suffix i.e azure-devices.net]";
    ```
 
 -  Замените [Device Id] и [Device Key] данными вашего устройства.
@@ -248,10 +248,10 @@ Note: if you have already provisioned a device on your solution, you can skip th
 
 
    ```
-     static const char* deviceId = "mydevice";
-   static const char* deviceKey = "mykey";
-   static const char* hubName = "Contoso";
-   static const char* hubSuffix = "azure-devices.net";
+   var deviceID = "mydevice";
+   var deviceKey = "mykey";
+   var hubName = "Contoso";
+   var hubSuffix = "azure-devices.net";
    ```
 
 
@@ -309,4 +309,4 @@ node .
 
 Есть несколько способов расширить функциональные возможности, описываемые в данной статье. Например, можно подключить датчик к устройству для отправки реальных данных или реализовать функциональность управления и отправки команд. Дополнительные сведения о расширении решения для удаленного мониторинга см. в соответствующем [руководстве](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

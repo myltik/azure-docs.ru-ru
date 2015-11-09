@@ -30,22 +30,32 @@
 Выборка в настоящее время доступна для пакета SDK для ASP.NET или [любой веб-страницы](#other-web-pages).
 
 ### Сервер ASP.NET
-Чтобы настроить выборку в приложении, вставьте следующий фрагмент кода в метод `Application_Start()` в файле Global.asax.cs:
 
-```C#
+1. Обновите пакеты NuGet вашего проекта до последней *предварительной* версии Application Insights. Щелкните правой кнопкой мыши проект в обозревателе решений, выберите "Управление пакетами NuGet", установите флаг **Включить предварительный выпуск** и выполните поиск Microsoft.ApplicationInsights.Web. 
 
-    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
-    // This configures sampling percentage at 10%:
-    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+2. Добавьте этот фрагмент кода в ApplicationInsights.config
+
+```XML
+
+    <TelemetryProcessors>
+     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+     <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+     <SamplingPercentage>10</SamplingPercentage>
+     </Add>
+   </TelemetryProcessors>
+
 ```
 
-> [AZURE.NOTE]В качестве процента выборки выберите значение в процентах, близкое к 100/N, где N — это целое число. Например, допустимыми являются следующие значения: 50 (= 1/2), 33,33 (= 1/3), 25 (= 1/4), 20 (= 1/5) и т. д. В настоящее время выборка не поддерживает другие значения.
+> [AZURE.NOTE]В качестве процента выборки выберите значение в процентах, близкое к 100/N, где N — это целое число. В настоящее время выборка не поддерживает другие значения.
 
+<a name="other-web-pages"></a>
 ### Веб-страницы с использованием JavaScript
 
 Вы можете настроить веб-страницы для использования выборки с любого сервера. Для серверов ASP.NET настройка требуется на стороне клиента и сервера.
 
-При [настройке веб-страниц для Application Insights](app-insights-javascript.md) измените фрагмент, загруженный с портала Application Insights (для ASP.NET он находится в файле \_Layout.cshtml). Вставьте строку, например `samplingPercentage: 10,`, перед ключом инструментирования:
+При [настройке веб-страниц для Application Insights](app-insights-javascript.md) измените фрагмент, загруженный с портала Application Insights. (для ASP.NET он находится в файле \_Layout.cshtml). Вставьте строку, например `samplingPercentage: 10,`, перед ключом инструментирования:
 
     <script>
 	var appInsights= ... 
@@ -63,6 +73,26 @@
 Убедитесь, что вы указали такой же процент выборки в JavaScript, как и для сервера.
 
 [Дополнительные сведения об API](app-insights-api-custom-events-metrics.md)
+
+
+### Альтернативный вариант: задайте выборку в коде на стороне сервера
+
+
+Вы можете использовать код и не задавать параметр выборки в CONFIG-файле. Это позволит включать или выключать выборку.
+
+*C#*
+
+```C#
+
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+
+    // It's recommended to set SamplingPercentage in the .config file instead.
+
+    // This configures sampling percentage at 10%:
+    TelemetryConfiguration.Active.TelemetryChannel = new TelemetryChannelBuilder().UseSampling(10.0).Build();
+
+```
 
 
 ## Когда следует использовать выборку?
@@ -132,4 +162,4 @@
 
 * Нет, с приложениями для устройств использование выборки в настоящее время не поддерживается. 
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO1-->

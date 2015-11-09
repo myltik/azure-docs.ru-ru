@@ -19,7 +19,7 @@
 
 # Управление службами Azure с помощью интерфейса командной строки Azure на компьютерах Mac, а также на компьютерах с ОС Linux и Windows
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]В этой статье описывается процесс создания ресурса и управления им с помощью команд интерфейса командной строки (CLI) и классической модели развертывания. Для создания ресурса и управления им вы также можете использовать команды CLI в [модели развертывания диспетчера ресурсов](azure-cli-arm-commands.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model]((azure-cli-arm-commands.md).
 
 В этом разделе рассказывается, как с помощью Azure CLI в режиме управления службами (asm) создавать и удалять службы, а также управлять ими через командную строку на компьютерах Mac, Linux и Windows. Многие одинаковые задачи можно выполнить с использованием различных библиотек пакета SDK для Azure, PowerShell и портала Azure. Принципы использования служб Azure в режиме управления службами аналогичны процессам создания отдельных понятий и служб Azure и управления ими, включая веб-сайты, виртуальные машины, виртуальные сети, службу хранилища и т. д.
 
@@ -2350,4 +2350,4 @@ info:   vm shutdown command OK
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,14 +1,27 @@
-<properties pageTitle="Руководство. Интеграция Azure Active Directory с Veracode | Microsoft Azure" description="Узнайте, как использовать Veracode вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Руководство. Интеграция Azure Active Directory с Veracode | Microsoft Azure" 
+    description="Узнайте, как использовать Veracode вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Руководство. Интеграция Azure Active Directory с Veracode
->[AZURE.TIP]Чтобы оставить отзыв, нажмите [здесь](http://go.microsoft.com/fwlink/?LinkId=615291).
   
 Цель данного учебника — показать интеграцию Azure и Veracode. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 -   Действующая подписка на Azure
 -   Подписка с поддержкой единого входа Veracode
   
-После завершения этого руководства пользователи Azure AD, назначенные Veracode, будут иметь возможность единого входа в приложение с помощью инструкций из статьи [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586)
+После завершения этого руководства пользователи Azure AD, назначенные Veracode, будут иметь возможность единого входа в приложение с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
   
 Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
@@ -39,7 +52,7 @@
 
     ![Добавление приложения](./media/active-directory-saas-veracode-tutorial/IC749321.png "Добавление приложения")
 
-5.  В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** выберите **Добавить приложение из коллекции**.
 
     ![Добавить приложение из коллекции](./media/active-directory-saas-veracode-tutorial/IC749322.png "Добавить приложение из коллекции")
 
@@ -83,7 +96,7 @@
 
 7.  Щелкните вкладку **SAML**.
 
-8.  В разделе **Параметры SAML для организации** выполните следующие действия:
+8.  В разделе **Параметры SAML для организации** выполните следующие действия.
 
     ![Администрирование](./media/active-directory-saas-veracode-tutorial/IC802912.png "Администрирование")
 
@@ -91,7 +104,7 @@
     2.  Чтобы передать загруженный сертификат, нажмите кнопку **Выбрать файл**.
     3.  Выберите параметр **Включить саморегистрацию**.
 
-9.  В разделе **Параметры саморегистрации** выполните следующие действия, а затем нажмите кнопку **Сохранить**:
+9.  В разделе **Параметры саморегистрации** выполните следующие действия, а затем нажмите кнопку **Сохранить**.
 
     ![Администрирование](./media/active-directory-saas-veracode-tutorial/IC802913.png "Администрирование")
 
@@ -161,6 +174,6 @@
 
     ![Да](./media/active-directory-saas-veracode-tutorial/IC767830.png "Да")
   
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа можно найти в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

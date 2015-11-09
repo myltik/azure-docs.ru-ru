@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="10/26/2015"
 	ms.author="larryfr"/>
 
 
@@ -292,9 +292,9 @@ Apache Oozie — это система рабочих процессов и ко
 
 	Эта команда возвращает следующую информацию:
 
-		headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net
+		hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net
 
-	JobTracker использует порт 8050, поэтому полный адрес JobTracker будет следующим: **headnode0.CLUSTERNAME ssh.j7.internal.cloudapp.net:8050**.
+	Порт JobTracker — 8050, поэтому полный адрес для JobTracker выглядит следующим образом: **hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8050**.
 
 1. Используйте следующую команду для создания конфигурации определения задания Oozie:
 
@@ -361,7 +361,7 @@ Apache Oozie — это система рабочих процессов и ко
 		  </property>
 		</configuration>
 
-	* Замените все вхождения **wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее.
+	* Замените все вхождения ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее.
 
 	> [AZURE.WARNING]В составе пути необходимо использовать полный путь WASB с контейнером и учетной записью хранилища. Использование короткого формата (wasb:///) приведет к сбою при запуске задания RunHiveScript.
 
@@ -390,13 +390,13 @@ Apache Oozie — это система рабочих процессов и ко
 	Эта команда возвращает следующее значение:
 
 		<name>oozie.base.url</name>
-		<value>http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie</value>
+		<value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
 
-	Фрагмент **http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie** URL-адреса используется в команде Oozie.
+	Часть ****http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie** — это URL-адрес, который используется в команде Oozie.
 
 2. Используйте следующую команду для создания переменной среды для URL-адреса, чтобы не вводить его в каждой команде:
 
-		export OOZIE_URL=http://headnode0.CLUSTERNAME-ssh.j7.internal.cloudapp.net:11000/oozie
+		export OOZIE_URL=http://HOSTNAMEt:11000/oozie
 
 	Замените URL-адрес полученным ранее.
 
@@ -721,4 +721,4 @@ Oozie REST API позволяет создавать собственные ут
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Просмотр сводных данных о работоспособности сущностей Azure Service Fabric"
+   pageTitle="Обзор рабочего состояния сущностей Azure Service Fabric | Microsoft Azure"
    description="Описание процедуры отправки запросов, просмотра и оценки сводных данных о работоспособности сущностей Azure Service Fabric при помощи запросов о работоспособности и общих запросов."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Просмотр отчетов о работоспособности Service Fabric
@@ -836,4 +836,4 @@ UpgradeReplicaSetCheckTimeout : 00:15:00
 [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

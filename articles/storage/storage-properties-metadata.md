@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="09/03/2015" 
+  ms.date="10/26/2015" 
   ms.author="tamram"/>
 
 
@@ -28,15 +28,17 @@
 
 *   **Определяемые пользователем метаданные.** Определяемые пользователем метаданные — это метаданные, которые можно указать для определенного ресурса в виде пары "имя-значение". Вы можете использовать метаданные для хранения дополнительных значений для ресурса хранилища. Эти значения являются пользовательскими и не влияют на поведение ресурса.
 
-## Установка и получение свойств
-
-Получение значений свойств и метаданных ресурса хранилища выполняется в два этапа. Прежде чем можно будет считать эти значения, необходимо получить их, вызвав метод **FetchAttributes** или **FetchAttributesAsync**.
+Получение значений свойств и метаданных ресурса хранилища выполняется в два этапа. Прежде чем считывать эти значения, необходимо получить их, вызвав метод **FetchAttributes**.
 
 > [AZURE.IMPORTANT]Значения свойств и метаданных для ресурса хранилища заполняются только при вызове одного из методов **FetchAttributes**.
 
-Чтобы задать свойства для большого двоичного объекта, укажите значение свойства, а затем вызовите метод **SetProperties** или **SetPropertiesAsync**.
+## Установка и получение свойств
 
-В следующем примере кода будет создан контейнер, а значения свойств будут выведены в окно консоли.
+Чтобы получить значения свойств, вызовите метод **FetchAttributes** для BLOB-объекта или контейнера, а затем считайте значения.
+
+Чтобы задать свойства объекта, укажите значение свойства, а затем вызовите метод **SetProperties**.
+
+В следующем примере кода будет создан контейнер, а значения некоторых свойств будут выведены в окно консоли.
 
     //Parse the connection string for the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -64,46 +66,37 @@
 
 > [AZURE.NOTE]\: имя метаданных должно соответствовать соглашениям об именах для идентификаторов C#.
  
-Для получения метаданных вызовите метод **FetchAttributes** для BLOB-объекта или контейнера, чтобы заполнить **метаданные** коллекции, затем считайте значения.
+В следующем примере кода задаются метаданные для контейнера. Одно значение задается с помощью метода коллекции **Add**. Другое значение задается с помощью неявного синтаксиса «ключ/значение». Можно использовать любой из способов.
 
-В следующем примере кода будет создан новый контейнер, заданы метаданные для него, а затем считаны значения метаданных.
+    public static void AddContainerMetadata(CloudBlobContainer container)
+    {
+        //Add some metadata to the container.
+        container.Metadata.Add("docType", "textDocuments");
+        container.Metadata["category"] = "guidance";
 
-         
-	// Account name and key.  Modify for your account.
-	<span style="color:Blue;">string accountName = <span style="color:#A31515;">"myaccount";
-	<span style="color:Blue;">string accountKey = <span style="color:#A31515;">"SzlFqgzqhfkj594cFoveYqCuvo8v9EESAnOLcTBeBIo31p16rJJRZx/5vU/oY3ZsK/VdFNaVpm6G8YSD2K48Nw==";
+        //Set the container's metadata.
+        container.SetMetadata();
+    }
 
-	// Get a reference to the storage account and client with authentication credentials.
-	StorageCredentials credentials = <span style="color:Blue;">new StorageCredentials(accountName, accountKey);
-	CloudStorageAccount storageAccount = <span style="color:Blue;">new CloudStorageAccount(credentials, <span style="color:Blue;">true);
-	CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+Для получения метаданных вызовите метод **FetchAttributes** для BLOB-объекта или контейнера, чтобы заполнить **метаданные** коллекции, затем считайте значения, как показано в приведенном примере.
 
-	// Retrieve a reference to a container. 
-	CloudBlobContainer container = blobClient.GetContainerReference(<span style="color:#A31515;">"mycontainer");
+    public static void ListContainerMetadata(CloudBlobContainer container)
+    {
+        //Fetch container attributes in order to populate the container's properties and metadata.
+        container.FetchAttributes();
 
-	// Create the container if it does not already exist.
-	container.CreateIfNotExists();
-
-	// Set metadata for the container.
-	container.Metadata[<span style="color:#A31515;">"category"] = <span style="color:#A31515;">"images";
-	container.Metadata[<span style="color:#A31515;">"owner"] = <span style="color:#A31515;">"azure";
-	container.SetMetadata();
-
-	// Get container metadata.
-	container.FetchAttributes();
-	<span style="color:Blue;">foreach (<span style="color:Blue;">string key <span style="color:Blue;">in container.Metadata.Keys)
-	{
-	   Console.WriteLine(<span style="color:#A31515;">"Metadata key: " + key);
-	   Console.WriteLine(<span style="color:#A31515;">"Metadata value: " + container.Metadata[key]);
-	}
-
-	//Clean up.
-	container.Delete();
+        //Enumerate the container's metadata.
+        Console.WriteLine("Container metadata:");
+        foreach (var metadataItem in container.Metadata)
+        {
+            Console.WriteLine("\tKey: {0}", metadataItem.Key);
+            Console.WriteLine("\tValue: {0}", metadataItem.Value);
+        }
+    }
 
 ## См. также  
 
-- [Справочник по клиентской библиотеке службы хранилища Azure](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
-- [Начало работе с хранилищем больших двоичных объектов для .NET](storage-dotnet-how-to-use-blobs.md)  
- 
+- [Справочные материалы клиентской библиотеки хранилища Azure для .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
+- [Клиентская библиотека хранилища Azure для .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

@@ -1,14 +1,27 @@
-<properties pageTitle="Руководство. Интеграция Azure Active Directory с ABa Sainsburys Connect | Microsoft Azure" description="Узнайте, как использовать ABa Sainsburys Connect вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties
+    pageTitle="Руководство. Интеграция Azure Active Directory с ABa Sainsburys Connect | Microsoft Azure" 
+    description="Узнайте, как использовать ABa Sainsburys Connect вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
+    services="active-directory" 
+    authors="markusvi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Руководство. Интеграция Azure Active Directory с ABa Sainsburys Connect
->[AZURE.TIP]Чтобы оставить отзыв, нажмите [здесь](http://go.microsoft.com/fwlink/?LinkId=615290).
 
 Цель данного учебника — показать интеграцию Azure и Aba Sainsburys Connect. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 -   Действующая подписка на Azure
 -   Подписка с поддержкой единого входа Aba Sainsburys Connect
 
-После завершения этого руководства пользователи Azure AD, назначенные Aba Sainsburys Connect, будут иметь возможность единого входа в приложение на веб-сайте компании Aba Sainsburys Connect (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
+После завершения этого руководства пользователи Azure AD, назначенные Aba Sainsburys Connect, будут иметь возможность единого входа в приложение на веб-сайте компании Aba Sainsburys Connect (вход, инициированный поставщиком услуг) или с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
 Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
@@ -38,7 +51,7 @@
 
     ![Добавление приложения](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC749321.png "Добавление приложения")
 
-5.  В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** выберите **Добавить приложение из коллекции**.
 
     ![Добавить приложение из коллекции](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC749322.png "Добавить приложение из коллекции")
 
@@ -55,7 +68,7 @@
 
 ###Чтобы настроить единый вход, выполните следующие действия.
 
-1.  На странице интеграции с приложением **Aba Sainsburys Connect** портала Azure AD нажмите кнопку **Настроить единый вход**, чтобы открыть диалоговое окно **Настройка единого входа**.
+1.  На странице интеграции с приложением **Aba Sainsburys Connect** портала Azure AD нажмите кнопку **Настройка единого входа**, чтобы открыть диалоговое окно **Настройка единого входа**.
 
     ![Настройка единого входа](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807726.png "Настройка единого входа")
 
@@ -95,7 +108,7 @@
 
 1.  На портале Azure AD создайте тестовую учетную запись.
 
-2.  На странице интеграции приложения **Aba Sainsburys Connect** выберите параметр **Назначить пользователей**.
+2.  На странице интеграции приложения **Aba Sainsburys Connect** нажмите кнопку **Назначить пользователей**.
 
     ![Назначить пользователей](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC807731.png "Назначить пользователей")
 
@@ -103,6 +116,6 @@
 
     ![Да](./media/active-directory-saas-aba-sainsburys-connect-tutorial/IC767830.png "Да")
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

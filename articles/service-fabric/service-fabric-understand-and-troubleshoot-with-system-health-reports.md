@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Использование отчетов о работоспособности системы для устранения неполадок"
-   description="Описание системных отчетов о работоспособности и их использовании для устранения неполадок с кластерами или приложениями"
+   pageTitle="Устранение неполадок с помощью отчетов о работоспособности системы | Microsoft Azure"
+   description="Содержит описание отчетов о работоспособности, отправляемых компонентами Azure Service Fabric, и их использовании для устранения неполадок с кластерами и приложениями."
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Использование отчетов о работоспособности системы для устранения неполадок
@@ -530,4 +530,4 @@ System.Hosting сообщает об ошибке проверки во врем
 [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

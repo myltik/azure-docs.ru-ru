@@ -12,7 +12,7 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="nana"
+   ms.workload="na"
    ms.date="09/29/2015"
    ms.author="kdotchko"/>
 
@@ -37,4 +37,4 @@
 * [Репозиторий шлюза протокола IoT Azure в GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
 * [Руководство разработчика для шлюза протокола IoT Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

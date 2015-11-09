@@ -1,14 +1,27 @@
-<properties pageTitle="Руководство. Интеграция Azure Active Directory с Benefitsolver | Microsoft Azure" description="Узнайте, как использовать Benefitsolver вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Руководство. Интеграция Azure Active Directory с Benefitsolver | Microsoft Azure"
+    description="Узнайте, как использовать Benefitsolver вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
+    services="active-directory" 
+    authors="MarkusVi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/22/2015" 
+    ms.author="markvi" />
+
 #Руководство. Интеграция Azure Active Directory с Benefitsolver
->[AZURE.TIP]Чтобы оставить отзыв, нажмите [здесь](http://go.microsoft.com/fwlink/?LinkId=615070).
 
 Цель данного учебника — показать интеграцию Azure и Benefitsolver. Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
 
 -   Действующая подписка на Azure
 -   Подписка с поддержкой единого входа Benefitsolver
 
-После завершения этого руководства пользователи Azure AD, назначенные Benefitsolver, будут иметь возможность единого входа в приложение с помощью инструкций из статьи [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
+После завершения этого руководства пользователи Azure AD, назначенные Benefitsolver, будут иметь возможность единого входа в приложение с помощью инструкций из статьи [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
 Сценарий, описанный в этом учебнике, состоит из следующих блоков:
 
@@ -38,7 +51,7 @@
 
     ![Добавление приложения](./media/active-directory-saas-benefitsolver-tutorial/IC749321.png "Добавление приложения")
 
-5.  В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** выберите **Добавить приложение из коллекции**.
 
     ![Добавить приложение из коллекции](./media/active-directory-saas-benefitsolver-tutorial/IC749322.png "Добавить приложение из коллекции")
 
@@ -69,8 +82,8 @@
 
     ![Настройка параметров приложения](./media/active-directory-saas-benefitsolver-tutorial/IC804826.png "Настройка параметров приложения")
 
-    1.  В текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение Benefitsolver (например, *http://azure-dev.benefitsolver.com*.
-    2.  В текстовом поле **URL-адрес ответа** введите URL-адрес службы Benefitsolver AssertionConsumerService (например: “*https://dev.benefitsolver.com/benefits/BenefitSolverView?page\_name=single\_signon\_saml*”).  
+    1.  В текстовом поле **URL-адрес входа** введите URL-адрес, используемый пользователями для входа в приложение Benefitsolver (например, *http://azure-dev.benefitsolver.com*).
+    2.  В текстовом поле **URL-адрес ответа** введите URL-адрес службы Benefitsolver AssertionConsumerService (например, *https://dev.benefitsolver.com/benefits/BenefitSolverView?page\_name=single\_signon\_saml*”)).  
 
         >[AZURE.NOTE]Фактическое значение для вашей среды можно получить у команды поддержки Benefitsolver.
 
@@ -88,7 +101,7 @@
 
     ![Настройка единого входа](./media/active-directory-saas-benefitsolver-tutorial/IC804828.png "Настройка единого входа")
 
-7.  В меню в верхней части экрана выберите пункт **Атрибуты**, чтобы открыть диалоговое окно **Атрибуты маркера SAML**.
+7.  В меню в верхней части экрана выберите пункт **Атрибуты**, чтобы открыть диалоговое окно **Атрибуты токена SAML**.
 
     ![Атрибуты](./media/active-directory-saas-benefitsolver-tutorial/IC795920.png "Атрибуты")
 
@@ -103,12 +116,12 @@
     |LogoutURL|Это значение необходимо получить у службы поддержки Benefitsolver.|
     |EmployeeID|Это значение необходимо получить у службы поддержки Benefitsolver.|
 
-    1.  Для каждой строки данных в приведенной выше таблице нажмите **Добавить атрибут пользователя**.
+    1.  Для каждой строки данных в приведенной выше таблице нажмите кнопку **добавить атрибут пользователя**.
     2.  В текстовом поле **Имя атрибута** введите имя атрибута, отображаемое для этой строки.
     3.  В текстовом поле **Значение атрибута** выберите значение атрибута, отображаемое для этой строки.
     4.  Нажмите **Завершено**.
 
-9.  Нажмите **Применить изменения**.
+9.  Нажмите кнопку **Применить изменения**.
 ##Настройка подготовки учетных записей пользователей
 
 Чтобы пользователи Azure AD могли выполнять вход в Benefitsolver, они должны быть подготовлены для Benefitsolver. В случае Benefitsolver пользователи должны создаваться вручную службой поддержки Benefitsolver.
@@ -123,7 +136,7 @@
 
 1.  На портале Azure AD создайте тестовую учетную запись.
 
-2.  На странице интеграции с приложением **Benefitsolver** нажмите **Назначить пользователей**.
+2.  На странице интеграции с приложением **Benefitsolver** нажмите кнопку **Назначить пользователей**.
 
     ![Назначить пользователей](./media/active-directory-saas-benefitsolver-tutorial/IC804829.png "Назначить пользователей")
 
@@ -131,6 +144,6 @@
 
     ![Да](./media/active-directory-saas-benefitsolver-tutorial/IC767830.png "Да")
 
-Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
+Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

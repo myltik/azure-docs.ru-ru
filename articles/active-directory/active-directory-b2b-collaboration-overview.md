@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Служба Azure Active Directory B2B Collaboration, поддерживающая взаимодействия типа «компания — компания»"
+   pageTitle="Служба Azure Active Directory B2B Collaboration | Microsoft Azure"
    description="Служба Azure Active Directory B2B Collaboration позволяет деловым партнерам получить доступ к вашим корпоративным приложениям, при этом любой пользователь представляется как одна учетная запись Azure AD."
    services="active-directory"
    documentationCenter=""
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="10/27/2015"
    ms.author="curtand"/>
 
 # Служба Azure Active Directory B2B Collaboration
 
-Служба Azure AD B2B Collaboration позволяет предоставлять доступ к корпоративным приложениям из удостоверений, управляемых партнером. Вы можете создавать связи между компаниями, приглашая и авторизуя пользователей из компаний-партнеров для получения доступа к вашим ресурсам. Это упрощает работу, поскольку каждая компания выполняет федерацию с Azure Active Directory (Azure AD) один раз, а каждый пользователь представлен одной учетной записью Azure AD. Кроме того, это обеспечивает дополнительную защиту. Когда какой-либо пользователь из партнерской организации уходит из нее, доступ отзывается с исключением возможности непреднамеренного доступа ко внутренним каталогам через членство. Для деловых партнеров, которые не используют Azure AD, служба B2B Сollaboration доступна через упрощенный интерфейс для регистрации. Эта возможность позволяет предоставлять учетные записи Azure AD вашим деловым партнерам.
+Служба Azure AD B2B Collaboration позволяет предоставлять доступ к корпоративным приложениям из удостоверений, управляемых партнерами. Вы можете создавать связи между компаниями, приглашая и авторизуя пользователей из компаний-партнеров для получения доступа к вашим ресурсам. Это упрощает работу, поскольку каждая компания выполняет федерацию с Azure Active Directory один раз, а каждый пользователь представлен одной учетной записью Azure AD. Кроме того, это обеспечивает дополнительную защиту. Когда какой-либо пользователь из партнерской организации уходит из нее, доступ отзывается с исключением возможности непреднамеренного доступа ко внутренним каталогам через членство. Для деловых партнеров, которые не используют Azure AD, служба B2B Сollaboration доступна через упрощенный интерфейс для регистрации. Эта возможность позволяет предоставлять учетные записи Azure AD вашим деловым партнерам.
 
 -   Ваши деловые партнеры смогут использовать свои учетные данные для входа. Это избавит вас от необходимости управлять каталогом внешнего участника, а также отзывать доступ, когда какой-либо пользователь уходит из партнерской организации.
 
@@ -61,5 +61,15 @@ wharp@contoso.com,Walter Harp,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.
 jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 bsmith@contoso.com,Ben Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 ```
+## Дальнейшие действия
+Ознакомьтесь с другими статьями о службе Azure B2B Collaboration.
 
-<!---HONumber=Oct15_HO3-->
+- [Обзор службы Azure AD B2B Collaboration](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [Принцип работы](active-directory-b2b-how-it-works.md)
+- [Подробное пошаговое руководство](active-directory-b2b-detailed-walkthrough.md)
+- [Справка в формате CSV-файла](active-directory-b2b-references-csv-file-format.md)
+- [Формат токена внешнего пользователя](active-directory-b2b-references-external-user-token-format.md)
+- [Изменение атрибутов объекта внешнего пользователя](active-directory-b2b-references-external-user-object-attribute-changes.md)
+- [Текущие ограничения предварительной версии](active-directory-b2b-current-preview-limitations.md)
+
+<!---HONumber=Nov15_HO1-->

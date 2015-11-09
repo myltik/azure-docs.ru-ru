@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="10/07/2015"
+   ms.date="10/28/2015"
    ms.author="coreyp"/>
 
 # Подключение компьютеров для управления с помощью Azure Automation DSC
@@ -33,17 +33,17 @@
 
 ## Виртуальные машины Azure (классические).
 
-Служба Azure Automation DSC позволяет легко подключать виртуальные машины Azure (классические) для управления их настройками с помощью портала Azure или PowerShell. В процессе работы расширение DSC регистрирует виртуальную машину в службе Azure Automation DSC, исключая необходимость выполнения удаленного входа на виртуальную машину администратором. Так как с виртуальными машинами Azure расширение DSC работает асинхронно, вы можете воспользоваться алгоритмом отслеживания хода выполнения и устранения неполадок, который приведен ниже в разделе [Устранение неполадок при подключении виртуальной машины Azure](#Troubleshooting-Azure-virtual-machine-onboarding).
+Служба Azure Automation DSC позволяет легко подключать виртуальные машины Azure (классические) для управления их настройками с помощью портала Azure или PowerShell. В процессе работы расширение DSC регистрирует виртуальную машину в службе Azure Automation DSC, исключая необходимость выполнения удаленного входа на виртуальную машину администратором. Так как с виртуальными машинами Azure расширение DSC работает асинхронно, можно воспользоваться алгоритмом отслеживания хода выполнения и устранения неполадок, который приведен ниже в разделе [**Устранение неполадок при подключении виртуальной машины Azure**](#troubleshooting-azure-virtual-machine-onboarding).
 
 
 ### Виртуальные машины Azure
 
-На [портале предварительной версии Azure](http://portal.azure.com/) щелкните **Обзор** -> **Виртуальные машины (классические)**. Выберите виртуальную машину Windows, которую необходимо подключить. В колонке панели мониторинга виртуальной машины последовательно выберите **Все параметры** -> **Расширения** -> **Добавить** -> **Azure Automation DSC** -> **Создать**. Введите необходимые вам [значения локального диспетчера конфигураций DSC PowerShell](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396), регистрационный ключ вашей учетной записи и URL-адрес регистрации. Также можно ввести конфигурацию узла, которая будет назначена виртуальной машине.
+На [портале предварительной версии Azure](http://portal.azure.com/) щелкните **Обзор** -> **Виртуальные машины (классические)**. Выберите виртуальную машину Windows, которую необходимо подключить. В колонке панели мониторинга виртуальной машины последовательно выберите **Все параметры** -> **Расширения** -> **Добавить** -> **Служба автоматизации Azure DSC** -> **Создать**. Введите необходимые [значения локального диспетчера конфигураций DSC PowerShell](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396), регистрационный ключ вашей учетной записи и URL-адрес регистрации. Также можно ввести конфигурацию узла, которая будет назначена виртуальной машине.
 
 ![](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
 
 
-Как найти URL-адрес регистрации и ключ учетной записи службы автоматизации для подключения компьютера, см. ниже в разделе [Безопасная регистрация](#Secure-registration).
+Сведения о поиске URL-адреса регистрации и ключа учетной записи службы автоматизации для подключения компьютера см. ниже в разделе [**Безопасная регистрация**](#secure-registration).
 
 ### PowerShell
 
@@ -61,8 +61,8 @@
     $NodeConfigName = ""
 
     # get Azure Automation DSC registration info
-    $Account = Get-AzureRMAutomationAccount -ResourceGroupName $AutomationAccountResourceGroup -Name $AutomationAccountName
-    $RegistrationInfo = $Account | Get-AzureRMAutomationRegistrationInfo
+    $Account = Get-AzureRmAutomationAccount -ResourceGroupName $AutomationAccountResourceGroup -Name $AutomationAccountName
+    $RegistrationInfo = $Account | Get-AzureRmAutomationRegistrationInfo
 
     # use the DSC extension to onboard the VM for management with Azure Automation DSC
     $VM = Get-AzureVM -Name $VMName -ServiceName $ServiceName
@@ -96,12 +96,12 @@
       }
     }
     
-    $VM = Set-AzureVMExtension
-     -VM $vm
-     -Publisher Microsoft.Powershell
-     -ExtensionName DSC
-     -Version 2.6
-     -PublicConfiguration $PublicConfiguration
+    $VM = Set-AzureVMExtension `
+     -VM $vm `
+     -Publisher Microsoft.Powershell `
+     -ExtensionName DSC `
+     -Version 2.6 `
+     -PublicConfiguration $PublicConfiguration `
      -PrivateConfiguration $PrivateConfiguration
      -ForceUpdate
 
@@ -109,7 +109,7 @@
 
 ## Виртуальные машины Azure
 
-Служба Azure Automation DSC позволяет легко подключать виртуальные машины Azure для управления конфигурацией с помощью портала Azure, шаблонов диспетчера ресурсов Azure или PowerShell. В процессе работы расширение DSC регистрирует виртуальную машину в службе Azure Automation DSC, исключая необходимость выполнения удаленного входа на виртуальную машину администратором. Так как с виртуальными машинами Azure расширение DSC работает асинхронно, вы можете воспользоваться алгоритмом отслеживания хода выполнения и устранения неполадок, который приведен ниже в разделе [Устранение неполадок при подключении виртуальной машины Azure](#Troubleshooting-Azure-virtual-machine-onboarding).
+Служба Azure Automation DSC позволяет легко подключать виртуальные машины Azure для управления конфигурацией с помощью портала Azure, шаблонов диспетчера ресурсов Azure или PowerShell. В процессе работы расширение DSC регистрирует виртуальную машину в службе Azure Automation DSC, исключая необходимость выполнения удаленного входа на виртуальную машину администратором. Так как с виртуальными машинами Azure расширение DSC работает асинхронно, можно воспользоваться алгоритмом отслеживания хода выполнения и устранения неполадок, который приведен ниже в разделе [**Устранение неполадок при подключении виртуальной машины Azure**](#troubleshooting-azure-virtual-machine-onboarding).
 
 
 ### Портал Azure
@@ -128,25 +128,25 @@
  
 ### Шаблоны диспетчера ресурсов Azure
 
-Виртуальные машины Azure можно разворачивать и подключать к службе Azure Automation DSC с помощью шаблонов диспетчера ресурсов Azure. Пример шаблона, подключающего существующую виртуальную машину к службе Azure Automation DSC, см. в разделе [Настройка виртуальной машины с помощью расширения DSC и Azure Automation DSC](http://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/). Расположение ключа и URL-адреса регистрации, которые шаблон принимает в качестве входных данных, см. ниже в разделе [Безопасная регистрация](#Secure-registration).
+Виртуальные машины Azure можно разворачивать и подключать к службе Azure Automation DSC с помощью шаблонов диспетчера ресурсов Azure. Пример шаблона, подключающего существующую виртуальную машину к службе автоматизации Azure DSC, см. в разделе [Настройка виртуальной машины с помощью расширения DSC и Azure Automation DSC](http://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/). Расположение ключа и URL-адреса регистрации, которые шаблон принимает в качестве входных данных, см. ниже в разделе [**Безопасная регистрация**](#secure-registration).
 
 ### PowerShell
 
-На портале предварительной версии Azure виртуальные машины можно подключать с помощью командлета [Register-AzureAutomationDscNode](https://msdn.microsoft.com/library/mt244097.aspx?f=255&MSPPError=-2147217396) в PowerShell.
+На портале предварительной версии Azure виртуальные машины можно подключать с помощью командлета [Register-AzureRmAutomationDscNode](https://msdn.microsoft.com/library/mt244097.aspx?f=255&MSPPError=-2147217396) в PowerShell.
 
-#### Физические или виртуальные машины под управлением Windows, расположенные локально или в облачной службе, отличной от Azure.
+### Физические или виртуальные машины под управлением Windows, расположенные локально или в облачной службе, отличной от Azure.
 
 Компьютеры под управлением Windows, расположенные локально или в облачных службах, отличных от Azure (например, в веб-службах Amazon), также можно подключить к службе Azure Automation DSC при наличии на них исходящего доступа к Интернету. Для этого требуется выполнить несколько простых шагов.
 
-1. Убедитесь, что на компьютерах, которые будут подключены к Azure Automation DSC, установлена последняя версия [WMF 5](http://www.microsoft.com/ru-RU/download/details.aspx?id=48729).
+1. Убедитесь, что на компьютерах, которые будут подключены к службе автоматизации Azure DSC, установлена последняя версия [WMF 5](http://www.microsoft.com/ru-RU/download/details.aspx?id=48729).
 
 2. Запустите на компьютере, входящем в локальную среду, консоль PowerShell или PowerShell ISE от имени администратора. На этом компьютере также должна быть установлена последняя версия WMF 5.
 
-3. Подключитесь к диспетчеру ресурсов Azure с помощью модуля Azure PowerShell: `Login-AzureRMAccount`
+3. Подключитесь к диспетчеру ресурсов Azure с помощью модуля Azure PowerShell: `Login-AzureRmAccount`
 
 4. Из учетной записи службы автоматизации, к которой будут подключены узлы, загрузите метаконфигурации DSC PowerShell для подключаемых компьютеров:
 
-	`Get-AzureRMAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName      		MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop`
+	`Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName      		MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop`
 
 5. При необходимости просмотрите и обновите в выходной папке метаконфигурации в соответствии с требуемыми [полями и значениями локального диспетчера конфигураций DSC PowerShell](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396), если значения по умолчанию вам не подходят.
 
@@ -158,31 +158,31 @@
 
 8. С помощью портала Azure или командлетов убедитесь, что все компьютеры, которые нужно подключить, теперь отображаются как узлы DSC, зарегистрированные в вашей учетной записи службы автоматизации Azure.
 
-#### Физические или виртуальные машины под управлением Linux, расположенные локально, в Azure или облачной службе, отличной от Azure.
+### Физические или виртуальные машины под управлением Linux, расположенные локально, в Azure или облачной службе, отличной от Azure.
 
-Компьютеры под управлением Linux, расположенные локально или в облачной службе, отличной от Azure, также можно подключить к Azure Automation DSC при наличии на них исходящего доступа к Интернету. Для этого требуется выполнить несколько простых шагов.
+Компьютеры под управлением Linux, расположенные локально, в Azure или в облачной службе, отличной от Azure, также можно подключить к службе автоматизации Azure DSC при наличии на них исходящего доступа к Интернету. Для этого требуется выполнить несколько простых шагов.
 
-1. Убедитесь, что на компьютерах, которые будут подключены к Azure Automation DSC, установлена последняя версия [агента DSC Linux](http://www.microsoft.com/ru-RU/download/details.aspx?id=49150).
+1. Убедитесь, что на компьютерах, которые будут подключены к службе автоматизации Azure DSC, установлена последняя версия [агента DSC Linux](http://www.microsoft.com/ru-RU/download/details.aspx?id=49150).
 
 2. Если [значения по умолчанию локального диспетчера конфигураций DSC PowerShell](https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396) соответствуют требуемым:
 
-*    На каждом компьютере под управлением Linux, который будет подключен к службе Azure Automation DSC, используйте файл Register.py для подключения с помощью значений по умолчанию локального диспетчера конфигураций DSC PowerShell:
+	*    На каждом компьютере под управлением Linux, который будет подключен к службе Azure Automation DSC, используйте файл Register.py для подключения с помощью значений по умолчанию локального диспетчера конфигураций DSC PowerShell:
 
-	`/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
+		`/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
-*    Расположение ключа и URL-адреса регистрации для учетной записи службы автоматизации см. ниже в разделе [Безопасная регистрация](#Secure-registration).
+	*    Расположение ключа и URL-адреса регистрации для учетной записи службы автоматизации см. ниже в разделе [**Безопасная регистрация**](#secure-registration).
 
 	Если значения по умолчанию локального диспетчера конфигураций DSC PowerShell **не** **соответствуют** требуемым, выполните шаги 3–9. В противном случае сразу перейдите к шагу 9.
 
-3.  Запустите на компьютере под управлением Windows, входящем в локальную среду, консоль PowerShell или PowerShell ISE от имени администратора. На этом компьютере должна быть установлена последняя версия [WMF 5](http://www.microsoft.com/ru-RU/download/details.aspx?id=48729).
+3. Запустите на компьютере под управлением Windows, входящем в локальную среду, консоль PowerShell или PowerShell ISE от имени администратора. На этом компьютере должна быть установлена последняя версия [WMF 5](http://www.microsoft.com/ru-RU/download/details.aspx?id=48729).
 
-4.  Подключитесь к диспетчеру ресурсов Azure с помощью модуля Azure PowerShell:
+4. Подключитесь к диспетчеру ресурсов Azure с помощью модуля Azure PowerShell:
 
-	`Login-AzureRMAccount`
+	`Login-AzureRmAccount`
 
 5.  Из учетной записи службы автоматизации, к которой будут подключены узлы, загрузите метаконфигурации DSC PowerShell для подключаемых компьютеров:
 	
-	`Get-AzureRMAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop_`
+	`Get-AzureRmAutomationDscOnboardingMetaconfig -ResourceGroupName MyResourceGroup -AutomationAccountName MyAutomationAccount -ComputerName MyServer1, MyServer2 -OutputFolder C:\Users\joe\Desktop_`
 
 6.  При необходимости просмотрите и обновите в выходной папке метаконфигурации в соответствии с требуемыми [полями и значениями локального диспетчера конфигураций DSC PowerShell](http://https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396), если значения по умолчанию вам не подходят.
 
@@ -198,13 +198,13 @@
     	
     	Set-DscLocalConfigurationManager -CimSession $Session –Path C:\Users\joe\Desktop\DscMetaConfigs
 
-8.  Если не удалось применить метаконфигурации PowerShell DSC удаленно, скопируйте соответствующую метаконфигурацию из папки (шаг 5) на каждый компьютер под управлением Linux, который нужно подключить. Затем вызовите `SetDscLocalConfigurationManager.py` локально на каждом компьютере под управлением Linux, который нужно подключить к службе Azure Automation DSC:
+8.  Если не удалось применить метаконфигурации PowerShell DSC удаленно, скопируйте соответствующую метаконфигурацию из папки (шаг 5) на каждый компьютер под управлением Linux, который нужно подключить. Затем вызовите `SetDscLocalConfigurationManager.py` локально на каждом компьютере под управлением Linux, который нужно подключить к службе автоматизации Azure DSC:
 
 	`/opt/microsoft/dsc/Scripts/SetDscLocalConfigurationManager.py –configurationmof <path to metaconfiguration file>`
 
 9.  С помощью портала Azure или командлетов убедитесь, что все компьютеры, которые нужно подключить, теперь отображаются как узлы DSC, зарегистрированные в вашей учетной записи службы автоматизации Azure.
 
-## Безопасная регистрация
+##Безопасная регистрация
 
 Компьютеры можно безопасно подключать к учетной записи службы автоматизации Azure с помощью протокола регистрации DSC WMF 5. Этот протокол позволяет узлу DSC проходить проверку подлинности на сервере отчетов или опрашивающем сервере PowerShell DSC V2 (включая Azure Automation DSC). Узел регистрируется на сервере с использованием **URL-адреса регистрации**, проходя проверку подлинности с помощью **Регистрационного ключа**. Во время регистрации узел DSC и сервер отчетов или опрашивающий сервер DSC создают для этого узла уникальный сертификат, который будет использоваться для проверки подлинности после регистрации на сервере. Этот процесс исключает возможность подмены подключенных узлов друг другом, например, если один из узлов взломан и является вредоносным. После регистрации регистрационный ключ повторно не используется для проверки подлинности и удаляется из узла.
 
@@ -217,7 +217,7 @@
 
 Для повышения безопасности первичный и вторичный ключи доступа учетной записи службы автоматизации можно создавать повторно в любое время (в колонке **Управление ключами**). Это исключает возможность регистрации узла с помощью ранее использованных ключей.
 
-## Устранение неполадок при подключении виртуальной машины Azure
+##Устранение неполадок при подключении виртуальной машины Azure
 
 Служба Azure Automation DSC позволяет легко подключать виртуальные машины Windows Azure для управления конфигурациями. Расширение DSC для виртуальных машин Azure используется для регистрации виртуальных машин в службе Azure Automation DSC. Так как с виртуальными машинами Azure расширение DSC работает асинхронно, важно отслеживать ход выполнения и устранять неполадки.
 
@@ -236,4 +236,4 @@
 * [Командлеты Automation DSC Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Цены на Automation DSC Azure](http://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

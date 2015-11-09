@@ -87,8 +87,7 @@
 * `ClientIpHeaderTelemetryInitializer` обновляет свойство `Ip` контекста `Location` всех элементов телеметрии в соответствии с HTTP-заголовком запроса `X-Forwarded-For`.
 * `UserAgentTelemetryInitializer` обновляет свойство `UserAgent` контекста `User` всех элементов телеметрии в соответствии с HTTP-заголовком запроса `User-Agent`.
 * `OperationNameTelemetryInitializer`обновляет свойство `Name` контекста `RequestTelemetry` и свойство `Name` контекста `Operation` всех элементов телеметрии в соответствии с методом HTTP, а также именами MVC-контроллера ASP.NET и действием, вызываемым для обработки запроса.
-* `OperationNameTelemetryInitializer` обновляет свойство Operation.Id` context property of all telemetry items tracked while 
-handling a request with the automatically generated `RequestTelemetry.Id.
+* `OperationNameTelemetryInitializer` обновляет свойство контекста `Operation.Id` всех элементов телеметрии, отслеживаемых при обработке запроса с автоматически сформированным `RequestTelemetry.Id`.
 * `UserTelemetryInitializer` обновляет свойства `Id` и `AcquisitionDate` контекста `User` для всех элементов телеметрии со значениями, извлеченными из файла cookie `ai_user`, созданного JavaScript-кодом инструментирования Application Insights, который выполняется в браузере пользователя.
 * `SessionTelemetryInitializer` обновляет свойство `Id` контекста `Session` для всех элементов телеметрии со значениями, извлеченными из файла cookie `ai_session`, созданного JavaScript-кодом инструментирования Application Insights, который выполняется в браузере пользователя. 
 * `AzureRoleEnvironmentTelemetryInitializer` обновляет свойства `RoleName` и `RoleInstance` контекста `Device` для всех элементов телеметрии с учетом данных, извлеченных из среды выполнения Azure.
@@ -213,58 +212,9 @@ handling a request with the automatically generated `RequestTelemetry.Id.
    </ApplicationInsights>
 ```
 
-## Пользовательские инициализаторы
+## Инициализаторы телеметрии
 
-
-Если для вашего приложения не подходят стандартные инициализаторы, вы можете создать собственные.
-
-Используйте пользовательские инициализаторы, чтобы задать значения, которые будут использоваться для инициализации каждого клиента телеметрии. Например, если вы опубликовали нескольких версий приложения, можно убедиться, что вы можете разделить данные, отфильтровав их по настраиваемому свойству:
-
-    plublic class MyContextInitializer: IContextInitializer
-    {
-        public void Initialize(TelemetryContext context)
-        {
-          context.Properties["AppVersion"] = "v2.1";
-        }
-    }
-
-Используйте инициализаторы телеметрии, чтобы добавить обработку каждого события. Например, любой запрос с кодом ответа >=400 веб-пакет SDK помечает как неудавшийся. Такое поведение можно переопределить:
-
-    public class MyTelemetryInitializer : ITelemetryInitializer
-    {
-        public void Initialize(ITelemetry telemetry)
-        {
-            var requestTelemetry = telemetry as RequestTelemetry;
-            if (requestTelemetry == null) return;
-            int code;
-            bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
-            if (!parsed) return;
-            if (code >= 400 && code < 500)
-            {
-                requestTelemetry.Success = true;
-                requestTelemetry.Context.Properties["Overridden400s"] = "true";
-            }            
-        }
-    }
- 
-Чтобы установить свои инициализаторы, добавьте строки в файл ApplicationInsights.config:
-
-    <TelemetryInitializers> <!-- or ContextInitializers -->
-    <Add Type="MyNamespace.MyTelemetryInitializer, MyAssemblyName" />
-
-
-Можно также написать код для установки инициализатора на раннем этапе выполнения приложения. Например:
-
-
-    // In the app initializer such as Global.asax.cs:
-
-    protected void Application_Start()
-    {
-      TelemetryConfiguration.Active.TelemetryInitializers.Add(
-                new MyTelemetryInitializer());
-            ...
-
-
+Можно написать инициализаторы телеметрии, которые будут фильтровать и изменять данные телеметрии, собранные с помощью приложения. Инициализаторы можно запускать из CONFIG-файла вместе со стандартными модулями. [Подробнее](app-insights-api-filtering-sampling.md)
 
 
 ## InstrumentationKey
@@ -313,4 +263,4 @@ handling a request with the automatically generated `RequestTelemetry.Id.
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

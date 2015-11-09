@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Использование HTML-клиента | Microsoft Azure"
+	pageTitle="Использование HTML-клиента с мобильными службами Azure | Microsoft Azure"
 	description="Узнайте, как использовать клиент HTML для мобильных служб Azure."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/23/2015"
 	ms.author="glenga"/>
 
 # Использование клиента HTML/JavaScript для мобильных служб Azure
@@ -504,10 +504,9 @@
 	// Start the sign-in process.
 	authenticate();
 
-При этом инициализируется клиент Live Connect, в учетную запись Майкрософт отправляется новый запрос на вход, в мобильные службы отправляется возвращенный маркер проверки подлинности, а затем отображается информация о вошедшем пользователе. Приложение не запускается до тех пор, пока проверка подлинности не будет выполнена успешно.
-
-###Кэширование маркера аутентификации
-В некоторых случаях вызова способа входа в систему можно избежать первого выполнения проверки подлинности пользователя. Мы можем использовать [sessionStorage] или [localStorage] для кэширования удостоверения текущего пользователя при первом входе, а затем будем проверять, содержится ли удостоверение этого пользователя в кэше. Если кэш является пустым или вызовы завершаются со сбоем (то есть истекло время текущего сеанса входа), нам необходимо пройти процедуру входа.
+При этом инициализируется клиент Live Connect, в учетную запись Майкрософт отправляется новый запрос на вход, в мобильные службы отправляется возвращенный маркер проверки подлинности, а затем отображается информация о вошедшем пользователе. Приложение не запустится, пока проверка подлинности не будет пройдена успешно. <!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
+###Caching the authentication token
+In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 
     // After logging in
     sessionStorage.loggedInUser = JSON.stringify(client.currentUser);
@@ -522,6 +521,7 @@
      // Log out
     client.logout();
     sessionStorage.loggedInUser = null;
+-->
 
 ##<a name="push-notifications"></a>Практическое руководство. Регистрация для получения push-уведомлений
 
@@ -665,4 +665,4 @@
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [справочнике по параметрам системных запросов OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

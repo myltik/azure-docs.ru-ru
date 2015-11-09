@@ -12,12 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="10/26/2015"
    ms.author="bwren" />
 
 # Расписания в службе автоматизации Azure
 
 Расписания службы автоматизации используются для планирования автоматического выполнения модулей Runbook. Это может быть одна дата и время для однократного запуска модуля Runbook. Или это может быть повторяющееся расписание для запуска Runbook несколько раз. Расписания обычно недоступны из модулей Runbook.
+
+>[AZURE.NOTE]В настоящее время расписания не поддерживают конфигурации Azure Automation DSC.
 
 ## Командлеты Windows PowerShell
 
@@ -66,4 +68,4 @@
 - [Создание расписания для Runbook в службе автоматизации Azure](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

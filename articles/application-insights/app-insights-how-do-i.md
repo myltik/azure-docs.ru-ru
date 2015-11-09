@@ -195,10 +195,29 @@
 
 ## Уменьшение трафика из вашего приложения в Application Insights
 
-* В [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) отключите все неиспользуемые модули, например счетчики производительности.
-* Если вы используете [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), вычисляйте среднее значение для пакетов значений метрики перед отправкой результата. Это можно сделать с помощью перегруженного метода TrackMetric().
+* В файле [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) отключите все неиспользуемые модули, например счетчики производительности.
+* Используйте [выборку и фильтрацию](app-insights-api-filtering-sampling.md) в пакете SDK.
+* Если вы используете [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric), вычисляйте агрегированное значение значений метрики для пакетов перед отправкой результата. Это можно сделать с помощью перегруженного метода TrackMetric().
 
-Узнайте подробнее о [расценках и квотах](app-insights-pricing.md).
+
+Подробнее о [расценках и квотах](app-insights-pricing.md).
+
+## Отключение данных телеметрии
+
+Чтобы **динамически остановить и запустить** сбор и передачу данных телеметрии с сервера:
+
+```
+
+    using  Microsoft.ApplicationInsights.Extensibility;
+
+    TelemetryConfiguration.Active.DisableTelemetry = true;
+```
+
+
+
+Чтобы **отключить выбранные стандартные сборщики**, например счетчики производительности, HTTP-запросы или зависимости, удалите или закомментируйте соответствующие строки в файле [ApplicationInsights.config](app-insights-api-custom-events-metrics.md). Это можно сделать, если вы, например, хотите отправить собственные данные TrackRequest.
+
+
 
 ## Просмотр счетчиков производительности системы
 
@@ -210,11 +229,11 @@
 
 * **Сервер IIS** на собственном компьютере или на виртуальной машине. [Установите монитор состояния](app-insights-monitor-performance-live-website-now.md). 
 * **Веб-сайт Azure** — мы еще не поддерживаем счетчики производительности. Существует несколько метрик, которые можно получить в составе стандартной панели управления веб-сайта Azure.
-* **Сервер Unix** — [Установите collectd](app-insights-java-collectd.md)
+* **Сервер Unix** — [установите collectd](app-insights-java-collectd.md)
 
 ### Для отображения дополнительных счетчиков производительности
 
-* Во-первых, [добавьте новую диаграмму](app-insights-metrics-explorer.md), чтобы посмотреть, находится ли счетчик в базовом наборе, который мы предлагаем.
+* Во-первых, [добавьте новую диаграмму](app-insights-metrics-explorer.md), чтобы посмотреть, находится ли счетчик в базовом наборе предложения.
 * Если его нет, [добавьте счетчик к набору, собранному модулем счетчика производительности](app-insights-web-monitor-performance.md#system-performance-counters).
 
 
@@ -224,4 +243,4 @@
 
 В настоящее время мы не отслеживаем счетчики производительности.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

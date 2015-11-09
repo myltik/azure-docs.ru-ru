@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Общие сведения о наблюдении за работоспособностью системы в Service Fabric"
-   description="В этой статье описывается модель мониторинга работоспособности Azure Service Fabric, включая сущности работоспособности, отчеты и оценку."
+   pageTitle="Мониторинг работоспособности в службе Service Fabric | Microsoft Azure"
+   description="Общие сведения о модели мониторинга работоспособности Azure Service Fabric, которая позволяет наблюдать за кластером, его приложениями и службами."
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/03/2015"
+   ms.date="10/23/2015"
    ms.author="oanapl"/>
 
 # Общие сведения о наблюдении за работоспособностью системы в Service Fabric
@@ -336,4 +336,4 @@ HealthEvents                    :
 [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->

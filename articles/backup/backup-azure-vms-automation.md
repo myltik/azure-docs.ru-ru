@@ -46,7 +46,7 @@ PS C:\> Switch-AzureMode AzureResourceManager
 Вы можете создать новое хранилище службы архивации с помощью командлета **New-AzureRMBackupVault**. Хранилище архивов представляет собой ресурс ARM, поэтому вам потребуется разместить его в группе ресурсов. В консоли Azure PowerShell с повышенными привилегиями выполните следующие команды:
 
 ```
-PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
+PS C:\> New-AzureRMResourceGroup –Name “test-rg” –Region “West US”
 PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
@@ -300,4 +300,4 @@ $DAILYBACKUPSTATS | Out-GridView
 
 Если вы хотите добавить возможности построения графиков для этого отчета, обратитесь к статье [Построение графиков с помощью PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx) в блоге TechNet.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO1-->
