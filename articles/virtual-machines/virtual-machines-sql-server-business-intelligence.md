@@ -425,10 +425,10 @@
 
 - [Использование Power BI в гибридной среде](https://msdn.microsoft.com/library/dn798994.aspx)
 
->[AZURE.NOTE] [Submit feedback and contact information through Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
+>[AZURE.NOTE] [Отправьте отзыв и контактные данные через Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### Материалы сообщества
 
 - [Управление базой данных SQL Azure с помощью PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
