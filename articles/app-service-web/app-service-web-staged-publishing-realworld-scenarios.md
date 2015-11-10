@@ -362,9 +362,9 @@ require_once(ABSPATH . 'wp-settings.php');
   </repositories>
  ```
 
-Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
+В `<repositories>` введите URL-адрес рабочего сайта и сведения о пользователе. Если используется поставщик членства Umbraco по умолчанию, следует добавить соответствующий идентификатор для пользователя-администратора в разделе <user>. Если используется собственный поставщик членства Umbraco, укажите `<login>`, `<password>`, с которыми модуль Courier2 должен подключаться к рабочему сайту. Подробности см. в [документации](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) для модуля Courier.
 
-Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
+Аналогичным образом установите модуль Courier на рабочий сайт и настройте его на размещенное веб-приложение в соответствующем файле courier.config, как показано здесь
 
 ```xml
   <!-- Repository connection settings -->
@@ -429,4 +429,4 @@ Similarly, install Courier module on your production site and configure it point
 
 [Блокирование веб-доступа к непроизводственным областям развертывания](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!----HONumber=Oct15_HO3-->
+<!-----HONumber=Oct15_HO3-->
