@@ -21,9 +21,9 @@
 # Начало работы с In-Memory (предварительная версия)
 
 
-Технологии SQL In-Memory значительно повышают производительность транзакций и аналитических операций. Благодаря In-Memory OLTP можно повысить пропускную способность транзакций в 30 раз, а с помощью In-Memory Analytics — увеличить производительность запросов в 100 раз (в зависимости от рабочей нагрузки).
+Технологии SQL In-Memory значительно повышают производительность транзакций и аналитических операций. Благодаря In-Memory OLTP можно повысить пропускную способность транзакций в 30 раз, а с помощью In-Memory Analytics — увеличить производительность запросов в 100 раз (в зависимости от рабочей нагрузки). С помощью технологии Real-Time Analytics вы можете сочетать эти технологии, чтобы получать данные о компании в режиме реального времени с учетом операционных данных.
 
-Технология In-Memory Analytics является общедоступной. Технология In-Memory OLTP для баз данных SQL Azure (цен. категория «Премиум») доступна в предварительной версии.
+Технология In-Memory Analytics является общедоступной в базе данных Azure. In-Memory OLTP и Real-Time Operational Analytics доступны в предварительных версиях для баз данных Azure SQL «Премиум».
 
 
 ## Приступая к работе
@@ -31,18 +31,18 @@
 Попробуйте использовать In-Memory OLTP для выполнения транзакций.
 
 
-- [Добавьте образцы In-Memory OLTP в базу данных AdventureWorksLT](#Enrich-an-AdventureWorksLT-database-with-In-Memory-OLTP-samples).
+- [Установите образец In-Memory OLTP](#install-the-in-memory-oltp-sample).
 - [Используйте In-Memory OLTP в существующем приложении SQL Azure.](sql-database-in-memory-oltp-migration.md)
 - [Отслеживайте хранилище In-Memory](sql-database-in-memory-oltp-monitoring.md).
 
 
-Попробуйте использовать In-Memory Analytics для выполнения транзакций.
+Попробуйте использовать In-Memory Analytics для рабочих нагрузок аналитики.
 
-- [Установите In-Memory Analytics](#Install-the-In-Memory-Analytics-sample).
+- [Установите образец In-Memory Analytics](#install-the-in-memory-analytics-sample).
 - Узнайте больше об [индексах Columnstore](https://msdn.microsoft.com/library/gg492088.aspx) в библиотеке MSDN.
 
 
-## Добавление образцов In-Memory OLTP в базу данных AdventureWorksLT
+## Установка образца In-Memory OLTP
 
 Вы можете несколькими щелчками создать образец базы данных AdventureWorksLT [V12] на портале предварительной версии Azure. Далее объясняется, как обогатить базу данных AdventureWorksLT с помощью таблиц и хранимых процедур, скомпилированных в собственном коде, и приводятся примеры объектов In-Memory OLTP.
 
@@ -241,9 +241,11 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'IsXTPSupported');
 
 ## Дополнительные ресурсы
 
-Дополнительные сведения о технологиях In-Memory OLTP и In-Memory Analytics: [In-Memory OLTP (оптимизация в памяти)](https://msdn.microsoft.com/library/dn133186.aspx)
+[Сведения о технологии In-Memory OLTP](https://msdn.microsoft.com/library/dn133186.aspx).
 
-[Дополнительные сведения об индексах Columnstore в библиотеке MSDN](https://msdn.microsoft.com/library/gg492088.aspx)
+[Сведения о технологии In-Memory Analytics (Columnstore) в библиотеке MSDN](https://msdn.microsoft.com/library/gg492088.aspx).
+
+[Сведения о технологии Real-Time Operational в библиотеке MSDN](https://msdn.microsoft.com/library/dn817827.aspx).
 
 [Технический документ по распространенным шаблонам рабочих нагрузок и вопросам миграции](https://msdn.microsoft.com/library/dn673538.aspx), в котором описываются шаблоны рабочих нагрузок, для которых In-Memory OLTP обычно обеспечивает значительное повышение производительности.
 
@@ -253,4 +255,4 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'IsXTPSupported');
 
 [Отслеживайте хранилище In-Memory](sql-database-in-memory-oltp-monitoring.md) для In-Memory OLTP.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

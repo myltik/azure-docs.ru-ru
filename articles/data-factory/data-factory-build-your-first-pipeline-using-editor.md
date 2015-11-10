@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="10/15/2015"
+	ms.topic="hero-article" 
+	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
 # Построение первого конвейера фабрики данных Azure с помощью редактора фабрики данных (на портале Azure)
@@ -238,4 +238,4 @@
 ## Отправить отзыв
 Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

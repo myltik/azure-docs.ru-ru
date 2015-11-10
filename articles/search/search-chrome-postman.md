@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Использование приложения Chrome Postman со службой ";Поиск Azure"; | Microsoft Azure"
-	description="Использование приложения Chrome Postman со службой ";Поиск Azure";. Установка и настройка приложения Postman. Создание индекса Поиска Azure. Публикация документов в индексе и отправка запроса в индекс с помощью приложения Postman."
+	description="Использование Chrome Postman с облачной службой Поиск Azure. Установка и настройка приложения Postman. Создание индекса Поиска Azure. Публикация документов в индексе и отправка запроса в индекс с помощью приложения Postman."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Как использовать приложение Chrome Postman со службой "Поиск Azure" #
@@ -118,4 +118,4 @@
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

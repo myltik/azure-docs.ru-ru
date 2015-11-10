@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="10/19/2015"
+	ms.date="11/04/2015"
 	ms.author="wesmc"/>
 
 # Приступая к работе с Центрами уведомлений для приложений iOS
@@ -302,8 +302,8 @@
 				signature = [self CF_URLEncodedString:[rawHmac base64EncodedStringWithOptions:0]];
 
 				// Construct authorization token string
-				token = [NSString stringWithFormat:@"SharedAccessSignature sr=%@&sig=%@&se=%qu&skn=%@",
-					targetUri, signature, expires, HubSasKeyName];
+				token = [NSString stringWithFormat:@"SharedAccessSignature sig=%@&se=%qu&skn=%@&sr=%@",
+					signature, expires, HubSasKeyName, targetUri];
 			}
 			@catch (NSException *exception)
 			{
@@ -365,7 +365,7 @@
 				completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
 			{
 		        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;
-		        if (error || httpResponse.statusCode != 200)
+		        if (error || (httpResponse.statusCode != 200 && httpResponse.statusCode != 201))
 		        {
 		            NSLog(@"\nError status: %d\nError: %@", httpResponse.statusCode, error);
 		        }
@@ -433,9 +433,9 @@
 11. Выполните сборку проекта и убедитесь в отсутствии ошибок.
 
 
+> [AZURE.NOTE]Если в XCode7 возникла ошибка сборки, связанная с поддержкой bitcode, откройте в XCode элементы «Параметры построения» -> «Включить Bitcode»(ENABLE\_BITCODE) и установите значение «НЕТ». Пакет SDK для центров уведомлений в настоящее время не поддерживает bitcode.
 
 Все возможные виды полезных данных уведомлений можно найти в [руководстве по программированию локальных и push-уведомлений] Apple.
-
 
 
 ##Тестирование приложения
@@ -459,7 +459,7 @@
 
 ##Дальнейшие действия
 
-В этом простом примере осуществляется широковещательная рассылка уведомлений на все устройства iOS. Вы можете продолжить свое обучение, ознакомившись с учебником [Использование Центров уведомлений для отправки push-уведомлений пользователям]. В этом учебнике рассматривается создание серверной части для отправки уведомлений с помощью тегов.
+В этом простом примере осуществляется широковещательная рассылка уведомлений на все устройства iOS. Вы можете продолжить обучение, ознакомившись с учебником [Использование Центров уведомлений для отправки push-уведомлений пользователям]. В этом учебнике рассматривается создание серверной части для отправки уведомлений с помощью тегов.
 
 Если вам требуется разделить пользователей по группам интересов, см. также раздел [Использование Центров уведомлений для передачи экстренных новостей].
 
@@ -504,4 +504,4 @@
 
 [руководстве по программированию локальных и push-уведомлений]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

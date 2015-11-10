@@ -13,12 +13,12 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Использование приложения Fiddler для оценки и тестирования интерфейсов API REST "Поиск Azure"
 
-В этой статье рассказывается, как использовать приложение Fiddler, которое можно [бесплатно загрузить на сайте компании Telerik](http://www.telerik.com/fiddler). Оно позволяет выдавать HTTP-запросы и просматривать ответы с помощью API REST службы поиска Azure без необходимости написания кода. На сайте [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx) доступна документация, посвященная интерфейсам API REST "Поиск Azure".
+В этой статье рассказывается, как использовать приложение Fiddler, которое можно [бесплатно загрузить на сайте компании Telerik](http://www.telerik.com/fiddler). Оно позволяет выдавать HTTP-запросы и просматривать ответы с помощью API REST службы поиска Azure без необходимости написания кода. Поиск Azure — это полностью управляемая облачная служба поиска в Microsoft Azure с простым программным управлением через API-интерфейсы REST и .NET. На сайте [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx) доступна документация, посвященная интерфейсам API REST Поиск Azure.
 
 Выполнив указанные ниже действия, вы создадите индекс, загрузите документы, выполните запрос к индексу, а затем запросите у системы служебную информацию.
 
@@ -235,4 +235,4 @@
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

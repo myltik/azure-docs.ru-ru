@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="10/06/2015"
+	ms.topic="hero-article" 
+	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
 # Построение первого конвейера с помощью фабрики данных Azure
@@ -175,4 +175,4 @@
 ## Отправить отзыв
 Мы будем очень благодарны за ваш отзыв об этой статье. Потратьте несколько минут, чтобы отправить его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

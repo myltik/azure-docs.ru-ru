@@ -10,7 +10,7 @@
 <tags
    ms.service="sql-database"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
    ms.date="09/30/2015"
@@ -59,4 +59,4 @@ SQL Server обладает традициями надежной защиты �
 
 - Начните с [создания вашей первой базы данных](sql-database-get-started.md). Затем создайте свое первое приложение на [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) или [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

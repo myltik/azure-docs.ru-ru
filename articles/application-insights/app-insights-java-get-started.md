@@ -106,7 +106,7 @@
 
 Вручную добавьте пакет SDK.
 
-1. Скачайте [пакет SDK Application Insights для Java](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip).
+1. Загрузите [пакет SDK Application Insights для Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html).
 2. Извлеките из ZIP-файла двоичные файлы и добавьте их в проект.
 
 ### Вопросы
@@ -396,4 +396,4 @@ Application Insights может тестировать ваш веб-сайт ч
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

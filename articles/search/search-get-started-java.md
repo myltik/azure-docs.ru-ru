@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Начало работы с Поиском Azure в Java | Microsoft Azure"
-	description="Создание пользовательского приложения Поиска Azure с использованием Java в качестве языка программирования."
+	description="Создание облачного приложения поиска в Azure с использованием Java в качестве языка программирования."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Начало работы с Поиском Azure в Java
@@ -231,4 +231,4 @@
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

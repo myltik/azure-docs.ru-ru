@@ -3,7 +3,7 @@
 	description="Узнайте об использовании Базы данных SQL Azure и SQL Server в виртуальных машинах Azure. Просмотрите общие факторы мотивации бизнеса, чтобы определить, какая технология SQL лучше всего подходит для вашего приложения." 
 	services="sql-database, virtual-machines" 
 	documentationCenter="" 
-	authors="Selcin" 
+	authors="jeffgoll" 
 	manager="jeffreyg" 
 	editor="tysonn"/>
 
@@ -12,9 +12,9 @@
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="10/19/2015" 
-	ms.author="selcint"/>
+	ms.author="jeffreyg"/>
 
 # Общее представление о базе данных SQL Azure и SQL Server в виртуальных машинах Azure
 
@@ -257,4 +257,4 @@ Microsoft Azure предоставляет два варианта размещ�
 <!--Image references-->
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

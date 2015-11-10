@@ -90,9 +90,9 @@ ExpressRoute поддерживается во всех регионах и ра
 
 | **Поставщик услуг** |**Microsoft Azure** | **Office 365** | **Расположения** |
 |-----------------------|--------------------|----------------|---------------|
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Скоро | Не поддерживается | Чикаго и окрестности, Вашингтон (округ Колумбия) и окрестности |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Поддерживаются | Не поддерживается | Чикаго+, Вашингтон (округ Колумбия) |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Скоро | Не поддерживается | Чикаго и окрестности, Вашингтон (округ Колумбия) и окрестности |
-| **[Level 3 Communications — IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Скоро | Не поддерживается | Чикаго+, Вашингтон (округ Колумбия) |
+| **[Level 3 Communications — IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Поддерживаются | Не поддерживается | Чикаго+, Вашингтон (округ Колумбия) |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Поддерживаются | Не поддерживается | Чикаго+, Вашингтон (округ Колумбия) |
 
 ## Подключение через других поставщиков услуг
@@ -129,4 +129,4 @@ ExpressRoute поддерживается во всех регионах и ра
 - Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 - Убедитесь, что выполнены все необходимые условия. См. статью [Необходимые условия для ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->
