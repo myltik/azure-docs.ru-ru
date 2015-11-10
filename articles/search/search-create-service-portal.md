@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Создание службы ";Поиск Azure"; на портале Azure | Microsoft Azure"
-	description="Добавление бесплатной или стандартной службы ";Поиск Azure"; к существующей подписке на портале Azure"
+	description="Добавление бесплатной или стандартной службы Поиск Azure к существующей подписке на портале Azure Поиск Azure — это облачная служба поиска для пользовательских приложений."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Создание службы "Поиск Azure" на портале Azure
@@ -120,4 +120,4 @@
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

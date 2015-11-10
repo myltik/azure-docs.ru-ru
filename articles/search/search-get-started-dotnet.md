@@ -13,12 +13,12 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/05/2015"
 	ms.author="heidist"/>
 
 # Как впервые создать приложение, использующее Поиск Azure в .NET
 
-Узнайте, как в Visual Studio 2013 или более поздней версии создать собственное приложение поиска для .NET, использующее Поиск Azure. В этом руководстве описано создание классов для объектов и операций, используемых в этом уроке, с помощью [пакета SDK для Поиска Azure в .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx), а также API REST службы поиска Azure.
+Узнайте, как в Visual Studio 2013 или более поздней версии создать собственное приложение поиска для .NET, использующее Поиск Azure, облачную службу поиска в Microsoft Azure. В этом руководстве описано создание классов для объектов и операций, используемых в этом уроке, с помощью [пакета SDK для Поиска Azure в .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx), а также API REST службы поиска Azure.
 
 Чтобы запустить этот пример, вам потребуется служба поиска Azure, в которой можно зарегистрироваться на [портале Azure](https://portal.azure.com).
 
@@ -794,4 +794,4 @@
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

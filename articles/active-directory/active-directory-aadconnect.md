@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/13/2015"
+	ms.date="11/04/2015"
 	ms.author="andkjell;billmath"/>
 
 # Интеграция локальных удостоверений с Azure Active Directory
@@ -104,7 +104,7 @@ Azure AD Connect поставляется с несколькими функци
 ## Настройка синхронизации Azure AD Connect
 Синхронизация Azure AD Connect поставляется с конфигурацией по умолчанию, которая ориентирована на работу с большинством заказчиков и топологий. Однако всегда существуют ситуации, когда конфигурация по умолчанию не будет работать и должна быть скорректирована. Поддерживается внесение изменений, документированных в этом разделе и связанных статьях.
 
-Если вы не работали ранее с топологией синхронизации, вам необходимо ознакомиться с основами и используемыми терминами, описанными в [технических концепциях](active-directory-aadconnect-technical-concepts.md). Azure AD Connect является следующим этапом развития MIIS2003, ILM2007 и FIM2010. Даже если некоторые элементы идентичны, многое также изменилось.
+Если вы не работали ранее с топологией синхронизации, вам необходимо ознакомиться с основными сведениями и используемыми терминами, описанными в [технических концепциях](active-directory-aadconnectsync-technical-concepts.md). Azure AD Connect является следующим этапом развития MIIS2003, ILM2007 и FIM2010. Даже если некоторые элементы идентичны, многое также изменилось.
 
 Конфигурация предполагает, что в она может содержать несколько лесов. В таких топологиях объект пользователя может быть представлен как контакт в другом лесу. У пользователя также может быть связанный почтовый ящик в другом лесу ресурсов. Поведение конфигурации по умолчанию описано в разделе [пользователей и контактов](active-directory-aadconnectsync-understanding-users-and-contacts.md).
 
@@ -114,7 +114,7 @@ Azure AD Connect поставляется с несколькими функци
 
 | Раздел | |
 | --------- | --------- |
-| Технические концепции | [Синхронизация Azure AD Connect: технические концепции](active-directory-aadconnect-technical-concepts.md) |
+| Технические концепции | [Синхронизация Azure AD Connect: технические концепции](active-directory-aadconnectsync-technical-concepts.md) |
 | Общее представление о пользователях и контактах | [Синхронизация Azure AD Connect: общее представление о пользователях и контактах](active-directory-aadconnectsync-understanding-users-and-contacts.md) |
 | Декларативная подготовка | [Azure AD Connect Sync: общие сведения о выражениях декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | Справочник по функциям декларативной подготовки | [Синхронизация Azure AD Connect: справочник по функциям](active-directory-aadconnectsync-functions-reference.md) |
@@ -138,4 +138,4 @@ Azure AD Connect поставляется с несколькими функци
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

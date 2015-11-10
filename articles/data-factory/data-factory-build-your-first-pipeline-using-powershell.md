@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.topic="hero-article"
+	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
 # Построение конвейера фабрики данных Azure с помощью Azure PowerShell
@@ -33,13 +33,17 @@
 Здесь не приводятся общие сведения о службе фабрики данных Azure. Подробный обзор службы см. в статье [Введение в фабрику данных Azure](data-factory-introduction.md).
 
 > [AZURE.IMPORTANT]Перед выполнением этого учебника, пожалуйста, перейдите к статье [Обзор учебника](data-factory-build-your-first-pipeline.md) и выполните необходимые предварительные действия.
+>   
+> В этой статье рассматриваются не все командлеты фабрики данных. Полную документацию по командлетам фабрики данных см. в [справочнике по командлетам фабрики данных][cmdlet-reference].
+>    
+> Если вы используете предварительную версию PowerShell 1.0, используйте командлеты, описанные [здесь](https://msdn.microsoft.com/library/dn820234.aspx). Например, используйте командлет New AzureRMDataFactory вместо New AzureDataFactory.
 
 ## Шаг 1. Создание фабрики данных
 
 На этом этапе с помощью Azure PowerShell создается фабрика данных Azure с именем ADFTutorialDataFactoryPSH.
 
 1. Откройте Azure PowerShell и выполните следующие команды. Не закрывайте Azure PowerShell, пока выполняются описанные в учебнике инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
-	- Выполните командлет **Add-AzureAccount**, а затем введите имя пользователя и пароль, используемые для входа на портал предварительной версии Azure.  
+	- Выполните командлет **Add-AzureAccount** и введите имя пользователя и пароль, которые применяются для входа на предварительную версию портала Azure.  
 	- Выполните командлет **Get-AzureSubscription**, чтобы просмотреть все подписки для этой учетной записи.
 	- Выполните командлет **Select-AzureSubscription**, чтобы выбрать подписку, с которой вы собираетесь работать. Эта подписка должна соответствовать подписке, используемой на портале предварительной версии Azure.
 2. Переключитесь в режим AzureResourceManager, поскольку командлеты фабрики данных Azure доступны в этом режиме.
@@ -163,7 +167,7 @@
 
 1.	Создайте в папке C:\\ADFGetStartedPSH JSON-файл MyFirstPipelinePSH.json со следующим содержимым.
 
-	> [AZURE.IMPORTANT]Замените в нем **storageaccountname** на имя вашей учетной записи хранения.
+	> [AZURE.IMPORTANT]В JSON-файле замените свойство **storageaccountname** именем вашей учетной записи хранения.
 
 		{
 		  "name": "MyFirstPipeline",
@@ -270,4 +274,6 @@
 ## Отправить отзыв
 Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md).
 
-<!---HONumber=Oct15_HO4-->
+[cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+
+<!---HONumber=Nov15_HO2-->

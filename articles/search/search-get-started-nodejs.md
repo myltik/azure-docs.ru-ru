@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Начало работы со службой поиска Azure в NodeJS | Microsoft Azure"
-	description="Пошаговое создание пользовательского приложения Поиска Azure с использованием NodeJS в качестве языка программирования."
+	description="Пошаговое создание приложения поиска в облачной службе поиска Azure с использованием NodeJS в качестве языка программирования."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 # Начало работы с Поиском Azure на NodeJS
@@ -147,4 +147,4 @@
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

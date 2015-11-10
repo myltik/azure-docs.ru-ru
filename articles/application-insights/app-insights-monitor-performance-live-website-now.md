@@ -99,7 +99,7 @@ C помощью монитора состояний Visual Studio Application�
 
 ## Просмотр телеметрии производительности
 
-Войдите на [портал предварительной версии Azure](http://portal.azure.com), перейдите в Application Insights и откройте созданный ресурс.
+Войдите на [портал Azure](http://portal.azure.com), перейдите в Application Insights и откройте созданный ресурс.
 
 ![Выберите "Обзор", Application Insights, а затем свое приложение.](./media/app-insights-monitor-performance-live-website-now/appinsights-08openApp.png)
 
@@ -216,4 +216,4 @@ C помощью монитора состояний Visual Studio Application�
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->
