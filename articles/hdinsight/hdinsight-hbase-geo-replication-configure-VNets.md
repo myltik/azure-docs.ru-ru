@@ -38,7 +38,7 @@
 Этот учебник является частью [серии][hdinsight-hbase-replication] по созданию географической репликации HBase.
 
 - Настройка VPN-подключения между двумя виртуальными сетями (данный учебник)
-- [Настройка DNS для виртуальных сетей][hdinsight-hbase-geo-replication-DNS]
+- [Настройка DNS для виртуальных сетей][hdinsight-hbase-geo-replication-dns]
 - [Настройка георепликации HBase][hdinsight-hbase-geo-replication]
 
 На следующей схеме показаны две виртуальные сети, которые вы создадите в этом учебнике:
@@ -270,4 +270,4 @@
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=Oct15_HO3-->
