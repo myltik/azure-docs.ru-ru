@@ -18,6 +18,11 @@
 
 # Загрузка данных с помощью фабрики данных Azure
 
+> [AZURE.SELECTOR]
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [BCP](sql-data-warehouse-load-with-bcp.md)
+
  В этом учебнике показано, как создать в фабрике данных Azure конвейер, который будет перемещать данные из больших двоичных объектов службы хранилища Azure в хранилище данных SQL. С помощью описанных ниже шагов вы сможете:
 
 + настроить образец данных в большом двоичном объекте службы хранилища Azure;
@@ -201,4 +206,4 @@
 	}
 	
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

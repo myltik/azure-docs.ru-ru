@@ -120,7 +120,11 @@
 	$vnet = New-AzurevirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
 Создание виртуальной сети с именем appgwvnet в группе ресурсов appw-rg для региона запада США при помощи префикса 10.0.0.0/16 с подсетью 10.0.0.0/24
+
+### Шаг 3.
 	
+	$subnet=$vnet.Subnets[0]
+
 ## Создание общедоступного IP-адреса для конфигурации внешнего интерфейса
 
 	$publicip = New-AzurePublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
@@ -178,7 +182,7 @@
 
 Настройка размера экземпляра шлюза приложений
 
->[AZURE.NOTE]По умолчанию для параметра *InstanceCount* используется значение 2 (максимальное значение — 10). По умолчанию для параметра *GatewaySize* используется значение Medium. Можно выбрать Standard\_Small, Standard\_Medium или Standard\_Large.
+>[AZURE.NOTE]Значение параметра *InstanceCount* (Количество экземпляров) по умолчанию — 2, максимальное значение — 10. Значение *GatewaySize* (размер шлюза) по умолчанию — Medium (Средний). Можно выбрать Standard\_Small, Standard\_Medium или Standard\_Large.
 
 ## Создание шлюза приложений при помощи New-AzureApplicationGateway
 
@@ -189,10 +193,10 @@
 
 ## Запуск шлюза приложений
 
-Настроив шлюз, запустите его с помощью командлета `Start-AzureApplicationGateway`. Выставление счетов для шлюза приложений начинается после запуска шлюза.
+После настройки запустите шлюз с помощью командлета `Start-AzureApplicationGateway`. Выставление счетов для шлюза приложений начинается после запуска шлюза.
 
 
-**Примечание.** Выполнение командлета `Start-AzureApplicationGateway` занимает до 15–20 минут.
+**Примечание.** Выполнение командлета `Start-AzureApplicationGateway` занимает до 15–20 минут.
 
 В приведенном далее примере шлюз приложений называется appgwtest, а группа ресурсов называется app-rg.
 
@@ -205,7 +209,7 @@
 
 ### Шаг 2
 	 
-Для запуска шлюза приложений используйте командлет `Start-AzureApplicationGateway`.
+Запуск шлюза приложений с помощью `Start-AzureApplicationGateway`.
 
 	 Start-AzureApplicationGateway -ApplicationGateway $getgw  
 
@@ -213,9 +217,9 @@
 
 ## Проверьте состояние шлюза приложений
 
-Проверить состояние шлюза можно с помощью командлета `Get-AzureApplicationGateway`. Если на предыдущем этапе командлет *Start-AzureApplicationGateway* был выполнен успешно, то параметр "Состояние" должен иметь значение *Работает*, а параметры Vip и DnsName должны иметь допустимые значения.
+Состояние шлюза можно проверить с помощью командлета `Get-AzureApplicationGateway`. Если командлет *Start-AzureApplicationGateway* на предыдущем этапе был выполнен успешно, параметр State (Состояние) должен получить значение *Running* (Работает), а параметры Vip и DnsName — действительные значения.
 
-В этом примере показан работающий шлюз приложений, готовый к приему трафика, отправляемого по адресу `http://<generated-dns-name>.cloudapp.net`.
+В данном примере показан рабочий шлюз приложений, готовый к приему трафика, отправляемого по адресу `http://<generated-dns-name>.cloudapp.net`.
 
 	Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
@@ -367,9 +371,9 @@
 
 Чтобы удалить шлюз приложений, выполните указанные ниже действия.
 
-1. Для остановки работы шлюза используйте командлет `Stop-AzureApplicationGateway`. 
-2. Для удаления шлюза используйте командлет `Remove-AzureApplicationGateway`.
-3. Для проверки того, удален ли шлюз, используйте командлет `Get-AzureApplicationGateway`.
+1. Остановите шлюз с помощью командлета `Stop-AzureApplicationGateway`. 
+2. Удалите шлюз с помощью командлета `Remove-AzureApplicationGateway`.
+3. Проверьте, удален ли шлюз, с помощью командлета `Get-AzureApplicationGateway`.
 
 
 ### Шаг 1
@@ -380,12 +384,12 @@
 
 ### Шаг 2
 	 
-Для остановки шлюза приложений используйте командлет `Stop-AzureApplicationGateway`.
+Остановите шлюз приложений с помощью `Stop-AzureApplicationGateway`:
 
 	Stop-AzureApplicationGateway -ApplicationGateway $getgw  
 
 
-Когда шлюз приложений находится в состоянии "Остановлен", для удаления службы можно использовать командлет `Remove-AzureApplicationGateway`.
+Когда шлюз перейдет в состояние Stopped, удалите службу с помощью командлета `Remove-AzureApplicationGateway`.
 
 
 	Remove-AzureApplicationGateway -Name $appgwtest -ResourceGroupName appgw-rg -Force
@@ -407,11 +411,11 @@
 
 Указания по настройке разгрузки SSL см. в статье [Настройка шлюза приложений для разгрузки SSL](application-gateway-ssl.md).
 
-Указания по настройке шлюза приложений для его использования совместно с внутренним балансировщиком нагрузки см. в статье [Создание шлюза приложений с внутренним балансировщиком нагрузки](application-gateway-ilb.md).
+Указания по настройке шлюза приложений для использования с ILB см. в статье [Создание шлюза приложений с внутренней подсистемой балансировки нагрузки (ILB)](application-gateway-ilb.md).
 
 Дополнительные сведения о параметрах балансировки нагрузки в целом см. в статьях:
 
 - [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Диспетчер трафика Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

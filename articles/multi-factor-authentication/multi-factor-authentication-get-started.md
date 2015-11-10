@@ -30,7 +30,6 @@
 Чтобы выяснить, какое решение многофакторной проверки подлинности вам нужно, сначала определите, что вы пытаетесь защитить с помощью второго метода проверки подлинности. Это приложение в службе Azure? Или это система удаленного доступа, к примеру? Определив объект, который необходимо защитить, мы четко увидим, где именно нужно активировать многофакторную проверку подлинности.
 
 
-
 Что вы пытаетесь защитить| Multi-Factor Authentication в облаке|Сервер Multi-Factor Authentication 
 ------------- | :-------------: | :-------------: |
 Собственные приложения корпорации Майкрософт|* |* |
@@ -82,9 +81,4 @@ Azure AD и локальная служба AD с использованием D
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-**Дополнительные ресурсы**
-
-* [Для пользователей](multi-factor-authentication-end-user.md)
-* [Azure Multi-Factor Authentication в MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

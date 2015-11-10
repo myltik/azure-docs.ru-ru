@@ -21,12 +21,7 @@
 
 Чтобы начать работу, следуйте инструкциям, приведенным в этих учебниках, и вы научитесь создавать приложение списка задач, которое будет подключаться к мобильной серверной части службы приложений. Выберите клиентскую платформу:
 
-  * [iOS](../app-service-mobile-ios-get-started.md)
-  * [Xamarin.iOS](../app-service-mobile-xamarin-ios-get-started.md)
-  * [Xamarin.Android](../app-service-mobile-xamarin-android-get-started.md)
-  * [Xamarin.Forms](../app-service-mobile-xamarin-forms-get-started.md)
-  * [Windows](../app-service-mobile-windows-store-dotnet-get-started.md)
-  * [HTML](../app-service-mobile-html-get-started.md)
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ##Видеоролики
 
@@ -34,4 +29,4 @@
 
 Мобильные приложения службы приложений с Кириллом Гаврилюком
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

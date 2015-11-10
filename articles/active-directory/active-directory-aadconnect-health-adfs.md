@@ -69,8 +69,9 @@
 ## Связанные ссылки
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Установка агента Azure AD Connect Health для AD FS](active-directory-aadconnect-health-agent-install-adfs.md)
+* [Установка агента Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Операции Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
+* [Использование Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md)
 * [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->
