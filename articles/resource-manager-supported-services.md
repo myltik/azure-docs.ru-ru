@@ -68,10 +68,8 @@
 | Поиск | Да | [Да](https://portal.azure.com/#create/Microsoft.Search) | Да | [Поиск REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | Хранилище данных SQL | Да | [Да](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
 | StorSimple | Нет | Нет | — | — | — |
-| Архивация | Нет | Нет | — | — | — |
-| Site Recovery | Нет | Нет | — | — | — |
 | Управляемая служба кэша | Нет | Нет | — | — | — |
-| Каталог данных | Нет | Нет | — | — | — |
+
 
 ## Аналитика
 
@@ -81,7 +79,8 @@
 | Анализ потока | Да | [Да](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | Да | [Да](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | | | |
 | Фабрика данных | Да | [Да](https://portal.azure.com/#create/Microsoft.DataFactory) | Да | [Создание фабрики данных](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| Машинное обучение | Нет | Нет | - | - | - | | Каталог данных | Нет | Нет | - | - | - |
+| Машинное обучение | Нет | Нет | - | - | - |
+| Каталог данных | Нет | Нет | - | - | - |
 
 ## Сеть
 
@@ -107,7 +106,8 @@
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | Службы BizTalk | Да | Нет | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | Service Bus | Да | Нет | | [REST служебной шины](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
-| Служба архивации | Нет | Нет | - | - | - | | Site Recovery | Нет | Нет | - | - | - |
+| Служба архивации | Нет | Нет | - | - | - |
+| Site Recovery | Нет | Нет | - | - | - |
 
 ## Управление удостоверениями и доступом 
 
@@ -234,4 +234,4 @@
 - Сведения о создании шаблонов диспетчера ресурсов см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 - Сведения о развертывании ресурсов см. в статье [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](./azure-portal/resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO1-->
