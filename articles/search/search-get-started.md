@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Начало работы со службой поиска Azure | Microsoft Azure" 
-	description="Начало работы со службой поиска Azure" 
+	description="Приступайте к работе с Поиском Azure, размещенной облачной службой поиска в Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -14,12 +14,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Начало работы со службой поиска Azure
 
-Служба поиска Microsoft Azure — это новая служба, позволяющая встраивать поисковые функции в пользовательские приложения. Она предоставляет поисковую систему и хранилище данных, к которым можно обращаться и которыми можно управлять посредством библиотеки .NET или API REST.
+Поиск Microsoft Azure — это размещенная облачная служба поиска, позволяющая встраивать поисковые функции в пользовательские приложения. Она предоставляет поисковую систему и хранилище данных, к которым можно обращаться и которыми можно управлять посредством библиотеки .NET или API REST.
 
 Эта статья познакомит вас с API REST службы поиска Azure.
 
@@ -378,4 +378,4 @@
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

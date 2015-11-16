@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Контроль использования и статистики в службе поиска Azure" 
-   description="Отслеживание потребления ресурсов и размера индексов для службы поиска Azure" 
+   pageTitle="Мониторинг использования и статистики в службе Поиск Azure | Microsoft Azure" 
+   description="Отслеживайте потребление ресурсов и размера индексов для Поиска Azure, размещенной облачной службы поиска в Microsoft Azure." 
    services="search" 
    documentationCenter="" 
    authors="HeidiSteen" 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="09/08/2015"
+   ms.date="11/04/2015"
    ms.author="heidist"/>
 
 # Контроль использования и статистики в службе поиска Azure
@@ -57,4 +57,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

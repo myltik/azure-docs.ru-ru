@@ -29,7 +29,7 @@
 ## Квоты для подписки
 Ресурс|Ограничение по умолчанию|Максимальное ограничение
 ---|---|---
-Учетных записей пакетной службы на регион на подписку|1|20
+Учетных записей пакетной службы на регион на подписку|1|50
 
 ## Квоты для учетной записи пакетной службы
 [AZURE.INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
@@ -95,4 +95,4 @@
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

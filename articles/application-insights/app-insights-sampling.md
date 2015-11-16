@@ -33,7 +33,7 @@
 
 1. Обновите пакеты NuGet вашего проекта до последней *предварительной* версии Application Insights. Щелкните правой кнопкой мыши проект в обозревателе решений, выберите "Управление пакетами NuGet", установите флаг **Включить предварительный выпуск** и выполните поиск Microsoft.ApplicationInsights.Web. 
 
-2. Добавьте этот фрагмент кода в ApplicationInsights.config
+2. Добавьте этот фрагмент кода в [ ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
 ```XML
 
@@ -162,4 +162,6 @@
 
 * Нет, с приложениями для устройств использование выборки в настоящее время не поддерживается. 
 
-<!---HONumber=Nov15_HO1-->
+>>>>>>> 36f8b905a3f60271ee6dc3a17c3ca431937287dc
+
+<!---HONumber=Nov15_HO2-->

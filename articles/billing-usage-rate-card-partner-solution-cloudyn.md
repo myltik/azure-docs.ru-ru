@@ -1,5 +1,5 @@
 <properties
-   pageTitle="API использования и RateCard в Microsoft Azure позволяют Cloudyn предоставлять ITFM для клиентов"
+   pageTitle="API использования и RateCard в Microsoft Azure позволяют Cloudyn предоставлять ITFM для клиентов | Microsoft Azure"
    description="В нем описан уникальный опыт Cloudyn — партнера по выставлению счетов Microsoft Azure — по интеграции API выставления счетов Azure в свои продукты. Эти сведения особенно полезны для клиентов Azure и Cloudyn, которые хотели бы использовать Cloudyn для служб Azure или уже рассматривают такой вариант."
    services="billing"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="06/14/2015"
+   ms.date="11/02/2015"
    ms.author="mobandyo;bryanla"/>
 
 # API использования и RateCard в Microsoft Azure позволяют Cloudyn предоставлять ITFM для клиентов 
@@ -74,7 +74,7 @@ Cloudyn применяет как API использования, так и API 
 + Запустите бесплатную пробную версию [Cloudyn для Azure](https://www.cloudyn.com/microsoft-azure/), чтобы узнать, как можно добиться прозрачности затрат с помощью настраиваемых отчетов и аналитики для облачного развертывания Microsoft Azure.
 + В статье [Получение ценных сведений о потреблении ресурсов Microsoft Azure](billing-usage-rate-card-overview.md) приведены общие сведения об API использования ресурсов и RateCard в Azure. 
 + В статье [Справочник по API REST выставления счетов в Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) приведены дополнительные сведения о двух API, которые входят в состав набора API, предоставляемого диспетчером ресурсов Azure.
-+ Если вы хотите подробнее изучить код примера, посетите страницу [Образцы кода API выставления счетов Microsoft Azure на Github](https://github.com/Azure/BillingCodeSamples).
++ Если вы хотите подробнее изучить код примера, посетите страницу "Образцы кода API выставления счетов Microsoft Azure" сайте [Образцы кодов Azure](https://azure.microsoft.com/documentation/samples/?term=billing).
 
 ## Подробнее
 + Дополнительные сведения о предложениях для Соглашения Enterprise Microsoft Azure см. на странице [Лицензирование Azure для предприятия](http://azure.microsoft.com/pricing/enterprise-agreement/).
@@ -90,4 +90,4 @@ Cloudyn применяет как API использования, так и API 
 [6]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Performance-Reports.png
 [7]: ./media/billing-usage-rate-card-partner-solution-cloudyn/Cloudyn-Category-Manager.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

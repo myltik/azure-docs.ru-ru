@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Уведомление пользователей посредством центров уведомлений"
+	pageTitle="Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET"
 	description="Узнайте, как отправлять безопасные push-уведомления в Azure. Примеры кода написаны на C# с использованием API .NET."
 	documentationCenter="windows"
 	authors="wesmc7777"
@@ -16,7 +16,7 @@
 	ms.date="10/15/2015"
 	ms.author="wesmc"/>
 
-#Уведомление пользователей посредством центров уведомлений
+#Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET
 
 [AZURE.INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -385,4 +385,4 @@
 [Использование концентраторов уведомлений для передачи экстренных новостей]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 [руководстве по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="10/29/2015"
 	ms.author="josephd"/>
 
 # Службы инфраструктуры Azure: интрасетевая ферма SharePoint
@@ -48,9 +48,9 @@
 
 ### Исключительно облачная виртуальная сеть
 
-Такая виртуальная сеть не соединена с локальной сетью. Если вы хотите быстро создать простую или высокодоступную ферму SharePoint, см. статью [Ферма серверов SharePoint](virtual-machines-sharepoint-farm-azure-preview.md). Базовая конфигурация фермы SharePoint выглядит так:
+Такая виртуальная сеть не соединена с локальной сетью. Если вы хотите быстро создать базовую или высокодоступную ферму SharePoint, см. статью [Создание ферм серверов SharePoint](virtual-machines-sharepoint-farm-azure-preview.md). Базовая конфигурация фермы SharePoint выглядит так:
 
-![](./media/virtual-machines-workload-intranet-sharepoint-farm/SPFarm_Basic.png)
+![](./media/virtual-machines-workload-intranet-sharepoint-farm/Non-HAFarm.png)
 
 ### Распределенная виртуальная сеть
 
@@ -128,4 +128,4 @@
 
 [Службы инфраструктуры Azure: высокодоступное бизнес-приложение](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="10/01/2015"
+   ms.date="11/04/2015"
    ms.author="heidist"/>
 
 # API REST службы поиска Azure, версия 2015-02-28-Preview
 
-Эта статья представляет собой справочную документацию по версии `api-version=2015-02-28-Preview`. Она расширяет текущую общедоступную версию [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), изменения в которую заблокированы, и содержит перечисленные ниже экспериментальные функции.
+Поиск Azure — это размещенная облачная служба поиска в Microsoft Azure. Эта статья представляет собой справочную документацию по версии `api-version=2015-02-28-Preview`. Она расширяет текущую общедоступную версию [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), изменения в которую заблокированы, и содержит перечисленные ниже экспериментальные функции.
 
 - [Синтаксис запросов Lucene](https://msdn.microsoft.com/library/azure/mt589323.aspx) является реализацией [средства синтаксического анализа запросов Lucene](https://lucene.apache.org/core/4_10_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), которое можно указать с помощью параметра queryType в [операциях поиска](#SearchDocs).
 - `moreLikeThis` — параметр запроса, который используется в [операциях поиска](#SearchDocs) и позволяет найти документы, связанные с определенным документом.
@@ -1742,4 +1742,4 @@ URI запроса содержит параметр [index name] и [key], ко
       "suggesterName": "sg"
     }
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

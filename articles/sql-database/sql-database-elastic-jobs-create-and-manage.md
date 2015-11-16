@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Создание заданий обработки эластичных баз данных и управление ими"
+	pageTitle="Создание заданий обработки эластичных баз данных и управление ими | Micosoft Azure"
 	description="Пошаговая инструкция по созданию задания эластичной базы данных и управлению им."
 	services="sql-database"
 	documentationCenter=""
 	manager="jhubbard"
-	authors="sidneyh"
+	authors="ddove"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.date="11/04/2015"
 	ms.author="ddove; sidneyh"/>
 
 # Создание заданий обработки эластичных баз данных SQL и управление ими с помощью портала (предварительная версия)
@@ -115,4 +115,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

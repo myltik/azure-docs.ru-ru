@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Использование клиентской библиотеки эластичной базы данных с Dapper" 
+	pageTitle="Использование клиентской библиотеки эластичной базы данных с Dapper | Microsoft Azure" 
 	description="Использование клиентской библиотеки эластичной базы данных с Dapper." 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh"/>
+	authors="torsteng"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="torsteng;sidneyh"/>
 
 # Использование клиентской библиотеки эластичной базы данных с Dapper 
 
@@ -174,4 +174,4 @@
 [1]: ./media/sql-database-elastic-scale-working-with-dapper/dapperimage1.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

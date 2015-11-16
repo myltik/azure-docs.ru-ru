@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Как искать данные в StackExchange с помощью поиска Azure | Microsoft Azure"
-	description="Узнайте, как с помощью поиска Azure выполнять поиск REST."
+	description="Узнайте, как выполнять поиски REST с помощью Поиска Azure, размещенной облачной службы поиска в Microsoft Azure."
 	services="search"
 	documentationCenter=""
 	authors="liamca"
@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="10/15/2015"
+	ms.date="11/04/2015"
 	ms.author="liamca"/>
 
 # Как искать данные в StackExchange с помощью поиска Azure
@@ -109,4 +109,4 @@
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

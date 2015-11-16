@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="10/27/2015" 
 	ms.author="wesmc"/>
 
 #Центры уведомлений Azure — рекомендации по диагностике
@@ -115,7 +115,7 @@
 
 	![][8]
  
-	> [AZURE.NOTE]Функцию изменения регистраций Visual Studio следует использовать только при разработке или тестировании для ограниченного числа регистраций. Если возникает необходимость массовой правки регистраций, можно воспользоваться функцией экспорта и импорта регистраций, описанной здесь: [Экспорт и импорт регистраций] (доступно только для уровня Standard).
+	> [AZURE.NOTE]Функцию изменения регистраций Visual Studio следует использовать только при разработке или тестировании для ограниченного числа регистраций. Если возникает необходимость массовой правки регистраций, можно воспользоваться функцией экспорта и импорта регистраций, описанной здесь: [Экспорт и импорт регистраций](https://msdn.microsoft.com/library/dn790624.aspx).
 
 2. **Обозреватель служебной шины**
 
@@ -227,7 +227,7 @@
 [Руководстве по использованию шаблонов]: https://msdn.microsoft.com/library/dn530748.aspx
 [руководство по APNS]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [руководство по GCM]: http://developer.android.com/google/gcm/adv.html
-[Экспорт и импорт регистраций]: http://msdn.microsoft.com/library/dn790624.aspx
+[Export/Import Registrations]: http://msdn.microsoft.com/library/dn790624.aspx
 [Обозреватель ServiceBus]: http://msdn.microsoft.com/library/dn530751.aspx
 [Код обозревателя ServiceBus]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [Обзор обозревателя сервера VS]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
@@ -239,4 +239,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

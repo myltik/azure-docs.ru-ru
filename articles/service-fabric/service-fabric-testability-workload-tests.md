@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Пользовательские сценарии тестирования"
-   description="Защита служб от нормальных и ненормальных сбоев"
+   pageTitle="Пользовательские сценарии тестирования | Microsoft Azure"
+   description="Защита служб от нормальных и ненормальных сбоев."
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -153,4 +153,4 @@ class Test
 ```
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

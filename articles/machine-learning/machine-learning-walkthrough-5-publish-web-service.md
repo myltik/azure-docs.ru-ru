@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
+	ms.date="11/04/2015"
 	ms.author="garye"/>
 
 
@@ -97,8 +97,11 @@
 
 Службу можно настраивать на вкладке **КОНФИГУРАЦИЯ**. На этой вкладке можно изменить имя службы (по умолчанию она получает имя эксперимента) и предоставить ее описание. Можно также задать более удобочитаемые названия для входных и выходных столбцов.
 
+![Настройка веб-службы][5]
+
 ## Тестирование веб-службы
-На странице **ПАНЕЛЬ МОНИТОРИНГА** щелкните ссылку **Тестирование** в разделе **Конечная точка по умолчанию**. Появится диалоговое окно, где предлагается ввести входные данные для службы. Это те же столбцы, которые были в изначальном наборе данных по кредитным рискам для немецкого языка.
+На странице **ПАНЕЛЬ МОНИТОРИНГА** щелкните ссылку **Тестирование** в разделе **Конечная точка по умолчанию**. Появится диалоговое окно, где предлагается ввести входные данные для службы. Это те же столбцы, которые были в изначальном наборе данных по кредитным рискам для немецкого языка. ![Тестирование веб-службы][6]
+
 
 Введите набор данных и нажмите кнопку **ОК**.
 
@@ -113,6 +116,8 @@
 [2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
 [3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
 [4]: ./media/machine-learning-walkthrough-5-publish-web-service/publish4.png
+[5]: ./media/machine-learning-walkthrough-5-publish-web-service/publish5.png
+[6]: ./media/machine-learning-walkthrough-5-publish-web-service/publish6.png
 
 
 <!-- Module References -->
@@ -126,4 +131,4 @@
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

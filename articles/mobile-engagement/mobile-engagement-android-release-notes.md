@@ -1,28 +1,32 @@
-<properties 
-	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement" 
+<properties
+	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement"
 	description="Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="piyushjo" />
 
 
 #Заметки о выпуске
 
+##4\.1.1 (04.11.2015)
+
+- Улучшение стабильности.
+
 ##4\.1.0 (25.08.2015)
 
 - Обработка новой модели разрешений для Android M.
-- Возможность настройки характеристик расположения в среде выполнения, а не с помощью `AndroidManifest.xml`.
+- Возможность настройки функций расположения в среде выполнения, а не с помощью `AndroidManifest.xml`.
 - Исправление ошибки разрешений: если используется `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION` больше не требуется.
 - Улучшение стабильности.
 
@@ -45,6 +49,4 @@
 -   Улучшения безопасности.
 -   Удалено отслеживание Google Play и SmartAd.
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Разбивка результатов поиска на страницы в службе поиска Azure." 
-	description="Разбивка на страницы в службе поиска Azure" 
+	pageTitle="Разбивка результатов поиска на страницы в Поиске Azure | Microsoft Azure" 
+	description="Разбивка на страницы в службе Поиск Azure, размещенной облачной службе поиска в Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #Разбивка результатов поиска на страницы в службе поиска Azure.#
@@ -114,4 +114,4 @@
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

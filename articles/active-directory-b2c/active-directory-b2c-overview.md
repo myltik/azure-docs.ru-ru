@@ -54,12 +54,13 @@
 
 Следующие ссылки позволят глубже изучить службу:
 
+- См. [сведения о ценах на Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c).
 - Получите справку по переполнению стека, используя теги [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) или [adal](http://stackoverflow.com/questions/tagged/adal).
-- Сообщите нам свое мнение о предварительной версии через сайт [UserVoice](http://feedback.azure.com/forums/169401-azure-active-directory). В заголовке сообщения укажите «AzureADB2C:», чтобы мы смогли его найти.
+- Сообщите нам свое мнение о предварительной версии через сайт [пользовательских мнений](http://feedback.azure.com/forums/169401-azure-active-directory). В заголовке сообщения укажите «AzureADB2C:», чтобы мы смогли его найти.
 - Azure Active Directory B2C поддерживает стандартные отраслевые протоколы, OpenID Connect и OAuth 2.0, с помощью модели регистрации приложений «Модель приложений 2.0».
   - [Справочник по протоколу модели приложений версии 2.0](active-directory-b2c-reference-protocols.md)
   - [Справочник по маркеру модели приложений версии 2.0](active-directory-b2c-reference-tokens.md)
 - [Часто задаваемые вопросы о Azure Active Directory B2C](active-directory-b2c-faqs.md)
 - [Регистрация запросов на поддержку для Azure Active Directory B2C](active-directory-b2c-support.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

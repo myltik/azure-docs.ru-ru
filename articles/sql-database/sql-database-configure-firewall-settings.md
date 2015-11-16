@@ -56,7 +56,7 @@
 3. В окне запроса можно создавать, обновлять или удалять правила брандмауэра на уровне сервера.
 4. Для создания или обновления правил брандмауэра на уровне сервера выполните хранимую процедуру sp\_set\_firewall\_rule. В следующем примере показано, как задать диапазон IP-адресов на сервере Contoso.<br/>Для начала узнайте, какие правила уже имеются.
 
-		SELECT * FROM sys.database_firewall_rules ORDER BY name;
+		SELECT * FROM sys.firewall_rules ORDER BY name;
 
 	Добавьте правило брандмауэра.
 
@@ -141,4 +141,4 @@
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

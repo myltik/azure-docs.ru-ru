@@ -1,5 +1,5 @@
 <properties
-    pageTitle="База данных SQL Azure — средства работы с эластичными базами данных"
+    pageTitle="Обзор функций средств работы с эластичными базами данных | Microsoft Azure"
     description="Разработчики программного обеспечения как услуги (SaaS) могут с легкостью создавать эластичные и масштабируемые базы данных в облаке, используя следующие средства"
     services="sql-database"
     documentationCenter=""
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/27/2015"
-    ms.author="sidneyh"/>
+    ms.date="11/04/2015"
+    ms.author="ddove;sidneyh"/>
 
 # Общие сведения о возможностях эластичных баз данных
 
@@ -108,4 +108,4 @@
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -108,6 +108,6 @@
 
 ## Дальнейшие действия
 - [Создание шаблонов](./resource-group-authoring-templates.md)
-- [Развертывание шаблонов](azure-portal/resource-group-template-deploy.md)
+- [Развертывание шаблонов](resource-group-template-deploy.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

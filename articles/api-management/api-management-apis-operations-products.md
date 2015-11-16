@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/03/2015" 
 	ms.author="sdanie"/>
 
 # Как создавать API, операции и продукты в Azure API Management
@@ -62,4 +62,4 @@ API и операции можно импортировать за один ша
 [Как импортировать определение API с операциями]: api-management-howto-import-api.md
 [Как создать и настроить расширенные настройки продукта]: api-management-howto-product-with-rules.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

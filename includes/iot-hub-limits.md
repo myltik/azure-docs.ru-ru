@@ -1,35 +1,37 @@
-The following table lists the limits associated with the the different service tiers (S1, S2, F1). For information about the cost of each *unit* in each tier, see [IoT Hub Pricing](http://azure.microsoft.com/pricing/details/iot-hub/).
+В следующей таблице перечислены ограничения, связанные с разными уровнями служб (S1, S2, F1). Сведения о стоимости каждой *единицы* на каждом уровне см. в разделе [Цены на центр IoT](http://azure.microsoft.com/pricing/details/iot-hub/).
 
-| Resource | S1 Standard | S2 Standard | F1 Free |
+| Ресурс | Стандартный S1 | Стандартный S2 | Бесплатный F1 |
 | -------- | ----------- | ----------- | ------- |
-| Devices/unit | 500 | 500 | 10 |
-| Messages/day | 50,000 | 1,500,000 | 3,000 |
-| Maximum units | 200 | 200 | 1 |
-| Device updates (create, update, <br/> delete) per unit per day | 1100 | 1100 | 1100 |
+| Устройств на единицу | 500 | 500 | 10 |
+| Сообщений в день | 50 000 | 1 500 000 | 3000 |
+| Максимальное число единиц | 200 | 200 | 1 |
+| Обновлений устройств (создание, обновление, <br/> удаление) на единицу в день | 1100 | 1100 | 1100 |
 
-> [AZURE.NOTE] If you anticipate using more than 200 units with an S1 or S2 tier hub, please contact Microsoft support.
+> [AZURE.NOTE]Если предполагается использование более 200 единиц с центром уровня S1 и S2, обратитесь в службу технической поддержки Майкрософт.
 
-The following table lists the limits that apply to IoT Hub resources:
+В следующей таблице перечислены ограничения, которые применяются к ресурсам центра IoT:
 
-| Resource | Limit |
+| Ресурс | Ограничение |
 | -------- | ----- |
-| Maximum IoT hubs per Azure subscription | 10 |
-| Maximum number of device identities<br/>  returned in a single call | 1000 |
-| IoT Hub message maximum retention | 7 days |
-| Maximum size of device-to-cloud message | 256 KB |
-| Maximum size of device-to-cloud batch | 256 KB |
-| Maximum messages in device-to-cloud batch | 500 |
-| Maximum size of cloud-to-device message | 64 KB |
-| Maximum TTL for cloud-to-device messages | 2 days |
-| Maximum delivery count for cloud-to-device <br/> messages | 100 |
-| Maximum delivery count for feedback messages <br/> in response to a cloud-to-device message | 100 |
-| Maximum TTL for feedback messages in <br/> response to a cloud-to-device message | 2 days |
+| Максимальное число центров IoT на подписку Azure | 10 |
+| Максимальное число удостоверений устройств,<br/> возвращаемых в одном вызове | 1000 |
+| Максимальный срок хранения сообщения центра IoT | 7 дней |
+| Максимальный размер сообщения, отправляемого с устройства в облако | 256 KB |
+| Максимальный размер пакета, отправляемого с устройства в облако | 256 KB |
+| Максимальное число сообщений в пакете, отправляемом с устройства в облако | 500 |
+| Максимальный размер сообщения, отправляемого из облака на устройство | 64 КБ |
+| Максимальный срок жизни для сообщений, отправляемых из облака на устройство | 2 дня |
+| Максимальное число доставок для сообщений, <br/> отправляемых из облака на устройство | 100 |
+| Максимальное число доставок для сообщений обратной связи <br/> в ответ на сообщение, отправляемое из облака на устройство | 100 |
+| Максимальный срок жизни для сообщений обратной связи <br/> в ответ на сообщение, отправляемое из облака на устройство | 2 дня |
 
-The IoT Hub service throttles requests when the following quotas are exceeded:
+Служба центра IoT регулирует запросы при превышении следующих квот:
 
-| Throttle | Per-hub value |
+| Регулирование | Значение концентратора |
 | -------- | ------------- |
-| Identity registry operations <br/> (create, retrieve, list, update, delete), <br/> individual or bulk import/export | 100/min/unit, up to 5000/min |
-| Device connections | 100/sec/unit |
-| Device-to-cloud sends | 2000/min/unit (for S2), 60/min/unit (for S1) <br/> Minimum of 100/sec |
-| Cloud-to-device operations <br/> (sends, receives, feedback) | 100/min/unit |
+| Операции с реестром удостоверений <br/>(создание, извлечение, перечисление, обновление и удаление), импорт и экспорт <br/> отдельных элементов или пакетов | 100/мин/единица, до 5000/мин |
+| Подключение устройств | 100/с/единица |
+| Передачи с устройства в облако | 2000/мин/единица (для S2), 60/мин/единица (для S1) <br/> Минимум 100/с |
+| Операции из облака на устройство <br/> (отправки, приемы, отзывы) | 100/мин/единица |
+
+<!---HONumber=Nov15_HO2-->

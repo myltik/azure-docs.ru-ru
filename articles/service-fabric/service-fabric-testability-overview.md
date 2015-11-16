@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Обзор Testability"
-   description="В этой статье описывается компонент тестирования, который входит в платформу Microsoft Azure Service Fabric."
+   pageTitle="Обзор Testability | Microsoft Azure"
+   description="В этой статье описывается компонент Testability тестирования в Microsoft Azure Service Fabric, используемый в целях провоцирования ошибок и запуска сценариев тестирования для служб."
    services="service-fabric"
    documentationCenter=".net"
    authors="rishirsinha"
@@ -94,4 +94,4 @@ Testability — это набор инструментов, специально
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

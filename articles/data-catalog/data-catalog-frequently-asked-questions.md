@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="10/23/2015"
+   ms.date="10/30/2015"
    ms.author="maroche"/>
 
 # Часто задаваемые вопросы о каталоге данных Azure
@@ -70,7 +70,7 @@
 - Большой двоичный объект хранилища Azure
 - Каталог хранилища Azure
 - Файл HDFS
-- Каталог HDSF
+- Каталог HDFS
 - Таблица Teradata
 - Представление Teradata
 
@@ -79,7 +79,7 @@
 - база данных SQL Server;
 - База данных Oracle
 - кластер HDFS.
-- База данных Teradata 
+- База данных Teradata
 
 
 ## Вопрос. Как запросить поддержку для другого источника данных?
@@ -172,4 +172,4 @@
 
 Перейдите на [форум каталога данных Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Ответы на вопросы, заданные на форуме, будут опубликованы здесь.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

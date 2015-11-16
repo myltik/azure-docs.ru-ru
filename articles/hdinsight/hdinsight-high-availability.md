@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="10/29/2015"
 	ms.author="jgao"/>
 
 
@@ -68,11 +68,19 @@ HDInsight позволяет клиентам развертывать разл�
 
 Очень крупные виртуальные машины можно настраивать с помощью командлетов Azure PowerShell или пакета SDK для HDInsight.
 
-Создание и подготовка кластера с использованием Azure PowerShell описаны в разделе [Администрирование HDInsight с помощью PowerShell](hdinsight-administer-use-powershell.md). Настройка очень крупных головных узлов требует добавления параметра `-HeadNodeVMSize ExtraLarge` в командлет `New-AzureHDInsightcluster`, используемый в этом коде.
+Создание и подготовка кластера с использованием Azure PowerShell описаны в разделе [Администрирование HDInsight с помощью PowerShell](hdinsight-administer-use-powershell.md). Настройка очень крупных головных узлов требует добавления параметра `-HeadNodeVMSize ExtraLarge` в командлет `New-AzureRmHDInsightcluster`, используемый в этом коде.
 
     # Create a new HDInsight cluster in Azure PowerShell
 	# Configured with an ExtraLarge head-node VM
-    New-AzureHDInsightCluster -Name $clusterName -Location $location -HeadNodeVMSize ExtraLarge -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes
+    New-AzureRmHDInsightCluster `
+				-ResourceGroupName $resourceGroupName `
+				-ClusterName $clusterName ` 
+				-Location $location `
+				-HeadNodeVMSize ExtraLarge `
+				-DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
+				-DefaultStorageAccountKey $storageAccountKey `
+				-DefaultStorageContainerName $containerName  `
+				-ClusterSizeInNodes $clusterNodes
 
 При использовании пакета SDK процедура аналогична. Создание и подготовка кластера с использованием SDK описаны в разделе [Использование пакета SDК для HDInsight .NET](hdinsight-provision-clusters.md#sdk). Настройка очень крупных головных узлов требует добавления параметра `HeadNodeSize = NodeVMSize.ExtraLarge` в метод `ClusterCreateParameters()`, используемый в этом коде.
 
@@ -80,15 +88,15 @@ HDInsight позволяет клиентам развертывать разл�
 	# Configured with an ExtraLarge head-node VM
     ClusterCreateParameters clusterInfo = new ClusterCreateParameters()
     {
-    Name = clustername,
-    Location = location,
-    HeadNodeSize = NodeVMSize.ExtraLarge,
-    DefaultStorageAccountName = storageaccountname,
-    DefaultStorageAccountKey = storageaccountkey,
-    DefaultStorageContainer = containername,
-    UserName = username,
-    Password = password,
-    ClusterSizeInNodes = clustersize
+		Name = clustername,
+		Location = location,
+		HeadNodeSize = NodeVMSize.ExtraLarge,
+		DefaultStorageAccountName = storageaccountname,
+		DefaultStorageAccountKey = storageaccountkey,
+		DefaultStorageContainer = containername,
+		UserName = username,
+		Password = password,
+		ClusterSizeInNodes = clustersize
     };
 
 
@@ -98,4 +106,4 @@ HDInsight позволяет клиентам развертывать разл�
 - [Подключение к кластерам HDInsight с использованием RDP](hdinsight-administer-use-management-portal.md#rdp)
 - [Использование пакета SDК для HDInsight .NET](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

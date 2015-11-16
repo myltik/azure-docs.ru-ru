@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="index-page"
-	ms.date="07/09/2015"
+	ms.date="10/29/2015"
 	ms.author="davidmu"/>
 
 
@@ -34,11 +34,9 @@
 
 [Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
 
+[Использование CLI Azure для Mac, Linux и Windows с диспетчером ресурсов Azure](xplat-cli-azure-resource-manager.md)
+
 [Развертывание виртуальных машин и управление ими с использованием шаблонов диспетчера ресурсов Azure и PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-## Общие ресурсы
-
-[Шаблоны быстрого запуска Azure](http://azure.microsoft.com/documentation/templates/)
 
 [Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения Azure в диспетчере ресурсов Azure](virtual-machines-azurerm-versus-azuresm.md)
 
@@ -47,31 +45,17 @@
 
 [Поставщик сетевых ресурсов](http://go.microsoft.com/fwlink/p/?linkid=534943&clcid=0x409)
 
-
-## Автоматизация с помощью CLI Azure
-
-[Использование CLI Azure для Mac, Linux и Windows с диспетчером ресурсов Azure](xplat-cli-azure-resource-manager.md)
-
-[Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure](http://go.microsoft.com/fwlink/p/?linkid=534868&clcid=0x409)
-
-## Автоматизация с помощью Azure PowerShell
-
-[Развертывание виртуальных машин и управление ими с использованием шаблонов диспетчера ресурсов Azure и PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
-
-
-## Автоматизация с помощью .NET
+## .NET
 
 [Развертывание ресурсов Azure с помощью библиотеки .NET](virtual-machines-arm-deployment.md)
 
 
-## Автоматизация с помощью службы автоматизации Azure
+## Служба автоматизации Azure
 
 [Управление виртуальными машинами Azure с помощью службы автоматизации Azure](automation-manage-virtual-machines.md)
-
-
 
 ## Дополнительные ресурсы
 
 [Документация по виртуальным машинам](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -1,11 +1,11 @@
 <properties
 	
-	pageTitle="Upgrade to the latest elastic database client library" 
+	pageTitle="Upgrade to the latest elastic database client library | Microsoft Azure" 
 	description="Upgrade apps and libraries using Nuget" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh"/>
+	authors="ddove"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
-	ms.author="sidneyh" />
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh" />
 
 # Обновление до последней версии клиентской библиотеки эластичной базы данных
 
-Новые версии клиентской библиотеки эластичной базы данных доступны на сайте [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) и через интерфейс диспетчера пакетов NuGet в Visual Studio. В обновленных версиях исправлены ошибки и добавлена поддержка новых возможностей клиентской библиотеки.
+Новые версии [клиентской библиотеки эластичной базы данных](sql-database-elastic-database-client-library.md) доступны на сайте [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) и через интерфейс диспетчера пакетов NuGet в Visual Studio. В обновленных версиях исправлены ошибки и добавлена поддержка новых возможностей клиентской библиотеки.
 
 Выполните повторную сборку приложения с использованием новой библиотеки, а также измените существующие метаданные диспетчера сопоставления сегментов, сохраненные в базах данных SQL Azure, чтобы обеспечить поддержку новых функций.
 
@@ -29,7 +29,7 @@
 **1. Обновите свои приложения.** В Visual Studio скачайте последнюю версию клиентской библиотеки, создайте на нее ссылку во всех проектах разработки, использующих библиотеку, а затем выполните повторную сборку и развертывание.
 
  * В Visual Studio выберите **Инструменты** --> **Диспетчер пакетов NuGet** --> **Управление пакетами NuGet для решения**. 
- * (Visual Studio 2013.) В левой области выберите **Обновления** и нажмите кнопку **Обновить** возле отобразившегося в окне пакета **База данных SQL — клиентская библиотека эластичного масштабирования**.
+ * (Visual Studio 2013.) В левой области выберите **Обновления** и нажмите кнопку **Обновить** возле отобразившегося в окне пакета **База данных SQL Azure — клиентская библиотека эластичного масштабирования**.
  * (Visual Studio 2015.) В поле фильтра выберите значение **Доступно обновление**. Выберите пакет для обновления и нажмите кнопку **Обновить**.
 	
  
@@ -97,4 +97,4 @@
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

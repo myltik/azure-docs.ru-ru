@@ -1,10 +1,10 @@
-<properties pageTitle="API REST управления службой поиска Azure версии 2015-02-28" description="API REST управления службой поиска Azure: версия 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties pageTitle="API REST управления службы Поиск Azure: версия 2015-02-28 | Microsoft Azure" description="API REST управления службой поиска Azure: версия 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="09/16/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="11/04/2015" ms.author="heidist" />
 
 # Интерфейс API управления: версия 2015-02-28
 
-В этом документе описывается версия **2015-02-28* API REST управления службой поиска Azure. Она была заменены более новыми версиями. Последнюю версию см. в разделе [API REST управления поиском Azure 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx) на сайте MSDN.
+Поиск Azure — это размещенная облачная служба поиска в Microsoft Azure. В этом документе описывается версия **2015-02-28* API REST управления службой поиска Azure. Она была заменены более новыми версиями. Последнюю версию см. в разделе [API REST управления поиском Azure 2015-08-19](https://msdn.microsoft.com/library/dn832684.aspx) на сайте MSDN.
 
 ##Операции управления службой
 
@@ -812,4 +812,4 @@ API-ключи, особенно ключи администраторов, не
 
 Нет.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

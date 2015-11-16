@@ -1,13 +1,13 @@
 <properties
-	pageTitle="Резервное копирование виртуальных машин Azure — устранение неполадок | Microsoft Azure"
-	description="В этой статье вы найдете сведения об устранении неполадок во время резервного копирования и восстановления виртуальных машин Azure."
+	pageTitle="Устранение неполадок при резервном копировании виртуальных машин Azure | Microsoft Azure"
+	description="Устранение неполадок при резервном копировании и восстановлении виртуальных машин Azure"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="trinadhk";"aashishr"/>
 
 
 # Устранение неполадок при архивации виртуальных машин Azure
@@ -123,4 +123,4 @@
 1. Получите список [IP-адресов центра обработки данных Azure ](https://msdn.microsoft.com/library/azure/dn175718.aspx) для добавления в разрешенный список.
 2. Разблокируйте IP-адреса с помощью командлета [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx). Запустите этот командлет на ВМ Azure в окне PowerShell с повышенными привилегиями (запустите от имени администратора).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/22/2015" 
+	ms.date="11/04/2015" 
 	ms.author="awills"/>
 
 # Выборка, фильтрация и предварительная обработка данных телеметрии в пакете SDK для Application Insights
@@ -42,7 +42,7 @@
 
 1. Обновите пакеты NuGet вашего проекта до последней *предварительной* версии Application Insights. Щелкните правой кнопкой мыши проект в обозревателе решений, выберите «Управление пакетами NuGet», установите флажок **Включить предварительный выпуск** и выполните поиск Microsoft.ApplicationInsights.Web. 
 
-2. Добавьте этот фрагмент в файл ApplicationInsights.config:
+2. Добавьте этот фрагмент кода в [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
 ```XML
 
@@ -91,21 +91,26 @@
 
 ### Создание обработчика данных телеметрии
 
-1. Чтобы создать фильтр, реализуйте обработчик ITelemetryProcessor. Это еще одна точка расширения, как и модуль телеметрии, инициализатор телеметрии или канал телеметрии. 
+1. Обновите пакет SDK для Application Insights до последней версии (2.0.0-beta2 или более поздней версии). Щелкните правой кнопкой мыши проект в обозревателе решений Visual Studio и выберите "Управление пакетами NuGet". В диспетчере пакетов NuGet выберите **Включить предварительный выпуск** и выполните поиск по тексту "Microsoft.ApplicationInsights"
+
+1. Чтобы создать фильтр, реализуйте обработчик ITelemetryProcessor. Это еще одна точка расширения, как и модуль телеметрии, инициализатор телеметрии или канал телеметрии.
 
     Обратите внимание, что обработчики данных телеметрии создают цепь обработки. При создании экземпляра обработчика данных телеметрии ссылка передается в следующий обработчик в цепочке. Когда точка данных телеметрии передается в метод Process, он выполняет свою работу и затем вызывает следующий обработчик данных телеметрии в цепочке.
 
     ``` C#
 
-    namespace FilteringTelemetryProcessor
-    {
-      using Microsoft.ApplicationInsights.Channel;
-      using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.Extensibility;
 
-      class UnauthorizedRequestFilteringProcessor : ITelemetryProcessor
+    public class SuccessfulDependencyFilter : ITelemetryProcessor
       {
-        public UnauthorizedRequestFilteringProcessor(ITelemetryProcessor next)
-		//Initialization will fail without this constructor. Link processors to each other
+        private ITelemetryProcessor Next { get; set; }
+
+        // You can pass values from .config
+        public string MyParamFromConfigFile { get; set; }
+
+        // Link processors to each other in a chain.
+        public SuccessfulDependencyFilter(ITelemetryProcessor next)
         {
             this.Next = next;
         }
@@ -117,17 +122,52 @@
             ModifyItem(item);
 
             this.Next.Process(item);
-        }      private ITelemetryProcessor Next { get; set; }
-      }
+        }
+
+        // Example: replace with your own criteria.
+        private bool OKtoSend (ITelemetry item)
+        {
+            var dependency = item as DependencyTelemetry;
+            if (dependency == null) return true;
+
+            return dependency.Success != true;
+        }
+
+        // Example: replace with your own modifiers.
+        private void ModifyItem (ITelemetry item)
+        {
+            item.Context.Properties.Add("app-version", "1." + MyParamFromConfigFile);
+        }
     }
+    
 
     ```
-2. Вставьте обработчик в цепочку в соответствующем классе инициализации, например AppStart в Global.asax.cs:
+2. В файл ApplicationInsights.config вставьте следующее: 
+
+```XML
+
+    <TelemetryProcessors>
+      <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
+         <!-- Set public property -->
+         <MyParamFromConfigFile>2-beta</MyParamFromConfigFile>
+      </Add>
+    </TelemetryProcessors>
+
+```
+
+(Обратите внимание, что это тот же раздел, где инициализируется фильтр выборки).
+
+Можно передавать строковые значения из файла конфигурации, указав открытые именованные свойства в классе.
+
+> [AZURE.WARNING]Будьте внимательны и задайте имя типа и имена свойств в файле конфигурации, совпадающие с именами классов и свойств в коде. Если файл конфигурации ссылается на несуществующий тип или свойство, пакет SDK может не суметь отправить данные телеметрии без уведомления.
+
+ 
+**Другой способ** — инициализировать фильтр в коде. Вставьте обработчик в цепочку в соответствующем классе инициализации, например AppStart в Global.asax.cs:
 
     ```C#
 
-    var builder = new TelemetryChannelBuilder();
-    builder.Use((next) => new UnauthorizedRequestFilteringProcessor(next));
+    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    builder.Use((next) => new SuccessfulDependencyFilter(next));
 
     // If you have more processors:
     builder.Use((next) => new AnotherProcessor(next));
@@ -136,7 +176,7 @@
 
     ```
 
-    Клиенты TelemetryClient, созданные после этой точки, будут использовать обработчики.
+Клиенты TelemetryClient, созданные после этой точки, будут использовать обработчики.
 
 ### Примеры фильтров
 
@@ -146,19 +186,19 @@
 
 ``` C#
 
-public void Process(ITelemetry item)
-{
-    if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource))
-    { return; }
+    public void Process(ITelemetry item)
+    {
+      if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource)) {return;}
 
-    this.Next.Process(item);
-}
+      // Send everything else: 
+      this.Next.Process(item);
+    }
 
 ```
 
 #### Сбой проверки подлинности
 
-Вы можете отфильтровать запросы с ответом 401.
+Отфильтруйте запросы с ответом 401.
 
 ```C#
 
@@ -333,33 +373,14 @@ public void Process(ITelemetry item)
 * [Обзор API](app-insights-api-custom-events-metrics.md)
 
 * [Справочник по ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
-* [Справочник по Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
-* [Справочник по JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
-* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
 
 
 ## Код пакета SDK
 
 * [Базовый пакет SDK для ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
-* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
-* [Пакет SDK для Java](https://github.com/Microsoft/ApplicationInsights-Java)
 * [Пакет SDK для JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
-* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
-* [Все платформы](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
-## Вопросы
-
-* *Могут ли создаваться исключения при вызовах Track\_()?*
-    
-    Нет. Вам не нужно помещать их в предложения try-catch. Если пакет SDK сталкивается с проблемами, он добавляет в журнал сообщения, которые отображаются в консоли отладки и, если сообщения проходят, — в диагностическом поиске.
-
-
-
-* *Создан ли REST API?*
-
-    Да, но мы его еще не опубликовали.
 
 ## <a name="next"></a>Дальнейшие действия
 
@@ -388,4 +409,4 @@ public void Process(ITelemetry item)
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

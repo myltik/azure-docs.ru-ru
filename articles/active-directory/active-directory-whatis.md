@@ -4,7 +4,7 @@
                 services="active-directory"
                 documentationCenter=""
                 authors="markusvi"
-                manager="swadhwa"
+                manager="stevenpo"
                 editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
                 ms.tgt_pltfrm="na"
                 ms.devlang="na"
                 ms.topic="article"
-                ms.date="08/10/2015"
+                ms.date="10/30/2015"
                 ms.author="markusvi"/>
 
 
@@ -104,4 +104,4 @@ Azure AD также включает полный набор возможнос�
 
 - [Как обнаруживать несанкционированные облачные приложения, которые используются в моей организации](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

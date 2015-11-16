@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="11/03/2015" 
 	ms.author="awills"/>
  
 # Отслеживание зависимостей, исключений и времени выполнения в веб-приложениях Java
@@ -33,7 +33,7 @@
 
 ## Установка агента Application Insights для Java
 
-1. [Скачайте агент](http://go.microsoft.com/fwlink/?LinkId=618633) на компьютере с сервером Java.
+1. [Загрузите агент](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html) на компьютер с сервером Java.
 2. Измените скрипт запуска сервера приложений, добавив следующую виртуальную машину Java:
 
     `javaagent:` *полный путь к файлу агента JAR*
@@ -122,4 +122,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -6,7 +6,7 @@
  authors="Blackmist"
  manager="paulettm"
  editor="cgronlun"
-	tags="azure-portal"/>
+ tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="09/02/2015"
+ ms.date="10/30/2015"
  ms.author="larryfr"/>
 
 # Сопоставление событий в динамике по времени с помощью Storm и HBase в HDInsight
@@ -200,4 +200,4 @@
 Другие примеры топологий для Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

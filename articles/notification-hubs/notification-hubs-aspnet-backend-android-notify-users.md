@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Уведомление пользователей посредством центров уведомлений"
+	pageTitle="Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET"
 	description="Узнайте, как отправлять push-уведомления пользователям в Azure. Примеры кода написаны на Java для Android."
 	documentationCenter="android"
 	services="notification-hubs"
@@ -16,7 +16,7 @@
 	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
-#Уведомление пользователей посредством центров уведомлений
+#Уведомление пользователей посредством концентраторов уведомлений с помощью серверной части .NET
 
 
 [AZURE.INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -432,4 +432,4 @@
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

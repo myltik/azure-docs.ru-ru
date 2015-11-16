@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Как реализовать фасетную навигацию в службе поиска Azure" 
-	description="Фасетная навигация в службе поиска Azure" 
+	pageTitle="Как реализовать фасетную навигацию в службе Поиск Azure | Microsoft Azure" 
+	description="Добавьте фасетную навигацию в приложения, которые интегрируются с Поиском Azure, размещенной облачной службой поиска в Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/07/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 #Как реализовать фасетную навигацию в службе поиска Azure
@@ -372,4 +372,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

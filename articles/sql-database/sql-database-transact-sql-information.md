@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/07/2015"
+   ms.date="11/02/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Сведения об инструкциях Transact-SQL Базы данных SQL Azure
@@ -76,6 +76,8 @@
 - SHUTDOWN
 - sp\_addmessage
 - Параметры sp\_configure и инструкция RECONFIGURE
+- sp\_helpuser
+- sp\_migrate\_user\_to\_contained
 - Подсистема аудита SQL Server (вместо нее следует использовать аудит Базы данных SQL)
 - SQL Server Profiler
 - Трассировка SQL Server
@@ -94,4 +96,4 @@
 
 В некоторых случаях функция, рассматриваемая в разделе, может использоваться в продукте, однако поддерживаются не все аргументы. Например, пользователи автономной базы данных впервые были представлены в SQL Server 2012. Инструкцию **CREATE USER** можно использовать в любой версии SQL Server, однако синтаксис **WITH PASSWORD** не поддерживается в более ранних версиях. В этом случае в описания соответствующих аргументов в разделе вставляются примечания **Относится к**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

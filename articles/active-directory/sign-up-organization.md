@@ -3,7 +3,7 @@
 	description="Узнайте, как с помощью учетной записи на работе или в школе можно использовать существующие учетные записи пользователей, политики, параметры или локальные развертывания серверов для улучшения эффективного взаимодействия локальной инфраструктуры удостоверений вашей организации и Azure AD."
 	services="active-directory"
 	documentationCenter=""
-	authors="markvi"
+	authors="markusvi"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="10/30/2015"
 	ms.author="markvi"/>
 
 
@@ -35,4 +35,4 @@
 * [Что такое Azure AD?](active-directory-whatis.md)
 * [Использование локальной инфраструктуры удостоверений в облаке](active-directory-aadconnect.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

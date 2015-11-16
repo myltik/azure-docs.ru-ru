@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Использование профилей оценки в службе поиска Azure" 
-	description="Приступая к работе с оценкой профилей в Поиске Azure" 
+	pageTitle="Использование профилей повышения в службе Поиск Azure | Microsoft Azure" 
+	description="Настройте ранжирование поиска с помощью профилей повышения в Поиске Azure, размещенной облачной службе поиска в Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Использование профилей оценки в службе поиска Azure
@@ -126,4 +126,4 @@
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

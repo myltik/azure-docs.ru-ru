@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="11/02/2015" 
 	ms.author="juliako"/>
 
 
@@ -36,7 +36,7 @@
 - [Документация Azure Media Player](http://aka.ms/ampdocs) 
 - [Блог о начале работы с Azure Media Player](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player)
 - [Подпишитесь, чтобы оставаться в курсе последних новостей о мультимедиапроигрывателе Azure](http://aka.ms/ampsignup)
-- [Добавление новых запросов функций, идей, отзывов](http://feedback.azure.com/forums/293565-azure-media-player/filters/my_feedback) 
+- [Добавление новых запросов функций, идей, отзывов](http://aka.ms/ampuservoice) 
 
 
 ##Другие средства для создания приложений проигрывателя
@@ -48,7 +48,7 @@
 - [платформа проигрывателя Microsoft Media Platform](http://playerframework.codeplex.com/); 
 - [документация по платформе проигрывателя HTML5](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation); 
 - [подключаемый модуль Microsoft Smooth Streaming для OSMF](https://www.microsoft.com/download/details.aspx?id=36057); 
-- [Лицензирование пакета для портирования клиента бесперебойной потоковой передачи Microsoft® Smooth Streaming](https://www.microsoft.com/mediaplatform/sspk.aspx) 
+- [Лицензирование пакета для портирования клиента бесперебойной потоковой передачи Microsoft® Smooth Streaming](http://aka.ms/sspk) 
 - [Разработка приложений для воспроизведения видео на XBOX](http://xbox.create.msdn.com/) 
  
 
@@ -82,4 +82,4 @@
 [Репозиторий dash.js на GitHub](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

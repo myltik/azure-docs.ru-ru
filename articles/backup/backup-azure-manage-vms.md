@@ -1,16 +1,16 @@
 
 <properties
-	pageTitle="Служба архивации Azure: управление виртуальными машинами | Microsoft Azure"
-	description="Узнайте, как управлять виртуальной машиной Azure."
+	pageTitle="Управление резервными копиями виртуальных машин Azure и их мониторинг | Microsoft Azure"
+	description="Узнайте, как управлять резервными копиями виртуальных машин Azure и осуществлять и мониторинг"
 	services="backup"
 	documentationCenter=""
 	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
 
-# Управление резервным копированием виртуальных машин Azure и его мониторинг
+# Управление резервными копиями виртуальных машин Azure и их мониторинг
 
 ## Управление защищенными виртуальными машинами
 
@@ -249,4 +249,4 @@ PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/su
 
 - [Восстановление виртуальных машин Azure](backup-azure-restore-vms.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

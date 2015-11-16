@@ -1,5 +1,4 @@
 <properties 
-	title="Multi-tenant applications with elastic database tools and row-level security" 
 	pageTitle="Мультитенантные приложения со средствами эластичных баз данных и безопасностью на уровне строк" 
 	description="Узнайте, как использовать средства эластичных баз данных совместно с безопасностью на уровне строк для создания приложения с высокомасштабируемым уровнем данных в базе данных SQL Azure, поддерживающей мультитенантные сегменты." 
 	metaKeywords="azure sql database elastic tools multi tenant row level security rls" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/19/2015" 
+	ms.date="11/03/2015" 
 	ms.author="thmullan;torsteng;sidneyh" />
 
 # Мультитенантные приложения со средствами эластичных баз данных и безопасностью на уровне строк 
@@ -48,17 +47,17 @@
 
 Обратите внимание, что поскольку RLS пока не включена в базах данных сегментов, каждая из этих проверок выдает ошибки: клиенты видят блоги, которые им не принадлежат, а приложение не запрещается вставить блог неправильному клиенту. В оставшейся части этой статьи описано, как решить эти проблемы, применив изоляцию клиентов с помощью RLS. Существует два шага:
 
-1. **Уровень приложения**. Измените код приложения, чтобы после установления подключения свойство CONTEXT\_INFO всегда имело текущее значение TenantId. В примере проекта данный шаг уже выполнен. 
-2. **Уровень данных**. Создайте в каждой базе данных сегментов политику безопасности RLS, чтобы фильтровать строки, основанные на значении CONTEXT\_INFO. Этот шаг необходимо выполнить для каждой базы данных сегментов; в противном случае строки мультитенантных сегментов фильтроваться не будут. 
+1. **Уровень приложений**. Измените код приложения, чтобы после открытия подключения в хранилище SESSION\_CONTEXT всегда использовалось текущее значение TenantId. В примере проекта данный шаг уже выполнен. 
+2. **Уровень данных**. Создайте в каждой базе данных сегментов политику безопасности RLS, чтобы фильтровать строки на основе значения TenantId, хранимого в SESSION\_CONTEXT. Этот шаг необходимо выполнить для каждой базы данных сегментов; в противном случае строки мультитенантных сегментов фильтроваться не будут. 
 
 
-## Шаг 1. Уровень приложения. Установка CONTEXT\_INFO для TenantId
+## Шаг 1. Уровень приложений — выбор значения TenantId в SESSION\_CONTEXT
 
-После установки соединения с базой данных сегментов с помощью API-интерфейса маршрутизации, управляемой данными, для клиентской библиотеки эластичных баз данных этому приложению по-прежнему необходимо указать базу данных, TenantId которой использует это подключение, чтобы отфильтровать строки, принадлежащих другим клиентам, с помощью политики безопасности RLS. Для передачи этой информации рекомендуется установить [CONTEXT\_INFO](https://msdn.microsoft.com/library/ms180125) в значение текущего TenantId этого соединения. Обратите внимание, что для базы данных SQL Azure свойству CONTEXT\_INFO заранее задается значение идентификатора сеанса GUID, и вы *должны* задать свойству CONTEXT\_INFO правильное значение TenantId, прежде чем выполнять запросы по новому подключению, чтобы случайно не потерять строки.
+После установки соединения с базой данных сегментов с помощью API-интерфейса маршрутизации, управляемой данными, для клиентской библиотеки эластичных баз данных этому приложению по-прежнему необходимо указать базу данных, TenantId которой использует это подключение, чтобы отфильтровать строки, принадлежащих другим клиентам, с помощью политики безопасности RLS. Чтобы передать эту информацию, рекомендуется сохранить текущее значение TenantId для этого подключения в [SESSION\_CONTEXT](https://msdn.microsoft.com/library/mt590806.aspx). (Примечание. Также можно использовать [CONTEXT\_INFO](https://msdn.microsoft.com/library/ms180125.aspx), но SESSION\_CONTEXT — лучший вариант, так как это хранилище проще в использовании. Кроме того, оно возвращает значение NULL по умолчанию и поддерживает пары «ключ — значение».)
 
 ### Entity Framework
 
-Для приложений, использующих Entity Framework, самый простой способ — это настроить CONTEXT\_INFO в рамках переопределения ElasticScaleContext, описанного в статье [Маршрутизация, управляемая данными, с помощью EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext). Перед возвратом подключения, установленного с помощью маршрутизации, управляемой данными, просто создайте и выполните команду SqlCommand, которая устанавливает CONTEXT\_INFO в значение shardingKey (TenantId), указанное для данного соединения. Таким образом, чтобы установить CONTEXT\_INFO, вам необходимо написать код один раз.
+Для приложений, использующих Entity Framework, задать нужное значение в SESSION\_CONTEXT проще всего в рамках переопределения ElasticScaleContext, как описано в статье [Зависящая от данных маршрутизация с помощью EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext). Перед возвратом подключения, установленного с помощью зависящей от данных маршрутизации, просто создайте и выполните команду SqlCommand, которая устанавливает в SESSION\_CONTEXT для TenantId значение shardingKey, указанное для этого подключения. Таким образом, чтобы задать нужное значение в SESSION\_CONTEXT, необходимо написать код один раз.
 
 ```
 // ElasticScaleContext.cs 
@@ -83,9 +82,9 @@ public static SqlConnection OpenDDRConnection(ShardMap shardMap, T shardingKey, 
     {
         conn = shardMap.OpenConnectionForKey(shardingKey, connectionStr, ConnectionOptions.Validate);
 
-        // Set CONTEXT_INFO to shardingKey to enable Row-Level Security filtering
+        // Set TenantId in SESSION_CONTEXT to shardingKey to enable Row-Level Security filtering
         SqlCommand cmd = conn.CreateCommand();
-        cmd.CommandText = @"SET CONTEXT_INFO @shardingKey";
+        cmd.CommandText = @"exec sp_set_session_context @key=N'TenantId', @value=@shardingKey";
         cmd.Parameters.AddWithValue("@shardingKey", shardingKey);
         cmd.ExecuteNonQuery();
 
@@ -104,7 +103,7 @@ public static SqlConnection OpenDDRConnection(ShardMap shardMap, T shardingKey, 
 // ... 
 ```
 
-Теперь CONTEXT\_INFO будет автоматически устанавливаться в значение указанного TenantdId при каждом вызове ElasticScaleContext:
+Теперь при каждом вызове ElasticScaleContext хранилище SESSION\_CONTEXT будет автоматически использоваться с указанным значением TenantId:
 
 ```
 // Program.cs 
@@ -127,15 +126,15 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### ADO.NET SqlClient 
 
-Для приложений, которые используют ADO.NET SqlClient, рекомендованный подход заключается в следующем: создать функцию шифрования для ShardMap.OpenConnectionForKey(), которая автоматически задаст свойству CONTEXT\_INFO нужное значение TenantId, прежде чем создавать подключение. Чтобы гарантировать, что свойство CONTEXT\_INFO всегда имеет нужное значение, устанавливайте подключение только с помощью этой функции.
+Для приложений, которые используют ADO.NET SqlClient, рекомендованный подход заключается в следующем. Вам нужно создать функцию-оболочку для ShardMap.OpenConnectionForKey(), которая перед возвратом подключения автоматически будет задавать в хранилище SESSION\_CONTEXT нужное значение ключа TenantId. Чтобы в хранилище SESSION\_CONTEXT всегда использовалось нужное значение, открывайте подключение только с помощью этой функции-оболочки.
 
 ```
 // Program.cs
 // ...
 
-// Wrapper function for ShardMap.OpenConnectionForKey() that automatically sets CONTEXT_INFO to the correct
+// Wrapper function for ShardMap.OpenConnectionForKey() that automatically sets SESSION_CONTEXT with the correct
 // tenantId before returning a connection. As a best practice, you should only open connections using this 
-// method to ensure that CONTEXT_INFO is always set before executing a query.
+// method to ensure that SESSION_CONTEXT is always set before executing a query.
 public static SqlConnection OpenConnectionForTenant(ShardMap shardMap, int tenantId, string connectionStr)
 {
     SqlConnection conn = null;
@@ -144,9 +143,9 @@ public static SqlConnection OpenConnectionForTenant(ShardMap shardMap, int tenan
         // Ask shard map to broker a validated connection for the given key
         conn = shardMap.OpenConnectionForKey(tenantId, connectionStr, ConnectionOptions.Validate);
 
-        // Set CONTEXT_INFO to shardingKey to enable Row-Level Security filtering
+        // Set TenantId in SESSION_CONTEXT to shardingKey to enable Row-Level Security filtering
         SqlCommand cmd = conn.CreateCommand();
-        cmd.CommandText = @"SET CONTEXT_INFO @shardingKey";
+        cmd.CommandText = @"exec sp_set_session_context @key=N'TenantId', @value=@shardingKey";
         cmd.Parameters.AddWithValue("@shardingKey", tenantId);
         cmd.ExecuteNonQuery();
 
@@ -185,13 +184,13 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ```
 
-## Шаг 2. Уровень данных. Создание политики безопасности на уровне строк и ограничения 
+## Шаг 2. Уровень данных — создание политики безопасности на уровне строк
 
-### Создание политики безопасности для фильтрации запросов SELECT, UPDATE и DELETE 
+### Создание политики безопасности для фильтрации строк, доступных для всех клиентов
 
-Теперь, когда приложение устанавливает CONTEXT\_INFO в значение текущего TenantId перед выполнением запроса, политика безопасности RLS может фильтровать запросы и исключать строки, принадлежащие разным TenantId.
+Теперь, когда перед выполнением запроса приложение задает в хранилище SESSION\_CONTEXT нужное текущее значение TenantId, политика безопасности RLS может фильтровать запросы и исключать строки с разным значением TenantId.
 
-RLS реализована в T-SQL: функция-предикат, определяемая пользователем, описывает логику фильтрации, а политика безопасности связывает эту функцию с любым количеством таблиц. Для данного проекта функция-предикат просто проверяет, что приложение (а не какой-либо другой пользователь SQL) подключено к базе данных, а значение CONTEXT\_INFO соответствует TenantId данной строки. Строки, которые удовлетворяют этим условиям, будут отфильтрованы для запросов SELECT, UPDATE и DELETE. Если значение CONTEXT\_INFO не задано, не будет возвращено ни одной строки.
+Политика RLS реализована в инструкциях T-SQL: определяемая пользователем функция определяет логику доступа, а политика безопасности связывает эту функцию с любым количеством таблиц. В рамках этого проекта функция просто проверяет, что к базе данных подключено приложение (а не какой-либо другой пользователь SQL), а значение TenantId в SESSION\_CONTEXT соответствует значению TenantId определенной строки. Предикат фильтрации отфильтрует для запросов SELECT, UPDATE и DELETE строки, соответствующие этим условиям. А предикат блокировки предотвратит использование в запросах INSERT и UPDATE строк, не соответствующих этим условиям. Если нужное значение в SESSION\_CONTEXT не задано, будет возвращено значение NULL, а видимые строки или строки, доступные для вставки, будут отсутствовать.
 
 Чтобы включить RLS, выполните следующий запрос T-SQL на всех сегментах, использующих Visual Studio (SSDT), среду SSMS или сценарий PowerShell, которые включены в проект (либо, если вы используете [службу заданий эластичной базы данных](sql-database-elastic-jobs-overview.md), вы можете использовать ее для автоматизации выполнения этого запроса T-SQL на всех сегментах):
 
@@ -205,76 +204,44 @@ CREATE FUNCTION rls.fn_tenantAccessPredicate(@TenantId int)
 AS
 	RETURN SELECT 1 AS fn_accessResult          
 		WHERE DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo') -- the user in your application’s connection string (dbo is only for demo purposes!)         
-		AND CONVERT(int, CONVERT(varbinary(4), CONTEXT_INFO())) = @TenantId -- @TenantId (int) is 4 bytes 
+		AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId
 GO
 
 CREATE SECURITY POLICY rls.tenantAccessPolicy
 	ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
-	ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts
+	ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
+	ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts,
+	ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts
 GO 
 ```
 
-> [AZURE.TIP]Для более сложных проектов, требующих добавления функции-предиката в сотни таблиц, можно использовать вспомогательную хранимую процедуру, которая автоматически создает политику безопасности, добавляя предикат во все таблицы схемы. Подробнее можно узнать в статье [Применение безопасности на уровне строк ко всем таблицам — вспомогательный сценарий (блог)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
+> [AZURE.TIP]В более сложных проектах, требующих добавления предиката в сотни таблиц, можно использовать вспомогательную хранимую процедуру, которая автоматически создает политику безопасности, добавляя предикат во все таблицы схемы. Подробнее можно узнать в статье [Применение безопасности на уровне строк ко всем таблицам — вспомогательный сценарий (блог)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
 
-Если впоследствии вы добавите новую таблицу, просто измените политику безопасности с помощью команды ALTER и добавьте в новую таблицу предикат фильтра:
+Теперь, если вы снова запустите пример приложения, клиенты смогут просматривать только те строки, которые им принадлежат. Кроме того, приложение не сможет ни вставлять строки, принадлежащие клиентам, которые в настоящее время не подключены к базе данных сегментов, ни изменять значение TenantId в видимых строках. Если приложение пытается выполнить одно из этих действий, будет инициировано исключение DbUpdateException.
+
+Если впоследствии вы добавите новую таблицу, просто измените политику безопасности с помощью запроса ALTER и добавьте в новую таблицу предикаты фильтрации и блокировки:
 
 ```
 ALTER SECURITY POLICY rls.tenantAccessPolicy     
-	ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable 
+	ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable,
+	ADD BLOCK PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable
 GO 
 ```
-
-Теперь, если вы снова запустите пример приложения, клиенты не смогут просматривать строки, которые им не принадлежат.
-
-### Добавление проверочных ограничений для блокировки команд INSERT и UPDATE от других клиентов
-
-В настоящее время политики безопасности RLS не могут уберечь приложение от случайной вставки строк для неправильного TenantId или обновления TenantId отображаемой строки на новое значение. Для некоторых приложений, например для приложений отчетности, поддерживающих только чтение, это не проблема. Однако, поскольку это приложение позволяет клиентам вставлять новые блоги, целесообразно создать дополнительные средства защиты, которые будут вызывать ошибку, если код приложения ошибочно попытается вставить или обновить строки, нарушающие предикат фильтра. В статье [Безопасность на уровне строк: блокировка несанкционированных команд INSERT (блог)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/23/row-level-security-blocking-unauthorized-inserts) рекомендуется создать проверочное ограничение для каждой таблицы, чтобы принудительно установить тот же предикат фильтра RLS для операций вставки и обновления.
-
-Чтобы добавить проверочные ограничения, выполните следующий запрос T-SQL на всех сегментах, использующих среду SSMS, SSDT или прилагаемый сценарий PowerShell (или задания эластичной базы данных), как это описано выше:
-
-```
--- Create a scalar version of the predicate function for use in check constraints 
-CREATE FUNCTION rls.fn_tenantAccessPredicateScalar(@TenantId int)     
-	RETURNS bit 
-AS     
-	BEGIN     
-		IF EXISTS( SELECT 1 FROM rls.fn_tenantAccessPredicate(@TenantId) )         
-			RETURN 1     
-		RETURN 0 
-	END 
-GO 
-
--- Add the function as a check constraint on all sharded tables 
-ALTER TABLE Blogs     
-	WITH NOCHECK -- don't check data already in table     
-	ADD CONSTRAINT chk_blocking_Blogs -- needs a unique name     
-	CHECK( rls.fn_tenantAccessPredicateScalar(TenantId) = 1 ) 
-GO
-
-ALTER TABLE Posts     
-	WITH NOCHECK     
-	ADD CONSTRAINT chk_blocking_Posts     
-	CHECK( rls.fn_tenantAccessPredicateScalar(TenantId) = 1 ) 
-GO 
-```
-
-Теперь приложение не сможет вставлять строки, принадлежащие клиентам, которые в настоящее время подключены к базе данных сегментов, другим клиентам. Кроме того, приложению не удастся обновлять видимые строки, чтобы получить другие значения TenantId. Если приложение пытается выполнить одно из этих действий, будет инициировано исключение DbUpdateException.
-
 
 ### Добавление ограничений по умолчанию на автоматическое заполнение TenantId для команд INSERT 
 
-В дополнение к проверочным ограничениям на блокировку операций вставки не тем клиентом для каждой таблицы можно добавить ограничение по умолчанию на автоматическое заполнение TenantId текущим значением CONTEXT\_INFO при вставке строк. Например:
+Для каждой таблицы при вставке строк можно установить стандартное ограничение на автоматическое заполнение ключа TenantId значением, в настоящее время хранимым в SESSION\_CONTEXT. Например:
 
 ```
--- Create default constraints to auto-populate TenantId with the value of CONTEXT_INFO for inserts 
+-- Create default constraints to auto-populate TenantId with the value of SESSION_CONTEXT for inserts 
 ALTER TABLE Blogs     
 	ADD CONSTRAINT df_TenantId_Blogs      
-	DEFAULT CONVERT(int, CONVERT(varbinary(4), CONTEXT_INFO())) FOR TenantId 
+	DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId 
 GO
 
 ALTER TABLE Posts     
 	ADD CONSTRAINT df_TenantId_Posts      
-	DEFAULT CONVERT(int, CONVERT(varbinary(4), CONTEXT_INFO())) FOR TenantId 
+	DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId 
 GO 
 ```
 
@@ -292,7 +259,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 }); 
 ```
 
-> [AZURE.NOTE]Если вы используете ограничения по умолчанию для проекта Entity Framework, рекомендуется НЕ включать столбец TenantId в свою модель данных EF. Это объясняется тем, что запросы Entity Framework автоматически предоставляют значения по умолчанию, которые переопределят ограничения по умолчанию, созданные в T-SQL, использующем CONTEXT\_INFO. Чтобы использовать ограничения по умолчанию, например в примере проекта, следует удалить TenantId из файла DataClasses.cs (и запустить Add-Migration в консоли диспетчера пакетов) и воспользоваться T-SQL, чтобы убедиться, что это поле существует только в таблицах базы данных. Таким образом, EF не будет автоматически предоставлять неверные значения по умолчанию при вставке данных.
+> [AZURE.NOTE]Если вы используете ограничения по умолчанию для проекта Entity Framework, рекомендуется НЕ включать столбец TenantId в свою модель данных EF. Это объясняется тем, что запросы Entity Framework автоматически предоставляют значения по умолчанию. Эти значения переопределят применяемые к хранилищу SESSION\_CONTEXT ограничения по умолчанию, созданные в инструкциях T-SQL. Чтобы использовать ограничения по умолчанию, например в примере проекта, следует удалить TenantId из файла DataClasses.cs (и запустить Add-Migration в консоли диспетчера пакетов) и воспользоваться T-SQL, чтобы убедиться, что это поле существует только в таблицах базы данных. Таким образом, EF не будет автоматически предоставлять неверные значения по умолчанию при вставке данных.
 
 ### (Необязательно) Включение суперпользователя для получения доступа ко всем строкам
 Некоторым приложениям требуется суперпользователь, который имеет доступ ко всем строкам. Например, чтобы включить создание отчетов по всем клиентам всех сегментов или чтобы выполнять операции разделения и объединения сегментов, для которых потребуется перемещение строк между базами данных. Для этого потребуется создать нового пользователя SQL (в данном случае суперпользователя) в каждой базе данных сегмента. Затем измените политику безопасности, внеся в нее новую функцию предиката, которая разрешит пользователю доступ ко всем строкам:
@@ -307,7 +274,7 @@ AS
         WHERE 
         (
             DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo') -- note, should not be dbo!
-            AND CONVERT(int, CONVERT(varbinary(4), CONTEXT_INFO())) = @TenantId
+            AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId
         ) 
         OR
         (
@@ -318,16 +285,18 @@ GO
 -- Atomically swap in the new predicate function on each table
 ALTER SECURITY POLICY rls.tenantAccessPolicy
     ALTER FILTER PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Blogs,
-    ALTER FILTER PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Posts
+    ALTER BLOCK PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Blogs,
+    ALTER FILTER PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Posts,
+    ALTER BLOCK PREDICATE rls.fn_tenantAccessPredicateWithSuperUser(TenantId) ON dbo.Posts
 GO
 ```
 
 
 ### Обслуживание 
 
-* **Добавление новых сегментов**. Чтобы включить RLS (и добавить проверочные ограничения) на любых новых сегментах, необходимо выполнить скрипт T-SQL, в противном случае запросы на этих сегментах фильтроваться не будут.
+* **Добавление новых сегментов**. Необходимо выполнить сценарий T-SQL, чтобы включить политику RLS для новых сегментов, иначе запросы в таких сегментах фильтроваться не будут.
 
-* **Добавление новых таблиц**.Необходимо добавлять предикат фильтра в политику безопасности на всех сегментах каждый раз, когда создается новая таблица, в противном случае запросы в новых таблицах фильтроваться не будут. Это действие можно автоматизировать с помощью триггера DDL, как это описано в статье [Автоматическое применение безопасности на уровне строк для вновь созданных таблиц (блог)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+* **Добавление новых таблиц**. Необходимо добавлять предикат фильтрации и блокировки в политику безопасности для всех сегментов каждый раз, когда создается новая таблица, иначе запросы в такой таблице фильтроваться не будут. Это действие можно автоматизировать с помощью триггера DDL, как это описано в статье [Автоматическое применение безопасности на уровне строк для вновь созданных таблиц (блог)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 
 ## Сводка 
@@ -341,4 +310,4 @@ GO
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

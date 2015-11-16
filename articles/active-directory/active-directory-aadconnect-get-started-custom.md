@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/02/2015"
 	ms.author="billmath;andkjell"/>
 
 # Выборочная установка Azure AD Connect
@@ -90,7 +90,7 @@
 ------------- | ------------- |
 [Мои пользователи представлены во всех лесах только один раз](active-directory-aadconnect-topologies.md#multiple-forests-separate-topologies) | Все пользователи создаются как отдельные объекты в Azure AD.<br> Объекты не соединены в метавселенной.
 [Атрибут почты](active-directory-aadconnect-topologies.md#multiple-forests-full-mesh-with-optional-galsync) | Этот параметр соединяет пользователей и контакты, если атрибут почты имеет то же значение в разных лесах. Рекомендуется использовать этот параметр, если контакты были созданы с помощью GALSync.
-[ObjectSID и msExchangeMasterAccountSID](active-directory-aadconnect-topologies.md#multiple-forests-account-resource-forest)|Этот параметр соединяет включенного пользователя в лесу учетной записи с отключенным пользователем в лесу ресурсов Exchange. Это также называется связанный почтовый ящик Exchange.
+[ObjectSID и msExchangeMasterAccountSID](active-directory-aadconnect-topologies.md#multiple-forests-account-resource-forest)|Этот параметр соединяет включенного пользователя в лесу учетной записи с отключенным пользователем в лесу ресурсов Exchange. Это также называется связанный почтовый ящик Exchange. Этот параметр можно также применять при использовании только Lync и отсутствии Exchange в лесу ресурсов.
 sAMAccountName и MailNickName|Это параметр соединяет атрибуты, если предполагается, что можно найти имя пользователя.
 Собственный атрибут|Этот параметр позволяет выбрать собственный атрибут. **Ограничение.** Не забудьте выбрать атрибут, который будет существовать в метавселенной. Если выбрать настраиваемый атрибут, мастер не сможет завершить работу.
 
@@ -246,4 +246,4 @@ sAMAccountName и MailNickName|Это параметр соединяет атр
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

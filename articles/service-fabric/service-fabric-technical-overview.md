@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Технический обзор"
-   description="Технический обзор платформы Service Fabric. Описание основных понятий и обзор архитектуры"
+   pageTitle="Технический обзор Service Fabric | Microsoft Azure"
+   description="Технический обзор платформы Service Fabric. Описание основных понятий и обзор архитектуры."
    services="service-fabric"
    documentationCenter=".net"
    authors="msfussell"
@@ -54,4 +54,4 @@ Service Fabric представляет собой платформу распр
 - [Сценарии приложений](service-fabric-application-scenarios.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->
