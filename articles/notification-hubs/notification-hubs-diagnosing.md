@@ -227,7 +227,7 @@
 [Руководстве по использованию шаблонов]: https://msdn.microsoft.com/library/dn530748.aspx
 [руководство по APNS]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [руководство по GCM]: http://developer.android.com/google/gcm/adv.html
-[Export/Import Registrations]: http://msdn.microsoft.com/library/dn790624.aspx
+[Экспорт и импорт регистраций]: http://msdn.microsoft.com/library/dn790624.aspx
 [Обозреватель ServiceBus]: http://msdn.microsoft.com/library/dn530751.aspx
 [Код обозревателя ServiceBus]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [Обзор обозревателя сервера VS]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx

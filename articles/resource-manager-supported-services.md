@@ -32,7 +32,9 @@
 | Виртуальные машины | Да | Да, много вариантов | Нет | [Создание виртуальной машины](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Пакетная служба | Да | [Да (только классическая версия)](https://portal.azure.com/#create/Microsoft.BatchAccount) | | [Пакетная служба (REST)](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Службы жизненного цикла Dynamics | Да | Нет | | | |
-| Виртуальные машины (классические) | Ограничена | Да, много вариантов | Частично (см. ниже) | — | — | | Удаленное приложение | Нет | Нет | — | — | — | | Service Fabric | Нет | Нет | — | — | — |
+| Виртуальные машины (классические) | Ограничена | Да | Частично (см. ниже) | — | — |
+| Удаленное приложение | Нет | — | — | — | — |
+| Service Fabric | Нет | — | — | — | — |
 
 Пункт "Виртуальные машины (классические)" относится к ресурсам, которые были развернуты с помощью классической модели развертывания, а не через модель развертывания диспетчера ресурсов. Как правило эти ресурсы не поддерживают операции диспетчера ресурсов, однако некоторые операции стали доступны. Дополнительные сведения об этих моделях развертывания вы найдете в статье [Общие сведения о развертывании с помощью диспетчера ресурсов и классическом развертывании](resource-manager-deployment-model.md).
 
@@ -65,7 +67,11 @@
 | База данных SQL | Да | [Да](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.7-preview) | Да | [Создание базы данных](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | Поиск | Да | [Да](https://portal.azure.com/#create/Microsoft.Search) | Да | [Поиск REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | Хранилище данных SQL | Да | [Да](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
+| StorSimple | Нет | Нет | — | — | — |
+| Архивация | Нет | Нет | — | — | — |
+| Site Recovery | Нет | Нет | — | — | — |
 | StorSimple | Нет | Нет | - | - | - | | Управляемый кэш | Нет | Нет | - | - | - |
+| Каталог данных | Нет | Нет | — | — | — |
 
 ## Аналитика
 
@@ -108,7 +114,9 @@
 
 | служба | Доступность диспетчера ресурсов | Портал предварительной версии | Перемещение ресурсов | Интерфейс REST API | Схема |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Azure Active Directory | Нет | Нет | — | — | — | | Azure Actice Directory B2C | Нет | Нет | — | — | — | | Многофакторная проверка подлинности | Нет | Нет | — | — | — |
+| Azure Active Directory | Нет | Нет | — | — | — |
+| Azure Actice Directory B2C | Нет | Нет | — | — | — |
+| Многофакторная проверка подлинности | Нет | Нет | — | — | — |
 
 ## Службы разработки 
 
