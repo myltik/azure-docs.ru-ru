@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Управление приложениями Service Fabric в Visual Studio"
-   description="Вы можете управлять приложениями и службами Service Fabric в Microsoft Azure с помощью Visual Studio."
+   pageTitle="Управление приложениями в Visual Studio | Microsoft Azure"
+   description="Используйте Visual Studio для создания, разработки, упаковки, развертывания и отладки приложений и служб Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,20 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# Управление приложениями Service Fabric в Visual Studio
+# Использование Visual Studio для упрощения создания приложениями Service Fabric и управления ими
 
-Вы можете управлять приложениями и службами Service Fabric в Microsoft Azure с помощью Visual Studio. Настроив [свою среду разработки](../service-fabric-setup-your-development-environment), вы сможете использовать Visual Studio для создания приложений Service Fabric, добавления служб, создания пакетов, регистрации и развертывания приложений в кластере локальной разработки.
+Вы можете управлять приложениями и службами Service Fabric с помощью Visual Studio. Настроив [свою среду разработки](service-fabric-setup-your-development-environment.md), вы сможете использовать Visual Studio для создания приложений Service Fabric, добавления служб, создания пакетов, регистрации и развертывания приложений в кластере локальной разработки.
 
-Для управления приложением Service Fabric щелкните правой кнопкой мыши проект приложения в обозревателе решений.
+Для управления приложением щелкните правой кнопкой мыши проект приложения в обозревателе решений.
 
 ![Для управления приложением Service Fabric щелкните проект приложения правой кнопкой мыши.][manageservicefabric]
 
 ## Развертывание приложения Service Fabric
 
-Развертывание приложения Service Fabric объединяет в одной простой операции такие действия:
+Развертывание приложения объединяет в одной простой операции такие действия:
 
 1. Создание пакета приложения.
 2. Загрузка пакета приложения в хранилище образов.
@@ -79,4 +79,4 @@
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

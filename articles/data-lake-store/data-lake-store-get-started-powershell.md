@@ -31,11 +31,7 @@
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/ru-RU/pricing/free-trial/).
 - **Включите свою подписку Azure** для общедоступной предварительной версии хранилища озера данных. См. [инструкции](data-lake-store-get-started-portal.md#signup).
-- **Azure PowerShell версии 1.0 или выше**. Инструкции см. в статье [Установка и настройка Azure PowerShell](../install-configure-powershell.md). После установки Azure PowerShell 1.0 (или более новой версии) выполните следующий командлет, чтобы установить модуль хранилища озера данных Azure.
-
-		Install-Module AzureRM.DataLakeStore
-
-	Дополнительные сведения о модуле **AzureRM.DataLakeStore** см. в [коллекции PowerShell](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore).
+- **Azure PowerShell 1.0**. Установите его [отсюда](https://github.com/MicrosoftBigData/AzureDataLake/releases/download/AzurePowerShell_2015_10_30/AzurePowerShell.msi).
 
 ## Создание учетной записи хранения озера данных Azure
 
@@ -72,7 +68,7 @@
 
 		Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
-	Командлет должен возвратить результат **True**.
+	Должен быть возвращен результат **True**.
 
 ## Создание структуры каталогов в хранилище озера данных Azure
 
@@ -143,4 +139,4 @@
 - [Использование аналитики озера данных Azure с хранилищем озера данных](data-lake-analytics-get-started-portal.md)
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

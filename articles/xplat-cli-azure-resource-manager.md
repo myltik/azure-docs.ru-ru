@@ -44,7 +44,7 @@
 
 Дополнительные сведения об аутентификации в Microsoft Azure см. в статье [Подключение к подписке Azure через интерфейс командной строки Azure](xplat-cli-connect.md).
 
->[AZURE.NOTE]При использовании рабочей или учебной учетной записи, которая управляется службой Azure Active Directory, для управления доступом к ресурсам Azure и их использованием также можно использовать механизм контроля доступа к Azure на основе ролей (RBAC). Дополнительную информацию см. в разделе [Управление доступом к ресурсам и аудит доступа](../azure-portal/resource-group-rbac.md).
+>[AZURE.NOTE]При использовании рабочей или учебной учетной записи, которая управляется службой Azure Active Directory, для управления доступом к ресурсам Azure и их использованием также можно использовать механизм контроля доступа к Azure на основе ролей (RBAC). Дополнительную информацию см. в разделе [Управление доступом к ресурсам и аудит доступа](resource-group-rbac.md).
 
 ## Настройка режима диспетчера ресурсов Azure
 
@@ -88,29 +88,30 @@
 
 1. Загрузите файлы azuredeploy.json и azuredeploy.parameters.json с сайта [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) в рабочую папку на локальном компьютере.
 
-2. Откройте файл azuredeploy.parameters.json в текстовом редакторе и введите значения параметров для своей среды (не меняйте значение **ubuntuOSVersion**). ```
-	{
-	  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {
-	    "newStorageAccountName": {
-	      "value": "MyStorageAccount"
-	    },
-	    "adminUsername": {
-	      "value": "MyUserName"
-	    },
-	    "adminPassword": {
-	      "value": "MyPassword"
-	    },
-	    "dnsNameForPublicIP": {
-	      "value": "MyDomainName"
-	    },
-	    "ubuntuOSVersion": {
-	      "value": "14.04.2-LTS"
-	    }
-	  }
-	}
-```
+2. Откройте файл azuredeploy.parameters.json в текстовом редакторе и введите значения параметров для своей среды (не меняйте значение **ubuntuOSVersion**).
+
+		{
+	  	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	  	"contentVersion": "1.0.0.0",
+	  	"parameters": {
+		    "newStorageAccountName": {
+		      "value": "MyStorageAccount"
+		    },
+		    "adminUsername": {
+		      "value": "MyUserName"
+		    },
+		    "adminPassword": {
+		      "value": "MyPassword"
+		    },
+		    "dnsNameForPublicIP": {
+		      "value": "MyDomainName"
+		    },
+		    "ubuntuOSVersion": {
+		      "value": "14.04.2-LTS"
+		    }
+		  }
+		}
+	```
 3. После сохранения файла azuredeploy.params.json создайте новую группу ресурсов на основе шаблона с помощью следующей команды. В параметре `-e` указывается файл azuredeploy.parameters.json, измененный в предыдущем действии. Вместо *testRG* укажите имя нужной группы, а вместо *testDeploy* — имя развертывания. Расположение должно быть тем же, что указано в файле параметров шаблона.
 
 		azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
@@ -209,4 +210,4 @@
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

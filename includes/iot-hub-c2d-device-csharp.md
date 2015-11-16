@@ -1,9 +1,9 @@
-## Получение сообщений из виртуального устройства
+## Получение сообщений на виртуальном устройстве
 
 В этом разделе вы измените приложение виртуального устройства, созданное в разделе [Приступая к работе с центром IoT], для получения сообщений "из облака в устройство" от центра IoT.
 
 1. В Visual Studio в проекте **SimulatedDevice** добавьте в класс **Program** следующий метод:
-   
+
         private static async void ReceiveC2dAsync()
         {
             Console.WriteLine("\nReceiving cloud to device messages from service");
@@ -37,4 +37,4 @@
 
 <!-- Images -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

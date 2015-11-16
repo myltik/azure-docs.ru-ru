@@ -32,14 +32,26 @@
 * Сравните файл ApplicationInsights.config со старой копией. Большинство изменений, которые отобразятся, обусловлены тем, что одни модули были удалены, а другие теперь подлежат параметризации. Возобновите использование настроек, выполненных в старом файле.
 * Перестройте свое решение.
 
+## Версия 2.0.0-beta2
+- Добавлена поддержка для ITelemetryProcessor и возможность настройки с помощью кода или конфигурации. [Включает настраиваемую фильтрацию в пакете SDK](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-processors)
+- Удалены инициализаторы контекста. Вместо них следует использовать [инициализаторы телеметрии](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers).
+- Обновлена служба Application Insights для .NET Framework 4.6. 
+- Имена пользовательских событий теперь могут содержать до 512 символов.
+- Свойство ```OperationContext.Name``` переименовано в ```RootName```.
+- Свойство ```RequestTelemetry.Id``` удалено.
+- Свойства ```Id``` и ```Context.Operation.Id``` RequestTelemetry не будут инициализированы при создании нового RequestTelemetry.
+- ```RequestTelemetry.Name``` больше не инициализируется. Вместо него будет использоваться ```RequestTelemetry.Context.Operation.Name```.
+- При мониторинге запроса код ответа 401 является частью обычной проверки подлинности и приведет к успешному выполнению запроса.
+- Исправлена блокировка потока пользовательского интерфейса при инициализации InMemoryChannel (канал по умолчанию) из потока пользовательского интерфейса. Это устраняет проблемы с зависанием пользовательского интерфейса в приложениях WPF.
+ 
 ## Версия 2.0.0-beta1
 - TrackDependency будет выдавать правильные данные JSON, если были указаны не все обязательные поля.
-- Избыточные свойство ```RequestTelemetry.ID``` теперь является просто прокси-объектом для ```RequestTelemetry.Operation.Id```.
+- Избыточное свойство ```RequestTelemetry.ID``` теперь является просто прокси-объектом для ```RequestTelemetry.Operation.Id```.
 - Новый интерфейс ```ISupportSampling``` и его явная реализация для большинства типов элементов данных.
 - Свойство ```Count``` в DependencyTelemetry помечено как устаревшее. Вместо него используйте ```SamplingPercentage```.
 - Представлен новый ```CloudContext```, в который перемещены свойства ```RoleName``` и ```RoleInstance``` из ```DeviceContext```.
-- Новое свойство ```AuthenticatedUserId``` для ```UserContext```, позволяющее указать удостоверение аутентифицированного пользователя.
-- Добавлен `Microsoft.ApplicationInsights.Web.AccountIdTelemetryInitializer`, `Microsoft.ApplicationInsights.Web.AuthenticatedUserIdTelemetryInitializer`, который инициализирует контекст аутентифицированного пользователя согласно настройкам пакета SDK для JavaScript.
+- Новое свойство ```AuthenticatedUserId``` для ```UserContext```, позволяющее указать удостоверение прошедшего проверку подлинности пользователя.
+- Добавлен `Microsoft.ApplicationInsights.Web.AccountIdTelemetryInitializer`, `Microsoft.ApplicationInsights.Web.AuthenticatedUserIdTelemetryInitializer`, который инициализирует контекст прошедшего проверку подлинности пользователя согласно настройкам пакета SDK для JavaScript.
 - Добавлен `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor` и поддержка фиксированной частоты выборки в качестве его реализации.
 - Добавлен `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.TelemetryChannelBuilder`, который позволяет создавать `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` с набором `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor`.
 
@@ -97,4 +109,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

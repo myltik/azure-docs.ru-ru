@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Начало работы с надежными службами Service Fabric Microsoft Azure"
-   description="Создание приложения Service Fabric со службами без сохранения состояния и с отслеживанием состояния."
+   pageTitle="Начало работы с надежными службами | Microsoft Azure"
+   description="Вводные сведения о создании приложения Service Fabric Microsoft Azure со службами с отслеживанием состояния и без него."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="10/15/2015"
    ms.author="vturecek"/>
 
 # Начало работы с надежными службами Service Fabric Microsoft Azure
 
-Приложение Service Fabric содержит одну или несколько служб, которые выполняют код. В этом руководстве описано поэтапное создание приложений Service Fabric «Hello World» без отслеживания состояния и с отслеживанием состояния с помощью [модели программирования *надежных служб*](../Service-Fabric/service-fabric-reliable-services-introduction.md).
+Приложение Service Fabric содержит одну или несколько служб, которые выполняют код. В этом руководстве описано поэтапное создание приложений Service Fabric "Hello World" без отслеживания состояния и с отслеживанием состояния с помощью [модели программирования *Reliable Services*](service-fabric-reliable-services-introduction.md).
 
 Сейчас в облачных службах преимущественно используется служба без отслеживания состояния. Служба без отслеживания состояния сама по себе не содержит данных, требующих надежного хранения или высокой доступности. Проще говоря, если экземпляр службы без отслеживания состояния завершает работу, все его внутреннее состояние теряется. Для обеспечения высокой доступности и надежности в службах этого типа состояния должны сохраняться во внешнее хранилище, например таблицы Azure или базы данных SQL.
 
@@ -32,7 +32,7 @@ Service Fabric представляет новый вид службы с отс
 
 Запустите Visual Studio RC 2015 от имени **администратора** и создайте новый проект **приложения Service Fabric** с именем *HelloWorld*.
 
-![Создание нового приложения Service Fabric с помощью диалогового окна «Создание проекта»](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+![Создание нового приложения Service Fabric с помощью диалогового окна "Создание проекта"](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
 Затем создайте проект **службы без отслеживания состояния** с именем *HelloWorldStateless*.
 
@@ -110,7 +110,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 Выберите **Служба с отслеживанием состояния Service Fabric** и назовите его «HelloWorldStateful». Щелкните **Добавить**.
 
-![Создание службы с отслеживанием состояния Service Fabric с помощью диалогового окна «Создание проекта»](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
+![Создание службы с отслеживанием состояния Service Fabric с помощью диалогового окна "Создание проекта"](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
 Теперь в вашем приложении должно быть две службы: служба *HelloWorld* без отслеживания состояния и служба *HelloWorldStateful*с отслеживанием состояния.
 
@@ -204,4 +204,4 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 [Справочник разработчика по надежным службам](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

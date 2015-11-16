@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/23/2015"
+	ms.date="10/29/2015"
 	ms.author="trinadhk; aashishr; jimpark; markgal"/>
 
 # Планирование инфраструктуры резервного копирования виртуальных машин в Azure
@@ -102,4 +102,4 @@
 - [Восстановление виртуальных машин](backup-azure-restore-vms.md)
 - [Устранение проблем с резервным копированием виртуальных машин](backup-azure-vms-troubleshoot.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

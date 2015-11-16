@@ -240,7 +240,7 @@
 
 ## Создание с помощью портала предварительной версии
 
-Описание полей см. в разделах [Базовые параметры конфигурации] и [Расширенные параметры конфигурации].
+Описание полей см. в разделах [Базовые параметры конфигурации](#basic-configuration-options) и [Расширенные параметры конфигурации](#advanced-configuration-options).
 
 **Создание кластера HDInsight**
 
@@ -757,4 +757,4 @@ Azure PowerShell — это полнофункциональная среда с
 [ssisclustercreate]: http://msdn.microsoft.com/ru-RU/library/mt146774(v=sql.120).aspx
 [ssisclusterdelete]: http://msdn.microsoft.com/ru-RU/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

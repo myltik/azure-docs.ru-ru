@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Добавление сегмента с использованием средств эластичных баз данных" 
+	pageTitle="Добавление сегмента с использованием средств эластичных баз данных | Microsoft Azure" 
 	description="Информация о том, как использовать интерфейсы API эластичного масштабирования для добавления новых сегментов в набор сегментов." 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="sidneyh" 
+	authors="ddove" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
-	ms.author="sidneyh"/>
+	ms.date="11/04/2015" 
+	ms.author="ddove;sidneyh"/>
 
 # Добавление сегмента с использованием средств эластичных баз данных
 
@@ -79,4 +79,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

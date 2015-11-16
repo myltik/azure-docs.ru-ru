@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="10/28/2015" 
 	ms.author="erikre"/>
 
 # Управление веб-приложением в службе приложений Azure
@@ -66,7 +66,7 @@
 ### Резервные копии
 
 - Настройка [автоматического резервного копирования](web-sites-backup.md) для веб-приложения. Дополнительные сведения о резервном копировании см. в [этом видео](http://azure.microsoft.com/documentation/videos/azure-websites-automatic-and-easy-backup/).
-- Ознакомьтесь с параметрами [восстановления базы данных](http://msdn.microsoft.com/library/azure/hh852669.aspx) SQL Azure.
+- Ознакомьтесь с параметрами [восстановления базы данных](https://azure.microsoft.com/ru-RU/documentation/articles/sql-database-business-continuity/) SQL Azure.
 
 ### Устранение неполадок
 
@@ -103,4 +103,4 @@
 
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

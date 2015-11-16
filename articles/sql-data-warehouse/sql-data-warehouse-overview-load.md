@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="11/04/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Загрузка данных в хранилище данных SQL
@@ -163,6 +163,16 @@ FROM    <External Table Name>
 
 В дополнение к инструкции `CREATE TABLE...AS SELECT` можно также загрузить данные из внешних таблиц в существующие таблицы с помощью инструкции INSERT...INTO.
 
+##  Создание статистики для вновь загруженных данных 
+
+Хранилище данных SQL Azure пока не поддерживает автоматическое создание или автоматическое обновление статистики. Чтобы добиться максимально высокой производительности запросов, крайне важно сформировать статистические данные для всех столбцов всех таблиц после первой загрузки или после любых значительных изменений в данных. Подробные сведения о работе со статистикой см. в разделе [Статистика][] из группы разделов по разработке. Ниже приведен краткий пример создания статистики по табличным данным, загруженным в этом примере.
+
+
+```
+create statistics [<name>] on [<Table Name>] ([<Column Name>]);
+create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
+```
+
 ## Дальнейшие действия
 Дополнительные советы по разработке см. в статье [Общие сведения о разработке][].
 
@@ -176,6 +186,7 @@ FROM    <External Table Name>
 [Общие сведения о разработке]: sql-data-warehouse-overview-develop.md
 [схеме миграции]: sql-data-warehouse-migrate-schema.md
 [переносе кода]: sql-data-warehouse-migrate-code.md
+[Статистика]: sql-data-warehouse-develop-statistics.md
 
 <!--MSDN references-->
 [supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -190,4 +201,4 @@ FROM    <External Table Name>
 [документации хранилища Azure]: https://azure.microsoft.com/ru-RU/documentation/articles/storage-create-storage-account/
 [документации по ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -751,7 +751,7 @@ __.chain()
 </table>
 
 ## Поддержка времени выполнения
-[Серверный пакет SDK JavaScript для DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) поддерживает большинство возможностей языка JavaScript в соответствии со стандартами [ECMA-262](documentdb-interactions-with-resources.md).
+[Серверный пакет SDK JavaScript для DocumentDB](http://dl.windowsazure.com/documentDB/jsserverdocs/) поддерживает большинство возможностей языка JavaScript в соответствии со стандартами [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### Безопасность
 Хранимые процедуры и триггеры JavaScript выполняются в изолированной среде, поэтому действия одного сценария не оказывают какого-либо воздействия на другие сценарии, за счет изоляции снимков транзакций на уровне базы данных. Среды выполнения объединяются в пул, но удаляются из контекста после каждого запуска. Следовательно, они гарантированно безопасны от появления непреднамеренных побочных эффектов друг для друга.
@@ -921,4 +921,4 @@ __.chain()
 -	[Сервис-ориентированная архитектура баз данных](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Размещение среды выполнения .NET на Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Попробуйте службу приложений Azure с поиском Azure" 
-   description="Попробуйте службу поиска Azure бесплатно в течение одного часа с помощью шаблона TryAzureAppService." 
+   pageTitle="Оценка службы приложений Azure с Поиском Azure | Microsoft Azure" 
+   description="Оцените Поиск Azure, размещенную облачную службу поиска, бесплатно в течение одного часа с помощью шаблона TryAzureAppService." 
    services="search" 
    documentationCenter="" 
    authors="HeidiSteen" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="07/13/2015"
+   ms.date="11/04/2015"
    ms.author="heidist"/>
 
 # Попробуйте службу приложений Azure с поиском Azure
@@ -529,4 +529,4 @@
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

@@ -43,6 +43,17 @@
 
 	![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
 
+7. Вы сможете получить уведомление на устройстве iOS в центре уведомлений следующим образом:
+
+	![](./media/mobile-engagement-ios-send-push/iphone-notification.png)
+
+8. Если с вашим устройством iOS связаны часы Apple Watch, уведомление на отображается на Apple Watch:
+
+	![](./media/mobile-engagement-ios-send-push/apple-watch.png)
+
+
  
 
-<!---HONumber=Oct15_HO3-->
+ 
+
+<!---HONumber=Nov15_HO2-->

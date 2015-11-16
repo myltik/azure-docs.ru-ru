@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Создайте свое первое решение с использованием Поиска Azure" 
-	description="Создайте свое первое решение с использованием Поиска Azure" 
+	pageTitle="Создайте свое первое решение с использованием Поиска Azure | Microsoft Azure" 
+	description="Создайте свое первое решение с использованием Поиска Azure, размещенной облачной службы поиска в Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/08/2015" 
+	ms.date="11/04/2015" 
 	ms.author="heidist"/>
 
 # Создайте свое первое решение с использованием Поиска Azure
@@ -206,4 +206,4 @@
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

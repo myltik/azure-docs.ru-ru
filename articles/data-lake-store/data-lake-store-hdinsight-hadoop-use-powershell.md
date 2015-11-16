@@ -8,12 +8,12 @@
    editor="cgronlun"/>
  
 <tags
-   ms.service="data-lake"
+   ms.service="data-lake-store"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="10/29/2015"
    ms.author="nitinme"/>
 
 # Подготовка кластера HDInsight и хранилища озера данных с помощью Azure PowerShell
@@ -23,7 +23,12 @@
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Узнайте, как с помощью Azure PowerShell настроить кластер HDInsight (Hadoop, HBase или Storm) для работы с хранилищем озера данных Azure. Работая с этим выпуском, учитывайте следующие моменты. * **В кластерах Hadoop и Storm (Windows и Linux)** хранилище озера данных может использоваться только как дополнительная учетная запись хранения. По умолчанию в этих кластерах в качестве учетной записи хранения используются BLOB-объекты хранилища Azure (WASB). * **В кластерах HBase (Windows и Linux)** хранилище озера данных можно использовать в качестве стандартного или дополнительного хранилища.
+Узнайте, как с помощью Azure PowerShell настроить кластер HDInsight (Hadoop, HBase или Storm) для работы с хранилищем озера данных Azure. Важные сведения, которые следует учитывать при работе с данным выпуском.
+
+* **В кластерах Hadoop и Storm (Windows и Linux)** хранилище озера данных может использоваться только как дополнительная учетная запись хранения. Учетной записью хранения по умолчанию для таких кластеров по-прежнему будут BLOB-объекты хранилища Azure (WASB).
+
+* **Для кластеров HBase (Windows и Linux)** хранилище озера данных можно использовать как хранилище по умолчанию или дополнительное хранилище.
+
 
 В этой статье мы подготовим кластер Hadoop, в котором хранилище озера данных будет дополнительным хранилищем.
 
@@ -36,16 +41,12 @@
 
 ## Предварительные требования
 
-Перед началом работы с этим учебником вам необходимо:
+Перед началом работы с этим учебником необходимо иметь следующее:
 
-- Оформить **подписка Azure**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/ru-RU/pricing/free-trial/).
-- **Настроить в подписке Azure** общедоступную предварительную версию хранилища озера данных. См. [инструкции](data-lake-store-get-started-portal.md#signup).
-- Установить **пакет SDK Windows**. Его можно установить [отсюда](https://dev.windows.com/ru-RU/downloads). Пакет используется для создания сертификата безопасности.
-- **Azure PowerShell (начиная с версии 1.0)**. Инструкции см. в статье [Установка и настройка Azure PowerShell](../install-configure-powershell.md). После установки Azure PowerShell 1.0 (или более новой версии) выполните следующий командлет, чтобы установить модуль хранилища озера данных Azure.
-
-		Install-Module AzureRM.DataLakeStore
-
-	Дополнительные сведения о модуле **AzureRM.DataLakeStore** см. в [коллекции PowerShell](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore).
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/ru-RU/pricing/free-trial/).
+- **Включите свою подписку Azure** для общедоступной предварительной версии хранилища озера данных. См. [инструкции](data-lake-store-get-started-portal.md#signup).
+- **Пакет SDK Windows**. Его можно установить [отсюда](https://dev.windows.com/ru-RU/downloads). Пакет используется для создания сертификата безопасности.
+- **Azure PowerShell 1.0**. Установите его [отсюда](https://github.com/MicrosoftBigData/AzureDataLake/releases/download/AzurePowerShell_2015_10_30/AzurePowerShell.msi).
  
 
 ## Создание хранилища озера данных Azure
@@ -66,7 +67,7 @@
 		# Register for Data Lake Store
 		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
-3. Учетная запись хранилища озера данных Azure связывается с группой ресурсов Azure. Создайте эту группу.
+3. Учетная запись хранения озера данных Azure связывается с группой ресурсов Azure. Для начала создайте группу ресурсов Azure.
 
 		$resourceGroupName = "<your new resource group name>"
     	New-AzureRmResourceGroup -Name $resourceGroupName -Location "East US 2"
@@ -119,7 +120,7 @@
 
 4. С помощью служебной программы [Pvk2Pfx][pvk2pfx] преобразуйте созданные программой MakeCert файлы PVK и CER в файл PFX. Выполните следующую команду:
 
-		pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po myPassword
+		pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 
 	При появлении соответствующего запроса введите указанный ранее пароль для закрытого ключа. Значение, указываемое для параметра **-po** — это пароль, связанный с файлом PFX. После успешного выполнения команды вы должны увидеть в указанном каталоге сертификата файл CertFile.pfx.
 
@@ -131,7 +132,7 @@
 
 		$certificateFilePath = "$certificateFileDir\CertFile.pfx"
 		
-		$password = Read-Host –Prompt "Enter the password" –AsSecureString  # This is the password you specified for the .pfx file (e.g. "myPassword")
+		$password = Read-Host –Prompt "Enter the password" # This is the password you specified for the .pfx file
 		
 		$certificatePFX = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($certificateFilePath, $password)
 		
@@ -293,4 +294,4 @@
 [makecert]: https://msdn.microsoft.com/ru-RU/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/ru-RU/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

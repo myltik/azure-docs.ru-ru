@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Использование платформы Service Fabric надежными субъектами"
-   description="В этой статье описано, как надежные субъекты используют функции платформы Service Fabric. Основные понятия платформы Service Fabric рассматриваются с точки зрения разработчиков субъекта."
+   pageTitle="Reliable Actors в Service Fabric | Microsoft Azure"
+   description="Описывает, как субъекты Reliable Actors используют компоненты платформы Service Fabric, охватывая основные понятия с точки зрения разработчиков субъектов."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -18,8 +18,9 @@
 
 # Использование платформы Service Fabric надежными субъектами
 
-## Основные сведения о модели приложений Service Fabric для субъектов
 Субъекты используют модель приложений Service Fabric для управления жизненным циклом приложения. Каждый тип субъекта сопоставляется с [типом службы](service-fabric-application-model.md#describe-a-service) Service Fabric. Код субъекта [упаковывается](service-fabric-application-model.md#package-an-application) в виде приложения Service Fabric и [развертывается](service-fabric-deploy-remove-applications.md#deploy-an-application) в кластере.
+
+## Пример концепции модели приложений для субъектов
 
 Рассмотрим пример проекта субъекта, [созданный с помощью Visual Studio](service-fabric-reliable-actors-get-started.md), чтобы проиллюстрировать некоторые описанные выше понятия.
 
@@ -242,4 +243,4 @@ public class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

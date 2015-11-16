@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/27/2015"   
+	ms.date="11/03/2015"   
 	ms.author="juliako"/>
 
 
@@ -21,10 +21,11 @@
 
 В этих заметках описаны изменения по сравнению с предыдущими выпусками, а также известные проблемы.
 
->[AZURE.NOTE] Мы ждем отзывов от наших заказчиков и уделяем большое внимание исправлению проблем, влияющих на вашу работу. Сообщения о проблемах и вопросы размещайте на [форуме MSDN по службам мультимедиа Azure].
+>[AZURE.NOTE]Мы ждем отзывов от наших заказчиков и уделяем большое внимание исправлению проблем, влияющих на вашу работу. Сообщения о проблемах и вопросы размещайте на [форуме MSDN по службам мультимедиа Azure].
 
 - [Известные проблемы](#issues)
 - [Журнал версий интерфейса API REST](#rest_version_history)
+- [Выпуск: октябрь 2015 г.](#oct_changes_15)
 - [Выпуск от сентября 2015 г.](#september_changes_15)
 - [Выпуск: август 2015 г.](#august_changes_15)
 - [Выпуск: июль 2015 г.](#july_changes_15)
@@ -74,15 +75,23 @@
 
 Информацию о журнале версий интерфейса API REST служб мультимедиа см. в [Справочнике по API-интерфейсу REST для служб мультимедиа Azure].
 
-##<a id="september_changes_15"></a>Выпуск от сентября 2015 г. 
+##<a id="oct_changes_15"></a>Выпуск: октябрь 2015 г.
 
-- Теперь AMS позволяет защищать видео по запросу и потоки Live Stream с технологией Widevine Modular DRM. Вы можете использовать следующих партнеров служб доставки для доставки лицензий Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) и [castLabs](http://castlabs.com/company/partners/azure/). Дополнительные сведения см. в [этом блоге](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
+Службы мультимедиа Azure (AMS) теперь доступны в следующих центрах обработки данных: Южная Бразилия, Западная Индия, Южная Индия и Центральная Индия. Теперь с помощью портала управления Azure вы можете [создавать учетные записи служб мультимедиа](media-services-create-account.md#create-a-media-services-account-using-quick-create) и выполнять различные задачи, описанные [здесь](https://azure.microsoft.com/documentation/services/media-services/). Но в этих центрах обработки данных не поддерживается кодирование в реальном времени. Кроме того, в этих центрах обработки данных доступны не все типы зарезервированных единиц кодирования.
+
+- Южная Бразилия: доступны только стандартные и базовые зарезервированные единицы кодирования.
+- Западная Индия, Южная Индия и Центральная Индия: доступны только базовые зарезервированные единицы кодирования.
+
+
+##<a id="september_changes_15"></a>Выпуск: сентябрь 2015 г. 
+
+- Теперь AMS позволяет защищать видео по запросу и потоки Live Stream с технологией Widevine Modular DRM. Вы можете использовать следующих партнеров служб доставки для доставки лицензий Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) и [castLabs](http://castlabs.com/company/partners/azure/). Дополнительную информацию см. в [этом блоге](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
 
 	Чтобы настроить AssetDeliveryConfiguration для использования Widevine, можно воспользоваться пакетом [AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/) (начиная с версии 3.5.1) или REST API.
 
-- AMS поддерживает видео в формате Apple ProRes. Теперь вы можете отправлять исходные видеофайлы в формате QuickTime, использующие Apple ProRes или другие кодеки. Дополнительные сведения см. в [этом блоге](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
+- AMS поддерживает видео в формате Apple ProRes. Теперь вы можете отправлять исходные видеофайлы в формате QuickTime, использующие Apple ProRes или другие кодеки. Дополнительную информацию см. в [этом блоге](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 
-- Теперь можно использовать Media Encoder Standard для выполнения дополнительной обрезки и динамического извлечения из архивов. Дополнительные сведения см. в [этом блоге](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+- Теперь можно использовать Media Encoder Standard для выполнения дополнительной обрезки и динамического извлечения из архивов. Дополнительную информацию см. в [этом блоге](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
 - Были выполнены следующие обновления фильтрации:
 
@@ -119,7 +128,7 @@
 - Реализована поддержка динамических фильтров.
 - Реализованы функциональные возможности, позволяющие пользователям сохранять контейнер хранилища при удалении ресурса.
 - Исправлены ошибки, связанные с политиками повтора в каналах.
-- Включен **рабочий процесс Media Encoder Premium**.
+- Включен **рабочий процесс расширенного кодировщика мультимедиа**.
 
 ##<a id="june_changes_15"></a>Выпуск: июнь 2015 г.
 
@@ -378,7 +387,7 @@ API REST служб мультимедиа обновлены до версии 
 
 ### <a name="dec_13_donnet_changes"></a>Выпуск 3.0.0.0 пакета SDK служб мультимедиа Azure для .NET
 
->[AZURE.NOTE] Версии 3.0.x.x несовместимы с версиями 2.4.x.x.
+>[AZURE.NOTE]Версии 3.0.x.x несовместимы с версиями 2.4.x.x.
 
 Последним выпуском пакета SDK для служб мультимедиа в данный момент является 3.0.0.0. Последнюю версию пакета можно скачать из Nuget или получить код из [GitHub].
 
@@ -605,4 +614,4 @@ API REST служб мультимедиа обновлены до версии 
 [Обработка уведомлений из заданий служб мультимедиа]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

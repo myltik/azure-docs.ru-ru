@@ -13,7 +13,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="06/16/2015" 
+    ms.date="10/28/2015" 
     ms.author="anhoh"/>
 
 #Подключение DocumentDB к службе поиска Azure с помощью индексаторов
@@ -270,4 +270,4 @@
  - Дополнительные сведения о службе Поиск Azure можно узнать [здесь](/services/search/).
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

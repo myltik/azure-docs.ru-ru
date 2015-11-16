@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/29/2015"
 	ms.author="mahender"/>
 
 # Настройка приложения для использования имени для входа Facebook
@@ -28,7 +28,7 @@
 
 1. Выполните вход на [портал управления Azure] и перейдите в свое мобильное приложение. Скопируйте свой **URL-адрес**. Он понадобится для настройки приложения Facebook.
  
-2. Щелкните **Параметры**, **Проверка подлинности пользователя**, а затем — **Facebook**. Затем скопируйте **URI перенаправления** из колонки Facebook. Вы будете использовать его в приложении Facebook.
+2. Щелкните **Параметры**, **Проверка подлинности мобильного приложения**, а затем — **Facebook**. Затем скопируйте **URI перенаправления** из колонки Facebook. Вы будете использовать его в приложении Facebook.
  
 3. В другом окне браузера перейдите на веб-сайт [разработчиков для Facebook] и войдите, используя свои данные учетной записи Facebook.
 
@@ -79,6 +79,5 @@
 [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /ru-RU/develop/mobile/tutorials/get-started-with-users-dotnet/
 [портал управления Azure]: https://portal.azure.com/
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Видео, примеры и учебники, в которых описывается использование службы поиска Azure"
-	description="Единый список всех видео, примеров, демоверсий и учебников, в которых описывается использование службы поиска Azure."
+	pageTitle="Видео, примеры и руководства, в которых описывается использование службы Поиска Azure | Microsoft Azure"
+	description="Центральный список всех видеороликов, примеров, демонстраций и руководств, созданных для Поиска Azure — размещенной облачной службы в Microsoft Azure."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="09/29/2015"
+	ms.date="11/04/2015"
 	ms.author="heidist"/>
 
 #Службы поиска Azure: учебники, видео, демоверсии и примеры
@@ -25,13 +25,16 @@
 
 [**Демоверсия портала поиска работы в г. Нью-Йорк с использованием службы поиска Azure**](http://aka.ms/azjobsdemo) — это работающий веб-сайт ASP.NET, иллюстрирующий возможности службы поиска Azure на основе данных, полученных в рамках инициативы по открытым данным г. Нью-Йорк.
 
-[**Попробуйте службу приложений + Поиск Azure**](search-tryappservice.md) — это бесплатный часовой сеанс работы со службой поиска Azure, предоставляющий необходимые данные, рабочее веб-приложение и исходный код, который можно изменять в режиме онлайн для тестирования возможностей поиска.
+[**Оцените службу приложений и Поиск Azure в комбинированном приложении ASP.NET MVC**](search-tryappservice.md) — это бесплатный часовой сеанс работы со службой поиска Azure, предоставляющий необходимые данные, рабочее веб-приложение и исходный код, который можно изменять в режиме онлайн для тестирования возможностей поиска в приложении ASP.NET.
+
+[**Демонстрационный сайт Поиска Azure**](https://searchsamples.azurewebsites.net/#/) — это коллекция демонстрационных приложений для Поиска Azure. Оцените поиск мультимедиа, геопространственный поиск и приложения инвентаризации продуктов с помощью Поиска Azure.
 
 ##Видеоролики
 
 Ссылка|Описание
 ----|-----------
-[Рекомендации AzureCon 2015 для службы "Поиск Azure"](https://azure.microsoft.com/ru-RU/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|Практические советы по обеспечению масштабирования, оптимальной производительности, а также эффективности кодирования при создании приложений для Интернета или сценариев для мобильных устройств. 
+[Что такое поиск Azure?](https://azure.microsoft.com/documentation/videos/what-is-azure-search/)|Обзор Поиска Azure за полторы минуты.
+[Рекомендации AzureCon 2015 для службы "Поиск Azure"](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/)|Практические советы по обеспечению масштабирования, оптимальной производительности, а также эффективности кодирования при создании приложений для Интернета или сценариев для мобильных устройств. 
 [Академия Microsoft Virtual Academy: включение службы поиска Azure в веб-сайты и приложения](http://channel9.msdn.com/Series/Adding-Microsoft-Azure-Search-to-Your-Websites-and-Apps)|Состоящий из 7 частей курс, в котором описывается включение службы поиска Azure в приложения. Авторы: Лиам Кавана (Liam Cavanagh), Януш Лембич (Janusz Lembicz) и Бернардита Торрес Гараяр (Bernardita Torres Garayar).
 [Build 2015: современные средства обработки данных](http://channel9.msdn.com/Events/Build/2015/2-663)|Ролик, повествующий о роли службы поиска Azure в революции современных средств обработки данных. Авторы: Шон Байс (Shawn Bice) и Пабло Кастро (Pablo Castro); продолжительность: 29 минут.
 [Build 2015: использование службы поиска Azure для создания эффективного поискового интерфейса в мобильных и веб-приложениях](http://channel9.msdn.com/Events/Build/2015/2-745)|Доклад Пабло Кастро (Pablo Castro) на конференции Microsoft Build 2015.
@@ -50,6 +53,7 @@
 
 Пошаговое руководство|Описание
 -----------|-----------
+[Как искать данные в StackExchange с помощью поиска Azure](search-howto-stackexchange-data.md)|Полнотекстовый поиск по данным StackExchange в приложении, интегрированном с Поиском Azure.
 [Использование службы поиска Azure с D3.js для создания интерактивной визуализации данных](https://azure.microsoft.com/blog/2015/07/14/how-to-use-azure-search-with-d3-js-to-build-interactive-data-visualizations/)|Запись в блоге и пример кода, в которых описывается включение возможностей наглядного поиска в пользовательское приложение.
 [Начало работы со службой поиска Azure в .NET](search-get-started-dotnet.md)|Узнайте о том, как работать со службой "Поиск Azure" в управляемом коде.
 [Начало работы с Поиском Azure на NodeJS](search-get-started-nodejs.md)|Узнайте о том, как работать со службой "Поиск Azure" в NodeJS.
@@ -69,26 +73,26 @@
 
 - [AdventureWorksWP8]() — это приложение для Windows Phone.
 - [AzSearchAutoScaleWeb](https://github.com/liamca/AzureSearchDemos/tree/master/AzSearchAutoScaleWeb) 
-- [BabyNameJS](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS) — это файл index.html, который предоставляет данные в учебнике.
+- [BabyNameJS](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS) — это файл index.html, который предоставляет данные в руководстве.
 - [DotNetSample](https://github.com/liamca/AzureSearchDemos/tree/master/DotNetSample) представляет собой приложение ASP.NET MVC для службы "Поиск Azure".
 - [NYCJobs.NET](https://github.com/liamca/AzureSearchDemos/tree/master/NYCJobs.NET) содержит исходный код для демонстрационного веб-сайта NYCJobs.
-- [Recommendations](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations) использует фабрику активных данных, Базу данных SQL, хранилище больших двоичных объектов и HDInsight для реализации рекомендаций продуктов, основанных на частоте совместной покупки продуктов.
+- [Recommendations](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations) использует фабрику активных данных, Базу данных SQL, хранилище BLOB-объектов и HDInsight для реализации рекомендаций продуктов, основанных на частоте совместной покупки продуктов.
 
 [****https://github.com/AzureSearch**](https://github.com/AzureSearch) — это еще один репозиторий GitHub для службы "Поиск Azure", содержащий примеры кода от команды разработчиков этой службы. Вы можете перейти в репозиторий, чтобы ознакомиться со всем содержимым. Или же можно воспользоваться ссылками ниже, чтобы сразу перейти к конкретным примерам.
 
 - [**JavaIndexerDemo**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)
 - [**NodeJSIndexerDemo**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)
-- [**.NET-2015-02-28-Sample**](https://github.com/AzureSearch/.NET-2015-02-28-Sample) — это приложение ASP.NET MVC 5, использующее клиентскую библиотеку .NET для операций поиска.
+- [**.NET-2015-02-28-Sample**](https://github.com/AzureSearch/.NET-2015-02-28-Sample) — это приложение ASP.NET MVC 5, использующее клиентскую библиотеку .NET для операций поиска.
 
 [**Учебные материалы Microsoft Virtual Academy об использовании службы поиска Azure**](https://github.com/MicrosoftLearning/AzureSearch-MVA) находятся в отдельном репозитории GitHub. Он включает несколько примеров, используемых в курсе в части 7.
 
 На сайте CodePlex доступны несколько примеров, опубликованных в ходе тестирования общедоступной предварительной версии. Эти примеры все еще актуальны для текущей версии.
 
-- [**Демонстрационная версия REST API управления**](https://azuresearchmgmtapi.codeplex.com/) представляет собой консольное приложение Windows, использующее REST API управления.
+- [**Демонстрационная версия REST API управления**](https://azuresearchmgmtapi.codeplex.com/) — это собой консольное приложение Windows, использующее REST API управления.
 - [**Демонстрационная версия AdventureWorks Demo**](https://azuresearchadventureworksdemo.codeplex.com/) — это приложение ASP.NET MVC 4.
 - [**Демонстрационная версия функции предложений**](https://azsearchsuggestions.codeplex.com/SourceControl/latest) — это приложение ASP.NET MVC 4.
 - [**Пример использования функции геопространственного поиска**](https://azuresearchgeospatial.codeplex.com/) — это приложение ASP.NET MVC 4.
-- [**Пример синхронизации SQL Server со службой "Поиск Azure"**](http://sqlserver2azuresearch.codeplex.com/) представляет собой консольное приложение Windows, которое загружает набор строк SQL Server из внедренной локальной базы данных.
-- [**Демонстрационная версия профилей повышения**](https://azuresearchscoringprofiles.codeplex.com/) представляет собой консольное приложение Windows, которое определяет, выполняет и обновляет профиль повышения для настройки результатов поиска.
+- [**Пример синхронизации SQL Server со службой "Поиск Azure"**](http://sqlserver2azuresearch.codeplex.com/) — это консольное приложение Windows, которое загружает набор строк SQL Server из внедренной локальной базы данных.
+- [**Демонстрационная версия профилей повышения**](https://azuresearchscoringprofiles.codeplex.com/) — это консольное приложение Windows, которое определяет, выполняет и обновляет профиль повышения для настройки результатов поиска.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

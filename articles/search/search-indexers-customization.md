@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Настройка индексатора поиска Azure" 
-	description="Узнайте, как настроить параметры и политики индексаторов поиска Azure." 
+	pageTitle="Настройка индексаторов Поиска Azure | Microsoft Azure" 
+	description="Узнайте, как настроить параметры и политики индексаторов в Поиске Azure, размещенной облачной службе поиска в Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
 	authors="chaosrealm" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/29/2015" 
+	ms.date="11/04/2015" 
 	ms.author="eugenesh"/>
 
 #Настройка индексатора поиска Azure
@@ -117,4 +117,4 @@
 Пока это так. Если у вас есть какие-либо мысли или предложения по содержимому в будущем, твитните нам с помощью хэш-тега #AzureSearch или отправьте свои идеи на нашу [страницу UserVoice](http://feedback.azure.com/forums/263029-azure-search).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

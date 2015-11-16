@@ -107,12 +107,13 @@ Azure AD Connect поддерживает управление доступом 
 Чтобы разрешить пользователю доступ на уровне *всех экземпляров служб* в Azure AD Connect Health, откройте главную колонку в Azure AD Connect Health.<br>
 [//]: # (RBAC\_MainBladeSS)
 #### Шаг 2. Добавление пользователей, групп и назначение ролей
-1. Щелкните элемент «Пользователи» в разделе «Настройка».<br> ![Контроль доступа на основе ролей для Azure AD Connect Health. Главная колонка](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
-[//]: # (RBAC\_MainBladeUserPart)
+1. Щелкните элемент «Пользователи» в разделе «Настройка».<br> 
+![Контроль доступа на основе ролей для Azure AD Connect Health. Главная колонка](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
 2. Выберите "Добавить".
-3. В качестве «Роли» выберите «Владелец»<br>. ![Контроль доступа на основе ролей для Azure AD Connect Health. Добавить пользователя](./media/active-directory-aadconnect-health/RBAC_add.png)
-[//]: # (RBAC\_AddRole)
-4. Введите имя или идентификатор целевого пользователя или целевой группы. Одновременно можно выбрать сразу несколько пользователей или групп. Нажмите «Выбрать». ![Контроль доступа на основе ролей для Azure AD Connect Health. Выбрать пользователя](./media/active-directory-aadconnect-health/RBAC_select_users.png)
+3. В качестве «Роли» выберите «Владелец»<br>. 
+![Контроль доступа на основе ролей для Azure AD Connect Health. Добавить пользователя](./media/active-directory-aadconnect-health/RBAC_add.png)
+4. Введите имя или идентификатор целевого пользователя или целевой группы. Одновременно можно выбрать сразу несколько пользователей или групп. Нажмите «Выбрать». 
+![Контроль доступа на основе ролей для Azure AD Connect Health. Выбрать пользователя](./media/active-directory-aadconnect-health/RBAC_select_users.png)
 5. Нажмите «ОК».<br>
 [//]: # (RBAC\_LastStep)
 6. После завершения назначения ролей пользователи и (или) группы отображаются в списке.<br> ![Контроль доступа на основе ролей для Azure AD Connect Health. Список пользователей](./media/active-directory-aadconnect-health/RBAC_user_list.png)
@@ -125,22 +126,24 @@ Azure AD Connect поддерживает управление доступом 
 
 #### Шаг 3. Общий доступ к расположению колонки для пользователей или групп
 1. После назначения разрешений пользователь может получить доступ к Azure AD Connect Health, перейдя по адресу [http://aka.ms/aadconnecthealth](http://aka.ms/aadconnecthealth).
-2. Перейдя к колонке, пользователь может закрепить ее или различные элементы на панели мониторинга, просто нажав кнопку «Закрепить на панели мониторинга».<br> ![Контроль доступа на основе ролей для Azure AD Connect Health. Закрепленная колонка](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
+2. Перейдя к колонке, пользователь может закрепить ее или различные элементы на панели мониторинга, просто нажав кнопку «Закрепить на панели мониторинга».<br> 
+![Контроль доступа на основе ролей для Azure AD Connect Health. Закрепленная колонка](./media/active-directory-aadconnect-health/RBAC_pin_blade.png)
 [//]: # (RBAC\_PinBlade)
 
 >[AZURE.NOTE]Пользователь с ролью "Читатель" не может выполнить операцию "create" для получения расширения Azure AD Connect Health из Azure Marketplace. Однако этот пользователь все равно может перейти к колонке, воспользовавшись приведенной выше ссылкой. Для дальнейшего использования колонки пользователь может закрепить ее на панели мониторинга.
 
 ### Удаление пользователей и (или) групп
-Вы можете удалить пользователя или группу, добавленных в компонент контроля доступа на основе ролей Azure AD Connect Health, щелкнув правой кнопкой мыши и выбрав команду удаления.<br> ![Контроль доступа на основе ролей для Azure AD Connect Health. Удалить пользователя](./media/active-directory-aadconnect-health/RBAC_remove.png)
-[//]: # (RBAC\_RemoveUser)
+Вы можете удалить пользователя или группу, добавленных в компонент контроля доступа на основе ролей Azure AD Connect Health, щелкнув правой кнопкой мыши и выбрав команду удаления.<br> 
+![Контроль доступа на основе ролей для Azure AD Connect Health. Удалить пользователя](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
 [//]: # "Конец раздела RBAC"
 
 ## Связанные ссылки
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Установка агента Azure AD Connect Health для AD FS](active-directory-aadconnect-health-agent-install-adfs.md)
+* [Установка агента Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Использование Azure AD Connect Health с AD FS](active-directory-aadconnect-health-adfs.md)
+* [Использование Azure AD Connect Health для синхронизации](active-directory-aadconnect-health-sync.md)
 * [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

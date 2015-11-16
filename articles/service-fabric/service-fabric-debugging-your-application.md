@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Отладка приложения Service Fabric в Visual Studio с помощью клавиши F5"
-   description="Повышение надежности и производительности служб с помощью Visual Studio и кластера локальной разработки."
+   pageTitle="Отладка приложения в Visual Studio | Microsoft Azure"
+   description="Повысьте надежность и производительность служб, разрабатывая их в Visual Studio и локальном кластере разработки."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2015"
+   ms.date="10/15/2015"
    ms.author="jesseb"/>
 
-# Отладка приложения Service Fabric в Visual Studio с помощью клавиши F5
+# Отладка приложения Service Fabric с помощью Visual Studio
 
 Вы можете сэкономить время и деньги, развернув приложение Service Fabric и выполнив его отладку в кластере для разработки, состоящем из локальных компьютеров. С помощью Visual Studio можно развернуть приложение в локальном кластере и автоматически подключить отладчик ко всем экземплярам приложения.
 
@@ -66,4 +66,4 @@
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

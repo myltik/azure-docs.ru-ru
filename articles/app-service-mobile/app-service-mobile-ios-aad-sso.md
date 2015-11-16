@@ -7,12 +7,12 @@
         manager="dwrede" />
 
 <tags ms.service="app-service-mobile"
-ms.workload="mobile"
-ms.tgt_pltfrm="mobile-ios"
-ms.devlang="objective-c"
-ms.topic="article"
-ms.date="09/14/2015"
-ms.author="mahender" />
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="09/14/2015"
+	ms.author="mahender" />
 
 # Добавление проверки подлинности Azure Active Directory в приложение iOS
 
@@ -121,7 +121,7 @@ ms.author="mahender" />
 [портале управления Azure]: https://manage.windowsazure.com/
 [Active Directory для iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 [библиотеку проверки подлинности Active Directory для iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
- [Начало работы с мобильными приложениями]: app-service-mobile-ios-get-started.md
- [Добавление проверки подлинности в приложение]: app-service-mobile-ios-get-started-users.md
+[Начало работы с мобильными приложениями]: app-service-mobile-ios-get-started.md
+[Добавление проверки подлинности в приложение]: app-service-mobile-ios-get-started-users.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

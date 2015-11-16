@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/13/2015"
+   ms.workload="data-management"
+   ms.date="10/21/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -96,7 +96,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 * [Шифрование на уровне ячейки](https://msdn.microsoft.com/library/ms179331.aspx) для шифрования определенных столбцов или даже ячеек данных с использованием разных ключей шифрования.
 * Если требуется аппаратный модуль безопасности или централизованное управление иерархии ключей шифрования, рассмотрите возможность использования [ хранилища ключей Azure с сервером SQL Server на виртуальной машине Azure](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx).
-
+* [Всегда зашифрованы](https://msdn.microsoft.com/library/mt163865.aspx) (в предварительной версии) делает шифрование прозрачным для приложений и позволяет клиентам шифровать конфиденциальные данные внутри клиентских приложений без совместного использования ключей шифрования с Базой данных SQL.
 
 ## Аудит
 
@@ -106,4 +106,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 Помимо обозначенных выше функций и возможностей, которые могут помочь обеспечить соответствие вашего приложения различным требованиям безопасности, в отношении Базы данных SQL Azure регулярно проводится аудит, а сама база данных сертифицирована в соответствии с рядом стандартов. Дополнительные сведения см. в [Центре управления безопасностью Microsoft Azure](http://azure.microsoft.com/support/trust-center/), где представлен актуальный список [сертификатов соответствия Базы данных SQL](http://azure.microsoft.com/support/trust-center/services/).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

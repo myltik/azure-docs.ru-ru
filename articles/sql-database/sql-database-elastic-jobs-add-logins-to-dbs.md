@@ -1,11 +1,10 @@
 <properties 
-	title="How to add a users to an elastic database pool" 
 	pageTitle="Добавление пользователей в эластичный пул баз данных." 
 	description="Необходимо добавить пользователя с правами доступа во все базы данных пула." 
 	metaKeywords="azure sql database elastic databases credentials" 
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
-	authors="sidneyh"/>
+	authors="ddove"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.date="11/03/2015" 
 	ms.author="ddove; sidneyh" />
 
 # Добавление пользователей в пул эластичных баз данных.
@@ -33,7 +32,7 @@
 
 		CREATE USER admin1 FROM LOGIN login1;
 		
-3. Пользователь должен иметь разрешения, достаточные для выполнения сценария, указанного для задания. Используйте процедуру **sp\_addrolemember**, чтобы предоставить пользователю необходимые разрешения для успешного выполнения сценария.
+3. Пользователь должен иметь разрешения, достаточные для выполнения сценария, указанного для задания. Используйте [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx), чтобы предоставить пользователю необходимые разрешения для успешного выполнения сценария.
 
 ## Дальнейшие действия
 
@@ -45,4 +44,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

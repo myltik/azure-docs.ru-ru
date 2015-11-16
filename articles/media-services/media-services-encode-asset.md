@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="10/29/2015"  
 	ms.author="juliako"/>
 
 #Обзор и сравнение кодировщиков мультимедиа Azure по запросу
@@ -166,6 +166,7 @@ AVI (без сжатия 8 бит/10 бит)|Да|Да |Да
 Формат файлов Smooth Streaming (PIFF 1.3)|Да|Да|Нет
 [Microsoft Digital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|Да|Нет|Нет
 Matroska/WebM |Да|Нет|Нет
+QuickTime (.mov) |Да|Нет|Нет
 
 ###Входные видеокодеки
 
@@ -181,6 +182,12 @@ Windows Media Video/VC-1 |Да|Да|Да
 Canopus HQ/HQX |Нет|Да|Нет
 MPEG-4, часть 2 |Да|Нет|Нет
 [Theora](https://en.wikipedia.org/wiki/Theora) |Да|Нет|Нет
+Apple ProRes 422 |Да|Нет|Нет
+Apple ProRes 422 LT |Да|Нет|Нет
+Apple ProRes 422 HQ |Да|Нет|Нет
+Apple ProRes Proxy|Да|Нет|Нет
+Apple ProRes 4444 |Да|Нет|Нет
+Apple ProRes 4444 XQ |Да|Нет|Нет
 
 ###Входные аудиокодеки
 
@@ -254,4 +261,4 @@ Windows Media Audio|Нет|Да|Да
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

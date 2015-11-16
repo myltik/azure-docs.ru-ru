@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Служба архивации Azure: восстановление виртуальной машины | Microsoft Azure"
+	pageTitle="Восстановление виртуальных машин из резервной копии | Microsoft Azure"
 	description="Сведения о восстановлении виртуальной машины Azure"
 	services="backup"
 	documentationCenter=""
@@ -8,9 +8,9 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2015" ms.author="trinadhk"; "jimpark"/>
 
-# Восстановление виртуальной машины Azure
+# Восстановление виртуальных машин в Azure
 С помощью операции восстановления можно восстановить виртуальную машину в новую ВМ из резервных копий, хранящихся в службе архивации Azure.
 
 ## Восстановление рабочего процесса
@@ -105,4 +105,4 @@
 - [Устранение ошибок](backup-azure-vms-troubleshoot.md#restore)
 - [Управление виртуальными машинами](backup-azure-manage-vms.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

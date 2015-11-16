@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="10/29/2015"
 	ms.author="jgao"/>
 
 
@@ -162,4 +162,4 @@ HDI 1.6|HDP 1.1|Нет|28\.10.2013|Нет|26\.04.2014|31\.05.2015
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

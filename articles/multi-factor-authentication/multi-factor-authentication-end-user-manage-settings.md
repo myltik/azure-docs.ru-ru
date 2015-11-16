@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Управление параметрами многофакторной проверки подлинности Azure" 
-	description="Этот документ предоставляет пользователям информацию о способах управления параметрами многофакторной проверки подлинности Azure." 
+	pageTitle="Проблемы с Azure Multi-Factor Authentication | Microsoft Azure" 
+	description="В этом документе пользователи найдут сведения о том, что следует предпринять в случае возникновения проблем с Azure Multi-Factor Authentication." 
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,19 +13,38 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/22/2015" 
+	ms.date="10/29/2015" 
 	ms.author="billmath"/>
 
 # Проблемы с Azure Multi-Factor Authentication
 Приведенные ниже сведения помогут решить некоторые распространенные проблемы.
 
 
-
+- [Ошибки идентификатора корреляции](#correlation-id-errors)
 - [Мой телефон потерялся или его украли](#i-have-lost-my-phone-or-it-was-stolen?)
 - [Я хочу изменить свой номер телефона](#i-want-to-change-my-phone-number)
 - [На мой телефон не пришел код](#i-am-not-receiving-a-code-on-my-phone)
 - [Пароли приложений не работают](#app-passwords-are-not-working)
 - [Как удалить Azure Authenticator со старого устройства и перенести на новое?](#how-do-i-clean-up-azure-authenticator-from-my-old-device-and-move-to-a-new-one)
+
+##Ошибки идентификатора корреляции
+Если вы уже пробовали выполнить действия по устранению неполадок и они по-прежнему сохраняются, вы можете разместить вопрос на [форумах Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD), [выполнить поиск в базе знаний Майкрософт](https://www.microsoft.com/ru-RU/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport) или [обратиться в службу поддержки](https://support.microsoft.com/ru-RU). Мы рассмотрим вашу проблему как можно быстрее.
+
+При обращении в службу поддержки рекомендуется указать следующие сведения.
+
+ - **Общее описание ошибки** — какое в точности сообщение об ошибке увидел пользователь? Если сообщения об ошибке не было, подробно опишите непредвиденное поведение, которое вы заметили.
+ - **Страница** — на какой странице вы находились, когда увидели ошибку (включая URL-адрес)?
+ - **ErrorCode** — выдаваемый код возникающей ошибки.
+ - **SessionId** — выдаваемый идентификатор сеанса.
+ - **Correlation ID** — код идентификатора корреляции, создаваемый при присмотре ошибки пользователем.
+ - **Timestamp** — точные дата и время, когда вы заметили ошибку (включая часовой пояс).
+ 
+![Идентификатор корреляции](./media/multi-factor-authentication-end-user-manage/correlation.png)
+
+ - **Идентификатор пользователя** — идентификатор пользователя, который увидел ошибку (например, user@contoso.com)?)
+ - **Сведения о пользователе** — был ли пользователь федеративным, с включенной синхронизацией хэшей паролей, или только облачным? Была ли назначена пользователю лицензия на Azure AD Premium, Enterprise Mobility или Azure AD Basic? Использует ли пользователь Office 365 и т. п.?
+
+Добавление этих сведений поможет нам устранить неполадку как можно быстрее.
 
 ## Мой телефон потерялся или его украли
 Если вы потеряли телефон или его у вас украли, рекомендуем попросить администратора сбросить ваши [пароли приложений](multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords) и очистить все [сохраненные устройства](multi-factor-authentication-manage-users-and-devices.md#restore-mfa-on-all-suspended-devices-for-a-user).
@@ -34,7 +53,7 @@
 
 Если указан дополнительный номер телефона для проверки подлинности, этот номер можно использовать для входа. ![Настройка](./media/multi-factor-authentication-end-user-manage/altphone.png) Обратите внимание, что на приведенном выше снимке экрана указано два номера телефона. Один заканчивается на 67, а второй — на 30.
   
-Чтобы войти с помощью дополнительного номера телефона, входите, как обычно, а затем просто выберите **Использовать другой вариант проверки**. ![Другой способ проверки](./media/multi-factor-authentication-end-user-manage/differentverification.png)
+Чтобы войти с помощью дополнительного номера телефона, входите, как обычно, а затем просто выберите **Используйте другой вариант проверки**. ![Другой способ проверки](./media/multi-factor-authentication-end-user-manage/differentverification.png)
 
 После этого выберите другой номер телефона. В этом случае следует выбрать **Позвонить мне по номеру + X XXXXXXXX30**
 
@@ -65,7 +84,7 @@
 1. Войдите на [портал Office 365](https://login.microsoftonline.com/).
 2. В правом верхнем углу выберите мини-приложение и щелкните "Параметры Office 365".
 3. Щелкните "Дополнительная проверка безопасности".
-4. Справа щелкните ссылку **Обновить мои телефонные номера, используемые для обеспечения безопасности учетной записи**.![O365](./media/multi-factor-authentication-end-user-manage/o365a.png)
+4. Справа щелкните ссылку **Обновить мои телефонные номера, используемые для обеспечения безопасности учетной записи**. ![O365](./media/multi-factor-authentication-end-user-manage/o365a.png)
 5. После этого вы перейдете на страницу, на которой можно изменить параметры. ![O365](./media/multi-factor-authentication-end-user-manage/o365b.png)
 
 
@@ -77,7 +96,7 @@
 
 1. Войдите на портал [https://myapps.microsoft.com](https://myapps.microsoft.com)	
 2. Вверху выберите профиль.
-3. Выберите «Дополнительная проверка безопасности». ![Myapps](./media/multi-factor-authentication-end-user-manage/myapps1.png)
+3. Выберите "Дополнительная проверка безопасности". ![Myapps](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 4. После этого вы перейдете на страницу, на которой можно изменить параметры.
 
 ![Подтверждение](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
@@ -91,7 +110,7 @@
 
 1. Войдите на портал Azure.
 2. В верхней части портала Azure щелкните свое имя пользователя. Появится окно раскрывающегося списка.
-3. В раскрывающемся списке выберите «Дополнительная проверка безопасности». ![Таблицы Azure](./media/multi-factor-authentication-end-user-manage/azure1.png)
+3. В раскрывающемся списке выберите "Дополнительная проверка безопасности". ![Таблицы Azure](./media/multi-factor-authentication-end-user-manage/azure1.png)
 4. После этого вы перейдете на страницу, на которой можно изменить параметры. ![Подтверждение](./media/multi-factor-authentication-end-user-manage-azure/proofup.png)
 
 ##На мой телефон не пришел код
@@ -120,4 +139,4 @@
 ##Как удалить Azure Authenticator со старого устройства и перенести на новое?
 При удалении приложения с устройства или сбросе его параметров активация на внутреннем сервере не удаляется. Выполните действия, описанные в разделе [Переход на новое устройство](multi-factor-authentication-azure-authenticator.md#how-to-move-to-the-new-azure-authenticator-app).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

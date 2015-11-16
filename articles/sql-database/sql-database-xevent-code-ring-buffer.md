@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Код файла событий XEvent для Базы данных SQL | Microsoft Azure" 
+	pageTitle="Код кольцевого буфера XEvent для Базы данных SQL | Microsoft Azure" 
 	description="Содержит пример кода Transact-SQL, обеспечивающего простоту и удобство использования целевого объекта ";Кольцевой буфер"; в Базе данных SQL Azure." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/22/2015" 
 	ms.author="genemi"/>
 
 
@@ -377,4 +377,4 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

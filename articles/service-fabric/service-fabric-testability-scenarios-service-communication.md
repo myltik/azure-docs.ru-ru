@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Сценарии Testability Service Fabric: взаимодействие между службами" 
+   pageTitle="Testability: взаимодействие между службами | Microsoft Azure" 
    description="Взаимодействие между службами — критически важная точка интеграции приложения Service Fabric. В этой статье обсуждаются вопросы разработки и методы тестирования." 
    services="service-fabric" 
    documentationCenter=".net" 
@@ -101,4 +101,4 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 [Дополнительные сведения о сценариях Testability](service-fabric-testability-scenarios.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

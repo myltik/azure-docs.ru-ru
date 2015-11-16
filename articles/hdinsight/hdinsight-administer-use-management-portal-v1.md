@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="11/04/2015"
 	ms.author="jgao"/>
 
 # Управление кластерами Hadoop в HDInsight с помощью портала Azure
@@ -150,11 +150,6 @@ HDInsight работает со множеством компонентов Hado
 6. В полях **ИМЯ ПОЛЬЗОВАТЕЛЯ** и **НОВЫЙ ПАРОЛЬ** введите новое имя пользователя и пароль (соответственно) для кластера.
 7. Щелкните **СОХРАНИТЬ**.
 
-Это также можно сделать с помощью командлетов Azure PowerShell.
-
-- Grant-AzureHDInsightHttpServicesAccess
-- Revoke-AzureHDInsightHttpServicesAccess
-
 См. раздел [Администрирование HDInsight с помощью Azure PowerShell](hdinsight-administer-use-powershell.md)
 
 ##Открытие командной строки Hadoop.
@@ -199,10 +194,8 @@ HDInsight работает со множеством компонентов Hado
 * [Начало работы с Azure HDInsight](../hdinsight-get-started.md)
 * [Какая версия Hadoop включена в Azure HDInsight?](hdinsight-component-versioning.md)
 
-[image-cluster-quickcreate]: ./media/hdinsight-administer-use-management-portal/HDI.QuickCreateCluster.png
-[image-cluster-landing]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterLanding.PNG "Целевая страница кластера"
-[image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png
-[image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Командная строка Hadoop"
-[image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
+[image-hdi-create-rpd-user]: ./media/hdinsight-administer-use-management-portal-v1/hdi.createrdpuser.png
+[image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal-v1/hdinsight-hadoop-command-line.png "Командная строка Hadoop"
+[image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal-v1/hdi.clustercreate.uploadcert.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

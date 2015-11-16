@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Обновление приложений структуры служб: параметры обновления"
-   description="В настоящей статье описываются различные параметры, связанные с обновлением приложения структуры служб."
+   pageTitle="Обновление приложений: параметры обновления | Microsoft Azure"
+   description="Описывает параметры, относящиеся к обновлению приложения Service Fabric, включая проверки работоспособности и политики для автоматической отмены обновления."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -77,4 +77,4 @@
 [Сериализация данных](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

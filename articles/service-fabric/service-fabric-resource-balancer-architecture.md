@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Архитектура балансировщика ресурсов"
+   pageTitle="Архитектура балансировщика ресурсов | Microsoft Azure"
    description="Обзор архитектуры балансировщика ресурсов Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -38,4 +38,4 @@
 [Image1]: media/service-fabric-resource-balancer-architecture/Service-Fabric-Resource-Balancer-Architecture.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

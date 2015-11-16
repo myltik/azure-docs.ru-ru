@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/06/2015"
+	ms.date="11/03/2015"
 	ms.author="sdanie"/>
 
 # Защита внутренней службы веб-API с помощью Azure Active Directory и управления API
@@ -547,4 +547,4 @@
 [Создание экземпляра службы управления API]: api-management-get-started.md#create-service-instance
 [Управление первым API]: api-management-get-started.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

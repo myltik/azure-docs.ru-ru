@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="11/03/2015"
    ms.author="mausher;barbkess"/>
 
 
@@ -23,6 +23,7 @@
 - [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
 - [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
+
 
 **[bcp][]** — это программа командной строки для массовой загрузки, которая позволяет копировать данные между SQL Server, файлами данных и хранилищем данных SQL. С помощью программы bcp можно выполнять импорт большого количества строк в таблицы хранилища данных SQL или экспорт данных из таблиц SQL Server в файлы данных. За исключением случаев использования с параметром queryout, для работы с программой bcp не требуется знание языка Transact-SQL.
 
@@ -34,7 +35,7 @@
 - Использовать простую программу командной строки для извлечения данных из хранилища данных SQL.
 
 В этом учебнике показано, как выполнять следующие действия.
- 
+
 - Импортировать данные в таблицу с помощью команды bcp in.
 - Экспортировать данные из таблицы с помощью команды bcp out.
 
@@ -64,14 +65,20 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I
 После подключения скопируйте следующий скрипт таблицы в командную строку sqlcmd и нажмите клавишу "ВВОД".
 
 ```
-CREATE TABLE DimDate2 (DateId INT NOT NULL, CalendarQuarter TINYINT NOT NULL, FiscalQuarter TINYINT NOT NULL);
-```
-
-В следующей строке введите признак конца пакетной службы GO и нажмите клавишу "ВВОД", чтобы выполнить инструкцию.
-
-```
+CREATE TABLE DimDate2 
+(
+    DateId INT NOT NULL,
+    CalendarQuarter TINYINT NOT NULL,
+    FiscalQuarter TINYINT NOT NULL
+)
+WITH 
+(
+    CLUSTERED COLUMNSTORE INDEX,
+    DISTRIBUTION = ROUND_ROBIN
+);
 GO
 ```
+>[AZURE.NOTE]В разделе [Проектирование таблиц][] из группы разделов по разработке приведены дополнительные сведения о параметрах, доступных для предложения WITH.
 
 ### Шаг 2. Создание файла источника данных
 
@@ -127,6 +134,19 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4\. |2
 20151201 |4\. |2
 
+### Шаг 4. Создание статистики для вновь загруженных данных 
+
+Хранилище данных SQL Azure пока не поддерживает автоматическое создание или автоматическое обновление статистики. Чтобы добиться максимально высокой производительности запросов, крайне важно сформировать статистические данные для всех столбцов всех таблиц после первой загрузки или после любых значительных изменений в данных. Подробные сведения о работе со статистикой см. в разделе [Статистика][] из группы разделов по разработке. Ниже приведен краткий пример создания статистики по табличным данным, загруженным в этом примере.
+
+Выполните следующие операторы CREATE STATISTICS из командной строки sqlcmd:
+
+```
+create statistics [DateId] on [DimDate2] ([DateId]);
+create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
+create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+GO
+```
+
 ## Экспорт данных из хранилища данных SQL
 Работая с этим учебником, вы создадите файл данных из таблицы, находящейся в хранилище данных SQL. Созданные данные будут экспортированы в новый файл данных DimDate2\_export.txt.
 
@@ -163,8 +183,11 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 
 <!--Article references-->
 
-[Загрузка данных в хранилище данных SQL]: ./sql-data-warehouse-overview-load/
-[Общие сведения о разработке для хранилища данных SQL]: ./sql-data-warehouse-overview-develop/
+[Загрузка данных в хранилище данных SQL]: ./sql-data-warehouse-overview-load.md
+[Общие сведения о разработке для хранилища данных SQL]: ./sql-data-warehouse-overview-develop.md
+[Проектирование таблиц]: ./sql-data-warehouse-develop-table-design.md
+[Статистика]: ./sql-data-warehouse-develop-statistics.md
+
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -173,4 +196,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 <!--Other Web references-->
 [Центре загрузки Майкрософт]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

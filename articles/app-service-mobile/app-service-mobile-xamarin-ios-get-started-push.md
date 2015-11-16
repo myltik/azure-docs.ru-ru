@@ -40,6 +40,10 @@
 
 * Изучение [краткого руководства](../app-service-mobile-xamarin-ios-get-started.md).
 
+##<a name="create-hub"></a>Создание концентратора уведомлений
+
+[AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+
 ## <a id="register"></a>Регистрация приложения для работы с push-уведомлениями
 
 [AZURE.INCLUDE [Включение push-уведомлений Apple](../../includes/enable-apple-push-notifications.md)]
@@ -75,7 +79,7 @@
             }
         }
 
-1. Добавьте следующий оператор `using` в верхнюю часть файла **AppDelegate.cs**:
+1. Добавьте следующий оператор `using` в верхнюю часть файла **AppDelegate.cs**.
 
         using Microsoft.WindowsAzure.MobileServices;
 
@@ -133,7 +137,7 @@
 	
 	> [AZURE.NOTE]Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
 
-2. В приложении введите задачу, а затем щелкните значок «Плюс» (**+**).
+2. В приложении введите задачу, а затем щелкните значок "плюс" (**+**).
 
 3. Убедитесь, что уведомление получено, а затем нажмите кнопку **ОК**, чтобы закрыть его.
 
@@ -154,4 +158,4 @@
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

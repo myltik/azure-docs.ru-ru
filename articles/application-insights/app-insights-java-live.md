@@ -40,7 +40,7 @@
 
 ## 2\. Скачивание пакета SDK
 
-1. Скачайте [пакет SDK Application Insights для Java](http://dl.windowsazure.com/applicationinsights/javabin/sdk.zip). 
+1. Загрузите [пакет SDK Application Insights для Java](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). 
 2. На сервере извлеките содержимое пакета SDK в каталог, из которого загружаются двоичные файлы проекта. В случае с Tomcat обычно это каталог `webapps<your_app_name>\WEB-INF\lib`.
 
 
@@ -139,4 +139,4 @@
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

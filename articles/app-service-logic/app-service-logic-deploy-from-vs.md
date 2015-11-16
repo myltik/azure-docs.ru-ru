@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/15/2015"
+	ms.date="10/29/2015"
 	ms.author="stepsic"/>
 	
 # Развертывание из Visual Studio
@@ -65,4 +65,4 @@
 
 Если вы не хотите использовать Visual Studio, но вам по-прежнему нужны средства для развертывания приложения логики из системы управления версиями, можно использовать [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) или [Powershell](../powershell-azure-resource-manager.md) для автоматизации развертываний напрямую.
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO2-->

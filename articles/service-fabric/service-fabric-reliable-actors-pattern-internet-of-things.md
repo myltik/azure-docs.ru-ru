@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Надежные субъекты для Интернета вещей"
-   description="Надежные субъекты Service Fabric являются ключевым стандартным блоком (в качестве среднего уровня) в системе, которая объединяет внешний интерфейс системы обмена сообщениями, поддерживающий множество средств транспорта, таких как HTTPS, MQTT или AMQP, затем взаимодействует с субъектами, представляющими отдельные устройства."
+   pageTitle="Reliable Actors для Интернета вещей | Microsoft Azure"
+   description="Субъекты Reliable Actors Service Fabric являются ключевым стандартным блоком в системе, которая объединяет внешний интерфейс системы обмена сообщениями, поддерживающий множество транспортов, таких как HTTPS, MQTT или AMQP, а затем взаимодействует с субъектами, представляющими отдельные устройства."
    services="service-fabric"
    documentationCenter=".net"
    authors="vturecek"
@@ -217,4 +217,4 @@ Sending an engineer to repair/replace devices in Richmond
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->

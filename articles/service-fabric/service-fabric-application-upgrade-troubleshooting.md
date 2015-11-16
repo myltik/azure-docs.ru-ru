@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Устранение неполадок приложения структуры службы"
+   pageTitle="Устранение неполадок с обновлением приложений | Microsoft Azure"
    description="В этой статье рассматриваются некоторые общие проблемы, связанные с обновлением приложений структуры служб, и способы их устранения."
    services="service-fabric"
    documentationCenter=".net"
@@ -225,4 +225,4 @@ PS D:\temp>
 [Сериализация данных](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="11/04/2015"
    ms.author="sahajs;barbkess"/>
 
 
@@ -24,7 +24,7 @@
 - [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
-В этом учебнике показано, как загружать данные в хранилище данных SQL Azure с помощью PolyBase.
+В этом учебнике показано, как загружать данные в хранилище данных SQL Azure с помощью PolyBase. Дополнительные сведения о PolyBase см. в [руководстве по работе с PolyBase в хранилище данных SQL][].
 
 
 ## Предварительные требования
@@ -72,10 +72,9 @@
 
 - [Создание главного ключа][]\: он требуется для шифрования учетных данных, позволяющих получить доступ к базе данных.
 - [Создание учетных данных для базы данных]\: они содержат сведения для проверки подлинности для учетной записи хранения Azure.
-- [Создание внешнего источника данных]\: позволяет указать расположение хранилища больших двоичных объектов Azure.
+- [Создание внешнего источника данных]\: позволяет указать расположение хранилища BLOB-объектов Azure.
 - [Создание формата внешних файлов]\: позволяет указать формат данных.
 - [Создание внешней таблицы]\: позволяет настроить ссылки на данные в хранилище Azure.
-
 
 
 ```
@@ -132,7 +131,7 @@ SELECT count(*) FROM dbo.DimDate2External;
 
 ## Шаг 4. Загрузка данных в хранилище данных SQL
 
-- Для загрузки данных в новую таблицу выполните оператор CREATE TABLE AS SELECT. Новая таблица наследует столбцы с именами, указанные в запросе. Таблица наследует типы данных столбцов из определения внешней таблицы. 
+- Для загрузки данных в новую таблицу выполните оператор [CREATE TABLE AS SELECT (Transact-SQL)][]. Новая таблица наследует столбцы с именами, указанные в запросе. Таблица наследует типы данных столбцов из определения внешней таблицы. 
 - Для загрузки данных в существующую таблицу используйте оператор INSERT...SELECT.  
 
 
@@ -144,21 +143,28 @@ CREATE TABLE dbo.DimDate2
 WITH 
 (   
     CLUSTERED COLUMNSTORE INDEX,
-		DISTRIBUTION = ROUND_ROBIN
+    DISTRIBUTION = ROUND_ROBIN
 )
 AS 
 SELECT * 
 FROM   [dbo].[DimDate2External];
 
 ```
-См. раздел [CREATE TABLE AS SELECT (Transact-SQL)][].
 
 
-Дополнительные сведения о PolyBase см. в [учебнике по работе с PolyBase в хранилище данных SQL][].
+## Шаг 5. Создание статистики для вновь загруженных данных 
 
+Хранилище данных SQL Azure пока не поддерживает автоматическое создание или автоматическое обновление статистики. Чтобы добиться максимально высокой производительности запросов, крайне важно сформировать статистические данные для всех столбцов всех таблиц после первой загрузки или после любых значительных изменений в данных. Подробные сведения о работе со статистикой см. в разделе [Статистика][] из группы разделов по разработке. Ниже приведен краткий пример создания статистики по табличным данным, загруженным в этом примере.
+
+
+```
+create statistics [DateId] on [DimDate2] ([DateId]);
+create statistics [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
+create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
+```
 
 <!--Article references-->
-[учебнике по работе с PolyBase в хранилище данных SQL]: sql-data-warehouse-load-with-polybase.md
+[руководстве по работе с PolyBase в хранилище данных SQL]: sql-data-warehouse-load-with-polybase.md
 
 
 <!-- External Links -->
@@ -172,4 +178,9 @@ FROM   [dbo].[DimDate2External];
 [Создание учетных данных для базы данных]: https://msdn.microsoft.com/ru-RU/library/mt270260.aspx
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 
-<!---HONumber=Nov15_HO1-->
+
+<!--Article references-->
+
+[Статистика]: ./sql-data-warehouse-develop-statistics.md
+
+<!---HONumber=Nov15_HO2-->

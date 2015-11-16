@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Заметки о выпуске Application Insights для Java" 
-	description="Последние обновления для пакета SDK Java." 
-	services="application-insights" 
+<properties
+	pageTitle="Заметки о выпуске Application Insights для Java"
+	description="Последние обновления для пакета SDK Java."
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/21/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/21/2015"
 	ms.author="awills"/>
- 
+
 # Заметки о выпуске пакета SDK Application Insights для Java
 
 [Пакет SDK Application Insights для Java](app-insights-java-get-started.md) отправляет сведения о телеметрии, относящиеся к работающему приложению, в службу [Application Insights](http://azure.microsoft.com/services/application-insights/), где вы можете проанализировать его использование и производительность.
@@ -22,7 +22,7 @@
 
 См. статью [Приступая к работе с пакетом SDK для Java](app-insights-java-get-started.md).
 
-#### Обновление до последнего пакета SDK 
+#### Обновление до последнего пакета SDK
 
 Выполнив обновление, снова объедините настройки, сделанные для файла ApplicationInsights.xml. Сделайте его копию, чтобы сравнить ее с новым файлом.
 
@@ -33,14 +33,15 @@
 
 *В противном случае*
 
-* Скачайте последнюю версию [библиотек Azure для Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) и замените старые библиотеки. 
- 
+* Скачайте последнюю версию [библиотек Azure для Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html) и замените старые библиотеки.
+
 Сравните старый и новый файлы ApplicationInsights.xml. Многие изменения, которые вы видите, обусловлены тем, что мы одни модули добавили, а другие удалили. Возобновите использование выполненных вами настроек.
 
 ## Версия 1.0.2
+- Запрет переопределения ключа инструментирования с использованием заданного в конфигурации, когда он явным образом предоставляется в коде.
+- Обработка всех успешных кодов состояния HTTP и сообщение об успешном выполнении соответствующих HTTP-запросов.
+- Обработка всех исключений, создаваемых ConfigurationFileLocator.
 
-- Совместимость с Docker
-- Устранение ошибок — перехват всех исключений, обработка всех кодов состояния успешного выполнения
 
 ## Версия 1.0.1
 - [Агент Java](app-insights-java-agent.md) поддерживает сбор сведений о зависимостях для следующих компонентов:
@@ -71,6 +72,5 @@
 - Поддержка сбора счетчиков производительности на 32-разрядных компьютерах Windows.
 - Поддержка отслеживания зависимостей вручную с помощью нового API метода ```trackDependency```.
 - Возможность отметить элемент телеметрии как искусственный, добавив свойство ```SyntheticSource``` к элементу отчета.
- 
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO2-->

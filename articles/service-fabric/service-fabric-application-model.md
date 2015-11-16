@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Модель приложения в структуре служб"
-   description="Моделирование приложения в структуре служб"
+   pageTitle="Модель приложений Service Fabric | Microsoft Azure"
+   description="Описание моделирования и описания приложений и служб в Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="alexwun"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/22/2015"
+   ms.date="11/02/2015"
    ms.author="alexwun"/>
 
 # Моделирование приложения в структуре службы
@@ -232,4 +232,4 @@ PS D:\temp>
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-deploy-remove-applications.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO2-->
