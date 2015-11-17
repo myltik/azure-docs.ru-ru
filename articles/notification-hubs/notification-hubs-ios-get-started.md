@@ -210,7 +210,7 @@
 		#import <CommonCrypto/CommonHMAC.h>
 		#import "HubInfo.h"
 
-5. Откройте файл ViewController.m и добавьте следующий код в раздел реализации интерфейса: Этот код будет анализировать строку подключения *DefaultFullSharedAccessSignature* Как уже говорилось в [справочнике по REST API](http://msdn.microsoft.com/library/azure/dn495627.aspx), проанализированная информация будет использоваться при создании маркера SAS для заголовка **запроса авторизации**.
+5. В файле ViewController.m добавьте следующий код в раздел реализации интерфейса: Этот код будет анализировать строку подключения *DefaultFullSharedAccessSignature* Как уже говорилось в [справочнике по REST API](http://msdn.microsoft.com/library/azure/dn495627.aspx), проанализированная информация будет использоваться при создании маркера SAS для заголовка **запроса авторизации**.
 
 		NSString *HubEndpoint;
 		NSString *HubSasKeyName;
@@ -493,7 +493,7 @@
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Azure portal]: https://manage.windowsazure.com/
+[портал Azure]: https://manage.windowsazure.com/
 [руководстве по использованию Центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
@@ -504,4 +504,4 @@
 
 [руководстве по программированию локальных и push-уведомлений]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

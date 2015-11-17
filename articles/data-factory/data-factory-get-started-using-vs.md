@@ -240,8 +240,4 @@
 
 Инструкции по использованию портала предварительной версии Azure для мониторинга конвейера и наборов данных, созданных с помощью этого руководства, см. в разделе [Мониторинг наборов данных и конвейера](data-factory-get-started-using-editor.md#MonitorDataSetsAndPipeline).
 
-
-## Отправить отзыв
-Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md).
-
-<!----HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

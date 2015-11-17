@@ -100,8 +100,6 @@
 - Щелкните ссылку [Использование Visual Studio](data-factory-get-started-using-vs.md) вверху, чтобы пройти учебник с помощью Visual Studio 2013.
  
 
-## Отправить отзыв
-Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started.md).
 
 <!--Link references-->
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -113,4 +111,4 @@
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database-get-started.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

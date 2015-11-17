@@ -38,7 +38,7 @@
 
 [Использование Azure PowerShell для создания и предварительной настройки виртуальных машин под управлением Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-[Создание виртуальной машины Windows и управление ею с помощью Azure PowerShell](virtual-machines-create-windows-powershell-service-manager.md)
+[Создание виртуальных машин Windows с использованием PowerShell и классической модели развертывания](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 [Создание настраиваемой виртуальной машины с помощью интерфейса командной строки Azure (Azure CLI)](virtual-machines-linux-create-custom.md)
 
@@ -152,4 +152,4 @@
 
 [Справочник по API-интерфейсу управления службами REST](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

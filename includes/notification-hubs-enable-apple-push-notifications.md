@@ -35,7 +35,7 @@
 
 2. Обновите для нового приложения следующие три поля и нажмите кнопку **Continue** (Продолжить).
 
-	* **Name**(Имя). В разделе **App ID Description** (Описание идентификатора приложения) в поле **Name** (Имя) введите описательное имя своего приложения.
+	* **Name** (Имя). В разделе **App ID Description** (Описание идентификатора приложения) в поле **Name** (Имя) введите описательное имя своего приложения.
 	
 	* **Bundle Identifier** (Идентификатор набора). В разделе **Explicit App ID** (Явный идентификатор приложения) введите в форму `<Organization Identifier>.<Product Name>` **идентификатор набора**, как упоминалось в [руководстве по распространению приложения](http://go.microsoft.com/fwlink/?LinkId=613485). Используемые значения *Organization Identifier* (Идентификатор организации) и *Product Name* (Имя продукта) должны соответствовать идентификатору организации и имени продукта, которые вы укажете при создании проекта XCode. На следующем снимке экрана *NotificationHubs* используется как идентификатор организации, а *GetStarted* — как имя продукта. Соответствие значениям, которые будут использоваться в проекте XCode, позволит вам использовать правильный профиль публикации в XCode.
 	
@@ -83,9 +83,9 @@
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
 
-    > [AZURE.NOTE]По умолчанию загруженный файл сертификата разработки называется **aps\_development.cer**.
+    > [AZURE.NOTE] По умолчанию загруженный файл сертификата разработки называется **aps_development.cer**.
 
-7. Дважды щелкните скачанный сертификат push-уведомлений **aps\_development.cer**.
+7. Дважды щелкните скачанный сертификат push-уведомлений **aps_development.cer**.
 
    	При этом новый сертификат устанавливается в Keychain, как показано ниже:
 
@@ -126,7 +126,7 @@
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
 
 
-6. Наконец, выберите имя профиля в поле **Profile Name** (Имя профиля), щелкните **Generate** (Создать) и нажмите кнопку **Done** (Готово).
+6. Наконец, выберите имя профиля в поле **Profile Name** (Имя профиля) и щелкните **Generate** (Создать).
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
@@ -135,4 +135,4 @@
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

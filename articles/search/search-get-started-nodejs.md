@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Начало работы со службой поиска Azure в NodeJS | Microsoft Azure"
+	pageTitle="Начало работы со службой поиска Azure в NodeJS | Microsoft Azure | Размещенная облачная служба поиска"
 	description="Пошаговое создание приложения поиска в облачной службе поиска Azure с использованием NodeJS в качестве языка программирования."
 	services="search"
 	documentationCenter=""
@@ -147,4 +147,4 @@
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

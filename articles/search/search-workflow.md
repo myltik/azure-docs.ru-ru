@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Типовая процедура разработки Поиска Azure | Microsoft Azure"
+	pageTitle="Типовая процедура разработки Поиска Azure | Microsoft Azure | Размещенная облачная служба поиска"
 	description="Процедура или схема создания прототипа и рабочих приложений, интегрируемых с облачной службой Поиск Azure."
 	services="search"
 	documentationCenter=""
@@ -190,4 +190,4 @@ API для операций поиска включают:
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

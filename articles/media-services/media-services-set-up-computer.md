@@ -28,8 +28,6 @@
 
 Используйте портал Azure, пакет SDK .NET или API REST для создания учетной записи служб мультимедиа Azure.
 
-
-
 <a id="setup_dev_env"></a>
 ## Настройка среды разработки  
 
@@ -45,11 +43,12 @@
 [AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
 
 
-##Дальнейшие действия: схемы обучения AMS
+##Дальнейшие действия: схемы обучения работе со службами мультимедиа Azure
 
-Схемы обучения AMS можно просмотреть здесь:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Отзывы
 
-<!---HONumber=Oct15_HO3-->
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

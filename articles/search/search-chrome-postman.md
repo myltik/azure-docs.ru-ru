@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Использование приложения Chrome Postman со службой ";Поиск Azure"; | Microsoft Azure"
+	pageTitle="Использование Chrome Postman со службой поиска Azure | Microsoft Azure | Размещенная облачная служба поиска"
 	description="Использование Chrome Postman с облачной службой Поиск Azure. Установка и настройка приложения Postman. Создание индекса Поиска Azure. Публикация документов в индексе и отправка запроса в индекс с помощью приложения Postman."
 	services="search"
 	documentationCenter=""
@@ -14,10 +14,16 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="11/10/2015"
 	ms.author="heidist"/>
 
 # Как использовать приложение Chrome Postman со службой "Поиск Azure" #
+> [AZURE.SELECTOR]
+- [Overview](search-query-overview.md)
+- [Fiddler](search-fiddler.md)
+- [Postman](search-chrome-postman.md)
+- [.NET](search-query-dotnet.md)
+- [REST](search-query-rest-api.md)
 
 [Postman](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm "Chrome Postman") — это приложение для браузера Google Chrome, которое позволяет разработчикам эффективно работать со службами на основе интерфейса API REST, такими как Поиск Azure. Приложение Postman отправляет вызовы API для быстрого создания и запроса индексов поиска без необходимости написания кода. С помощью этого средства вы сможете быстро изучить интерфейс API и опробовать новые компоненты.
 
@@ -25,7 +31,7 @@
 
 ## Требования ##
 
-Требуется служба "Поиск Azure". Как и с любым пользовательским приложением, использующим службу "Поиск Azure", для создания индекса вам потребуется URL-адрес службы, а также ключ API (`api-key`). Инструкции о том, как получить значения для службы поиска, приведены в [статье, посвященной созданию службы на портале](search-create-service-portal.md).
+Требуется служба "Поиск Azure". Как и с любым пользовательским приложением, использующим службу "Поиск Azure", для создания индекса вам потребуется URL-адрес службы, а также ключ API (`api-key`). Инструкции о том, как получить значения для службы поиска, приведены в [статье, посвященной созданию службы поиска на портале](search-create-service-portal.md).
 
 ## Установка приложения Postman ##
 Чтобы загрузить приложение Postman, посетите [интернет-магазин Google Chrome](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm). По ссылке на этой странице можно загрузить и установить клиент REST для приложения Postman. После установки это приложение можно запустить на панели запуска Chrome.
@@ -36,13 +42,13 @@
 Чтобы настроить приложение Postman, выполните приведенные ниже действия.
 
 1. Введите URL-адрес службы "Поиск Azure" в поле с надписью Enter request URL here (Введите URL-адрес запроса).  
-2. Добавьте следующий текст к URL-адресу: `?api-version=2015-02-28`. Также можно задать другую версию API. Более подробные сведения см. в статье [Управление версиями службы "Поиск Azure"](https://msdn.microsoft.com/library/azure/dn864560.aspx).
+2. Добавьте следующий текст к URL-адресу: `?api-version=2015-02-28`. Также можно задать другую версию API. Более подробные сведения см. в статье [Управление версиями службы поиска Azure](https://msdn.microsoft.com/library/azure/dn864560.aspx).
 3. Убедитесь, что выбран метод `GET`.
 4. Нажмите кнопку **Headers** (Заголовки).
 5. Введите значения для следующих параметров:
-	- `api-key`: [ключ администратора]
+	- `api-key`: [ключ администратора];
 	- `Content-Type`: `application/json; charset=utf-8`.
-6. Нажмите кнопку **Send** (Отправить), чтобы отправить вызов REST в службу "Поиск Azure" и отобразить ответ JSON.
+6. Нажмите кнопку **Send** (Отправить), чтобы отправить вызов REST в службу поиска Azure и отобразить ответ JSON.
 
 ![][3]
 
@@ -94,7 +100,7 @@
 
 1. Используя имя службы поиска, включите в URL-адрес следующие данные: `https://[SEARCH SERVICE].search.windows.net/indexes/trails/docs?api-version=2015-02-28&search=trail`. Обратите внимание, что URL-адрес включает параметр запроса `search` и условие поиска *trail* (маршрут).
 2. Измените тип запроса HTTP на `GET`.
-3. Нажмите кнопку **Send** (Отправить).
+3. Нажмите кнопку **Отправить**.
 
 В ответе отобразятся результаты поиска в формате JSON, возвращаемые службой "Поиск Azure".
 
@@ -118,4 +124,4 @@
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

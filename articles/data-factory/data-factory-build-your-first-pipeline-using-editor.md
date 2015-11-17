@@ -81,7 +81,7 @@
 	![Связанная служба хранения Azure](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
 	В редакторе отобразится сценарий JSON для создания связанной службы хранилища Azure. 
-4. Замените **account name** именем вашей учетной записи хранения Azure, а **account key** — ключом доступа к учетной записи хранения Azure. Сведения о получении ключа доступа к хранилищу см. в разделе [Просмотр, копирование и повторное создание ключей доступа к хранилищу](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys).
+4. Замените **account name** именем вашей учетной записи хранения Azure, а **account key** — ключом доступа к учетной записи хранения Azure. Сведения о получении ключа доступа к хранилищу см. в разделе [Просмотр, копирование и повторное создание ключей доступа к хранилищу](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 5. Чтобы развернуть эту службу, нажмите кнопку **Развернуть** на панели команд.
 
 	![Кнопка "Развернуть"](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
@@ -235,7 +235,4 @@
 В этой статье вы создали конвейер с действием преобразования (действие HDInsight), которое выполняет сценарий Hive в кластере HDInsight по требованию. Сведения о том, как копировать данные из хранилища больших двоичных объектов Azure в SQL Azure с помощью действия копирования, см. в разделе [Учебник. Копирование данных из хранилища больших двоичных объектов Azure в Azure SQL](./data-factory-get-started.md).
   
 
-## Отправить отзыв
-Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md).
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

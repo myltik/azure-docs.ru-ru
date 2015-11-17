@@ -383,8 +383,6 @@
  
 Чтобы выполнить задания этого учебника при помощи Azure PowerShell, см. раздел [Создание и отслеживание фабрики данных при помощи Azure PowerShell][monitor-manage-using-powershell].
 
-## Отправить отзыв
-Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-editor.md).
 
 <!--Link references-->
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
@@ -503,4 +501,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->
