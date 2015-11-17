@@ -83,9 +83,9 @@
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
 
-    > [AZURE.NOTE]По умолчанию загруженный файл сертификата разработки называется **aps\_development.cer**.
+    > [AZURE.NOTE] По умолчанию загруженный файл сертификата разработки называется **aps_development.cer**.
 
-7. Дважды щелкните скачанный сертификат push-уведомлений **aps\_development.cer**.
+7. Дважды щелкните скачанный сертификат push-уведомлений **aps_development.cer**.
 
    	При этом новый сертификат устанавливается в Keychain, как показано ниже:
 
