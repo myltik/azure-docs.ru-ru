@@ -106,15 +106,16 @@ Azure AD Connect поставляется с несколькими функци
 
 Если вы не работали ранее с топологией синхронизации, вам необходимо ознакомиться с основными сведениями и используемыми терминами, описанными в [технических концепциях](active-directory-aadconnectsync-technical-concepts.md). Azure AD Connect является следующим этапом развития MIIS2003, ILM2007 и FIM2010. Даже если некоторые элементы идентичны, многое также изменилось.
 
-Конфигурация предполагает, что в она может содержать несколько лесов. В таких топологиях объект пользователя может быть представлен как контакт в другом лесу. У пользователя также может быть связанный почтовый ящик в другом лесу ресурсов. Поведение конфигурации по умолчанию описано в разделе [пользователей и контактов](active-directory-aadconnectsync-understanding-users-and-contacts.md).
+[Конфигурация по умолчанию](active-directory-aadconnectsync-understanding-default-configuration.md) может включать несколько лесов. В таких топологиях объект пользователя может быть представлен как контакт в другом лесу. У пользователя также может быть связанный почтовый ящик в другом лесу ресурсов. Подробные сведения о поведении конфигурации по умолчанию см. в статье [Azure AD Connect Sync: общее представление о пользователях и контактах](active-directory-aadconnectsync-understanding-users-and-contacts.md).
 
-Модель конфигурации в синхронизации называется [декларативной подготовкой](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md). Потоки дополнительных атрибутов используют [функции](active-directory-aadconnectsync-functions-reference.md) для выражения преобразований атрибутов. Всю конфигурацию можно просмотреть и изучить с помощью средств, поставляемых вместе с Azure AD Connect. Если в конфигурацию необходимо внести изменения, убедитесь, что вы придерживаетесь [рекомендаций](active-directory-aadconnectsync-best-practices-changing-default-configuration.md), облегчающих переход на новые версии по мере их доступности.
+Модель конфигурации в синхронизации называется [декларативной подготовкой](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md). Потоки дополнительных атрибутов используются в [функциях](active-directory-aadconnectsync-functions-reference.md) для выражения преобразований атрибутов. Всю конфигурацию можно просмотреть и изучить с помощью средств, поставляемых вместе с Azure AD Connect. Если конфигурацию нужно изменить, убедитесь, что вы придерживаетесь [рекомендаций](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) по переходу на новые версии по мере их доступности.
 
 ### Следующие действия по настройке синхронизации Azure AD Connect
 
 | Раздел | |
 | --------- | --------- |
 | Технические концепции | [Синхронизация Azure AD Connect: технические концепции](active-directory-aadconnectsync-technical-concepts.md) |
+| Общие сведения о конфигурации по умолчанию | [Службы синхронизации Azure AD Connect: рекомендации по изменению конфигурации по умолчанию](active-directory-aadconnectsync-understanding-default-configuration.md) |
 | Общее представление о пользователях и контактах | [Синхронизация Azure AD Connect: общее представление о пользователях и контактах](active-directory-aadconnectsync-understanding-users-and-contacts.md) |
 | Декларативная подготовка | [Azure AD Connect Sync: общие сведения о выражениях декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
 | Справочник по функциям декларативной подготовки | [Синхронизация Azure AD Connect: справочник по функциям](active-directory-aadconnectsync-functions-reference.md) |
@@ -138,4 +139,4 @@ Azure AD Connect поставляется с несколькими функци
 
 [AZURE.VIDEO microsoft-ignite-2015-extending-on-premises-directories-to-the-cloud-made-easy-with-azure-active-directory-connect]
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

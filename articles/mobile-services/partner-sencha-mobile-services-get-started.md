@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="10/09/2015"
+	ms.date="11/06/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Начало работы с мобильными службами и Sencha Touch
@@ -41,7 +41,8 @@
 
 - Скачайте и установите [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="\_blank").
 
-- Среда выполнения Java (JRE) или набор разработки Java (при создании приложений Android)
+- Среда выполнения Java (JRE) или набор разработки Java (при создании приложений Android).
+- Пакет Ruby и SASS.
 
 ## <a name="create-new-service"> </a>Создание мобильной службы
 
@@ -94,7 +95,7 @@
 
 Расширения Azure можно добавить в приложение вручную, выполнив следующие действия:
 
-1. Загрузите пакет расширений Azure [здесь](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure). (Для доступа к этой области может потребоваться идентификатор Sencha Forums.)
+1. Загрузите пакет расширений Azure [здесь](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure). (Для доступа к этой области может потребоваться идентификатор Sencha Forums.)
 
 2. Скопируйте пакет расширений Azure из каталога загрузки в нужное место и распакуйте его:
 
@@ -111,7 +112,7 @@
 
 Все приложения, создаваемые программой командной строки Sencha Cmd, имеют в корне папку «packages». Расположение этой папки можно настроить, однако независимо от расположения папка "packages" используется в качестве хранилища всех пакетов, используемых приложением (или приложениями при создании рабочей области Sencha).
 
-Поскольку Ext.Azure является "пакетом" Sencha Cmd, исходный код можно легко установить и включить в приложение с помощью Sencha Cmd. (Дополнительные сведения см. в разделе [Пакеты Sencha Cmd](http://docs.sencha.com/cmd/3.1.2/#!/guide/command_packages).)
+Поскольку Ext.Azure является "пакетом" Sencha Cmd, исходный код можно легко установить и включить в приложение с помощью Sencha Cmd. (Дополнительные сведения см. в разделе [Пакеты Sencha Cmd](http://docs.sencha.com/cmd/6.x/cmd_packages/cmd_packages.html).)
 
 Чтобы загрузить и установить пакет расширений Azure из репозитория пакетов Sencha, необходимо добавить имя этого пакета в ваш файл **app.json** и выполнить построение приложения:
 
@@ -663,9 +664,9 @@
 
   2. С помощью Sencha Cmd выполните следующие команды:
 
-    * *sencha app refresh* : указывает Sencha Cmd найти все зависимости приложения и загрузить все необходимые пакеты (например, расширения [Sencha Touch для Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)).
+    * *sencha app refresh*: указывает Sencha Cmd найти все зависимости приложения и загрузить все необходимые пакеты (например, расширения [Sencha Touch для Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)).
 
-    * *sencha web start* : запускает локальный веб-сервер для тестирования приложения.
+    * *sencha web start*: запускает локальный веб-сервер для тестирования приложения.
 
     ![sencha web start](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
 
@@ -701,7 +702,7 @@
 ##Дополнительные ресурсы
 
   * [Скачать Sencha Touch](http://pages.sencha.com/touch-for-azure.html)
-  * [Расширения Sencha Touch для Azure](https://market.sencha.com/extensions/sencha-touch-extensions-for-windows-azure)
+  * [Расширения Sencha Touch для Azure](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)
 
 
 ##Сводка
@@ -716,4 +717,4 @@
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

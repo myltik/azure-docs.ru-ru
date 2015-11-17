@@ -50,7 +50,7 @@
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]Эта статья содержит команды для предварительной версии Azure PowerShell 1.0. Для запуска этих команд в Azure PowerShell 0.9.8 и более ранних версий замените **New-AzureRMResourceGroup** командой **New-AzureResourceGroup**, **New-AzureResourceGroupDeployment** — командой **New-AzureResourceGroupDeployment** и добавьте команду **Switch-AzureMode AzureResourceManager** перед командой **New-AzureResourceGroup**. Дополнительные сведения см. в статье [Предварительная версия Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE]Эта статья содержит команды для предварительной версии Azure PowerShell 1.0. Для запуска этих команд в Azure PowerShell 0.9.8 и более ранних версий замените **New-AzureRMResourceGroup** командой **New-AzureResourceGroup**, **New-AzureRMResourceGroupDeployment** — командой **New-AzureResourceGroupDeployment** и добавьте команду **Switch-AzureMode AzureResourceManager** перед командой **New-AzureResourceGroup**. Дополнительные сведения см. в статье [Предварительная версия Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
 Введите имя развертывания Azure, новое имя группы ресурсов и расположение центра обработки данных Azure в следующем наборе команд. Удалите все содержимое кавычек, включая символы < and >.
 
@@ -122,7 +122,7 @@
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]Эта статья содержит команды для предварительной версии Azure PowerShell 1.0. Для запуска этих команд в Azure PowerShell 0.9.8 и более ранних версий замените **New-AzureRMResourceGroup** командой **New-AzureResourceGroup**, **New-AzureResourceGroupDeployment** — командой **New-AzureResourceGroupDeployment** и добавьте команду **Switch-AzureMode AzureResourceManager** перед командой **New-AzureResourceGroup**. Дополнительные сведения см. в статье [Предварительная версия Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE]Эта статья содержит команды для предварительной версии Azure PowerShell 1.0. Для запуска этих команд в Azure PowerShell 0.9.8 и более ранних версий замените **New-AzureRMResourceGroup** командой **New-AzureResourceGroup**, **New-AzureRMResourceGroupDeployment** — командой **New-AzureResourceGroupDeployment** и добавьте команду **Switch-AzureMode AzureResourceManager** перед командой **New-AzureResourceGroup**. Дополнительные сведения см. в статье [Предварительная версия Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
 Введите имя развертывания Azure, новое имя группы ресурсов и расположение центра обработки данных Azure в следующем наборе команд. Удалите все содержимое кавычек, включая символы < and >.
 
@@ -186,4 +186,4 @@
 
 [Установка и настройка Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

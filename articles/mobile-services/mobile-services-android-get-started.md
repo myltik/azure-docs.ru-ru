@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/08/2015"
+	ms.date="11/05/2015"
 	ms.author="ricksal"/>
 
 # Начало работы с мобильными службами для Android (серверная часть JavaScript)
@@ -28,11 +28,13 @@
 
 > [AZURE.VIDEO mobile-get-started-android]
 
-Снимок экрана завершенного приложения приведен ниже: ![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
+Снимок экрана завершенного приложения приведен ниже:
+
+![](./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png)
 
 ## Предварительные требования
 
-Для прохождения этого учебника требуются [Средства разработчика Android](https://developer.android.com/sdk/index.html), которые включают интегрированную среду разработки Android Studio и новейшую платформу Android. Требуется Android 4.2 или более поздняя версия.
+Чтобы изучить это руководство, необходимы [средства разработчика Android](https://developer.android.com/sdk/index.html), которые включают в себя интегрированную среду разработки Android Studio и новейшую платформу Android. Требуется Android 4.2 или более поздняя версия.
 
 Загруженный проект быстрого запуска содержит пакет SDK мобильных служб Azure для платформы Android.
 
@@ -64,7 +66,7 @@
 4. Чтобы создать таблицу для хранения данных приложения, нажмите кнопку **Создание таблицы TodoItem**.
 
 
-5. Загрузите приложение, нажав кнопку **Загрузить**.
+5. Скачайте приложение, нажав кнопку **Скачать**.
 
 ## Запуск приложения для Android
 
@@ -93,4 +95,4 @@
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

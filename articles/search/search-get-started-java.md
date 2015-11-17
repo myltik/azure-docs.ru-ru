@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Начало работы с Поиском Azure в Java | Microsoft Azure"
+	pageTitle="Начало работы со службой поиска Azure в Java | Microsoft Azure | Размещенная облачная служба поиска"
 	description="Создание облачного приложения поиска в Azure с использованием Java в качестве языка программирования."
 	services="search"
 	documentationCenter=""
@@ -231,4 +231,4 @@
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

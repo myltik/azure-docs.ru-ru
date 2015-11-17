@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Узнайте, как использовать инструменты Hadoop для Visual Studio для HDInsight | Microsoft Azure"
 	description="Узнайте, как установить и использовать инструменты Hadoop для Visual Studio для HDInsight, чтобы подключиться к кластеру Hadoop и выполнить запрос Hive."
-	keywords="hadoop tools,hive query,visual studio"
+	keywords="средства hadoop, запрос hive, visual studio"
 	services="HDInsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -43,7 +43,7 @@
 
 ## Установка средств HDInsight для Visual Studio
 
-Средства HDInsight для Visual Studio и драйвер ODBC для Microsoft Hive входят в пакет Microsoft Azure SDK для .NET 2.5.1 и более поздней версии. Вы можете установить его с помощью [установщика веб-платформы](http://go.microsoft.com/fwlink/?LinkId=255386). Необходимо выбрать установщик, который соответствует вашей версии Visual Studio. Если на вашем компьютере не установлен пакет Visual Studio,то можно установить последние версии Visual Studio Community и пакета Azure SDK с помощью [установщика веб-платформы](http://go.microsoft.com/fwlink/?LinkId=255386) или указанных ниже ссылок.
+Средства HDInsight для Visual Studio и драйвер ODBC для Microsoft Hive входят в пакет Microsoft Azure SDK для .NET 2.5.1 и более поздней версии. Вы можете установить эти средства с помощью [установщика веб-платформы](http://go.microsoft.com/fwlink/?LinkId=255386). Необходимо выбрать установщик, который соответствует вашей версии Visual Studio. Если на вашем компьютере не установлен пакет Visual Studio, вы можете установить последние версии Visual Studio Community и пакета Azure SDK с помощью [установщика веб-платформы](http://go.microsoft.com/fwlink/?LinkId=255386) или указанных ниже ссылок.
 
 - [Visual Studio Community 2015 с пакетом Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2015CommunityAzurePack.appids) 
 - [Visual Studio Community 2013 с пакетом Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2013CommunityAzurePack.appids) 
@@ -180,15 +180,36 @@
 
 	![Инструменты Hadoop: просмотр заданий Hive с помощью инструментов HDInsight для Visual Studio][12]
 
+### Быстрый путь выполнения Hive с помощью HiveServer2
+
+>[AZURE.NOTE]Эта функция работает только с кластером HDInsight 3.2 и более поздних версий.
+
+Средства HDInsight используются для отправки заданий Hive через интерфейс WebHCat (также известный как Templeton). Возврат сведений о задании и сведений об ошибках занимает много времени. Чтобы решить эту проблему производительности, средства HDInsight выполняют задания Hive непосредственно в кластере через HiveServer2, что позволяет обходить RDP/SSH. Помимо повышения производительности пользователи также могут просматривать диаграммы выполнения задач Hive в Tez, а также сведения о задаче.
+
+При использовании кластера HDInsight 3.2 или более поздней версии будет отображена кнопка **Выполнить через HiveServer2**:
+
+![hdinsight, средства visual studio, выполнение через hiveserver2](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.execute.via.hiveserver2.png)
+
+Кроме того, вы можете просматривать журналы, отображаемые в режиме реального времени, а также диаграммы задания при выполнении запроса Hive в Tez.
+ 
+![hdinsight, средства visual studio, быстрый путь выполнения hive](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.fast.path.hive.execution.png)
+
+
 ### Диаграмма выполнения задания Tez Hive
 
-Средства Visual Studio HDInsight поддерживают отображение диаграмм производительности для заданий Hive, выполняемых механизмом выполнения Tez. Сведения о том, как включить Tez, см. в статье [Использование Hive в HDInsight][hdinsight.hive]. После отправки в Visual Studio задания Hive Visual Studio отобразит диаграмму по завершении задания. Может потребоваться нажать кнопку **Обновить**, чтобы получить последние сведения о состоянии задания.
+Средства Visual Studio HDInsight поддерживают отображение диаграмм производительности для заданий Hive, выполняемых механизмом выполнения Tez. Сведения о том, как включить Tez, см. в статье [Использование Hive в HDInsight][hdinsight.hive]. После отправки в Visual Studio задания Hive Visual Studio отобразит диаграмму по завершении задания. Чтобы получить последние сведения о состоянии задания, нажмите кнопку **Обновить**.
 
 > [AZURE.NOTE]Эта функция доступна только для кластера HDInsight версии выше 3.2.4.593 и может работать только для выполненных заданий. Она работает для кластеров на основе Windows и на основе Linux.
 
 ![Диаграмма производительности Tez для Hadoop Hive](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
 
 Функция просмотра операторов Hive добавлена в этот выпуск, что позволит упростить понимание запросов Hive. Чтобы увидеть все операторы для вершины графа, просто дважды щелкните вершину графа задания. Чтобы просмотреть подробную информацию о конкретном операторе, наведите на него указатель.
+
+### Представление выполнения задачи для заданий Hive в Tez
+
+Представление выполнения задачи для заданий Hive в Tez позволяет просматривать подробные и структурированные сведения о заданиях Hive. При наличии проблем с производительностью представление позволяет получить подробную информацию. Например, вы можете узнать, как обрабатывается каждая задача, а также получить подробные сведения о каждой задаче (чтение и запись данных, время запланированного запуска и завершения и т. д.). Эти наглядные сведения помогут вам изменить конфигурацию задания или архитектуру системы.
+
+![hdinsight, средства visual studio, представление выполнения задания](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png)
 
 ## Запуск сценариев Pig
 
@@ -237,4 +258,4 @@
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

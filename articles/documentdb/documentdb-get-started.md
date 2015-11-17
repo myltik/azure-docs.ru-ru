@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Базы данных NoSQL — приступая к работе с пакетом SDK для DocumentDB .NET | Microsoft Azure"
 	description="Узнайте, как создать базу данных и настроить учетную запись Azure DocumentDB. Создавайте базы данных, коллекции и храните документы JSON в учетной записи базы данных NoSQL."
-	keywords="Create a database, create database, nosql database, nosql databases, nuget, documentdb, azure, Microsoft azure"
+	keywords="Создание базы данных, создание базы данных, базы данных nosql, базы данных nosql, nuget, documentdb, azure, Microsoft azure"
 	services="documentdb"
 	documentationCenter=".net"
 	authors="AndrewHoh"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="09/16/2015"
+	ms.date="11/05/2015"
 	ms.author="anhoh"/>
 
 #Начало работы с DocumentDB .NET SDK  
@@ -45,7 +45,7 @@
 
 Убедитесь, что у вас есть указанные ниже компоненты.
 
-- Активная учетная запись Azure. Если у вас нет такой учетной записи, вы можете зарегистрироваться для использования [бесплатной пробной версии Azure](http://azure.microsoft.com/pricing/free-trial/).
+- Активная учетная запись Azure. Если у вас нет учетной записи, вы можете зарегистрироваться и получить [бесплатную пробную версию Azure](http://azure.microsoft.com/pricing/free-trial/).
 - [Visual Studio 2013 или Visual Studio 2015](http://www.visualstudio.com/).
 
 ## Этап 1: создание учетной записи DocumentDB
@@ -58,7 +58,7 @@
 
 1. Откройте **Visual Studio** у себя на компьютере.
 2. В меню **Файл** выберите пункт **Создать**, а затем — пункт **Проект**.
-3. В диалоговом окне **Создание проекта** последовательно выберите элементы **Шаблоны**, **Visual C#**, **Консольное приложение**, укажите имя проекта и нажмите кнопку **OK**.
+3. В диалоговом окне **Создание проекта** последовательно выберите элементы **Шаблоны**, **Visual C#**, **Консольное приложение**, а затем укажите имя проекта и нажмите кнопку **OK**.
 4. В **обозревателе решений** щелкните правой кнопкой мыши новое консольное приложение (оно находится в решении Visual Studio).
 5. Не выходя из меню, щелкните элемент **Управление пакетами NuGet**.
 6. На левой панели окна **Управление пакетами NuGet** последовательно щелкните элементы **В сети** / **nuget.org**.
@@ -76,6 +76,8 @@
     using Microsoft.Azure.Documents.Linq;
     using Newtonsoft.Json;
 
+> [AZURE.IMPORTANT]Чтобы выполнить это приложение, убедитесь, что вы добавили зависимости, как описано выше.
+
 Затем сохраните конечную точку учетной записи DocumentDB, а также первичный или вторичный ключ доступа, доступный на [портале предварительной версии Azure](https://portal.azure.com).
 
 ![Снимок экрана портала предварительной версии Azure, на котором показаны учетная запись DocumentDB с выделенным АКТИВНЫМ концентратором, выделенной кнопкой "Ключи" в колонке учетной записи DocumentDB и выделенными универсальным кодом ресурса, ПЕРВИЧНЫМ КЛЮЧОМ И ВТОРИЧНЫМ КЛЮЧОМ в колонке "Ключи".][keys]
@@ -83,7 +85,7 @@
     private const string EndpointUrl = "<your endpoint URI>";
     private const string AuthorizationKey = "<your key>";
 
-Мы запустим демонстрационное приложение «Начало работы», создав экземпляр **DocumentClient**. Создайте асинхронную задачу с именем **GetStartedDemo** и еще один экземпляр **DocumentClient**.
+Мы запустим ознакомительное демонстрационное приложение, создав экземпляр **DocumentClient**. Создайте асинхронную задачу с именем **GetStartedDemo** и еще один экземпляр **DocumentClient**.
 
 	private static async Task GetStartedDemo()
     {
@@ -478,4 +480,4 @@
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

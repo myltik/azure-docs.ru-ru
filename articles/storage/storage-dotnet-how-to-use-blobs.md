@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="10/16/2015"
+	ms.date="11/11/2015"
 	ms.author="tamram"/>
 
 
@@ -23,7 +23,7 @@
 
 ## Обзор
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранилища больших двоичных объектов Azure. Примеры написаны на C# и используют клиентскую библиотеку службы хранилища Azure для .NET. Здесь описаны такие сценарии, как **отправка**, **перечисление**,**загрузка** и **удаление** BLOB-объектов.
+В этом руководстве показано, как реализовать типичные сценарии с использованием службы хранилища больших двоичных объектов Azure. Примеры написаны на C# и используют клиентскую библиотеку службы хранилища Azure для .NET. Клиентская библиотека хранилища — это пакет SDK, который упрощает взаимодействие с интерфейсами REST API хранилища BLOB-объектов. Описанные в этом руководстве сценарии включают **отправку**, **перечисление**, **загрузку** и **удаление** больших двоичных объектов; их выполнение занимает около часа. Вводное видео см. на странице [Общие сведения о хранилище](https://azure.microsoft.com/ru-RU/documentation/videos/azure-storage-5-minute-overview/). Также вы можете ознакомиться руководством [Приступая к работе с хранилищем](https://azure.microsoft.com/ru-RU/documentation/articles/storage-getting-started-guide/).
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -338,7 +338,20 @@
 
 ## Дальнейшие действия
 
-Вы изучили основные сведения о хранилище BLOB-объектов. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам. <ul> <li>Подробную информацию о доступных интерфейсах API см. в справочной документации по службе BLOB-объектов: <ul> <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Справочник по клиентской библиотеке хранилища для .NET</a> </li> <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Справочник по REST API</a></li> </ul> </li> <li>Дополнительную информацию о более сложных задачах, которые можно выполнять в службе хранилища Azure, см. в разделе <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Хранение данных и получение доступа к ним в Azure</a>.</li> <li>Узнайте, как упростить код, предназначенный для работы со службой хранилища Azure, с помощью <a href="../websites-dotnet-webjobs-sdk/">пакета SDK для веб-заданий для Azure</li>. <li>Просмотрите дополнительные руководства, чтобы изучить дополнительные возможности хранения данных в Azure. <ul> <li>Использование <a href="/documentation/articles/storage-dotnet-how-to-use-tables/">табличного хранилища</a> для хранения структурированных данных.</li> <li>Использование <a href="/documentation/articles/storage-dotnet-how-to-use-queues/">хранилища очередей</a> для хранения неструктурированных данных.</li> <li>Использование <a href="/documentation/articles/sql-database-dotnet-how-to-use/">Базы данных SQL</a> для хранения реляционных данных.</li> </ul> </li> </ul>
+Теперь, когда вы ознакомились с основными сведениями о хранилище BLOB-объектов, используйте следующие ссылки для получения дополнительных сведений.
+
+### Справочная документация по хранилищу BLOB-объектов
+
+- [Справочник по клиентской библиотеке хранилища для .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+- [Справочник по REST API](http://msdn.microsoft.com/library/azure/dd179355)
+
+### Дополнительные руководства
+
+- [Приступая к работе с хранилищем таблиц для .NET](storage-dotnet-how-to-use-tables.md)
+- [Приступая к работе с хранилищем очередей для .NET](storage-dotnet-how-to-use-queues.md)
+- [Приступая к работе с хранилищем файлов для .NET](storage-dotnet-how-to-use-files.md)
+- [Использование базы данных SQL для хранения реляционных данных](../sql-database/articles/sql-database-dotnet-how-to-use.md)
+- [Использование хранилища больших двоичных объектов Azure с пакетом SDK веб-заданий](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
@@ -353,4 +366,4 @@
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

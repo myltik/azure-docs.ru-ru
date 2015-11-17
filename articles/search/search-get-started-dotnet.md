@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Начало работы с первым приложением Поиска Azure в .NET | Microsoft Azure"
+	pageTitle="Начало работы с первым приложением службы поиска Azure в .NET | Microsoft Azure | Размещенная облачная служба поиска"
 	description="Учебник по созданию решения Visual Studio с помощью клиентской библиотеки .NET из пакета SDK для Поиска Azure в .NET."
 	services="search"
 	documentationCenter=""
@@ -794,4 +794,4 @@
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

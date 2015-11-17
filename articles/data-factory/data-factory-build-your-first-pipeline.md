@@ -172,7 +172,4 @@
 - Щелкните ссылку [Использование PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) вверху, чтобы пройти учебник с помощью Azure PowerShell.
 - Щелкните ссылку [Использование Visual Studio](data-factory-build-your-first-pipeline-using-vs.md), чтобы изучить учебник с применением Visual Studio. 
 
-## Отправить отзыв
-Мы будем очень благодарны за ваш отзыв об этой статье. Потратьте несколько минут, чтобы отправить его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md).
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

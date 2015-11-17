@@ -7,9 +7,9 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="08/21/2015" ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="11/03/2015" ms.author="jimpark"; "aashishr"/>
 
-# Настройка службы архивации Azure для подготовки к резервному копированию Windows Server
+# Подготовка среды для резервного копирования виртуальных машин Azure
 
 В этой статье рассказывается о том, как включить службу архивации Azure. Чтобы создать резервную копию Windows Server или клиента Windows Client в Azure, вам потребуется учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 >[AZURE.NOTE]Ранее требовалось создать или получить сертификат X.509 v3 для регистрации сервера архивации. Сертификаты по-прежнему поддерживаются, но теперь, чтобы облегчить регистрацию хранилища Azure на сервере, можно создавать учетные данные хранилища прямо на странице "Быстрый запуск".
@@ -34,4 +34,4 @@
 - [Часто задаваемые вопросы о службе архивации Azure](backup-azure-backup-faq.md)
 - [Форум по службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->
