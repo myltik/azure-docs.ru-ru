@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Использование профилей повышения в службе Поиск Azure | Microsoft Azure" 
+	pageTitle="Использование профилей повышения в Поиске Azure | Microsoft Azure | Размещенная облачная служба поиска" 
 	description="Настройте ранжирование поиска с помощью профилей повышения в Поиске Azure, размещенной облачной службе поиска в Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -126,4 +126,4 @@
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

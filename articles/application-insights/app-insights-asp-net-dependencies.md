@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/05/2015" 
 	ms.author="awills"/>
 
 
@@ -44,7 +44,7 @@
 * Java:
  * вызовы к базе данных с помощью драйвера [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) (например, MySQL, SQL Server, PostgreSQL или SQLite).
 
-Можно написать собственные вызовы пакета SDK для отслеживания других зависимостей с помощью [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency).
+Можно написать собственные вызовы пакета SDK для отслеживания других зависимостей с помощью [API TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency).
 
 
 ## Настройка мониторинга зависимостей
@@ -103,7 +103,7 @@
 
 Чтобы оценить производительность запросов сервера:
 
-![На странице «Обзор» приложения в Application Insights щелкните плитку «Производительность».](./media/app-insights-asp-net-dependencies/01-performance.png)
+![На странице "Обзор" приложения в Application Insights щелкните плитку "Производительность".](./media/app-insights-asp-net-dependencies/01-performance.png)
 
 прокрутите вниз, чтобы увидеть сетку запросов.
 
@@ -202,4 +202,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -22,9 +22,7 @@
 ## События EventSource
 Именем EventSource для класса StatefulServiceBase надежных служб с отслеживанием состояния является Microsoft-ServiceFabric-Services. События из этого источника отображаются в окне [События диагностики](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) при [отладке службы в Visual Studio](service-fabric-debugging-your-application.md).
 
-Платформа Service Fabric также предоставляет возможность направлять эти события в [Application Insights](http://azure.microsoft.com/services/application-insights/). Дополнительные сведения см. в статье [Настройка Application Insights для Service Fabric](service-fabric-diagnostics-application-insights-setup.md).
-
-Также для сбора и просмотра событий EventSource можно использовать такие инструменты и технологии, как [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [система диагностики Microsoft Azure](../cloud-services-dotnet-diagnostics.md) и [библиотека Microsoft TraceEvent](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Для сбора и просмотра событий EventSource можно использовать такие инструменты и технологии, как [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [система диагностики Microsoft Azure](../cloud-services-dotnet-diagnostics.md) и [библиотека Microsoft TraceEvent](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## События
 
@@ -46,4 +44,4 @@
 
 Событие StatefulRunAsyncSlowCancellation генерируется всякий раз, когда выполнение запроса на отмену задачи RunAsync занимает больше 4 секунд. Если отмена занимает слишком много времени, служба не может быстро перезапуститься на другом узле. Кроме того, снижается ее общая доступность.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

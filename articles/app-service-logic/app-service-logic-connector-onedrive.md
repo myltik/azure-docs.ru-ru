@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Использование соединителя OneDrive в приложениях логики | Служба приложений Microsoft Azure"
 	description="Как создать и настроить соединитель OneDrive или приложение API и использовать его в приложении логики в службе приложений Azure"
-	authors="anuragdalmia"
+	authors="rajeshramabathiran"
 	manager="dwrede"
 	editor=""
 	services="app-service\logic"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+	ms.date="11/11/2015"
+	ms.author="rajram"/>
 
 # Приступая к работе с соединителем OneDrive: добавление в приложение логики
 Подключитесь к OneDrive, чтобы отправлять, скачивать и удалять файлы. Приложения логики могут запускаться на основе разных источников данных и предлагать соединители для получения и обработки данных в рамках потока. Соединитель OneDrive можно добавить в рабочий процесс компании и обрабатывать данные в рамках этого процесса в приложении логики.
@@ -97,4 +97,4 @@
 [созданию приложения логики]: app-service-logic-create-a-logic-app.md
 [Определение API OneDrive]: https://msdn.microsoft.com/library/dn974227.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

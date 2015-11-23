@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Управление службой поиска в Microsoft Azure | Microsoft Azure" 
+	pageTitle="Управление службой поиска в Microsoft Azure | Microsoft Azure | Размещенная облачная служба поиска" 
 	description="Управление Поиском Azure, размещенной облачной службой поиска в Microsoft Azure" 
 	services="search" 
 	documentationCenter="" 
@@ -193,4 +193,4 @@ Azure предоставляет глобальную модель автори�
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

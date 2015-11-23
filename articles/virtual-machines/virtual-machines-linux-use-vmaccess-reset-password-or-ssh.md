@@ -165,7 +165,7 @@
 
 > [AZURE.NOTE]В строках команд PowerShell, начинающихся с $, задаются переменные PowerShell, которые впоследствии используются в командах PowerShell.
 
-В случае создания виртуальной машины с помощью портала управления Azure выполните следующую дополнительную команду:
+Если вы создали виртуальную машину с помощью портала Azure, выполните следующую дополнительную команду.
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
@@ -266,4 +266,4 @@
 [Расширения и компоненты виртуальных машин Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Подключение к виртуальной машине Azure с помощью RDP или SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

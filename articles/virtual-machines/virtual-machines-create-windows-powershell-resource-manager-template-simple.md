@@ -98,10 +98,10 @@
 
 [Создание виртуальной машины Windows с помощью диспетчера ресурсов Azure и PowerShell](virtual-machines-create-windows-powershell-resource-manager.md)
 
-[Создание виртуальной машины Windows с помощью PowerShell и диспетчера служб Azure](virtual-machines-create-windows-powershell-service-manager.md)
+[Создание виртуальных машин Windows с использованием PowerShell и классической модели развертывания](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 [Документация по виртуальным машинам](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Установка и настройка Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

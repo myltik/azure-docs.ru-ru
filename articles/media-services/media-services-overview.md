@@ -210,6 +210,10 @@
 [Руководство по шаблонам и рекомендации](https://wamsg.codeplex.com/) [Электронная документация](https://msdn.microsoft.com/library/dn735912.aspx) [Загрузка электронной книги](https://www.microsoft.com/download/details.aspx?id=42629)
 
 
+##Отзывы
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 ##Соглашение об уровне обслуживания (SLA):
 
 - для кодирования с помощью служб мультимедиа мы гарантируем доступность транзакций через интерфейс REST API на уровне 99,9 %;
@@ -227,4 +231,4 @@
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

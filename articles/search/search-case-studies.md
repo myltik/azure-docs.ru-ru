@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Служба поиска Azure: примеры использования и истории клиентов"
+	pageTitle="Кто использует Поиск Azure: примеры использования и истории клиентов | Microsoft Azure | Размещенная облачная служба поиска"
 	description="Примеры использования и истории клиентов о Поиске Azure, размещенной облачной службы поиска в Microsoft Azure."
 	services="search"
 	documentationCenter=""
@@ -61,4 +61,4 @@ Medihoo — это стартап, разрабатывающий веб-сай
 [5]: ./media/search-case-studies/weichert_m.png
 [6]: ./media/search-case-studies/xomni_m.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

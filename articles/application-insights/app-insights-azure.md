@@ -26,7 +26,8 @@
 
 Какого рода у вас приложение?
 
-* [Azure Web App — веб-роли и рабочие роли](app-insights-cloudservices.md)
+* [Веб-приложение Azure](insights-perf-analytics.md)
+* [Приложение облачных служб Azure — рабочие и веб-роли](app-insights-cloudservices.md)
 * [Веб-приложение в службах IIS на виртуальной машине Azure](../insights-perf-analytics.md)
 * [Приложения за пределами Azure](app-insights-overview.md)
 
@@ -39,4 +40,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -196,15 +196,17 @@
 URL-адрес для приобретения лицензии Widevine|Должен использоваться при настройке политики доставки ресурсов-контейнеров для потоковой передачи DASH (см. [этот](media-services-axinom-integration.md#content-protection) раздел).
 Идентификатор ключа содержимого|Должен быть включен в значение утверждения сообщения об обслуживании маркера JWT (см. [этот](media-services-axinom-integration.md#jwt-token-generation) раздел). 
 
+
 ##Схемы обучения работе со службами мультимедиа
 
-Схемы обучения AMS можно просмотреть здесь:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Отзывы
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ###Благодарности 
 
 Мы выражаем признательность тем, кто помог нам в составлении этого документа — это Кристьян Йоджи (Kristjan Jõgi) из Axinom, Мингфей Ян (Mingfei Yan) и Амит Раджпут (Amit Rajput).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

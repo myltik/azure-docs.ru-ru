@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Создание определения индекса для многоязычного документа в службе поиска Azure | Microsoft Azure"
+   pageTitle="Создание индекса для многоязычных документов в Поиске Azure | Microsoft Azure | Размещенная облачная служба поиска"
    description="Служба поиска Azure поддерживает 56 языков — для этого используются языковые анализаторы Lucene и технология Майкрософт для обработки естественных языков."
    services="search"
    documentationCenter=""
@@ -16,9 +16,9 @@
    ms.date="10/19/2015"
    ms.author="jlembicz"/>
 
-# Создание определения индекса для многоязычного документа в службе поиска Azure
-
+# Создание индекса для многоязычных документов в Поиске Azure
 > [AZURE.SELECTOR]
+- [Portal](search-language-support.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
 - [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
 
@@ -74,4 +74,4 @@
 [2]: ./media/search-language-support/SelectAnalyzer.png
 [3]: ./media/search-language-support/IndexDefinition.png
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

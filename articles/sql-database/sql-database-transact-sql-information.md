@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="11/02/2015"
+   ms.date="11/09/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Сведения об инструкциях Transact-SQL Базы данных SQL Azure
@@ -29,7 +29,6 @@
 
 База данных SQL версии 12 поддерживает некоторые, но не все аргументы, которые существуют в соответствующих инструкциях SQL Server 2016 Transact-SQL. Например, инструкция CREATE PROCEDURE доступна, однако параметр WITH ENCRYPTION инструкции CREATE PROCEDURE недоступен. Подробные сведения о поддерживаемых параметрах каждой инструкции см. в разделах, посвященных синтаксису, на которые указаны ссылки.
 
-- Сборки CLR:[CREATE ASSEMBLY](https://msdn.microsoft.com/library/ms189524.aspx)
 - Базы данных: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
 - Для имеющихся функций обычно доступны динамические административные представления
 - Функции: [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)
@@ -96,4 +95,4 @@
 
 В некоторых случаях функция, рассматриваемая в разделе, может использоваться в продукте, однако поддерживаются не все аргументы. Например, пользователи автономной базы данных впервые были представлены в SQL Server 2012. Инструкцию **CREATE USER** можно использовать в любой версии SQL Server, однако синтаксис **WITH PASSWORD** не поддерживается в более ранних версиях. В этом случае в описания соответствующих аргументов в разделе вставляются примечания **Относится к**.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="11/03/2015" 
 	ms.author="juliako"/>
 
 #Общие сведения о защите содержимого
@@ -76,7 +76,7 @@
 
 Службы мультимедиа обеспечивают доставку лицензий PlayReady. Когда проигрыватель конечного пользователя (например, Silverlight) пытается воспроизвести содержимое, защищенное с помощью PlayReady, в службу доставки лицензий отправляется запрос на получение лицензии. Если служба лицензий утверждает запрос, она выдает лицензию, которая отправляется клиенту и может использоваться для расшифровки и воспроизведения указанного содержимого.
 
-Лицензии определяют права и ограничения, которые должны применяться в среде выполнения PlayReady DRM при попытке пользователя воспроизвести защищенное содержимое. Службы мультимедиа предоставляют интерфейсы API, которые позволяют настраивать лицензии PlayReady. Дополнительные сведения см. в статье [Обзор шаблона лицензий PlayReady для служб мультимедиа](https://msdn.microsoft.com/library/azure/dn783459.aspx).
+Лицензии определяют права и ограничения, которые должны применяться в среде выполнения PlayReady DRM при попытке пользователя воспроизвести защищенное содержимое. Службы мультимедиа предоставляют интерфейсы API, которые позволяют настраивать лицензии PlayReady. Дополнительную информацию см. в разделе [Обзор шаблона лицензий PlayReady для служб мультимедиа](media-services-playready-license-template-overview).
 
 ###Ограничение по маркеру
 
@@ -112,12 +112,15 @@ AMS позволяет также передавать MPEG DASH с шифров
 [Использование castLabs для доставки лицензий DRM для служб мультимедиа Azure](media-services-castlabs-integration.md)
 
 
+
 ##Схемы обучения работе со службами мультимедиа
 
-Схемы обучения AMS можно просмотреть здесь:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Отзывы
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ##Связанные ссылки
 
@@ -136,4 +139,4 @@ AMS позволяет также передавать MPEG DASH с шифров
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

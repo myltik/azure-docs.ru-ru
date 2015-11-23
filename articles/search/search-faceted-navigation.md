@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Как реализовать фасетную навигацию в службе Поиск Azure | Microsoft Azure" 
+	pageTitle="Как реализовать фасетную навигацию в Поиске Azure | Microsoft Azure | Размещенная облачная служба поиска" 
 	description="Добавьте фасетную навигацию в приложения, которые интегрируются с Поиском Azure, размещенной облачной службой поиска в Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -372,4 +372,4 @@
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

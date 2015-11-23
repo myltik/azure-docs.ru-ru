@@ -1263,10 +1263,10 @@
 	-a, --allocation-method <allocation-method>  способ выделения [статическое][динамическое].
 	-i, --idletimeout <idletimeout>              таймаут простоя в минутах.
 	-f, --reverse-fqdn <reverse-fqdn>            обратное полное доменное имя.
-	-t, --tags <tags>                            список тегов. Может быть несколько.
-	В формате "имя=значение".
+	-t, --tags <tags>                            список тегов.
+	Может быть несколько. В формате "имя=значение".
 	Имя является обязательным, а значение — необязательным.
-	Например,-t тег1=значение1;тег2
+	Например, -t тег1=значение1;тег2
 	-s, --subscription <subscription>            идентификатор подписки
 <br>
 
@@ -1759,4 +1759,4 @@
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!----HONumber=Nov15_HO1-->
+<!----HONumber=Nov15_HO3-->

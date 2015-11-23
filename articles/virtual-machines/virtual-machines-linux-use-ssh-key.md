@@ -46,26 +46,26 @@
 
 	- Для Mac посетите [веб-сайт безопасности продуктов Apple](https://support.apple.com/HT201222) и при необходимости установите нужные обновления.
 	- Для дистрибутивов Linux на базе Debian, таких как Ubuntu, Debian, Mint и пр.:
-		
+
 			sudo apt-get update ssh-keygen
 			sudo apt-get update openssl
-			
+
 	- Для дистрибутивов Linux на базе RPM, таких как CentOS и Oracle Linux:
-		
+
 			sudo yum update ssh-keygen
 			sudo yum update openssl
-			
+
 	- Для SLES и OpenSUSE:
-		
+
 			sudo zypper update ssh-keygen
 			sudo zypper update openssl
-	
+
 2. Используйте **ssh-keygen** для создания файлов 2048-разрядных открытых и закрытых ключей RSA, и, если у вас нет конкретного расположения или имен для файлов, оставьте значения по умолчанию: `~/.ssh/id_rsa`. Базовая команда выглядит так:
 
 		ssh-keygen -t rsa -b 2048 
-	
+
 	Обычно конкретная реализация **ssh-keygen** добавляет комментарий, часто это имя пользователя и имя узла. Вы можете указать особый комментарий с помощью параметра `-C`.
-	
+
 3. Создайте PEM-файл из своего файла `~/.ssh/id_rsa`, чтобы иметь возможность работать с классическим порталом. Выполните следующую команду **openssl**:
 
 		openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
@@ -125,7 +125,7 @@
 	data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 	data:    ContentVersion     : 1.0.0.0
 	data:    Name                   Type    Value
-	
+
 	data:    newStorageAccountName  String  testtestsshvmtemplate3
 	data:    adminUserName          String  ops
 	data:    sshKeyData             String  ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDAkek3P6V3EhmD+xP+iKDZco9 user@macbookpro
@@ -157,7 +157,7 @@
 	+ Configuring certificate
 	+ Creating VM
 	info:    vm create command OK
-	
+
 
 ## Подключение к виртуальной машине
 
@@ -166,11 +166,11 @@
 Типичное использование в развертывании с диспетчером ресурсов может выглядеть следующим образом (если вы указали просто дочерний домен и расположение развертывания):
 
 	ssh user@subdomain.westus.cloudapp.azure.com -p 22
-	
+
 При подключении к облачной службе в классическом развертывании используемый адрес может выглядеть следующим образом:
 
 	ssh user@subdomain.cloudapp.net -p 22
-	
+
 Поскольку адрес может быть разным — вы можете использовать IP-адрес или, возможно, у вас есть имя пользовательского домена — вам нужно узнать адрес виртуальной машины Azure.
 
 ### Определение SSH-адреса виртуальной машины Azure в классическом развертывании
@@ -266,27 +266,27 @@
 	Saving password to keychain failed
 	Identity added: /Users/rasquill/.ssh/id_rsa (/Users/rasquill/.ssh/id_rsa)
 	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
-	
+
 	* Documentation:  https://help.ubuntu.com/
-	
+
 	System information as of Sat Oct 10 20:53:08 UTC 2015
-	
+
 	System load: 0.52              Memory usage: 5%   Processes:       80
 	Usage of /:  45.3% of 1.94GB   Swap usage:   0%   Users logged in: 0
-	
+
 	Graph this data and manage this system at:
 		https://landscape.canonical.com/
-	
+
 	Get cloud support with Ubuntu Advantage Cloud Guest:
 		http://www.ubuntu.com/business/services/cloud
-	
+
 	0 packages can be updated.
 	0 updates are security updates.
-	
+
 	The programs included with the Ubuntu system are free software;
 	the exact distribution terms for each program are described in the
 	individual files in /usr/share/doc/*/copyright.
-	
+
 	Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 	applicable law.
 
@@ -295,7 +295,7 @@
 Можно ознакомиться с советами в статье [Устранение неполадок SSH-подключений](virtual-machines-troubleshoot-ssh-connections.md), которые могут помочь устранить проблему.
 
 ## Дальнейшие действия
-
+ 
 Теперь, когда вы подключились к виртуальной машине, обновите выбранный дистрибутив, перед тем как использовать его дальше.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

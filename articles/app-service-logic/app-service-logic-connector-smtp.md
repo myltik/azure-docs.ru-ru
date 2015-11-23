@@ -3,7 +3,7 @@
    description="Как создать и настроить соединитель SMTP или приложение API и использовать его в приложении логики в службе приложений Azure"
    services="app-service\logic"
    documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
+   authors="rajeshramabathiran"
    manager="dwrede"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/23/2015"
-   ms.author="andalmia"/>
+   ms.date="11/11/2015"
+   ms.author="rajram"/>
 
 
 # Приступая к работе с соединителем SMTP: добавление в приложение логики
@@ -61,7 +61,7 @@ None | Отправка электронной почты
 
 1.	Создайте новое приложение логики:
 ![][2]
-2.	Перейдите в раздел **Триггеры и действия**, чтобы открыть конструктор приложений логики и настроить рабочий процесс:
+2.	Откройте раздел **Триггеры и действия**, чтобы открыть конструктор приложений логики и настроить рабочий процесс:
 ![][3]
 3.	Соединитель SMTP отображается в разделе коллекции «Приложения API в этой группе ресурсов» с правой стороны. Выберите его:
 ![][4]
@@ -101,4 +101,4 @@ None | Отправка электронной почты
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

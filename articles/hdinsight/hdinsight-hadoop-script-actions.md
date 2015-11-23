@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="11/09/2015"
 	ms.author="jgao"/>
 
 # Разработка скриптов действия сценария для HDInsight
@@ -200,9 +200,9 @@ HDInsight предоставляет несколько скриптов для 
 
 В этом примере необходимо убедиться, что контейнер somecontainer в учетной записи хранения somestorageaccount является общедоступным. В противном случае сценарий выдаст исключение "Не найдено" и прекратит работу.
 
-### Передача параметров командлету Add-AzureHDInsightScriptAction
+### Передача параметров командлету Add-AzureRmHDInsightScriptAction
 
-Чтобы передать несколько параметров командлету Add-AzureHDInsightScriptAction, необходимо отформатировать строковое значение, которое содержит все параметры для скрипта. Например:
+Чтобы передать несколько параметров командлету Add-AzureRmHDInsightScriptAction, необходимо отформатировать строковое значение, которое содержит все параметры для скрипта. Например:
 
 	"-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
  
@@ -351,4 +351,4 @@ HDInsight предоставляет несколько скриптов для 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

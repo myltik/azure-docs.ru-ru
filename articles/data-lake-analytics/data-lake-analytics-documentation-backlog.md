@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/28/2015"
+   ms.date="11/05/2015"
    ms.author="mwinkle"/>
 
 # Список подготавливаемой документации по аналитике озера данных Azure
@@ -24,10 +24,10 @@
 
 Область |Раздел | Приоритет | Состояние | Кому назначено | Кем запрошено 
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
-U-SQL | Распределенный запрос | 1 | Выполняется | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Распределенный запрос | 1 | На удержании | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Обработка JSON | 2 | Ожидает | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
 служба | Взаимодействие с Curl | 3 |Ожидает |[@mumian](https://github.com/mumian)
-U-SQL | Таблицы с секциями |1 | Ожидает | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Таблицы с секциями |1 | Выполняется | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Настройка производительности | 2 | Ожидает | [@MikeRys](https://github.com/mikerys) | 
 U-SQL | Руководство по программированию | 2 | Ожидает | [@edmacauley](https://github.com/edmacauley) | 
 U-SQL | Начало работы с U-SQL при наличии опыта работы с T-SQL | 1 | Ожидает | [@edmacauley](https://github.com/edmacauley) | [@MikeRys](https://github.com/mikerys)
@@ -53,4 +53,4 @@ U-SQL | Синтаксические диаграммы грамматики | 1
 * Отправить запрос по внесению предложенных изменений в данных документ в [репозиторий содержимого Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md).
 * Отправить сообщение электронной почты по адресу [adlafeedback на сайте microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

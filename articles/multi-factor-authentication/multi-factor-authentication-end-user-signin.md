@@ -17,7 +17,8 @@
 	ms.author="billmath"/>
 
 # Варианты входа при помощи Azure Multi-Factor Authentication
-В документации, указанной на этой странице, описана типичная процедура входа в систему. В случае возникновения проблем со входом в систему см. раздел [Проблемы с Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
+> [AZURE.NOTE]В документации, указанной на этой странице, описана типичная процедура входа в систему. В случае возникновения проблем со входом в систему см. раздел [Проблемы с Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
+
 
 
 ## Каким будет ваш вариант входа
@@ -102,4 +103,4 @@
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -67,4 +67,12 @@
 	
 >[AZURE.NOTE]Если после выполнения этих действий воспроизвести поток по-прежнему не получается, отправьте запрос в службу поддержки с помощью портала управления Azure.
 
-<!---HONumber=Oct15_HO3-->
+##Схемы обучения работе со службами мультимедиа
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Отзывы
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

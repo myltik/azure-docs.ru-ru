@@ -60,7 +60,7 @@
 
 [пакетах SDK для Microsoft Azure IoT]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [Пакет SDK для устройств Azure IoT для C]: https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md
-[Пакет SDK для устройств Azure IoT для .NET]: https://github.com/Azure/azure-iot-sdks/blob/master/csharp/readme.md
+[Пакет SDK для устройств Azure IoT для .NET]: https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md
 [Пакет SDK для устройств Azure IoT для Java]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/readme.md
 [Пакет SDK для устройств Azure IoT для Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md
 [Пакет SDK для службы Azure IoT для Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/service/
@@ -73,4 +73,4 @@
 [Пакет SDK для устройств Microsoft Azure IoT для Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/index.html
 [REST для центра IoT]: https://msdn.microsoft.com/library/mt548492.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

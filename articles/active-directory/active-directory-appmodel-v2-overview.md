@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="11/06/2015"
 	ms.author="dastrock"/>
 
 # Предварительная версия модели приложений 2.0. Вход для пользователей учетных записей Майкрософт и Azure AD в одном приложении
@@ -57,4 +57,4 @@
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

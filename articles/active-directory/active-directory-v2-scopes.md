@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/10/2015"
 	ms.author="dastrock"/>
 
 # Предварительная версия модели приложений 2.0: области, разрешения и согласие на их предоставление
@@ -116,4 +116,4 @@ Content-Type: application/json
 
 Дополнительные сведения о том, как получать и использовать маркеры обновления, можно найти в [справочнике по протоколу модели приложений 2.0](active-directory-v2-protocols.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

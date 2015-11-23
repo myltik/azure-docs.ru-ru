@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Использование Поиска Azure в приложении .NET | Microsoft Azure"
-   description="Использование Поиска Azure в приложении .NET"
+   pageTitle="Использование Поиска Azure в приложении .NET | Microsoft Azure | Размещенная облачная служба поиска"
+   description="Использование службы поиска Azure в приложении .NET"
    services="search"
    documentationCenter=""
    authors="brjohnstmsft"
@@ -628,4 +628,4 @@ Hotel.cs:
     }
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -190,14 +190,14 @@
 - Вы можете остановить конечную точку потоковой передачи, если больше не собираетесь предоставлять доступ к архиву мероприятия в качестве потоковой передачи по требованию. Если канал остановлен, начисление платы не осуществляется.
 
 
-##Дальнейшие действия
+##Дальнейшие действия: схемы обучения работе со службами мультимедиа
 
-###Схемы обучения работе со службами мультимедиа
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-Схемы обучения AMS можно просмотреть здесь:
+##Отзывы
 
-- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 ### Не нашли ответа?
 
@@ -212,4 +212,4 @@
 
 <!-- Images -->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -20,7 +20,7 @@
 # Создание виртуальных машин Windows с использованием PowerShell и классической модели развертывания 
 
 > [AZURE.SELECTOR]
-- [Portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure Portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
 - [Powershell - Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 - [PowerShell - Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
@@ -146,8 +146,8 @@
 	$pubport=<port number of the external port>
 	$endpointname="<name of the endpoint>"
 	$lbsetname="<name of the existing load-balanced set>"
-	$probeprotocol="<Specify one: tcp, udp>"
-	$probeport=<TCP or UDP port number of probe traffic>
+	$probeprotocol="<Specify one: tcp, http>"
+	$probeport=<TCP or HTTP port number of probe traffic>
 	$probepath="<URL path for probe traffic>"
 	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
@@ -157,7 +157,7 @@
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-Короткое имя облачной службы — это то имя, которое отображается в списке облачных служб на портале управления Azure или в списке групп ресурсов на портале предварительной версии Azure.
+Короткое имя облачной службы — это то имя, которое отображается в списке облачных служб на портале Azure или в списке групп ресурсов на портале предварительной версии Azure.
 
 Вариант 2. Создайте виртуальную машину в существующей облачной службе и виртуальной сети.
 
@@ -174,7 +174,7 @@
 Если вы собираетесь снова создать эту или подобную виртуальную машину, можно предпринять следующее:
 
 - Сохраните этот набор команд как файл сценария PowerShell (PS1-файл).
-- Сохраните этот набор команд как Runbook службы автоматизации Azure в разделе **Автоматизация** портала управления Azure.
+- Сохраните этот набор команд как Runbook службы автоматизации Azure в разделе **Автоматизация** портала Azure.
 
 ## <a id="examples"></a>Примеры
 
@@ -265,4 +265,4 @@
 
 [Установка и настройка Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -370,4 +370,4 @@ cluster12
 
 * Рекомендации по Intel MPI см. в [документации для библиотеки Intel MPI](https://software.intel.com/ru-RU/articles/intel-mpi-library-documentation/).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

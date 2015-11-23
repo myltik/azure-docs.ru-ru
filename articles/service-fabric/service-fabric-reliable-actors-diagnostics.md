@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Диагностика и мониторинг производительности надежных субъектов"
-   description="В этой статье описаны функции диагностики и мониторинга производительности в среде выполнения надежных субъектов, в том числе генерируемые ей события и счетчики производительности."
+   pageTitle="Субъекты диагностики и мониторинга | Microsoft Azure"
+   description="В этой статье описаны функции диагностики и мониторинга производительности в среде выполнения надежных субъектов Service Fabric, в том числе генерируемые ею события и счетчики производительности."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,18 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="10/15/2015"
    ms.author="abhisram"/>
 
 # Диагностика и мониторинг производительности в модели надежных субъектов
 В среде выполнения надежных субъектов предусмотрены события [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) и [счетчики производительности](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx), содержащие полезную информацию о работоспособности среды выполнения и помогающие устранять неполадки и контролировать производительность.
 
 ## События EventSource
-Имя источника EventSource для среды выполнения надежных субъектов — Microsoft-ServiceFabric-Actors. События из этого источника отображаются в окне [События диагностики](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) при [отладке приложения субъекта в Visual Studio](service-fabric-debugging-your-application.md).
+Имя поставщика EventSource для среды выполнения надежных субъектов — "Microsoft-ServiceFabric-Actors". События из этого источника отображаются в окне [События диагностики](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) при [отладке приложения субъекта в Visual Studio](service-fabric-debugging-your-application.md).
 
-Платформа Service Fabric также предоставляет возможность направлять эти события в [Application Insights](http://azure.microsoft.com/services/application-insights/). Дополнительные сведения см. в статье [Настройка Application Insights для Service Fabric](service-fabric-diagnostics-application-insights-setup.md).
-
-Кроме того, для сбора и просмотра событий EventSource можно использовать такие инструменты и технологии, как [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [диагностика Azure](../cloud-services-dotnet-diagnostics.md), [семантическое ведение журналов](https://msdn.microsoft.com/library/dn774980.aspx) и [библиотеки Microsoft TraceEvent](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Для сбора и просмотра событий EventSource можно использовать такие инструменты и технологии, как [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [диагностика Azure](../cloud-services-dotnet-diagnostics.md), [семантическое ведение журналов](https://msdn.microsoft.com/library/dn774980.aspx) и [библиотеки Microsoft TraceEvent](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### Ключевые слова
 Все события EventSource надежных субъектов связаны с одним или несколькими ключевыми словами. Это позволяет фильтровать собранные события. Определены указанные ниже биты ключевых слов.
@@ -155,4 +153,4 @@
 |ActorActivated|5|Информация|0x1|Субъект активирован.|
 |ActorDeactivated|6|Информация|0x1|Субъект отключен.|
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

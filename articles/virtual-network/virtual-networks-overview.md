@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/14/2015"
+   ms.date="10/29/2015"
    ms.author="telmos" />
 
 # Обзор виртуальной сети
@@ -93,4 +93,4 @@
 - [Резервирование общедоступного IP-адреса](../virtual-networks-reserved-public-ip.md).
 - Узнайте больше об [определяемых пользователем маршрутах и IP-пересылке](virtual-networks-udr-overview.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

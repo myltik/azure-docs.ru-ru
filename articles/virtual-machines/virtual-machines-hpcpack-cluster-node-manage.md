@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -178,4 +178,4 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 
 * Если вам требуется способ автоматического увеличения или сжатия вычислительных ресурсов Azure в соответствии с текущей рабочей нагрузкой заданий и задач в кластере, см. раздел [Увеличение и сжатие вычислительных ресурсов Azure в кластере пакета HPC](virtual-machines-hpcpack-cluster-node-autogrowshrink.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

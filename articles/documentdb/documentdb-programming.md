@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="11/11/2015" 
 	ms.author="andrl"/>
 
 # Программирование DocumentDB на стороне сервера: хранимые процедуры, триггеры баз данных и определяемые пользователем функции
@@ -903,7 +903,7 @@ __.chain()
 
 ## Пример кода
 
-Дополнительные примеры кода, используемого на сервере (включая [upsert](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/bulkDelete.js) и [update](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/update.js)), см. в нашем [репозитории Github](https://github.com/Azure/azure-documentdb-js/tree/master/server-side/samples).
+Дополнительные примеры кода, используемого на сервере (включая [upsert](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) и [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)), см. в нашем [репозитории Github](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
 Хотите поделиться своей потрясающей хранимой процедурой? Отправьте нам запрос на получение.
 
@@ -921,4 +921,4 @@ __.chain()
 -	[Сервис-ориентированная архитектура баз данных](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Размещение среды выполнения .NET на Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -3,7 +3,7 @@
 	description="Описание того, что произошло с вашим проектом мобильных служб Azure в Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
 	ms.date="09/23/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Что происходит с моим проектом Javascript при добавлении мобильных служб Azure с помощью подключенных служб Visual Studio?
 
@@ -46,4 +46,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

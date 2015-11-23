@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/10/2015"
 	ms.author="dastrock"/>
 
 # Предварительная версия модели приложений 2.0: протоколы — OAuth 2.0 и OpenID Connect
@@ -475,4 +475,4 @@ error=access_denied
 
 На текущий момент предварительная версия модели приложений 2.0 не поддерживает этот поток. Увидеть, как он работает в общедоступной службе Azure AD, можно в [этом примере кода Azure AD](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

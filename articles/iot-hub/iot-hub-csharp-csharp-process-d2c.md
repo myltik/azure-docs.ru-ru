@@ -105,7 +105,7 @@
 [хранилище Azure]: https://azure.microsoft.com/ru-RU/documentation/services/storage/
 [служебной шине Azure]: https://azure.microsoft.com/ru-RU/documentation/services/service-bus/
 
-[Azure Preview Portal]: https://portal.azure.com/
+[Azure preview portal]: https://portal.azure.com/
 
 [Отправка сообщений с облака на устройства в центре IoT]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
@@ -120,4 +120,4 @@
 [Центр разработчика IoT Azure]: http://www.azure.com/develop/iot
 [Центре разработчика IoT в Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

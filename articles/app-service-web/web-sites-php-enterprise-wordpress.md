@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="08/03/2015"
+	ms.date="11/06/2015"
 	ms.author="tomfitz"/>
 
 #Сайт WordPress корпоративного класса в службе приложений Azure
@@ -28,7 +28,7 @@
 
     > [AZURE.NOTE]ClearDB предоставляет несколько конфигураций MySQL с разными характеристиками производительности для каждой конфигурации. Сведения о предложениях магазина Azure см. в [Магазине Azure][cdbnstore], предложения непосредственно из ClearDB см. в разделе [Цены ClearDB](http://www.cleardb.com/pricing.view).
 
-* **PHP 5.2.4 или более поздней версии** — служба приложений Azure в настоящее время предоставляет версии [PHP 5.3, 5.4 и 5.5][phpwebsite].
+* **PHP 5.2.4 или более поздней версии** — служба приложений Azure в настоящее время предоставляет версии [PHP 5.4, 5.5 и 5.6][phpwebsite].
 
 	> [AZURE.NOTE]Рекомендуется всегда выполнять запуск на последней версии PHP, чтобы гарантированно получить все исправления безопасности.
 
@@ -53,7 +53,7 @@
 
 ###Развертывание с хранилищем мультимедиа и кэшированием в нескольких регионах
 
-Если сайт принимает отправки или размещает файлы мультимедиа, используйте хранилище больших двоичных объектов Azure. Если необходимо кэширование, рассмотрите [Кэш Redis][rediscache], [Memcache Cloud](http://azure.microsoft.com/gallery/store/garantiadata/memcached/), [MemCachier](http://azure.microsoft.com/gallery/store/memcachier/memcachier/) или другое предложение кэша в [Магазине Azure](http://azure.microsoft.com/gallery/store/).
+Если сайт принимает отправки или размещает файлы мультимедиа, используйте хранилище больших двоичных объектов Azure. Если необходимо кэширование, рассмотрите [Кэш Redis][rediscache], [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) или другое предложение кэша в [Магазине Azure](http://azure.microsoft.com/gallery/store/).
 
 ![Веб-приложение Azure, размещенное в нескольких регионах с помощью маршрутизатора высокой доступности CDBR для MySQL, с управляемой службой кэша, хранилищем больших двоичных объектов и CDN][performance-diagram]
 
@@ -87,7 +87,7 @@
 Для этого... | Используйте это...
 ------------------------|-----------
 **Общая информация о возможностях экземпляра службы приложений** | [Информация о ценах, в том числе о возможностях уровней служб приложений][websitepricing]
-**Ресурсы кэша** | [Кэш Redis][rediscache], [Memcache Cloud](/gallery/store/garantiadata/memcached/), [MemCachier](/gallery/store/memcachier/memcachier/) или другое предложение кэширования в [Магазине Azure](/gallery/store/)
+**Ресурсы кэша** | [Кэш Redis][rediscache], [Memcache Cloud](https://azure.microsoft.com/marketplace/partners/garantiadata/memcached/), [MemCachier](https://azure.microsoft.com/marketplace/partners/memcachier/memcachier/) или другое предложение кэширования в [Магазине Azure](/gallery/store/)
 **Масштабирование приложения** | [Масштабирование веб-приложения в службе приложений Azure][websitescale] и [Маршрутизация высокой доступности ClearDB][cleardbscale]. Если вы решите разместить собственную установку MySQL и управлять ей, следует рассмотреть [MySQL Cluster CGE][cge]
 
 ####Миграция
@@ -249,10 +249,10 @@
 [sendgridplugin]: http://wordpress.org/plugins/sendgrid-email-delivery-simplified/
 [phpwebsite]: web-sites-php-configure.md
 [customdomain]: web-sites-custom-domain-name.md
-[trafficmanager]: /blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/
+[trafficmanager]: ../traffic-manager/traffic-manager-overview.md
 [backup]: web-sites-backup.md
 [restore]: web-sites-restore.md
-[rediscache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
+[rediscache]: https://azure.microsoft.com/documentation/services/redis-cache/
 [managedcache]: http://msdn.microsoft.com/library/azure/dn386122.aspx
 [websitescale]: web-sites-scale.md
 [managedcachescale]: http://msdn.microsoft.com/library/azure/dn386113.aspx
@@ -279,8 +279,8 @@
 [deploy]: web-sites-deploy.md
 [posh]: ../install-configure-powershell.md
 [Azure CLI]: ../xplat-cli-install.md
-[storesendgrid]: /gallery/store/sendgrid/sendgrid-azure/
+[storesendgrid]: https://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

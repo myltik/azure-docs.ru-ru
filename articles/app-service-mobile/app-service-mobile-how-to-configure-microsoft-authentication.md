@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.date="10/30/2015"
 	ms.author="mahender"/>
 
 # Настройка приложения для использования входа по учетной записи Майкрософт
@@ -72,4 +72,4 @@
 [портал управления Azure]: https://portal.azure.com/
 [портале управления Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Предварительная версия Azure AD B2C | Microsoft Azure"
+	pageTitle="Предварительная версия Azure AD B2C: использование API Graph | Microsoft Azure"
 	description="Как вызвать API Graph для клиента B2C, используя удостоверение приложения для автоматизации процесса."
 	services="active-directory-b2c"
 	documentationCenter=".net"
@@ -222,7 +222,7 @@ Content-Length: 338
 {
 	// These properties are all required for creating consumer users.
 	 
-	"accountEnabled": false,                    // always set to false
+	"accountEnabled": true,
 	"alternativeSignInNamesInfo": [             // controls what identifier the user uses to sign into their account
 		{
 			"type": "emailAddress",             // can be 'emailAddress' or 'userName'
@@ -349,4 +349,4 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 Если у вас есть вопросы или запросы о действиях, которые вы хотели бы выполнить с помощью API Graph для клиента B2C, обращайтесь! Оставьте комментарий к статье или отправьте заявку в репозиторий образцов кода GitHub.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

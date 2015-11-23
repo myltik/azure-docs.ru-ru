@@ -3,7 +3,7 @@
 	description="Сведения о том, что происходит после добавления службы хранилища Azure в проект ASP.NET с помощью подключенных служб Visual Studio"
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Что произошло с моим проектом ASP.NET (подключенными к службе хранилища Azure службами Visual Studio)?
 
@@ -40,4 +40,4 @@
 
 Дополнительные сведения см. в разделе [ASP.NET](http://www.asp.net).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

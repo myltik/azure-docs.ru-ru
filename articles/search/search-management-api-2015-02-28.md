@@ -1,4 +1,4 @@
-<properties pageTitle="API REST управления службы Поиск Azure: версия 2015-02-28 | Microsoft Azure" description="API REST управления службой поиска Azure: версия 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
+<properties pageTitle="REST API управления Поиска Azure, версия 2015-02-28 | Microsoft Azure | Размещенная облачная служба поиска" description="API REST управления службой поиска Azure: версия 2015-02-28" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
 <tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="11/04/2015" ms.author="heidist" />
 
@@ -810,6 +810,6 @@ API-ключи, особенно ключи администраторов, не
 
 ###Текст ответа###
 
-Нет.
+Отсутствует.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

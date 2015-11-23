@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager,azure-service-management"/>
+ tags="azure-resource-manager,azure-service-management,hpc-pack"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -22,8 +22,6 @@ ms.service="virtual-machines"
 
 
 Используйте преимущества пакета Microsoft HPC и служб вычислений и инфраструктуры Azure для создания кластера высокопроизводительных вычислений (HPC) и управления им. [Пакет HPC](https://technet.microsoft.com/library/jj899572.aspx) — это бесплатное решение Майкрософт для высокопроизводительных вычислений, созданное на основе технологий Microsoft Azure и Windows Server, которое поддерживает рабочие нагрузки HPC как в Windows, так и в Linux. Облачный кластер пакета HPC предоставляет администратору кластера или независимому поставщику ПО (ISV) гибкую, масштабируемую платформу для запуска приложений с большим количеством вычислений, сокращая инвестиции в инфраструктуру локального вычислительного кластера.
-
-<!-- Take advantage of automated tools for HPC Pack cluster deployment in Azure VMs, including an HPC Pack image that can be used with either Azure quickstart templates or Azure PowerShell scripts, or deploy your cluster manually in the Azure portal.-->
 
 
 ## Запуск кластера пакета HPC на виртуальных машинах Azure
@@ -95,4 +93,4 @@ ms.service="virtual-machines"
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

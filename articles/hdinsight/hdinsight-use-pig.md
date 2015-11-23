@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="11/06/2015"
    ms.author="larryfr"/>
 
 # Использование Pig с Hadoop в HDInsight
@@ -42,6 +42,8 @@ Pig Latin также поддерживает пользовательские �
 Дополнительные сведения о Pig Latin см. в [справочном руководстве по Pig Latin 1](http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html) и [справочном руководстве по Pig Latin 2](http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html).
 
 Примеры использования пользовательских функций в Hive см. в следующих документах:
+
+* [Использование DataFu с Pig в HDInsight](hdinsight-hadoop-use-pig-datafu-udf.md) — DataFu представляет собой коллекцию полезных определяемых пользователем функций, поддерживаемых Apache
 
 * [Использование Python с Pig и Hive в HDInsight](hdinsight-python.md)
 
@@ -144,4 +146,4 @@ HDInsight может запускать задания Pig Latin с помощь
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

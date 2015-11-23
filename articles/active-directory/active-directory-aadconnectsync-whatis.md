@@ -32,21 +32,17 @@
 - Обзор топологий и сценариев, которые поддерживаются в службах синхронизации Azure AD Connect, см. в разделе [Топологии Azure AD Connect](active-directory-aadconnect-topologies.md).
 - Если вы хотите узнать, как реализовать фильтр, см. статью [Настройка фильтров](active-directory-aadconnectsync-configure-filtering.md).
 - Если вы хотите получить дополнительные сведения о синхронизации паролей, см. статью [Реализация синхронизации паролей](active-directory-aadconnectsync-implement-password-synchronization.md).
+- Если вы хотите узнать о конфигурации по умолчанию в Azure AD Connect, см. статью [Общие сведения о конфигурации по умолчанию](active-directory-aadconnectsync-understanding-default-configuration.md).
 - Дополнительные сведения о пользователях и контактах в службах синхронизации Azure AD Connect см. в статье [Общее представление о пользователях и контактах](active-directory-aadconnectsync-understanding-users-and-contacts.md).
 - Сведения о том, как изменить конфигурацию по умолчанию, см. в статье [Рекомендации по изменению конфигурации по умолчанию](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
-- Больше о работе сервера синхронизации можно узнать в статье [Рабочие задачи и рекомендации](active-directory-aadconnectsync-operations.md)
-- Сведения об атрибутах, которые синхронизируются с Azure AD, см. в статье [Атрибуты, синхронизированные с Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md).
-- Больше о декларативной подготовке можно узнать в статье [Выражения декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+- Дополнительные сведения о работе сервера синхронизации можно получить в статье [Рабочие задачи и рекомендации](active-directory-aadconnectsync-operations.md)
+- Сведения об атрибутах, которые синхронизируются с Azure AD, можно получить в статье [Атрибуты, синхронизированные с Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md).
+- Дополнительные сведения о декларативной подготовке можно получить в статье [Выражения декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 - Ознакомиться с функциями декларативной подготовки можно в разделе [Справочник по функциям](active-directory-aadconnectsync-functions-reference.md)
-
-
 
 
 ## Дополнительные ресурсы
 
-* [Регистрация организации в Azure](sign-up-organization.md)
+* [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-
-<!--Image references-->
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->
