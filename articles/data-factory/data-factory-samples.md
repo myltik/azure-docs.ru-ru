@@ -54,9 +54,7 @@
 ## Примеры на GitHub
 В [репозитории GitHub Azure-DataFactory](https://github.com/azure/azure-datafactory) предлагается несколько примеров, которые помогут вам быстро приступить к работе со службой фабрики данных Azure или настроить сценарии для использования в собственном приложении. Папка Samples\\JSON содержит фрагменты JSON для распространенных сценариев.
 
-## Отправить отзыв
-Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-samples.md).
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

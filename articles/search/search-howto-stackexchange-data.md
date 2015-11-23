@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Как искать данные в StackExchange с помощью поиска Azure | Microsoft Azure"
+	pageTitle="Поиск данных StackExchange с помощью Поиска Azure | Microsoft Azure | Размещенная облачная служба поиска"
 	description="Узнайте, как выполнять поиски REST с помощью Поиска Azure, размещенной облачной службы поиска в Microsoft Azure."
 	services="search"
 	documentationCenter=""
@@ -109,4 +109,4 @@
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

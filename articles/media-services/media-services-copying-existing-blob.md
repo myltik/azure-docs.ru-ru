@@ -24,6 +24,10 @@
 
 >[AZURE.NOTE]Не следует пытаться изменить содержимое контейнеров больших двоичных объектов, созданных службами мультимедиа, без использования интерфейсов API служб мультимедиа.
 
+##Скачивание образца
+
+Скачать и запустить образец можно [по этой ссылке](http://azure.microsoft.com/documentation/samples/media-services-dotnet-copy-blob-into-asset/).
+
 ##Предварительные требования
 
 - Две учетные записи служб мультимедиа в новой или существующей подписке Azure. Дополнительные сведения см. в разделе [Создание учетной записи служб мультимедиа](media-services-create-account.md).
@@ -305,9 +309,10 @@
 
 ##Схемы обучения работе со службами мультимедиа
 
-Схемы обучения AMS можно просмотреть здесь:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Отзывы
 
-<!---HONumber=Oct15_HO3-->
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

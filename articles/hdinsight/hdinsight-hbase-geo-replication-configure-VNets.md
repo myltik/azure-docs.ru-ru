@@ -249,7 +249,7 @@
 
 
 
-[hdinsight-hbase-geo-replication-dns]: hdinsight-hbase-geo-replication-configure-DNS.md
+[hdinsight-hbase-geo-replication-dns]: hdinsight-hbase-geo-replication-configure-dns.md
 [hdinsight-hbase-geo-replication]: hdinsight-hbase-geo-replication.md
 
 
@@ -270,4 +270,4 @@
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

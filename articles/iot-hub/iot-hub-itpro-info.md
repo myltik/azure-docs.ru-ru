@@ -43,10 +43,10 @@
 
 - [Что такое центр IoT в Azure?][lnk-iothub]
 - В разделе [«Безопасность» в руководстве разработчика центра IoT в Azure][lnk-devguide] приводятся дополнительные сведения о маркерах и системе разрешений в центре IoT.
-- В статье [Управление центром IoT с помощью портала Azure][lnk-manage-portal] описано, как управлять центром IoT с помощью портала Azure.
+- В статье [Управление центром IoT с помощью портала предварительной версии Azure][lnk-manage-portal] описано, как управлять центром IoT с помощью портала предварительной версии Azure.
 
 [lnk-iothub]: iot-hub-what-is-iot-hub.md
 [lnk-devguide]: iot-hub-devguide.md#security
 [lnk-manage-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -60,7 +60,7 @@
     
 - U-SQL и разработка
     - [Начало работы с языком U-SQL в аналитике озера данных Azure](data-lake-analytics-u-sql-get-started.md)
-    - [Использование функций окна U-SQL для заданий аналитики озера данных Azure](data-lake-analytics-use-window-functions.md)
+    - [Использование оконных функций U-SQL для заданий в службе аналитики озера данных Azure](data-lake-analytics-use-window-functions.md)
     - [Разработка пользовательских операторов U-SQL для заданий аналитики озера данных](data-lake-analtyics-u-sql-develop-user-defined-operators.md)
     
 - управления
@@ -77,4 +77,4 @@
     - [Отправить запрос на функцию](http://aka.ms/adlafeedback)
     - [Получить помощь на форумах](http://aka.ms/adlaforums)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -3,7 +3,7 @@
 	description="Как начать использовать мобильные службы в проекте JavaScript в Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
 	ms.date="09/17/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Приступая к работе с мобильным приложением Javascript после добавления мобильных служб Azure с помощью подключенных служб Visual Studio
 
@@ -92,4 +92,4 @@
 
 [Дополнительные сведения о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -2350,4 +2350,4 @@ info:   vm shutdown command OK
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -1,9 +1,10 @@
 Ресурс|Ограничение по умолчанию|Максимальное ограничение
 ---|---|---
-Ядер на [подписку](http://msdn.microsoft.com/library/azure/hh531793.aspx)|20<sup>1</sup> для каждого региона|10 000 для каждого региона
-[Дополнительные администраторы](http://msdn.microsoft.com/library/azure/gg456328.aspx) на подписку|Без ограничений|Без ограничений
+Число ВМ на [подписку](billing-buy-sign-up-azure-subscription.md)|20<sup>1</sup> для каждого региона|10 000 для каждого региона
+[Дополнительные администраторы](billing-add-change-azure-subscription-administrator.md) на подписку|Без ограничений|Без ограничений
 [Учетные записи хранилища](storage-create-storage-account.md) на подписку|100|100<sup>2</sup>
 [Групп ресурсов](resource-group-overview.md) на подписку|800|800
+Число [наборов доступности](../virtual-machines/virtual-machines-manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) на подписку|2000 на регион|2000 на регион
 Операций чтения API диспетчера ресурсов|15 000 в час|15 000 в час
 Операций записи API диспетчера ресурсов|1200 в час|1200 в час
 Размер запроса API диспетчера ресурсов|4 194 304 байтов|4 194 304 байтов
@@ -16,4 +17,4 @@
 
 <sup>3</sup>Эти возможности больше не требуются для групп ресурсов Azure и диспетчера ресурсов Azure.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

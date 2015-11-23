@@ -3,7 +3,7 @@
 	description="Сведения о том, что происходит после подключения к учетной записи хранения Azure в проекте Visual Studio ASP.NET 5 с помощью подключенных служб Visual Studio"
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Что произошло с моим проектом ASP.NET 5 (подключенными к службе хранилища Azure службами Visual Studio)?
 
@@ -47,4 +47,4 @@
 
 Дополнительную информацию см. на веб-сайте, посвященном [ASP.NET 5](http://www.asp.net/vnext).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

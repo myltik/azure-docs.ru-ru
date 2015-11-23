@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Процедура настройки канала ExpressRoute | Microsoft Azure"
+   pageTitle="Процедура настройки канала ExpressRoute с помощью PowerShell | Microsoft Azure"
    description="В этой статье описана процедура создания и подготовки канала ExpressRoute, а также показано, как проверить состояние, обновить или удалить и отозвать канал."
    documentationCenter="na"
    services="expressroute"
@@ -13,25 +13,26 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/04/2015"
+   ms.date="11/05/2015"
    ms.author="cherylmc"/>
 
-# Создание и изменение канала ExpressRoute
+# Создание и изменение канала ExpressRoute с помощью PowerShell
 
 > [AZURE.SELECTOR]
-[PowerShell Classic](expressroute-howto-circuit-classic.md)
-[PowerShell Resource Manager](expressroute-howto-circuit-arm.md)
+[PowerShell - Classic](expressroute-howto-circuit-classic.md)
+[PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
 
 В этой статье описано, как создать канал ExpressRoute, используя командлеты PowerShell и классическую модель развертывания. Ниже описывается, как проверить состояние, обновить или удалить и отозвать канал ExpressRoute.
 
->[AZURE.IMPORTANT]Обратите внимание, что в настоящее время Azure поддерживает две модели развертывания: классическую и с диспетчером ресурсов. Перед началом настройки внимательно изучите модели и средства развертывания. Сведения о моделях развертывания можно найти в разделе [Модели развертывания Azure](../azure-classic-rm.md).
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
+
 
 ## Предварительные требования для настройки
 
 - Вам потребуется последняя версия модулей Azure PowerShell. Последнюю версию модуля PowerShell можно загрузить из раздела PowerShell на [странице загрузок Azure](http://azure.microsoft.com/downloads). Пошаговые инструкции по настройке компьютера для использования модулей Azure PowerShell приведены в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md). 
 - Не забудьте изучить страницы [Предварительные требования](expressroute-prerequisites.md) и [Рабочие процессы](expressroute-workflows.md), прежде чем приступить к настройке.
 
-## Создание и предоставление канала ExpressRoute
+## Создание и подготовка канала ExpressRoute
 
 1. **Импортируйте модуль PowerShell для ExpressRoute.**
 
@@ -161,7 +162,7 @@
 		
 		Status                           : Enabled
 
-	Параметр *ServiceProviderProvisioningState* сообщает сведения о текущем состоянии подготовки на стороне поставщика службы, а параметр Status — состояние на стороне Майкрософт. Для того чтобы канал ExpressRoute можно было использовать, он должен находиться в следующем состоянии.
+	Параметр *ServiceProviderProvisioningState* сообщает сведения о текущем состоянии подготовки на стороне поставщика службы, а параметр Status — состояние на стороне корпорации Майкрософт. Для того чтобы канал ExpressRoute можно было использовать, он должен находиться в следующем состоянии.
 
 		ServiceProviderProvisioningState : Provisioned
 		
@@ -196,7 +197,7 @@
 
 7. **Свяжите виртуальную сеть с каналом ExpressRoute.**
 
-	Теперь свяжите виртуальную сеть с каналом ExpressRoute. Пошаговые инструкции см. на странице [Связывание виртуальных сетей с каналами ExpressRoute](expressroute-howto-linkvnet-classic.md). Инструкции по созданию виртуальной сети для ExpressRoute см. в статье [Создание виртуальной сети для ExpressRoute](expressroute-howto-createvnet-classic.md).
+	Теперь свяжите виртуальную сеть с каналом ExpressRoute. Пошаговые инструкции см. на странице [Связывание каналов ExpressRoute с виртуальными сетями](expressroute-howto-linkvnet-classic.md). Инструкции по созданию виртуальной сети для ExpressRoute см. в статье [Создание виртуальной сети для ExpressRoute](expressroute-howto-createvnet-classic.md).
 
 ##  Получение состояния канала ExpressRoute
 
@@ -328,4 +329,4 @@
 - [Настройка маршрутизации](expressroute-howto-routing-classic.md)
 - [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

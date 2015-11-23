@@ -1251,24 +1251,7 @@
 	info:    network public-ip create command OK
 
 
-Параметры:
-	-h, --help                                   вывод сведений об использовании.
-	-v, --verbose                                использование подробного вывода.
-	--json                                       использование формата JSON для вывода.
-	-g, --resource-group <resource-group>        имя группы ресурсов.
-	-n, --name <name>                            имя общедоступного IP-адреса.
-	-l, --location <location>                    расположение.
-	-d, --domain-name-label <domain-name-label>  метка имени домена.
-	Задает в качестве DNS адрес <domain-name-label>.<location>.cloudapp.azure.com.
-	-a, --allocation-method <allocation-method>  способ выделения [статическое][динамическое].
-	-i, --idletimeout <idletimeout>              таймаут простоя в минутах.
-	-f, --reverse-fqdn <reverse-fqdn>            обратное полное доменное имя.
-	-t, --tags <tags>                            список тегов. Может быть несколько.
-	В формате "имя=значение".
-	Имя является обязательным, а значение — необязательным.
-	Например,-t тег1=значение1;тег2
-	-s, --subscription <subscription>            идентификатор подписки
-<br>
+Параметры: -h, --help — вывод сведений об использовании. -v, --verbose — использование подробного вывода. --json — использование формата JSON для вывода. -g, --resource-group <resource-group> — имя группы ресурсов. -n, --name <name> — имя общедоступного IP-адреса. -l, --location <location> — расположение. -d, --domain-name-label <domain-name-label> — метка имени домена. Задает в качестве DNS адрес <domain-name-label>.<location>.cloudapp.azure.com. -a, --allocation-method <allocation-method> — способ выделения [статическое][динамическое]. -i, --idletimeout <idletimeout> — таймаут простоя в минутах. -f, --reverse-fqdn <reverse-fqdn> — обратное полное доменное имя. -t, --tags <tags> — список тегов. Может быть несколько. В формате "имя=значение". Имя является обязательным, а значение — необязательным. Например, -t тег1=значение1;тег2 -s, --subscription <subscription> идентификатор подписки <br>
 
 	network public-ip set [options] <resource-group> <name>
 Обновляет свойства существующего ресурса с общедоступным IP-адресом. В следующем примере изменен общедоступный IP-адрес с динамического на статический.
@@ -1759,4 +1742,4 @@
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Обзор последнего обновления службы поиска Azure | Microsoft Azure" 
+	pageTitle="Обзор последнего обновления Поиска Azure | Microsoft Azure | Размещенная облачная служба поиска" 
 	description="Примечания к выпуску с описанием последних обновлений службы поиска Azure" 
 	services="search" 
 	documentationCenter="" 
@@ -125,4 +125,4 @@
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

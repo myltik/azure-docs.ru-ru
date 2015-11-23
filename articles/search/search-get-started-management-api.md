@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Начало работы с API REST управления Поиска Azure | Microsoft Azure" 
+	pageTitle="Начало работы с REST API управления Поиском Azure | Microsoft Azure | Размещенная облачная служба поиска" 
 	description="Администрирование размещенной облачной службы Поиск Azure с помощью API REST управления" 
 	services="search" 
 	documentationCenter="" 
@@ -204,4 +204,4 @@ Azure Search management REST API является программной аль�
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

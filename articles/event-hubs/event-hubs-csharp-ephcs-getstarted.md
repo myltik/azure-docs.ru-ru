@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с концентраторами событий"
+	pageTitle="Приступая к работе с концентраторами событий в C# | Microsoft Azure"
 	description="Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure в C# с помощью EventProcessorHost."
 	services="event-hubs"
 	documentationCenter=""
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="event-hubs"
-	ms.workload="core"
-	ms.tgt_pltfrm="csharp"
-	ms.devlang="csharp"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/05/2015"
 	ms.author="sethm"/>
 
 # Приступая к работе с концентраторами событий
@@ -34,7 +34,7 @@
 
 ## Создание концентратора событий
 
-1. Войдите на [портал управления Azure] и щелкните элемент **СОЗДАТЬ** в нижней части экрана.
+1. Войдите на [портал Azure] и нажмите кнопку **СОЗДАТЬ** в нижней части экрана.
 
 2. Последовательно щелкните **Службы приложений**, **Служебная шина**, **Концентратор событий** и **Быстрое создание**.
 
@@ -83,10 +83,10 @@
 
 Теперь, когда вы создали рабочее приложение, которое создает концентратор событий и отправляет и получает данные, можно перейти к следующим сценариям:
 
-- Полный [пример приложения, использующего концентраторы событий].
-- Пример [развертывания обработки событий при помощи концентраторов событий].
-- [Решение для обмена сообщениями в очереди] при помощи очередей служебной шины.
-- [Обзор концентраторов событий]
+- Полный [пример приложения, использующего концентраторы событий][].
+- Пример [развертывания обработки событий при помощи концентраторов событий][].
+- [Решение для обмена сообщениями в очереди][] при помощи очередей служебной шины.
+- [Обзор концентраторов событий][]
 
 <!-- Images. -->
 [1]: ./media/event-hubs-csharp-ephcs-getstarted/create-event-hub1.png
@@ -100,12 +100,12 @@
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[портал управления Azure]: https://manage.windowsazure.com/
+[портал Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Обзор концентраторов событий]: event-hubs-overview.md
-[пример приложения, использующего концентраторы событий]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
-[развертывания обработки событий при помощи концентраторов событий]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[пример приложения, использующего концентраторы событий]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[развертывания обработки событий при помощи концентраторов событий]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [Решение для обмена сообщениями в очереди]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -20,7 +20,7 @@
 Благодаря возможностям мониторинга состояния, а также выявления, диагностики и устранения неполадок службы могут работать практически без перерывов. Дополнительные сведения см. в следующих статьях:
 
 - [Локальный мониторинг и диагностика состояния служб](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
-- [Настройка Application Insights для приложения Service Fabric](service-fabric-diagnostics-application-insights-setup.md)
+- [Настройка Application Insights для приложения Service Fabric](../app-insights-windows-desktop.md)
 - [Устранение неполадок при обновлении приложения](service-fabric-application-upgrade-troubleshooting.md)
 - [Диагностика и мониторинг производительности в модели надежных субъектов](service-fabric-reliable-actors-diagnostics.md)
 - [Диагностика и мониторинг производительности в модели надежных служб](service-fabric-reliable-services-diagnostics.md)
@@ -38,4 +38,4 @@
 - [Использование отчетов о работоспособности системы для устранения неполадок](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Добавление настраиваемых отчетов о работоспособности Service Fabric](service-fabric-report-health.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

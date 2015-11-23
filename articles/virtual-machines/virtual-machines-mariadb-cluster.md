@@ -21,6 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
 
+> [AZURE.NOTE]Кластер MariaDB Enterprise теперь доступен в Azure Marketplace. Новое предложение автоматически разворачивает кластер MariaDB Galera на ARM. Воспользуйтесь новым предложением от https://azure.microsoft.com/ru-RU/marketplace/partners/mariadb/cluster-maxscale/
 
 Мы создаем кластер [Galera](http://galeracluster.com/products/) с несколькими базами данных master [MariaDB](https://mariadb.org/en/about/) — надежную и масштабируемую замену для MySQL для работы в высокодоступной среде в виртуальных машинах Azure.
 
@@ -373,4 +374,4 @@
 [проблема № 1268 со средствами CLI Azure]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [другим способом кластеризации MySQL в ОС Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

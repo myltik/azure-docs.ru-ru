@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Настройка индексаторов Поиска Azure | Microsoft Azure" 
+	pageTitle="Настройка индексатора Поиска Azure | Microsoft Azure | Размещенная облачная служба поиска" 
 	description="Узнайте, как настроить параметры и политики индексаторов в Поиске Azure, размещенной облачной службе поиска в Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -117,4 +117,4 @@
 Пока это так. Если у вас есть какие-либо мысли или предложения по содержимому в будущем, твитните нам с помощью хэш-тега #AzureSearch или отправьте свои идеи на нашу [страницу UserVoice](http://feedback.azure.com/forums/263029-azure-search).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

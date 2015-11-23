@@ -74,9 +74,9 @@ XML-код соответствует XML-схеме шаблона лиценз
 
 [PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) — этот класс представляет право PlayRight лицензии PlayReady. Он предоставляет пользователю возможность воспроизводить содержимое с ограничениями и без, что указано в лицензии и самом праве PlayRight (для политики, касающейся воспроизведения). Большая часть политики в PlayRight связана с ограничениями выходных данных. Эти ограничения определяют типы выходных данных, в формате которых возможно воспроизведение содержимого. А также возможные ограничения, которые должны быть установлены при использовании заданных выходных данных. Например, если включено ограничение DigitalVideoOnlyContentRestriction, среда выполнения DRM будет разрешать отображение видео только через цифровые выходы (на аналоговые видеовыходы содержимое нельзя будет передавать).
 
->[AZURE.IMPORTANT]Эти типы ограничений могут быть очень мощными, но также могут негативно влиять на возможности, доступные для пользователя. Если указаны слишком строгие правила защиты выходных данных, содержимое может не воспроизводиться на некоторых клиентах. Дополнительные сведения см. в документе "Правила соответствия PlayReady".
+>[AZURE.IMPORTANT]Эти типы ограничений могут быть очень мощными, но также могут негативно влиять на возможности, доступные для пользователя. Если указаны слишком строгие правила защиты выходных данных, содержимое может не воспроизводиться на некоторых клиентах. Дополнительные сведения см. в документе [Правила соответствия PlayReady](https://www.microsoft.com/playready/licensing/compliance/).
 
-Пример уровней защиты, которые поддерживает Silverlight, см. в статье [Поддержка защиты выходных данных в Silverlight](http://go.microsoft.com/fwlink/?LinkId=617318).
+Пример уровней защиты, которые поддерживает Silverlight, см. в разделе [Поддержка защиты выходных данных в Silverlight](http://go.microsoft.com/fwlink/?LinkId=617318).
 
 ##<a id="schema"></a>XML-схема шаблона лицензий PlayReady
 	
@@ -302,11 +302,13 @@ XML-код соответствует XML-схеме шаблона лиценз
 	</xs:schema>
 
 
+
 ##Схемы обучения работе со службами мультимедиа
 
-Схемы обучения AMS можно просмотреть здесь:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Отзывы
 
-<!---HONumber=Oct15_HO3-->
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

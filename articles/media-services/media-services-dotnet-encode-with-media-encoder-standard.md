@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015"  
+	ms.date="11/08/2015"  
 	ms.author="juliako"/>
 
 
@@ -26,6 +26,10 @@
 Мы советуем всегда кодировать мезонинные файлы в набор MP4-файлов с адаптивной скоростью, а затем преобразовывать его в нужный формат с помощью [динамической упаковки](media-services-dynamic-packaging-overview.md). Для использования динамической упаковки вам потребуется получить по крайней мере одну единицу потокового воспроизведения по запросу для конечной точки потоковой передачи, из которой планируется передавать содержимое. Дополнительные сведения см. в статье [Масштабирование служб мультимедиа](media-services-manage-origins.md#scale_streaming_endpoints).
 
 Если выходящий ресурс зашифрован в хранилище, необходимо настроить политику доставки ресурсов. Дополнительную информацию см. в разделе [Настройка политики доставки ресурсов](media-services-dotnet-configure-asset-delivery-policy.md).
+
+##Скачивание образца
+
+Скачать и запустить образец можно [по этой ссылке](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ##Пример
 
@@ -116,13 +120,14 @@
 
 ##Схемы обучения работе со службами мультимедиа
 
-Схемы обучения AMS можно просмотреть здесь:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Отзывы
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ##См. также 
 
-[Как создать эскиз с помощью стандартного кодировщика мультимедиа и .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Обзор кодирования в службах мультимедиа](media-services-encode-asset.md)
+[Создание эскиза с помощью стандартного кодировщика мультимедиа и платформы .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Обзор кодирования с помощью служб мультимедиа](media-services-encode-asset.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

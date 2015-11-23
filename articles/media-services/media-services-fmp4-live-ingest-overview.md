@@ -200,13 +200,15 @@
 2. Используйте отдельные потоки для отправки двух видеодорожек с наименьшей скоростью потока. В каждом из этих потоков СЛЕДУЕТ обеспечить наличие копии каждой уникальной звуковой дорожки. Например, при поддержке нескольких языков в эти потоки СЛЕДУЕТ включить звуковые дорожки для каждого языка.
 3. Используйте отдельные экземпляры сервера (кодировщика) для кодирования и отправки избыточных потоков, упомянутых в (1) и (2). 
 
+
+
 ##Схемы обучения работе со службами мультимедиа
 
-Схемы обучения AMS можно просмотреть здесь:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Отзывы
 
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png
@@ -219,4 +221,4 @@
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

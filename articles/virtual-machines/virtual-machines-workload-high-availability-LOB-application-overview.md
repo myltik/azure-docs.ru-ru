@@ -14,13 +14,12 @@
 	ms.tgt_pltfrm="Windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="11/09/2015" 
 	ms.author="josephd"/>
 
 # Развертывание высокодоступных бизнес-приложений в Azure
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
-
 
 В этой статье приведены пошаговые инструкции по развертыванию в службах инфраструктуры Azure высокодоступных специализированных веб-приложений для интрасети с группами доступности AlwaysOn для SQL Server. Приложение размещается на следующих компьютерах:
 
@@ -69,4 +68,4 @@
 
 [Рабочая нагрузка служб инфраструктуры Azure: ферма SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

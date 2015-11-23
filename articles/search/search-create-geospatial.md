@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Создание приложения для геопространственного поиска с помощью Поиска Azure | Microsoft Azure" 
+	pageTitle="Создание приложения для геопространственного поиска с помощью Поиска Azure | Microsoft Azure | Размещенная облачная служба поиска" 
 	description="Создайте приложения для геопространственного поиска с использованием Bing и Поиска Azure, размещенной облачной службы поиска в Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -167,4 +167,4 @@
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

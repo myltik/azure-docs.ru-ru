@@ -5,6 +5,8 @@ Azure DNS является службой размещения для домен
 
 | Свойство | Описание | Образец значения |
 |---|---|---|
+| Зоны DNS | Информация о зоне домена для размещения записей DNS определенного домена. | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com",
+providers/Microsoft.Network/dnszones/contoso.com/A/www |
 | Зоны DNS | Информация о зоне домена для размещения записей DNS определенного домена. | /subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com"
 
 
@@ -87,4 +89,4 @@ Azure DNS является службой размещения для домен
 
 Ознакомьтесь с [документацией по REST API для наборов записей DNS ](https://msdn.microsoft.com/library/azure/mt130626.aspx), чтобы получить дополнительные сведения.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

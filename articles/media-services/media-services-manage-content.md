@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="11/09/2015"
 	ms.author="juliako"/>
 
 
@@ -204,17 +204,19 @@ URL-адрес потоковой передачи имеет следующий
 
 - Убедитесь, что видео опубликовано.
 - **ПРОИГРЫВАТЕЛЬ КОНТЕНТА СЛУЖБ МУЛЬТИМЕДИА** выполняет воспроизведение из конечной точки потоковой передачи по умолчанию. Если требуется воспроизвести из конечной точке потоковой передачи не по умолчанию, используйте другой проигрыватель. Например, [Проигрыватель служб мультимедиа Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
- 
+
+![AMSPlayer][AMSPlayer]
 
 ##Схемы обучения работе со службами мультимедиа
 
-Схемы обучения AMS можно просмотреть здесь:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Отзывы
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
-![AMSPlayer][AMSPlayer]
+
 
 <!-- Images -->
 [portaloverview]: ./media/media-services-manage-content/media-services-content-page.png
@@ -229,4 +231,4 @@ URL-адрес потоковой передачи имеет следующий
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

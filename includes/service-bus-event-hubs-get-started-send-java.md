@@ -1,5 +1,6 @@
 ## Отправка сообщений в центры событий
-В этом разделе мы напишем консольное приложение Java для отправки событий в центр событий. Мы будем использовать поставщик JMS AMQP из [проекта Apache Qpid](http://qpid.apache.org/). Эта процедура аналогична использованию очередей и разделов служебной шины с AMQP на языке Java, как показано [здесь](../articles/service-bus/service-bus-java-how-to-use-jms-api-amqp.md). Дополнительные сведения см. в [документации по Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) и [службе сообщений Java](http://www.oracle.com/technetwork/java/jms/index.html).
+
+В этом разделе мы напишем консольное приложение Java для отправки событий в центр событий. Мы будем использовать поставщик JMS AMQP из [проекта Apache Qpid](http://qpid.apache.org/). Эта процедура аналогична использованию очередей и разделов служебной шины с AMQP на языке Java, как показано [здесь](../service-bus/service-bus-java-how-to-use-jms-api-amqp.md). Дополнительные сведения см. в [документации по Qpid JMS](http://qpid.apache.org/releases/qpid-0.30/programming/book/QpidJMS.html) и [службе сообщений Java](http://www.oracle.com/technetwork/java/jms/index.html).
 
 1. В Eclipse установите [набор средств Azure для Eclipse](https://msdn.microsoft.com/library/azure/hh690946.aspx), в том числе клиентские библиотеки Qpid JMS AMQP.
 
@@ -11,7 +12,7 @@
 
 4. Создайте файл с именем **servicebus.properties** в корневом каталоге проекта **Sender** со следующим содержимым. Не забудьте заменить следующие значения:
 	- имя центра событий;
-	- имя пространства имен (обычно это `{event hub name}-ns`);
+	- имя пространства имен (обычно это `{event hub name}-ns`).
 	- ключ **SendRule**, закодированный в URL-адресе (вы записали его при создании центра событий). Вы можете закодировать его в URL-адрес [здесь](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 			# servicebus.properties - sample JNDI configuration
@@ -88,11 +89,7 @@
 
 
 
-<!-- Links -->
-[Azure Management Portal]: https://manage.windowsazure.com/
-
-
 <!-- Images -->
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-java1.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -75,8 +75,7 @@ Service Fabric генерирует события ETW, чтобы разраб�
 ## Дальнейшие действия
 
 * [Общие сведения о работоспособности в Service Fabric](service-fabric-health-introduction.md)
-* [Настройка Application Insights](service-fabric-diagnostics-application-insights-setup.md)
 * [Диагностика и мониторинг производительности субъектов в Azure Service Fabric](service-fabric-reliable-actors-diagnostics.md)
 * [Диагностика надежных служб с отслеживанием состояния](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

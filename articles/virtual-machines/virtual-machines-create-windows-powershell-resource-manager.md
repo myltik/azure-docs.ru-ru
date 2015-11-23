@@ -19,7 +19,7 @@
 
 # Создание виртуальной машины Windows с помощью диспетчера ресурсов и PowerShell
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-create-windows-powershell-service-manager.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
 В этом разделе описывается способ создания виртуальной машины Microsoft Azure и управления ею с помощью диспетчера ресурсов Azure и PowerShell.
 
@@ -131,10 +131,10 @@
 
 [Создание виртуальной машины Windows с помощью шаблона диспетчера ресурсов и PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple.md)
 
-[Создание виртуальной машины Windows с помощью PowerShell и управления службами Azure](virtual-machines-create-windows-powershell-service-manager.md)
+[Создание виртуальных машин Windows с использованием PowerShell и классической модели развертывания](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 [Документация по виртуальным машинам](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Установка и настройка Azure PowerShell](install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

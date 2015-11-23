@@ -87,14 +87,15 @@
 
 ##Схемы обучения работе со службами мультимедиа
 
-Схемы обучения AMS можно просмотреть здесь:
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+##Отзывы
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
 ##Дальнейшие действия
-После настройки политики авторизации ключей содержимого настроена можно перейти к разделу [Практическое руководство. Включение шифрования с помощью портала управления Azure](../media-services-manage-content#encrypt/).
+После настройки политики авторизации ключей содержимого можно перейти к разделу [Практическое руководство. Включение шифрования с помощью портала управления Azure](../media-services-manage-content#encrypt/).
 
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
@@ -102,4 +103,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="10/20/2015"
+  ms.date="11/05/2015"
   ms.author="andrl"/>
 
 # Портал сообщества
@@ -89,8 +89,6 @@
 
 | Название мероприятия | Место проведения | Дата | Хэш-тег |
 | ------------------------------------------------------------------------------- | -------------------- | ------------------- | ------- |
-| [CloudDevelop 2015](http://www.clouddevelop.org/) | Коламбус, Огайо | 23 октября 2015 г. | [#CloudDevConf](https://twitter.com/hashtag/CloudDevConf) |
-| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp) | Сиэтл, Вайоминг | 27–30 октября 2015 г. | [#Summit15](https://twitter.com/hashtag/Summit15) |
 | [Integration User Group](http://www.integrationusergroup.com/) | Вебинар | 9 ноября 2015 г. | [#IntegrationMonday](https://twitter.com/hashtag/integrationmonday) |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Монреаль, Квебек, Канада | 1 декабря 2015 г. | [#msdevmtl](https://twitter.com/hashtag/msdevmtl) |
 
@@ -100,17 +98,20 @@
 
 | Название мероприятия | Место проведения | Дата | Записи |
 | -------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp) | Сиэтл, Вайоминг | 27–30 октября 2015 г. | Недоступно |
+| [CloudDevelop 2015](http://www.clouddevelop.org/) | Коламбус, Огайо | 23 октября 2015 г. | Недоступно |
 | [SQL Saturday № 430 — София, 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | София, Болгария | 10 октября 2015 г. | Недоступно |
 | [SQL Saturday № 429 — Порту, 2015](http://www.sqlsaturday.com/429/eventhome.aspx) | Порту, Португалия | 3 октября 2015 г. | Недоступно |
 | [AzureCon](https://azure.microsoft.com/azurecon/) | Виртуальное мероприятие | 29 сентября 2015 г. | [Платформы данных и аналитики Azure](https://channel9.msdn.com/events/Microsoft-Azure/AzureCon-2015/ACON207)<br/>[Работа с данными NoSQL в DocumentDB](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
-| [SQL Saturday № 434 — Нидерланды, 2015](http://www.sqlsaturday.com/434/eventhome.aspx) | Утрехт, Нидерланды | 26 сентября 2015 г. | Недоступно |
+| [SQL Saturday № 434 — Нидерланды, 2015](http://www.sqlsaturday.com/434/eventhome.aspx) | Утрехт, Нидерланды | 26 сентября 2015 г. | [Введение в Azure DocumentDB](https://channel9.msdn.com/Blogs/Windows-Azure/SQL-Saturday-Holland-2015-Introduction-to-Azure-DocumentDB) |
 | [Meetup: San Francisco Bay Area Azure Developers](http://www.meetup.com/bayazure/events/223943785/) | Сан-Франциско, Калифорния | 15 сентября 2015 г. | Недоступно |
+| [Встреча группы пользователей Azure из Беларуси](https://www.facebook.com/events/786540124800276/) | Минск, Беларусь | 9 сентября 2015 г. | [Общее введение в концепцию DocumentDB, уровни соответствия, стратегии сегментирования](https://www.youtube.com/watch?v=Uc_qwWzJKH8) |
 | [Теперь NoSQL!](http://nosql2015.dataversity.net/) | Сан-Хосе, Калифорния | 18–20 августа 2015 г. | Недоступно |
 | [@Scale Seattle](http://www.atscaleconference.com/) | Сиэтл, Вайоминг | 17 июня 2015 г. | [Независимое от схемы индексирование в Azure DocumentDB](https://www.youtube.com/watch?v=VJQ_5qFFVP4) |
 | [Техническое обновление 2015](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015) | Лиссабон, Португалия | 15 июня 2015 г. | [DocumentDB 101](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015/DPDEV01) |
 | [Database Month](http://www.databasemonth.com/database/azure-documentdb) | Нью-Йорк, Нью-Йорк | 19 мая 2015 г. | [Azure DocumentDB: гипермасштабируемая мультитенантная служба баз данных документов](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
 | [Meetup: London SQL Server User Group](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) | Лондон, Великобритания | 19 мая 2015 г. | Недоступно |
-| [Ignite](http://ignite.microsoft.com/) | Чикаго, Иллинойс | 4–8 мая 2015 г. | [Видео "ВЫБОР последнего ИЗ DocumentDB"](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[Видео "DocumentDB и Azure HDInsight: вместе лучше"](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
+| [Ignite](http://ignite.microsoft.com/) | Чикаго, Иллинойс | 4–8 мая 2015 г. | [Избранное видео по DocumentDB](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[DocumentDB и Azure HDInsight: эффективный альянс (видео)](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
 | [Build 2015](http://www.buildwindows.com/) | Сан-Франциско, Калифорния | 29 апреля – 1 мая 2015 г. | [Покоряйте новые горизонты со службой NoSQL Azure: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
 | [Глобальный учебный курс по Azure 2015 — Испания](http://azurebootcamp.es/) | Мадрид, Испания | 25 апреля 2015 г. | [#DEAN DocumentDB + Express + AngularJS + NodeJS в Azure](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure) |
 | [Meetup: Charlotte Microsoft Cloud](http://www.meetup.com/Charlotte-Microsoft-Cloud/events/221503519/) | Шарлотта, Северная Каролина | 8 апреля 2015 г. | Недоступно |
@@ -143,7 +144,7 @@
 
 | Партнер по обучению | Описание |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Академия Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554)<br/><br/>Академия Microsoft Virtual Academy предоставляет возможность обучения у специалистов, которые участвуют в создании Azure DocumentDB. |
+| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Академия Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554)<br/><br/>Академия Microsoft Virtual Academy предоставляет возможность обучения специалистов, которые участвуют в создании Azure DocumentDB. |
 | [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction)<br/><br/>Pluralsight — основной партнер корпорации Майкрософт по обучению Azure. Если вы являетесь подписчиком MSDN, воспользуйтесь своими преимуществами для доступа к курсу обучения Microsoft Azure. |
 | [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)<br/><br/>OpsGility предоставляет углубленное техническое обучение по Microsoft Azure. Пройдите обучение под руководством инструктора на месте или с квалифицированными преподавателями удаленно. |
 
@@ -214,4 +215,4 @@
 | Соединитель Hadoop | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | Инструмент переноса данных | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Центр загрузки Майкрософт](http://www.microsoft.com/ru-RU/download/details.aspx?id=46436) |
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="11/11/2015" 
 	ms.author="genemi"/>
 
 
@@ -40,7 +40,6 @@
 Улучшение совместимости с Microsoft SQL Server 2014 было основной целью версии 12 базы данных SQL. Помимо прочего, версия 12 вышла на один уровень с сервером SQL Server с точки зрения возможностей программирования. Например:
 
 
-- [сборки среды CLR](http://msdn.microsoft.com/library/ms189524.aspx);
 - [оконные функции](http://msdn.microsoft.com/library/bb934097.aspx) и поддержка [OVER](http://msdn.microsoft.com/library/ms189461.aspx); 
 - [XML-индексы](http://msdn.microsoft.com/library/bb934097.aspx) и [выборочные XML-индексы](http://msdn.microsoft.com/library/jj670104.aspx);
 - [отслеживание изменений](http://msdn.microsoft.com/library/bb933875.aspx);
@@ -48,7 +47,7 @@
 - [полнотекстовый поиск](http://msdn.microsoft.com/library/ms142571.aspx).
 
 
-[Здесь](http://msdn.microsoft.com/library/azure/ee336281.aspx) можно ознакомиться с небольшим набором функций, которые еще не поддерживаются в базе данных SQL.
+[Здесь](sql-database-transact-sql-information.md) можно ознакомиться с небольшим набором функций, которые еще не поддерживаются в базе данных SQL.
 
 
 ## Увеличенная производительность для категории Premium и новые уровни производительности
@@ -92,12 +91,12 @@
 
 - [безопасность на уровне строк](http://msdn.microsoft.com/library/dn765131.aspx) (RLS);
 - [динамическое маскирование данных](sql-database-dynamic-data-masking-get-started.md);
-- [автономные базы данных](http://msdn.microsoft.com/library/azure/ff394108.aspx);
+- [автономные базы данных](http://msdn.microsoft.com/library/ff929188.aspx);
 - [роли приложений](http://msdn.microsoft.com/library/ms190998.aspx), управляемые с помощью инструкций GRANT, DENY, REVOKE;
 - [прозрачное шифрование данных](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE).
 - [Подключение к базе данных SQL с использованием проверки подлинности Azure Active Directory](sql-database-aad-authentication.md)
  - База данных SQL теперь поддерживает проверку подлинности Azure Active Directory — это механизм подключения к базе данных SQL с помощью удостоверений в Azure Active Directory (Azure AD). С помощью проверки подлинности Azure Active Directory можно централизованно управлять удостоверениями пользователей базы данных и другими службами Майкрософт.
-- [Всегда зашифрованы](https://msdn.microsoft.com/library/mt163865.aspx) (в предварительной версии) делает шифрование прозрачным для приложений и позволяет клиентам шифровать конфиденциальные данные внутри клиентских приложений без совместного использования ключей шифрования с Базой данных SQL.
+- [Всегда зашифрованы](https://msdn.microsoft.com/library/mt163865.aspx) (в предварительной версии) делает шифрование прозрачным для приложений и позволяет клиентам шифровать конфиденциальные данные внутри клиентских приложений без совместного использования ключей шифрования с базой данных SQL.
 
 
 ## Улучшенная непрерывность бизнес-процессов при восстановлении данных
@@ -113,7 +112,7 @@
 | Активная георепликация | • RPO < 5 минут.<br/>• ERT < 1 часа. | • RPO < 5 секунд.<br/>• ERT < 30 секунд. |
 
 
-Дополнительные сведения см. в статье [Обеспечение непрерывности работы базы данных SQL Azure](http://msdn.microsoft.com/library/azure/hh852669.aspx).
+Дополнительные сведения см. в статье [Обеспечение непрерывности работы базы данных SQL Azure](sql-database-business-continuity.md).
 
 
 ## Дополнительные причины для обновления
@@ -154,7 +153,7 @@
 Если вы еще не работаете с версией 12, обновите логический сервер, выполнив действия, описанные в статье [Вышло обновление до версии 12 базы данных SQL](sql-database-v12-upgrade.md).
 
 
-## <a name="V12AzureSqlDbPreviewGaTable"></a> Регионы выхода общедоступного выпуска
+## <a name="V12AzureSqlDbPreviewGaTable"></a> Выход общедоступного выпуска
 
 
 - К 31 июля 2015 г. все регионы были переведены в состояние общедоступной версии.
@@ -162,4 +161,4 @@
 
 [Дополнительные условия использования для предварительных версий Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

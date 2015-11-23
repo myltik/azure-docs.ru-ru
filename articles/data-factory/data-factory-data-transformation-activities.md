@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/27/2015" 
+	ms.date="11/04/2015" 
 	ms.author="spelluru"/>
 
 # Выполняйте преобразование и анализ с фабрикой данных Azure
@@ -23,13 +23,9 @@
 
 
 Действие преобразования | Вычислительная среда 
------------------------ | --------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
-[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] 
-[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] 
-[Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop] 
-[пакетное выполнение в машинном обучении] (data-factory-azure-ml-batch-execution-activity.md) | Azure 
-[Хранимая процедура](data-factory-stored-proc-activity.md) | Azure SQL; |
+:----------------------- | :--------------------
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop] [Действия машинного обучения: пакетное выполнение и ресурс обновления](data-factory-azure-ml-batch-execution-activity.md) | Azure 
+[Хранимая процедура](data-factory-stored-proc-activity.md) | Azure SQL |
 [Аналитика озера данных U-SQL](data-factory-usql-activity.md) | Аналитика озера данных Azure 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] или пакетная служба Azure
    
@@ -41,7 +37,4 @@
 
 В статье [Связанные службы вычислений](data-factory-compute-linked-services.md) представлены сведения о том, какие связанные службы вычислений поддерживает фабрика данных.
 
-## Отправить отзыв
-Мы будем очень благодарны за ваш отзыв об этой статье. Пожалуйста, отправьте ваши комментарии по [электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-transformation-activities.md).
-
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

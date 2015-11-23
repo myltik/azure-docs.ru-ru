@@ -1,6 +1,6 @@
 <properties
-	 pageTitle="Использование портала Azure для управления центром IoT | Microsoft Azure"
-	 description="Общие сведения о способах создания центров IoT Azure и управления ими на портале Azure."
+	 pageTitle="Использование портала предварительной версии Azure для управления центром IoT | Microsoft Azure"
+	 description="Общие сведения о способах создания центров IoT Azure и управления ими на портале предварительной версии Azure."
 	 services="iot-hub"
 	 documentationCenter=""
 	 authors="nasing"
@@ -16,11 +16,11 @@
 	 ms.date="10/19/2015"
 	 ms.author="nasing"/>
 
-# Управление центрами IoT через портал Azure
+# Управление центрами IoT с помощью портала предварительной версии Azure
 
 ## Введение
 
-В этой статье объясняется, как приступить к работе с центром IoT Azure через портал Azure, как найти центры IoT, как создавать центры IoT и как управлять ими.
+В этой статье объясняется, как приступить к работе с центром IoT Azure через портал предварительной версии Azure, как найти центры IoT, как создавать центры IoT и как управлять ими.
 
 ## Где найти центры IoT
 
@@ -153,4 +153,4 @@
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Что такое центр IoT в Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

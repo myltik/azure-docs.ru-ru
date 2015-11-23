@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Разбивка результатов поиска на страницы в Поиске Azure | Microsoft Azure" 
+	pageTitle="Разбивка результатов поиска на страницы в Поиске Azure | Microsoft Azure | Размещенная облачная служба поиска" 
 	description="Разбивка на страницы в службе Поиск Azure, размещенной облачной службе поиска в Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -114,4 +114,4 @@
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

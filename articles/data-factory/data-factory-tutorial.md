@@ -418,8 +418,6 @@ Contoso — это компания, которая создает игры д�
 
 Чтобы узнать, как создать конвейер для копирования данных об эффективности маркетинговой кампании в локальную базу данных SQL Server, изучите статью [Пошаговое руководство. Использование локального источника данных][tutorial-onpremises].
 
-## Отправить отзыв
-Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-tutorial.md).
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -528,4 +526,4 @@ Contoso — это компания, которая создает игры д�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

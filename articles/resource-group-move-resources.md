@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2015" 
+	ms.date="11/06/2015" 
 	ms.author="tomfitz"/>
 
 # Перемещение ресурсов в новую группу ресурсов или подписку
@@ -30,6 +30,7 @@
 2. Группа ресурсов назначения должна содержать только те ресурсы, жизненные циклы приложений которых совпадают с аналогичными жизненными циклами перемещаемых ресурсов.
 3. Если вы используете Azure PowerShell, убедитесь, что у вас установлена последняя версия. Команда **Move-AzureResource** часто обновляется. Чтобы обновить текущую версию, запустите установщик веб-платформы Майкрософт и проверьте доступность более новой версии. Дополнительную информацию см. в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md).
 4. Операция перемещения может занять некоторое время. В это время командная строка PowerShell будет ожидать ее завершения.
+5. При перемещении ресурсов группу источника и группа назначения блокируются на время операции. Операции записи и удаления для групп блокируются до завершения перемещения.
 
 ## Поддерживаемые службы
 
@@ -40,7 +41,7 @@
 - Управление API
 - Azure DocumentDB.
 - поиск Azure;
-- Веб-приложения Azure (действуют [ограничения](app-service-web/app-service-move-resources.md))
+- Веб-приложения Azure (действуют некоторые [ограничения](app-service-web/app-service-move-resources.md))
 - Фабрика данных
 - хранилище ключей;
 - Mobile Engagement;
@@ -87,18 +88,7 @@
 
     POST https://management.azure.com/subscriptions/{source-subscription-id}/resourcegroups/{source-resource-group-name}/moveResources?api-version={api-version} 
 
-Замените **{source-subscription-id}** и **{source-resource-group-name}** идентификатором подписки и именем группы ресурсов, которая сейчас содержит перемещаемые ресурсы. В качестве {api-version} используйте **2015-01-01**.
-
-В запросе включите объект JSON, который определяет целевую группу ресурсов и ресурсы, которые нужно переместить.
-
-    {
-        "targetResourceGroup": "/subscriptions/{target-subscription-id}/resourceGroups/{target-resource-group-name}", "resources": [
-            "/subscriptions/{source-id}/resourceGroups/{source-group-name}/providers/{provider-namespace}/{type}/{name}",
-            "/subscriptions/{source-id}/resourceGroups/{source-group-name}/providers/{provider-namespace}/{type}/{name}",
-            "/subscriptions/{source-id}/resourceGroups/{source-group-name}/providers/{provider-namespace}/{type}/{name}",
-            "/subscriptions/{source-id}/resourceGroups/{source-group-name}/providers/{provider-namespace}/{type}/{name}"
-        ]
-    }
+В тексте запроса укажите целевую группу ресурсов и ресурсы для перемещения. Дополнительные сведения об операции перемещения REST см. в разделе [Перемещение ресурсов](https://msdn.microsoft.com/library/azure/mt218710.aspx).
 
 ## Дальнейшие действия
 - [Использование Azure PowerShell с диспетчером ресурсов](./powershell-azure-resource-manager.md)
@@ -106,4 +96,4 @@
 - [Управление ресурсами с помощью портала Azure](azure-portal/resource-group-portal.md)
 - [Использование тегов для организации ресурсов](./resource-group-using-tags.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

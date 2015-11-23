@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Процедура настройки канала ExpressRoute с помощью ARM | Microsoft Azure"
+   pageTitle="Настройка канала ExpressRoute с помощью диспетчера ресурсов Azure и PowerShell | Microsoft Azure"
    description="В этой статье описана процедура создания и подготовки канала ExpressRoute, а также показано, как проверить состояние, обновить или удалить и отозвать канал."
    documentationCenter="na"
    services="expressroute"
-   authors="ganesr"
-   manager="rossort"
+   authors="cherylmc"
+   manager="carolz"
    editor=""
    tags="azure-resource-manager"/>
 <tags
@@ -13,25 +13,25 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/04/2015"
-   ms.author="ganesr"/>
+   ms.date="11/06/2015"
+   ms.author="cherylmc"/>
 
-# Создание и изменение канала ExpressRoute
+# Создание и изменение канала ExpressRoute с помощью диспетчера ресурсов Azure и PowerShell
 
 > [AZURE.SELECTOR]
-[PowerShell Classic](expressroute-howto-circuit-classic.md)
-[PowerShell Resource Manager](expressroute-howto-circuit-arm.md)
+[PowerShell - Classic](expressroute-howto-circuit-classic.md)
+[PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
 
-В этой статье описано, как создать канал ExpressRoute, используя командлеты PowerShell и модель развертывания ARM. Ниже описывается, как проверить состояние, обновить или удалить и отозвать канал ExpressRoute.
+В этой статье описано, как создать канал ExpressRoute, используя командлеты PowerShell и модель развертывания диспетчера ресурсов Azure. Ниже описывается, как проверить состояние, обновить или удалить и отозвать канал ExpressRoute.
 
->[AZURE.IMPORTANT]Обратите внимание, что в настоящее время Azure поддерживает две модели развертывания: классическую и с диспетчером ресурсов. Перед началом настройки внимательно изучите модели и средства развертывания. Сведения о моделях развертывания можно найти в разделе [Модели развертывания Azure](../azure-classic-rm.md).
+[AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
 ## Предварительные требования для настройки
 
-- Вам потребуется последняя версия модулей Azure PowerShell. Последнюю версию модуля PowerShell можно загрузить из раздела PowerShell на [странице загрузок Azure](http://azure.microsoft.com/downloads). Пошаговые инструкции по настройке компьютера для использования модулей Azure PowerShell приведены в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md). 
+- Вам потребуются последние модули Azure PowerShell версии 1.0 или более поздней. Пошаговые инструкции по настройке компьютера для использования модулей Azure PowerShell приведены в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md). 
 - Не забудьте изучить страницы [Предварительные требования](expressroute-prerequisites.md) и [Рабочие процессы](expressroute-workflows.md), прежде чем приступить к настройке.
 
-## Создание и предоставление канала ExpressRoute
+## Создание и подготовка канала ExpressRoute
 
 1. **Импортируйте модуль PowerShell для ExpressRoute.**
 
@@ -45,7 +45,7 @@
 
 		Import-AzureRM
 
-	Можно также просто импортировать выбранный модуль в рамках диапазона известных семантических версий
+	Можно также просто импортировать выбранный модуль в рамках диапазона известных семантических версий.
 		
 		Import-Module AzureRM.Network 
 
@@ -169,7 +169,7 @@
 		
 		CircuitProvisioningState         : Enabled
 
-	Параметр *ServiceProviderProvisioningState* сообщает сведения о текущем состоянии подготовки на стороне поставщика службы, а параметр Status — состояние на стороне Майкрософт. Для того чтобы канал ExpressRoute можно было использовать, он должен находиться в следующем состоянии.
+	Параметр *ServiceProviderProvisioningState* сообщает сведения о текущем состоянии подготовки на стороне поставщика службы, а параметр Status — состояние на стороне корпорации Майкрософт. Для того чтобы канал ExpressRoute можно было использовать, он должен находиться в следующем состоянии.
 
 		ServiceProviderProvisioningState : Provisioned
 		
@@ -219,7 +219,7 @@
 
 7. **Свяжите виртуальную сеть с каналом ExpressRoute.**
 
-	Теперь свяжите виртуальную сеть с каналом ExpressRoute. Пошаговые инструкции см. на странице [Связывание виртуальных сетей с каналами ExpressRoute](expressroute-howto-linkvnet-arm.md). Инструкции по созданию виртуальной сети для ExpressRoute см. в статье [Создание виртуальной сети для ExpressRoute](expressroute-howto-createvnet-classic.md).
+	Теперь свяжите виртуальную сеть с каналом ExpressRoute. Пошаговые инструкции см. на странице [Связывание каналов ExpressRoute с виртуальными сетями](expressroute-howto-linkvnet-arm.md). Инструкции по созданию виртуальной сети для ExpressRoute см. в статье [Создание виртуальной сети для ExpressRoute](expressroute-howto-createvnet-classic.md).
 
 ##  Получение состояния канала ExpressRoute
 
@@ -281,7 +281,7 @@
 
 		get-help get-azurededicatedcircuit -detailed 
 
-##  Изменение канала ExpressRoute
+## Изменение канала ExpressRoute
 
 Некоторые свойства канала ExpressRoute можно изменить, не повлияв на подключение.
 
@@ -320,9 +320,9 @@
 
 Теперь надстройка Premium для вашего канала выключена.
 
->[AZURE.IMPORTANT]Операция может завершиться ошибкой, если использовать больше ресурсов, чем разрешено для стандартного канала.
->
->- Прежде чем переходить с надстройки Premium на Standard, убедитесь, что к каналу привязано меньше 10 виртуальных сетей. Если этого не сделать, запрос на обновление завершится ошибкой и вам будет выставлен счет по тарифам Premium.
+Обратите внимание, что эта операция может завершиться ошибкой, если использовать больше ресурсов, чем разрешено для стандартного канала.
+
+- Прежде чем переходить с надстройки Premium на Standard, убедитесь, что к каналу привязано меньше 10 виртуальных сетей. Если этого не сделать, запрос на обновление завершится ошибкой и вам будет выставлен счет по тарифам Premium.
 - Все связи с виртуальными сетями в других геополитических регионах необходимо разорвать. Если этого не сделать, запрос на обновление завершится ошибкой и вам будет выставлен счет по тарифам Premium.
 - Для частного пиринга таблица маршрутизации должна содержать меньше 4000 маршрутов. Если в таблице маршрутизации больше 4000 маршрутов, сеанс BGP будет сброшен и снова активирован только после того, как количество объявленных префиксов станет меньше 4000.
 
@@ -341,7 +341,7 @@
 
 >[AZURE.IMPORTANT]Уменьшить пропускную способность канала ExpressRoute без прерывания его работы нельзя. Для снижения пропускной способности нужно будет отозвать канал ExpressRoute и повторно подготовить новый канал ExpressRoute.
 
-##  Удаление и отзыв канала ExpressRoute
+## Удаление и отзыв канала ExpressRoute
 
 Для удаления канала ExpressRoute выполните следующую команду:
 
@@ -358,4 +358,4 @@
 - [Настройка маршрутизации](expressroute-howto-routing-arm.md)
 - [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-arm.md) 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

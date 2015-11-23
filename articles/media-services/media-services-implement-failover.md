@@ -960,4 +960,13 @@
 
 Теперь для маршрутизации запросов между двумя центрами обработки данных и отработки отказов в случае проблем подключения можно использовать диспетчер трафика.
 
-<!---HONumber=Oct15_HO3-->
+
+##Схемы обучения работе со службами мультимедиа
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Отзывы
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+<!---HONumber=Nov15_HO3-->

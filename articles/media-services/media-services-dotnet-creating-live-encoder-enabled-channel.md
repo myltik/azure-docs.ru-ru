@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015"  
+	ms.date="11/08/2015"  
 	ms.author="juliako"/>
 
 
@@ -86,6 +86,10 @@
 
 - Сейчас максимальная рекомендуемая продолжительность интерактивного события составляет 8 часов. Если необходимо запустить канал на более продолжительные отрезки времени, обратитесь в amslived на веб-сайте Microsoft.com.
 - Убедитесь в том, что в конечной точке потоковой передачи, из которой будет передаваться контент, есть по крайней мере одна зарезервированная единица потоковой передачи.
+
+##Скачивание образца
+
+Скачать и запустить образец можно [по этой ссылке](http://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
 ##Предварительные требования
 Ниже перечислены необходимые условия для выполнения действий, описанных в этом учебнике.
@@ -506,17 +510,16 @@
 	}	
 
 
-##Дальнейшие действия
+##Дальнейшие действия: схемы обучения работе со службами мультимедиа
 
-###Схемы обучения работе со службами мультимедиа
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-Схемы обучения AMS можно просмотреть здесь:
+##Отзывы
 
-- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ### Не нашли ответа?
 
 Если содержание этого раздела не соответствует вашим ожиданиям или не содержит ответов на ваши вопросы, оставьте отзыв в обсуждении Disqus ниже.
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

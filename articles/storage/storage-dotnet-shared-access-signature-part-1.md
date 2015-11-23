@@ -104,8 +104,8 @@
 ---|---|---
 URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt |Адрес BLOB-объекта. Обратите внимание, что настоятельно рекомендуется использовать HTTPS.
 Версия служб хранилища|sv=2015-04-05|Для служб хранилища версии 2012-02-12 и более поздней этот параметр указывает используемую версию.
-Время начала|st=2015-04-29T22%3A18%3A26Z|Указывается в формате ISO 8061. Чтобы подпись общего доступа вступала в силу сразу же, не указывайте время начала действия.
-Время окончания срока действия|se=2015-04-30T02%3A23%3A26Z|Указывается в формате ISO 8061.
+Время начала|st=2015-04-29T22%3A18%3A26Z|Указывается в формате ISO 8601. Чтобы подпись общего доступа вступала в силу сразу же, не указывайте время начала действия.
+Время окончания срока действия|se=2015-04-30T02%3A23%3A26Z|Указывается в формате ISO 8601.
 Ресурс|sr=b|Ресурс является BLOB-объектом.
 Разрешения|sp=rw|Разрешения, предоставляемые подписью общего доступа, включают в себя чтение (r) и запись (w).
 Диапазон IP-адресов|sip=168.1.5.60-168.1.5.70|Диапазон IP-адресов, с которых будут приниматься запросы.
@@ -317,11 +317,9 @@ URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sas
 - [Использование хранилища файлов Azure в Windows](storage-dotnet-how-to-use-files.md)
 - [Управление доступом к ресурсам хранилища Azure](storage-manage-access-to-resources.md)
 - [Делегирование доступа с помощью подписанного URL-адреса](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [Введение в таблицы и очереди SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [Введение в таблицы и очереди SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

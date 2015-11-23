@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Что такое поиск Azure"
+	pageTitle="Что такое Поиск Azure | Microsoft Azure | Размещенная облачная служба поиска"
 	description="Поиск Azure — это размещенная облачная служба поиска. Дополнительные сведения см. в техническом обзоре и сводном обзоре функций."
 	services="search"
 	documentationCenter=""
@@ -131,4 +131,4 @@ API REST состоит из HTTP-запросов и ответов с соде
 
 [Использование службы поиска Azure в .NET](search-howto-dotnet-sdk.md) [Начало работы со службой поиска Azure в .NET](search-get-started-dotnet.md) [Поиск Azure: учебники, видеодемонстрации и примеры](search-video-demo-tutorial-list.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

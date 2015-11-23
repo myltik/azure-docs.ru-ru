@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с концентраторами событий"
+	pageTitle="Приступая к работе с концентраторами событий в C и Apache Storm | Microsoft Azure"
 	description="Следуйте указаниям этого учебника, чтобы приступить к использованию концентраторов событий Azure, отправляющих события с помощью C, и их получению в кластере Apache Storm."
 	services="event-hubs"
 	documentationCenter=""
@@ -111,4 +111,4 @@
 [Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

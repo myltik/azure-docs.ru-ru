@@ -555,11 +555,9 @@
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-## Отправить отзыв
-Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-sql-connector.md).
 
 
 
 	 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

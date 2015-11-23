@@ -3,7 +3,7 @@
 	description="Начало работы с использованием хранилища очередей Azure в проекте ASP.NET 5 в Visual Studio"
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Начало работы с хранилищем очередей и подключенными службами Visual Studio (ASP.NET 5)
 
@@ -185,4 +185,4 @@
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

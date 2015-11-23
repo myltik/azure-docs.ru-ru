@@ -1,5 +1,5 @@
 <properties
-   pageTitle="API REST службы поиска Azure, версия 2015-02-28-Preview | Microsoft Azure"
+   pageTitle="API REST Поиска Azure, версия 2015-02-28-Preview | Microsoft Azure | Размещенная облачная служба поиска"
    description="В предварительной версии REST API службы поиска Azure от 28 февраля 2015 г. реализованы экспериментальные функции, такие как синтаксис запросов Lucene и запросы moreLikeThis."
    services="search"
    documentationCenter="na"
@@ -1742,4 +1742,4 @@ URI запроса содержит параметр [index name] и [key], ко
       "suggesterName": "sg"
     }
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

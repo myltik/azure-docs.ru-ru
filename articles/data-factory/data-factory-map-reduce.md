@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Вызов программы MapReduce из фабрики данных
@@ -22,7 +22,7 @@
 ## Введение 
 Конвейер в фабрике данных Azure обрабатывает данные в связанной службе хранилища с помощью связанных вычислительных служб. В нем содержится последовательность действий, каждое из которых выполняет определенную операцию обработки. В этой статье описывается использование преобразования MapReduce действия HDInsight.
  
-Дополнительные сведения о запуске скриптов Pig и Hive в кластере HDInsight из конвейера фабрики данных Azure с помощью преобразований Pig и Hive действия HDInsight см. в статьях [Pig](data-factory-pig-activity) и [Hive](data-factory-hive-activity.md).
+Дополнительные сведения о запуске скриптов Pig и Hive в кластере HDInsight на базе Windows/Linux из конвейера фабрики данных Azure с помощью преобразований Pig и Hive действия HDInsight см. в статьях [Pig](data-factory-pig-activity) и [Hive](data-factory-hive-activity.md).
 
 ## JSON для действия HDInsight с использованием преобразования MapReduce 
 
@@ -102,4 +102,4 @@
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

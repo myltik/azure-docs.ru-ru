@@ -108,7 +108,7 @@
 - Просмотр журнала команд для устройства.
 
 ### Наблюдение за поведением облачного решения
-Чтобы просмотреть подготовленные ресурсы, перейдите на [портал управления Azure](https://portal.azure.com), а затем — к группе ресурсов с указанным именем решения.
+Чтобы просмотреть подготовленные ресурсы, перейдите на [портал предварительной версии Azure](https://portal.azure.com), а затем — к группе ресурсов с указанным именем решения.
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/azureportal_01.png)
 
@@ -144,4 +144,4 @@
 
 ![](media/iot-suite-remote-monitoring-sample-walkthrough/solutionportal_08.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

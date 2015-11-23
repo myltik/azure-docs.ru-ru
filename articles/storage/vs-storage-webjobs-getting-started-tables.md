@@ -3,7 +3,7 @@
 	description="Как приступить к работе, используя табличное хранилище Azure в проекте веб-задания Azure в Visual Studio после подключения к учетной записи хранения с помощью подключенных служб Visual Studio."
 	services="storage"
 	documentationCenter=""
-	authors="patshea123"
+	authors="TomArcher"
 	manager="douge"
 	editor="tglee"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Начало работы со службой хранилища Azure (проекты веб-заданий Azure)
 
@@ -165,4 +165,4 @@
 
 В этой статье предоставлены примеры кода обработки обычных сценариев для работы с таблицами Azure. Дополнительную информацию об использовании веб-заданий Azure и пакета SDK для веб-заданий см. в статье [Рекомендуемые ресурсы по веб-заданиям Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

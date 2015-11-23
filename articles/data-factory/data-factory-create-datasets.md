@@ -208,13 +208,4 @@ type | Тип данных столбца. | Нет | Нет данных
 	  }
 	}
 
-## Отзывы и предложения
-Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-create-datasets.md).
-
-
-
-
-
-  
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

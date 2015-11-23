@@ -6,7 +6,7 @@
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-service-management"/>
+ tags="azure-service-management,hpc-pack"/>
 <tags
  ms.service="virtual-machines"
  ms.devlang="na"
@@ -286,7 +286,7 @@ PS > clusrun /nodegroup:LinuxNodes mount CentOS7RDMA-HN:/nfs /nfsshared
 * Создайте сценарий, который выводит каждое число от 1 до 10 в течение секунды на каждом узле кластера, запустите его и сразу же отобразите выходные данные с этих узлов.
 
     ```
-    > clusrun /interleaved echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
+    > clusrun /interleaved echo "for i in {1..10}; do echo \"\$i\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
     ```
 
 >[AZURE.NOTE]В командах **clusrun** может потребоваться использовать определенные escape-символы. Как показано в данном примере, используйте ^ в окне командной строки для экранирования символа ">" .
@@ -313,4 +313,4 @@ PS > clusrun /nodegroup:LinuxNodes mount CentOS7RDMA-HN:/nfs /nfsshared
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

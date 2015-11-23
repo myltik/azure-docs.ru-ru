@@ -13,10 +13,18 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="10/22/2015" 
+	ms.date="11/12/2015" 
 	ms.author="jeffstok"/>
 
 #Заметки о выпуске Microsoft Stream Analytic
+
+## Заметки о выпуске Stream Analytics от 12.11.2015 ##
+
+Этот выпуск содержит следующее обновление.
+
+Название | Описание
+---|---
+Новое поведение оператора SELECT | Оператор SELECT в службе Stream Analytics был расширен и теперь позволяет использовать * как метод доступа к свойству вложенной записи. Дополнительные сведения см. по адресу [http://msdn.microsoft.com/library/mt622759.aspx](http://msdn.microsoft.com/library/mt622759.aspx "Сложные типы данных").
 
 ## Заметки о выпуске Stream Analytics от 22.10.15 ##
 
@@ -27,7 +35,7 @@
 Дополнительные возможности языка запросов | Stream Analytics расширяет язык запросов, добавляя следующие функции: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx) и [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
 Сняты ограничения статистических функций | В этом выпуске сняты ограничения для 15 статистических функций запросов. Теперь нет ограничений на количество статистических выражений в запросе.
 Добавлена функция GROUP BY System.Timestamp | Функция [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) теперь поддерживает параметры window\_type и [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx).
-Добавлена функция OFFSET для «переворачивающегося» и «прыгающего» окон | По умолчанию [«переворачивающиеся»](https://msdn.microsoft.com/library/azure/dn835055.aspx) и [«прыгающие»](https://msdn.microsoft.com/library/azure/dn835041.aspx) окна настраиваются по нулевому времени (01.01.01 12:00:00 по Гринвичу). Новый (необязательный) параметр offsetsize позволяет задавать собственное смещение (или выравнивание).
+Добавлена функция OFFSET для «переворачивающегося» и «прыгающего» окон | По умолчанию ["переворачивающиеся"](https://msdn.microsoft.com/library/azure/dn835055.aspx) и ["прыгающие"](https://msdn.microsoft.com/library/azure/dn835041.aspx) окна настраиваются по нулевому времени (01.01.01 12:00:00 по Гринвичу). Новый (необязательный) параметр offsetsize позволяет задавать собственное смещение (или выравнивание).
 
 
 ## Заметки о выпуске Stream Analytics от 29.09.2015 ##
@@ -116,4 +124,4 @@ TIMESTAMP BY для разнородных событий | Если один п
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

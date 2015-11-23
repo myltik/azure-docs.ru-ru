@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="11/06/2015" 
 	ms.author="awills"/>
 
 # Создание нового ресурса Application Insights
@@ -94,4 +94,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

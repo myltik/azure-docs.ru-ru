@@ -89,15 +89,16 @@
 
 Объяснения понятий, связанных с доставкой содержимого по запросу, см. в разделе [Понятия служб мультимедиа](media-services-concepts.md).
 
+##Схемы обучения работе со службами мультимедиа
 
-##Дальнейшие действия: схемы обучения AMS
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-Схемы обучения AMS можно просмотреть здесь:
+##Отзывы
 
-- [Рабочий процесс для потоковой передачи в реальном времени в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-- [Рабочий процесс для потоковой передачи по запросу в службах AMS](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
 
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

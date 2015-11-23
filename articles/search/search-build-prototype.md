@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Создание прототипа приложения для службы поиска Azure" 
+	pageTitle="Создание прототипа приложения для Поиска Azure | Microsoft Azure | Размещенная облачная служба поиска" 
 	description="Создайте прототип первого приложения, чтобы начать работу с Поиском Azure — размещенной облачной службой поиска." 
 	services="search" 
 	documentationCenter="" 
@@ -133,4 +133,4 @@
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

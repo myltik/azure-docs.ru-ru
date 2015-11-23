@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="11/05/2015"
    ms.author="nitinme"/>
 
 # Начало работы с хранилищем озера данных Azure с помощью портала предварительной версии Azure
@@ -22,6 +22,7 @@
 - [Using Portal](data-lake-store-get-started-portal.md)
 - [Using PowerShell](data-lake-store-get-started-powershell.md)
 - [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Using Azure CLI](data-lake-store-get-started-cli.md)
 
 Узнайте, как с помощью портала предварительной версии Azure создать учетную запись хранения озера данных Azure и выполнять базовые операции, такие как создание папок, передача и загрузка файлов данных, удаление учетной записи и т. д. Дополнительные сведения о хранилище озера данных см. в статье [Обзор хранилища озера данных Azure](data-lake-store-overview.md).
 
@@ -123,6 +124,7 @@
 
 - [Начало работы с хранилищем озера данных с помощью PowerShell](data-lake-store-get-started-powershell.md)
 - [Начало работы с хранилищем озера данных с помощью пакета SDK .NET](data-lake-store-get-started-net-sdk.md)
+- [Начало работы с хранилищем озера данных с помощью Azure CLI](data-lake-store-get-started-cli.md)
 
 
 ## Дальнейшие действия
@@ -131,4 +133,4 @@
 - [Использование аналитики озера данных Azure с хранилищем озера данных](data-lake-analytics-get-started-portal.md)
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

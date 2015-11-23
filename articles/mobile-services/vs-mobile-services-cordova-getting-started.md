@@ -3,7 +3,7 @@
 	description="Описывает первые шаги, которые можно выполнить после подключения проекта Cordova к мобильным службам Azure с помощью подключенных служб Visual Studio." 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="TomArcher" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="09/17/2015" 
-	ms.author="patshea"/>
+	ms.author="tarcher"/>
 
 # Приступая к работе с мобильными службами (проекты Cordova)
 
@@ -94,4 +94,4 @@
 
 [Дополнительные сведения о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

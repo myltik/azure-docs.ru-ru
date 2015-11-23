@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Создайте свое первое решение с использованием Поиска Azure | Microsoft Azure" 
+	pageTitle="Создание своего первого решения с помощью Поиска Azure | Microsoft Azure | Размещенная облачная служба поиска" 
 	description="Создайте свое первое решение с использованием Поиска Azure, размещенной облачной службы поиска в Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -206,4 +206,4 @@
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

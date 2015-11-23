@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="11/10/2015" 
 	ms.author="sdanie"/>
 
 # Как регистрировать события в концентраторах событий Azure в службе управления Azure API
 
 Концентраторы событий Azure — это высокомасштабируемая служба приема данных, которая может обрабатывать миллионы событий в секунду, позволяя вам обрабатывать и анализировать огромное количество данных, создаваемых подключенными устройствами и приложениями. Концентраторы событий выступают в качестве "входной двери"для событий конвейера. После того как данные поступили в концентратор событий, они могут быть преобразованы и сохранены с использованием любого поставщика аналитики в режиме реального времени или адаптера пакетной обработки или хранения. Концентраторы событий отделяют создание потока событий от потребления этих событий, чтобы потребители событий могли обращаться к событиям по собственному расписанию.
+
+Эта статья сопровождает видеоролик [Интеграция службы управления API Azure с концентраторами событий](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/). В ней рассматривается регистрация событий управления API с помощью концентраторов событий Azure.
 
 ## Создание концентратора событий Azure
 
@@ -46,7 +48,7 @@
 
 Теперь, когда концентратор событий создан, нужно настроить [средство ведения журнала](https://msdn.microsoft.com/library/azure/mt592020.aspx) в службе управления API, которое сможет регистрировать события в концентраторе событий.
 
-Средства ведения журнала управления API настраиваются с помощью [REST API управления API](http://aka.ms/smapi). Прежде чем использовать REST API впервые, просмотрите информацию о [необходимых компонентах](https://msdn.microsoft.com/library/azure/dn776326.aspx#Prerequisites) и убедитесь, что [включен доступ к REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx#EnableRESTAPI).
+Средства ведения журнала службы управления API настраиваются с помощью [REST API службы управления API](http://aka.ms/smapi). Прежде чем использовать REST API впервые, просмотрите информацию о [необходимых компонентах](https://msdn.microsoft.com/library/azure/dn776326.aspx#Prerequisites) и убедитесь, что [включен доступ к REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx#EnableRESTAPI).
 
 Чтобы создать средство ведения журнала, выполните HTTP-запрос PUT, используя следующий шаблон URL-адреса.
 
@@ -59,7 +61,7 @@
 
 -	тип содержимого: «application/json»;
 -	авторизация: «SharedAccessSignature uid=...»:
-	-	указания по созданию `SharedAccessSignature` см. в разделе [Проверка подлинности REST API управления API Azure](https://msdn.microsoft.com/library/azure/dn798668.aspx).
+	-	Указания по созданию `SharedAccessSignature` см. в разделе [Проверка подлинности REST API службы управления API Azure](https://msdn.microsoft.com/library/azure/dn798668.aspx).
 
 Укажите текст запроса, используя следующий шаблон.
 
@@ -73,7 +75,7 @@
     }
 
 -	Для параметра `type` нужно задать значение `AzureEventHub`.
--	`description` предоставляет дополнительное описание средства ведения журнала, и при желании эту строку можно оставить пустой.
+-	`description` предоставляет дополнительное описание средства ведения журнала. При желании эту строку можно оставить пустой.
 -	`credentials` содержит `name` и `connectionString` концентратора событий Azure.
 
 Если при выполнении запроса средство ведения журнала создано, возвращается код состояния `201 Created`.
@@ -100,7 +102,7 @@
       @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
     </log-to-eventhub>
 
-Замените `logger-id` именем средства ведения журнала управления API, настроенного на предыдущем этапе.
+Замените `logger-id` именем средства ведения журнала службы управления API, настроенного на предыдущем этапе.
 
 Вы можете использовать любое выражение, которое возвращает строку в качестве значения для элемента `log-to-eventhub`. В этом примере регистрируется строка, содержащая дату и время, имя службы, идентификатор запроса, IP-адрес запроса и имя операции.
 
@@ -112,6 +114,15 @@
 	-	[Приступая к работе с концентраторами событий Azure](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 	-	[Прием сообщений через EventProcessorHost](../event-hubs/event-hubs-csharp-ephcs-getstarted.md#receive-messages-with-eventprocessorhost)
 	-	[Руководство по программированию концентраторов событий](../event-hubs/event-hubs-programming-guide.md)
+-	Дополнительные сведения об интеграции службы управления API и концентраторов событий
+	-	[Справочник по сущности "Средство ведения журнала"](https://msdn.microsoft.com/library/azure/mt592020.aspx)
+	-	[Справочник по политике регистрации в концентраторе событий](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+	-	[Мониторинг API-интерфейсов с помощью службы управления API Azure, концентраторов событий и Runscope](api-management-log-to-eventhub-sample.md)	
+
+## Посмотрите видеоруководство
+
+> [AZURE.VIDEO integrate-azure-api-management-with-event-hubs]
+
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png
@@ -122,4 +133,4 @@
 [event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
 [add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO3-->

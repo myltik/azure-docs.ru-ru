@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Оценка службы приложений Azure с Поиском Azure | Microsoft Azure" 
+   pageTitle="Оценка использования службы приложений Azure совместно с Поиском Azure | Microsoft Azure | Размещенная облачная служба поиска" 
    description="Оцените Поиск Azure, размещенную облачную службу поиска, бесплатно в течение одного часа с помощью шаблона TryAzureAppService." 
    services="search" 
    documentationCenter="" 
@@ -529,4 +529,4 @@
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="11/09/2015" 
 	ms.author="spelluru"/>
 
 # Действие Pig
 
-Действие Pig HDInsight в [конвейере](data-factory-create-pipelines.md) фабрики данных выполняет запросы Pig в [вашем](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) кластере HDInsight или в кластере HDInsight [по требованию](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Эта статья основана на материалах статьи [Действия преобразования данных](data-factory-data-transformation-activities.md), в которой приведен общий обзор преобразования данных и поддерживаемые действия преобразования.
+Действие Pig HDInsight в [конвейере](data-factory-create-pipelines.md) фабрики данных выполняет запросы Pig Hive [самостоятельно](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) или в кластере HDInsight на базе Windows/Linux [по требованию](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Эта статья основана на материалах статьи [Действия преобразования данных](data-factory-data-transformation-activities.md), в которой приведен общий обзор преобразования данных и поддерживаемые действия преобразования.
 
 ## Синтаксис
 
@@ -186,9 +186,4 @@ defines | Параметры в виде пары "ключ — значени�
 		PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);		
 		Store PigSampleOut into '$Output' USING PigStorage (','); 
 
-
- 
-## Отправить отзыв
-Мы будем очень благодарны за ваш отзыв об этой статье. Отправьте его [по электронной почте](mailto:adfdocfeedback@microsoft.com?subject=data-factory-pig-activity.md).
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO3-->

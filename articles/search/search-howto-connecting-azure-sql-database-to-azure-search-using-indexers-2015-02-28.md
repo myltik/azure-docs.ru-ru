@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Подключение Базы данных SQL Azure к Поиску Azure с помощью индексаторов | Microsoft Azure" 
+	pageTitle="Подключение Базы данных SQL Azure к Поиску Azure с помощью индексаторов | Microsoft Azure | Размещенная облачная служба поиска" 
 	description="Узнайте, как извлекать данные из Базы данных SQL Azure в индекс Поиска Azure с помощью индексаторов." 
 	services="search" 
 	documentationCenter="" 
@@ -279,4 +279,4 @@
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

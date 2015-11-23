@@ -13,7 +13,7 @@ ms.devlang="java"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="09/23/2015"
+ms.date="11/06/2015"
 ms.author="larryfr"/>
 
 #Обработка данных с датчиков автомобилей из концентраторов событий Azure с использованием средств Apache Storm в HDInsight.
@@ -58,4 +58,4 @@ ms.author="larryfr"/>
 
 Другие примеры топологий Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

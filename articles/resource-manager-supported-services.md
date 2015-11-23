@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/04/2015"
+   ms.date="11/11/2015"
    ms.author="tomfitz"/>
 
 # Поддержка диспетчера ресурсов для служб, регионов и версий API
@@ -32,9 +32,7 @@
 | Виртуальные машины | Да | Да, много вариантов | Нет | [Создание виртуальной машины](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Пакетная служба | Да | [Да (только классическая версия)](https://portal.azure.com/#create/Microsoft.BatchAccount) | | [Пакетная служба (REST)](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Службы жизненного цикла Dynamics | Да | Нет | | | |
-| Виртуальные машины (классические) | Ограничена | Да | Частично (см. ниже) | — | — |
-| Удаленное приложение | Нет | — | — | — | — |
-| Service Fabric | Нет | — | — | — | — |
+| Виртуальные машины (классические) | Ограничена | Да, много вариантов | Частично (см. ниже) | — | — | | Удаленное приложение | Нет | Нет | — | — | — | | Service Fabric | Нет | Нет | — | — | — |
 
 Пункт "Виртуальные машины (классические)" относится к ресурсам, которые были развернуты с помощью классической модели развертывания, а не через модель развертывания диспетчера ресурсов. Как правило эти ресурсы не поддерживают операции диспетчера ресурсов, однако некоторые операции стали доступны. Дополнительные сведения об этих моделях развертывания вы найдете в статье [Общие сведения о развертывании с помощью диспетчера ресурсов и классическом развертывании](resource-manager-deployment-model.md).
 
@@ -59,23 +57,19 @@
 
 ## Хранилище данных
 
-| служба | Доступность диспетчера ресурсов | Портал предварительной версии | Перемещение ресурсов | Интерфейс REST API | Схема |
+| Служба | Доступность диспетчера ресурсов | Портал предварительной версии | Перемещение ресурсов | Интерфейс REST API | Схема |
 | ------- | ------- | ------- | -------------- | -------- | ------ |
 | DocumentDB | Да | [Да](https://portal.azure.com/#create/Microsoft.DocumentDB) | Да | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
-| Хранилище | Да | [Да](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | | [Создание хранилища](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Storage.json) |
+| Хранилище | Да | [Да](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | | [Создание хранилища](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [Учетная запись хранения](resource-manager-template-storage.md) |
 | Кэш Redis | Да | [Да](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | Да | | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
-| База данных SQL | Да | [Да](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.7-preview) | Да | [Создание базы данных](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
+| База данных SQL | Да | [Да](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | Да | [Создание базы данных](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | Поиск | Да | [Да](https://portal.azure.com/#create/Microsoft.Search) | Да | [Поиск REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
 | Хранилище данных SQL | Да | [Да](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | Нет | Нет | — | — | — |
-| Архивация | Нет | Нет | — | — | — |
-| Site Recovery | Нет | Нет | — | — | — |
 | StorSimple | Нет | Нет | - | - | - | | Управляемый кэш | Нет | Нет | - | - | - |
-| Каталог данных | Нет | Нет | — | — | — |
 
 ## Аналитика
 
-| служба | Доступность диспетчера ресурсов | Портал предварительной версии | Перемещение ресурсов | Интерфейс REST API | Схема |
+| Служба | Доступность диспетчера ресурсов | Портал предварительной версии | Перемещение ресурсов | Интерфейс REST API | Схема |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
 | Концентратор событий | Да | Нет | | [Создание концентратора событий](https://msdn.microsoft.com/library/azure/dn790676.aspx) | |
 | Анализ потока | Да | [Да](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
@@ -104,7 +98,7 @@
 
 ## Гибридная интеграция
 
-| служба | Доступность диспетчера ресурсов | Портал предварительной версии | Перемещение ресурсов | Интерфейс REST API | Схема |
+| Служба | Доступность диспетчера ресурсов | Портал предварительной версии | Перемещение ресурсов | Интерфейс REST API | Схема |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
 | Службы BizTalk | Да | Нет | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) |
 | Service Bus | Да | Нет | | [REST служебной шины](https://msdn.microsoft.com/library/azure/hh780717.aspx) | |
@@ -112,15 +106,13 @@
 
 ## Управление удостоверениями и доступом 
 
-| служба | Доступность диспетчера ресурсов | Портал предварительной версии | Перемещение ресурсов | Интерфейс REST API | Схема |
+| Служба | Доступность диспетчера ресурсов | Портал предварительной версии | Перемещение ресурсов | Интерфейс REST API | Схема |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Azure Active Directory | Нет | Нет | — | — | — |
-| Azure Actice Directory B2C | Нет | Нет | — | — | — |
-| Многофакторная проверка подлинности | Нет | Нет | — | — | — |
+| Azure Active Directory | Нет | Нет | — | — | — | | Azure Actice Directory B2C | Нет | Нет | — | — | — | | Многофакторная проверка подлинности | Нет | Нет | — | — | — |
 
 ## Службы разработки 
 
-| служба | Доступность диспетчера ресурсов | Портал предварительной версии | Перемещение ресурсов | Интерфейс REST API | Схема |
+| Служба | Доступность диспетчера ресурсов | Портал предварительной версии | Перемещение ресурсов | Интерфейс REST API | Схема |
 | ------- | ------- | ---------- | -------------- | -------- | ------ |
 | Application Insights | Да | [Да](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
 | Карты Bing | Да | [Да](https://portal.azure.com/#create/bingmaps.mapapis.1.0.4) | | | |
@@ -131,10 +123,17 @@
 | служба | Доступность диспетчера ресурсов | Портал предварительной версии | Перемещение ресурсов | Интерфейс REST API | Схема |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
 | Автоматизация | Да | [Да](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | | | |
-| хранилище ключей; | Да | Нет | Да | [REST хранилища ключей](https://msdn.microsoft.com/library/azure/dn903609.aspx) | |
+| Хранилище ключей | Да | Нет | Да | [REST хранилища ключей](https://msdn.microsoft.com/library/azure/dn903609.aspx) | |
 | Планировщик | Да | Нет | | | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) |
-| Operational Insights; | Да | Нет | Да | | |
+| Operational Insights | Да | Нет | Да | | |
 | Центры IoT | Да | [Да](https://portal.azure.com/#create/Microsoft.IotHub) | | | |
+
+## Диспетчер ресурсов
+
+| Функция | Доступность диспетчера ресурсов | Портал предварительной версии | Перемещение ресурсов | Интерфейс REST API | Схема |
+| ------- | ------- | -------- | -------------- | -------- | ------ |
+| Авторизация | Да | Недоступно | Недоступно | [Блокировки управления](https://msdn.microsoft.com/library/azure/mt204563.aspx)<br >[Контроль доступа на основе ролей](https://msdn.microsoft.com/library/azure/dn906885.aspx) | [Блокировка ресурса](resource-manager-template-lock.md)<br />[Назначения ролей](resource-manager-template-role.md) |
+| Ресурсы | Да | Недоступно | Недоступно | [Связанные ресурсы](https://msdn.microsoft.com/library/azure/mt238499.aspx) | [Ссылки на ресурсы](resource-manager-template-links.md) |
 
 
 ## Поддерживаемые регионы
@@ -179,7 +178,7 @@
 
     azure location list
 
-Вы можете отфильтровать результаты расположения, например с помощью средства **jq**. Дополнительные сведения о jq и других средствах вы найдете в разделе [Полезные средства для работы с Azure](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure).
+Вы можете отфильтровать результаты расположения, например, с помощью средства **jq**. Дополнительные сведения о jq и других средствах вы найдете в разделе [Полезные средства для работы с Azure](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure).
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
 
@@ -235,4 +234,4 @@
 - Сведения о создании шаблонов диспетчера ресурсов см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 - Сведения о развертывании ресурсов см. в статье [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

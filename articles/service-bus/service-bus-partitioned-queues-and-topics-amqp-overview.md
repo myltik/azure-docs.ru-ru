@@ -4,111 +4,116 @@
 	services="service-bus" 
 	documentationCenter=".net" 
 	authors="hillaryc" 
-	manager="hillaryc" 
-	editor="hillaryc"/>
+	manager="timlt" 
+	editor=""/>
 
 <tags 
 	ms.service="service-bus" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="11/05/2015" 
 	ms.author="hillaryc"/>
-
-
 
 # Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины 
 
-Служебная шина Azure теперь поддерживает Расширенный протокол очередей сообщений (**AMQP**) 1.0 для **секционированных очередей и разделов** служебной шины.
+Служебная шина Azure теперь поддерживает Расширенный протокол управления очередью сообщений (**AMQP**) 1.0 для **секционированных очередей и разделов** служебной шины.
 
-**AMQP** — открытый стандарт протокола очередей сообщений, который позволяет разрабатывать кроссплатформенные приложения с использованием различных языков программирования. Дополнительные сведения об общей поддержке протокола AMQP в служебной шине можно найти в разделе [Поддержка AMQP 1.0 в служебной шине](service-bus-amqp-overview.md).
+**AMQP** — открытый стандарт протокола очередей сообщений, который позволяет разрабатывать кроссплатформенные приложения с использованием различных языков программирования. Общие сведения о поддержке AMQP в Service Bus см. в разделе [Поддержка AMQP 1.0 в служебной шине](service-bus-amqp-overview.md).
 
-**Секционированные очереди и разделы**, которые также называют секционированными сущностями, предлагают более высокий уровень доступности, надежность и пропускную способность по сравнению с обычными несекционированными очередями и разделами. Дополнительную информацию о секционированных сущностях можно найти в статье [Секционированные сущности обмена сообщениями](https://msdn.microsoft.com/library/azure/dn520246.aspx).
+**Секционированные очереди и разделы**, которые также называют *секционированными сущностями*, предлагают более высокий уровень доступности, надежность и пропускную способность по сравнению с обычными несекционированными очередями и разделами. Дополнительную информацию см. в статье [Секционированные сущности обмена сообщениями](service-bus-partitioning.md).
 
-Добавление AMQP 1.0 в качестве протокола для связи с секционированными очередями и разделами позволяет пользователям создавать совместно функционирующие приложения с более высокой доступностью, надежностью и пропускной способностью, которыми обладают секционированные сущности служебной шины.
+Добавление AMQP 1.0 в качестве протокола для связи с секционированными очередями и разделами позволяет создавать совместно функционирующие приложения с более высокой доступностью, надежностью и пропускной способностью, которыми обладают секционированные сущности служебной шины.
 
-### Использование протокола AMQP с секционированными сущностями
+## Использование AMQP с секционированными сущностями
 
-Очереди удобны для сценариев, которым необходимы временная развязка, выравнивание нагрузки, балансировка нагрузки и слабые связи. Издатели отправляют сообщения в очередь, а потребители получают сообщения из очереди, причем сообщение может быть получено только один раз. Классический пример подобной схемы — система управления запасами, в которой терминалы точек продаж публикуют данные в очередь, а не в систему управления запасами напрямую. Система управления запасами сможет в любой момент использовать эти данные для пополнения запасов. У такого подхода есть несколько преимуществ: например, система управления запасами не должна находиться в сети все время. Дополнительные сведения об очередях служебной шины см. в статье [Создание приложений, использующих очереди служебной шины](https://msdn.microsoft.com/library/azure/hh689723.aspx)
+Очереди удобны для сценариев, которым необходимы временная развязка, выравнивание нагрузки, балансировка нагрузки и слабые связи. Если сообщение может быть получено только один раз, издатели отправляют сообщения в очередь, а потребители получают сообщения из очереди. Хороший пример подобной схемы — система управления запасами, в которой терминалы точек продаж публикуют данные в очередь, а не в систему управления запасами напрямую. Система управления запасами сможет в любой момент использовать эти данные для пополнения запасов. У такого подхода есть несколько преимуществ: например, система управления запасами не должна находиться в сети все время. Дополнительные сведения об очередях служебной шины см. в статье [Создание приложений, использующих очереди служебной шины](service-bus-create-queues.md)
 
 Секционированная очередь может дополнительно повысить доступность, надежность и производительность для приложений, так как такая очередь секционируется между несколькими посредниками сообщений и хранилищами сообщений.
 
-#### Создание секционированных очередей
+### Создание секционированных очередей
 
-Секционированную очередь можно создать в портале Azure и с помощью пакета SDK служебной шины. Чтобы создать секционированную очередь, необходимо установить свойство EnablePartitioning экземпляра QueueDescription. Во фрагменте кода ниже показано, как создать секционированную очередь с помощью пакета SDK служебной шины.
+Секционированную очередь можно создать с помощью классического портала Azure и пакета SDK служебной шины. Чтобы создать секционированную очередь, необходимо установить для свойства [EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx) экземпляра [QueueDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.aspx) значение **true**. В следующем коде показано, как создать секционированную очередь с помощью пакета SDK служебной шины.
  
-	// Create partitioned queue
-	var nm = NamespaceManager.CreateFromConnectionString(myConnectionString);
-	var queueDescription = new QueueDescription("myQueue");
-	queueDescription.EnablePartitioning = true;
-	nm.CreateQueue(queueDescription);
+```
+// Create partitioned queue
+var nm = NamespaceManager.CreateFromConnectionString(myConnectionString);
+var queueDescription = new QueueDescription("myQueue");
+queueDescription.EnablePartitioning = true;
+nm.CreateQueue(queueDescription);
+```
 
-#### Отправка и получение сообщений с помощью AMQP
+### Отправка и получение сообщений с помощью AMQP
 
-Для отправки и получения сообщений из секционированной очереди с помощью протокола AMQP необходимо установить TransportType в TransportType.Amqp, как показано в следующем фрагменте кода.
+Для отправки и получения сообщений из секционированной очереди с помощью протокола AMQP необходимо установить для свойства [TransportType](https://msdn.microsoft.com/library/azure/microsoft.servicebus.servicebusconnectionstringbuilder.transporttype.aspx) значение [TransportType.Amqp](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.transporttype.aspx), как показано в следующем фрагменте кода.
 
-	// Sending and receiving messages to and from a Queue
-	var myConnectionStringBuilder = new ServiceBusConnectionStringBuilder(myConnectionString);
-	myConnectionStringBuilder.TransportType = TransportType.Amqp;
-	string amqpConnectionString = myConnectionStringBuilder.ToString();
-	var queueClient = QueueClient.CreateFromConnectionString(amqpConnectionString, "myQueue");
+```
+// Sending and receiving messages to and from a queue
+var myConnectionStringBuilder = new ServiceBusConnectionStringBuilder(myConnectionString);
+myConnectionStringBuilder.TransportType = TransportType.Amqp;
+string amqpConnectionString = myConnectionStringBuilder.ToString();
+var queueClient = QueueClient.CreateFromConnectionString(amqpConnectionString, "myQueue");
 
-	BrokeredMessage message = new BrokeredMessage("Hello AMQP");
-	Console.WriteLine("Sending message {0}...", message.MessageId);
-	queueClient.Send(message);
+BrokeredMessage message = new BrokeredMessage("Hello AMQP");
+Console.WriteLine("Sending message {0}...", message.MessageId);
+queueClient.Send(message);
 
-	var receivedMessage = queueClient.Receive();
-	Console.WriteLine("Received message: {0}", receivedMessage.GetBody<string>());
-	receivedMessage.Complete();
+var receivedMessage = queueClient.Receive();
+Console.WriteLine("Received message: {0}", receivedMessage.GetBody<string>());
+receivedMessage.Complete();
+```
 
+## Использование AMQP с секционированными разделами
 
-### Использование протокола AMQP с секционированными разделами
-
-Как и очереди, разделы удобны для сценариев, которым необходимы временная развязка, выравнивание нагрузки, балансировка нагрузки и слабые связи. В отличие от очередей, разделы могут отправлять копию одного и того же сообщения нескольким подписчикам. В разделе издатели отправляют сообщения в раздел, а потребители получают сообщения из подписок. В примере с системой управления запасами терминалы точек продаж будут публиковать данные в раздел. Затем система управления запасами получит сообщения из подписки. Кроме того, система мониторинга также может получить точно такое же сообщение из другой подписки. Дополнительные сведения о разделах служебной шины см. в статье [Создание приложений, использующих разделы и подписки служебной шины](https://msdn.microsoft.com/library/azure/hh699844.aspx)
+Как и очереди, разделы удобны для сценариев, которым необходимы временная развязка, выравнивание нагрузки, балансировка нагрузки и слабые связи. В отличие от очередей, разделы могут отправлять копию одного и того же сообщения нескольким подписчикам. В разделе издатели отправляют сообщения в раздел, а потребители получают сообщения из подписок. В примере с системой управления запасами терминалы точек продаж будут публиковать данные в раздел. Затем система управления запасами получит сообщения из подписки. Кроме того, система мониторинга также может получить точно такое же сообщение из другой подписки. Дополнительные сведения о разделах служебной шины см. в статье [Создание приложений, использующих разделы и подписки служебной шины](service-bus-create-topics-subscriptions.md)
 
 Секционированный раздел может дополнительно повысить доступность, надежность и производительность для приложений, так как такие разделы и их подписки секционируются между несколькими посредниками сообщений и хранилищами сообщений.
 
-#### Создание секционированных разделов
+### Создание секционированных разделов
 
-Секционированный раздел можно создать в портале Azure и с помощью пакета SDK служебной шины. Чтобы создать секционированный раздел, необходимо установить свойство EnablePartitioning экземпляра TopicDescription. Во фрагменте кода ниже показано, как создать секционированную очередь с помощью пакета SDK служебной шины.
+Секционированный раздел можно создать с помощью классического портала Azure и пакета SDK служебной шины. Чтобы создать секционированную очередь, необходимо установить для свойства [EnablePartitioning](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx) экземпляра [TopicDescription](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.aspx) значение **true**. В следующем коде показано, как создать секционированный раздел с помощью пакета SDK служебной шины.
 	
-	// Create partitioned topic
-	var nm = NamespaceManager.CreateFromConnectionString(myConnectionString);
-	var topicDescription = new TopicDescription("myTopic");
-	topicDescription.EnablePartitioning = true;
-	nm.CreateTopic(topicDescription);
+```
+// Create partitioned topic
+var nm = NamespaceManager.CreateFromConnectionString(myConnectionString);
+var topicDescription = new TopicDescription("myTopic");
+topicDescription.EnablePartitioning = true;
+nm.CreateTopic(topicDescription);
 
-	var subscriptionDescription = new SubscriptionDescription("myTopic", "mySubscription");
-	nm.CreateSubscription(subscriptionDescription);
+var subscriptionDescription = new SubscriptionDescription("myTopic", "mySubscription");
+nm.CreateSubscription(subscriptionDescription);
+```
 
-#### Отправка и получение сообщений с помощью AMQP
+### Отправка и получение сообщений с помощью AMQP
 
-Для отправки сообщений в секционированный раздел и получения сообщений из подписки секционированного раздела с помощью протокола AMQP необходимо установить TransportType в TransportType.Amqp, как показано в следующем фрагменте кода.
+Для отправки и получения сообщений из подписки секционированного раздела с помощью протокола AMQP необходимо установить для свойства [TransportType](https://msdn.microsoft.com/library/azure/microsoft.servicebus.servicebusconnectionstringbuilder.transporttype.aspx) значение [TransportType.Amqp](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.transporttype.aspx), как показано в следующем фрагменте кода.
 
-	// Sending and receiving messages to a topic and from a subscription
-	var myConnectionStringBuilder = new ServiceBusConnectionStringBuilder(myConnectionString);
-	myConnectionStringBuilder.TransportType = TransportType.Amqp;
-	string amqpConnectionString = myConnectionStringBuilder.ToString();
+```
+// Sending and receiving messages to a topic and from a subscription
+var myConnectionStringBuilder = new ServiceBusConnectionStringBuilder(myConnectionString);
+myConnectionStringBuilder.TransportType = TransportType.Amqp;
+string amqpConnectionString = myConnectionStringBuilder.ToString();
 	
-	var topicClient = TopicClient.CreateFromConnectionString(amqpConnectionString, "myTopic");
-	BrokeredMessage message = new BrokeredMessage("Hello AMQP");
-	Console.WriteLine("Sending message {0}...", message.MessageId);
-	topicClient.Send(message);
+var topicClient = TopicClient.CreateFromConnectionString(amqpConnectionString, "myTopic");
+BrokeredMessage message = new BrokeredMessage("Hello AMQP");
+Console.WriteLine("Sending message {0}...", message.MessageId);
+topicClient.Send(message);
 	
-	var subcriptionClient = SubscriptionClient.CreateFromConnectionString(amqpConnectionString, "myTopic", "mySubscription");
-	var receivedMessage = subcriptionClient.Receive();
-	Console.WriteLine("Received message: {0}", receivedMessage.GetBody<string>());
-	receivedMessage.Complete();
+var subcriptionClient = SubscriptionClient.CreateFromConnectionString(amqpConnectionString, "myTopic", "mySubscription");
+var receivedMessage = subcriptionClient.Receive();
+Console.WriteLine("Received message: {0}", receivedMessage.GetBody<string>());
+receivedMessage.Complete();
+```
 
+## Дальнейшие действия
 
-## Ссылки
+Для получения дополнительных сведений о секционированных сущностях обмена сообщениями см. следующие статьи.
 
-*    [Разделение сущностей обмена сообщениями](https://msdn.microsoft.com/library/azure/dn520246.aspx)
+*    [Секционированные сущности обмена сообщениями](service-bus-partitioning.md)
 *    [Протокол OASIS AMQP, версия 1.0](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 *    [Поддержка AMQP 1.0 в служебной шине](service-bus-amqp-overview.md)
-*    [Руководство разработчика AMQP для служебной шины]("https://msdn.microsoft.com/library/azure/jj841071.aspx")
 *    [Как использовать API службы сообщений Java (JMS) со служебной шиной и AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
 *    [Как использовать AMQP 1.0 с API .NET служебной шины](service-bus-dotnet-advanced-message-queuing.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

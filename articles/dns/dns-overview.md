@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="08/12/2015"
+   ms.date="11/06/2015"
    ms.author="joaoma"/>
 
 # Обзор Azure DNS
@@ -40,4 +40,4 @@ Azure DNS является службой размещения для домен
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

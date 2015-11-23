@@ -58,7 +58,7 @@
 
 Центр IoT предоставляет полученные данные телеметрии конечной точке группы потребителей.
 
-Экземпляр центра IoT в этом предварительно настроенном решении соответствует **серверной части приложения IoT** в типичной архитектуре решения IoT.
+Экземпляр центра IoT в этом предварительно настроенном решении соответствует **облачному шлюзу** в типичной архитектуре решения IoT.
 
 ### Azure Stream Analytics
 
@@ -91,4 +91,4 @@
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [Azure Stream Analytics]: https://azure.microsoft.com/services/stream-analytics/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO3-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Начало работы со службой поиска Azure | Microsoft Azure" 
+	pageTitle="Начало работы с Поиском Azure | Microsoft Azure | Размещенная облачная служба поиска" 
 	description="Приступайте к работе с Поиском Azure, размещенной облачной службой поиска в Microsoft Azure." 
 	services="search" 
 	documentationCenter="" 
@@ -378,4 +378,4 @@
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

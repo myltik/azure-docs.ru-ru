@@ -1,5 +1,5 @@
 <properties 
-pageTitle="Операции с индексаторами (API REST службы Поиск Azure: версия 2015-02-28-Preview) | Microsoft Azure" 
+pageTitle="Операции индексатора (API REST Поиска Azure: 2015-02-28-Preview) | Microsoft Azure | Размещенная облачная служба поиска" 
 description="Операции с индексаторами (API REST службы ";Поиск Azure";: версия 2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 
@@ -776,4 +776,4 @@ ms.author="heidist" />
 </tr>
 </table>
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->

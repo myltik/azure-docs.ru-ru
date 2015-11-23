@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Мониторинг использования и статистики в службе Поиск Azure | Microsoft Azure" 
+   pageTitle="Мониторинг использования и статистики в службе Поиск Azure | Microsoft Azure | Размещенная облачная служба поиска" 
    description="Отслеживайте потребление ресурсов и размера индексов для Поиска Azure, размещенной облачной службы поиска в Microsoft Azure." 
    services="search" 
    documentationCenter="" 
@@ -57,4 +57,4 @@
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO3-->
