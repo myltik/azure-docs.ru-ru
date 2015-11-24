@@ -70,6 +70,11 @@
 +   [Семантическое ведение журнала](https://github.com/fidmor89/SLAB_AppInsights) — интегрируется с [блоком приложения для семантического ведения журнала](https://msdn.microsoft.com/library/dn440729.aspx).
 +   [Облачное нагрузочное тестирование](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 
+## экспорт.
+
++ [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
++ [Анализ потока](app-insights-export-power-bi.md)
+
 ## <a name="projects"></a> Создание собственного пакета SDK
 
 Если для языка или платформы, которые вы используете, не существует пакета SDK, возможно, вы захотите создать его. Просмотрите код существующих пакетов SDK, перечисленных в описании [проекта пакета SDK для Application Insights на GitHub](https://github.com/Microsoft/AppInsights-Home).
@@ -83,4 +88,4 @@
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

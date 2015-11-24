@@ -139,13 +139,11 @@
 
 	После завершения публикации служба будет перезапущена и появится начальная страница серверной части.
 
-4. Используя кнопку «Попробуйте сейчас» или клиентское приложение, подключенное к вашему мобильному приложению, выполните несколько операций, чтобы внести изменения в базу данных. <!--- either the **Try it now** button on the start page as before or using -->
-<!--- This try it now is not longer on the page after it is published. 
-	>[AZURE.NOTE]When you use the **Try it now** button to launch the Help API pages, remember to supply your application key as the password (with a blank username).
--->
-4. В SQL Server Management Studio подключитесь к своему экземпляру SQL Server, а затем в обозревателе объектов разверните базу данных **OnPremisesDB** и узел **Таблицы**.
+4. Используя клиентское приложение, подключенное к вашему мобильному приложению, выполните несколько операций, чтобы внести изменения в базу данных.
 
-5. Щелкните правой кнопкой мыши таблицу **hybridService1.TodoItems** и выберите команду **Выбрать первые 1000 строк**, чтобы просмотреть результаты.
+5. В SQL Server Management Studio подключитесь к своему экземпляру SQL Server, а затем в обозревателе объектов разверните базу данных **OnPremisesDB** и узел **Таблицы**.
+
+6. Щелкните правой кнопкой мыши таблицу **hybridService1.TodoItems** и выберите команду **Выбрать первые 1000 строк**, чтобы просмотреть результаты.
 
 	Обратите внимание на то, что изменения, созданные в клиентском приложении, были сохранены серверной частью вашего мобильного приложения в локальной базе данных с помощью гибридного подключения.
 
@@ -165,4 +163,4 @@
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

@@ -14,10 +14,10 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
+	ms.date="11/17/2015"
 	ms.author="heidist"/>
 
-#Создание запросов в службе поиска Azure с помощью вызовов REST 
+# Создание запросов в службе поиска Azure с помощью вызовов REST
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
@@ -29,32 +29,42 @@
 
 Для импорта необходимо наличие индекса, в который загружены документы с данными для поиска.
 
-При использовании интерфейса REST API запросы строятся на основе HTTP-запроса GET. Фрагменты кода взяты из [примера профилей повышения](search-get-started-scoring-profiles.md).
+Для поиска в индексе с помощью REST API следует отправить HTTP-запрос GET. Параметры запроса будут определены в URL-адресе HTTP-запроса.
 
-        static JObject ExecuteRequest(string action, string query = "")
-        {
-            // original:  string url = serviceUrl + indexName + "/" + action + "?" + ApiVersion; 
-            string url = serviceUrl + indexName + "/docs?" + action ;
-            if (!String.IsNullOrEmpty(query))
-            {
-                url += query + "&" + ApiVersion;
-            }
+**Запрос и заголовки запроса**
 
-            string response = ExecuteGetRequest(url);
-            return JObject.Parse(response);
+В URL-адресе необходимо указать имя службы, имя индекса, а также нужную версию API. Параметры запроса указываются в строке запроса в конце URL-адреса. В одном из параметров в строке запроса должна быть указана нужная версия API (текущая версия API на момент публикации этого документа — 2015-02-28).
 
-        }
+В заголовках запроса необходимо определить тип содержимого и указать первичный или вторичный ключ администратора службы.
 
-        static string ExecuteGetRequest(string requestUri)
-        {
-            //This will execute a get request and return the response
-            using (HttpClient client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Add("api-key", primaryKey);
-                HttpResponseMessage response = client.GetAsync(requestUri).Result;        // Searches are done over port 80 using Get
-                return response.Content.ReadAsStringAsync().Result;
-            }
+	GET https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
+	Content-Type: application/JSON
+	api-key:[primary admin key or secondary admin key]
 
-        }
+Служба поиска Azure предлагает множество параметров для создания расширенных запросов. Дополнительные сведения о различных параметрах строки запроса см. на [этой странице](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-<!---HONumber=Nov15_HO3-->
+**Примеры**
+
+Ниже приведено несколько примеров с различными строками запросов. В этих образцах используется фиктивный индекс с именем hotels.
+
+Поиск термина quality по всему индексу:
+
+	GET https://[service name].search.windows.net/indexes/hotels/docs?search=quality&$orderby=lastRenovationDate desc&api-version=2015-02-28
+	Content-Type: application/JSON
+	api-key:[primary admin key or secondary admin key]
+
+Поиск по всему индексу:
+
+	GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&api-version=2015-02-28
+	Content-Type: application/JSON
+	api-key:[primary admin key or secondary admin key]
+
+Поиск по всему индексу и сортировка по определенному полю (lastRenovationDate):
+
+	GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28
+	Content-Type: application/JSON
+	api-key:[primary admin key or secondary admin key]
+
+При успешном выполнении запроса возвращается код состояния «200 OK», а результаты поиска сохраняются в формате JSON в тексте ответа. Дополнительные сведения см. в разделе «Ответ» на [этой странице](https://msdn.microsoft.com/library/azure/dn798927.aspx).
+
+<!---HONumber=Nov15_HO4-->

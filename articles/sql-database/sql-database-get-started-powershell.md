@@ -1,11 +1,12 @@
 <properties 
-    pageTitle="Создание базы данных SQL Azure с помощью PowerShell" 
-    description="Создание базы данных SQL Azure с помощью PowerShell" 
-    services="sql-database" 
+    pageTitle="Настройка новой базы данных SQL с помощью PowerShell | Microsoft Azure" 
+    description="Узнайте, как создать новую базу данных SQL с помощью PowerShell. Стандартные задачи по настройке базы данных можно выполнить с помощью командлетов PowerShell." 
+    keywords="создание новой базы данных SQL, настройка базы данных"
+	services="sql-database" 
     documentationCenter="" 
     authors="stevestein" 
     manager="jeffreyg" 
-    editor=""/>
+    editor="cgronlun"/>
 
 <tags
     ms.service="sql-database"
@@ -16,7 +17,7 @@
     ms.date="10/20/2015"
     ms.author="sstein"/>
 
-# Создание базы данных SQL с помощью PowerShell
+# Создание новой базы данных SQL и стандартная настройка базы данных с использованием командлетов PowerShell 
 
 **Отдельная база данных**
 
@@ -26,14 +27,12 @@
 - [PowerShell](sql-database-get-started-powershell.md)
 
 
-## Обзор
-
-В этой статье описано, как создать базу данных SQL с помощью PowerShell.
+Узнайте, как создать новую базу данных SQL и выполнить стандартные задачи по ее настройке с использованием командлетов PowerShell.
 
 > [AZURE.IMPORTANT]Начиная с выпуска предварительной версии Azure PowerShell 1.0, командлет Switch-AzureMode больше не доступен, а командлеты, которые были в модуле Azure ResourceManger, переименованы. В примерах в этой статье используется новое соглашение об именовании предварительной версии PowerShell 1.0. Дополнительные сведения см. в разделе [Устаревший командлет Switch-AzureMode в Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 
-Чтобы выполнить командлеты PowerShell, необходимо установить и запустить Azure PowerShell. А из-за удаления Switch-AzureMode необходимо скачать и установить последнюю версию Azure PowerShell, запустив [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Чтобы выполнять командлеты PowerShell, необходимо установить и запустить Azure PowerShell. Из-за того, что Switch-AzureMode был удален, следует загрузить и установить последнюю версию Azure PowerShell, запустив [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 - Если вам требуется подписка Azure, нажмите в верхней части этой страницы кнопку **БЕСПЛАТНАЯ ПРОБНАЯ ВЕРСИЯ**. Оформив подписку, вернитесь к этой статье.
 
@@ -57,7 +56,7 @@
 
 После успешного выполнения командлета **Select-AzureRMSubscription** вы вернетесь в командную строку PowerShell. Если подписок несколько, выполните командлет **Get-AzureRMSubscription** и убедитесь в том, что в подписке, которую необходимо использовать, отображается **IsCurrent: True**.
 
-## Создание группы ресурсов, сервера и правила брандмауэра
+## Настройка базы данных: создание группы ресурсов, сервера и правила брандмауэра
 
 Теперь вы можете запустить командлеты под выбранной подпиской Azure, и следующим шагом станет установка группы ресурсов, содержащей сервер, на котором будет создаваться база данных. Вы можете отредактировать следующую команду, чтобы использовать любое допустимое расположение. Выполните команду **(Get-AzureRMLocation | where-object {$\_.Name -eq "Microsoft.Sql/servers" }).Locations** для получения списка допустимых расположений.
 
@@ -91,7 +90,7 @@
 Дополнительные сведения см. в статье [Брандмауэр Базы данных SQL Azure](sql-database-firewall-configure.md).
 
 
-## Создание базы данных SQL
+## Создание новой базы данных SQL
 
 Сейчас у вас есть группа ресурсов, сервер и правило брандмауэра, настроенные для получения доступа к серверу.
 
@@ -103,7 +102,7 @@
 
 После успешного создания базы данных отображаются сведения о базе данных.
 
-## Создание базы данных SQL с помощью сценария PowerShell
+## Создание новой базы данных SQL с помощью сценария PowerShell
 
     $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     $ResourceGroupName = "resourcegroupname"
@@ -136,12 +135,13 @@
 
 
 ## Дальнейшие действия
+Вы создали новую базу данных SQL и выполнили ее базовую настройку. Теперь можете перейти к следующим шагам:
 
 - [Соединение с SQL Server Management Studio (SSMS)](sql-database-connect-to-database.md)
 
 
 ## Дополнительные ресурсы
 
-- [База данных SQL Azure](https://azure.microsoft.com/documentation/services/sql-database/)
+- [база данных SQL Azure;](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

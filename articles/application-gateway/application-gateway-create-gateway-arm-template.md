@@ -13,7 +13,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/21/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 
@@ -22,10 +22,9 @@
 Шлюз приложений — это уровень 7 балансировщика нагрузки. Он отвечает за отработку отказов и HTTP-запросы маршрутизации производительности между различными облачными и локальными серверами. Шлюз приложений обладает следующими функциями доставки приложений: балансировка нагрузки HTTP, определение сходства сеансов по файлам cookie, разгрузка SSL.
 
 > [AZURE.SELECTOR]
-- [Azure Classic Powershell steps](application-gateway-create-gateway.md)
-- [Azure Resource Manager Powershell steps](application-gateway-create-gateway-arm.md)
-- [Azure Resource Manager template steps](application-gateway-create-gateway-arm-template.md)
-
+- [Azure Classic PowerShell](application-gateway-create-gateway.md)
+- [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+- [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 
 <BR>
 
@@ -60,7 +59,7 @@
 
 Вы можете загрузить уже существующий шаблон ARM для создания виртуальной сети и двух подсетей из Github, внести в него желаемые изменения и применить. Для этого выполните описанные ниже действия.
 
-1. Перейдите на страницу https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-applicationgateway-publicip.
+1. Перейдите на страницу https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/.
 2. Щелкните **azuredeploy.json** и нажмите кнопку **RAW**.
 3. Сохраните файл в локальную папку на своем компьютере.
 4. Если вы знакомы с шаблонами ARM, перейдите к шагу 7.
@@ -76,8 +75,8 @@
 	| **skuname** | Размер экземпляра sku |
 	| **емкость** | количество экземпляров. |
 	| **backendaddress1** | IP-адрес первого веб-сервера |
-	| **backendaddress2** | IP-адрес второго веб-сервера|
-
+	| **backendaddress2** | IP-адрес второго веб-сервера |
+	
 
 >[AZURE.IMPORTANT]Шаблоны ARM, хранящиеся в Github, со временем могут изменяться. Перед использованием шаблона обязательно его проверьте.
 	
@@ -87,37 +86,35 @@
 	- **name**. Имя ресурса. Обратите внимание на фрагмент кода **[parameters('applicationGatewayName')]**, означающий, что имя будет предоставлено пользователем или взято из файла параметров в процессе развертывания.
 	- **properties**. Список свойств для ресурса. Во время создания шлюза приложений этот шаблон использует виртуальную сеть и общедоступный IP-адрес.
 
-7. Вернитесь на страницу https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-applicationgateway-publicip.
+7. Вернитесь на страницу https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-create-application-gateway/azuredeploy.json.
 8. Щелкните **azuredeploy paremeters.json** и нажмите кнопку **RAW**.
 9. Сохраните файл в локальную папку на своем компьютере.
 10. Откройте только что сохраненный файл и измените значения параметров. Чтобы развернуть шлюз приложений так, как требуется для целей этой статьи, используйте приведенные ниже значения.
 
 		{
-		   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-		   "contentVersion": "1.0.0.0",
-		   "parameters": {
-		     "location": {
-		       "value": "East US"
-		     },
-		     "addressPrefix": {
-		      "value": "10.0.0.0/16"
-    		 },
-		     "subnetPrefix": {
-		      "value": "10.0.0.0/24"
-		     },
-		     "skuName": {
-		       "value": "Standard_Small"
-		     },
-		     "capacity": {
-		       "value": 2
-		    },
-		    "backendIpAddress1": {
-		      "value": "10.0.1.10"
-		    },
-		     "backendIpAddress2": {
-		       "value": "10.0.1.11"
-		     }
-		  }
+		  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+		{
+    	"location" : {
+        "value" : "West US"
+    	},
+    	"addressPrefix": {
+        "value": "10.0.0.0/16"
+    	},
+    	"subnetPrefix": {
+        "value": "10.0.0.0/24"
+    	},
+    	"skuName": {
+        "value": "Standard_Small"
+    	},
+    	"capacity": {
+        "value": 2
+    	},
+    	"backendIpAddress1": {
+        "value": "10.0.1.10"
+    	},
+    	"backendIpAddress2": {
+        "value": "10.0.1.11"
+    	}
 		}
 
 11. Сохраните файл. Вы можете проверить шаблон JSON и шаблон параметров при помощи таких веб-инструментов проверки JSON, как [JSlint.com](http://www.jslint.com/)
@@ -150,7 +147,7 @@
 	                 =======  ==========
 	                  *
 
-		ResourceId        : /subscriptions/################################/resourceGroups/AppgatewayRG
+		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
 4. Выполните командлет New-AzureResourceGroupDeployment, чтобы развернуть новую виртуальную сеть с помощью файлов, которые вы скачали и изменили раньше (шаблон и параметры).
 
@@ -175,7 +172,7 @@
                    capacity         Int                        2
                    backendIpAddress1  String                     10.0.1.10
                    backendIpAddress2  String                     10.0.1.11
-
+					
 		Outputs           :
 
 
@@ -240,7 +237,7 @@
 
 
 ### Шаг 1 
-Выбрав ссылку [Щелкните, чтобы развернуть шлюз приложений](http://azure.microsoft.com/documentation/templates/101-create-applicationgateway-publicip/), вы перейдете на страницу портала с шаблоном шлюза приложений.
+Выбрав ссылку [Щелкните, чтобы развернуть шлюз приложений](https://azure.microsoft.com/ru-RU/documentation/templates/101-application-gateway-public-ip/), вы перейдете на страницу портала с шаблоном шлюза приложений.
 
 
 ### Шаг 2 
@@ -276,4 +273,4 @@
 - [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->
