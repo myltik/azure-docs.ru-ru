@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Добавление, отключение, включение и удаление конечных точек
@@ -62,20 +62,17 @@
 
 >[AZURE.NOTE]Нельзя удалять внешние расположения или профили диспетчера трафика в качестве конечных точек с помощью портала Azure. Необходимо использовать Windows PowerShell. Подробнее см. в описании командлета [Remove-AzureTrafficManagerEndpoint](https://msdn.microsoft.com/library/dn690251.aspx).
 
-## Дополнительные ресурсы
+## Дальнейшие действия
 
-[Обзор диспетчера трафика](traffic-manager-overview.md)
 
-[О мониторинге диспетчера трафика](traffic-manager-monitoring.md)
+[Настройка маршрутизации с отработкой отказа](traffic-manager-configure-failover-routing-method.md)
 
-[Диспетчер трафика — включение, отключение или удаление профиля диспетчера трафика](disable-enable-or-delete-a-profile.md)
+[Настройка маршрутизации с циклическим перебором](traffic-manager-configure-round-robin-routing-method.md)
 
-[Диспетчер трафика — отключение и включение конечной точки диспетчера трафика](disable-or-enable-an-endpoint.md)
+[Настройка маршрутизации производительности](traffic-manager-configure-performance-routing-method.md)
+
+[Устранение неполадок, связанных со сбоем диспетчера трафика](traffic-manager-troubleshooting-degraded.md)
 
 [Операции с диспетчером трафика (справочник по REST API)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 
-[Облачные службы](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Веб-сайты](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

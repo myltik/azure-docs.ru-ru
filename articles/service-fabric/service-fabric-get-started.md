@@ -47,6 +47,14 @@
 
 Установка начнется автоматически.
 
+## Установка Azure PowerShell
+
+Для настройки структуры службы кластера необходимо установить сценарии Azure PowerShell.
+
+Вы можете скачать и установить модуль Azure PowerShell, запустив [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?LinkId=320376). При появлении запроса нажмите кнопку **Запуск**. Установщик веб-платформы установит модули Azure PowerShell и все зависимости. Следуйте инструкциям на экране для завершения установки.
+
+> [AZURE.NOTE]Если вы хотите просто скачать установщик PowerShell, перейдите по ссылке https://github.com/Azure/azure-powershell/releases. Исходный код для командлетов PowerShell можно также найти в этом репозитории.
+
 ## Включение сценариев PowerShell
 
 Для создания локального кластера разработки и развертывания приложений из Visual Studio в Service Fabric используются сценарии Windows PowerShell. По умолчанию Windows блокирует выполнение этих сценариев. Чтобы включить их, необходимо изменить политику выполнения PowerShell. Для этого запустите PowerShell с правами администратора и введите следующую команду:
@@ -106,4 +114,4 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "Ссылка WebPI"
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

@@ -3,7 +3,7 @@
 	description="Этот учебник поможет приступить к использованию мобильных приложений Azure для разработки приложений Xamarin Android"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="wesmc7777"
+	authors="ggailey777"
 	manager="dwrede"
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/20/2015"
-	ms.author="normesta" />
+	ms.date="11/17/2015"
+	ms.author="glenga" />
 
 #Создание приложения Xamarin.Android
 
@@ -24,7 +24,7 @@
  
 ##Обзор
 
-В этом учебнике показано, как добавить облачную серверную службу в приложение Xamarin.Android с помощью серверной части мобильного приложения Azure. Вы создадите новую серверную часть мобильного приложения и простое приложение Xamarin.Andorid _Todo list_, в котором в Azure хранятся данные приложения.
+В этом руководстве показано, как добавить облачную серверную службу в приложение Xamarin.Android. Дополнительные сведения см. в статье [Что такое мобильные приложения?](app-service-mobile-value-prop.md)
 
 Снимок экрана завершенного приложения приведен ниже:
 
@@ -38,30 +38,17 @@
 
 * Активная учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных приложений, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/).
  
-* [Visual Studio Community 2013] или более поздняя версия. В случае установки Visual Studio Community 2013 устанавливайте [Xamarin] отдельно. При установке Visual Studio 2015 можно установить инструменты Xamarin.
+* [Visual Studio Community 2013] или более поздняя версия. В случае установки Visual Studio Community 2013 устанавливайте [Xamarin] отдельно. При установке Visual Studio 2015 можно установить инструменты Xamarin.
  
->[AZURE.NOTE]Если вы хотите ознакомиться со службой приложений Azure до создания учетной записи, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), где вы можете быстро создать краткосрочное начальное мобильное приложение в службе приложений. Никаких кредитных карт и обязательств.
-
+>[AZURE.NOTE]Если вы хотите ознакомиться со службой приложений Azure до создания учетной записи, перейдите на страницу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), где вы можете быстро создать краткосрочное начальное мобильное приложение в службе приложений. Никаких кредитных карт и обязательств.
 
 ## Создание серверной части мобильного приложения Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## Скачивание проекта сервера
+## Настройка серверного проекта
 
-1. На компьютере откройте [портал Azure]. Последовательно выберите пункты **Просмотреть все** > **Мобильные приложения**, а затем только что созданную серверную часть мобильного приложения.
-
-2. В колонке мобильного приложения щелкните **Параметры**, а затем в разделе **Мобильное приложение** последовательно выберите **Быстрый запуск** > **Xamarin.Android**.
- 
-3. В разделе **Загрузка и запуск серверного проекта** щелкните **Загрузить**. Извлеките сжатые файлы проекта на компьютер и откройте решение в Visual Studio.
- 
-## Локальное тестирование серверного проекта
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
-
-## Публикация серверного проекта в Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
+[AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## Скачивание и запуск приложения Xamarin.Android
 
@@ -69,13 +56,9 @@
 
   	Будет скачан проект, содержащий клиентское приложение, подключенное к вашему мобильному приложению. Сохраните сжатый файл проекта на локальном компьютере и запомните путь к нему.
 
-	![][8]
+2. Нажмите клавишу **F5**, чтобы выполнить сборку проекта, после чего запустите приложение.
 
-	![][9]
-
-2. Нажмите клавишу **F5** для выполнения сборки проекта, после чего запустите приложение.
-
-3. В приложении введите осмысленный текст, например _Работа с учебником_, и нажмите кнопку **Добавить**.
+3. В приложении введите осмысленный текст, например _Работа с руководством_, и нажмите кнопку **Добавить**.
 
 	![][10]
 
@@ -85,7 +68,7 @@
 
 ##Дальнейшие действия
 
-* [Добавление в приложение проверки подлинности](app-service-mobile-xamarin-android-get-started-users.md) <br/>Узнайте, как выполнять проверку подлинности пользователей приложения с помощью поставщика удостоверений.
+* [Добавление проверки подлинности в приложение](app-service-mobile-xamarin-android-get-started-users.md). <br/>Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
 
 
 <!-- Images. -->
@@ -96,11 +79,11 @@
 [10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png
 
 <!-- URLs. -->
-[портал Azure]: https://azure.portal.com/
+[Azure Portal]: https://azure.portal.com/
 [Xamarin]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
-[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

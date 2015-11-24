@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Построение первого конвейера с помощью фабрики данных Azure"
+	pageTitle="Начало работы с фабрикой данных Azure"
 	description="В этом учебнике показано, как создать конвейер, преобразующий данные с помощью Azure HDInsight."
 	services="data-factory"
 	documentationCenter=""
@@ -16,19 +16,19 @@
 	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
-# Построение первого конвейера с помощью фабрики данных Azure
+# Начало работы с фабрикой данных Azure
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 
-Эта статья поможет вам создать свой первый конвейер и развернуть его в фабрике данных Azure.
+Эта статья поможет вам создать свою первую фабрику данных Azure.
 
 > [AZURE.NOTE]Здесь не приводятся общие сведения о службе фабрики данных Azure. Подробный обзор службы см. в статье [Введение в фабрику данных Azure](data-factory-introduction.md).
 
 ## Обзор учебника
-В данном учебнике приведены подробные инструкции по созданию и использованию простого конвейера. Вы создадите конвейер с нуля и зададите все необходимые ресурсы.
+В этом руководстве приведены подробные инструкции по созданию первой фабрики данных с помощью конвейера. Вы создадите конвейер с нуля и укажете все необходимые ресурсы.
 
 Если вы хотите быстро ознакомиться с различными возможностями фабрики данных, не создавая ее с нуля, используйте готовые образцы, представленные на портале предварительной версии Azure. Сведения о том, как развернуть образец, предназначенный для определенного сценария, с помощью портала предварительной версии Azure, см. в статье [Обновление фабрики данных Azure: упрощенное развертывание образца](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/).
 
@@ -172,4 +172,4 @@
 - Щелкните ссылку [Использование PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) вверху, чтобы пройти учебник с помощью Azure PowerShell.
 - Щелкните ссылку [Использование Visual Studio](data-factory-build-your-first-pipeline-using-vs.md), чтобы изучить учебник с применением Visual Studio. 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

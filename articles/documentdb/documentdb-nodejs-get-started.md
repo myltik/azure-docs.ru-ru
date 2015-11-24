@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Базы данных NoSQL — приступая к работе с пакетом SDK для DocumentDB Node.js | Microsoft Azure"
-	description="Узнайте, как подключиться к учетной записи DocumentDB, создать базу данных NoSQL, а также выполнять запросы DocumentDB с использованием Node.js в Windows, Linux или OS/X."
-	keywords="Create a database, nosql database, linux, OS/X, node.js, documentdb, azure, Microsoft azure"
+	pageTitle="Руководство по NoSQL Node.js для DocumentDB | Microsoft Azure"
+	description="Руководство по NoSQL Node.js, в котором создается база данных Node и консольное приложение с помощью пакета SDK для Node.js DocumentDB. DocumentDB — это база данных NoSQL для JSON."
+    keywords="node.js, руководство, база данных node"
 	services="documentdb"
 	documentationCenter="node.js"
 	authors="AndrewHoh"
@@ -14,30 +14,30 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="node"
 	ms.topic="hero-article" 
-	ms.date="10/12/2015"
+	ms.date="11/18/2015"
 	ms.author="anhoh"/>
 
-#Приступая к работе с пакетом SDK для DocumentDB Node.js  
+# Руководство по NoSQL Node.js: консольное приложение Node.js DocumentDB  
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
-Добро пожаловать в раздел, описывающий начало работы с пакетом SDK для DocumentDB Node.js. После изучения этого учебника e вас будет консольное приложение, которое создает ресурсы DocumentDB и отправляет запросы к ним.
+Добро пожаловать в руководство по Node.js, посвященное пакету SDK для Node.js DocumentDB. После изучения этого руководства у вас будет консольное приложение, которое создает ресурсы DocumentDB, в том числе базу данных Node, и отправляет запросы к ним.
 
 Мы рассмотрим следующие вопросы:
 
 - создание учетной записи DocumentDB и подключение к ней;
 - Настройка приложения
-- создание базы данных;
+- Создание базы данных Node
 - создание коллекции;
 - создание документов JSON;
 - выполнение запросов к коллекции;
-- удаление базы данных.
+- Удаление базы данных Node
 
 У вас нет времени? Не беспокойтесь! Завершенное решение доступно на [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started). Краткие инструкции см. в разделе [Получение завершенного решения](#GetSolution).
 
-После этого воспользуйтесь кнопками голосования в верхней или нижней части этой страницы, чтобы отправить нам отзыв. Если вы хотите, чтобы мы связались с вами, укажите ваш электронный адрес в комментариях.
+После ознакомления с руководством по Node.js воспользуйтесь кнопками голосования в верхней или нижней части этой страницы, чтобы отправить нам отзыв. Если вы хотите, чтобы мы связались с вами, укажите ваш электронный адрес в комментариях.
 
 А теперь приступим к работе!
 
@@ -50,11 +50,11 @@
 
 ## Этап 1: создание учетной записи DocumentDB
 
-Создадим учетную запись DocumentDB. Если у вас уже есть учетная запись, которую вы собираетесь использовать, можно перейти к этапу [Настройка приложения Node.js](#SetupNode).
+Создадим учетную запись DocumentDB. Если у вас уже есть учетная запись, которую вы собираетесь использовать, можно перейти к шагу [Настройка приложения Node.js](#SetupNode).
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupNode"></a> Шаг 2. Настройка приложения Node.js
+##<a id="SetupNode"></a> Шаг 2. Настройка приложения Node.js
 
 1. Откройте удобный для вас терминал.
 2. Перейдите в папку или каталог, где вы хотите сохранить приложение Node.js.
@@ -70,11 +70,11 @@
 
 Отлично! Теперь, когда настройка завершена, можно начать писать код.
 
-##<a id="Config"></a> Шаг 3. Настройка конфигурации приложения
+##<a id="Config"></a> Шаг 3. Настройка конфигурации приложения
 
-Откройте файл *config.js* в предпочитаемом текстовом редакторе
+Откройте файл *config.js* в предпочитаемом текстовом редакторе.
 
-Затем создайте пустой объект с именем *config* и задайте свойства *config.endpoint* и *config.authKey* конечной точке и ключу авторизации DocumentDB. Обе эти конфигурации можно найти на [портале предварительной версии Azure](https://portal.azure.com).
+Затем создайте пустой объект с именем *config* и задайте свойства *config.endpoint* и *config.authKey* для конечной точки и ключа авторизации DocumentDB. Обе эти конфигурации можно найти на [портале предварительной версии Azure](https://portal.azure.com).
 
 ![Снимок экрана портала предварительной версии Azure, на котором показаны учетная запись DocumentDB с выделенным АКТИВНЫМ концентратором, выделенной кнопкой "Ключи" в колонке учетной записи DocumentDB и выделенными универсальным кодом ресурса, ПЕРВИЧНЫМ КЛЮЧОМ И ВТОРИЧНЫМ КЛЮЧОМ в колонке "Ключи".][keys]
 
@@ -83,7 +83,7 @@
     config.endpoint = "https://YOUR_ENDPOINT_URI.documents.azure.com:443/";
     config.authKey = "oqTveZeWlbtnJQ2yMj23HOAViIr0ya****YOUR_AUTHORIZATION_KEY****ysadfbUV+wUdxwDAZlCfcVzWp0PQg==";
 
-Теперь добавим *идентификатор базы данных*, *идентификатор коллекции* и *документы JSON* в объект *config*. Указав свойства *config.endpoint* и *config.authKey*, добавьте следующий код (ниже). Если у вас уже есть данные, которые необходимо хранить в базе данных, вместо добавления определений документа можно использовать [средство переноса данных](documentdb-import-data.md) в DocumentDB.
+Теперь добавим *идентификатор базы данных*, *идентификатор коллекции* и *документы JSON* в объект *config*. Указав свойства *config.endpoint* и *config.authKey*, добавьте приведенный ниже код. Если у вас уже есть данные, которые необходимо хранить в базе данных, вместо добавления определений документа можно использовать [средство переноса данных](documentdb-import-data.md) в DocumentDB.
 
     config.dbDefinition = {"id": "FamilyRegistry"};
     config.collDefinition = {"id": "FamilyCollection"};
@@ -169,7 +169,7 @@
 
     module.exports = config;
 
-##<a id="Connect"></a> Шаг 4. Подключение к учетной записи DocumentDB
+##<a id="Connect"></a> Шаг 4. Подключение к учетной записи DocumentDB
 
 Откройте пустой файл *app.js* в текстовом редакторе. Импортируйте модуль *documentdb* и только что созданный модуль *config*.
 
@@ -182,7 +182,7 @@
 
 После того как вы подключились к учетной записи DocumentDB, рассмотрим принципы работы с ресурсами DocumentDB.
 
-## Шаг 5. Создание базы данных
+## Шаг 5. Создание базы данных
 [Базу данных](documentdb-resources.md#databases) можно создать, используя функцию [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) класса **DocumentClient**. База данных представляет собой логический контейнер для хранения документов, разделенных между коллекциями. Добавьте функцию, чтобы создать новую базу данных в файле app.js с *идентификатором*, указанным в объекте *config*. Сначала мы убедимся в том, что база данных с таким же идентификатором *FamilyRegistry* не существует. Если она существует, мы вернем ее вместо создания новой базы данных.
 
     var getOrCreateDatabase = function(callback) {
@@ -210,7 +210,7 @@
         });
     };
 
-##<a id="CreateColl"></a>Шаг 6. Создание коллекции  
+##<a id="CreateColl"></a>Шаг 6. Создание коллекции  
 
 > [AZURE.WARNING]Элемент **CreateDocumentCollectionAsync** создаст новую коллекцию S1, с которой связаны ценовые требования. Дополнительные сведения см. на нашей [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
 
@@ -244,7 +244,7 @@
     };
 
 ##<a id="CreateDoc"></a>Шаг 7. Создание документа
-Вы можете создать [документ](documentdb-resources.md#documents) с помощью функции [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) класса **DocumentClient**. Документы относятся к пользовательскому (произвольному) содержимому JSON. Теперь можно вставить документ в DocumentDB.
+[Документ](documentdb-resources.md#documents) можно создать с помощью функции [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) класса **DocumentClient**. Документы относятся к пользовательскому (произвольному) содержимому JSON. Теперь можно вставить документ в DocumentDB.
 
 Затем добавьте функцию в файл app.js для создания документов, содержащих данные JSON, сохраненные в объекте *config*. Теперь нужно снова убедиться в том, что документ с таким идентификатором не существует.
 
@@ -276,11 +276,11 @@
 
 Поздравляем! Теперь у вас есть функции для создания базы данных, коллекции и документов в DocumentDB.
 
-![Схема, иллюстрирующая иерархические отношения между учетной записью, базой данных, коллекцией и документами](./media/documentdb-get-started/account-database.png)
+![Схема, иллюстрирующая иерархические отношения между учетной записью, базой данных, коллекцией и документами](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
-##<a id="Query"></a>Шаг 8. Запросы к ресурсам DocumentDB
+##<a id="Query"></a>Шаг 8. Запросы ресурсов DocumentDB
 
-DocumentDB поддерживает [полнофункциональные запросы](documentdb-sql-query.md) к документам JSON, хранящимся в каждой коллекции. В следующем примере кода показан выполняемый запрос к документам в коллекции. Добавьте в файл *app.js* следующую функцию. DocumentDB поддерживает SQL-подобные запросы, как показано ниже. Дополнительные сведения о построении сложных запросов см. на [Площадке для запросов](https://www.documentdb.com/sql/demo) и в [документации по запросам](documentdb-sql-query.md).
+DocumentDB поддерживает [полнофункциональные запросы](documentdb-sql-query.md) к документам JSON, хранящимся в каждой коллекции. В следующем примере кода показан выполняемый запрос к документам в коллекции. Добавьте в файл *app.js* следующую функцию. DocumentDB поддерживает SQL-подобные запросы, как показано ниже. Дополнительные сведения о построении сложных запросов см. на [площадке для запросов](https://www.documentdb.com/sql/demo) и в [документации по запросам](documentdb-sql-query.md).
 
     var queryCollection = function(documentId, callback) {
       var querySpec = {
@@ -302,11 +302,11 @@ DocumentDB поддерживает [полнофункциональные за
 
 На приведенной ниже схеме демонстрируется вызов синтаксиса запроса DocumentDB SQL к созданной коллекции.
 
-![Схема, иллюстрирующая масштаб и значение запроса](./media/documentdb-get-started/collection-documents.png)
+![Схема, иллюстрирующая масштаб и значение запроса](./media/documentdb-nodejs-get-started/node-js-tutorial-collection-documents.png)
 
 Ключевое слово [FROM](documentdb-sql-query.md/#from-clause) использовать в запросе необязательно, так как запросы DocumentDB заранее привязаны к одной коллекции. Поэтому слова "FROM Families f" можно заменить на "FROM root r" или любое другое имя переменной. Поведение службы DocumentDB будет таким, будто Families, root или любая другая переменная указывает на текущую коллекцию по умолчанию.
 
-##<a id="DeleteDatabase"></a>Шаг 9. Удаление базы данных
+##<a id="DeleteDatabase"></a>Шаг 9. Удаление базы данных Node
 
 Удаление созданной базы данных приведет к удалению базы данных и всех дочерних ресурсов (коллекций, документов и т. д.). Можно удалить базу данных, добавив следующий фрагмент кода.
 
@@ -319,13 +319,13 @@ DocumentDB поддерживает [полнофункциональные за
         });
     }
 
-##<a id="Build"></a>Шаг 10. Сборка
+##<a id="Build"></a>Шаг 10. Сборка
 
 Теперь, когда вы настроили в приложении все необходимые функции, давайте их вызовем.
 
 Порядок вызова функций будет следующим: * *getOrCreateDatabase* * *getOrCreateCollection* * *getOrCreateDocument* * *getOrCreateDocument* * *queryCollection* * *cleanup*
 
-Добавьте следующий фрагмент кода в конец блока в файле *app.js*.
+Добавьте следующий фрагмент кода в конец файла *app.js*.
 
     getOrCreateDatabase(function(err, db) {
         if(err) return console.log(err);
@@ -357,11 +357,11 @@ DocumentDB поддерживает [полнофункциональные за
         });
     });
 
-##<a id="Run"></a>Шаг 11. Запуск приложения
+##<a id="Run"></a> Шаг 11. Запуск приложения Node.js
 
-Теперь все готово к запуску приложения.
+Теперь все готово к запуску приложения Node.js.
 
-В окне терминала перейдите к файлу *app.js* и выполните команду **node app.js**
+В окне терминала перейдите к файлу *app.js* и выполните команду **node app.js**.
 
 Должны отобразиться выходные данные вашего приложения. Выходные данные должны соответствовать примеру текста ниже.
 
@@ -417,7 +417,7 @@ DocumentDB поддерживает [полнофункциональные за
 
     Done.
 
-Поздравляем! Вы создали свое первое приложение DocumentDB!
+Поздравляем! Вы ознакомились с руководством по Node.js и создали первое консольное приложение DocumentDB.
 
 ##<a id="GetSolution"></a> Получение полного решения
 Чтобы собрать решение GetStarted, которое содержит все примеры из данной статьи, вам понадобится следующее:
@@ -425,13 +425,13 @@ DocumentDB поддерживает [полнофункциональные за
 -   [учетная запись DocumentDB][documentdb-create-account];
 -   решение [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started), доступное в GitHub.
 
-Установите модуль **documentdb** с помощью npm. Используйте следующую команду: * **npm install documentdb --save**
+Установите модуль **documentdb** с помощью npm. Используйте следующую команду: * **npm install documentdb --save**.
 
 Затем в файле *config.js* обновите значения config.endpoint и config.authKey, как описано в разделе [Шаг 3. Настройка конфигурации приложения](#Config).
 
 ## Дальнейшие действия
 
--   Требуется более сложный пример Node.js? См. [Создание веб-приложения Node.js с использованием DocumentDB](documentdb-nodejs-application.md).
+-   Требуется более сложный пример Node.js? См. статью [Создание веб-приложения Node.js с использованием DocumentDB](documentdb-nodejs-application.md).
 -	Узнайте, как [контролировать учетную запись DocumentDB](documentdb-monitor-accounts.md).
 -	Отправьте запросы образцу набора данных в [Площадке для запросов](https://www.documentdb.com/sql/demo).
 -	Дополнительные сведения о модели программирования см. в разделе «Разработка» [на странице документации DocumentDB](../../services/documentdb/).
@@ -440,6 +440,6 @@ DocumentDB поддерживает [полнофункциональные за
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 
-[keys]: media/documentdb-get-started/keys.png
+[keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

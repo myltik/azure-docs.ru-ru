@@ -104,7 +104,7 @@
 
 	![Значок быстрого запуска](./media/site-recovery-vmm-to-azure/ASRE2AVMM_QuickStartIcon.png)
 
-2. В раскрывающемся списке выберите элемент **Between an on-premises Hyper-V site and Microsoft Azure (Между локальным сайтом и Microsoft Azure)**.
+2. В раскрывающемся списке выберите элемент **Between an on-premises VMM site and Microsoft Azure (Между локальным сайтом VMM и Microsoft Azure)**.
 3. В разделе **Prepare VMM Servers** (Подготовка серверов VMM) выберите пункт **Generate registration key** (Создать регистрационный ключ). Файл ключа создается автоматически. Срок действия ключа — пять дней с момента создания. Если вы получаете доступ к порталу Azure не с сервера VMM, вам потребуется скопировать этот файл на сервер.
 
 	![Регистрационный ключ](./media/site-recovery-vmm-to-azure/ASRE2AVMM_RegisterKey.png)
@@ -356,4 +356,4 @@
 
 <LI>Если у вас есть вопросы, обращайтесь на <a href="http://go.microsoft.com/fwlink/?LinkId=313628">форум по службам восстановления Azure</a>.</LI> </UL>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

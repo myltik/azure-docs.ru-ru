@@ -29,7 +29,7 @@
 
 Чтобы установить Visual Studio 2015, сделайте следующее.
 
-1. [Загрузите Visual Studio 2015](https://www.visualstudio.com/downloads) с сайта Visual Studio Online. 
+1. [Загрузите Visual Studio 2015](https://www.visualstudio.com/downloads) с сайта Visual Studio Team Services. 
 2. Выполните установку, следуя инструкциям [Установка Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx) с сайта MSDN, а затем выберите конфигурации по умолчанию.
 
 ## Шаг 2. Загрузка и установка последней версии SQL Server Data Tools (SSDT) 
@@ -49,4 +49,4 @@
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

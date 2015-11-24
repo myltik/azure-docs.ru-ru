@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Управление профилем диспетчера трафика Azure
@@ -73,22 +73,16 @@
    - Чтобы просмотреть информацию о каждом отдельном изменении, выберите строку с изменением, с которым вы хотите ознакомиться, и в нижней части страницы нажмите кнопку **Сведения**. В окне **Сведения об операции** вы можете просмотреть XML-представление объекта API, который был создан или обновлен в рамках операции, а также скопировать код XML в буфер обмена.
 
 
-## Дополнительные ресурсы
+## Дальнейшие действия
 
-[Что такое диспетчер трафика](traffic-manager-overview.md)
+[Добавление конечной точки](traffic-manager-endpoints.md)
 
-[Управление конечными точками в диспетчере трафика](traffic-manager-endpoints.md)
+[Настройка маршрутизации с отработкой отказа](traffic-manager-configure-failover-routing-method.md)
 
-[О мониторинге диспетчера трафика](traffic-manager-monitoring.md)
+[Настройка маршрутизации с циклическим перебором](traffic-manager-configure-round-robin-routing-method.md)
 
-[Диспетчер трафика — включение, отключение или удаление профиля диспетчера трафика](disable-enable-or-delete-a-profile.md)
+[Настройка маршрутизации производительности](traffic-manager-configure-performance-routing-method.md)
 
-[Диспетчер трафика — отключение и включение конечной точки диспетчера трафика](disable-or-enable-an-endpoint.md)
+[Устранение неполадок, связанных со сбоем диспетчера трафика](traffic-manager-troubleshooting-degraded.md)
 
-[Операции с диспетчером трафика (справочник по REST API)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
-[Облачных служб](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Веб-сайты](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

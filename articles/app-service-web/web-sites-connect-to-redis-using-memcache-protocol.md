@@ -112,7 +112,7 @@
 
 ### Включение подключаемого модуля Memcache WordPress
 
->[AZURE.NOTE]Чтобы установить Visual Studio Online, следуйте указаниям в этой записи блога [Как включить расширение сайта в веб-приложениях][8].
+>[AZURE.NOTE]Чтобы установить Visual Studio Team Services, следуйте указаниям в записи блога [Как включить расширение сайта в веб-приложениях][8].
 
 В файле `wp-config.php` добавьте следующий фрагмент кода перед комментарием о прекращении правки в самом конце файла.
 
@@ -198,4 +198,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->
