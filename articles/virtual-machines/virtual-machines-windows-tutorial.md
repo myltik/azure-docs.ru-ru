@@ -110,4 +110,4 @@
 * Использование Azure PowerShell и интерфейса командной строки Azure для [поиска и выбора образов виртуальных машин](resource-groups-vm-searching.md).
 * Автоматизация развертывания виртуальных машин и рабочей нагрузки и управления ими с помощью[диспетчера ресурсов Azure](virtual-machines-how-to-automate-azure-resource-manager.md) и [шаблонов диспетчера ресурсов Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->
