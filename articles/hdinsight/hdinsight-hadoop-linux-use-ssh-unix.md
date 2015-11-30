@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="11/16/2015"
    ms.author="larryfr"/>
 
 #Использование SSH с Hadoop на основе Linux в HDInsight из Linux, Unix или OS X
@@ -44,10 +44,6 @@ SSH — это служебная программа для входа в сис
 ###Имя пользователя SSH
 
 Имя пользователя SSH — это имя, используемое для аутентификации в кластере HDInsight. При указании имени пользователя SSH во время создания кластера этот пользователь будет создан на всех узлах в кластере. После создания кластера это имя пользователя можно применять для подключения к головным узлам кластера HDInsight. Из головных узлов затем можно подключиться к отдельным рабочим узлам.
-
-> [AZURE.NOTE]Имя пользователя SSH должно быть уникальным. Так как имя пользователя SSH создает учетную запись пользователя в кластере HDInsight, оно не должно конфликтовать с существующими пользователями, которые создаются HDInsight. Ниже перечислены имена, которые зарезервированы для служб, работающих в кластере HDInsight, и не могут применяться как имена пользователей SSH.
->
-> root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
 
 ###Пароль SSH или открытый ключ
 
@@ -113,7 +109,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 Вы можете использовать [интерфейс командной строки Azure для Mac, Linux и Windows](../xplat.md) для создания нового кластера с помощью команды `azure hdinsight cluster create`.
 
-Дополнительные сведения об использовании этой команды см. в статье [Подготовка кластеров Hadoop в HDInsight на платформе Linux с использованием настраиваемых параметров](hdinsight-hadoop-provision-linux-clusters.md).
+Дополнительные сведения об использовании этой команды см. в статье [Подготовка кластеров Hadoop под управлением Linux в HDInsight с помощью настраиваемых параметров](hdinsight-hadoop-provision-linux-clusters.md).
 
 ##Подключение к кластеру HDInsight на основе Linux
 
@@ -190,9 +186,9 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
     > [AZURE.NOTE]При использовании пароля для аутентификации сеанса SSH появится запрос на повторный ввод пароля. При использовании ключа SSH подключение завершается без запросов.
 
-4. После установки сеанса строка терминала изменится с `username@headnode` на `username@workernode`, чтобы указать, что вы подключены к рабочему узлу. Все команды на этом этапе выполняются на рабочем узле.
+4. После установки сеанса строка терминала изменится с `username@hn0-clustername` на `username@wk0-clustername`, чтобы указать, что вы подключены к рабочему узлу. Все команды на этом этапе выполняются на рабочем узле.
 
-4. После выполнения всех действий на рабочем узле закройте сеанс рабочего узла с помощью команды `exit`. Таким образом вы вернетесь к запросу `username@headnode`.
+4. После выполнения всех действий на рабочем узле закройте сеанс рабочего узла с помощью команды `exit`. Таким образом вы вернетесь к запросу `username@hn0-clustername`.
 
 ##Добавление дополнительных учетных записей
 
@@ -228,7 +224,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 > [AZURE.IMPORTANT]Туннель SSH обязателен для доступа к веб-интерфейсу некоторых служб Hadoop. Например, доступ к пользовательскому интерфейсу журнала заданий или диспетчера ресурсов можно получить только с помощью туннеля SSH.
 
-Дополнительную информацию о создании и использовании туннеля SSH см. в статье [Использование туннелирования SSH для доступа к веб-интерфейсу Ambari, ResourceManager, JobHistory, NameNode, Oozie и другим веб-интерфейсам](hdinsight-linux-ambari-ssh-tunnel.md).
+Дополнительные сведения о создании и использовании туннеля SSH см. в статье [Использование туннелирования SSH для доступа к веб-интерфейсу Ambari, ResourceManager, JobHistory, NameNode, Oozie и другим веб-интерфейсам](hdinsight-linux-ambari-ssh-tunnel.md).
 
 ##Дальнейшие действия
 
@@ -242,4 +238,4 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

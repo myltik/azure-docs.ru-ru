@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Отключение и включение конечной точки диспетчера трафика
@@ -40,14 +40,8 @@
 
 [Диспетчер трафика — включение, отключение или удаление профиля диспетчера трафика](disable-enable-or-delete-a-profile.md)
 
-[Что такое диспетчер трафика](../traffic-manager.md)
+[Устранение неполадок, связанных со сбоем диспетчера трафика](traffic-manager-troubleshooting-degraded.md)
 
-[Облачные службы](http://go.microsoft.com/fwlink/?LinkId=314074)
+[Рекомендации по безопасности для диспетчера трафика](traffic-manager-performance-considerations.md)
 
-[Веб-сайты](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-
-[Операции с диспетчером трафика (справочник по REST API)](http://go.microsoft.com/fwlink/?LinkId=313584)
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

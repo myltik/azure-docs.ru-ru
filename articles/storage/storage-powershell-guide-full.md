@@ -548,9 +548,6 @@ Azure позволяет создать моментальный снимок BL
     $QueueName = "yourqueuename"
     Remove-AzureStorageQueue –Name $QueueName –Context $Ctx
 
-### Управление очередями сообщений
-В настоящее время Azure PowerShell предоставляет командлеты для непосредственного управления очередью сообщений. Для выполнения операций в очереди сообщений можно использовать классы [клиентской библиотеки службы хранилища Azure для .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx).
-
 #### Вставка сообщения в очередь
 Чтобы вставить сообщение в существующую очередь, сначала необходимо создать новый экземпляр класса [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx). Затем вызовите метод [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx). Для создания CloudQueueMessage можно использовать строку (в формате UTF-8) или массив байтов.
 
@@ -597,14 +594,14 @@ Azure позволяет создать моментальный снимок BL
 ## Управление общими папками и файлами Azure
 Хранилище файлов Azure предоставляет общее хранилище для приложений с помощью стандартного протокола SMB. Виртуальные машины Microsoft Azure и облачные службы могут совместно использовать файл данных между компонентами приложения через подключенные общие ресурсы, локальные приложения могут обращаться к данным файлов в общей папке через API хранилища файлов или Azure PowerShell.
 
-Подробные сведения о хранилище файлов Azure см. в разделах [Использование хранилища файлов Azure с Windows](storage-dotnet-how-to-use-files.md) и [API REST службы файлов](http://msdn.microsoft.com/library/azure/dn167006.aspx).
+Подробнее о хранилище файлов Azure см. в разделах [Использование хранилища файлов Azure в Windows](storage-dotnet-how-to-use-files.md) и [API REST файловой службы](http://msdn.microsoft.com/library/azure/dn167006.aspx).
 
 ## Установка и запросы к аналитике хранилища
 Можно воспользоваться [аналитикой службы хранилища Azure](storage-analytics.md) для сбора метрик из учетных записей хранения Azure и ведения журналов с данными о запросах, отправленных в вашу учетную запись хранения. Метрики хранилища можно использовать для наблюдения за работоспособностью учетной записи хранения и ведения журнала хранилища для диагностики и устранения проблем, связанных с вашей учетной записью хранения. По умолчанию для служб хранилища метрики хранилища не включены. Вы можете включить наблюдение с помощью портала управления Azure, Windows PowerShell или программно с помощью интерфейса API хранилища. Ведение журналов хранилища производится на стороне сервера и позволяет записывать сведения об успешных и неудачных запросах в вашей учетной записи хранения. Эти журналы позволяют просмотреть подробные сведения об операциях чтения, записи и удаления для таблиц, очередей и BLOB-объектов, а также причины неудачных запросов.
 
 Сведения о том, как включить и просмотреть метрики хранилища данных с помощью PowerShell, представлены в разделе [Включение метрик хранилища с помощью PowerShell](http://msdn.microsoft.com/library/azure/dn782843.aspx#HowtoenableStorageMetricsusingPowerShell).
 
-Сведения о том, как включить и получить журнал хранилища данных с помощью PowerShell, см. в разделах [ Включение ведения журнала хранилища с помощью PowerShell](http://msdn.microsoft.com/library/azure/dn782840.aspx#HowtoenableStorageLoggingusingPowerShell) и [Нахождение данных журнала хранилища](http://msdn.microsoft.com/library/azure/dn782840.aspx#FindingyourStorageLogginglogdata). Подробные сведения об использовании метрик хранилища и ведения журнала для устранения неполадок хранилища см. в разделе [Наблюдение, диагностика и устранение неисправностей хранилища Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
+Сведения о том, как включить и получить журнал хранилища данных с помощью PowerShell, см. в разделах [ Включение ведения журнала хранилища с помощью PowerShell](http://msdn.microsoft.com/library/azure/dn782840.aspx#HowtoenableStorageLoggingusingPowerShell) и [Нахождение данных журнала хранилища](http://msdn.microsoft.com/library/azure/dn782840.aspx#FindingyourStorageLogginglogdata). Подробнее об использовании метрик хранилища и ведения журнала для устранения неполадок хранилища см. в разделе [Наблюдение, диагностика и устранение неисправностей хранилища Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 
 ## Как управлять подписанными URL-адресами (SAS) и хранимыми политиками доступа
 Подписанные URL-адреса являются важной частью модели обеспечения безопасности для любого приложения, использующего хранилище Azure. Их удобно применять в целях предоставления ограниченных разрешений для вашей учетной записи хранения тем клиентам, которые нельзя передавать ключ учетной записи. По умолчанию только владелец учетной записи хранения может обращаться к большим двоичным объектам, таблицам и очередям в пределах этой учетной записи. Если вашей службе или приложению нужно сделать эти ресурсы доступными другим клиентам без совместного использования ключа доступа, вы можете воспользоваться следующими тремя вариантами:
@@ -615,22 +612,22 @@ Azure позволяет создать моментальный снимок BL
 
 Подписанный URL-адрес может быть в одной из двух следующих форм.
 
-- **Нерегламентированная SAS:** при создании нерегламентированной SAS время начала, время окончания срока действия и разрешения для SAS указываются в URI SAS. Этот тип подписанного URL-адреса можно создать для контейнера, BLOB-объекта, таблицы или очереди, и, помимо этого, отозвать его нельзя.
-- **SAS с хранимой политикой доступа:** хранимая политика доступа определяется в контейнере ресурсов — контейнере больших двоичных объектов, таблице или очереди; ее можно использовать для управления ограничениями одной или нескольких подписей общего доступа. При сопоставлении подписи общего доступа с хранимой политикой доступа эта подпись наследует ограничения (время начала, время окончания и разрешения), определенные для данной хранимой политики доступа. Подписанный URL-адрес этого типа можно отозвать.
+- **Нерегламентированная SAS:** при создании нерегламентированной SAS время начала, время окончания срока действия и разрешения для SAS указываются в универсальном коде ресурса (URI) SAS. Этот тип подписанного URL-адреса можно создать для контейнера, BLOB-объекта, таблицы или очереди, и, помимо этого, отозвать его нельзя.
+- **SAS с хранимой политикой доступа:** хранимая политика доступа определяется в контейнере ресурсов — контейнере больших двоичных объектов, таблице или очереди. Ее можно использовать для управления ограничениями одной или нескольких подписей общего доступа. При сопоставлении подписи общего доступа с хранимой политикой доступа эта подпись наследует ограничения (время начала, время окончания и разрешения), определенные для данной хранимой политики доступа. Подписанный URL-адрес этого типа можно отозвать.
 
 Дополнительные сведения см. в учебнике [Подписанные URL-адреса](storage-dotnet-shared-access-signature-part-1.md) и в разделе [Управление доступом к ресурсам хранилища Azure](storage-manage-access-to-resources.md).
 
 В следующих разделах вы узнаете, как создать маркер подписанного URL-адреса и хранимую политику доступа для таблиц Azure. Azure PowerShell предоставляет одинаковые командлеты для контейнеров, больших двоичных объектов и очередей. Для выполнения сценариев в этом разделе скачайте [Azure PowerShell версии 0.8.14](http://go.microsoft.com/?linkid=9811175&clcid=0x409) или более поздней.
 
 ### Как создать маркер подписанного URL-адреса на основе политики
-Используйте командлет New-AzureStorageTableStoredAccessPolicy для создания новой хранимой политики доступа. Затем вызовите командлет [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx), чтобы создать новый маркер подписанного URL-адреса на основе политики для таблицы хранилища Azure.
+Используйте командлет New-AzureStorageTableStoredAccessPolicy для создания новой хранимой политики доступа. Затем вызовите командлет [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx), чтобы создать новый маркер подписанного URL-адреса на основе политики для таблицы службы хранилища Azure.
 
     $policy = "policy1"
     New-AzureStorageTableStoredAccessPolicy -Name $tableName -Policy $policy -Permission "rd" -StartTime "2015-01-01" -ExpiryTime "2016-01-01" -Context $Ctx
     New-AzureStorageTableSASToken -Name $tableName -Policy $policy -Context $Ctx
 
 ### Как создать маркер однорангового (неотзываемого) подписанного URL-адреса
-Вызовите командлет [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx), чтобы создать новый одноранговый (неотзываемый) маркер подписанного URL-адреса для таблицы хранилища Azure.
+Вызовите командлет [New-AzureStorageTableSASToken](http://msdn.microsoft.com/library/azure/dn806400.aspx), чтобы создать новый специализированный (неотзываемый) маркер подписанного URL-адреса для таблицы службы хранилища Azure.
 
     New-AzureStorageTableSASToken -Name $tableName -Permission "rqud" -StartTime "2015-01-01" -ExpiryTime "2015-02-01" -Context $Ctx
 
@@ -656,7 +653,7 @@ Azure позволяет создать моментальный снимок BL
 
 Для использования службы хранилища Azure с AzureChinaCloud необходимо создать контекст хранилища, связанный с AzureChinaCloud. Выполните следующие действия, чтобы приступить к работе.
 
-1.	Запустите командлет [Get AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx), чтобы просмотреть доступные среды Azure:
+1.	Запустите командлет [Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx), чтобы просмотреть доступные среды Azure:
 
     `Get-AzureEnvironment`
 
@@ -674,7 +671,7 @@ Azure позволяет создать моментальный снимок BL
 
     	Add-AzureEnvironment -Name $EnvironmentName -PublishSettingsFileUrl $publishSettingsFileUrl -ServiceEndpoint $serviceEndpoint -ManagementPortalUrl $managementPortalUrl -StorageEndpoint $storageEndpoint -ActiveDirectoryEndpoint $activeDirectoryEndpoint -ResourceManagerEndpoint $resourceManagerEndpoint -GalleryEndpoint $galleryEndpoint -ActiveDirectoryServiceEndpointResourceId $activeDirectoryServiceEndpointResourceId -GraphEndpoint $graphEndpoint -SubscriptionDataFile $subscriptionDataFile
 
-2. Запустите командлет [New-AzureStorageContext](http://msdn.microsoft.com/library/azure/dn806380.aspx), чтобы создать новый контекст хранилища для этой новой среды, как показано ниже.
+2. Выполните командлет [New-AzureStorageContext](http://msdn.microsoft.com/library/azure/dn806380.aspx), чтобы создать новый контекст хранилища для этой новой среды, как показано ниже.
 
 	    $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment $EnvironmentName
 
@@ -736,4 +733,4 @@ Azure позволяет создать моментальный снимок BL
 [Next Steps]: #next
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

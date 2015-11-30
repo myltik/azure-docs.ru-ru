@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Проверка параметров диспетчера трафика
@@ -61,22 +61,15 @@
 
 Существуют бесплатные веб-службы поиска и проверки DNS. В некоторых случаях вы получаете возможность проверить разрешение DNS-имен из различных расположений. Например, выполните поиск по запросу «поиск DNS». Можно также использовать стороннее решение типа Gomez или Keynote, чтобы убедиться в том, что ваши профили распределяют трафик надлежащим образом.
 
-## См. также
+## Дальнейшие действия
 
-[О методах маршрутизации трафика в диспетчере трафика](traffic-manager-load-balancing-methods.md)
+[Рекомендации по безопасности для диспетчера трафика](traffic-manager-performance-considerations.md)
 
-[Диспетчер трафика — включение, отключение или удаление профиля диспетчера трафика](disable-enable-or-delete-a-profile.md)
+[Устранение неполадок, связанных со сбоем диспетчера трафика](traffic-manager-troubleshooting-degraded.md)
 
-[Диспетчер трафика — отключение и включение конечной точки диспетчера трафика](disable-or-enable-an-endpoint.md)
 
-[Что такое диспетчер трафика](traffic-manager-overview.md)
 
-[Облачные службы](http://go.microsoft.com/fwlink/p/?LinkId=314074)
-
-[Веб-сайты](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[Операции, относящиеся к диспетчеру трафика (справочник по API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

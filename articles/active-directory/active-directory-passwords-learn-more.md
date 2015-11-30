@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Дополнительные сведения об управлении паролями
@@ -25,6 +25,7 @@
   - [Модель безопасности обратной записи паролей](#password-writeback-security-model)
 * [**Как работает портал для сброса паролей?**](#how-does-the-password-reset-portal-work)
   - [Какие данные используются при сбросе пароля?](#what-data-is-used-by-password-reset)
+  - [Получение доступа к данным для сброса паролей пользователей](#how-to-access-password-reset-data-for-your-users)
 
 ## Обзор обратной записи паролей
 Обратная запись паролей — это компонент [Azure Active Directory Connect](active-directory-aadconnect), который может быть включен и использован текущими подписчиками Azure Active Directory Premium. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
@@ -261,24 +262,121 @@
           </tr>
         </tbody></table>
 
-<br/> <br/> <br/>
+###Получение доступа к данным для сброса паролей пользователей
+####Данные, задаваемые посредством синхронизации
+Из локальной среды можно синхронизировать следующие поля:
 
-**Дополнительные ресурсы**
+* Мобильный телефон
+* Рабочий телефон
 
+####Данные, задаваемые с помощью Azure AD PowerShell
+Следующие поля доступны при использовании Azure AD PowerShell и API Graph:
 
-* [Сведения об управлении паролями](active-directory-passwords.md)
-* [Как работает управление паролями](active-directory-passwords-how-it-works.md)
-* [Приступая к работе с компонентами управления паролями](active-directory-passwords-getting-started.md)
-* [Настройка компонентов управления паролями](active-directory-passwords-customize.md)
-* [Рекомендации по управлению паролями](active-directory-passwords-best-practices.md)
-* [Получение оперативной аналитики с помощью отчетов об управлении паролями](active-directory-passwords-get-insights.md)
-* [Вопросы и ответы об управлении паролями](active-directory-passwords-faq.md)
-* [Устранение неполадок, связанных с управлением паролями](active-directory-passwords-troubleshoot.md)
-* [Управление паролями в сети MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* Запасной адрес электронной почты
+* Мобильный телефон
+* Рабочий телефон
+* Телефон для проверки подлинности
+* Адрес электронной почты для проверки подлинности
+
+####Данные, задаваемые только в пользовательском интерфейсе регистрации
+Следующие поля доступны только с помощью пользовательского интерфейса регистрации SSPR (https://aka.ms/ssprsetup):
+
+* Контрольные вопросы и ответы на них
+
+####Что происходит, когда пользователь проходит регистрацию?
+Когда пользователь регистрируется, на странице регистрации **всегда** будут заданы следующие поля:
+
+* Телефон для проверки подлинности
+* Адрес электронной почты для проверки подлинности
+* Контрольные вопросы и ответы на них
+
+Если вы указали значения для полей **Мобильный телефон** или ** Альтернативный адрес электронной почты**, пользователи могут использовать их для сброса паролей, даже если они еще не прошли регистрацию в службе. Кроме того, эти значения будут отображаться для пользователей при первой регистрации, и они смогут изменить их при необходимости. Однако после успешной регистрации эти значения будут сохраняться в полях **Телефон для проверки подлинности** и **Адрес электронной почты для проверки подлинности** без возможности изменения.
+
+Это может быть удобно для разблокирования большого числа пользователей для использования SSPR с сохранением для них возможности проверить эти сведения в процессе регистрации.
+
+####Настройка данных для сброса пароля с помощью PowerShell
+С помощью Azure AD PowerShell можно задать значения для следующих полей.
+
+* Запасной адрес электронной почты
+* Мобильный телефон
+* Рабочий телефон
+
+Чтобы начать работу, сначала необходимо [скачать и установить модуль Azure AD PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). После его установки вы можете выполнить следующие процедуры по настройке каждого поля.
+
+#####Запасной адрес электронной почты
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -AlternateEmailAddresses @("email@domain.com")
+```
+
+#####Мобильный телефон
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -MobilePhone "+1 1234567890"
+```
+
+#####Рабочий телефон
+```
+Connect-MsolService
+Set-MsolUser -UserPrincipalName user@domain.com -PhoneNumber "+1 1234567890"
+```
+
+####Считывание данных для сброса паролей с помощью PowerShell
+С помощью Azure AD PowerShell можно считать значения для следующих полей.
+
+* Запасной адрес электронной почты
+* Мобильный телефон
+* Рабочий телефон
+* Телефон для проверки подлинности
+* Адрес электронной почты для проверки подлинности
+
+Чтобы начать работу, сначала необходимо [скачать и установить модуль Azure AD PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). После его установки вы можете выполнить следующие процедуры по настройке каждого поля.
+
+#####Запасной адрес электронной почты
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select AlternateEmailAddresses
+```
+
+#####Мобильный телефон
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select MobilePhone
+```
+
+#####Рабочий телефон
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select PhoneNumber
+```
+
+#####Телефон для проверки подлинности
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select PhoneNumber
+```
+
+#####Адрес электронной почты для проверки подлинности
+```
+Connect-MsolService
+Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthenticationUserDetails | select Email
+```
+
+## Ссылки на документацию по сбросу паролей
+Ниже приведены ссылки на все страницы документации по службе сброса паролей Azure AD.
+
+* [**Сброс собственного пароля**](active-directory-passwords-update-your-own-password) — узнайте, как сбросить или изменить свой пароль пользователя системы
+* [**Как работает служба**](active-directory-passwords-how-it-works.md) — узнайте, из каких шести компонентов состоит служба и за что отвечает каждый из них.
+* [**Приступая к работе**](active-directory-passwords-getting-started.md) — узнайте, как предоставить пользователям возможность сбрасывать и менять свои облачные и локальные пароли.
+* [**Настройка**](active-directory-passwords-customize.md) — узнайте, как настроить оформление и функциональность службы в соответствии с потребностями организации.
+* [**Рекомендации**](active-directory-passwords-best-practices.md) — узнайте, как быстро развернуть службу и эффективно управлять паролями в организации.
+* [**Аналитика**](active-directory-passwords-get-insights.md) — узнайте об интегрированных функциях отчетности.
+* [**Часто задаваемые вопросы**](active-directory-passwords-faq.md) — ознакомьтесь с ответами на часто задаваемые вопросы.
+* [**Устранение неполадок**](active-directory-passwords-troubleshoot.md) — узнайте, как быстро устранять проблемы, связанные со службой.
 
 
 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

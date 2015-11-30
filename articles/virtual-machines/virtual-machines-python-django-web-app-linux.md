@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="11/17/2015" 
 	ms.author="huvalo"/>
 	
 # Веб-приложение Hello World на Django на виртуальной машине Linux
@@ -25,7 +25,7 @@
 
 <br>
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Модель диспетчера ресурсов.
 
 
 В этом учебнике описывается, как разместить веб-сайт на основе Django в Microsoft Azure с помощью виртуальной машины Linux. В данном учебнике предполагается, что у вас нет опыта использования платформы Azure. По завершении изучения этого учебника вы получите приложение на основе Django, выполняемое в облаке.
@@ -45,14 +45,11 @@
 
 ## Создание и настройка виртуальной машины Azure для размещения Django
 
-1. Следуйте приведенным [здесь][portal-vm] указаниям, чтобы создать виртуальную машину с дистрибутивом *Ubuntu Server 14.04 LTS*.
+1. Следуйте приведенным [здесь](virtual-machines-linux-tutorial-portal-rm.md) указаниям, чтобы создать виртуальную машину с дистрибутивом *Ubuntu Server 14.04 LTS*. При желании можно выбрать проверку пароля вместо открытого ключа SSH.
 
-  **Примечание.** Вам необходимо *только* создать виртуальную машину. Остановитесь у раздела с заголовком *Как войти в систему на виртуальной машине после ее создания*.
+1. Измените группу безопасности сети, чтобы разрешить входящий трафик HTTP для порта 80, выполнив [эти](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) инструкции.
 
-1. Дайте Azure команду для перенаправления трафика порта **80** из Интернета на порт **80** на виртуальной машине:
-	* Перейдите к только что созданной виртуальной машине на портале Azure и откройте вкладку *КОНЕЧНЫЕ ТОЧКИ*.
-	* В нижней части страницы нажмите кнопку *ДОБАВИТЬ*. ![добавление конечной точки](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-add-endpoint.png)
-	* Откройте *ОБЩИЙ ПОРТ 80* протокола *TCP* как *ЧАСТНЫЙ ПОРТ 80*. ![port80](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-port80.png)
+1. По умолчанию у новой виртуальной машины нет полного доменного имени (FQDN). Его можно создать, следуя [этим](virtual-machines-create-fqdn-on-portal.md) инструкциям. Этот шаг не обязателен для работы с данным учебником.
 
 ## <a id="setup"></a>Настройка среды разработки
 
@@ -62,14 +59,14 @@
 
 1.  Запустите новое окно **Терминал**.
     
-1.  Введите следующую команду для подключения к виртуальной машине Azure.
+1.  Введите следующую команду для подключения к виртуальной машине Azure. Если не создать полное доменное имя, будет невозможно подключение с помощью общедоступного IP-адреса, который отображается в сводке по виртуальной машине на портале Azure.
 
 		$ ssh yourusername@yourVmUrl
 
 1.  Введите следующие команды для установки Django:
 
-		$ sudo apt-get install python-setuptools
-		$ sudo easy_install django
+		$ sudo apt-get install python-setuptools python-pip
+		$ sudo pip install django
 
 1.  Введите следующую команду для установки Apache с mod-wsgi:
 
@@ -107,10 +104,10 @@
 
 ## Настройка Apache
 
-1.  Создайте файл конфигурации виртуального узла Apache **/etc/apache2/sites-available/helloworld.conf**. Установите для содержимого следующее значение и обязательно замените *yourVmUrl* фактическим URL-адресом машины, которую вы используете (например, *pyubuntu.cloudapp.net*).
+1.  Создайте файл конфигурации виртуального узла Apache **/etc/apache2/sites-available/helloworld.conf**. Введите следующее содержимое и замените *yourVmName* фактическим именем компьютера, который вы используете (например, *pyubuntu*).
 
 		<VirtualHost *:80>
-		ServerName yourVmUrl
+		ServerName yourVmName
 		</VirtualHost>
 		WSGIScriptAlias / /var/www/helloworld/helloworld/wsgi.py
 		WSGIPythonPath /var/www/helloworld
@@ -132,8 +129,4 @@
 
 После завершения этого учебного курса завершите работу созданной вами виртуальной машины Azure и/или удалите ее, чтобы освободить ресурсы для других учебных курсов и избежать платы за использование Azure.
 
-
-[portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -26,9 +26,9 @@
 В этой статье представлен пример конфигурации для настройки расширений виртуальной машины Azure для виртуальных машин Windows.
 
 
-Чтобы узнать больше об этих расширениях, щелкните здесь: [Расширения виртуальных машин Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+Чтобы узнать больше об этих расширениях, см. статью [Обзор расширений виртуальных машин Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
 
-Чтобы узнать больше о разработке шаблонов расширения, щелкните здесь: [Разработка шаблонов расширения.](virtual-machines-extensions-authoring-templates.md)
+Чтобы узнать больше о разработке шаблонов расширения, см. статью [Разработка шаблонов расширения.](virtual-machines-extensions-authoring-templates.md)
 
 В данной статье содержатся предполагаемые значения конфигурации для некоторых расширений Windows.
 
@@ -285,12 +285,13 @@
 
 ### Диагностика Azure
 
-Щелкните здесь, чтобы получить общие сведения о [расширении для системы диагностики Azure](https://msdn.microsoft.com/library/azure/dn782207.aspx/).
+Дополнительные сведения о том, как настроить диагностику, см. в разделе [Расширение диагностики Azure](virtual-machines-extensions-diagnostics-windows-template.md)
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
             "type": "IaaSDiagnostics",
-            "typeHandlerVersion": "1.4",
+            "typeHandlerVersion": "1.5",
+			"autoUpgradeMinorVersion": true,
             "settings": {
               "xmlCfg": "[base64(variables('wadcfgx'))]",
               "storageAccount": "[parameters('diagnosticsStorageAccount')]"
@@ -308,4 +309,4 @@
 
 [Расширение Custom Script на виртуальной машине Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

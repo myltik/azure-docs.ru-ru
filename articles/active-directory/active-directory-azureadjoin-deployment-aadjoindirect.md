@@ -1,11 +1,12 @@
 <properties 
 	pageTitle="Сценарии использования и рекомендации по развертыванию для присоединения к Azure AD | Microsoft Azure" 
-	description="Перечислены и описаны различные сценарии развертывания, доступные для присоединения к Azure AD." 
+	description="Раздел, в котором поясняется, как администраторы могут настроить подключение конечных пользователей (сотрудников компаний, учащихся и других пользователей) к Azure AD. Здесь также рассматриваются различные реальные сценарии для использования механизма присоединения к Azure AD." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""/>
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/21/2015" 
+	ms.date="11/17/2015" 
 	ms.author="femila"/>
 
 # Сценарии использования и рекомендации по развертыванию для присоединения к Azure AD 
@@ -53,7 +54,7 @@
 *	Windows 10 (номера SKU версий Профессиональная и Корпоративная)
 
 ### Задачи для администратора
-* [Настройка регистрации устройств и MFA](active-directory-azureadjoin-setup.md)
+* [Настройка регистрации устройств](active-directory-azureadjoin-setup.md)
 
 ### Задачи для пользователя
 * [Настройка нового устройства под управлением Windows 10 на работу с Azure AD](active-directory-azureadjoin-user-frx.md)
@@ -77,14 +78,18 @@
 
 ### Задачи для администратора
 
-* [Настройка регистрации устройств и MFA](active-directory-azureadjoin-setup.md)
+* [Настройка регистрации устройств](active-directory-azureadjoin-setup.md)
 
 ### Задачи для пользователя
 * [Присоединение личного устройства с Windows 10 к своей организации](active-directory-azureadjoin-personal-device.md)
 
 
 ## Дополнительная информация
-* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-overview.md)
+* [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Проверка подлинности удостоверений без использования паролей с помощью службы Microsoft Passport](active-directory-azureadjoin-passport.md)
+* [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
+* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

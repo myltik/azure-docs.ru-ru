@@ -56,7 +56,7 @@
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. В проекте приложения Windows Phone добавьте следующие элементы **Button** непосредственно перед элементом, определяющим кнопку **Save**:
+6. В проекте приложения Windows Phone добавьте следующие элементы **Button** непосредственно перед элементом, определяющим кнопку **Сохранить**:
 
 		<Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible" Margin="10, 0, 0, 0">Sign in</Button> 
@@ -90,4 +90,4 @@
 
 9. Щелкните правой кнопкой мыши проект приложения Магазина Windows Phone, выберите пункт **Назначить запускаемым проектом**, а затем повторите предыдущий шаг, чтобы проверить, правильно ли запускается приложение Магазина Windows Phone.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

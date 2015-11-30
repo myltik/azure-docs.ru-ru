@@ -3,9 +3,9 @@
    description="Общие сведения о модели взаимодействия с Reliable Services, включая открытие прослушивателей для служб, разрешение конечных точек и обмен данными между службами."
    services="service-fabric"
    documentationCenter=".net"
-   authors="BharatNarasimman"
+   authors="vturecek"
    manager="timlt"
-   editor=""/>
+   editor="BharatNarasimman"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,34 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="08/27/2015"
-   ms.author="bharatn@microsoft.com"/>
+   ms.date="11/17/2015"
+   ms.author="vturecek@microsoft.com"/>
 
-# Обзор модели взаимодействия Reliable Services
+# Модель взаимодействия Reliable Services
 
-Модель программирования надежных служб позволяет разработчикам служб указывать механизм обмена данными, который следует использовать для предоставления конечных точек службы. Кроме того, эта модель дает возможность пользоваться абстракциями, с помощью которых клиенты могут обнаруживать конечные точки службы и взаимодействовать с ними.
+Service Fabric, как платформа, совершенно не зависит от взаимодействия между службами. Допускается использование любых протоколов и стеков, от UDP до HTTP. Способ взаимодействия служб зависит только от выбора разработчика. Платформа приложений Reliable Services предоставляет несколько готовых стеков взаимодействия, а также средства для развертывания собственного стека взаимодействия, например абстракции, которые клиенты могут использовать для обнаружения и взаимодействия с конечными точками служб.
 
-## Стек связи службы: настройка
+## Настройка взаимодействия службы
 
-Интерфейс API надежных служб позволяет создателям служб подключать к службе выбранный стек связи путем реализации в этой службе приведенного ниже метода.
-
-```csharp
-
-protected override ICommunicationListener CreateCommunicationListener()
-{
-    ...
-}
-
-```
-
-Интерфейс `ICommunicationListener` определяет интерфейс, который должен быть реализован прослушивателем связи для службы.
+API Reliable Services использует простой интерфейс для взаимодействия служб. Чтобы открыть конечную точку для службы, просто реализуйте этот интерфейс:
 
 ```csharp
 
 public interface ICommunicationListener
 {
-    void Initialize(ServiceInitializationParameters serviceInitializationParameters);
-
     Task<string> OpenAsync(CancellationToken cancellationToken);
 
     Task CloseAsync(CancellationToken cancellationToken);
@@ -49,7 +36,46 @@ public interface ICommunicationListener
 }
 
 ```
-Конечные точки, которые требуются для службы, описываются посредством [манифеста службы](service-fabric-application-model.md) в разделе конечных точек.
+
+Затем добавьте реализацию прослушивателя взаимодействия, вернув его в переопределении метода базового класса службы.
+
+Для служб без отслеживания состояния:
+
+```csharp
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+```
+
+Для служб с отслеживанием состояния:
+
+```csharp
+protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+```
+
+В обоих случаях возвращается коллекция прослушивателей, что позволяет службе использовать несколько прослушивателей, например прослушиватель HTTP и отдельный прослушиватель WebSocket. Каждый прослушиватель получает имя, а получившаяся коллекция пар "имя-адрес" представляется как объект JSON, когда клиент запрашивает ожидающие адреса для раздела или экземпляра службы.
+
+Для службы без отслеживания состояния переопределение возвращает коллекцию объектов ServiceInstanceListener. Объект ServiceInstanceListener просто содержит функции для создания интерфейса ICommunicationListener и присваивает ему имя. Для служб с отслеживанием состояния переопределение возвращает коллекцию объектов ServiceReplicaListener. Здесь наблюдается небольшое отличие от аналога без отслеживания состояния, поскольку ServiceReplicaListener имеет возможность открыть интерфейс ICommunicationListener для вторичных реплик. Это позволяет не только использовать несколько прослушивателей взаимодействия в одной службе, но также указать, какие из них принимают запросы для вторичных реплик, а какие — прослушивают только первичные реплики.
+
+Например, у нас есть прослушиватель ServiceRemotingListener, который принимает вызовы RPC только для первичных реплик, и второй, собственный прослушиватель, который принимает запросы на чтение для вторичных реплик:
+
+```csharp
+protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+{
+    return new[]
+    {
+        new ServiceReplicaListener(initParams =>
+            new MyCustomListener(initParams),
+            "customReadonlyEndpoint",
+            true),
+
+        new ServiceReplicaListener(initParams =>
+            new ServiceRemotingListener<IMyStatefulInterface2>(initParams, this),
+            "rpcPrimaryEndpoint",
+            false)
+    };
+}
+```
+
+Наконец, рассмотрим конечные точки, которые требуются для службы в [манифесте службы](service-fabric-application-model.md) в разделе конечных точек.
 
 ```xml
 
@@ -100,13 +126,13 @@ var listenAddress = new Uri(
 
 ```
 
+Полное пошаговое руководство по написанию `ICommunicationListener` см. в разделе [Начало работы со службами веб-API Microsoft Azure Service Fabric с саморазмещением OWIN](service-fabric-reliable-services-communication-webapi.md).
+
 ## Взаимодействие клиента со службой
 Интерфейс API надежных служб дает возможность использовать указанные ниже абстракции, упрощающие написание клиентов для взаимодействия со службами.
 
-## ServicePartitionResolver
-Класс ServicePartitionResolver помогает клиенту определить конечную точку службы Service Fabric во время выполнения.
-
-> [AZURE.TIP]В терминологии Service Fabric процесс определения конечной точки службы называется разрешением конечной точки службы.
+### ServicePartitionResolver
+Этот служебный класс помогает клиенту определить конечную точку службы Service Fabric во время выполнения. В терминологии Service Fabric процесс определения конечной точки службы называется разрешением конечной точки службы.
 
 ```csharp
 
@@ -129,7 +155,7 @@ Task<ResolvedServicePartition> ResolveAsync(ResolvedServicePartition previousRsp
 
 Обычно в коде клиента не требуется непосредственная работа с `ServicePartitionResolver`. Он создается и передается другим вспомогательным классам в API надежных служб, которые во внутренней логике используют сопоставитель и помогают клиенту взаимодействовать со службой.
 
-## CommunicationClientFactory
+### CommunicationClientFactory
 Объект `ICommunicationClientFactory` определяет базовый интерфейс, реализуемый фабрикой клиентов связи, которая создает клиенты, способные обмениваться данными со службой ServiceFabric. Реализация CommunicationClientFactory зависит от стека связи, используемого службой Service Fabric, с которой клиенту требуется связаться. Интерфейс API надежных служб дает возможность использовать объект CommunicationClientFactoryBase<TCommunicationClient>, который позволяет задействовать базовую реализацию данного интерфейса `ICommunicationClientFactory` и выполняет задачи, которые являются общими для всех стеков связи (как при использовании `ServicePartitionResolver` для определения конечной точки службы). Клиенты обычно реализуют абстрактный класс CommunicationClientFactoryBase для обработки специфической логики стека связи.
 
 ```csharp
@@ -152,30 +178,30 @@ public class MyCommunicationClient : ICommunicationClient
 
 public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCommunicationClient>
 {
-   protected override void AbortClient(MyCommunicationClient1 client)
-   {
-      throw new NotImplementedException();
-   }
+    protected override void AbortClient(MyCommunicationClient client)
+    {
+        throw new NotImplementedException();
+    }
 
-   protected override Task<MyCommunicationClient> CreateClientAsync(ResolvedServiceEndpoint endpoint, CancellationToken cancellationToken)
-   {
-      throw new NotImplementedException();
-   }
+    protected override Task<MyCommunicationClient> CreateClientAsync(string endpoint, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException();
+    }
 
-   protected override bool ValidateClient(MyCommunicationClient clientChannel)
-   {
-      throw new NotImplementedException();
-   }
+    protected override bool ValidateClient(MyCommunicationClient clientChannel)
+    {
+        throw new NotImplementedException();
+    }
 
-   protected override bool ValidateClient(ResolvedServiceEndpoint endpoint, MyCommunicationClient client)
-   {
-      throw new NotImplementedException();
-   }
+    protected override bool ValidateClient(string endpoint, MyCommunicationClient client)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 ```
 
-## ServicePartitionClient
+### ServicePartitionClient
 Объект `ServicePartitionClient` использует CommunicationClientFactory (а во внутренней логике — ServicePartitionResolver) и помогает при связи со службой, обрабатывая повторные попытки общего взаимодействия и временные исключения Service Fabric.
 
 ```csharp
@@ -222,11 +248,12 @@ var result = await myServicePartitionClient.InvokeWithRetryAsync(
 ```
 
 ## Дальнейшие действия
-* [Стек связи, предоставляемый по умолчанию платформой надежных служб](service-fabric-reliable-services-communication-default.md)
+* [Удаленный вызов процедур с использованием удаленного взаимодействия Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 
-* [Стек связи на основе WCF, предоставляемый платформой надежных служб](service-fabric-reliable-services-communication-wcf.md)
+* [Веб-API с OWIN в модели Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-* [Написание службы с помощью интерфейса API надежных служб, использующего стек связи WebAPI](service-fabric-reliable-services-communication-webapi.md)
+* [Взаимодействие WCF с Reliable Services](service-fabric-reliable-services-communication-wcf.md)
+
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

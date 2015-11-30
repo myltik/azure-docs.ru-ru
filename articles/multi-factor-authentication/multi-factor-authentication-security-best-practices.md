@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Рекомендации по безопасности для использования Azure Multi-Factor Authentication с учетными записями Azure AD
@@ -121,4 +121,4 @@
 - [Первоначальная настройка службы Azure Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md)
 - [Часто задаваемые вопросы о службе Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

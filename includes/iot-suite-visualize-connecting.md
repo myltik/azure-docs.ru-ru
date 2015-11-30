@@ -1,40 +1,40 @@
-## View device telemetry in the dashboard
+## Просмотр данных телеметрии устройства на панели мониторинга
 
-The dashboard in the remote monitoring solution enables you to view the telemetry that your devices send to IoT Hub.
+На панели мониторинга в решении для удаленного мониторинга можно просматривать данные телеметрии, отправляемые устройством в центр IoT.
 
-1. In your browser, return to the remote monitoring solution dashboard, click **Devices** in the left-hand panel to navigate to the **Devices list**.
+1. В браузере вернитесь на панель мониторинга решения для удаленного мониторинга, в левой панели щелкните **Устройства**, чтобы перейти к **списку устройств**.
 
-2. In the **Devices list**, you should see that the status of your device is now **Running**.
+2. В **списке устройств** отображается текущее состояние устройства — **Работает**.
 
     ![][18]
 
-3. In the dashboard, select your device in the **Device to View** drop-down to view its telemetry. The telemetry from the sample application is 50 units for internal temperature, 55 units for external temperature, and 50 units for humidity. Note that by default the dashboard displays only temperature and humidity values.
+3. На панели мониторинга в раскрывающемся списке **Устройство для просмотра** выберите свое устройство, чтобы просмотреть его данные телеметрии. Телеметрия из примера приложения — 50 единиц данных о внутренней температуре, 55 единиц данных о наружной температуре и 50 единиц данных о влажности. Обратите внимание, что на панели мониторинга отображаются только значения температуры и влажности по умолчанию.
 
     ![][img-telemetry]
 
-## Send a command to your device
+## Отправка команды устройству
 
-The dashboard in the remote monitoring solution enables you to request IoT Hub to send commands to your devices. For example, in the remote monitoring solution you can send a command to set the internal temperature of a device.
+На панели мониторинга в решении для удаленного мониторинга можно создать запрос на отправку центром IoT команд вашим устройствам. Например, в решении для удаленного мониторинга можно отправлять команду для задания внутренней температуры устройства.
 
-1. In the remote monitoring solution dashboard, click **Devices** in the left-hand panel to navigate to the **Devices list**.
+1. На панели мониторинга решения для удаленного мониторинга в левой панели щелкните **Устройства**, чтобы перейти к **списку устройств**.
 
-2. Click **Device ID** for your device in the **Devices list**.
+2. Щелкните **Идентификатор устройства** для устройства в **списке устройств**.
 
-3. In the **Device details** panel, click **Commands**.
+3. На панели **Сведения об устройстве** щелкните **Команды**.
 
     ![][13]
 
-4. In the **Command** drop-down, select **SetTemperature**, and then in **Temperature** enter a new temperature value. Click **Send command** to send the command to the device.
+4. В раскрывающемся списке **Команда** выберите **SetTemperature**, а затем в поле **Температура** введите новое значение температуры. Нажмите кнопку **Отправить команду** для отправки команды устройству.
 
     ![][14]
 
-    > [AZURE.NOTE] The command history initially shows the command status as **Pending**. When the device acknowledges the command, the status changes to **Success**.
+    > [AZURE.NOTE]В журнале команд первоначально отображается состояние команды **В ожидании**. Когда устройство подтверждает получение команды, состояние меняется на **Успешно**.
 
-5. On the dashboard, verify that the device is now sending 75 as the new temperature value.
+5. Убедитесь, что на панели мониторинга устройство отправляет значение 75 в качестве нового значения температуры.
 
-## Next steps
+## Дальнейшие действия
 
-The article [Customizing preconfigured solutions][lnk-customize] describes some ways you can extend this sample. Possible extensions include using real sensors and implementing additional commands.
+В статье [Настройка предварительно настроенных решений][lnk-customize] приведен ряд способов расширения этого примера. В их число входит использование реальных датчиков и реализация дополнительных команд.
 
 [13]: ./media/iot-suite-visualize-connecting/suite4.png
 [14]: ./media/iot-suite-visualize-connecting/suite7-1.png
@@ -42,3 +42,5 @@ The article [Customizing preconfigured solutions][lnk-customize] describes some 
 [img-telemetry]: ./media/iot-suite-visualize-connecting/telemetry.png
 [lnk-customize]: ../articles/iot-suite/
 [lnk-dev-messaging]: ../articles/iot-hub/iot-hub-devguide.md#messaging
+
+<!---HONumber=Nov15_HO4-->

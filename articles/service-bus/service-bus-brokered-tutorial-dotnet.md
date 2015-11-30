@@ -643,10 +643,10 @@ namespace Microsoft.ServiceBus.Samples
 
 В этом учебнике было показано создание приложения клиента и службы служебной шины с использованием возможностей обмена сообщениями через посредника служебной шины. Аналогичное руководство, в котором используется [обмен сообщениями с ретрансляцией](service-bus-messaging-overview.md/#Relayed-messaging) см. в разделе [Руководство по обмену сообщениями с ретрансляцией через служебную шину](service-bus-relay-tutorial.md).
 
-Дополнительную информацию о служебной шине см. на следующих ресурсах.
+Дополнительные сведения о [служебной шине](https://azure.microsoft.com/services/service-bus/) см. в следующих разделах.
 
 - [Основные сведения об обмене сообщениями через служебную шину](service-bus-messaging-overview.md)
-- [Базовая информация о Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+- [Базовая информация о служебной шине](service-bus-fundamentals-hybrid-solutions.md)
 - [Архитектура служебной шины](service-bus-architecture.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

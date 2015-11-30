@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-command-line-tools.md)
 
-В этой статье рассматривается использование интерфейса командной строки Azure (Azure CLI) в режиме диспетчера ресурсов Azure для создания, удаления служб и управления ими через командную строку на компьютерах Mac, Linux и Windows. Многие одинаковые задачи можно выполнить с использованием различных библиотек пакета SDK для Azure, PowerShell и портала предварительной версии Azure.
+В этой статье рассматривается использование интерфейса командной строки Azure (Azure CLI) в режиме диспетчера ресурсов Azure для создания, удаления служб и управления ими через командную строку на компьютерах Mac, Linux и Windows. Многие одинаковые задачи можно выполнить с использованием различных библиотек пакета SDK для Azure, Azure PowerShell и портала предварительной версии Azure.
 
 Диспетчер ресурсов Azure позволяет создать группу ресурсов (виртуальных машин, веб-сайтов, баз данных и т. д.) как одну развертываемую единицу. Можно развернуть, обновить или удалить все ресурсы для приложения в ходе одной скоординированной операции. Группу ресурсов необходимо описать с помощью шаблона JSON для развертывания. Затем шаблон можно использовать для разных сред, в том числе для тестовой, промежуточной и рабочей.
 
@@ -1252,22 +1252,23 @@
 
 
 Параметры:
-	-h, --help                                   вывод сведений об использовании.
-	-v, --verbose                                использование подробного вывода.
-	--json                                       использование формата JSON для вывода.
-	-g, --resource-group <resource-group>        имя группы ресурсов.
-	-n, --name <name>                            имя общедоступного IP-адреса.
-	-l, --location <location>                    расположение.
-	-d, --domain-name-label <domain-name-label>  метка имени домена.
-	Задает в качестве DNS адрес <domain-name-label>.<location>.cloudapp.azure.com.
-	-a, --allocation-method <allocation-method>  способ выделения [статическое][динамическое].
-	-i, --idletimeout <idletimeout>              таймаут простоя в минутах.
-	-f, --reverse-fqdn <reverse-fqdn>            обратное полное доменное имя.
-	-t, --tags <tags>                            список тегов.
-	Может быть несколько. В формате "имя=значение".
-	Имя является обязательным, а значение — необязательным.
-	Например, -t тег1=значение1;тег2
-	-s, --subscription <subscription>            идентификатор подписки
+
+	-h, --help                                   output usage information
+	-v, --verbose                                use verbose output
+	--json                                       use json output
+	-g, --resource-group <resource-group>        the name of the resource group
+	-n, --name <name>                            the name of the public ip
+	-l, --location <location>                    the location
+	-d, --domain-name-label <domain-name-label>  the domain name label.
+	This set DNS to <domain-name-label>.<location>.cloudapp.azure.com
+	-a, --allocation-method <allocation-method>  the allocation method [Static][Dynamic]
+	-i, --idletimeout <idletimeout>              the idle timeout in minutes
+	-f, --reverse-fqdn <reverse-fqdn>            the reverse fqdn
+	-t, --tags <tags>                            the list of tags.
+	Can be multiple. In the format of "name=value".
+	Name is required and value is optional.
+	For example, -t tag1=value1;tag2
+	-s, --subscription <subscription>            the subscription identifier
 <br>
 
 	network public-ip set [options] <resource-group> <name>
@@ -1759,4 +1760,4 @@
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

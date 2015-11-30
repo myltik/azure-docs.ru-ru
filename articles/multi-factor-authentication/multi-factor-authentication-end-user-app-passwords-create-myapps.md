@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Создание паролей приложений на портале Myapps в службе Office 365 для Azure Multi-Factor Authentication
@@ -39,4 +39,4 @@
 <li>Введите имя для пароля приложения и щелкните **Далее**.</li>
 <li>Скопируйте пароль приложения в буфер обмена и вставьте его в свое приложение.</li>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

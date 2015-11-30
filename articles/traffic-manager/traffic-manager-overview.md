@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Что такое диспетчер трафика
@@ -164,12 +164,12 @@
 
 ## Дальнейшие действия
 
-[Облачные службы](http://go.microsoft.com/fwlink/p/?LinkId=314074)
+[Методы маршрутизации диспетчера трафика](traffic-manager-routing-methods.md)
 
-[Веб-сайты](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[Мониторинг диспетчера трафика](traffic-manager-monitoring.md)
 
-[Операции с диспетчером трафика (справочник по REST API)](http://go.microsoft.com/fwlink/p/?LinkId=313584)
+[Создание профиля](traffic-manager-manage-profiles.md)
 
 [Командлеты для диспетчера трафика Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

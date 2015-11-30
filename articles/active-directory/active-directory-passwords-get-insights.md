@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Получение оперативной аналитики с помощью отчетов об управлении паролями
@@ -153,18 +153,17 @@
 Сброс пароля полностью отключен для этого клиента. Сведения об устранении этой проблемы см. [здесь](http://aka.ms/ssprtroubleshoot). | Сбой
 Пользователь успешно сбросил пароль|Succeeded
 
-**Дополнительные ресурсы**
+## Ссылки на документацию по сбросу паролей
+Ниже приведены ссылки на все страницы документации по службе сброса паролей Azure AD.
 
-
-* [Сведения об управлении паролями](active-directory-passwords.md)
-* [Как работает управление паролями](active-directory-passwords-how-it-works.md)
-* [Приступая к работе с компонентами управления паролями](active-directory-passwords-getting-started.md)
-* [Настройка компонентов управления паролями](active-directory-passwords-customize.md)
-* [Рекомендации по управлению паролями](active-directory-passwords-best-practices.md)
-* [Вопросы и ответы об управлении паролями](active-directory-passwords-faq.md)
-* [Устранение неполадок, связанных с управлением паролями](active-directory-passwords-troubleshoot.md)
-* [Дополнительные сведения](active-directory-passwords-learn-more.md)
-* [Управление паролями в сети MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Сброс собственного пароля**](active-directory-passwords-update-your-own-password) — узнайте, как сбросить или изменить свой пароль пользователя системы.
+* [**Как работает служба**](active-directory-passwords-how-it-works.md) — узнайте, из каких шести компонентов состоит служба и за что отвечает каждый из них.
+* [**Приступая к работе**](active-directory-passwords-getting-started.md) — узнайте, как предоставить пользователям возможность сбрасывать и менять свои облачные и локальные пароли.
+* [**Настройка**](active-directory-passwords-customize.md) — узнайте, как настроить оформление и функциональность службы в соответствии с потребностями организации.
+* [**Рекомендации**](active-directory-passwords-best-practices.md) — узнайте, как быстро развернуть службу и эффективно управлять паролями в организации.
+* [**Часто задаваемые вопросы**](active-directory-passwords-faq.md) — ознакомьтесь с ответами на часто задаваемые вопросы.
+* [**Устранение неполадок**](active-directory-passwords-troubleshoot.md) — узнайте, как быстро устранять проблемы, связанные со службой.
+* [**Дополнительные сведения**](active-directory-passwords-learn-more.md) — ознакомьтесь с технической стороной работы службы.
 
 
 
@@ -172,4 +171,4 @@
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

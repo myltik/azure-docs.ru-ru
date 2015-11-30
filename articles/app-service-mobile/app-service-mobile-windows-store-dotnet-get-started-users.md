@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="11/17/2015"
 	ms.author="glenga"/>
 
 # Добавление проверки подлинности в приложение Windows
@@ -26,10 +26,6 @@
 
 Этот учебник создан на основе краткого руководства по мобильным приложениям. Вам необходимо сначала изучить учебник [Начало работы с мобильным приложением].
 
-##<a name="create-gateway"></a>Создание шлюза службы приложений
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway](../../includes/app-service-mobile-dotnet-backend-create-gateway.md)]
-
 ##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка службы приложений
 
 [AZURE.INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -38,7 +34,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;4. В Visual Studio откройте общий файл проекта App.xaml.cs в проекте приложения клиента и убедитесь, что экземпляр **MobileServiceClient** настроен для использования URL-адреса серверной части мобильного приложения и URL-адреса шлюза.
+&nbsp;&nbsp;4. В Visual Studio откройте общий файл проекта App.xaml.cs в проекте приложения клиента и настройте экземпляр **MobileServiceClient** для использования URL-адреса серверной части мобильного приложения и URL-адреса шлюза.
 
 &nbsp;&nbsp;5. Назначив запускаемым проектом один из проектов приложения Windows, нажмите клавишу F5, чтобы запустить приложение. Убедитесь в том, что после его запуска порождается необработанное исключение с кодом состояния 401 (не авторизован).
 
@@ -62,4 +58,4 @@
 [Начало работы с мобильным приложением]: app-service-mobile-windows-store-dotnet-get-started.md
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

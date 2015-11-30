@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/28/2015"
+   ms.date="11/13/2015"
    ms.author="bwren;sngun"/>
 
 # Запуск модуля Runbook в службе автоматизации Azure
@@ -93,7 +93,7 @@
   </td>
  </tr>
  <tr>
-  <td><a href="http://msdn.microsoft.com/library/azure/dn857355.aspx">Из другого модуля Runbook</a></td>
+  <td><a href="http://azure.microsoft.com/documentation/articles/automation-child-runbooks/">Из другого модуля Runbook</a></td>
   <td>
    <ul>
     <li>Использование одного модуля Runbook в качестве процесса в другом модуле Runbook.</li>
@@ -150,7 +150,7 @@
 
 ## Параметры модуля Runbook
 
-При запуске модуля runbook с помощью портала управления Azure или Windows PowerShell инструкция отправляется через веб-службы автоматизации Azure. Эта служба не поддерживает параметры со сложными типами данных. Если необходимо указать значение для сложного параметра, его необходимо вызвать из другого модуля Runbook, как описано в разделе [Запуск модуля Runbook из другого модуля Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx).
+При запуске модуля runbook с помощью портала управления Azure или Windows PowerShell инструкция отправляется через веб-службы автоматизации Azure. Эта служба не поддерживает параметры со сложными типами данных. Если необходимо указать значение для сложного параметра, его необходимо вызвать из другого модуля Runbook, как описано в разделе [Дочерние модули Runbook в службе автоматизации Azure](automation-child-runbooks.md).
 
 Веб-службы автоматизации Azure предоставляют специальные функции для параметров, которые используют определенные типы данных, как описано в следующих разделах.
 
@@ -216,7 +216,7 @@
 
 ### Учетные данные
 
-Если параметр относится к типу данных **PSCredential**, можно предоставить имя [учетных данных](http://msdn.microsoft.com/library/azure/dn940015.aspx) в службе автоматизации Azure. Модуль Runbook получит учетную запись с указанным именем.
+Если параметр относится к типу данных **PSCredential**, можно предоставить имя [учетных данных](automation-credentials.md) в службе автоматизации Azure. Модуль Runbook получит учетную запись с указанным именем.
 
 Рассмотрим следующий тестовый модуль Runbook, который принимает параметр credential.
 
@@ -238,6 +238,6 @@
 
 ## Связанные статьи
 
-- [Запуск модуля Runbook из другого модуля Runbook](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
+- [Дочерние модули Runbook в службе автоматизации Azure](automation-child-runbooks.md) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

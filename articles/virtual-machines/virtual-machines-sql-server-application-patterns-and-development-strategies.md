@@ -327,4 +327,4 @@
 
 Подробные сведения о работе SQL Server на виртуальных машинах Azure см. в статье [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

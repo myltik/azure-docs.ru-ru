@@ -1,0 +1,64 @@
+<properties
+   pageTitle="Подключение устройства с помощью Node.js | Microsoft Azure"
+   description="Описывает, как подключить устройство к предварительно настроенному решению для удаленного мониторинга из набора Azure IoT Suite с помощью приложения, написанного на Node.js."
+   services=""
+   documentationCenter="na"
+   authors="dominicbetts"
+   manager="timlt"
+   editor=""/>
+
+<tags
+   ms.service="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="11/10/2015"
+   ms.author="dobett"/>
+
+
+# Подключение устройства к предварительно настроенному решению для удаленного мониторинга IoT Suite
+
+[AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
+
+## Отправка данных устройства в решение для удаленного мониторинга с помощью node.js
+
+1. Чтобы клонировать репозиторий GitHub *пакетов SDK для Microsoft Azure IoT* и установить *пакет SDK для устройств Microsoft Azure IoT для Node.js* в вашей среде рабочего стола, следуйте инструкциям в разделе [Подготовка среды разработки][lnk-github-prepare].
+
+2. Из папки node/device/samples в локальной копии репозитория [azure-iot-sdks][lnk-github-repo] скопируйте в папку на устройстве следующие два файла:
+
+  - packages.json
+  - remote\_monitoring.js
+
+3. Откройте файл remote-monitoring.js и найдите следующие переменные:
+
+    ```
+    var connectionString = "[IoT Hub device connection string]";
+    ```
+
+4. Замените **[IoT Hub device connection string]** строкой подключения устройства. Значения имени узла центра IoT, идентификатора устройства и ключа устройства можно найти на панели мониторинга решения для удаленного мониторинга. Строка подключения имеет следующий формат:
+
+    ```
+    HostName={your IoT Hub hostname};DeviceId={your device id};SharedAccessKey={your device key}
+    ```
+
+5. Если имя узла центра IoT — **contoso**, а код устройства — **mydevice**, то строка подключения будет выглядеть так:
+
+    ```
+    var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="
+    ```
+
+6. Сохраните файл . В папке, содержащей эти файлы, выполните следующие команды:
+
+    ```
+    npm install
+    node remote_monitoring.js
+    ```
+
+[AZURE.INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
+
+[lnk-github-repo]: https://github.com/azure/azure-iot-sdks
+[lnk-node-installers]: https://nodejs.org/download/
+[lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/doc/devbox_setup.md
+
+<!---HONumber=Nov15_HO4-->

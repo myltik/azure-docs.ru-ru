@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # О мониторинге диспетчера трафика
@@ -108,15 +108,11 @@
 
 ## См. также
 
-[Что такое диспетчер трафика](traffic-manager-overview.md)
+[Создание профиля](traffic-manager-manage-profiles.md)
 
-[О методах маршрутизации трафика в диспетчере трафика](traffic-manager-load-balancing-methods.md)
-
-[Облачные службы](http://go.microsoft.com/fwlink/p/?LinkId=314074)
-
-[Веб-сайты](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[Добавление конечной точки](traffic-manager-endpoints.md)
 
 [Устранение неполадок с состоянием «Деградация» в диспетчере трафика Azure](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

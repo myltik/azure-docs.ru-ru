@@ -1,10 +1,11 @@
-<properties 
-    pageTitle="Создание пула эластичных баз данных SQL Azure с помощью C# | Microsoft Azure" 
-    description="В этой статье показано, как создать пул эластичных баз данных SQL Azure с помощью C#, используя библиотеку баз данных SQL Azure для .NET." 
-    services="sql-database" 
-    documentationCenter="" 
-    authors="stevestein" 
-    manager="jeffreyg" 
+<properties
+    pageTitle="Разработка базы данных на C#: пулы эластичных баз данных | Microsoft Azure"
+    description="Используйте методы разработки баз данных на C# для создания пула эластичных баз данных SQL Azure, чтобы совместно использовать ресурсы нескольких баз данных."
+    services="sql-database"
+    keywords="база данных на C#, разработка для SQL"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jeffreyg"
     editor=""/>
 
 <tags
@@ -12,11 +13,11 @@
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
+    ms.workload="data-management"
     ms.date="11/06/2015"
     ms.author="sstein"/>
 
-# Создание пула эластичных баз данных с помощью C&#x23;
+# Разработка базы данных на C&#x23;: создание и настройка пула эластичных баз данных для базы данных SQL
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](sql-database-elastic-pool-portal.md)
@@ -24,13 +25,13 @@
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
-В этой статье описано, как создать [пул эластичных баз данных](sql-database-elastic-pool.md) из приложения, используя C#.
+В этой статье описано, как создать [пул эластичных баз данных](sql-database-elastic-pool.md) для баз данных SQL из приложения, используя методы разработки баз данных на C#.
 
-> [AZURE.NOTE]Сейчас пулы эластичных баз данных предоставляются в виде предварительной версии, которая доступна только с серверами Базы данных SQL версии 12. Если у вас есть сервер базы данных SQL версии 11, PowerShell позволит вам [обновить его до версии 12 и создать пул](sql-database-upgrade-server.md) за один шаг.
+> [AZURE.NOTE]Сейчас пулы эластичных баз данных предоставляются в виде предварительной версии, которая доступна только с серверами Базы данных SQL версии 12. Если у вас есть сервер базы данных SQL версии 11, с помощью PowerShell вы можете в один шаг [обновить его до версии 12 и создать пул](sql-database-upgrade-server.md).
 
 В примерах используется [библиотека базы данных SQL Azure для .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Код разбит на отдельные фрагменты для ясности, и пример консольного приложения объединяет все команды в нижней части этой статьи.
 
-Библиотека баз данных SQL Azure для .NET предоставляет API на основе [диспетчера ресурсов Azure](resource-group-overview.md), который создает оболочку для [API REST Базы данных SQL на основе диспетчера ресурсов](https://msdn.microsoft.com/library/azure/mt163571.aspx). Эта клиентская библиотека следует общему шаблону для клиентских библиотек на основе диспетчера ресурсов. Диспетчеру ресурсов необходимы группы ресурсов и проверка подлинности с помощью [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
+Библиотека баз данных SQL Azure для .NET предоставляет API на основе [диспетчера ресурсов Azure](resource-group-overview.md), который создает оболочку для [REST API базы данных SQL на основе диспетчера ресурсов](https://msdn.microsoft.com/library/azure/mt163571.aspx). Эта клиентская библиотека следует общему шаблону для клиентских библиотек на основе диспетчера ресурсов. Для работы диспетчера ресурсов требуется наличие группы ресурсов и выполнение аутентификации с помощью [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
 
 <br>
 
@@ -38,11 +39,11 @@
 
 <br>
 
-Если у вас еще нет подписки Azure, нажмите **БЕСПЛАТНАЯ ПРОБНАЯ ВЕРСИЯ** в верхней части этой страницы. После оформления подписки вернитесь к этой статье. Бесплатный экземпляр Visual Studio см. на странице [Загрузки Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
+Если у вас еще нет подписки Azure, щелкните **БЕСПЛАТНАЯ ПРОБНАЯ ВЕРСИЯ** в верхней части этой страницы. После оформления подписки вернитесь к этой статье. Бесплатный экземпляр Visual Studio см. на странице [Загрузки Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
 
 ## Установка необходимых библиотек
 
-Получите необходимые библиотеки управления, установив следующие пакеты с помощью [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console):
+Получите необходимые библиотеки управления, установив следующие пакеты с помощью [консоли диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) для разработки для SQL:
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
     Install-Package Microsoft.Azure.Management.Resources –Pre
@@ -51,29 +52,29 @@
 
 ## Настройка проверки подлинности в Azure Active Directory
 
-Сначала необходимо дать приложению доступ к API REST, настроив необходимую проверку подлинности.
+Перед началом разработки для SQL на C# необходимо выполнить некоторые задачи на портале Azure. Сначала предоставьте приложению доступ к REST API, настроив необходимую аутентификацию.
 
-[API REST диспетчера ресурсов Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx) используют для проверки подлинности Azure Active Directory, а не сертификаты, используемые в более ранних API REST управления службами Azure.
+[API REST диспетчера ресурсов Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx) используют для аутентификации Azure Active Directory, а не сертификаты, используемые в более ранних API REST управления службами Azure.
 
 Для проверки подлинности клиентского приложения на основе текущего пользователя необходимо сначала зарегистрировать приложение в домене AAD, связанном с подпиской, в которой были созданы ресурсы Azure. Если подписка Azure была создана на базе учетной записи Microsoft, а не на базе рабочей или учебной учетной записи, у вас уже будет домен AAD по умолчанию. Зарегистрировать приложение можно на [портале управления](https://manage.windowsazure.com/).
 
 Для создания нового приложения и его регистрации в правильном Active Directory сделайте следующие.
 
-1. Прокрутите меню с левой стороны, чтобы найти службу **Active Directory**, и откройте ее.
+1. Прокрутите меню с левой стороны, найдите в нем службу **Active Directory** и откройте ее.
 
-    ![AAD][1]
+    ![Разработка баз данных SQL на C#: настройка Active Directory][1]
 
-2. Выберите каталог для проверки подлинности приложения и щелкните его **имя**.
+2. Выберите каталог для аутентификации приложения и щелкните его **имя**.
 
-    ![Каталоги][4]
+    ![Выберите каталог.][4]
 
 3. На странице каталога выберите **ПРИЛОЖЕНИЯ**.
 
-    ![Приложения][5]
+    ![Щелкните «Приложения».][5]
 
 4. Нажмите кнопку **ДОБАВИТЬ**, чтобы добавить новое приложение.
 
-    ![Добавление приложения][6]
+    ![Нажмите кнопку «Добавить», чтобы создать приложение C#.][6]
 
 5. Выберите **Добавить приложение, разрабатываемое моей организацией**.
 
@@ -85,17 +86,17 @@
 
     ![Добавление приложения][8]
 
-7. Завершите создание приложения, нажмите кнопку **НАСТРОИТЬ** и скопируйте **ИДЕНТИФИКАТОР КЛИЕНТА** (в коде потребуется идентификатор клиента).
+7. Завершите создание приложения, нажмите кнопку **НАСТРОИТЬ** и скопируйте **ИДЕНТИФИКАТОР КЛИЕНТА** (его нужно будет указать в коде).
 
-    ![get client id][9]
+    ![Получение идентификатора клиента][9]
 
 
-1. В нижней части страницы нажмите **Добавить приложение**.
+1. В нижней части страницы щелкните **Добавить приложение**.
 1. Выберите **Приложения Майкрософт**.
 1. Выберите **API управления службами Azure**, а затем завершите работу мастера.
-2. С помощью выбранного API теперь нужно предоставлять конкретные разрешения, необходимые для доступа к этому API, выбрав **Доступ к управлению службами Azure (предварительная версия)**.
+2. Теперь с помощью выбранного API предоставьте разрешения, которые необходимы для доступа к этому API. Для этого выберите элемент **Доступ к управлению службами Azure (предварительная версия)**.
 
-    ![permissions][2]
+    ![Установка разрешений][2]
 
 2. Щелкните **СОХРАНИТЬ**.
 
@@ -114,10 +115,10 @@
 
 **Дополнительные ресурсы AAD**
 
-Дополнительные сведения об использовании Azure Active Directory для проверки подлинности можно найти в [этой полезной записи блога](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
+Подробнее об использовании Azure Active Directory для аутентификации см. в [этой записи блога](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
 
 
-### Получение маркера доступа для текущего пользователя 
+### Получение маркера доступа для текущего пользователя
 
 Клиентское приложение должно получить маркер доступа приложения для текущего пользователя. Первый раз, когда код выполняется пользователем, ему будет предложено ввести свои учетные данные пользователя, и результирующий маркер будет кэширован локально. При последующих вызовах маркер будет извлечен из кэша, и пользователю будет предложено войти, только если истек срок действия маркера.
 
@@ -129,13 +130,13 @@
     private static AuthenticationResult GetAccessToken()
     {
         AuthenticationContext authContext = new AuthenticationContext
-            ("https://login.windows.net/" /* AAD URI */ 
+            ("https://login.windows.net/" /* AAD URI */
                 + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
 
         AuthenticationResult token = authContext.AcquireToken
-            ("https://management.azure.com/"/* the Azure Resource Management endpoint */, 
-                "aa00a0a0-a0a0-0000-0a00-a0a00000a0aa" /* application client ID from AAD*/, 
-        new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */, 
+            ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
+                "aa00a0a0-a0a0-0000-0a00-a0a00000a0aa" /* application client ID from AAD*/,
+        new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */,
         PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
         return token;
@@ -149,24 +150,24 @@
 
 ## Создание группы ресурсов
 
-При наличии диспетчера ресурсов все ресурсы необходимо создавать в группе ресурсов. Группа ресурсов представляет собой контейнер, содержащий связанные ресурсы для приложения. Для создания пула эластичных баз данных в существующую группу ресурсов необходимо добавить сервер базы данных SQL Azure. Выполните следующий код, создающий группу ресурсов:
+При наличии диспетчера ресурсов все ресурсы необходимо создавать в группе ресурсов. Группа ресурсов представляет собой контейнер, содержащий связанные ресурсы для приложения. Для создания пула эластичных баз данных в существующую группу ресурсов необходимо добавить сервер базы данных SQL Azure. Выполните следующий код C#, создающий группу ресурсов:
 
 
-    // Create a resource management client 
+    // Create a resource management client
     ResourceManagementClient resourceClient = new ResourceManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /*subscription id*/, token.AccessToken ));
-    
+
     // Resource group parameters
     ResourceGroup resourceGroupParameters = new ResourceGroup()
     {
         Location = "South Central US"
     };
-    
+
     //Create a resource group
     var resourceGroupResult = resourceClient.ResourceGroups.CreateOrUpdate("resourcegroup-name", resourceGroupParameters);
 
 
 
-## Создание сервера 
+## Создание сервера
 
 Пулы эластичных баз данных находятся на серверах баз данных SQL Azure, поэтому следующим шагом является создание сервера. Это имя сервера должно быть глобально уникальным для серверов SQL Azure, и если оно уже занято, появится сообщение об ошибке. Кроме того, выполнение этой команды может занять несколько минут. Чтобы приложение могло подключиться к серверу, необходимо создать на сервере правило брандмауэра, открывающее доступ с IP-адреса клиента.
 
@@ -195,10 +196,10 @@
 
 По умолчанию правил брандмауэра, открывающих доступ с любого адреса, на сервере нет. Чтобы подключиться к серверу или какой-либо базе данных на сервере, необходимо определить [правило брандмауэра](sql-database-firewall-configure.md), которое разрешает доступ с IP-адреса клиента.
 
-В следующем примере создается правило брандмауэра для сервера, которое открывает доступ к серверу с любого IP-адреса. Рекомендуется создать соответствующие имя и пароль для входа в SQL для защиты базы данных и не полагаться на правила брандмауэра как на основное средство защиты от вторжения. Дополнительные сведения см. в статье [Управление базами данных и учетными записями в базе данных SQL Azure](sql-database-manage-logins.md).
+В следующем примере создается правило брандмауэра для сервера, которое открывает доступ к серверу с любого IP-адреса. Рекомендуется создать соответствующие имя и пароль для входа в SQL для защиты базы данных и не полагаться на правила брандмауэра как на основное средство защиты от вторжения. Подробнее об этом см. в статье [Управление базами данных и учетными записями в базе данных SQL Azure](sql-database-manage-logins.md).
 
 
-    // Create a firewall rule on the server to allow TDS connection 
+    // Create a firewall rule on the server to allow TDS connection
     FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
     {
         Properties = new FirewallRuleCreateOrUpdateProperties()
@@ -213,7 +214,7 @@
 
 
 
-Чтобы разрешить другим службам Azure доступ к серверу, добавьте правило брандмауэра и задайте для параметров StartIpAddress и EndIpAddress значение 0.0.0.0. Обратите внимание, что это разрешает доступ к серверу трафику Azure от *любой* подписки Azure.
+Чтобы разрешить другим службам Azure доступ к серверу, добавьте правило брандмауэра и задайте для параметров StartIpAddress и EndIpAddress значение 0.0.0.0. Обратите внимание, что это правило разрешает доступ к серверу из *любой* подписки Azure.
 
 
 ## Создание базы данных
@@ -224,7 +225,7 @@
 
         // Retrieve the server on which the database will be created
         Server currentServer = sqlClient.Servers.Get("resourcegroup-name", "server-name").Server;
- 
+
         // Create a database: configure create or update parameters and properties explicitly
         DatabaseCreateOrUpdateParameters newDatabaseParameters = new DatabaseCreateOrUpdateParameters()
         {
@@ -292,16 +293,16 @@
 
 ## Перемещение существующей базы данных в пул эластичных баз данных
 
-*Кроме того, после создания пула можно использовать Transact-SQL для перемещения существующих баз данных в пул и из него. Дополнительные сведения см. в разделе [Справочник по пулам эластичных баз данных — Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Кроме того, после создания пула можно использовать Transact-SQL для перемещения существующих баз данных в пул и из него. Подробнее об этом см. в разделе [Справочник по пулам эластичных баз данных — Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
 В следующем примере существующая база данных Azure переносится в пул:
 
-    
+
     // Update database service objective to add the database to a pool
-    
-    // Retrieve current database properties 
+
+    // Retrieve current database properties
     currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
-    
+
     // Configure create or update parameters with existing property values, override those to be changed.
     DatabaseCreateOrUpdateParameters updatePooledDbParameters = new DatabaseCreateOrUpdateParameters()
     {
@@ -315,22 +316,22 @@
             Collation = currentDatabase.Properties.Collation,
         }
     };
-    
+
     // Update the database
     var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
-    
-    
+
+
 
 
 ## Создание новой базы данных внутри пула эластичных баз данных
 
-*Кроме того, после создания пула можно использовать Transact-SQL для создания эластичных баз данных в пуле. Дополнительные сведения см. в разделе [Справочник по пулам эластичных баз данных — Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
+*Кроме того, после создания пула можно использовать Transact-SQL для создания эластичных баз данных в пуле. Подробнее об этом см. в разделе [Справочник по пулам эластичных баз данных — Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL).*
 
-В следующем примере новая база данных создается непосредственно в пуле:
+В следующем примере новая база данных создается непосредственно в пуле.
 
-    
+
     // Create a new database in the pool
-    
+
     // Create a database: configure create or update parameters and properties explicitly
     DatabaseCreateOrUpdateParameters newPooledDatabaseParameters = new DatabaseCreateOrUpdateParameters()
     {
@@ -344,14 +345,14 @@
             Collation = "SQL_Latin1_General_CP1_CI_AS"
         }
     };
-    
+
     var poolDbResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database2", newPooledDatabaseParameters);
 
 
 
 ## Список всех баз данных в пуле эластичных баз данных
 
-В следующем примере создается список всех существующих в пуле баз данных:
+В следующем примере создается список всех существующих в пуле баз данных.
 
     //List databases in the elastic pool
     DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases("resourcegroup-name", "server-name", "ElasticPool1");
@@ -387,13 +388,13 @@
         private static AuthenticationResult GetAccessToken()
         {
             AuthenticationContext authContext = new AuthenticationContext
-                ("https://login.windows.net/" /* AAD URI */ 
+                ("https://login.windows.net/" /* AAD URI */
                 + "domain.onmicrosoft.com" /* Tenant ID or AAD domain */);
 
             AuthenticationResult token = authContext.AcquireToken
-                ("https://management.azure.com/"/* the Azure Resource Management endpoint */, 
-                "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* application client ID from AAD*/, 
-                new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */, 
+                ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
+                "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /* application client ID from AAD*/,
+                new Uri("urn:ietf:wg:oauth:2.0:oob") /* redirect URI */,
                 PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
 
             return token;
@@ -425,13 +426,13 @@
         static void Main(string[] args)
         {
             var token = GetAccessToken();
-            
+
             // Who am I?
             Console.WriteLine("Identity is {0} {1}", token.UserInfo.GivenName, token.UserInfo.FamilyName);
             Console.WriteLine("Token expires on {0}", token.ExpiresOn);
             Console.WriteLine("");
 
-            // Create a resource management client 
+            // Create a resource management client
             ResourceManagementClient resourceClient = new ResourceManagementClient(new TokenCloudCredentials("XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" /*subscription id*/, token.AccessToken));
 
             // Resource group parameters
@@ -469,7 +470,7 @@
 
             Console.WriteLine("Server {0} create or update completed with status code {1}", serverResult.Server.Name, serverResult.StatusCode);
 
-            // Create a firewall rule on the server to allow TDS connection 
+            // Create a firewall rule on the server to allow TDS connection
 
             FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
             {
@@ -517,7 +518,7 @@
 
             // Update a databases service objective to add the database to a pool
 
-            // Update database: retrieve current database properties 
+            // Update database: retrieve current database properties
             currentDatabase = sqlClient.Databases.Get("resourcegroup-name", "server-name", "Database1").Database;
 
             // Update database: configure create or update parameters with existing property values, override those to be changed.
@@ -565,6 +566,7 @@
 
 ## Дополнительные ресурсы
 
+
 [База данных SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
 [API управления ресурсами](https://msdn.microsoft.com/library/azure/dn948464.aspx)
@@ -583,4 +585,4 @@
 [8]: ./media/sql-database-elastic-pool-csharp/add-application2.png
 [9]: ./media/sql-database-elastic-pool-csharp/clientid.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

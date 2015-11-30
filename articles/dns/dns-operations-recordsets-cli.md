@@ -4,7 +4,7 @@
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
-   manager="Adinah" 
+   manager="carmonm" 
    editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/22/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 # Как управлять записями DNS с помощью интерфейса командной строки
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-operations-recordsets-cli.md)
-- [Azure Powershell](dns-operations-recordsets.md)
+- [PowerShell](dns-operations-recordsets.md)
 
 В этом руководстве показано, как управлять наборами записей и записями для зоны DNS.
 
@@ -236,7 +236,7 @@ Azure DNS поддерживает [записи с подстановочным
 
 ##См. также
 
-[Приступить к созданию наборов записей и записей](dns-getstarted-create-recordset-cli.md)<BR> [Выполнение операций с зонами DNS](dns-operations-dnszones-cli.md)<BR> [Автоматизации операций с помощью пакета SDK для .NET](dns-sdk.md)
+[Делегирование домена в Azure DNS](dns-domain-delegation.md)<BR> [Управление зонами DNS](dns-operations-dnszones-cli.md)<BR> [Автоматизация операций с помощью пакета SDK для .NET](dns-sdk.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

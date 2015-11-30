@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Просмотр данных Application Insights в Power BI" 
-	description="Использование Power BI для мониторинга производительности и использования приложения." 
+	pageTitle="Использование Stream Analytics для экспорта данных из Application Insights в Power BI" 
+	description="Показывается, как использовать Stream Analytics для обработки экспортированных данных." 
 	services="application-insights" 
     documentationCenter=""
 	authors="noamben" 
@@ -12,12 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/15/2015" 
 	ms.author="awills"/>
  
-# Представления данных Application Insights в Power BI
+# Использование Stream Analytics для передачи данных из Application Insights в Power BI
 
 [Microsoft Power BI](https://powerbi.microsoft.com/) представляет данные в виде разнообразных информативных визуальных элементов, а также позволяет объединить информацию из нескольких источников. Вы можете выполнять потоковую передачу данных телеметрии о производительности и использовании веб-приложений или приложений для устройства из Application Insights в Power BI.
+
+> [AZURE.NOTE]Самый простой способ передавать данные в Power BI из Application Insights —[использовать адаптер](https://powerbi.microsoft.com/ru-RU/documentation/powerbi-content-pack-application-insights/), который можно найти в разделе служб коллекции Power BI. В этой статье мы опишем способ, который является более гибким, но также покажем, как использовать Stream Analytics с Application Insights.
 
 ![Пример представления Power BI с данными об использовании, полученными из Application Insights](./media/app-insights-export-power-bi/010.png)
 
@@ -36,13 +38,13 @@
 
 ## Мониторинг приложения с помощью Application Insights
 
-Если вы еще не пробовали это, начните сейчас. Application Insights может осуществлять мониторинг любого устройства или веб-приложения на разных платформах, включая Windows, iOS, Android, J2EE и др. [Приступая к работе](app-insights-overview.md).
+Если вы еще не пробовали это, начните сейчас. Application Insights может осуществлять мониторинг любого устройства или веб-приложения на разных платформах, включая Windows, iOS, Android, J2EE и др. [Приступим](app-insights-overview.md).
 
 ## Создание хранилища в Azure
 
 В результате непрерывного экспорта происходит передача данных в учетную запись хранилища Azure, поэтому необходимо сначала создать хранилище.
 
-1. Создайте «классическую» учетную запись хранения в подписке на [портале Azure](https://portal.azure.com).
+1. Создайте «классическую» учетную запись хранения в своей подписке на [портале Azure](https://portal.azure.com).
 
     ![На портале Azure выберите «Создать», «Данные», «Хранилище».](./media/app-insights-export-power-bi/030.png)
 
@@ -58,7 +60,7 @@
 
 ## Запуск непрерывного экспорта в службе хранилища Azure
 
-[Непрерывный экспорт](app-insights-export-telemetry.md) перемещает данные из Application Insights в хранилище Azure.
+[Непрерывный экспорт](app-insights-export-telemetry.md) перемещает данные из Application Insights в службу хранилища Azure.
 
 1. На портале Azure перейдите к ресурсу Application Insights, созданному для приложения.
 
@@ -81,7 +83,7 @@
 
     Данные также будут экспортированы в хранилище.
 
-4. Проверьте экспортированные данные. В Visual Studio выберите меню **Представление/обозреватель облака** и откройте Azure/хранилище. (Если этой команды нет в меню, установите пакет SDK Azure: откройте диалоговое окно «Создание проекта», разверните узел «Visual C#/облако» и выберите «Получить Microsoft Azure SDK для .NET».)
+4. Проверьте экспортированные данные. В Visual Studio выберите **Вид > Cloud Explorer**, а затем — «Azure» и «Хранилище». (Если этой команды нет в меню, установите пакет SDK Azure: откройте диалоговое окно «Создание проекта», разверните узел «Visual C#/облако» и выберите «Получить Microsoft Azure SDK для .NET».)
 
     ![](./media/app-insights-export-power-bi/04-data.png)
 
@@ -183,7 +185,7 @@
 
 * export-input — это псевдоним, присвоенный входным данным потока.
 * pbi-output — это определенный псевдоним выходных данных.
-* Мы используем [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx), так как имя события находится во вложенном массиве JSON. Затем элемент Select выбирает имя события, а также количество экземпляров с этим именем за определенный период времени. Предложение [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) группирует элементы по периодам времени продолжительностью 1 минута.
+* Мы используем [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx), так как имя события находится во вложенном массиве JSON. Затем элемент Select выбирает имя события, а также количество экземпляров с этим именем за определенный период времени. Предложение [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) группирует элементы по периодам времени в 1 минуту.
 
 
 #### Запрос для отображения значений метрики
@@ -205,7 +207,28 @@
 
 * Этот запрос позволяет получить время события и значение метрики по телеметрии метрики. Значения метрик находятся в массиве, поэтому мы используем шаблон OUTER APPLY GetElements для извлечения строк. myMetric — это имя метрики. 
 
+#### Запрос для добавления значений свойств измерения
 
+```SQL
+
+    WITH flat AS (
+    SELECT
+      MySource.context.data.eventTime as eventTime,
+      InstanceId = MyDimension.ArrayValue.InstanceId.value,
+      BusinessUnitId = MyDimension.ArrayValue.BusinessUnitId.value
+    FROM MySource
+    OUTER APPLY GetArrayElements(MySource.context.custom.dimensions) MyDimension
+    )
+    SELECT
+     eventTime,
+     InstanceId,
+     BusinessUnitId
+    INTO AIOutput
+    FROM flat
+
+```
+
+* Этот запрос включает в себя значения свойств измерения вне зависимости от того, соответствует ли конкретному измерению фиксированный индекс в массиве.
 
 ## Выполнение задания
 
@@ -239,4 +262,4 @@
 * [Application Insights](app-insights-overview.md)
 * [Дополнительные примеры и пошаговые руководства](app-insights-code-samples.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

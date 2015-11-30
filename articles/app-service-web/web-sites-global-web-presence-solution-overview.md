@@ -35,7 +35,7 @@
 
 На сайте Azure Marketplace есть шаблоны из популярных систем управления содержимым (CMS), таких как Orchard, Umbraco, Drupal и [WordPress]. Вы сможете создать веб-приложение с помощью выбранной версии CMS. Широкий выбор внутренних серверов для баз данных, в частности для [Баз данных SQL Azure] и [MySQL], позволяет подобрать сервер в соответствии со своими потребностями.
 
-Существующие веб-ресурсы можно запускать в веб-приложениях службы приложений, независимо от языка и платформы (.NET, PHP, Java, Node.js или Python). Их можно перемещать в веб-приложения с помощью привычных средств для работы с [FTP] или системы управления версиями. Веб-приложения поддерживают прямую публикацию из популярных систем управления версиями, таких как [Visual Studio], [Visual Studio Online] и [Git] (локальная система, GitHub, BitBucket, DropBox, Mercurial и т. д.).
+Существующие веб-ресурсы можно запускать в веб-приложениях службы приложений, независимо от языка и платформы (.NET, PHP, Java, Node.js или Python). Их можно перемещать в веб-приложения с помощью привычных средств для работы с [FTP] или системы управления версиями. Веб-приложения поддерживают прямую публикацию из популярных систем управления версиями, таких как [Visual Studio], [Visual Studio Team Services] и [Git] (локальная система, GitHub, BitBucket, DropBox, Mercurial и т. д.).
 
 ## Надежная публикация
 
@@ -102,7 +102,7 @@
 [Баз данных SQL Azure]: web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
 [FTP]: web-sites-deploy.md#ftp
 [Visual Studio]: web-sites-dotnet-get-started.md
-[Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso.md
+[Visual Studio Team Services]: ../cloud-services-continuous-delivery-use-vso.md
 [Git]: web-sites-publish-source-control.md
 
 [развертывания в промежуточном слоте]: web-sites-staged-publishing.md
@@ -138,4 +138,4 @@
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

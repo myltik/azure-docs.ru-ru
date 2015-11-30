@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/11/2015" 
 	ms.author="glenga"/>
 
 
@@ -95,12 +95,12 @@
 
   	Код создает экземпляр **MobileServiceClient**, используемый для доступа к мобильной службе.
 
-6. В файле MainPage.xaml.cs добавьте или раскомментируйте следующие инструкции `using`:
+6. В файле MainPage.cs добавьте или раскомментируйте следующие операторы `using`:
 
        	using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json;
 
-7. В том же файле замените определение класса **TodoItem** следующим кодом:
+7. В папке DataModel замените определение класса **TodoItem** следующим кодом:
 
         public class TodoItem
         {
@@ -193,4 +193,4 @@
 [примеров кода для разработчиков]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

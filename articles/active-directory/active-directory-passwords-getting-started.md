@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Приступая к работе с компонентами управления паролями
@@ -186,7 +186,7 @@
   
 - Установлено средство Azure AD Connect и среда AD подготовлена к синхронизации с облаком. Дополнительные сведения см. в статье [Использование локальной инфраструктуры удостоверений в облаке](active-directory-aadconnect.md)
 
-  >[AZURE.NOTE]Прежде чем проверять компонент обратной записи паролей, выполните полный импорт и синхронизацию из Active Directory и Azure Active Directory.
+  >[AZURE.NOTE]Прежде чем проверять компонент обратной записи паролей, выполните полный импорт и синхронизацию из Active Directory и Azure Active Directory в службе Azure AD Connect.
 
 - При использовании Azure AD Sync или Azure AD Connect требуется открыть исходящий **TCP-порт 443** (и в некоторых случаях **TCP-порты 9350–9354**). Дополнительные сведения см. в разделе [Шаг 3. Настройка брандмауэра](#step-3-configure-your-firewall). Использование DirSync для этого сценария больше не поддерживается. Если вы по-прежнему используете DirSync, выполните обновление до последней версии Azure AD Connect перед развертыванием компонента обратной записи паролей.
 
@@ -305,18 +305,17 @@
 
 <br/> <br/> <br/>
 
-**Дополнительные ресурсы**
+## Ссылки на документацию по сбросу паролей
+Ниже приведены ссылки на все страницы документации по службе сброса паролей Azure AD.
 
-
-* [Сведения об управлении паролями](active-directory-passwords.md)
-* [Как работает управление паролями](active-directory-passwords-how-it-works.md)
-* [Настройка компонентов управления паролями](active-directory-passwords-customize.md)
-* [Рекомендации по управлению паролями](active-directory-passwords-best-practices.md)
-* [Получение оперативной аналитики с помощью отчетов об управлении паролями](active-directory-passwords-get-insights.md)
-* [Вопросы и ответы об управлении паролями](active-directory-passwords-faq.md)
-* [Устранение неполадок, связанных с управлением паролями](active-directory-passwords-troubleshoot.md)
-* [Дополнительные сведения](active-directory-passwords-learn-more.md)
-* [Управление паролями в сети MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Сброс собственного пароля**](active-directory-passwords-update-your-own-password) — узнайте, как сбросить или изменить свой пароль пользователя системы.
+* [**Как работает служба**](active-directory-passwords-how-it-works.md) — узнайте, из каких шести компонентов состоит служба и за что отвечает каждый из них.
+* [**Настройка**](active-directory-passwords-customize.md) — узнайте, как настроить оформление и функциональность службы в соответствии с потребностями организации.
+* [**Рекомендации**](active-directory-passwords-best-practices.md) — узнайте, как быстро развернуть службу и эффективно управлять паролями в организации.
+* [**Аналитика**](active-directory-passwords-get-insights.md) — узнайте об интегрированных функциях отчетности.
+* [**Часто задаваемые вопросы**](active-directory-passwords-faq.md) — ознакомьтесь с ответами на часто задаваемые вопросы.
+* [**Устранение неполадок**](active-directory-passwords-troubleshoot.md) — узнайте, как быстро устранять проблемы, связанные со службой.
+* [**Дополнительные сведения**](active-directory-passwords-learn-more.md) — ознакомьтесь с технической стороной работы службы.
 
 
 
@@ -353,4 +352,4 @@
 [031]: ./media/active-directory-passwords-getting-started/031.jpg "Image_031.jpg"
 [032]: ./media/active-directory-passwords-getting-started/032.jpg "Image_032.jpg"
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

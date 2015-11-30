@@ -760,7 +760,7 @@ __.chain()
 Хранимые процедуры, триггеры и пользовательские функции неявно прекомпилированы в формате байт-кода, чтобы избежать затрат на компиляцию во время каждого вызова сценария. Это гарантирует высокую скорость и низкие затраты на вызовы хранимых процедур.
 
 ## Поддержка клиентских пакетов SDK
-Наряду с клиентом [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/) DocumentDB поддерживает пакеты SDK для [.NET](https://msdn.microsoft.com/library/azure/dn783362.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) и [Python](http://dl.windowsazure.com/documentDB/pythondocs/). Хранимые процедуры, триггеры и пользовательские функции могут быть созданы и выполнены с использованием любого из этих пакетов SDK. В следующем примере показано, как создать и выполнить хранимую процедуру с помощью клиента .NET. Обратите внимание, что типы .NET передаются в хранимую процедуру и возвращаются в виде объектов JSON.
+Наряду с клиентом [Node.js](http://dl.windowsazure.com/documentDB/nodedocs/) DocumentDB поддерживает пакеты SDK для [.NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), [Java](http://dl.windowsazure.com/documentdb/javadoc/), [JavaScript](http://dl.windowsazure.com/documentDB/jsclientdocs/) и [Python](http://dl.windowsazure.com/documentDB/pythondocs/). Хранимые процедуры, триггеры и пользовательские функции могут быть созданы и выполнены с использованием любого из этих пакетов SDK. В следующем примере показано, как создать и выполнить хранимую процедуру с помощью клиента .NET. Обратите внимание, что типы .NET передаются в хранимую процедуру и возвращаются в виде объектов JSON.
 
 	var markAntiquesSproc = new StoredProcedure
 	{
@@ -793,7 +793,7 @@ __.chain()
 	Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(createdStoredProcedure.SelfLink, document, 1920);
 
 
-В этом примере показано, как использовать пакет [.NET SDK](https://msdn.microsoft.com/library/azure/dn783362.aspx), чтобы создать триггер со срабатыванием до наступления события, а также документ со включенным триггером.
+В этом примере показано, как использовать [пакет SDK для .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), чтобы создать триггер со срабатыванием до наступления события, а также документ со включенным триггером.
 
 	Trigger preTrigger = new Trigger()
 	{
@@ -903,7 +903,7 @@ __.chain()
 
 ## Пример кода
 
-Дополнительные примеры кода, используемого на сервере (включая [upsert](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) и [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)), см. в нашем [репозитории Github](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+Дополнительные примеры кода, используемого на сервере (включая [upsert](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) и [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)), см. в нашем [репозитории GitHub](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
 Хотите поделиться своей потрясающей хранимой процедурой? Отправьте нам запрос на получение.
 
@@ -921,4 +921,4 @@ __.chain()
 -	[Сервис-ориентированная архитектура баз данных](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Размещение среды выполнения .NET на Microsoft SQL server](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

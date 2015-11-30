@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/29/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Подготовка кластера HDInsight и хранилища озера данных с помощью портала предварительной версии Azure
@@ -92,7 +92,7 @@
 	Выполните следующие задачи в вашей учетной записи хранения озера данных.
 
 	* [Создать папку в хранилище озера данных](data-lake-store-get-started-portal.md#createfolder).
-	* [Передать файл в хранилище озера данных](data-lake-store-get-started-portal.md#uploaddata). Если у вас нет подходящих для этих целей данных, загрузите папку **Ambulance Data** из [репозитория Git для озера данных Azure](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	* [Передать файл в хранилище озера данных](data-lake-store-get-started-portal.md#uploaddata). Если у вас нет под рукой подходящих для этих целей данных, передайте папку **Ambulance Data** из [репозитория Git для озера данных Azure](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 
 	Позже мы используем загруженные файлы при проверке работы учетной записи хранения озера данных с кластером HDInsight.
 
@@ -207,4 +207,4 @@
 [makecert]: https://msdn.microsoft.com/ru-RU/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/ru-RU/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

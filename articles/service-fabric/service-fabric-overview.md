@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Общие сведения о Service Fabric | Microsoft Azure" 
-   description="Обзор платформы Service Fabric для разработки приложений на основе микрослужб. Service Fabric представляет собой платформу для распределенных систем, используемую для создания масштабируемых, надежных и легко управляемых облачных приложений." 
+   description="Обзор Service Fabric, где приложения составляются из нескольких микрослужб для обеспечения масштабирования и отказоустойчивости. Service Fabric представляет собой платформу для распределенных систем, используемую для создания масштабируемых, надежных и легко управляемых облачных приложений." 
    services="service-fabric" 
    documentationCenter=".net" 
    authors="msfussell" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA" 
-   ms.date="08/25/2015"
+   ms.date="11/18/2015"
    ms.author="mfussell"/>
 
 # Общие сведения о Service Fabric
@@ -89,13 +89,15 @@ Service Fabric предоставляет широкие возможности 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Дальнейшие действия
 
-* Дополнительные сведения: [Технический обзор](service-fabric-technical-overview.md)
-* Настройка [среды разработки Service Fabric](service-fabric-get-started.md).  
-* Выбор [платформы](service-fabric-choose-framework.md) для службы
+* Дополнительная информация 
+	* [Почему при разработке приложений используются микрослужбы](service-fabric-overview-microservices.md).
+	* [Технический обзор](service-fabric-technical-overview.md).
+* Настройка [среды разработки](service-fabric-get-started.md) Service Fabric.  
+* Выбор [платформы модели программирования](service-fabric-choose-framework.md) для службы.
 
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

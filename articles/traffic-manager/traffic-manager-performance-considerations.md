@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 
@@ -87,15 +87,11 @@ http://www.digwebinterface.com — сайт, аналогичный сайту w
 
 [О методах маршрутизации трафика в диспетчере трафика](traffic-manager-load-balancing-methods.md)
 
-[Что такое диспетчер трафика](../traffic-manmager-overview.md)
-
-[Облачные службы](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Веб-сайты](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[Проверка параметров диспетчера трафика](traffic-manager-testing-settings.md)
 
 [Операции с диспетчером трафика (справочник по REST API)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Командлеты для диспетчера трафика Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

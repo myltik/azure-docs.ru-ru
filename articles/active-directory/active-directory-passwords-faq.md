@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="asteen"/>
 
 # Вопросы и ответы об управлении паролями
@@ -187,21 +187,20 @@
 
 <br/> <br/> <br/>
 
-**Дополнительные ресурсы**
+## Ссылки на документацию по сбросу паролей
+Ниже приведены ссылки на все страницы документации по службе сброса паролей Azure AD.
 
-
-* [Сведения об управлении паролями](active-directory-passwords.md)
-* [Как работает управление паролями](active-directory-passwords-how-it-works.md)
-* [Приступая к работе с компонентами управления паролями](active-directory-passwords-getting-started.md)
-* [Настройка компонентов управления паролями](active-directory-passwords-customize.md)
-* [Рекомендации по управлению паролями](active-directory-passwords-best-practices.md)
-* [Получение оперативной аналитики с помощью отчетов об управлении паролями](active-directory-passwords-get-insights.md)
-* [Устранение неполадок, связанных с управлением паролями](active-directory-passwords-troubleshoot.md)
-* [Дополнительные сведения](active-directory-passwords-learn-more.md)
-* [Управление паролями в сети MSDN](https://msdn.microsoft.com/library/azure/dn510386.aspx)
+* [**Сброс собственного пароля**](active-directory-passwords-update-your-own-password) — узнайте, как сбросить или изменить свой пароль пользователя системы.
+* [**Как работает служба**](active-directory-passwords-how-it-works.md) — узнайте, из каких шести компонентов состоит служба и за что отвечает каждый из них.
+* [**Приступая к работе**](active-directory-passwords-getting-started.md) — узнайте, как предоставить пользователям возможность сбрасывать и менять свои облачные и локальные пароли.
+* [**Настройка**](active-directory-passwords-customize.md) — узнайте, как настроить оформление и функциональность службы в соответствии с потребностями организации.
+* [**Рекомендации**](active-directory-passwords-best-practices.md) — узнайте, как быстро развернуть службу и эффективно управлять паролями в организации.
+* [**Аналитика**](active-directory-passwords-get-insights.md) — узнайте об интегрированных функциях отчетности.
+* [**Устранение неполадок**](active-directory-passwords-troubleshoot.md) — узнайте, как быстро устранять проблемы, связанные со службой.
+* [**Дополнительные сведения**](active-directory-passwords-learn-more.md) — ознакомьтесь с технической стороной работы службы.
 
 
 [001]: ./media/active-directory-passwords-faq/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-faq/002.jpg "Image_002.jpg"
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

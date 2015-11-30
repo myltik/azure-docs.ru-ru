@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Начало работы по созданию балансировщика нагрузки для Интернета по классической модели с помощью PowerShell | Microsoft Azure"
+   pageTitle="Приступая к работе по созданию балансировщика нагрузки для Интернета в классическом режиме с помощью PowerShell | Microsoft Azure"
    description="Сведения о создании балансировщика нагрузки для Интернета в классическом режиме с помощью PowerShell"
    services="load-balancer"
    documentationCenter="na"
@@ -17,13 +17,13 @@
    ms.date="09/23/2015"
    ms.author="joaoma" />
 
-# Начало работы по созданию балансировщика нагрузки (классический режим) для Интернета в PowerShell
+# Приступая к работе по созданию балансировщика нагрузки (классический режим) для Интернета в PowerShell
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этой статье рассматривается классическая модель развертывания. Если вас интересует модель развертывания диспетчера ресурсов Azure, перейдите к статье [Начало работы по созданию балансировщика нагрузки для Интернета с помощью диспетчера ресурсов](load-balancer-get-started-internet-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этой статье рассматривается классическая модель развертывания. Вы также можете [узнать, как создать балансировщик нагрузки для Интернета с помощью диспетчера ресурсов Azure](load-balancer-get-started-internet-arm-ps.md).
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -31,9 +31,9 @@
 
 ## Настройка балансировки нагрузки с помощью PowerShell
 
-Чтобы настроить балансировщик нагрузки с помощью PowerShell, выполните указанные ниже действия:
+Чтобы настроить балансировщик нагрузки с помощью PowerShell:
 
-1. Если вы ранее не использовали Azure PowerShell, следуйте указаниям в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
+1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md), чтобы выполнить вход в Azure и выбрать подписку.
 
 
 2. Создав виртуальную машину, можно добавить к ней подсистему балансировки нагрузки в пределах той же облачной службы, используя для этого командлеты PowerShell.
@@ -66,4 +66,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

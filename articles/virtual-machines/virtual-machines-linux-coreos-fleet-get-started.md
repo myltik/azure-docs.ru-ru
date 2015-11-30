@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Приступая к работе с Fleet в CoreOS | Microsoft Azure"
-	description="Предоставляет простые примеры использования Fleet и Docker на виртуальной машине CoreOS Linux, созданной с помощью классической модели развертывания в Azure."
+	description="Предоставляет простые примеры использования fleet и Docker на кластере CoreOS виртуальных машин Linux, созданного с помощью классической модели развертывания в Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
@@ -14,19 +14,17 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="08/03/2015"
+	ms.date="11/16/2015"
 	ms.author="danlep"/>
 
-# Начало работы с Fleet на CoreOS в Azure
+# Приступая к работе с кластером виртуальных машин CoreOS в Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/).
 
 
 В этой статье даются два кратких примера использования [fleet](https://github.com/coreos/fleet) и [Docker](https://www.docker.com/) для запуска приложений на кластере виртуальных машин[CoreOS].
 
-Для использования этих примеров сначала необходимо установить трехузловой кластер CoreOS в соответствии со статьей [Использование CoreOS в Azure]. Сделав это, вы поймете самые основные элементы развертывания CoreOS и получите рабочий кластер и клиентский компьютер. В этих примерах мы используем одно и то же имя кластера. Кроме того, в этих примерах предполагается, что для запуска команд **fleetctl** используется локальный узел Linux.
-
-
+Для использования этих примеров сначала необходимо установить трехузловой кластер CoreOS в соответствии со статьей [Использование CoreOS в Azure]. Сделав это, вы поймете самые основные элементы развертывания CoreOS и получите рабочий кластер и клиентский компьютер. В этих примерах мы используем одно и то же имя кластера. Кроме того, в этих примерах предполагается, что для выполнения команд **fleetctl** используется локальный узел Linux. См. раздел [Использование клиента](https://coreos.com/fleet/docs/latest/using-the-client.html), чтобы больше узнать о клиенте **fleetctl**.
 
 
 ## <a id='simple'>Пример 1. Hello World с Docker</a>
@@ -90,30 +88,28 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload helloworld.service
 ```
 
 
-## <a id='highavail'>Пример 2. Высокодоступный сервер Apache</a>
+## <a id='highavail'>Пример 2. Высокодоступный сервер nginx</a>
 
-Одним из преимуществ использования CoreOS, Docker и **fleet** являются простота запуска высокодоступных служб. В этом примере будет развернута служба, состоящая из трех идентичных контейнеров, в которых будет запущен веб-сервер Apache. Контейнеры будут работать на трех виртуальных машинах в кластере. Этот пример подобен примеру [Запуск контейнеров с fleet] и использует [образ CoreOS Apache для Docker Hub].
+Одним из преимуществ использования CoreOS, Docker и **fleet** являются простота запуска высокодоступных служб. В этом примере будет развернута служба, состоящая из трех идентичных контейнеров, в которых будет запущен веб-сервер nginx. Контейнеры будут работать на трех виртуальных машинах в кластере. Этот пример подобен примеру [Запуск контейнеров с fleet] и использует [образ nginx для Docker Hub].
 
->[AZURE.IMPORTANT]Чтобы запустить высокодоступный сервер Apache, необходимо настроить конечную точку HTTP с балансировкой нагрузки на виртуальных машинах (общедоступный порт 80, приватный порт 80). Это можно сделать после создания кластера CoreOS с помощью портала Azure или команды **azure vm endpoint**. Более подробную информацию см. в разделе [Настройка набора с балансировкой нагрузки].
+>[AZURE.IMPORTANT]Чтобы запустить высокодоступный сервер nginx, необходимо настроить конечную точку HTTP с балансировкой нагрузки на виртуальных машинах (общий порт 80, частный порт 80). Это можно сделать после создания кластера CoreOS с помощью портала Azure или команды **azure vm endpoint**. Более подробную информацию см. в разделе [Настройка набора с балансировкой нагрузки].
 
-На клиентском компьютере используйте удобный для вас текстовый редактор для создания шаблонного модульного файла **systemd** с именем apache@.service. Этот шаблон будет использоваться для запуска трех разных экземпляров с именем apache@1.service, apache@2.service и apache@3.service:
+На клиентском компьютере используйте удобный для вас текстовый редактор для создания шаблонного модульного файла **systemd** с именем nginx@.service. Этот шаблон будет использоваться для запуска трех разных экземпляров: nginx@1.service, nginx@2.service и nginx@3.service.
 
 ```
 [Unit]
-Description=High Availability Apache
+Description=High Availability Nginx
 After=docker.service
 Requires=docker.service
 
 [Service]
 TimeoutStartSec=0
-ExecStartPre=-/usr/bin/docker kill apache1
-ExecStartPre=-/usr/bin/docker rm apache1
-ExecStartPre=/usr/bin/docker pull coreos/apache
-ExecStart=/usr/bin/docker run -rm --name apache1 -p 80:80 coreos/apache /usr/sbin/apache2ctl -D FOREGROUND
-ExecStop=/usr/bin/docker stop apache1
+ExecStartPre=/usr/bin/docker pull nginx
+ExecStart=/usr/bin/docker run --rm --name nginx1 -p 80:80 nginx
+ExecStop=/usr/bin/docker stop nginx1
 
 [X-Fleet]
-X-Conflicts=apache@*.service
+X-Conflicts=nginx@*.service
 ```
 
 >[AZURE.NOTE]Атрибут `X-Conflicts` сообщает CoreOS, что на конкретном узле CoreOS может выполняться только один экземпляр этого контейнера. Более подробную информацию см. в статье [Модульные файлы].
@@ -121,33 +117,53 @@ X-Conflicts=apache@*.service
 Теперь запустите экземпляры модулей в кластере CoreOS. Вы увидите, что они работают на трех разных компьютерах:
 
 ```
-fleetctl --tunnel coreos-cluster.cloudapp.net:22 start apache@{1,2,3}.service
+fleetctl --tunnel coreos-cluster.cloudapp.net:22 start nginx@{1,2,3}.service
 
-unit apache@3.service launched on 00c927e4.../100.79.62.16
-unit apache@1.\service launched on 62f0f66e.../100.79.86.62
-unit apache@2.service launched on df85f2d1.../100.78.126.15
+unit nginx@3.service launched on 00c927e4.../100.79.62.16
+unit nginx@1.service launched on 62f0f66e.../100.79.86.62
+unit nginx@2.service launched on df85f2d1.../100.78.126.15
 
 ```
-Для доступа к серверу Apache, работающему на одном из модулей, отправьте простой запрос к облачной службе, где размещен кластер CoreOS.
+Для доступа к веб- серверу, работающему на одном из модулей, отправьте простой запрос к облачной службе, где размещен кластер CoreOS.
 
 `curl http://coreos-cluster.cloudapp.net`
 
-Вы увидите примерно такой текст, выводимый сервером Apache по умолчанию:
+Вы увидите примерно такой текст, выводимый сервером nginx по умолчанию:
 
 ```
-<html><body><h1>It works!</h1>
-<p>This is the default web page for this server.</p>
-<p>The web server software is running but no content has been added, yet.</p>
-</body></html>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
 ```
 
-Можно попробовать завершить работу одной или нескольких виртуальных машин кластера для проверки того, что служба Apache продолжает работать.
+Можно попробовать завершить работу одной или нескольких виртуальных машин кластера для проверки того, что веб-служба продолжает работать.
 
 По завершении остановите и выгрузите модули.
 
 ```
-fleetctl --tunnel coreos-cluster.cloudapp.net:22 stop apache@{1,2,3}.service
-fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
+fleetctl --tunnel coreos-cluster.cloudapp.net:22 stop nginx@{1,2,3}.service
+fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload nginx@{1,2,3}.service
 
 ```
 
@@ -155,9 +171,9 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 
 * Попробуйте выполнить больше функций с трехузловым кластером CoreOS в Azure. Узнайте, как создавать более сложные кластеры и использовать Docker, а также создавать более интересные приложения. Для этого прочитайте [учебник Тима Парка (Tim Park) по CoreOS], [учебник Патрика Чейнзона (Patrick Chanezon) по CoreOS], документацию по [Docker] и [Обзор CoreOS].
 
-* Чтобы приступить к работе с Fleet и CoreOS в диспетчере ресурсов Azure, воспользуйтесь этим [шаблоном быстрого запуска](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/).
+* Чтобы приступить к работе с fleet и CoreOS в диспетчере ресурсов Azure, воспользуйтесь этим [шаблоном быстрого запуска](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/).
 
-* Дополнительную информацию об использовании среды с открытым исходным кодом на виртуальных машинах Linux в Azure см. в статье [Linux и вычисления с открытым кодом в Azure].
+* Дополнительную информацию об использовании среды с открытым кодом на виртуальных машинах Linux в Azure см. в статье [Linux и вычисления с открытым кодом в Azure].
 
 <!--Link references-->
 [Azure Command-Line Interface (Azure)]: ../xplat-cli-install.md
@@ -173,7 +189,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 [Запуск контейнеров с fleet]: https://coreos.com/docs/launching-containers/launching/launching-containers-fleet/
 [Модульные файлы]: https://coreos.com/docs/launching-containers/launching/fleet-unit-files/
 [образ busybox для Docker Hub]: https://registry.hub.docker.com/_/busybox/
-[образ CoreOS Apache для Docker Hub]: https://registry.hub.docker.com/u/coreos/apache/
+[образ nginx для Docker Hub]: https://hub.docker.com/_/nginx/
 [Linux и вычисления с открытым кодом в Azure]: virtual-machines-linux-opensource.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

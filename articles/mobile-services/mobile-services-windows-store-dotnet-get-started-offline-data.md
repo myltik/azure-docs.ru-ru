@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="11/06/2015" 
 	ms.author="donnam"/>
 
 # Использование автономной синхронизации данных в мобильных службах
@@ -38,7 +38,7 @@
 * Выполнение заданий учебника [Приступая к работе с мобильными службами].
 * [Пакет SDK для мобильных служб Azure версии 1.3.0 или более поздней][Mobile Services SDK Nuget]
 * [Хранилище SQLite для мобильных служб Azure версии 1.0.0 или более поздней][SQLite store nuget]
-* [SQLite для Windows 8.1](www.sqlite.org/downloads)
+* [SQLite для Windows 8.1](http://www.sqlite.org/download.html)
 * Учетная запись Azure. Если у вас нет учетной записи, можно зарегистрироваться для получения бесплатной пробной версии Azure и получить до 10 бесплатных мобильных служб, которые можно использовать и после окончания пробного периода. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28). 
 
 ## <a name="enable-offline-app"></a>Обновление приложения для поддержки автономных функций
@@ -278,4 +278,4 @@
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

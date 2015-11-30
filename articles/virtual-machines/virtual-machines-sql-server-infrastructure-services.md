@@ -14,13 +14,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services" 
-	ms.date="09/01/2015"
+	ms.date="11/12/2015"
 	ms.author="jroth"/>
 
 # Общие сведения об SQL Server на виртуальных машинах Azure
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
-
 
 ## Приступая к работе
 Вы можете разместить [SQL Server на виртуальных машинах Azure](http://azure.microsoft.com/services/virtual-machines/sql-server/) в различных конфигурациях, от одного сервера базы данных до мультикомпьютерных конфигураций с использованием групп доступности AlwaysOn и виртуальной сети Azure.
@@ -51,11 +48,11 @@
 
 Наряду с использованием этих предварительно настроенных образов можно [создать виртуальную машину Azure](virtual-machines-windows-tutorial.md) без предустановленного SQL Server. Можно установить любой экземпляр SQL Server с действующей лицензией. Перенесите лицензию в Azure для запуска SQL Server в виртуальной машине Azure, воспользовавшись инструкциями из статьи [Перемещение лицензий в рамках программы Software Assurance в Azure](http://azure.microsoft.com/pricing/license-mobility/). В этом случае вы оплачиваете только [затраты](http://azure.microsoft.com/pricing/details/virtual-machines) на вычислительные ресурсы и ресурсы хранения Azure, связанные с виртуальной машиной.
 
-Чтобы определить наиболее подходящие параметры виртуальных машин для образа SQL Server, изучите [рекомендации по производительности для SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-performance-best-practices.md). Для производственных рабочих нагрузок **DS3** является минимальным рекомендуемым размером виртуальной машины для SQL Server Enterprise, **DS2** — для редакции Standard.
+Чтобы определить наиболее подходящие параметры виртуальных машин для образа SQL Server, см. сведения в статье [Рекомендации по оптимизации производительности SQL Server в виртуальных машинах Azure](virtual-machines-sql-server-performance-best-practices.md). Для рабочих нагрузок в рабочей среде **DS3** — минимальный рекомендуемый размер виртуальной машины для SQL Server Enterprise, а **DS2** — для выпуска Standard.
 
 Помимо изучения рекомендаций по производительности, следует выполнить следующие начальные действия:
 
-- [анализ рекомендаций по безопасности SQL Server в виртуальных машинах Azure](virtual-machines-sql-server-security-considerations.md);
+- [анализ рекомендаций по безопасности SQL Server в виртуальных машинах Azure;](virtual-machines-sql-server-security-considerations.md)
 - [настройка соединения](virtual-machines-sql-server-connectivity.md).
 
 ### Перенос данных
@@ -115,7 +112,7 @@
 |Data Quality Services|Установлены (только в SQL Server 2012 и более поздних версиях).|
 |Master Data Services|Установлены (только в SQL Server 2012 и более поздних версиях). Требуются [дополнительная настройка и дополнительные компоненты](https://msdn.microsoft.com/library/ee633752.aspx).
 |PowerPivot для SharePoint|Доступен (только в SQL Server 2012 и более поздних версиях). Требуются дополнительная настройка и дополнительные компоненты (в том числе SharePoint).|
-|Клиент распределенного воспроизведения|Доступен (только в SQL Server 2012 и более поздних версиях), но не установлен. См. статью [Запуск установки SQL Server на предоставленном платформой образе SQL Server](#run-sql-server-setup-from-the-platform-provided-sql-server-image).|
+|Клиент распределенного воспроизведения|Доступен (только в SQL Server 2012 и более поздних версиях), но не установлен. См. раздел [Запуск установки SQL Server на предоставленном платформой образе SQL Server](#run-sql-server-setup-from-the-platform-provided-sql-server-image).|
 |Средства|Все средства, включая SQL Server Management Studio, диспетчер конфигурации SQL Server, Business Intelligence Development Studio, программу установки SQL Server, средства связи клиентских средств, пакет SDK клиентских средств, пакет SDK для подключения клиента SQL и средства обновления и миграции, такие как приложения уровня данных (DAC), средства резервного копирования, восстановления, присоединения и отсоединения|
 |Электронная документация по SQL Server|Установлена, но требуется настройка с помощью средства просмотра справки.|
 
@@ -151,4 +148,4 @@
 - [Шаблоны приложений и стратегии разработки для SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Виртуальные машины Azure](virtual-machines-about.md) 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

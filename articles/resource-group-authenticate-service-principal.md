@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="10/30/2015"
+   ms.date="11/18/2015"
    ms.author="tomfitz"/>
 
 # Проверка подлинности субъекта-службы в диспетчере ресурсов Azure
@@ -22,7 +22,7 @@
 
 Здесь рассматривается осуществление проверки подлинности либо по имени пользователя и паролю, либо по сертификату.
 
-Можно использовать Azure PowerShell или Azure CLI для Mac, Linux и Windows. Если вы еще не установили Azure PowerShell, см. статью [Как установить и настроить Azure PowerShell](./powershell-install-configure.md). Если у вас не установлен интерфейс CLI Azure для Mac, Linux или Windows, см. статью [Установка и настройка CLI Azure](xplat-cli-install.md).
+Можно использовать Azure PowerShell или Azure CLI для Mac, Linux и Windows. Если вы еще не установили Azure PowerShell, см. статью [Как установить и настроить Azure PowerShell](./powershell-install-configure.md). Если у вас не установлен интерфейс CLI Azure для Mac, Linux или Windows, см. статью [Установка и настройка CLI Azure](xplat-cli-install.md). Подробнее об использовании портала для выполнения этих шагов см. в разделе [Создание приложения Active Directory и субъекта-службы с помощью портала](resource-group-create-service-principal-portal.md).
 
 ## Основные понятия
 1. Azure Active Directory (AAD) — это служба управления удостоверениями и доступом, созданная для облака. Дополнительные сведения см. в статье [Служба Azure Active Directory](active-directory/active-directory-whatis.md).
@@ -88,7 +88,7 @@
 
      Если вы создали назначение ролей в подписке, которая отличается от выбранной в данный момент, можно указать параметр **SubscriptoinId** или **SubscriptionName**, чтобы получить другую подписку.
 
-5. Создайте новый объект **PSCredential**, содержащий ваши учетные данные, выполнив команду **Get-Credential**.
+5. Чтобы войти в качестве субъекта-службы через PowerShell, создайте новый объект **PSCredential**, содержащий ваши учетные данные, выполнив команду **Get-Credential**.
 
         PS C:\> $creds = Get-Credential
 
@@ -98,10 +98,9 @@
 
      В качестве имени пользователя используйте значение **ApplicationId** или **IdentifierUris**, которое применялось при создании приложения. Укажите пароль, который вы задали при создании учетной записи.
 
-6. Используйте введенные учетные данные в качестве входных данных для командлета **Add-AzureAccount**, который выполнит вход для субъекта-службы:
+     Используйте введенные учетные данные в качестве входных данных для командлета **Login-AzureRmAccount**, который выполнит вход для субъекта-службы:
 
         PS C:\> Login-AzureRmAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
-        
         Environment           : AzureCloud
         Account               : {guid}
         Tenant                : {guid}
@@ -110,9 +109,9 @@
 
      После этого субъект-служба для приложения AAD, которое вы создали, пройдет проверку.
 
-7. Для проверки подлинности из приложения добавьте следующий код .NET. После получения токена вы сможете использовать ресурсы в подписке.
+6. Для проверки подлинности из приложения добавьте следующий код .NET. После получения токена вы сможете использовать ресурсы в подписке.
 
-        public static string GetAToken()
+        public static string GetAccessToken()
         {
           var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
           var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
@@ -289,6 +288,20 @@
 
     После этого субъект-служба для приложения AAD, которое вы создали, пройдет проверку.
 
+## Аутентификация субъекта-службы по сертификату: Azure CLI
+
+В этом разделе вы создадите субъект-службу для приложения Azure Active Directory, использующего для аутентификации сертификат. В этом разделе предполагается, что вы уже выдали сертификат и установили [OpenSSL](http://www.openssl.org/).
+
+1. Создайте **PEM**-файл:
+
+        openssl.exe pkcs12 -in examplecert.pfx -out examplecert.pem -nodes
+
+2. Откройте **PEM**-файл и скопируйте данные сертификата.
+
+3. Создайте новое приложение AAD, выполнив команду **azure ad app create**, и в качестве значения ключа укажите данные сертификата, скопированные на предыдущем шаге.
+
+        azure ad app create -n "<your application name>" --home-page "<https://YourApplicationHomePage>" -i "<https://YouApplicationUri>" --key-value <certificate data>
+
 ## Дальнейшие действия
   
 - Общие сведения о контроле доступа на основе ролей см. в статье [Управление доступом к ресурсам и его аудит](resource-group-rbac.md).  
@@ -299,4 +312,4 @@
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

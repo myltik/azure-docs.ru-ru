@@ -55,6 +55,7 @@ Microsoft Azure поддерживает различные дистрибути
 
 - **[Дистрибутивы на основе CentOS](virtual-machines-linux-create-upload-vhd-centos.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
+- **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES и openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
 - **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
 - **[Прочее — нерекомендованные дистрибутивы](virtual-machines-linux-create-upload-vhd-generic.md)**
@@ -87,7 +88,7 @@ Microsoft Azure поддерживает различные дистрибути
 
 	При появлении запроса введите имя пользователя и пароль.
 
-**ИЛИ** вместо этого используйте файл PUBLISHSETTINGS:
+**ИЛИ** вместо этого используйте PUBLISHSETTINGS-файл.
 
 1. Откройте окно CLI Azure.
 
@@ -120,7 +121,7 @@ Microsoft Azure поддерживает различные дистрибути
 
 	При появлении запроса введите идентификатор организации пользователя и пароль.
 
-**ИЛИ** вместо этого используйте файл PUBLISHSETTINGS:
+**ИЛИ** вместо этого используйте PUBLISHSETTINGS-файл.
 
 1. Откройте окно Azure PowerShell.
 
@@ -170,4 +171,4 @@ Microsoft Azure поддерживает различные дистрибути
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

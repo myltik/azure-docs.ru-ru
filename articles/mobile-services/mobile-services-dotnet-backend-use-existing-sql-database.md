@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="08/01/2015"
+	ms.date="11/09/2015"
 	ms.author="glenga"/>
 
 
@@ -147,7 +147,6 @@
 
         using System.ComponentModel.DataAnnotations.Schema;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
-        using System.ComponentModel.DataAnnotations;
         using System;
 
 4. Затем добавьте следующие дополнительные свойства для каждого из этих классов:
@@ -615,4 +614,4 @@
 
 В качестве следующего шага можно собрать клиентское приложение для доступа к службе.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="11/04/2015" 
 	ms.author="awills"/>
 
 #  Application Insights для приложений Microsoft Azure
@@ -26,9 +26,9 @@
 
 Какого рода у вас приложение?
 
-* [Веб-приложение Azure](insights-perf-analytics.md)
-* [Приложение облачных служб Azure — рабочие и веб-роли](app-insights-cloudservices.md)
-* [Веб-приложение в службах IIS на виртуальной машине Azure](../insights-perf-analytics.md)
+* [Веб-приложение Azure](app-insights-asp-net.md)
+* [Приложение облачных служб Azure — веб- и рабочие роли](app-insights-cloudservices.md)
+* [Веб-приложение в службах IIS на виртуальной машине Azure](../app-insights-asp-net.md)
 * [Приложения за пределами Azure](app-insights-overview.md)
 
 
@@ -40,4 +40,4 @@
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

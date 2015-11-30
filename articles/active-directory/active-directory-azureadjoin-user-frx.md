@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
-	editor=""/>
+	editor=""
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="11/17/2015" 
 	ms.author="femila"/>
 
 # Настройка нового устройства под управлением Windows 10 для работы с Azure AD
@@ -38,13 +39,16 @@
 9.	Azure AD проверит, требуется ли дополнительная регистрация пользователя или устройства в рамках политики управления мобильными устройствами (MDM). 
 10.	Windows зарегистрирует устройство в каталоге организации в Azure AD, а также в MDM.
 11.	Если вы являетесь управляемым пользователем, Windows завершит процесс установки, автоматически выполнит вход и отобразит рабочий стол пользователя.
-12.	Если вы являетесь федеративным пользователем, то появится экран входа в Windows, где вам нужно будет ввести учетные данные.
+12.	Если вы являетесь федеративным пользователем, то появится экран входа в Windows, где нужно будет ввести учетные данные.
 
 > [AZURE.NOTE]Присоединение к локальному домену Active Directory при первом запуске Windows не поддерживается. Если вы планируете присоединить компьютер к домену, следует выбрать ссылку «Настроить Windows с локальной учетной записью». Затем вы сможете присоединиться к домену из меню «Параметры компьютера», как это делали раньше.
 
 ## Дополнительная информация
-* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-overview.md)
+* [Windows 10 для предприятия: использование устройств для работы](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Использование возможностей облачных служб на устройствах с Windows 10 с помощью присоединения к Azure Active Directory](active-directory-azureadjoin-user-upgrade.md)
+* [Проверка подлинности удостоверений без использования паролей с помощью службы Microsoft Passport](active-directory-azureadjoin-passport.md)
 * [Сценарии использования для присоединения к Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Настройте присоединение к Azure AD](active-directory-azureadjoin-setup.md).
+* [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
+* [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="11/18/2015"
    ms.author="larryfr"/>
 
 #Развертывание топологий Apache Storm в HDInsight под управлением Windows и управление ими
@@ -149,7 +149,7 @@
 
 Пользовательский интерфейс Storm построен на базе REST API, поэтому функциональность отслеживания и управления можно реализовать аналогичным образом с помощью API. С помощью REST API можно создать пользовательские средства для отслеживания топологий Storm и управления ими.
 
-Дополнительные сведения см. в разделе <a href="https://github.com/apache/storm/blob/master/STORM-UI-REST-API.md" target="_base">API-интерфейс REST пользовательского интерфейса Storm</a>. Следующая информация касается использования REST API с Apache Storm в HDInsight.
+Дополнительные сведения см. в разделе [API-интерфейс REST пользовательского интерфейса Storm](https://github.com/apache/storm/blob/master/docs/documentation/ui-rest-api.md). Следующая информация касается использования REST API с Apache Storm в HDInsight.
 
 ###Базовый универсальный код ресурса
 
@@ -179,4 +179,4 @@
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

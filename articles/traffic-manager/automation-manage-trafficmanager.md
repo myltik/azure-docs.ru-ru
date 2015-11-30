@@ -4,7 +4,7 @@
  services="traffic-manager, automation" 
  documentationCenter="" 
  authors="eamonoreilly" 
- manager="adinah" 
+ manager="carmonm" 
  editor=""/>
 
 <tags 
@@ -13,11 +13,11 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="na" 
  ms.topic="article" 
- ms.date="08/12/2015" 
+ ms.date="11/12/2015" 
  ms.author="joaoma"/>
 
 
-#Управление диспетчером трафика Azure при помощи службы автоматизации Azure
+# Управление диспетчером трафика Azure при помощи службы автоматизации Azure
 
 В этом руководстве представлена служба автоматизации Azure и способы ее использования для упрощения управления диспетчером трафика Azure.
 
@@ -42,4 +42,4 @@
 * Ознакомьтесь с содержанием [руководства по началу работы](http://go.microsoft.com/fwlink/?LinkId=390560) в службе автоматизации Azure
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

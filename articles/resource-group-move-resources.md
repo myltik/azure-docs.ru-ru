@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/06/2015" 
+	ms.date="11/13/2015" 
 	ms.author="tomfitz"/>
 
 # Перемещение ресурсов в новую группу ресурсов или подписку
@@ -41,7 +41,7 @@
 - Управление API
 - Azure DocumentDB.
 - поиск Azure;
-- Веб-приложения Azure (действуют некоторые [ограничения](app-service-web/app-service-move-resources.md))
+- веб-приложения Azure (действуют некоторые [ограничения](app-service-web/app-service-move-resources.md));
 - Фабрика данных
 - хранилище ключей;
 - Mobile Engagement;
@@ -58,6 +58,7 @@
 
 - Виртуальные машины
 - Виртуальные сети
+- Хранилище
 
 При работе с веб-приложениями невозможно переместить только план службы приложения. Варианты перемещения веб-приложений:
 
@@ -68,7 +69,7 @@
 
 [AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
 
-Чтобы переместить существующие ресурсы в другую группу или подписку, используйте команду **Move-AzureRmResource**.
+Чтобы переместить существующие ресурсы в другую группу ресурсов или подписку, используйте команду **Move-AzureRmResource**.
 
 В первом примере показано, как переместить один ресурс в новую группу ресурсов.
 
@@ -96,4 +97,4 @@
 - [Управление ресурсами с помощью портала Azure](azure-portal/resource-group-portal.md)
 - [Использование тегов для организации ресурсов](./resource-group-using-tags.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

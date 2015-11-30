@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="11/12/2015"
    ms.author="cherylmc"/>
 
 # Создание и изменение маршрутизации канала ExpressRoute с помощью диспетчера ресурсов Azure и PowerShell
@@ -133,7 +133,7 @@
 
 		$ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt	
+		Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt	
 
 
 ### Обновление конфигурации частного пиринга Azure
@@ -389,10 +389,10 @@
 Затем необходимо выполнить связывание виртуальной сети с каналом ExpressRoute. При работе с режимом развертывания диспетчера ресурсов Azure можно использовать [этот шаблон](https://github.com/Azure/azure-quickstart-templates/tree/ecad62c231848ace2fbdc36cbe3dc04a96edd58c/301-expressroute-circuit-vnet-connection). В настоящее время мы работаем над действиями с PowerShell.
 
 
--  Дополнительные сведения о рабочих процессах ExpressRoute см. в разделе [Рабочие процессы ExpressRoute](expressroute-workflows.md).
+-  Подробнее о рабочих процессах ExpressRoute см. в разделе [Рабочие процессы ExpressRoute](expressroute-workflows.md).
 
--  Дополнительные сведения о пиринге канала см. в статье [Каналы ExpressRoute и домены маршрутизации](expressroute-circuit-peerings.md).
+-  Подробнее о пиринге канала см. в статье [Каналы ExpressRoute и домены маршрутизации](expressroute-circuit-peerings.md).
 
--  Дополнительные сведения о работе с виртуальными сетями см. в разделе [Обзор виртуальных сетей](../virtual-network/virtual-networks-overview.md).
+-  Подробнее о работе с виртуальными сетями см. в разделе [Обзор виртуальных сетей](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

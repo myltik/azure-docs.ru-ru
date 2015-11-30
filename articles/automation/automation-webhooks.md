@@ -17,7 +17,7 @@
 
 # Объекты Webhook в службе автоматизации Azure
 
-*Webhook* позволяет запустить модуль Runbook в службе автоматизации Azure с помощью одного HTTP-запроса. Это позволяет внешним службам, таким как Visual Studio Online, GitHub, или пользовательским приложениям запускать модули Runbook без реализации полного решения с помощью API-интерфейса службы автоматизации Azure.
+*Webhook* позволяет запустить модуль Runbook в службе автоматизации Azure с помощью одного HTTP-запроса. Это позволяет внешним службам, таким как Visual Studio Team Services, GitHub, или пользовательским приложениям запускать модули Runbook без реализации полного решения с помощью API-интерфейса службы автоматизации Azure.
 
 ![Объекты Webhook](media/automation-webhooks/webhooks-overview.png)
 
@@ -255,4 +255,4 @@
 - [Просмотр состояния задания Runbook](automation-viewing-the-status-of-a-runbook-job.md)
 - [Использование службы автоматизации Azure для реагирования на оповещения Azure](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->
