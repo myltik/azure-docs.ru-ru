@@ -60,7 +60,8 @@
 | Microsoft SQL Server | Windows Server | [System Center DPM](backup-azure-backup-sql.md) |
 | Microsoft SharePoint | Windows Server | [System Center DPM](backup-azure-backup-sharepoint.md) |
 | Microsoft Exchange | Windows Server | System Center DPM |
-| Виртуальные машины IaaS Azure (Windows)| - | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) | | Виртуальные машины IaaS Azure (Linux) | - | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
+| Виртуальные машины IaaS Azure (Windows)| - | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
+| Виртуальные машины IaaS Azure (Linux) | - | [Служба архивации Azure (расширение виртуальной машины)](backup-azure-vms-introduction.md) |
 
 
 ## Дальнейшие действия
