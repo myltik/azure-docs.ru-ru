@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/13/2015" 
 	ms.author="genemi"/>
 
 
@@ -30,9 +30,9 @@
 
 
 - [Рекомендации по подключению к базе данных SQL Azure программными средствами](http://msdn.microsoft.com/library/azure/ee336282.aspx). В этой статье рассматриваются следующие темы:
- - [порты и брандмауэры;](sql-database-configure-firewall-settings.md/)
+ - [порты и брандмауэры;](sql-database-configure-firewall-settings.md)
  - строки подключения.
-- [Управление ресурсами в базе данных SQL Azure](https://msdn.microsoft.com/library/azure/dn338083.aspx). В этой статье рассматриваются следующие темы:
+- [Управление ресурсами в базе данных SQL Azure](http://msdn.microsoft.com/library/azure/dn338083.aspx). В этом разделе рассматриваются следующие темы:
  - управление ресурсами;
  - принудительные ограничения;
  - Регулирование
@@ -128,7 +128,7 @@
 Обсуждение *периода блокировки* для клиентов, которые используют ADO.NET, см. в статье [Пул подключений SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 
-Примеры кода, демонстрирующие логику повторных попыток, см. в статье [Простые примеры кода клиентских приложений для работы с базой данных SQL](sql-database-develop-quick-start-client-code-samples.md).
+Примеры кода, демонстрирующие логику повторных попыток, см. в статье [Простые примеры кода клиентских приложений для работы с Базой данных SQL](sql-database-develop-quick-start-client-code-samples.md).
 
 
 ### Номера ошибок для временных сбоев
@@ -169,4 +169,4 @@
 
 - [Библиотеки подключений для базы данных SQL и SQL Server](sql-database-libraries.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

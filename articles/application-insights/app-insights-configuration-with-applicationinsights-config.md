@@ -42,14 +42,14 @@
 
 
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
-* Пакет NuGet [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector)
+* Пакет NuGet [Microsoft.ApplicationInsights.DependencyCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector).
 
 ### Сборщик данных производительности
 
 [Собирает данные счетчиков производительности системы](app-insights-web-monitor-performance.md#system-performance-counters), например ЦП, памяти и сетевой нагрузки из установок IIS. Можно указать конкретные счетчики для сбора данных, включая счетчики производительности, настроенные самостоятельно.
 
 * `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule`
-* Пакет NuGet [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector)
+* Пакет NuGet [Microsoft.ApplicationInsights.PerfCounterCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector).
 
 
 ### Телеметрия диагностики Application Insights
@@ -57,7 +57,7 @@
 `DiagnosticsTelemetryModule` информирует об ошибках в самом коде инструментирования Application Insights, например, если код не может получить доступ к счетчикам производительности или `ITelemetryInitializer` вызывает исключение. Телеметрия трассировки, собранная этим модулем, отображается в результатах [диагностического поиска][diagnostic].
  
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
-* Пакет NuGet [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) Если просто установить этот пакет, файл ApplicationInsights.config не создается автоматически. 
+* Пакет NuGet [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights). Если просто установить этот пакет, файл ApplicationInsights.config не создается автоматически. 
 
 ### Режим разработчика
 
@@ -71,14 +71,14 @@
 Передает данные о [времени отклика и коде результата](app-insights-start-monitoring-app-health-usage.md) HTTP-запросов.
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
-* Пакет NuGet [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web)
+* Пакет NuGet [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web).
 
 ### Отслеживание исключений
 
 `ExceptionTrackingTelemetryModule` отслеживает количество необработанных исключений в вашем веб-приложении. См. статью [Ошибки и исключения][exceptions].
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
-* Пакет NuGet [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web)
+* Пакет NuGet [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web).
 
 
 * `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` отслеживает [незамеченные исключения задач](http://blogs.msdn.com/b/pfxteam/archive/2011/09/28/task-exception-handling-in-net-4-5.aspx).
@@ -90,7 +90,7 @@
 Основной пакет содержит [основной API](https://msdn.microsoft.com/library/mt420197.aspx) пакета SDK. Его используют другие модули телеметрии, кроме того, вы можете [использовать его для определения собственной телеметрии](app-insights-api-custom-events-metrics.md).
 
 * Нет записей в файле ApplicationInsights.config.
-* Пакет NuGet [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights) Если просто установить этот пакет NuGet, CONFIG-файл не создается.
+* Пакет NuGet [Microsoft.ApplicationInsights](http://www.nuget.org/packages/Microsoft.ApplicationInsights). Если просто установить этот пакет NuGet, CONFIG-файл не создается.
 
 ## Канал телеметрии
 
@@ -115,19 +115,19 @@
 * `BuildInfoConfigComponentVersionTelemetryInitializer` обновляет свойство `Version` контекста `Component` для всех элементов телеметрии с учетом значения, извлеченного из файла `BuildInfo.config`, созданного платформой MSBuild.
 * `ClientIpHeaderTelemetryInitializer` обновляет свойство `Ip` контекста `Location` всех элементов телеметрии в соответствии с HTTP-заголовком запроса `X-Forwarded-For`.
 * `DeviceTelemetryInitializer` обновляет следующие свойства контекста `Device` для всех элементов телеметрии.
- - `Type` получает значение PC (Компьютер).
+ - `Type` получает значение «PC» (Компьютер).
  - `Id` получает значение, соответствующее доменному имени компьютера, на котором выполняется веб-приложение.
  - `OemName` получает значение, извлеченное из поля `Win32_ComputerSystem.Manufacturer` с помощью WMI.
  - `Model` получает значение, извлеченное из поля `Win32_ComputerSystem.Model` с помощью WMI.
  - `NetworkType` получает значение, извлеченное из `NetworkInterface`.
  - `Language` получает значение, соответствующее имени `CurrentCulture`.
 * `DomainNameRoleInstanceTelemetryInitializer` обновляет свойства `RoleInstance` контекста `Device` для всех элементов телеметрии с учетом доменного имени компьютера, на котором выполняется веб-приложение.
-* `OperationNameTelemetryInitializer`обновляет свойство `Name` контекста `RequestTelemetry` и свойство `Name` контекста `Operation` всех элементов телеметрии в соответствии с методом HTTP, а также именами MVC-контроллера ASP.NET и действия, вызываемого для обработки запроса.
+* `OperationNameTelemetryInitializer`обновляет свойство `Name` контекста `RequestTelemetry` и свойство `Name` контекста `Operation` всех элементов телеметрии в соответствии с методом HTTP, а также именами контроллера MVC ASP.NET и действия, вызываемого для обработки запроса.
 * `OperationIdTelemetryInitializer` обновляет свойство контекста `Operation.Id` всех элементов телеметрии, отслеживаемых при обработке запроса с автоматически созданным `RequestTelemetry.Id`.
-* `SessionTelemetryInitializer` обновляет свойство `Id` контекста `Session` для всех элементов телеметрии со значениями, извлеченными из файла cookie `ai_session`, созданного JavaScript-кодом инструментирования Application Insights, который выполняется в браузере пользователя. 
+* `SessionTelemetryInitializer` обновляет свойство `Id` контекста `Session` для всех элементов телеметрии со значениями, извлеченными из файла cookie `ai_session`, созданного кодом JavaScript инструментирования Application Insights, который выполняется в браузере пользователя. 
 * `SyntheticTelemetryInitializer` обновляет свойства контекстов `User`, `Session` и `Operation` элементов телеметрии, отслеживаемых при обработке запроса от искусственного источника, например теста доступности или программы-робота поисковой системы. По умолчанию [обозреватель метрик](app-insights-metrics-explorer.md) не отображает данные телеметрии искусственных источников.
 * `UserAgentTelemetryInitializer` обновляет свойство `UserAgent` контекста `User` всех элементов телеметрии в соответствии с HTTP-заголовком запроса `User-Agent`.
-* `UserTelemetryInitializer` обновляет свойства `Id` и `AcquisitionDate` контекста `User` для всех элементов телеметрии со значениями, извлеченными из файла cookie `ai_user`, созданного JavaScript-кодом инструментирования Application Insights, который выполняется в браузере пользователя.
+* `UserTelemetryInitializer` обновляет свойства `Id` и `AcquisitionDate` контекста `User` для всех элементов телеметрии со значениями, извлеченными из файла cookie `ai_user`, созданного кодом JavaScript инструментирования Application Insights, который выполняется в браузере пользователя.
 
 
 ## Обработчики данных телеметрии (ASP.NET)
@@ -136,9 +136,20 @@
 
 Вы можете [написать собственные обработчики данных телеметрии](app-insights-api-filtering-sampling.md#filtering).
 
-Существует один стандартный обработчик (начиная с версии 2.0.1):
+Также имеется стандартный [обработчик выборочной телеметрии](app-insights-api-filtering-sampling.md#sampling) (начиная с версии 2.0.1):
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor` — [выборка](app-insights-api-filtering-sampling.md#sampling) снижает объем данных телеметрии, по-прежнему позволяя переходить между связанными элементами телеметрии для диагностики.
+```XML
+
+    <TelemetryProcessors>
+     <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+
+     <!-- Set a percentage close to 100/N where N is an integer. -->
+     <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+     <SamplingPercentage>10</SamplingPercentage>
+     </Add>
+   </TelemetryProcessors>
+
+```
 
 
 
@@ -251,4 +262,4 @@
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

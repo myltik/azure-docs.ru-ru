@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Настройка политик доставки ресурсов-контейнеров с помощью API REST служб мультимедиа" 
-	description="В этом разделе демонстрируется настройка различных политик доставки ресурсов-контейнеров с помощью API REST служб мультимедиа." 
+	description="В этом разделе демонстрируется настройка различных политик доставки ресурсов-контейнров с помощью API REST служб мультимедиа." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -352,30 +352,43 @@ HDS
         /// Apply Dynamic Common encryption.
         /// </summary>
         DynamicCommonEncryption
-    }
+        }
 
 ###ContentKeyDeliveryType
 
+
     /// <summary>
     /// Delivery method of the content key to the client.
-    /// </summary>
+    ///
+    </summary>
     public enum ContentKeyDeliveryType
     {
         /// <summary>
         /// None.
-        /// </summary>
-        None,
+        ///
+        </summary>
+        None = 0,
 
         /// <summary>
         /// Use PlayReady License acquistion protocol
-        /// </summary>
-        PlayReadyLicense,
+        ///
+        </summary>
+        PlayReadyLicense = 1,
 
         /// <summary>
         /// Use MPEG Baseline HTTP key protocol.
-        /// </summary>
-        BaselineHttp
+        ///
+        </summary>
+        BaselineHttp = 2,
+
+        /// <summary>
+        /// Use Widevine License acquistion protocol
+        ///
+        </summary>
+        Widevine = 3
+
     }
+
 
 ###AssetDeliveryPolicyConfigurationKey
 
@@ -435,4 +448,4 @@ HDS
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

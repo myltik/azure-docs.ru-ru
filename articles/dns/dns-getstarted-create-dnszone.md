@@ -4,7 +4,7 @@
    services="dns"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="11/10/2015"
    ms.author="joaoma"/>
 
 # Приступая к работе с Azure DNS с помощью Powershell
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-getstarted-create-dnszone-cli.md)
-- [Azure Powershell steps](dns-getstarted-create-dnszone.md)
+- [PowerShell](dns-getstarted-create-dnszone.md)
 
 Домен contoso.com может содержать несколько записей DNS, например mail.contoso.com (для почтового сервера) и www.contoso.com (для веб-сайта). Зона DNS используется для размещения DNS-записей для определенного домена.<BR><BR> Для размещения вашего домена сначала необходимо создать зону DNS. Любые записи DNS, созданные для определенного домена, будут расположены в зоне DNS этого домена.<BR><BR> В данных инструкциях используется Microsoft Azure PowerShell. Обновитесь до последней версии Azure PowerShell, чтобы использовать командлеты Azure DNS. Те же действия можно также выполнить с помощью интерфейса командной строки Microsoft Azure, API-интерфейса REST или SDK.<BR><BR>
 
@@ -155,4 +155,4 @@ Azure DNS использует диспетчер ресурсов Azure (ARM). 
 [Приступая к созданию наборов записей и записей](dns-getstarted-create-recordset.md)<BR> [Управление зонами DNS](dns-operations-dnszones.md)<BR> [Управление DNS-записями](dns-operations-recordsets.md)<BR> [Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)<BR> [Справочник по API REST для службы Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

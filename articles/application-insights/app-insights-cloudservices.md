@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="ibiza"
    ms.topic="article"
    ms.workload="tbd"
-   ms.date="09/30/2015"
+   ms.date="11/15/2015"
    ms.author="sdash"/>
 
 # Application Insights для облачных служб Azure
@@ -58,7 +58,7 @@
 
     ![Щелкните проект правой кнопкой мыши и выберите пункт "Управление пакетами Nuget"](./media/app-insights-cloudservices/03-nuget.png)
 
-2. Добавьте пакет NuGet [Application Insights for Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Эта версия пакета SDK включает модули, которые добавляют контекст сервера, например информацию о роли.
+2. Добавьте пакет NuGet [Application Insights for Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web). Эта версия пакета SDK включает модули, которые добавляют контекст сервера, например информацию о роли. Для рабочих ролей используйте Application Insights для служб Windows.
 
     ![Поиск Application Insights](./media/app-insights-cloudservices/04-ai-nuget.png)
 
@@ -69,9 +69,9 @@
  
     ```XML
      
-    <Role name="WorkerRoleA"> 
+     <Role name="WorkerRoleA"> 
       <Setting name="Telemetry.AI.InstrumentationKey" value="YOUR IKEY" /> 
-    </Role>
+     </Role>
     ```
  
     В соответствующей функции запуска задайте ключ инструментирования в параметре конфигурации.
@@ -90,6 +90,20 @@
 4. Задайте для файла ApplicationInsights.config незамедлительное копирование в выходной каталог. 
 
     (в CONFIG-файле имеются сообщения, указывающие, куда именно поместить ключ инструментирования. Тем не менее для облачных приложений лучше задать его в CSCFG-файле. Это обеспечит правильную идентификацию роли на портале.)
+
+## Включение системы диагностики Azure
+
+Система диагностики Azure отправляет счетчики производительности, журналы событий Windows и журналы трассировки из приложения в Application Insights.
+
+В обозревателе решений откройте свойства каждой роли. Установите флажок **Отправлять диагностику в Application Insights**.
+
+![В окне «Свойства» установите флажки «Включить диагностику» и «Отправлять диагностику в Application Insights».](./media/app-insights-cloudservices/05-wad.png)
+
+Повторите действия для других ролей.
+
+### Включение системы диагностики Azure в живом приложении или виртуальной машине Azure
+
+Систему диагностики можно также включить, если приложение уже работает в Azure, открыв его свойства в обозревателе сервера или обозревателе облака в Visual Studio.
 
 
 ## Отправка сообщений о телеметрии с помощью пакета SDK
@@ -208,4 +222,4 @@
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

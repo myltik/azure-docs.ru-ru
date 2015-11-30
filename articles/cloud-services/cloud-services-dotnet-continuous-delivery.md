@@ -20,7 +20,7 @@
 
 Описанный в этой статье процесс показывает, как настроить непрерывную доставку для облачных приложений Azure. Этот процесс позволяет автоматически создавать пакеты и развертывать их в Azure после каждого возврата кода. Процесс сборки пакета, описанный в этой статье, эквивалентен команде Package в Visual Studio. Этапы публикации эквивалентны команде Publish в Visual Studio. В статье описаны методы, которые можно использовать для создания сервера сборки с помощью инструкций командной строки MSBuild и сценариев Windows PowerShell, а также показано, как дополнительно настроить Visual Studio Team Foundation Server — определения Team Build для использования команд MSBuild и сценариев PowerShell. Процесс можно настраивать для среды сборки и целевых сред Azure.
 
-Для упрощения задачи можно также использовать службу Visual Studio Online — версию TFS, размещенную в Azure. Дополнительные сведения см. в разделе [Непрерывная доставка в Azure с использованием Visual Studio Online][].
+Для упрощения задачи можно также использовать службу Visual Studio Team Services — версию TFS, размещенную в Azure. Дополнительные сведения см. в разделе [Непрерывная доставка в Azure с использованием Visual Studio Team Services][].
 
 Прежде чем начать, следует опубликовать приложение из Visual Studio. Это обеспечит доступность и инициализацию всех ресурсов при попытке автоматизировать процесс публикации.
 
@@ -557,7 +557,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 
 Чтобы включить удаленную отладку при использовании непрерывной доставки, см. раздел [Включение удаленной отладки при использовании непрерывной доставки для публикации на Azure](cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging.md).
 
-  [Непрерывная доставка в Azure с использованием Visual Studio Online]: cloud-services-continuous-delivery-use-vso.md
+  [Непрерывная доставка в Azure с использованием Visual Studio Team Services]: cloud-services-continuous-delivery-use-vso.md
   [службе сборок Team Foundation]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
@@ -576,4 +576,4 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

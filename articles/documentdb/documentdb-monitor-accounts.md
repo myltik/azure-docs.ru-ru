@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/30/2015" 
+	ms.date="11/18/2015" 
 	ms.author="mimig"/>
 
-# Мониторинг учетной записи DocumentDB на портале предварительной версии Azure 
+# Мониторинг учетной записи DocumentDB 
 
 Вы можете отслеживать свои учетные записи DocumentDB на [портале предварительной версии Microsoft Azure](https://portal.azure.com/). Для каждой учетной записи DocumentDB доступны метрики производительности, такие как запросы и ошибки сервера, и использования, например потребление памяти.
 
@@ -90,4 +90,4 @@
 Дополнительные сведения о емкости DocumentDB см. в разделе [Управление емкостью DocumentDB](documentdb-manage.md).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

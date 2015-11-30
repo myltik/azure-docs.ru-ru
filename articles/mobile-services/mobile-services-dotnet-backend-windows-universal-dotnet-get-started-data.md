@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/02/2015" 
+	ms.date="11/10/2015" 
 	ms.author="glenga"/>
 
 # Добавление мобильных служб к существующему приложению
@@ -67,7 +67,7 @@
 
 ##Обновление приложения для использования мобильной службы
 
-В этом разделе вы обновите универсальное приложение Windows, чтобы использовать мобильную службу в качестве серверной службы для приложения. Изменения необходимо внести только в файл проекта MainPage.xaml.cs в папке проекта GetStartedWithData.Shared.
+В этом разделе вы обновите универсальное приложение Windows, чтобы использовать мобильную службу в качестве серверной службы для приложения. Изменения необходимо внести только в файл проекта MainPage.cs в папке проекта GetStartedWithData.Shared.
 
 [AZURE.INCLUDE [mobile-services-windows-dotnet-update-data-app](../../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
@@ -111,14 +111,14 @@
 [Приступая к работе с проверкой подлинности]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [Приступая к работе с push-уведомлениями]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[Приступая к работе с синхронизацией автономных данных]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[веб-сайта с примерами кода для разработчиков]: http://go.microsoft.com/fwlink/p/?LinkID=510826
+[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

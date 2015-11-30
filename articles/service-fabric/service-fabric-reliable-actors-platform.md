@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="jessebenson"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="11/13/2015"
    ms.author="abhisram"/>
 
 # Использование платформы Service Fabric надежными субъектами
@@ -97,19 +97,15 @@
 
 В листинге выше отображаются сборки, которые реализуют субъект VoicemailBox, включаемый в пакет кода внутри пакета службы, который находится внутри пакета приложения.
 
-Решение Visual Studio содержит скрипты PowerShell, которые используются для развертывания приложения в кластере и удаления приложения из кластера. Скрипты обведены на снимке экрана ниже.
-
-![][2]
-
 Последующее управление приложением (т. е. обновления и окончательное удаление) выполняется также с помощью механизмов управления приложениями Service Fabric. Дополнительные сведения см. в разделах о [модели приложений](service-fabric-application-model.md), [развертывании и удалении приложений](service-fabric-deploy-remove-applications.md) и [обновлении приложений](service-fabric-application-upgrade.md).
 
 ## Масштабируемость для служб субъектов
 Администраторы кластера могут создать одну или несколько служб субъектов для каждого типа службы в кластере. Каждая из этих служб субъектов может иметь одну или несколько секций (аналогично любой другой службе Service Fabric). Возможность создания нескольких служб одного типа (который сопоставляется с типом субъекта) и возможность создания нескольких секций для службы позволяют масштабировать приложение субъекта. Для получения дополнительных сведений см. статью о [масштабируемости](service-fabric-concepts-scalability.md).
 
-> [AZURE.NOTE]Количество [экземпляров](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) служб субъекта без отслеживания состояний должно быть равным 1. Наличие более одного экземпляра службы субъекта без отслеживания состояний в секции не поддерживается. Таким образом службы субъекта без отслеживания состояний не имеют возможности увеличения количества экземпляров для достижения масштабируемости. Они должны использовать параметры масштабирования, описанные в [статье о масштабируемости](service-fabric-concepts-scalability.md).
+> [AZURE.NOTE]Количество [экземпляров](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) служб субъекта без отслеживания состояния должно быть равным 1. Наличие более одного экземпляра службы субъекта без отслеживания состояний в секции не поддерживается. Таким образом службы субъекта без отслеживания состояний не имеют возможности увеличения количества экземпляров для достижения масштабируемости. Они должны использовать параметры масштабирования, описанные в [статье о масштабируемости](service-fabric-concepts-scalability.md).
 
 ## Основные понятия о секции Service Fabric для субъектов
-Идентификатор субъекта сопоставляется с секцией службы субъекта. Субъект создается в пределах секции, с которой сопоставлен его идентификатор. При создании субъекта среда выполнения субъектов записывает [событие EventSource](service-fabric-reliable-actors-diagnostics.md#eventsource-events) указывающее, в какой секции создается субъект. Ниже приведен пример этого события, который указывает, что субъект с идентификатором `-5349766044453424161` создан в разделе `0583c745-1bed-43b2-9545-29d7e3448156` службы `fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService` (приложение `fabric:/VoicemailBoxAdvancedApplication`).
+Идентификатор субъекта сопоставляется с секцией службы субъекта. Субъект создается в пределах секции, с которой сопоставлен его идентификатор. При создании субъекта среда выполнения субъектов записывает [событие EventSource](service-fabric-reliable-actors-diagnostics.md#eventsource-events) указывающее, в какой секции создается субъект. Ниже приведен пример этого события, который указывает, что субъект с идентификатором `-5349766044453424161` создан в разделе `b6afef61-be9a-4492-8358-8f473e5d2487` службы `fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService` (приложение `fabric:/VoicemailBoxAdvancedApplication`).
 
     {
       "Timestamp": "2015-04-26T10:12:20.2485941-07:00",
@@ -121,14 +117,14 @@
         "actorType": "Microsoft.Azure.Service.Fabric.Samples.VoicemailBox.VoiceMailBoxActor",
         "actorId": "-5349766044453424161",
         "isStateful": "True",
-        "replicaOrInstanceId": "130745418574851853",
-        "partitionId": "0583c745-1bed-43b2-9545-29d7e3448156",
+        "replicaOrInstanceId": "130906628008120392",
+        "partitionId": "b6afef61-be9a-4492-8358-8f473e5d2487",
         "serviceName": "fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService",
         "applicationName": "fabric:/VoicemailBoxAdvancedApplication",
       }
     }
 
-Другой субъект с идентификатором `-4952641569324299627` создан в другой секции `c146fe53-16d7-4d96-bac6-ef54613808ff` той же службы, о чем свидетельствует событие ниже.
+Другой субъект с идентификатором `-4952641569324299627` создан в другой секции `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a` той же службы, о чем свидетельствует событие ниже.
 
     {
       "Timestamp": "2015-04-26T15:06:56.93882-07:00",
@@ -141,7 +137,7 @@
         "actorId": "-4952641569324299627",
         "isStateful": "True",
         "replicaOrInstanceId": "130745418574851853",
-        "partitionId": "c146fe53-16d7-4d96-bac6-ef54613808ff",
+        "partitionId": "5405d449-2da6-4d9a-ad75-0ec7d65d1a2a",
         "serviceName": "fabric:/VoicemailBoxAdvancedApplication/VoicemailBoxActorService",
         "applicationName": "fabric:/VoicemailBoxAdvancedApplication",
       }
@@ -149,32 +145,35 @@
 
 *Примечание.* Для краткости некоторые поля указанных выше событий опущены.
 
-Идентификатор секции может использоваться для получения других сведений о секции. Например, с помощью средства [Обозреватель Service Fabric](service-fabric-visualizing-your-cluster.md) можно просмотреть сведения о секции, а также о службе и приложении, к которым она принадлежит. На следующем снимке экрана показаны сведения о секции `c146fe53-16d7-4d96-bac6-ef54613808ff`, которая содержала субъект с идентификатором `-4952641569324299627` в приведенном выше примере.
+Идентификатор секции может использоваться для получения других сведений о секции. Например, с помощью средства [Обозреватель Service Fabric](service-fabric-visualizing-your-cluster.md) можно просмотреть сведения о секции, а также о службе и приложении, к которым она принадлежит. На следующем снимке экрана показаны сведения о секции `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`, которая содержала субъект с идентификатором `-4952641569324299627` в приведенном выше примере.
 
 ![][3]
 
 Субъекты могут программным образом получить идентификатор секции, имя службы, имя приложения и другие сведения для конкретной платформы Service Fabric через `Host.ActivationContext` и членов `Host.StatelessServiceInitialization` или `Host.StatefulServiceInitializationParameters` базового класса, от которого тип субъекта является производным. В приведенном ниже фрагменте кода показан пример.
 
 ```csharp
-public void ActorMessage<TState>(Actor<TState> actor, string message, params object[] args)
+public void ActorMessage(StatefulActorBase actor, string message, params object[] args)
 {
-    string finalMessage = string.Format(message, args);
-    this.ActorMessage(
-        actor.GetType().ToString(),
-        actor.Id.ToString(),
-        actor.Host.ActivationContext.ApplicationTypeName,
-        actor.Host.ActivationContext.ApplicationName,
-        actor.Host.StatefulServiceInitializationParameters.ServiceTypeName,
-        actor.Host.StatefulServiceInitializationParameters.ServiceName.ToString(),
-        actor.Host.StatefulServiceInitializationParameters.PartitionId,
-        actor.Host.StatefulServiceInitializationParameters.ReplicaId,
-        FabricRuntime.GetNodeContext().NodeName,
-        finalMessage);
+    if (this.IsEnabled())
+    {
+        string finalMessage = string.Format(message, args);
+        ActorMessage(
+            actor.GetType().ToString(),
+            actor.Id.ToString(),
+            actor.ActorService.ServiceInitializationParameters.CodePackageActivationContext.ApplicationTypeName,
+            actor.ActorService.ServiceInitializationParameters.CodePackageActivationContext.ApplicationName,
+            actor.ActorService.ServiceInitializationParameters.ServiceTypeName,
+            actor.ActorService.ServiceInitializationParameters.ServiceName.ToString(),
+            actor.ActorService.ServiceInitializationParameters.PartitionId,
+            actor.ActorService.ServiceInitializationParameters.ReplicaId,
+            FabricRuntime.GetNodeContext().NodeName,
+            finalMessage);
+    }
 }
 ```
 
 ### Основные понятия о секциях Service Fabric для субъектов без отслеживания состояний
-Субъекты без отслеживания состояний создаются внутри раздела службы Service Fabric без отслеживания состояний. Идентификатор субъекта определяет, под каким разделом создается субъект. Количество [экземпляров](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) служб субъекта без отслеживания состояния должно быть равным 1. Изменение количества экземпляров на любое другое значение не поддерживается. Таким образом, субъект создается внутри одного экземпляра службы в секции.
+Субъекты без отслеживания состояний создаются внутри раздела службы Service Fabric без отслеживания состояний. Идентификатор субъекта определяет, под каким разделом создается субъект. Количество [экземпляров](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) служб субъекта без отслеживания состояния должно быть равным 1. Изменение количества экземпляров на любое другое значение не поддерживается. Таким образом, субъект создается внутри одного экземпляра службы в секции.
 
 > [AZURE.TIP]Среда выполнения субъектов Fabric генерирует некоторые [события, связанные с экземплярами субъектов без отслеживания состояния](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateless-actor-instances). Они полезны при диагностике и мониторинге производительности.
 
@@ -204,7 +203,7 @@ public void ActorMessage<TState>(Actor<TState> actor, string message, params obj
 
 > [AZURE.TIP]Среда выполнения субъектов Fabric генерирует некоторые [события, связанные с репликами субъекта с отслеживанием состояния](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateful-actor-replicas). Они полезны при диагностике и мониторинге производительности.
 
-Помните, что в [ранее представленном примере VoiceMailBoxActor](#service-fabric-partition-concepts-for-actors) субъект с идентификатором `-4952641569324299627` был создан в секции `c146fe53-16d7-4d96-bac6-ef54613808ff`. Событие EventSource из этого примера указало также то, что субъект создан в реплике `130745418574851853` этой секции. Она была основной репликой этой секции во время создания субъекта. На следующем снимке экрана Service Fabric Explorer это подтверждается.
+Помните, что в [ранее представленном примере VoiceMailBoxActor](#service-fabric-partition-concepts-for-actors) субъект с идентификатором `-4952641569324299627` был создан в секции `5405d449-2da6-4d9a-ad75-0ec7d65d1a2a`. Событие EventSource из этого примера указало также то, что субъект создан в реплике `130745418574851853` этой секции. Она была основной репликой этой секции во время создания субъекта. На следующем снимке экрана Service Fabric Explorer это подтверждается.
 
 ![][4]
 
@@ -225,7 +224,7 @@ public void ActorMessage<TState>(Actor<TState> actor, string message, params obj
 
 ```csharp
 [VolatileActorStateProvider]
-public class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
+public class VoicemailBoxActor : StatefulActor<VoicemailBox>, IVoicemailBoxActor
 {
     public Task<List<Voicemail>> GetMessagesAsync()
     {
@@ -243,4 +242,4 @@ public class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

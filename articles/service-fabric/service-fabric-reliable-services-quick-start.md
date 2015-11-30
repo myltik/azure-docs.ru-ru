@@ -13,22 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/15/2015"
+   ms.date="11/15/2015"
    ms.author="vturecek"/>
 
 # Начало работы с надежными службами Service Fabric Microsoft Azure
 
-Приложение Service Fabric содержит одну или несколько служб, которые выполняют код. В этом руководстве описано поэтапное создание приложений Service Fabric "Hello World" без отслеживания состояния и с отслеживанием состояния с помощью [модели программирования *Reliable Services*](service-fabric-reliable-services-introduction.md).
-
-Сейчас в облачных службах преимущественно используется служба без отслеживания состояния. Служба без отслеживания состояния сама по себе не содержит данных, требующих надежного хранения или высокой доступности. Проще говоря, если экземпляр службы без отслеживания состояния завершает работу, все его внутреннее состояние теряется. Для обеспечения высокой доступности и надежности в службах этого типа состояния должны сохраняться во внешнее хранилище, например таблицы Azure или базы данных SQL.
-
-Service Fabric представляет новый вид службы с отслеживанием состояния — это служба, которая может надежно поддерживать свое состояние, вместе с кодом, который ее использует. Service Fabric делает ваше состояние высокодоступным без необходимости сохранения состояния во внешнее хранилище.
-
-В этом руководстве мы реализуем службу без отслеживания состояния и службу с отслеживанием состояния с внутренним счетчиком. После перезапуска или перемещения службы без отслеживания состояния значение счетчика теряется. В службе с отслеживанием состояния надежность счетчика обеспечивается Service Fabric, и в случае прерывания выполнения службы по какой-либо причине подсчет продолжится с места остановки.
+Приложение Service Fabric содержит одну или несколько служб, которые выполняют код. В этом руководстве показано, как создавать приложения Service Fabric с отслеживанием состояния и без его учета с помощью [Reliable Services](service-fabric-reliable-services-introduction.md).
 
 ## Создание службы без отслеживания состояния
 
-Давайте начнем со службы без отслеживания состояния.
+Сейчас в облачных службах преимущественно используется служба без отслеживания состояния. Служба без отслеживания состояния сама по себе не содержит данных, требующих надежного хранения или высокой доступности. Проще говоря, если экземпляр службы без отслеживания состояния завершает работу, все его внутреннее состояние теряется. Для обеспечения высокой доступности и надежности в службах этого типа состояния должны сохраняться во внешнее хранилище, например таблицы Azure или базы данных SQL.
 
 Запустите Visual Studio RC 2015 от имени **администратора** и создайте новый проект **приложения Service Fabric** с именем *HelloWorld*.
 
@@ -46,7 +40,7 @@ Service Fabric представляет новый вид службы с отс
 
 ## Реализация службы
 
-Откройте файл **HelloWorld.cs** в проекте службы. В Service Fabric служба может выполнять любую бизнес-логику. API службы предоставляет две точки входа для кода.
+Откройте файл **HelloWorldStateless.cs** в проекте службы. В Service Fabric служба может выполнять любую бизнес-логику. API службы предоставляет две точки входа для кода.
 
  - Вызывается метод *RunAsync* с открытой точкой входа, в котором можно начать выполнение любой рабочей нагрузки, например длительных вычислений.
 
@@ -60,7 +54,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
  - Точка входа связи, в которой можно подключить стек связи по выбору, например веб-API, в котором вы можете получать запросы от пользователей или других служб.
 
 ```C#
-protected override ICommunicationListener CreateCommunicationListener()
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
     ...
 }
@@ -74,15 +68,20 @@ protected override ICommunicationListener CreateCommunicationListener()
 ### Метод RunAsync
 
 ```C#
-protected override async Task RunAsync(CancellationToken cancellationToken)
+protected override async Task RunAsync(CancellationToken cancelServiceInstance)
 {
-    // TODO: Replace the following with your own logic.
+    // TODO: Replace the following sample code with your own logic.
 
     int iterations = 0;
-    while (!cancellationToken.IsCancellationRequested)
+    // This service instance continues processing until the instance is terminated.
+    while (!cancelServiceInstance.IsCancellationRequested)
     {
+
+        // Log what the service is doing
         ServiceEventSource.Current.ServiceMessage(this, "Working-{0}", iterations++);
-        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+
+        // Pause for 1 second before continue processing.
+        await Task.Delay(TimeSpan.FromSeconds(1), cancelServiceInstance);
     }
 }
 ```
@@ -96,11 +95,13 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 Эта оркестрация управляется системой с целью сохранения высокой доступности и надлежащей сбалансированности службы.
 
-`RunAsync()` выполняется в своей собственной **Задаче**. Обратите внимание, что в приведенном выше фрагменте кода мы переходим прямо в цикл **while**, поэтому планировать отдельную задачу для рабочей нагрузки не нужно. Отмена рабочей нагрузки является совместным действием, координированным предоставленным токеном отмены. Для продолжения работы система будет ожидать завершения задачи (успешного завершения, отмены или завершения вследствие ошибки). Когда система запрашивает отмену задачи, **важно** как можно быстрее подтвердить маркер отмены, завершить все выполняющиеся операции и выйти из `RunAsync()`.
+`RunAsync()` выполняется в своей собственной **задаче**. Обратите внимание, что в приведенном выше фрагменте кода мы переходим прямо в цикл **while**, поэтому планировать отдельную задачу для рабочей нагрузки не нужно. Отмена рабочей нагрузки является совместным действием, координированным предоставленным токеном отмены. Для продолжения работы система будет ожидать завершения задачи (успешного завершения, отмены или завершения вследствие ошибки). Когда система запрашивает отмену задачи, **важно** как можно быстрее подтвердить токен отмены, завершить все выполняющиеся операции и выйти из `RunAsync()`.
 
 В этом примере службы без отслеживания состояния счетчик хранится в локальной переменной. Но, поскольку это служба без отслеживания состояния, хранимое значение существует только в текущем жизненном цикле экземпляра службы, в котором оно находится. Если службу переместить или перезапустить, значение будет утеряно.
 
 ## Создание службы с отслеживанием состояния
+
+Service Fabric представляет новый вид службы с отслеживанием состояния — это служба, которая может надежно поддерживать свое состояние, вместе с кодом, который ее использует. Service Fabric делает ваше состояние высокодоступным без необходимости сохранения состояния во внешнее хранилище.
 
 Чтобы значение нашего счетчика было высокодоступным и постоянным даже в случае перемещения или перезапуска службы, нужно использовать службу с отслеживанием состояния.
 
@@ -117,27 +118,40 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 Откройте **HelloWorldStateful.cs** в *HelloWorldStateful*, содержащий следующий метод `RunAsync`.
 
 ```C#
-protected override async Task RunAsync(CancellationToken cancellationToken)
+protected override async Task RunAsync(CancellationToken cancelServicePartitionReplica)
 {
-    // TODO: Replace the following with your own logic.
+    // TODO: Replace the following sample code with your own logic.
+
+    // Gets (or creates) a replicated dictionary called "myDictionary" in this partition.
     var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 
-    while (!cancellationToken.IsCancellationRequested)
+    // This partition's replica continues processing until the replica is terminated.
+    while (!cancelServicePartitionReplica.IsCancellationRequested)
     {
+
+        // Create a transaction to perform operations on data within this partition's replica.
         using (var tx = this.StateManager.CreateTransaction())
         {
+
+            // Try to read a value from the dictionary whose key is "Counter-1".
             var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
-            ServiceEventSource.Current.ServiceMessage(
-                this,
-                "Current Counter Value: {0}",
+
+            // Log whether the value existed or not.
+            ServiceEventSource.Current.ServiceMessage(this, "Current Counter Value: {0}",
                 result.HasValue ? result.Value.ToString() : "Value does not exist.");
 
+            // If the "Counter-1" key doesn't exist, set its value to 0
+            // else add 1 to its current value.
             await myDictionary.AddOrUpdateAsync(tx, "Counter-1", 0, (k, v) => ++v);
 
+            // Committing the transaction serializes the changes and writes them to this partition's secondary replicas.
+            // If an exception is thrown before calling CommitAsync, the transaction aborts, all changes are 
+            // discarded, and nothing is sent to this partition's secondary replicas.
             await tx.CommitAsync();
         }
 
-        await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+        // Pause for 1 second before continue processing.
+        await Task.Delay(TimeSpan.FromSeconds(1), cancelServicePartitionReplica);
     }
 }
 ```
@@ -177,7 +191,7 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 }
 ```
 
-В надежных коллекциях повторяются многие операции, которые есть в их аналогах `System.Collections.Generic` и `System.Collections.Concurrent`, включая LINQ. Однако операции в надежных коллекциях являются асинхронными. Это происходит потому, что операции записи в надежных коллекциях *реплицируются*, то есть отправляются другим репликам службы на разных узлах для обеспечения высокого уровня доступности.
+В надежных коллекциях повторяются многие операции, которые есть в их аналогах, `System.Collections.Generic` и `System.Collections.Concurrent`, включая LINQ. Однако операции в надежных коллекциях являются асинхронными. Это происходит потому, что операции записи в надежных коллекциях *реплицируются*, то есть отправляются другим репликам службы на разных узлах для обеспечения высокого уровня доступности.
 
 Они также поддерживают *транзакционные* операции, которые позволяют поддерживать нескольких надежных коллекций в одинаковом состоянии. Например, вы можете исключить рабочий элемент из надежной очереди, выполнить над ним какую-либо операцию и сохранить результат в надежном словаре, и это все в пределах одной транзакции. Такая операция называется атомарной, она предусматривает, что вся операция завершится успешно, либо совсем не завершится. Если ошибка возникнет после удаления элемента из очереди, но до сохранения результата, вся транзакция будет откатана, и элемент останется в очереди для обработки.
 
@@ -204,4 +218,4 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 [Справочник разработчика по надежным службам](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

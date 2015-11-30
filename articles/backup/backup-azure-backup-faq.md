@@ -1,16 +1,17 @@
 <properties
    pageTitle="Часто задаваемые вопросы о службе архивации Azure | Microsoft Azure"
-   description="Часто задаваемые вопросы о службе архивации Azure"
+   description="Часто задаваемые вопросы о службе архивации Azure: вопросы об агенте архивации, архивации и хранении, восстановлении, безопасности и другие распространенные вопросы о службе архивации Azure."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
    manager="shreeshd"
-   editor=""/>
+   editor=""
+   keywords="решение для архивации; служба архивации"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/07/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/17/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
-# Часто задаваемые вопросы о службе архивации Azure
-Ниже приведен список часто задаваемых вопросов о службе архивации Azure. Если у вас возникли дополнительные вопросы, задайте их на [форуме](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup). Специалисты нашего сообщества будут рады помочь вам. Если вопрос задается часто, мы добавим его в эту статью, чтобы его можно было найти быстро и легко.
+# Служба архивации Azure: часто задаваемые вопросы
+Ниже приведен список часто задаваемых вопросов о службе архивации Azure. Если у вас возникли дополнительные вопросы о службе архивации Azure, задайте их на [дискуссионном форуме](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup). Специалисты нашего сообщества будут рады помочь вам. Если вопрос задается часто, мы добавим его в эту статью, чтобы его можно было найти быстро и легко.
 
 ## Установка и настройка
 **ВОПРОС 1. Есть ли список поддерживаемых операционных систем, на которых можно создавать резервные копии в службе архивации Azure?** <br/> ОТВЕТ 1. Служба архивации Azure поддерживает следующие операционные системы:
@@ -175,4 +176,4 @@
 
 После успешного выполнения задач архивации с использованием нового кэша вы можете удалить первоначальную папку кэша.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 
@@ -42,7 +42,7 @@
 Получив QR-код, запустите приложение. Нажмите +.
 
 
-![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/addaccount.png)
+![Облако](./media/multi-factor-authentication-azure-authenticator/addaccount.png)
 
 Запустится камера для считывания QR-кода. Если у вас не получается считать QR-код, вы всегда можете ввести данные вручную.
 
@@ -59,109 +59,11 @@
 
 Не знаете, как удалить отдельные учетные записи из старого приложения? Коснитесь учетной записи. Отобразится параметр Delete (Удалить).
 
-![Удаление учетной записи](./media/multi-factor-authentication-azure-authenticator/remove.png)
+![Облако](./media/multi-factor-authentication-azure-authenticator/remove.png)
 
-## Добавление учетной записи с помощью сканера штрихкодов
+**Дополнительные ресурсы**
 
+* [Azure Multi-Factor Authentication в MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
+* Приложение Azure Authenticator для [Windows Phone](http://www.windowsphone.com/ru-RU/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) и [iOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
 
-
-- Для начала откройте страницу параметров проверки безопасности. Инструкции по переходу на эту страницу см. в статье [Изменение параметров безопасности](multi-factor-authentication-end-user-manage-settings.md).
-
-- Нажмите кнопку «Настроить».
- 
-![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/azureauthe.png)
-
-- Появится экран со штрих-кодом.
-  
-![Сканирование штрихкода](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
-
-- Теперь запустите приложение Azure Authenticator (должна открыться страница учетных записей). Здесь вы увидите список настроенных учетных записей. Чтобы добавить учетную запись, щелкните символ +. Откроется сканер.
-
-![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
-
-- Просканируйте штрихкод. 
-
-![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/scan.png)
-
-- Дождитесь активации учетной записи.
-
-- И это все. Новая учетная запись должна появиться на странице учетных записей.
-
-![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/addaccount2.png)
-
-
-## Добавление учетной записи Azure вручную
-
-Чтобы добавить учетную запись Azure вручную, выполните указанные ниже действия.
-
-- Для начала откройте страницу параметров проверки безопасности. Инструкции по переходу на эту страницу см. в статье [Изменение параметров безопасности](multi-factor-authentication-end-user-manage-settings.md).
-
-- Нажмите кнопку «Настроить».
- 
-![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/azureauthe.png)
-
-- Появится экран со штрих-кодом. Найдите код и URL-адрес под штрихкодом.
-  
-![Сканирование штрихкода](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
-
-- Теперь запустите приложение Azure Authenticator (должна открыться страница учетных записей). Здесь вы увидите список настроенных учетных записей. Чтобы добавить учетную запись, щелкните символ +. Откроется сканер.
-
-![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
-
-- Нажмите кнопку «Ввести вручную» внизу.
-
-![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/scan.png)
-
-- Введите код и URL-адрес, указанные на той же странице, что и штрихкод. Данные необходимо ввести в поля кода и URL-адреса для мобильного приложения. После этого начнется активация.
-
-![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/manual.png)
-
-- Дождитесь активации учетной записи.
-
-- И это все. Новая учетная запись должна появиться на странице учетных записей.
-
-![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/addaccount2.png)
-
-## Добавление вручную учетной записи, не относящейся к Azure
-
-Чтобы вручную добавить учетную запись, не относящуюся к Azure, например учетную запись Майкрософт, выполните указанные ниже действия.
-
-
-- Добавить вручную учетную запись, не связанную с Azure, можно как путем сканирования QR-кода, так и путем ввода секретного ключа.
-- Если вы намерены ввести вручную секретный код, получите его на сайте, с которым связана учетная запись. Например, в Outlook.com откройте параметры учетной записи, выберите параметры безопасности, а затем параметр настройки приложения для проверки подлинности. Чтобы получить секретный код, щелкните ссылку «Не могу просканировать штрихкод».
-- 
-
-![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/secretkey.png)
-
-- Запустите приложение Azure Authenticator (должна открыться страница учетных записей). Здесь вы увидите список настроенных учетных записей. Чтобы добавить учетную запись, щелкните символ +. Откроется сканер.
-
-![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
-
-- Просканируйте QR-код либо нажмите кнопку "Ввести вручную" внизу. Если вы сканируете QR-код, пропустите следующий шаг, так как активация начнется автоматически.
-
-![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/scan.png)
-
-- Если вы вводите вручную секретный код, введите имя учетной записи и секретный код, который находится на той же странице, что и штрихкод. Данные необходимо ввести в поля кода и URL-адреса для мобильного приложения. После этого начнется активация.
-
-![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/manual.png)
-
-- Дождитесь активации учетной записи. Новая учетная запись должна быть добавлена.
-
-![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/msaccount.png)
-
-- Завершите процедуру: введите код, указанный под учетной записью (в данном случае это 875 756), в поле на странице, где вы получили секретный ключ, и нажмите кнопку «Далее».  
-
-![Добавление учетной записи](./media/multi-factor-authentication-azure-authenticator/verify.png)
-
-## Добавление учетной записи с помощью TouchID
-Мобильное приложение Azure Authenticator на iOS поддерживает TouchID. Azure Multi-Factor Authentication позволяет организациям запрашивать ПИН-код у владельцев зарегистрированных устройств. Благодаря этой функции, пользователями устройств iOS с поддержкой TouchID больше не нужно будет вводить ПИН-код. После предварительной настройки вместо того, чтобы вводить ПИН-код, пользователи смогут просканировать свой отпечаток пальца и выбрать параметр «Разрешить».
-
-Настройка TouchID в приложении Azure Authenticator выполняется очень просто. Пройдите обычную проверку, указав ПИН-код, и, если ваше устройство поддерживает TouchID, мы настроим его автоматически.
-
-![Идентификатор сенсорного экрана](./media/multi-factor-authentication-azure-authenticator/touchid1.png)
-
-С этого момента для подтверждения входа вам нужно будет только коснуться полученного push-уведомления и просканировать свой отпечаток пальца, не набирая ПИН-код.
-
-![Идентификатор сенсорного экрана](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
-
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

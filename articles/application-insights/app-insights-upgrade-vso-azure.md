@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Обновление старой версии Visual Studio Online для Application Insights" 
+	pageTitle="Обновление старой версии Visual Studio Team Services для Application Insights" 
 	description="Обновить существующие проекты"
 	services="application-insights" 
     documentationCenter=""
@@ -15,9 +15,9 @@
 	ms.date="06/19/2015" 
 	ms.author="awills"/>
  
-# Обновление старой версии Visual Studio Online для Application Insights
+# Обновление старой версии Visual Studio Team Services для Application Insights
 
-Этот документ представляет интерес только в том случае, если имеется проект, по-прежнему использующий старую версию Application Insights, которая входила в состав Visual Studio Online. Эта версия будет отключена в установленном порядке, и поэтому рекомендуется выполнить обновление до новой версии, которая является службой в Microsoft Azure.
+Этот документ представляет интерес только в том случае, если у вас есть проект, по-прежнему использующий старую версию Application Insights, которая входила в состав Visual Studio Team Services. Эта версия будет отключена в установленном порядке, и поэтому рекомендуется выполнить обновление до новой версии, которая является службой в Microsoft Azure.
 
 ## Какая версия у меня?
 
@@ -73,4 +73,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

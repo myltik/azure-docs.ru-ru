@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Рекомендации по проектированию гибридных решений для идентификации Azure Active Directory ― определение требований к контролю доступа | Microsoft Azure"
+	pageTitle="Рекомендации по проектированию решений для гибридной идентификации Azure Active Directory ― определение требований к контролю доступа | Microsoft Azure"
 	description="Описание ключевых компонентов идентификации и определение требований доступа к ресурсам для пользователей в гибридной среде."
 	documentationCenter=""
 	services="active-directory"
@@ -67,6 +67,6 @@
 [Определение требований по реагированию на инциденты](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
 
 ## См. также
-[Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

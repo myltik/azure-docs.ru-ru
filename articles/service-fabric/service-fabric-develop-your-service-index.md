@@ -79,7 +79,7 @@
 
 - [Взаимодействие со службами](service-fabric-connect-and-communicate-with-services.md)
 - [Модель взаимодействия со службами](service-fabric-reliable-services-communication.md)
-- [Коммуникационный стек, предоставляемый по умолчанию средой надежных служб](service-fabric-reliable-services-communication-default.md)
+- [Коммуникационный стек, предоставляемый по умолчанию средой надежных служб](service-fabric-reliable-services-communication-remoting.md)
 - [Коммуникационный стек WCF для надежных служб](service-fabric-reliable-services-communication-wcf.md)
 - [Начало работы со службами веб-API Microsoft Azure Service Fabric с собственным хостом OWIN (VS 2015 RC)](service-fabric-reliable-services-communication-webapi.md)
 
@@ -87,4 +87,4 @@
 
 - [Диагностика надежных служб с отслеживанием состояния](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

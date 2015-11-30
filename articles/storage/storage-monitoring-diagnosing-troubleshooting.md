@@ -65,7 +65,7 @@
 	+ [Приложение 2. Отслеживание сетевого трафика с помощью Wireshark]
 	+ [Приложение 3. Отслеживание сетевого трафика с помощью Microsoft Message Analyzer]
 	+ [Приложение 4. Просмотр метрик и данных журналов с помощью Excel]
-	+ [Приложение 5. Мониторинг с использованием Application Insights для Visual Studio Online]
+	+ [Приложение 5. Мониторинг с использованием Application Insights для Visual Studio Team Services]
 
 ## <a name="introduction"></a>Введение
 
@@ -125,7 +125,7 @@
 
 Кроме того, портал Azure может рассылать уведомления об инцидентах, влияющих на различные службы Azure. Ранее эта информация, наряду с данными журналов, была доступна в панели мониторинга служб Azure по адресу <a href="http://status.azure.com" target="_blank">http://status.azure.com</a>.
 
-Портал собирает сведения о работоспособности из центров обработки данных Azure (внутренний мониторинг), но вы также можете использовать внешний мониторинг для создания искусственных транзакций, которые периодически поступают в ваше приложение на базе Azure из различных мест. Например, подобный подход может быть реализован с использованием <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a> и Application Insights для Visual Studio Online. Дополнительные сведения об Application Insights для Visual Studio Online см. в разделе "[Приложение 5. Мониторинг с использованием Application Insights для Visual Studio Online]".
+Портал собирает сведения о работоспособности из центров обработки данных Azure (внутренний мониторинг), но вы также можете использовать внешний мониторинг для создания искусственных транзакций, которые периодически поступают в ваше приложение на базе Azure из различных мест. Например, подобный подход может быть реализован с использованием <a href="http://www.keynote.com/solutions/monitoring/web-monitoring" target="_blank">Keynote</a>, <a href="https://www.gomeznetworks.com/?g=1" target="_blank">Gomez</a> и Application Insights для Visual Studio Team Services. Дополнительные сведения об Application Insights для Visual Studio Team Services см. в разделе [Приложение 5. Мониторинг с использованием Application Insights для Visual Studio Team Services].
 
 ### <a name="monitoring-capacity"></a>Мониторинг мощностей
 
@@ -827,14 +827,14 @@ Wireshark — это анализатор сетевых протоколов, 
 
 Во втором шаге **мастера импорта текста** выберите **точку с запятой** в качестве единственного разделителя и двойные кавычки в качестве **ограничителя строк**. Нажмите кнопку **Готово** и выберите место размещения данных в книге.
 
-### <a name="appendix-5"></a>Приложение 5. Мониторинг с использованием Application Insights для Visual Studio Online
+### <a name="appendix-5"></a>Приложение 5. Мониторинг с использованием Application Insights для Visual Studio Team Services
 
-Вы также можете использовать компонент Application Insights для Visual Studio Online при мониторинге производительности и доступности. Это средство предоставляет указанные ниже возможности.
+Вы также можете использовать компонент Application Insights для Visual Studio Team Services при мониторинге производительности и доступности. Это средство предоставляет указанные ниже возможности.
 
 - Проверка того, что веб-служба доступна и отвечает на запросы. Вне зависимости от того, является ли ваше приложение веб-сайтом или приложением на устройстве, использующим веб-службу, это средство может каждые несколько минут тестировать ваш URL-адрес из разных мест мира и сообщать о возникших проблемах.
 - Быстрая диагностика любых проблем с производительностью или исключений в веб-службе. Определяйте, не исчерпаны ли ресурсы ЦП и другие ресурсы, получайте данные трассировки стека исключений и легко выполняйте поиск по журналам трассировки. Если производительность приложения опустится ниже допустимого предела, мы можем оповестить вас по электронной почте. Вы можете отслеживать веб-службы .NET и Java.
 
-На момент написания этой статьи служба Application Insights была доступна в предварительной версии. Дополнительные сведения можно найти в статье <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">Application Insights для Visual Studio Online</a> на сайте MSDN.
+На момент написания этой статьи служба Application Insights была доступна в предварительной версии. Дополнительные сведения см. в разделе <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">Application Insights для Visual Studio Team Services</a> на сайте MSDN.
 
 
 <!--Anchors-->
@@ -902,7 +902,7 @@ Wireshark — это анализатор сетевых протоколов, 
 [Приложение 3. Отслеживание сетевого трафика с помощью Microsoft Message Analyzer]: #appendix-3
 [приложении 3 "Отслеживание сетевого трафика с помощью Microsoft Message Analyzer"]: #appendix-3
 [Приложение 4. Просмотр метрик и данных журналов с помощью Excel]: #appendix-4
-[Приложение 5. Мониторинг с использованием Application Insights для Visual Studio Online]: #appendix-5
+[Приложение 5. Мониторинг с использованием Application Insights для Visual Studio Team Services]: #appendix-5
 
 <!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png
@@ -916,4 +916,4 @@ Wireshark — это анализатор сетевых протоколов, 
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

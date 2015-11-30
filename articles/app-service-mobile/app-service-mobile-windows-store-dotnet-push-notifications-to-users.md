@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/14/2015"
+	ms.date="11/17/2015"
 	ms.author="yuaxu"/>
 
 # Отправка кроссплатформенных уведомлений определенному пользователю
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 В этом разделе показано, как отправлять уведомления на все зарегистрированные устройства определенного пользователя с мобильного внутреннего сервера. Здесь вводится концепция [шаблонов], которая позволяет клиентским приложениям указывать форматы полезных данных и заполнители переменных при регистрации. Таким образом, уведомления отправляются на каждую платформу с такими заполнителями.
 
@@ -109,4 +107,4 @@
 [шаблонов]: https://msdn.microsoft.com/ru-RU/library/dn530748.aspx
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

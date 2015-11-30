@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Стек связи на основе WCF, предоставляемый интерфейсом API надежных служб"
-   description="В этой статье описывается стек связи на основе WCF, предоставляемый интерфейсом API надежных служб."
+   pageTitle="Стек связи WCF Reliable Services | Microsoft Azure"
+   description="Встроенный стек связи WCF в Services Fabric обеспечивает связь со службой клиента WCF для Reliable Services."
    services="service-fabric"
    documentationCenter=".net"
    authors="BharatNarasimman"
    manager="timlt"
-   editor=""/>
+   editor="vturecek"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,24 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="08/27/2015"
+   ms.date="11/12/2015"
    ms.author="bharatn@microsoft.com"/>
 
 # Стек связи на основе WCF для надежных служб
 Платформа надежных служб позволяет разработчикам служб решать, какой стек связи следует использовать в службе. Они могут подключить выбранный стек связи посредством объекта `ICommunicationListener`, возвращаемого методом [`CreateCommunicationListener`](../service-fabric-reliable-service-communication.md). Платформа предоставляет реализацию стека связи на основе WCF для разработчиков служб, которым требуется использовать связь на основе WCF.
 
 ## Прослушиватель связи WCF
-Ориентированная на WCF реализация `ICommunicationListener` предоставляется классом `WcfCommunicationListener`.
+Ориентированная на WCF реализация `ICommunicationListener` предоставляется классом `Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener`.
 
 ```csharp
 
-public WcfCommunicationListener(
-    Type communicationInterfaceType,
-    Type communicationImplementationType);
-
-protected override ICommunicationListener CreateCommunicationListener()
-    {
-        WcfCommunicationListener communicationListener = new WcfCommunicationListener(typeof(ICalculator), this)
+protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+{
+    // TODO: If your service needs to handle user requests, return a list of ServiceReplicaListeners here.
+    return new[] { new ServiceReplicaListener(parameters =>
+        new WcfCommunicationListener(typeof(ICalculator), this)
         {
             //
             // The name of the endpoint configured in the ServiceManifest under the Endpoints section
@@ -42,10 +40,9 @@ protected override ICommunicationListener CreateCommunicationListener()
             // Populate the binding information that you want the service to use.
             //
             Binding = this.CreateListenBinding()
-        };
-
-        return communicationListener;
-    }
+        }
+    )};
+}
 
 ```
 
@@ -110,8 +107,11 @@ var calculatorServicePartitionClient = new ServicePartitionClient<WcfCommunicati
 var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
     client => client.Channel.AddAsync(2, 3)).Result;
 
-
 ```
  
+## Дальнейшие действия
+* [Удаленный вызов процедуры с использованием удаленного взаимодействия Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 
-<!---HONumber=Nov15_HO1-->
+* [Веб-интерфейс API с OWIN в Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+
+<!---HONumber=Nov15_HO4-->

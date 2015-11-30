@@ -38,7 +38,7 @@
 
 В веб-приложения службы приложений Azure можно переносить существующие веб-ресурсы, написанные на разных языках и расположенные на разных платформах.
 
-Существующие веб-ресурсы можно запускать в веб-приложениях службы приложений, независимо от языка и платформы (.NET, PHP, Java, Node.js или Python). Их можно перемещать в веб-приложения с помощью привычных средств для работы с [FTP] или системы управления версиями. Веб-приложения поддерживают прямую публикацию из популярных систем управления версиями, таких как [Visual Studio], [Visual Studio Online] и [Git] (локальная система, GitHub, BitBucket, DropBox, Mercurial и т. д.).
+Существующие веб-ресурсы можно запускать в веб-приложениях службы приложений, независимо от языка и платформы (.NET, PHP, Java, Node.js или Python). Их можно перемещать в веб-приложения с помощью привычных средств для работы с [FTP] или системы управления версиями. Веб-приложения поддерживают прямую публикацию из популярных систем управления версиями, таких как [Visual Studio], [Visual Studio Team Services] и [Git] (локальная система, GitHub, BitBucket, DropBox, Mercurial и т. д.).
 
 ## Защита ресурсов
 
@@ -92,7 +92,7 @@
 
 [FTP]: web-sites-deploy.md#ftp
 [Visual Studio]: web-sites-dotnet-get-started.md
-[Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso.md
+[Visual Studio Team Services]: ../cloud-services-continuous-delivery-use-vso.md
 [Git]: web-sites-publish-source-control.md
 
 [HTTPS]: web-sites-configure-ssl-certificate.md
@@ -124,4 +124,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

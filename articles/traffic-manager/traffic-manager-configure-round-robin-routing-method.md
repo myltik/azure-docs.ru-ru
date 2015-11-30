@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter=""
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Настройка метода маршрутизации с применением циклического перебора
@@ -35,21 +35,21 @@
 
 ## Дальнейшие действия
 
-[О методах маршрутизации трафика в диспетчере трафика](traffic-manager-load-balancing-methods.md)
+
+[Направление интернет-домена компании на домен диспетчера трафика](traffic-manager-point-internet-domain.md)
+
+[Методы маршрутизации диспетчера трафика](traffic-manager-routing-methods.md)
+
+[Настройка метода маршрутизации с отработкой отказа](traffic-manager-configure-failover-routing-method.md)
+
+[Настройка метода маршрутизации трафика для повышения производительности](traffic-manager-configure-performance-routing-method.md)
+
+[Устранение неполадок, связанных со сбоем диспетчера трафика](traffic-manager-troubleshooting-degraded.md)
 
 [Диспетчер трафика — включение, отключение или удаление профиля диспетчера трафика](disable-enable-or-delete-a-profile.md)
 
 [Диспетчер трафика — отключение и включение конечной точки диспетчера трафика](disable-or-enable-an-endpoint.md)
 
-[Что такое диспетчер трафика](../traffic-manager-overview.md)
-
-[Облачные службы](http://go.microsoft.com/fwlink/?LinkId=314074)
-
-[Веб-сайты](http://go.microsoft.com/fwlink/p/?LinkId=393327)
-
-[Операции с диспетчером трафика (справочник по REST API)](http://go.microsoft.com/fwlink/?LinkId=313584)
-
-[Командлеты для диспетчера трафика Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

@@ -4,7 +4,7 @@
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2015"
+   ms.date="11/12/2015"
    ms.author="joaoma" />
 
 # Включение, отключение или удаление профиля
@@ -46,8 +46,12 @@
 
 [Диспетчер трафика — отключение и включение конечной точки диспетчера трафика](disable-or-enable-an-endpoint.md)
 
-[Что такое диспетчер трафика](traffic-manager-overview.md)
+[Настройка метода маршрутизации с отработкой отказа](traffic-manager-configure-failover-routing-method.md)
 
- 
+[Настройка метода маршрутизации с применением циклического перебора](traffic-manager-configure-round-robin-routing-method.md)
 
-<!---HONumber=Oct15_HO3-->
+[Настройка метода маршрутизации трафика для повышения производительности](traffic-manager-configure-performance-routing-method.md)
+
+[Устранение неполадок, связанных со сбоем диспетчера трафика](traffic-manager-troubleshooting-degraded.md)
+
+<!---HONumber=Nov15_HO4-->

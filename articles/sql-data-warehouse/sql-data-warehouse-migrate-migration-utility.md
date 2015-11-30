@@ -18,6 +18,10 @@
 
 
 #Служебная программа для миграции в хранилище данных (предварительная версия)
+
+> [AZURE.SELECTOR]
+- [Download Migration Utility](https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip)
+
 Служебная программа для миграции в хранилище данных — это средство, предназначенное для переноса схемы и данных с сервера SQL Server и из базы данных SQL Azure в хранилище данных SQL Azure. Во время переноса схемы средство автоматически сопоставляет соответствующую схему из источника с местом назначения. После переноса схемы пользователям также предоставляется возможность перемещения данных с помощью автоматически созданных сценариев.
 
 С помощью этого средства можно не только переносить схемы и данные, но и создавать отчеты о совместимости. В этих отчетах содержится сводка проблем совместимости между целевым и исходным экземплярами, препятствующих оптимизированной миграции.
@@ -57,4 +61,4 @@
 [разработки]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-develop/
 [здесь]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

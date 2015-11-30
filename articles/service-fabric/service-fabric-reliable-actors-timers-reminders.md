@@ -23,11 +23,11 @@
 Субъекты могут использовать методы `RegisterTimer` и `UnregisterTimer` в своем базовом классе для регистрации и отмены регистрации своих таймеров. В приведенном ниже примере показано использование интерфейсов API таймера. Эти интерфейсы API очень похожи на таймер .NET. В примере ниже при срабатывании таймера метод `MoveObject` будет вызван средой выполнения Actors с гарантированным учетом пошагового параллелизма, что означает, что никакие другие методы субъектов или обратные вызовы таймеров или напоминаний не будут выполняться до тех пор, пока не будет завершено выполнение этого обратного вызова.
 
 ```csharp
-class VisualObjectActor : Actor<VisualObject>, IVisualObject
+class VisualObjectActor : StatefulActor<VisualObject>, IVisualObject
 {
     private IActorTimer _updateTimer;
 
-    public override Task OnActivateAsync()
+    protected override Task OnActivateAsync()
     {
         ...
 
@@ -40,7 +40,7 @@ class VisualObjectActor : Actor<VisualObject>, IVisualObject
         return base.OnActivateAsync();
     }
 
-    public override Task OnDeactivateAsync()
+    protected override Task OnDeactivateAsync()
     {
         if (_updateTimer != null)
         {
@@ -53,7 +53,7 @@ class VisualObjectActor : Actor<VisualObject>, IVisualObject
     private Task MoveObject(object state)
     {
         ...
-        return TaskDone.Done;
+        return Task.FromResult(true);
     }
 }
 ```
@@ -87,7 +87,7 @@ Task<IActorReminder> reminderRegistration = RegisterReminder(
 Субъекты, использующие напоминания, должны реализовать интерфейс `IRemindable` (см. пример ниже).
 
 ```csharp
-public class ToDoListActor : Actor<ToDoList>, IToDoListActor, IRemindable
+public class ToDoListActor : StatefulActor<ToDoList>, IToDoListActor, IRemindable
 {
     public Task ReceiveReminderAsync(string reminderName, byte[] context, TimeSpan dueTime, TimeSpan period)
     {
@@ -114,4 +114,4 @@ Task reminderUnregistration = UnregisterReminder(reminder);
 
 Как показано выше, метод `UnregisterReminder` принимает интерфейс `IActorReminder`. Базовый класс субъекта поддерживает метод `GetReminder`, с помощью которого можно получить интерфейс `IActorReminder`, передав имя напоминания. Это удобно, поскольку субъекту не требуется сохранять интерфейс `IActorReminder`, который был возвращен вызовом метода `RegisterReminder`.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

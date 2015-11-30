@@ -3,7 +3,7 @@
    description="Пошаговое руководство по упаковыванию существующего приложения для развертывания в кластере Azure Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="bmscholl"
    manager="timlt"
    editor=""/>
 
@@ -13,105 +13,62 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/09/2015"
-   ms.author="claudioc"/>
+   ms.date="11/09/2015"
+   ms.author="bscholl"/>
 
-# Развертывание существующего приложения в Azure Service Fabric
+# Развертывание существующего приложения в Service Fabric
 
-Azure Service Fabric можно использовать для развертывания существующих приложений. Это дает возможность использовать для них такие функции, как отслеживание работоспособности и управление жизненным циклом приложения (ALM).
+В Service Fabric можно запустить существующее приложение любого типа, например Node.js, Java или приложение в машинном коде. Service Fabric обрабатывает эти приложения как службы без отслеживания состояния и размещает их на узлах в кластере на основе доступности и других метрик. В этой статье описывается упаковка и развертывание существующего приложения в кластере Service Fabric.
 
-В этом руководстве описывается процесс и основные понятия, связанные с упаковкой существующего приложения для развертывания в кластер Service Fabric.
+## Преимущества выполнения существующего приложения в Service Fabric
+
+Существует несколько преимуществ, связанных с выполнением приложения в кластере Service Fabric.
+
+- Высокий уровень доступности: для приложений, работающих в среде Service Fabric, характерна высокая доступность без дополнительной настройки. Service Fabric гарантирует постоянную работу одного экземпляра приложения.
+- Наблюдение за работоспособностью: готовая к использованию функция наблюдения за работоспособностью Service Fabric обнаруживает исправную работу приложения и предоставляет диагностические данные в случае сбоя.   
+- Управление жизненным циклом приложения: помимо обновления без времени простоя Service Fabric также позволяет выполнить откат к предыдущей версии в случае возникновения проблемы во время обновления.    
+- Плотность: вы можете запускать несколько приложений в кластере, что позволяет отказаться от выполнения каждого приложения на собственном оборудовании.
+
+В этой статье мы рассмотрим основную процедуру упаковки существующего приложения и его развертывания в Service Fabric.
 
 
 ## Краткий обзор файлов манифестов приложений и служб
 
-Перед изучением подробных сведений о развертывании существующего приложения рекомендуется ознакомиться с моделью развертывания Service Fabric. Модель развертывания Service Fabric основана преимущественно на двух файлах.
+Перед изучением подробных сведений о развертывании существующего приложения рекомендуется ознакомиться с моделью развертывания и упаковки Service Fabric. Модель развертывания и упаковки Service Fabric основана преимущественно на двух файлах.
 
 
 * **Манифест приложения**
 
   Манифест приложения содержит описание приложения и список образующих его служб, а также другие параметры, например количество экземпляров, которые определяют, как будут развертываться службы. Приложение в Service Fabric — расширяемая единица. Приложение можно расширить как единицу, где потенциальные сбои (и потенциальные откаты) управляются платформой, гарантируя, что процесс обновления либо будет полностью успешным, либо, в случае сбоя, не оставит приложение в неизвестном или нестабильном состоянии.
 
-  Ниже приводится пример манифеста приложения.
-
- ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ApplicationManifest ApplicationTypeName="actor2Application"
-                       ApplicationTypeVersion="1.0.0.0"
-                       xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
-    <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="actor2Pkg" ServiceManifestVersion="1.0.0.0" />
-      <ConfigOverrides />
-    </ServiceManifestImport>
-
-    <DefaultServices>
-      <Service Name="actor2">
-        <StatelessService ServiceTypeName="actor2Type">
-          <SingletonPartition />
-        </StatelessService>
-      </Service>
-    </DefaultServices>
-
-  </ApplicationManifest>
-  ```
 
 * **Манифест службы**
 
   Манифест службы описывает ее компоненты. Он включает такие данные, как имя и тип службы (сведения, которые Service Fabric использует для управления службой), ее код, конфигурацию и компоненты данных, а также некоторые дополнительные параметры, которые позволяют настраивать службу после ее развертывания. Мы не будем углубляться в подробности различных параметров, доступных в манифесте службы, но рассмотрим их подмножество, необходимое для запуска существующего приложения в Service Fabric.
 
-  Ниже приводится пример манифеста службы.
-
-  ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ServiceManifest Name="actor2Pkg"
-                   Version="1.0.0.0"
-                   xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <ServiceTypes>
-      <StatelessServiceType ServiceTypeName="actor2Type" />
-    </ServiceTypes>
-
-    <CodePackage Name="Code" Version="1.0.0.0">
-      <EntryPoint>
-        <ExeHost>
-          <Program>actor2.exe</Program>
-        </ExeHost>
-      </EntryPoint>
-    </CodePackage>
-
-    <ConfigPackage Name="Config" Version="1.0.0.0" />
-
-    <Resources>
-      <Endpoints>
-        <Endpoint Name="ServiceEndpoint" />
-      </Endpoints>
-    </Resources>
-  </ServiceManifest>
-  ```
+Подробные сведения о формате упаковки Service Fabric см. [здесь](service-fabric-develop-your-service-index.md).
 
 ## Структура файла пакета приложения
-Для развертывания приложения с помощью, к примеру, командлетов PowerShell приложение должно следовать предопределенной структуре каталогов.
+Для развертывания приложения в Service Fabric оно должно следовать предопределенной структуре каталогов. Ниже приведен пример этой структуры.
 
 ```
-\applicationmanifest.xml
-\MyServicePkg
-    \servicemanifest.xml
-    \code
-    \config
-    \data
+|-- AppplicationPackage
+	|-- code
+		|-- existingapp.exe
+	|-- config
+		|--Settings.xml
+    |--data    
+    |-- ServiceManifest.xml
+|-- ApplicationManifest.xml
 ```
 
-Корневой каталог содержит файл applicationmanifest.xml, определяющий приложение. Дочерний каталог для каждой службы, включенной в приложение, используется для хранения всех артефактов, необходимых службе: файла servicemanifest.xml и, как правило, 3 каталогов:
+Корневой каталог содержит файл ApplicationManifest.xml, определяющий приложение. Дочерний каталог для каждой службы, включенной в приложение, используется для хранения всех артефактов, необходимых службе: файла ServiceManifest.xml и, как правило, 3 каталогов:
 
 - *code*: содержит код службы.
 - *config*: содержит файл settings.xml (и другие файлы в случае необходимости), который служба может использовать во время работы для получения определенных параметров конфигурации.
 - *data*: дополнительный каталог для хранения дополнительных локальных данных, необходимых службе. Примечание: каталог Data следует использовать только для хранения временных данных. Service Fabric не копирует и не реплицирует изменения каталога данных, если службу требуется переместить, например во время отработки отказа.
 
-Примечание: вы можете использовать любые имена для каталогов Code, Config и Data. Убедитесь, что в файле ApplicationManifest используется такое же значение.
+Примечание. Нет необходимости создавать каталоги `config` и `data`, если они вам не нужны.
 
 ## Процесс упаковки существующего приложения
 
@@ -122,15 +79,13 @@ Azure Service Fabric можно использовать для разверты
 - Обновление файла манифеста службы
 - Обновление манифеста приложения
 
+>[AZURE.NOTE]Мы предоставляем средство упаковки, что позволяет автоматически создавать пакет приложения. Это средство в настоящее время доступно в предварительной версии. Дополнительные сведения см. [здесь](http://aka.ms/servicefabricpacktool).
 
 ### Создание структуры каталогов пакета
-Для начала можно создать структуру каталогов, как описано выше. Я создаю каталог и копирую манифесты приложения и службы из существующего проекта, созданного ранее с помощью Visual Studio.
-
-![][1] ![][2]
-
+Для начала можно создать структуру каталогов, как описано выше.
 
 ### Добавление файлов кода и конфигурации приложения
-После создания структуры каталогов вы можете добавить файлы кода и конфигурации приложения в каталоги Code и Config. Вы также можете создавать дополнительные каталоги или дочерние папки в каталогах Code и Config. Service Fabric выполняет операцию xcopy для содержимого корневого каталога, поэтому, за исключением каталогов верхнего уровня Code и Settings, не существует предопределенной структуры (вы можете выбрать другие имена каталогов, подробнее см. в следующем разделе).
+После создания структуры каталогов вы можете добавить файлы кода и конфигурации приложения в каталоги code и config. Вы также можете создавать дополнительные каталоги или дочерние папки в каталогах code и config. Service Fabric выполняет операцию xcopy для содержимого корневого каталога, поэтому, за исключением каталогов верхнего уровня code и settings, не существует предопределенной структуры (вы можете выбрать другие имена каталогов, подробнее см. в следующем разделе).
 
 >[AZURE.NOTE]Убедитесь, что включены все файлы и зависимости, необходимые приложению. Service Fabric скопирует содержимое пакета приложения на все узлы кластера, где будут развертываться службы приложения. Пакет должен содержать весь код, необходимый для работы приложения. Не рекомендуется рассчитывать на то, что зависимости уже установлены.
 
@@ -139,39 +94,35 @@ Azure Service Fabric можно использовать для разверты
 
 - Имя типа службы. Это идентификатор, используемый решением Service Fabric для идентификации службы.
 - Команда для запуска приложения (ExeHost).
-- Любой сценарий, который нужно выполнить для установки и настройки приложения (SetupEntrypoint).
+- Любой сценарий, который нужно выполнить для установки и настройки приложения (SetupEntrypoint)
 
-Вот пример файла `servicemanifest.xnml`, который «упаковывает» приложение node.js:
+Ниже приведен пример `ServiceManifest.xml`.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ServiceManifest Name="VisualObjectsNodejsWebServicePkg"
-                 Version="1.0.0.0"
-                 xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <ServiceTypes>
-    <StatelessServiceType ServiceTypeName="VisualObjectsNodejsWebServiceType" UseImplicitHost="true" />
-  </ServiceTypes>
-
-  <CodePackage Name="Code" Version="1.0.0.0">
-    <EntryPoint>
-      <ExeHost>
-        <Program>node.exe</Program>
-        <Arguments>server.js</Arguments>
-        <WorkingFolder>CodeBase</WorkingFolder>
-      </ExeHost>
-    </EntryPoint>
-  </CodePackage>
-
-  <ConfigPackage Name="Config" Version="1.0.0.0"/>
-
-  <Resources>
-    <Endpoints>
-      <Endpoint Name="ServiceEndpoint" />
-    </Endpoints>
-  </Resources>
-
+<ServiceManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="NodeApp" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <ServiceTypes>
+      <StatelessServiceType ServiceTypeName="NodeApp" UseImplicitHost="true"/>
+   </ServiceTypes>
+   <CodePackage Name="code" Version="1.0.0.0">
+      <SetupEntryPoint>
+         <ExeHost>
+             <Program>scripts\launchConfig.cmd</Program>
+         </ExeHost>
+      </SetupEntryPoint>
+      <EntryPoint>
+         <ExeHost>
+            <Program>node.exe</Program>
+            <Arguments>bin/www</Arguments>
+            <WorkingFolder>CodePackage</WorkingFolder>
+         </ExeHost>
+      </EntryPoint>
+   </CodePackage>
+   <Resources>
+      <Endpoints>
+         <Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />
+      </Endpoints>
+   </Resources>
 </ServiceManifest>
 ```
 
@@ -181,12 +132,12 @@ Azure Service Fabric можно использовать для разверты
 
 ```xml
 <ServiceTypes>
-  <StatelessServiceType ServiceTypeName="VisualObjectsNodejsWebServiceType" UseImplicitHost="true" />
+  <StatelessServiceType ServiceTypeName="NodeApp" UseImplicitHost="true" />
 </ServiceTypes>
 ```
 
-- Вы можете выбрать для `ServiceTypeName` любое имя. Это значение используется в `applicationmanifest.xml` для идентификации службы.
-- Необходимо указать `UserImplicitHost = "true"`. Этот атрибут сообщает Service Fabric, что служба основана на автономном приложении, поэтому достаточно запустить ее как процесс и отслеживать ее работоспособность.
+- Вы можете выбрать для `ServiceTypeName` любое имя. Это значение используется в `ApplicationManifest.xml` для идентификации службы.
+- Необходимо указать `UseImplicitHost="true"`. Этот атрибут сообщает Service Fabric, что служба основана на автономном приложении, поэтому достаточно запустить ее как процесс и отслеживать ее работоспособность.
 
 ### CodePackage
 Атрибут CodePackage задает расположение (и версию) кода службы.
@@ -196,7 +147,16 @@ Azure Service Fabric можно использовать для разверты
 ```
 
 Элемент `Name` используется для указания имени каталога в пакете приложения, который содержит код службы. `CodePackage` также имеет атрибут `version`, который позволяет указать версию кода и может быть использован для обновления кода службы за счет инфраструктуры управления жизненным циклом приложений в Service Fabric.
+### SetupEntrypoint
 
+```xml
+<SetupEntryPoint>
+   <ExeHost>
+       <Program>scripts\launchConfig.cmd</Program>
+   </ExeHost>
+</SetupEntryPoint>
+```
+Элемент SetupEntrypoint позволяет задать исполняемый или пакетный файл, который следует выполнить перед запуском кода службы. Это необязательный элемент, поэтому его не требуется включать, если отсутствует необходимость в инициализации и установке. Точка входа SetupEntryPoint выполняется при каждом перезапуске службы. Существует только одна точка входа для установки, поэтому сценарии установки и настройки необходимо объединить в один пакетный файл, если для установки или настройки приложения требуется несколько сценариев. Как и элемент Entrypoint, SetupEntrypoint может выполнять файлы любого типа: исполняемые и пакетные файлы, а также командлеты PowerShell. В приведенном выше примере SetupEntrypoint основывается на пакетном файле launchConfig.cmd, расположенном в дочерней папке `scripts` каталога code (при условии, что элемент WorkingDirectory имеет значение code).
 
 ### Entrypoint
 
@@ -204,110 +164,63 @@ Azure Service Fabric можно использовать для разверты
 <EntryPoint>
   <ExeHost>
     <Program>node.exe</Program>
-    <Arguments>server.js</Arguments>
+    <Arguments>bin/www</Arguments>
     <WorkingFolder>CodeBase</WorkingFolder>
   </ExeHost>
 </EntryPoint>
 ```
 
-
 Элемент `Entrypoint` в файле манифеста службы позволяет указать, как запускать службу. Элемент `ExeHost` задает исполняемый файл (и аргументы), которые следует использовать для запуска службы.
 
 - `Program`: задает имя исполняемого файла, который следует выполнить для запуска службы.
-- `Arguments`: задает аргументы, которые следует передавать исполняемому файлу. Это может быть список параметров с аргументами.
+- `Arguments`: задает аргументы, которые нужно передать исполняемому файлу. Это может быть список параметров с аргументами.
 - `WorkingFolder`: задает рабочий каталог процесса, который будет запущен. Вы можете задать два значения:
-	- `CodeBase`: рабочим каталогом будет каталог Code в пакете приложения (каталог `Code` в показанной ниже структуре).
+	- `CodeBase`: рабочим каталогом будет каталог code в пакете приложения (каталог `Code` в показанной ниже структуре).
 	- `CodePackage`: рабочим каталогом будет корневой каталог пакета приложения (`MyServicePkg`).
 - Элемент `WorkingDirectory` позволяет задать правильный рабочий каталог, чтобы приложение или сценарии инициализации могли использовать относительные пути.
 
-Для элемента `WorkingFolder` (`Work`) можно задать еще одно значение, но оно не очень полезно при упаковывании существующего приложения.
-
-
-```
-\applicationmanifest.xml
-\MyServicePkg
-	\servicemanifest.xml
-	\code
-		 \bin
-			  \ ...
-	\config
-	\data
-		\...
-```
-
-
-#### Точка входа для установки
+### Конечные точки
 
 ```xml
-<SetupEntryPoint>
-  <ExeHost>
-    <Program>scripts\myAppsetup.cmd</Program>
-  </ExeHost>
-</SetupEntryPoint>
-```
+<Endpoints>
+   <Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" Type="Input" />
+</Endpoints>
 
-Элемент `SetupEntrypoint` позволяет задать исполняемый или пакетный файл, который следует выполнить перед запуском кода службы. Это необязательный элемент, поэтому его не требуется включать, если отсутствует необходимость в инициализации и установке. Точка входа выполняется при каждом перезапуске службы. Существует только одна точка входа для установки, поэтому сценарии установки и настройки необходимо объединить в один пакетный файл, если для установки или настройки приложения требуется несколько сценариев. Как и элемент `Entrypoint`, `SetupEntrypoint` может выполнять файлы любого типа: исполняемые и пакетные файлы, а также командлеты PowerShell. В приведенном выше примере `SetupEntrypoint` основывается на пакетном файле myAppsetup.cmd, расположенном в дочерней папке каталога Code (при условии, что элемент `WorkingDirectory` имеет значение `Code`).
+```
+Элемент `Endpoint` задает конечные точки, которые может прослушивать приложение. В этом примере приложение Node.js прослушивает порт 3000.
 
 ## Файл манифеста приложения
 
-После настройки файла `servicemanifest.xml` потребуется внести в файл `applicationmanifest.xml` некоторые изменения, чтобы использовались правильные тип и имя службы.
+После настройки файла `servicemanifest.xml` потребуется внести в файл `ApplicationManifest.xml` некоторые изменения, чтобы использовались правильные тип и имя службы.
 
 ```xml
-<ServiceManifestImport>
-  <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0.0" />
-</ServiceManifestImport>
-<DefaultServices>
-  <Service Name="actor2">
-    <StatelessService ServiceTypeName="MyServiceType" InstanceCount = "1">
-    </StatelessService>
-  </Service>
-</DefaultServices>
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="NodeAppType" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="NodeApp" ServiceManifestVersion="1.0.0.0" />
+   </ServiceManifestImport>
+</ApplicationManifest>
 ```
 
 ### ServiceManifestImport
 
-В `ServiceManifestImport` можно указать одну или несколько служб, которые требуется включить в приложение. Ссылки на службы указываются в элементе `ServiceManifestName`, задающем имя каталога, в котором находится файл `servicemanifest.xml`.
+В `ServiceManifestImport` можно указать одну или несколько служб, которые требуется включить в приложение. Ссылки на службы указываются в элементе `ServiceManifestName`, задающем имя каталога, в котором находится файл `ServiceManifest.xml`.
 
 ```xml
 <ServiceManifestImport>
-  <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0.0" />
+  <ServiceManifestRef ServiceManifestName="NodeApp" ServiceManifestVersion="1.0.0.0" />
 </ServiceManifestImport>
 ```
 
-### DefaultServices
-
-Элемент `DefaultServices` в файле манифеста приложения используется для настройки некоторых свойств службы.
-
-```xml
-<DefaultServices>
-  <Service Name="actor2">
-    <StatelessService ServiceTypeName="MyServiceType" InstanceCount="1">
-    </StatelessService>
-  </Service>
-</DefaultServices>
-```
-
-* Элемент `ServiceTypeName` используется как идентификатор службы в контексте портирования существующего приложения. Элемент `ServiceTypeName` должен содержать уникальные удостоверения службы.
-* `StatelessService`: Service Fabric поддерживает два типа службы: с отслеживанием состояния и без него. В случае портирования существующего приложения используется служба без отслеживания состояния, поэтому элемент `StatelessService` следует использовать всегда.
-
-Службу Service Fabric можно развернуть в нескольких конфигурациях, например как один или несколько экземпляров либо так, чтобы в каждом узле кластера Service Fabric находилось по одному экземпляру службы. В файле `applicationmanifest.xml` можно указать, как будет развертываться приложение.
-
-* `InstanceCount`: позволяет указать, сколько экземпляров службы следует запускать в кластере Service Fabric. Вы можете задать значение `InstanceCount` в зависимости от типа развертываемого приложения. Ниже приводятся два самых распространенных сценария.
-
-	* `InstanceCount = "1"`: в этом случае в кластере развертывается только один экземпляр службы. Служба планирования Service Fabric определяет, в каком узле будет развертываться служба. Один экземпляр также уместен для приложений, требующих другой конфигурации при запуске в нескольких экземплярах. В этом случае удобнее задать несколько служб в одном файле манифеста приложения и использовать `InstanceCount = "1"`. Таким образом, конечным результатом будут несколько экземпляров одной службы, каждая из которых имеет свою конфигурацию. Значение `InstanceCount` больше 1 уместно, только если требуется несколько экземпляров с одинаковой конфигурацией.
-
-	* `InstanceCount ="-1"`: в этом случае в каждом узле кластера Service Fabric будет развернуто по одному экземпляру службы. В результате в каждом узле кластера будет по одному (и только одному) экземпляру службы. Эта конфигурация удобна для интерфейсных приложений (например, конечной точки REST), поскольку клиентским приложениям достаточно подключиться к любому узлу кластера, чтобы использовать конечную точку. Эту конфигурацию также можно использовать, если, к примеру, все узлы кластера Service Fabric подключены к подсистеме балансировки нагрузки, чтобы трафик клиента можно было распределять между экземплярами службы во всех узлах кластера.
-
-
-### Тестирование
-Для существующих приложений очень удобна возможность просматривать журналы консоли, чтобы убедиться, что сценарии приложения и настройки не возвращают ошибок. Перенаправление консоли можно настроить в файле `servicemanifest.xml` с помощью элемента `ConsoleRedirection`.
+### Настройка ведения журнала
+Для существующих приложений очень удобна возможность просматривать журналы консоли, чтобы убедиться, что сценарии приложения и настройки не возвращают ошибок. Перенаправление консоли можно настроить в файле `ServiceManifest.xml` с помощью элемента `ConsoleRedirection`.
 
 ```xml
 <EntryPoint>
   <ExeHost>
     <Program>node.exe</Program>
-    <Arguments>server.js</Arguments>
-    <WorkingFolder></WorkingFolder>
+    <Arguments>bin/www</Arguments>
+    <WorkingFolder>CodeBase</WorkingFolder>
     <ConsoleRedirection FileRetentionCount="5" FileMaxSizeInKb="2048"/>
   </ExeHost>
 </EntryPoint>
@@ -318,39 +231,52 @@ Azure Service Fabric можно использовать для разверты
 	* Элемент `FileRetentionCount` определяет, сколько файлов сохраняется в рабочем каталоге. Например, значение 5 означает, что в рабочем каталоге сохраняются файлы журналов для предыдущих 5 запусков.
 	* `FileMaxSizeInKb` задает максимальный размер файлов журналов.
 
-Файлы журналов сохраняются в одном из рабочих каталогов службы. Чтобы определить расположение файлов, необходимо использовать обозреватель Service Fabric для поиска узла, где запущена служба, и используемого в данный момент рабочего каталога.
+Файлы журналов сохраняются в одном из рабочих каталогов службы. Чтобы определить расположение файлов, необходимо использовать обозреватель Service Fabric для поиска узла, где запущена служба, и используемого в данный момент рабочего каталога. Эта процедура рассматривается далее в этой статье.
 
-В обозревателе Service Fabric определите узел, где запущена служба
+### Развертывание
+Последним шагом является развертывание приложения. Приведенный ниже сценарий PowerShell демонстрирует развертывание приложения в локальном кластере разработки и запуск новой службы Service Fabric.
 
-![][3]
+```Powershell
 
-Узнав, в каком узле выполняется служба, вы можете узнать, какой рабочий каталог используется
+Connect-ServiceFabricCluster localhost:19000
 
-![][4]
+Write-Host 'Copying application package...'
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath 'C:\Dev\MulitpleApplications' -ImageStoreConnectionString 'file:C:\SfDevCluster\Data\ImageStoreShare' -ApplicationPackagePathInImageStore 'Store\nodeapp'
 
-Выбрав имя службы, в правой области вы можете увидеть, где хранятся код и параметры службы
+Write-Host 'Registering application type...'
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'Store\nodeapp'
 
-![][5]
+New-ServiceFabricApplication -ApplicationName 'fabric:/nodeapp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0
 
-Нажав ссылку в поле "Расположение диска", вы можете открыть каталог, в котором выполняются службы.
+New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric:/nodeapp/nodeappservice' -ServiceTypeName 'NodeApp' -Stateless -PartitionSchemeSingleton -InstanceCount 1
 
-![][6]
+```
+Службу Service Fabric можно развернуть в нескольких конфигурациях, например как один или несколько экземпляров либо так, чтобы в каждом узле кластера Service Fabric находилось по одному экземпляру службы.
 
-Каталог журналов содержит все файлы журналов.
+Параметр `InstanceCount` командлета `New-ServiceFabricService` позволяет указать, сколько экземпляров службы следует запускать в кластере Service Fabric. Вы можете задать значение `InstanceCount` в зависимости от типа развертываемого приложения. Ниже приводятся два наиболее распространенных сценария. * `InstanCount = "1"`: в этом случае в кластере развертывается только один экземпляр службы. Служба планирования Service Fabric определяет, в каком узле будет развертываться служба.
 
-Примечание: в этом примере в кластере запущен один экземпляр службы. Если существует несколько экземпляров, вам может потребоваться проверить файл журнала на всех узлах, где запущена служба.
+* `InstanceCount ="-1"`: в этом случае в каждом узле кластера Service Fabric будет развернуто по одному экземпляру службы. В результате в каждом узле кластера будет по одному (и только одному) экземпляру службы. Эта конфигурация удобна для интерфейсных приложений (например, конечной точки REST), поскольку клиентским приложениям достаточно подключиться к любому узлу кластера, чтобы использовать конечную точку. Эту конфигурацию также можно использовать, если, к примеру, все узлы кластера Service Fabric подключены к подсистеме балансировки нагрузки, чтобы трафик клиента можно было распределять между экземплярами службы во всех узлах кластера.
+
+### Проверка работающего приложения
+
+В обозревателе Service Fabric определите узел, где запущена служба. В этом примере она выполняется на узле Node1.
+
+![выполнение приложения](./media/service-fabric-deploy-existing-app/runningapplication.png)
+
+Если вы перейдете к узлу, а затем к приложению, то увидите важные сведения об узле, включая его расположение на диске.
+
+![расположение на диске](./media/service-fabric-deploy-existing-app/locationondisk.png)
+
+Если перейти в каталог с помощью обозревателя серверов, можно найти рабочий каталог и папку журналов службы, как показано ниже.
+
+![расположение на диске](./media/service-fabric-deploy-existing-app/loglocation.png)
 
 
-## Что дальше?
-Мы работаем над инструментами, позволяющими упаковать существующее приложение, наведя его на корневой каталог в структуре каталогов приложения. Инструмент создает файлы манифестов и настраивает основные параметры, необходимые для преобразования приложения в службу Service Fabric.
+## Дальнейшие действия
+В этой статье вы ознакомились с основной процедурой упаковки существующего приложения и его развертывания в Service Fabric. Далее вы можете ознакомиться с дополнительным содержимым для этого раздела.
 
-Чтобы получить дополнительную информацию о разработке обычных приложений Service Fabric, ознакомьтесь с [этим](service-fabric-develop-your-service-index.md) разделом.
+- Пример кода для упаковки и развертывания существующего приложения на [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication), включая предварительную версию средства упаковки
+- Пример кода для упаковки нескольких приложений на [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication)
+- Начальные сведения о [создании первого приложения Service Fabric с помощью Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 
-[1]: ./media/service-fabric-deploy-existing-app/directory-structure-1.png
-[2]: ./media/service-fabric-deploy-existing-app/directory-structure-2.png
-[3]: ./media/service-fabric-deploy-existing-app/service-node-1.png
-[4]: ./media/service-fabric-deploy-existing-app/service-node-2.png
-[5]: ./media/service-fabric-deploy-existing-app/service-node-3.png
-[6]: ./media/service-fabric-deploy-existing-app/service-node-4.png
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

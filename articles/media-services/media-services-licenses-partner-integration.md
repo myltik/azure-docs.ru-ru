@@ -22,11 +22,11 @@
 
 Службы мультимедиа Microsoft Azure позволяет доставлять MPEG-DASH c защитой по технологии Widevine DRM, который соответствует спецификации общего шифрования (CENC).
 
->[AZURE.NOTE]В настоящее время службы мультимедиа не предоставляют сервер лицензирования Widevine. Вы можете использовать следующих партнеров AMS для доставки лицензий Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) и [castLabs](http://castlabs.com/company/partners/azure/).
+Начиная с версии 3.5.2 пакета SDK служб мультимедиа для .NET, службы мультимедиа позволяют настраивать шаблоны лицензии Widevine и получать лицензии Widevine. Для доставки лицензий Widevine можно использовать следующие партнеры AMS: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) и [castLabs](http://castlabs.com/company/partners/azure/).
 
 ##castLabs
 
-Для доставки лицензий Widevine можно использовать [castLabs](http://castlabs.com/company/partners/azure/). Дополнительные сведения см. в статье [Использование castLabs для доставки лицензий DRM в службы мультимедиа Azure](media-services-castlabs-integration.md)
+Для доставки лицензий Widevine можно использовать [castLabs](http://castlabs.com/company/partners/azure/). Дополнительные сведения см. в статье [Использование castLabs для доставки лицензий DRM в службы мультимедиа Azure](media-services-castlabs-integration.md).
 
 ##Axinom
 
@@ -43,8 +43,8 @@
 
 ##См. также
 
-Дополнительные сведения см. в статье [Использование общего динамического шифрования PlayReady и (или) Widevine DRM](media-services-protect-with-drm.md).
+[Дополнительные сведения см. в статье Использование общего динамического шифрования PlayReady и (или) Widevine DRM.](media-services-protect-with-drm.md)
 
 [Блог по Mingfei](https://azure.microsoft.com/ru-RU/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

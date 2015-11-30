@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/28/2015" 
+	ms.date="11/15/2015" 
 	ms.author="awills"/>
  
 # Исследование метрик в Application Insights
@@ -196,7 +196,7 @@
 
 ### Power BI
 
-Если вам необходимы представления данных с еще большими возможностями, [экспортируйте данные в Power BI](app-insights-export-power-bi.md).
+Если вам необходимы представления данных с еще большими возможностями, [экспортируйте данные в Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## Дальнейшие действия
 
@@ -212,4 +212,4 @@
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

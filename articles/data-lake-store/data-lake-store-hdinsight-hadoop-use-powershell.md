@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/06/2015"
+   ms.date="11/13/2015"
    ms.author="nitinme"/>
 
 # Подготовка кластера HDInsight и хранилища озера данных с помощью Azure PowerShell
@@ -87,7 +87,7 @@
 
 	Командлет должен возвратить результат **True**.
 
-4. Отправьте пример данных в озеро данных Azure. Позже мы проверим, доступны ли эти данные из кластера HDInsight. Если у вас нет под рукой подходящих для этих целей данных, загрузите папку **Ambulance Data** из [репозитория Git для озера данных Azure](https://github.com/MicrosoftBigData/ProjectKona/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+4. Отправьте пример данных в озеро данных Azure. Позже мы проверим, доступны ли эти данные из кластера HDInsight. Если у вас нет под рукой подходящих для этих целей данных, передайте папку **Ambulance Data** из [репозитория Git для озера данных Azure](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 
 		
 		$myrootdir = "/"
@@ -294,4 +294,4 @@
 [makecert]: https://msdn.microsoft.com/ru-RU/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/ru-RU/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

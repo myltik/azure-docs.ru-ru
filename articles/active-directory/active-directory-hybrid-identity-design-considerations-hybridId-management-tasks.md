@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Рекомендации по проектированию гибридных решений для идентификации Azure Active Directory ― определение задач управления гибридной идентификацией | Microsoft Azure"
+	pageTitle="Рекомендации по проектированию решений для гибридной идентификации Azure Active Directory ― определение задач управления гибридной идентификацией | Microsoft Azure"
 	description="С условным контролем доступа при проверке подлинности пользователя и перед предоставлением ему доступа к приложению Azure Active Directory проверяет определенные условия, которые вы можете выбрать. Если эти условия выполняются, пользователь проходит проверку подлинности, и ему дается доступ к приложению."
 	documentationCenter=""
 	services="active-directory"
@@ -62,6 +62,6 @@
 
 
 ## См. также
-[Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-directory-overview.md)
+[Обзор рекомендаций по проектированию](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

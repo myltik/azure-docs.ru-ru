@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/08/2015" 
+	ms.date="11/16/2015" 
 	ms.author="tamram"/>
 
 
@@ -144,17 +144,22 @@ URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sas
 
 >[AZURE.IMPORTANT]URI подписанного URL-адреса связан с ключом учетной записи, который использовался для создания подписи и соответствующей хранимой политики доступа (при наличии таковой). Если хранимая политика доступа не указана, то единственный способ отменить подписанный URL-адрес — изменить ключ учетной записи.
 
-## Примеры подписанных URL-адресов
+## Примеры. Создание и использование подписанных URL-адресов
 
 Ниже приведены примеры подписанных URL-адресов обоих типов: SAS учетной записи и SAS службы.
 
-### Пример SAS учетной записи
+Чтобы запустить эти примеры, необходимо скачать такие пакеты и использовать их:
+
+- [Клиентская библиотека службы хранилища Azure для .NET](http://www.nuget.org/packages/WindowsAzure.Storage) версии 6.0 или более поздней (для использования учетной записи SAS).
+- [Диспетчер конфигураций Azure](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 
+
+### Пример. Учетная запись SAS
 
 В следующем примере кода показано создание подписанного URL-адреса учетной записи, который действует для службы BLOB-объектов или службы файлов и предоставляет клиенту права на чтение, запись и получение списков через API-интерфейсы уровня службы. В SAS учетной записи указано ограничение на использование протоколов, поэтому запрос должен быть выполнен с помощью протокола HTTPS.
 
     static string GetAccountSASToken()
     {
-        // To create the account SAS, you need to use your shared key credentials.
+        // To create the account SAS, you need to use your shared key credentials. Modify for your account.
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
             Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
@@ -218,21 +223,13 @@ URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sas
         Console.WriteLine(serviceProperties.HourMetrics.Version);
     }
 
-### Пример SAS службы
+### Пример. Служба SAS с хранимой политикой доступа
 
-В следующем примере кода показано создание хранимой политики доступа для контейнера и последующее создание SAS службы для этого контейнера. Затем SAS можно передавать клиентам, чтобы предоставить им разрешения на чтение и запись в контейнере.
+В следующем примере кода показано создание хранимой политики доступа для контейнера и последующее создание SAS службы для этого контейнера. Затем SAS можно передавать клиентам, чтобы предоставить им разрешения на чтение и запись в контейнере. Измените код, чтобы использовать имя своей учетной записи:
 
-    // The connection string for the storage account.  Modify for your account.
-    string storageConnectionString =
-       "DefaultEndpointsProtocol=https;" +
-       "AccountName=myaccount;" +
-       "AccountKey=<account-key>";
-    
-    // As an alternative, you can retrieve storage account information from an app.config file. 
-    // This is one way to store and retrieve a connection string if you are 
-    // writing an application that will run locally, rather than in Microsoft Azure.
-    
-    // string storageConnectionString = ConfigurationManager.AppSettings["StorageAccountConnectionString"];
+    // Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
     
     // Create the storage account with the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
@@ -246,6 +243,9 @@ URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sas
     
     // Get the current permissions for the blob container.
     BlobContainerPermissions blobPermissions = container.GetPermissions();
+
+    // Clear the container's shared access policies to avoid naming conflicts.
+    blobPermissions.SharedAccessPolicies.Clear();
     
     // The new shared access policy provides read/write access to the container for 24 hours.
     blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy()
@@ -253,24 +253,23 @@ URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sas
        // To ensure SAS is valid immediately, don’t set the start time.
        // This way, you can avoid failures caused by small clock differences.
        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
-       Permissions = SharedAccessBlobPermissions.Write |
-      SharedAccessBlobPermissions.Read
+       Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Create | SharedAccessBlobPermissions.Add
     });
     
     // The public access setting explicitly specifies that 
     // the container is private, so that it can't be accessed anonymously.
     blobPermissions.PublicAccess = BlobContainerPublicAccessType.Off;
     
-    // Set the permission policy on the container.
+    // Set the new stored access policy on the container.
     container.SetPermissions(blobPermissions);
     
     // Get the shared access signature token to share with users.
     string sasToken =
        container.GetSharedAccessSignature(new SharedAccessBlobPolicy(), "mypolicy");
 
-Клиент, которому принадлежит подписанный URL-адрес службы, может использовать его в своем коде для подтверждения подлинности запроса на чтение или запись в BLOB-объекте в этом контейнере. Например, следующий код создает с помощью маркера SAS новый блочный BLOB-объект в контейнере.
+Клиент, которому принадлежит подписанный URL-адрес службы, может использовать его в своем коде для подтверждения подлинности запроса на чтение или запись в BLOB-объекте в этом контейнере. Например, следующий код создает с помощью маркера SAS новый блочный BLOB-объект в контейнере. Измените код, чтобы использовать имя своей учетной записи:
 
-    Uri blobUri = new Uri("https://myaccount.blob.core.windows.net/mycontainer/myblob.txt");
+    Uri blobUri = new Uri("https://<myaccount>.blob.core.windows.net/mycontainer/myblob.txt");
     
     // Create credentials with the SAS token. The SAS token was created in previous example.
     StorageCredentials credentials = new StorageCredentials(sasToken);
@@ -281,7 +280,7 @@ URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sas
     // Upload the blob. 
     // If the blob does not yet exist, it will be created. 
     // If the blob does exist, its existing content will be overwritten.
-    using (var fileStream = System.IO.File.OpenRead(@"c:\Test\myblob.txt"))
+    using (var fileStream = System.IO.File.OpenRead(@"c:\Temp\myblob.txt"))
     {
     	blob.UploadFromStream(fileStream);
     }
@@ -317,11 +316,9 @@ URI BLOB-объекта|https://myaccount.blob.core.windows.net/sascontainer/sas
 - [Использование хранилища файлов Azure в Windows](storage-dotnet-how-to-use-files.md)
 - [Управление доступом к ресурсам хранилища Azure](storage-manage-access-to-resources.md)
 - [Делегирование доступа с помощью подписанного URL-адреса](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [Введение в таблицы и очереди SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [Введение в таблицы и очереди SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

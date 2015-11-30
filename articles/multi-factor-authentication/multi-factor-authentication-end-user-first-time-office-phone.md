@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015" 
 	ms.author="billmath"/>
 
 # Использование рабочего телефона для связи при работе со службой Azure Multi-Factor Authentication
@@ -40,4 +40,4 @@
 
 <center>![Установка](./media/multi-factor-authentication-end-user-first-time-office-phone/app.png)</center>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

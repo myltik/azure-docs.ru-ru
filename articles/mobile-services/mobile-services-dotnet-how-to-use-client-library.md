@@ -64,12 +64,12 @@
 
 ##<a name="instantiating"></a>Практическое руководство. Создание ссылки на таблицу
 
-Весь код, который обращается к данным в таблице мобильных служб или изменяет эти данные, вызывает функции объекта `MobileServiceTable`. Ссылку на таблицу можно получить, вызвав метод [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) для экземпляра `MobileServiceClient`, следующим образом:
+Весь код, который обращается к данным в таблице мобильных служб или изменяет эти данные, вызывает функции объекта `MobileServiceTable`. Ссылку на таблицу можно получить, вызвав метод [GetTable](https://msdn.microsoft.com/library/azure/jj554275.aspx) для экземпляра `MobileServiceClient`:
 
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
 
-Это типизированная модель сериализации; [нетипизированная модель сериализации](#untyped) обсуждается ниже.
+Это типизированная модель сериализации. [Нетипизированная модель сериализации](#untyped) обсуждается ниже.
 
 ##<a name="querying"></a>Практическое руководство. Запрос данных от мобильной службы
 
@@ -278,7 +278,7 @@
 
 ##<a name="#custom-api"></a>Практическое руководство. Вызов настраиваемого интерфейса API
 
-Настраиваемый интерфейс API позволяет определить пользовательские конечные точки, которые предоставляют функциональные возможности сервера, не сопоставляемые с операциями вставки, обновления, удаления или чтения. При использовании настраиваемого интерфейса API вы получаете больше возможностей для управления сообщениями, в том числе для чтения и установки заголовков HTTP-сообщений, а также определения форматов текста сообщений, отличных от JSON. Пример создания настраиваемого интерфейса API в мобильной службе см. в разделе [Практическое руководство. Определение конечной точки настраиваемого интерфейса API](mobile-services-dotnet-backend-define-custom-api.md).
+Настраиваемый интерфейс API позволяет определить пользовательские конечные точки, которые предоставляют функциональные возможности сервера, не сопоставляемые с операциями вставки, обновления, удаления или чтения. При использовании настраиваемого интерфейса API вы получаете больше возможностей для управления сообщениями, в том числе для чтения и установки заголовков HTTP-сообщений, а также определения форматов текста сообщений, отличных от JSON. Пример создания настраиваемого API в мобильной службе см. в разделе [Практическое руководство. Определение конечной точки настраиваемого интерфейса API](mobile-services-dotnet-backend-define-custom-api.md).
 
 Настраиваемый API можно вызвать путем вызова одной из перегрузок метода [InvokeApiAsync] для клиента. Например, следующая строка кода отправляет запрос POST интерфейсу API **completeAll** в мобильной службе:
 
@@ -292,24 +292,36 @@
 
 Клиент мобильных служб позволяет выполнить регистрацию для получения push-уведомлений с помощью концентраторов уведомлений Azure. При регистрации вы получаете маркер из службы push-уведомлений (PNS). Это значение необходимо указать при регистрации вместе со всеми тегами. Следующий код регистрирует ваше приложение Windows для получения push-уведомлений через службу уведомлений Windows (WNS):
 
-		private async void InitNotificationsAsync()
-		{
-		    // Request a push notification channel.
-		    var channel =
-		        await PushNotificationChannelManager
-		            .CreatePushNotificationChannelForApplicationAsync();
+	private async void InitNotificationsAsync()
+	{
+	    // Request a push notification channel.
+	    var channel =
+	        await PushNotificationChannelManager
+	            .CreatePushNotificationChannelForApplicationAsync();
 
-		    // Register for notifications using the new channel and a tag collection.
-			var tags = new List<string>{ "mytag1", "mytag2"};
-		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
-		}
+	    // Register for notifications using the new channel and a tag collection.
+		var tags = new List<string>{ "mytag1", "mytag2"};
+	    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
+	}
 
-Обратите внимание, что в этом примере в регистрацию включены два тега. Дополнительные сведения о приложениях Windows см. в разделе [Добавление push-уведомлений в приложение](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md).
+Обратите внимание, что в этом примере в регистрацию включены два тега. Подробнее о приложениях для Windows см. в разделе [Добавление push-уведомлений в приложение](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md).
 
-Приложениям Xamarin требуется дополнительный код для регистрации приложения Xamarin, работающего под управлением iOS или Android, в Службе push-уведомлений Apple (APNS) и службе Google Cloud Messaging (GCM) соответственно. Дополнительные сведения см. в разделе **Добавление push-уведомлений в приложение** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
+Приложениям Xamarin требуется дополнительный код для регистрации приложения Xamarin, работающего под управлением iOS или Android, в Службе push-уведомлений Apple (APNS) и службе Google Cloud Messaging (GCM) соответственно. Подробнее об этом см. в разделе **Добавление push-уведомлений в приложение** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
 >[AZURE.NOTE]Если уведомления необходимо отправлять конкретному зарегистрированному пользователю, обязательно запросите проверку подлинности перед регистрацией, а затем убедитесь, что пользователь вправе зарегистрироваться с использованием определенного тега. Например, необходимо убедиться, что при регистрации пользователь не воспользовался тегом, который представляет собой идентификатор другого пользователя. Дополнительные сведения см. в статье [Рассылка push-уведомлений проверенным пользователям](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
+##<a name="pull-notifications"></a>Практическое руководство. Использование периодических уведомлений в приложении для Windows
+
+Windows поддерживает периодические уведомления (pull-уведомления) для обновления живых плиток. Когда периодические уведомления включены, Windows будет периодически обращаться к конечной точке пользовательского API для обновления плитки приложения в меню «Пуск». Чтобы использовать периодические уведомления, необходимо [определить настраиваемый API](mobile-services-javascript-backend-define-custom-api.md), возвращающий данные XML в формате плиток. Дополнительные сведения см. в разделе [Периодические уведомления](https://msdn.microsoft.com/library/windows/apps/hh761461.aspx).
+
+Приведенный пример включает периодические уведомления для запроса данных шаблона плитки у настраиваемой конечной точки *tiles*.
+
+    TileUpdateManager.CreateTileUpdaterForApplication().StartPeriodicUpdate(
+        new System.Uri(MobileService.ApplicationUri, "/api/tiles"),
+        PeriodicUpdateRecurrence.Hour
+    ); 
+
+Выберите значение [PeriodicUpdateRecurrance](https://msdn.microsoft.com/library/windows/apps/windows.ui.notifications.periodicupdaterecurrence.aspx), соответствующее частоте обновления данных.
 
 ##<a name="optimisticconcurrency"></a>Практическое руководство. Использование оптимистичного параллелизма
 
@@ -418,7 +430,7 @@
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-Некоторые элементы управления в управляемой среде выполнения поддерживают интерфейс [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Этот интерфейс позволяет элементам управления запрашивать дополнительные данные во время прокрутки, выполняемой пользователем. Для универсальных приложений Windows 8.1 предусмотрена встроенная поддержка этого интерфейса через класс `MobileServiceIncrementalLoadingCollection`, который автоматически обрабатывает вызовы из элементов управления. Чтобы использовать класс `MobileServiceIncrementalLoadingCollection` в приложениях Windows, выполните следующие действия.
+Некоторые элементы управления в управляемой среде выполнения Windows поддерживают интерфейс [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Этот интерфейс позволяет элементам управления запрашивать дополнительные данные во время прокрутки, выполняемой пользователем. Для универсальных приложений для Windows 8.1 предусмотрена встроенная поддержка этого интерфейса через класс `MobileServiceIncrementalLoadingCollection`, который автоматически обрабатывает вызовы из элементов управления. Чтобы использовать класс `MobileServiceIncrementalLoadingCollection` в приложениях для Windows, выполните следующее:
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -428,14 +440,14 @@
 		lb.ItemsSource = items;
 
 
-Чтобы использовать новую коллекцию для приложений Windows Phone 8 и Silverlight, используйте методы расширения `ToCollection` в интерфейсах `IMobileServiceTableQuery<T>` и `IMobileServiceTable<T>`. Чтобы фактически загрузить данные, вызовите метод `LoadMoreItemsAsync()`.
+Чтобы использовать новую коллекцию в приложениях для Windows Phone 8 и Silverlight, используйте методы расширения `ToCollection` в интерфейсах `IMobileServiceTableQuery<T>` и `IMobileServiceTable<T>`. Чтобы фактически загрузить данные, вызовите метод `LoadMoreItemsAsync()`.
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 	await items.LoadMoreItemsAsync();
 
 При использовании коллекции, созданной путем вызова метода `ToCollectionAsync` или `ToCollection`, вы получите коллекцию, которую можно привязать к элементам управления пользовательским интерфейсом. Эта коллекция поддерживает разбиение по страницам, то есть элемент управления может запросить в коллекции загрузку дополнительных элементов, что и будет выполнено коллекцией для этого элемента. На этом этапе пользовательский код не участвует, элемент управления запустит поток. Однако так как коллекция загружает данные из сети, ожидается, что иногда эта загрузка будет завершаться со сбоем. Чтобы обработать подобные ошибки, можно переопределить метод `OnException` класса `MobileServiceIncrementalLoadingCollection` для обработки исключений, возникающих в результате вызова элементами управления метода `LoadMoreItemsAsync`.
 
-Наконец, представьте, что в таблице содержится множество полей, однако необходимо отобразить только те из них, которые находятся под вашим управлением. Можно воспользоваться указаниями в приведенном выше разделе [Выбор конкретных столбцов](#selecting) для выбора столбцов, отображаемых в пользовательском интерфейсе.
+Наконец, представьте, что в таблице содержится множество полей, однако необходимо отобразить только те из них, которые находятся под вашим управлением. Можно воспользоваться инструкциями в приведенном выше разделе [Выбор конкретных столбцов](#selecting) для выбора столбцов, отображаемых в пользовательском интерфейсе.
 
 ##<a name="authentication"></a>Практическое руководство. Проверка подлинности пользователей
 
@@ -518,7 +530,7 @@
 
 ####Однократный вход в систему с использованием учетной записи Майкрософт с помощью пакета Live SDK
 
-Чтобы иметь возможность проверять подлинность пользователей, необходимо зарегистрировать свое приложение в центре разработчиков учетных записей Майкрософт. Затем зарегистрированное приложение необходимо подключить к своей мобильной службе. Выполните действия в разделе [Регистрация приложения для входа с использованием учетной записи Майкрософт](mobile-services-how-to-register-microsoft-authentication.md), чтобы создать регистрацию учетной записи Майкрософт и подключить ее к своей мобильной службе. Если у вас есть версии приложения Магазина Windows и Windows Phone 8/Silverlight, сначала зарегистрируйте версию для Магазина Windows.
+Чтобы иметь возможность проверять подлинность пользователей, необходимо зарегистрировать свое приложение в центре разработчиков учетных записей Майкрософт. Затем зарегистрированное приложение необходимо подключить к своей мобильной службе. Выполните действия в разделе [Регистрация приложения для входа с использованием учетной записи Майкрософт](mobile-services-how-to-register-microsoft-authentication.md), чтобы зарегистрировать учетную запись Майкрософт и подключить ее к своей мобильной службе. Если у вас есть версии приложения Магазина Windows и Windows Phone 8/Silverlight, сначала зарегистрируйте версию для Магазина Windows.
 
 Следующий код выполняет проверку подлинности с помощью пакета Live SDK и использует возвращенный маркер для входа в мобильную службу.
 
@@ -754,4 +766,4 @@
 [Custom API in Azure Mobile Services Client SDKs]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

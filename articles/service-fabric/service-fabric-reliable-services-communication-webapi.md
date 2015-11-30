@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="07/23/2015"
+   ms.date="11/13/2015"
    ms.author="vturecek"/>
 
 # Начало работы со службами веб-API Microsoft Azure Service Fabric с саморазмещением OWIN
@@ -33,9 +33,9 @@
 Само приложение веб-API здесь не меняется — оно не отличается от приложений веб-API, которые вы писали в прошлом, и есть возможность просто переместить сюда большую часть кода приложения. Размещение приложения может немного отличаться от привычного, если раньше вы для этого пользовались IIS. Но прежде чем мы перейдем к размещению, давайте начнем с более привычного — приложения веб-API.
 
 
-## Настройка приложения веб-API
+## Создание приложения
 
-Для начала в Visual Studio 2015 создайте новое приложение с единой службой без отслеживания состояния:
+Для начала в Visual Studio 2015 создайте новое приложение Service Fabric с одной службой без отслеживания состояния:
 
 ![Создание нового приложения Service Fabric](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
 
@@ -53,13 +53,13 @@
  + Controllers;
  + Models.
 
-Добавьте базовые классы конфигурации веб-API в каталог App\_Start:
+Добавьте базовые классы конфигурации веб-API в каталог App\_Start. Пока мы просто добавим пустую конфигурацию модуля форматирования типа мультимедиа:
 
  + FormatterConfig.cs;
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
     using System.Net.Http.Formatting;
 
@@ -73,65 +73,48 @@ namespace WebApi
 
 ```
 
- + RouteConfig.cs.
-
-```csharp
-
-namespace WebApi
-{
-    using System.Web.Http;
-
-    public static class RouteConfig
-    {
-        public static void RegisterRoutes(HttpRouteCollection routes)
-        {
-            routes.MapHttpRoute(
-                    name: "DefaultApi",
-                    routeTemplate: "api/{controller}/{id}",
-                    defaults: new { controller = "Default", id = RouteParameter.Optional }
-                );
-        }
-    }
-}
-
-```
-
 Добавьте контроллер по умолчанию в каталог Controllers:
 
  + DefaultController.cs.
 
 ```csharp
 
-namespace WebApi.Controllers
+namespace WebApiService.Controllers
 {
     using System.Collections.Generic;
     using System.Web.Http;
 
+    [RoutePrefix("api")]
     public class DefaultController : ApiController
     {
         // GET api/values
+        [Route("values")]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5
+        [Route("values/{id}")]
         public string Get(int id)
         {
             return "value";
         }
 
         // POST api/values
+        [Route("values")]
         public void Post([FromBody]string value)
         {
         }
 
         // PUT api/values/5
+        [Route("values/{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
         // DELETE api/values/5
+        [Route("values/{id}")]
         public void Delete(int id)
         {
         }
@@ -146,7 +129,7 @@ namespace WebApi.Controllers
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
     using Owin;
     using System.Web.Http;
@@ -157,8 +140,8 @@ namespace WebApi
         {
             HttpConfiguration config = new HttpConfiguration();
 
+            config.MapHttpAttributeRoutes();
             FormatterConfig.ConfigureFormatters(config.Formatters);
-            RouteConfig.RegisterRoutes(config.Routes);
 
             appBuilder.UseWebApi(config);
         }
@@ -171,7 +154,7 @@ namespace WebApi
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
     using Owin;
 
@@ -202,7 +185,7 @@ public class Program
         {
             using (FabricRuntime fabricRuntime = FabricRuntime.Create())
             {
-                fabricRuntime.RegisterServiceType(Service.ServiceTypeName, typeof(Service));
+                fabricRuntime.RegisterServiceType("WebApiServiceType", typeof(Service));
 
                 Thread.Sleep(Timeout.Infinite);
             }
@@ -219,8 +202,6 @@ public class Program
 
 Если он подозрительно похож на точку входа в консольное приложение, скорее всего, он ею и является.
 
-![](media/service-fabric-reliable-services-communication-webapi/webapi-projectproperties.png)
-
 Подробности хост-процесса службы и регистрации службы выходят за пределы этой статьи, но на данном этапе важно знать, что **код вашей службы выполняется в собственном процессе**.
 
 ## Саморазмещение веб-API с использованием хоста OWIN
@@ -234,24 +215,11 @@ public class Program
 
 ## Настройка веб-сервера
 
-Интерфейс API надежных служб предоставляет две точки входа для бизнес-логики.
-
- + Метод точки входа с открытым окончанием, где можно начать выполнение любой требуемой рабочей нагрузки. Этот метод предназначен в основном для долго выполняющихся вычислений.
+API Reliable Services предоставляет точку входа для обмена данными, к которой можно подключить стеки связи, чтобы позволить пользователям и клиентам подключаться к службе.
 
 ```csharp
 
-protected override async Task RunAsync(CancellationToken cancellationToken)
-{
-    ...
-}
-
-```
-
- + Точка входа связи, где можно подключить любой стек связи по выбору.
-
-```csharp
-
-protected override ICommunicationListener CreateCommunicationListener()
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
     ...
 }
@@ -275,7 +243,7 @@ namespace WebApi
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Owin.Hosting;
-    using Microsoft.ServiceFabric.Services;
+    using Microsoft.ServiceFabric.Services.Communication.Runtime;
 
     public class OwinCommunicationListener : ICommunicationListener
     {
@@ -287,10 +255,6 @@ namespace WebApi
         {
         }
 
-        public void Initialize(ServiceInitializationParameters serviceInitializationParameters)
-        {
-        }
-
         public Task<string> OpenAsync(CancellationToken cancellationToken)
         {
         }
@@ -299,9 +263,8 @@ namespace WebApi
 
 ```
 
-Интерфейс ICommunicationListener предоставляет 4 метода для управления прослушивателем связи для службы:
+Интерфейс ICommunicationListener предоставляет три метода для управления прослушивателем связи для службы:
 
- + **Initialize** — здесь обычно настраивается адрес, который будет прослушиваться службой. Для веб-сервера здесь настраивается URL-адрес.
  + **OpenAsync** — начало прослушивания запросов.
  + **CloseAsync** — остановка прослушивания запросов, завершение всех активных запросов и корректное завершение работы.
  + **Abort** — отмена всех операций и немедленная остановка.
@@ -316,20 +279,22 @@ public class OwinCommunicationListener : ICommunicationListener
     private readonly string appRoot;
     private IDisposable serverHandle;
     private string listeningAddress;
+    private readonly ServiceInitializationParameters serviceInitializationParameters;
 
-    public OwinCommunicationListener(string appRoot, IOwinAppBuilder startup)
+    public OwinCommunicationListener(string appRoot, IOwinAppBuilder startup, ServiceInitializationParameters serviceInitializationParameters)
     {
         this.startup = startup;
         this.appRoot = appRoot;
-    }
+        this.serviceInitializationParameters = serviceInitializationParameters;
+    }        
 
     ...
 
 ```
 
-### Initialize
+### Реализация
 
-Здесь настраивается URL-адрес веб-сервера. Для этого необходима такая информация:
+Чтобы настроить веб-сервер, необходима определенная информация.
 
  + **Префикс пути URL-адреса**. Хотя это необязательно, его рекомендуется настроить сейчас, чтобы можно было безопасно разместить в приложении несколько веб-служб.
  + **Порт**.
@@ -350,11 +315,12 @@ public class OwinCommunicationListener : ICommunicationListener
 
 Этот шаг важен, так как хост-процесс службы выполняется с ограниченными учетными данными (Network Service в Windows), что означает, что у службы не будет доступа для самостоятельной настройки конечной точки HTTP. Используя конфигурацию конечной точки, платформа Service Fabric знает, как настроить соответствующий ACL для URL-адреса, который будет прослушиваться службой, во время предоставления стандартного места для настройки конечных точек.
 
-Вернувшись к файлу OwinCommunicationListener.cs, получите сведения о конечной точке в методе Initialize, чтобы получить порт. Создайте URL-адрес, который будет прослушивать служба, и сохраните его в ранее созданной переменной, которая является членом класса. Этот адрес будет использоваться в OpenAsync для запуска веб-сервера.
+
+В OwinCommunicationListener.cs мы можем начать реализацию OpenAsync. Так начнется запуск веб-сервера. Во-первых, получите информацию о конечной точке и создайте URL-адрес, который будет прослушивать служба.
 
 ```csharp
 
-public void Initialize(ServiceInitializationParameters serviceInitializationParameters)
+public Task<string> OpenAsync(CancellationToken cancellationToken)
 {
     EndpointResourceDescription serviceEndpoint = serviceInitializationParameters.CodePackageActivationContext.GetEndpoint("ServiceEndpoint");
     int port = serviceEndpoint.Port;
@@ -366,15 +332,11 @@ public void Initialize(ServiceInitializationParameters serviceInitializationPara
         String.IsNullOrWhiteSpace(this.appRoot)
             ? String.Empty
             : this.appRoot.TrimEnd('/') + '/');
-}
+    ...
 
 ```
 
 Обратите внимание, что здесь используется адрес «http://+». Это позволяет обеспечить прослушивание веб-сервером всех доступных адресов, включая localhost, полное доменное имя и IP-адрес компьютера.
-
-### OpenAsync
-
-OpenAsync вызывается платформой после инициализации. Здесь используется адрес, созданный в методе Initialize, для открытия веб-сервера.
 
 Реализация OpenAsync является одной из важнейших причин, почему веб-сервер (или любой стек связи) реализуется как ICommunicationListener, а не просто открывается непосредственно из RunAsync() в Service. Значение, возвращаемое OpenAsync, представляет собой адрес, который прослушивается веб-сервером. Когда этот адрес возвращается в систему, она регистрирует адрес в службе. Платформа Service Fabric дает возможность использовать интерфейс API, позволяющий клиентам или другим службам в дальнейшем запрашивать этот адрес по имени службы. Это важно, так как службы перемещаются по кластеру в целях доступности и балансировки ресурсов, и поэтому адрес службы не является статическим. Это механизм, позволяющий клиентам распознавать адрес прослушивания для службы.
 
@@ -382,15 +344,14 @@ OpenAsync вызывается платформой после инициали�
 
 ```csharp
 
-public Task<string> OpenAsync(CancellationToken cancellationToken)
-{
+    ...
+
     this.serverHandle = WebApp.Start(this.listeningAddress, appBuilder => this.startup.Configuration(appBuilder));
+    string publishAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
 
-    string resultAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+    ServiceEventSource.Current.Message("Listening on {0}", publishAddress);
 
-    ServiceEventSource.Current.Message("Listening on {0}", resultAddress);
-
-    return Task.FromResult(resultAddress);
+    return Task.FromResult(publishAddress);
 }
 
 ```
@@ -438,13 +399,16 @@ private void StopWebServer()
 
 ## Запуск веб-сервера
 
-Теперь вы готовы создать и вернуть экземпляр OwinCommunicationListener для запуска веб-сервера. Вернувшись в класс Service (Service.cs), переопределите метод **CreateCommunicationListener()**:
+Теперь вы готовы создать и вернуть экземпляр OwinCommunicationListener для запуска веб-сервера. Вернувшись в класс Service (Service.cs), переопределите метод **CreateServiceInstanceListeners()**:
 
 ```csharp
 
-protected override ICommunicationListener CreateCommunicationListener()
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
 {
-	return new OwinCommunicationListener("api", new Startup());
+    return new[]
+    {
+        new ServiceInstanceListener(initParams => new OwinCommunicationListener("webapp", new Startup(), initParams))
+    };
 }
 
 ```
@@ -459,28 +423,31 @@ protected override ICommunicationListener CreateCommunicationListener()
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
-    using Microsoft.ServiceFabric.Services;
+    using System.Collections.Generic;
+    using Microsoft.ServiceFabric.Services.Communication.Runtime;
+    using Microsoft.ServiceFabric.Services.Runtime;
 
-    public class Service : StatelessService
+    public class WebApiService : StatelessService
     {
-        public const string ServiceTypeName = "WebApiType";
-
-        protected override ICommunicationListener CreateCommunicationListener()
+        protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
         {
-            return new OwinCommunicationListener("api", new Startup());
+            return new[]
+            {
+                new ServiceInstanceListener(initParams => new OwinCommunicationListener("webapp", new Startup(), initParams))
+            };
         }
     }
 }
 
 ```
 
-И полный класс OwinCommunicationListener.
+Полный класс `OwinCommunicationListener`:
 
 ```csharp
 
-namespace WebApi
+namespace WebApiService
 {
     using System;
     using System.Fabric;
@@ -489,22 +456,24 @@ namespace WebApi
     using System.Threading;
     using System.Threading.Tasks;
     using Microsoft.Owin.Hosting;
-    using Microsoft.ServiceFabric.Services;
+    using Microsoft.ServiceFabric.Services.Communication.Runtime;
 
     public class OwinCommunicationListener : ICommunicationListener
     {
         private readonly IOwinAppBuilder startup;
         private readonly string appRoot;
+        private readonly ServiceInitializationParameters serviceInitializationParameters;
         private IDisposable serverHandle;
         private string listeningAddress;
-
-        public OwinCommunicationListener(string appRoot, IOwinAppBuilder startup)
+        
+        public OwinCommunicationListener(string appRoot, IOwinAppBuilder startup, ServiceInitializationParameters serviceInitializationParameters)
         {
             this.startup = startup;
             this.appRoot = appRoot;
+            this.serviceInitializationParameters = serviceInitializationParameters;
         }
 
-        public void Initialize(ServiceInitializationParameters serviceInitializationParameters)
+        public Task<string> OpenAsync(CancellationToken cancellationToken)
         {
             EndpointResourceDescription serviceEndpoint = serviceInitializationParameters.CodePackageActivationContext.GetEndpoint("ServiceEndpoint");
             int port = serviceEndpoint.Port;
@@ -516,21 +485,19 @@ namespace WebApi
                 String.IsNullOrWhiteSpace(this.appRoot)
                     ? String.Empty
                     : this.appRoot.TrimEnd('/') + '/');
-        }
 
-        public Task<string> OpenAsync(CancellationToken cancellationToken)
-        {
             this.serverHandle = WebApp.Start(this.listeningAddress, appBuilder => this.startup.Configuration(appBuilder));
+            string publishAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
 
-            string resultAddress = this.listeningAddress.Replace("+", FabricRuntime.GetNodeContext().IPAddressOrFQDN);
+            ServiceEventSource.Current.Message("Listening on {0}", publishAddress);
 
-            ServiceEventSource.Current.Message("Listening on {0}", resultAddress);
-
-            return Task.FromResult(resultAddress);
+            return Task.FromResult(publishAddress);
         }
 
         public Task CloseAsync(CancellationToken cancellationToken)
         {
+            ServiceEventSource.Current.Message("Close");
+
             this.StopWebServer();
 
             return Task.FromResult(true);
@@ -538,6 +505,8 @@ namespace WebApi
 
         public void Abort()
         {
+            ServiceEventSource.Current.Message("Abort");
+
             this.StopWebServer();
         }
 
@@ -570,7 +539,7 @@ namespace WebApi
 Если это еще не сделано, [настройте среду разработки](service-fabric-get-started.md).
 
 
-Теперь можно построить и развернуть службу. Нажмите клавишу **F5** в Visual Studio, чтобы выполнить построение и развертывание приложения. В окне «События диагностики» вы увидите сообщение, указывающее, что веб-сервер открылся на ****http://localhost:80/api**.
+Теперь можно построить и развернуть службу. Нажмите клавишу **F5** в Visual Studio, чтобы выполнить построение и развертывание приложения. В окне «События диагностики» вы увидите сообщение, указывающее, что веб-сервер открыт на ****http://localhost:80/webapp/api**.
 
 
 ![](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
@@ -578,7 +547,7 @@ namespace WebApi
 > [AZURE.NOTE]Если порт уже открыт другим процессом на компьютере, может появиться ошибка, указывающая, что прослушиватель не удалось открыть. В таком случае попробуйте использовать другой порт в конфигурации конечной точки (Endpoint) в файле ServiceManifest.xml.
 
 
-После того как служба запустится, откройте браузер и перейдите по адресу [http://localhost/api](http://localhost/api) для проверки.
+После того как служба запустится, откройте браузер и перейдите по адресу [http://localhost/webapp/api/values](http://localhost/webapp/api/values) для проверки.
 
 ## Масштабирование
 
@@ -614,4 +583,4 @@ New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -Servi
 
 [Отладка приложения Service Fabric в Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=Nov15_HO4-->

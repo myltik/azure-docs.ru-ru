@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/03/2015"
+	ms.date="11/19/2015"
 	ms.author="jgao"/>
 
 # Управление кластерами Hadoop в HDInsight с помощью интерфейса командной строки (CLI) Azure
@@ -115,6 +115,8 @@ Azure CLI имеет открытый исходный код. Исходный 
 ##Создание кластеров с помощью файлов конфигурации
 Как правило, необходимо создать кластер HDInsight, выполнить в нем задания, а затем удалить кластер для сокращения расходов. Интерфейс командной строки предоставляет возможность сохранения конфигураций в файле, который можно повторно использовать при каждом создании кластера.
 
+> [AZURE.NOTE]Настройка метахранилища не поддерживается для кластеров типа HBase.
+
 	azure hdinsight cluster config create <file>
 
 	azure hdinsight cluster config set <file> --clusterName <ClusterName> --nodes <NumberOfNodes> --location "<DataCenterLocation>" --storageAccountName ""<Storage Account Name>".blob.core.windows.net" --storageAccountKey "<StorageAccountKey>" --storageContainer "<BlobContainerName>" --username "<Username>" --clusterPassword "<UserPassword>"
@@ -180,4 +182,4 @@ Azure CLI имеет открытый исходный код. Исходный 
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "Отображение кластеров"
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

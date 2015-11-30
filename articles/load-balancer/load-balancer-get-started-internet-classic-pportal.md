@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Начало работы по созданию балансировщика нагрузки для Интернета по классической модели развертывания с помощью портала предварительной версии | Microsoft Azure"
+   pageTitle="Приступая к работе по созданию балансировщика нагрузки для Интернета по классической модели развертывания с помощью портала предварительной версии | Microsoft Azure"
    description="Сведения о создании балансировщика нагрузки для Интернета по классической модели развертывания с помощью портала предварительной версии"
    services="load-balancer"
    documentationCenter="na"
@@ -17,13 +17,14 @@
    ms.date="11/03/2015"
    ms.author="joaoma" />
 
-#Начало работы по созданию балансировщика нагрузки (классический режим) для Интернета на портале предварительной версии
+#Приступая к работе по созданию балансировщика нагрузки (классический режим) для Интернета на портале предварительной версии
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этой статье рассматривается классическая модель развертывания. Вы также можете [приступить к созданию балансировщика нагрузки с помощью PowerShell диспетчера ресурсов Azure](load-balancer-get-started-internet-arm-ps.md).
+[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]В этой статье рассматривается классическая модель развертывания. Вы также можете [узнать, как создать балансировщик нагрузки для Интернета с помощью диспетчера ресурсов Azure](load-balancer-get-started-internet-arm-ps).
+
  
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -39,7 +40,7 @@
 
 3. В колонке "Основные сведения" виртуальных машин выберите "Все параметры".
 
-4. Щелкните "Наборы балансировки нагрузки".
+4. Щелкните «Наборы балансировки нагрузки».
 
 5. Для создания нового балансировщика нагрузки щелкните значок "Присоединение" в верхней части колонки наборов балансировки нагрузки.
 
@@ -65,4 +66,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

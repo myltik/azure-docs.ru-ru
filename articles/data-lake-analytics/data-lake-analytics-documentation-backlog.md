@@ -24,7 +24,8 @@
 
 Область |Раздел | Приоритет | Состояние | Кому назначено | Кем запрошено 
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
-U-SQL | Распределенный запрос | 1 | На удержании | [@edmacauley](https://github.com/edmacauley) | 
+U-SQL | Распределенный запрос | 1 | На удержании | [@edmacauley](https://github.com/edmacauley) |
+U-SQL | Перемещение данных между WASB и ADLS | 1 | Ожидает | Подлежит уточнению | Йе Син (Ye Xing, почта)
 U-SQL | Обработка JSON | 2 | Ожидает | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
 служба | Взаимодействие с Curl | 3 |Ожидает |[@mumian](https://github.com/mumian)
 U-SQL | Таблицы с секциями |1 | Выполняется | [@edmacauley](https://github.com/edmacauley) | 
@@ -50,7 +51,7 @@ U-SQL | Синтаксические диаграммы грамматики | 1
 Существует несколько способов предоставить обратную связь по списку запланированной документации.
 
 * Добавить комментарий ниже.
-* Отправить запрос по внесению предложенных изменений в данных документ в [репозиторий содержимого Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md).
-* Отправить сообщение электронной почты по адресу [adlafeedback на сайте microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog).
+* Отправить запрос по внесению предложенных изменений в данный документ в [репозиторий содержимого Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
+* Отправить сообщение по адресу [adlafeedback на сайте microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

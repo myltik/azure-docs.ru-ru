@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Создание ферм серверов SharePoint | Microsoft Azure"
-	description="Быстро создавайте базовые или высокодоступные фермы SharePoint Server 2013, используя Marketplace портала предварительной версии Azure."
+	description="Быстро создавайте базовые или высокодоступные фермы SharePoint Server 2013, используя Marketplace портала предварительной версии Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -20,10 +20,10 @@
 # Создание ферм серверов SharePoint
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]классической модели.
- 
-С помощью Marketplace на портале предварительной версии Microsoft Azure можно быстро создавать предварительно настроенные фермы SharePoint Server 2013. Это позволяет сэкономить много времени при необходимости использовать базовую или высокодоступную ферму SharePoint в среде разработки и тестирования или в ходе оценки SharePoint Server 2013 в качестве решения для совместной работы в рамках организации.
 
-> [AZURE.NOTE]Пункт **Ферма серверов SharePoint** был удален из Azure Marketplace на портале предварительной версии Azure.
+С помощью Marketplace на портале предварительной версии Microsoft Azure можно быстро создавать предварительно настроенные фермы SharePoint Server 2013. Это позволяет сэкономить много времени при необходимости использовать базовую или высокодоступную ферму SharePoint в среде разработки и тестирования или в ходе оценки SharePoint Server 2013 в качестве решения для совместной работы в рамках организации.
+
+> [AZURE.NOTE]Пункт **Ферма серверов SharePoint** удален из Azure Marketplace на портале предварительной версии Azure.
 
 Базовая ферма SharePoint в этой конфигурации состоит из трех виртуальных машин.
 
@@ -69,4 +69,4 @@
 
 [Архитектуры Microsoft Azure для SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=Nov15_HO4-->

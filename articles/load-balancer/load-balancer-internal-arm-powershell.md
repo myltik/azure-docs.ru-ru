@@ -114,7 +114,7 @@
 
 Создание внешнего пула IP-адресов с помощью частного IP-адреса 10.0.2.5 для подсети 10.0.2.0/24, которая будет служить конечной точкой для входящего сетевого трафика.
 
-	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $backendSubnet.Id
+	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.Subnets.Id
 
 ### Шаг 2. 
 
@@ -257,7 +257,7 @@ PS C:\> $backendnic1
 
 ### Шаг 3.
 
-Сохраните новую конфигурацию, используя метод Set-AzureLoadBalancer.
+Сохраните новую конфигурацию, используя командлет Set-AzureLoadBalancer.
 
 	$slb | Set-AzureLoadBalancer
 
@@ -278,4 +278,4 @@ PS C:\> $backendnic1
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->

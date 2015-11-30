@@ -35,7 +35,7 @@
 
 3. Запустите в подпапке **server** каталога приложения один из следующих файлов команд.
 
-	+ **launch-windows** (компьютеры с ОС Windows) 
+	+ **.\\start-iisexpress.ps1** (компьютеры с ОС Windows) 
 	+ **launch-mac.command** (компьютеры с ОС Mac OS X)
 	+ **launch-linux.sh** (компьютеры с ОС Linux)
 
@@ -68,7 +68,7 @@
 
 	Это позволит выполнить вход в мобильные службы с этой страницы.
 
-2. В файле app.js найдите строку кода, расположенную в конце файла, которая вызывает функцию refreshTodoItems, и замените ее на следующий код:
+2. В файле page.js найдите строку кода, расположенную в конце файла, которая вызывает функцию refreshTodoItems, и замените ее на следующий код:
 	
 		function refreshAuthDisplay() {
 			var isLoggedIn = client.currentUser !== null;
@@ -137,4 +137,4 @@
 [Справочник принципов использования мобильных служб HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

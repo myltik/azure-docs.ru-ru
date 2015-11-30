@@ -310,10 +310,44 @@ Xamarin apps require some additional code to be able to register a Xamarin app r
 >[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 >-->
 
+## Использование шаблонов для отправки кроссплатформенных уведомлений выполнившим проверку подлинности пользователям
+
+Для регистрации шаблонов просто передайте их в клиентское приложение с помощью метода **MobileService.GetPush().RegisterAsync()**.
+
+        MobileService.GetPush().RegisterAsync(channel.Uri, newTemplates());
+
+Шаблоны будут относиться к типу JObject и содержать несколько шаблонов в следующем формате JSON:
+
+        public JObject newTemplates()
+        {
+            // single template for Windows Notification Service toast
+            var template = "<toast><visual><binding template="ToastText01"><text id="1">$(message)</text></binding></visual></toast>";
+            
+            var templates = new JObject
+            {
+                ["generic-message"] = new JObject
+                {
+                    ["body"] = template,
+                    ["headers"] = new JObject
+                    {
+                        ["X-WNS-Type"] = "wns/toast"
+                    },
+                    ["tags"] = new JArray()
+                },
+                ["more-templates"] = new JObject {...}
+            };
+            return templates;
+        }
+
+Метод **RegisterAsync()** принимает также вспомогательные плитки:
+
+        MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObject secondaryTiles);
+
+Для отправки уведомлений с использованием зарегистрированных шаблонов используйте [API центров уведомлений](https://msdn.microsoft.com/library/azure/dn495101.aspx).
 
 ##<a name="optimisticconcurrency"></a>Практическое руководство. Использование оптимистичного параллелизма
 
-В некоторых сценариях два и более клиента могут одновременно записывать изменения в один и тот же элемент. Без какого либо определения конфликтов последняя запись должна переопределять любые предыдущие обновления, даже если они привели к нежелательным результатам. При *управлении оптимистичным параллелизмом* предполагается, что каждая транзакция может фиксироваться, поэтому не использует блокировки каких-либо ресурсов. Перед фиксацией транзакции управление оптимистичным параллелизмом проверяет, что никакие другие транзакции не изменили данные. Если данные были изменены, фиксирующая транзакция откатывается.
+В некоторых сценариях два и более клиента могут одновременно записывать изменения в один и тот же элемент. Без какого либо определения конфликтов последняя запись должна переопределять любые предыдущие обновления, даже если они привели к нежелательным результатам. При *управлении опт.имистичным параллелизмом* предполагается, что каждая транзакция может фиксироваться, поэтому не использует блокировки каких-либо ресурсов. Перед фиксацией транзакции управление оптимистичным параллелизмом проверяет, что никакие другие транзакции не изменили данные. Если данные были изменены, фиксирующая транзакция откатывается.
 
 Мобильные приложения поддерживают управление оптимистичным параллелизмом за счет отслеживания изменений в каждом элементе с помощью столбца системных свойств `__version`, определенного для каждой таблицы на внутреннем сервере мобильных приложений. При каждом обновлении записи мобильные приложения задают новое значение свойства `__version` для этой записи. При обработке каждого запроса на обновление свойство `__version` записи, включенное в запрос, сравнивается с тем же свойством записи на сервере. Если версия, переданная с запросом, не соответствует внутреннему серверу, клиентская библиотека создает исключение `MobileServicePreconditionFailedException<T>`. Тип, включенный в исключение, является записью с внутреннего сервера, которая содержит версию записи на сервере. Затем приложение может использовать эти данные, чтобы решить, следует ли повторно выполнить полученный с внутреннего сервера запрос изменения с правильным значением `__version` для фиксации изменений.
 
@@ -417,7 +451,7 @@ Xamarin apps require some additional code to be able to register a Xamarin app r
 	ListBox lb = new ListBox();
 	lb.ItemsSource = items;
 
-Некоторые элементы управления в управляемой среде выполнения поддерживают интерфейс [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Этот интерфейс позволяет элементам управления запрашивать дополнительные данные во время прокрутки, выполняемой пользователем. Для универсальных приложений Windows 8.1 предусмотрена встроенная поддержка этого интерфейса через класс `MobileServiceIncrementalLoadingCollection`, который автоматически обрабатывает вызовы из элементов управления. Чтобы использовать класс `MobileServiceIncrementalLoadingCollection` в приложениях Windows, выполните следующие действия.
+Некоторые элементы управления в управляемой среде выполнения Windows поддерживают интерфейс [ISupportIncrementalLoading](http://msdn.microsoft.com/library/windows/apps/Hh701916). Этот интерфейс позволяет элементам управления запрашивать дополнительные данные во время прокрутки, выполняемой пользователем. Для универсальных приложений Windows 8.1 предусмотрена встроенная поддержка этого интерфейса через класс `MobileServiceIncrementalLoadingCollection`, который автоматически обрабатывает вызовы из элементов управления. Чтобы использовать класс `MobileServiceIncrementalLoadingCollection` в приложениях Windows, выполните следующие действия:
 
 			MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
 		items =  todoTable.Where(todoItem => todoItem.Complete == false)
@@ -427,7 +461,7 @@ Xamarin apps require some additional code to be able to register a Xamarin app r
 		lb.ItemsSource = items;
 
 
-Чтобы использовать новую коллекцию для приложений Windows Phone 8 и Silverlight, используйте методы расширения `ToCollection` в интерфейсах `IMobileServiceTableQuery<T>` и `IMobileServiceTable<T>`. Чтобы фактически загрузить данные, вызовите метод `LoadMoreItemsAsync()`.
+Чтобы использовать новую коллекцию в Windows Phone 8 и "Silverlight", используйте методы расширения `ToCollection` в интерфейсах `IMobileServiceTableQuery<T>` и `IMobileServiceTable<T>`. Чтобы фактически загрузить данные, вызовите метод `LoadMoreItemsAsync()`.
 
 	MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 	await items.LoadMoreItemsAsync();
@@ -706,6 +740,6 @@ For Windows Phone apps, you may encrypt and cache data using the [ProtectedData]
 [Fiddler]: http://www.telerik.com/fiddler
 [Custom API in Azure Mobile Services Client SDKs]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
-[DelegatingHandler]: https://msdn.microsoft.com/ru-RU/library/system.net.http.delegatinghandler(v=vs.110).aspx
+[DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

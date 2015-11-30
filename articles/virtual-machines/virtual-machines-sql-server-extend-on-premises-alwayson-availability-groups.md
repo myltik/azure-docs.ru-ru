@@ -1,38 +1,37 @@
 <properties 
-   pageTitle="Расширение локальных групп доступности AlwaysOn в Azure | Microsoft Azure"
-   description="В этом руководстве используются ресурсы, созданные с помощью классической модели развертывания, и показано, как с помощью мастера добавления реплики в SQL Server Management Studio (SSMS) добавить реплику группы доступности AlwaysOn в Azure."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar"
-   tags="azure-service-management"/>
+	pageTitle="Расширение локальных групп доступности AlwaysOn в Azure | Microsoft Azure"
+	description="В этом руководстве используются ресурсы, созданные с помощью классической модели развертывания, и показано, как с помощью мастера добавления реплики в SQL Server Management Studio (SSMS) добавить реплику группы доступности AlwaysOn в Azure."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"
+	tags="azure-service-management"/>
 
 <tags 
-   ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
-   ms.author="jroth" />
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="11/13/2015"
+	ms.author="jroth" />
 
 # Расширение локальных групп доступности AlwaysOn в Azure
 
 Группы доступности AlwaysOn обеспечивают высокий уровень доступности групп базы данных путем добавления вторичных реплик. Эти реплики позволяют отрабатывать отказы баз данных. Кроме того, их можно использовать для разгрузки рабочих нагрузок чтения или задач резервного копирования.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
- 
-
 Вы можете расширить локальные группы доступности в Microsoft Azure. Для этого подготовьте одну или несколько виртуальных машин Azure с помощью SQL Server, а затем добавьте их в локальные группы доступности в качестве реплик.
 
 В этом учебнике предполагается, что у вас есть следующие компоненты.
 
-- Активная подписка Azure. Вы можете зарегистрироваться, чтобы получить [бесплатную пробную версию](http://azure.microsoft.com/pricing/free-trial).
+- Активная подписка Azure. Вы можете [воспользоваться бесплатной пробной версией](http://azure.microsoft.com/pricing/free-trial).
 
 - Существующая локальная группа доступности AlwaysOn. Дополнительные сведения о группах доступности см. в статье [Группы доступности AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx).
 
 - Подключение между локальной сетью и виртуальной сетью Azure. Дополнительные сведения о создании этой виртуальной сети см. в статье [Создание виртуальной сети с VPN-подключением типа "сеть-сеть" с помощью портала управления](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
 
 ## Мастер добавления реплики Azure
 
@@ -104,4 +103,4 @@
 
 Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, рассматриваются в статье [SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

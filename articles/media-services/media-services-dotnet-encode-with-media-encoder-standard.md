@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/08/2015"  
+	ms.date="11/16/2015"  
 	ms.author="juliako"/>
 
 
@@ -27,9 +27,24 @@
 
 Если выходящий ресурс зашифрован в хранилище, необходимо настроить политику доставки ресурсов. Дополнительную информацию см. в разделе [Настройка политики доставки ресурсов](media-services-dotnet-configure-asset-delivery-policy.md).
 
+###Форматы стандартного кодировщика мультимедиа
+
+[Форматы и кодеки](media-services-media-encoder-standard-formats.md)
+
+###Предустановки стандартного кодировщика мультимедиа
+
+Стандартный кодировщик мультимедиа настроен с помощью одной из предустановок кодировщика, описанных [здесь](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+
+###Входные и выходные метаданные стандартного кодировщика мультимедиа
+
+Входные метаданные кодировщиков описаны [здесь](http://msdn.microsoft.com/library/azure/dn783120.aspx).
+
+Выходные метаданные кодировщиков описаны [здесь](http://msdn.microsoft.com/library/azure/dn783217.aspx).
+
+
 ##Скачивание образца
 
-Скачать и запустить образец можно [по этой ссылке](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+Скачать и запустить образец можно [здесь](http://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ##Пример
 
@@ -37,7 +52,7 @@
 
 - Создание задания кодирования.
 - Получение ссылки на стандартный кодировщик мультимедиа.
-- Укажите использование предустановки «H264 Multiple Bitrate 720p». Все предустановки можно просмотреть [здесь](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). Кроме того, [здесь](https://msdn.microsoft.com/library/mt269962.aspx) вы можете проверить схему, которой должны соответствовать эти предустановки.
+- Укажите использование предустановки «H264 Multiple Bitrate 720p». Все предустановки можно просмотреть [здесь](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). Кроме того, [в этом](https://msdn.microsoft.com/library/mt269962.aspx) разделе вы можете проверить схему, которой должны соответствовать эти предустановки.
 - Добавление одной задачи кодирования в задание. 
 - Указание входного ресурса-контейнера для кодирования.
 - Создание выходного ресурса-контейнера, который будет содержать закодированный ресурс-контейнер.
@@ -128,6 +143,6 @@
 
 ##См. также 
 
-[Создание эскиза с помощью стандартного кодировщика мультимедиа и платформы .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Обзор кодирования с помощью служб мультимедиа](media-services-encode-asset.md)
+[Создание эскиза с помощью стандартного кодировщика мультимедиа с использованием .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Обзор кодирования с помощью служб мультимедиа](media-services-encode-asset.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=Nov15_HO4-->

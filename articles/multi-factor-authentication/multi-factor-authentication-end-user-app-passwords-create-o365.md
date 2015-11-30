@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/24/2015" 
+	ms.date="11/17/2015"
 	ms.author="billmath"/>
 
 # Создание и удаление паролей приложений на портале Office 365 для службы Azure Multi-Factor Authentication
@@ -68,4 +68,4 @@
 <li>Появится всплывающее окно с предложением подтвердить удаление.</li>
 <li>Щелкните **Да**.</li>
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=Nov15_HO4-->

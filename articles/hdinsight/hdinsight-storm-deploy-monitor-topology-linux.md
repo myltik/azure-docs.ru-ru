@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="11/16/2015"
    ms.author="larryfr"/>
 
 # Развертывание топологий Apache Storm в HDInsight под управлением Linux и управление ими
@@ -137,7 +137,7 @@
 
 Пользовательский интерфейс Storm построен на базе REST API, поэтому функциональность отслеживания и управления можно реализовать аналогичным образом с помощью API. С помощью REST API можно создать пользовательские средства для отслеживания топологий Storm и управления ими.
 
-Дополнительные сведения см. в разделе <a href="https://github.com/apache/storm/blob/master/STORM-UI-REST-API.md" target="_base">API-интерфейс REST пользовательского интерфейса Storm</a>. Следующая информация касается использования REST API с Apache Storm в HDInsight.
+Дополнительные сведения см. в разделе [API-интерфейс REST пользовательского интерфейса Storm](https://github.com/apache/storm/blob/master/docs/documentation/ui-rest-api.md). Следующая информация касается использования REST API с Apache Storm в HDInsight.
 
 > [AZURE.IMPORTANT]API-интерфейс REST для Storm не является общедоступным через Интернет, и обращаться к нему необходимо с помощью туннеля SSH на головной узел кластера HDInsight. Дополнительные сведения о создании и использовании туннеля SSH см. в статье [Использование туннелирования SSH для доступа к веб-интерфейсу Ambari, ResourceManager, JobHistory, NameNode, Oozie и другим веб-интерфейсам](hdinsight-linux-ambari-ssh-tunnel.md).
 
@@ -168,4 +168,4 @@
 
 Другие примеры топологий Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=Nov15_HO4-->
