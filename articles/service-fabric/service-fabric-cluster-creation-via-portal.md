@@ -178,11 +178,14 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPath -A
 Register your application type with service fabric.
 
 ```powershell
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount" ````
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount"
+````
 
 Создайте новый экземпляр только что зарегистрированного типа приложения.
 
-```powershell New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0 ````
+```powershell
+New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0
+````
 
 Теперь откройте любой браузер и подключитесь к конечной точке, которую прослушивает приложение. URL-адрес для моего примера приложения выглядит так:
 
@@ -208,4 +211,4 @@ http://sfcluster4doc.westus.cloudapp.azure.com:31000
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!---HONumber=Nov15_HO4-->
+<!------HONumber=Nov15_HO4-->

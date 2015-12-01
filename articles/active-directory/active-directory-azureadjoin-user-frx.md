@@ -26,14 +26,17 @@
 
 1. После завершения **подготовительной стадии** откроется мастер настройки.
 2. Выберите регион и язык, примите лицензионное соглашение и подключитесь к Интернету.
-<center>! [] (. / media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png)</center>
+<center>
+![](./media/active-directory-azureadjoin/active-directory-azureadjoin-customize-region.png) </center> 
 3. Выберите сеть для подключения к Интернету.
 4. Укажите, является устройство личным или корпоративным.
 5. Щелкните **Это устройство принадлежит моей организации**. После этого начнется процесс присоединения к Azure AD. В Windows 10 Pro экран будет выглядеть так: 
-<center>! [] (. / media/active-directory-azureadjoin/active-directory-azureadjoin-who-owns-pc.png)</center>
+<center>
+![](./media/active-directory-azureadjoin/active-directory-azureadjoin-who-owns-pc.png) </center> 
 
 6.	Введите учетные данные, предоставленные вашей организацией.
-<center> ![](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png) </center>
+<center>
+![](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png) </center> 
 7.	После ввода имени пользователя в Azure AD выполняется поиск соответствующего клиента. Если вы находитесь в федеративном домене, то будете перенаправлены на локальный сервер службы маркеров безопасности (например, AD FS). В доменах, отличных от федеративных, необходимо ввести учетные данные непосредственно на размещенной в Azure AD странице. Если была настроена фирменная символика, то вы также увидите логотип компании и сопроводительный текст.
 8.	Затем появится окно многофакторной проверки подлинности. Проверка подлинности настраивается ИТ-специалистами компании.
 9.	Azure AD проверит, требуется ли дополнительная регистрация пользователя или устройства в рамках политики управления мобильными устройствами (MDM). 
@@ -51,4 +54,4 @@
 * [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->
