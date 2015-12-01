@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="get-started-article" 
-	ms.date="08/30/2015"
-	ms.author="huguesv"/>
+	ms.date="11/17/2015"
+	ms.author="huvalo"/>
 
 # Использование Django и MySQL в Azure с помощью инструментов Python 2.2 для Visual Studio 
 
@@ -98,14 +98,13 @@
 
 Выполнив следующие шаги, вы сможете создать бесплатную базу данных.
 
-1.  Войдите на [портал Azure].
+1.  Войдите на [портал Azure](https://portal.azure.com/).
 
-1.  В нижней части области навигации щелкните **СОЗДАТЬ**. Затем щелкните **Данные + Хранение** > **Azure Marketplace**.
+1.  В верхней части области навигации щелкните **Создать**. Выберите **Данные + хранилище** > **База данных MySQL**.
 
-  	<!-- ![New Button](./media/web-sites-python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)-->
+  
 
-1.  Введите **mysql** в поле поиска, щелкните **База данных MySQL** и затем щелкните **Создать**.
-
+1.  Введите **mysql** в поле поиска, щелкните **База данных MySQL**, а затем нажмите кнопку **Создать**. -->
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoClearDBAddon1.png) -->
 
 1.  Настройте новую базу данных MySQL, создав новую группу ресурсов, и выберите соответствующее расположение для нее.
@@ -191,7 +190,7 @@
 - [Документация по Django]
 - [MySQL]
 
-Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
+Дополнительные сведения см. в [Центре разработки Python](/develop/python/).
 
 ## Изменения
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -203,7 +202,7 @@
 [облачных служб Azure]: ../cloud-services-python-ptvs.md
 
 <!--External Link references-->
-[портал Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [Средства Python для Visual Studio]: http://aka.ms/ptvs
 [Инструменты Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Образцы VSIX средств Python 2.2 для Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
@@ -218,4 +217,4 @@
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

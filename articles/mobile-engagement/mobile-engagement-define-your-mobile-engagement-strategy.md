@@ -117,6 +117,9 @@
 
 ### Дальнейшие действия
 - Дополнительные сведения об основных понятиях Mobile Engagement см. в статье [Основные понятия Mobile Engagement].
+- Дополнительные сведения см. в статье [Рекомендации](mobile-engagement-getting-started-best-practices.md)
+- Сведения о реализации Mobile Engagement в примере игрового приложения см. в статье [Сценарий игрового приложения](mobile-engagement-gaming-scenario.md). 
+- Сведения о реализации Mobile Engagement в примере мультимедийного приложения см. в статье [Сценарий мультимедийного приложения](mobile-engagement-media-scenario.md). 
 - Дополнительные сведения о реализации см. в разделе [Учебники].
 
 <!-- Images. -->
@@ -127,4 +130,4 @@
 [Основные понятия Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Учебники]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

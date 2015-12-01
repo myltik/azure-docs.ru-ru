@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="hero-article"
-	ms.date="10/15/2015"
+	ms.date="11/13/2015"
 	ms.author="tomfitz"/>
 
 # Создание веб-приложения WordPress в службе приложений Azure
@@ -40,7 +40,7 @@ Azure Marketplace предоставляет широкий спектр поп�
 
 1. Войдите на [портал предварительной версии Azure](https://portal.azure.com/).
 
-2. Щелкните элементы **Создать > Магазин**.
+2. Нажмите кнопку **Создать**.
 	
     ![Создать][5]
 	
@@ -124,4 +124,4 @@ Azure Marketplace предоставляет широкий спектр поп�
 [7]: ./media/web-sites-php-web-site-gallery/search-web-app.png
 [browse]: ./media/web-sites-php-web-site-gallery/browse-web.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

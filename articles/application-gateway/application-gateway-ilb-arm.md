@@ -12,7 +12,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="09/21/2015"
+   ms.date="11/24/2015"
    ms.author="joaoma"/>
 
 
@@ -60,32 +60,29 @@
 
 ### Шаг 1
 
-    Switch-AzureMode -Name AzureResourceManager
+		PS C:\> Login-AzureRmAccount
 
 ### Шаг 2
 
-Войдите в свою учетную запись Azure.
+Проверка подписок для учетной записи
+
+		PS C:\> get-AzureRmSubscription 
+
+Вам будет предложено пройти проверку подлинности с вашими учетными данными.<BR>
+
+### Шаг 3. 
+
+Выберите, какие подписки Azure будут использоваться. <BR>
 
 
-    Add-AzureAccount
-
-Вам будет предложено указать свои учетные данные для проверки подлинности.
+		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
-### Шаг 3.
-
-Выберите подписку Azure.
-
-    Select-AzureSubscription -SubscriptionName "MySubscription"
-
-Чтобы просмотреть перечень доступных подписок, воспользуйтесь командлетом Get-AzureSubscription.
-
-
-### Шаг 4.
+### Шаг 4.
 
 Создайте группу ресурсов (пропустите этот шаг, если вы используете существующую группу).
 
-    New-AzureResourceGroup -Name appgw-rg -location "West US"
+    New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
 Диспетчер ресурсов Azure требует, чтобы все группы ресурсов указывали расположение. Оно используется в качестве расположения по умолчанию для всех ресурсов данной группы. Убедитесь, что во всех командах для создания шлюза приложений используется одна группа ресурсов.
 
@@ -97,13 +94,13 @@
 
 ### Шаг 1	
 	
-	$subnetconfig = New-AzureVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
+	$subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
 Назначение диапазона адресов 10.0.0.0/24 в переменную подсети, которая будет использоваться для создания виртуальной сети
 
 ### Шаг 2
 	
-	$vnet = New-AzurevirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
+	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 
 Создание виртуальной сети с именем appgwvnet в группе ресурсов appw-rg для региона запада США при помощи префикса 10.0.0.0/16 с подсетью 10.0.0.0/24
 	
@@ -118,57 +115,57 @@
 
 ### Шаг 1
 
-	$gipconfig = New-AzureApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
+	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
 Создание IP-конфигурации шлюза приложений с именем gatewayIP01. При запуске шлюза приложений он получит IP-адрес из настроенной подсети и будет маршрутизировать сетевой трафик на IP-адреса пула серверных IP-адресов. Помните, что для каждого экземпляра потребуется отдельный IP-адрес.
  
 ### Шаг 2
 
-	$pool = New-AzureApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.0.0.10,10.0.0.11,10.0.0.12
+	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.0.0.10,10.0.0.11,10.0.0.12
 
 На этом этапе будет выполнена настройка серверной части пула IP-адресов pool01 с IP-адресами 10.0.0.10, 10.0.0.11, 10.0.0.12. Эти адреса будут использоваться для получения сетевого трафика от конечной точки внешнего IP-адреса. Вы замените вышеуказанные IP-адреса и добавите конечные точки IP-адресов вашего приложения.
 
 ### Шаг 3
 
-	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
+	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 
 Настройка параметров шлюза приложений poolsetting01 для обеспечения сбалансированного по нагрузке сетевого трафика в пуле серверной части.
 
 ### Шаг 4.
 
-	$fp = New-AzureApplicationGatewayFrontendPort -Name frontendport01  -Port 80
+	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 
 Настройка порта IP-адреса интерфейсной части с именем frontendport01 для ILB.
 
 ### Шаг 5
 
-	$fipconfig = New-AzureApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
+	$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 
 Создание конфигурации IP интерфейсной части fipconfig01 и связывание с частным IP-адресом из текущей подсети виртуальной сети.
 
 ### Шаг 6
 
-	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
+	$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
 Создание прослушивателя listener01 и связывание порта интерфейсной части с конфигурацией IP интерфейсной части.
 
 ### Шаг 7 
 
-	$rule = New-AzureApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
+	$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
 Создание правила маршрутизации rule01 для подсистемы балансировки нагрузки для настройки ее поведения.
 
 ### Шаг 8
 
-	$sku = New-AzureApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
 Настройка размера экземпляра шлюза приложений
 
->[AZURE.NOTE]Значение параметра *InstanceCount* по умолчанию — 2 (максимальное значение — 10). Значение *GatewaySize* по умолчанию — Medium. Можно выбрать Standard\_Small, Standard\_Medium или Standard\_Large.
+>[AZURE.NOTE]Значение *InstanceCount* (Количество экземпляров) по умолчанию — 2 (максимальное значение — 10). Значение *GatewaySize* (Размер шлюза) по умолчанию — Medium (Средний). Можно выбрать Standard\_Small, Standard\_Medium или Standard\_Large.
 
 ## Создание шлюза приложений при помощи New-AzureApplicationGateway
 
-	$appgw = New-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
 Создание шлюза приложений со всеми элементами конфигурации, описанными выше. В этом примере шлюз приложений называется appgwtest.
 
@@ -176,10 +173,10 @@
 
 ## Запуск шлюза
 
-После настройки запустите шлюз с помощью командлета `Start-AzureApplicationGateway`. Выставление счетов для шлюза приложений начинается после запуска шлюза.
+Настроенный шлюз можно запустить с помощью командлета `Start-AzureRmApplicationGateway`. Выставление счетов для шлюза приложений начинается после запуска шлюза.
 
 
-**Примечание.** Выполнение командлета `Start-AzureApplicationGateway` занимает до 15–20 минут.
+**Примечание**. Выполнение командлета `Start-AzureRmApplicationGateway` занимает до 15–20 минут.
 
 В приведенном далее примере шлюз приложений называется appgwtest, а группа ресурсов называется appgw-rg:
 
@@ -188,15 +185,15 @@
 
 Получение объекта шлюза приложений и связывание его с переменной $getgw.
  
-	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ### Шаг 2
 	 
-Запуск шлюза приложений с помощью `Start-AzureApplicationGateway`.
+Запустите шлюз приложений с помощью командлета `Start-AzureRmApplicationGateway`.
 
-	PS C:\> Start-AzureApplicationGateway -ApplicationGateway $getgw  
+	PS C:\> Start-AzureRmApplicationGateway -ApplicationGateway $getgw  
 
-	PS C:\> Start-AzureApplicationGateway AppGwTest 
+	PS C:\> Start-AzureRmApplicationGateway AppGwTest 
 
 	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
@@ -206,46 +203,30 @@
 
 ## Проверьте состояние шлюза приложений
 
-Проверить состояние шлюза можно с помощью командлета `Get-AzureApplicationGateway`. Если командлет *Start-AzureApplicationGateway* на предыдущем этапе был выполнен успешно, параметр состояние должно иметь значение *Running*, а параметры виртуального IP-адреса и DnsName — действительные значения.
-
-В данном примере показан рабочий шлюз приложений, готовый к приему трафика, отправляемого по адресу `http://<generated-dns-name>.cloudapp.net`.
-
-	PS C:\> Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
-
-	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
-	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
-	Name          : AppGwTest 
-	Description   : 
-	VnetName      : appgwvnet 
-	Subnets       : {Subnet01} 
-	InstanceCount : 2 
-	GatewaySize   : Medium 
-	State         : Running 
-	Vip           : 138.91.170.26 
-	DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
+Проверьте состояние шлюза с помощью командлета `Get-AzureRmApplicationGateway`. Если командлет *Start-AzureApplicationGateway* на предыдущем этапе был выполнен успешно, параметр State должен получить значение *Running*.
 
 
 ## Удаление шлюза приложений
 
 Чтобы удалить шлюз приложений, выполните указанные ниже действия.
 
-1. Остановите шлюз с помощью командлета `Stop-AzureApplicationGateway`. 
-2. Удалите шлюз с помощью командлета `Remove-AzureApplicationGateway`.
+1. Остановите шлюз с помощью командлета `Stop-AzureRmApplicationGateway`. 
+2. Удалите шлюз с помощью командлета `Remove-AzureRmApplicationGateway`.
 3. Проверьте, удален ли шлюз, с помощью командлета `Get-AzureApplicationGateway`.
 
-В данном примере командлет `Stop-AzureApplicationGateway` показан в первой строке, а за ним следуют выходные данные.
+В данном примере командлет `Stop-AzureRmApplicationGateway` показан в первой строке, а за ним следуют выходные данные.
 
 ### Шаг 1
 
 Получение объекта шлюза приложений и связывание его с переменной $getgw.
  
-	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ### Шаг 2
 	 
-Остановите шлюз приложений с помощью `Stop-AzureApplicationGateway`:
+Остановите шлюз приложений с помощью командлета `Stop-AzureRmApplicationGateway`.
 
-	PS C:\> Stop-AzureApplicationGateway -ApplicationGateway $getgw  
+	PS C:\> Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  
 
 	VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway 
 	VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
@@ -253,10 +234,10 @@
 	----       ----------------     ------------                             ----
 	Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 
-Когда шлюз перейдет в состояние Stopped, удалите службу с помощью командлета `Remove-AzureApplicationGateway`.
+Когда вы увидите, что шлюз остановлен, удалите службу с помощью командлета `Remove-AzureRmApplicationGateway`.
 
 
-	PS C:\> Remove-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
+	PS C:\> Remove-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
 
 	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway 
 	VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
@@ -267,10 +248,10 @@
 >[AZURE.NOTE]Используйте ключ -force, чтобы не выводить запрос о подтверждении удаления
 >
 
-Проверьте, удалена ли служба, с помощью командлета `Get-AzureApplicationGateway`. Этот шаг не является обязательным.
+Проверьте, удалена ли служба, с помощью командлета `Get-AzureRmApplicationGateway`. Этот шаг не является обязательным.
 
 
-	PS C:\>Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+	PS C:\>Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway 
 
@@ -279,13 +260,13 @@
 
 ## Дальнейшие действия
 
-Указания по настройке разгрузки SSL см. в статье [Настройка шлюза приложений для разгрузки SSL](application-gateway-ssl.md).
+Инструкции по настройке разгрузки SSL см. в статье [Настройка шлюза приложений для разгрузки SSL](application-gateway-ssl.md).
 
-Указания по настройке шлюза приложений для использования с ILB см. в статье [Создание шлюза приложений с внутренней подсистемой балансировки нагрузки (ILB)](application-gateway-ilb.md).
+Инструкции по настройке шлюза приложений для использования с ILB см. в статье [Создание шлюза приложений с внутренней подсистемой балансировщика нагрузки (ILB)](application-gateway-ilb.md).
 
 Дополнительные сведения о параметрах балансировки нагрузки в целом см. в статьях:
 
-- [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
+- [Подсистема балансировки нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Диспетчер трафика Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

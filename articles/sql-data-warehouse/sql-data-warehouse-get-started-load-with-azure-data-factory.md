@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="11/19/2015"
    ms.author="lodipalm"/>
 
 # Загрузка данных с помощью фабрики данных Azure
 
 > [AZURE.SELECTOR]
 - [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-load-with-polybase-short.md)
+- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
  В этом учебнике показано, как создать в фабрике данных Azure конвейер, который будет перемещать данные из больших двоичных объектов службы хранилища Azure в хранилище данных SQL. С помощью описанных ниже шагов вы сможете:
@@ -206,4 +206,4 @@
 	}
 	
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -5,7 +5,7 @@
 	
 3. При необходимости создайте новую группу ресурсов, как показано ниже. В нашем случае нужно создать группу ресурсов с именем *TestRG*. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md).
 
-		New-AzureResourceGroup -Name TestRG -Location centralus
+		New-AzureRmResourceGroup -Name TestRG -Location centralus
 
 	Ожидаемые выходные данные:
 	
@@ -22,7 +22,7 @@
 
 4. Создайте новую виртуальную сеть с именем *TestVNet*, как показано ниже.
 
-		New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
+		New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
 			-AddressPrefix 192.168.0.0/16 -Location centralus	
 		
 	Ожидаемые выходные данные:
@@ -47,13 +47,13 @@
 
 5. Сохраните объект виртуальной сети в переменной, как показано ниже.
 
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 	
-	>[AZURE.TIP]Можно объединить шаги 4 и 5, выполнив команду **$vnet = New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
+	>[AZURE.TIP]Можно объединить шаги 4 и 5, выполнив команду **$vnet = New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus**.
 
 6. Добавьте подсеть к переменной новой виртуальной сети, как показано ниже.
 
-		Add-AzureVirtualNetworkSubnetConfig -Name FrontEnd `
+		Add-AzureRmVirtualNetworkSubnetConfig -Name FrontEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
 		
 	Ожидаемые выходные данные:
@@ -89,12 +89,12 @@
 
 7. Повторите шаг 6 выше для каждой подсети, которую необходимо создать. Приведенная ниже команда создает подсеть *BackEnd* для нашего сценария.
 
-		Add-AzureVirtualNetworkSubnetConfig -Name BackEnd `
+		Add-AzureRmVirtualNetworkSubnetConfig -Name BackEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
 
-8. Несмотря на создание подсетей, в настоящее время они существуют только в локальной переменной, используемой для получения виртуальной сети, созданной на шаге 4. Чтобы сохранить изменения в Azure, выполните командлет **Set-AzureVirtualNetwork**, как показано ниже.
+8. Несмотря на создание подсетей, в настоящее время они существуют только в локальной переменной, используемой для получения виртуальной сети, созданной на шаге 4. Чтобы сохранить изменения в Azure, выполните командлет **Set-AzureRmVirtualNetwork** (см. рисунок ниже).
 
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet	
+		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet	
 		
 	Ожидаемые выходные данные:
 
@@ -137,4 +137,4 @@
 		                      }
 		                    ]
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->
