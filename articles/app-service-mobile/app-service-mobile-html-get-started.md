@@ -19,7 +19,9 @@
 
 #Создание HTML-приложения
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp; <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)] 
+&nbsp;  
+<!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
 
 >[AZURE.IMPORTANT]Этот раздел сейчас не поддерживается в мобильных приложениях, так как быстрый запуск для приложений HTML и JavaScript временно отключен на портале Azure. Мы планируем включить его в ближайшем будущем. Мы завершаем работу над предварительной версией мобильных приложений. Благодарим вас за терпение.
 
