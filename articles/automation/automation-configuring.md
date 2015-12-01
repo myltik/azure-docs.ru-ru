@@ -3,7 +3,7 @@
    description="Описывает шаги, которые необходимо выполнить для настройки службы автоматизации Azure при первом использовании."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="SnehaGunda"
    manager="stevenka"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="11/10/2015"
-   ms.author="bwren" />
+   ms.author="bwren;sngun" />
 
 # Настройка службы автоматизации Azure
 
@@ -94,4 +94,4 @@
 - [Служба автоматизации Azure: аутентификация в Azure с помощью Azure Active Directory](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Развертывание ферм SharePoint с помощью шаблонов ARM | Microsoft Azure"
-	description="Информация о том, как легко развернуть трех- или девятисерверную ферму SharePoint с помощью шаблонов диспетчера ресурсов и портала Azure, Azure PowerShell или интерфейса командной строки Azure."
+	description="Простое развертывание трех- или девятисерверной фермы SharePoint с помощью шаблонов диспетчера ресурсов и портала предварительной версии Azure, Azure PowerShell или интерфейса командной строки Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -31,7 +31,7 @@
 
 Шаблон можно запустить с помощью портала предварительной версии Azure, Azure PowerShell или интерфейса командной строки Azure.
 
-> [AZURE.NOTE]Кроме того, эту конфигурацию вы можете создать с помощью элемента [SharePoint 2013 non-HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) в Azure Marketplace или на портале предварительной версии Azure.
+> [AZURE.NOTE]Кроме того, эту конфигурацию можно создать с помощью элемента [SharePoint 2013 non-HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) в Azure Marketplace на портале предварительной версии Azure.
 
 ### Портал предварительной версии Azure
 
@@ -50,7 +50,7 @@
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]Эта статья содержит команды для предварительной версии Azure PowerShell 1.0. Для запуска этих команд в Azure PowerShell 0.9.8 и более ранних версий замените **New-AzureRMResourceGroup** командой **New-AzureResourceGroup**, **New-AzureRMResourceGroupDeployment** — командой **New-AzureResourceGroupDeployment** и добавьте команду **Switch-AzureMode AzureResourceManager** перед командой **New-AzureResourceGroup**. Дополнительные сведения см. в статье [Предварительная версия Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE]Эта статья содержит команды для предварительной версии Azure PowerShell 1.0. Для запуска этих команд в Azure PowerShell 0.9.8 и более ранних версиях замените значение **New-AzureRMResourceGroup** значением **New-AzureResourceGroup**, значение **New-AzureRMResourceGroupDeployment** — значением **New-AzureResourceGroupDeployment** и добавьте команду **Switch-AzureMode AzureResourceManager** перед командой **New-AzureResourceGroup**. Дополнительные сведения см. в статье [Предварительная версия Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
 Введите имя развертывания Azure, новое имя группы ресурсов и расположение центра обработки данных Azure в следующем наборе команд. Удалите все содержимое кавычек, включая символы < and >.
 
@@ -103,7 +103,7 @@
 
 ![](./media/virtual-machines-workload-template-sharepoint/nine-server-sharepoint-farm.png)
 
-> [AZURE.NOTE]Кроме того, эту конфигурацию можно создать с помощью элемента [SharePoint 2013 HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) в Azure Marketplace или на портале предварительной версии Azure.
+> [AZURE.NOTE]Кроме того, эту конфигурацию можно создать с помощью элемента [SharePoint 2013 HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) в Azure Marketplace на портале предварительной версии Azure.
 
 ### Портал предварительной версии Azure
 
@@ -122,7 +122,7 @@
 
 ### Azure PowerShell
 
-> [AZURE.NOTE]Эта статья содержит команды для предварительной версии Azure PowerShell 1.0. Для запуска этих команд в Azure PowerShell 0.9.8 и более ранних версий замените **New-AzureRMResourceGroup** командой **New-AzureResourceGroup**, **New-AzureRMResourceGroupDeployment** — командой **New-AzureResourceGroupDeployment** и добавьте команду **Switch-AzureMode AzureResourceManager** перед командой **New-AzureResourceGroup**. Дополнительные сведения см. в статье [Предварительная версия Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+> [AZURE.NOTE]Эта статья содержит команды для предварительной версии Azure PowerShell 1.0. Для запуска этих команд в Azure PowerShell 0.9.8 и более ранних версиях замените значение **New-AzureRMResourceGroup** значением **New-AzureResourceGroup**, значение **New-AzureRMResourceGroupDeployment** — значением **New-AzureResourceGroupDeployment** и добавьте команду **Switch-AzureMode AzureResourceManager** перед командой **New-AzureResourceGroup**. Дополнительные сведения см. в статье [Предварительная версия Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
 
 Введите имя развертывания Azure, новое имя группы ресурсов и расположение центра обработки данных Azure в следующем наборе команд. Удалите все содержимое кавычек, включая символы < and >.
 
@@ -186,4 +186,4 @@
 
 [Установка и настройка Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->
