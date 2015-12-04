@@ -64,7 +64,12 @@ PolyBase позволяет запрашивать данные в хранил�
 
 3. Выполните команду [CREATE CREDENTIAL (Transact-SQL)][], чтобы создать учетные данные базы данных для каждой учетной записи хранения Azure, к которым нужен доступ. В данном примере IDENTITY служит именем, обозначающим учетные данные. Оно не влияет на процесс проверки подлинности в хранилище Azure. SECRET — это ключ вашей учетной записи хранения Azure.
 
-    -- Создание учетных данных базы данных CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe' , Secret = '<azure_storage_account_key>' ; '''
+    -- Создание учетных данных базы данных
+    CREATE DATABASE SCOPED CREDENTIAL ASBSecret 
+    WITH IDENTITY = 'joe'
+    ,    Secret = '<azure_storage_account_key>'
+    ;
+    ```
 
 1. Для удаления учетных данных базы данных используйте команду [DROP CREDENTIAL (Transact-SQL)][]\:
 
@@ -359,4 +364,4 @@ $write.Dispose()
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ru-RU/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ru-RU/library/ms189450.aspx
 
-<!----HONumber=Nov15_HO3-->
+<!-----HONumber=Nov15_HO3-->
