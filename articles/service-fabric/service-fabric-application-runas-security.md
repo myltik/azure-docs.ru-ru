@@ -88,11 +88,25 @@ Service Fabric предоставляет возможность защиты п
 
 ![Свойство CopyToOutput в Visual Studio для пакетного файла SetupEntryPoint][Image1]
 
-Теперь откройте файл MySetup.bat и добавьте следующие команды. ~~~ REM Задайте системную переменную среды. Для этого требуется привилегия администратора privilege setx -m TestVariable "MyValue" echo System TestVariable со значением > test.txt echo %TestVariable% >> test.txt
+Теперь откройте файл MySetup.bat и добавьте следующие команды.
+~~~
+REM Задайте системную переменную среды. Для этого требуется привилегия администратора privilege
+setx -m TestVariable "MyValue"
+echo System TestVariable со значением > test.txt
+echo %TestVariable% >> test.txt
 
-REM Чтобы удалить эту системную переменную, используйте REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f ~~~
+REM Чтобы удалить эту системную переменную, используйте
+REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
+~~~
 
-Затем постройте и разверните решение в кластере локальной разработки. После запуска службы, как показано в обозревателе Service Fabric, можно двумя способами увидеть успешное выполнение MySetup.bat. Откройте командную строку PowerShell и введите ~~~ [Environment]::GetEnvironmentVariable("TestVariable","Machine") ~~~ Like this ~~~ PS C:\\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue ~~~
+Затем постройте и разверните решение в кластере локальной разработки. После запуска службы, как показано в обозревателе Service Fabric, можно двумя способами увидеть успешное выполнение MySetup.bat. Откройте командную строку PowerShell и введите
+~~~
+ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
+~~~
+Like this
+~~~
+PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue
+~~~
 
 В обозревателе Service Fabric запомните имя узла, где была развернута и запущена служба, например Node 1, и перейдите к рабочей папке экземпляра приложения, чтобы найти файл out.txt, в котором отображается значение **TestVariable**. Например, если служба была развернута на узле Node 2, можно перейти по этому пути для MyApplicationType.
 
@@ -103,9 +117,16 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ##  Запуск команд PowerShell из точки SetupEntryPoint
 Чтобы запустить PowerShell из точки **SetupEntryPoint**, запустите PowerShell.exe в пакетном файле, указывающем на файл PowerShell. Сначала добавьте файл PowerShell в проект службы, например MySetup.ps1. Не забудьте задать свойство *Копировать, если новее*, чтобы этот файл также входил в состав пакета службы. В приведенном ниже примере показан образец пакетного файла для запуска файла PowerShell файл с именем MySetup.ps1, который задает системную переменную среды с именем *TestVariable*.
 
-MySetup.bat для запуска файла PowerShell file. ~~~ powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1" ~~~
+MySetup.bat для запуска файла PowerShell file.
+~~~
+powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1"
+~~~
 
-В файл PowerShell добавьте следующий фрагмент, чтобы задать системную переменную среды ~~~ [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine") [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt ~~~
+В файл PowerShell добавьте следующий фрагмент, чтобы задать системную переменную среды
+~~~
+[Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
+[Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
+~~~
 
 ## Применение политики запуска от имени к службам 
 Ранее вы узнали, как применить политику запуска от имени к точке SetupEntryPoint. Давайте более подробно рассмотрим процесс создания разных субъектов, которые могут применяться в качестве политик служб.
@@ -266,4 +287,4 @@ MySetup.bat для запуска файла PowerShell file. ~~~ powershell.exe
 
 [Image1]: media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->

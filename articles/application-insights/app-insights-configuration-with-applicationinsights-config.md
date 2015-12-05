@@ -106,7 +106,7 @@
 
 Вы можете [написать собственные инициализаторы](app-insights-api-filtering-sampling.md#add-properties) для задания свойств контекста.
 
-* `OperationNameTelemetryInitializer` обновляет свойство контекста `Operation.Id` всех элементов телеметрии, отслеживаемых при обработке запроса с автоматически сформированным `RequestTelemetry.Id`.
+Все стандартные инициализаторы задаются пакетами NuGet Web или WindowsServer.
 
 
 * `AccountIdTelemetryInitializer` задает свойство AccountId.
@@ -262,4 +262,4 @@
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->

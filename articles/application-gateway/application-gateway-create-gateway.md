@@ -82,7 +82,7 @@
 	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
 
 
- *Description*, *InstanceCount* и *GatewaySize* — необязательные параметры.
+ *Description*, *InstanceCount* и *GatewaySize*  — необязательные параметры.
 
 
 **Чтобы проверить**, создан ли шлюз, используйте командлет `Get-AzureApplicationGateway`.
@@ -101,7 +101,7 @@
 	VirtualIPs    : {}
 	DnsName       :
 
->[AZURE.NOTE]По умолчанию для параметра *InstanceCount* используется значение 2 (максимальное значение — 10). По умолчанию для параметра *GatewaySize* используется значение Medium. Можно выбрать размер Small (Малый), Medium (Средний) или Large (Большой).
+>[AZURE.NOTE]  По умолчанию для параметра *InstanceCount* используется значение 2 (максимальное значение — 10). По умолчанию для параметра *GatewaySize* используется значение Medium. Можно выбрать размер Small (Малый), Medium (Средний) или Large (Большой).
 
 
  Параметры *Vip* и *DnsName* отображаются без значений, поскольку шлюз еще не запущен. Эти значения будут заданы, как только шлюз перейдет в рабочее состояние.
@@ -420,4 +420,4 @@
 - [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->
