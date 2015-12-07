@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## Отправка данных устройства в решение для удаленного мониторинга с помощью node.js
+## Выполнение сборки и запуск примера решения node.js
 
 1. Чтобы клонировать репозиторий GitHub *пакетов SDK для Microsoft Azure IoT* и установить *пакет SDK для устройств Microsoft Azure IoT для Node.js* в вашей среде рабочего стола, следуйте инструкциям в разделе [Подготовка среды разработки][lnk-github-prepare].
 
@@ -61,4 +61,4 @@
 [lnk-node-installers]: https://nodejs.org/download/
 [lnk-github-prepare]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/doc/devbox_setup.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

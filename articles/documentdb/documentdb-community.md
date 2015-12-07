@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="11/05/2015"
+  ms.date="11/23/2015"
   ms.author="andrl"/>
 
 # Портал сообщества
@@ -45,6 +45,14 @@
 Ознакомьтесь с проектом на сайте [Github](https://github.com/mingaliu/DocumentDBStudio).
 
 
+### DoQmentDB
+
+*Ариэль Машраки*
+
+DoQmentDB — это клиент на базе обещания Node.js, создающий слой типа MongoDB поверх DocumentDB.
+
+Ознакомьтесь с проектом на сайтах [Github](https://github.com/a8m/doqmentdb) и [npm](https://www.npmjs.com/package/doqmentdb).
+
 <br/><br/>
 
 *Читайте о других проектах DocumentDB на основе открытого исходного кода на сайте [GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories).*
@@ -63,19 +71,29 @@
 
 **Записи участников сообщества:**
 
-* [**Обработка ошибок RequestRateTooLarge в Azure DocumentDB и тестирование производительности**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) (на английском языке), *Азим Уддин (Azim Uddin)*
+* [**Точки данных — Aurelia встречает DocumentDB: брачный контракт**](https://msdn.microsoft.com/magazine/mt620011.aspx) — *Джули Лерман (Julie Lerman)*
 
-* [**Точки данных. Обзор Microsoft Azure DocumentDB**](https://msdn.microsoft.com/magazine/mt147238.aspx), (на английском языке) *с Джули Лерман (Julie Lerman)*
+* [**Инфраструктура как код и непрерывное развертывание Node.js + решение Azure DocumentDB**](http://www.talmeida.net/blog/2015/10/26/infrastructure-as-code-and-continuous-deployment-of-a-nodejs-azure-documentdb-solution) — *Thiago Almedia*
 
-* [**Использование DocumentDB с F #**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) (на английском языке), *Джейми Диксон (Jamie Dixon)*.
+* [**Преимущества DocumentDb для некоторых проектов**](http://www.iquestllc.com/blogs/read/405/why-documentdb-makes-good-business-sense-for-some-projects) — *Сэмюэл Урезин (Samuel Uresin)*
 
-* [**Анализ журналов приложений с помощью DocumentDB**](http://vincentlauzon.com/2015/09/06/analysing-application-logs-with-documentdb/) (на английском языке), *Винсен-Филипп Лозон (Vincent-Philippe Lauzon)*
+* [**Azure DocumentDB の開発ことはじめ — клиент クラスの開発（1/2）**](http://beachside.hatenablog.com/entry/2015/10/01/202734) — *Ацуши Иокогама (Atsushi Yokohama)*
 
-* [**Azure DocumentDB — восстановление из резервной копии на конкретный момент времени**](http://softwarejuancarlos.com/2015/09/06/azure-documentdb-point-in-time-backups/) (на английском языке), *Хуан Карлос Санчез (Juan Carlos Sanchez)*
+* [**Azure DocumentDB を使うときに知っておきたいいくつかのこと**](http://beachside.hatenablog.com/entry/2015/10/01/202734) — *Ацуши Иокогама (Atsushi Yokohama)*
+
+* [**Обработка ошибок RequestRateTooLarge в Azure DocumentDB и тестирование производительности**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) (на английском языке) — *Азим Уддин (Azim Uddin)*
+
+* [**Точки данных. Обзор Microsoft Azure DocumentDB**](https://msdn.microsoft.com/magazine/mt147238.aspx) (на английском языке) — *Джули Лерман (Julie Lerman)*
+
+* [**Использование DocumentDB с F #**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) (на английском языке) — *Джейми Диксон (Jamie Dixon)*.
+
+* [**Анализ журналов приложений с помощью DocumentDB**](http://vincentlauzon.com/2015/09/06/analysing-application-logs-with-documentdb/) (на английском языке) — *Винсен-Филипп Лозон (Vincent-Philippe Lauzon)*
+
+* [**Azure DocumentDB — восстановление из резервной копии на конкретный момент времени**](http://softwarejuancarlos.com/2015/09/06/azure-documentdb-point-in-time-backups/) (на английском языке) — *Хуан Карлос Санчез (Juan Carlos Sanchez)*
 
 <br/><br/>
 
-*У вас есть блог, пример кода или интересный материал, которым вы хотите поделиться? [Сообщите нам о нем](mailto:askdocdb@microsoft.com)!*
+*У вас есть блог, пример кода или интересный материал, которым вы хотите поделиться? [Сообщите нам об этом](mailto:askdocdb@microsoft.com)!*
 
 <br/><br/>
 
@@ -89,7 +107,6 @@
 
 | Название мероприятия | Место проведения | Дата | Хэш-тег |
 | ------------------------------------------------------------------------------- | -------------------- | ------------------- | ------- |
-| [Integration User Group](http://www.integrationusergroup.com/) | Вебинар | 9 ноября 2015 г. | [#IntegrationMonday](https://twitter.com/hashtag/integrationmonday) |
 | [Meetup: msdevmtl](http://www.meetup.com/msdevmtl/events/223839818/) | Монреаль, Квебек, Канада | 1 декабря 2015 г. | [#msdevmtl](https://twitter.com/hashtag/msdevmtl) |
 
 *Проводите мероприятие? [Мы можем помочь!](mailto:askdocdb@microsoft.com) Узнайте как.*
@@ -98,6 +115,7 @@
 
 | Название мероприятия | Место проведения | Дата | Записи |
 | -------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------- | --------- |
+| [Meetup: SeattleJS](http://www.meetup.com/seattlejs/events/220102664/) | Сиэтл, Вайоминг | 12 ноября 2015 г. | Недоступно |
 | [PASS Summit 2015](http://www.sqlpass.org/summit/2015/Home.asp) | Сиэтл, Вайоминг | 27–30 октября 2015 г. | Недоступно |
 | [CloudDevelop 2015](http://www.clouddevelop.org/) | Коламбус, Огайо | 23 октября 2015 г. | Недоступно |
 | [SQL Saturday № 430 — София, 2015](http://www.sqlsaturday.com/430/eventhome.aspx) | София, Болгария | 10 октября 2015 г. | Недоступно |
@@ -111,7 +129,7 @@
 | [Техническое обновление 2015](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015) | Лиссабон, Португалия | 15 июня 2015 г. | [DocumentDB 101](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015/DPDEV01) |
 | [Database Month](http://www.databasemonth.com/database/azure-documentdb) | Нью-Йорк, Нью-Йорк | 19 мая 2015 г. | [Azure DocumentDB: гипермасштабируемая мультитенантная служба баз данных документов](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
 | [Meetup: London SQL Server User Group](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/) | Лондон, Великобритания | 19 мая 2015 г. | Недоступно |
-| [Ignite](http://ignite.microsoft.com/) | Чикаго, Иллинойс | 4–8 мая 2015 г. | [Избранное видео по DocumentDB](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[DocumentDB и Azure HDInsight: эффективный альянс (видео)](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
+| [Ignite](http://ignite.microsoft.com/) | Чикаго, Иллинойс | 4–8 мая 2015 г. | [Видео "ВЫБОР последнего ИЗ DocumentDB"](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[Видео "DocumentDB и Azure HDInsight: вместе лучше"](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
 | [Build 2015](http://www.buildwindows.com/) | Сан-Франциско, Калифорния | 29 апреля – 1 мая 2015 г. | [Покоряйте новые горизонты со службой NoSQL Azure: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
 | [Глобальный учебный курс по Azure 2015 — Испания](http://azurebootcamp.es/) | Мадрид, Испания | 25 апреля 2015 г. | [#DEAN DocumentDB + Express + AngularJS + NodeJS в Azure](https://channel9.msdn.com/events/Developers-Spain-Events/Global-Azure-Bootcamp-2015/DEAN-DocumentDB--Express--AngularJS--NodeJS-running-on-Azure) |
 | [Meetup: Charlotte Microsoft Cloud](http://www.meetup.com/Charlotte-Microsoft-Cloud/events/221503519/) | Шарлотта, Северная Каролина | 8 апреля 2015 г. | Недоступно |
@@ -125,6 +143,7 @@
 
 | Показать | Дата | Серия |
 | ------------------------------------------- | ------------------ | ------- |
+| Integration User Group | 9 ноября 2015 г. | [Использование Azure DocumentDB для интеграции в здравоохранении: часть 2](http://www.integrationusergroup.com/azure-documentdb-for-healthcare-integration-part-2/) |
 | Integration User Group | 5 октября 2015 г. | [Использование Azure DocumentDB для интеграции в здравоохранении](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk) |
 | Италия DX — #TecHeroes | 2 октября 2015 г. | [#TecHeroes — DocumentDB](https://channel9.msdn.com/Shows/TecHeroes/TecHeroes-DocumentDB) |
 | Microsoft Cloud Show— подкаст | 30 сентября 2015 г. | [Эпизод 099 — Azure DocumentDB с Эндрю Лю (Andrew Liu)](http://www.microsoftcloudshow.com/podcast/Episodes/099-azure-documentdb-with-andrew-liu) |
@@ -144,7 +163,7 @@
 
 | Партнер по обучению | Описание |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Академия Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554)<br/><br/>Академия Microsoft Virtual Academy предоставляет возможность обучения специалистов, которые участвуют в создании Azure DocumentDB. |
+| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Академия Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/ru-RU/training-courses/developing-solutions-with-azure-documentdb-10554)<br/><br/>Академия Microsoft Virtual Academy предоставляет возможность обучения у специалистов, которые участвуют в создании Azure DocumentDB. |
 | [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction) | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction)<br/><br/>Pluralsight — основной партнер корпорации Майкрософт по обучению Azure. Если вы являетесь подписчиком MSDN, воспользуйтесь своими преимуществами для доступа к курсу обучения Microsoft Azure. |
 | [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)<br/><br/>OpsGility предоставляет углубленное техническое обучение по Microsoft Azure. Пройдите обучение под руководством инструктора на месте или с квалифицированными преподавателями удаленно. |
 
@@ -159,7 +178,7 @@
 
 ### Twitter
 
-Читайте нас в Twitter [@DocumentDB](https://twitter.com/DocumentDB) и следите за обсуждениями по хэш-тегу [#DocumentDB](https://twitter.com/hashtag/DocumentDB).
+Читайте нас в Twitter [@DocumentDB](https://twitter.com/DocumentDB) и следите за обсуждениями по хэштегу [#DocumentDB](https://twitter.com/hashtag/DocumentDB).
 
 <br/><br/>
 
@@ -215,4 +234,18 @@
 | Соединитель Hadoop | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
 | Инструмент переноса данных | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Центр загрузки Майкрософт](http://www.microsoft.com/ru-RU/download/details.aspx?id=46436) |
 
-<!---HONumber=Nov15_HO3-->
+<hr/>
+
+## Мастера DocumentDB
+
+<hr/>
+
+Мастера DocumentDB — это специалисты, продемонстрировавшие исключительную готовность помогать другим эффективно использовать Azure DocumentDB. Они делятся своей увлеченностью, знаниями и опытом с широкой общественностью и командой DocumentDB.
+
+| | | | |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [![Алан Митчелл](./media/documentdb-community/wizard-allan-mitchell.jpg)](https://twitter.com/allansqlis) <br/> [Алан Митчелл](https://twitter.com/allansqlis) | [![Джен Стиррап](./media/documentdb-community/wizard-jen-stirrup.jpg)](https://twitter.com/jenstirrup) <br/> [Джен Стиррап](https://twitter.com/jenstirrup) | [![Ленни Лоубел](./media/documentdb-community/wizard-lenni-lobel.jpg)](https://twitter.com/lennilobel) <br/> [Ленни Лоубел](https://twitter.com/lennilobel) | [![Михаил Матеев](./media/documentdb-community/wizard-mihail-mateev.jpg)](https://twitter.com/mihailmateev) <br/> [Михаил Матеев](https://twitter.com/mihailmateev)|
+
+Хотите стать мастером DocumentDB? Несмотря на то, что критериев для отбора мастеров DocumentDB не существует, мы оцениваем такие критерии, как вклад претендента в онлайн-форумы, как, например, StackOverflow и MSDN, вики и онлайн-контент, конференции и пользовательские группы, подкасты, веб-сайты, блоги и социальные сети, статьи и книги. Вы можете номинировать себя или другого пользователя, отправив нам сообщение по [электронной почте](mailto:askdocdb@microsoft.com).
+
+<!---HONumber=AcomDC_1125_2015-->

@@ -92,7 +92,7 @@
 
 ## C#
 
-[Пакеты SDK для устройств IoT Microsoft Azure для .NET](https://github.com/Azure/azure-iot-sdks/blob/master/csharp/readme.md) были протестированы для следующих конфигураций:
+[Пакеты SDK для устройств IoT Microsoft Azure для .NET](https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md) были протестированы для следующих конфигураций:
 
 |Платформа ОС| Version (версия)|Протоколы|
 |:---------|:----------:|:----------:|
@@ -130,4 +130,4 @@
 
 Дополнительные сведения о разработке решений с использованием устройств, **сертифицированных для Интернета вещей**, см. [здесь](http://azure.com/iotdev).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

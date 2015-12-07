@@ -3,9 +3,9 @@
 	description="Узнайте, как использовать веб-приложения службы приложений Azure с io.js." 
 	services="app-service\web" 
 	documentationCenter="nodejs" 
-	authors="felixrieseberg" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/03/2015"
-	ms.author="mwasson" />
+	ms.date="11/20/2015"
+	ms.author="robmcm" />
 
 # Как использовать io.js с веб-приложениями службы приложений Azure
 
@@ -27,7 +27,7 @@
 
 При развертывании приложения Node.js веб-приложения службы приложений выполняют ряд небольших команд, гарантирующих правильную настройку среды. Скрипт развертывания дает возможность настроить этот процесс таким образом, чтобы включить в него загрузку и конфигурацию платформы io.js.
 
-[Сценарий развертывания платформы io.js] доступен в репозитории GitHub. Чтобы обеспечить поддержку io.js на веб-сайте, достаточно просто скопировать **.deployment**, **deploy.cmd** и **IISNode.yml** в корневую папку приложения и развернуть в веб-приложениях.
+[Сценарий развертывания платформы io.js](https://github.com/felixrieseberg/iojs-azure) доступен в репозитории GitHub. Чтобы обеспечить поддержку io.js на веб-сайте, достаточно просто скопировать **.deployment**, **deploy.cmd** и **IISNode.yml** в корневую папку приложения и развернуть в веб-приложениях.
 
 Первый файл, **.deployment**, указывает веб-приложениям на необходимость выполнить команду **deploy.cmd** при развертывании. Этот скрипт выполняет все обычные операции для приложения Node.js, но также загружает последнюю версию платформы io.js. И наконец, **IISNode.yml** обеспечивает настройку веб-приложений для использования только что скачанного двоичного файла io.js вместо предустановленного двоичного файла Node.js.
 
@@ -58,7 +58,7 @@
 [io.js]: https://iojs.org
 [дистрибутива io.js]: https://iojs.org/dist/
 [io.js в репозитории GitHub]: https://github.com/iojs/io.js
-[Сценарий развертывания платформы io.js]: https://github.com/felixrieseberg/iojs-azure
+[io.js Deployment Script]: https://github.com/felixrieseberg/iojs-azure
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

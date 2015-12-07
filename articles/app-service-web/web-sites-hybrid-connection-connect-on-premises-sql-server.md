@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="11/13/2015"
 	ms.author="cephalin"/>
 
 # Подключение к локальному SQL Server из веб-приложения, размещенного в службе приложений Azure с помощью гибридных подключений
@@ -139,7 +139,7 @@
 <a name="CreateHC"></a>
 ## C. Создание гибридного подключения и службы BizTalk ##
 
-1. На портале прокрутите колонку веб-приложения вниз и щелкните **Состояние сети** > **Настройки конечных точек гибридного подключения**.
+1. Вернитесь на портал, откройте настройки и выберите **Сети** > **Настроить конечные точки гибридного подключения**.
 
 	![Гибридные подключения][CreateHCHCIcon]
 
@@ -363,4 +363,4 @@
 [HCTestSSMSTree]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

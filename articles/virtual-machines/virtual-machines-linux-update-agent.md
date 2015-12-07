@@ -90,11 +90,15 @@
 
   Для большинства дистрибутивов Linux используйте:
 
-      #sudo cp waagent /usr/sbin
+    #sudo cp waagent /usr/sbin
 
   Для CoreOS используйте:
 
     #sudo cp waagent /usr/share/oem/bin/
+
+  Если это новая установка агента Linux для Azure, выполните следующую команду:
+ 
+    #sudo /usr/sbin/waagent -install -verbose
 
 ###Для версии 2.1.x используйте:
 
@@ -126,4 +130,4 @@
 
 Дополнительную информацию об агенте Azure для Linux см. в [файле сведений агента Linux для Azure](https://github.com/Azure/WALinuxAgent).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

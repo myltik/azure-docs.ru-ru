@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/19/2015"
 	ms.author="brandwe"/>
 
 # Вход и выход веб-приложения с использованием Azure AD
@@ -348,7 +348,6 @@ exports.list = function(req, res){
 	<a href="/account">Account Info</a></br>
 	<a href="/logout">Log Out</a>
 <% } %>
-
 ```
 
 - Создайте в корневом каталоге представление `/views/account.ejs`, чтобы мы могли просматривать дополнительную информацию, которую `passport-azuread` передает в запрос пользователя.
@@ -368,7 +367,6 @@ exports.list = function(req, res){
 <p></p>
 <a href="/logout">Log Out</a>
 <% } %>
-
 ```
 
 - Наконец, давайте все красиво оформим, добавив макет. Создайте представление /views/layout.ejs в корневом каталоге.
@@ -416,4 +414,4 @@ exports.list = function(req, res){
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

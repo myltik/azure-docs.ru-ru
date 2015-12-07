@@ -33,11 +33,12 @@
 ## Обновление приложения
 Для получения дополнительных сведений об обновлении приложения ознакомьтесь с такими статьями:
 
-- [Обновление приложения Service Fabric](service-fabric-application-upgrade.md)
-- [Параметры обновления](service-fabric-application-upgrade-parameters.md)
-- [Дополнительные разделы](service-fabric-application-upgrade-advanced.md)
-- [Устранение неполадок при обновлении приложения](service-fabric-application-upgrade-troubleshooting.md)
+- [Обновление приложения Service Fabric с помощью Visual Studio](service-fabric-application-upgrade.md)
+- [Обновление приложения Service Fabric с помощью PowerShell](service-fabric-application-upgrade-powershell.md)
 - [Пошаговое руководство по обновлению приложения](service-fabric-application-upgrade-tutorial.md)
+- [Параметры обновления](service-fabric-application-upgrade-parameters.md)
+- [Обновление вручную и с помощью пакета Diff](service-fabric-application-upgrade-advanced.md)
+- [Устранение неполадок при обновлении приложения](service-fabric-application-upgrade-troubleshooting.md)
 - [Обновление приложения Service Fabric: сериализация данных](service-fabric-application-upgrade-data-serialization.md)
 
 ## Масштабирование и разделение служб приложений
@@ -49,4 +50,4 @@
 ## Управление кластером
 - [Визуализация кластера с помощью обозревателя Service Fabric](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

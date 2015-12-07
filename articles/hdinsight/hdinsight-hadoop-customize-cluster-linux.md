@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="11/20/2015"
 	ms.author="larryfr"/>
 
 # Настройка кластеров HDInsight с помощью действия скрипта (Linux)
@@ -60,13 +60,13 @@ HDInsight предоставляет несколько скриптов для 
 
 2. В разделе __Необязательная конфигурация__ в колонке **Действия сценария** щелкните **Добавить действие сценария**, чтобы указать сведения об этом действии сценария:
 
-	![Использование действия сценария для настройки кластера](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png "Использование действия сценария для настройки кластера")
+	![Использование действия сценария для настройки кластера](./media/hdinsight-hadoop-customize-cluster-linux/HDI.CreateCluster.8.png)
 
 	| Свойство | Значение |
 	| -------- | ----- |
 	| Имя | Укажите имя для действия сценария. |
 	| URI-адрес сценария | Укажите URI для сценария, который вызывается для настройки кластера. |
-	| Головной/рабочий | Укажите узлы (**Head**, **Worker** или **ZooKeeper**), на которых выполняется сценарий настройки. |
+	| Головной/рабочий | Укажите узлы (**Головной**, **Рабочий** или **ZooKeeper**), на которых выполняется сценарий настройки. |
 	| Параметры | Укажите параметры, если они требуются для сценария. |
 
 	Нажмите клавишу ВВОД, чтобы добавить несколько действий сценария для установки нескольких компонентов в кластере.
@@ -80,8 +80,8 @@ HDInsight предоставляет несколько скриптов для 
 ### Перед началом работы
 
 * Информацию о настройке рабочей станции для запуска командлетов HDInsight PowerShell см. в статье [Как установить и настроить Azure PowerShell](../powershell-install-configure.md).
-* Инструкции по созданию шаблонов ARM см. в разделе [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
-* Информацию об использовании Azure PowerShell с диспетчером ресурсов см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](powershell-azure-resource-manager).
+* Инструкции по созданию шаблонов ARM см. в разделе [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
+* Информацию об использовании Azure PowerShell с диспетчером ресурсов см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
 
 ### Создание кластеров с помощью действия сценария
 
@@ -270,7 +270,7 @@ HDInsight предоставляет несколько скриптов для 
 		ResourceId        : /subscriptions/######/resourceGroups/ExampleResourceGroup
 
 
-6. Чтобы создать новое развертывание для группы ресурсов, выполните команду **New-AzureRmResourceGroupDeployment** и укажите необходимые параметры. Параметры будут включать в себя имя развертывания, имя группы ресурсов, а также путь к созданному шаблону или его URL-адрес. Если для вашего шаблона требуются какие-либо параметры, необходимо также передать их. В данном случае для действия сценария по установке R в кластере никакие параметры не требуются.
+6. Чтобы создать новое развертывание для группы ресурсов, выполните командлет **New-AzureRmResourceGroupDeployment** и укажите необходимые параметры. Параметры будут включать в себя имя развертывания, имя группы ресурсов, а также путь к созданному шаблону или его URL-адрес. Если для вашего шаблона требуются какие-либо параметры, необходимо также передать их. В данном случае для действия сценария по установке R в кластере никакие параметры не требуются.
 
 
 		New-AzureRmResourceGroupDeployment -Name mydeployment -ResourceGroupName myresourcegroup -TemplateFile <PathOrLinkToTemplate>
@@ -333,11 +333,27 @@ HDInsight предоставляет несколько скриптов для 
 	| Параметры | Параметры, необходимые для скрипта. |
 	| URI | Задает универсальный код ресурса для выполняемого сценария. |
 
+4. Задание пользователя admin и HTTPS для кластера:
+
+        $httpCreds = get-credential
+        
+    При появлении запроса введите имя "admin" и укажите пароль.
+
+5. Задайте учетные данные SSH:
+
+        $sshCreds = get-credential
+    
+    При появлении запроса введите имя пользователя и пароль SSH. Если учетную запись SSH нужно защитить с помощью сертификата вместо пароля, возьмите пустой пароль и присвойте `$sshPublicKey` содержимое открытого ключа сертификата, который следует использовать. Например:
+    
+        $sshPublicKey = Get-Content .\path\to\public.key -Raw
+    
 4. Наконец, создайте кластер:
         
-        New-AzureRmHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes $clusterNodes
+        New-AzureRmHDInsightCluster -config $config -clustername $clusterName -DefaultStorageContainer $containerName -Location $location -ResourceGroupName $resourceGroupName -ClusterSizeInNodes $clusterNodes -HttpCredential $httpCreds -SshCredential $sshCreds -OSType Linux
+    
+    При использовании открытого ключа для защиты учетной записи SSH также необходимо указать `-SshPublicKey $sshPublicKey` в качестве параметра.
 
-При появлении запроса введите учетные данные для кластера. Создание кластера может занять несколько минут.
+Создание кластера может занять несколько минут.
 
 ## Использование действия сценария из пакета SDK HDInsight для .NET
 
@@ -380,7 +396,7 @@ HDInsight предоставляет несколько скриптов для 
         private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
         private const string NewClusterVersion = "3.2";
         private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
-        private const OSType NewClusterOSType = OSType.Windows;
+        private const OSType NewClusterOSType = OSType.Linux;
 
         private const string ExistingStorageName = "<STORAGE ACCOUNT NAME>.blob.core.windows.net";
         private const string ExistingStorageKey = "<STORAGE ACCOUNT KEY>";
@@ -549,4 +565,4 @@ HDInsight предоставляет несколько скриптов для 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Этапы создания кластера"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

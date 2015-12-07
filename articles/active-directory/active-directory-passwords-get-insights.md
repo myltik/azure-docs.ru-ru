@@ -156,7 +156,7 @@
 ## Ссылки на документацию по сбросу паролей
 Ниже приведены ссылки на все страницы документации по службе сброса паролей Azure AD.
 
-* [**Сброс собственного пароля**](active-directory-passwords-update-your-own-password) — узнайте, как сбросить или изменить свой пароль пользователя системы.
+* [**Сброс собственного пароля**](active-directory-passwords-update-your-own-password.md) — узнайте, как сбросить или изменить свой пароль пользователя системы
 * [**Как работает служба**](active-directory-passwords-how-it-works.md) — узнайте, из каких шести компонентов состоит служба и за что отвечает каждый из них.
 * [**Приступая к работе**](active-directory-passwords-getting-started.md) — узнайте, как предоставить пользователям возможность сбрасывать и менять свои облачные и локальные пароли.
 * [**Настройка**](active-directory-passwords-customize.md) — узнайте, как настроить оформление и функциональность службы в соответствии с потребностями организации.
@@ -171,4 +171,4 @@
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

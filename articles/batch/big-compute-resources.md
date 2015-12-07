@@ -50,14 +50,16 @@
 
 HPC Pack — это бесплатное решение HPC корпорации Майкрософт, созданное на основе технологий Microsoft Azure и Windows Server и поддерживающее рабочие нагрузки HPC как в Windows, так и в Linux.
 
-* [Загрузить пакет HPC 2012 R2 с обновлением 2](https://www.microsoft.com/ru-RU/download/details.aspx?id=47755)
+* [Загрузить пакет HPC 2012 R2 с обновлением 3](https://www.microsoft.com/ru-RU/download/details.aspx?id=49922)
 
 * [Документация](https://technet.microsoft.com/library/jj899572.aspx)
 
 
-* [Параметры кластера HPC с Microsoft HPC Pack в Azure](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
+* [Параметры создания кластера HPC в Azure с помощью Microsoft HPC Pack и управления им](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
 
-* [Использование пакета HPC совместно с Azure](https://technet.microsoft.com/library/gg481749.aspx)
+* [Ускорение в рабочие экземпляры Azure с помощью пакета HPC](https://technet.microsoft.com/library/gg481749.aspx)
+
+* [Ускорение в пакетную службу Azure с помощью пакета HPC](https://technet.microsoft.com/library/mt612877.aspx)
 
 
 * [Форумы по Windows HPC](https://social.microsoft.com/Forums/home?category=windowshpc)
@@ -68,7 +70,7 @@ HPC Pack — это бесплатное решение HPC корпораци
 
 * Шаблон [Spin up a SLURM cluster](http://azure.microsoft.com/documentation/templates/slurm/) и [запись блога](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 
-* Шаблон [Spin up a Torque cluster](http://azure.microsoft.com/documentation/templates/torque-cluster/)
+* [Шаблон Spin up a Torque cluster](http://azure.microsoft.com/documentation/templates/torque-cluster/)
 
 ## Microsoft MPI
 
@@ -121,4 +123,4 @@ Azure предлагает вычислительные экземпляры [р
 * Последние объявления см. в [блоге группы Microsoft HPC и Пакетной службы](http://blogs.technet.com/b/windowshpc/), а также в [блоге Azure](http://azure.microsoft.com/blog/tag/hpc/).
 * Следите также за лентой [новостей о Пакетной службе](http://azure.microsoft.com/updates/?service=batch) или подпишитесь на [RSS-канал](http://azure.microsoft.com/updates/feed/?service=batch).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

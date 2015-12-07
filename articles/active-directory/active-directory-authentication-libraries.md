@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/11/2015"
+   ms.date="11/17/2015"
    ms.author="mbaldwin" />
 
 # Библиотеки проверки подлинности Azure Active Directory
@@ -63,4 +63,4 @@ ADAL доступна на различных платформах.
 
 [Примеры кода Azure Active Directory](active-directory-code-samples.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

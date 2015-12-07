@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Создание полного доменного имени для виртуальной машине в портале Azure | Microsoft Azure"
+   pageTitle="Создание полного доменного имени для виртуальной машины на портале предварительной версии Azure | Microsoft Azure"
    description="Узнайте, как создать полное доменное имя (FQDN) для виртуальной машины на основе диспетчера ресурсов в портале предварительной версии Azure."
    services="virtual-machines"
    documentationCenter=""
@@ -54,4 +54,4 @@
 
     Теперь вы можете удаленно подключиться к виртуальной машине с помощью этого имени DNS. Например, воспользуйтесь командой `SSH adminuser@testdnslabel.eastus.cloudapp.azure.com` для подключения к виртуальной машине Linux с полным доменным именем `testdnslabel.eastus.cloudapp.azure.com` от имени пользователя `adminuser`.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

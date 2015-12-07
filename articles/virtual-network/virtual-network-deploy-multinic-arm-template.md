@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/12/2015"
+   ms.date="11/20/2015"
    ms.author="telmos" />
 
 # Развертывание виртуальных машин с несколькими сетевыми адаптерами с помощью шаблона
@@ -31,13 +31,13 @@
 
 ## Предварительные требования
 
-Перед развертыванием внутренних серверов необходимо выполнить развертывание основной группы ресурсов со всеми ресурсами, необходимыми для этого сценария. Чтобы развернуть эти ресурсы, выполните следующие действия.
+Перед развертыванием внутренних серверов необходимо выполнить развертывание основной группы ресурсов со всеми ресурсами, необходимыми для этого сценария. Чтобы развернуть эти ресурсы, сделайте следующее:
 
 1. Перейдите к [странице шаблона](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
-2. На странице шаблона справа от **Родительской группы ресурсов** щелкните **Развернуть в Azure**.
+2. На странице шаблона справа от **Родительская группа ресурсов** щелкните **Развернуть в Azure**.
 3. При необходимости измените значения параметров, а затем следуйте инструкциям на портале предварительной версии Azure для развертывания группы ресурсов.
 
-> [AZURE.IMPORTANT]Убедитесь, что имена учетных записей хранения являются уникальными. Имена учетных записей хранения в Azure не могут повторяться.
+> [AZURE.IMPORTANT]Имена учетных записей хранения должны быть уникальными. Имена учетных записей хранения в Azure не могут повторяться.
 
 ## Сведения о шаблоне развертывания
 
@@ -223,20 +223,11 @@
 
 Чтобы развернуть шаблон, загруженный с помощью PowerShell, выполните описанные ниже действия.
 
-1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md) до момента входа в Azure и выбора подписки.
-2. Выполните командлет **Switch-AzureMode**, чтобы включить режим диспетчера ресурсов, как показано ниже.
+[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-		Switch-AzureMode AzureResourceManager
+3. Выполните командлет **New-AzureRmResourceGroup**, чтобы создать группу ресурсов с помощью этого шаблона.
 
-	Вот результат, ожидаемый для указанной выше команды:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-	>[AZURE.WARNING]Командлет Switch-AzureMode является устаревшим. По этой причине все командлеты диспетчера ресурсов вскоре будут переименованы.
-
-3. Выполните командлет **New-AzureResourceGroup**, чтобы создать группу ресурсов с помощью этого шаблона.
-
-		New-AzureResourceGroup -Name IaaSStory-Backend -Location uswest `
+		New-AzureRmResourceGroup -Name IaaSStory-Backend -Location uswest `
 		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.json' `
 		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/azuredeploy.parameters.json'	
 
@@ -269,7 +260,7 @@
 
 Чтобы развернуть шаблон с помощью интерфейса командной строки Azure, выполните следующие действия.
 
-1. Если вы никогда не использовали Azure CLI, см. статью [Установка и настройка CLI Azure](xplat-cli.md) и следуйте инструкциям в ней вплоть до момента выбора учетной записи и подписки Azure.
+1. Если вы еще не пользовались Azure CLI, см. статью [Установка и настройка CLI Azure](xplat-cli.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
 2. Выполните команду **azure config mode**, чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
 
 		azure config mode arm
@@ -301,4 +292,4 @@
 		data:
 		info:    group create command OK
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

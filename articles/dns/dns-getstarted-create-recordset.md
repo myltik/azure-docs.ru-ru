@@ -4,7 +4,7 @@
    services="dns"
    documentationCenter="na"
    authors="joaoma"
-   manager="Adinah"
+   manager="carmonm"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="11/24/2015"
    ms.author="joaoma"/>
 
 
@@ -60,7 +60,7 @@ Azure DNS поддерживает все общие типы DNS-записей
 
 Создайте набор записей и назначьте его переменной $rs.
 
-	PS C:\>$rs = New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+	PS C:\>$rs = New-AzureRmDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
 
 Относительное имя набора записей в зоне DNS "contoso.com" — "www", поэтому полным доменным именем записей будет "www.contoso.com". Тип записи — "A", а срока жизни составляет 60 секунд.
 
@@ -72,21 +72,21 @@ Azure DNS поддерживает все общие типы DNS-записей
 
 Добавьте записи A IPv4 в набор записей "www", используя переменную $rs, назначенную при создании набора записей на шаге 1:
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
+	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
+	PS C:\> Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
 
-Добавление записей в набор записей с помощью команды Add-AzureDnsRecordConfig — это автономная операция. Обновляется только локальная переменная $rs.
+Добавление записей в набор записей с помощью команды Add-AzureRmDnsRecordConfig — это автономная операция. Обновляется только локальная переменная $rs.
 
 ### Шаг 3.
-Зафиксируйте изменения в наборе записей. Выполните командлет Set-AzureDnsRecordSet, чтобы отправить изменения набора записей в службу Azure DNS:
+Зафиксируйте изменения в наборе записей. Выполните командлет Set-AzureRmDnsRecordSet, чтобы отправить изменения набора записей в службу Azure DNS:
 
 
-	Set-AzureDnsRecordSet -RecordSet $rs
+	Set-AzureRmDnsRecordSet -RecordSet $rs
 
-Изменения завершены. Вы можете извлечь набор записей из Azure DNS с помощью командлета Get-AzureDnsRecordSet :
+Изменения завершены. Вы можете извлечь набор записей из Azure DNS с помощью командлета Get-AzureRmDnsRecordSet:
 
 
-	PS C:\> Get-AzureDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 
 	Name              : www
@@ -117,6 +117,7 @@ Azure DNS поддерживает все общие типы DNS-записей
 
 
 ## Дальнейшие действия
+
 [Управление записями DNS](dns-operations-dnszones.md)
 
 [Управление записями DNS](dns-operations-recordsets.md)<BR>
@@ -124,4 +125,4 @@ Azure DNS поддерживает все общие типы DNS-записей
 [Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

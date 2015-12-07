@@ -1,20 +1,22 @@
 
-1. In Visual Studio Solution Explorer, right-click the Windows Store app project, click **Store** > **Associate App with the Store...**. 
+1. В обозревателе решений Visual Studio щелкните правой кнопкой мыши проект приложения для Магазина Windows, щелкните **Магазин**, а затем — **Связать приложение с Магазином…**. 
 
-    ![Associate app with Windows Store](./media/app-service-mobile-register-wns/notification-hub-associate-win8-app.png)
+    ![Связь приложения с Магазином Windows](./media/app-service-mobile-register-wns/notification-hub-associate-win8-app.png)
     
-2. In the wizard, click **Next**, sign in with your Microsoft account, type a name for your app in **Reserve a new app name**, then click **Reserve**.
+2. В окне мастера нажмите кнопку **Далее**, выполните вход с помощью учетной записи Майкрософт, введите имя приложения в поле **Зарезервировать новое имя приложения** и нажмите кнопку **Зарезервировать**.
 
-3. After the app registration is successfully created, select the new app name, click **Next**, and then click **Associate**. This adds the required Windows Store registration information to the application manifest. 
+3. После успешного создания регистрации приложения выберите новое имя приложения, нажмите кнопку **Далее**, а затем нажмите кнопку **Связать**. Это добавляет необходимые регистрационные данные Магазина Windows в манифест приложения.
 
-7. Repeat steps 1 and 3 for the Windows Phone Store app project using the same registration you previously created for the Windows Store app.  
+7. Повторите шаги 1 и 3 для проекта приложения Магазина Windows Phone, используя регистрацию, созданную ранее для приложения Магазина Windows.
 
-7. Navigate to the [Windows Dev Center](https://dev.windows.com/en-us/overview), sign-in with your Microsoft account, click the new app registration in **My apps**, then expand **Services** > **Push notifications**. 
+7. Перейдите в [Центр разработки для Windows](https://dev.windows.com/ru-RU/overview), войдите с помощью учетной записи Майкрософт, щелкните "Регистрация нового приложения" в области **Мои приложения**, а затем разверните **Службы** > **Push-уведомления**.
 
-8. In the **Push notifications** page, click **Live Services site** under **Microsoft Azure Mobile Services**.
+8. На странице **Push-уведомления** в разделе **Мобильные службы Microsoft Azure** щелкните **Сайт служб Live**.
 
-9. In the **App Settings** tab, make a note of the values of **Client secret** and **Package SID**. 
+9. Запишите значения полей **Секрет клиента** и **ИД безопасности пакета** на вкладке **Параметры приложений**.
 
-    ![App setting in the developer center](./media/app-service-mobile-register-wns/mobile-services-win8-app-push-auth.png)
+    ![Параметр приложения в центре разработчиков](./media/app-service-mobile-register-wns/mobile-services-win8-app-push-auth.png)
 
-    > [AZURE.IMPORTANT] The client secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
+    > [AZURE.IMPORTANT]Секрет клиента и ИД безопасности пакета — это важные учетные данные для безопасного доступа. Не сообщайте никому эти значения и не распространяйте их вместе со своим приложением.
+
+<!---HONumber=AcomDC_1125_2015-->

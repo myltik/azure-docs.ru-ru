@@ -1,10 +1,10 @@
 
-1. In the MainPage.xaml.cs project file, add the following **using** statements:
+1. В файле проекта MainPage.xaml.cs добавьте следующие операторы **using**:
 
 		using System.Linq;		
 		using Windows.Security.Credentials;
 
-2. Replace the **AuthenticateAsync** method with the following code:
+2. Замените метод **AuthenticateAsync** следующим кодом:
 
         private async System.Threading.Tasks.Task<bool> AuthenticateAsync()
         {
@@ -71,10 +71,12 @@
             return success;
         }
 
-	In this version of **AuthenticateAsync**, the app tries to use credentials stored in the **PasswordVault** to access the service. A regular sign-in is also performed when there is no stored credential.
+	В этой версии **AuthenticateAsync** приложение пытается использовать для доступа к службе учетные данные, хранимые в **PasswordVault**. Обычная попытка входа предпринимается и при отсутствии хранимых учетных данных.
 
-	>[AZURE.NOTE]A cached token may be expired, and token expiration can also occur after authentication when the app is in use. To learn how to determine if a token is expired, see [Check for expired authentication tokens](http://aka.ms/jww5vp). For a solution to handling authorization errors related to expiring tokens, see the post [Caching and handling expired tokens in Azure Mobile Services managed SDK]( hive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
+	>[AZURE.NOTE]Срок действия кэшированного маркера может истечь до или после проверки подлинности, в процессе использования приложения. Чтобы узнать, как определить, истек ли срок действия маркера, см. статью [Проверка на наличие маркеров проверки подлинности с истекшим сроком действия](http://aka.ms/jww5vp). Решение по обработке ошибок авторизации, связанных с просроченными токенами, см. в записи [Кэширование и обработка просроченных токенов в SDK под управлением мобильных служб Azure](hive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx).
 
-3. Restart the app twice.
+3. Дважды перезапустите приложение.
 
-	Notice that on the first start-up, sign-in with the provider is again required. However, on the second restart the cached credentials are used and sign-in is bypassed. 
+	Обратите внимание, что при первом перезапуске по-прежнему потребуется вход с использованием поставщика. При втором перезапуске будут использоваться кэшированные учетные данные и вход будет пропущен.
+
+<!---HONumber=AcomDC_1125_2015-->

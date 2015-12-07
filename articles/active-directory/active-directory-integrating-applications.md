@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/25/2015"
+   ms.date="11/24/2015"
    ms.author="mbaldwin" />
 
 # Интеграция приложений с Azure Active Directory
@@ -349,6 +349,6 @@ Azure AD создает страницу предоставления досту
 
 - Основные сведения о [манифесте приложения Azure Active Directory](active-directory-application-manifest.md)
 
-- Посетите [руководство разработчика Active Directory] (active-directory-developer's guide.md)
+- См. [Руководство разработчика по Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

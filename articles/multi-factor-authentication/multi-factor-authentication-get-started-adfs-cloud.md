@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Защита облачных ресурсов с помощью Azure Multi-Factor Authentication и AD FS
@@ -93,4 +93,4 @@
 
 Это все! Теперь федеративные пользователи Office 365 должны использовать MFA только в том случае, если утверждение сформировано за пределами корпоративной сети.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

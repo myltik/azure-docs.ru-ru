@@ -130,9 +130,11 @@
 | Состояние | Описание |
 | ---- | ----- |
 | Успешно | Пароль успешно синхронизирован |
-| SourceConnectorNotPresent | Объект не найден в локальном пространстве соединителя Active Directory |
-| NoTargetConnection | Объект отсутствует в метавселенной или в пространстве соединителя Azure AD |
-| TargetNotExportedToDirectory | Объект в пространстве соединителя Azure AD еще не экспортирован |
+| FilteredByTarget | Для пароля установлено значение **Пользователь должен изменить пароль при следующем входе**. Пароль не синхронизирован. |
+| NoTargetConnection | Объект отсутствует в метавселенной или в пространстве соединителя Azure AD. |
+| SourceConnectorNotPresent | Объект не найден в локальном пространстве соединителя Active Directory. |
+| TargetNotExportedToDirectory | Объект в пространстве соединителя Azure AD еще не экспортирован. |
+| MigratedCheckDetailsForMoreInfo | Запись журнала создана до выхода версии 1.0.9125.0 и отображается в исходном состоянии. |
 
 
 ### Запуск полной синхронизации всех паролей
@@ -158,4 +160,4 @@
 * [Azure AD Connect Sync: настройка параметров синхронизации](active-directory-aadconnectsync-whatis.md)
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

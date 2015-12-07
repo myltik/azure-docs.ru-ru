@@ -1,23 +1,25 @@
-**1. How will customers be notified of the retiring SDK?**
+**1. Каким образом клиенты будут уведомлены о выводе пакета SDK из эксплуатации?**
 
-Microsoft will provide 12 month advance notification to the end of support of the retiring SDK in order to facilitate a smooth transition to a supported SDK. Further, customers will be notified through various communication channels – Azure Management Portal, Developer Center, blog post, and direct communication to assigned service administrators.
+Корпорация Майкрософт за 12 месяцев отправит предварительное уведомление об окончании поддержки пакета SDK, чтобы обеспечить более плавный переход на поддерживаемый пакет SDK. Кроме того, клиенты будут проинформированы с помощью различных каналов связи — портал управления Azure, центр разработчиков, записи блога и отправка прямых сообщений назначенным администраторам служб.
 
-**2. Can customers author applications using a "to-be" retired DocumentDB SDK during the 12 month period?** 
+**2. Могут ли клиенты создавать приложения, используя выводимый из эксплуатации пакет SDK DocumentDB в течение 12-месячного периода?**
 
-Yes, customers will have full access to author, deploy and modify applications using the "to-be" retired DocumentDB SDK during the 12 month grace period. During the 12 month grace period, customers are advised to migrate to a newer supported version of DocumentDB SDK as appropriate.
+Да, в течение 12-месячного периода пользователи будут иметь полный доступ для разработки, развертывания и изменения приложений с помощью выводимого из эксплуатации пакета SDK для DocumentDB. В рамках 12-месячного льготного периода клиентам рекомендуется соответствующим образом перейти на новую поддерживаемую версию пакета SDK для DocumentDB.
 
-**3. Can customers author and modify applications using a retired DocumentDB SDK after the 12 month notification period?**
+**3. Могут ли клиенты создавать и изменять приложения с помощью выведенного из эксплуатации пакета SDK для DocumentDB по истечении 12-месячного периода уведомления?**
 
-After the 12 month notification period, the SDK will be retired. Any access to DocumentDB by an applications using a retired SDK will not be permitted by the DocumentDB platform. Further, Microsoft will not provide customer support on the retired SDK.
+По истечении 12-месячного периода уведомления поддержка пакета SDK будет прекращена. Доступ приложений, использующих выведенный из эксплуатации пакет SDK, к DocumentDB будет запрещен платформой DocumentDB. Кроме того, Майкрософт не будет предоставлять клиентам поддержку выведенного пакета SDK.
 
-**4. What happens to Customer’s running applications that are using unsupported DocumentDB SDK version?**
+**4. Что произойдет с работающими приложениями клиента, которые используют неподдерживаемую версию пакета SDK для DocumentDB?**
 
-Any attempts made to connect to the DocumentDB service with a retired SDK version will be rejected. 
+Любые попытки подключения к службе DocumentDB с помощью выведенной из эксплуатации версии пакета SDK будут отклонены.
 
-**5. Will new features and functionality be applied to all non-retired SDKs**
+**5. Новые функции и возможности будут применены ко всем оставшимся пакетам SDK**
 
-New features and functionality will only be added to new versions. If you are using an old, non-retired, version of the SDK your requests to DocumentDB will still function as previous but you will not have access to any new capabilities.  
+Новые функции и возможности будут добавлены только в новые версии. Если вы используете старую, не выведенную из эксплуатацию версию пакета SDK, запросы в DocumentDB будут работать без изменений, но вы не сможете получить доступ к каким-либо новым возможностям.
 
-**6. What should I do if I cannot update my application before a cut-off date**
+**6. Что делать, если не удается обновить приложение до даты вывода из эксплуатации**
 
-We recommend that you upgrade to the latest SDK as early as possible. Once an SDK has been tagged for retirement you will have 12 months to update your application. If, for whatever reason, you cannot complete your application update within this timeframe then please contact the [DocumentDB Team](mailto:askdocdb@microsoft.com) and request their assistance before the cutoff date.
+Рекомендуется как можно раньше выполнить обновление до последней версии SDK. После отметки пакета SDK для вывода из эксплуатации у вас будет 12 месяцев на обновление приложения. Если по какой-либо причине вы не сможете обновить приложение в течение этого времени, заранее обратитесь за помощью к [команде DocumentDB](mailto:askdocdb@microsoft.com).
+
+<!---HONumber=AcomDC_1125_2015-->

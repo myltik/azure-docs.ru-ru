@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="11/19/2015" 
 	ms.author="v-dedomi"/>
 
 #Использование подключаемого модуля Azure на сервере непрерывной интеграции Hudson
@@ -213,4 +213,4 @@
 
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

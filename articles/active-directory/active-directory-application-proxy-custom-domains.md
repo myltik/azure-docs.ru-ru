@@ -3,7 +3,7 @@
 	description="Описывает работу с пользовательскими доменами в прокси приложения Azure AD."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
+	authors="kgremban"
 	manager="StevenPo"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 # Работа с пользовательскими доменами в прокси приложения Azure AD
 > [AZURE.NOTE]Прокси приложения — это функция, которая доступна только после обновления до выпуска Premium или Basic службы Azure Active Directory. Дополнительные сведения см. в статье [Выпуски Azure Active Directory](active-directory-editions.md).
@@ -53,4 +53,4 @@
 * [Регистрация организации в Azure](sign-up-organization.md)
 * [Удостоверение Azure](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

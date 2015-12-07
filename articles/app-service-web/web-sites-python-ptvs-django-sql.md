@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="08/30/2015"
+	ms.date="11/13/2015"
 	ms.author="huguesv"/>
 
 
@@ -139,7 +139,7 @@
 
 1.  В обозревателе решений в разделе **Среды Python** щелкните правой кнопкой мыши виртуальную среду и выберите **Установить пакет Python**.
 
-1.  Установите пакет `pyodbc`, используя **easy\_install**.
+1.  Установите пакет `pyodbc`, используя **pip**.
 
   	![Диалоговое окно «Установка пакета Python»](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
 
@@ -220,4 +220,4 @@
 [Документация по Django]: https://www.djangoproject.com/
 [База данных SQL]: /documentation/services/sql-database/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

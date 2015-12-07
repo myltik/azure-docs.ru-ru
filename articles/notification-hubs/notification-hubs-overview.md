@@ -123,7 +123,7 @@ Push-уведомления являются одним из наиболее в
 Разработчики мобильных приложений могут использовать концентраторы уведомлений в следующем рабочем процессе.
 
 1. Получение дескриптора PNS устройства.
-2. Регистрация устройства и [шаблонов](optional) в концентраторах уведомлений с помощью удобного API-интерфейса регистрации пакета SDK клиента мобильных приложений.
+2. Регистрация устройства и [шаблонов] в концентраторах уведомлений с помощью удобного API-интерфейса регистрации пакета SDK клиента мобильных приложений.
     + Обратите внимание, что в целях безопасности мобильные приложения удаляют в регистрациях все теги. Работа с концентраторами уведомлений непосредственно на стороне сервера для связывания тегов с устройствами.
 3. Отправка уведомлений из серверной части приложения с помощью концентраторов уведомлений.
 
@@ -161,8 +161,8 @@ Push-уведомления являются одним из наиболее в
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
   [мобильные приложения службы приложений]: https://azure.microsoft.com/ru-RU/documentation/articles/app-service-mobile-value-prop/
-  [templates]: https://msdn.microsoft.com/ru-RU/library/azure/dn530748.aspx
+  [шаблонов]: https://msdn.microsoft.com/ru-RU/library/azure/dn530748.aspx
   [портале Azure]: https://portal.azure.com
   [здесь]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

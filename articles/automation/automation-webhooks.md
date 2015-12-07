@@ -3,7 +3,7 @@
    description="Объект Webhook, который позволяет клиенту запустить модуль Runbook в службе автоматизации Azure с помощью HTTP-запроса. В статье рассматривается создание объекта Webhook и вызов такого объекта для запуска модуля Runbook."
    services="automation"
    documentationCenter=""
-   authors="bwren"
+   authors="SnehaGunda"
    manager="stevenka"
    editor="tysonn" />
 <tags 
@@ -255,4 +255,4 @@
 - [Просмотр состояния задания Runbook](automation-viewing-the-status-of-a-runbook-job.md)
 - [Использование службы автоматизации Azure для реагирования на оповещения Azure](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/20/2015"
+   ms.date="11/24/2015"
    ms.author="rickbyh"/>
 
 # Безопасность в Базе данных SQL Azure: рекомендации и ограничения
@@ -109,4 +109,6 @@ GO
 
 [Управление базами данных и именами входа в Базе данных SQL Azure](sql-database-manage-logins.md)
 
-<!---HONumber=Nov15_HO3-->
+[Центр обеспечения безопасности для ядра СУБД SQL Server и базы данных Azure SQL](https://msdn.microsoft.com/library/bb510589)
+
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Создание задания | Microsoft Azure" 
-	description="Сегмент схемы обучения по созданию задания."
+	description="Создание задания для Stream Analytics | Сегмент схемы обучения"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Создание задания
+# Создание задания Stream Analytics
 
 Важнейшим ресурсом в службе Azure Stream Analytics является задание Stream Analytics. Оно состоит из одного или нескольких источников входных данных, запроса, определяющего преобразование данных, и одного или нескольких назначений выходных данных для записи результатов.
 
@@ -60,4 +60,4 @@
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

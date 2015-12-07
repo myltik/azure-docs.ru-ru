@@ -109,7 +109,7 @@
 
 	$publicIP = New-AzurePublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location "West US" –AllocationMethod Dynamic -DomainNameLabel lbip 
 
->[AZURE.NOTE]Свойство label в имени домена общедоступного IP-адреса будет содержать полное доменное имя балансировщика нагрузки.
+>[AZURE.NOTE]Свойство label в имени домена общедоступного IP-адреса будет содержать префикс к полному доменному имени балансировщика нагрузки.
 
 ## Создание пула IP-адресов клиентской части и пула адресов серверной части
 
@@ -249,13 +249,13 @@ PS C:\> $backendnic1
 
 ### Шаг 1
 
-С помощью балансировщика нагрузки из предыдущего примера присвойте объект балансировщика нагрузки переменной $slb, используя командлет Get-AzureLoadBalancer.
+Используя балансировщик нагрузки из предыдущего примера, присвойте переменной $slb ссылку на объект балансировщика нагрузки, используя метод Get-AzureLoadBalancer.
 
 	$slb=get-azureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 
 ### Шаг 2
 
-В следующем примере вы добавите новое входящее правило NAT для порта 81 в интерфейсном пуле и порта 8181 в серверном пуле для существующего балансировщика нагрузки.
+В следующем примере вы добавите новое входящее правило NAT для порта 81 на клиентской части и порта 8181 на серверной части, которое будет применяться к пулу существующего балансировщика нагрузки.
 
 	$slb | Add-AzureLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
 
@@ -266,9 +266,9 @@ PS C:\> $backendnic1
 
 	$slb | Set-AzureLoadBalancer
 
-## Удаление балансировщика нагрузки
+## Удалите балансировщика нагрузки.
 
-С помощью команды Remove-AzureLoadBalancer удалите ранее созданный балансировщик нагрузки с именем NRP-LB в группе ресурсов NRP-RG.
+Воспользуйтесь командой Remove-AzureLoadBalancer, чтобы удалить ранее созданного балансировщика нагрузки с именем NRP-LB в группе ресурсов NRP RG.
 
 	Remove-AzureLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 
@@ -282,4 +282,4 @@ PS C:\> $backendnic1
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

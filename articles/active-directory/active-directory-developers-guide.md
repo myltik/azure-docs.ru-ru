@@ -31,6 +31,8 @@ Azure Active Directory является платформой для управл
 
 1. [Azure Active Directory Graph API](active-directory-graph-api.md): используйте Azure Active Directory Graph API для программного доступа к Azure Active Directory через конечные точки REST API.
 
+    > [AZURE.IMPORTANT]Функциональные возможности API Azure AD Graph доступны также в [Microsoft Graph](https://graph.microsoft.io/) — едином API, который включает API из других служб Майкрософт, таких как Outlook, OneDrive, OneNote, Planner и Office Graph, для которых применяются единая конечная точка и единый маркер доступа.
+
 1. [Библиотеки проверки подлинности Azure Active Directory](active-directory-authentication-libraries.md): используйте библиотеки Azure для простой проверки подлинности пользователей, которым требуются маркеры доступа.
 
 
@@ -46,7 +48,7 @@ Azure Active Directory является платформой для управл
 
 ### Краткие руководства по началу работы с веб-приложениями
 
-|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md)|[![JavaScript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md)
+|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)|[![Java:](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md)|[![JavaScript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md)
 |:--:|:--:|:--:|:--:|
 |[.NET](active-directory-devquickstarts-webapp-dotnet.md)|[Java](active-directory-devquickstarts-webapp-java.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md)
 
@@ -91,25 +93,25 @@ Azure Active Directory является платформой для управл
 
 ### API Graph
 
-- [Справочник по API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx). Справочник по API Graph REST для Azure Active Directory. [Просмотрите интерактивный справочник по API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+- [Справочник по API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx). Справочник по API Graph для Azure Active Directory. [Просмотрите интерактивный справочник по API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-- [Области разрешений API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes). Области разрешений OAuth 2.0, которые используются для управления доступом приложения к данным каталога в клиенте.
+- [Области разрешений API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes). Области разрешений OAuth 2.0, которые необходимы для управления доступом приложения к данным каталога в клиенте.
 
 
 ### Протоколы проверки подлинности
 
-- [Справочник по протоколу SAML 2.0](https://msdn.microsoft.com/library/azure/dn195591.aspx). Протокол SAML 2.0 позволяет использовать единый вход.
+- [Справочник по протоколу SAML 2.0](https://msdn.microsoft.com/library/azure/dn195591.aspx). Протокол SAML 2.0 позволяет приложениям использовать единый вход для пользователей.
 
 
 - [Справочник по протоколу OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx). Протокол OAuth 2.0 позволяет предоставлять доступ к веб-приложениям и веб-интерфейсам API в клиенте Azure Active Directory.
 
 
-- [Справочник по протоколу OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx). Протокол OpenID Connect 1.0 позволяет использовать OAuth 2.0 в качестве протокола проверки подлинности.
+- [Справочник по протоколу OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx). Протокол OpenID Connect 1.0 позволяет применять OAuth 2.0 в качестве протокола проверки подлинности.
 
 
 - [Справочник по протоколу WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx). Протокол WS-Federation 1.2 описан в спецификации федерации веб-служб версии 1.2.
 
-- [Поддерживаемые токены и типы утверждений](active-directory-token-and-claims.md). В этом руководстве вы найдете основные сведения об утверждениях в маркерах SAML 2.0 и веб-маркерах JSON (JWT).
+- [Поддерживаемые маркеры и типы утверждений](active-directory-token-and-claims.md). В этом руководстве вы найдете основные сведения об утверждениях в маркерах SAML 2.0 и веб-маркерах JSON (JWT).
 
 ## Видеоролики
 
@@ -138,4 +140,4 @@ Azure Active Directory является платформой для управл
 
 - [Azure Active Directory в Твиттере](https://twitter.com/azuread). Объявления Azure Active Directory длиной не более 140 символов.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Создание выходных данных Stream Analytics | Microsoft Azure" 
+	pageTitle="Подключение выходных данных Stream Analytics | Microsoft Azure" 
 	description="Информация о подключении к местам назначения выходных данных, а также их настройке для решений Stream Analytics." 
 	documentationCenter="" 
 	services="stream-analytics"
@@ -16,9 +16,9 @@
 	ms.date="11/06/2015" 
 	ms.author="jeffstok"/>
 
-# Создание выходных данных Stream Analytics
+# Назначения выходных данных Stream Analytics
 
-## Что такое выходные данные Stream Analytics? ##
+## Основные сведения о выходных данных Stream Analytics ##
 ---
 Создавая задание Stream Analytics, необходимо учитывать, каким образом будут использоваться его выходные данные. Как получатели преобразованных данных будут просматривать результаты задания Stream Analytics? Какие инструменты будут использоваться для анализа выходных данных? Требуется ли хранение данных?
 
@@ -306,4 +306,4 @@ Power BI в качестве места назначения для выходн
 [graphic37]: ./media/stream-analytics-connect-data-event-outputs/37-stream-analytics-connect-data-event-input-output.png
 [graphic38]: ./media/stream-analytics-connect-data-event-outputs/38-stream-analytics-connect-data-event-input-output.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

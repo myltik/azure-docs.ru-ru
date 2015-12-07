@@ -1,10 +1,20 @@
-<properties pageTitle="Указание версии Node.js" description="Узнайте, как указать версию Node.js, используемую веб-сайтами и облачными службами Azure." services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
+<properties
+	pageTitle="Указание версии Node.js"
+	description="Узнайте, как указать версию Node.js, используемую веб-сайтами и облачными службами Azure."
+	services=""
+	documentationCenter="nodejs"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/31/2015" ms.author="mwasson"/>
-
-
-
-
+<tags
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 # Указание версии Node.js в приложении Azure
 
@@ -12,13 +22,7 @@
 
 ##Версии по умолчанию
 
-Версии Node.js, предоставляемые Azure, постоянно обновляются. Если не указано обратное, будет использоваться последняя доступная версия. В настоящее время включены следующие версии:
-
-- 4\.x.x: 4.0.0
-- 0\.12.x: 0.12.6, 0.12.3, 0.12.2, 0.12.0
-- 0\.10.x: 0.10.32, 0.10.31, 0.10.29, 0.10.28, 10.26, 0.10.24, 0.10.21, 0.10.18, 0.10.5.
-- 0\.8.x: 0.8.28, 0.8.27, 0.8.26, 0.8.19, 0.8.2.
-- 0\.6.x: 0.6.20, 0.6.17.
+Версии Node.js, предоставляемые Azure, постоянно обновляются. Если не указано обратное, будет использоваться последняя доступная версия.
 
 > [AZURE.NOTE]При первом размещении приложения в облачной службе Azure (веб-роль или рабочая роль), Azure будет пытаться использовать ту же версию Node.js, что установлена в вашей среде разработки, если она совпадает с одной из версий по умолчанию, доступных в Azure.
 
@@ -98,4 +102,4 @@
 [работать с модулями]: nodejs-use-node-modules-azure-apps.md
 [строить и развертывать веб-сайт Node.js]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

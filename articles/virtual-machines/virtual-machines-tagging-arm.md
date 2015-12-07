@@ -47,7 +47,7 @@
 
 Затем вы можете указать значения для тегов в разделе **Редактирование параметров**.
 
-![Редактирование тегов на портале Azure](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
+![Редактирование тегов в портале предварительной версии Azure](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
 
 Нажмите **Создать**, чтобы развернуть шаблон со значениями тегов.
 
@@ -58,15 +58,15 @@
 
 Выберите значок тегов, чтобы просмотреть свои теги:
 
-![Значок тегов на портале Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-icon.png)
+![Значок тегов в портале предварительной версии Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-icon.png)
 
 Добавьте новый тег с помощью портала, определив собственную пару "ключ-значение", и сохраните его.
 
-![Добавление тега на портале Azure](./media/virtual-machines-tagging-arm/azure-portal-add-new-tag.png)
+![Добавление тега в портале предварительной версии Azure](./media/virtual-machines-tagging-arm/azure-portal-add-new-tag.png)
 
 Новый тег должен появиться в списке тегов для ресурса.
 
-![Новый тег, сохраненный на портале Azure](./media/virtual-machines-tagging-arm/azure-portal-saved-new-tag.png)
+![Сохранение нового тега в портале предварительной версии Azure](./media/virtual-machines-tagging-arm/azure-portal-saved-new-tag.png)
 
 
 ## Маркировка с помощью PowerShell
@@ -141,7 +141,7 @@
 
         azure vm show -g MyResourceGroup -n MyVM
 
-В отличие от PowerShell, при добавлении тегов к ресурсу, который уже содержит теги, не требуется указывать все теги (старые и новые), прежде чем использовать команду `azure vm set`. Эта команда позволяет присоединить тег к ресурсу. Чтобы добавить новый тег виртуальной машины через интерфейс командной строки Azure, можно использовать команду `azure vm set` с параметром тега **-t**:
+В отличие от PowerShell, при добавлении тегов к ресурсу, который уже содержит теги, не требуется указывать все теги (старые и новые), прежде чем использовать команду `azure vm set`. Эта команда позволяет присоединить тег к ресурсу. Чтобы добавить новый тег виртуальной машины через интерфейс командной строки Azure, можно применить команду `azure vm set` с параметром тега **-t**:
 
         azure vm set -g MyResourceGroup -n MyVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
 
@@ -155,19 +155,19 @@
 
 ## Просмотр тегов в сведениях об использовании
 
-Теги, добавленные к ресурсам вычисления, сети и хранения с помощью диспетчера ресурсов Azure, будут указаны в сведениях об использовании на [портале выставления счетов](https://account.windowsazure.com/).
+Теги, добавленные к ресурсам вычисления, сети и хранения с помощью диспетчера ресурсов Azure, будут указаны в сведениях о использовании на [портале выставления счетов](https://account.windowsazure.com/).
 
-Нажмите **Скачать сведения об использовании**, чтобы просмотреть сведения об использовании подписки.
+Нажмите **Скачать сведения об использовании**, чтобы просмотреть сведения о применении подписки.
 
-![Сведения об использовании на портале Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
+![Сведения об использовании в портале предварительной версии Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
 
 Выберите платежный документ и **версию 2** сведений об использовании:
 
-![Сведения об использовании предварительной версии 2 на портале Azure](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
+![Сведения об использовании предварительной версии 2 на портале предварительной версии Azure](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
 
 В сведениях об использовании все теги отображаются в столбце **Теги**:
 
-![Столбец "Теги" на портале Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
+![Столбец тегов на портале предварительной версии Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
 
 Проанализировав эти теги и сведения об использовании, организации смогут узнать больше из данных о потреблении.
 
@@ -190,4 +190,4 @@
 [Общие сведения о счете Azure]: ../billing-understand-your-bill.md
 [Получение ценных сведений о потреблении ресурсов Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

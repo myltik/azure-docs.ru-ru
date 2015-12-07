@@ -3,8 +3,8 @@
 	description="Клиентская библиотека хранилища Azure для просмотра Xamarin позволяет разработчикам создавать приложения для магазина Windows, iOS и Android из их собственных пользовательских интерфейсов. В этом учебном материале показано, как использовать Xamarin для создания приложения Android, которое использует хранилище BLOB-объектов Azure." 
 	services="storage" 
 	documentationCenter="xamarin" 
-	authors="tamram" 
-	manager="carolz" 
+	authors="micurd" 
+	manager="" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="11/18/2015" 
 	ms.author="tamram"/>
 
 # Использование хранилища BLOB-объектов из Xamarin (Предварительная версия)
@@ -179,4 +179,4 @@ URI подписи коллективного доступа для нового
 [Использование хранилища очередей из .NET](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

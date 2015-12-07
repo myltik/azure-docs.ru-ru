@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Поиск несанкционированных облачных приложений с Cloud App Discovery | Microsoft Azure"
-	description="В этой статье описан агент Cloud App Discovery и его назначение."
+	description="Содержит сведения о поиске приложений и управлении ими с помощью Cloud App Discovery, а также преимуществах и принципах работы Cloud App Discovery."
 	services="active-directory"
+	keywords="cloud app discovery, управление приложениями"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
-	editor="lisatoft"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/16/2015"
+	ms.date="11/20/2015"
 	ms.author="markusvi"/>
 
 # Поиск несанкционированных облачных приложений с Cloud App Discovery
@@ -47,4 +48,4 @@ Cloud App Discovery — это функция службы Azure Active Directo
 - [Журнал изменений агента Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx)
 - [Часто задаваемые вопросы по Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

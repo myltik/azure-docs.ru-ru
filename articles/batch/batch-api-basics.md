@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Основные сведения об API пакетной службы Azure | Microsoft Azure"
-	description="Ознакомьтесь с основными принципами работы пакетной службы и ее API-интерфейсов с точки зрения разработчика."
+	pageTitle="Обзор функций пакетной службы Azure | Microsoft Azure"
+	description="Ознакомьтесь с функциями пакетной службы и ее API-интерфейсов с точки зрения разработки."
 	services="batch"
 	documentationCenter=".net"
 	authors="yidingzhou"
@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="10/15/2015"
+	ms.date="11/19/2015"
 	ms.author="yidingz;v-marsma"/>
 
-# Основные сведения об API Пакетной службы Azure
+# Обзор функций пакетной службы Azure
 
 Эта статья содержит обзорную информацию о базовых возможностях API пакетной службы Azure. Многие из сущностей и компонентов, описанных ниже, используются при разработке распределенных вычислительных решений с использованием интерфейсов [REST API][batch_rest_api] или [.NET API][batch_net_api] пакетной службы.
 
-> [AZURE.TIP]Подробную техническую информацию о пакетной службе см. в статье [Технический обзор Пакетной службы Azure](batch-technical-overview.md).
+> [AZURE.TIP]Подробную техническую информацию о пакетной службе см. в статье [Основные сведения о пакетной службе Azure](batch-technical-overview.md).
 
 ## <a name="workflow"></a>Рабочий процесс пакетной службы
 
@@ -354,4 +354,4 @@
 [rest_update_job]: https://msdn.microsoft.com/library/azure/dn820162.aspx
 [rest_rdp]: https://msdn.microsoft.com/library/azure/dn820120.aspx
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

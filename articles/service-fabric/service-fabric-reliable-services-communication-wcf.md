@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="11/12/2015"
+   ms.date="11/17/2015"
    ms.author="bharatn@microsoft.com"/>
 
 # Стек связи на основе WCF для надежных служб
-Платформа надежных служб позволяет разработчикам служб решать, какой стек связи следует использовать в службе. Они могут подключить выбранный стек связи посредством объекта `ICommunicationListener`, возвращаемого методом [`CreateCommunicationListener`](../service-fabric-reliable-service-communication.md). Платформа предоставляет реализацию стека связи на основе WCF для разработчиков служб, которым требуется использовать связь на основе WCF.
+Платформа надежных служб позволяет разработчикам служб решать, какой стек связи следует использовать в службе. Любой стек связи можно подключить с помощью команды `ICommunicationListener`, возвращаемой методами [CreateServiceReplicaListeners или CreateServiceInstanceListeners](service-fabric-reliable-service-communication.md). Платформа предоставляет реализацию стека связи на основе WCF для разработчиков служб, которым требуется использовать связь на основе WCF.
 
 ## Прослушиватель связи WCF
 Ориентированная на WCF реализация `ICommunicationListener` предоставляется классом `Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener`.
@@ -47,7 +47,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 ```
 
 ## Написание клиентов для стека связи WCF
-Для написания клиентов для взаимодействия со службами с помощью WCF платформа предоставляет `WcfClientCommunicationFactory` — ориентированную на WCF реализацию [`ClientCommunicationFactoryBase`](../service-fabric-reliable-service-communication.md).
+Для написания клиентов для взаимодействия со службами с помощью WCF платформа предоставляет `WcfClientCommunicationFactory` — ориентированную на WCF реализацию [`ClientCommunicationFactoryBase`](service-fabric-reliable-service-communication.md).
 
 ```csharp
 
@@ -110,8 +110,8 @@ var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
 ```
  
 ## Дальнейшие действия
-* [Удаленный вызов процедуры с использованием удаленного взаимодействия Reliable Services](service-fabric-reliable-services-communication-remoting.md)
+* [Удаленный вызов процедур с использованием удаленного взаимодействия Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 
 * [Веб-интерфейс API с OWIN в Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

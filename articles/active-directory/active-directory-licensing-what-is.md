@@ -1,20 +1,21 @@
 <properties
-   pageTitle="Что такое лицензирование Microsoft Azure Active? | Microsoft Azure"
-   description="Описание процедуры и принципа работы лицензирования Microsoft Azure AD, а также рекомендации по началу работы, включая сведения о лицензировании Office 365, Microsoft Intune, а также выпусков Azure Active Directory Premium и Basic"
-   services="active-directory"
-   documentationCenter=""
-   authors="curtand"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Что такое лицензирование Microsoft Azure Active? | Microsoft Azure"
+    description="Описание процедуры и принципа работы лицензирования Microsoft Azure AD, а также рекомендации по началу работы, включая сведения о лицензировании Office 365, Microsoft Intune, а также выпусков Azure Active Directory Premium и Basic"
+    services="active-directory"
+	keywords="Лицензирование Azure AD"
+    documentationCenter=""
+    authors="curtand"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/21/2015"
-   ms.author="curtand"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="11/20/2015"
+    ms.author="curtand"/>
 
 # Что такое лицензирование Microsoft Azure Active?
 
@@ -86,7 +87,7 @@ Azure Active Directory (AD) — это служба идентификации 
 
 ![Активация планов пробных лицензий](./media/active-directory-licensing-what-is/assign_licenses.png)
 
-В диалоговом окне назначения для выбранного плана можно указать пользователей, а затем добавить их в столбец **Назначить** справа. Можно пролистать список пользователей или выполнить поиск определенных пользователей с помощью функции поиска (значок лупы в верхней правой части сетки пользователя). Чтобы назначить группы, выберите «Группы» в меню **Отобразить**, а затем нажмите кнопку с галочкой справа, чтобы обновить отображенные назначения.
+В диалоговом окне назначения для выбранного плана можно указать пользователей, а затем добавить их в столбец **Назначить** справа. Можно пролистать список пользователей или выполнить поиск определенных пользователей с помощью функции поиска (значок лупы в верхней правой части сетки пользователя). Чтобы назначить группы, выберите "Группы" в меню **Отобразить**, а затем нажмите кнопку с галочкой справа, чтобы обновить отображенные назначения.
 
 ![Назначение лицензий группам](./media/active-directory-licensing-what-is/assign_licenses_to_groups.png)
 
@@ -100,7 +101,7 @@ Azure Active Directory (AD) — это служба идентификации 
 
 ###Просмотр назначенных лицензий
 
-Сводное представление назначенных лицензий, включая доступные и назначенные, а также следующее событие жизненного цикла подписки, находится на вкладке **Лицензии**.
+Сводное представление назначенных лицензий, включая доступные и назначенные, а также следующее событие жизненного цикла подписки находятся на вкладке **Лицензии**.
 
 ![Просмотр количества назначенных лицензий](./media/active-directory-licensing-what-is/view_assigned_licenses.png)
 
@@ -131,4 +132,4 @@ Azure Active Directory (AD) — это служба идентификации 
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [Прямое приобретение лицензий Azure AD Premium](http://aka.ms/buyaadp)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

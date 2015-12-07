@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Автомасштабирование в масштабируемом наборе виртуальных машин | Microsoft Azure"
+	pageTitle="Автоматическое масштабирование в масштабируемых наборах виртуальных машин | Microsoft Azure"
 	description="Приступите к созданию своего первого масштабируемого набора виртуальных машин Azure и научитесь управлять им"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="gbowerman"
+	authors="davidmu1"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,672 +14,596 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/11/2015"
-	ms.author="guybo"/>
+	ms.date="11/19/2015"
+	ms.author="davidmu"/>
 
 # Автоматическое масштабирование машин в масштабируемом наборе виртуальных машин
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-create-windows-powershell-service-manager.md).
 
-
-В этом документе приведено краткое руководство по созданию масштабируемых наборов виртуальных машин Azure в общедоступной предварительной версии, а также описано управление ими.
-
-Предполагается, что вы уже знакомы с использованием шаблонов диспетчера ресурсов Azure (ARM) для развертывания виртуальных машин и сетей. Если нет, перейдите по первым трем ссылкам в разделе ресурсов, чтобы получить общее представление о диспетчере ресурсов.
-
-## Что такое масштабируемые наборы ВМ и зачем они нужны?
-
-Масштабируемые наборы ВМ относятся к вычислительным ресурсам Azure. Их можно использовать для развертывания набора идентичных виртуальных машин и управления им.
-
-Масштабируемые наборы, в которые входят абсолютно одинаково настроенные ВМ, поддерживают настоящее автомасштабирование — без необходимости предварительной подготовки виртуальных машин. Благодаря этому упрощается создание крупномасштабных служб для больших вычислений, больших данных, контейнерных рабочих нагрузок и любых приложений, которые требуют постоянного изменения количества вычислительных ресурсов. Операции масштабирования неявно распределяются между доменами сбоя и обновления. Общие сведения о масштабируемых наборах виртуальных машин см. в последних [записях блога Azure](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview).
-
-## Создание масштабируемых наборов ВМ и работа с ними
-
-Масштабируемые наборы ВМ можно задать и развернуть с помощью шаблонов JSON и вызовов REST точно так же, как и отдельные ВМ диспетчера ресурсов Azure. Следовательно, можно использовать все стандартные методы развертывания диспетчера ресурсов Azure. Некоторые практические примеры приведены в этом документе.
-
-Отдельные области интеграции масштабируемых наборов ВМ, в частности поддержка императивных команд в скриптах и языках программирования и полная интеграция с порталом, находятся в процессе разработки и будут выпускаться в предварительной версии поэтапно.
-
-## Развертывание масштабируемых наборов ВМ и управление ими с помощью портала Azure
-
-Создать масштабируемый набор ВМ с нуля на портале Azure пока невозможно. Служба поддержки сейчас работает над этой функциональностью. На первом этапе можно увидеть только масштабируемые наборы, уже созданные вами, а для создания новых вам потребуется использовать шаблоны или скрипты. Во всех случаях под «порталом» имеется в виду новый портал Azure: [https://portal.azure.com/](https://portal.azure.com/).
-
-Возможность развертывания шаблонов на портале можно использовать для развертывания любых ресурсов, в том числе масштабируемых наборов. Простой масштабируемый набор можно очень легко развернуть с помощью следующей ссылки:
-
-_https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>_
-
-Примеры шаблонов для масштабируемых наборов ВМ можно найти в репозитории шаблонов быстрого запуска Azure на GitHub: [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates). Ищите шаблоны с _vmss_ в названии.
-
-В файлах сведений этих шаблонов есть кнопка, подобная этой, со ссылкой на компонент развертывания портала.
-
-Чтобы развернуть масштабируемый набор, нажмите кнопку, а затем укажите на портале все необходимые параметры. Примечание. Если вы не уверены, поддерживает ли ресурс верхний или смешанный регистр, для надежности всегда вводите значения параметров в нижнем регистре.
-
-**Мониторинг масштабируемого набора ВМ на портале или в обозревателе ресурсов**
-
-После развертывания масштабируемого набора на портале будет отображаться его общее представление. Однако в предварительной версии сначала будет невозможно просмотреть подробные свойства или детализировать ВМ в масштабируемом наборе ВМ.
-
-Чтобы просматривать масштабируемые наборы ВМ до завершения полной интеграции с порталом, рекомендуем использовать **Обозреватель ресурсов Azure**: [https://resources.azure.com](https://resources.azure.com). Масштабируемые наборы ВМ принадлежат к ресурсам Microsoft.Compute. Чтобы просмотреть их на этом сайте, следует перейти по следующим ссылкам:
-
-Подписки -> ваша подписка -> resourceGroups -> поставщики -> Microsoft.Compute -> virtualMachineScaleSets -> ваш масштабируемый набор ВМ -> и т. д.
-
-## Развертывание масштабируемых наборов ВМ и управление ими с помощью PowerShell
-
-Вы можете развертывать шаблоны масштабируемых наборов ВМ и отправлять запросы на ресурсы с помощью любой текущей версии Azure PowerShell.
-
-**Важное примечание.** Приведенные ниже примеры предназначены для платформы [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/), в которой во многих командах используется префикс _AzureRm_. Если используется более ранняя версия PowerShell, например 0.9.8 или ниже, удалите **Rm** из примеров команд. В примерах также предполагается, что подключение к Azure с помощью имени входа уже установлено в вашей среде PowerShell (_Login- AzureRmAccount_).
-
-Примеры:
-
-&#35; **Создание группы ресурсов**
-
-New-AzureRmResourcegroup -name myrg -location 'Southeast Asia'
-
-&#35; **Создание масштабируемого набора из двух ВМ**
-
-New-AzureRmResourceGroupDeployment -name dep1 -vmSSName myvmss -instanceCount 3 -ResourceGroupName myrg -TemplateUri [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json)
-
-Появится запрос на ввод параметров, которые вы пропустили (например, расположение, имя пользователя, пароль в этом примере).
-
-&#35; **Получение подробных сведений о масштабируемых наборах ВМ**
-
-Get-AzureRmResource -name myvmss -ResourceGroupName myrg -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
-
-& #35; или для получения подробных сведений пропустите данные через команду | ConvertTo-Json -Depth 10
-
-&#35; а для получения еще более подробных сведений добавьте в команду –debug.
-
-&#35; уменьшение или увеличение масштаба
-
-New-AzureRmResourceGroupDeployment -name dep2 -vmSSName myvmss -instanceCount 2 -ResourceGroupName myrg –TemplateUri [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json)
-
-&#35; **Удаление масштабируемого набора**
-
-&#35; Общее: удаление всей группы ресурсов и всего ее содержимого:
-
-Remove-AzureRmResourceGroup -Name myrg
-
-&#35; Точное: удаление определенного ресурса:
-
-Remove-AzureRmResource -Name myvmss -ResourceGroupName myrg -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
-
-### Императивные команды PowerShell для масштабируемых наборов
-
-В предстоящую сборку Azure PowerShell войдет ряд императивных команд для создания масштабируемых наборов и управления ими без использования шаблонов. Предварительную версию этой сборки можно просмотреть здесь: [https://github.com/AzureRT/azure-powershell/releases](https://github.com/AzureRT/azure-powershell/releases). Примеры использования императивного API можно найти здесь:
-
-[https://github.com/huangpf/azure-powershell/blob/vmss/src/ResourceManager/Compute/Commands.Compute.Test/ScenarioTests/VirtualMachineScaleSetTests.ps1](https://github.com/huangpf/azure-powershell/blob/vmss/src/ResourceManager/Compute/Commands.Compute.Test/ScenarioTests/VirtualMachineScaleSetTests.ps1)
-
-## Развертывание масштабируемых наборов ВМ и управление ими с помощью Azure CLI
-
-Вы можете развертывать шаблоны масштабируемых наборов ВМ и запрашивать ресурсы с помощью любой текущей версии Azure CLI.
-
-Проще всего установить CLI из контейнера Docker. Инструкции по установке см. здесь: [https://azure.microsoft.com/blog/run-azure-cli-as-a-docker-container-avoid-installation-and-setup/](https://azure.microsoft.com/blog/run-azure-cli-as-a-docker-container-avoid-installation-and-setup/)
-
-Инструкции по использованию CLI см. в этой статье: [https://azure.microsoft.com/documentation/articles/xplat-cli/](https://azure.microsoft.com/documentation/articles/xplat-cli/)
-
-### Примеры CLI для масштабируемых наборов ВМ
-
-&#35; **Создание группы ресурсов**
-
-azure group create myrg "Southeast Asia"
-
-&#35; **Создание масштабируемого набора ВМ**
-
-azure group deployment create -g myrg -n dep2 --template-uri [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json)
-
-&#35; эта команда запрашивает параметры динамически, но их также можно передать в качестве аргументов
-
-&#35; **Получение сведений о масштабируемых наборах ВМ**
-
-azure resource show -n vmssname -r Microsoft.Compute/virtualMachineScaleSets -o 2015-06-15 -g myrg
-
-&#35; Получение более подробных сведений
-
-azure resource show –n vmssname –r Microsoft.Compute/virtualMachineScaleSets –o 2015-06-15 –g myrg –json –vv
-
-В предстоящей сборке Azure CLI появятся императивные команды для развертывания масштабируемых наборов ВМ и непосредственного управления ими без шаблонов, а также выполнения операций на виртуальных машинах в наборах ВМ. Сборку можно отслеживать здесь: [https://github.com/AzureRT/azure-xplat-cli/releases/](https://github.com/AzureRT/azure-xplat-cli/releases/)
-
-## Шаблоны масштабируемых наборов ВМ
-
-В этом разделе мы рассмотрим простой шаблон Azure для создания масштабируемых наборов ВМ. Он отличается от шаблонов, которые используются для создания одного экземпляра виртуальных машин. Видео с подробным рассмотрением шаблона масштабируемого набора ВМ см. здесь: [https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
-
-### Структура шаблона
-
-Начнем с простого шаблона, который создает масштабируемый набор виртуальных машин под управлением ОС Ubuntu, и разобьем его на составляющие. В этом примере также создаются ресурсы, от которых зависит масштабируемый набор ВМ: виртуальная сеть, учетная запись хранения и т. д. Пример можно найти здесь: [https://raw.githubusercontent.com/gbowerman/azure-myriad/master/vmss-ubuntu-vnet-storage.json](https://raw.githubusercontent.com/gbowerman/azure-myriad/master/vmss-ubuntu-vnet-storage.json). Обратите внимание, что в этом примере «hello world» не используется прямой способ подключения к виртуальным машинам в масштабируемом наборе ВМ из-за пределов виртуальной сети, так как виртуальным машинам назначаются внутренние IP-адреса. Способы подключения из-за пределов сети с помощью внешнего балансировщика нагрузки или пограничных серверов см. в разделе «Сценарии» и в примерах в статье [Шаблоны быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates).
-
-### Заголовок шаблона.
-
-Укажите схему и версию содержимого:
-
-{
-
-   "$schema": "http://schema.management.azure.com/schemas/2015-01-01-preview/deploymentTemplate.json",
-
-   "contentVersion": "1.0.0.0",
-
-### Параметры
-
-Как и в любом другом шаблоне диспетчера ресурсов Azure (ARM), в этом разделе определяются параметры, которые задаются во время развертывания. В нашем примере это имя масштабируемого набора ВМ, начальное количество экземпляров ВМ, уникальная строка, используемая при создании учетных записей хранения. Если неизвестно, как обрабатывается регистр, всегда вводите в нижнем регистре значения для таких объектов, как учетные записи хранения.
-
-````
- "parameters": {
-
-    "vmSSName": {
-
-      "type": "string",
-
-      "metadata": {
-
-        "description": "Scale Set name, also used in this template as a base for naming resources (hence limited less than 10 characters)."
-
-      },
-
-      "maxLength": 10
-
-    },
-
-    "instanceCount": {
-
-      "type": "int",
-
-      "metadata": {
-
-        "description": "Number of VM instances"
-
-      },
-
-      "maxValue": 100
-
-    },
-
-    "adminUsername": {
-
-      "type": "string",
-
-      "metadata": {
-
-        "description": "Admin username on all VMs."
-
-      }
-
-    },
-
-    "adminPassword": {
-
-      "type": "securestring",
-
-      "metadata": {
-
-        "description": "Admin password on all VMs."
-
-      }
-
-    }
-
-  },
-````
-
-### Переменные
-
-Стандартный компонент шаблона ARM, определяющий переменные, на которые мы будем ссылаться позже в этом шаблоне. В этом примере мы будем использовать переменные для задания необходимой ОС, некоторых сведений о конфигурации сети, параметров хранилища и расположения. Для выбора расположения из группы ресурсов, в которой оно развернуто, будет использоваться функция _location()_.
-
-Обратите внимание, что для префикса учетной записи хранения задан массив уникальных строк. Подробное пояснение см. в разделе «Хранилище».
-
-````
-  "variables": {
-
-    "apiVersion": "2015-06-15",
-
-    "newStorageAccountSuffix": "[concat(parameters('vmssName'), 'sa')]",
-
-    "uniqueStringArray": [
-
-      "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '0')))]",
-
-      "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '1')))]",
-
-      "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '2')))]",
-
-      "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '3')))]",
-
-      "[concat(uniqueString(concat(resourceGroup().id, deployment().name, variables('newStorageAccountSuffix'), '4')))]"
-
-    ],
-
-    "vmSize": "Standard\_A1",
-
-    "vhdContainerName": "[concat(parameters('vmssName'), 'vhd')]",
-
-    "osDiskName": "[concat(parameters('vmssName'), 'osdisk')]",
-
-    "virtualNetworkName": "[concat(parameters('vmssName'), 'vnet')]",
-
-    "subnetName": "[concat(parameters('vmssName'), 'subnet')]",
-
-    "nicName": "[concat(parameters('vmssName'), 'nic')]",
-
-    "ipConfigName": "[concat(parameters('vmssName'), 'ipconfig')]",
-
-    "addressPrefix": "10.0.0.0/16",
-
-    "subnetPrefix": "10.0.0.0/24",
-
-    "storageAccountType": "Standard\_LRS",
-
-    "location": "[resourceGroup().location]",
-
-    "osType": {
-
-      "publisher": "Canonical",
-
-      "offer": "UbuntuServer",
-
-      "sku": "15.10",
-
-      "version": "latest"
-
-    },
-
-    "imageReference": "[variables('osType')]"
-
-  },
-````
-
-### Ресурсы
-
-В этом разделе определяется каждый тип ресурса.
-
-````
-   "resources": [
-````
-
-
-**Хранилище.** Во время создания масштабируемого набора ВМ задается массив учетных записей хранения. Затем диски ОС для экземпляров ВМ равномерно распределяются между всеми учетными записями. В будущем масштабируемые наборы ВМ перейдут на использование управляемого диска. Это означает, что вместо управления учетными записями хранения просто нужно будет описывать свойства хранилища в определении масштабируемого набора. Сейчас нужно создать необходимое количество учетных записей хранения заранее. Рекомендуем создать 5 учетных записей хранения, которые смогут без проблем поддерживать до 100 виртуальных машин в масштабируемом наборе (текущий максимум).
-
-При создании нескольких учетных записей хранения они распределяются по разделам в кластере хранилища. Схема их распределения зависит от первой буквы имени учетной записи хранения. Поэтому для достижения оптимальной производительности рекомендуем начинать имена новых учетных записей хранения с неиспользуемых ранее букв алфавита. Имя можно задать вручную или, как в нашем примере, используя функцию uniqueString() для псевдослучайного распределения.
-
-````
-    {
-
-      "type": "Microsoft.Storage/storageAccounts",
-
-      "name": "[concat(variables('uniqueStringArray')[copyIndex()], variables('newStorageAccountSuffix'))]",
-
-      "location": "[variables('location')]",
-
-      "apiVersion": "[variables('apiVersion')]",
-
-      "copy": {
-
-        "name": "storageLoop",
-
-        "count": 5
-
-      },
-
-      "properties": {
-
-        "accountType": "[variables('storageAccountType')]"
-
-      }
-
-    },
-````
-
-**Виртуальная сеть.** Создайте виртуальную сеть. Обратите внимание, что у вас может быть несколько масштабируемых наборов, как и отдельных виртуальных машин, в одной виртуальной сети.
-
-````
-    {
-
-      "type": "Microsoft.Network/virtualNetworks",
-
-      "name": "[variables('virtualNetworkName')]",
-
-      "location": "[variables('location')]",
-
-      "apiVersion": "[variables('apiVersion')]",
-
-      "properties": {
-
-        "addressSpace": {
-
-          "addressPrefixes": [
-
-            "[variables('addressPrefix')]"
-
-          ]
-
-        },
-
-        "subnets": [
-
-          {
-
-            "name": "[variables('subnetName')]",
-
-            "properties": {
-
-              "addressPrefix": "[variables('subnetPrefix')]"
-
-            }
-
-          }
-
-        ]
-
-      }
-
-    },
-````
-
-### Ресурс virtualMachineScaleSets
-
-Ресурс _virtualMachineScaleSets_ во многом похож на _virtualMachines_. Эти ресурсы предоставляются поставщиком ресурсов Microsoft.Compute и находятся на одном уровне. Основное отличие заключается в значении _capacity_, которое определяет количество создаваемых ВМ, а также в том, что оно применяется ко всем виртуальным машинам в масштабируемом наборе.
-
-Обратите внимание, что раздел _dependsOn_ ссылается на учетные записи хранения и виртуальную сеть, созданную ранее, а также на то, что capacity ссылается на параметр _instanceCount_.
-
-````
-    {
-
-      "type": "Microsoft.Compute/virtualMachineScaleSets",
-
-      "name": "[parameters('vmssName')]",
-
-      "location": "[variables('location')]",
-
-      "apiVersion": "[variables('apiVersion')]",
-
-      "dependsOn": [
-
-        "[concat('Microsoft.Storage/storageAccounts/', variables('uniqueStringArray')[0], variables('newStorageAccountSuffix'))]",
-
-        "[concat('Microsoft.Storage/storageAccounts/', variables('uniqueStringArray')[1], variables('newStorageAccountSuffix'))]",
-
-        "[concat('Microsoft.Storage/storageAccounts/', variables('uniqueStringArray')[2], variables('newStorageAccountSuffix'))]",
-
-        "[concat('Microsoft.Storage/storageAccounts/', variables('uniqueStringArray')[3], variables('newStorageAccountSuffix'))]",
-
-        "[concat('Microsoft.Storage/storageAccounts/', variables('uniqueStringArray')[4], variables('newStorageAccountSuffix'))]",
-
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
-
-      ],
-
-      "sku": {
-
-        "name": "[variables('vmSize')]",
-
-        "tier": "Standard",
-
-        "capacity": "[parameters('instanceCount')]"
-
-      },
-````
-
-**Свойства**
-
-В масштабируемом наборе ВМ есть параметр upgradePolicy. Будущие версии будут поддерживать частичные обновления (например, изменение конфигурации 20 % виртуальных машин одновременно). Но пока для upgradePolicy можно задать только значения manual или automatic. Если при значении manual изменить шаблон и повторно развернуть его, изменения вступят в силу только после создания новых виртуальных машин или обновления их расширений, например при увеличении _capacity_. Значение automatic предусматривает «мгновенное» обновление всех виртуальных машин и их полную перезагрузку. Как правило, значение manual является более безопасным решением. Если необходимо постепенное обновление, отдельные виртуальные машины можно удалить, а затем повторно развернуть их.
-
-````
-      "properties": {
-
-         "upgradePolicy": {
-
-         "mode": "Manual"
-
-        },
-````
-
-**Properties->virtualMachineProfile**
-
-Здесь вы ссылаетесь на учетные записи хранения, созданные ранее, как на контейнеры для виртуальных машин. То есть вам нужно создать только учетные записи, а не фактические контейнеры.
-
-````
-        "virtualMachineProfile": {
-
-          "storageProfile": {
-
-            "osDisk": {
-
-              "vhdContainers": [
-
-                "[concat('https://', variables('uniqueStringArray')[0], variables('newStorageAccountSuffix'), '.blob.core.windows.net/', variables('vhdContainerName'))]",
-
-                "[concat('https://', variables('uniqueStringArray')[1], variables('newStorageAccountSuffix'), '.blob.core.windows.net/', variables('vhdContainerName'))]",
-
-                "[concat('https://', variables('uniqueStringArray')[2], variables('newStorageAccountSuffix'), '.blob.core.windows.net/', variables('vhdContainerName'))]",
-
-                "[concat('https://', variables('uniqueStringArray')[3], variables('newStorageAccountSuffix'), '.blob.core.windows.net/', variables('vhdContainerName'))]",
-
-                "[concat('https://', variables('uniqueStringArray')[4], variables('newStorageAccountSuffix'), '.blob.core.windows.net/', variables('vhdContainerName'))]"
-
-              ],
-
-              "name": "[variables('osDiskName')]",
-
-              "caching": "ReadOnly",
-
-              "createOption": "FromImage"
-
-            },
-
-            "imageReference": "[variables('imageReference')]"
-
-          },
-````
-
-**Properties->osProfile**
-
-Масштабируемые наборы ВМ от отдельных ВМ отличает только префикс в виде имени компьютера. Экземпляры ВМ в масштабируемом наборе ВМ будут создаваться с такими именами: myvm\_0, myvm\_1 и т. д.
-
-````
-          "osProfile": {
-
-            "computerNamePrefix": "[parameters('vmSSName')]",
-
-            "adminUsername": "[parameters('adminUsername')]",
-
-            "adminPassword": "[parameters('adminPassword')]"
-
-          },
-````
-
-**Properties->networkProfile**
-
-Определяя сетевой профиль для масштабируемого набора ВМ, не забывайте о том, что конфигурации NIC и IP имеют имена. В конфигурации NIC есть параметр _primary_ и идентификатор подсети, который ссылается на ресурс подсети, созданный в указанной выше виртуальной сети.
-
-````
-          "networkProfile": {
-
-            "networkInterfaceConfigurations": [
-
-              {
-
-                "name": "[variables('nicName')]",
-
-                "properties": {
-
-                  "primary": "true",
-
-                  "ipConfigurations": [
-
-                    {
-
-                      "name": "[variables('ipConfigName')]",
-
-                      "properties": {
-
-                        "subnet": {
-
-                          "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'), '/subnets/', variables('subnetName'))]"
-
-                        }
-
-                      }
-
-                    }
-
-                  ]
-
-                }
-
-              }
-
-            ]
-
-          }
-````
-
-**Properties->extensionProfile**
-
-Простой пример, приведенный выше, не требует профиля расширения. Его можно увидеть в действии в этом шаблоне, который разворачивает Apache и PHP с помощью расширения CustomScript: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale). Обратите внимание, что в этом примере свойства сетевого IP-адреса также ссылаются на балансировщик нагрузки. Балансировщики нагрузки будут описаны более подробно в разделе «Сценарии масштабируемого набора ВМ».
-
-## Сценарии масштабируемого набора ВМ
-
-В этом разделе рассматриваются некоторые типичные сценарии масштабируемых наборов ВМ и примеры шаблонов. Хотя сейчас для сценариев требуются шаблоны, некоторые из них будут интегрированы с порталом в будущем. Тем не менее некоторые службы более высокого уровня Azure (например пакетная служба, Service Fabric, Azure Container Service) будут использовать эти сценарии
-
-## Подключение по RDP или SSH к экземплярам масштабируемых наборов ВМ
-
-Масштабируемый набор ВМ создается внутри виртуальной сети, при этом отдельным виртуальным машинам не выделяются общедоступные IP-адреса. Это хорошее решение, так как оно избавляет вас от дополнительных затрат и расходов на управление, связанных с выделением отдельных IP-адресов для всех ресурсов без состояния в сетке вычислений. К этим ВМ можно легко подключиться с других ресурсов в виртуальной сети, в том числе с ресурсов с общедоступными IP-адресами, например с балансировщиков нагрузки или отдельных виртуальных машин.
-
-Ниже описываются два простых способа подключения к виртуальным машинам масштабируемого набора.
-
-### Подключение к ВМ с помощью правил преобразования сетевых адресов (NAT)
-
-Можно создать общедоступный IP-адрес, назначить его балансировщику нагрузки и определить правила для входящих подключений NAT, которые сопоставляют порт на IP-адресе с портом виртуальной машины из масштабируемого набора ВМ. Например,
-
-Public IP->Port 50000 -> vmss\_0->Port 22 Public IP->Port 50001 -> vmss\_1->Port 22 Public IP->Port 50002-> vmss\_2->Port 22
-
-В следующем примере показано создание масштабируемого набора ВМ, который использует правила NAT для установки SSH-подключения к каждой виртуальной машине из набора с помощью одного общедоступного IP-адреса: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat)
-
-Далее приведен пример организации такой же схемы для RDP и Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
-
-### Подключение к ВМ с помощью «пограничного сервера»
-
-Если в одной виртуальной сети создается масштабируемый набор ВМ и автономная ВМ, эта машина и машины из набора могут подключаться друг к другу с помощью своих внутренних IP-адресов в соответствии с определением виртуальной сети или подсети.
-
-После создания и назначения общедоступного IP-адреса автономной ВМ к ней можно будет подключиться по RDP или SSH, а затем с нее подключиться к своим экземплярам масштабируемого набора ВМ. На этом этапе можно заметить, что простой масштабируемый набор ВМ надежнее, чем автономная ВМ с общедоступным IP-адресом, сконфигурированная по умолчанию.
-
-В качестве примера этот шаблон создает простой кластер Mesos с автономной основной ВМ, которая управляет кластером виртуальных машин на основе масштабируемого набора ВМ: [https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
-
-## Балансировка нагрузки циклическим перебором для экземпляров масштабируемого набора ВМ
-
-Чтобы передать работу вычислительному кластеру виртуальных машин с помощью «циклического перебора», следует настроить балансировщик нагрузки Azure с соответствующими правилами балансировки. Также можно настроить тестеры для проверки работы приложения с помощью проверки связи с портами с указанными протоколом, интервалом и путем запроса.
-
-В следующем примере создается масштабируемый набор ВМ с машинами, на которых запущен веб-сервер IIS и используется балансировщик нагрузки для балансировки нагрузки, получаемой каждой ВМ. В примере также используется протокол HTTP для проверки связи с определенным URL-адресом на каждой ВМ: [https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json). Посмотрите на тип ресурса Microsoft.Network/loadBalancers networkProfile и extensionProfile в virtualMachineScaleSet.
-
-## Экземпляры масштабируемого набора ВМ с автомасштабированием Azure
-
-Если требуется изменять количество экземпляров (_capacity_) масштабируемого набора ВМ в зависимости от использования ЦП, памяти, диска или каких-либо других событий, поставщик ресурсов Microsoft.Insights предоставляет широкий набор параметров автомасштабирования. Дополнительные сведения о доступных параметрах см. в документации к Insights REST: [https://msdn.microsoft.com/library/azure/dn931953.aspx](https://msdn.microsoft.com/library/azure/dn931953.aspx).
-
-Автомасштабирование Insights интегрируется непосредственно с масштабируемыми наборами ВМ. Для его настройки определите тип ресурса Microsoft.Insights или autoscaleSettings с _targetResourceUri_ и _metricResourceUri_, которые ссылаются на масштабируемый набор. При определении масштабируемого набора включите _extensionProfile_, который устанавливает агент системы диагностики Azure (WAD) в ОС Windows или Linux Diagnostic Extension (LDE) в ОС Linux. В следующем примере для ОС Linux виртуальные машины добавляются до предварительно заданного предела, когда средняя загрузка ЦП превышает 50 %. Это происходит со временным разбиением в 1 минуту и периодом выборки 5 минут:
-
-[https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale).
-
-В будущем автомасштабирование в масштабируемых наборах ВМ также будет интегрировано непосредственно с порталом Azure.
-
-## Развертывание масштабируемого набора ВМ в качестве вычислительного кластера в диспетчере кластеров PaaS
-
-Иногда масштабируемые наборы ВМ называют рабочими ролями следующего поколения. Это вполне допустимое название, но вместе с тем существует риск перепутать функции масштабируемого набора ВМ с функциями рабочей роли PaaS v1.
-
-В этом смысле масштабируемые наборы ВМ предоставляют настоящую «рабочую роль» или рабочий ресурс. Они являются обобщенным вычислительным ресурсом, независимым от платформ и сред выполнения, который может настраиваться и интегрироваться с диспетчером ресурсов Azure IaaS.
-
-Рабочая роль PaaS v1, ограниченная с точки зрения поддержки платформ и сред выполнения (только для образов платформы Windows), также включает такие службы: переключение виртуального IP-адреса, настраиваемые параметры обновления, определенные параметры развертывания приложения или среды выполнения. Они либо _еще_ не доступны в масштабируемых наборах ВМ, либо будут предоставляться другими службами PaaS более высокого уровня, например Service Fabric. Учитывая эти факторы, масштабируемые наборы ВМ можно рассматривать как инфраструктуру, поддерживающую PaaS. Например, такие решения PaaS, как Service Fabric, или диспетчеры кластера, как Mesos, можно построить на основе масштабируемых наборов ВМ в качестве масштабируемого уровня вычислений.
-
-В следующем примере кластер Mesos развертывает масштабируемый набор ВМ в одну виртуальную сеть с автономной ВМ. Образец Mesos является автономной ВМ, а масштабируемый набор ВМ представляет набор подчиненных узлов: [https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json). Будущие версии [Azure Container Service](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) будут разворачивать более сложные или фиксированные версии этого сценария на основе масштабируемых наборов ВМ.
-
-## Уменьшение или увеличение масштаба набора ВМ
-
-Чтобы увеличить или уменьшить число виртуальных машин в масштабируемом наборе ВМ, необходимо просто изменить свойство _capacity_ и повторно развернуть шаблон. Это упрощает создание собственного пользовательского уровня масштабирования, если требуется задать события пользовательского масштабирования, которые не поддерживаются автомасштабированием Azure.
-
-При повторном развертывании шаблона для изменения емкости можно задать гораздо меньший шаблон, который будет включать только номер SKU и обновленную емкость. Пример приведен здесь: [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-scale-in-or-out/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-linux-nat/azuredeploy.json).
-
-## Рекомендации по производительности и масштабированию набора ВМ
-
-- В общедоступной предварительной версии не создавайте более 500 виртуальных машин в нескольких масштабируемых наборах ВМ одновременно. В будущем это количество будет увеличено.
-- Планируйте не более 40 виртуальных машин на учетную запись хранения.
-- Максимально распределяйте первые буквы имен учетных записей хранения. Примеры шаблонов масштабируемых наборов ВМ в разделе [Шаблоны быстрого запуска Azure](https://github.com/Azure/azure-quickstart-templates/) демонстрируют, как это сделать.
-- При использовании пользовательских виртуальных машин планируйте не более 40 ВМ в наборе ВМ для одной учетной записи хранения. Прежде чем начинать развертывание масштабируемого набора ВМ, необходимо предварительно скопировать образ в учетную запись хранения. Дополнительные сведения см. в разделе ответов и вопросов.
-- Планируйте не более 2048 виртуальных машин в одной виртуальной сети. В будущем это количество будет увеличено.
-- Допустимое число виртуальных машин, которые можно создать, ограничивается вашей квотой для вычислительных ядер в регионе. Возможно, придется обратиться в службу поддержки, чтобы увеличить квоту вычислений, даже если сейчас у вас установлен высокий предел ядер для использования с облачными службами или IaaS v1. Запрос на квоту можно отправить с помощью команды Azure CLI _azure vm list-usage_ и команды PowerShell _Get AzureRmVMUsage_ (если используется версия PowerShell ниже 1.0, используйте _Get AzureVMUsage_).
-
-
-## Часто задаваемые вопросы о масштабируемом наборе ВМ
-
-**Вопрос. Сколько виртуальных машин может входить в масштабируемый набор ВМ?**
-
-О. 100, если использовать образы платформы, которые можно распределить между несколькими учетными записями хранения. При использовании пользовательских образов — до 40, так как в предварительной версии они ограничены одной учетной записью хранения.
-
-**Какие другие ограничения по ресурсам существуют для масштабируемых наборов ВМ?**
-
-О. Существующие ограничения служб Azure см. в следующей статье: [https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/)
-
-В предварительной версии можно создавать не более 500 виртуальных машин в нескольких масштабируемых наборах ВМ в одном регионе.
-
-**Вопрос. Поддерживаются ли диски данных в масштабируемых наборах ВМ?**
-
-О. В первом выпуске — нет. Ниже перечислены варианты хранения данных.
-
-- Файлы Azure (общие диски SMB).
-
-- Диск операционной системы.
-
-- Временный диск (локальный, не поддерживаемый хранилищем Azure).
-
-- Служба внешних данных (например удаленная база данных, таблицы Azure, BLOB-объекты Azure).
-
-**Вопрос. Какие регионы Azure поддерживают масштабируемые наборы ВМ?**
-
-О. Любой регион, поддерживающий диспетчер ресурсов Azure, поддерживает масштабируемые наборы ВМ.
-
-**Вопрос. Как создать масштабируемый набор ВМ с помощью пользовательского образа?**
-
-О. Оставьте значение свойства vhdContainers пустым:
-
-````
-"storageProfile": {
-   "osDisk": {
-      "name": "vmssosdisk",
-      "caching": "ReadOnly",
-      "createOption": "FromImage",
-      "image": {
-         "uri": [https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd](https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd)
-     },
-     "osType": "Windows"
-  }
-},
-````
-
-**Вопрос. Если уменьшить емкость масштабируемого набора ВМ с 20 до 15, какие виртуальные машины будут удалены?**
-
-О. Последние 5 виртуальных машин (с наибольшими индексами) будут удалены.
-
-**Вопрос. Что будет, если затем я увеличу емкость с 15 до 18?**
-
-После увеличения емкости до 18 будут созданы виртуальные машины с индексами 15, 16 и 17. В обоих случаях виртуальные машины распределяются между доменами сбоя и обновления.
-
-**Вопрос. Можно ли задать последовательность выполнения при использовании нескольких расширений в масштабируемом наборе ВМ?**
-
-О. Не напрямую, но для расширения customScript скрипт может ожидать завершения другого расширения (например, отслеживая журнал расширений). Дополнительную информацию см. в статье [https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install\_lap.sh](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)).
-
-**Вопрос. Работают ли масштабируемые наборы ВМ с группами доступности Azure?**
-
-О. Да. Масштабируемый набор является неявной группой доступности с 3 доменами сбоя и 5 доменами обновления. Ничего настраивать в virtualMachineProfile не нужно. В будущих выпусках масштабируемые наборы, скорее всего, будут охватывать несколько клиентов, но пока масштабируемый набор представляет собой одну группу доступности.
-
-## Дальнейшие действия
-
-В предварительной версии масштабируемых наборов ВМ документация будет расширяться. Кроме этого появятся дополнительные возможности интеграции, в частности портал и автомасштабирование.
-
-Ваши отзывы очень важны для создания службы, в которой будут все необходимые вам функции. Пожалуйста, сообщите нам, какие функции работают, какие не работают и какие следует улучшить. Отправляйте свои отзывы по адресу [vmssfeedback@microsoft.com](mailto:vmssfeedback@microsoft.com).
-
-## Ресурсы
-
-| **Раздел** | **Ссылка** |
-| --- | --- |
-| Общие сведения о диспетчере ресурсов Azure | [https://azure.microsoft.com/documentation/articles/resource-group-overview/](https://azure.microsoft.com/documentation/articles/resource-group-overview/) |
-| Шаблоны диспетчера ресурсов Azure | [https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) |
-| Функции шаблонов в диспетчере ресурсов Azure | [https://azure.microsoft.com/documentation/articles/resource-group-template-functions/](https://azure.microsoft.com/documentation/articles/resource-group-template-functions/) |
-| Примеры шаблонов (github) | [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) |
-| Руководство по REST API для масштабируемых наборов ВМ | [https://msdn.microsoft.com/library/mt589023.aspx](https://msdn.microsoft.com/library/mt589023.aspx) |
-| Видеоролики о масштабируемых наборах ВМ | [https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/) [https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman) [https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player) |
-| Параметры автомасштабирования (MSDN) | [https://msdn.microsoft.com/library/azure/dn931953.aspx](https://msdn.microsoft.com/library/azure/dn931953.aspx) |
-| Устранение неполадок при развертывании групп ресурсов в Azure | [https://azure.microsoft.com/documentation/articles/resource-group-deploy-debug/](https://azure.microsoft.com/documentation/articles/resource-group-deploy-debug/) |
-
-<!---HONumber=Nov15_HO3-->
+Масштабируемые наборы виртуальных машин упрощают развертывание идентичных виртуальных машин в виде набора и управление ими. Масштабируемые наборы обеспечивают высокую степень масштабируемости и персонализацию уровня вычислений для гипермасштабируемых приложений. Кроме того, они поддерживают образы платформ Windows и Linux, а также пользовательские образы и расширения. Дополнительные сведения о масштабируемых наборах см. в статье [Масштабируемые наборы виртуальных машин](virtual-machines-vmss-overview.md).
+
+В этом руководстве показано, как создать масштабируемый набор виртуальных машин Windows и автоматически масштабировать машины в наборе. Для этого нужно создать шаблон диспетчера ресурсов Azure и развернуть его с помощью Azure PowerShell. Дополнительную информацию о шаблонах см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
+
+Шаблон, создаваемый в этом руководстве, похож на шаблон, который можно найти в коллекции шаблонов. Дополнительные сведения см. в статье [Развертывание простого масштабируемого набора виртуальных машин, состоящего из виртуальных машин Windows и основной виртуальной машины](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview).
+
+[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)]
+
+[AZURE.INCLUDE [virtual-machines-vmss-preview](../../includes/virtual-machines-vmss-preview-include.md)]
+
+## Шаг 1. Создание группы ресурсов и учетной записи хранения
+
+1.	**Войдите в Microsoft Azure**. Откройте окно Microsoft Azure PowerShell и выполните командлет **Login-AzureRmAccount**.
+
+2.	**Создайте группу ресурсов**. Все ресурсы должны быть развернуты в группе ресурсов. В этом руководстве назовем группу ресурсов **vmss-test1**. См. информацию о командлете [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx).
+
+3.	**Разверните учетную запись хранения в новой группе ресурсов**. В этом руководстве используется несколько учетных записей для упрощения работы с масштабируемым набором виртуальных машин. Используйте командлет [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx), чтобы создать учетную запись хранения с именем **vmssstore1**. Не закрывайте окно Azure PowerShell — оно понадобится для выполнения дальнейших инструкций этого руководства.
+
+## Шаг 2. Создание шаблона
+С помощью шаблона диспетчера ресурсов Azure можно развертывать ресурсы Azure и управлять ими совокупно, используя JSON-описание ресурсов и связанные параметры развертывания.
+
+1.	В любом текстовом редакторе создайте файл C:\\VMSSTemplate.json и добавьте начальную структуру JSON для поддержки шаблона.
+
+	```
+	{
+		"$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/VM.json",
+		"contentVersion": "1.0.0.0",
+		"parameters": {
+		}
+		"variables": {
+		}
+		"resources": [
+		]
+	}
+	```
+
+2.	Параметры не всегда обязательны, но они упрощают управление шаблонами. Они указывают способ определения значений для шаблона, описывают тип значения, значение по умолчанию (если требуется) и иногда допустимые значения параметра.
+
+	Добавьте следующие параметры в родительский элемент параметров, добавленный в шаблон:
+
+	- Имя основной виртуальной машины, которая используется для доступа к машинам в масштабируемом наборе.
+	- Имя учетной записи хранения, в которой хранится шаблон.
+	- Количество экземпляров виртуальных машин, которое требуется создать сначала в масштабируемом наборе.
+	- Имя и пароль учетной записи администратора на виртуальных машинах.
+	- Префикс для имен учетных записей хранения, которые используются виртуальными машинами в масштабируемом наборе.
+
+
+	```
+	"vmName": {
+		"type": "string"
+	},
+	"vmSSName": {
+		"type": "string"
+	},
+	"instanceCount": {
+		"type": "string"
+	},
+	"adminUsername": {
+		"type": "string"
+	},
+	"adminPassword": {
+		"type": "securestring"
+	},
+	"storageAccountName": {
+		"type": "string"
+	},
+	"vmssStoragePrefix": {
+		"type": "string"
+	}
+	```
+
+
+3.	Переменные в шаблоне можно использовать для указания значений, которые могут часто изменяться, или значений, которые должны быть созданы из сочетания значений параметров.
+
+	Добавьте следующие переменные в родительский элемент переменных, добавленный в шаблон:
+
+	- DNS-имена, которые используются сетевыми интерфейсами.
+	- Размер виртуальных машин, используемых в масштабируемом наборе. Дополнительную информацию о размерах виртуальных машин см. в статье [Размеры виртуальных машин](virtual-machines-size-specs.md).
+	- Сведения об образе платформы для определения операционной системы, которая будет запущена на виртуальных машинах в масштабируемом наборе. Дополнительную информацию о выборе образов см. в статье [Просмотр и выбор образов виртуальных машин Azure с помощью оболочки Windows PowerShell и инфраструктуры Azure CLI](resource-groups-vm-searching.md).
+	- Имена и префиксы IP-адресов для виртуальной сети и подсетей.
+	- Имена и идентификаторы виртуальной сети, балансировщик нагрузки и сетевые интерфейсы.
+	- Имена учетных записей хранения, связанных с машинами в масштабируемом наборе.
+	- Параметры для расширения системы диагностики, которая установлена на виртуальных машинах. Дополнительную информацию о расширении системы диагностики см. в статье [Создание виртуальной машины Windows с мониторингом и диагностикой с помощью шаблона диспетчера ресурсов Azure](virtual-machines-extensions-diagnostics-windows-template.md).
+
+	```
+	"dnsName1": "[concat(parameters('resourcePrefix'),'dn1')] ",
+	"dnsName2": "[concat(parameters('resourcePrefix'),'dn2')] ",
+	"vmSize": "Standard_A0",
+	"imagePublisher": "MicrosoftWindowsServer",
+	"imageOffer": "WindowsServer",
+	"imageVersion": "2012-R2-Datacenter",
+	"addressPrefix": "10.0.0.0/16",
+	"subnetName": "Subnet",
+	"subnetPrefix": "10.0.0.0/24",
+	"publicIP1": "[concat(parameters('resourcePrefix'),'ip1')]",
+	"publicIP2": "[concat(parameters('resourcePrefix'),'ip2')]",
+	"loadBalancerName": "[concat(parameters('resourcePrefix'),'lb1')]",
+	"virtualNetworkName": "[concat(parameters('resourcePrefix'),'vn1')]",
+	"nicName1": "[concat(parameters('resourcePrefix'),'nc1')]",
+	"nicName2": "[concat(parameters('resourcePrefix'),'nc2')]",
+	"vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+	"publicIPAddressID1": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIP1'))]",
+	"publicIPAddressID2": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIP2'))]",
+	"lbID": "[resourceId('Microsoft.Network/loadBalancers',variables('loadBalancerName'))]",
+	"nicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName2'))]",
+	"frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/loadBalancerFrontEnd')]",
+	"storageAccountType": "Standard_LRS",
+	"storageAccountPrefix": [ "a", "g", "m", "s", "y" ],
+	"diagnosticsStorageAccountName": "[concat('a', parameters('vmssStorageSuffix'))]",
+	"accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/','Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
+	"wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB="4096" xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error"/> <WindowsEventLog scheduledTransferPeriod="PT1M" > <DataSource name="Application!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="Security!*[System[(Level = 1 or Level = 2)]]" /> <DataSource name="System!*[System[(Level = 1 or Level = 2)]]" /></WindowsEventLog>",
+	"wadperfcounter": "<PerformanceCounters scheduledTransferPeriod="PT1M"><PerformanceCounterConfiguration counterSpecifier="\\Processor(_Total)\\% Processor Time" sampleRate="PT15S" unit="Percent"><annotation displayName="CPU utilization" locale="ru-RU"/></PerformanceCounterConfiguration>",
+	"wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId="')]",
+	"wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
+	"wadcfgxend": "[concat('"><MetricAggregation scheduledTransferPeriod="PT1H"/><MetricAggregation scheduledTransferPeriod="PT1M"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
+	```
+
+4.	Следуя инструкциям этого руководства, вы развернете следующие ресурсы и расширения:
+
+ - Microsoft.Storage/storageAccounts
+ - Microsoft.Network/virtualNetworks
+ - Microsoft.Network/publicIPAddresses
+ - Microsoft.Network/loadBalancers
+ - Microsoft.Network/networkInterfaces
+ - Microsoft.Compute/virtualMachines
+ - Microsoft.Compute/virtualMachineScaleSets;
+ - Microsoft.Insights.VMDiagnosticsSettings;
+ - Microsoft.Insights/autoscaleSettings.
+
+	Дополнительную информацию о ресурсах диспетчера ресурсов см. в статье [Поставщики вычислительных и сетевых ресурсов, а также ресурсов хранения Azure в диспетчере ресурсов Azure](virtual-machines-azurerm-versus-azuresm.md).
+
+	Добавьте ресурс учетной записи хранения в родительский элемент ресурсов, добавленный в шаблон. Этот шаблон использует цикл для создания рекомендуемых пяти учетных записей хранения, в которых хранятся диски операционной системы и диагностические данные. Этот набор учетных записей может поддерживать до 100 виртуальных машин в масштабируемом наборе (это максимальное количество на данный момент). Каждой учетной записи хранения присваивается буквенный код, который определен в переменных в сочетании с суффиксом, указанным в параметрах шаблона.
+
+	```
+	{
+		"type": "Microsoft.Storage/storageAccounts",
+		"name": "[concat(variables('storagePrefix')[copyIndex()], parameters('vmssStorageSuffix'))]",
+		"apiVersion": "2015-05-01-preview",
+		"copy": {
+			"name": "storageLoop",
+			"count": 5
+		},
+		"location": "[resourceGroup().location]",
+		"properties": {
+			"accountType": "[variables('storageAccountType')]"
+		}
+	},
+	```
+
+5.	Добавьте ресурс виртуальной сети. Дополнительную информацию см. в статье [Поставщик сетевых ресурсов](../virtual-network/resource-groups-networking.md).
+
+	```
+	{
+		"apiVersion": "2015-06-15",
+		"type": "Microsoft.Network/virtualNetworks",
+		"name": "[variables('virtualNetworkName')]",
+		"location": "[resourceGroup().location]",
+		"properties": {
+			"addressSpace": {
+				"addressPrefixes": [
+					"[variables('addressPrefix')]"
+				]
+			},
+			"subnets": [
+				{
+					"name": "[variables('subnetName')]",
+					"properties": {
+						"addressPrefix": "[variables('subnetPrefix')]"
+					}
+				}
+			]
+		}
+	},
+	```
+
+6.	Добавьте ресурсы общедоступных IP-адресов, используемые балансировщиком нагрузки и сетевым интерфейсом.
+
+	```
+	{
+		"apiVersion": "2015-06-15",
+		"type": "Microsoft.Network/publicIPAddresses",
+		"name": "[variables('publicIP1')]",
+		"location": "[resourceGroup().location]",
+		"properties": {
+			"publicIPAllocationMethod": "Dynamic",
+			"dnsSettings": {
+				"domainNameLabel": "[variables('dnsName1')]"
+			}
+		}
+	},
+	{
+		"apiVersion": "2015-06-15",
+		"type": "Microsoft.Network/publicIPAddresses",
+		"name": "[variables('publicIP2')]",
+		"location": "[resourceGroup().location]",
+		"properties": {
+			"publicIPAllocationMethod": "Dynamic",
+			"dnsSettings": {
+				"domainNameLabel": "[variables('dnsName2')]"
+			}
+		}
+	},
+	```
+
+7.	Добавьте ресурс балансировщика нагрузки, используемый масштабируемым набором. Дополнительные сведения см. в статье [Поддержка диспетчера ресурсов Azure для балансировщика нагрузки](../load-balancer/oad-balancer-arm.md).
+
+	```
+	{
+		"apiVersion": "2015-06-15",
+		"name": "[variables('loadBalancerName')]",
+		"type": "Microsoft.Network/loadBalancers",
+		"location": "[resourceGroup().location]",
+		"dependsOn": [
+			"[concat('Microsoft.Network/publicIPAddresses/', variables('publicIP1'))]"
+		],
+		"properties": {
+			"frontendIPConfigurations": [
+				{
+					"name": "loadBalancerFrontEnd",
+					"properties": {
+						"publicIPAddress": {
+							"id": "[variables('publicIPAddressID1')]"
+						}
+					}
+				}
+			],
+			"backendAddressPools": [
+				{
+					"name": "bepool1"
+				}
+			],
+			"inboundNatPools": [
+				{
+					"name": "natpool1",
+					"properties": {
+						"frontendIPConfiguration": {
+							"id": "[variables('frontEndIPConfigID')]"
+						},
+						"protocol": "tcp",
+						"frontendPortRangeStart": 50000,
+						"frontendPortRangeEnd": 50500,
+						"backendPort": 3389
+					}
+				}
+			]
+		}
+	},
+	```
+
+8.	Добавьте ресурс сетевого интерфейса, используемый основной виртуальной машиной.
+
+
+	```
+	{
+		"apiVersion": "2015-05-01-preview",
+		"type": "Microsoft.Network/networkInterfaces",
+		"name": "[variables('nicName1')]",
+		"location": "[resourceGroup().location]",
+		"dependsOn": [
+			"[concat('Microsoft.Network/publicIPAddresses/', variables('publicIP2'))]",
+			"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+		],
+		"properties": {
+			"ipConfigurations": [
+				{
+					"name": "ipconfig1",
+					"properties": {
+						"privateIPAllocationMethod": "Dynamic",
+						"publicIPAddress": {
+							"id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('publicIP2'))]"
+						},
+						"subnet": {
+							"id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/',variables('subnetName'))]"
+						}
+					}
+				}
+			]
+		}
+	},
+	```
+
+
+9.	Добавьте ресурс виртуальной машины в ту же сеть, в которой находится масштабируемый набор. К виртуальным машинам в масштабируемом наборе нельзя получить доступ напрямую с помощью общедоступного IP-адреса, поэтому в виртуальной сети масштабируемого набора создается основная виртуальная машина, которая используется для удаленного доступа к машинам в наборе.
+
+	```
+	{
+		"apiVersion": "2015-05-01-preview",
+		"type": "Microsoft.Compute/virtualMachines",
+		"name": "[parameters('vmName')]",
+		"location": "[resourceGroup().location]",
+		"dependsOn": [
+			"[concat('Microsoft.Network/networkInterfaces/', variables('nicName1'))]"
+		],
+		"properties": {
+			"hardwareProfile": {
+				"vmSize": "[variables('vmSize')]"
+			},
+			"osProfile": {
+				"computername": "[parameters('vmName')]",
+				"adminUsername": "[parameters('adminUsername')]",
+				"adminPassword": "[parameters('adminPassword')]"
+			},
+			"storageProfile": {
+				"imageReference": {
+					"publisher": "[variables('imagePublisher')]",
+					"offer": "[variables('imageOffer')]",
+					"sku": "[variables('imageVersion')]",
+					"version": "latest"
+				},
+				"osDisk": {
+					"name": "davidmuos1",
+					"vhd": {
+						"uri":  "[concat('https://',parameters('storageAccountName'),'.blob.core.windows.net/vhds/',parameters('resourcePrefix'),'os1.vhd')]"
+					},
+					"caching": "ReadWrite",
+					"createOption": "FromImage"        
+				}
+			},
+			"networkProfile": {
+				"networkInterfaces": [
+					{
+						"id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName1'))]"
+					}
+				]
+			}
+		}
+	},
+	```
+
+10.	Добавьте ресурс масштабируемого набора виртуальных машин и укажите расширение системы диагностики, установленное на всех виртуальных машинах в масштабируемом наборе. Многие параметры данного ресурса похожи на ресурс виртуальной машины. Их основные различия приведены ниже.
+
+	- **capacity** — указывает, сколько виртуальных машин должно быть инициализировано в масштабируемом наборе. Чтобы определить это значение, укажите значение для параметра instanceCount.
+
+	- **upgradePolicy** — указывает, как выполняются обновления на виртуальных машинах в масштабируемом наборе. Значение Manual (Вручную) означает, что изменения в шаблоне применяются только к новым виртуальным машинам после повторного развертывания шаблона. Значение Automatic (Автоматически) означает, что все машины в масштабируемом наборе обновляются и перезапускаются.
+
+	Масштабируемый набор виртуальных машин не будет создан, пока не будут созданы все учетные записи хранения, которые указаны в элементе dependsOn.
+
+	```
+	{
+		"type": "Microsoft.Compute/virtualMachineScaleSets",
+		"apiVersion": "2015-06-15",
+		"name": "[parameters('vmSSName')]",
+		"location": "[resourceGroup().location]",
+		"dependsOn": [
+			"[concat('Microsoft.Storage/storageAccounts/a', parameters('vmssStorageSuffix'))]",
+			"[concat('Microsoft.Storage/storageAccounts/g', parameters('vmssStorageSuffix'))]",
+			"[concat('Microsoft.Storage/storageAccounts/m', parameters('vmssStorageSuffix'))]",
+			"[concat('Microsoft.Storage/storageAccounts/s', parameters('vmssStorageSuffix'))]",
+			"[concat('Microsoft.Storage/storageAccounts/y', parameters('vmssStorageSuffix'))]",
+			"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+			"[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]"
+		],
+		"sku": {
+			"name": "[variables('vmSize')]",
+			"tier": "Standard",
+			"capacity": "[parameters('instanceCount')]"
+		},
+		"properties": {
+			"upgradePolicy": {
+				"mode": "Manual"
+			},
+			"virtualMachineProfile": {
+				"storageProfile": {
+					"osDisk": {
+						"vhdContainers": [
+							"[concat('https://a', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
+							"[concat('https://g', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
+							"[concat('https://m', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
+							"[concat('https://s', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
+							"[concat('https://y', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]"
+						],
+						"name": "vmssosdisk",
+						"caching": "ReadOnly",
+						"createOption": "FromImage"
+					},
+					"imageReference": {
+						"publisher": "[variables('imagePublisher')]",
+						"offer": "[variables('imageOffer')]",
+						"sku": "[variables('imageVersion')]",
+						"version": "latest"
+					}
+				},
+				"osProfile": {
+					"computerNamePrefix": "[parameters('vmSSName')]",
+					"adminUsername": "[parameters('adminUsername')]",
+					"adminPassword": "[parameters('adminPassword')]"
+				},
+				"networkProfile": {
+					"networkInterfaceConfigurations": [
+						{
+							"name": "[variables('nicName2')]",
+							"properties": {
+								"primary": "true",
+								"ipConfigurations": [
+									{
+										"name": "ip1",
+										"properties": {
+											"subnet": {
+												"id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/',variables('subnetName'))]"
+											},
+											"loadBalancerBackendAddressPools": [
+												{
+													"id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/loadBalancers/',variables('loadBalancerName'),'/backendAddressPools/bepool1')]"
+												}
+											],
+											"loadBalancerInboundNatPools": [
+												{
+													"id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/loadBalancers/',variables('loadBalancerName'),'/inboundNatPools/natpool1')]"
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				},
+				"extensionProfile": {
+					"extensions": [
+						{
+							"name": "Microsoft.Insights.VMDiagnosticsSettings",
+							"properties": {
+								"publisher": "Microsoft.Azure.Diagnostics",
+								"type": "IaaSDiagnostics",
+								"typeHandlerVersion": "1.5",
+								"autoUpgradeMinorVersion": true,
+								"settings": {
+									"xmlCfg": "[base64(concat(variables('wadcfgxstart'),variables('wadmetricsresourceid'),variables('wadcfgxend')))]",
+									"storageAccount": "[variables('diagnosticsStorageAccountName')]"
+								},
+								"protectedSettings": {
+									"storageAccountName": "[variables('diagnosticsStorageAccountName')]",
+									"storageAccountKey": "[listkeys(variables('accountid'), '2015-05-01-preview').key1]",
+									"storageAccountEndPoint": "https://core.windows.net"
+								}
+							}
+						}
+					]
+				}
+			}
+		}
+	},
+	```
+
+11.	Добавьте ресурс autoscaleSettings, который определяет, как масштабируемый набор изменяется в зависимости от использования процессоров на машинах в наборе. Далее приведены важные параметры для этого руководства.
+
+ - **metricName** — это то же самое, что счетчик производительности, определенный в переменной wadperfcounter. Используя эту переменную, расширение системы диагностики собирает данные счетчика **Processor(\_Total)\\% Processor Time**.
+ - **metricResourceUri** — это идентификатор ресурса масштабируемого набора виртуальных машин.
+ - **timeGrain** — это степень детализации собираемых метрик. В данном шаблоне значение этого параметра равно 1 минуте.
+ - **statistic** — этот параметр определяет, как объединяются метрики для выполнения автоматического масштабирования. Возможные значения: Average (Среднее), Min (Минимальное), Max (Максимальное). В этом шаблоне мы хотим определить среднее использование ЦП на виртуальных машинах в масштабируемом наборе.
+ - **timeWindow** — это диапазон времени, в течение которого собираются данные об экземплярах. Значение должно составлять от 5 минут до 12 часов.
+ - **timeAggregation** — этот параметр определяет способ объединения собранных данных с течением времени. Значение по умолчанию — Average (Среднее). Возможные значения: Average (Среднее), Minimum (Минимальное), Maximum (Максимальное), Last (Последнее), Total (Всего), Count (Количество).
+ - **operator** — это оператор, который используется для сравнения данных метрики и порогового значения. Возможные значения: Equals (Равно), NotEquals (Не равно), GreaterThan (Больше), GreaterThanOrEqual (Больше или равно), LessThan (Меньше), LessThanOrEqual (Меньше или равно).
+ - **threshold** — это значение, которое активирует действие масштабирования. В этом шаблоне машины добавляются в масштабируемый набор, когда среднее использование ЦП на машинах в наборе превышает 50 %.
+ - **direction** — этот параметр определяет действие, которое выполняется, когда достигается пороговое значение. Допустимые значения: Increase (Увеличить) или Decrease (Уменьшить). В этом шаблоне количество виртуальных машин в масштабируемом наборе увеличивается, если пороговое значение превышает 50 % за определенный период.
+ - **type** — это тип действия, которое должно выполняться. Для этого параметра должно быть установлено значение ChangeCount (Изменить количество).
+ - **value** — это количество виртуальных машин, которые добавляются в масштабируемый набор или удаляются из него. Для этого параметра должно быть указано значение не меньше 1. Значение по умолчанию — 1. В этом шаблоне количество машин в масштабируемом наборе увеличивается на 1 при достижении порогового значения.
+ - **cooldown** — это общее время ожидания с момента последнего действия масштабирования перед выполнением следующего действия. Это значение должно быть в диапазоне от 1 минуты до 1 недели.
+
+	```
+	{
+		"type": "Microsoft.Insights/autoscaleSettings",
+		"apiVersion": "2015-04-01",
+		"name": "[concat(parameters('resourcePrefix'),'as1')]",
+		"location": "[resourceGroup().location]",
+		"dependsOn": [
+			"[concat('Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]"
+		],
+		"properties": {
+			"enabled": true,
+			"name": "[concat(parameters('resourcePrefix'),'as1')]",
+			"profiles": [
+				{
+					"name": "Profile1",
+					"capacity": {
+						"minimum": "1",
+						"maximum": "10",
+						"default": "1"
+					},
+					"rules": [
+						{
+							"metricTrigger": {
+								"metricName": "\\Processor(_Total)\\% Processor Time",
+								"metricNamespace": "",
+								"metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]",
+								"timeGrain": "PT1M",
+								"statistic": "Average",
+								"timeWindow": "PT5M",
+								"timeAggregation": "Average",
+								"operator": "GreaterThan",
+								"threshold": 50.0
+							},
+							"scaleAction": {
+								"direction": "Increase",
+								"type": "ChangeCount",
+								"value": "1",
+								"cooldown": "PT5M"
+							}
+						}
+					]
+				}
+			],
+			"targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]"
+		}
+	}
+	```
+
+12.	Сохраните файл шаблона.    
+
+## Шаг 3. Отправка шаблона в хранилище
+
+Шаблон можно отправить из окна Microsoft Azure PowerShell, если вы знаете имя учетной записи и первичный ключ учетной записи хранения, созданной на шаге 1.
+
+1.	В окне Microsoft Azure PowerShell укажите переменную, которая означает имя учетной записи хранения, развернутой при выполнении шага 1.
+
+		$StorageAccountName = "vmssstore1"
+
+2.	Укажите переменную, которая означает первичный ключ учетной записи хранения.
+
+		$StorageAccountKey = "<primary-account-key>"
+
+	Чтобы получить этот ключ, щелкните значок ключа в представлении ресурсов учетной записи хранения на портале Azure.
+
+3.	Создайте объект контекста учетной записи хранения, который используется для проверки операций с учетной записью хранения.
+
+		$ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+
+4.	Создайте новый контейнер шаблонов, в котором будет храниться созданный шаблон.
+
+		$ContainerName = "templates"
+		New-AzureStorageContainer -Name $ContainerName -Context $ctx  -Permission Blob
+
+5.	Отправьте файл шаблона в новый контейнер.
+
+		$BlobName = "VMSSTemplate.json"
+		$fileName = "C:" + $BlobName
+		Set-AzureStorageBlobContent -File $fileName -Container $ContainerName -Blob  $BlobName -Context $ctx
+
+## Шаг 4. Развертывание шаблона
+
+После создания шаблона можно начать развертывать ресурсы. Чтобы запустить процесс, используйте следующую команду:
+
+		New-AzureRmResourceGroupDeployment -Name "vmss-testdeployment1" -ResourceGroupName "vmss-test1" -TemplateUri "https://vmssstore1.blob.core.windows.net/templates/VMSSTemplate.json"
+
+Когда вы нажмете клавишу ВВОД, появится запрос на ввод переменных, которые вы назначили. Укажите следующие значения:
+
+	vmName: vmssvm1
+	vmSSName: vmsstest1
+	instanceCount: 5
+	adminUserName: vmadmin1
+	adminPassword: vmadminpass1
+	storageAccountName: vmssstore1
+	resourcePrefix: vmsstest
+
+Для успешного развертывания всех ресурсов может потребоваться около 15 минут.
+
+>[AZURE.NOTE]Вы также можете использовать возможности портала для развертывания ресурсов. Чтобы сделать это, используйте следующую ссылку: https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>
+
+## Шаг 4. Мониторинг ресурсов
+
+Сведения о масштабируемых наборах виртуальных машин можно получать, используя следующие методы:
+
+ - Портал Azure — с помощью портала в настоящее время можно получить ограниченный объем сведений.
+ - [Обозреватель ресурсов Azure](https://resources.azure.com/) — это лучшее средство для просмотра текущего состояния масштабируемого набора. Используйте этот путь, чтобы увидеть представление экземпляра созданного масштабируемого набора:
+
+		subscriptions > {your subscription} > resourceGroups > vmss-test1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
+
+ - Azure PowerShell — используйте эту команду, чтобы получить сведения:
+
+		Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmss-test1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
+
+ - Подключитесь к основной виртуальной машине так же, как к любому другому компьютеру. Теперь вы сможете удаленно подключаться к виртуальным машинам в масштабируемом наборе, чтобы отслеживать отдельные процессы.
+
+>[AZURE.NOTE]Полный REST API для получения информации о масштабируемых наборах можно найти на странице [Масштабируемые наборы виртуальных машин](https://msdn.microsoft.com/library/mt589023.aspx).
+
+## Шаг 5. Удаление ресурсов
+
+Так как за использование ресурсов Azure взимается плата, рекомендуется всегда удалять ресурсы, которые больше не нужны. Не нужно отдельно удалять каждый ресурс из группы ресурсов. Можно удалить группу ресурсов, тогда все ее ресурсы будут автоматически удалены.
+
+	Remove-AzureRmResourceGroup -Name vmss-test1
+
+Если вы хотите сохранить группу ресурсов, вы можете удалить только масштабируемый набор.
+
+	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmss-test1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
+
+<!---HONumber=AcomDC_1125_2015-->

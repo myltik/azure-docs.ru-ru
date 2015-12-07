@@ -60,10 +60,12 @@
 
 ## См. также
 
-[База данных SQL Azure](https://azure.microsoft.com/documentation/services/sql-database/)
+[база данных SQL Azure;](https://azure.microsoft.com/documentation/services/sql-database/)
+
+[Цены на выпуски Web и Business](https://azure.microsoft.com/pricing/details/sql-database/web-business/)
 
 [Уровни службы](sql-database-service-tiers.md)
 
 [Обновление баз данных SQL уровня Web или Business до новых уровней служб](sql-database-upgrade-new-service-tiers.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

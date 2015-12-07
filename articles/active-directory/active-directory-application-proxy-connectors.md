@@ -3,7 +3,7 @@
 	description="Этот раздел описывает создание групп соединителей в прокси приложения Azure AD и управление ими."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
+	authors="kgremban"
 	manager="StevenPo"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 
 # Публикация приложений в отдельных сетях и расположениях с помощью групп соединителей
@@ -59,4 +59,4 @@
 
 * [Об ограниченном делегировании Kerberos](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Развертывание существующего приложения в Azure Service Fabric | Microsoft Azure"
+   pageTitle="Развертывание настраиваемого приложения в Azure Service Fabric | Microsoft Azure"
    description="Пошаговое руководство по упаковыванию существующего приложения для развертывания в кластере Azure Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/09/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
-# Развертывание существующего приложения в Service Fabric
+# Развертывание настраиваемого приложения в Service Fabric
 
 В Service Fabric можно запустить существующее приложение любого типа, например Node.js, Java или приложение в машинном коде. Service Fabric обрабатывает эти приложения как службы без отслеживания состояния и размещает их на узлах в кластере на основе доступности и других метрик. В этой статье описывается упаковка и развертывание существующего приложения в кластере Service Fabric.
 
-## Преимущества выполнения существующего приложения в Service Fabric
+## Преимущества выполнения настраиваемого приложения в Service Fabric
 
 Существует несколько преимуществ, связанных с выполнением приложения в кластере Service Fabric.
 
@@ -42,64 +42,10 @@
   Манифест приложения содержит описание приложения и список образующих его служб, а также другие параметры, например количество экземпляров, которые определяют, как будут развертываться службы. Приложение в Service Fabric — расширяемая единица. Приложение можно расширить как единицу, где потенциальные сбои (и потенциальные откаты) управляются платформой, гарантируя, что процесс обновления либо будет полностью успешным, либо, в случае сбоя, не оставит приложение в неизвестном или нестабильном состоянии.
 
 
- ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ApplicationManifest ApplicationTypeName="actor2Application"
-                       ApplicationTypeVersion="1.0.0.0"
-                       xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
-    <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="actor2Pkg" ServiceManifestVersion="1.0.0.0" />
-      <ConfigOverrides />
-    </ServiceManifestImport>
-
-    <DefaultServices>
-      <Service Name="actor2">
-        <StatelessService ServiceTypeName="actor2Type">
-          <SingletonPartition />
-        </StatelessService>
-      </Service>
-    </DefaultServices>
-
-  </ApplicationManifest>
-  ```
-
 * **Манифест службы**
 
   Манифест службы описывает ее компоненты. Он включает такие данные, как имя и тип службы (сведения, которые Service Fabric использует для управления службой), ее код, конфигурацию и компоненты данных, а также некоторые дополнительные параметры, которые позволяют настраивать службу после ее развертывания. Мы не будем углубляться в подробности различных параметров, доступных в манифесте службы, но рассмотрим их подмножество, необходимое для запуска существующего приложения в Service Fabric.
 
-Подробные сведения о формате упаковки Service Fabric см. [здесь](service-fabric-develop-your-service-index.md).
-
-  ```xml
-  <?xml version="1.0" encoding="utf-8"?>
-  <ServiceManifest Name="actor2Pkg"
-                   Version="1.0.0.0"
-                   xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <ServiceTypes>
-      <StatelessServiceType ServiceTypeName="actor2Type" />
-    </ServiceTypes>
-
-    <CodePackage Name="Code" Version="1.0.0.0">
-      <EntryPoint>
-        <ExeHost>
-          <Program>actor2.exe</Program>
-        </ExeHost>
-      </EntryPoint>
-    </CodePackage>
-
-    <ConfigPackage Name="Config" Version="1.0.0.0" />
-
-    <Resources>
-      <Endpoints>
-        <Endpoint Name="ServiceEndpoint" />
-      </Endpoints>
-    </Resources>
-  </ServiceManifest>
-  ```
 
 ## Структура файла пакета приложения
 Для развертывания приложения в Service Fabric оно должно следовать предопределенной структуре каталогов. Ниже приведен пример этой структуры.
@@ -132,7 +78,7 @@
 - Обновление файла манифеста службы
 - Обновление манифеста приложения
 
->[AZURE.NOTE]Мы предоставляем средство упаковки, что позволяет автоматически создавать пакет приложения. Это средство в настоящее время доступно в предварительной версии. Дополнительные сведения см. [здесь](http://aka.ms/servicefabricpacktool).
+>[AZURE.NOTE]Мы предоставляем средство упаковки, что позволяет автоматически создавать пакет приложения. Это средство в настоящее время доступно в предварительной версии. Его можно загрузить [здесь](http://aka.ms/servicefabricpacktool).
 
 ### Создание структуры каталогов пакета
 Для начала можно создать структуру каталогов, как описано выше.
@@ -328,8 +274,8 @@ New-ServiceFabricService -ApplicationName 'fabric:/nodeapp' -ServiceName 'fabric
 ## Дальнейшие действия
 В этой статье вы ознакомились с основной процедурой упаковки существующего приложения и его развертывания в Service Fabric. Далее вы можете ознакомиться с дополнительным содержимым для этого раздела.
 
-- Пример кода для упаковки и развертывания существующего приложения на [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication), включая предварительную версию средства упаковки
-- Пример кода для упаковки нескольких приложений на [Github](https://github.com/bmscholl/servicefabric-samples/tree/comingsoon/samples/RealWorld/Hosting/SimpleApplication)
-- Начальные сведения о [создании первого приложения Service Fabric с помощью Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+- Пример кода для упаковки и развертывания настраиваемого приложения на [Github](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Custom/SimpleApplication), включая ссылку на предварительную версию средства упаковки.
+- Узнайте, как [развернуть несколько настраиваемых приложений](service-fabric-deploy-multiple-apps.md).
+- Начальные сведения о [создании первого приложения Service Fabric с помощью Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

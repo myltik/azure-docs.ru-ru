@@ -12,12 +12,12 @@
 
         ![Add volume](./media/storsimple-create-volume/AddVolume1-include.png)
 
-3. В диалоговом окне **Дополнительные параметры** добавьте новую запись управления доступом (ACR).
+3. На странице **Дополнительные параметры** добавьте новую запись контроля доступа (ACR).
    1. В поле **Имя** введите имя записи управления доступом.
    2. В разделе **Имя инициатора iSCSI** укажите полное имя iSCSI (IQN) используемого узла Windows. Если IQN отсутствует, перейдите к разделу [Получение IQN узла Windows Server](#get-the-iqn-of-a-windows-server-host).
    3. Мы рекомендуем включить резервное копирование по умолчанию, установив флажок **Включить архивацию по умолчанию для этого тома**. Резервное копирование по умолчанию создаст политику, при которой в 22:30 по времени устройства каждый день будет создаваться облачный моментальный снимок этого тома.
 
-        > [AZURE.NOTE] After the backup is enabled here, it cannot be reverted. You will need to edit the volume to modify this setting.
+        > [AZURE.NOTE] После того как в этом разделе будет создано правило архивации, удалить его будет невозможно. Чтобы изменить этот параметр, вам потребуется изменить том.
 
         ![Add volume](./media/storsimple-create-volume/AddVolume2-include.png)
 
@@ -27,4 +27,4 @@
 
 Чтобы просмотреть видео, в котором описывается создание тома StorSimple, щелкните [здесь](http://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

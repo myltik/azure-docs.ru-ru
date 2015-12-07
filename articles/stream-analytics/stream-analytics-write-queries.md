@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Написание запросов | Microsoft Azure" 
-	description="Сегмент схемы обучения по написанию запросов."
+	description="Написание запросов в Stream Analytics | Сегмент схемы обучения"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Написание запросов
+# Написание запросов в Stream Analytics
 
 Логическая схема обработки потоков в службе Azure Stream Analytics выполняется как «постоянный запрос», определенный до того, как задание было запущено и применено к поступившим данным. Преобразование данных выражается с помощью SQL-подобного языка запросов, который по большом счету представляет собой подмножество T-SQL с рядом дополнительных расширений языка, таких как [Оконное расширение](https://msdn.microsoft.com/library/azure/dn835019.aspx), которое используется для выражения временной семантики.
 
@@ -70,4 +70,4 @@
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

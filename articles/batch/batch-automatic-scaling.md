@@ -14,18 +14,18 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="08/26/2015"
-	ms.author="davidmu"/>
+	ms.date="11/18/2015"
+	ms.author="davidmu;marsma"/>
 
 # Автоматическое масштабирование вычислительных узлов в пуле пакетной службы Azure
 
-Автоматическое масштабирование вычислительных узлов в пуле пакетной службы Azure представляет собой динамическую настройку вычислительной мощности, используемой вашим приложением. Простота этой настройки сэкономит вам время и деньги. Для получения дополнительных сведений о вычислительных узлах и пулах см. статью [Технический обзор пакетной службы Azure](batch-technical-overview.md).
+Автоматическое масштабирование вычислительных узлов в пуле пакетной службы Azure представляет собой динамическую настройку вычислительной мощности, используемой вашим приложением. Простота этой настройки сэкономит вам время и деньги. Для получения дополнительных сведений о вычислительных узлах и пулах изучите [обзор пакетной службы Azure](batch-technical-overview.md).
 
 Автоматическое масштабирование происходит при включении этой функции в пуле, а также при связывании формулы с пулом. Формула используется для определения количества вычислительных узлов, необходимого для обработки приложения. Воздействуя на выборки, которые собираются периодически, количество доступных вычислительных узлов в пуле корректируется каждые 15 минут на основе связанной формулы.
 
 Автоматическое масштабирование задается во время создания пула. Также вы можете включить его позже для существующего пула. Формула также может обновляться в пуле с включенной ранее функцией автоматического масштабирования. Рекомендуется всегда оценивать формулу, прежде чем назначать ее пулу. Также важно отслеживать состояние выполнения автоматического масштабирования. Ниже мы рассмотрим каждую из этих тем.
 
-> [AZURE.NOTE]Каждая учетная запись пакетной службы Azure имеет ограничение на максимальное количество вычислительных узлов, которые могут использоваться для обработки. Система создает узлы только в рамках этого ограничения, поэтому она может и не достичь целевого количества, заданного формулой.
+> [AZURE.NOTE]Каждая учетная запись пакетной службы Azure имеет ограничение на максимальное количество вычислительных узлов, которые могут использоваться для обработки. Система создает узлы только в пределах этого ограничения, поэтому целевое количество, заданное формулой, может оказаться недостижимым.
 
 ## Автоматическое масштабирование вычислительных ресурсов
 
@@ -336,15 +336,15 @@
 
 Некоторые функции, описанные в таблице выше, могут принимать список в качестве аргумента. Список значений, разделенных запятыми, — это любая комбинация типов *double* и *doubleVec*. Например:
 
-	doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?
+`doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-Значение *doubleVecList* преобразуется в один тип *doubleVec* перед оценкой. Например, если v = [1,2,3], то вызывающая функция avg(v) равна вызывающей функции avg(1,2,3), а вызывающая функция avg (v, 7) равная вызывающей функции avg(1,2,3,7).
+Значение *doubleVecList* перед оценкой преобразуется в один тип *doubleVec*. Например, если `v = [1,2,3]`, то вызов функции `avg(v)` аналогичен вызову функции `avg(1,2,3)`, а вызов функции `avg(v, 7)` аналогичен вызову функции `avg(1,2,3,7)`.
 
 ### Получение образца данных
 
 Определяемые системой переменные, описанные выше, — это объекты, которые предоставляют методы для доступа к связанным данным. Например, следующее выражение иллюстрирует запрос для получения данных об использовании ЦП за последние пять минут.
 
-	$CPUPercent.GetSample(TimeInterval_Minute*5)
+`$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
 Эти методы можно использовать для получения образцов данных.
 
@@ -359,15 +359,17 @@
   </tr>
   <tr>
     <td>GetSample()</td>
-    <td><p>Возвращает вектор образцов данных. Например:</p>
+    <td><p>Возвращает вектор образцов данных.
+	<p>Образец содержит данные метрик за 30&#160;секунд. Другими словами, образцы собираются каждые 30&#160;секунд. Но, как будет описано далее, полученный образец становится доступным для формулы с некоторой задержкой. Таким образом, не все образцы за определенный период будут доступны для оценки.
         <ul>
-          <li><p><b>doubleVec GetSample (double count)</b>&#160;— указывает количество выборок, которые требуются из последней выборки.</p>
-				  <p>Выборка имеет ценность для данных метрики в течение 5&#160;секунд. GetSample(1) возвращает последнюю доступную выборку, но ее нельзя будет использовать для такой метрики, как $CPUPercent, поскольку невозможно узнать момент получения выборки. Эта выборка может быть последней или, если в системе есть проблемы, гораздо более старой. Лучше использовать интервал времени, как показано ниже.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b>&#160;— указывает интервал времени для сбора данных и при необходимости указывает долю выборок (%) в соответствии с требуемым диапазоном.</p>
-          <p>Метод $CPUPercent.GetSample(TimeInterval\_Minute*10) должен вернуть 200&#160;выборок, если все они присутствовали в журнале CPUPercent в течение последних 10&#160;минут. Если последняя минута журнала по-прежнему отсутствует, возвращаются только 180&#160;выборок.</p>
-					<p>Метод $CPUPercent.GetSample(TimeInterval\_Minute*10, 80) выполняется успешно, а метод $CPUPercent.GetSample(TimeInterval_Minute*10,95) не выполняется.</p></li>
+          <li><p><b>doubleVec GetSample (double count)</b>&#160;— указывает нужное количество образцов из числа самых свежих.</p>
+				  <p>GetSample(1) возвращает последний доступный образец. Этот метод не следует использовать для таких метрик, как $CPUPercent, поскольку нет возможности узнать, <em>когда</em> был получен этот образец. Он может оказаться свежим, но мог и устареть, если в системе возникли проблемы. Для таких параметров лучше использовать интервалы, как показано ниже.</p></li>
+          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b>&#160;— указывает интервал времени для сбора данных. В необязательном параметре указывает, сколько образцов (в процентах) должно быть доступно для указанного интервала.</p>
+          <p>Вызов метода <em>$CPUPercent.GetSample(TimeInterval_Minute * 10)</em> вернет 20&#160;образцов, если все образцы за последние 10&#160;минут уже присутствуют в журнале CPUPercent. Но если данные за последнюю минуту еще недоступны, этот метод вернет только 18&#160;образцов. В таком случае:<br/>
+		  &#160;&#160;&#160;&#160;Вызов <em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)</em> вернет ошибку, так как доступны только 90&#160;% образцов.<br/>
+		  &#160;&#160;&#160;&#160;Вызов <em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)</em> будет выполнен успешно.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b>&#160;— задает интервал времени для сбора данных, т.&#160;е. начало и конец сбора.</p></li></ul>
-		  <p>Обратите внимание, что между сбором образца и моментом, когда он будет доступен для формулы, есть задержка; это необходимо учитывать при использовании метода GetSample; см. раздел GetSamplePercent ниже.</td>
+		  <p>Как упоминалось выше, полученный образец становится доступным для формулы с задержкой. Это необходимо учитывать при использовании метода <em>GetSample</em>. См. также описание метода <em>GetSamplePercent</em> ниже.</td>
   </tr>
   <tr>
     <td>GetSamplePeriod()</td>
@@ -435,15 +437,15 @@
 2. Уменьшать целевое количество вычислительных узлов в пуле при низкой загрузке ЦП.
 3. Всегда ограничивать максимальное количество узлов до 400.
 
-Для *увеличения* количества узлов во время высокой загрузки ЦП определим инструкцию, которая заполняет определяемую пользователем переменную ($TotalNodes) значением, составляющим 110 % от текущего целевого числа узлов, если минимальное среднее использование ЦП за последние 10 минут превышало 70 %:
+Нам может потребоваться *увеличить* количество узлов в периоды высокой загрузки ЦП. Для этого мы определим инструкцию, которая присваивает пользовательской переменной $TotalNodes значение, равное 110 % от текущего целевого количества узлов, если минимальное среднее использование ЦП за последние 10 минут превышало 70 %:
 
 	$TotalNodes = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;
 
-Следующая инструкция задает той же переменной 90 % от текущего целевого числа узлов, если среднее использование ЦП за последние 60 минут было *ниже* 20 %, снижая целевое число узлов во время низкой загрузки ЦП. Обратите внимание, что эта инструкция также ссылается на определяемую пользователем переменную *$TotalNodes* в инструкции выше.
+Следующая инструкция задает той же переменной значение 90 % от текущего целевого количества узлов, если среднее использование ЦП за последние 60 минут было *ниже* 20 %. Это позволит уменьшить целевое количество узлов при снижении загрузки ЦП. Обратите внимание, что эта инструкция также использует пользовательскую переменную *$TotalNodes*, заданную в предыдущей инструкции.
 
 	$TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) < 0.2) ? ($CurrentDedicated * 0.9) : $TotalNodes;
 
-Теперь ограничим целевое число выделенных вычислительных узлов **максимальным** количеством, равным 400.
+Теперь мы ограничим целевое количество выделенных вычислительных узлов **максимальным значением** 400:
 
 	$TargetDedicated = min(400, $TotalNodes)
 
@@ -461,7 +463,7 @@
 - [BatchClient.PoolOperations.CreatePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx) — когда этот метод .NET вызывается для создания пула, в пуле задаются свойства [CloudPool.AutoScaleEnabled](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleenabled.aspx) и [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) для включения автоматического масштабирования.
 - [Добавление пула в учетную запись](https://msdn.microsoft.com/library/azure/dn820174.aspx) — в этом запросе REST API используются элементы enableAutoScale и autoScaleFormula для настройки автоматического масштабирования пула во время его создания.
 
-> [AZURE.NOTE]Если вы настроили автоматическое масштабирование во время создания пула с помощью одного из перечисленных выше методов, параметр *targetDedicated* не будет (и не должен будет) указываться во время создания пула. Также обратите внимание, что если вы хотите вручную изменить размер пула с включенным автомасштабированием (например, с помощью [BatchClient.PoolOperations.ResizePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.resizepool.aspx)), то сначала необходимо отключить автоматическое масштабирование в пуле, а затем изменить его размер.
+> [AZURE.NOTE]Если вы настроили автоматическое масштабирование во время создания пула с помощью одного из перечисленных выше методов, параметр *targetDedicated* не нужно (и даже нельзя) указывать во время создания пула. Также обратите внимание, что, если вы хотите вручную изменить размер пула с включенным автомасштабированием (например, с помощью [BatchClient.PoolOperations.ResizePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.resizepool.aspx)), вам необходимо сначала отключить автоматическое масштабирование пула, а затем изменить его размер.
 
 В следующем фрагменте кода показано создание объекта [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx), для которого включено автомасштабирование, с помощью библиотеки [.NET пакетной службы](https://msdn.microsoft.com/library/azure/mt348682.aspx). Ее формула задает целевое количество узлов: 5 по понедельникам и 1 в остальные дни недели. В приведенном фрагменте myBatchClient — это правильно инициализированный экземпляр [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx):
 
@@ -474,12 +476,12 @@
 
 Если вы уже настроили пул с указанным количеством вычислительных узлов с помощью параметра *targetDedicated*, такой пул можно обновить позднее, настроив для него автоматическое масштабирование. Это можно сделать одним из следующих способов.
 
-- [BatchClient.PoolOperations.EnableAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.enableautoscale.aspx) — для этого метода .NET требуется идентификатор существующего пула и формула автоматического масштабирования для применения к пулу.
-- [Включение автоматического масштабирования в пуле](https://msdn.microsoft.com/library/azure/dn820173.aspx) — для этого запроса REST API требуется имя существующего пула в универсальном коде ресурса (URI) и формула автоматического масштабирования в тексте запроса.
+- [BatchClient.PoolOperations.EnableAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.enableautoscale.aspx) — этот метод .NET принимает идентификатор существующего пула и формулу автоматического масштабирования, которую нужно применить к этому пулу.
+- [Включение автоматического масштабирования в пуле](https://msdn.microsoft.com/library/azure/dn820173.aspx) — для этого запроса REST API в URI передается имя существующего пула, а в тексте запроса — формула автоматического масштабирования.
 
-> [AZURE.NOTE]Если значение для параметра *targetDedicated* было указанно во время создания пула, оно игнорируется во время оценки формулы автоматического масштабирования.
+> [AZURE.NOTE]Если во время создания пула было указано значение параметра *targetDedicated*, оно игнорируется во время оценки формулы автоматического масштабирования.
 
-Этот фрагмент кода демонстрирует включение автомасштабирования для существующего пула с помощью библиотеки [.NET пакетной службы](https://msdn.microsoft.com/library/azure/mt348682.aspx). Обратите внимание, что при включении и обновлении формулы для существующего пула используется один и тот же метод. Таким образом, этот метод будет *обновлять* формулу в указанном пуле, если включено автоматическое масштабирование. В этом фрагменте предполагается, что myBatchClient — неправильно инициализированный экземпляр [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx), а mypool — идентификатор существующего пула [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx).
+Этот фрагмент кода демонстрирует включение автомасштабирования для существующего пула с помощью библиотеки [.NET пакетной службы](https://msdn.microsoft.com/library/azure/mt348682.aspx). Обратите внимание, что при включении и обновлении формулы для существующего пула используется один и тот же метод. Таким образом, если автоматическое масштабирование уже включено, этот метод будет *обновлять* формулу для указанного пула. В этом фрагменте предполагается, что myBatchClient — правильно инициализированный экземпляр [BatchClient](http://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx), а mypool — идентификатор существующего объекта класса [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx).
 
 		 // Define the autoscaling formula. In this snippet, the  formula sets the target number of nodes to 5 on
 		 // Mondays, and 1 on every other day of the week
@@ -494,11 +496,11 @@
 Рекомендуется оценивать формулу, прежде чем использовать ее в приложении. Формула оценивается путем тестового выполнения для существующего пула. Это можно сделать, используя следующее:
 
 - [BatchClient.PoolOperations.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscale.aspx) или [BatchClient.PoolOperations.EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscaleasync.aspx) — для этих методов .NET требуется идентификатор существующего пула и строка, которая содержит формулу автоматического масштабирования. Результаты вызова содержатся в экземпляре класса [AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx).
-- [Оценка формулы автоматического масштабирования](https://msdn.microsoft.com/library/azure/dn820183.aspx) — в этом запросе REST API идентификатор пула указывается в универсальном коде ресурса (URI), а формула автоматического масштабирования — в элементе *autoScaleFormula* текста запроса. Ответ операции содержит все сведения об ошибках, которые могут быть связаны с формулой.
+- [Оценка формулы автоматического масштабирования](https://msdn.microsoft.com/library/azure/dn820183.aspx) — в этом запросе REST API идентификатор пула указывается в URI, а формула автоматического масштабирования — в элементе *autoScaleFormula* текста запроса. Ответ операции содержит все сведения об ошибках, которые могут быть связаны с формулой.
 
 > [AZURE.NOTE]Чтобы оценить формулу автомасштабирования, необходимо сначала включить автоматическое масштабирование в пуле, используя допустимую формулу.
 
-В этом фрагменте кода, использующем библиотеку [.NET пакетной службы](https://msdn.microsoft.com/library/azure/mt348682.aspx), мы оценим формулу, прежде чем применять ее в пуле [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx).
+В этом фрагменте кода, использующем библиотеку [.NET пакетной службы](https://msdn.microsoft.com/library/azure/mt348682.aspx), мы оценим формулу перед ее применением к объекту [CloudPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx).
 
 		// First obtain a reference to the existing pool
 		CloudPool pool = myBatchClient.PoolOperations.GetPool("mypool");
@@ -543,11 +545,11 @@
 
 Чтобы убедиться, что формула работает так, как ожидается, следует периодически проверять результаты выполнения автоматического масштабирования. Это можно сделать одним из следующих способов.
 
-- [CloudPool.AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscalerun.aspx) — при использовании библиотеки .NET это свойство пула предоставляет экземпляр класса [AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.aspx), который содержит следующие свойства последнего выполнения автоматического масштабирования:
-  - [AutoScaleRun.Error](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx);
-  - [AutoScaleRun.Results](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx);
-  - [AutoScaleRun.Timestamp](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx).
-- [Получить сведения о пуле](https://msdn.microsoft.com/library/dn820165.aspx) — этот запрос API REST возвращает сведения о пуле, содержащие результаты последнего выполнения автоматического масштабирования.
+- [CloudPool.AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscalerun.aspx) — при использовании библиотеки .NET это свойство пула возвращает экземпляр класса [AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.aspx), который содержит информацию о последнем выполнении автоматического масштабирования:
+  - [AutoScaleRun.Error;](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx)
+  - [AutoScaleRun.Results;](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx)
+  - [AutoScaleRun.Timestamp.](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx)
+- [Получить сведения о пуле](https://msdn.microsoft.com/library/dn820165.aspx) — этот запрос REST API возвращает сведения о пуле, в том числе результаты последнего выполнения автоматического масштабирования.
 
 ## Примеры формул
 
@@ -584,7 +586,7 @@
 
 ### Пример 3
 
-Другой пример — размер пула изменяется в зависимости от количества задач. Эта формула также учитывает значение [MaxTasksPerComputeNode](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx), которое было задано для пула. Это особенно полезно в ситуациях, где требуется параллельное выполнение задач на вычислительных узлах.
+В этом примере мы изменяем размер пула в зависимости от количества задач. Эта формула также учитывает значение [MaxTasksPerComputeNode](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx), которое было задано для пула. Это особенно полезно в ситуациях, где требуется параллельное выполнение задач на вычислительных узлах.
 
 		// Determine whether 70% of the samples have been recorded in the past 15 minutes; if not, use last sample
 		$Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
@@ -599,17 +601,43 @@
 		// Keep the nodes active until the tasks finish
 		$NodeDeallocationOption = taskcompletion;
 
+### Пример 4
+
+В этом примере представлена формула автомасштабирования, которая задает количество узлов в пуле для начального интервала времени. По завершении этого интервала она корректирует размер пула в зависимости от количества запущенных и активных задач.
+
+```
+string now = DateTime.UtcNow.ToString("r");
+string formula = string.Format(@"
+
+	$TargetDedicated = {1};
+	lifespan         = time() - time(""{0}"");
+	span             = TimeInterval_Minute * 60;
+	startup          = TimeInterval_Minute * 10;
+	ratio            = 50;
+
+	$TargetDedicated = (lifespan > startup ? (max($RunningTasks.GetSample(span, ratio), $ActiveTasks.GetSample(span, ratio)) == 0 ? 0 : $TargetDedicated) : {1});
+	", now, 4);
+```
+
+Формула в представленном выше фрагменте кода имеет следующие характеристики.
+
+- Задает исходный размер пула в 4 узла.
+- Не изменяет размер пула в течение первых 10 минут его жизненного цикла.
+- После первых 10 минут запрашивает максимальное количество запущенных и активных задач за последние 60 минут.
+  - Если оба значения равны 0 (то есть за 60 минут не было ни активных, ни запущенных задач), устанавливает размер пула, равный 0.
+  - Если любое из значений больше нуля, параметры не меняются.
+
 ## Дальнейшие действия
 
 1. Чтобы в полной мере оценить эффективность работы приложения, вам может потребоваться доступ к вычислительным узлам. Чтобы воспользоваться преимуществами удаленного доступа, необходимо добавить учетную запись пользователя в узел, к которому необходимо получить доступ, и получить RDP-файл для этого узла.
     - Добавьте учетную запись пользователя одним из следующих способов.
-        * [New-AzureBatchVMUser](https://msdn.microsoft.com/library/mt149846.aspx) — этот командлет PowerShell принимает имя пула, имя вычислительного узла, имя учетной записи и пароль в качестве параметров.
-        * [BatchClient.PoolOperations.CreateComputeNodeUser](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createcomputenodeuser.aspx) — этот метод .NET создает экземпляр класса [ComputeNodeUser](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.aspx), на котором можно задать имя учетной записи и пароль для вычислительного узла. Затем, чтобы создать пользователя на этом узле, в экземпляре вызывается метод [ComputeNodeUser.Commit](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.commit.aspx).
-        * [Добавление учетной записи пользователя в узел](https://msdn.microsoft.com/library/dn820137.aspx) — имя пула и вычислительного узла указаны в универсальном коде ресурса (URI), а имя учетной записи и пароль передаются узлу в тексте этого запроса REST API.
+        * [New-AzureBatchVMUser](https://msdn.microsoft.com/library/mt149846.aspx) — этот командлет PowerShell принимает в качестве параметров имя пула, имя вычислительного узла, имя учетной записи и пароль.
+        * [BatchClient.PoolOperations.CreateComputeNodeUser](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createcomputenodeuser.aspx) — этот метод .NET создает экземпляр класса [ComputeNodeUser](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.aspx), в котором можно задать имя учетной записи и пароль для вычислительного узла. Затем он создает в этом узле пользователя, вызывая метод [ComputeNodeUser.Commit](https://msdn.microsoft.com/library/microsoft.azure.batch.computenodeuser.commit.aspx) для созданного экземпляра.
+        * [Добавление учетной записи пользователя в узел](https://msdn.microsoft.com/library/dn820137.aspx) — имя пула и вычислительный узел задаются в составе URI, а имя учетной записи и пароль передаются в тексте этого запроса REST API.
     - Извлечение RDP-файла.
-        * [BatchClient.PoolOperations.GetRDPFile](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getrdpfile.aspx) — в этом методе .NET требуется идентификатор пула, идентификатор узла и имя создаваемого RDP-файла.
-        * [Извлечение файла из узла с помощью протокола удаленного рабочего стола](https://msdn.microsoft.com/library/dn820120.aspx) — для этого запроса REST API требуется имя пула и имя вычислительного узла. Ответ включает содержимое RDP-файла.
+        * [BatchClient.PoolOperations.GetRDPFile](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getrdpfile.aspx) — этот метод .NET принимает идентификатор пула, идентификатор узла и имя создаваемого RDP-файла.
+        * [Извлечение файла из узла с помощью протокола удаленного рабочего стола](https://msdn.microsoft.com/library/dn820120.aspx) — этот запрос REST API принимает имя пула и имя вычислительного узла. Ответ включает содержимое RDP-файла.
         * [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) — этот командлет PowerShell извлекает RDP-файл из указанного вычислительного узла и сохраняет его в указанной папке или потоке.
-2.	Некоторые приложения создают большое количество данных, которые может быть трудно обработать. Одним из способов устранения этой проблемы является использование [эффективных запросов списков](batch-efficient-list-queries.md).
+2.	Некоторые приложения создают большое количество данных, которые может быть трудно обработать. Для решения этой проблемы можно повысить [эффективность запросов к пакетной службе](batch-efficient-list-queries.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

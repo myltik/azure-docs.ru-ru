@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Что такое Azure Multi-Factor Authentication?" 
+	pageTitle="Что такое Azure Multi-Factor Authentication? | Microsoft Azure" 
 	description="Azure Multi-factor Authentication — это метод проверки идентичности пользователя, при котором используются дополнительные средства, а не только имя пользователя и пароль. Это второй уровень безопасности, который применяется для входа пользователя в систему и выполнения транзакций." 
+	keywords="общие сведения об MFA"
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015"
+	ms.date="11/20/2015" 
 	ms.author="billmath"/>
 
 # Что такое Azure Multi-factor Authentication?
@@ -127,7 +128,7 @@ Multi-Factor Authentication для локальных приложений, ис
 
 Если вы являетесь пользователем Office 365 или подписчиком Azure и хотите получить доступ к дополнительным функциям службы Azure Multi-Factor Authentication, приведенная далее информация будет для вас полезной.
 
-Если ни один из приведенных выше вариантов к вам не относится, то, чтобы начать использовать службу Azure Multi-Factor Authentication, сначала потребуется полная или [пробная подписка Azure](http://azure.microsoft.com/pricing/free-trial/).
+Если ни один из приведенных выше вариантов к вам не относится, то, чтобы начать использовать службу Azure Multi-Factor Authentication, сначала потребуется полная или [пробная](http://azure.microsoft.com/pricing/free-trial/) подписка на Azure.
 
 Есть два варианта выставления счетов за использование службы Azure Multi-Factor Authentication:
 
@@ -204,4 +205,4 @@ Azure AD и локальная служба AD с использованием D
 
 <center> [![Cloud](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;[![Proofup](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &#160;&#160;&#160;&#160;&#160; </center>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

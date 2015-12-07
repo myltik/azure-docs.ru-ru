@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="11/17/2015"
 	ms.author="jroth"/>
 
 # Подписка Azure, границы, квоты и ограничения службы
@@ -22,7 +22,7 @@
 
 Настоящий документ описывает некоторые из наиболее известных ограничений Microsoft Azure. Учтите, что на текущий момент он охватывает не все службы Azure. Со временам эти ограничения будут расширены.
 
-> [AZURE.NOTE]Если требуется сделать ограничение выше значения **ограничения по умолчанию**, то можно [бесплатно отправить запрос в службу поддержки](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Ограничения не могут быть увеличены выше значения **Максимальное ограничение ** в таблицах ниже. Если столбца **Максимальное ограничение ** нет, то указанный ресурс не имеет настраиваемого ограничения.
+> [AZURE.NOTE] Если требуется сделать ограничение выше значения **ограничения по умолчанию**, то можно [бесплатно отправить запрос в службу поддержки](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). Ограничения не могут быть увеличены выше значения **Максимальное ограничение** в таблицах ниже. Если столбца **Максимальное ограничение** нет, то указанный ресурс не имеет настраиваемого ограничения.
 
 ## Ограничения и диспетчер ресурсов Azure
 
@@ -118,19 +118,27 @@
 
 ### Ограничения хранилища
 
-#### Ограничения стандартного хранилища
+Дополнительные сведения об ограничениях учетных записей хранения см. в статье [Целевые показатели по производительности и масштабируемости для хранилища Azure](../articles/storage/storage-scalability-targets.md).
+
+#### Ограничения службы хранения
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-Дополнительные сведения об ограничениях учетных записей хранения см. в статье [Целевые показатели по производительности и масштабируемости для хранилища Azure](../articles/storage/storage-scalability-targets.md).
+#### Ограничения для дисков виртуальной машины 
 
+[AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-#### Ограничения хранилища Premium
+Дополнительные сведения см. в статье [Размеры виртуальных машин](../articles/virtual-machines/virtual-machines-size-specs.md).
 
-[AZURE.INCLUDE [azure-storage-limits-premium-storage](../includes/azure-storage-limits-premium-storage.md)]
+**Учетные записи хранения Standard**
 
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
 
-#### Ограничения хранилища — диспетчер ресурсов Azure
+**Учетные записи хранения Premium**
+
+[AZURE.INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
+
+#### Ограничения поставщика ресурсов хранилища
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -173,7 +181,7 @@
 
 [AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
 
-Дополнительные сведения об ограничениях поиска Azure см. в разделе [Ограничения](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+Дополнительные сведения об ограничениях для общей службы и разделении ограничений для ключей, запросов и ответов см. в статье [Ограничения поиска Azure](search/search-limits-quotas-capacity.md).
 
 ### Ограничения служб мультимедиа
 
@@ -264,4 +272,4 @@
 
 [Размеры виртуальных машин и облачных служб для Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

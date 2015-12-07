@@ -1,14 +1,14 @@
 
-1. In Visual Studio, right-click the server project and click **Manage NuGet Packages**, search for `Microsoft.Azure.NotificationHubs`, then click **Install**. This installs the Notification Hubs library for sending notifications from your backend.
+1. В Visual Studio щелкните правой кнопкой мыши серверный проект и щелкните **Управление пакетами NuGet**, найдите `Microsoft.Azure.NotificationHubs` и нажмите кнопку **Установить**. Она устанавливает библиотеку центров уведомлений для отправки уведомлений из серверной части.
 
-3. In the server project, open **Controllers** > **TodoItemController.cs**, and add the following using statements:
+3. В серверном проекте откройте **Контроллеры** > **TodoItemController.cs** и добавьте следующие операторы using:
 
 		using System.Collections.Generic;
 		using Microsoft.Azure.NotificationHubs;
 		using Microsoft.Azure.Mobile.Server.Config;
 	
 
-2. In the **PostTodoItem** method, add the following code after the call to **InsertAsync**:  
+2. В метод **PostTodoItem** добавьте следующий код после вызова **InsertAsync**:
 
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -44,4 +44,6 @@
                 .Error(ex.Message, null, "Push.SendAsync Error");
         }
 
-    This code tells the notification hub to send a a template notification to all template registrations that contain "messageParam". The string will be inserted in the place of messageParam across each PNS that has a registration using "messageParam". This allows you to send the notification to APNS, GCM, WNS, or any other PNS.
+    Этот код заставляет центр уведомлений отправлять шаблонное уведомление во все регистрации шаблонов, содержащие текст messageParam. Указанная строка будет вставлена вместо messageParam в каждый PNS с регистрацией, в которой используется messageParam. Это позволяет отправлять уведомления в APNS, GCM, WNS и любой другой PNS.
+
+<!---HONumber=AcomDC_1125_2015-->

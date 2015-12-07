@@ -74,11 +74,10 @@ ms.service="virtual-machines"
 * [Отправка заданий в кластер пакета HPC в Azure](virtual-machines-hpcpack-cluster-submit-jobs.md)
 
 
-
 ## Добавление узлов рабочей роли в кластер пакета HPC
 
 
-* [Использование пакета HPC совместно с Azure](https://technet.microsoft.com/library/gg481749.aspx)
+* [Ускорение в рабочие экземпляры Azure с помощью пакета HPC](https://technet.microsoft.com/library/gg481749.aspx)
 
 * [Учебник: настройка гибридного кластера с пакетом HPC в Azure](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
 
@@ -86,11 +85,16 @@ ms.service="virtual-machines"
 
 * [Увеличение и сжатие вычислительных ресурсов Azure в кластере пакета HPC](virtual-machines-hpcpack-cluster-node-autogrowshrink.md)
 
+## Интеграция с пакетной службой Azure 
+
+* [Ускорение в пакетную службу Azure с помощью пакета HPC](https://technet.microsoft.com/library/mt612877.aspx)
 
 ## Создание кластеров RDMA для рабочих нагрузок MPI
 
 * [Настройка кластера RDMA в Windows с помощью пакета HPC для запуска приложений MPI](virtual-machines-windows-hpcpack-cluster-rdma.md)
 
+* [Учебник: выполнение заданий OpenFOAM с помощью пакета Microsoft HPC в кластере Linux RDMA в Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)
+
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

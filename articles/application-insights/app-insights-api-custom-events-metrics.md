@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="10/23/2015" 
+	ms.date="11/18/2015" 
 	ms.author="awills"/>
 
 # API Application Insights для пользовательских событий и метрик 
@@ -118,149 +118,6 @@
 ![Подробно просмотрите события](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
 Щелкните любое из них, чтобы просмотреть подробные данные.
-
-## <a name="properties"></a>Фильтрация, поиск и сегментация данных с помощью свойств
-
-Вы можете прикрепить свойства и результаты измерений к своим событиям, а также метрикам, просмотрам страниц, исключениям и другим данным телеметрии.
-
-**Свойства** — это строковые значения, которые можно использовать для фильтрации телеметрии в отчетах об использовании. Например, если приложение содержит несколько игр, имеет смысл к каждому событию присоединять имя игры, чтобы видеть, какие игры наиболее популярны.
-
-В каждой строке может отображаться до 1000 событий. (Если вы хотите отправлять большие блоки данных, используйте параметр сообщения [TrackTrace](#track-trace).)
-
-**Метрики** являются числовыми значениями, которые могут быть представлены в графическом виде. Например, вам может потребоваться увидеть, постепенно ли увеличиваются зарабатываемые игроками очки. Графы можно сегментировать по свойствам, отправленным с событием, чтобы получать отдельные графы или набор графов для разных игр.
-
-Чтобы значения метрик верно отображались, они должны быть >= 0.
-
-
-Количество используемых [свойств, значений свойств и метрик ограничено](#limits).
-
-
-*JavaScript*
-
-    appInsights.trackEvent
-      ("WinGame",
-         // String properties:
-         {Game: currentGame.name, Difficulty: currentGame.difficulty},
-         // Numeric metrics:
-         {Score: currentGame.score, Opponents: currentGame.opponentCount}
-         );
-
-    appInsights.trackPageView
-        ("page name", "http://fabrikam.com/pageurl.html",
-          // String properties:
-         {Game: currentGame.name, Difficulty: currentGame.difficulty},
-         // Numeric metrics:
-         {Score: currentGame.score, Opponents: currentGame.opponentCount}
-         );
-          
-
-*C#*
-
-    // Set up some properties and metrics:
-    var properties = new Dictionary <string, string> 
-       {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
-    var metrics = new Dictionary <string, double>
-       {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
-
-    // Send the event:
-    telemetry.TrackEvent("WinGame", properties, metrics);
-
-
-*VB*
-
-    ' Set up some properties:
-    Dim properties = New Dictionary (Of String, String)
-    properties.Add("game", currentGame.Name)
-    properties.Add("difficulty", currentGame.Difficulty)
-
-    Dim metrics = New Dictionary (Of String, Double)
-    metrics.Add("Score", currentGame.Score)
-    metrics.Add("Opponents", currentGame.OpponentCount)
-
-    ' Send the event:
-    telemetry.TrackEvent("WinGame", properties, metrics)
-
-
-*Java*
-    
-    Map<String, String> properties = new HashMap<String, String>();
-    properties.put("game", currentGame.getName());
-    properties.put("difficulty", currentGame.getDifficulty());
-    
-    Map<String, Double> metrics = new HashMap<String, Double>();
-    metrics.put("Score", currentGame.getScore());
-    metrics.put("Opponents", currentGame.getOpponentCount());
-    
-    telemetry.trackEvent("WinGame", properties, metrics);
-
-
-> [AZURE.NOTE]Постарайтесь не указывать в свойствах личные сведения.
-
-**При использовании метрик** откройте обозреватель метрик и выберите метрику из группы "Пользовательские":
-
-![Откройте обозреватель метрик, выделите диаграмму и выберите метрику](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
-
-*Если ваша метрика не отображается или заголовок "Пользовательские" отсутствует, закройте колонку выбранной метрики и повторите попытку позже. Иногда для вычисления метрик в конвейере может потребоваться час.*
-
-**При использовании свойств и метрик** сегментируйте метрики по свойствам:
-
-
-![Задайте группирование, а затем выберите свойство в списке "Группировать по"](./media/app-insights-api-custom-events-metrics/04-segment-metric-event.png)
-
-
-
-**В колонке поиска по журналу диагностики** можно просматривать свойства и метрики, щелкая отдельные вхождения события.
-
-
-![Выберите экземпляр, а затем выберите "..."](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-4.png)
-
-
-Используйте поле поиска для просмотра вхождений события с определенным значением свойства.
-
-
-![Введите слово в поле поиска](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-5.png)
-
-[Дополнительная информация о выражениях поиска][diagnostic].
-
-#### Альтернативный способ настройки свойств и метрик
-
-Для удобства вы можете собирать параметры события в отдельный объект:
-
-    var event = new EventTelemetry();
-
-    event.Name = "WinGame";
-    event.Metrics["processingTime"] = stopwatch.Elapsed.TotalMilliseconds;
-    event.Properties["game"] = currentGame.Name;
-    event.Properties["difficulty"] = currentGame.Difficulty;
-    event.Metrics["Score"] = currentGame.Score;
-    event.Metrics["Opponents"] = currentGame.Opponents.Length;
-
-    telemetry.TrackEvent(event);
-
-
-
-#### <a name="timed"></a> События времени
-
-Иногда требуется отобразить на диаграмме продолжительность выполнения некоторых действий. Например, может понадобиться определить, сколько времени требуется пользователю для выбора решения в игре. Это полезный пример использования параметра измерения.
-
-
-*C#*
-
-    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
-
-    // ... perform the timed action ...
-
-    stopwatch.Stop();
-
-    var metrics = new Dictionary <string, double>
-       {{"processingTime", stopwatch.Elapsed.TotalMilliseconds}};
-
-    // Set up some properties:
-    var properties = new Dictionary <string, string> 
-       {{"signalSource", currentSignalSource.Name}};
-
-    // Send the event:
-    telemetry.TrackEvent("SignalProcessed", properties, metrics);
 
 
 
@@ -444,6 +301,21 @@
 Чтобы отключить стандартный модуль отслеживания зависимостей, измените [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) и удалите ссылку на `DependencyCollector.DependencyTrackingTelemetryModule`.
 
 
+
+## Очистка данных
+
+Обычно пакет SDK отправляет данные в момент времени выбранный, чтобы свести влияние на пользователя к минимуму. Однако в некоторых случаях может потребоваться очистить буфер, например, при использовании пакета SDK в приложении, которое завершает работу.
+
+*C#*
+
+    telemetry.Flush();
+
+    // Allow some time for flushing before shutdown.
+    System.Threading.Thread.Sleep(1000);
+
+Обратите внимание, что эта функция является асинхронной для каналов в памяти и синхронной при использовании [постоянного канала](app-insights-windows-desktop.md#persistence-channel).
+
+
 ## Прошедшие проверку пользователи
 
 В веб-приложении пользователи по умолчанию идентифицируются файлом cookie. Пользователь может быть учтен более одного раза при доступе к приложению с другого компьютера или браузера либо при удалении файлов cookie.
@@ -485,8 +357,152 @@
 
 Кроме того, можно [выполнить поиск][diagnostic] точек данных клиентов с определенными именами пользователей и учетными записями.
 
+## <a name="properties"></a>Фильтрация, поиск и сегментация данных с помощью свойств
 
-## <a name="defaults"></a>Установка значений по умолчанию для выбранной пользовательской телеметрии
+Вы можете прикрепить свойства и результаты измерений к своим событиям, а также метрикам, просмотрам страниц, исключениям и другим данным телеметрии.
+
+**Свойства** — это строковые значения, которые можно использовать для фильтрации телеметрии в отчетах об использовании. Например, если приложение содержит несколько игр, имеет смысл к каждому событию присоединять имя игры, чтобы видеть, какие игры наиболее популярны.
+
+В каждой строке может отображаться до 1000 событий. (Если вы хотите отправлять большие блоки данных, используйте параметр сообщения [TrackTrace](#track-trace).)
+
+**Метрики** являются числовыми значениями, которые могут быть представлены в графическом виде. Например, вам может потребоваться увидеть, постепенно ли увеличиваются зарабатываемые игроками очки. Графы можно сегментировать по свойствам, отправленным с событием, чтобы получать отдельные графы или набор графов для разных игр.
+
+Чтобы значения метрик верно отображались, они должны быть >= 0.
+
+
+Количество используемых [свойств, значений свойств и метрик ограничено](#limits).
+
+
+*JavaScript*
+
+    appInsights.trackEvent
+      ("WinGame",
+         // String properties:
+         {Game: currentGame.name, Difficulty: currentGame.difficulty},
+         // Numeric metrics:
+         {Score: currentGame.score, Opponents: currentGame.opponentCount}
+         );
+
+    appInsights.trackPageView
+        ("page name", "http://fabrikam.com/pageurl.html",
+          // String properties:
+         {Game: currentGame.name, Difficulty: currentGame.difficulty},
+         // Numeric metrics:
+         {Score: currentGame.score, Opponents: currentGame.opponentCount}
+         );
+          
+
+*C#*
+
+    // Set up some properties and metrics:
+    var properties = new Dictionary <string, string> 
+       {{"game", currentGame.Name}, {"difficulty", currentGame.Difficulty}};
+    var metrics = new Dictionary <string, double>
+       {{"Score", currentGame.Score}, {"Opponents", currentGame.OpponentCount}};
+
+    // Send the event:
+    telemetry.TrackEvent("WinGame", properties, metrics);
+
+
+*VB*
+
+    ' Set up some properties:
+    Dim properties = New Dictionary (Of String, String)
+    properties.Add("game", currentGame.Name)
+    properties.Add("difficulty", currentGame.Difficulty)
+
+    Dim metrics = New Dictionary (Of String, Double)
+    metrics.Add("Score", currentGame.Score)
+    metrics.Add("Opponents", currentGame.OpponentCount)
+
+    ' Send the event:
+    telemetry.TrackEvent("WinGame", properties, metrics)
+
+
+*Java*
+    
+    Map<String, String> properties = new HashMap<String, String>();
+    properties.put("game", currentGame.getName());
+    properties.put("difficulty", currentGame.getDifficulty());
+    
+    Map<String, Double> metrics = new HashMap<String, Double>();
+    metrics.put("Score", currentGame.getScore());
+    metrics.put("Opponents", currentGame.getOpponentCount());
+    
+    telemetry.trackEvent("WinGame", properties, metrics);
+
+
+> [AZURE.NOTE]Постарайтесь не указывать в свойствах личные сведения.
+
+**При использовании метрик** откройте обозреватель метрик и выберите метрику из группы «Пользовательские»:
+
+![Откройте обозреватель метрик, выделите диаграмму и выберите метрику](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
+
+*Если ваша метрика не отображается или заголовок "Пользовательские" отсутствует, закройте колонку выбранной метрики и повторите попытку позже. Иногда для вычисления метрик в конвейере может потребоваться час.*
+
+**При использовании свойств и метрик** сегментируйте метрики по свойствам:
+
+
+![Задайте группирование, а затем выберите свойство в списке "Группировать по"](./media/app-insights-api-custom-events-metrics/04-segment-metric-event.png)
+
+
+
+**В колонке поиска по журналу диагностики** можно просматривать свойства и метрики, щелкая отдельные вхождения события.
+
+
+![Выберите экземпляр, а затем выберите "..."](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-4.png)
+
+
+Используйте поле поиска для просмотра вхождений события с определенным значением свойства.
+
+
+![Введите слово в поле поиска](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-5.png)
+
+[Дополнительная информация о выражениях поиска][diagnostic].
+
+#### Альтернативный способ настройки свойств и метрик
+
+Для удобства вы можете собирать параметры события в отдельный объект:
+
+    var event = new EventTelemetry();
+
+    event.Name = "WinGame";
+    event.Metrics["processingTime"] = stopwatch.Elapsed.TotalMilliseconds;
+    event.Properties["game"] = currentGame.Name;
+    event.Properties["difficulty"] = currentGame.Difficulty;
+    event.Metrics["Score"] = currentGame.Score;
+    event.Metrics["Opponents"] = currentGame.Opponents.Length;
+
+    telemetry.TrackEvent(event);
+
+
+
+#### <a name="timed"></a> События времени
+
+Иногда требуется отобразить на диаграмме продолжительность выполнения некоторых действий. Например, может понадобиться определить, сколько времени требуется пользователю для выбора решения в игре. Это полезный пример использования параметра измерения.
+
+
+*C#*
+
+    var stopwatch = System.Diagnostics.Stopwatch.StartNew();
+
+    // ... perform the timed action ...
+
+    stopwatch.Stop();
+
+    var metrics = new Dictionary <string, double>
+       {{"processingTime", stopwatch.Elapsed.TotalMilliseconds}};
+
+    // Set up some properties:
+    var properties = new Dictionary <string, string> 
+       {{"signalSource", currentSignalSource.Name}};
+
+    // Send the event:
+    telemetry.TrackEvent("SignalProcessed", properties, metrics);
+
+
+
+## <a name="defaults"></a> Свойства по умолчанию для настраиваемой телеметрии
 
 Если требуется задать значения свойств по умолчанию для некоторых создаваемых пользовательских событий, это можно сделать в классе TelemetryClient. Они прикреплены к каждому элементу телеметрии, отправляемой из этого клиента.
 
@@ -525,23 +541,7 @@
 
 **Для веб-клиентов JavaScript** [используйте инициализаторы телеметрии JavaScript](#js-initializer).
 
-
-
-## Очистка данных
-
-Обычно пакет SDK отправляет данные в момент времени выбранный, чтобы свести влияние на пользователя к минимуму. Однако в некоторых случаях может потребоваться очистить буфер, например, при использовании пакета SDK в приложении, которое завершает работу.
-
-*C#*
-
-    telemetry.Flush();
-
-    // Allow some time for flushing before shutdown.
-    System.Threading.Thread.Sleep(1000);
-
-Обратите внимание, что эта функция является асинхронной для каналов в памяти и синхронной при использовании [постоянного канала](app-insights-windows-desktop.md#persistence-channel).
-
-
-
+**Чтобы добавить свойства для всей телеметрии**, включая данные из модулей стандартной коллекции, [создайте инициализатор телеметрии](app-insights-api-filtering-sampling.md#add-properties).
 
 
 ## Выборка, фильтрация и обработка данных телеметрии 
@@ -643,7 +643,7 @@
 * **InstrumentationKey** — определяет ресурс Application Insights в Azure, в котором будет отображаться телеметрия. Обычно этот ресурс получается из файла ApplicationInsights.config
 * **Location** — определяет географическое расположение устройства.
 * **Operation** — текущий HTTP-запрос в веб-приложениях. В приложениях других типов для этого значения можно задать значение "Группировать события совместно".
- * **Id** — созданное значение, которое сопоставляет различные события, чтобы при проверке любого события в колонке "Поиск в журнале диагностики" можно было найти "Связанные элементы".
+ * **Id** — созданное значение, которое сопоставляет различные события, чтобы при проверке любого события в колонке «Поиск в журнале диагностики» можно было найти «Связанные элементы».
  * **Name**: идентификатор, обычно URL-адрес HTTP-запроса. 
  * **SyntheticSource** — если эта строка не пустая и не имеет значение null, она указывает, что источник запроса было определен как программа-робот или веб-тест. По умолчанию она будет исключена из вычислений в обозревателе метрик.
 * **Properties** — свойства, которые отправляются со всеми данными телеметрии. Это значение можно переопределить в отдельных вызовах отслеживания*.
@@ -724,4 +724,4 @@
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

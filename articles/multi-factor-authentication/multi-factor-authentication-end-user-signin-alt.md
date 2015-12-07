@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Вход с помощью альтернативного метода при использовании Azure Multi-Factor Authentication
@@ -33,4 +33,4 @@
 
 <li>Выберите альтернативный метод и войдите.</li>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

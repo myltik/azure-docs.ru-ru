@@ -4,9 +4,9 @@
 
 1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md). Войдите в Azure и выберите подписку.
 
-3. При необходимости выполните командлет **New-AzureRMResourceGroup**, чтобы создать новую группу ресурсов. Представленная ниже команда создает группу ресурсов с именем *TestRG* в регионе Azure *Центральная часть США*. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md).
+3. При необходимости выполните командлет **New-AzureRmResourceGroup**, чтобы создать новую группу ресурсов. Представленная ниже команда создает группу ресурсов с именем *TestRG* в регионе Azure *Центральная часть США*. Дополнительные сведения о группах ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md).
 
-		New-AzureRMResourceGroup -Name TestRG -Location centralus
+		New-AzureRmResourceGroup -Name TestRG -Location centralus
 		
 	Вот результат, ожидаемый для указанной выше команды:
 
@@ -20,9 +20,9 @@
 		                    *
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
-4. Выполните командлет **New-AzureRMResourceGroupDeployment**, чтобы развернуть новую виртуальную сеть с помощью шаблона и файлов параметров, которые вы скачали и изменили раньше.
+4. Выполните командлет **New-AzureRmResourceGroupDeployment**, чтобы развернуть новую виртуальную сеть с помощью шаблона и файлов параметров, которые вы скачали и изменили раньше.
 
-		New-AzureRMResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
+		New-AzureRmResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
 			-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 			
 	Вот результат, ожидаемый для указанной выше команды:
@@ -46,10 +46,10 @@
 		
 		Outputs           :
 
-5. Выполните командлет **Get-AzureRMVirtualNetwork**, как показано ниже, чтобы просмотреть свойства новой виртуальной сети.
+5. Выполните командлет **Get-AzureRmVirtualNetwork**, как показано ниже, чтобы просмотреть свойства новой виртуальной сети.
 
 
-		Get-AzureRMVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 		
 	Вот результат, ожидаемый для указанной выше команды:
 		
@@ -92,4 +92,4 @@
 		                      }
 		                    ]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

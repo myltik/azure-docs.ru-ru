@@ -32,9 +32,15 @@
 
 ![Панель мониторинга кластера обозревателя Service Fabric][sfx-cluster-dashboard]
 
-Кластер содержит два поддерева: одно для приложений и другое для узлов.
+### Схема кластера
+
+Узлы в кластере Service Fabric размещаются в двухмерной сетке доменов сбоя и обновления, что обеспечивает доступность приложений при сбоях оборудования и обновлении приложений. План текущего кластера можно просмотреть на схеме кластера.
+
+![Схема кластера в обозревателе Service Fabric][sfx-cluster-map]
 
 ### Просмотр приложений и служб
+
+Кластер содержит два поддерева: одно для приложений и другое для узлов.
 
 Представление приложений позволяет перемещаться по логической иерархии Service Fabric: приложениям, службам, разделам и репликам.
 
@@ -70,9 +76,11 @@
 
 ### Обнаружение конечной точки обозревателя Service Fabric для удаленного кластера
 
-На портале Service Fabric можно выполнить обнаружение конечной точки кластера. Для подключения к обозревателю Service Fabric для заданного кластера просто подключитесь к этой конечной точке на порту 19007:
+Чтобы подключиться к обозревателю Service Fabric для заданного кластера, просто перейдите в браузере по адресу:
 
-http://&lt;your-cluster-endpoint&gt;:19007
+http://&lt;your-cluster-endpoint&gt;:19080/Explorer
+
+Полный URL-адрес доступен также на панели основных компонентов кластера портала Azure.
 
 ### Подключение к защищенному кластеру
 
@@ -87,14 +95,10 @@ http://&lt;your-cluster-endpoint&gt;:19007
 - [Развертывание приложений Service Fabric с помощью PowerShell](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
-[applicationview]: ./media/service-fabric-visualizing-your-cluster/applicationview.png
-[clustermap]: ./media/service-fabric-visualizing-your-cluster/clustermap.png
-[connecttocluster]: ./media/service-fabric-visualizing-your-cluster/connecttocluster.png
-[replicadetails]: ./media/service-fabric-visualizing-your-cluster/replicadetails.png
-[servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
 [sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/SfxClusterDashboard.png
+[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/SfxClusterMap.png
 [sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

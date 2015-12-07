@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/21/2015"
+   ms.date="11/20/2015"
    ms.author="telmos" />
 
 #Создание определяемых пользователем маршрутов (UDR) в PowerShell
@@ -38,29 +38,29 @@
 
 3. Создайте маршрут, используемый для отправки всего трафика, адресованного серверной подсети (192.168.2.0/24), в виртуальный модуль **FW1** (192.168.0.4).
 
-		$route = New-AzureRouteConfig -Name RouteToBackEnd `
+		$route = New-AzureRmRouteConfig -Name RouteToBackEnd `
 		    -AddressPrefix 192.168.2.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
 4. Создайте таблицу маршрутов с именем **UDR-FrontEnd** в регионе **westus**, содержащем созданный ранее маршрут.
 
-		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-FrontEnd -Route $route
 
 5. Создайте переменную, которая содержит виртуальную сеть, где находится подсеть. В нашем случае такая виртуальная сеть называется **TestVNet**.
 
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 
 6. Сопоставьте созданную выше таблицу маршрутов с подсетью **FrontEnd**.
 		
-		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
+		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -RouteTable $routeTable
 
 >[AZURE.WARNING]Результаты выполнения представленной выше команды отображают содержимое объекта конфигурации виртуальной сети, который существует только на том компьютере, где выполняется PowerShell. Чтобы сохранить эти параметры в Azure, выполните командлет **Set-AzureVirtualNetwork**.
 
 7. Сохраните новую конфигурацию подсети в Azure.
 
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet
+		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 	Ожидаемые выходные данные:
 
@@ -115,23 +115,23 @@
 
 1. Создайте маршрут, используемый для отправки всего трафика, адресованного подсети переднего плана (192.168.1.0/24), в виртуальный модуль **FW1** (192.168.0.4).
 
-		$route = New-AzureRouteConfig -Name RouteToFrontEnd `
+		$route = New-AzureRmRouteConfig -Name RouteToFrontEnd `
 		    -AddressPrefix 192.168.1.0/24 -NextHopType VirtualAppliance `
 		    -NextHopIpAddress 192.168.0.4
 
 4. Создайте таблицу маршрутов с именем **UDR-BackEnd** в регионе **uswest**, содержащем созданный ранее маршрут.
 
-		$routeTable = New-AzureRouteTable -ResourceGroupName TestRG -Location westus `
+		$routeTable = New-AzureRmRouteTable -ResourceGroupName TestRG -Location westus `
 		    -Name UDR-BackEnd -Route $route
 
 5. Сопоставьте созданную выше таблицу маршрутов с подсетью **BackEnd**.
 
-		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
+		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -RouteTable $routeTable
 
 7. Сохраните новую конфигурацию подсети в Azure.
 
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet
+		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 	Ожидаемые выходные данные:
 
@@ -185,12 +185,12 @@
 
 1. Создайте переменную, которая содержит параметры для сетевой карты, используемой FW1. В нашем случае это сетевая карта **NICFW1**.
 
-		$nicfw1 = Get-AzureNetworkInterface -ResourceGroupName TestRG -Name NICFW1
+		$nicfw1 = Get-AzureRmNetworkInterface -ResourceGroupName TestRG -Name NICFW1
 
 2. Включите IP-пересылку и сохраните параметры сетевой карты.
 
 		$nicfw1.EnableIPForwarding = 1
-		Set-AzureNetworkInterface -NetworkInterface $nicfw1
+		Set-AzureRmNetworkInterface -NetworkInterface $nicfw1
 
 	Ожидаемые выходные данные:
 
@@ -236,4 +236,4 @@
 		NetworkSecurityGroup : null
 		Primary              : True
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

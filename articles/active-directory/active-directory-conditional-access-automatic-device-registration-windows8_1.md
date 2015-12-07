@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # Настройка автоматической регистрации присоединенных к домену устройств Windows 8.1
@@ -52,4 +52,9 @@
 
 Групповая политика активирует в системе запланированную задачу, которая выполняется в контексте пользователя и запускается в момент входа пользователя в систему. Эта задача выполняет автоматическую регистрацию пользователя и устройства с помощью Azure AD после выполнения входа. Вы можете найти запланированную задачу в библиотеке планировщика задач устройств Windows 8.1, последовательно выбрав **Microsoft** > **Windows** > **Присоединение к рабочей области**. С помощью этой задачи будет выполняться автоматическая регистрация всех пользователей Active Directory, которые входят в систему.
 
-<!---HONumber=Oct15_HO3-->
+## Дополнительные разделы
+- [Общие сведения о регистрации устройств в Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
+- [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration.md)
+- [Настройка автоматической регистрации присоединенных к домену устройств Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
+
+<!---HONumber=AcomDC_1125_2015-->

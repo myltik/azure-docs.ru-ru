@@ -26,6 +26,7 @@
 ------------- | ------------- | -------------- | -------------- | --------------- | --------------
 U-SQL | Распределенный запрос | 1 | На удержании | [@edmacauley](https://github.com/edmacauley) |
 U-SQL | Перемещение данных между WASB и ADLS | 1 | Ожидает | Подлежит уточнению | Йе Син (Ye Xing, почта)
+U-SQL | Руководство по модульному тестированию для модели UDO | 1 | Ожидает | Подлежит уточнению | [@ddobric](https://github.com/ddobric) 
 U-SQL | Обработка JSON | 2 | Ожидает | [@mumian](https://github.com/mumian) | [@mwinkle](https://github.com/mwinkle)
 служба | Взаимодействие с Curl | 3 |Ожидает |[@mumian](https://github.com/mumian)
 U-SQL | Таблицы с секциями |1 | Выполняется | [@edmacauley](https://github.com/edmacauley) | 
@@ -45,7 +46,7 @@ U-SQL | Синтаксические диаграммы грамматики | 1
 
 Область |Раздел | location
 ------------- | ------------- | -------------- 
-служба | Координация развертывания аналитики озера данных с другими службами Azure с использованием шаблонов ARM | [расположение](https://azure.microsoft.com/ru-RU/documentation/articles/data-lake-analytics-manage-use-powershell/)
+служба | Координация развертывания аналитики озера данных с другими службами Azure с использованием шаблонов ARM | [расположение](https://azure.microsoft.com/documentation/articles/data-lake-analytics-manage-use-powershell/)
 
 ## Предоставление обратной связи по списку запланированной документации
 Существует несколько способов предоставить обратную связь по списку запланированной документации.
@@ -54,4 +55,4 @@ U-SQL | Синтаксические диаграммы грамматики | 1
 * Отправить запрос по внесению предложенных изменений в данный документ в [репозиторий содержимого Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Отправить сообщение по адресу [adlafeedback на сайте microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->
