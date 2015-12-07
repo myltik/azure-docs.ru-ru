@@ -18,7 +18,8 @@
 
 # Использование управляемого клиента для мобильных приложений Azure
 
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]&nbsp;
+[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
+&nbsp;
 
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
@@ -79,7 +80,7 @@
 - [Выбор определенных столбцов]
 - [Поиск данных по идентификатору]
 
->[AZURE.NOTE]Для предотвращения возврата всех строк принудительно применяется размер страницы, управляемый сервером. Это предотвращает негативное воздействие больших наборов данных на функционирование службы. Для возвращения более 50 строк используйте метод `Take`, как описано в разделе [Возвращение данных на страницах].
+>[AZURE.NOTE] Для предотвращения возврата всех строк принудительно применяется размер страницы, управляемый сервером. Это предотвращает негативное воздействие больших наборов данных на функционирование службы. Для возвращения более 50 строк используйте метод `Take`, как описано в разделе [Возвращение данных на страницах].
 
 ### <a name="filtering"></a>Практическое руководство. Фильтрация возвращаемых данных
 
@@ -166,7 +167,7 @@
 
 Это упрощенный сценарий передачи жестко запрограммированных значений подкачки в методы `Take` и `Skip`. В реальных приложениях можно использовать запросы, подобные вышеуказанным с постраничным навигатором или с другим совместимым пользовательским интерфейсом, позволяющим переходить на следующую страницу или возвращаться к предыдущей странице.
 
->[AZURE.NOTE]Чтобы переопределить ограничение внутреннего сервера мобильных приложений в 50 строк, необходимо также применить класс [EnableQueryAttribute](https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx) к общедоступному методу GET и настроить подкачку. В этом случае максимальное количество возвращаемых строк увеличивается до 1000:
+>[AZURE.NOTE] Чтобы переопределить ограничение внутреннего сервера мобильных приложений в 50 строк, необходимо также применить класс [EnableQueryAttribute](https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx) к общедоступному методу GET и настроить подкачку. В этом случае максимальное количество возвращаемых строк увеличивается до 1000:
 
     [EnableQuery(MaxTop=1000)]
 
@@ -254,7 +255,12 @@
 
 	await todoTable.UpdateAsync(todoItem);
 
-Для вставки нетипизированных данных можно использовать Json.NET следующим образом: JObject jo = new JObject(); jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D"); jo.Add("Text", "Привет всем"); jo.Add("Complete", false); var inserted = await table.UpdateAsync(jo);
+Для вставки нетипизированных данных можно использовать Json.NET следующим образом: 
+	JObject jo = new JObject();
+	jo.Add("Id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
+	jo.Add("Text", "Привет всем");
+	jo.Add("Complete", false);
+	var inserted = await table.UpdateAsync(jo);
 
 Обратите внимание, что при выполнении обновления необходимо указать идентификатор. Таким образом внутренний сервер определяет, какой экземпляр нужно обновить. Идентификатор можно получить из результатов вызова метода `InsertAsync`. При попытке обновить элемент без предоставления значения Id создается исключение `ArgumentException`.
 
@@ -306,7 +312,7 @@
 <!--- Remove until Xamarin.Android push is supported.
 Xamarin apps require some additional code to be able to register a Xamarin app running on iOS or Android app with the Apple Push Notification Service (APNS) and Google Cloud Messaging (GCM) services, respectively. For more information see **Add push notifications to your app** ([Xamarin.iOS](partner-xamarin-mobile-services-ios-get-started-push.md#add-push) | [Xamarin.Android](partner-xamarin-mobile-services-android-get-started-push.md#add-push)).
 
->[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
+>[AZURE.NOTE] Если уведомления необходимо отправлять конкретному зарегистрированному пользователю, обязательно запросите проверку подлинности перед регистрацией, а затем убедитесь, что пользователь вправе зарегистрироваться с использованием определенного тега. Например, необходимо убедиться, что при регистрации пользователь не воспользовался тегом, который представляет собой идентификатор другого пользователя. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 >-->
 
 ## Использование шаблонов для отправки кроссплатформенных уведомлений выполнившим проверку подлинности пользователям

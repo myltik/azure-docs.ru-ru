@@ -86,7 +86,16 @@
 
 1.	Откройте файл Program.cs для созданного вами проекта и добавьте в начало файла указанные ниже операторы using:
 
-    using Microsoft.Azure; using Microsoft.IdentityModel.Clients.ActiveDirectory; using Microsoft.Azure.Management.Resources; using Microsoft.Azure.Management.Resources.Models; using Microsoft.Azure.Management.Storage; using Microsoft.Azure.Management.Storage.Models; using Microsoft.Azure.Management.Network; using Microsoft.Azure.Management.Network.Models; using Microsoft.Azure.Management.Compute; using Microsoft.Azure.Management.Compute.Models;
+        using Microsoft.Azure;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+		using Microsoft.Azure.Management.Resources;
+		using Microsoft.Azure.Management.Resources.Models;
+		using Microsoft.Azure.Management.Storage;
+		using Microsoft.Azure.Management.Storage.Models;
+		using Microsoft.Azure.Management.Network;
+		using Microsoft.Azure.Management.Network.Models;
+		using Microsoft.Azure.Management.Compute;
+		using Microsoft.Azure.Management.Compute.Models;
 
 
 2. Добавьте в класс Program указанный ниже метод, чтобы получить токен, необходимый для создания учетных данных:

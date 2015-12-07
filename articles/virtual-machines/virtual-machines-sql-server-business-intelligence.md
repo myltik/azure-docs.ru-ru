@@ -425,7 +425,7 @@
 
 - [Использование Power BI в гибридной среде](https://msdn.microsoft.com/library/dn798994.aspx)
 
->[AZURE.NOTE] [Submit feedback and contact information through Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
+>[AZURE.NOTE] [Отправьте отзыв и контактные данные через Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### Материалы сообщества
 

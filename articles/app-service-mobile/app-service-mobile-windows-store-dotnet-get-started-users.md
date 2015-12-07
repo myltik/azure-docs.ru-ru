@@ -18,7 +18,9 @@
 
 # Добавление проверки подлинности в приложение Windows
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 В этом разделе показано, как добавить проверку подлинности на основе облака в мобильное приложение. В этом учебнике вы добавите проверку подлинности в проект быстрого запуска мобильного приложения, используя поставщик удостоверений, поддерживаемый службой приложений Azure. После успешной проверки подлинности и авторизации сервером мобильных приложений отображается значение идентификатора пользователя.
 
@@ -62,4 +64,4 @@
 [Get started with your mobile app]: app-service-mobile-windows-store-dotnet-get-started.md
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1125_2015--->
