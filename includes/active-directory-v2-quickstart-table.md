@@ -1,10 +1,11 @@
 | Мобильные и собственные приложения | Веб-приложения и веб-API | Прямая интеграция с протоколами |
 | ----------------------- | ------------------------------- | --------------------- |
-| Добавление входа в приложение iOS (ожидается в ближайшее время) | Добавление входа в приложение AngularJS SPA (ожидается в ближайшее время) | [Регистрация приложения](active-directory-v2-app-registration.md) |
-| Добавление входа в приложение Android (ожидается в ближайшее время) | [Добавление входа в приложение .NET MVC](active-directory-v2-devquickstarts-dotnet-web.md) | [Мобильные приложения с OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) |
-| Добавление входа в универсальное приложение для Windows (ожидается в ближайшее время) | [Реализация входа в веб-приложение Node JS](active-directory-v2-devquickstarts-node-web.md) | [Веб-приложения с протоколом OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow) |
-| [Добавление входа в классическое приложение для Windows](active-directory-v2-devquickstarts-wpf.md)| [Защита веб-API .NET](active-directory-v2-devquickstarts-dotnet-api.md) | Одностраничные приложения с протоколом OpenID Connect (ожидаются в ближайшее время)
-| [Вызов REST API Office 365 из приложения](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) | [Защита веб-API NodeJS](active-directory-v2-devquickstarts-node-api.md) | Серверные управляющие программы (ожидаются в ближайшее время) |
+| Добавление входа в приложение iOS (ожидается в ближайшее время) | [Добавление входа в приложение AngularJS SPA (NodeJS)](active-directory-v2-devquickstarts-angular-node.md) | [Регистрация приложения](active-directory-v2-app-registration.md) |
+| Добавление входа в приложение Android (ожидается в ближайшее время) | [Добавление входа в приложение AngularJS SPA (.NET)](active-directory-v2-devquickstarts-angular-dotnet.md) | [Мобильные приложения с OAuth 2.0](active-directory-v2-protocols-oauth-code.md) |
+| Добавление входа в универсальное приложение для Windows (ожидается в ближайшее время) | [Добавление входа в приложение .NET MVC](active-directory-v2-devquickstarts-dotnet-web.md) | [Веб-приложения с протоколом OpenID Connect](active-directory-v2-protocols-oidc.md) |
+| [Добавление входа в классическое приложение для Windows](active-directory-v2-devquickstarts-wpf.md)| [Реализация входа в веб-приложение Node JS](active-directory-v2-devquickstarts-node-web.md) | [Одностраничные приложения с протоколом OpenID Connect](active-directory-protocols-implicit.md) 
+| [Вызов REST API Office 365 из приложения](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) | [Защита веб-API .NET](active-directory-v2-devquickstarts-dotnet-api.md) | Серверные управляющие программы (ожидаются в ближайшее время) |
+| | [Защита веб-API NodeJS](active-directory-v2-devquickstarts-node-api.md) |
 | | [Вызов REST API Office 365 из Интернета](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) |
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

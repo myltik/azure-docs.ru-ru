@@ -125,7 +125,7 @@ $scope.logout = function () {
 };
 ...
 ```
-- В интерфейсе приложения можно также предоставить сведения о пользователе. Служба ADAL уже добавлена к контроллеру `userDataCtrl`, поэтому доступ к объекту `userInfo` можно получить в связанном представлении. Файл `App/Scripts/UserData.html`:
+- В интерфейсе приложения можно также предоставить сведения о пользователе. Служба ADAL уже добавлена к контроллеру `userDataCtrl`, поэтому доступ к объекту `userInfo` можно получить в связанном представлении. Файл `App/Views/UserData.html`:
 
 ```js
 <p>{{userInfo.userName}}</p>
@@ -151,4 +151,4 @@ $scope.logout = function () {
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

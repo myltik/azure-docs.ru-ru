@@ -12,23 +12,27 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/15/2015" 
+	ms.date="11/17/2015" 
 	ms.author="awills"/>
  
 # Использование Stream Analytics для передачи данных из Application Insights в Power BI
 
-[Microsoft Power BI](https://powerbi.microsoft.com/) представляет данные в виде разнообразных информативных визуальных элементов, а также позволяет объединить информацию из нескольких источников. Вы можете выполнять потоковую передачу данных телеметрии о производительности и использовании веб-приложений или приложений для устройства из Application Insights в Power BI.
+В этой статье рассказывается, как использовать [Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) для обработки данных, [экспортированных](app-insights-export-telemetry.md) из [Visual Studio Application Insights](app-insights-overview.md). В качестве примера мы отправляем данные в [Microsoft Power BI](https://powerbi.microsoft.com/).
 
-> [AZURE.NOTE]Самый простой способ передавать данные в Power BI из Application Insights —[использовать адаптер](https://powerbi.microsoft.com/ru-RU/documentation/powerbi-content-pack-application-insights/), который можно найти в разделе служб коллекции Power BI. В этой статье мы опишем способ, который является более гибким, но также покажем, как использовать Stream Analytics с Application Insights.
+
+> [AZURE.NOTE]Самый простой способ передавать данные в Power BI из Application Insights — [использовать адаптер](https://powerbi.microsoft.com/ru-RU/documentation/powerbi-content-pack-application-insights/), который можно найти в разделе служб коллекции Power BI. В этой статье мы опишем способ, который является более гибким, но также покажем, как использовать Stream Analytics с Application Insights.
+
+[Microsoft Power BI](https://powerbi.microsoft.com/) представляет данные в виде разнообразных информативных визуальных элементов, а также позволяет объединить информацию из нескольких источников.
+
 
 ![Пример представления Power BI с данными об использовании, полученными из Application Insights](./media/app-insights-export-power-bi/010.png)
 
-В этой статье будет показано, как экспортировать данные из Application Insights и использовать Stream Analytics для перемещения данных в Power BI. [Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) — это служба Azure, которая будет использоваться как адаптер.
+[Stream Analytics](http://azure.microsoft.com/services/stream-analytics/) — это служба Azure, которая работает как адаптер, постоянно обрабатывающий данные, экспортируемые из Application Insights.
 
 ![Пример представления Power BI с данными об использовании, полученными из Application Insights](./media/app-insights-export-power-bi/020.png)
 
 
-> [AZURE.NOTE]Вам понадобится рабочая или учебная учетная запись (учетная запись организации MSDN) для отправки данных Stream Analytics в Power BI.
+
 
 ## Видео
 
@@ -44,7 +48,7 @@
 
 В результате непрерывного экспорта происходит передача данных в учетную запись хранилища Azure, поэтому необходимо сначала создать хранилище.
 
-1. Создайте «классическую» учетную запись хранения в своей подписке на [портале Azure](https://portal.azure.com).
+1. Создайте "классическую" учетную запись хранения в подписке на [портале Azure](https://portal.azure.com).
 
     ![На портале Azure выберите «Создать», «Данные», «Хранилище».](./media/app-insights-export-power-bi/030.png)
 
@@ -83,7 +87,7 @@
 
     Данные также будут экспортированы в хранилище.
 
-4. Проверьте экспортированные данные. В Visual Studio выберите **Вид > Cloud Explorer**, а затем — «Azure» и «Хранилище». (Если этой команды нет в меню, установите пакет SDK Azure: откройте диалоговое окно «Создание проекта», разверните узел «Visual C#/облако» и выберите «Получить Microsoft Azure SDK для .NET».)
+4. Проверьте экспортированные данные. В Visual Studio откройте меню **"Вид" или "Обозреватель облаков"** и выберите элемент "Azure" или "Служба хранилища". (Если этой команды нет в меню, установите пакет SDK Azure: откройте диалоговое окно «Создание проекта», разверните узел «Visual C#/облако» и выберите «Получить Microsoft Azure SDK для .NET».)
 
     ![](./media/app-insights-export-power-bi/04-data.png)
 
@@ -153,7 +157,7 @@
 
 ![Выбор нового канала и элементов «Выходные данные», «Добавить», «Power BI».](./media/app-insights-export-power-bi/160.png)
 
-Предоставьте свою **рабочую или учебную учетную запись** для доступа Stream Analytics к ресурсу Power BI. Затем укажите имя для выходных данных, а также для целевого набора данных и таблицы Power BI.
+Предоставьте свою **рабочую или учебную учетную запись** для обеспечения доступа Stream Analytics к ресурсу Power BI. Затем укажите имя для выходных данных, а также для целевого набора данных и таблицы Power BI.
 
 ![Создание трех имен.](./media/app-insights-export-power-bi/170.png)
 
@@ -262,4 +266,4 @@
 * [Application Insights](app-insights-overview.md)
 * [Дополнительные примеры и пошаговые руководства](app-insights-code-samples.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

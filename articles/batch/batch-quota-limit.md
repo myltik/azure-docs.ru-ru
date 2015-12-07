@@ -89,10 +89,10 @@
 
 * [Создание учетной записи пакетной службы Azure и управление ею](batch-account-create-portal.md)
 
-* [Основные сведения об API Пакетной службы Azure](batch-api-basics.md)
+* [Обзор функций пакетной службы Azure](batch-api-basics.md)
 
 * [Подписка Azure, границы, квоты и ограничения службы](../azure-subscription-service-limits.md)
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.PNG
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -110,4 +110,4 @@
 
 [Linux и вычисления с открытым кодом в Azure](virtual-machines-linux-opensource.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

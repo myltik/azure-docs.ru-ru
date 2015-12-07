@@ -25,11 +25,11 @@
 
 ![](./media/virtual-machines-workload-template-wordpress/one-server-wordpress.png)
 
-Шаблон можно запустить с помощью портала предварительной версии Azure, Azure PowerShell или Azure CLI.
+Шаблон можно запустить с помощью портала предварительной версии Azure, Azure PowerShell или интерфейса командной строки Azure.
 
 ## Портал предварительной версии Azure
 
-Для развертывания этой рабочей нагрузки с помощью шаблона диспетчера ресурсов и портала предварительной версии Azure щелкните [здесь](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
+Чтобы развернуть эту рабочую нагрузку с помощью шаблона диспетчера ресурсов и портала предварительной версии Azure, щелкните [здесь](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-wordpress/azure-portal-template.png)
 
@@ -106,4 +106,4 @@
 
 [Установка и настройка Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

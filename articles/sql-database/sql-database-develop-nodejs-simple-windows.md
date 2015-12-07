@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="11/03/2015"
+	ms.date="11/19/2015"
 	ms.author="meetb"/>
 
 
@@ -33,195 +33,143 @@
 Перечисленное ниже программное обеспечение должно быть установлено на клиентском компьютере разработки.
 
 
--  Node.js — [версия 0.8.9 (32-разрядная версия)](http://blog.nodejs.org/2012/09/11/node-v0-8-9-stable/). Прокрутите список и нажмите кнопку загрузки 32-разрядной версии установщика Windows x86.
-- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/) — установщик для 86- или 64-разрядной версии. 
-- [Visual C++ 2010](https://app.vssps.visualstudio.com/profile/review?download=true&family=VisualStudioCExpress&release=VisualStudio2010&type=web&slcid=0x409&context=eyJwZSI6MSwicGMiOjEsImljIjoxLCJhbyI6MCwiYW0iOjEsIm9wIjpudWxsLCJhZCI6bnVsbCwiZmEiOjAsImF1IjpudWxsLCJjdiI6OTY4OTg2MzU1LCJmcyI6MCwic3UiOjAsImVyIjoxfQ2) — выпуск Express можно бесплатно загрузить с сайта Майкрософт.
-- SQL Server Native Client 11.0 — доступен как Microsoft SQL Server 2012 Native Client в [пакете дополнительных компонентов SQL Server 2012](http://www.microsoft.com/download/details.aspx?id=29065).
+-  [Node.js](https://nodejs.org/en/download/) — щелкните установщик Windows и загрузите соответствующий установщик MSI. Запустите загруженный файл MSI, чтобы установить Node.js 
 
 
 ### Установка необходимых модулей
 
-После выполнения требований убедитесь, что используется Node.js версии 0.8.9. Это можно проверить, выполнив следующую команду в терминале командной строки: node -v. <br>В окне командной строки **cmd.exe** перейдите в каталог вашего проекта, например C:\\NodeJSSQLProject. Введите следующие команды в указанной последовательности.
+После настройки на компьютере **node** откройте файл cmd.exe, перейдите в каталог, в котором вы планируете создать проект Node.js, и введите следующие команды.
+
 
 	npm init
-	npm install msnodesql
+	npm install tedious
 
-Затем перейдите в папку node\_modules\\msnodesql и запустите исполняемый файл **msnodesql-0.2.1-v0.8-ia32**. Следуйте инструкциям мастера установки, а после завершения работы нажмите кнопку «Готово». На этом этапе у вас должен быть установлен драйвер Node.js SQL Server. Выполните следующие действия для получения строки подключения, после чего вы сможете подключиться к Базе данных SQL Azure из приложения Node.js.
 
-### Создание базы данных и получение строки подключения
- 
-Информацию о создании образца базы данных и получении строки подключения см. в разделе [Начало работы](sql-database-get-started.md). Очень важно соблюдать инструкции руководства во время создания **шаблона базы данных AdventureWorks**. Приведенные ниже примеры будут работать только со **схемой AdventureWorks**.
+Команда **npm init** создает узел проекта. Чтобы сохранить значения по умолчанию во время создания проекта, удерживайте нажатой клавишу Enter, пока проект создается. Теперь в каталоге проекта появится файл **package.json**.
+
+
+### Создание базы данных AdventureWorks
+
+
+Пример кода в этом разделе ожидает тестовую базу данных **AdventureWorks**. Если вы не создали ее, см. раздел [Начало работы с базой данных SQL](sql-database-get-started.md). Очень важно соблюдать инструкции руководства во время создания **шаблона базы данных AdventureWorks**. Приведенные ниже примеры работают только со **схемой AdventureWorks**.
 
 
 ## Подключение к базе данных SQL
 
+Функция [new Connection](http://pekim.github.io/tedious/api-connection.html) используется для подключения к базе данных SQL.
 
-- Скопируйте следующий код в файл JS, расположенный в каталоге проекта.
-
-
-		var http = require('http');
-		var sql = require('msnodesql');
-		var http = require('http');
-		var fs = require('fs');
-		var useTrustedConnection = false;
-		var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + 
-		(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + 
-		"Database={AdventureWorks};"
-		sql.open(conn_str, function (err, conn) {
-		    if (err) {
-		        console.log("Error opening the connection!");
-		        return;
-		    }
-		    else
-		        console.log("Successfuly connected");
-		});	
-
-
-- Запустите js-файл, выполнив следующую команду:
-
-
-		node index.js
+	var Connection = require('tedious').Connection;
+	var config = {
+		userName: 'yourusername',
+		password: 'yourpassword',
+		server: 'yourserver.database.windows.net',
+		// If you are on Microsoft Azure, you need this:
+		options: {encrypt: true, database: 'AdventureWorks'}
+	};
+	var connection = new Connection(config);
+	connection.on('connect', function(err) {
+	// If no error, then good to proceed.
+		console.log("Connected");
+	});
 
 
 ## Выполнение оператора SQL SELECT
 
 
-	var http = require('http');
-	var sql = require('msnodesql');
-	var http = require('http');
-	var fs = require('fs');
-	var useTrustedConnection = false;
-	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + 
-	(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + 
-	"Database={AdventureWorks};"
-	sql.open(conn_str, function (err, conn) {
-	    if (err) {
-	        console.log("Error opening the connection!");
-	        return;
-	    }
-	    else
-	        console.log("Successfuly connected");
-	
-	
-	    conn.queryRaw("SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC;", function (err, results) {
-	        if (err) {
-	            console.log("Error running query1!");
-	            return;
-	        }
-	        for (var i = 0; i < results.rows.length; i++) {
-	            console.log(results.rows[i]);
-	        }
-	    });
+Все операторы SQL выполняются с помощью функции [new Request()](http://pekim.github.io/tedious/api-request.html). Если оператор возвращает строки, например оператор select, их можно будет извлечь с помощью функции [request.on()](http://pekim.github.io/tedious/api-request.html). Если строк нет, функция [request.on()](http://pekim.github.io/tedious/api-request.html) возвращает пустые списки.
+
+
+	var Connection = require('tedious').Connection;
+	var config = {
+		userName: 'yourusername',
+		password: 'yourpassword',
+		server: 'yourserver.database.windows.net',
+		// When you connect to Azure SQL Database, you need these next options.
+		options: {encrypt: true, database: 'AdventureWorks'}
+	};
+	var connection = new Connection(config);
+	connection.on('connect', function(err) {
+		// If no error, then good to proceed.
+		console.log("Connected");
+		executeStatement();
 	});
-
-
-## Вставка строки, передача параметров и получение созданного первичного ключа
-
-
-	var http = require('http');
-	var sql = require('msnodesql');
-	var http = require('http');
-	var fs = require('fs');
-	var useTrustedConnection = false;
-	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + 
-	(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + 
-	"Database={AdventureWorks};"
-	sql.open(conn_str, function (err, conn) {
-	    if (err) {
-	        console.log("Error opening the connection!");
-	        return;
-	    }
-	    else
-	        console.log("Successfuly connected");
 	
+	var Request = require('tedious').Request;
+	var TYPES = require('tedious').TYPES;
 	
-	    conn.queryRaw("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express', 'SQLEXPRESS', 0, 0, CURRENT_TIMESTAMP)", function (err, results) {
-	        if (err) {
-	            console.log("Error running query!");
-	            return;
-	        }
-	        for (var i = 0; i < results.rows.length; i++) {
-	            console.log("Product ID Inserted : "+results.rows[i]);
-	        }
-	    });
+	function executeStatement() {
+		request = new Request("SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC;", function(err) {
+	  	if (err) {
+	   		console.log(err);} 
+		});
+		var result = "";
+		request.on('row', function(columns) {
+		    columns.forEach(function(column) {
+		      if (column.value === null) {
+		        console.log('NULL');
+		      } else {
+		        result+= column.value + " ";
+		      }
+		    });
+		    console.log(result);
+		    result ="";
+		});
+	
+		request.on('done', function(rowCount, more) {
+		console.log(rowCount + ' rows returned');
+		});
+		connection.execSql(request);
+	}
+
+
+## Вставка строки, применение параметров и извлечение созданного первичного ключа
+
+
+Для получения автоматически созданных [значений первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx) в базе данных SQL можно использовать свойство [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) и объект [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx). В этом примере мы рассмотрим, как выполнять инструкцию insert, передавать параметры в режиме защиты от внедрения кода SQL и извлекать автоматически созданные значения первичного ключа.
+
+
+Пример кода в этом разделе применяет параметры к оператору SQL INSERT. Значение первичного ключа, который создается, извлекается программой.
+
+
+	var Connection = require('tedious').Connection;
+	var config = {
+		userName: 'yourusername',
+		password: 'yourpassword',
+		server: 'yourserver.database.windows.net',
+		// If you are on Azure SQL Database, you need these next options.
+		options: {encrypt: true, database: 'AdventureWorks'}
+	};
+	var connection = new Connection(config);
+	connection.on('connect', function(err) {
+		// If no error, then good to proceed.
+		console.log("Connected");
+		executeStatement1();
 	});
-
-
-## Транзакции
-
-
-Метод **conn.beginTransactions** не будет работать в базе данных SQL Azure. Вместо этого выполните образец кода для выполнения транзакций в базе данных SQL.
-
-
-	var http = require('http');
-	var sql = require('msnodesql');
-	var http = require('http');
-	var fs = require('fs');
-	var useTrustedConnection = false;
-	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + 
-	(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + 
-	"Database={AdventureWorks};"
-	sql.open(conn_str, function (err, conn) {
-	    if (err) {
-	        console.log("Error opening the connection!");
-	        return;
-	    }
-	    else
-	        console.log("Successfuly connected");
 	
+	var Request = require('tedious').Request
+	var TYPES = require('tedious').TYPES;
 	
-	    conn.queryRaw("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New ', 'SQLEXPRESS New', 1, 1, CURRENT_TIMESTAMP)", function (err, results) {
-	        if (err) {
-	            console.log("Error running query!");
-	            return;
-	        }
-	        for (var i = 0; i < results.rows.length; i++) {
-	            console.log("Product ID Inserted : "+results.rows[i]);
-	        }
-	    });
-	    
-	    conn.queryRaw("ROLLBACK TRANSACTION; ", function (err, results) {
-            	if (err) {
-        		console.log("Rollback failed");
-        		return;
-        	}
-    	    });
-	});
-
-
-## Хранимые процедуры
-
-
-Для работы этого образца кода необходимо иметь или создать хранимую процедуру, которая не вводит параметры. Хранимую процедуру можно создать с помощью инструмента SQL Server Management Studio (SSMS.exe).
-
-
-	var http = require('http');
-	var sql = require('msnodesql');
-	var http = require('http');
-	var fs = require('fs');
-	var useTrustedConnection = false;
-	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + 
-	(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + 
-	"Database={AdventureWorks};"
-	sql.open(conn_str, function (err, conn) {
-	    if (err) {
-	        console.log("Error opening the connection!");
-	        return;
-	    }
-	    else
-	        console.log("Successfuly connected");
-		
-	    conn.query("exec NameOfStoredProcedure", function (err, results) {
-	    	if (err) {
-			console.log("Error running query8!");
-			return;
-		}
-	    });
-	});
+	function executeStatement1() {
+		request = new Request("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES (@Name, @Number, @Cost, @Price, CURRENT_TIMESTAMP);", function(err) {
+		 if (err) {
+		 	console.log(err);} 
+		});
+		request.addParameter('Name', TYPES.NVarChar,'SQL Server Express 2014');
+		request.addParameter('Number', TYPES.NVarChar , 'SQLEXPRESS2014');
+		request.addParameter('Cost', TYPES.Int, 11);
+		request.addParameter('Price', TYPES.Int,11);
+		request.on('row', function(columns) {
+		    columns.forEach(function(column) {
+		      if (column.value === null) {
+		        console.log('NULL');
+		      } else {
+		        console.log("Product id of inserted item is " + column.value);
+		      }
+		    });
+		});		
+		connection.execSql(request);
+	}
 
  
-## Дальнейшие действия
 
-Дополнительную информацию см. в [Центре разработчика Node.js](/develop/nodejs/).
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

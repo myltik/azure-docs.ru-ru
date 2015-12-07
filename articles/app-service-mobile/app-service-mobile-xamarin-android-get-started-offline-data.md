@@ -13,14 +13,12 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="11/22/2015"
     ms.author="wesmc"/>
 
 # Включение автономной синхронизации для мобильного приложения Xamarin.Android
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Обзор
 
@@ -42,12 +40,14 @@
 
 * Прежде чем можно будет выполнить операции с таблицами, необходимо инициализировать локальное хранилище. Инициализация базы данных локального хранилища происходит, когда `ToDoActivity.OnCreate()` выполняет `ToDoActivity.InitLocalStoreAsync()`. При этом создается новая локальная база данных SQLite с помощью класса `MobileServiceSQLiteStore`, предоставленного клиентским пакетом SDK для мобильных приложений Azure. 
  
-	Метод `DefineTable` создает в локальном хранилище таблицу, соответствующую полям в указанном типе, в данном случае это `ToDoItem`. Тип необязательно должен включать в себя все столбцы, которые находятся в удаленной базе данных. Можно хранить и подмножество столбцов. // ToDoActivity.cs
+	Метод `DefineTable` создает в локальном хранилище таблицу, соответствующую полям в указанном типе, в данном случае это `ToDoItem`. Тип необязательно должен включать в себя все столбцы, которые находятся в удаленной базе данных. Можно хранить и подмножество столбцов.
 
+		// ToDoActivity.cs
         private async Task InitLocalStoreAsync()
         {
             // new code to initialize the SQLite store
-            string path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), localDbFilename);
+            string path = Path.Combine(System.Environment
+				.GetFolderPath(System.Environment.SpecialFolder.Personal), localDbFilename);
 
             if (!File.Exists(path))
             {
@@ -58,7 +58,8 @@
             store.DefineTable<ToDoItem>();
 
             // Uses the default conflict handler, which fails on conflict
-            // To use a different conflict handler, pass a parameter to InitializeAsync. For more details, see http://go.microsoft.com/fwlink/?LinkId=521416
+            // To use a different conflict handler, pass a parameter to InitializeAsync. 
+			// For more details, see http://go.microsoft.com/fwlink/?LinkId=521416.
             await client.SyncContext.InitializeAsync(store);
         }
 
@@ -73,7 +74,6 @@
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
 -->	// ToDoActivity.cs
-
         private async Task SyncAsync()
         {
 			try {
@@ -95,11 +95,11 @@
 
 В этом разделе вы измените клиентское приложение, чтобы смоделировать сценарий автономного режима, используя недействительный URL-адрес приложения для серверной части. При добавлении или изменении элементов данных эти изменения будут сохраняться в локальном хранилище, но не будут синхронизироваться с серверным хранилищем данных, пока не будет восстановлено подключение.
 
-1. В верхней части `ToDoActivity.cs` измените инициализацию `applicationURL` и `gatewayURL`, указав недействительные URL-адреса:
+1. В верхней части `ToDoActivity.cs` измените инициализацию `applicationURL`, указав недействительные URL-адреса:
 
-        const string applicationURL = @"https://your-service.azurewebsites.xxx/"; 
-        const string gatewayURL = @"https://your-gateway.azurewebsites.xxx";
+        const string applicationURL = @"https://your-service.azurewebsites.fail/"; 
 
+	Если в приложении используется проверка подлинности, единый вход завершится ошибкой. Чтобы продемонстрировать поведение в автономном режиме, отключите на устройстве Wi-Fi и сотовую связь и включите авиарежим.
 
 2. Измените `ToDoActivity.SyncAsync`, чтобы `MobileServicePushFailedException` перехватывались и просто игнорировались в автономном режиме.
 
@@ -135,7 +135,7 @@
 
 В этом разделе вы повторно подключите приложение к мобильному внутреннему серверу, имитирующему приложение, подключающееся к сети. При выполнении жеста обновления данные будут синхронизированы с мобильным внутренним сервером.
 
-1. Откройте `ToDoActivity.cs`. Исправьте `applicationURL` и `gatewayURL`, чтобы указать правильные URL-адреса.
+1. Откройте `ToDoActivity.cs`. Исправьте `applicationURL`, чтобы указать правильные URL-адреса.
 
 2. Повторно выполните сборку и запустите приложение. После запуска приложение пытается выполнить синхронизацию с серверной частью мобильного приложения Azure. Убедитесь в отсутствии диалоговых окон исключений.
 
@@ -173,4 +173,4 @@
 
 [Облачное покрытие: автономная синхронизация в мобильных службах Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # Общие сведения о регистрации устройств в Azure Active Directory
@@ -77,6 +77,10 @@
 
 ## Дополнительные разделы
 
-Регистрировать присоединенные к домену устройства Windows 7 и Windows 8.1 можно с помощью службы регистрации устройств Azure AD. В следующем разделе приводятся дополнительные сведения о необходимых условиях и действиях для настройки регистрации устройств на устройствах Windows 7 и Windows 8.1. Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows
+Регистрировать присоединенные к домену устройства Windows 7 и Windows 8.1 можно с помощью службы регистрации устройств Azure AD. В следующем разделе приводятся дополнительные сведения о необходимых условиях и действиях для настройки регистрации устройств на устройствах Windows 7 и Windows 8.1.
 
-<!---HONumber=Oct15_HO3-->
+- [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration.md) 
+- [Настройка автоматической регистрации присоединенных к домену устройств Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
+- [Настройка автоматической регистрации присоединенных к домену устройств Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+
+<!---HONumber=AcomDC_1125_2015-->

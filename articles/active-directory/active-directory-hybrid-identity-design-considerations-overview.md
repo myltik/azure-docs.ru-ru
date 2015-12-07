@@ -13,7 +13,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="11/10/2015"
+	ms.date="11/24/2015"
 	ms.author="yuridio"/>
 
 # Рекомендации по разработке архитектуры гибридной идентификации в Azure Active Directory
@@ -49,6 +49,10 @@
 | Планирование повышения безопасности данных благодаря надежному решению для идентификации | [Определение требований к защите данных](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [Определение требований к управлению содержимым](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [Определение требований к управлению доступом](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [Определение требований к реагированию на инциденты](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [Определение стратегии защиты данных](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) |
 | Планирование жизненного цикла гибридной идентификации | [Определение задач по управлению гибридной идентификацией](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md) <br> [Управление синхронизацией](active-directory-hybrid-identity-design-considerations-hybridId-management-tasks.md)<br> [Определение стратегии внедрения гибридной идентификации](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |     
 
+
+##Загрузка руководства
+Загрузить PDF-версию руководства по разработке архитектуры гибридной идентификации можно из [галереи Technet](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288).
+
                                                              
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

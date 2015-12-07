@@ -48,7 +48,7 @@
 
 	    New-AzureRmADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-	>[AZURE.NOTE]Запишите идентификатор приложения, который возвращается после создания приложения, так как он потребуется для следующего шага. Кроме того, идентификатор приложения отображается в поле идентификатора клиента приложения в разделе «Active Directory» портала.
+	>[AZURE.NOTE]Запишите идентификатор приложения, который возвращается после создания приложения, так как он потребуется для следующего шага. Кроме того, идентификатор приложения отображается в поле идентификатора клиента приложения в разделе "Active Directory" портала предварительной версии Azure.
 
 3. Замените {application-id} только что записанным идентификатором, а затем создайте субъект-службу для приложения:
 
@@ -86,16 +86,7 @@
 
 1.	Откройте файл Program.cs для созданного вами проекта и добавьте в начало файла указанные ниже операторы using:
 
-        using Microsoft.Azure;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-		using Microsoft.Azure.Management.Resources;
-		using Microsoft.Azure.Management.Resources.Models;
-		using Microsoft.Azure.Management.Storage;
-		using Microsoft.Azure.Management.Storage.Models;
-		using Microsoft.Azure.Management.Network;
-		using Microsoft.Azure.Management.Network.Models;
-		using Microsoft.Azure.Management.Compute;
-		using Microsoft.Azure.Management.Compute.Models;
+    using Microsoft.Azure; using Microsoft.IdentityModel.Clients.ActiveDirectory; using Microsoft.Azure.Management.Resources; using Microsoft.Azure.Management.Resources.Models; using Microsoft.Azure.Management.Storage; using Microsoft.Azure.Management.Storage.Models; using Microsoft.Azure.Management.Network; using Microsoft.Azure.Management.Network.Models; using Microsoft.Azure.Management.Compute; using Microsoft.Azure.Management.Compute.Models;
 
 
 2. Добавьте в класс Program указанный ниже метод, чтобы получить токен, необходимый для создания учетных данных:
@@ -349,7 +340,7 @@
 2.	Для вызова только что добавленного метода добавьте указанный ниже код в метод Main.
 
 		CreateVirtualMachine(credential);
-        Console.ReadLine();
+    Console.ReadLine();
 
 ##Действие 5. Добавление кода для удаления ресурсов
 
@@ -384,4 +375,4 @@
 
 	![Создание приложения AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

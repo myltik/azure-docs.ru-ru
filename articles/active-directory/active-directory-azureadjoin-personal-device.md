@@ -1,20 +1,21 @@
+
+
 <properties 
 	pageTitle="Присоединение личного устройства к своей организации | Microsoft Azure" 
-	description="В этом разделе рассматривается, как пользователи могут регистрировать свои персональные компьютеры с Windows 10 в корпоративной сети, а также шаги по развертыванию для сценария BYOD." 
+	description="Поясняет, как пользователи могут регистрировать свои персональные компьютеры с Windows 10 в корпоративной сети, а также шаги по развертыванию для сценария BYOD." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
 	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
-
 <tags 
 	ms.service="active-directory" 
 	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015" 
+	ms.date="11/19/2015" 
 	ms.author="femila"/>
 
 # Присоединение личного устройства к своей организации
@@ -39,4 +40,4 @@
 * [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/24/2015"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -383,13 +383,34 @@
 | mailNickName| X| X| X| |
 | member| | | X| |
 | objectSID| X| | | Механическое свойство. Идентификатор пользователя AD, используемый для обеспечения синхронизации между Azure AD и AD.|
-| proxyAddresses| X| X| x| |
+| proxyAddresses| X| X| X| |
 | pwdLastSet| X| | | Механическое свойство. Используется, чтобы определить, когда необходимо сделать недействительными уже выданные маркеры. Используется как в синхронизации паролей, так и в федерации.|
 | sn| X| X| | |
 | sourceAnchor| X| X| X| Механическое свойство. Неизменяемый идентификатор для поддержания связи между доменными службами Active Directory и Azure AD.|
 | usageLocation| X| | | Механическое свойство. Страна пользователя. Используется для назначения лицензии.|
 | userPrincipalName| X| | | Имя участника-пользователя является именем для входа. Чаще всего соответствует значению [mail].|
 
+## Windows 10
+Компьютеры (устройства), присоединенные к домену Windows 10, синхронизируют некоторые атрибуты с Azure AD. Дополнительные сведения о сценариях см. в статье [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md). Эти атрибуты будет синхронизироваться всегда, и Windows 10 отображается в виде приложения, выбор которого нельзя отменить. Компьютер, присоединенный к домену Windows 10, определяется заполненным атрибутом userCertificate.
+
+| Имя атрибута| Устройство| Комментарий |
+| --- | :-: | --- |
+| AccountEnabled| X| |
+| deviceTrustType| X| Жестко запрограммированное значение для компьютеров, присоединенных к домену. |
+| displayName | X| |
+| MS-DS-CreatorSID | X| Другое название registeredOwnerReference.|
+| objectGUID | X| Другое название deviceID.|
+| objectSID | X| Другое название omPremisesSecurityIdentifier.|
+| operatingSystem | X| Другое название deviceOSType.|
+| operatingSystemVersion | X| Другое название deviceOSVersion.|
+| userCertificate | X| |
+
+Эти атрибуты для пользователя представлены в дополнение к другим выбранным приложениям.
+
+| Имя атрибута| Пользователь| Комментарий |
+| --- | :-: | --- |
+| domainFQDN| X| Другое название dnsDomainName. Например, contoso.com.|
+| domainNetBios| X| Другое название netBiosName. Например, CONTOSO.|
 
 ## Гибридная обратная запись Exchange
 Эти атрибуты записываются обратно из Azure AD в локальную службу Active Directory при активации гибридного развертывания Exchange. В зависимости от установленной версии Exchange может синхронизироваться меньшее количество атрибутов.
@@ -414,4 +435,4 @@
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

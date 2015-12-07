@@ -14,10 +14,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/06/2015"
+	ms.date="11/23/2015"
 	ms.author="jeffstok"/>
 
-# Основные сведения о входных данных Stream Analytics
+# Основные сведения о подключениях входных данных Stream Analytics
 
 Под входными данными Azure Stream Analytics понимается подключение к источнику данных. Служба Stream Analytics имеет первоклассную интеграцию с источниками данных Azure (концентратором событий, центром IoT и хранилищем больших двоичных объектов) независимо от того, входят ли они в подписку Azure, в которой выполняется ваше задание. Данные, отправляемые в этот источник данных, принимаются заданием Stream Analytics и обрабатываются в режиме реального времени. Входные данные делятся на два типа: входные потоковые данные и входные справочные данные.
 
@@ -201,4 +201,4 @@ FROM Input
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

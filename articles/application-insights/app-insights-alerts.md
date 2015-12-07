@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Настройка оповещений в Application Insights
@@ -215,6 +215,11 @@ remoteDependencyFailed| [Dependency](app-insights-configuration-with-application
 request,<br/>requestFailed|[Server request](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
 
+## См. также
+
+
+* [Создание ресурсов Application Insights и веб-тестов на основе шаблонов](app-insights-powershell.md)
+
 <!--Link references-->
 
 [availability]: app-insights-monitor-web-app-availability.md
@@ -225,4 +230,4 @@ request,<br/>requestFailed|[Server request](app-insights-configuration-with-appl
 
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

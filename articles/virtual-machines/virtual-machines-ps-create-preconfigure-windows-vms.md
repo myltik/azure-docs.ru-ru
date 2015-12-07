@@ -20,7 +20,7 @@
 # Создание виртуальных машин Windows с использованием PowerShell и классической модели развертывания 
 
 > [AZURE.SELECTOR]
-- [Azure Portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
 - [Powershell - Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 - [PowerShell - Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
@@ -265,4 +265,4 @@
 
 [Установка и настройка Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

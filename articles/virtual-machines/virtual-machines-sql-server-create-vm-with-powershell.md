@@ -20,7 +20,7 @@
 # Создание виртуальной машины SQL Server в Azure (PowerShell)
 
 > [AZURE.SELECTOR]
-- [Portal](virtual-machines-provision-sql-server.md)
+- [Azure portal](virtual-machines-provision-sql-server.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
 
 ## Обзор
@@ -170,8 +170,8 @@
 
 Во многих случаях следующим этапом является миграция баз данных на новую виртуальную машину SQL. Руководство по миграции баз данных см. в статье [Миграция базы данных в SQL Server на виртуальной машине Azure](virtual-machines-migrate-onpremises-database.md).
 
-Если вам также интересно выполнение этих действий на портале управления Azure, см. статью [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-provision-sql-server.md).
+Если вам также интересно выполнение этих действий на портале Azure, см. статью [Подготовка виртуальной машины SQL Server в Azure](virtual-machines-provision-sql-server.md).
 
 В дополнение к этим ресурсам рекомендуем ознакомиться с [другими статьями, связанными с запуском SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2015"
+	ms.date="11/19/2015" 
 	ms.author="billmath"/>
 
 # Создание паролей приложений на портале Azure для службы Azure Multi-Factor Authentication
@@ -32,4 +32,4 @@
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)</center>
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,113 +1,113 @@
 
 
-To register the app for push notifications through Apple Push Notification Service (APNS), you must create a new push certificate, App ID, and provisioning profile for the project on Apple's developer portal. The App ID will contain the configuration settings that enable your app to send and receive push notifications. These settings will include the push notification certificate needed to authenticate with Apple Push Notification Service (APNS) when sending and receiving push notifications. For more information on these concepts see the official [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584) documentation.
+Чтобы зарегистрировать приложение для push-уведомлений посредством службы push-уведомлений Apple (APNS), необходимо создать новый push-сертификат, идентификатор приложения и профиль подготовки для проекта на портале разработчика Apple. Идентификатор приложения будет содержать параметры конфигурации, позволяющие приложению отправлять и получать push-уведомления. В эти параметры будет входить сертификат push-уведомлений, необходимый для проверки подлинности в службе push-уведомлений Apple (APNS) при отправке и получении push-уведомлений. Дополнительные сведения об этих понятиях см. в официальной документации по [службе push-уведомлений Apple](http://go.microsoft.com/fwlink/p/?LinkId=272584).
 
 
-####Generate the Certificate Signing Request file for the push certificate
+####Генерация файла запроса подписи сертификата для push-сертификата
 
-These steps walk you through creating the certificate signing request. This will be used to generate a push certificate to be used with APNS.
+Следующие действия используются для создания запроса подписи сертификата. Он будет использоваться для создания push-сертификата, используемого в APNS.
 
-1. On your Mac, run the Keychain Access tool. It can be opened from the **Utilities** folder or the **Other** folder on the launch pad.
+1. На компьютере Mac запустите средство Keychain Access. Его можно запустить из папки **Utilities** (Служебные программы) или **Other** (Другое) на панели запуска.
 
-2. Click **Keychain Access**, expand **Certificate Assistant**, then click **Request a Certificate from a Certificate Authority...**.
+2. Щелкните **Keychain Access**, разверните **Certificate Assistant** (Помощник по сертификатам), а затем щелкните **Request a Certificate from a Certificate Authority...** (Запросить сертификат в центре сертификации...).
 
   	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
 
-3. Select your **User Email Address** and **Common Name** , make sure that **Saved to disk** is selected, and then click **Continue**. Leave the **CA Email Address** field blank as it is not required.
+3. Выберите ваши параметры **User Email Address** (Адрес электронной почты пользователя) и **Common Name** (Общее имя), убедитесь, что установлен флажок **Saved to disk** (Сохранено на диск), а затем щелкните **Continue** (Продолжить). Оставьте поле **CA Email Address** (Адрес электронной почты ЦС) пустым, поскольку оно не является обязательным.
 
   	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-csr-info.png)
 
-4. Type a name for the Certificate Signing Request (CSR) file in **Save As**, select the location in **Where**, then click **Save**.
+4. Введите имя файла запроса подписи сертификата (CSR) в поле **Save As** (Сохранить как), выберите расположение в поле **Where** (Папка) и нажмите кнопку **Save** (Сохранить).
 
   	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-save-csr.png)
 
-  	This saves the CSR file in the selected location; the default location is in the Desktop. Remember the location chosen for this file.
+  	При этом CSR-файл сохраняется в выбранном месте; по умолчанию — на рабочем столе. Запомните расположение, выбранное для этого файла.
 
 
-####Register your app for push notifications
+####Регистрация приложения для работы с push-уведомлениями
 
-Create a new Explicit App ID for your application with Apple and also configure it for push notifications.  
+Создайте новый явный идентификатор приложения для вашего приложения в системе Apple, а также настройте его для получения push-уведомлений.
 
-1. Navigate to the [iOS Provisioning Portal](http://go.microsoft.com/fwlink/p/?LinkId=272456) at the Apple Developer Center, log on with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to register a new app.
+1. Перейдите на [портал подготовки iOS](http://go.microsoft.com/fwlink/p/?LinkId=272456) в центре разработчиков Apple, выполните вход с использованием вашего идентификатора Apple, щелкните **Идентификаторы**, затем — **Идентификаторы приложений** и, наконец, нажмите кнопку **+**, чтобы зарегистрировать новое приложение.
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
-2. Update the following three fields for your new app and then click **Continue**:
+2. Обновите для нового приложения следующие три поля и нажмите кнопку **Продолжить**.
 
-	* **Name**: Type a descriptive name for your app in the **Name** field in the **App ID Description** section.
+	* **Имя**. В разделе **Описание идентификатора приложения** в поле **Описание идентификатора приложения** введите описательное имя своего приложения.
 	
-	* **Bundle Identifier**: Under the **Explicit App ID** section, enter a **Bundle Identifier** in the form `<Organization Identifier>.<Product Name>` as mentioned in the [App Distribution Guide](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). This must match what is also used in the XCode or Xamarin project for your app.	 
+	* **Идентификатор набора**. В разделе **Явный идентификатор приложения** введите в форму `<Organization Identifier>.<Product Name>` **идентификатор набора**, как упоминалось в [руководстве по распространению приложения](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). Используемые значения должны соответствовать значениям в проекте XCode или Xamarin для вашего приложения.
 	 
-	* **Push Notifications**: Check the **Push Notifications** option in the **App Services** section, .
+	* **Push-уведомления**. В разделе **Службы приложений** установите флажок **Push-уведомления**.
 
 	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
-3.	On the Confirm your App ID screen, review the setting and after you have verified them click **Submit**
+3.	На экране подтверждения идентификатора приложения проверьте значения параметров и после этого нажмите кнопку **Отправить**.
 
-4. 	Once you have submitted the new App ID, you will see the **Registration complete** screen. Click **Done**.
+4. 	После отправки нового идентификатора приложения вы увидите экран **Регистрация выполнена**. Нажмите кнопку **Done** (Готово).
 
-5. In the Developer Center, under App IDs, locate the app ID that you just created, and click on its row. Clicking on the app ID row will display the app details. Click the **Edit** button at the bottom.
+5. В центре разработчиков в разделе App IDs (Идентификаторы приложений) найдите только что созданный идентификатор и щелкните его строку. Если щелкнуть идентификатор приложения, отобразятся сведения о приложении. В нижней части экрана нажмите кнопку **Изменить**.
 
-6. Scroll to the bottom of the screen, and click the **Create Certificate...** button under the section **Development Push SSL Certificate**.
+6. Прокрутите до нижней части экрана и нажмите кнопку **Create Certificate...** (Создать сертификат...) в разделе **Development Push SSL Certificate** (SSL-сертификат разработки push-уведомлений).
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
 
-   	This will display the "Add iOS Certificate" assistant.
+   	Откроется помощник "Добавление сертификата iOS".
 
-    > [AZURE.NOTE] This tutorial uses a development certificate. The same process is used when registering a production certificate. Just make sure that you use the same certificate type when sending notifications.
+    > [AZURE.NOTE]В этом учебнике используется сертификат разработки. Тот же процесс используется при регистрации сертификата производства. Только убедитесь, что при отправке уведомлений используется тот же тип сертификата.
 
-7. Click **Choose File**, browse to the location where you saved the CSR for your push certificate. Then click **Generate**.
+7. Щелкните **Выбрать файл**, перейдите в папку, в которую ранее был сохранен CSR-файл. Нажмите кнопку **Создать**.
 
   	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-appid-cert-choose-csr.png)
 
-8. After the certificate is created by the portal, click the **Download** button.
+8. После создания сертификата с помощью портала нажмите кнопку **Загрузить**.
 
   	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-appid-download-cert.png)
 
-   	This downloads the signing certificate and saves it to your computer in your Downloads folder.
+   	При этом сертификат подписи загружается и сохраняется на вашем компьютере в папке "Загрузки".
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
 
-    > [AZURE.NOTE] By default, the downloaded file a development certificate is named **aps_development.cer**.
+    > [AZURE.NOTE]По умолчанию загруженный файл сертификата разработки называется **aps\_development.cer**.
 
-9. Double-click the downloaded push certificate **aps_development.cer**. This installs the new certificate in the Keychain, as shown below:
+9. Дважды щелкните скачанный сертификат push-уведомлений **aps\_development.cer**. При этом новый сертификат устанавливается в Keychain, как показано ниже:
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
 
-    > [AZURE.NOTE] The name in your certificate might be different, but it will be prefixed with **Apple Development iOS Push Services:**.
+    > [AZURE.NOTE]Имя вашего сертификата может отличаться, но оно будет начинаться с префикса **Apple Development iOS Push Services:**.
 
-10. In Keychain Access, right-click the new push certificate that you just created in the **Certificates** category. Click **Export**, name the file, select the **.p12** format, and then click **Save**.
+10. В программе Keychain Access щелкните правой кнопкой мыши новый сертификат push-уведомлений, созданный в категории **Сертификаты**. Щелкните **Экспорт**, укажите имя файла, выберите формат **.p12** и нажмите кнопку **Сохранить**.
 
-	Remember the file name and location of the exported .p12 push certificate. It will be used to enable authentication with APNS by uploading it on the Azure portal.
+	Запишите имя файла и расположение экспортируемого сертификата в формате P12. Он будет использоваться для включения проверки подлинности с помощью APNS после отправки на портал Azure.
 
 
 
-####Create a provisioning profile for the app
+####Создание профиля подготовки для приложения
 
-1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning Profiles**, select **All**, and then click the **+** button to create a new profile. This launches the **Add iOS Provisiong Profile** Wizard
+1. На <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">портале подготовки iOS</a> выберите **Профили подготовки**, затем щелкните **Все** и нажмите кнопку **+**, чтобы создать новый профиль. Запустится мастер **Add iOS Provisiong Profile** (Добавление профиля подготовки для iOS).
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 
-2. Select **iOS App Development** under **Development** as the provisiong profile type, and click **Continue**. 
+2. Выберите элемент **Разработка приложений для iOS** в разделе **Разработка** в качестве типа профиля подготовки и нажмите кнопку **Продолжить**.
 
 
-3. Next, select the app ID you just created from the **App ID** drop-down list, and click **Continue**
+3. Далее выберите идентификатор приложения, который вы только что создали, из раскрывающегося списка **App ID** (Идентификатор приложения) и нажмите кнопку **Continue** (Продолжить).
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-select-appid-for-provisioning.png)
 
 
-4. In the **Select certificates** screen, select your development certificate used for code signing, and click **Continue**. This is a signing certificate, not the push certificate you just created.
+4. На экране **Выбор сертификатов** выберите обычный сертификат для разработки, используемый для подписывания кода, и нажмите кнопку **Продолжить**. Это сертификат подписи, а не только что созданный сертификат push-уведомлений.
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
 
 
-5. Next, select the **Devices** to use for testing, and click **Continue**
+5. Затем выберите **Devices** (Устройства) для тестирования и нажмите кнопку **Continue** (Продолжить).
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
 
 
-6. Finally, pick a name for the profile in **Profile Name**, click **Generate**.
+6. Наконец, выберите имя профиля в поле **Имя профиля** и нажмите кнопку **Создать**.
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
-
+<!---HONumber=AcomDC_1125_2015-->

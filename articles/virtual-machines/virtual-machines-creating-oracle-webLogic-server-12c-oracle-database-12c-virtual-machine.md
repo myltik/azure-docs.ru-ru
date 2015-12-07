@@ -24,7 +24,7 @@
 
 ##Создание виртуальной машины Oracle WebLogic Server 12c и Oracle Database 12c в Azure
 
-1. Войдите на [портал Azure](https://ms.portal.azure.com/).
+1. Войдите на [портал предварительной версии Azure](https://ms.portal.azure.com/).
 
 2.	Щелкните **Marketplace**, выберите **Среда выполнения приложений**, а затем введите **Oracle** в поле поиска.
 
@@ -71,4 +71,4 @@
 
 [Oracle Database 2 Day DBA 12c Release 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

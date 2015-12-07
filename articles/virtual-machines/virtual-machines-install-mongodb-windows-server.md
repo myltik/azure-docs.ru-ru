@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
 
 
-[MongoDB][MongoDB] является популярной высокопроизводительной базой данных NoSQL с открытым кодом. С помощью [портала Azure][AzureManagementPortal] можно создать виртуальную машину под управлением Windows Server из коллекции образов с помощью классической модели развертывания. Затем можно установить и настроить базу данных MongoDB на виртуальной машине.
+[MongoDB][MongoDB] является популярной высокопроизводительной базой данных NoSQL с открытым кодом. С помощью [портала Azure][AzurePortal] можно создать виртуальную машину под управлением Windows Server из коллекции образов с помощью классической модели развертывания. Затем можно установить и настроить базу данных MongoDB на виртуальной машине.
 
 
 ## Создание виртуальной машины под управлением Windows Server
@@ -49,6 +49,6 @@
 
 [MongoDocs]: http://docs.mongodb.org/manual/
 [MongoDB]: http://www.mongodb.org/
-[AzureManagementPortal]: http://manage.windowsazure.com
+[AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,20 +1,20 @@
-**Virtual machine disks: per account limits**
+**Диски виртуальной машины: ограничения для учетных записей**
 
-Resource|Default Limit
+Ресурс|Ограничение по умолчанию
 ---|---
-Total disk capacity per account|35 TB
-Total snapshot capacity per account|10 TB
-Max bandwidth per account (ingress + egress<sup>1</sup>)|<=50 Gbps
+Общая емкость диска на одну учетную запись|35 ТБ
+Общая емкость моментального снимка на одну учетную запись|10 ТБ
+Макс. пропускная способность на одну учетную запись (входящие и исходящие данные<sup>1</sup>)|<=50 Гбит/с
 
-<sup>1</sup>*Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.
+<sup>1</sup>Под термином *входящие данные* подразумеваются все данные (запросы), отправляемые в учетную запись хранения. Под *исходящими данными* понимаются все данные (отклики), получаемые из учетной записи хранения.
 
-**Virtual machine disks: per disk limits**
+**Диски виртуальной машины: ограничения для дисков**
 
-Premium Storage Disk Type | P10 | P20 | P30
+Тип диска хранилища Premium | P10 | P20 | P30
 ---|---|---|---
-Disk size | 128 GiB | 512 GiB | 1024 GiB (1 TB)
-Max IOPS per disk | 500 | 2300 | 5000
-Max throughput per disk | 100 MB per second | 150 MB per second | 200 MB per second
-Max number of highly utilized disks | 62 | 41 | 31
+Размер диска | 128 ГБ | 512 ГБ | 1024 ГБ (1 ТБ)
+Макс. количество операций ввода-вывода в секунду на диск | 500 | 2300 | 5000
+Макс. пропускная способность на диск | 100 МБ в секунду | 150 МБ в секунду | 200 МБ в секунду
+Макс. количество активно используемых дисков | 62 | 41 | 31
 
-
+<!---HONumber=AcomDC_1125_2015-->

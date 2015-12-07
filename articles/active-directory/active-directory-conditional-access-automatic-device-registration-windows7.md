@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
+	ms.date="11/24/2015"
 	ms.author="femila"/>
 
 # Настройка автоматической регистрации присоединенных к домену устройств Windows 7
@@ -52,4 +52,12 @@
 
 На компьютере под управлением Windows 7 сообщения, связанные с присоединением к рабочей области, отображаются в журнале событий Windows. Здесь вы можете просмотреть все события присоединения к рабочей области, как успешные, так и завершившиеся сбоем. Журнал событий можно найти в разделе «Просмотр событий» в меню «Журналы приложений и служб» > «Microsoft — присоединение к рабочей области».
 
-<!---HONumber=Nov15_HO1-->
+## Дополнительные разделы
+
+- [Общие сведения о регистрации устройств в Azure Active Directory](active-directory-conditional-access-device-registration-overview.md)
+- [Автоматическая регистрация в Azure Active Directory присоединенных к домену устройств Windows](active-directory-conditional-access-automatic-device-registration.md)
+- [Настройка автоматической регистрации присоединенных к домену устройств Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows8_1.md)
+
+ 
+
+<!---HONumber=AcomDC_1125_2015-->

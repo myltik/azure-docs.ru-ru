@@ -1,3 +1,5 @@
-The Virtual Machine Scale Sets API version is 2015-06-15 and is a preview release for evaluation and testing purposes. It is recommended that for the preview release, you register with the feature before using VM Scale Sets. You do this by running the following command:
+Версия API наборов масштабирования виртуальных машин — 2015-06-15. Это предварительный выпуск, предназначенный для оценки и тестирования. При работе с предварительной версией перед использованием наборов масштабирования виртуальных машин рекомендуется зарегистрироваться в этой функции. Для этого выполните следующую команду:
 
   Register-AzureRmProviderFeature -FeatureName vmssApiPreviewV2Access -ProviderNamespace Microsoft.Compute
+
+<!---HONumber=AcomDC_1125_2015-->

@@ -1,5 +1,5 @@
 
-1. Open the shared project file MainPage.cs and add the following code snippet to the MainPage class:
+1. Откройте файл общего проекта MainPage.xaml.cs и добавьте следующий фрагмент кода в класс MainPage:
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -32,13 +32,13 @@
             return success;
         }
 
-    This code authenticates the user with a Facebook login. If you are using an identity provider other than Facebook, change the value of **MobileServiceAuthenticationProvider** above to the value for your provider.
+    Этот код выполняет проверку подлинности пользователя с помощью имени входа в Facebook. Если используется поставщик удостоверений, отличный от Facebook, измените значение **MobileServiceAuthenticationProvider** выше на значение для вашего поставщика.
 
-3. Comment-out or delete the call to the **RefreshTodoItems** method in the existing **OnNavigatedTo** method override.
+3. Закомментируйте или удалите вызов метода **RefreshTodoItems** в существующем переопределении метода **OnNavigatedTo**.
 
-	This prevents the data from being loaded before the user is authenticated. Next, you will add a **Sign in** button to the app that triggers authentication.
+	Это позволяет предотвратить загрузку данных до того, как пользователь прошел проверку подлинности. Затем добавьте кнопку **Вход** в приложение, которое запускает проверку подлинности.
 
-4. Add the following code snippet to the MainPage class:
+4. Добавьте в класс MainPage следующий фрагмент кода:
 
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -52,17 +52,17 @@
             }
         }
 		
-5. In the Windows Store app project, open the MainPage.xaml project file and add the following **Button** element just before the element that defines the **Save** button:
+5. В проекте приложения Магазина Windows откройте файл проекта MainPage.xaml и добавьте следующий элемент **Button** непосредственно перед элементом, определяющим кнопку **Сохранить**:
 
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. In the Windows Phone Store app project, add the following **Button** element in the **ContentPanel**, after the **TextBox** element:
+6. В проекте приложения для Магазина Windows Phone после элемента **TextBox** на панели **ContentPanel** добавьте указанный ниже элемент **Button**:
 
         <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
         	Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
 
-8. Open the shared App.xaml.cs project file and add the following code:
+8. Откройте общий файл проекта App.xaml.cs и добавьте следующий код:
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
@@ -79,12 +79,14 @@
             base.OnActivated(args);
         }
 
-	If the **OnActivated** method already exists, just add the `#if...#endif` code block.
+	Если метод **OnActivated** уже существует, просто добавьте блок кода `#if...#endif`.
 
-9. Press the F5 key to run the Windows Store app, click the **Sign in** button, and sign into the app with your chosen identity provider. 
+9. Нажмите клавишу F5, чтобы запустить приложение Магазина Windows, нажмите кнопку **Вход** и войдите в приложение с помощью выбранного поставщика удостоверений.
 
-   	When you are successfully logged-in, the app should run without errors, and you should be able to query your backend and make updates to data.
+   	После входа мобильное приложение должно работать без ошибок, а у вас должна быть возможность отправлять запросы в серверную часть и обновлять данные.
 
-10. Right-click the Windows Phone Store app project, click **Set as StartUp Project**, then repeat the previous step to verify that the Windows Phone Store app also runs correctly.  
+10. Щелкните правой кнопкой мыши проект приложения Магазина Windows Phone, выберите пункт **Назначить запускаемым проектом**, а затем повторите предыдущий шаг, чтобы проверить, правильно ли запускается приложение Магазина Windows Phone.
 
  
+
+<!---HONumber=AcomDC_1125_2015-->

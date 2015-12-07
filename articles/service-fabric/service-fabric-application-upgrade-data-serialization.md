@@ -59,10 +59,12 @@
 
 ## Дальнейшие действия
 
-[Учебник по обновлению](service-fabric-application-upgrade-tutorial.md)
+[Обновление приложения Service Fabric с помощью Visual Studio](service-fabric-application-upgrade.md)
+
+[Обновление приложения Service Fabric с помощью PowerShell](service-fabric-application-upgrade-powershell.md)
 
 [Параметры обновления](service-fabric-application-upgrade-parameters.md)
 
-[Дополнительные разделы](service-fabric-application-upgrade-advanced.md)
+[Обновление вручную и с помощью пакета Diff](service-fabric-application-upgrade-advanced.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="11/21/2015"
+   ms.date="11/24/2015"
    ms.author="mfussell"/>
 
 # Запуск от имени: запуск приложения Service Fabric с использованием различных разрешений безопасности
@@ -86,26 +86,25 @@ Service Fabric предоставляет возможность защиты п
 
 Теперь добавим файл MySetup.bat в проект Visual Studio, чтобы проверить права администратора. В Visual Studio щелкните правой кнопкой мыши проект службы и добавьте новый файл MySetup.bat. Далее необходимо убедиться, что этот файл включен в пакет службы. Чтобы проверить, что файл MySetup.bat включен в пакет, выберите файл, щелкните правой кнопкой мыши для вывода контекстного меню, выберите пункт "Свойства" в диалоговом окне свойств и убедитесь, что для параметра **Копировать в выходной каталог** задано значение **Копировать, если новее**. Это показано на приведенном ниже снимке экрана.
 
-![Свойство CopyToOutput в Visual Studio для пакетного файла SetupEntryPoint][Image1]
+![Свойство CopyToOutput в Visual Studio для пакетного файла SetupEntryPoint][image1]
 
 Теперь откройте файл MySetup.bat и добавьте следующие команды.
+
 ~~~
-REM Задайте системную переменную среды. Для этого требуется привилегия администратора privilege
+REM Set a system environment variable. This requires administrator privilege
 setx -m TestVariable "MyValue"
-echo System TestVariable со значением > test.txt
+echo System TestVariable set to > test.txt
 echo %TestVariable% >> test.txt
 
-REM Чтобы удалить эту системную переменную, используйте
-REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
+REM To delete this system variable us
+REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ~~~
 
-Затем постройте и разверните решение в кластере локальной разработки. После запуска службы, как показано в обозревателе Service Fabric, можно двумя способами увидеть успешное выполнение MySetup.bat. Откройте командную строку PowerShell и введите
+Затем постройте и разверните решение в кластере локальной разработки. После запуска службы, как показано в обозревателе Service Fabric, можно двумя способами увидеть успешное выполнение MySetup.bat. Откройте командную строку PowerShell и введите следующую команду.
+
 ~~~
- [Environment]::GetEnvironmentVariable("TestVariable","Machine")
-~~~
-Like this
-~~~
-PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue
+PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
+MyValue
 ~~~
 
 В обозревателе Service Fabric запомните имя узла, где была развернута и запущена служба, например Node 1, и перейдите к рабочей папке экземпляра приложения, чтобы найти файл out.txt, в котором отображается значение **TestVariable**. Например, если служба была развернута на узле Node 2, можно перейти по этому пути для MyApplicationType.
@@ -117,18 +116,20 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ##  Запуск команд PowerShell из точки SetupEntryPoint
 Чтобы запустить PowerShell из точки **SetupEntryPoint**, запустите PowerShell.exe в пакетном файле, указывающем на файл PowerShell. Сначала добавьте файл PowerShell в проект службы, например MySetup.ps1. Не забудьте задать свойство *Копировать, если новее*, чтобы этот файл также входил в состав пакета службы. В приведенном ниже примере показан образец пакетного файла для запуска файла PowerShell файл с именем MySetup.ps1, который задает системную переменную среды с именем *TestVariable*.
 
-MySetup.bat для запуска файла PowerShell file.
+Файл MySetup.bat для запуска файла PowerShell.
+
 ~~~
-powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1"
+powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 ~~~
 
-В файл PowerShell добавьте следующий фрагмент, чтобы задать системную переменную среды
-~~~
+В файле PowerShell добавьте следующую команду, чтобы задать системную переменную среды.
+
+```
 [Environment]::SetEnvironmentVariable("TestVariable", "MyValue", "Machine")
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
-~~~
+```
 
-## Применение политики запуска от имени к службам 
+## Применение политики запуска от имени к службам
 Ранее вы узнали, как применить политику запуска от имени к точке SetupEntryPoint. Давайте более подробно рассмотрим процесс создания разных субъектов, которые могут применяться в качестве политик служб.
 
 ### Создание локальных групп пользователей
@@ -168,7 +169,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1"
   </Users>
 </Principals>
 ~~~
- 
+
 <!-- If an application requires that the user account and password be same on all machines (e.g. to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true and also specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
 
 <Section Name="Hosting">
@@ -179,19 +180,19 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1"
 -->
 
 ## Назначение политик пакетам кода службы
-В разделе **RunAsPolicy** **ServiceManifestImport** указывается учетная запись из раздела "Principals", которая должна использоваться для запуска пакета кода, и связываются пакеты кода из манифеста службы с учетными записями пользователей в разделе "Principals". Можно использовать этот параметр для точек входа "Setup" или "Main" либо указать "All" для применения к обоим типам. В приведенном ниже примере показаны различные примененные политики.
+В разделе **RunAsPolicy** **ServiceManifestImport** указывается учетная запись из раздела "Principals", которая должна применяться для запуска пакета кода, и связываются пакеты кода из манифеста службы с учетными записями пользователей в разделе "Principals". Можно использовать этот параметр для точек входа "Setup" или "Main" либо указать "All" для применения к обоим типам. В приведенном ниже примере показаны различные примененные политики.
 
 ~~~
 <Policies>
-<RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
-<RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
+  <RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
+  <RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
 </Policies>
 ~~~
 
-Если **EntryPointType** не указан, по умолчанию используется EntryPointType="Main". Указание **SetupEntryPoint** особенно полезно, когда требуется выполнить определенную операцию установки с высокими привилегиями с использованием системной учетной записи, тогда как фактический код службы может выполняться под менее привилегированной учетной записью.
+Если параметр **EntryPointType** не указан, по умолчанию используется EntryPointType="Main". Указание **SetupEntryPoint** особенно полезно, когда требуется выполнить определенную операцию установки с высокими привилегиями с использованием системной учетной записи, тогда как фактический код службы может выполняться под менее привилегированной учетной записью.
 
 ### Применение политики по умолчанию ко всем пакетам кода службы
-Раздел **DefaultRunAsPolicy** используется для указания учетной записи пользователя по умолчанию для всех пакетов кода, не имеющего конкретного определенного раздела **RunAsPolicy**. Если большую часть пакетов кода, указанных в используемых приложением манифестах служб, требуется запустить с использованием одной и той же учетной записи пользователя запуска от имени, приложение может определить только политику запуска от имени по умолчанию с этой учетной записью пользователя вместо указания **RunAsPolicy** для каждого пакета кода. Например, в следующем примере указывается, что если в пакете кода не указано **RunAsPolicy**, пакет кода должен запускаться под учетной записью MyDefaultAccount, указанной в разделе "Principals".
+Раздел **DefaultRunAsPolicy** необходим для указания учетной записи пользователя по умолчанию для всех пакетов кода, не имеющего конкретного определенного раздела **RunAsPolicy**. Если большую часть пакетов кода, указанных в используемых приложением манифестах служб, требуется запустить с применением одной и той же учетной записи пользователя запуска от имени, в приложении можно определить только политику запуска от имени по умолчанию с этой учетной записью пользователя вместо указания **RunAsPolicy** для каждого пакета кода. Например, в следующем примере указывается, что если в пакете кода не указано **RunAsPolicy**, пакет кода должен запускаться под учетной записью MyDefaultAccount, указанной в разделе "Principals".
 
 ~~~
 <Policies>
@@ -265,7 +266,9 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1"
                <Group NameRef="LocalAdminGroup" />
             </MemberOf>
          </User>
+         <!--Customer1 below create a local account that this service runs under -->
          <User Name="Customer1" />
+         <User Name="MyDefaultAccount" AccountType="NetworkService" />
       </Users>
    </Principals>
    <Policies>
@@ -285,6 +288,6 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\\MySetup.ps1"
 * [Указание ресурсов в манифесте службы](service-fabric-service-manifest-resources.md)
 * [Развертывание приложения](service-fabric-deploy-remove-applications.md)
 
-[Image1]: media/service-fabric-application-runas-security/copy-to-output.png
+[image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

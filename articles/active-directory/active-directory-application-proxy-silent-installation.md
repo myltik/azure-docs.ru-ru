@@ -3,8 +3,8 @@
 	description="Описывается, как выполнить автоматическую установку соединителя прокси приложения Azure AD для обеспечения безопасного удаленного доступа к локальным приложениям."
 	services="active-directory"
 	documentationCenter=""
-	authors="rkarlin"
-	manager="steven.powell"
+	authors="kgremban"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="rkarlin"/>
+	ms.author="kgremban"/>
 
 # Автоматическая установка соединителя прокси приложения Azure AD
 
@@ -46,21 +46,21 @@
 
 1. Создайте объект учетных данных Windows PowerShell, выполнив следующую команду, в которой username и password следует заменить на имя пользователя и пароль для вашего каталога:
 
-        $User = "<username>" 
-        $PlainPassword = '<password>' 
-        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force 
-        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword 
-    
+        $User = "<username>"
+        $PlainPassword = '<password>'
+        $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
+        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+
 2. Перейдите в каталог **C:\\Program Files\\Microsoft AAD App Proxy Connector** и запустите сценарий с использованием созданного объекта учетных данных PowerShell: здесь $cred — имя созданного объекта учетных данных:
 
-        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred 
+        RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred
 
 
 ### Регистрация соединителя с помощью токена, созданного в автономном режиме
 
 1. Создайте автономный маркер с помощью класса AuthenticationContext, используя значения, указанные во фрагменте кода:
 
-        
+
         using System;
         using System.Diagnostics;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -142,4 +142,4 @@
 * [Регистрация организации в Azure](sign-up-organization.md)
 * [Удостоверение Azure](fundamentals-identity.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

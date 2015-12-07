@@ -80,14 +80,13 @@ $ open Microsoft Tasks for Consumers.xcworkspace
 	<key>authority</key>
 	<string>https://login.microsoftonline.com/<your tenant name>.onmicrosoft.com/</string>
 	<key>clientId</key>
-	<string><Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
+	<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
 	<key>scopes</key>
 	<array>
-		<string><Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
+		<string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
 	</array>
 	<key>additionalScopes</key>
 	<array>
-		<string></string>
 	</array>
 	<key>redirectUri</key>
 	<string>urn:ietf:wg:oauth:2.0:oob</string>
@@ -233,9 +232,7 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
         [self readApplicationSettings];
     }
     
-    NSDictionary* params = [self convertPolicyToDictionary:policy];
-    
-    [self getClaimsWithPolicyClearingCache:NO policy:policy params:params parent:parent completionHandler:^(ADProfileInfo* userInfo, NSError* error) {
+    [self getClaimsWithPolicyClearingCache:NO policy:policy params:nil parent:parent completionHandler:^(ADProfileInfo* userInfo, NSError* error) {
         
         if (userInfo == nil)
         {
@@ -256,42 +253,8 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 Вы увидите, что метод довольно прост. В качестве входных данных он принимает объект `samplesPolicyData`, который мы создали несколько минут назад, родительский класс ViewController, а затем — обратный вызов. Обратный вызов — это интересно, и мы рассмотрим его подробно.
 
 1. Вы увидите, что в `completionBlock` в качестве типа выбран ADProfileInfo, возвращаемый объектом `userInfo`. ADProfileInfo — это тип, содержащий весь ответ сервера в определенных утверждениях. 
-
 2. Мы используем `readApplicationSettings`. Эта функция считывает данные, предоставленные в `settings.plist`.
-3. У нас есть метод `convertPolicyToDictionary:policy`, который принимает нашу политику и форматирует ее в виде URL-адреса для отправки на сервер. Этот вспомогательный метод мы напишем ниже.
-4. И наконец, мы используем довольно большой метод `getClaimsWithPolicyClearingCache`. Это и есть тот вызов ADAL для iOS, который нам нужно написать. Мы сделаем это позже.
-
-
-Под кодом, который мы только что написали, создадим метод `convertPolicyToDictionary`.
-
-```
-// Here we have some converstion helpers that allow us to parse passed items in to dictionaries for URLEncoding later.
-
-+(NSDictionary*) convertTaskToDictionary:(samplesTaskItem*)task
-{
-    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
-    
-    if (task.itemName){
-        [dictionary setValue:task.itemName forKey:@"task"];
-    }
-    
-    return dictionary;
-}
-
-+(NSDictionary*) convertPolicyToDictionary:(samplesPolicyData*)policy
-{
-    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
-
-    
-    if (policy.policyID){
-        [dictionary setValue:policy.policyID forKey:@"p"];
-    }
-    
-    return dictionary;
-}
-
-```
-Этот довольно простой код просто добавляет к политике букву p, так что внешний запрос получает вид ?p=<policy>.
+3. И, наконец, мы используем довольно большой метод `getClaimsWithPolicyClearingCache`. Это и есть тот вызов ADAL для iOS, который нам нужно написать. Мы сделаем это позже.
 
 Теперь напишем большой метод `getClaimsWithPolicyClearingCache`. Он такой большой, что заслуживает отдельного раздела.
 
@@ -299,7 +262,7 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 
 Если схема была загружена из GitHub, она уже содержит ряд таких вызовов, которые помогут нам создать образец приложения. Все они соответствуют шаблону `get(Claims|Token)With<verb>ClearningCache`. Благодаря условным обозначениям Objetive C они почти так же понятны, как обычный текст, например "получить маркер с дополнительными параметрами, которые я укажу, и очистить кэш". Это `getTokenWithExtraParamsClearingCache()`. Довольно просто.
 
-Мы напишем «получать утверждения и маркер согласно указанной мною политике и не очищать кэш» или `getClaimsWithPolicyClearingCache`. Мы всегда возвращаем маркер из ADAL, поэтому указывать "Утверждения и маркер" в методе необязательно. Тем не менее в случаях, когда требуется только маркер без синтаксического анализа утверждений, в схеме вызывается метод без утверждений, который называется `getTokenWithPolicyClearingCache`.
+Мы напишем "получать утверждения и маркер согласно указанной мною политике и не очищать кэш" или `getClaimsWithPolicyClearingCache`. Мы всегда возвращаем маркер из ADAL, поэтому указывать "Утверждения и маркер" в методе необязательно. Тем не менее, в случаях, когда требуется только маркер без синтаксического анализа утверждений, в схеме вызывается метод без утверждений, который называется `getTokenWithPolicyClearingCache`.
 
 Давайте напишем этот код.
 
@@ -368,7 +331,7 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 
 Как видите, вызов выполняется очень просто.
 
-**scopes** — это области, передаваемые на сервер, который будет запрашиваться с сервера для входа пользователя. Для предварительной версии B2C мы передаем идентификатор клиента. Однако в будущем вместо это будет использоваться чтение областей. Когда это произойдет, документ будет обновлен. **addtionalScopes** — это дополнительные области, которые можно использовать в приложении. Этот параметр будет использован в будущем. **clientId** — идентификатор приложения, полученный с портала. **redirectURI** — это универсальный код ресурса (URI) перенаправления для обратной публикации маркера. **identifier** — это способ идентификации пользователя, позволяющий определять наличие пригодного маркера в кэше, а не постоянно запрашивать у сервера новый маркер. Эту задачу выполняет тип `ADUserIdentifier`, и мы можем указать, что необходимо использовать в качестве идентификатора. Это должно быть имя пользователя. Параметр **promptBehavior** устарел и должен иметь значение AD\_PROMPT\_ALWAYS. **extraQueryParameters** — это любой дополнительный параметр, который необходимо передать на сервер в формате URL-адреса. **policy** — это вызываемая политика. Это самая важная часть данного руководства.
+**scopes** — это области, передаваемые на сервер, который будет запрашиваться с сервера для входа пользователя. Для предварительной версии B2C мы передаем идентификатор клиента. Однако в будущем вместо это будет использоваться чтение областей. Когда это произойдет, документ будет обновлен. **addtionalScopes** — это дополнительные области, которые можно использовать в приложении. Этот параметр будет использован в будущем. **clientId** — идентификатор приложения, полученный с портала. **redirectURI** — это универсальный код ресурса (URI) перенаправления для обратной публикации маркера. **identifier** — это способ идентификации пользователя, позволяющий определять наличие пригодного маркера в кэше, а не постоянно запрашивать у сервера новый маркер. Эту задачу выполняет тип `ADUserIdentifier`, и мы можем указать, что нужно в качестве идентификатора. Это должно быть имя пользователя. Параметр **promptBehavior** устарел и должен иметь значение AD\_PROMPT\_ALWAYS. **extraQueryParameters** — это любой дополнительный параметр, который необходимо передать на сервер в формате URL-адреса. **policy** — это вызываемая политика. Это самая важная часть данного руководства.
 
 В параметре completionBlock мы передаем `ADAuthenticationResult`, который содержит наш маркер и сведения профиля (если вызов был выполнен успешно).
 
@@ -640,7 +603,7 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
 
 Обратите внимание, что в API хранятся задачи для каждого пользователя, поскольку API извлекает удостоверение пользователя из получаемого маркера доступа.
 
-Готовый пример в виде ZIP-файла находится [здесь](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip). Кроме того, можно клонировать его с GitHub.
+Готовый пример [в виде ZIP-файла предоставлен здесь](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip). Кроме того, можно клонировать его с GitHub.
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS```
 
@@ -652,4 +615,4 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
 
 [Настройка UX приложения B2C >>]()
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

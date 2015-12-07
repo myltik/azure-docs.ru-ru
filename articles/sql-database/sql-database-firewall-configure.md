@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/04/2015"
+   ms.date="11/24/2015"
    ms.author="rickbyh"/>
 
 # Как настроить брандмауэр базы данных SQL Azure
@@ -133,7 +133,9 @@
 
 [Практическое руководство. Настройка параметров брандмауэра базы данных SQL Azure](sql-database-configure-firewall-settings.md)
 
+[Центр обеспечения безопасности для ядра СУБД SQL Server и базы данных Azure SQL](https://msdn.microsoft.com/library/bb510589)
+
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

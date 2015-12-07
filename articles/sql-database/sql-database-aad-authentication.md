@@ -327,4 +327,4 @@ Remove-AzureRMSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

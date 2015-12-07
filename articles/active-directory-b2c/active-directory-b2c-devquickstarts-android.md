@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="11/19/2015"
 	ms.author="brandwe"/>
 
 # Предварительна версия Azure AD B2C: вызов веб-API из приложения Android
@@ -113,9 +113,9 @@ repositories {
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile('com.microsoft.aad:adal:2.0-alpha') {
+    compile('com.microsoft.aad:adal:2.0.1-alpha') {
         exclude group: 'com.android.support'
-    } // Recent version is 2.0-alpha
+    } // Recent version is 2.0.1-alpha
 }
 ```
 
@@ -127,7 +127,7 @@ dependencies {
 <dependency>
     <groupId>com.microsoft.aad</groupId>
     <artifactId>adal</artifactId>
-    <version>2.0-alpha</version>
+    <version>2.0.1-alpha</version>
     <type>aar</type>
 </dependency>
 ```
@@ -891,16 +891,7 @@ ADAL для Android представляет пользователя в вид�
  
  **В тот же файл** с именем `ToDoActivity.java` добавим указанный ниже код.
  
-```
-    private URL getEndpointUrl() {
-        URL endpoint = null;
-        try {
-            endpoint = new URL(Constants.SERVICE_URL);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        return endpoint;
-    }
+ ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
 
  ```
 
@@ -973,9 +964,7 @@ ADAL для Android представляет пользователя в вид�
 
 Готовый пример [в виде ZIP-файла предоставлен здесь](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip). Кроме того, можно клонировать его с GitHub.
 
-```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android
-```
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android```
 
 
 ### Важная информация
@@ -995,4 +984,4 @@ CookieSyncManager.getInstance().sync();
 ``` Подробнее о файлах cookie: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

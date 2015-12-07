@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/17/2015"
+   ms.date="11/23/2015"
    ms.author="tedway; neerajkh"/>
 
 # Справка по размещению в различных регионах
 
-В настоящее время все ресурсы Машинного обучения Azure размещены в юго-центральном регионе США. В этой статье описывается создание рабочей области и публикация веб-службы в других регионах Azure.
+В этой статье описывается создание рабочей области и публикация веб-службы в других регионах Azure.
 
 ## Создание рабочей области
 
@@ -57,4 +57,4 @@
 [3]: ./media/machine-learning-multi-geo/multi-geo_3.png
 [4a]: ./media/machine-learning-multi-geo/multi-geo_4a.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

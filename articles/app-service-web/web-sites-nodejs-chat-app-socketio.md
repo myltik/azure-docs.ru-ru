@@ -3,9 +3,9 @@
 	description="В этом учебнике рассматривается использование Socket.io в веб-приложениях Node.js, размещенных в Azure."
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor=""/>
 
 <tags
 	ms.service="app-service-web"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="10/30/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 
 
 # Создание приложения для разговоров на Node.js с использованием Socket.IO в службе приложений Azure
 
-Socket.IO обеспечивает связь в режиме реального времени между сервером Node.js и клиентами с помощью WebSockets. Он также поддерживает переход к другим протоколам (например, длинному опросу), работающим со старыми браузерами. В этом учебнике детально описано размещение приложения чата на основе Socket.IO в качестве веб-приложения Azure и показано, как выполнять [масштабирование](#scale-out) с помощью [кэша Redis для Azure](http://azure.microsoft.com/documentation/services/cache). Дополнительные сведения о Socket.IO см. на веб-сайте [http://socket.io/][socketio].
+Socket.IO обеспечивает связь в режиме реального времени между сервером Node.js и клиентами с помощью WebSockets. Он также поддерживает переход к другим протоколам (например, длинному опросу), работающим со старыми браузерами. В этом учебнике детально описано размещение приложения чата на основе Socket.IO в качестве веб-приложения Azure и показано, как выполнять [масштабирование](#scale-out) с помощью [кэша Redis для Azure](/documentation/services/cache). Дополнительные сведения о Socket.IO см. на веб-сайте [http://socket.io/][socketio].
 
 > [AZURE.NOTE]Процедуры в этой задаче применяются для [веб-приложений службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714). Информацию об облачных службах см. в статье <a href="http://www.windowsazure.com/develop/nodejs/tutorials/app-using-socketio/">Создание приложения чата на Node.js с использованием Socket.IO в облачной службе Azure</a>.
 
@@ -119,7 +119,7 @@ Socket.IO обеспечивает связь в режиме реального
 
 ###Создание кэша Redis
 
-Выполните шаги, приведенные в разделе [Создание кэша Azure Redis](https://azure.microsoft.com/ru-RU/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache), чтобы создать новый кэш.
+Выполните шаги, приведенные в разделе [Создание кэша Azure Redis](/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/#create-a-cache), чтобы создать новый кэш.
 
 > [AZURE.NOTE]Сохраните значения __Имя узла__ и __Первичный ключ__ кэша, так как они понадобятся позднее.
 
@@ -285,4 +285,4 @@ Socket.IO обеспечивает связь в режиме реального
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

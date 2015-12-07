@@ -3,7 +3,7 @@
 	description="Узнайте, какие преимущества обеспечивает служба автоматизации Azure, и получите ответы на часто задаваемые вопросы, чтобы приступить к созданию и использованию модулей Runbook и службы Azure Automation DSC."
 	services="automation"
 	documentationCenter=""
-	authors="bwren"
+	authors="SnehaGunda"
 	manager="stevenka"
 	editor=""/>
 
@@ -43,6 +43,10 @@ Runbook в службе автоматизации Azure основаны на W
 
 Вы можете [создавать собственные модули Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) с нуля или изменять модули в [коллекции Runbook](http://msdn.microsoft.com/library/azure/dn781422.aspx) в соответствии с собственными требованиями. Вы можете выбрать три разных [типа Runbook](automation-runbook-types.md) на основе ваших требований и возможностей PowerShell. Если вы предпочитаете работать непосредственно с кодом PowerShell, то можно использовать [Runbook PowerShell](automation-runbook-types.md#powershell-runbooks) или [Runbook рабочего процесса PowerShell](automation-runbook-types.md#powershell-workflow-runbooks), которые вы можете изменять в автономном режиме или в [текстовом редакторе](http://msdn.microsoft.com/library/azure/dn879137.aspx) на портале Azure. Если вы предпочитаете изменять Runbook без необходимости работать с его кодом, то можно создать [графический Runbook](automation-runbook-types.md#graphical-runbooks) с помощью [графического редактора](automation-graphical-authoring-intro.md) на портале предварительной версии Azure.
 
+Предпочитаете смотреть, а не читать? Посмотрите указанный ниже видеоролик, показанный на презентации Microsoft Ignite в мае 2015 года. Примечание. Несмотря на то, что основные концепции и жизненный цикл, о которых рассказывается в этом видеоролике, по-прежнему актуальны, с момента записи этого видеоролика служба автоматизации Azure сделала большой шаг вперед. Теперь она оснащена более функциональным пользовательским интерфейсом на портале Azure и поддерживает дополнительные возможности.
+
+> [AZURE.VIDEO microsoft-ignite-2015-automating-operational-and-management-tasks-using-azure-automation]
+
 
 ## Автоматизация управления конфигурацией с помощью службы настройки требуемого состояния 
 
@@ -77,7 +81,7 @@ Runbook в службе автоматизации Azure основаны на W
 
 ## Как служба автоматизации Azure связана с другими средствами автоматизации?
 
-Функция [Service Management Automation (SMA)](http://technet.microsoft.com/library/dn469260.aspx) предназначена для автоматизации задач управления в частном облаке. Она устанавливается локально в центре обработки данных в качестве компонента [Microsoft Azure Pack](https://www.microsoft.com/ru-RU/server-cloud/). SMA и служба автоматизации Azure используют один и тот же формат Runbook, основанный на Windows PowerShell и рабочем процессе Windows PowerShell, однако SMA не поддерживает [графические модули Runbook](automation-graphical-authoring-intro.md).
+Функция [Service Management Automation (SMA)](http://technet.microsoft.com/library/dn469260.aspx) предназначена для автоматизации задач управления в частном облаке. Она устанавливается локально в центре обработки данных в качестве компонента [Microsoft Azure Pack](https://www.microsoft.com/ru-RU/server-cloud/). SMA и служба автоматизации Azure используют один и тот же формат Runbook, основанный на Windows PowerShell и рабочем процессе Windows PowerShell, однако SMA не поддерживает [графические Runbook](automation-graphical-authoring-intro.md).
 
 [System Center 2012 Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) предназначен для автоматизации локальных ресурсов. Он использует не такой формат модулей Runbook, как служба автоматизации Azure и автоматизация управления службами, и имеет графический интерфейс для создания модулей Runbook без каких-либо сценариев. Его модули Runbook формируются действиями из пакетов интеграции, написанными специально для оркестратора.
 
@@ -97,4 +101,4 @@ Runbook в службе автоматизации Azure основаны на W
 
 **Да! Нам нужна обратная связь.** Если вы ищете модуль интеграции или определенное решение для службы автоматизации Azure, в котором используются модули Runbook, разместите соответствующий запрос на сайте "Центр сценариев". Если вы хотите оставить отзыв или запрос на ту или иную функцию для службы автоматизации Azure, оставляйте их на сайте [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Спасибо!
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

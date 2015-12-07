@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/21/2015"
+   ms.date="11/20/2015"
    ms.author="telmos" />
 
 # Как создавать сетевые группы безопасности в PowerShell
@@ -38,21 +38,21 @@
 
 3. Создайте правило безопасности, разрешающее доступ из Интернета к порту 3389.
 
-		$rule1 = New-AzureNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" `
+		$rule1 = New-AzureRmNetworkSecurityRuleConfig -Name rdp-rule -Description "Allow RDP" `
 		    -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
 		    -SourceAddressPrefix Internet -SourcePortRange * `
 		    -DestinationAddressPrefix * -DestinationPortRange 3389
 
 4. Создайте правило безопасности, разрешающее доступ из Интернета к порту 80.
 
-		$rule2 = New-AzureNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" `
+		$rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Allow HTTP" `
 		    -Access Allow -Protocol Tcp -Direction Inbound -Priority 101 `
 		    -SourceAddressPrefix Internet -SourcePortRange * `
 		    -DestinationAddressPrefix * -DestinationPortRange 80
 
 5. Добавьте созданные выше правила в новую группу безопасности сети под названием **NSG-FrontEnd**.
 
-		$nsg = New-AzureNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-FrontEnd" `
+		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-FrontEnd" `
 			-SecurityRules $rule1,$rule2
 
 6. Проверьте правила, созданные в группе безопасности сети.
@@ -96,8 +96,8 @@
 
 6. Свяжите созданную выше группу безопасности сети с подсетью *FrontEnd*.
 
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
+		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name FrontEnd `
 			-AddressPrefix 192.168.1.0/24 -NetworkSecurityGroup $nsg
 
 	В выходных данных отображаются только параметры подсети *FrontEnd* (обратите внимание на значение свойства **NetworkSecurityGroup**):
@@ -123,11 +123,11 @@
 		                        "ProvisioningState": "Succeeded"
 		                      }
 
->[AZURE.WARNING]Результаты выполнения представленной выше команды отображают содержимое объекта конфигурации виртуальной сети, который существует только на том компьютере, где выполняется PowerShell. Чтобы сохранить эти параметры в Azure, выполните командлет **Set-AzureVirtualNetwork**.
+>[AZURE.WARNING]Результаты выполнения представленной выше команды отображают содержимое объекта конфигурации виртуальной сети, который существует только на том компьютере, где выполняется PowerShell. Чтобы сохранить эти параметры в Azure, выполните командлет **Set-AzureRmVirtualNetwork**.
 
 7. Сохраните новые параметры виртуальной сети в Azure.
 
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet
+		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 	В выходных данных отображается только часть, относящаяся к группе безопасности сети:
 
@@ -140,26 +140,26 @@
 
 1. Создайте правило безопасности, которое разрешает доступ из подсети переднего плана к порту 1433 (порту, используемому по умолчанию в SQL Server).
 
-		$rule1 = New-AzureNetworkSecurityRuleConfig -Name frontend-rule -Description "Allow FE subnet" `
+		$rule1 = New-AzureRmNetworkSecurityRuleConfig -Name frontend-rule -Description "Allow FE subnet" `
 		    -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 `
 		    -SourceAddressPrefix 192.168.1.0/24 -SourcePortRange * `
 		    -DestinationAddressPrefix * -DestinationPortRange 1433
 
 4. Создайте правило безопасности, блокирующее доступ к Интернету.
 
-		$rule2 = New-AzureNetworkSecurityRuleConfig -Name web-rule -Description "Block Internet" `
+		$rule2 = New-AzureRmNetworkSecurityRuleConfig -Name web-rule -Description "Block Internet" `
 		    -Access Deny -Protocol * -Direction Outbound -Priority 200 `
 		    -SourceAddressPrefix * -SourcePortRange * `
 		    -DestinationAddressPrefix Internet -DestinationPortRange *
 
 5. Добавьте созданные выше правила в новую группу безопасности сети под названием **NSG-BackEnd**.
 
-		$nsg = New-AzureNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `-Name "NSG-BackEnd" `
+		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `-Name "NSG-BackEnd" `
 			-SecurityRules $rule1,$rule2
 
 6. Свяжите созданную выше группу безопасности сети с подсетью *BackEnd*.
 
-		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
+		Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
 
 	В выходных данных отображаются только параметры подсети *BackEnd* (обратите внимание на значение свойства **NetworkSecurityGroup**):
@@ -180,6 +180,6 @@
 
 7. Сохраните новые параметры виртуальной сети в Azure.
 
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet
+		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

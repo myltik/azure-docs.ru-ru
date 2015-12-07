@@ -4,7 +4,7 @@
 	description="Информация о приобретении личного доменного имени для веб-приложения в службе приложение Azure."
 	services="app-service\web"
 	documentationCenter=""
-	authors="MikeWasson"
+	authors="rmcmurray"
 	manager="wpickett"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/31/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 # Приобретение и настройка личного домена для службы приложений Azure.
 
@@ -93,9 +93,9 @@
 
 > [AZURE.NOTE]Вы можете отменить покупку в течение 5 дней и полностью вернуть свои деньги. Через 5 дней вы уже не сможете это сделать, и вместо параметра «Отменить покупку» появится возможность «Удалить» домен. Удаление домена приведет к его выключению из подписки без возврата денег, и он станет доступным для других.
 
-	Once configuration has completed, the custom domain name will be listed in the **Hostname bindings** section of your web app.
+После завершения настройки имя личного домена появится в вашем веб-приложении в разделе **Привязки к имени узла**.
 
 На этом этапе можно ввести личное доменное имя в браузере и удостовериться, что оно успешно принято вашим веб-приложением.
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

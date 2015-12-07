@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor=""
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/08/2015"
+   ms.date="11/20/2015"
    ms.author="telmos" />
 
 #Создание определяемых пользователем маршрутов (UDR) с помощью шаблона
@@ -114,11 +114,13 @@
 
 Чтобы развернуть шаблон ARM, загруженный с помощью PowerShell, выполните описанные ниже действия.
 
-1. Если вы ранее не использовали Azure PowerShell, выполните все инструкции в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md), чтобы выполнить вход в Azure и выбрать подписку.
+[AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
-3. Выполните командлет **New-AzureRMResourceGroup**, чтобы создать группу ресурсов с помощью этого шаблона.
+1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md). Войдите в Azure и выберите подписку.
 
-		New-AzureRMResourceGroup -Name TestRG -Location westus `
+3. Выполните командлет **New-AzureRmResourceGroup**, чтобы создать группу ресурсов с помощью этого шаблона.
+
+		New-AzureRmResourceGroup -Name TestRG -Location westus `
 		    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.json' `
 		    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/IaaS-NSG-UDR/azuredeploy.parameters.json'	
 
@@ -168,7 +170,7 @@
 
 Чтобы развернуть шаблон ARM с помощью интерфейса командной строки Azure, выполните следующие действия.
 
-1. Если вы еще не пользовались интерфейсом командной строки Azure, см. статью [Установка и настройка CLI Azure](xplat-cli.md) и следуйте указаниям вплоть до выбора учетной записи Azure и подписки.
+1. Если вы еще не пользовались Azure CLI, см. статью [Установка и настройка CLI Azure](xplat-cli.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
 2. Выполните команду **azure config mode**, чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
 
 		azure config mode arm
@@ -390,4 +392,4 @@
 
 >[AZURE.TIP]Если отображаются не все ресурсы, выполните команду **azure group deployment show**, чтобы состояние подготовки развертывания имело значение *Успешно выполнено*.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

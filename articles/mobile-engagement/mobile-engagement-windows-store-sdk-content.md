@@ -44,6 +44,8 @@
 
 ### Папка /overlay
 
+- `EngagementBaseOverlay.cs`: базовый код, используемый наложениями `Announcement` и `Notification`.
+
 - `EngagementOverlayAnnouncement.xaml` : XAML-код `Announcement`.
 
 - `EngagementOverlayAnnouncement.xaml.cs`: код, связанный с `EngagementOverlayAnnouncement.xaml`.
@@ -55,4 +57,4 @@
 - `EngagementPageOverlay.cs`: кода для отображения объявлений и уведомлений `Overlay`.
   
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

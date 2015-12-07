@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Приступая к созданию балансировщика нагрузки для Интернета в классической модели развертывания с помощью портала Azure | Microsoft Azure"
+   pageTitle="Начало работы по созданию балансировщика нагрузки для Интернета по классической модели развертывания с помощью портала Azure | Microsoft Azure"
    description="Узнайте, как создать балансировщика нагрузки для Интернета в классической модели развертывания с помощью портала Azure."
    services="load-balancer"
    documentationCenter="na"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="11/20/2015"
    ms.author="joaoma" />
 
 # Приступая к созданию балансировщика нагрузки (классический режим) для Интернета на портале Azure
@@ -66,4 +66,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

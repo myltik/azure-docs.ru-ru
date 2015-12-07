@@ -3,9 +3,9 @@
 	description="В этом учебнике показано, как с помощью WebMatrix разработать приложение Node.js и развернуть его в веб-приложения службы приложений Azure." 
 	services="app-service\web" 
 	documentationCenter="nodejs" 
-	authors="MikeWasson" 
+	authors="rmcmurray" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/03/2015"
-	ms.author="mwasson"/>
+	ms.date="11/20/2015"
+	ms.author="robmcm"/>
 
 
 # Создание и развертывание веб-приложения Node.js в Azure с использованием WebMatrix
 
-В этом учебнике показано, как с помощью WebMatrix разработать приложение Node.js и развернуть его в веб-приложения [службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714). WebMatrix представляет собой бесплатное средство веб-разработки от корпорации Майкрософт, которое содержит все необходимое для разработки веб-сайта или веб-приложения. WebMatrix включает несколько возможностей, которые делают использование Node.js более удобным, в том числе автозавершение кода, готовые шаблоны, а также поддержка редактором Jade, LESS и CoffeeScript. Дополнительные сведения о [WebMatrix для Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409).
+В этом учебнике показано, как с помощью WebMatrix разработать приложение Node.js и развернуть его в веб-приложения [службы приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714). WebMatrix представляет собой бесплатное средство веб-разработки от корпорации Майкрософт, которое содержит все необходимое для разработки веб-сайта или веб-приложения. WebMatrix включает несколько возможностей, которые делают использование Node.js более удобным, в том числе автозавершение кода, готовые шаблоны, а также поддержка редактором Jade, LESS и CoffeeScript. Дополнительные сведения о [WebMatrix](https://www.microsoft.com/web/webmatrix/)
 
 После завершения работы с этим учебником вы получите веб-приложение Node.js, работающее в службе приложений Azure.
  
@@ -85,7 +85,7 @@
 
 	![WebMatrix — просмотр index.jade][webmatrix-modify-index]
 
-2. Измените вторую строку следующим образом.
+2. Измените строку параграфа следующим образом.
 
 		p Welcome to #{title} with WebMatrix on Azure!
 
@@ -126,4 +126,4 @@
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

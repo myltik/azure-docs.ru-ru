@@ -3,7 +3,7 @@
    description="Пошаговое руководство по упаковке нескольких приложений для развертывания в кластере Service Fabric в Azure"
    services="service-fabric"
    documentationCenter=".net"
-   authors="bscholl"
+   authors="bmscholl"
    manager=""
    editor=""/>
 
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/09/2015"
+   ms.date="11/17/2015"
    ms.author="bscholl"/>
 
 
-# Развертывание нескольких существующих приложений
+# Развертывание нескольких пользовательских приложений
 
 В этой статье показано, как упаковать и развернуть несколько приложений в Service Fabric с помощью предварительной версии средства упаковки Service Fabric, которое доступно в http://aka.ms/servicefabricpacktool.
 
@@ -194,8 +194,8 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 
 Из этого учебника вы узнали, как легко упаковать два существующих приложения в одно приложение Service Fabric и развернуть его в Service Fabric, чтобы оно могло воспользоваться некоторыми функциями Service Fabric, такими как высокий уровень доступности и система контроля работоспособности.
 
-Дополнительные сведения см. в следующих статьях:
+## Дальнейшие действия
 
-[Формат пакета Service Fabric](service-fabric-deploy-existing-app.md)
+Узнайте, как [вручную упаковать приложение в пакет](service-fabric-deploy-existing-app.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="11/19/2015"
 	ms.author="brandwe"/>
 
 # Вход и выход веб-приложения с использованием Azure AD
@@ -40,7 +40,7 @@
 
 Готовое приложение также приводится в конце этого руководства.
 
-## 1. Регистрация приложения
+## 1\. Регистрация приложения
 - Выполните вход на портале управления Azure.
 - В левой панели навигации нажмите **Active Directory**.
 - Выберите клиент, в котором нужно зарегистрировать приложение.
@@ -51,7 +51,7 @@
     - **URI идентификатора приложения** — это уникальный идентификатор вашего приложения. Соглашение заключается в использовании `https://<tenant-domain>/<app-name>`, например, `https://contoso.onmicrosoft.com/my-first-aad-app`
 - После завершения регистрации Azure AD присваивает приложению уникальный идентификатор клиента. Это значение понадобится в следующих разделах, поэтому его стоит скопировать из вкладки «Настройка».
 
-## 2. Добавление предварительных требований в ваш каталог
+## 2\. Добавление предварительных требований в ваш каталог
 
 В командной строке сделайте текущей корневую папку, если это еще не было сделано, и выполните следующие команды:
 
@@ -70,8 +70,8 @@
 
 Будет выполнена установка библиотек, которые зависят от passport-azure-ad.
 
-## 3. Настройка приложения для использования стратегии passport-node-js
-Здесь мы настроим промежуточный слой Express для использования протокола проверки подлинности OpenID Connect.  Кроме всего прочего, Passport будет использоваться для выдачи запросов входа и выхода, управления сеансом пользователя и получения сведений о пользователе.
+## 3\. Настройка приложения для использования стратегии passport-node-js
+Здесь мы настроим промежуточный слой Express для использования протокола проверки подлинности OpenID Connect. Кроме всего прочего, Passport будет использоваться для выдачи запросов входа и выхода, управления сеансом пользователя и получения сведений о пользователе.
 
 -	Для начала откройте файл `config.js` в корне проекта, а затем введите значения параметров конфигурации приложения в разделе `exports.creds`.
     -	`clientID:` — это **идентификатор приложения**, назначенный приложению на портале регистрации.
@@ -84,7 +84,7 @@
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// добавление средства ведения журнала
+// add a logger
 
 var log = bunyan.createLogger({
     name: 'Microsoft OIDC Example Web Application'
@@ -134,8 +134,7 @@ passport.use(new OIDCStrategy({
 Passport использует аналогичную схему для всех своих стратегий (Twitter, Facebook и т. д.), представленных всеми модулями записи стратегий. Просматривая стратегию, можно увидеть, что мы передаем function(), у которой есть маркер, и обрабатываем параметры. Стратегия возвратится к нам после выполнения всей своей работы. После ее возврата потребуется сохранить пользователя и спрятать маркер, так как нам больше не придется его запрашивать.
 
 
-> [AZURE.IMPORTANT] 
-Приведенный выше код принимает всех пользователей, которые прошли аутентификацию на сервере. Это называется автоматической регистрацией. На рабочих серверах не нужно разрешать другим пользователям входить без выбранной вами регистрации. Это типично для клиентских приложений, в которых разрешается регистрация через Facebook, но затем последуют запросы на дополнительную информацию. Если бы это не был пример приложения, мы могли бы извлечь электронный адрес из возвращенного объекта маркера и затем запросить дополнительную информацию. Так как это всего лишь тестовый сервер, мы просто добавим их в базу данных в памяти.
+> [AZURE.IMPORTANT]Приведенный выше код принимает всех пользователей, которые прошли аутентификацию на сервере. Это называется автоматической регистрацией. На рабочих серверах не нужно разрешать другим пользователям входить без выбранной вами регистрации. Это типично для клиентских приложений, в которых разрешается регистрация через Facebook, но затем последуют запросы на дополнительную информацию. Если бы это не был пример приложения, мы могли бы извлечь электронный адрес из возвращенного объекта маркера и затем запросить дополнительную информацию. Так как это всего лишь тестовый сервер, мы просто добавим их в базу данных в памяти.
 
 - Далее добавим методы, которые позволят отслеживать список вошедших пользователей согласно требованиям Passport. Сюда относится сериализация и десериализация информации о пользователе:
 
@@ -243,60 +242,40 @@ app.post('/auth/openid/return',
   });
   ```
 
-## 4. Использование Passport для выдачи запросов на вход и выход в Azure AD
+## 4. Use Passport to issue sign-in and sign-out requests to Azure AD
 
-Теперь приложение правильно настроено для взаимодействия с конечной точки версии 2.0 с использованием протокола проверки подлинности OpenID Connect.  `passport-azure-ad`  полностью возьмет на себя выполнение процессов создания сообщений проверки подлинности, проверки маркеров из Azure AD и поддержки сеанса пользователя.  Осталось дать пользователям возможность входа, выхода и сбора дополнительной информации о вошедшем в систему пользователе.
+Your app is now properly configured to communicate with the v2.0 endpoint using the OpenID Connect authentication protocol.  `passport-azure-ad` has taken care of all of the ugly details of crafting authentication messages, validating tokens from Azure AD, and maintaining user session.  All that remains is to give your users a way to sign in, sign out, and gather additional info on the logged in user.
 
-- Во-первых, добавим в файл `app.js`  метод по умолчанию, а также метод входа, учетной записи и выхода.
+- First, lets add the default, login, account, and logout methods to our `app.js` file:
 
 ```JavaScript
 
 //Маршруты (раздел 4)
 
-app.get('/', function(req, res){
-  res.render('index', { user: req.user });
-});
+app.get('/', function(req, res){ res.render('index', { user: req.user }); });
 
-app.get('/account', ensureAuthenticated, function(req, res){
-  res.render('account', { user: req.user });
-});
+app.get('/account', ensureAuthenticated, function(req, res){ res.render('account', { user: req.user }); });
 
-app.get('/login',
-  passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }),
-  function(req, res) {
-    log.info('Login was called in the Sample');
-    res.redirect('/');
-});
+app.get('/login', passport.authenticate('azuread-openidconnect', { failureRedirect: '/login' }), function(req, res) { log.info('Вход инициирован в примере'); res.redirect('/'); });
 
-app.get('/logout', function(req, res){
-  req.logout();
-  res.redirect('/');
-});
+app.get('/logout', function(req, res){ req.logout(); res.redirect('/'); });
 
 ```
 
--	Рассмотрим это подробно.
-    -	Маршрут `/`  выполнит перенаправление в представление index.ejs, передавая пользователя в запросе (если он существует).
-    - Маршрут `/account`  сначала ***обеспечит аутентификацию*** (реализуемую ниже), а затем передаст пользователя в запросе, чтобы мы могли получить дополнительную информацию о пользователе.
-    - Маршрут `/login`  вызовет структуру проверки подлинности azuread-openidconnect из `passport-azuread`  и, если проверка не будет пройдена, перенаправит пользователя назад к /login.
-    - `/logout`  просто вызовет logout.ejs (и маршрут), который очищает файлы cookie, и вернет пользователя к index.ejs
+-	Let's review these in detail:
+    -	The `/` route will redirect to the index.ejs view passing the user in the request (if it exists)
+    - The `/account` route will first ***ensure we are authenticated*** (we implement that below) and then pass the user in the request so that we can get additional information about the user.
+    - The `/login` route will call our azuread-openidconnect authenticator from `passport-azuread` and if that doesn't succeed will redirect the user back to /login
+    - The `/logout` will simply call the logout.ejs (and route) which clears cookies and then return the user back to index.ejs
 
 
-- В последней части `app.js`  давайте добавим метод EnsureAuthenticated, который используется в `/account`  выше.
+- For the last part of `app.js`, let's add the EnsureAuthenticated method that is used in `/account` above.
 
 ```JavaScript
 
 // Простое ПО промежуточного слоя для маршрутизации, позволяющее пользователю пройти проверку подлинности. (Раздел 4)
 
-//   Используйте это ПО промежуточного слоя маршрутизации для всех ресурсов, которые необходимо защитить.  Если
-//   запрос пройдет проверку подлинности (обычно с помощью постоянного сеанса входа),
-//   запрос будет продолжен. В противном случае, пользователь будет перенаправлен на
-//   страницу входа.
-function ensureAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) { return next(); }
-  res.redirect('/login')
-}
-```
+// Используйте это ПО промежуточного слоя маршрутизации для всех ресурсов, которые необходимо защитить. Если // запрос пройдет проверку подлинности (обычно с помощью постоянного сеанса входа), // запрос будет продолжен. В противном случае, пользователь будет перенаправлен на // страницу входа. function ensureAuthenticated(req, res, next) { if (req.isAuthenticated()) { return next(); } res.redirect('/login') } ```
 
 - Наконец, создайте в `app.js` сам сервер.
 
@@ -307,7 +286,7 @@ app.listen(3000);
 ```
 
 
-## 5. Создание представлений и маршрутов в Express для отображения пользователя на веб-сайте
+## 5\. Создание представлений и маршрутов в Express для отображения пользователя на веб-сайте
 
 Наш файл `app.js` готов. Теперь надо просто добавить маршруты и представления, которые отобразят получаемую информацию для пользователя, а также обработают созданные нами маршруты `/logout` и `/login`.
 
@@ -348,7 +327,6 @@ exports.list = function(req, res){
 	<a href="/account">Account Info</a></br>
 	<a href="/logout">Log Out</a>
 <% } %>
-
 ```
 
 - Создайте в корневом каталоге представление `/views/account.ejs`, чтобы мы могли просматривать дополнительную информацию, которую `passport-azuread` передает в запрос пользователя.
@@ -368,7 +346,6 @@ exports.list = function(req, res){
 <p></p>
 <a href="/logout">Log Out</a>
 <% } %>
-
 ```
 
 - Наконец, давайте все красиво оформим, добавив макет. Создайте представление /views/layout.ejs в корневом каталоге.
@@ -416,4 +393,4 @@ exports.list = function(req, res){
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

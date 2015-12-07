@@ -58,7 +58,7 @@
 
 [Сериализация данных](service-fabric-application-upgrade-data-serialization.md)
 
-[Дополнительные разделы](service-fabric-application-upgrade-advanced.md)
+[Обновление вручную и с помощью пакетов Diff](service-fabric-application-upgrade-advanced.md)
 
 [Поиск и устранение неисправностей при обновлении приложения](service-fabric-application-upgrade-troubleshooting.md)
 
@@ -67,4 +67,4 @@
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1125_2015-->

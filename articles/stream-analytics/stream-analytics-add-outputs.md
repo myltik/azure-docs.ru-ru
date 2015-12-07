@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Добавление выходных данных | Microsoft Azure" 
-	description="Сегмент схемы обучения по добавлению выходных данных."
+	description="Добавление выходных данных в задания Stream Analytics | Сегмент схемы обучения"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,10 +13,10 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/10/2015" 
+	ms.date="11/23/2015" 
 	ms.author="jeffstok"/>
 
-# Добавление выходных данных
+# **Добавление выходных данных** для заданий Stream Analytics
 
 Задания службы Azure Stream Analytics можно подключать к одному или нескольким выходам данных, которые определяют подключение к существующему приемнику данных. По мере того как задание Stream Analytics обрабатывает и преобразует входящие данные, поток выходных событий записывается в выходные данные задания.
 
@@ -63,4 +63,4 @@
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

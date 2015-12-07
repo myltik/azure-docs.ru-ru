@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/20/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # Развертывание резервного копирования в Azure для Windows Server или клиента Windows и управление им с помощью PowerShell
@@ -74,16 +74,7 @@ PS C:\> MARSAgentInstaller.exe /?
 
 | Параметр | Сведения | значение по умолчанию |
 | ---- | ----- | ----- |
-| /q | Тихая установка | - |
-| /p:"местоположение" | Путь к папке установки агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent |
-| /s:"местоположение" | Путь к папке кэша агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
-| /m | Согласиться на получение обновлений от Майкрософт | - |
-| /nu | Не проверять наличие обновлений после завершения установки | - |
-| /d | Удаляет агент служб восстановления Microsoft Azure | - |
-| /ph | Адрес узла прокси-сервера | - |
-| /po | Номер порта узла прокси-сервера | - |
-| /pu | Имя пользователя узла прокси-сервера | - |
-| /pw | Пароль прокси-сервера | - |
+| /q | Тихая установка | - | | / p:"местоположение" | Путь к папке установки агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"местоположение" | Путь к папке кэша агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch | | /m | Согласиться на получение обновлений от Майкрософт | - | | /nu | Не проверять наличие обновлений после завершения установки | - | | /d | Удаляет агент служб восстановления Microsoft Azure | - | | /ph | Адрес узла прокси-сервера | - | | /po | Номер порта узла прокси-сервера | - | | / pu | Имя пользователя узла прокси-сервера | - | | /pw | Пароль прокси-сервера | - |
 
 
 ### Регистрация в службе архивации Azure
@@ -181,8 +172,6 @@ BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName :
 ```
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
-
-> [AZURE.NOTE]В настоящее время командлеты PowerShell не поддерживают задание политик долгосрочного хранения. Для задания таких политик следует использовать консоль службы архивации Azure.
 
 Политику хранения следует связать с основной политикой с помощью командлета [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405):
 
@@ -595,4 +584,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 - [Общие сведения о службе архивации Azure](backup-configure-vault.md)
 - [Резервное копирование серверов Windows](backup-azure-backup-windows-server.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

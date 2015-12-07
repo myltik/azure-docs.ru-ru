@@ -1,6 +1,6 @@
-###В Xamarin Studio
+####Настройка проекта iOS в Xamarin Studio
 
-1. В Xamarin.Studio откройте **Info.plist** и обновите **Идентификатор пакета**, указав свой ранее созданный идентификатор.
+1. В Xamarin.Studio откройте **Info.plist** и обновите **Идентификатор пакета**, указав идентификатор пакета, который вы создали ранее, используя идентификатор нового приложения.
 
     ![](./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png)
 
@@ -16,7 +16,7 @@
 
     Таким образом, проект будет использовать новый профиль для подписи кода. Официальную документацию по подготовке устройств Xamarin см. в статье [Подготовка устройства Xamarin].
 
-### В Visual Studio
+####Настройка проекта iOS в Visual Studio
 
 1. В Visual Studio щелкните правой кнопкой мыши проект и выберите пункт **Свойства**.
 
@@ -33,4 +33,4 @@
 
 [Подготовка устройства Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

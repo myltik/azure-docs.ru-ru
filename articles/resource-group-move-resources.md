@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="11/19/2015" 
 	ms.author="tomfitz"/>
 
 # Перемещение ресурсов в новую группу ресурсов или подписку
@@ -28,7 +28,7 @@
 
 1. Расположение ресурса изменить невозможно. При перемещении ресурс всего лишь перемещается в новую группу ресурсов. Даже если новая группа ресурсов находится в другом расположении, расположение ресурса не меняется.
 2. Группа ресурсов назначения должна содержать только те ресурсы, жизненные циклы приложений которых совпадают с аналогичными жизненными циклами перемещаемых ресурсов.
-3. Если вы используете Azure PowerShell, убедитесь, что у вас установлена последняя версия. Команда **Move-AzureResource** часто обновляется. Чтобы обновить текущую версию, запустите установщик веб-платформы Майкрософт и проверьте доступность более новой версии. Дополнительную информацию см. в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md).
+3. Если вы используете Azure PowerShell, убедитесь, что у вас установлена последняя версия. Команда **Move-AzureRmResource** часто обновляется. Чтобы обновить текущую версию, запустите установщик веб-платформы Майкрософт и проверьте доступность более новой версии. Дополнительную информацию см. в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md).
 4. Операция перемещения может занять некоторое время. В это время командная строка PowerShell будет ожидать ее завершения.
 5. При перемещении ресурсов группу источника и группа назначения блокируются на время операции. Операции записи и удаления для групп блокируются до завершения перемещения.
 
@@ -39,15 +39,20 @@
 Сейчас к службам, которые поддерживают перемещение в новую группу ресурсов и подписку, относятся:
 
 - Управление API
-- Azure DocumentDB.
-- поиск Azure;
-- веб-приложения Azure (действуют некоторые [ограничения](app-service-web/app-service-move-resources.md));
+- Автоматизация
+- Пакетная служба
 - Фабрика данных
+- DocumentDB
+- Кластеры HDInsight
 - хранилище ключей;
+- Приложения логики
 - Mobile Engagement;
+- Центры уведомлений
 - Operational Insights;
 - Кэш Redis
+- Поиск
 - База данных SQL
+- Веб-приложения (действуют некоторые [ограничения](app-service-web/app-service-move-resources.md))
 
 Службы с поддержкой перемещения в новую группу ресурсов, но не в новую подписку:
 
@@ -73,12 +78,13 @@
 
 В первом примере показано, как переместить один ресурс в новую группу ресурсов.
 
-    PS C:\> Move-AzureRmResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
+    PS C:\> $resource = Get-AzureRmResource -ResourceName ExampleApp -ResourceGroupName OldRG
+    PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $resource.ResourceId
 
 Во втором примере показано, как переместить несколько ресурсов в новую группу ресурсов.
 
-    PS C:\> $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite -ResourceType Microsoft.Web/sites
-    PS C:\> $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan -ResourceType Microsoft.Web/serverFarms
+    PS C:\> $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
+    PS C:\> $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
     PS C:\> Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId ($webapp.ResourceId, $plan.ResourceId)
 
 Чтобы переместить ресурс в новую подписку, добавьте значение параметра **DestinationSubscriptionId**.
@@ -97,4 +103,4 @@
 - [Управление ресурсами с помощью портала Azure](azure-portal/resource-group-portal.md)
 - [Использование тегов для организации ресурсов](./resource-group-using-tags.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="08/20/2015"
+   ms.date="11/19/2015"
    ms.author="joaoma"/>
 # Создание зон DNS и наборов записей с помощью пакета SDK для .NET
 Вы можете автоматизировать операции для создания, удаления или обновления зон DNS, наборов записей и записей с помощью пакета SDK DNS с библиотекой управления DNS .NET. Полный проект Visual Studio доступен [здесь.](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
@@ -102,10 +102,6 @@ Azure DNS поддерживают оптимистичный параллели
 	}
 ## Дальнейшие действия
 
-[Что такое диспетчер трафика](traffic-manager-overview.md)
-
-[Что такое Azure DNS?](dns-overview.md)
-
 [Образец проекта SDK Visual Studio](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1125_2015-->

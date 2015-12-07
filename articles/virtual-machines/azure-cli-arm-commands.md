@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Использование интерфейса командной строки Azure с диспетчером ресурсов | Microsoft Azure"
 	description="Узнайте о том, как использовать Azure CLI для Mac, Linux и Windows, чтобы управлять ресурсами Azure с помощью Azure CLI в режиме диспетчера ресурсов Azure."
-	services="virtual-machines,mobile-services,cloud-services"
+	services="virtual-machines,virtual-network,mobile-services,cloud-services"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/07/2015"
+	ms.date="11/18/2015"
 	ms.author="danlep"/>
 
 # Использование CLI Azure для Mac, Linux и Windows с диспетчером ресурсов Azure
@@ -45,16 +45,16 @@
 
 - учетная запись Azure ([получить бесплатную ознакомительную учетную запись](http://azure.microsoft.com/pricing/free-trial/));
 - [установка Azure CLI](../xplat-cli-install.md);
-- [настройка Azure CLI](../xplat-cli-connect.md) для использования удостоверения Azure Active Directory или субъекта-службы.
+
 
 После открытия учетной записи и установки Azure CLI следует выполнить следующие действия.
 
+- [Настройте Azure CLI](../xplat-cli-connect.md) на использование рабочей или учебной учетной записи или удостоверения учетной записи Майкрософт 
 - Переключитесь в режим диспетчера ресурсов, введя `azure config mode arm`.
-- Выполните вход в учетную запись Azure, для чего введите `azure login` и далее используйте рабочее или школьное удостоверение.
 
 
-## Учетная запись Azure. Управление сведениями об учетной записи и публикация настроек
-Информация о подписке Azure используется инструментом для подключения к учетной записи. Эту информацию вы можете получить через портал Azure в файле параметров публикации, как описано здесь. Вы можете импортировать файл параметров публикации как постоянный локальный параметр конфигурации, который программа будет использовать для последующих операций. Вам необходимо импортировать параметры публикации только один раз.
+## Учетная запись Azure. Управление сведениями об учетной записи
+Информация о подписке Azure используется инструментом для подключения к учетной записи.
 
 **Вывод списка импортированных подписок**
 
@@ -1760,4 +1760,4 @@
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1125_2015-->
