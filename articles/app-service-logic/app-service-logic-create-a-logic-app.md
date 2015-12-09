@@ -21,7 +21,7 @@
 | Краткий справочник |
 | --------------- |
 | [Язык описания приложений логики](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
-| [Документация по соединителям приложений логики](https://azure.microsoft.com/ru-RU/documentation/articles/app-service-logic-connectors-list/) |
+| [Документация по соединителям приложений логики](https://azure.microsoft.com/documentation/articles/app-service-logic-connectors-list/) |
 | [Форум о приложениях логики](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=azurelogicapps) |
 
 В этом разделе будет показано, как всего за несколько минут создать [приложение логики службы приложений](app-service-logic-what-are-logic-apps.md). Мы рассмотрим рабочий процесс, который позволяет получать набор интересующих твитов в папку Dropbox.
@@ -188,4 +188,4 @@
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [Использование функций приложения логики]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

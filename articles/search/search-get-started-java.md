@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Начало работы со службой поиска Azure в Java | Microsoft Azure | Размещенная облачная служба поиска"
+	pageTitle="Начало работы со службой поиска Azure в Java | Microsoft Azure | Размещенная облачная служба поиска"
 	description="Создание облачного приложения поиска в Azure с использованием Java в качестве языка программирования."
 	services="search"
 	documentationCenter=""
@@ -28,7 +28,7 @@
 
 - [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
-Чтобы запустить этот пример, вам потребуется служба поиска Azure, в которой можно зарегистрироваться на [портале управления Azure](https://portal.azure.com).
+Для использования этого примера требуется служба поиска Azure. Зарегистрироваться для работы с ней можно на [классическом портале Azure](https://portal.azure.com).
 
 > [AZURE.TIP]Загрузите исходный код для этого учебника в разделе [Azure Search Java demo](http://go.microsoft.com/fwlink/p/?LinkId=530197) на Github.
 
@@ -55,7 +55,7 @@
 
 ## Создание службы
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите на [классический портал Azure](https://portal.azure.com).
 
 2. На панели быстрых переходов последовательно щелкните элементы **Создать** > **Данные+хранилище** > **Поиск**.
 
@@ -123,7 +123,7 @@
 
 1. В **Обозревателе проектов** дважды щелкните файл **config.properties**, чтобы изменить параметры конфигурации, содержащие имя сервера и ключ API.
 
-2. См. предыдущие шаги в этой статье, в рамках которых вы нашли URL-адрес и ключ API службы на [портале Azure](https://portal.azure.com), чтобы получить значения, которые вы теперь введете в файл **config.properties**.
+2. См. предыдущие шаги в этой статье по поиску URL-адреса и ключа API службы на [классическом портале Azure](https://portal.azure.com) для получения значений, которые вы теперь введете в файл **config.properties**.
 
 3. В файле **config.properties** замените "Api Key" на ключ API для вашей службы. Затем имя службы (первый компонент URL-адреса http://servicename.search.windows.net) заменяет "service name" в том же файле.
 
@@ -231,4 +231,4 @@
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

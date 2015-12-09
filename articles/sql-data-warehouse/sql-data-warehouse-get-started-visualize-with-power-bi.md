@@ -31,7 +31,7 @@
 
 Чтобы открыть Power BI и подключиться к базе данных AdventureWorksDW, выполните следующие действия.
 
-1. Войдите на [портал предварительной версии Azure][].
+1. Войдите на [портал Azure][].
 2. Щелкните **Базы данных SQL** и выберите базу данных хранилища данных SQL AdventureWorks. 
 
     ![Поиск базы данных][1]
@@ -106,9 +106,9 @@
 [разрабатывать хранилища данных]: ./sql-data-warehouse-overview-develop.md
 [загружать данные]: ./sql-data-warehouse-overview-load.md
 [загрузить демонстрационные данные вручную]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[портал предварительной версии Azure]: https://portal.azure.com/
+[портал Azure]: https://portal.azure.com/
 [Power BI]: http://www.powerbi.com/
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

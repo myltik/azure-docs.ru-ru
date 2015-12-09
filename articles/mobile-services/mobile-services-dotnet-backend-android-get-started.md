@@ -20,6 +20,10 @@
 
 # <a name="getting-started"> </a>Приступая к работе с мобильными службами
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
 [AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
@@ -67,7 +71,7 @@
 
 В этом разделе будет создано новое приложение на платформе Android, которое будет подключено к вашей мобильной службе.
 
-1. На [портале управления] щелкните **Мобильные службы**, затем щелкните только что созданную мобильную службу.
+1. На [классическом портале Azure] щелкните **Мобильные службы** и выберите только что созданную мобильную службу.
 
 2. На вкладке быстрого запуска нажмите кнопку **Android** в разделе **Выбор платформы**, а затем разверните раздел **Создать новое приложение на Android**.
 
@@ -124,6 +128,6 @@
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Устранение неполадок серверной части в мобильных службах .NET]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-[портале управления]: https://manage.windowsazure.com/
+[классическом портале Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

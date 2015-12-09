@@ -19,7 +19,7 @@
 # Создание хранилища данных SQL с помощью Powershell
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
@@ -71,4 +71,4 @@
 [firewall rules]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-database-configure-firewall-settings/
 [Установка и настройка Azure PowerShell]: powershell-install-configure.md
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

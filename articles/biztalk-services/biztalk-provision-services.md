@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/26/2015"
+	ms.date="12/01/2015"
 	ms.author="mandia"/>
 
 
@@ -173,7 +173,7 @@
 <td>Подписка Azure</td>
 <td>Подписка определяет, кто может войти на портал Azure. Владелец учетной записи создает подписку в разделе <a HREF="https://account.windowsazure.com/Subscriptions">Подписки Azure</a>.
 <br/><br/>
-Учетная запись Azure может иметь несколько подписок, и ею могут управлять все пользователи, у которых есть на это разрешения. Например, владелец учетной записи Azure создает подписку с именем <em>BizTalkServiceSubscription</em> и предоставляет администраторам BizTalk компании (например, ContosoBTSAdmins@live.com) доступ к этой подписке. В этом сценарии администраторы BizTalk входят на портал Azure с полными правами администратора на все размещенные службы в подписке, в том числе службы BizTalk Azure. Администраторы BizTalk не являются владельцами учетной записи Azure и, следовательно, не имеют доступа к каким-либо данным для выставления счетов. Дополнительную информацию см. в разделе.
+Учетная запись Azure может иметь несколько подписок, и ею могут управлять все пользователи, у которых есть на это разрешения. Например, владелец учетной записи Azure создает подписку с именем <em>BizTalkServiceSubscription</em> и предоставляет администраторам BizTalk компании (например, ContosoBTSAdmins@live.com) доступ к этой подписке. В этом сценарии администраторы BizTalk входят на портал Azure с полными правами администратора на все размещенные службы в подписке, в том числе службы BizTalk Azure. Администраторы BizTalk не являются владельцами учетной записи Azure и, следовательно, не имеют доступа к каким-либо данным для выставления счетов. Дополнительную информацию см. в разделе 
 <br/><br/>
 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577">Управление подписками и учетными записями хранения на портале Azure</a>.
 </td>
@@ -260,7 +260,7 @@
 После создания службы BizTalk ознакомьтесь со статьей [Службы BizTalk: вкладки «Панель мониторинга», «Монитор» и «Масштаб»](biztalk-dashboard-monitor-scale-tabs.md). Служба BizTalk готова для использования в приложениях. Чтобы приступить к созданию приложений, перейдите по ссылке [Службы BizTalk Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## См. также
-- [Службы BizTalk: Диаграмма выпусков](biztalk-editions-feature-chart.md)<br/>
+- См. статью [Службы BizTalk: Диаграмма выпусков](biztalk-editions-feature-chart.md)<br/>.
 - [Службы BizTalk: диаграмма состояния](biztalk-service-state-chart.md)<br/>
 - [Службы BizTalk: архивация и восстановление](biztalk-backup-restore.md)<br/>
 - [Службы BizTalk: регулирование](biztalk-throttling-thresholds.md)<br/>
@@ -276,4 +276,4 @@
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

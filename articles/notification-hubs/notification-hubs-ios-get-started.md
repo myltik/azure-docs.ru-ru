@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="11/04/2015"
+	ms.date="11/30/2015"
 	ms.author="wesmc"/>
 
 # Приступая к работе с Центрами уведомлений для приложений iOS
@@ -37,7 +37,7 @@
 
 Для работы с данным учебником требуется следующее:
 
-+ [Пакет SDK для мобильных служб для iOS]
++ [Пакет SDK для мобильных служб для iOS версии 1.2.4]
 + [Xcode 7][Install Xcode]
 + Устройство с iOS 8 (или более поздней версии)
 + Участие в программе для разработчиков на платформе iOS
@@ -86,7 +86,7 @@
 
    	![][9]
 
-4. Загрузите [пакет SDK для мобильных служб iOS] версии 1.2.4 и распакуйте архив. В XCode щелкните проект правой кнопкой мыши и выберите параметр **Add Files to** (Добавить файлы в), чтобы добавить папку **WindowsAzureMessaging.framework** в проект XCode. Выберите **Copy items if needed** (Копировать элементы при необходимости), а затем щелкните **Add** (Добавить).
+4. Загрузите [пакет SDK для мобильных служб для iOS версии 1.2.4] и распакуйте архив. В XCode щелкните проект правой кнопкой мыши и выберите параметр **Add Files to** (Добавить файлы в), чтобы добавить папку **WindowsAzureMessaging.framework** в проект XCode. Выберите **Copy items if needed** (Копировать элементы при необходимости), а затем щелкните **Add** (Добавить).
 
    	![][10]
 
@@ -210,7 +210,7 @@
 		#import <CommonCrypto/CommonHMAC.h>
 		#import "HubInfo.h"
 
-5. В файле ViewController.m добавьте следующий код в раздел реализации интерфейса: Этот код будет анализировать строку подключения *DefaultFullSharedAccessSignature* Как уже говорилось в [справочнике по REST API](http://msdn.microsoft.com/library/azure/dn495627.aspx), проанализированная информация будет использоваться при создании маркера SAS для заголовка **запроса авторизации**.
+5. В файле ViewController.m добавьте следующий код в раздел реализации интерфейса. Этот код будет анализировать строку подключения *DefaultFullSharedAccessSignature* Как уже говорилось в [справочнике по REST API](http://msdn.microsoft.com/library/azure/dn495627.aspx), проанализированная информация будет использоваться при создании маркера SAS для заголовка **запроса авторизации**.
 
 		NSString *HubEndpoint;
 		NSString *HubSasKeyName;
@@ -486,14 +486,15 @@
 
 
 <!-- URLs. -->
-[Пакет SDK для мобильных служб для iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
-[пакет SDK для мобильных служб iOS]: http://go.microsoft.com/fwLink/?LinkID=266533
+[Пакет SDK для мобильных служб для iOS версии 1.2.4]: http://aka.ms/kymw2g
+[пакет SDK для мобильных служб для iOS версии 1.2.4]: http://aka.ms/kymw2g
+[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[портал Azure]: https://manage.windowsazure.com/
+[Azure portal]: https://manage.windowsazure.com/
 [руководстве по использованию Центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
@@ -504,4 +505,4 @@
 
 [руководстве по программированию локальных и push-уведомлений]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -20,7 +20,7 @@
 #Создание хранилища данных SQL с помощью TSQL 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-TSQL.md)
 - [PowerShell](sql-data-warehouse-get-started-create-powershell.md)
 
@@ -28,7 +28,7 @@
 
 - Подписка Azure. Если вам требуется подписка Azure, нажмите в верхней части этой страницы кнопку **БЕСПЛАТНАЯ ПРОБНАЯ ВЕРСИЯ**. Оформив подписку, вернитесь к этой статье.
 - приведенному. Бесплатный экземпляр Visual Studio см. на странице [Загрузки Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
-- Используйте SQL Server версии 12. Для создания хранилища данных SQL вам потребуется SQL Server версии 12. Если у вас нет Server SQL версии 12, рекомендуется создать сервер на портале предварительной версии, чтобы вы могли создать хранилище данных SQL на новом сервере.
+- Используйте SQL Server версии 12. Для создания хранилища данных SQL вам потребуется SQL Server версии 12. Если у вас нет Server SQL версии 12, рекомендуется создать сервер на портале, чтобы вы могли создать хранилище данных SQL на новом сервере.
 
 В данной статье не рассматривается правильная настройка базы данных и подключение к ней с помощью Visual Studio. Полное описание этих процедур см. в документации по [подключению и созданию запросов][]. Сначала откройте обозреватель объектов SQL Server в Visual Studio и подключитесь к серверу, который будет использоваться для создания хранилища данных SQL. Теперь вы можете создать хранилище данных SQL. Для этого запустите следующую команду для основной базы данных:
 
@@ -76,4 +76,4 @@
 [загрузить демонстрационные данные]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [странице цен]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Администрирование каталога Azure AD"
+	pageTitle="Администрирование каталога Azure AD | Microsoft Azure"
 	description="Раздел, в котором объясняется, что такое клиент Azure AD и как управлять каталогом Azure AD."
 	services="active-directory"
 	documentationCenter=""
-	authors="Markusvi"
+	authors="markusvi"
 	writer="markvi"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="12/01/2015"
 	ms.author="markvi"/>
 
 # Администрирование каталога Azure AD
@@ -145,4 +145,4 @@ Azure AD предоставляет основные возможности уп
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

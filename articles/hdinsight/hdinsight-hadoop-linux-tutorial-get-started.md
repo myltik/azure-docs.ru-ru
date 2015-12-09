@@ -14,7 +14,7 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="11/16/2015"
+   	ms.date="11/29/2015"
    	ms.author="nitinme"/>
 
 # Учебник по Hadoop: приступая к работе с Hadoop с Hive в HDInsight на платформе Linux
@@ -51,10 +51,10 @@
 
 Чтобы создать новый кластер, выполните следующие действия.
 
-1. Выполните вход на [портал предварительной версии Azure](https://ms.portal.azure.com/).
+1. Войдите на [портал Azure](https://ms.portal.azure.com/).
 2. Последовательно выберите **СОЗДАТЬ**, **Анализ данных**, а затем — **HDInsight**.
 
-    ![Создание нового кластера на портале предварительной версии Azure](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "Создание нового кластера на портале предварительной версии Azure")
+    ![Создание кластера на портале Azure](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "Создание кластера на портале Azure")
 
 3. Введите **Имя кластера**, выберите **Hadoop** в качестве **Типа кластера** и в раскрывающемся списке **Операционная система кластера** выберите **Ubuntu**. Если имя кластера доступно, рядом с ним появится зеленый флажок.
 
@@ -230,7 +230,7 @@
 
 ## <a name="nextsteps"></a>Дальнейшие действия
 
-Из этого документа вы узнали, как создать кластер HDInsight под управлением Linux с использованием портала предварительной версии Azure, подключиться к кластеру с помощью SSH и выполнять основные запросы Hive.
+Из этого документа вы узнали, как создать кластер HDInsight под управлением Linux с использованием портала Azure, подключиться к кластеру с помощью SSH и выполнить основные запросы Hive.
 
 Дополнительные сведения об анализе данных с помощью HDInsight см. в следующих статьях:
 
@@ -283,4 +283,4 @@
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

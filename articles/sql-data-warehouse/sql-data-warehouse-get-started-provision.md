@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Создание базы данных хранилища данных SQL на портале предварительной версии Azure | Microsoft Azure"
-	description="Сведения о создании хранилища данных SQL на портале предварительной версии Azure"
+	pageTitle="Создание базы данных хранилища данных SQL на портале Azure | Microsoft Azure"
+	description="Узнайте, как создать хранилище данных SQL на портале Azure."
 	services="sql-data-warehouse"
 	documentationCenter="NA"
 	authors="barbkess"
@@ -19,11 +19,11 @@
 # Создание хранилища данных SQL
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-В этом учебнике показано, как всего за несколько минут можно создать базу данных хранилища данных SQL с помощью портала предварительной версии Azure.
+В этом руководстве показано, как всего за несколько минут можно создать базу данных хранилища данных SQL с помощью портала Azure.
 
 Изучив данный учебник, вы научитесь:
 
@@ -34,7 +34,7 @@
 
 ## Шаг 1. Вход и начало работы
 
-1. Войдите на [портал предварительной версии Azure](https://portal.azure.com).
+1. Войдите на [портал Azure](https://portal.azure.com).
 
 2. Выберите пункты **Создать** > **Данные + хранилище** > **Хранилище данных SQL**.
 
@@ -99,7 +99,7 @@
 
 1. Нажмите кнопку **Создать**, чтобы создать базу данных хранилища данных SQL.
 
-1. Подождите несколько минут, пока создается база данных. Когда база данных будет готова, вы вернетесь на [портал предварительной версии Azure](https://portal.azure.com). Обратите внимание, что на панели мониторинга появилась база данных хранилища данных SQL.
+1. Подождите несколько минут, пока создается база данных. Когда база данных будет готова, вы вернетесь на [портал Azure](https://portal.azure.com). Обратите внимание, что на панели мониторинга появилась база данных хранилища данных SQL.
 
     ![Предварительная версия портала](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
@@ -130,4 +130,4 @@
 
 Теперь, когда создан пример базы данных для хранилища данных SQL, вы можете [подключиться](./sql-data-warehouse-get-started-connect.md) к этой базе данных.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

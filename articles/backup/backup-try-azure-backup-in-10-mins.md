@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="09/03/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="11/26/2015" ms.author="aashishr"; "jimpark"/>
 
 # Начало работы со службой архивации Azure
 Настроить службу архивации Azure очень легко. Следующие обучающие видео помогут вам быстро приступить к работе.
@@ -46,4 +46,4 @@
 - [Резервное копирование Windows Server](backup-azure-backup-windows-server.md)
 - Посетите [форум о службе архивации Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

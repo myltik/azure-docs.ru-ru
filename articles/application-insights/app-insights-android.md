@@ -26,4 +26,4 @@
 * [Приступая к работе с Application Insights для Android](https://github.com/Microsoft/ApplicationInsights-Android).
 * [Приступая к работе с HockeyApp для Android](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

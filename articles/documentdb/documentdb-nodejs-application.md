@@ -396,7 +396,7 @@
 		
 		module.exports = config;
 
-3. В файле **config.js** обновите значения HOST и AUTH\_KEY с помощью значений, найденных в колонке «Ключи» учетной записи DocumentDB на [портале предварительной версии Microsoft Azure](http://portal.azure.com):
+3. В файле **config.js** обновите значения HOST и AUTH\_KEY значениями, найденными в выноске Keys учетной записи DocumentDB на [портале Microsoft Azure](http://portal.azure.com):
 
 4. Сохраните и закройте файл **config.js**.
  
@@ -569,4 +569,4 @@
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

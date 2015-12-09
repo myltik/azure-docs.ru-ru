@@ -3,9 +3,9 @@
 	description="Узнайте, как создать пакет приложения API Java и развернуть его в службе приложений Azure."
 	services="app-service\api"
 	documentationCenter="java"
-	authors="pkefal"
+	authors="bradygaster"
 	manager="mohisri" 
-	editor="jimbe"/>
+	editor="tdykstra"/>
 
 <tags
 	ms.service="app-service-api"
@@ -13,267 +13,284 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
-	ms.author="pakefali"/>
+	ms.date="11/27/2015"
+	ms.author="bradygaster"/>
 
 # Сборка и развертывание приложения API Java в службе приложений Azure
 
-> [AZURE.SELECTOR]
-- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
-- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
-- [Node.js](app-service-api-nodejs-api-app.md)
-- [Java](app-service-api-java-api-app.md)
-
-В этом учебнике показано, как создать приложение Java и развернуть его в приложения API службы приложений Azure, используя [Git](http://git-scm.com). Указания, приведенные в этом учебнике, применимы в любой операционной системе, на которой может работать Java. В этом учебнике также используется [Gradle](https://gradle.org), чтобы сделать возможными автоматическую сборку и разрешение зависимостей пакетов для приложения Java. Наконец, [RESTEasy](http://resteasy.jboss.org/) используется для создания службы RESTful, полностью реализуя спецификации [JaxRS](https://jax-rs-spec.java.net/).
-
-Снимок экрана завершенного приложения:
-
-![][sample-api-app-page]
-
-## Создание приложения API на портале Azure
-
-> [AZURE.NOTE]Для работы с этим учебником необходимо использовать учетную запись Microsoft Azure. Если у вас нет учетной записи, можно [активировать преимущества для подписчиков MSDN](/pricing/member-offers/msdn-benefits-details/) или [подписаться на бесплатную пробную версию](/pricing/free-trial/). Можно также бесплатно попробовать [примеры приложений службы приложения](http://tryappservice.azure.com).
-
-1. Выполните вход на [портал предварительной версии Azure](https://portal.azure.com).
-
-2. Щелкните команду **СОЗДАТЬ** в нижнем левом углу портала.
-
-3. Выберите элементы **Интернет + мобильные устройства > Приложение API**.
-
-	![][portal-quick-create]
-
-4. Введите значение в поле **Имя**, например JavaAPIApp.
-
-5. Выберите план службы приложений или создайте новый. При создании нового плана выберите ценовую категорию, расположение и другие параметры.
-
-	![][portal-create-api]
-
-6. Щелкните **Создать**.
-
-	![][api-app-blade]
-
-	Если установлен флажок **Добавить на начальную панель**, на портале автоматически откроется колонка приложения API после его создания. Если этот флажок снят, выберите элемент **Уведомления** на домашней странице портала, чтобы узнать состояние создания приложения API, а затем щелкните уведомление, чтобы перейти к колонке нового приложения API.
-
-7. Щелкните элементы **Параметры > Параметры приложения**.
-
-9. Установите для уровня доступа значение **Общедоступный (анонимный)**.
-
-11. Щелкните **Сохранить**.
-
-	![][set-api-app-access-level]
-
-## Включение публикации Git для нового приложения API
-
-[Git](http://git-scm.com) является распределенной системой управления версиями, которую можно использовать для развертывания веб-сайта Azure. Код, созданный для приложения API, будет храниться в локальном репозитории Git, а для развертывания кода в Azure он будет передаваться в удаленный репозиторий. Данный метод развертывания характерен для веб-приложений службы приложений, которые можно использовать в приложении API, поскольку приложения API основаны на веб-приложениях: приложение API в службе приложений Azure является веб-приложением с дополнительными возможностями для размещения веб-служб.
-
-Управление функциями, связанными с приложениями API, на портале осуществляется с помощью колонки **Приложения API**, а управление функциями, которые используются совместно с веб-приложениями, — с помощью колонки **Узел приложения API**. Поэтому, выполняя действия из этого раздела, перейдите к колонке **Узел приложения API** для настройки функции развертывания Git.
-
-1. В колонке приложения API щелкните элемент **Узел приложения API**.
-
-	![][api-app-host]
-
-2. Найдите раздел **Развертывание** колонки **Приложения API** и щелкните элемент **Настройка непрерывного развертывания**. Возможно, понадобится прокрутить вниз, чтобы увидеть эту часть колонки.
-
-	![][deployment-part]
-
-3. Щелкните **Выбор источника > Локальный репозиторий Git**.
-
-5. Нажмите кнопку **ОК**.
-
-	![][setup-git-publishing]
-
-6. Если ранее вы не настроили учетные данные развертывания для публикации приложения API или другого приложения службы приложений, сделайте это сейчас, как показано ниже.
-
-	* Щелкните элемент **Настройка учетных данных развертывания**.
-
-	* Укажите имя пользователя и пароль.
-
-	* Щелкните **Сохранить**.
-
-	![][deployment-credentials]
-
-1. В колонке **Узел приложения API** щелкните **Параметры > Свойства**. В разделе "URL-адрес GIT" отображается URL-адрес удаленного репозитория Git, в который выполняется развертывание.
-
-2. Скопируйте URL-адрес для дальнейшего использования в этом учебнике.
-
-	![][git-url]
-
-## Включение среды выполнения Java в новом приложении API
-
-Чтобы приложение API успешно разместило приложение Java, следует включить среду выполнения Java и выбрать сервер приложений. Портал позволяет сделать это очень просто. Мы собираемся включить Java 7 и Jetty для размещения приложения.
-
-1. В колонке приложения API щелкните элемент **Узел приложения API**.
-
-	![][api-app-host]
-
-2. Щелкните **Параметры > Параметры приложения**. Здесь включите Java и выберите Jetty в качестве сервера приложений. Нажмите кнопку **Сохранить**.
-
-	![][api-app-enable-java]
-
-Это позволит **включить среду выполнения Java** для приложения API и создать папку **webapps/** в корневом каталоге веб-сайта. В этой папке будут содержаться все WAR-файлы приложений.
-
-## Скачивание и проверка кода для приложения API Java
-
-В этом разделе выполняется скачивание и просмотр кода, который предоставляется как часть примера приложения JavaAPIApp.
-
-1. Загрузите код в [этот репозиторий GitHub](http://go.microsoft.com/fwlink/?LinkId=571009). Можно клонировать репозиторий или щелкнуть команду **Загрузить Zip**, чтобы загрузить его как ZIP-файл. Если выбрана загрузка ZIP-файла, распакуйте его на локальном диске.
-
-2. Перейдите к папке, в которую вы распаковали пример и перейдите к папке `build\libs`.
-
-	![][api-app-folder-browse]
-
-3. Откройте файл **apiapp.json** в текстовом редакторе и проверьте содержимое.
-
-	![][apiapp-json]
-
-	Чтобы служба приложений Azure распознала приложение Java как приложение API должны быть соблюдены два предварительных требования:
-
-	+ в корневом каталоге приложения должен присутствовать файл с именем *apiapp.json*;
-	+ приложение должно отображать конечную точку метаданных Swagger 2.0. URL-адрес этой конечной точки указан в файле *apiapp.json*.
-
-	Обратите внимание на свойство **apiDefinition**. Путь для этого URL-адреса соотносится с URL-адресом вашего приложения API и указывает на конечную точку Swagger 2.0. Службы приложений Azure использует это свойство для обнаружения определения API и реализации множества возможностей приложения API службы приложений.
-
-4. Перейдите к `src\main\java\com\microsoft\trysamples\javaapiapp`, откройте файл **App.java** и проверьте код.
-
-	![][app-java]
-
-	Для создания конечной точки Swagger 2.0 код использует пакет Swagger для JaxRS.
-
-		beanConfig.setVersion("1.0.0");
-		beanConfig.setBasePath("/JavaAPIApp/api");
-		beanConfig.setHost(websitehostname);
-		beanConfig.setResourcePackage("com.microsoft.trysamples.javaapiapp");
-		beanConfig.setSchemes(new String[]{"http", "https"});
-		beanConfig.setScan(true);
-
-	Метод `setVersion` задает версию API в метаданных, которые обслуживает Swagger.
-
-	Метод `setBasePath` задает базовый путь, который Swagger использует для создания метаданных. Этот URL-адрес соотносится с базовым путем приложения API.
-
-	Метод `setHost` задает узел, который прослушивает API. В этом случае мы используем переменную `websitehostname`, которую мы назначили несколько строк назад, для динамической установки `localhost` при локальной работе или имя узла приложения API при работе приложения в службе приложений Azure.
-
-	Метод `setResourcePackage` задает пакет, который Swagger будет сканировать и который включит в файл Swagger.json, содержащий метаданные API.
-
-	Метод `setSchemes` определяет поддерживаемые схемы.
-
-	Метод `setScan` обеспечивает, что Swagger создаст документацию приложения.
-
-	Доступно также множество других методов, которые настраивают выходные данные Swagger при использовании RESTEasy. Эти методы можно найти на [вики-странице](https://github.com/swagger-api/swagger-core/wiki/Swagger-Core-RESTEasy-2.X-Project-Setup-1.5#using-swaggers-beanconfig) Swagger
-
-	> [AZURE.NOTE]Файл метаданных Swagger можно открыть, используя путь `/JavaAPIApp/api/swagger.json`.
-
-## Локальный запуск кода приложения API
-
-В этом разделе выполняется запуск приложения локально, чтобы проверить его работоспособность перед развертыванием.
-
-1. Перейдите к папке, в которую был загружен пример.
-
-2. Откройте окно командной строки и введите следующую команду:
-
-		gradlew.bat
-
-3. После выполнения команды введите следующую команду:
-
-		gradlew.bat jettyRunWar
-
-	В окне командной строки отобразится:
-
-		17:25:49 INFO  JavaAPIApp runs at:
-		17:25:49 INFO    http://localhost:8080/JavaAPIApp
-
-5. Введите в браузере адрес `http://localhost:8080/JavaAPIApp/`
-
-	Откроется следующая страница:
-
-	![][sample-api-app-page]
-
-6. Чтобы просмотреть файл Swagger.json, перейдите по адресу `http://localhost:8080/JavaAPIApp/api/Swagger.json`.
-
-## Публикация кода приложения API в службе приложений Azure
-
-В этом разделе создается локальный репозиторий Git и выполняется принудительная отправка данных из этого репозитория в Azure для развертывания образца приложения в приложение API, работающее в службе приложений Azure.
-
-1. Если Git не установлен, установите его со [страницы загрузки Git](http://git-scm.com/download).
-
-1. С помощью командной строки замените каталоги примером каталога приложения, введите `build\libs`, а затем введите следующие команды, чтобы инициализировать локальный репозиторий Git.
+[AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
+
+В этом учебнике показано, как создать приложение Java и развернуть его в приложения API службы приложений Azure, используя [Git](http://git-scm.com). Указания, приведенные в этом учебнике, применимы в любой операционной системе, на которой может работать Java. Код в этом руководстве создан с помощью [Maven](https://maven.apache.org/). [Jax-RS](https://jax-rs-spec.java.net/) используется для создания службы RESTful и формируется на основе спецификации метаданных [Swagger](http://swagger.io) при помощи [редактора Swagger](http://editor.swagger.io/).
+
+## Предварительные требования
+
+1. [Java Developer Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (или более поздней версии).
+1. Платная или [бесплатная пробная версия](https://azure.microsoft.com/pricing/free-trial/) подписки на [Microsoft Azure](https://azure.microsoft.com).
+1. Установка [Maven](https://maven.apache.org/) на компьютере, на котором ведется разработка.
+1. Установка Git на компьютере, на котором ведется разработка. 
+
+## Формирование API на основе скаффолдинга при помощи Swagger.io
+В онлайн-редакторе Swagger.io можно ввести код Swagger в формате JSON или YAML, представляющий структуру API. После завершения разработки контактной зоны API можно экспортировать код в различные платформы и структуры. В следующем разделе код, сформированный на основе скаффолдинга, будет изменен для добавления возможности использования макетов.
+
+Мы начнем со вставки текста JSON-кода Swagger в редактор swagger.io, который затем будет использован для создания кода с применением JAX-RS для доступа к конечной точке REST API. Затем вы измените код, созданный на основе скаффолдинга, для возврата данных макетов, при этом REST API будет смоделирован поверх механизма обеспечения постоянного хранения данных.
+
+1. Скопируйте приведенный ниже JSON-код Swagger в буфер обмена.
+
+		{
+			"swagger": "2.0",
+			"info": {
+				"version": "v1",
+				"title": "Contact List",
+				"description": "A Contact list API based on Swagger and built using Java"
+			},
+			"host": "localhost",
+			"schemes": [
+				"http",
+				"https"
+			],
+			"basePath": "/api",
+			"paths": {
+				"/contacts": {
+					"get": {
+						"tags": [
+							"Contact"
+						],
+						"operationId": "contacts_get",
+						"consumes": [],
+						"produces": [
+							"application/json",
+							"text/json"
+						],
+						"responses": {
+							"200": {
+								"description": "OK",
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/definitions/Contact"
+									}
+								}
+							}
+						},
+						"deprecated": false
+					}
+				},
+				"/contacts/{id}": {
+					"get": {
+						"tags": [
+							"Contact"
+						],
+						"operationId": "contacts_getById",
+						"consumes": [],
+						"produces": [
+							"application/json",
+							"text/json"
+						],
+						"parameters": [
+							{
+								"name": "id",
+								"in": "path",
+								"required": true,
+								"type": "integer",
+								"format": "int32"
+							}
+						],
+						"responses": {
+							"200": {
+								"description": "OK",
+								"schema": {
+									"type": "array",
+									"items": {
+										"$ref": "#/definitions/Contact"
+									}
+								}
+							}
+						},
+						"deprecated": false
+					}
+				}
+			},
+			"definitions": {
+				"Contact": {
+					"type": "object",
+					"properties": {
+						"Id": {
+							"format": "int32",
+							"type": "integer"
+						},
+						"Name": {
+							"type": "string"
+						},
+						"EmailAddress": {
+							"type": "string"
+						}
+					}
+				}
+			}
+		}
+		
+1. Перейдите в [онлайн-редактор Swagger](http://editor.swagger.io/). В редакторе щелкните в меню **Файл -> Вставить JSON**.
+
+    ![Вставить JSON](media/app-service-api-java-api-app/paste-json.png)
+
+1. Вставьте JSON-код Swagger API списка контактов, который был скопирован ранее.
+
+    ![Вставленный Swagger](media/app-service-api-java-api-app/pasted-swagger.png)
+
+1. Просмотрите страницы документации и сводные данные API, отображаемые в редакторе.
+
+    ![Просмотр документов, созданных при помощи Swagger](media/app-service-api-java-api-app/view-swagger-generated-docs.png)
+
+1. В меню выберите **Создать сервер -> JAX RS**, чтобы создать серверный код на основе скаффолдинга, который позже будет изменен для добавления возможности реализации макетов.
+
+    ![Пункт меню «Создать код»](media/app-service-api-java-api-app/generate-code-menu-item.png)
+	
+	После создания кода появится ZIP-файл для скачивания. Этот файл содержит код, сформированный генератором кода Swagger на основе скаффолдинга, а также все связанные сценарии сборки. Распакуйте всю библиотеку в каталог на рабочей станции, где ведется разработка.
+
+## Измените код для добавления возможности реализации API.
+В этом разделе вы замените серверную реализацию созданного кода на пользовательский код. Новый код вернет ArrayList сущностей Contact вызывающему клиенту.
+
+1. Откройте файл модели *Contact.java*, расположенный в папке *src/gen/java/swagger/model*, с помощью [Visual Studio Code](https://code.visualstudio.com) или в предпочитаемом текстовом редакторе. 
+
+    ![Открыть файл модели контактов](media/app-service-api-java-api-app/open-contact-model-file.png)
+
+1. Добавьте следующий конструктор в класс **Contact**.
+
+        public Contact(Integer id, String name, String email) 
+		{
+			this.id = id;
+			this.name = name;
+			this.emailAddress = email;
+		}
+
+1. Откройте файл реализации службы *ContactsApiServiceImpl.java*, расположенный в папке *src/main/java/swagger/api/impl*, с помощью [Visual Studio Code](https://code.visualstudio.com) или в предпочитаемом текстовом редакторе.
+
+    ![Открыть файл кода службы контактов](media/app-service-api-java-api-app/open-contact-service-code-file.png)
+
+1. Перезапишите код в файле на новый, чтобы добавить возможность реализации макетов в код службы.
+
+        package io.swagger.api.impl;
+
+        import io.swagger.api.*;
+        import io.swagger.model.*;
+        import com.sun.jersey.multipart.FormDataParam;
+        import io.swagger.model.Contact;
+        import java.util.*;
+        import io.swagger.api.NotFoundException;
+        import java.io.InputStream;
+        import com.sun.jersey.core.header.FormDataContentDisposition;
+        import com.sun.jersey.multipart.FormDataParam;
+        import javax.ws.rs.core.Response;
+
+        @javax.annotation.Generated(value = "class io.swagger.codegen.languages.JaxRSServerCodegen", date = "2015-11-24T21:54:11.648Z")
+        public class ContactsApiServiceImpl extends ContactsApiService {
+  
+            private ArrayList<Contact> loadContacts()
+            {
+                ArrayList<Contact> list = new ArrayList<Contact>();
+                list.add(new Contact(1, "Barney Poland", "barney@contoso.com"));
+                list.add(new Contact(2, "Lacy Barrera", "lacy@contoso.com"));
+                list.add(new Contact(3, "Lora Riggs", "lora@contoso.com"));
+                return list;
+            }
+  
+            @Override
+            public Response contactsGet()
+            throws NotFoundException {
+                ArrayList<Contact> list = loadContacts();
+                return Response.ok().entity(list).build();
+                }
+  
+            @Override
+            public Response contactsGetById(Integer id)
+            throws NotFoundException {
+                ArrayList<Contact> list = loadContacts();
+                Contact ret = null;
+            
+                for(int i=0; i<list.size(); i++)
+                {
+                    if(list.get(i).getId() == id)
+                    {
+                        ret = list.get(i);
+                    }
+                }
+                return Response.ok().entity(ret).build();
+            }
+        }
+
+1. Откройте окно командной строки.
+
+1. Выполните следующую команду Maven для создания кода и его локального запуска при помощи сервера приложений Jetty.
+
+		mvn package jetty:run
+		
+1. В командном окне должно быть видно, что Jetty запустил код на порте 8080.
+
+	![Открыть файл кода службы контактов](media/app-service-api-java-api-app/run-jetty-war.png)
+	
+1. Используйте [Postman](https://www.getpostman.com/) для запроса метода API, позволяющего получить все контакты, который расположен по адресу http://localhost:8080/api/contacts.
+
+	![Вызвать API контактов](media/app-service-api-java-api-app/calling-contacts-api.png)
+	
+1. Используйте [Postman](https://www.getpostman.com/) для запроса метода API, позволяющего получить определенный контакт, который расположен по адресу http://localhost:8080/api/contacts/2.
+
+	![Вызвать API контактов](media/app-service-api-java-api-app/calling-specific-contact-api.png)
+	
+1. Наконец, создайте WAR-файл Java (веб-архив), выполнив следующую команду Maven в консоли.
+
+		mvn package war:war
+		
+	После создания WAR-файл будет помещен в папку **target**. Перейдите в папку **target** и переименуйте WAR-файл **ROOT.war** (убедитесь, что регистр букв соответствует этому формату).
+	
+		rename swagger-jaxrs-server-1.0.0.war ROOT.war
+		
+	Наконец, выполните следующие команды для создания папки **deploy**, предназначенной для развертывания WAR-файла в Azure.
+	
+		mkdir deploy
+		mkdir deploy\webapps
+		copy target\ROOT.war deploy\webapps
+		cd deploy
+	
+## Публикация выходных данных в службе приложений Azure
+В этом разделе вы узнаете, как создать приложение API при помощи портала Azure, подготовить это приложение API для размещения приложений Java и развернуть новый WAR-файл в службе приложений Azure, чтобы запустить новое приложение API.
+
+1. Создайте приложение API на [портале Azure](http://portal.azure.com), выбрав в меню **Создать -> Интернет + мобильные устройства -> Приложение API**.
+	
+	![Создать приложение API](media/app-service-api-java-api-app/create-api-app.png)
+
+1. В колонке настроек приложения API щелкните **Параметры приложения**. Затем выберите последние версии Java в меню версий Java и последнюю версию Tomcat в меню веб-контейнера.
+
+	![Настройка Java в колонке приложения API](media/app-service-api-java-api-app/set-up-java.png)
+
+1. Щелкните пункт меню параметров **Учетные данные развертывания** и укажите имя пользователя и пароль, которые вы хотите использовать для публикации файлов в приложении API.
+
+	![Сброс учетных данных развертывания](media/app-service-api-java-api-app/deployment-credentials.png)
+
+1. Щелкните пункт меню параметров **Непрерывное развертывание**. Затем нажмите кнопку **Выбрать источник** и выберите вариант **Локальный репозиторий Git**. В результате будет создан работающий в Azure репозиторий Git, который связан с приложением API. Каждый раз при фиксации кода в *главной* ветви репозитория Git код будет публиковаться в запущенном в данный момент экземпляре приложения API.
+
+	![Настройка локального репозитория Git](media/app-service-api-java-api-app/select-git-repo.png)
+
+1. Скопируйте URL-адрес нового репозитория Git в буфер обмена. Сохраните его, потому что он понадобится чуть позже.
+
+	![Настройка нового репозитория Git для приложения](media/app-service-api-java-api-app/copy-git-repo-url.png)
+
+1. Отправьте WAR-файл в онлайн-репозиторий при помощи Git. Для этого перейдите в созданную ранее папку **deploy**, из которой можно с легкостью зафиксировать код в репозитории, работающем в службе приложений. Открыв окно консоли и перейдя в папку, в которой находится папка с веб-приложениями, запустите следующие команды Git, чтобы запустить процесс и начать развертывание.
 
 		git init
-
-
-2. Введите следующие команды для добавления файлов в репозиторий:
-
 		git add .
-		git commit -m "Initial commit of the API App"
-
-3. Создайте удаленную ссылку для публикации обновлений в ранее созданное веб-приложение (узел приложения API), используя URL-адрес Git, скопированный ранее:
-
-		git remote add azure [URL for remote repository]
-
-4. Отправьте обновления в Azure с помощью следующей команды:
-
+		git commit -m "initial commit"
+		git remote add azure [YOUR GIT URL]		
 		git push azure master
+		
+	После отправки запроса на **передачу** потребуется ввести пароль, созданный ранее для учетных данных развертывания. При вводе пароля на портале станет видно, что обновление получено и развернуто.
+		
+1. При повторном использовании Postman для выполнения недавно развернутого приложения API, работающего в службе приложений Azure, станет видно, что поведение приложения согласовано и что теперь оно возвращает данные контактов должным образом, а также использует изменения простого кода по отношению к сформированному на основе скаффолдинга Java-коду Swagger.io.
 
-	Появится запрос на ввод ранее заданного пароля.
-
-	Результат этой команды завершается сообщением об успешном развертывании:
-
-		remote: Deployment successful.
-		To https://user@testsite.scm.azurewebsites.net/testsite.git
-	 	* [new branch]      master -> master
-
-## Просмотр определения API на портале Azure
-
-Теперь, после завершения развертывания API в приложение API, можно увидеть определение API на портале Azure. Для начала нужно перезапустить *шлюз*, который позволяет Azure распознавать, что изменилось определение API приложения API. Шлюз является веб-приложением, которое выполняет администрирование API и авторизацию для приложений API в группе ресурсов.
-
-6. На портале Azure перейдите к колонке **Приложение API** для приложения API, которое было создано ранее, и щелкните ссылку **Шлюз**.
-
-	![][click-gateway]
-
-7. В колонке **Шлюз** щелкните **Перезапуск**. Теперь можно закрыть эту колонку.
-
-	![][restart-gateway]
-
-8. В колонке **Приложение API** щелкните элемент **Определение API**.
-
-	![][api-definition-click]
-
-	В колонке **Определение API** показан метод Get.
-
-	![][api-definition-blade]
-
-## Запуск примера приложения в Azure
-
-На портале Azure перейдите к колонке **Узел приложения API** для своего приложения API и нажмите кнопку **Обзор**.
-
-![][browse-api-app-page]
-
-Браузер отобразит домашнюю страницу, которую вы видели ранее при запуске примера приложения локально.
-
+	![Использование REST API контактов Java в Azure в реальном времени](media/app-service-api-java-api-app/postman-calling-azure-contacts.png)
+	
 ## Дальнейшие действия
+Следуя инструкциям в этой статье, вы смогли выполнить требуемые задачи с JSON-файлом Swagger и определенным Java-кодом, сформированным на основе скаффолдинга и полученным при помощи редактора Swagger.io. В результате внесения простых изменений и развертывания Git вы получили рабочее приложение API, написанное на Java. Теперь можно вернуться и узнать больше о [пакете SDK хранилища для Java](../storage/storage-java-how-to-use-blob-storage.md), позволяющем сохранять большие двоичные объекты JSON. Можно также использовать [пакет SDK для Java для Document DB](../documentdb/documentdb-java-application.md), позволяющий сохранить данные контактов в Azure Document DB.
 
-Вы развернули веб-приложение Java, которое использует серверную часть приложения API в Azure. Дополнительную информацию об использовании Java в Azure см. в разделе [Центр разработчиков Java](/develop/java/).
+Дополнительную информацию об использовании Java в Azure см. в разделе [Центр разработчиков Java](/develop/java/).
 
-Этот пример приложения можно попробовать использовать в [службе TryApp](http://tryappservice.azure.com)
-
-[portal-quick-create]: ./media/app-service-api-java-api-app/portal-quick-create.png
-[portal-create-api]: ./media/app-service-api-java-api-app/portal-create-api.png
-[api-app-blade]: ./media/app-service-api-java-api-app/api-app-blade.png
-[api-app-folder-browse]: ./media/app-service-api-java-api-app/api-app-folder-browse.png
-[api-app-host]: ./media/app-service-api-java-api-app/api-app-host.png
-[deployment-part]: ./media/app-service-api-java-api-app/continuous-deployment.png
-[set-api-app-access-level]: ./media/app-service-api-java-api-app/set-api-app-access.png
-[setup-git-publishing]: ./media/app-service-api-java-api-app/local-git-repo.png
-[deployment-credentials]: ./media/app-service-api-java-api-app/deployment-credentials.png
-[git-url]: ./media/app-service-api-java-api-app/git-url.png
-[apiapp-json]: ./media/app-service-api-java-api-app/apiapp-json.png
-[app-java]: ./media/app-service-api-java-api-app/app-java.png
-[sample-api-app-page]: ./media/app-service-api-java-api-app/sample-api-app-page.png
-[browse-api-app-page]: ./media/app-service-api-java-api-app/browse-api-app-page.png
-[api-app-enable-java]: ./media/app-service-api-java-api-app/api-app-enable-java.png
-[click-gateway]: ./media/app-service-api-java-api-app/clickgateway.png
-[restart-gateway]: ./media/app-service-api-java-api-app/gatewayrestart.png
-[api-definition-click]: ./media/app-service-api-java-api-app/apidef.png
-[api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

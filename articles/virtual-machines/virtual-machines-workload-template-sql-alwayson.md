@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Развертывание AlwaysOn SQL Server с помощью шаблона диспетчера ресурсов Azure | Microsoft Azure"
-	description="Узнайте, как легко развернуть пять серверов, поддерживающих AlwaysOn SQL Server, с помощью шаблона диспетчера ресурсов и портала предварительной версии Azure, Azure PowerShell или интерфейса командной строки Azure."
+	description="Узнайте, как легко развернуть пять серверов, поддерживающих AlwaysOn SQL Server, с помощью шаблона диспетчера ресурсов и портала Azure, Azure PowerShell или интерфейса командной строки Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -25,11 +25,11 @@
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/five-server-sqlao.png)
 
-Шаблон можно запустить с помощью портала предварительной версии Azure, Azure PowerShell или интерфейса командной строки Azure.
+Шаблон можно запустить с помощью портала Azure, Azure PowerShell или интерфейса командной строки Azure.
 
-## Портал предварительной версии Azure
+## Портал Azure
 
-Чтобы развернуть эту рабочую нагрузку с помощью шаблона диспетчера ресурсов Azure и портала предварительной версии Azure, щелкните [здесь](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json).
+Чтобы развернуть эту рабочую нагрузку с помощью шаблона диспетчера ресурсов Azure и портала Azure, щелкните [здесь](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/azure-portal-template.png)
 
@@ -107,4 +107,4 @@
 
 [Установка и настройка Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

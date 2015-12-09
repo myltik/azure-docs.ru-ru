@@ -244,7 +244,6 @@
 - Дополнительные сведения о доступных API-интерфейсах см. в справочной документации по службе очередей:
     - [Справочник по клиентской библиотеке хранилища для .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [Справочник по REST API](http://msdn.microsoft.com/library/azure/dd179355)
-- Дополнительные сведения о более сложных задачах, которые можно выполнить со службой хранилища Azure, см. в статье [Хранение данных и доступ к ним в Azure](http://msdn.microsoft.com/library/azure/gg433040.aspx).
 - Узнайте, как упростить код, предназначенный для работы со службой хранилища Azure, с помощью [пакета SDK для веб-заданий Azure](../websites-dotnet-webjobs-sdk/).
 - Просмотрите дополнительные руководства, чтобы изучить дополнительные возможности хранения данных в Azure.
     - Использование [Табличного хранилища](storage-dotnet-how-to-use-tables.md) для хранения структурированных данных. 
@@ -255,7 +254,6 @@
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Creating a Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
   [CloudStorageAccount]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
@@ -263,4 +261,4 @@
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

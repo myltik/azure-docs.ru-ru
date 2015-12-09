@@ -30,7 +30,7 @@
 
 ## Создание веб-приложения
 
-1. На [портале предварительной версии Azure](https://portal.azure.com/) последовательно выберите **Создать > Интернет и мобильные устройства > Веб-приложение**. 
+1. На [портале Azure](https://portal.azure.com/) щелкните **Создать > Интернет + мобильные устройства > Веб-приложение**. 
 
 	![][1]
 
@@ -118,4 +118,4 @@
 [ResourceGroups]: http://azure.microsoft.com/documentation/articles/resource-group-portal/
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

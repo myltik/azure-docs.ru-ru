@@ -227,7 +227,7 @@
 
 ## Замена сущности
 
-Чтобы обновить сущность, извлеките ее из службы таблиц, измените объект сущности и сохраните изменения в службе таблиц. Следующий код изменяет существующий номер телефона клиента. Вместо вызова метода **Insert** этот код использует **Replace**. Из-за этого сущность будет полностью заменена на сервере, если только сущность на сервере не была изменена с момента извлечения. В подобном случае операция не будет выполнена. Это необходимо, чтобы приложение случайно не перезаписало изменения, внесенные с момента получения до обновления другим компонентом приложения. Правильный алгоритм обработки этой ошибки заключается в том, чтобы снова получить сущность, внести необходимые изменения (если это еще возможно), а затем выполнить еще одну операцию **Replace**. Ниже показано, как изменить это поведение.
+Чтобы обновить сущность, извлеките ее из службы таблиц, измените объект сущности и сохраните изменения в службе таблиц. Следующий код изменяет существующий номер телефона клиента. Вместо вызова метода **Insert** этот код использует **Replace**. Из-за этого сущность будет полностью заменена на сервере, если только сущность на сервере не была изменена с момента извлечения. В подобном случае операция не будет выполнена. Это необходимо, чтобы приложение случайно не перезаписало изменения, внесенные с момента извлечения до обновления другим компонентом приложения. Правильный алгоритм обработки этой ошибки заключается в том, чтобы снова получить сущность, внести необходимые изменения (если это еще возможно), а затем выполнить еще одну операцию **Replace**. Ниже показано, как изменить это поведение.
 
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -414,24 +414,13 @@
 
 Вы изучили основные сведения о табличном хранилище. Дополнительные сведения о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
-<ul>
-<li>Дополнительные сведения о доступных API-интерфейсах см. в справочной документации по службе таблиц:
-  <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Справочник по клиентской библиотеке хранилища для .NET</a>
-    </li>
-    <li><a href="http://msdn.microsoft.com/library/azure/dd179355">Справочник по REST API</a></li>
-  </ul>
-</li>
-<li>Дополнительные сведения о более сложных задачах, которые можно выполнить с хранилищем Azure, см. в <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">документации хранилища Azure</a>.</li>
-<li>Узнайте, как упростить код, предназначенный для работы со службой хранилища Azure, с помощью <a href="../websites-dotnet-webjobs-sdk/">пакета SDK для WebJobs Azure</a>.</li>
-<li>Просмотрите дополнительные руководства, чтобы изучить дополнительные возможности хранения данных в Azure.
-  <ul>
-    <li>Использование <a href="/documentation/articles/storage-dotnet-how-to-use-blobs/">Хранилища Blob-объектов</a> для хранения неструктурированных данных.</li>
-    <li>Использование <a href="/documentation/articles/storage-dotnet-how-to-use-queues/">Хранилища очередей</a> для хранения структурированных данных.</li>
-    <li>Использование <a href="/documentation/articles/sql-database-dotnet-how-to-use/">Базы данных SQL</a> для хранения реляционных данных.</li>
-  </ul>
-</li>
-</ul>
+- Дополнительные сведения о доступных API-интерфейсах см. в справочной документации по службе таблиц:
+    - [Справочник по клиентской библиотеке хранилища для .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    - [Справочник по REST API](http://msdn.microsoft.com/library/azure/dd179355)
+- Узнайте, как упростить код, предназначенный для работы со службой хранилища Azure, с помощью [пакета SDK для веб-заданий Azure](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md).
+- Просмотрите дополнительные руководства, чтобы изучить дополнительные возможности хранения данных в Azure.
+    - Использование [Хранилища Blob-объектов](storage-dotnet-how-to-use-blobs.md) для хранения неструктурированных данных.
+    - Использование [Базы данных SQL](sql-database-dotnet-how-to-use.md) для хранения реляционных данных.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
@@ -444,7 +433,6 @@
 
   [Введение в Upsert и проекции в запросах]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
   [.NET Client Library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Storing and accessing data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configure Azure Storage connection strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
@@ -452,4 +440,4 @@
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

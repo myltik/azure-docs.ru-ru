@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Создание виртуальной машины под управлением Windows на портале предварительной версии Azure | Microsoft Azure"
-	description="Узнайте, как на портале предварительной версии Azure создать с помощью Marketplace виртуальную машину Azure под управлением Windows."
+	pageTitle="Создание виртуальной машины под управлением Windows на портале Azure | Microsoft Azure"
+	description="Узнайте, как на портале Azure с помощью Marketplace создать виртуальную машину Azure под управлением Windows."
 	keywords="виртуальная машина azure, создать виртуальную машину, виртуальный компьютер, настроить виртуальную машину"
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,17 +17,17 @@
 	ms.date="08/14/2015"
 	ms.author="cynthn"/>
 
-# Создание виртуальной машины под управлением Windows на портале предварительной версии Azure#
+# Создание виртуальной машины под управлением Windows на портале Azure#
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](virtual-machines-windows-tutorial.md)
-- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure portal](virtual-machines-windows-tutorial.md)
+- [Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
 - [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
 - [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 <br>
 
-В этом руководстве показано, как на портале предварительной версии Azure всего за несколько минут можно создать виртуальную машину Azure. В качестве примера мы создадим виртуальную машину с помощью образа Windows Server 2012 R2 Datacenter, но это лишь один из многих образов, предлагаемых в Azure. Доступность образов зависит от подписки. Например, подписчикам MSDN могут быть доступны образы рабочих столов.
+В этом руководстве мы покажем, как на портале Azure всего за несколько минут можно создать виртуальную машину Azure. В качестве примера мы создадим виртуальную машину с помощью образа Windows Server 2012 R2 Datacenter, но это лишь один из многих образов, предлагаемых в Azure. Доступность образов зависит от подписки. Например, подписчикам MSDN могут быть доступны образы рабочих столов.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания. Подробные сведения о диспетчере ресурсов см. в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md).
 
@@ -43,7 +43,7 @@
 
 ## Выбор образа виртуальной машины
 
-1. Войдите на портал предварительной версии Azure.
+1. Войдите на портал Azure.
 
 2. В меню концентратора щелкните элементы **Создать** > **Вычисления** > **Windows Server 2012 R2 Datacenter**.
 
@@ -87,7 +87,7 @@
 
 >[AZURE.NOTE]Информацию о требованиях и устранении неполадок см. в разделе [Подключение к виртуальной машине Azure по RDP или SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
-1. Войдите на портал предварительной версии Azure (если вы еще не сделали это).
+1. Войдите на портал Azure, если вы еще этого не сделали.
 
 2. Щелкните виртуальную машину на начальной панели. Если необходимо найти ее, щелкните **Просмотреть все** > **Последние** или **Просмотреть все** > **Виртуальные машины**. Затем выберите виртуальную машину в списке.
 
@@ -108,6 +108,6 @@
 ## Дальнейшие действия
 
 * Использование Azure PowerShell и интерфейса командной строки Azure для [поиска и выбора образов виртуальных машин](resource-groups-vm-searching.md).
-* Автоматизация развертывания виртуальных машин и рабочей нагрузки и управления ими с помощью[диспетчера ресурсов Azure](virtual-machines-how-to-automate-azure-resource-manager.md) и [шаблонов диспетчера ресурсов Azure](http://azure.microsoft.com/documentation/templates/).
+* Автоматизация развертывания виртуальных машин и рабочих нагрузок и управления ими с помощью[диспетчера ресурсов Azure](virtual-machines-how-to-automate-azure-resource-manager.md) и [шаблонов диспетчера ресурсов Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

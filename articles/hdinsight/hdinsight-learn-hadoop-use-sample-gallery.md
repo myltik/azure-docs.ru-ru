@@ -40,11 +40,11 @@
 
 <center><a href="https://www.youtube.com/embed/7ePbHot1SN4">https://www.youtube.com/embed/7ePbHot1SN4></a></center>
 
-Доступ к панели мониторинга можно получить на странице http://<YourHDInsightClusterName>.azurehdinsight.net/ или на портале предварительной версии Azure.
+Доступ к панели мониторинга можно получить на странице http://<YourHDInsightClusterName>.azurehdinsight.net/ или на портале Azure.
 
 **Запуск примера из коллекции для начала работы**
 
-1. Войдите на [портал предварительной версии Azure][azure.portal].
+1. Войдите на [портал Azure][azure.portal].
 2. Щелкните **Обзор** в меню слева, щелкните **Кластеры HDInsight** и выберите имя кластера.
 3. В меню вверху щелкните **Панель мониторинга**.
 4. Введите имя и пароль пользователя HTTP (его также называют пользователем кластера).
@@ -68,4 +68,4 @@ HDInsight можно также изучить другими способами
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->
