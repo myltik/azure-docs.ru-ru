@@ -1,23 +1,28 @@
-<properties 
-	pageTitle="Приступая к работе с мобильными службами в приложениях Xamarin для Android | Microsoft Azure" 
-	writer="craigd" 
-	description="Узнайте, как использовать мобильные службы Azure с приложением Xamarin.Android." 
-	documentationCenter="xamarin" 
-	authors="lindydonna" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Приступая к работе с мобильными службами в приложениях Xamarin для Android | Microsoft Azure"
+	writer="craigd"
+	description="Узнайте, как использовать мобильные службы Azure с приложением Xamarin.Android."
+	documentationCenter="xamarin"
+	authors="lindydonna"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
-	ms.date="11/05/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="hero-article"
+	ms.date="11/05/2015"
 	ms.author="donnam"/>
 
 # <a name="getting-started"></a>Приступая к работе с мобильными службами
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
@@ -47,11 +52,11 @@
 
 ## Создание нового приложения Xamarin.Android
 
-После создания мобильной службы вы можете следовать простым шагам быстрого запуска на портале управления, чтобы создать новое приложение или изменить существующее приложение и подключить его к вашей мобильной службе.
+После создания мобильной службы вы можете следовать простым шагам быстрого запуска на классическом портале Azure, чтобы создать новое приложение или изменить существующее приложение и подключить его к своей мобильной службе.
 
 В этом разделе будет создано новое приложение Xamarin.Android, которое будет подключено к вашей мобильной службе.
 
-1.  В портале управления нажмите **Мобильные службы**, затем нажмите только что созданную мобильную службу.
+1.  На [классическом портале Azure] щелкните **Мобильные службы** и выберите только что созданную мобильную службу.
 
 2. На вкладке быстрого запуска в меню **Выбор платформы** нажмите кнопку **Xamarin.Android**, а затем разверните элемент **Создание нового приложения Android**.
 
@@ -87,7 +92,7 @@
 
 	> [AZURE.NOTE]Код, который обращается к вашей мобильной службе для запроса и вставки данных, можно просмотреть в файле C# ToDoActivity.cs.
 
-6. На портале управления перейдите на вкладку **Данные**, а затем щелкните таблицу **TodoItems**.
+6. На [классическом портале Azure] щелкните вкладку **Данные**, а затем щелкните таблицу **TodoItems**.
 
 	![][11]
 
@@ -98,13 +103,13 @@
 ## <a name="next-steps"> </a>Дальнейшие действия
 Теперь, когда вы закончили быстрый запуск, узнайте, как выполнять дополнительные важные задачи в мобильных службах:
 
-* [Приступая к работе с синхронизацией автономных данных] Узнайте, как использовать синхронизацию автономных данных, чтобы приложения были более быстрыми и надежными.
+* [Использование автономной синхронизации данных в мобильных службах]. Узнайте, как использовать автономную синхронизацию данных, чтобы приложения были более быстрыми и надежными.
 
-* [Приступая к работе с проверкой подлинности] Дополнительные сведения о проверке подлинности учетных данных пользователей приложения с помощью поставщика удостоверений.
+* [Добавление проверки подлинности к приложению мобильных служб]. Узнайте, как проверять подлинность пользователей приложения с помощью поставщика удостоверений.
 
-* [Приступая к работе с push-уведомлениями] Сведения об отправке в приложение базовых push-уведомлений.
+* [Добавление push-уведомлений к приложению мобильных служб]. Узнайте, как отправлять в приложение простейшие push-уведомления.
 
-* [Использование клиентского компонента Xamarin для мобильных служб Azure](partner-xamarin-mobile-services-how-to-use-client-library.md) Узнайте, как отправлять запросы в мобильную службу, работать с данными и обращаться к настраиваемым API.
+* [Использование управляемой клиентской библиотеки для мобильных служб Azure](partner-xamarin-mobile-services-how-to-use-client-library.md). Узнайте, как отправлять запросы в мобильную службу, работать с данными и обращаться к настраиваемым API.
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
@@ -132,13 +137,12 @@
 
 <!-- URLs. -->
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-android
-[Приступая к работе с синхронизацией автономных данных]: mobile-services-xamarin-android-get-started-offline-data.md
-[Приступая к работе с проверкой подлинности]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
-[Приступая к работе с push-уведомлениями]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
+[Использование автономной синхронизации данных в мобильных службах]: mobile-services-xamarin-android-get-started-offline-data.md
+[Добавление проверки подлинности к приложению мобильных служб]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
+[Добавление push-уведомлений к приложению мобильных служб]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
 [Xamarin.Android]: http://xamarin.com/download
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Azure]: http://azure.microsoft.com/
-[Management Portal]: https://manage.windowsazure.com/
- 
+[классическом портале Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

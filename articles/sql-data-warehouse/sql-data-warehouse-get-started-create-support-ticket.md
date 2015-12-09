@@ -22,7 +22,7 @@
 
 ## Порядок создания запроса в службу поддержки
 
-1. Откройте [портал Azure][]. 
+1. Откройте [классический портал Azure][]. 
 2. На начальном экране щелкните элемент **Справка + поддержка**.
 
     ![Справка + поддержка](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
@@ -78,10 +78,10 @@
 
 <!-- External links -->
 
-[портал Azure]: https://portal.azure.com/
+[классический портал Azure]: https://portal.azure.com/
 [Планы поддержки Azure]: http://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/
 [портале Microsoft Premier]: https://premier.microsoft.com/
 [Переполнение стека]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [форуме MSDN, посвященном хранилищу данных SQL Azure]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

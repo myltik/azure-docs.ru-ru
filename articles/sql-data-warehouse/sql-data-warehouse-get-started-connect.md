@@ -35,7 +35,7 @@
 
 Чтобы найти полное имя сервера, сделайте следующее.
 
-1. Войдите на [портал предварительной версии Azure](https://portal.azure.com).
+1. Перейдите на [портал Azure](https://portal.azure.com).
 2. Щелкните **Базы данных SQL** и выберите базу данных, к которой необходимо подключиться. В этом примере используется образец базы данных AdventureWorksDW.
 3. Найдите полное имя сервера.
 
@@ -108,4 +108,4 @@
 [7]: ./media/sql-data-warehouse-get-started-connect/run-query.png
 [8]: ./media/sql-data-warehouse-get-started-connect/query-results.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

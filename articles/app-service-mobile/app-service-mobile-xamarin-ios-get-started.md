@@ -19,9 +19,7 @@
 
 #Создание приложения Xamarin.iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Обзор
 
@@ -41,7 +39,7 @@
  
 * Если вы планируете выполнить сборку и развертывание приложения на компьютере под управлением Windows с запущенной программой Visual Studio, вам все равно потребуется доступ к компьютеру под управлением Mac, подключенному к узлу сборки Xamarin.iOS. Дополнительные сведения см. в статье [Установка Xamarin.iOS в Windows](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/).
 
->[AZURE.NOTE]Если вы хотите приступить к работе со службой приложений Azure до регистрации учетной записи Azure, перейдите на страницу [пробного использования службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile). Там вы сможете немедленно создать кратковременное начальное мобильное приложение в службе приложений. Для этого не потребуется ни кредитная карта, ни какие-либо обязательства.
+>[AZURE.NOTE]Если вы хотите приступить к работе со службой приложений Azure до регистрации и получения учетной записи Azure, перейдите на страницу [Пробное использование службы приложений](https://tryappservice.azure.com/?appServiceName=mobile). Там вы сможете немедленно создать кратковременное начальное мобильное приложение в службе приложений. Для этого не потребуется ни кредитная карта, ни какие-либо обязательства.
 
 ## Создание серверной части мобильного приложения Azure
 
@@ -121,4 +119,4 @@
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [Установка Xamarin.iOS в Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

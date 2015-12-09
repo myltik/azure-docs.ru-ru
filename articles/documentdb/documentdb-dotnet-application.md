@@ -81,7 +81,7 @@
 
 8. Если вы выбрали размещение в облаке, вы увидите по крайней мере еще один экран, на котором будет предложено войти в учетную запись Azure и ввести некоторые значения для нового веб-сайта. Укажите все дополнительные значения и продолжите.
 
-  	Мы не выбираем «Сервер базы данных», так как не будем использовать сервер базы данных SQL Azure, а собираемся позднее создать новую учетную запись Azure DocumentDB на портале Azure (предварительная версия).
+  	Мы не выбираем «Сервер базы данных», так как не будем использовать сервер базы данных SQL Azure, а собираемся позднее создать новую учетную запись Azure DocumentDB на портале Azure.
 
 	Дополнительные сведения о выборе **плана службы приложений** и **группы ресурсов** см. в [подробном обзоре планов службы приложений Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
@@ -401,12 +401,12 @@
 
 3. Некоторые значения будут считываться из конфигурации, поэтому нужно открыть файл **Web.config** и добавить следующие строки в разделе `<AppSettings>`.
 	
-    	<add key="endpoint" value="enter the URI from the Keys blade of the Azure Preview portal"/>
-    	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Preview portal"/>
+    	<add key="endpoint" value="enter the URI from the Keys blade of the Azure Portal"/>
+    	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Portal"/>
     	<add key="database" value="ToDoList"/>
     	<add key="collection" value="Items"/>
 	
-4. Теперь обновите значения для параметров *endpoint* и *authKey*, используя колонку «Ключи» на портале предварительной версии Azure. Используйте **URI** из колонки «Ключи» в качестве значения параметра endpoint. В качестве значения параметра authKey используйте значение **ПЕРВИЧНОГО КЛЮЧА** или **ВТОРИЧНОГО КЛЮЧА** из колонки «Ключи».
+4. Теперь обновите значения для параметров *endpoint* и *authKey*, используя колонку «Ключи» на портале Azure. Используйте **URI** из колонки «Ключи» в качестве значения параметра endpoint. В качестве значения параметра authKey используйте значение **ПЕРВИЧНОГО КЛЮЧА** или **ВТОРИЧНОГО КЛЮЧА** из колонки «Ключи».
 
 
     Это касается подключения репозитория DocumentDB. Теперь можно добавить логику приложения.
@@ -633,4 +633,4 @@
 [Основные операции CRUD в ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

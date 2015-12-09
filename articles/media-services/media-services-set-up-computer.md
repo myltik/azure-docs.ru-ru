@@ -26,7 +26,7 @@
 
 ## Создание учетной записи служб мультимедиа
 
-Используйте портал Azure, пакет SDK .NET или API REST для создания учетной записи служб мультимедиа Azure.
+Для создания учетной записи служб мультимедиа Azure используйте классический портал Azure, пакет SDK .NET или REST API.
 
 <a id="setup_dev_env"></a>
 ## Настройка среды разработки  
@@ -51,4 +51,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

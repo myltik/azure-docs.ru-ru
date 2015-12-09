@@ -36,7 +36,7 @@
 
 Для подключения к базе данных требуется полное имя сервера (****имя\_сервера**.database.windows.net*), содержащее базу данных, к которой необходимо подключиться.
 
-1. Войдите на [портал предварительной версии Azure](https://portal.azure.com).
+1. Перейдите на [портал Azure](https://portal.azure.com).
 2. Перейдите к базе данных, к которой нужно подключиться.
 3. Найдите полное имя сервера (мы будем использовать его на следующих этапах).
 
@@ -91,4 +91,4 @@
 [3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
 [4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/22/2015"
+	ms.date="11/24/2015"
 	ms.author="awills"/>
 
 # Приступая к работе с Application Insights в веб-проекте Java
@@ -267,7 +267,7 @@
 
 Необработанные исключения автоматически фиксируются:
 
-![](./media/app-insights-java-get-started/21-exceptions.png)
+![Прокрутите список вниз и щелкните элемент «Сбои».](./media/app-insights-java-get-started/21-exceptions.png)
 
 Для сбора данных по другим исключениям доступны два варианта:
 
@@ -364,11 +364,13 @@
 
 ## Доступность веб-тестов
 
-Application Insights может тестировать ваш веб-сайт через равные промежутки времени для проверки, работает ли он и правильно ли отвечает на запросы. Чтобы выполнить настройку, щелкните пустую диаграмму веб-тестов в колонке обзора и укажите общедоступный URL-адрес.
+Application Insights может тестировать ваш веб-сайт через равные промежутки времени для проверки, работает ли он и правильно ли отвечает на запросы. [Чтобы выполнить настройку][availability], прокрутите вниз и щелкните «Доступность».
+
+![Прокрутите вниз, щелкните «Доступность», а затем — «Добавить веб-тест».](./media/app-insights-java-get-started/31-config-web-test.png)
 
 Если ваш сайт выйдет из строя, вы получите диаграмму значений времени ответа, а также уведомление по электронной почте.
 
-![Пример веб-теста](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
+![Пример веб-теста](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
 [Дополнительные сведения о доступности веб-тестов.][availability]
 
@@ -396,4 +398,4 @@ Application Insights может тестировать ваш веб-сайт ч
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

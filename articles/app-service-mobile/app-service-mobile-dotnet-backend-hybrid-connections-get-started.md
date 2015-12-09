@@ -160,7 +160,7 @@
 <!-- Links -->
 [портала Azure]: https://portal.azure.com/
 [портале Azure]: https://portal.azure.com/
-[Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
+[Azure classic portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-windows-store-dotnet-get-started.md
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

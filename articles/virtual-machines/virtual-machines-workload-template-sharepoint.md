@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Развертывание ферм SharePoint с помощью шаблонов ARM | Microsoft Azure"
-	description="Простое развертывание трех- или девятисерверной фермы SharePoint с помощью шаблонов диспетчера ресурсов и портала предварительной версии Azure, Azure PowerShell или интерфейса командной строки Azure."
+	description="Информация о том, как легко развернуть трех- или девятисерверную ферму SharePoint с помощью шаблонов диспетчера ресурсов и портала Azure, Azure PowerShell или интерфейса командной строки Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -29,13 +29,13 @@
 
 ![](./media/virtual-machines-workload-template-sharepoint/three-server-sharepoint-farm.png)
 
-Шаблон можно запустить с помощью портала предварительной версии Azure, Azure PowerShell или интерфейса командной строки Azure.
+Шаблон можно запустить с помощью портала Azure, Azure PowerShell или интерфейса командной строки Azure.
 
-> [AZURE.NOTE]Кроме того, эту конфигурацию можно создать с помощью элемента [SharePoint 2013 non-HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) в Azure Marketplace на портале предварительной версии Azure.
+> [AZURE.NOTE]Кроме того, эту конфигурацию можно создать с помощью элемента [SharePoint 2013 non-HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) в Azure Marketplace на портале Azure.
 
-### Портал предварительной версии Azure
+### Портал Azure
 
-Чтобы развернуть эту рабочую нагрузку с помощью шаблона диспетчера ресурсов и портала предварительной версии Azure, щелкните [здесь](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
+Чтобы развернуть эту рабочую нагрузку с помощью шаблона диспетчера ресурсов и портала Azure, щелкните [здесь](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-three-vm%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
@@ -103,11 +103,11 @@
 
 ![](./media/virtual-machines-workload-template-sharepoint/nine-server-sharepoint-farm.png)
 
-> [AZURE.NOTE]Кроме того, эту конфигурацию можно создать с помощью элемента [SharePoint 2013 HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) в Azure Marketplace на портале предварительной версии Azure.
+> [AZURE.NOTE]Кроме того, эту конфигурацию можно создать с помощью элемента [SharePoint 2013 HA Farm](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) в Azure Marketplace на портале Azure.
 
-### Портал предварительной версии Azure
+### Портал Azure
 
-Чтобы развернуть эту рабочую нагрузку с помощью шаблона диспетчера ресурсов и портала предварительной версии Azure, щелкните [здесь](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
+Чтобы развернуть эту рабочую нагрузку с помощью шаблона диспетчера ресурсов и портала Azure, щелкните [здесь](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
@@ -186,4 +186,4 @@
 
 [Установка и настройка Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

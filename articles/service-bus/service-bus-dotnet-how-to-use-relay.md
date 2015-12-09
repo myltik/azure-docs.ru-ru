@@ -39,11 +39,11 @@
 
 Создание пространства имен службы:
 
-1.  Войдите на [портал Azure][].
+1.  Войдите на [классический портал Azure][].
 
-2.  На портале Azure в области навигации слева нажмите кнопку **Служебная шина**.
+2.  На портале в области навигации слева щелкните элемент **Служебная шина**.
 
-3.  В нижней части портала Azure нажмите кнопку **Создать**.
+3.  На портале на панели внизу нажмите кнопку **Создать**.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
@@ -59,7 +59,7 @@
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
 
-	Созданное пространство имен появится на портале Azure; для его активации потребуется некоторое время. Прежде чем продолжать, подождите, пока состояние не изменится на **Активное**.
+	Созданное пространство имен появится на портале; его активация займет некоторое время. Прежде чем продолжать, подождите, пока состояние не изменится на **Активное**.
 
 ## Получение учетных данных управления по умолчанию для пространства имен
 
@@ -273,9 +273,9 @@ using (var ch = cf.CreateChannel())
   [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
   [Get the Service Bus NuGet Package]: #get_nuget_package
   [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
-  [портал Azure]: http://manage.windowsazure.com
+  [классический портал Azure]: http://manage.windowsazure.com
   [Проверка подлинности подписи общего доступа с помощью служебной шины]: service-bus-shared-access-signature-authentication.md
   [Примеры Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [обзор примеров служебной шины]: service-bus-samples.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

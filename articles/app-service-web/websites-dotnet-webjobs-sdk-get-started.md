@@ -69,13 +69,11 @@
 
 1. Откройте окно **Обозреватель серверов** в Visual Studio.
 
-2. Щелкните правой кнопкой мыши узел **Azure** и выберите **Подключиться к Microsoft Azure**.
-![Подключение к Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. Щелкните правой кнопкой мыши узел **Azure** и выберите **Подключиться к Microsoft Azure**. ![Подключение к Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Выполните вход с использованием учетных данных Azure.
 
-5. Щелкните правой кнопкой мыши **Хранилище** в узле Azure и выберите пункт **Создать учетную запись хранения**.
-![Создать учетную запись хранения](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Щелкните правой кнопкой мыши **Хранилище** в узле Azure и выберите пункт **Создать учетную запись хранения**. ![Создать учетную запись хранения](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. В диалоговом окне **Создание учетной записи хранения** введите имя для учетной записи хранения.
 
@@ -119,12 +117,10 @@
 
 	В примере строки подключения к хранилищу использованы заполнители для имени учетной записи хранения и ключа доступа. Замените это строкой подключения, которая содержит имя и ключ для вашей учетной записи хранения.
 
-	<pre class="prettyprint">&lt;connectionStrings&gt;
-	  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" /&gt;
-	  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-	&lt;/connectionStrings&gt;</pre>
-
-	Строка подключения хранилища называется AzureWebJobsStorage, поскольку пакет SDK веб-заданий использует это имя по умолчанию. Здесь используется то же имя, поэтому вам нужно задать только одно значение строки подключения в среде Azure.
+	<pre class="prettyprint">&lt;connectionStrings>
+  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
+  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
+&lt;/connectionStrings></pre>Строка подключения хранилища называется AzureWebJobsStorage, поскольку пакет SDK веб-заданий использует это имя по умолчанию. Здесь используется то же имя, поэтому вам нужно задать только одно значение строки подключения в среде Azure.
 
 2. В **обозревателе серверов** щелкните правой кнопкой мыши учетную запись хранения в узле **Хранилище** и щелкните **Свойства**.
 
@@ -142,17 +138,7 @@
 
 6. Откройте файл *App.config* в проекте ContosoAdsWebJob.
 
-	Этот файл содержит две строки подключения хранилища: одну для данных приложения, а другую для ведения журнала. В этом учебнике будет использоваться одна учетная запись. В строках подключения есть заполнители для ключей учетной записи хранения.
-  	<pre class="prettyprint">&lt;configuration&gt;
-    &lt;connectionStrings&gt;
-        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
-    &lt;/connectionStrings&gt;
-        &lt;startup&gt;
-            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
-    &lt;/startup&gt;
-&lt;/configuration&gt;</pre>
+	Этот файл содержит две строки подключения хранилища: одну для данных приложения, а другую для ведения журнала. В этом учебнике будет использоваться одна учетная запись. В строках подключения есть заполнители для ключей учетной записи хранения. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
 
 	По умолчанию пакет SDK веб-заданий ищет строки подключения с именами AzureWebJobsStorage и AzureWebJobsDashboard. В качестве альтернативы можно [сохранить строку подключения любым способом и передать ее явно в объект `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
@@ -291,7 +277,7 @@
 
 ### Настройка веб-приложения для использования базы данных SQL Azure и учетной записи хранения.
 
-В целях безопасности рекомендуется [не указывать конфиденциальную информацию, такую как строки подключения, в файлах, которые хранятся в репозиториях исходного кода](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Это можно сделать с помощью Azure: вы можете задать строку подключения и другие значения параметров в среде Azure, и API конфигурации ASP.NET автоматически выберут эти значения при запуске приложения в Azure. Вы можете задать эти значения в Azure с помощью **обозревателя серверов**, портала, Windows PowerShell или кроссплатформенного интерфейса командной строки. Дополнительные сведения см. в статье [Как работают строки приложений и строки подключения](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+В целях безопасности рекомендуется [не указывать конфиденциальную информацию, такую как строки подключения, в файлах, которые хранятся в репозиториях исходного кода](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Это можно сделать с помощью Azure: вы можете задать строку подключения и другие значения параметров в среде Azure, и API конфигурации ASP.NET автоматически выберут эти значения при запуске приложения в Azure. Вы можете задать эти значения в Azure с помощью **обозревателя серверов**, портала Azure, Windows PowerShell или кроссплатформенного интерфейса командной строки. Дополнительные сведения см. в статье [Как работают строки приложений и строки подключения](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
 В этом разделе вы сможете задать значения строк подключения в Azure с помощью **обозревателя серверов**.
 
@@ -327,11 +313,11 @@
 
 11.	Через несколько секунд обновите страницу, чтобы появился эскиз.
 
-	Если эскиз не отображается, подождите какое время (около минуты), пока веб-задание запустится повторно. Если через некоторое время эскиз по-прежнему не отображается при обновлении страницы, возможно, веб-задание не запускается автоматически. В этом случае перейдите на вкладку «Веб-задания» на странице [портала Azure](https://manage.windowsazure.com) с вашим веб-приложением и нажмите кнопку **Запустить**.
+	Если эскиз не отображается, подождите какое время (около минуты), пока веб-задание запустится повторно. Если через некоторое время эскиз по-прежнему не отображается при обновлении страницы, возможно, веб-задание не запускается автоматически. В этом случае перейдите на вкладку «Веб-задания» на странице [классического портала](https://manage.windowsazure.com) с вашим веб-приложением и нажмите кнопку **Запустить**.
 
 ### Просмотр панели мониторинга SDK веб-заданий
 
-1. На [портале Azure](https://manage.windowsazure.com) выберите свое веб-приложение.
+1. На [классическом портале](https://manage.windowsazure.com) выберите свое веб-приложение.
 
 2. Перейдите на вкладку **Веб-задания**.
 
@@ -349,7 +335,7 @@
 
 	Кнопка **Повторить функцию** на этой странице позволяет платформе SDK веб-заданий повторно вызывать функцию и дает возможность изменить данные, изначально переданные в функцию.
 
->[AZURE.NOTE]По завершении тестирования удалите веб-приложение и экземпляр базы данных SQL. Веб-приложение бесплатно, но за экземпляр базы данных SQL и учетную запись хранения взимается плата (минимальная из-за мелкого размера). Также, если оставить веб-приложение работающим, любой, кто найдет этот URL-адрес, сможет создать и просмотреть рекламу. На портале Azure перейдите на вкладку **Панель мониторинга** для веб-приложения и нажмите кнопку **Удалить** внизу страницы. Затем можно установить флажок, чтобы удалить экземпляр базы данных SQL. Если необходимо временно предотвратить доступ посторонних к веб-приложению, щелкните **Остановить**. В этом случае плата за базы данных SQL и учетную запись хранения продолжит взиматься. Можно повторить эту же процедуру для удаления базы данных SQL и учетной записи хранилища, если они больше не нужны.
+>[AZURE.NOTE]По завершении тестирования удалите веб-приложение и экземпляр базы данных SQL. Веб-приложение бесплатно, но за экземпляр базы данных SQL и учетную запись хранения взимается плата (минимальная из-за мелкого размера). Также, если оставить веб-приложение работающим, любой, кто найдет этот URL-адрес, сможет создать и просмотреть рекламу. На классическом портале перейдите на вкладку **Панель мониторинга** для веб-приложения и нажмите кнопку **Удалить** внизу страницы. Затем можно установить флажок, чтобы удалить экземпляр базы данных SQL. Если необходимо временно предотвратить доступ посторонних к веб-приложению, щелкните **Остановить**. В этом случае плата за базы данных SQL и учетную запись хранения продолжит взиматься. Можно повторить эту же процедуру для удаления базы данных SQL и учетной записи хранилища, если они больше не нужны.
 
 ## <a id="create"></a>Создание приложения с самого начала
 
@@ -466,7 +452,7 @@
 	- *Global.asax.cs*  
 	- В папку *Controllers*: *AdController.cs*
 	- В папку *Views\\Shared*: файл *\_Layout.cshtml*
-	- В папку *Views\\Home*: файл *Index.cshtml*
+- В папку *Views\\Home*: файл *Index.cshtml*
 	- В папку *Views\\Ad* (сначала создайте эту папку): пять файлов *.cshtml*<br/><br/>
 
 3. В проекте ContosoAdsWebJob добавьте следующие файлы из скачанного проекта.
@@ -803,7 +789,7 @@
 
 ### Использование пакета SDK веб-заданий вне сферы применения веб-заданий
 
-Программа, которая использует пакет SDK веб-заданий, не должна запускаться в Azure в веб-задании. Ее можно запустить локально, а также в другой среде, например в рабочей роли облачной службы или службы Windows. Однако доступ к панели мониторинга пакета SDK веб-заданий можно получить только с помощью веб-приложения Azure. Чтобы использовать панель мониторинга, необходимо подключить веб-приложение к используемой учетной записи хранения, указав строку подключения AzureWebJobsDashboard на вкладке **Настройка** портала Azure. Затем можно перейти на панель мониторинга по URL-адресу:
+Программа, которая использует пакет SDK веб-заданий, не должна запускаться в Azure в веб-задании. Ее можно запустить локально, а также в другой среде, например в рабочей роли облачной службы или службы Windows. Однако доступ к панели мониторинга пакета SDK веб-заданий можно получить только с помощью веб-приложения Azure. Чтобы использовать панель мониторинга, необходимо подключить веб-приложение к используемой учетной записи хранения, указав строку подключения AzureWebJobsDashboard на вкладке **Настройка** классического портала. Затем можно перейти на панель мониторинга по URL-адресу:
 
 https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
@@ -813,4 +799,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 Дополнительные сведения см. в разделе [Документация по веб-заданиям Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!----HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -41,7 +41,7 @@
 
 ## Предварительные требования
 
-Для работы с этим учебником необходимо использовать учетную запись Microsoft Azure. Если у вас нет учетной записи, можно [активировать преимущества для подписчиков MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) или [подписаться на бесплатную пробную версию](/pricing/free-trial/?WT.mc_id=A261C142F).
+Для работы с этим учебником необходимо использовать учетную запись Microsoft Azure. Если у вас нет учетной записи, можно [активировать преимущества для подписчиков Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) или [подписаться на бесплатную пробную версию](/pricing/free-trial/?WT.mc_id=A261C142F).
 
 Чтобы настроить среду разработки, необходимо установить [обновление 4 для Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkId=390521) или более позднюю версию, а также последнюю версию пакета [SDK Azure для .NET](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). Эта статья была написана для версии Visual Studio с обновлением 4 и пакета SDK 2.7.1. Содержащиеся в ней инструкции применимы к Visual Studio 2015 с последней версией пакета [SDK Azure для .NET](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409), но некоторые экраны на рисунках будут отличаться от реальных.
 
@@ -628,7 +628,7 @@
 
 4. Щелкните веб-приложение правой кнопкой мыши и выберите пункт **Остановить**.
 
-	Кроме того, вы можете выбрать колонку веб-приложения на [портале предварительной версии Azure](https://portal.azure.com/), а затем щелкнуть значок **Остановить** в верхней части колонки.
+	Кроме того, вы можете выбрать колонку веб-приложения на [портале Azure](https://portal.azure.com/), а затем щелкнуть значок **Остановить** в верхней части колонки.
 
 	![остановка портала веб-приложений](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/stopweb.png)
 
@@ -737,7 +737,6 @@
 ## Изменения
 
 * Руководство по переходу от веб-сайтов к службе приложений см. в статье [Служба приложений Azure и существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Руководство по смене портала Azure на портал предварительной версии Azure см. в разделе [Справочная информация о навигации по предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 <!-- bookmarks -->
 [Add an OAuth Provider]: #addOauth
@@ -798,4 +797,4 @@
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

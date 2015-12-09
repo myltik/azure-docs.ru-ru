@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="10/20/2015"
+    ms.date="12/01/2015"
     ms.author="sstein"/>
 
 # Создание новой базы данных SQL и стандартная настройка базы данных с использованием командлетов PowerShell 
@@ -22,7 +22,7 @@
 **Отдельная база данных**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-get-started.md)
+- [Azure Portal](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
@@ -144,4 +144,4 @@
 
 - [база данных SQL Azure;](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

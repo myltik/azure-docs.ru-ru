@@ -1,18 +1,18 @@
-<!--author=alkohli last changed: 11/16/15-->
+<!--author=alkohli last changed: 12/1/15-->
 
 
 #### Создание новой службы
 
-1. Используя данные учетной записи Майкрософт, войдите на портал управления по этому URL-адресу: [http://azure.microsoft.com/](http://azure.microsoft.com/).
+1. Используя учетную запись Майкрософт, войдите на классический портал Azure по этому URL-адресу: [http://azure.microsoft.com/](http://azure.microsoft.com/).
 
-2. На портале Azure выберите **Создать** > **Службы данных** > **Диспетчер StorSimple** > **Быстрое создание**.
+2. На классическом портале Azure выберите **Создать** > **Службы данных** > **Диспетчер StorSimple** > **Быстрое создание**.
 
 3. В открывшейся форме выполните следующие действия.
   1. В поле **Имя** укажите уникальное имя для службы. Здесь необходимо указать понятное имя, пригодное для идентификации службы. Имя может содержать от 2 до 50 символов, среди которых могут быть буквы, цифры и дефисы. Имя должно начинаться и заканчиваться буквой или цифрой.
   2. Укажите **Расположение** службы. В общем, выберите расположение, ближайшее к географическому региону, в котором вы хотите развернуть устройство. Кроме того, необходимо учитывать следующее: 
 	 
-		- Если у вас есть рабочие нагрузки в Azure, которые также будут развернуты на устройстве StorSimple, используйте этот центр обработки данных.
-		- Служба StorSimple Manager и хранилище Azure могут находиться в разных местах. В этом случае необходимо создать службу StorSimple Manager и учетную запись хранения Azure отдельно. Чтобы создать учетную запись хранения Azure, перейдите в службу хранилища Azure на портале управления и следуйте инструкциям в разделе [Создание учетной записи хранилища Azure](storage-create-storage-account.md#create-a-storage-account). После создания учетной записи добавьте ее в службу StorSimple Manager, следуя инструкциям в разделе [Настройка новой учетной записи хранения для службы](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service).
+		- If you have existing workloads in Azure that you also intend to deploy with your StorSimple device, you should use that datacenter.
+		- Your StorSimple Manager service and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in the Azure classic portal and follow the steps in [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account). After you create this account, add it to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service).
 		 
   3. В раскрывающемся списке **Подписка** выберите подписку. Подписка привязана к учетной записи для выставления счетов. Это поле отсутствует, если у вас имеется только одна подписка.
   4. Выберите **Создать новую учетную запись хранения**, чтобы автоматически создать учетную запись хранения одновременно со службой. Эта учетная запись хранения будет иметь специальное имя, например storsimplebwv8c6dcnf. Если требуется хранить данные в другом расположении, снимите этот флажок. 
@@ -28,4 +28,4 @@
 
 Чтобы просмотреть видеоролик о том, как создать новую службу диспетчера StorSimple, щелкните [здесь](http://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Учебник. Создание конвейера с действием копирования с помощью редактора фабрики данных" 
-	description="В этом учебнике вы создадите конвейер фабрики данных Azure с действием копирования при помощи редактора фабрики данных на портале Azure." 
+	description="Это руководство предусматривает создание конвейера фабрики данных Azure с действием копирования с помощью редактора фабрики данных на классическом портале Azure." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -34,13 +34,13 @@
 [Шаг 2. Создание связанных служб](#CreateLinkedServices) | На этом шаге создаются две связанные службы: **StorageLinkedService** и **AzureSqlLinkedService**. StorageLinkedService связывает хранилище Azure, а AzureSqlLinkedService связывает базу данных SQL Azure с ADFTutorialDataFactory. Входные данные для конвейера размещены в хранилище больших двоичных объектов Azure, а выходные данные будут сохраняться в таблице в базе данных Azure SQL. Таким образом, можно добавить эти два хранилища данных как связанные службы в фабрику данных.      
 [Шаг 3. Создание входных и выходных таблиц](#CreateInputAndOutputDataSets) | На предыдущем шаге были созданы связанные службы, ссылающиеся на хранилища данных, содержащие входные и выходные данные. На этом шаге будет определено две таблицы фабрики данных, **EmpTableFromBlob** и **EmpSQLTable**, которые являются представлением входных и выходных данных, сохраняемых в этих хранилищах данных. Для EmpTableFromBlob потребуется указать контейнер больших двоичных объектов, содержащий большой двоичный объект с исходными данными для таблицы EmpSQLTable, а также таблицу SQL, в которой будут сохраняться выходные данные. Вы также укажите другие свойства, такие как структура данных, доступность данных и т. п. 
 [Шаг 4. Создание и запуск конвейера](#CreateAndRunAPipeline) | На этом шаге создается конвейер с именем **ADFTutorialPipeline** в ADFTutorialDataFactory. Для конвейера будет назначено **действие копирования**, которое будет копировать входные данные большого двоичного объекта Azure в выходную таблицу SQL Azure.
-[Шаг 5. Мониторинг секторов и конвейера](#MonitorDataSetsAndPipeline) | На этом шаге будут отслеживаться срезы входных и выходных таблиц при помощи портала предварительной версии Azure.
+[Шаг 5. Мониторинг секторов и конвейера](#MonitorDataSetsAndPipeline) | На этом шаге будут отслеживаться срезы входных и выходных таблиц при помощи портала Azure.
  
 
 ## <a name="CreateDataFactory"></a>Шаг 1. Создание фабрики данных Azure
-На этом шаге создается фабрика данных с именем **ADFTutorialDataFactory** через портал предварительной версии Azure.
+На этом шаге с помощью портала Azure создается фабрика данных с именем **ADFTutorialDataFactory**.
 
-1.	После выполнения входа на [портал предварительной версии Azure][azure-preview-portal] щелкните **СОЗДАТЬ** в нижнем левом углу, выберите **Анализ данных** в колонке **Создать**, затем щелкните **Фабрика данных** в колонке **Анализ данных**. 
+1.	После входа на [портал Azure][azure-portal] щелкните **СОЗДАТЬ** в нижнем левом углу, выберите **Анализ данных** в колонке **Создать**, затем щелкните **Фабрика данных** в колонке **Анализ данных**. 
 
 	![Создать -> Фабрика данных][image-data-factory-new-datafactory-menu]
 
@@ -310,9 +310,9 @@
  
 
 ## <a name="MonitorDataSetsAndPipeline"></a>Шаг 5. Мониторинг наборов данных и конвейера
-В этом шаге вы будете использовать портал Azure для мониторинга фабрики данных Azure. Вы также можете использовать командлеты PowerShell для мониторинга наборов данных и конвейеров. Подробные сведения об использовании командлетов для мониторинга см. в разделе [Мониторинг фабрики данных и управление ею с помощью командлетов PowerShell][monitor-manage-using-powershell].
+На этом шаге вы будете использовать классический портал Azure для мониторинга фабрики данных Azure. Вы также можете использовать командлеты PowerShell для мониторинга наборов данных и конвейеров. Подробные сведения об использовании командлетов для мониторинга см. в разделе [Мониторинг фабрики данных и управление ею с помощью командлетов PowerShell][monitor-manage-using-powershell].
 
-1. Перейдите на [портал Azure (предварительной версии)][azure-preview-portal], если он еще не открыт. 
+1. Перейдите на [классический портал Azure (предварительной версии)][azure-portal], если он еще не открыт. 
 2. Если колонка **ADFTutorialDataFactory** закрыта, откройте ее, щелкнув **ADFTutorialDataFactory** на **начальной панели**. 
 3. Вы увидите количество и имена таблиц, а также конвейер, который вы создали в этой колонке.
 
@@ -371,7 +371,7 @@
 
 
 ## Сводка 
-В этом учебнике вы создали фабрику данных Azure для копирования данных из большого двоичного объекта Azure в базу данных SQL Azure. Использовался портал предварительной версии Azure для создания фабрики данных, связанных служб, таблиц и конвейера. Основные действия, которые вы выполнили в этом учебнике
+В этом учебнике вы создали фабрику данных Azure для копирования данных из большого двоичного объекта Azure в базу данных SQL Azure. Вы использовали портал Azure для создания фабрики данных, связанных служб, таблиц и конвейера. Основные действия, которые вы выполнили в этом учебнике
 
 1.	Создание **фабрики данных** Azure.
 2.	Создание **связанных служб** для связи хранилищ данных и вычислительных служб (**связанных служб**) с фабрикой данных.
@@ -393,7 +393,7 @@
 [msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
 [data-factory-naming-rules]: https://msdn.microsoft.com/library/azure/dn835027.aspx
 
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 [download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 [sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
 [sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
@@ -488,8 +488,6 @@
 
 [image-data-factory-create-resource-group]: ./media/data-factory-get-started-using-editor/CreateNewResourceGroup.png
 
-[image-data-factory-preview-storage-key]: ./media/data-factory-get-started-using-editor/PreviewPortalStorageKey.png
-
 [image-data-factory-database-connection-string]: ./media/data-factory-get-started-using-editor/DatabaseConnectionString.png
 
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-get-started-using-editor/NewDataFactoryMenu.png
@@ -501,4 +499,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started-using-editor/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -92,7 +92,7 @@
 
 ## О. Установка образца In-Memory OLTP
 
-На [портале предварительной версии Azure](http://portal.azure.com/) вы можете быстро и просто создать образец базы данных AdventureWorksLT [V12]. Затем в этом разделе объясняется, как можно расширить базу данных AdventureWorksLT, используя следующие компоненты.
+На [портале Azure](http://portal.azure.com/) вы можете быстро и просто создать образец базы данных AdventureWorksLT [V12]. Затем в этом разделе объясняется, как можно расширить базу данных AdventureWorksLT, используя следующие компоненты.
 
 - Таблицы In-Memory.
 - Скомпилированные в собственном коде хранимые процедуры.
@@ -100,7 +100,7 @@
 
 #### Шаги установки
 
-1. На [портале предварительной версии Azure](http://portal.azure.com/) создайте базу данных категории «Премиум» на сервере V12. Укажите **источник** для образца базы данных AdventureWorksLT [V12].
+1. На [портале Azure](http://portal.azure.com/) создайте базу данных категории «Премиум» на сервере V12. Укажите **источник** для образца базы данных AdventureWorksLT [V12].
  - Подробные инструкции см. в статье [Создание первой базы данных Azure SQL](sql-database-get-started.md).
 
 2. Подключитесь к базе данных с помощью SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
@@ -525,4 +525,4 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 - [Мониторинг хранилища In-Memory](sql-database-in-memory-oltp-monitoring.md) для компонента In-Memory OLTP.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

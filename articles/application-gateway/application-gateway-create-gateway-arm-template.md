@@ -237,7 +237,7 @@
 
 
 ### Шаг 1 
-Выбрав ссылку [Щелкните, чтобы развернуть шлюз приложений](https://azure.microsoft.com/ru-RU/documentation/templates/101-application-gateway-public-ip/), вы перейдете на страницу портала с шаблоном шлюза приложений.
+Выбрав ссылку [Щелкните, чтобы развернуть шлюз приложений](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/), вы перейдете на страницу портала с шаблоном шлюза приложений.
 
 
 ### Шаг 2 
@@ -273,4 +273,4 @@
 - [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

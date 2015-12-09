@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="11/06/2015"
+    ms.date="12/01/2015"
     ms.author="adamkr; sstein"/>
 
 # Создание пула эластичных баз данных с помощью PowerShell для горизонтального масштабирования ресурсов на несколько баз данных SQL 
@@ -236,4 +236,4 @@
 
 Дополнительные сведения об эластичных базах данных и их пулах, включая интерфейс API и сведения об ошибках, можно узнать в статье [Справка по эластичным пулам баз данных](sql-database-elastic-pool-reference.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

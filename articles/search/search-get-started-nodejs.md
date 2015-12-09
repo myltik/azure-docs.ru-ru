@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Начало работы со службой поиска Azure в NodeJS | Microsoft Azure | Размещенная облачная служба поиска"
+	pageTitle="Начало работы со службой поиска Azure в NodeJS | Microsoft Azure | Размещенная облачная служба поиска"
 	description="Пошаговое создание приложения поиска в облачной службе поиска Azure с использованием NodeJS в качестве языка программирования."
 	services="search"
 	documentationCenter=""
@@ -22,7 +22,7 @@
 
 Мы использовали [NodeJS](https://nodejs.org) и NPM, [Sublime Text 3](http://www.sublimetext.com/3) и Windows PowerShell в Windows 8.1 для разработки и проверки этого кода.
 
-Чтобы запустить этот пример, вам потребуется служба поиска Azure, в которой можно зарегистрироваться на [портале Azure](https://portal.azure.com).
+Для использования этого примера требуется служба поиска Azure. Зарегистрироваться для работы с ней можно на [классическом портале Azure](https://portal.azure.com).
 
 > [AZURE.TIP]Загрузите исходный код для этого учебника в разделе [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198).
 
@@ -36,7 +36,7 @@
 
 ## Создание службы
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите на [классический портал Azure](https://portal.azure.com).
 
 2. На панели быстрых переходов последовательно щелкните элементы **Создать** > **Данные + хранилище** > **Поиск**.
 
@@ -147,4 +147,4 @@
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

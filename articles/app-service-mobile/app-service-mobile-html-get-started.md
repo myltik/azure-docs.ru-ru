@@ -19,11 +19,9 @@
 
 #Создание HTML-приложения
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)] 
-&nbsp;  
-<!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp; <!--- [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]-->
 
->[AZURE.IMPORTANT]Этот раздел сейчас не поддерживается в мобильных приложениях, так как быстрый запуск для приложений HTML и JavaScript временно отключен на портале Azure. Мы планируем включить его в ближайшем будущем. Мы завершаем работу над предварительной версией мобильных приложений. Благодарим вас за терпение.
+>[AZURE.IMPORTANT]Этот раздел сейчас не поддерживается в мобильных приложениях, так как быстрый запуск для приложений HTML и JavaScript временно отключен на портале Azure. Мы планируем включить его в ближайшем будущем. Благодарим вас за терпение.
 
 ##Обзор
 
@@ -43,7 +41,7 @@
 
 * [Visual Studio Community 2013] или более поздняя версия.
 
->[AZURE.NOTE]Если вы хотите ознакомиться со службой приложений Azure до создания учетной записи, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), где вы можете быстро создать краткосрочное начальное мобильное приложение в службе приложений. Никаких кредитных карт и обязательств.
+>[AZURE.NOTE]Если вы хотите ознакомиться со службой приложений Azure до создания учетной записи, перейдите на страницу [Пробное использование службы приложений](https://tryappservice.azure.com/?appServiceName=mobile), где вы можете быстро создать краткосрочное начальное мобильное приложение в службе приложений. Никаких кредитных карт и обязательств.
 
 ##Создание серверной части мобильного приложения
 
@@ -127,4 +125,4 @@
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -28,4 +28,4 @@
 * [Приступая к работе с Application Insights для iOS](https://github.com/Microsoft/ApplicationInsights-iOS).
 * [Приступая к работе с HockeyApp для Android](http://support.hockeyapp.net/kb/client-integration-ios-mac-os-x/hockeyapp-for-ios).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -87,13 +87,13 @@
 
 Далее нужно создать пространство имен службы и получить ключ подписанного URL-адреса (SAS). Пространство имен определяет границы каждого приложения, предоставляемого через служебную шину. Ключ SAS автоматически создается системой при создании пространства имен. Сочетание пространства имен и ключа SAS дает учетные данные, на основе которых служебная шина осуществляет проверку подлинности и предоставляет доступ к приложению.
 
-### Настройка пространства имен с помощью портала Azure
+### Настройка пространства имен с помощью классического портала Azure
 
-1.  Войдите на [портал Azure][].
+1.  Войдите на [классический портал Azure][].
 
-2.  На портале Azure в области навигации слева нажмите кнопку **Служебная шина**.
+2.  На портале в области навигации слева щелкните элемент **Служебная шина**.
 
-3.  В нижней части портала Azure нажмите кнопку **Создать**.
+3.  На портале на панели внизу нажмите кнопку **Создать**.
 
     ![][6]
 
@@ -269,7 +269,7 @@
 
 2.  Присвойте классу имя QueueConnector.cs. Нажмите кнопку **Добавить**, чтобы создать класс.
 
-3.  Теперь добавьте код, который инкапсулирует сведения о подключении и инициализирует подключение к очереди служебной шины. Добавьте в файл QueueConnector.cs следующий код и введите значения для элементов **Namespace** (пространство имен вашей службы) и **yourKey** (ключ SAS, полученный ранее на [портале управления Azure][Azure portal]).
+3.  Теперь добавьте код, который инкапсулирует сведения о подключении и инициализирует подключение к очереди служебной шины. Добавьте в файл QueueConnector.cs следующий код и введите значения для элементов **Namespace** (пространство имен вашей службы) и **yourKey** (ключ SAS, полученный ранее на [классическом портале Azure][]).
 
         using System;
         using System.Collections.Generic;
@@ -286,7 +286,7 @@
                 // on every request.
                 public static QueueClient OrdersQueueClient;
 
-                // Obtain these values from the Azure portal.
+                // Obtain these values from the portal.
                 public const string Namespace = "your service bus namespace";
 
                 // The name of your queue.
@@ -329,7 +329,7 @@
             }
         }
 
-    Далее в этом учебнике вы узнаете, как сохранить имя вашего пространства имен (**Namespace**) и значение ключа SAS в файле конфигурации.
+    Далее из этого учебника вы узнаете, как сохранить имя вашего пространства имен (**Namespace**) и значение ключа SAS в файле конфигурации.
 
 4.  Теперь вам нужно обеспечить вызов метода **Initialize**. В **обозревателе решений** дважды щелкните **Global.asax\\Global.asax.cs**.
 
@@ -510,8 +510,8 @@
 
   [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
-  [Azure portal]: http://manage.windowsazure.com
-  [портал Azure]: http://manage.windowsazure.com
+  [классический портал Azure]: http://manage.windowsazure.com
+  [классическом портале Azure]: http://manage.windowsazure.com
   [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
   [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [8]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-09.png
@@ -545,4 +545,4 @@
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -20,7 +20,7 @@
 # Создание базы данных хранилища данных SQL с помощью Transact-SQL (TSQL)
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portal](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
@@ -32,7 +32,7 @@
 
 - Подписка Azure. Если вам требуется подписка Azure, нажмите в верхней части этой страницы кнопку **БЕСПЛАТНАЯ ПРОБНАЯ ВЕРСИЯ**. Оформив подписку, вернитесь к этой статье.
 - приведенному. Бесплатный экземпляр Visual Studio см. на странице [Загрузки Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs).
-- Логический сервер SQL версии 12. Для создания хранилища данных SQL вам потребуется SQL Server версии 12. Если у вас нет логического сервера SQL версии 12, вы узнаете, как его создать из [учебника по порталу предварительной версии Azure][].
+- Логический сервер SQL версии 12. Для создания хранилища данных SQL вам потребуется SQL Server версии 12. Если у вас нет логического сервера SQL версии 12, вы узнаете, как его создать, из [руководства по порталу Azure][].
 
 ## Создание базы данных с помощью Visual Studio
 
@@ -53,7 +53,7 @@
 ## Дальнейшие действия
 После завершения подготовки хранилища данных SQL вы можете [загрузить демонстрационные данные][] или ознакомиться с возможностями [разработки][], [загрузки][] и [переноса][].
 
-[учебника по порталу предварительной версии Azure]: ./sql-data-warehouse-get-started-provision.md
+[руководства по порталу Azure]: ./sql-data-warehouse-get-started-provision.md
 [подключению и созданию запросов]: ./sql-data-warehouse-get-started-connect.md
 [переноса]: ./sql-data-warehouse-overview-migrate.md
 [разработки]: ./sql-data-warehouse-overview-develop.md
@@ -61,4 +61,4 @@
 [загрузить демонстрационные данные]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [странице цен]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->
