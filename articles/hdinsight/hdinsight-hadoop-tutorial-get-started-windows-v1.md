@@ -193,7 +193,7 @@
 **Импорт данных HDInsight**
 
 1. Откройте Excel и создайте новую книгу.
-3. Щелкните меню **Power Query**, выберите **Из других источников**, а затем щелкните **Из Windows Azure HDInsight**.
+3. Щелкните меню **Power Query**, выберите **Из других источников**, а затем щелкните **Из Microsoft Azure HDInsight**.
 
 	![Меню "Импорт" в Power Query для Excel, открытое для Azure HDInsight.][image-hdi-gettingstarted-powerquery-importdata]
 
