@@ -133,4 +133,4 @@
 
 Просмотрите другие разделы, посвященные виртуальным машинам SQL Server, в разделе [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!----HONumber=AcomDC_1125_2015-->
