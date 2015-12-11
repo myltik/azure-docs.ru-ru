@@ -56,7 +56,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 | [Клиенты мобильных служб] | кнопку "ОК" | Ошибка* |
 | [Клиенты мобильных приложений] | Ошибка* | кнопку "ОК" |
 
-* Это поведение можно изменить, указав параметр **MS\_SkipVersionCheck**.
+\* Это поведение можно изменить, указав параметр **MS\_SkipVersionCheck**.
 
 
 <!-- IMPORTANT!  The anchors for Mobile Services and Mobile Apps MUST be 1.0.0 and 2.0.0 respectively, since there is an exception error message that uses those anchors. -->
@@ -82,7 +82,8 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 | Платформа сервера | Version (версия) | Принятый заголовок версии |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
-| .NET | [WindowsAzure.MobileServices.Backend.* версия 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **** Нет заголовка версии ** || Node.js | (ожидается в ближайшее время) | **Нет заголовка версии** |
+| .NET | [WindowsAzure.MobileServices.Backend.* версия 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) | **Нет заголовка версии** |
+| Node.js | (ожидается в ближайшее время) | **Нет заголовка версии** |
 
 <!-- TODO: add Node npm version -->
 
@@ -141,4 +142,4 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Перенос мобильной службы в службу приложений Azure]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
 
-<!---HONumber=Nov15_HO3-->
+<!----HONumber=Nov15_HO3-->
