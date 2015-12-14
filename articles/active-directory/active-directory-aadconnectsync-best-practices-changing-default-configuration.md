@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Рекомендации по изменению конфигурации по умолчанию | Microsoft Azure"
+	pageTitle="Службы синхронизации Azure AD Connect: рекомендации по изменению конфигурации по умолчанию | Microsoft Azure"
 	description="В этой статье приведены рекомендации по изменению стандартной конфигурации служб синхронизации Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -83,4 +83,4 @@
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

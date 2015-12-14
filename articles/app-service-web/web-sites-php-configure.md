@@ -31,7 +31,7 @@
 
 ### Портал Azure
 
-1. Перейдите к своему веб-приложению на [портале Azure](http://go.microsoft.com/fwlink/?LinkId=529715) и нажмите кнопку **Параметры**.
+1. Перейдите к своему веб-приложению на [портале Azure](https://portal.azure.com) и нажмите кнопку **Параметры**.
 
 	![Параметры веб-приложения][settings-button]
 
@@ -161,7 +161,6 @@
 
 ## Изменения
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 [бесплатную пробную версию]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
@@ -182,4 +181,4 @@
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

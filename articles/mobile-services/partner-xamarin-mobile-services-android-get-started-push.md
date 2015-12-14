@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Добавление push-уведомлений в приложение Xamarin для Android | Microsoft Azure" 
-	description="Вы узнаете, как настраивать push-уведомления в Google Cloud Messaging для ваших приложений Xamarin.Android с помощью мобильных служб Azure и концентраторов уведомлений Azure." 
-	documentationCenter="xamarin" 
-	authors="ggailey777" 
-	manager="dwrede" 
-	services="mobile-services" 
+<properties
+	pageTitle="Добавление push-уведомлений в приложение Xamarin для Android | Microsoft Azure"
+	description="Вы узнаете, как настраивать push-уведомления в Google Cloud Messaging для ваших приложений Xamarin.Android с помощью мобильных служб Azure и концентраторов уведомлений Azure."
+	documentationCenter="xamarin"
+	authors="ggailey777"
+	manager="dwrede"
+	services="mobile-services"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/16/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/16/2015"
 	ms.author="glenga"/>
 
 # Добавление push-уведомлений к приложению мобильных служб
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
@@ -40,7 +45,7 @@
 
 ##<a id="update-scripts"></a>Обновление зарегистрированного скрипта вставки для отправки уведомлений
 
->[AZURE.TIP]Ниже показано, как обновить скрипт, зарегистрированный для операции вставки в таблице TodoItem на портале управления Azure. Вы также можете вызвать и изменить этот скрипт мобильной службы непосредственно в Visual Studio на узле Azure в обозревателе сервера.
+>[AZURE.TIP]Ниже показано, как обновить скрипт, зарегистрированный для операции вставки в таблице TodoItem на классическом портале Azure. Вы также можете вызвать и изменить этот скрипт мобильной службы непосредственно в Visual Studio на узле Azure в обозревателе сервера.
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
@@ -81,6 +86,5 @@
 [Компонент клиента Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
 [мобильные службы Azure]: http://components.xamarin.com/view/azure-mobile-services/
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

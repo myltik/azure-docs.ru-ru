@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="donnam"/>
 
 # Добавление проверки подлинности к приложению мобильных служб
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
@@ -134,7 +139,6 @@
 
 <!-- URLs. -->
 [Авторизация пользователей с помощью скриптов]: mobile-services-javascript-backend-service-side-authorization.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 [полный пример проекта]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

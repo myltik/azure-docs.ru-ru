@@ -29,21 +29,21 @@
 
 Автоматически созданная среда состоит из трех серверов в облачной виртуальной сети Azure: контроллера домена, сервера SQL Server и сервера SharePoint.
 
-См. пункт [Ферма без высокой доступности SharePoint 2013](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) в Azure Marketplace на портале предварительной версии Azure. Он создает простую ферму для разработки и тестирования для веб-сайта SharePoint с выходом в Интернет. Дополнительные сведения см. в статье [Создание ферм серверов SharePoint](virtual-machines-sharepoint-farm-azure-preview.md).
+См. пункт [Ферма без высокой доступности SharePoint 2013](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-nonha/) в Azure Marketplace на портале Azure. Он создает простую ферму для разработки и тестирования для веб-сайта SharePoint с выходом в Интернет. Дополнительные сведения см. в статье [Создание ферм серверов SharePoint](virtual-machines-sharepoint-farm-azure-preview.md).
 
 Также можно использовать шаблон диспетчера ресурсов Azure. См. статью [Развертывание трехсерверной фермы SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-three-server-sharepoint-farm).
 
-> [AZURE.NOTE]Пункт **Ферма серверов SharePoint** удален из Azure Marketplace на портале предварительной версии Azure.
+> [AZURE.NOTE]Пункт **Ферма серверов SharePoint** удален из Azure Marketplace на портале Azure.
 
 ## Высокодоступная ферма SharePoint для разработки и тестирования
 
 Эта автоматически созданная среда состоит из девяти серверов в облачной виртуальной сети Azure: два для контроллеров домена, три для кластера SQL Server, два сервера SharePoint уровня приложений и два сервера SharePoint уровня Интернета.
 
-См. пункт [Ферма высокой доступности SharePoint 2013](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) в Azure Marketplace на портале предварительной версии Azure. Он создает ферму высокой доступности для разработки и тестирования для веб-сайта SharePoint с выходом в Интернет. Дополнительные сведения см. в статье [Создание ферм серверов SharePoint](virtual-machines-sharepoint-farm-azure-preview.md).
+См. пункт [Ферма SharePoint 2013 с высоким уровнем доступности](https://azure.microsoft.com/marketplace/partners/sharepoint2013/sharepoint2013farmsharepoint2013-ha/) в Azure Marketplace на портале Azure. Он создает ферму высокой доступности для разработки и тестирования для веб-сайта SharePoint с выходом в Интернет. Дополнительные сведения см. в статье [Создание ферм серверов SharePoint](virtual-machines-sharepoint-farm-azure-preview.md).
 
 Также можно использовать шаблон диспетчера ресурсов Azure. См. статью [Развертывание девятисерверной фермы SharePoint](virtual-machines-workload-template-sharepoint.md#deploy-a-nine-server-sharepoint-farm).
 
-> [AZURE.NOTE]Пункт **Ферма серверов SharePoint** удален из Azure Marketplace на портале предварительной версии Azure.
+> [AZURE.NOTE]Пункт **Ферма серверов SharePoint** удален из Azure Marketplace на портале Azure.
 
 ## Гибридная облачная ферма для разработки и тестирования
 
@@ -69,4 +69,4 @@
 
 [Развертывание службы синхронизации каталогов Office 365 (DirSync) в Microsoft Azure](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

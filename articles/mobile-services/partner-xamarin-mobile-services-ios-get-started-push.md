@@ -18,6 +18,11 @@
 
 # Добавление push-уведомлений к приложению мобильных служб
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 ##Обзор
@@ -155,7 +160,7 @@ APNS использует сертификаты для аутентификац
 
     Запишите имя файла и расположение экспортируемого сертификата.
 
-2. Выполните вход на [портал управления Azure], щелкните элемент **Мобильные службы**, а затем щелкните свое приложение.
+2. Выполните вход на [классический портал Azure], щелкните элемент **Мобильные службы**, а затем щелкните свое приложение.
 
     ![][18]
 
@@ -275,9 +280,9 @@ APNS использует сертификаты для аутентификац
 
 Ваше приложение теперь обновлено для поддержки push-уведомлений.
 
-## <a name="update-scripts"></a>Обновление зарегистрированных скриптов вставки на портале управления
+## <a name="update-scripts"></a>Обновление зарегистрированных скриптов вставки на классическом портале Azure
 
-1. На портале управления щелкните вкладку **Данные**, а затем щелкните таблицу **TodoItem**.
+1. На [классическом портале Azure] щелкните вкладку **Данные**, а затем щелкните таблицу **TodoItem**.
 
     ![][21]
 
@@ -392,10 +397,11 @@ APNS использует сертификаты для аутентификац
 [Подготовка устройства Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
 
-[портал управления Azure]: https://manage.windowsazure.com/
+[классический портал Azure]: https://manage.windowsazure.com/
+[классическом портале Azure]: https://manage.windowsazure.com/
 [объект apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Компонент мобильных служб Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

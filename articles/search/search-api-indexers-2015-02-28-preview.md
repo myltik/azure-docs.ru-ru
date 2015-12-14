@@ -1,5 +1,5 @@
 <properties 
-pageTitle="Операции индексатора (API REST Поиска Azure: 2015-02-28-Preview) | Microsoft Azure | Размещенная облачная служба поиска" 
+pageTitle="Операции индексатора (API REST поиска Azure: 2015-02-28-Preview) | Microsoft Azure | Размещенная облачная служба поиска" 
 description="Операции с индексаторами (API REST службы ";Поиск Azure";: версия 2015-02-28-Preview)" 
 services="search" 
 documentationCenter="" 
@@ -92,7 +92,7 @@ ms.author="heidist" />
 - `Content-Type`: обязательный. Для этого заголовка необходимо задать значение `application/json`.
 - `api-key`: обязательный. Заголовок `api-key` используется для проверки подлинности запроса в службе поиска. Это уникальное строковое значение, присваиваемое службе. Запрос на **создание источника данных** должен содержать заголовок `api-key` со значением ключа администратора (а не ключа запроса). 
  
-Для формирования URL-адреса запроса также понадобится имя службы. Имя и заголовок `api-key` можно найти на панели мониторинга службы на [портале управления Azure ](https://portal.azure.com/). Справку по навигации по страницам см. в [статье, посвященной созданию службы поиска на портале](search-create-service-portal.md).
+Для формирования URL-адреса запроса также понадобится имя службы. Имя и `api-key` можно найти на панели мониторинга службы на [классическом портале Azure](https://portal.azure.com/). Справку по навигации по страницам см. в [статье, посвященной созданию службы поиска на портале](search-create-service-portal.md).
 
 <a name="CreateDataSourceRequestSyntax"></a> **Синтаксис текста запроса**
 
@@ -120,8 +120,8 @@ ms.author="heidist" />
 	- `documentdb` — Azure DocumentDB.
 - `credentials`:
 	- Обязательное свойство `connectionString` задает строку подключения для источника данных. Формат строки подключения зависит от типа источника данных. 
-		- Для SQL Azure это обычная строка подключения SQL Server. На портале управления Azure используйте `ADO.NET connection string` для получения строки подключения.
-		- При использовании DocumentDB строка подключения должна быть в следующем формате: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Все значения являются обязательными. Эти значения можно найти на [портале управления Azure](https://portal.azure.com/).   
+		- Для SQL Azure это обычная строка подключения SQL Server. На классическом портале Azure используйте `ADO.NET connection string` для получения строки подключения.
+		- При использовании DocumentDB строка подключения должна быть в следующем формате: `"AccountEndpoint=https://[your account name].documents.azure.com;AccountKey=[your account key];Database=[your database id]"`. Все значения являются обязательными. Эти значения можно найти на [классическом портале Azure](https://portal.azure.com/).   
 		
 - `container`:
 	- Обязательное свойство `name` определяет таблицу или представление (для источника данных Azure SQL) или коллекцию (для источника данных DocumentDB), которые будут индексироваться. 
@@ -776,4 +776,4 @@ ms.author="heidist" />
 </tr>
 </table>
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

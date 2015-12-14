@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/16/2015"
+	ms.date="12/02/2015"
 	ms.author="billmath"/>
 
-# Azure Active Directory Connect: вопросы и ответы
+# Azure AD Connect: вопросы и ответы
 
 ## Общая установка
 **Вопрос. Будет ли установка выполнена корректно, если глобальный администратор Azure AD включил 2FA?**
@@ -90,4 +90,4 @@
 
 - Перейдите по этой ссылке, чтобы получить поддержку на портале Azure.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,10 +1,9 @@
-## Scenario
+## Сценарий
 
-You are creating an internal load balancer according to the following scenario
+Внутренний балансировщик нагрузки создается в соответствии со следующим сценарием
 
-![IMAGE DESCRIPTION](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
+![ОПИСАНИЕ ОБРАЗА](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
 
-An internal load balancer is configured in a virtual network  
-- 2 virtual machines called DB1 and DB2<BR>
-- endpoints <BR>
--  internal load balancer<BR>
+Внутренний балансировщик нагрузки настроен в виртуальной сети — 2 виртуальные машины с названием DB1 и DB2<BR> — конечные точки <BR> — внутренний балансировщик нагрузки<BR>
+
+<!---HONumber=AcomDC_1203_2015-->

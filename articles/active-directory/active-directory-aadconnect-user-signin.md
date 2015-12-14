@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure AD Connect — вход пользователя| Microsoft Azure"
+	pageTitle="Azure AD Connect: вход пользователя| Microsoft Azure"
 	description="Вход пользователя в Azure AD с пользовательскими настройками."
 	services="active-directory"
 	documentationCenter=""
@@ -63,4 +63,8 @@
 	- Средства интеграции каталога Active Directory, например программная блокировка учетной записи или политики AD относительно паролей и рабочих часов.
 	- Условный доступ к локальным и облачным ресурсам с помощью регистрации устройств, присоединения к Azure AD или политик Intune MDM.
 
-<!---HONumber=Oct15_HO3-->
+
+## Дальнейшие действия
+Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
+
+<!---HONumber=AcomDC_1203_2015-->

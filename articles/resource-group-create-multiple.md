@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/20/2015"
+   ms.date="12/01/2015"
    ms.author="tomfitz"/>
 
 # Создание нескольких экземпляров ресурсов в диспетчере ресурсов Azure
@@ -151,9 +151,52 @@
 	    "outputs": {}
     }
 
+## Выполнение цикла с вложенным ресурсом
+
+Включить вложенный ресурс в цикл копирования нельзя. Если требуется создать несколько экземпляров ресурса, который обычно определяется как вложенный в другой ресурс, необходимо сначала создать его как ресурс верхнего уровня, а затем задать его отношения с родительским ресурсом с помощью свойств **type** и **name**.
+
+Предположим, например, что набор данных определяется в качестве вложенного ресурса фабрики данных.
+
+    "resources": [
+    {
+        "type": "Microsoft.DataFactory/datafactories",
+        "name": "[variables('dataFactoryName')]",
+        ...
+        "resources": [
+        {
+            "type": "datasets",
+            "name": "[variables('dataSetName')]",
+            "dependsOn": [
+                "[variables('dataFactoryName')]"
+            ],
+            ...
+        }
+    }]
+    
+Чтобы создать несколько экземпляров набора, необходимо внести изменения в шаблон, как показано ниже. Обратите внимание на то, что полный тип и имя содержат имя фабрики.
+
+    "resources": [
+    {
+        "type": "Microsoft.DataFactory/datafactories",
+        "name": "[variables('dataFactoryName')]",
+        ...
+    },
+    {
+        "type": "Microsoft.DataFactory/datafactories/datasets",
+        "name": "[concat(variables('dataFactoryName'), '/', variables('dataSetName'), copyIndex())]",
+        "dependsOn": [
+            "[variables('dataFactoryName')]"
+        ],
+        "copy": { 
+            "name": "datasetcopy", 
+            "count": "[parameters('count')]" 
+        } 
+        ...
+    }]
+
 ## Дальнейшие действия
 - Сведения о разделах шаблона см. в статье [Создание шаблонов диспетчера ресурсов Azure](./resource-group-authoring-templates.md).
 - Список функций, которые можно использовать в шаблоне, см. в статье [Функции шаблонов в диспетчере ресурсов Azure](./resource-group-template-functions.md).
 - Инструкции по развертыванию шаблонов см. в статье [Развертывание приложения с помощью шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

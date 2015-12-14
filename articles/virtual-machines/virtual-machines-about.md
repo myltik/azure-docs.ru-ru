@@ -36,7 +36,7 @@
 
 [Создание виртуальной машины с ОС Linux](virtual-machines-linux-tutorial.md)
 
-[Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](virtual-machines-windows-tutorial.md)
+[Создание виртуальной машины под управлением Windows на портале Azure](virtual-machines-windows-tutorial.md)
 
 Так как эти учебники помогают быстро создать виртуальную машину, в них показан только один из способов сделать это и не описаны различные инструменты, с помощью которых можно создавать виртуальные машины. Сводка этих инструментов и ссылки на указания:
 
@@ -52,4 +52,4 @@
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

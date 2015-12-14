@@ -71,9 +71,9 @@
       Get-AzureVM -Name $name -ServiceName $servicename | Set-AzureVMCustomScriptExtension -StorageAccountName $storageaccount -StorageAccountKey $storagekey -ContainerName $container -FileUri $fileUrl1, $fileUrl2 -Run 'file.ps1' | Update-AzureVM
 
 
-### Добавление расширения Custom Script из портала предварительной версии Azure
+### Добавление расширения Custom Script из портала Azure
 
-Перейдите к виртуальной машине на <a href="https://portal.azure.com/ " target="_blank">портале предварительной версии Azure</a> и добавьте это расширение, указав нужный файл сценария.
+Перейдите к этой виртуальной машине на <a href="https://portal.azure.com/ " target="_blank">портале Azure </a> и добавьте это расширение, указав нужный файл сценария.
 
   ![][5]
 
@@ -91,4 +91,4 @@
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

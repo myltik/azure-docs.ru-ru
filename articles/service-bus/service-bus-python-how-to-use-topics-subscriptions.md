@@ -43,7 +43,7 @@ bus_service = ServiceBusService(
 	shared_access_key_value='sharedaccesskey')
 ```
 
-Можно получить значения для имени ключа SAS и значение из окна [портал Azure][] **сведения о подключении**.
+Можно получить значения для имени ключа SAS и значение из окна **Сведения о подключении** на [классическом портале Azure][].
 
 ```
 bus_service.create_topic('mytopic')
@@ -157,7 +157,7 @@ msg.delete()
 
 ## Удаление разделов и подписок
 
-Разделы и подписки хранятся постоянно, и их нужно удалять явным образом на портале Azure или с помощью программных средств. В следующем примере показано, как удалить раздел с именем `mytopic`:
+Разделы и подписки хранятся постоянно, и их нужно удалять явным образом на [классическом портале Azure][] или с помощью программных средств. В следующем примере показано, как удалить раздел с именем `mytopic`:
 
 ```
 bus_service.delete_topic('mytopic')
@@ -173,14 +173,14 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 
 Вы узнали основные сведения о разделах служебной шины. Для получения дополнительных сведений используйте следующие ссылки.
 
--   См. статью [Очереди, темы и подписки][].
+-   См. статью [Очереди, разделы и подписки][].
 -   Справочник по [SqlFilter.SqlExpression][].
 
-[портал Azure]: http://manage.windowsazure.com
+[классическом портале Azure]: http://manage.windowsazure.com
 [Azure для Python]: https://pypi.python.org/pypi/azure
 [пакет Azure для Python]: https://pypi.python.org/pypi/azure
-[Очереди, темы и подписки]: service-bus-queues-topics-subscriptions.md
+[Очереди, разделы и подписки]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [Очереди Azure и очереди служебной шины]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

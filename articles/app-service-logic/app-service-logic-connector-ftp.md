@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2015"
+	ms.date="11/30/2015"
 	ms.author="rajram"/>
 
 # Приступая к работе с соединителем FTP: добавление в приложение логики
@@ -160,4 +160,4 @@
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

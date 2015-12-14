@@ -13,14 +13,12 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-	ms.date="08/22/2015"
+	ms.date="12/02/2015"
     ms.author="wesmc"/>
 
 # Включение автономной синхронизации для мобильного приложения Xamarin.iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Обзор
 
@@ -93,10 +91,9 @@
 
 В этом разделе вы измените клиентский проект, чтобы смоделировать сценарий автономного режима, используя недействительный URL-адрес приложения для серверной части. При добавлении или изменении элементов данных эти изменения будут сохраняться в локальном хранилище, но не будут синхронизироваться с серверным хранилищем данных, пока не будет восстановлено подключение.
 
-1. В верхней части `QSTodoService.cs` измените инициализацию `applicationURL` и `gatewayURL`, указав недействительные URL-адреса:
+1. В верхней части `QSTodoService.cs` измените инициализацию `applicationURL`, указав недействительные URL-адреса:
 
         const string applicationURL = @"https://your-service.azurewebsites.xxx/"; 
-        const string gatewayURL = @"https://your-gateway.azurewebsites.xxx";
 
 
 2. Добавьте дополнительный `catch` для класса `Exception` в `QSTodoService.SyncAsync` для записи сообщения об исключении в консоль.
@@ -124,15 +121,15 @@
 
 5. (Необязательно.) С помощью Visual Studio просмотрите таблицу базы данных SQL Azure, чтобы увидеть, что данные в серверной базе данных не изменились.
 
-   В Visual Studio в откройте **обозреватель сервера**. Перейдите к своей базе данных в **Azure** > **Базы данных SQL**. Щелкните правой кнопкой мыши базу данных и выберите пункт **Открыть в обозревателе объектов SQL Server**. Теперь можно перейти к таблице базы данных SQL и ее содержимому.
+	В Visual Studio в откройте **обозреватель сервера**. Перейдите к своей базе данных в **Azure** > **Базы данных SQL**. Щелкните правой кнопкой мыши базу данных и выберите пункт **Открыть в обозревателе объектов SQL Server**. Теперь можно перейти к таблице базы данных SQL и ее содержимому.
 
-6. (Необязательно.) Воспользуйтесь инструментом REST, например Fiddler или Postman, чтобы выполнить запрос к мобильной серверной части с помощью запроса GET вида `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`. 
+6. (Необязательно) Воспользуйтесь инструментом REST, например Fiddler или Postman, чтобы выполнить запрос к мобильной серверной части с помощью запроса GET вида `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`.
 
 ## Обновление клиентского приложения для повторного подключения мобильной серверной части
 
 В этом разделе вы повторно подключите приложение к мобильному внутреннему серверу, имитирующему приложение, подключающееся к сети. При выполнении жеста обновления данные будут синхронизированы с мобильным внутренним сервером.
 
-1. Откройте `QSTodoService.cs`. Исправьте `applicationURL` и `gatewayURL`, чтобы указать правильные URL-адреса.
+1. Откройте `QSTodoService.cs`. Исправьте `applicationURL` и `gatewayURL`, чтобы они содержали правильные URL-адреса.
 
 2. Повторно выполните сборку и запустите клиентское приложение. После запуска приложение пытается выполнить синхронизацию с серверной частью мобильного приложения Azure. Убедитесь в отсутствии исключений в журнале консоли отладки.
 
@@ -170,4 +167,4 @@
  
 [Облачное покрытие: автономная синхронизация в мобильных службах Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

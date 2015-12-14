@@ -1,8 +1,8 @@
-## Retrieve the IoT Hub keys
+## Получите ключи центра IoT
 
-Display the authentication keys for the new IoT Hub.
+Отобразите ключи проверки подлинности для нового центра IoT.
 
-1. Add the following method to Program.cs:
+1. Добавьте в класс Program.cs следующий метод:
 
     ```
     static void ShowIoTHubKeys(ResourceManagementClient client, string token)
@@ -11,7 +11,7 @@ Display the authentication keys for the new IoT Hub.
     }
     ```
 
-2. Add the following code to the **ShowIoTHubKeys** method to print the authentication keys to the console:
+2. Добавьте следующий код к методу **ShowIoTHubKeys**, чтобы выполнить печать ключей проверки подлинности в консоли:
 
     ```
     client.HttpClient.DefaultRequestHeaders.Authorization = 
@@ -24,3 +24,5 @@ Display the authentication keys for the new IoT Hub.
     Console.WriteLine("Keys: {0}, 
         httpsRepsonse.Content.ReadAsStringAsync().Result);
     ```
+
+<!---HONumber=AcomDC_1203_2015-->

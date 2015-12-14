@@ -44,7 +44,7 @@ bus_service = ServiceBusService(
 	shared_access_key_value='sharedaccesskey')
 ```
 
-Значения для имени и значения ключа SAS можно найти в данных подключения к [порталу Azure][] или в области **Свойства** Visual Studio при выборе пространства имен служебной шины в обозревателе сервера (как показано в предыдущем разделе).
+Значения для имени и значения ключа SAS можно найти в данных подключения к [классическому порталу Azure][] или в области **Свойства** Visual Studio при выборе пространства имен служебной шины в обозревателе сервера (как показано в предыдущем разделе).
 
 ```
 bus_service.create_queue('taskqueue')
@@ -109,11 +109,11 @@ msg.delete()
 
 -   См. статью [Очереди, темы и подписки][].
 
-[порталу Azure]: http://manage.windowsazure.com
+[классическому порталу Azure]: http://manage.windowsazure.com
 [Azure для Python]: https://pypi.python.org/pypi/azure
 [пакет Azure для Python]: https://pypi.python.org/pypi/azure
 [Очереди, темы и подписки]: service-bus-queues-topics-subscriptions.md
 [Очереди Azure и очереди служебной шины]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

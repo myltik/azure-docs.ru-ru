@@ -18,12 +18,14 @@
 
 # Добавление мобильных служб в существующее приложение Android (серверная часть JavaScript)
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 ## Сводка
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
 
-<p>В этом разделе показано, как использовать мобильные службы Azure для добавления постоянных данных в приложение Android. В этом учебнике предстоит скачать приложение, которое хранит данные в памяти, создать новую мобильную службу, интегрировать мобильную службу с приложением, чтобы оно хранило и обновляло данные в мобильных службах Azure, а не на локальном компьютере, а затем воспользоваться порталом управления Azure для просмотра изменений, внесенных в данные в ходе выполнения приложения.</p>
+<p>В этом разделе показано, как использовать мобильные службы Azure для добавления постоянных данных в приложение Android. В этом учебнике вам предстоит скачать приложение, которое хранит данные в памяти, создать новую мобильную службу, интегрировать мобильную службу с приложением, чтобы оно хранило и обновляло данные в мобильных службах Azure, а не на локальном компьютере, а затем использовать классический портал Azure для просмотра изменений, внесенных в данные в ходе выполнения приложения.</p>
 
 </div>
 
@@ -59,7 +61,7 @@
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code.md)]
 
-## Создание мобильной службы на портале управления
+## Создание мобильной службы на классическом портале Azure
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
 
@@ -84,7 +86,7 @@
 
    	В результате в мобильную службу будет отправлен новый элемент в качестве вставки.
 
-3. На [Портале управления] щелкните **Мобильные службы**, затем щелкните свою мобильную службу.
+3. Перейдите на [классический портал Azure], выберите пункт **Мобильные службы**, а затем щелкните свою мобильную службу.
 
 4. Откройте вкладку **Данные**, а затем щелкните **Обзор**.
 
@@ -143,10 +145,9 @@
 [Приступая к работе с проверкой подлинности]: /develop/mobile/tutorials/get-started-with-users-android
 [Приступая к работе с push-уведомлениями]: /develop/mobile/tutorials/get-started-with-push-android
 
-[Azure Management Portal]: https://manage.windowsazure.com/
-[Портале управления]: https://manage.windowsazure.com/
+[классический портал Azure]: https://manage.windowsazure.com/
 [пакет SDK для Android для мобильных служб Azure]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

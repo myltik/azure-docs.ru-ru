@@ -10,13 +10,18 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.date="09/15/2015"
 	ms.author="glenga"/>
 
 # Хранение кода проекта мобильной службы в системе управления версиями
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
@@ -36,8 +41,7 @@
 
 	Действия, необходимые для установки Git, отличаются в разных операционных системах. Сведения о дистрибутивах для разных операционных систем и руководство по установке см. в разделе [Установка Git].
 
-	> [AZURE.NOTE]
-	> В некоторых операционных системах доступны обе версии Git — для командной строки и с графическим интерфейсом. В инструкциях, приведенных в данной статье, используется версия для командной строки.
+	> [AZURE.NOTE]В некоторых операционных системах доступны обе версии Git — для командной строки и с графическим интерфейсом. В инструкциях, приведенных в данной статье, используется версия для командной строки.
 
 2. Откройте окно командной строки, например **GitBash** (Windows) или **Bash** (оболочка Unix). На компьютерах с OS X доступ к командной строке можно получить через приложение **Terminal**.
 
@@ -60,7 +64,7 @@
 
 ##<a name="deploy-scripts"></a>Публикация проекта с использованием Git
 
-1. Создайте новый проект серверной службы для .NET в Visual Studio 2013 или перенесите существующий проект в новый локальный репозиторий.  
+1. Создайте новый проект серверной службы для .NET в Visual Studio 2013 или перенесите существующий проект в новый локальный репозиторий.
 
 	Для быстрой проверки загрузите и сохраните в эту папку проект быстрого запуска мобильных служб.
 
@@ -97,8 +101,6 @@
 [Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Установка Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-ios-get-started.md
-[Azure Management Portal]: https://manage.windowsazure.com/
-[портал управления Azure]: https://manage.windowsazure.com/
 [Изменение модели данных в серверной мобильной службе для .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

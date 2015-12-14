@@ -1,22 +1,26 @@
-<properties 
-	pageTitle="Добавление проверки подлинности в универсальное приложение для Windows 8.1 | Microsoft Azure" 
-	description="Информация об использовании мобильных служб для проверки подлинности пользователей универсального приложения для Windows 8.1 с помощью разных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Добавление проверки подлинности в универсальное приложение для Windows 8.1 | Microsoft Azure"
+	description="Информация об использовании мобильных служб для проверки подлинности пользователей универсального приложения для Windows 8.1 с помощью разных поставщиков удостоверений, включая Google, Facebook, Twitter и корпорацию Майкрософт."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/23/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/23/2015"
 	ms.author="glenga"/>
 
-# Добавление проверки подлинности к приложению мобильных служб 
+# Добавление проверки подлинности к приложению мобильных служб
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
@@ -42,10 +46,10 @@
 
 &nbsp;&nbsp;7. В общем проекте откройте файл проекта App.xaml.cs, найдите определение объекта [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) и убедитесь в том, что он настроен на подключение к мобильной службе, работающей в Azure.
 
->[AZURE.NOTE]При использовании средств Visual Studio для подключения приложения к мобильной службе создаются два набора определений **MobileServiceClient** — по одному для каждой клиентской платформы. На этом этапе вы легко можете упростить созданный код, объединив определения **MobileServiceClient** в оболочке `#if...#endif` в одно определение без оболочки, которое может использоваться обеими версиями приложения. Это не потребуется, если вы загрузили учебное приложение с портала управления Azure.
+>[AZURE.NOTE]При использовании средств Visual Studio для подключения приложения к мобильной службе создаются два набора определений **MobileServiceClient** — по одному для каждой клиентской платформы. На этом этапе вы легко можете упростить созданный код, объединив определения **MobileServiceClient** в оболочке `#if...#endif` в одно определение без оболочки, которое может использоваться обеими версиями приложения. Этого не потребуется, если вы загрузили приложение быстрого запуска с [классического портала Azure].
 
 &nbsp;&nbsp;8. Нажмите клавишу F5, чтобы запустить приложение Магазина Windows. Убедитесь в том, что после его запуска возникает необработанное исключение с кодом состояния 401 (неавторизованный).
-   
+
 &nbsp;&nbsp;Это происходит потому, что приложение пытается получить доступ к мобильным службам как пользователь, не прошедший проверку подлинности, а таблица *TodoItem* теперь требует выполнения такой проверки.
 
 Далее приложение будет обновлено таким образом, что оно станет производить аутентификацию учетных данных пользователей, прежде чем запрашивать ресурсы из мобильной службы.
@@ -71,7 +75,7 @@
 
 ##Дополнительные материалы
 
-+ [Расширенные возможности пользователей](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> Вы можете получить дополнительные данные пользователя, которые хранит поставщик удостоверений в мобильной службе, вызвав в серверной части .NET метод **ServiceUser.GetIdentitiesAsync()**. 
++ [Расширенные возможности пользователей](http://azure.microsoft.com/blog/2014/10/02/custom-login-scopes-single-sign-on-new-asp-net-web-api-updates-to-the-azure-mobile-services-net-backend/)<br/> Вы можете получить дополнительные данные пользователя, которые хранит поставщик удостоверений в мобильной службе, вызвав в серверной части .NET метод **ServiceUser.GetIdentitiesAsync()**.
 
 + [Справочник принципов использования мобильных служб .NET]<br/> Узнайте больше об использовании мобильных служб с помощью клиента .NET.
 
@@ -95,9 +99,8 @@
 [Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
 [JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[классического портала Azure]: https://manage.windowsazure.com/
 [Справочник принципов использования мобильных служб .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
- 
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

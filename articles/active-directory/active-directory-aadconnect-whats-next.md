@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Управление Azure AD Connect | Microsoft Azure"
+	pageTitle="Azure AD Connect: дальнейшие действия и управление Azure AD Connect | Microsoft Azure"
 	description="Узнайте, как расширить конфигурацию по умолчанию и операционные задачи для Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="10/01/2015"
 	ms.author="billmath"/>
 
-# Управление Azure AD Connect
+# Дальнейшие действия и управление Azure AD Connect
 Ниже приведены дополнительные сведения, которые помогут вам настроить Azure Active Directory Connect в соответствии с потребностями вашей организации.
 
 ## Назначение пользователям лицензий Azure AD Premium и Enterprise Mobility
@@ -69,4 +69,4 @@
 ## Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

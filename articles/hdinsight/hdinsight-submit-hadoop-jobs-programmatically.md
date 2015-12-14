@@ -31,8 +31,8 @@
 
 Перед началом работы с этой статьей необходимо иметь следующее:
 
-* **Кластер Azure HDInsight**. Инструкции см. в разделе [Приступая к работе с HDInsight][hdinsight-get-started] или [Создание кластеров в HDInsight][hdinsight-provision].
-- **Рабочая станция с Azure PowerShell**. См. раздел [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Кластер Azure HDInsight**. Инструкции см. в разделе [Приступая к работе с HDInsight][hdinsight-get-started] или [Создание кластеров в HDInsight][hdinsight-provision].
+- **Рабочая станция с Azure PowerShell.**. См. раздел [Установка Azure PowerShell 1.0 и более поздних версий](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
 ##Отправка заданий MapReduce с использованием PowerShell
 
@@ -51,7 +51,7 @@
 См. раздел [Использование Sqoop с HDInsight][hdinsight-use-sqoop].
 
 ##Отправка заданий Hive, Pig или Sqoop с использованием пакета SDK для HDInsight .NET
-Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET. Кластеры HDInsight содержат JAR-файл (в папке *\\example\\jars\\hadoop-mapreduce-examples.jar*), в котором есть несколько примеров MapReduce. Один из примеров предназначен для подсчета частоты слов в исходных файлах. В этом сеансе вы узнаете, как создать приложение .NET для запуска примера подсчета слов. Дополнительные сведения о создании и выполнении заданий MapReduce см. в статье [Использование MapReduce в Hadoop в HDInsight][hdinsight-use-mapreduce].
+Пакет SDK для HDInsight .NET содержит клиентские библиотеки .NET, которые упрощают работу с кластерами HDInsight из .NET.
 
 **Отправка заданий**
 
@@ -266,4 +266,4 @@
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

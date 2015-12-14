@@ -95,9 +95,9 @@ Azure Active Directory может выполнять автоматическу�
 **Предварительные требования**
 
 * Visual Studio 2013 или более поздней версии
-* [Пакет Azure SDK для .NET](https://azure.microsoft.com/ru-RU/downloads/)
+* [Пакет Azure SDK для .NET](https://azure.microsoft.com/downloads/)
 * Компьютер под управлением Windows, поддерживающий платформу ASP.NET 4.5, на котором будет размещена конечная точка SCIM. Этот компьютер должен быть доступен из облака.
-* [Подписка Azure с пробной или лицензированной версией Azure AD Premium.](https://azure.microsoft.com/ru-RU/services/active-directory/)
+* [Подписка Azure с пробной или лицензированной версией Azure AD Premium.](https://azure.microsoft.com/services/active-directory/)
 * Для примера с Amazon AWS нужны библиотеки из [набора средств AWS для Visual Studio](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). Дополнительная информация есть в файле README, включенном в пример.
 
 ###Приступая к работе
@@ -692,4 +692,4 @@ Azure Active Directory может предоставлять веб-службе
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA" 
-   ms.date="08/21/2015"
+   ms.date="11/30/2015"
    ms.author="mfussell"/>
 
 # Сценарии приложений Service Fabric
@@ -55,9 +55,11 @@ Microsoft Azure Service Fabric — это надежная и гибкая пл
 
 Также ознакомьтесь со следующими темами:
 
+[Расскажите мне о микрослужбах](service-fabric-overview-microservices.md)
+
 [Определение состояния службы и управление им](service-fabric-concepts-state.md)
 
-[Доступность служб](service-fabric-concepts-availability-services.md)
+[Доступность служб](service-fabric-availability-services.md)
 
 [Масштабируемость служб структуры служб](service-fabric-concepts-scalability.md)
 
@@ -68,4 +70,4 @@ Microsoft Azure Service Fabric — это надежная и гибкая пл
  
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,8 +1,8 @@
-## Prepare to authenticate Resource Manager requests
+## Подготовка к проверке подлинности запросов диспетчера ресурсов
 
-You must authenticate all the operations that you perform on resources using the [Azure Resource Manager][lnk-authenticate-arm] with Azure Active Directory (AD). The easiest way to configure this is to use PowerShell or Azure CLI.
+Необходимо проверять подлинность всех операций, выполняемых с ресурсами с помощью [Диспетчера ресурсов Azure][lnk-authenticate-arm], используя Azure Active Directory (AD). Для такой настройки проще всего использовать PowerShell или интерфейс командной строки Azure.
 
-If you have not installed [Azure PowerShell 1.0][lnk-powershell-install], you can do so with the following PowerShell commands. You will need to run PowerShell as an administrator.
+Если вы еще не установили [Azure PowerShell 1.0][lnk-powershell-install], это можно сделать с помощью следующих команд PowerShell. Вам потребуется запустить PowerShell от имени администратора.
 
 ```
 # Install the Azure Resource Manager modules from PowerShell Gallery
@@ -13,47 +13,49 @@ Install-AzureRM
 Install-Module Azure
 ```
 
-The following steps show how to set up password authentication for an AD application using PowerShell. You can run these commands in a standard PowerShell session.
+Ниже показано, как настроить проверку пароля для приложения AD с помощью PowerShell. Эти команды можно выполнять в обычном сеансе PowerShell.
 
-1. Log in to your Azure subscription using the following command:
+1. Выполните следующую команду для входа в подписку Azure:
 
     ```
     Login-AzureRmAccount
     ```
 
-2. Make a note of your **TenantId** and **SubscriptionId**. You will need them later.
+2. Запишите значения **TenantId** и **SubscriptionId**. Они вам потребуются позднее.
 
-3. Create a new Azure Active Directory application using the following command, replacing the place holders:
+3. Воспользуйтесь следующей командой для создания нового приложения Azure Active Directory, заменив в ней заполнители:
 
-    - **{Display name}:** a display name for your application such as **MySampleApp**
-    - **{Home page URL}:** the URL of the home page of your app such as **http://mysampleapp/home**. This URL does not need to point to a real application.
-    - **{Application identifier}:** A unique identifier such as **http://mysampleapp**. This URL does not need to point to a real application.
-    - **{Password}:** A password that you will use to authenticate with your app.
+    - **{Display name}:** отображаемое имя вашего приложения, например **MySampleApp**.
+    - **{Home page URL}:** URL-адрес домашней страницы вашего приложения, например ****http://mysampleapp/home**. Этот URL-адрес необязательно должен указывать на реальное приложение.
+- **{Application identifier}:** уникальный идентификатор, например ****http://mysampleapp**. Этот URL-адрес необязательно должен указывать на реальное приложение.
+- **{Password}:** пароль, который будет использоваться для проверки подлинности в вашем приложении.
 
     ```
     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} IdentifierUris {Application identifier} -Password {Password}
     ```
     
-4. Make a note of the **ApplicationId** of the application you created. You will need this later.
+4. Запишите значение **ApplicationId** для созданного приложения. Этот идентификатор потребуется позднее.
 
-5. Create a new service principal using the following command, replacing **{MyApplicationId}** with the **ApplicationId** from the previous step:
+5. Создайте новую субъект-службу с помощью следующей команды, заменив **{MyApplicationId}** на значение **ApplicationId** из предыдущего шага:
 
     ```
     New-AzureRmADServicePrincipal -ApplicationId {MyApplicationId}
     ```
     
-6. Setup a role assignment using the following command, replacing **{MyApplicationId}** with your **ApplicationId**.
+6. Настройте назначение роли с помощью следующей команды, заменив **{MyApplicationId}** на ваше значение **ApplicationId**.
 
     ```
     New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
     ```
     
-You have now finished creating the Azure AD application that will enable you to authenticate from your custom C# application. You will need the following values later in this tutorial:
+Вы завершили создание приложения Azure AD, которое позволит вам осуществлять проверку подлинности из своего пользовательского приложения C#. Позднее в рамках изучения данного руководства вам потребуются следующие значения:
 
 - TenantId
 - SubscriptionId
 - ApplicationId
-- Password
+- Пароль
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: https://azure.microsoft.com/en-us/blog/azps-1-0-pre/
+[lnk-powershell-install]: https://azure.microsoft.com/ru-RU/blog/azps-1-0-pre/
+
+<!---HONumber=AcomDC_1203_2015-->

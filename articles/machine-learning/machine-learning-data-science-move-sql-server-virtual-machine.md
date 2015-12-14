@@ -37,7 +37,7 @@
 
 Обратите внимание на то, что в этом документе предполагается выполнение команд SQL в среде SQL Server Management Studio или в обозревателе базы данных Visual Studio.
 
-> [AZURE.TIP]Вы также можете воспользоваться [фабрикой данных Azure](https://azure.microsoft.com/ru-RU/services/data-factory/), чтобы создать и назначить канал, который переносит данные в виртуальную машину SQL Server в среде Azure. Дополнительные сведения см. в статье [Копирование данных с помощью фабрики данных Azure – действие копирования](../data-factory/data-factory-copy-activity.md).
+> [AZURE.TIP]Вы также можете воспользоваться [фабрикой данных Azure](https://azure.microsoft.com/services/data-factory/), чтобы создать и назначить канал, который переносит данные в виртуальную машину SQL Server в среде Azure. Дополнительные сведения см. в статье [Копирование данных с помощью фабрики данных Azure – действие копирования](../data-factory/data-factory-copy-activity.md).
 
 
 ## <a name="prereqs"></a>Предварительные требования
@@ -223,4 +223,4 @@ SQL Server поддерживает:
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

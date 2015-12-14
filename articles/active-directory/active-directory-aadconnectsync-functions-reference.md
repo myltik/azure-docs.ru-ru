@@ -17,7 +17,7 @@
 	ms.author="markusvi"/>
 
 
-# Azure AD Connect Sync: справочник по функциям
+# Синхронизация Azure AD Connect: справочник по функциям
 
 
 В службе Azure Active Directory Sync функции используются для обработки значения атрибута во время синхронизации. <br>Синтаксис функций выражается в следующем формате:<br>`<output type> FunctionName(<input type> <position name>, ..)`
@@ -1058,4 +1058,4 @@
 
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

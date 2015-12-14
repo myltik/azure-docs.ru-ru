@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/17/2015" 
+	ms.date="09/17/2015"
 	ms.author="tarcher"/>
 
 # Приступая к работе с мобильными службами (проекты .NET)
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-dotnet-getting-started.md)
@@ -30,7 +35,7 @@
 
 #####Получение ссылки на таблицу
 
-Приведенный ниже код создает ссылку на таблицу (`todoTable`), содержащую данные для TodoItemem, которые можно использовать в последующих операциях для чтения и обновления таблицы данных. Вам потребуется класс TodoItem с атрибутами, настроенными на интерпретацию JSON, который мобильная служба отправляет в ответ на ваши запросы.
+Приведенный ниже код создает ссылку на таблицу (`todoTable`), содержащую данные для TodoItem, которые можно использовать в последующих операциях для чтения и обновления этой таблицы данных. Вам потребуется класс TodoItem с атрибутами, настроенными на интерпретацию JSON, который мобильная служба отправляет в ответ на ваши запросы.
 
 	public class TodoItem
     {
@@ -85,4 +90,4 @@
 
 [Дополнительные сведения о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -29,7 +29,7 @@
 
 ### Получение строки подключения для служебной шины Azure
 
-1. Войдите на [портал Azure](http://manage.windowsazure.com).
+1. Перейдите на [классический портал Azure](http://manage.windowsazure.com).
 
 1. В столбце слева щелкните **Служебная шина**.
 
@@ -132,4 +132,4 @@
 - [Архитектура служебной шины](service-bus-architecture.md)
 - [Базовая информация о Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Использование удаления с возможностью восстановления в мобильных службах (Магазин Windows) | Microsoft Azure" 
-	description="Узнайте, как использовать функцию удаления с возможностью восстановления в мобильных службах Azure для вашего приложения" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Использование удаления с возможностью восстановления в мобильных службах (Магазин Windows) | Microsoft Azure"
+	description="Узнайте, как использовать функцию удаления с возможностью восстановления в мобильных службах Azure для вашего приложения"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="09/28/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/28/2015"
 	ms.author="wesmc"/>
 
 # Использование удаления с возможностью восстановления в мобильных службах
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 ##Обзор
 
@@ -44,7 +49,7 @@
 В следующем пошаговом руководстве описано включение удаления с возможностью восстановления для мобильной службы серверной части .NET.
 
 1. Откройте проект серверной мобильной службы .NET в Visual Studio.
-2. Щелкните правой кнопкой мыши проект серверной части .NET и выберите **Управление пакетами NuGet**. 
+2. Щелкните правой кнопкой мыши проект серверной части .NET и выберите **Управление пакетами NuGet**.
 3. В диалоговом окне диспетчера пакетов щелкните **Nuget.org** в разделе обновлений и установите версию 1.0.402 (или более позднюю) пакетов NuGet для [серверной части.NET мобильных служб Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=513165).
 3. В обозревателе решений для Visual Studio разверните узел **Контроллеры** в проекте серверной части .NET и откройте источник контроллера. Например, *TodoItemController.cs*.
 4. В методе `Initialize()` контроллера передайте параметр `enableSoftDelete: true` в конструктор EntityDomainManager.
@@ -65,7 +70,7 @@
 
 Включение удаления с возможностью восстановления для существующей таблицы в серверной части JavaScript:
 
-1. На [портале управления] щелкните мобильную службу. Затем перейдите на вкладку "Данные".
+1. Щелкните свою мобильную службу на [классическом портале Azure]. Затем перейдите на вкладку "Данные".
 2. На странице данных щелкните для выбора нужной таблицы. На панели команд нажмите кнопку **Включить удаление с возможностью восстановления**. Если в таблице уже включена эта функция, кнопка будет недоступна, но на вкладке **Обзор** или **Столбцы** таблицы будет виден столбец *\_\_deleted*.
 
     ![][0]
@@ -82,23 +87,23 @@
     public class SampleJob : ScheduledJob
     {
         private MobileService1Context context;
-     
-        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, 
+
+        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor,
             CancellationToken cancellationToken)
         {
             base.Initialize(scheduledJobDescriptor, cancellationToken);
             context = new MobileService1Context();
         }
-     
+
         public override Task ExecuteAsync()
         {
             Services.Log.Info("Purging old records");
             var monthAgo = DateTimeOffset.UtcNow.AddDays(-30);
-     
+
             var toDelete = context.TodoItems.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
             context.TodoItems.RemoveRange(toDelete);
             context.SaveChanges();
-     
+
             return Task.FromResult(true);
         }
     }
@@ -113,12 +118,12 @@
 С помощью сценариев таблицы можно добавить логику функции удаления с возможностью восстановления с помощью мобильных служб сервера JavaScript.
 
 Для обнаружения запроса о восстановлении используйте свойство "undelete" в сценарии обновления таблицы:
-    
+
     function update(item, user, request) {
         if (request.undelete) { /* any undelete specific code */; }
     }
 Чтобы включить удаленные записи в результат запроса в сценарии, установите для параметра "includeDeleted" значение true:
-    
+
     tables.getTable('softdelete_scenarios').read({
         includeDeleted: true,
         success: function (results) {
@@ -158,9 +163,6 @@
 <!-- URLs. -->
 [SQL bit]: http://msdn.microsoft.com/library/ms177603.aspx
 [Автономная синхронизация данных для мобильных служб]: mobile-services-windows-store-dotnet-get-started-offline-data.md
-[портале управления]: https://manage.windowsazure.com/
+[классическом портале Azure]: https://manage.windowsazure.com/
 
-
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

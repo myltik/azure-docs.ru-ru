@@ -45,10 +45,10 @@
 1.	В любом текстовом редакторе создайте файл C:\\VMSSTemplate.json и добавьте начальную структуру JSON для поддержки шаблона.
 
 	```
-	{
+{
 		"$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/VM.json",
-		"contentVersion": "1.0.0.0",
-		"parameters": {
+   "contentVersion": "1.0.0.0",
+ "parameters": {
 		}
 		"variables": {
 		}
@@ -71,17 +71,17 @@
 	```
 	"vmName": {
 		"type": "string"
-	},
+      },
 	"vmSSName": {
 		"type": "string"
-	},
-	"instanceCount": {
+    },
+    "instanceCount": {
 		"type": "string"
-	},
-	"adminUsername": {
+      },
+    "adminUsername": {
 		"type": "string"
-	},
-	"adminPassword": {
+    },
+    "adminPassword": {
 		"type": "securestring"
 	},
 	"storageAccountName": {
@@ -89,7 +89,7 @@
 	},
 	"vmssStoragePrefix": {
 		"type": "string"
-	}
+      }
 	```
 
 
@@ -112,9 +112,9 @@
 	"imagePublisher": "MicrosoftWindowsServer",
 	"imageOffer": "WindowsServer",
 	"imageVersion": "2012-R2-Datacenter",
-	"addressPrefix": "10.0.0.0/16",
+    "addressPrefix": "10.0.0.0/16",
 	"subnetName": "Subnet",
-	"subnetPrefix": "10.0.0.0/24",
+    "subnetPrefix": "10.0.0.0/24",
 	"publicIP1": "[concat(parameters('resourcePrefix'),'ip1')]",
 	"publicIP2": "[concat(parameters('resourcePrefix'),'ip2')]",
 	"loadBalancerName": "[concat(parameters('resourcePrefix'),'lb1')]",
@@ -155,45 +155,45 @@
 	Добавьте ресурс учетной записи хранения в родительский элемент ресурсов, добавленный в шаблон. Этот шаблон использует цикл для создания рекомендуемых пяти учетных записей хранения, в которых хранятся диски операционной системы и диагностические данные. Этот набор учетных записей может поддерживать до 100 виртуальных машин в масштабируемом наборе (это максимальное количество на данный момент). Каждой учетной записи хранения присваивается буквенный код, который определен в переменных в сочетании с суффиксом, указанным в параметрах шаблона.
 
 	```
-	{
-		"type": "Microsoft.Storage/storageAccounts",
+    {
+      "type": "Microsoft.Storage/storageAccounts",
 		"name": "[concat(variables('storagePrefix')[copyIndex()], parameters('vmssStorageSuffix'))]",
 		"apiVersion": "2015-05-01-preview",
-		"copy": {
-			"name": "storageLoop",
-			"count": 5
-		},
+      "copy": {
+        "name": "storageLoop",
+        "count": 5
+      },
 		"location": "[resourceGroup().location]",
-		"properties": {
-			"accountType": "[variables('storageAccountType')]"
-		}
-	},
+      "properties": {
+        "accountType": "[variables('storageAccountType')]"
+      }
+    },
 	```
 
 5.	Добавьте ресурс виртуальной сети. Дополнительную информацию см. в статье [Поставщик сетевых ресурсов](../virtual-network/resource-groups-networking.md).
 
 	```
-	{
+    {
 		"apiVersion": "2015-06-15",
-		"type": "Microsoft.Network/virtualNetworks",
-		"name": "[variables('virtualNetworkName')]",
+      "type": "Microsoft.Network/virtualNetworks",
+      "name": "[variables('virtualNetworkName')]",
 		"location": "[resourceGroup().location]",
-		"properties": {
-			"addressSpace": {
-				"addressPrefixes": [
-					"[variables('addressPrefix')]"
-				]
-			},
-			"subnets": [
-				{
-					"name": "[variables('subnetName')]",
-					"properties": {
-						"addressPrefix": "[variables('subnetPrefix')]"
-					}
-				}
-			]
-		}
-	},
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[variables('addressPrefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[variables('subnetName')]",
+            "properties": {
+              "addressPrefix": "[variables('subnetPrefix')]"
+            }
+          }
+        ]
+      }
+    },
 	```
 
 6.	Добавьте ресурсы общедоступных IP-адресов, используемые балансировщиком нагрузки и сетевым интерфейсом.
@@ -228,7 +228,7 @@
 7.	Добавьте ресурс балансировщика нагрузки, используемый масштабируемым набором. Дополнительные сведения см. в статье [Поддержка диспетчера ресурсов Azure для балансировщика нагрузки](../load-balancer/oad-balancer-arm.md).
 
 	```
-	{
+    {
 		"apiVersion": "2015-06-15",
 		"name": "[variables('loadBalancerName')]",
 		"type": "Microsoft.Network/loadBalancers",
@@ -311,7 +311,7 @@
 		"type": "Microsoft.Compute/virtualMachines",
 		"name": "[parameters('vmName')]",
 		"location": "[resourceGroup().location]",
-		"dependsOn": [
+      "dependsOn": [
 			"[concat('Microsoft.Network/networkInterfaces/', variables('nicName1'))]"
 		],
 		"properties": {
@@ -372,53 +372,53 @@
 			"[concat('Microsoft.Storage/storageAccounts/y', parameters('vmssStorageSuffix'))]",
 			"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
 			"[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]"
-		],
-		"sku": {
-			"name": "[variables('vmSize')]",
-			"tier": "Standard",
-			"capacity": "[parameters('instanceCount')]"
-		},
-		"properties": {
-			"upgradePolicy": {
-				"mode": "Manual"
-			},
-			"virtualMachineProfile": {
-				"storageProfile": {
-					"osDisk": {
-						"vhdContainers": [
+      ],
+      "sku": {
+        "name": "[variables('vmSize')]",
+        "tier": "Standard",
+        "capacity": "[parameters('instanceCount')]"
+      },
+      "properties": {
+         "upgradePolicy": {
+         "mode": "Manual"
+        },
+        "virtualMachineProfile": {
+          "storageProfile": {
+            "osDisk": {
+              "vhdContainers": [
 							"[concat('https://a', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
 							"[concat('https://g', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
 							"[concat('https://m', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
 							"[concat('https://s', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]",
 							"[concat('https://y', parameters('vmssStorageSuffix'), '.blob.core.windows.net/vmss')]"
-						],
+              ],
 						"name": "vmssosdisk",
-						"caching": "ReadOnly",
-						"createOption": "FromImage"
-					},
+              "caching": "ReadOnly",
+              "createOption": "FromImage"
+            },
 					"imageReference": {
 						"publisher": "[variables('imagePublisher')]",
 						"offer": "[variables('imageOffer')]",
 						"sku": "[variables('imageVersion')]",
 						"version": "latest"
 					}
-				},
-				"osProfile": {
-					"computerNamePrefix": "[parameters('vmSSName')]",
-					"adminUsername": "[parameters('adminUsername')]",
-					"adminPassword": "[parameters('adminPassword')]"
-				},
-				"networkProfile": {
-					"networkInterfaceConfigurations": [
-						{
+          },
+          "osProfile": {
+            "computerNamePrefix": "[parameters('vmSSName')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "adminPassword": "[parameters('adminPassword')]"
+          },
+          "networkProfile": {
+            "networkInterfaceConfigurations": [
+              {
 							"name": "[variables('nicName2')]",
-							"properties": {
-								"primary": "true",
-								"ipConfigurations": [
-									{
+                "properties": {
+                  "primary": "true",
+                  "ipConfigurations": [
+                    {
 										"name": "ip1",
-										"properties": {
-											"subnet": {
+                      "properties": {
+                        "subnet": {
 												"id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/',variables('subnetName'))]"
 											},
 											"loadBalancerBackendAddressPools": [
@@ -432,11 +432,11 @@
 												}
 											]
 										}
-									}
+                        }
 								]
-							}
-						}
-					]
+                      }
+                    }
+                  ]
 				},
 				"extensionProfile": {
 					"extensions": [
@@ -456,12 +456,12 @@
 									"storageAccountKey": "[listkeys(variables('accountid'), '2015-05-01-preview').key1]",
 									"storageAccountEndPoint": "https://core.windows.net"
 								}
-							}
-						}
-					]
+                }
+              }
+            ]
 				}
 			}
-		}
+          }
 	},
 	```
 
@@ -606,4 +606,4 @@
 
 	Remove-AzureRmResource -Name vmsstest1 -ResourceGroupName vmss-test1 -ApiVersion 2015-06-15 -ResourceType Microsoft.Compute/virtualMachineScaleSets
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

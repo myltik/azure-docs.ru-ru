@@ -18,6 +18,8 @@
 
 # Защита приложения API: добавление проверки подлинности Azure Active Directory или поставщика социальных сетей
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Обзор
 
 В этом учебнике показано, как защитить приложение API, чтобы к нему могли получить доступ только пользователи, прошедшие проверку подлинности. В учебнике также показан код, который можно использовать в приложении API ASP.NET для получения информации о вошедшем в систему пользователе.
@@ -229,7 +231,7 @@
 	* twitter;
 	* facebook. 
 
-3. Добавьте оператор `using` в верхней части файла *ContactsController.cs*.
+3. Добавьте оператор `using` в начало файла *ContactsController.cs*.
 
 		using Microsoft.Azure.AppService.ApiApps.Service;
 
@@ -273,4 +275,4 @@
 [портал предварительной версии Azure]: https://portal.azure.com/
 [портале предварительной версии Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

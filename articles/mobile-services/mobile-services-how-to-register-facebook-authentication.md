@@ -1,29 +1,34 @@
-<properties 
-	pageTitle="Регистрация для проверки подлинности Facebook | мобильные службы Azure" 
-	description="Сведения об использовании проверки подлинности в Facebook в приложении мобильных служб Azure." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Регистрация для проверки подлинности Facebook | мобильные службы Azure"
+	description="Сведения об использовании проверки подлинности в Facebook в приложении мобильных служб Azure."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/15/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="11/15/2015"
 	ms.author="glenga"/>
 
 # Регистрация приложений для аутентификации в мобильных службах с помощью Facebook
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-register-identity-provider](../../includes/mobile-services-selector-register-identity-provider.md)]
 
 В этом разделе показано, как зарегистрировать приложения, чтобы иметь возможность использовать Facebook для аутентификации в мобильных службах Azure.
 
 >[AZURE.NOTE]Это учебник о [мобильных службах Azure] — решении, которое помогает создавать масштабируемые мобильные приложения для любых платформ. С мобильными службами легко синхронизировать данные, аутентифицировать пользователей и отправлять push-уведомления. Эта страница дополняет учебник [Приступая к работе с аутентификацией](mobile-services-ios-get-started-users.md), который показывает, как настроить вход пользователей в приложение. Если это ваш первый опыт работы с мобильными службами, сначала ознакомьтесь с учебником [Приступая к работе с мобильными службами](mobile-services-ios-get-started.md).
-	
+
 Чтобы выполнить процедуру, описанную в этом разделе, необходимо иметь учетную запись Facebook с проверенным электронным адресом и номером мобильного телефона. Чтобы создать новую учетную запись Facebook, перейдите по ссылке [facebook.com](http://go.microsoft.com/fwlink/p/?LinkId=268285).
 
 1. Перейдите на веб-сайт [разработчиков Facebook](http://go.microsoft.com/fwlink/p/?LinkId=268285) и войдите с помощью своих данных учетной записи Facebook.
@@ -45,18 +50,18 @@
 7. Нажмите кнопку **Показывать**, введите пароль при запросе, а затем запишите значения **ИД приложения** и **Секрет приложения**.
 
    	![][5] &nbsp;
-	
+
     >[AZURE.IMPORTANT]Секрет приложения — это важные учетные данные безопасности. Не сообщайте никому этот секрет и не распространяйте его вместе с вашим приложением. &nbsp;
 
-8. Щелкните вкладку **Дополнительно**, введите один из следующих форматов URL-адреса в поле **Допустимые универсальные коды ресурса (URI) перенаправления OAuth**, а затем щелкните **Сохранить изменения**:
- 
-	+ **Серверная служба .NET**: `https://<mobile_service>.azure-mobile.net/signin-facebook`
-	+ **Серверная служба JavaScript**: `https://<mobile_service>.azure-mobile.net/login/facebook` 
+8. Щелкните вкладку **Advanced** (Дополнительно), введите один из следующих форматов URL-адреса в поле **Valid OAuth redirect URIs** (Допустимые универсальные коды ресурса (URI) перенаправления OAuth), а затем щелкните **Save Changes** (Сохранить изменения):
+
+	+ **Серверная служба .NET**: `https://<mobile_service>.azure-mobile.net/signin-facebook`;
+	+ **Серверная служба JavaScript**: `https://<mobile_service>.azure-mobile.net/login/facebook`.
 
 	 >[AZURE.NOTE]Убедитесь, что для типа интерфейса мобильных служб используется правильный формат пути URL-адреса перенаправления. Если он неправильный, проверка подлинности не будет успешной.
 
-       
-9. Чтобы сделать свое приложение общедоступным, щелкните **Состояние и просмотр** > **Да**.
+
+9. Чтобы сделать свое приложение общедоступным, щелкните **Status & Review** (Состояние и просмотр) > **Yes** (Да).
 
 	Учетная запись Facebook, используемая для регистрации нового приложения, является администратором приложения и имеет доступ к нему с правами администратора. Когда вы выполните эти действия, приложение станет общедоступным и благодаря этому сможет проводить проверку подлинности, используя другие учетные записи Facebook.
 
@@ -72,8 +77,6 @@
 <!-- URLs. -->
 [Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
-[Azure Management Portal]: https://manage.windowsazure.com/
 [мобильных службах Azure]: http://azure.microsoft.com/services/mobile-services/
- 
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

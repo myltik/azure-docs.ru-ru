@@ -29,7 +29,7 @@
 
 - Существующая локальная группа доступности AlwaysOn. Дополнительные сведения о группах доступности см. в статье [Группы доступности AlwaysOn](https://msdn.microsoft.com/library/hh510230.aspx).
 
-- Подключение между локальной сетью и виртуальной сетью Azure. Дополнительные сведения о создании этой виртуальной сети см. в статье [Создание виртуальной сети с VPN-подключением типа "сеть-сеть" с помощью портала управления](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+- Подключение между локальной сетью и виртуальной сетью Azure. Дополнительные сведения о создании этой виртуальной сети см. в статье [Создание виртуальной сети с VPN-подключением типа "сеть-сеть" с помощью классического портала Azure](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
 
@@ -103,4 +103,4 @@
 
 Другие темы, связанные с запуском SQL Server на виртуальных машинах Azure, рассматриваются в статье [SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

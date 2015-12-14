@@ -121,7 +121,7 @@
 
 ##<a id="CreateIndex"></a>Шаг 2. Создание индекса
 
-Создайте целевой индекс поиска Azure, если это еще не сделано. Создать индекс можно с помощью [пользовательского интерфейса портала Azure](../search-get-started.md#test-service-operations) или [API создания индекса](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Создайте целевой индекс поиска Azure, если это еще не сделано. Создать индекс можно с помощью [пользовательского интерфейса классического портала Azure](../search-get-started.md#test-service-operations) или [API создания индекса](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -270,4 +270,4 @@
  - Дополнительные сведения о службе Поиск Azure можно узнать [здесь](/services/search/).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

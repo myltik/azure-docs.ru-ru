@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Использование автономных данных в мобильных службах (Xamarin для iOS) | Microsoft Azure" 
-	description="Узнайте, как использовать мобильные службы Azure для кэширования и синхронизации автономных данных в приложении на Xamarin для iOS" 
-	documentationCenter="xamarin" 
-	authors="lindydonna" 
-	editor="wesmc" 
-	manager="dwrede" 
+<properties
+	pageTitle="Использование автономных данных в мобильных службах (Xamarin для iOS) | Microsoft Azure"
+	description="Узнайте, как использовать мобильные службы Azure для кэширования и синхронизации автономных данных в приложении на Xamarin для iOS"
+	documentationCenter="xamarin"
+	authors="lindydonna"
+	editor="wesmc"
+	manager="dwrede"
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
 	ms.date="11/02/2015"
 	ms.author="donnam"/>
 
 # Использование автономной синхронизации данных в мобильных службах
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
@@ -42,7 +47,7 @@
 Для работы с данным учебником требуется следующее:
 
 * Visual Studio с [расширением Xamarin] **или** [Xamarin Studio] в OS X
-* XCode 4.5 и iOS 6.0 (или более поздние версии) 
+* XCode 4.5 и iOS 6.0 (или более поздние версии)
 * Выполнение заданий учебника [Приступая к работе с мобильными службами]
 
 ## <a name="review-offline"></a>Обзор кода синхронизации мобильных служб
@@ -143,11 +148,11 @@
 
 1. Откройте `QSTodoService.cs`. Удалите недопустимый URL-адрес мобильной службы и верните правильный URL-адрес и ключ приложения.
 
-2. Повторно выполните сборку и запустите приложение. Обратите внимание, что данные выглядят так же, как в автономном сценарии, хотя приложение теперь подключено к мобильной службе. Это вызвано тем, что данное приложение всегда использует объект `IMobileServiceSyncTable`, который указывает на локальное хранилище.
+2. Повторно выполните сборку и запустите приложение. Обратите внимание, что данные выглядят так же, как в автономном сценарии, хотя приложение теперь подключено к мобильной службе. Это вызвано тем, что данное приложение всегда использует `IMobileServiceSyncTable`, который указывает на локальное хранилище.
 
-3. Войдите на портал управления Microsoft Azure и посмотрите на базу данных мобильной службы. Если служба использует серверную часть JavaScript, вы можете просмотреть данные на вкладке **Данные** мобильной службы.
+3. Перейдите на [классический портал Azure] и проверьте базу данных мобильной службы. Если служба использует серверную часть JavaScript, вы можете просмотреть данные на вкладке **Данные** мобильной службы.
 
-    Если вы используете серверную часть .NET для мобильной службы, в Visual Studio выполните команду **Обозреватель сервера** -> **Azure** -> **Базы данных SQL**. Щелкните правой кнопкой мыши базу данных и выберите пункт **Открыть в обозревателе объектов SQL Server**.
+    Если вы используете серверную часть .NET для мобильной службы, в Visual Studio выполните команду **Обозреватель сервера** -> **Azure** -> **Базы данных SQL**. Щелкните правой кнопкой мыши базу данных и выберите **Открыть в обозревателе объектов SQL Server**.
 
     Обратите внимание, что данные* не* синхронизированы между базой данных и локальным хранилищем.
 
@@ -180,6 +185,6 @@
 
 [Xamarin Studio]: http://xamarin.com/download
 [расширением Xamarin]: http://xamarin.com/visual-studio
- 
+[классический портал Azure]: https://manage.windowsazure.com
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

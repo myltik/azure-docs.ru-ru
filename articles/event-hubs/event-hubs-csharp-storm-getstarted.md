@@ -38,7 +38,7 @@
 
 ## Создание концентратора событий
 
-1. Войдите на [портал Azure] и нажмите **СОЗДАТЬ** в нижней части экрана.
+1. Перейдите на [классический портал Azure][] и нажмите кнопку **СОЗДАТЬ** в нижней части экрана.
 
 2. Последовательно щелкните элементы **Службы приложений**, **Служебная шина**, **Концентратор событий** и **Быстрое создание**.
 
@@ -105,7 +105,7 @@
 [22]: ./media/event-hubs-csharp-storm-getstarted/receive-storm1.png
 
 <!-- Links -->
-[портал Azure]: https://manage.windowsazure.com/
+[классический портал Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Обзор концентраторов событий]: event-hubs-overview.md
 [пример приложения, использующего концентраторы событий]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
@@ -113,4 +113,4 @@
 [Решение для обмена сообщениями в очереди]: ../service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

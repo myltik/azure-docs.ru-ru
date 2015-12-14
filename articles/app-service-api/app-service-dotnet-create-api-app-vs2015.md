@@ -18,10 +18,7 @@
 
 # Создание приложения API ASP.NET в службе приложений Azure с помощью Visual Studio 2015
 
-> [AZURE.SELECTOR]
-- [Visual Studio 2013](app-service-dotnet-create-api-app.md)
-- [Visual Studio 2015 RC](app-service-dotnet-create-api-app-vs2015.md)
-- [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
 
 ## Обзор
 
@@ -297,4 +294,4 @@
 Вы создали и развернули приложение API с помощью версии-кандидата Visual Studio 2015. Дополнительную документацию о приложениях API см. в записях в области навигации в левой части страницы (в браузере с широкими окнами) или в верхней части страницы (в браузере с узкими окнами). Большая часть документации по приложению API в настоящий момент предполагает использование Visual Studio 2013, но эту документацию по большей части можно использовать и для Visual Studio 2015, так как пользовательский интерфейс, код создаваемого приложения и пользовательский интерфейс портала аналогичны.
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

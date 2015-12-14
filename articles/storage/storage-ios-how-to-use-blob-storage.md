@@ -76,7 +76,7 @@
 
 - **DefaultEndpointsProtocol** — можно выбрать HTTP или HTTPS. Настоятельно рекомендуется использовать протокол HTTPS.
 - **AccountName** — имя вашей учетной записи хранения.
-- **AccountKey** — ключ учетной записи. Если вы используете [портал управления](manage.windowsazure.com), ключ можно найти, щелкнув элемент *Управление ключами доступа*. Если вы используете [портал предварительной версии](portal.azure.com), эти сведения можно найти, щелкнув значок ключа.
+- **AccountKey** — чтобы получить это значение, на [портале Azure](portal.azure.com) перейдите к вашей учетной записи хранения и щелкните значок **Ключи**. При использовании [классического портала Azure](manage.windowsazure.com) перейдите к вашей учетной записи хранения на портале и щелкните **Управление ключами доступа**. 
 
 Вот как строка подключения будет выглядеть в приложении:
 
@@ -88,7 +88,7 @@
 
 В следующем примере показано, как использовать Azure CLI для создания маркера SAS, который предоставляет разрешения на чтение и запись для контейнера *sascontainer* до 12:00 (UTC) 5 сентября 2015 г.
 
-1. Прежде всего, ознакомьтесь с этим [руководством](../xplat-cli/#how-to-install-the-azure-cli), чтобы узнать, как установить Azure CLI и подключиться к подписке Azure.
+1. Прежде всего ознакомьтесь с этим [руководством](../xplat-cli/#how-to-install-the-azure-cli), чтобы узнать, как установить Azure CLI и подключиться к подписке Azure.
 
 2. Затем введите следующую команду в Azure CLI, чтобы получить строку подключения для своей учетной записи:
 
@@ -137,7 +137,7 @@
         }];
     }
 
-Убедиться, что все работает, можно на [портале](portal.azure.com) или в любом [обозревателе хранилища](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). Кроме того, можно проверить, содержится ли *newcontainer* в списке контейнеров вашей учетной записи хранения.
+Убедиться, что все работает, можно на [портале Azure](portal.azure.com) или в любом [обозревателе хранилища](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). Кроме того, можно проверить, содержится ли *newcontainer* в списке контейнеров вашей учетной записи хранения.
 
 ## Назначение разрешений контейнера
 Разрешения контейнера, настраиваемые по умолчанию, — это разрешения на **закрытый** доступ. При этом контейнеры предоставляют и другие возможности доступа.
@@ -202,7 +202,7 @@
          }];
      }
 
-Убедиться, что все работает, можно на [портале](portal.azure.com) или в любом [обозревателе хранилища](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). Кроме того, можно проверить, что контейнер *containerpublic* содержит BLOB-объект *sampleblob*. В этом примере мы использовали открытый контейнер, поэтому проверку также можно выполнить, перейдя к URI BLOB-объекта:
+Убедиться, что все работает, можно на [портале Azure](portal.azure.com) или в любом [обозревателе хранилища](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). Кроме того, можно проверить, что контейнер *containerpublic* содержит BLOB-объект *sampleblob*. В этом примере мы использовали открытый контейнер, поэтому проверку также можно выполнить, перейдя к URI BLOB-объекта:
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
@@ -211,7 +211,7 @@
 ## Перечисление BLOB-объектов в контейнере
 В следующем примере показано, как перечислить все BLOB-объекты в контейнере. При выполнении этой операции необходимо учитывать следующие параметры.
 
-- **continuationToken** — маркер продолжения, который задает начало перечисления. Если маркер не указан, BLOB-объекты будут перечислены с самого начала. Можно перечислить любое количество BLOB-объектов — от нуля до заданного максимума. Даже если этот метод возвращает нулевой результат, если `results.continuationToken` не равно nil, это значит, что в службе могут быть дополнительные BLOB-объекты, которые не были перечислены.
+- **continuationToken** — маркер продолжения, который задает начало перечисления. Если маркер не указан, BLOB-объекты будут перечислены с самого начала. Можно перечислить любое количество BLOB-объектов — от нуля до заданного максимума. Даже если этот метод возвращает нулевые результаты, если `results.continuationToken` не равно нулю, это значит, что в службе могут быть дополнительные BLOB-объекты, которые не были перечислены.
 - **prefix** — можно указать префикс, который будет использоваться при перечислении BLOB-объектов. Перечислены будут только BLOB-объекты, начинающиеся с этого префикса.
 - **useFlatBlobListing** — как упоминалось в разделе [Присвоение имен контейнерам и BLOB-объектам, а также создание ссылок на них](#naming-and-referencing-containers-and-blobs), хотя служба BLOB-объектов представляет собой плоскую схему хранилища, вы можете создать виртуальную иерархию, присваивая BLOB-объектам имена с информацией о пути. Однако неплоское перечисление в настоящее время не поддерживается; эта функция станет доступной в ближайшее время. Сейчас же это значение должно быть `YES`.
 - **blobListingDetails** — вы можете указать, какие элементы будут включены при перечислении BLOB-объектов.
@@ -352,10 +352,10 @@
 - [REST API службы хранилища Azure]
 - [Блог рабочей группы службы хранилища Azure]
 
-Если у вас есть вопросы по данной библиотеке, вы можете опубликовать их на нашем [форуме MSDN по Azure](http://social.msdn.microsoft.com/Forums/windowsazure/ru-RU/home?forum=windowsazuredata) или на сайте [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Если у вас есть предложения по функциям хранилища Azure, вы можете опубликовать их на сайте [отзывов о хранилище Azure](http://feedback.azure.com/forums/217298-storage).
+Если у вас есть вопросы по данной библиотеке, вы можете опубликовать их на нашем [форуме MSDN по Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) или на сайте [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files). Если у вас есть предложения по функциям хранилища Azure, вы можете опубликовать их на сайте [отзывов о хранилище Azure](http://feedback.azure.com/forums/217298-storage).
 
 [Библиотека хранилища Azure для iOS]: https://github.com/azure/azure-storage-ios
-[REST API службы хранилища Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[REST API службы хранилища Azure]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

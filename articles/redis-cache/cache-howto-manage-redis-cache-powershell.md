@@ -13,10 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="multiple"
-   ms.date="08/26/2015"
+   ms.date="12/02/2015"
    ms.author="riande"/>
 
 # Управление кэшем Redis для Azure с использованием Azure PowerShell
+
+> [AZURE.SELECTOR]
+- [PowerShell](cache-howto-manage-redis-cache-powershell.md)
+- [Azure CLI](cache-manage-cli.md)
 
 В этом разделе показано, как создавать, обновлять и удалять кэш Redis для Azure.
 
@@ -24,7 +28,7 @@
 
 Чтобы использовать Windows PowerShell с диспетчером ресурсов Azure, необходимо следующее:
 
-- Windows PowerShell версии 3.0 или 4.0. Чтобы найти версию Windows PowerShell, введите `$PSVersionTable` и убедитесь, что для `PSVersion` указано значение 3.0 или 4.0. Чтобы установить совместимую версию, см. статью [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+- Windows PowerShell версии 3.0 или 4.0. Чтобы найти версию Windows PowerShell, введите `$PSVersionTable` и убедитесь, что значение `PSVersion` — 3.0 или 4.0. Чтобы установить совместимую версию, см. статью [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
 - Azure PowerShell версии 0.0.8 или более поздней. Чтобы установить последнюю версию и связать ее со своей подпиской Azure, см. статью [Как установить и настроить Azure PowerShell](../powershell-install-configure.md);
 
@@ -42,23 +46,22 @@
 
 Следующий скрипт демонстрирует создание, обновление и удаление кэша Redis для Azure.
 
-		# Azure Redis Cache operations require mode set to AzureResourceManager.
-		Switch-AzureMode AzureResourceManager
+		
 		$VerbosePreference = "Continue"
 
-	        # Create a new cache with date string to make name unique. 
-		$cacheName = "MovieCache" + $(Get-Date -Format ('ddhhmm')) 
+    	# Create a new cache with date string to make name unique.
+		$cacheName = "MovieCache" + $(Get-Date -Format ('ddhhmm'))
 		$location = "West US"
 		$resourceGroupName = "Default-Web-WestUS"
-
+		
 		$movieCache = New-AzureRedisCache -Location $location -Name $cacheName  -ResourceGroupName $resourceGroupName -Size 250MB -Sku Basic
-
+		
 		# Wait until the Cache service is provisioned.
-
+		
 		for ($i = 0; $i -le 60; $i++)
 		{
 		    Start-Sleep -s 30
-			$cacheGet = Get-AzureRedisCache -ResourceGroupName $resourceGroupName -Name $cacheName
+		    $cacheGet = Get-AzureRedisCache -ResourceGroupName $resourceGroupName -Name $cacheName
 		    if ([string]::Compare("succeeded", $cacheGet[0].ProvisioningState, $True) -eq 0)
 		    {
 		        break
@@ -68,31 +71,32 @@
 		        exit
 		    }
 		}
-
+		
 		# Update the access keys.
-
+		
 		Write-Verbose "PrimaryKey: $($movieCache.PrimaryKey)"
 		New-AzureRedisCacheKey -KeyType "Primary" -Name $cacheName  -ResourceGroupName $resourceGroupName -Force
 		$cacheKeys = Get-AzureRedisCacheKey -ResourceGroupName $resourceGroupName  -Name $cacheName
 		Write-Verbose "PrimaryKey: $($cacheKeys.PrimaryKey)"
-
+		
 		# Use Set-AzureRedisCache to set Redis cache updatable parameters.
 		# Set the memory policy to Least Recently Used.
-
-		Set-AzureRedisCache -MaxMemoryPolicy AllKeysLRU -Name $cacheName -ResourceGroupName $resourceGroupName
-
+		
+		Set-AzureRedisCache -Name $cacheName -ResourceGroupName $resourceGroupName -RedisConfiguration @{"maxmemory-policy" = "AllKeys-LRU"}
+		
 		# Delete the cache.
-
+		
 		Remove-AzureRedisCache -Name $movieCache.Name -ResourceGroupName $movieCache.ResourceGroupName  -Force
 
 ## Дальнейшие действия
 
 Дополнительные сведения об использовании Windows PowerShell с Azure см. в следующих ресурсах:
 
+- [Документация по командлету кэша Redis для Azure на MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 - [Командлеты диспетчера ресурсов Azure](http://go.microsoft.com/fwlink/?LinkID=394765): узнайте, как использовать командлеты в модуле диспетчера ресурсов Azure.
 - [Использование групп ресурсов для управления ресурсами Azure](../azure-portal/resource-group-portal.md): узнайте, как создавать группы ресурсов и управлять ими на портале предварительной версии Azure.
 - [Блог Azure](http://blogs.msdn.com/windowsazure): узнайте о новых возможностях в Azure.
 - [Блог Windows PowerShell](http://blogs.msdn.com/powershell): узнайте о новых возможностях в Windows PowerShell.
 - [Блог "Hey, Scripting Блог](http://blogs.technet.com/b/heyscriptingguy/): реальные советы и рекомендации от сообщества Windows PowerShell.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

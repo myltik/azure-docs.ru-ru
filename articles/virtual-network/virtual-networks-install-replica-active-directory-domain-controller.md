@@ -23,7 +23,7 @@
 
 Вас также могут заинтересовать следующие связанные разделы:
 
-- При необходимости можно установить новый лес Active Directory в виртуальной сети Azure. Указания по выполнению этих действий см. в статье [Установка нового леса Active Directory в виртуальной сети Azure](../active-directory-new-forest-virtual-machine.md).
+-  При необходимости можно установить новый лес Active Directory в виртуальной сети Azure. Указания по выполнению этих действий см. в статье [Установка нового леса Active Directory в виртуальной сети Azure](../active-directory-new-forest-virtual-machine.md).
 -  Концептуальное руководство об установке доменных служб Active Directory (AD DS) в виртуальной сети Azure см. в статье [Руководства по развертыванию Windows Server Active Directory на виртуальных машинах Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 
@@ -121,4 +121,4 @@
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

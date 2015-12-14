@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement" 
+<properties
+	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement"
 	description="Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="piyushjo" />
 
 
@@ -25,11 +25,11 @@
 
 ##Введение
 
-Интеграция ADM позволяет приложению получать push-уведомления даже, если оно не запущено.
+Благодаря интеграции ADM можно передавать ваше приложение при помощи push-технологий на устройства Android, созданные Amazon.
 
-Фактически данные рекламной кампании не отправляются через ADM. Речь идет лишь о фоновом сигнале, который сообщает приложению о необходимости получить push-уведомление с платформы Engagement. Если приложение не работает во время получения push-уведомления ADM, оно инициирует подключение к серверам платформы Engagement для получения отправленных данных. Подключение к платформе Engagement остается активным в течение приблизительно минуты в случае, если пользователь запускает приложение в ответ на push-уведомление.
+Полезные данные ADM, перемещаемые при помощи push-технологии в пакете SDK, всегда содержат ключ `azme` в объекте данных. Таким образом, если вы в своем приложении используете ADM для другой цели, вы можете фильтровать push-передачи на основе этого ключа.
 
-> [AZURE.IMPORTANT]Только устройства Amazon Kindle под управлением Android 4.0.3 или более поздней версии поддерживаются службой Amazon Device Messaging (ADM). Тем не менее, этот код можно безопасно интегрировать на других устройствах. Если приложение не удается вывести из спящего режима с помощью ADM, уведомление платформы Engagement будет получено в следующий раз, когда запускается приложение.
+> [AZURE.IMPORTANT]Только устройства Amazon Kindle под управлением Android 4.0.3 или более поздней версии поддерживаются службой Amazon Device Messaging (ADM). Тем не менее, этот код можно безопасно интегрировать на других устройствах.
 
 ##Подписка на ADM
 
@@ -65,7 +65,7 @@
 		<amazon:enable-feature
 		   android:name="com.amazon.device.messaging"
 		   android:required="false"/>
-		
+
 		<meta-data android:name="engagement:adm:register" android:value="true" />
 
 -   После добавление тега Amazon может возникнуть ошибка построения, если конечная сборка проекта ниже версии Android 2.1. Необходимо использовать конечное построение **версии Android 2.1 или выше** (не беспокойтесь, значение `minSdkVersion` может быть равным 4).
@@ -83,7 +83,7 @@
 		    <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT"/>
 		  </intent-filter>
 		</receiver>
-		
+
 		 <receiver android:name="com.microsoft.azure.engagement.adm.EngagementADMReceiver"
 		   android:permission="com.amazon.device.messaging.permission.SEND">
 		  <intent-filter>
@@ -111,6 +111,5 @@
 [клиентскую библиотеку ADM]: https://developer.amazon.com/sdk/adm/setup.html
 [интегрировали ADM]: https://developer.amazon.com/sdk/adm/integrating-app.html
 [следующую процедуру]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

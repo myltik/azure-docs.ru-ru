@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/10/2015" 
+	ms.date="11/25/2015" 
 	ms.author="glenga"/>
 
 # Добавление push-уведомлений в универсальное приложение среды выполнения Windows 8.1
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Обзор
 
@@ -37,7 +35,7 @@
 * Изучение [краткого руководства](../app-service-mobile-windows-store-dotnet-get-started.md).  
 
 
-##<a name="create-hub"></a>Создание концентратора уведомлений
+##<a name="create-hub"></a>Создание центра уведомлений
 
 [AZURE.INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
 
@@ -48,7 +46,7 @@
 [AZURE.INCLUDE [app-service-mobile-register-wns](../../includes/app-service-mobile-register-wns.md)]
 
 
-##Настройка мобильного приложения для отправки push-уведомлений
+##Настройка серверной части для отправки push-уведомлений
 
 [AZURE.INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
@@ -57,50 +55,7 @@
 
 После включения push-уведомлений в приложении необходимо обновить внутренний сервер приложения так, чтобы он отправлял push-уведомления.
 
-1. В Visual Studio щелкните правой кнопкой мыши серверный проект и щелкните **Управление пакетами NuGet**, найдите `Microsoft.Azure.NotificationHubs` и нажмите кнопку **Установить**. Будет установлена клиентская библиотека центров уведомлений.
-
-2. В серверном проекте откройте **Контроллеры** > **TodoItemController.cs** и добавьте следующие операторы using:
-
-		using System.Collections.Generic;
-		using Microsoft.Azure.NotificationHubs;
-		using Microsoft.Azure.Mobile.Server.Config;
-
-3. В метод **PostTodoItem** добавьте следующий код после вызова **InsertAsync**:
-
-        // Get the settings for the server project.
-        HttpConfiguration config = this.Configuration;
-        MobileAppSettingsDictionary settings = 
-			this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
-        
-        // Get the Notification Hubs credentials for the Mobile App.
-        string notificationHubName = settings.NotificationHubName;
-        string notificationHubConnection = settings
-            .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
-
-        // Create a new Notification Hub client.
-        NotificationHubClient hub = NotificationHubClient
-        .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
-
-		// Define a WNS payload
-		var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" 
-                                + item.Text + @"</text></binding></visual></toast>";
-
-        try
-        {
-			// Send the push notification and log the results.
-            var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
-
-            // Write the success result to the logs.
-            config.Services.GetTraceWriter().Info(result.State.ToString());
-        }
-        catch (System.Exception ex)
-        {
-            // Write the failure result to the logs.
-            config.Services.GetTraceWriter()
-                .Error(ex.Message, null, "Push.SendAsync Error");
-        }
-
-    Этот код заставляет центр уведомлений отправить push-уведомление после вставки элемента задачи.
+[AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
 
 ## <a name="publish-the-service"></a>Публикация мобильного внутреннего сервера в Azure
@@ -149,10 +104,14 @@
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
+##Дальнейшие действия
+
+Наконец, в учебнике [Отправка кроссплатформенных уведомлений определенному пользователю](app-service-mobile-windows-store-dotnet-push-notifications-to-users.md) объясняется, как отправить push-уведомления на все зарегистрированные устройства на любой платформе, принадлежащие определенному пользователю, который прошел проверку подлинности.
+
 ##<a id="more"></a>Дополнительные сведения
 
-* Шаблоны обеспечивают гибкость при отправке push-уведомлений локально и между различными платформами. В статье [Как использовать управляемый клиент для мобильных приложений Azure](app-service-mobile-dotnet-how-to-use-client-library.md) описано, как зарегистрировать шаблоны.
-* Теги позволяют отправлять push-уведомления клиентам в зависимости от их сегмента. В статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) показано, как добавлять теги для установки устройства.
+* Шаблоны обеспечивают гибкость при отправке push-уведомлений локально и между различными платформами. В статье [Использование управляемого клиента для мобильных приложений Azure](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications) описано, как зарегистрировать шаблоны.
+* Теги позволяют отправлять push-уведомления клиентам в зависимости от их сегмента. В статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) показано, как добавлять теги для установки устройства.
 
 <!-- Anchors. -->
 
@@ -161,4 +120,4 @@
 
 <!-- Images. -->
 
-<!---HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_1203_2015-->

@@ -34,7 +34,7 @@
 ## Управление каталогами
 Каждая учетная запись аналитики озера данных Azure имеет связанную с ней учетную запись хранилища озера данных Azure по умолчанию. Эта учетная запись хранилища озера данных называется учетной записью хранения озера данных по умолчанию. Каталог U-SQL хранится в учетной записи хранилища озера данных по умолчанию в папке /catalog. Не удаляйте файлы из папки /catalog.
 
-### Использование портала предварительной версии Azure
+### Использование портала Azure.
 
 См. раздел [Управление аналитикой озера данных с помощью портала](data-lake-analytics-use-portal.md#view-u-sql-catalog).
 
@@ -64,7 +64,7 @@
 ## См. также
 
 - Приступая к работе
-    - [Начало работы с аналитикой озера данных с помощью портала предварительной версии Azure](data-lake-analytics-get-started-portal.md)
+    - [Начало работы с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
     - [Начало работы с аналитикой озера данных с помощью Azure PowerShell](data-lake-analytics-get-started-powershell.md)
     - [Начало работы с аналитикой озера данных с помощью пакета SDK Azure .NET](data-lake-analytics-get-started-net-sdk.md)
     - [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
@@ -76,12 +76,12 @@
     - [Разработка пользовательских операторов U-SQL для заданий аналитики озера данных](data-lake-analtyics-u-sql-user-defined-operators.md)
 
 - управления
-    - [Управление аналитикой озера данных Azure с помощью портала предварительной версии Azure](data-lake-analytics-use-portal.md)
+    - [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-use-portal.md)
     - [Управление аналитикой озера данных Azure с помощью Azure PowerShell](data-lake-analytics-use-powershell.md)
-    - [Мониторинг заданий аналитики озера данных Azure и устранение связанных с ними неполадок с помощью портала предварительной версии Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Мониторинг заданий аналитики озера данных Azure и устранение связанных с ними неполадок с помощью портала Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 - Полный учебник
     - [Использование интерактивных учебников по аналитике озера данных Azure](data-lake-analytics-use-interactive-tutorials.md)
     - [Анализ журналов веб-сайта с помощью аналитики озера данных Azure](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

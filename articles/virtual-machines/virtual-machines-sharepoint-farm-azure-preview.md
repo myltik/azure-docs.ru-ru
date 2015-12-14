@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Создание ферм серверов SharePoint | Microsoft Azure"
-	description="Быстро создавайте базовые или высокодоступные фермы SharePoint Server 2013, используя Marketplace портала предварительной версии Azure."
+	description="Быстро создавайте фермы SharePoint Server 2013, как базовые, так и с высоким уровнем доступности, используя Marketplace портала Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -21,9 +21,9 @@
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]классической модели.
 
-С помощью Marketplace на портале предварительной версии Microsoft Azure можно быстро создавать предварительно настроенные фермы SharePoint Server 2013. Это позволяет сэкономить много времени при необходимости использовать базовую или высокодоступную ферму SharePoint в среде разработки и тестирования или в ходе оценки SharePoint Server 2013 в качестве решения для совместной работы в рамках организации.
+С помощью Marketplace на портале Microsoft Azure можно быстро создавать предварительно настроенные фермы SharePoint Server 2013. Это позволяет сэкономить много времени при необходимости использовать базовую или высокодоступную ферму SharePoint в среде разработки и тестирования или в ходе оценки SharePoint Server 2013 в качестве решения для совместной работы в рамках организации.
 
-> [AZURE.NOTE]Пункт **Ферма серверов SharePoint** удален из Azure Marketplace на портале предварительной версии Azure.
+> [AZURE.NOTE]Пункт **Ферма серверов SharePoint** удален из Azure Marketplace на портале Azure.
 
 Базовая ферма SharePoint в этой конфигурации состоит из трех виртуальных машин.
 
@@ -59,7 +59,7 @@
 
 На сайте Центра администрирования SharePoint можно настраивать "Мои сайты", приложения SharePoint и другие функции. Более подробную информацию см. в разделе [Настройка SharePoint 2013](http://technet.microsoft.com/library/ee836142.aspx).
 
-> [AZURE.NOTE]Портал предварительной версии Azure создает обе эти фермы только в облачной виртуальной сети с местом для веб-сайта, доступным из Интернета. Подключение VPN типа "сеть-сеть" или ExpressRoute обратно к сети организации не создается.
+> [AZURE.NOTE]Портал Azure создает обе эти фермы только в облачной виртуальной сети с веб-присутствием. Подключение VPN типа "сеть-сеть" или ExpressRoute обратно к сети организации не создается.
 
 ## Дополнительные ресурсы
 
@@ -69,4 +69,4 @@
 
 [Архитектуры Microsoft Azure для SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

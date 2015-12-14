@@ -73,6 +73,7 @@
 - [Архитектура](service-fabric-reliable-services-platform-architecture.md)
 - [Надежные коллекции](service-fabric-reliable-services-reliable-collections.md)
 - [Настройка надежных служб с отслеживанием состояния](../Service-Fabric/service-fabric-reliable-services-configuration.md)
+- [Сериализация](../Service-Fabric/service-fabric-reliable-services-serialization.md)
 - [Расширенные возможности модели программирования на основе надежных служб](../Service-Fabric/service-fabric-reliable-services-advanced-usage.md)
 
 Взаимодействие с надежными службами и абстракциями, которые клиенты могут использовать для обнаружения конечных точек служб и связи с ними, описаны в следующих статьях:
@@ -87,4 +88,4 @@
 
 - [Диагностика надежных служб с отслеживанием состояния](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

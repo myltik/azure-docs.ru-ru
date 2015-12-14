@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/27/2015"
+   ms.date="12/01/2015"
    ms.author="jgao"/>
 
 # Управление аналитикой озера данных Azure с помощью Azure PowerShell
@@ -27,38 +27,58 @@
 Перед началом работы с этим учебником необходимо иметь следующее:
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure]https://azure.microsoft.com/ru-RU/pricing/free-trial/).
-- **Azure PowerShell версии 1.0 или выше**. См. [Установка и настройка Azure PowerShell](../install-configure-powershell.md). После установки Azure PowerShell 1.0 или выше выполните следующий командлет, чтобы установить модуль аналитики озера данных Azure.
+
+
+<!-- ################################ -->
+<!-- ################################ -->
+
+
+##Установка Azure PowerShell 1.0 и более поздних версий
+
+Сначала необходимо удалить версии 0.9x.
+
+Проверка версии установленной оболочки PowerShell:
+
+	Get-Module *azure*
 	
-		Install-Module AzureRM.DataLakeStore
-		Install-Module AzureRM.DataLakeAnalytics
+Для удаления старой версии запустите «Программы и компоненты» в панели управления.
 
-	Дополнительные сведения о модуле **AzureRM.DataLakeStore** см. в [коллекции PowerShell](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore). Дополнительные сведения о модуле **AzureRM.DataLakeAnalytics** см. в [коллекции PowerShell](http://www.powershellgallery.com/packages/AzureRM.DataLakeAnalytics).
+Существует два основных варианта установки Azure PowerShell.
 
-	Если учетная запись озера данных создается впервые, выполните следующие действия.
+- [Коллекция PowerShell](https://www.powershellgallery.com/). Выполните следующие команды из интегрированной среды сценариев с повышенными привилегиями PowerShell или консоли Windows PowerShell с повышенными привилегиями:
 
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeAnalytics"
-
-	Для подключения к Azure воспользуйтесь следующими командлетами.
-
-		Login-AzureRmAccount
-		Get-AzureRmSubscription  # for finding the Azure Subscription ID
-		Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
 		
-**Список командлетов**:
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	Дополнительные сведения см. в статье [Коллекция PowerShell](https://www.powershellgallery.com/).
+
+- [Установщик веб-платформы Майкрософт (WebPI)](http://aka.ms/webpi-azps). Если вы установили Azure PowerShell 0.9.x, появится запрос на удаление версии 0.9.x. Если вы установили модули Azure PowerShell из коллекции PowerShell, установщик требует удалить эти модули перед установкой, чтобы обеспечить целостность среды PowerShell Azure. Инструкции см. в разделе [Установка Azure PowerShell 1.0 с помощью установщика веб-платформы](https://azure.microsoft.com/blog/azps-1-0/).
+
+Обновления для установщика веб-платформы будут выпускаться ежемесячно. Обновления для коллекции PowerShell будут выпускаться на постоянной основе. Если вы решите использовать для установки коллекцию PowerShell, она станет основным источником всего нового и лучшего в Azure PowerShell.
+
+**Вывод списка командлетов**.
 
 	Get-Command *Azure*DataLakeAnalytics*
 
-<!-- ################################ -->
-<!-- ################################ -->
+**Для подключения к Azure воспользуйтесь следующими командлетами**.
 
-
-
-<!-- ################################ -->
-<!-- ################################ -->
+	Login-AzureRmAccount
+	Get-AzureRmSubscription  # for finding the Azure Subscription ID
+	Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
+	
 ## Управление учетными записями
 
-Перед выполнением любого задания аналитики озера данных необходимо иметь учетную запись аналитики озера данных. В отличие от Azure HDInsight учетная запись аналитики не оплачивается, если ни одно задание не выполняется. Вы платите только за время, когда выполняется задание. Дополнительные сведения см. в разделе [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md).
+Перед выполнением любого задания аналитики озера данных необходимо иметь учетную запись аналитики озера данных. В отличие от Azure HDInsight учетная запись аналитики не оплачивается, если ни одно задание не выполняется. Вы платите только за время, когда выполняется задание. Дополнительные сведения см. в разделе [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md).
 
 ###Создание учетных записей
 
@@ -332,7 +352,7 @@
 
 ## Использование групп диспетчера ресурсов Azure
 
-Обычно приложения состоят из множества компонентов, например веб-приложения, базы данных, сервера базы данных, хранилища и служб сторонних поставщиков. Диспетчер ресурсов Azure (ARM) позволяет работать с ресурсами в приложении в виде группы, которая называется группой ресурсов Azure. Вы можете развертывать, обновлять, отслеживать или удалять все ресурсы для приложения в рамках одной скоординированной операции. Для развертывания вы используете шаблон, который можно использовать для разных сред, в том числе для тестовой, промежуточной и рабочей. Вы можете уточнить счета для своей организации, просмотрев сведенные затраты для всей группы. Дополнительную информацию см. в разделе [Обзор диспетчера ресурсов Azure](resource-group-overview.md).
+Обычно приложения состоят из множества компонентов, например веб-приложения, базы данных, сервера базы данных, хранилища и служб сторонних поставщиков. Диспетчер ресурсов Azure (ARM) позволяет работать с ресурсами в приложении в виде группы, которая называется группой ресурсов Azure. Вы можете развертывать, обновлять, отслеживать или удалять все ресурсы для приложения в рамках одной скоординированной операции. Для развертывания вы используете шаблон, который можно использовать для разных сред, в том числе для тестовой, промежуточной и рабочей. Вы можете уточнить счета для своей организации, просмотрев сведенные затраты для всей группы. Дополнительную информацию см. в статье [Общие сведения о диспетчере ресурсов Azure](resource-group-overview.md).
 
 Служба аналитики озера данных может включать следующие компоненты:
 
@@ -350,13 +370,13 @@
 ##См. также 
 
 - [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md)
-- [Начало работы с аналитикой озера данных с помощью портала предварительной версии Azure](data-lake-analytics-get-started-portal.md)
-- [Управление аналитикой озера данных Azure с помощью портала предварительной версии Azure](data-lake-analytics-use-portal.md)
-- [Мониторинг заданий аналитики озера данных Azure и устранение связанных с ними неполадок с помощью портала предварительной версии Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Начало работы с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
+- [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-use-portal.md)
+- [Мониторинг заданий аналитики озера данных Azure и устранение связанных с ними неполадок с помощью портала Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ##Приложение А. Шаблон ARM аналитики озера данных
 
-Следующий шаблон ARM можно использовать для развертывания учетной записи аналитики озера данных и зависимой от нее учетной записи хранения озера данных. Сохраните его в формате json и затем используйте скрипт PowerShell для вызова шаблона. Дополнительные сведения см. в разделе [Развертывание приложения с шаблоном диспетчера ресурсов Azure](resource-group-template-deploy.md#deploy-with-powershell) и [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
+Следующий шаблон ARM можно использовать для развертывания учетной записи аналитики озера данных и зависимой от нее учетной записи хранения озера данных. Сохраните его в формате json и затем используйте скрипт PowerShell для вызова шаблона. Дополнительные сведения см. в разделе [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md#deploy-with-powershell) и [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 
 	{
 		"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -411,4 +431,4 @@
 		}
 	}
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

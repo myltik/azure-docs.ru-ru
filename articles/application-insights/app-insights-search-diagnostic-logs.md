@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Журналы, исключения и пользовательские средства диагностики для ASP.NET в Application Insights
@@ -34,6 +34,11 @@
 ![](./media/app-insights-search-diagnostic-logs/appinsights-31search.png)
 
 Подробности зависят от типа приложения. Вы можете щелкнуть любое отдельное событие, чтобы просмотреть подробную информацию о нем.
+
+## Выборка 
+
+Если ваше приложение выполняет отправку больших объемов данных, а вы используете Application Insights SDK для ASP.NET версии 2.0.0-beta3 или более поздней, функция адаптивной выборки может сработать и отправить только часть вашей телеметрии. [Дополнительная информация о выборке](app-insights-sampling.md).
+
 
 ##<a name="events"></a>Пользовательские события
 
@@ -271,6 +276,11 @@ VB
 
 До 500 событий в секунду от каждого приложения. События сохраняются в течение семи дней.
 
+### Некоторые из событий или данных трассировки не отображаются
+
+Если ваше приложение выполняет отправку больших объемов данных, а вы используете Application Insights SDK для ASP.NET версии 2.0.0-beta3 или более поздней, функция адаптивной выборки может сработать и отправить только часть вашей телеметрии. [Дополнительная информация о выборке.](app-insights-sampling.md)
+
+
 ## <a name="add"></a>Дальнейшие действия
 
 * [Настройка тестов доступности и скорости реагирования][availability]
@@ -285,7 +295,7 @@ VB
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-web-failures-exceptions.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
@@ -295,4 +305,4 @@ VB
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

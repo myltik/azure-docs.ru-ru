@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="12/01/2015"
    ms.author="tomfitz"/>
 
 # Создание приложения Active Directory и субъекта-службы с помощью портала
@@ -111,7 +111,7 @@
 
 ![Выбор пользователей](./media/resource-group-create-service-principal-portal/assign-to-role.png)
 
-Подробнее о работе с пользователями, приложениями и ролями см. в разделе [Управление доступом с помощью портала управления Azure](active-directory/role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
+Подробнее о назначении пользователям и приложениям ролей при помощи портала см. в разделе [Управление доступом с помощью портала управления Azure](../role-based-access-control-configure/#manage-access-using-the-azure-management-portal).
 
 ## Получение маркера доступа в коде
 
@@ -162,4 +162,4 @@
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

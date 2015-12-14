@@ -1,12 +1,12 @@
 
-* In **QSAppDelegate.m**, import the iOS SDK and **QSTodoService.h**:
+* В **QSAppDelegate.m** импортируйте пакет SDK для iOS и **QSTodoService.h**:
 
 ```
         #import <MicrosoftAzureMobile/MicrosoftAzureMobile.h>
         #import "QSTodoService.h"
 ```
 
-* In `didFinishLaunchingWithOptions` in **QSAppDelegate.m**, insert the following lines right before `return YES;`:
+* В коде `didFinishLaunchingWithOptions` в **QSAppDelegate.m** вставьте следующие строки прямо перед `return YES;`:
 
 ```
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
@@ -14,7 +14,7 @@
         [[UIApplication sharedApplication] registerForRemoteNotifications];
 ```
 
-* In **QSAppDelegate.m**, add the following handler methods. Your app is now updated to support push notifications. Note that UIAlertView is deprecated in iOS9 and the following targets iOS9.
+* В **QSAppDelegate.m** добавьте приведенные ниже методы обработчика. Ваше приложение теперь обновлено для поддержки push-уведомлений. Обратите внимание, что UIAlertView устарело в iOS9 и в этой ОС используется следующее.
 
 ```
         // Registration with APNs is successful
@@ -82,3 +82,5 @@
 
         }
 ```
+
+<!---HONumber=AcomDC_1203_2015-->

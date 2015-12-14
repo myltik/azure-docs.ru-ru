@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/22/2015"
+   ms.date="12/01/2015"
    ms.author="jgao"/>
 
 # Руководство. Начало работы с аналитикой озера данных Azure с помощью Azure PowerShell
@@ -38,30 +38,14 @@
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/ru-RU/pricing/free-trial/).
-- **Azure PowerShell версии 1.0 или выше**. См. [Установка и настройка Azure PowerShell](../install-configure-powershell.md). После установки Azure PowerShell 1.0 или выше выполните следующий командлет, чтобы установить модуль аналитики озера данных Azure.
-
-		Install-Module AzureRM.DataLakeStore
-		Install-Module AzureRM.DataLakeAnalytics
-
-	Дополнительные сведения о модуле **AzureRM.DataLakeStore** см. в [коллекции PowerShell](http://www.powershellgallery.com/packages/AzureRM.DataLakeStore). Дополнительные сведения о модуле **AzureRM.DataLakeAnalytics** см. в [коллекции PowerShell](http://www.powershellgallery.com/packages/AzureRM.DataLakeAnalytics).
-
-	Если учетная запись озера данных создается впервые, выполните следующие действия.
-
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
-		Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeAnalytics"
-
-	Для подключения к Azure воспользуйтесь следующими командлетами.
-
-		Login-AzureRmAccount
-		Get-AzureRmSubscription  # for finding the Azure Subscription ID
-		Set-AzureRmContext -SubscriptionID <Azure Subscription ID>
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
+- **Рабочая станция с Azure PowerShell**. См. раздел [Установка Azure PowerShell 1.0 и более поздних версий](data-lake-analytics-manage-use-powershell.md#install-azure-powershell-10-and-greater).
 
 ##Создание учетной записи аналитики озера данных
 
 Для выполнения любых заданий требуется учетная запись аналитики озера данных. Для создания учетной записи аналитики озера данных необходимо указать следующее.
 
-- **Группа ресурсов Azure**: необходимо создать учетную запись аналитики озера данных в группе «Ресурс Azure». [Диспетчер ресурсов Azure](resource-group-overview.md) позволяет вам работать с ресурсами в приложении в виде группы. Вы можете развертывать, обновлять или удалять все ресурсы для приложения в рамках одной скоординированной операции.  
+- **Группа ресурсов Azure**: необходимо создать учетную запись аналитики озера данных в группе ресурсов Azure. [Диспетчер ресурсов Azure](resource-group-overview.md) позволяет вам работать с ресурсами в приложении в виде группы. Вы можете развертывать, обновлять или удалять все ресурсы для приложения в рамках одной скоординированной операции.  
 
 	Для перечисления групп ресурсов в своей подписке выполните следующие действия.
     
@@ -75,7 +59,7 @@
 
 - **Имя учетной записи аналитики озера данных**
 - **Расположение**: один из центров обработки данных Azure, который поддерживает аналитику озера данных.
-- **Учетная запись озера данных по умолчанию**: каждая учетная запись аналитики озера данных имеет учетную запись озера данных по умолчанию.
+- **Учетная запись озера данных по умолчанию**: у каждой учетной записи аналитики озера данных есть учетная запись озера данных по умолчанию.
 
 	Создание новой учетной записи озера данных
 
@@ -151,13 +135,13 @@
 	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
 	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
 
->[AZURE.NOTE]На портале предварительной версии Azure предоставляется пользовательский интерфейс для копирования примеров файлов данных в учетную запись хранилища озера данных по умолчанию. См. инструкции в разделе [Начало работы с аналитикой озера данных Azure с использованием портала предварительной версии Azure](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
+>[AZURE.NOTE]На портале Azure доступен пользовательский интерфейс для копирования примеров файлов данных в учетную запись хранилища озера данных по умолчанию. См. инструкции в статье [Начало работы с аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
 
-Из аналитики озера данных также доступно хранилище больших двоичных объектов Azure. Инструкции по отправке данных в хранилище больших двоичных объектов Azure см. в разделе [Использование Azure PowerShell с хранилищем Azure](storage-powershell-guide-full.md).
+Из аналитики озера данных также доступно хранилище больших двоичных объектов Azure. Инструкции по отправке данных в хранилище больших двоичных объектов Azure см. в статье [Использование Azure PowerShell со службой хранилища Azure](storage-powershell-guide-full.md).
 
 ##Отправка заданий аналитики озера данных
 
-Задания аналитики озера данных записываются на языке U-SQL. Дополнительные сведения о языке U-SQL см. в статье [Начало работы с языком U-SQL](data-lake-analytics-u-sql-get-started.md) и в [Справочнике по языку U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+Задания аналитики озера данных записываются на языке U-SQL. Дополнительные сведения о языке U-SQL см. в статье [Начало работы с языком U-SQL](data-lake-analytics-u-sql-get-started.md) и в [справочнике по языку U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
 
 **Создание скрипта задания аналитики озера данных**
 
@@ -178,7 +162,7 @@
             TO "/Output/SearchLog-from-Data-Lake.csv"
         USING Outputters.Csv();
 
-	Этот скрипт U-SQL считывает файл исходных данных с помощью **Extractors.Tsv()**, а затем создает CSV-файл с помощью **Outputters.Csv()**.
+	Этот сценарий U-SQL считывает файл исходных данных с помощью функции **Extractors.Tsv()**, а затем создает CSV-файл с помощью функции **Outputters.Csv()**.
     
     Не меняйте эти два пути, если только исходный файл не был скопирован в другое место. Аналитика озера данных создаст выходную папку, если ее не существует.
 	
@@ -230,7 +214,7 @@
 - Более сложный запрос можно посмотреть в статье [Анализ журналов веб-сайта с помощью аналитики озера данных Azure](data-lake-analytics-analyze-weblogs.md).
 - Чтобы приступить к разработке приложений U-SQL, ознакомьтесь со статьей [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - Для знакомства с U-SQL см. статью [Начало работы с языком U-SQL для аналитики озера данных Azure](data-lake-analytics-u-sql-get-started.md).
-- Задачи управления описываются в статье [Управление аналитикой озера данных Azure с помощью портала предварительной версии Azure](data-lake-analytics-manage-use-portal.md).
+- Задачи управления описываются в статье [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md).
 - Общие сведения об аналитике озера данных см. в статье [Обзор аналитики озера данных Azure](data-lake-analytics-overview.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Узнайте об аналитике озера данных и U-SQL с помощью интерактивных учебников на портале предварительной версии Azure | Azure" 
+   pageTitle="Узнайте об аналитике озера данных и U-SQL с помощью интерактивных учебников на портале Azure | Azure" 
    description="Краткое руководство для изучения аналитики озера данных и U-SQL." 
    services="data-lake-analytics" 
    documentationCenter="" 
@@ -19,7 +19,7 @@
 
 # Использование интерактивных учебников по аналитике озера данных Azure
 
-Портал предварительной версии Azure содержит интерактивный учебник, который поможет приступить к работе с аналитикой озера данных. В этой статье показано, как работать с учебником для анализа журналов веб-сайтов.
+Портал Azure содержит интерактивный учебник, который поможет приступить к работе с аналитикой озера данных. В этой статье показано, как работать с учебником для анализа журналов веб-сайтов.
 
 
 >[AZURE.NOTE]Если вы хотите работать с учебником с помощью Visual Studio, см. статью [Анализ журналов веб-сайтов с помощью аналитики озера данных](data-lake-analytics-analyze-weblogs.md). В будущем на портал будут добавлены другие интерактивные учебники.
@@ -27,7 +27,7 @@
 
 Другие учебники:
 
-- [Начало работы с аналитикой озера данных с помощью портала предварительной версии Azure](data-lake-analytics-get-started-portal.md)
+- [Начало работы с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
 - [Начало работы с аналитикой озера данных с помощью Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Начало работы с аналитикой озера данных с помощью пакета SDK .NET](data-lake-analytics-get-started-net-sdk.md)
 - [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md) 
@@ -36,7 +36,7 @@
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Учетная запись аналитики озера данных**. См. статью [Начало работы с аналитикой озера данных Azure с помощью портала предварительной версии Azure](data-lake-analytics-get-started-portal.md).
+- **Учетная запись аналитики озера данных**. См. раздел [Начало работы с аналитическим модулем озера данных Azure при помощи портала Azure](data-lake-analytics-get-started-portal.md).
 
 ##Создание учетной записи аналитики озера данных 
 
@@ -46,7 +46,7 @@
 
 **Создание учетной записи аналитики озера данных**
 
-1. Войдите в [портал предварительной версии Azure](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
+1. Выполните вход на [портал Azure](https://portal.azure.com/signin/index/?Microsoft_Azure_Kona=true&Microsoft_Azure_DataLake=true&hubsExtension_ItemHideKey=AzureDataLake_BigStorage%2cAzureKona_BigCompute).
 2. Щелкните **Microsoft Azure** в левом верхнем углу, чтобы открыть начальную панель.
 3. Щелкните элемент **Marketplace**.  
 3. Введите **аналитика озера данных Azure** в поле поиска на колонке **Все** и нажмите клавишу **ВВОД**. В списке появится **Аналитика озера данных Azure**.
@@ -70,7 +70,7 @@
 
 **Открытие интерактивного учебника по анализу журналов веб-сайта**
 
-1. В портале предварительной версии щелкните **Microsoft Azure** в левом меню, чтобы открыть начальную панель.
+1. На портале щелкните **Microsoft Azure** в левом меню, чтобы открыть начальную панель.
 2. Щелкните элемент, связанный с вашей учетной записью аналитики озера данных.
 3. Щелкните **Обзор интерактивных учебников** на панели **Основные компоненты**.
 
@@ -83,9 +83,9 @@
 ##См. также
 
 - [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md)
-- [Начало работы с аналитикой озера данных с помощью портала предварительной версии Azure](data-lake-analytics-get-started-portal.md)
+- [Начало работы с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
 - [Начало работы с аналитикой озера данных с помощью Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 - [Анализ журналов веб-сайта с помощью аналитики озера данных Azure](data-lake-analytics-analyze-weblogs.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

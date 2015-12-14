@@ -18,9 +18,7 @@
 
 # Включение автономной синхронизации для приложения для Windows
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Обзор
 
@@ -36,7 +34,7 @@
 
 * Visual Studio 2013 в Windows 8.1.
 * Выполнение заданий на странице [Создание приложения для Windows][create a windows app].
-* [Azure Mobile Services SQLite Store версия 2.0.0-beta2][sqlite store nuget]
+* [Хранилище SQLite для мобильных служб Azure][sqlite store nuget]
 * [SQLite для Windows 8.1](http://www.sqlite.org/downloads)
 
 ## Обновление клиентского приложения для поддержки автономных функций
@@ -48,15 +46,11 @@
     * **Среда выполнения Windows 8.1:** установите [SQLite для Windows 8.1].
     * **Windows Phone 8.1:** установите [SQLite для Windows Phone 8.1].
 
-    >[AZURE.NOTE]Если вы используете Internet Explorer, после перехода по ссылке для установки SQLite может потребоваться загрузить VSIX-файл в виде ZIP-файла. Сохраните файл в папку на жестком диске с расширением .vsix вместо .zip. Дважды щелкните VSIX-файл в проводнике Windows для запуска установки.
+    >[AZURE.NOTE]Эти инструкции также подойдут для проектов Windows 10 UAP, но тогда следует установить [SQLite для Windows 10].
 
-2. В Visual Studio откройте проект, созданный в учебнике на странице [Создание приложения для Windows]. Установите NuGet-пакет **WindowsAzure.MobileServices.SQLiteStore** для проектов среды выполнения Windows 8.1 и Windows Phone 8.1.
+2. В Visual Studio откройте проект, созданный в учебнике на странице [Создание приложения для Windows]. Установите пакет NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore** для проектов среды выполнения Windows 8.1 и Windows Phone 8.1. Добавьте ссылку на NuGet в проекты для Магазина Windows 8.1 и Windows Phone 8.1.
 
-    В обозревателе решений щелкните правой кнопкой мыши решение и щелкните **Управление пакетами NuGet**, чтобы запустить диспетчер пакетов NuGet. На вкладке «В сети» из раскрывающегося списка вверху выберите параметр «Включить предварительный выпуск». Найдите **SQLiteStore**, чтобы установить `WindowsAzure.MobileServices.SQLiteStore` версии 2.0.0-beta.
-
-    Затем добавьте ссылку на NuGet в проекты для Магазина Windows 8.1 и Windows Phone 8.1.
-
-    >[AZURE.NOTE]Если при установке создается дополнительная ссылка на другую версию SQLite, которая у вас не установлена, будет сообщено об ошибке компиляции. Следует устранить эту ошибку, удалив повторяющийся элемент из узла **Ссылки** в ваших проектах.
+    >[AZURE.NOTE]Если при установке создается дополнительная ссылка на другую версию SQLite, которая у вас не установлена, будет сообщено об ошибке компиляции. Следует устранить эту ошибку, удалив повторяющийся элемент из узла **Ссылки** в своих проектах.
 
 3. В обозревателе решений щелкните правой кнопкой мыши пункт **Ссылки** для проектов на платформах среды выполнения Windows 8.1 и Windows Phone 8.1. Убедитесь в наличии ссылки на элемент SQLite в разделе **Расширения**.
 
@@ -77,12 +71,12 @@
         using Microsoft.WindowsAzure.MobileServices.SQLiteStore;  // offline sync
         using Microsoft.WindowsAzure.MobileServices.Sync;         // offline sync
 
-6. В файле MainPage.cs преобразуйте в комментарий строку кода, которая инициализирует `todoTable` как `IMobileServiceTable`. Отмените преобразование в комментарий строки кода, которая инициализирует `todoTable` как `IMobileServiceSyncTable`:
+6. В файле MainPage.cs закомментируйте строку кода, которая инициализирует `todoTable` как `IMobileServiceTable`. Раскомментируйте строку кода, которая инициализирует `todoTable` как `IMobileServiceSyncTable`.
 
         //private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
         private IMobileServiceSyncTable<TodoItem> todoTable = App.MobileService.GetSyncTable<TodoItem>(); // offline sync
 
-7. В области файла MainPage.cs, помеченной как `Offline sync`, раскомментируйте методы `InitLocalStoreAsync` и `SyncAsync`. Метод `InitLocalStoreAsync` инициализирует контекст синхронизации клиента с хранилищем SQLite. В Visual Studio можно выбрать все строки, преобразованные в комментарии, и использовать клавиши **Ctrl**+**K**+**U**, чтобы отменить это преобразование.
+7. В области файла MainPage.cs, помеченной как `Offline sync`, раскомментируйте методы `InitLocalStoreAsync` и `SyncAsync`. Метод `InitLocalStoreAsync` инициализирует контекст синхронизации клиента с хранилищем SQLite. В Visual Studio можно выбрать все закомментированные строки и использовать клавиши **Ctrl**+**K**+**U**, чтобы раскомментировать их.
 
 	Обратите внимание, что в `SyncAsync` операция отправки выполняется для `MobileServiceClient.SyncContext`, а не `IMobileServicesSyncTable`. Это вызвано тем, что контекст отслеживает изменения, внесенные клиентом, для всех таблиц. Это позволяет реализовать сценарии, где существуют связи между таблицами. Подробнее об этом поведении см. в разделе [Автономная синхронизация данных в мобильных приложениях Azure].
 
@@ -141,7 +135,7 @@
             ButtonRefresh.IsEnabled = true;
         }
 
-10. Добавьте обработчики исключений в метод `SyncAsync`. В автономном режиме будет вызвано исключение `MobileServicePushFailedException` с `PushResult.Status == CancelledByNetworkError`.
+10. Добавьте обработчики исключений в метод `SyncAsync`. В автономном режиме будет порождено исключение `MobileServicePushFailedException` с `PushResult.Status == CancelledByNetworkError`.
 
         private async Task SyncAsync()
         {
@@ -196,7 +190,7 @@
 
 4. Закройте приложение и перезапустите его, чтобы убедиться, что новые элементы сохранены в локальном хранилище.
 
-5. В Visual Studio в откройте **обозреватель сервера**. Перейдите к своей базе данных в **Azure** > **Базы данных SQL**. Щелкните правой кнопкой мыши базу данных и выберите пункт **Открыть в обозревателе объектов SQL Server**. Теперь можно перейти к таблице базы данных SQL и ее содержимому. Убедитесь, что данные в серверной базе данных не изменились.
+5. В Visual Studio в откройте **обозреватель сервера**. Перейдите к своей базе данных, выбрав **Azure** > **Базы данных SQL**. Щелкните правой кнопкой мыши базу данных и выберите пункт **Открыть в обозревателе объектов SQL Server**. Теперь можно перейти к таблице базы данных SQL и ее содержимому. Убедитесь, что данные в серверной базе данных не изменились.
 
 6. (Необязательно.) Воспользуйтесь инструментом REST, например Fiddler или Postman, чтобы выполнить запрос к мобильной серверной части с помощью запроса GET вида `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`.
 
@@ -268,13 +262,13 @@
 [Автономная синхронизация данных в мобильных приложениях Azure]: ../app-service-mobile-offline-data-sync.md
 [create a windows app]: ../app-service-mobile-windows-store-dotnet-get-started.md
 [Создание приложения для Windows]: ../app-service-mobile-windows-store-dotnet-get-started.md
-[SQLite для Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
-[SQLite для Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
+[SQLite для Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
+[SQLite для Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
+[SQLite для Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
 
-[azure mobile app sdk nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
-[sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/2.0.0-beta
+[sqlite store nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
  
 [Облачное покрытие: автономная синхронизация в мобильных службах Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: приложения с поддержкой автономного режима в мобильных службах Azure]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_1203_2015-->

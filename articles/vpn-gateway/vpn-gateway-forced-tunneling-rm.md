@@ -57,7 +57,7 @@
 
 - Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрироваться в бесплатной пробной версии](http://azure.microsoft.com/pricing/free-trial/).
 
-- Последняя версия командлетов Azure PowerShell, использующая установщик веб-платформы. Можно загрузить и установить последнюю версию из [установщика веб-платформы](http://aka.ms/webpi-azps/). Это документация была написана для PowerShell 1.0 или более поздней версии. Командлеты, необходимые для этой конфигурации, отсутствуют в более ранних версиях. Дополнительные сведения о PowerShell 1.0 см. в публикации [Предварительная версия Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+- Командлеты Azure PowerShell (версии 1.0 или более поздней) Вы можете загрузить эту версию в разделе Windows PowerShell на следующей [странице загрузки](http://azure.microsoft.com/downloads/), а затем установить. Это документация была написана для PowerShell 1.0 или более поздней версии. Командлеты, необходимые для этой конфигурации, отсутствуют в более ранних версиях.
 
 - Если вы не знакомы с использованием диспетчера ресурсов Azure и PowerShell, дополнительные сведения см. в [этой статье](../articles/powershell-azure-resource-manager.md).
 
@@ -71,9 +71,9 @@
 
 		Get-AzureRmSubscription
 
-2. Укажите имя подписки Azure.
+2. Укажите подписку, которую нужно использовать.
 
-		Get-AzureRmSubscription -SubscriptionName "YourSubscriptionName" | Select-AzureRmSubscription
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 		
 3. Создайте группу ресурсов.
 
@@ -132,4 +132,4 @@
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

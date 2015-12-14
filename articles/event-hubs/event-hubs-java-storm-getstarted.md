@@ -36,7 +36,7 @@
 
 ## Создание концентратора событий
 
-1. Войдите на [портал Azure] и нажмите кнопку **СОЗДАТЬ** в нижней части экрана.
+1. Перейдите на [классический портал Azure][] и нажмите кнопку **СОЗДАТЬ** в нижней части экрана.
 
 2. Последовательно щелкните **Службы приложений**, **Служебная шина**, **Концентратор событий** и **Быстрое создание**.
 
@@ -100,7 +100,7 @@
 [22]: ./media/event-hubs-java-storm-getstarted/receive-storm2.png
 
 <!-- Links -->
-[портал Azure]: https://manage.windowsazure.com/
+[классический портал Azure]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Обзор концентраторов событий]: event-hubs-overview.md
 
@@ -110,4 +110,4 @@
 [Разработка приложений для обработки потоковых данных с помощью SCP.NET и C# на основе Storm и HDInsight]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

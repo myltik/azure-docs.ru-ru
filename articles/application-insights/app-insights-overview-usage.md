@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="08/06/2015"
+	ms.date="11/24/2015"
 	ms.author="awills"/>
 
 # Анализ использования с помощью Application Insights
@@ -37,7 +37,7 @@ Application Insights работает как для отдельных прил�
 
 ![Откройте "Быстрый запуск" и щелкните "Получить код", чтобы отслеживать свои веб-страницы. Скопируйте скрипт в заголовок главной веб-страницы.](./media/app-insights-overview-usage/02-monitor-web-page.png)
 
-Вы можете также добавить Application Insights в свой серверный код [ASP.NET](app-insights-start-monitoring-app-health-usage.md) или [J2EE](app-insights-java-get-started.md), чтобы сочетать телеметрию клиента и сервера.
+Вы можете также добавить Application Insights в свой серверный код [ASP.NET](app-insights-asp-net.md) или [J2EE](app-insights-java-get-started.md), чтобы сочетать телеметрию клиента и сервера.
 
 
 ### Запустите ваш проект и ознакомьтесь с первыми результатами
@@ -286,10 +286,6 @@ VB на стороне сервера
 
 > [AZURE.VIDEO usage-monitoring-application-insights]
 
-
-<!--Link references-->
-
-[start]: app-insights-overview.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

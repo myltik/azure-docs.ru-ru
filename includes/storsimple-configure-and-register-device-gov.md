@@ -1,4 +1,4 @@
-<!--author=SharS last changed: 9/17/15-->
+<!--author=SharS last changed: 12/01/15-->
 
 ### Настройка и регистрация устройства
 
@@ -79,10 +79,7 @@
 
      `Get-HcsSystem`
 
-    Вы должны увидеть следующие версии:
-    - HcsSoftwareVersion: 6.3.9600.17491
-    - CisAgentVersion: 1.0.9037.0
-    - MdsAgentVersion: 26.0.4696.1433
+    Вы должны увидеть следующие версии:-HcsSoftwareVersion: 6.3.9600.17491 - CisAgentVersion: 1.0.9037.0 - MdsAgentVersion: 26.0.4696.1433
  
 9. Выполните следующий командлет, чтобы подтвердить правильность применения обновления встроенного ПО:
 
@@ -90,7 +87,7 @@
 
      Для встроенного программного обеспечения должно отображаться состояние **UpToDate**.
 
-10. Выполните следующий командлет для указания устройству портала Microsoft Azure Government (так как по умолчанию указывается общедоступный портал управления Azure). Оба контроллера будут перезапущены. Рекомендуется использовать два сеанса PuTTY для одновременного подключения к обоим контроллерам, чтобы вы смогли увидеть перезапуск каждого контроллера.
+10. Выполните следующий командлет, чтобы адресовать устройство на портал Microsoft Azure для государственных организаций (так как по умолчанию указывается общедоступный классический портал Azure). Оба контроллера будут перезапущены. Рекомендуется использовать два сеанса PuTTY для одновременного подключения к обоим контроллерам, чтобы вы смогли увидеть перезапуск каждого контроллера.
 
      `Set-CloudPlatform -AzureGovt_US`
 
@@ -124,17 +121,17 @@
 
 16. Выйдите из последовательной консоли.
 
-17. Вернитесь на портал для государственных организаций и выполните следующие действия.
+17. Вернитесь на портал Azure для государственных организаций и выполните следующие действия.
   1. Дважды щелкните службу "Диспетчер StorSimple", чтобы открыть страницу **Быстрый запуск**.
   2. Щелкните **Просмотр подключенных устройств**.
   3. На странице **Устройства** убедитесь, что устройство успешно подключено к службе, посмотрев на его состояние. Состояние устройства должно быть **В сети**.
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
   
-        Если состояние устройства **Вне сети**, подождите несколько минут, чтобы устройство могло перейти в оперативный режим. 
+        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
       
-        Если по прошествии нескольких минут устройство все еще находится не в сети, убедитесь, что защищенная брандмауэром сеть настроена в соответствии [с требованиями к сети для вашего устройства StorSimple](https://msdn.microsoft.com/library/dn772371.aspx).Если поддержка HTTP 1.1 отсутствует, проверьте порт 9354 и убедитесь в том, что он открыт для исходящей связи. Этот порт используется для связи между службой StorSimple Manager и вашим устройством StorSimple.
+        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](https://msdn.microsoft.com/library/dn772371.aspx). If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
      
         
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

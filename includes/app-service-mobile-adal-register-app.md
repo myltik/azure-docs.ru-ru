@@ -1,6 +1,6 @@
 1. Зарегистрируйте серверную часть мобильного приложения в клиенте Azure Active Directory, выполнив действия из статьи [Настройка мобильного приложения в Azure Active Directory].
 
-2. Перейдите в **Active Directory** на [портале управления Azure].
+2. Перейдите в **Active Directory** на [классическом портале Azure].
 
    ![](./media/app-service-mobile-adal-register-app/app-service-navigate-aad.png)
 
@@ -24,7 +24,7 @@
 
 Теперь ваше приложение настроено в AAD и пользователи могут входить в него с помощью процедуры входа AAD.
 
-[портале управления Azure]: https://manage.windowsazure.com/
+[классическом портале Azure]: https://manage.windowsazure.com/
 [Настройка мобильного приложения в Azure Active Directory]: ../articles/app-service-how-to-configure-active-directory-authentication.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

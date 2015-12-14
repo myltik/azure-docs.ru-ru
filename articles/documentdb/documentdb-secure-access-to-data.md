@@ -68,7 +68,7 @@ DocumentDB содержит понятия первого класса, позв
 Как упоминалось ранее, главные ключи DocumentDB предоставляют полный административный доступ ко всем ресурсам в учетной записи DocumentDB, тогда как ключи только для чтения предоставляют доступ для чтения ко всем ресурсам в учетной записи. В следующем фрагменте кода показано, как использовать конечную точку учетной записи DocumentDB и главный ключ для создания DocumentClient и построения новой базы данных.
 
     //Read the DocumentDB endpointUrl and authorization keys from config.
-    //These values are available from the Azure Management Portal on the DocumentDB Account Blade under "Keys".
+    //These values are available from the Azure Classic Portal on the DocumentDB Account Blade under "Keys".
     //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
     
 	private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
@@ -163,4 +163,4 @@ DocumentDB содержит понятия первого класса, позв
 - Сведения о создании маркеров авторизации DocumentDB можно узнать [здесь](https://msdn.microsoft.com/library/azure/dn783368.aspx).
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

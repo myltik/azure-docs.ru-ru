@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Добавление push-уведомлений в универсальное приложение для Windows 8.1 | Microsoft Azure" 
-	description="Информация об отправлении push-уведомлений в универсальное приложение для Windows 8.1 из мобильной службы с серверной частью .NET с помощью Центров уведомлений Azure." 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Добавление push-уведомлений в универсальное приложение для Windows 8.1 | Microsoft Azure"
+	description="Информация об отправлении push-уведомлений в универсальное приложение для Windows 8.1 из мобильной службы с серверной частью .NET с помощью Центров уведомлений Azure."
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/11/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/11/2015"
 	ms.author="glenga"/>
 
 # Добавление push-уведомлений к приложению мобильных служб
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
@@ -26,14 +31,14 @@
 Для работы с этим учебником требуется:
 
 * активная [учетная запись Microsoft Store](http://go.microsoft.com/fwlink/p/?LinkId=280045);
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>. 
+* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>.
 
 ##<a id="register"></a>Регистрация приложения для получения push-уведомлений
 
 [AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../../includes/mobile-services-create-new-push-vs2013.md)]
 
 & nbsp; & nbsp; 6. Перейдите в папку проекта `\Services\MobileServices\your_service_name`, откройте созданный файл кода push.register.cs и просмотрите метод **UploadChannel**, который регистрирует URL-адрес канала устройства в концентраторе уведомлений.
- 
+
 &nbsp;&nbsp;7. Откройте общий файл кода App.xaml.cs и обратите внимание на то, что в обработчик событий **OnLaunched** добавлен вызов нового метода **UploadChannel**. Это гарантирует, что при каждом запуске приложения будет выполняться попытка регистрации устройства.
 
 &nbsp;&nbsp;8. Повторите предыдущие шаги, чтобы добавить push-уведомления в проект приложения Магазина Windows Phone, после чего в общем файле App.xaml.cs удалите дополнительный вызов метода **UploadChannel** и оставшуюся оболочку условия `#if...#endif`. Теперь оба проекта могут использовать один вызов метода **UploadChannel**.
@@ -82,9 +87,9 @@
 
 * [Добавление проверки подлинности в приложение][Get started with authentication] <br/>Дополнительные сведения о проверке подлинности пользователей приложения с разными типами учетных записей при помощи мобильных служб.
 
-* [Что такое Центры уведомлений?] <br/>Дополнительные сведения о работе концентраторов уведомлений по доставке уведомлений в приложения на всех основных клиентских платформах.
+* [Что такое центры уведомлений?] <br/>Дополнительные сведения о работе центров уведомлений по доставке уведомлений в приложения на всех основных клиентских платформах.
 
-* [Отладка приложений концентраторов уведомлений](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Устранение неполадок и отладка решений на основе концентраторов уведомлений.
+* [Отладка приложений центров уведомлений](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>Устранение неполадок и отладка решений на основе концентраторов уведомлений.
 
 * [Использование клиента .NET для мобильных служб Azure] <br/>Дополнительные сведения об использовании мобильных служб из приложений Windows на C#.
 
@@ -102,9 +107,9 @@
 
 [Отправка push-уведомлений прошедшим проверку пользователям]: mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md
 
-[Что такое Центры уведомлений?]: ../notification-hubs-overview.md
+[Что такое центры уведомлений?]: ../notification-hubs-overview.md
 
 [Использование клиента .NET для мобильных служб Azure]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

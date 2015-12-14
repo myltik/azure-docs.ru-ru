@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Вопросы безопасности и конфиденциальности Cloud App Discovery"
+	pageTitle="Вопросы безопасности и конфиденциальности Cloud App Discovery | Microsoft Azure"
 	description="В этой статье рассматриваются вопросы безопасности и конфиденциальности Cloud App Discovery."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/01/2015"
 	ms.author="markusvi"/>
 
 # Вопросы безопасности и конфиденциальности Cloud App Discovery
@@ -177,4 +177,4 @@ Cloud App Discovery Endpoint Agent собирает только сведени�
 
 * [Как обнаруживать несанкционированные облачные приложения, которые используются в моей организации](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -15,7 +15,7 @@
 	+ **Маркер доступа**
 	+ **Секрет маркера доступа**
 
-4. Выполните вход на [портал управления Azure], щелкните по пункту **Мобильные службы**, а затем щелкните по своей мобильной службе.
+4. Выполните вход на [классический портал Azure](https://manage.windowsazure.com/), выберите пункт **Мобильные службы**, а затем щелкните свою мобильную службу.
 
 5. Щелкните вкладку **Удостоверение**, введите значения параметров **Ключ клиента** и **Секрет клиента**, полученного из Twitter, затем щелкните **Сохранить**.
 
@@ -32,9 +32,8 @@
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[портал управления Azure]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: ../articles/mobile-services/mobile-services-how-to-register-twitter-authentication.md
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Параметры приложения]: http://msdn.microsoft.com/library/azure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -120,9 +120,9 @@ HDInsight также позволяет связать несколько уче
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
-Сведения о хранении также можно найти на портале предварительной версии Azure.
+Сведения о хранилище также можно найти на портале Azure.
 
-1. На [портале предварительной версии Azure](https://portal.azure.com/) выберите свой кластер HDInsight.
+1. На [портале Azure](https://portal.azure.com/) выберите свой кластер HDInsight.
 
 2. В разделе __Основные сведения__ нажмите кнопку __Все параметры__.
 
@@ -207,7 +207,7 @@ HDInsight также позволяет связать несколько уче
 
 Подробные сведения о масштабировании кластера HDInsight см. в следующих статьях.
 
-* [Управление кластерами Hadoop в HDInsight с помощью портала предварительной версии Azure](hdinsight-administer-use-portal-linux.md#scaling)
+* [Управление кластерами Hadoop в HDInsight с помощью портала Azure](hdinsight-administer-use-portal-linux.md#scaling)
 
 * [Управление кластерами Hadoop в HDInsight с помощью Azure PowerShell](hdinsight-administer-use-command-line.md#scaling)
 
@@ -252,4 +252,4 @@ HDInsight — управляемая служба. Это означает, ч�
 * [Использование Pig с HDInsight](hdinsight-use-pig.md)
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

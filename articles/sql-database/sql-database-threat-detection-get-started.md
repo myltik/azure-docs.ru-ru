@@ -1,6 +1,6 @@
 <properties
    pageTitle="Приступая к работе с системой обнаружения угроз базы данных SQL"
-   description="Как приступить к работе с системой обнаружения угроз базы данных SQL на портале предварительной версии Azure"
+   description="Как приступить к работе с системой обнаружения угроз базы данных SQL на портале Azure"
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
@@ -30,7 +30,7 @@
 
 ## Настройка системы обнаружения угроз для базы данных
 
-1. Запустите портал предварительной версии Azure по адресу [https://portal.azure.com](https://portal.azure.com).
+1. Запустите портал Azure по адресу [https://portal.azure.com](https://portal.azure.com).
 
 2. Перейдите к колонке настройки базы данных SQL, которую требуется отслеживать. В колонке «Параметры» выберите **Аудит и обнаружение угроз**.
 
@@ -89,4 +89,4 @@
 [8]: ./media/sql-database-threat-detection-get-started/8_td_excel_fast_combine.png
 [9]: ./media/sql-database-threat-detection-get-started/9_td_excel_parameters.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

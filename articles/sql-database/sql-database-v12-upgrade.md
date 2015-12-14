@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Обновление базы данных SQL Azure до версии 12 с помощью портала предварительной версии Azure | Microsoft Azure" 
-	description="Объясняется, как выполнить обновление базы данных SQL Azure до версии 12, включая способы обновления баз данных Web и Business, а также как выполнить обновление сервера версии 11 путем переноса баз данных непосредственно в пул эластичных баз данных в портале предварительной версии Azure." 
+	pageTitle="Обновление базы данных SQL Azure до версии 12 с помощью портала Azure | Microsoft Azure" 
+	description="Объясняется, как выполнить обновление базы данных SQL Azure до версии 12, включая способы обновления баз данных Web и Business, а также как выполнить обновление сервера версии 11 путем переноса баз данных непосредственно в пул эластичных баз данных с помощью портала Azure." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -17,11 +17,11 @@
 	ms.author="sstein"/>
 
 
-# Обновление базы данных SQL Azure до версии 12 с помощью портала предварительной версии Azure
+# Обновление до базы данных SQL Azure версии V12 при помощи портала Azure
 
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](sql-database-upgrade-server-portal.md)
+- [Azure Portal](sql-database-upgrade-server-portal.md)
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
@@ -54,7 +54,7 @@
 
 ## Начало обновления
 
-1. На [портале предварительной версии Azure](http://portal.azure.com/) перейдите к серверу, который требуется обновить, выбрав **ПРОСМОТРЕТЬ ВСЕ** > **Серверы SQL** и указав нужный сервер.
+1. На [портале Azure](http://portal.azure.com/) перейдите к серверу, который требуется обновить, выбрав **ПРОСМОТРЕТЬ ВСЕ** > **Серверы SQL** и указав нужный сервер.
 2. Выберите **Последнее обновление базы данных SQL** и затем **Обновить этот сервер**.
 
       ![обновление сервера][1]
@@ -99,7 +99,7 @@
 
 ## Перемещение баз данных в пул эластичных баз данных
 
-На [портале предварительной версии Azure](https://ms.portal.azure.com/) перейдите к серверу версии 12 и щелкните **Добавить пул**.
+На [портале Azure](https://ms.portal.azure.com/) перейдите к серверу версии 12 и щелкните **Добавить пул**.
 
 -или-
 
@@ -168,4 +168,4 @@
 [6]: ./media/sql-database-upgrade-server-portal/recommendations.png
 [7]: ./media/sql-database-upgrade-server-portal/new-elastic-pool.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="wesmc"/>
 
 # Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../../includes/mobile-services-selector-adal-sso.md)]
 
@@ -35,7 +40,7 @@
 Для работы с данным учебником требуется следующее:
 
 * Visual Studio 2013 в Windows 8.1.
-* Выполнение заданий учебника [Приступая к работе с мобильными службами]
+* Выполнение заданий учебника [Приступая к работе с мобильными службами].
 * Пакет NuGet пакета SDK мобильных служб Microsoft Azure
 * Пакет NuGet библиотеки проверки подлинности Active Directory
 
@@ -85,7 +90,7 @@
 
 ###Создание регистрации собственного приложения
 
-1. На **портале управления Azure** перейдите в раздел [Active Directory] и щелкните свой каталог.
+1. На **классическом портале Azure** перейдите в раздел [Active Directory] и щелкните свой каталог.
 
     ![][7]
 
@@ -162,7 +167,7 @@
             }
         }
 
-6. В коде для метода `AuthenticateAsync` выше замените **INSERT-AUTHORITY-HERE** именем клиента, в котором приложение подготавливалось к работе, используя формат https://login.windows.net/tenant-name.onmicrosoft.com. Это значение можно скопировать со вкладки "Домен" в Azure Active Directory на [портале управления Azure].
+6. В коде для метода `AuthenticateAsync` выше замените **INSERT-AUTHORITY-HERE** именем клиента, в котором подготавливалось приложение, используя формат https://login.windows.net/tenant-name.onmicrosoft.com. Это значение можно скопировать со вкладки "Домен" в Azure Active Directory на [классическом портале Azure].
 
 7. В коде для метода `AuthenticateAsync` выше замените **INSERT-RESOURCE-URI-HERE** значением **URI кода приложения** для своей мобильной службы. Если вы выполнили инструкции из раздела [Регистрация в Azure Active Directory], то URI кода приложения должен быть аналогичен https://todolist.azure-mobile.net/login/aad.
 
@@ -184,7 +189,7 @@
 ##Тестирование клиента с использованием проверки подлинности
 
 1. Запустите клиентское приложение в Visual Studio.
-2. Появится приглашение выполнить вход в Azure Active Directory.  
+2. Появится приглашение выполнить вход в Azure Active Directory.
 3. Приложение выполняет проверку подлинности и возвращает элементы списка дел.
 
     ![][15]
@@ -212,8 +217,8 @@
 <!-- URLs. -->
 [Регистрация в Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Active Directory]: https://manage.windowsazure.com/
-[портале управления Azure]: https://manage.windowsazure.com/
+[классическом портале Azure]: https://manage.windowsazure.com/
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [панель мониторинга Центра разработки для Windows]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

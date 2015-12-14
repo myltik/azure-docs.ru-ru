@@ -129,7 +129,7 @@ Azure предлагает отличные облачные решения на
 
 Недавно для Azure выпущен интерфейс REST API [управления ресурсами Azure](virtual-machines-azurerm-versus-azuresm.md) и обновленные инструменты интерфейса командной строки Azure и PowerShell, которыми легко пользоваться. С помощью [шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md) и API управления ресурсами Azure можно выполнять развертывание, изменение или повторное развертывание топологий всего приложения, используя:
 
-- [портал предварительной версии Azure с помощью шаблонов](https://github.com/Azure/azure-quickstart-templates) (подсказка: используйте кнопку DeployToAzure);
+- [портал Azure с помощью шаблонов](https://github.com/Azure/azure-quickstart-templates) (совет: используйте кнопку DeployToAzure);
 - [интерфейс командной строки Azure](virtual-machines-deploy-rmtemplates-azure-cli.md);
 - [модули Azure PowerShell](virtual-machines-deploy-rmtemplates-azure-cli.md).
 
@@ -187,7 +187,7 @@ Docker в Microsoft Azure:
 - [Расширение виртуальных машин Docker для Linux в Azure](virtual-machines-docker-vm-extension.md)
 - [Руководство пользователя для Azure Docker VM Extension](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
 - [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)](virtual-machines-docker-with-xplat-cli-install.md)
-- [Использование расширения виртуальных машин Docker на портале предварительной версии Azure](virtual-machines-docker-with-portal.md)
+- [Использование расширения виртуальных машин Docker на портале Azure](virtual-machines-docker-with-portal.md)
 - [Как быстро приступить к работе с Docker в Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
 - [Использование docker-machine в Azure](virtual-machines-docker-machine.md)
 - [Как использовать Docker со Swarm в Azure](virtual-machines-docker-swarm.md)
@@ -240,4 +240,4 @@ Docker в Microsoft Azure:
 [микрослужбы]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Создание виртуальной машины Azure, работающей под управлением ОС Linux, на портале Azure | Microsoft Azure"
-	description="C помощью портала Azure можно создать виртуальную машину Azure, работающую под управлением ОС Linux, с группами ресурсов Azure."
+	pageTitle="Создание виртуальной машины Azure, работающей под управлением ОС Linux, на классическом портале Azure | Microsoft Azure"
+	description="C помощью классического портала Azure можно создать виртуальную машину Azure, работающую под управлением ОС Linux, с группами ресурсов Azure."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
@@ -17,15 +17,15 @@
 	ms.date="10/21/2015"
 	ms.author="rasquill"/>
 
-# Создание виртуальной машины, работающей под управлением ОС Linux, на портале предварительной версии Azure
+# Создание виртуальной машины, работающей под управлением ОС Linux, на портале Azure
 
 > [AZURE.SELECTOR]
 - [Azure CLI](virtual-machines-linux-tutorial.md)
-- [Azure preview portal](virtual-machines-linux-tutorial-portal-rm.md)
+- [Azure portal](virtual-machines-linux-tutorial-portal-rm.md)
 
 <br>[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
 
-Создать виртуальную машину Azure, работающую под управлением ОС Linux, несложно. Из данного руководства вы узнаете, как быстро создать такую виртуальную машину с помощью портала предварительной версии Azure. Кроме того, здесь показано, как использовать `~/.ssh/id_rsa.pub`файл открытого ключа для защиты подключения **SSH** к виртуальной машине. Вы также можете создавать виртуальные машины Linux, используя [свои собственные образы в качестве шаблонов](virtual-machines-linux-create-upload-vhd.md).
+Создать виртуальную машину Azure, работающую под управлением ОС Linux, несложно. Из данного руководства вы узнаете, как быстро создать такую виртуальную машину с помощью портала Azure и как использовать `~/.ssh/id_rsa.pub`файл открытого ключа для защиты подключения к виртуальной машине по **SSH**. Вы также можете создавать виртуальные машины Linux, используя [свои собственные образы в качестве шаблонов](virtual-machines-linux-create-upload-vhd.md).
 
 > [AZURE.NOTE]В данном учебнике показано, как создать виртуальную машину Azure, управляемую с помощью API группы ресурсов Azure. Дополнительные сведения см. в статье [Обзор группы ресурсов Azure](resource-group-overview.md).
 
@@ -130,4 +130,4 @@
 
 - [Расширение виртуальных машин Docker для Linux в Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

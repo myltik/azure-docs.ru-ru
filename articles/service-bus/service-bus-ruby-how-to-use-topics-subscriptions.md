@@ -56,7 +56,7 @@
 
       ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
-> [AZURE.NOTE]Этот ключ можно также найти на [портале Azure](http://manage.windowsazure.com/), в разделе сведений о подключении для пространства имен вашей служебной шины.
+> [AZURE.NOTE]Этот ключ можно также найти на [классическом портале Azure](http://manage.windowsazure.com/) в разделе сведений о подключении для пространства имен вашей служебной шины.
 
 ## Создание приложения Ruby
 
@@ -199,7 +199,7 @@
 
 ## Как удалять разделы и подписки
 
-Разделы и подписки хранятся постоянно, и их нужно удалять явным образом на [портале Azure](https://manage.windowsazure.com) или с помощью программных средств. В приведенном ниже примере показано, как удалить раздел с именем "test-topic".
+Разделы и подписки хранятся постоянно, и их нужно удалять явным образом на [классическом портале Azure](https://manage.windowsazure.com) или с помощью программных средств. В приведенном ниже примере показано, как удалить раздел с именем "test-topic".
 
 	azure_service_bus_service.delete_topic("test-topic")
 
@@ -216,4 +216,4 @@
 -	Посетите репозиторий [Azure SDK для Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) на веб-сайте GitHub.
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

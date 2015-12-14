@@ -22,10 +22,10 @@
 ## Разработка структурных элементов
 Необходимо выбрать основные модули решения, прежде чем переходить к публикации шаблона решения на портале. Ниже приведены некоторые ссылки на документы, которые могут вам помочь.
 
-1. [Рекомендации по разработке шаблонов диспетчера ресурсов Azure](https://azure.microsoft.com/ru-RU/documentation/articles/best-practices-resource-manager-design-templates/)
-2. [Создание шаблонов диспетчера ресурсов Azure](https://azure.microsoft.com/ru-RU/documentation/articles/resource-group-authoring-templates/)
+1. [Рекомендации по разработке шаблонов диспетчера ресурсов Azure](../best-practices-resource-manager-design-templates.md)
+2. [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md)
 3. Шаблоны быстрого запуска Azure:
-  - [https://azure.microsoft.com/ru-RU/documentation/templates/](https://azure.microsoft.com/ru-RU/documentation/templates/)
+  - [https://azure.microsoft.com/ru-RU/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
   - [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
 ## Дальнейшие действия
@@ -34,4 +34,4 @@
 
 [link-acct]: marketplace-publishing-accounts-creation-registration.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

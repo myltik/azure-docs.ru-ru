@@ -20,7 +20,7 @@
 # Создание виртуальных машин Windows с использованием PowerShell и классической модели развертывания 
 
 > [AZURE.SELECTOR]
-- [Azure portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure classic portal - Windows](virtual-machines-windows-tutorial-classic-portal.md)
 - [Powershell - Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 - [PowerShell - Linux](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
@@ -157,7 +157,7 @@
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-Короткое имя облачной службы — это то имя, которое отображается в списке облачных служб на портале Azure или в списке групп ресурсов на портале предварительной версии Azure.
+Короткое имя облачной службы — это то имя, которое отображается в списке облачных служб на классическом портале Azure или в списке групп ресурсов на портале Azure.
 
 Вариант 2. Создайте виртуальную машину в существующей облачной службе и виртуальной сети.
 
@@ -174,7 +174,7 @@
 Если вы собираетесь снова создать эту или подобную виртуальную машину, можно предпринять следующее:
 
 - Сохраните этот набор команд как файл сценария PowerShell (PS1-файл).
-- Сохраните этот набор команд как Runbook службы автоматизации Azure в разделе **Автоматизация** портала Azure.
+- Сохраните этот набор команд как Runbook службы автоматизации Azure в разделе **Автоматизация** классического портала Azure.
 
 ## <a id="examples"></a>Примеры
 
@@ -265,4 +265,4 @@
 
 [Установка и настройка Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

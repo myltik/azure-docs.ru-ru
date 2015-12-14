@@ -1,4 +1,4 @@
-1. На [портале управления Azure] щелкните новую мобильную службу или вкладку с ее облачным значком, чтобы перейти на страницу обзора.
+1. На [классическом портале Azure](https://manage.windowsazure.com/) щелкните новую мобильную службу или вкладку с ее облачным значком, чтобы перейти на страницу обзора.
 
     ![](./media/mobile-services-ios-download-service-locally/mobile-portal-quickstart-ios.png)
 
@@ -19,11 +19,4 @@
 
     ![](./media/mobile-services-ios-download-service-locally/download-publish-profile.png)
 
-
-
-
-
-<!-- URLs. -->
-[портале управления Azure]: https://manage.windowsazure.com/
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

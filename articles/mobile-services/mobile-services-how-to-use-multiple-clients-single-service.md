@@ -7,7 +7,7 @@
 	manager="dwrede"
 	editor="mollybos"/>
 <tags
-	ms.service="mobile-services" 
+	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
@@ -16,6 +16,11 @@
 	ms.author="glenga"/>
 
 # Поддержка нескольких платформ устройств с помощью одной мобильной службы
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 Одно из основных преимуществ мобильных служб Microsoft Azure при разработке мобильных приложений — возможность использовать единую серверную службу, в которой обеспечивается поддержка приложений на нескольких клиентских платформах. В эти мобильные службы встроены клиентские библиотеки всех основных платформ устройств, что упрощает разработку приложений за счет использования единой серверной службы и кроссплатформенных средств разработчика. В этом разделе рассматриваются вопросы выполнения приложения на нескольких клиентских платформах с помощью одной серверной части мобильной службы.
 
@@ -135,7 +140,7 @@
 
 + [**Appcelerator**](http://go.microsoft.com/fwlink/p/?LinkId=509987)<br/>Appcelerator позволяет разработать на JavaScript единое приложение, которое после компиляции будет работать на всех платформах мобильных устройств как собственное. Это дает возможность обеспечить эффективное взаимодействие с пользователем через пользовательский интерфейс, получить доступ ко всем ресурсам устройства и создать высокопроизводительное приложение. Дополнительную информацию см. в [учебнике по платформе Appcelerator][Appcelerator].
 
-+ [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707) **или** [**Cordova**](http://cordova.apache.org/)<br/>PhoneGap (распространение проекта Apache Cordova) — бесплатная платформа с открытым исходным кодом. Позволяет использовать стандартизированные веб-API, HTML и JavaScript для разработки единого приложения, которое будет работать на устройствах под управлением Android, iOS и Windows. PhoneGap обладает пользовательским интерфейсом, основанным на веб-представлениях. Взаимодействие с пользователем в этой платформе улучшается за счет ускорения собственных ресурсов устройства, таких как push-уведомления, датчик ускорения, камера, память, функция определения географического положения и встроенный в приложение браузер. Дополнительную информацию см. в [кратком учебнике по платформе PhoneGap][PhoneGap].
++ [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)** или **[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap (распространение проекта Apache Cordova) — бесплатная платформа с открытым исходным кодом. Позволяет использовать стандартизированные веб-API, HTML и JavaScript для разработки единого приложения, которое будет работать на устройствах под управлением Android, iOS и Windows. PhoneGap обладает пользовательским интерфейсом, основанным на веб-представлениях. Взаимодействие с пользователем в этой платформе улучшается за счет ускорения собственных ресурсов устройства, таких как push-уведомления, датчик ускорения, камера, память, функция определения географического положения и встроенный в приложение браузер. Дополнительную информацию см. в [кратком учебнике по платформе PhoneGap][PhoneGap].
 
 	Теперь Visual Studio также позволяет строить кросс-платформенные приложения Cordova, используя расширение гибридных приложений для нескольких устройств для Visual Studio, что является предварительной версией ПО. Дополнительную информацию см. в статье [Getting Started with Multi-Device Hybrid Apps Using HTML and JavaScript](http://msdn.microsoft.com/library/dn771545.aspx) (Приступая к работе с расширением Multi-Device Hybrid Apps с помощью HTML и JavaScript).
 
@@ -145,7 +150,6 @@
 
 
 <!-- URLs -->
-[Azure Management portal]: https://manage.windowsazure.com
 [Концентраторы уведомлений Azure]: /develop/net/how-to-guides/service-bus-notification-hubs/
 [SSO Windows Store]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [SSO Windows Phone]: /develop/mobile/tutorials/single-sign-on-wp8/
@@ -169,4 +173,4 @@
 [Building universal Windows apps for all Windows devices]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Universal Windows app project for Azure Mobile Services using MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

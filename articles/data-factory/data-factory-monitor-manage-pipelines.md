@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Мониторинг конвейеров фабрики данных Azure и управление ими" 
-	description="Узнайте, как с помощью портала управления Azure и Azure PowerShell отслеживать состояние конвейеров и фабрик данных Azure и управлять ими." 
+	description="Узнайте, как с помощью классического портала Azure и Azure PowerShell отслеживать состояние созданных конвейеров и фабрик данных Azure и управлять ими." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -22,10 +22,10 @@
 В этой статье описываются мониторинг, управление и отладка конвейеров. В ней также приводятся инструкции по настройке оповещений в случае сбоев.
 
 ## Состояния конвейеров и действий
-Используя предварительную версию портала Azure, вы можете представлять фабрику данных в виде схемы, просматривать действия в конвейере, входные и выходные наборы данных и не только. В этом разделе также содержится информация о переходе среза из одного состояния в другое.
+Используя портал Azure, вы можете представлять фабрику данных в виде схемы, просматривать действия в конвейере, входные и выходные наборы данных и не только. В этом разделе также содержится информация о переходе среза из одного состояния в другое.
 
 ### Переход к фабрике данных
-1.	Выполните вход на [портал предварительной версии Azure](http://portal.azure.com).
+1.	Войдите на [портал Azure](http://portal.azure.com).
 2.	Щелкните **Просмотреть все** и выберите **Фабрики данных**.
 	
 	![Просмотреть все -> Фабрики данных](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -96,6 +96,7 @@
 <td>ValidationRetry</td><td>Ожидание повторения проверки.</td>
 </tr>
 <tr>
+&lt;tr
 <td rowspan="2">InProgress</td><td>Validating</td><td>Проверка выполняется.</td>
 </tr>
 <td></td>
@@ -119,7 +120,7 @@
 <td>Skipped</td><td></td><td>Срез не обработан.</td>
 </tr>
 <tr>
-<td>Без блокировки</td><td></td><td>Срез, который ранее существовал с другим состоянием, но был сброшен.</td>
+<td>None</td><td></td><td>Срез, который ранее существовал с другим состоянием, но был сброшен.</td>
 </tr>
 </table>
 
@@ -137,7 +138,7 @@
 
 ![Сведения о цикле выполнения действия](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-Если срез не находится в состоянии **Ready** (Готов), вы можете увидеть восходящие срезы, которые не находятся в состоянии готовности и блокируют выполнение текущего среза в списке **Неготовые восходящие срезы**. Когда срез находится в состоянии **Waiting** (Ожидание), это позволяет просмотреть восходящие зависимости, влияющие на состояние текущего неготового среза.
+Если срез не находится в состоянии **Готов**, вы можете увидеть восходящие срезы, которые не находятся в состоянии готовности и блокируют выполнение текущего среза в списке **Неготовые восходящие срезы**. Это очень полезно, когда срез находится в состоянии **Ожидание** и требуется просмотреть восходящие зависимости, влияющие на состояние текущего неготового среза.
 
 ![Вышестоящие срезы в состоянии, отличном от Ready](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -148,9 +149,9 @@
 
 Поток переходов между состояниями выглядит так: Waiting -> In-Progress/In-Progress (Validating) -> Ready/Failed
 
-Изначально срезы находятся в состоянии **Waiting** (Ожидание). Таким образом выполняются все предварительные условия. Затем начинается выполнение действия, и срез переходит в состояние **In-Progress** (Выполняется). В зависимости от того, как завершится действие, срез перейдет в состояние **Ready** (Готов) или **Failed** (Ошибка).
+Изначально срезы находятся в состоянии **Ожидание**. Таким образом выполняются все предварительные условия. Затем начинается выполнение действия, и срез переходит в состояние **Выполняется**. В зависимости от того, как завершится действие, срез перейдет в состояние **Готов** или **Ошибка**.
 
-Вы можете сбросить состояние среза **Ready** (Готов) или **Failed** (Ошибка) обратно в состояние **Waiting** (Ожидание). Вы также можете установить для среза флажок **Skip** (Пропустить) — действие со срезом не будет выполнено, и срез не будет обработан.
+Вы можете сбросить состояние среза **Готов** или **Ошибка** обратно в состояние **Ошибка**. Вы также можете установить для среза флажок **Пропустить** — действие со срезом не будет выполнено, и срез не будет обработан.
 
 
 ## Управление конвейерами
@@ -181,20 +182,20 @@
 
 
 ## Отладка конвейеров
-Фабрика данных Azure предоставляет широкие возможности отладки и устранения неполадок с конвейерами с помощью портала Azure и Azure PowerShell.
+Фабрика данных Azure предоставляет широкие возможности отладки и устранения неполадок с конвейерами с помощью классического портала Azure и Azure PowerShell.
 
 ### Поиск ошибок в конвейере
 Если при выполнении действия в конвейере происходит сбой, созданный конвейером набор данных будет находиться в состоянии Error (Ошибка). Вы можете устранить неполадки или выполнить отладку в фабрике данных Azure, используя следующие механизмы.
 
-#### Отладка ошибок с помощью портала Azure
+#### Отладка ошибок с помощью классического портала Azure
 
-1.	На домашней странице фабрики данных на плитке **Наборы данных** щелкните ссылку **С ошибками**.
+1.	Щелкните ссылку **С ошибками** на плитке **Наборы данных** на домашней странице фабрики данных.
 	
 	![Плитка "Наборы данных с ошибками"](./media/data-factory-monitor-manage-pipelines/datasets-tile-with-errors.png)
 2.	В колонке **Наборы данных с ошибками** щелкните интересующую вас таблицу.
 
 	![Колонка "Наборы данных с ошибками"](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
-3.	В колонке **ТАБЛИЦА** щелкните проблемный срез, для которого в поле **СОСТОЯНИЕ** указано значение **Failed** (Ошибка).
+3.	В колонке **ТАБЛИЦА** щелкните проблемный срез, для которого в поле **СОСТОЯНИЕ** указано значение **Ошибка**.
 
 	![Колонка "Таблица" с проблемным срезом](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
 4.	В колонке **СРЕЗ ДАННЫХ** щелкните цикл выполнения действия, который завершился ошибкой.
@@ -209,7 +210,7 @@
 2.	Перейдите в режим **AzureResourceManager**, так как командлеты фабрики данных доступны только в нем.
 
 		switch-azuremode AzureResourceManager
-3.	Выполните команду **Get-AzureDataFactorySlice**, чтобы просмотреть срезы и их состояния. Вы должны увидеть срез с состоянием **Failed** (Ошибка).
+3.	Выполните команду **Get-AzureDataFactorySlice**, чтобы просмотреть срезы и их состояния. Вы должны увидеть срез с состоянием **Ошибка**.
 
 		Get-AzureDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
@@ -262,7 +263,7 @@
 
 ## Повторная обработка проблемных срезов в конвейере
 
-### Использование портала Azure
+### Использование классического портала Azure.
 
 После устранения неполадок и отладки ошибок в конвейере можно повторно обработать срез с ошибками. Для этого выберите срез и на панели команд нажмите кнопку **Запустить**.
 
@@ -391,26 +392,44 @@ OnDemandClusterDeleted | Succeeded
 
 
 #### Устранение неполадок пользовательских событий
-Вы можете просмотреть все созданные события, щелкнув элемент **Операции**, и настроить уведомления для любых операций, отображаемых в колонке **События**.
-
-![Операции](./media/data-factory-monitor-manage-pipelines/operations.png)
-
-Чтобы просмотреть все настроенные оповещения, используя PowerShell, выполните следующую команду. Будут показаны все оповещения, настроенные для событий и метрик с типом ресурса **microsoft.insights/alertrules**.
-
-	Get-AzureResourceGroup -Name $resourceGroupName
-
-	ResourceGroupName : mdwevent
-	Location          : westus
-	ProvisioningState : Succeeded
-	Resources         :
-                    Name                  Type                                 Location
-                    ====================  ===================================  ========
-                    abhieventtest1        Microsoft.DataFactory/dataFactories  westus
-                    abhieventtest2        Microsoft.DataFactory/dataFactories  westus
-                    FailedValidationRuns  microsoft.insights/alertrules        eastus
 
 
-Если события-триггеры отображаются в колонке на портале, но вы не получаете электронных уведомлений, убедитесь, что ваш адрес электронной почты может получать сообщения от внешних отправителей. Получение оповещений может быть заблокировано в параметрах электронной почты.
+- Вы можете просмотреть все созданные события, щелкнув элемент **Операции**, и настроить уведомления для любых операций, отображаемых в колонке **События**.
+
+	![Операции](./media/data-factory-monitor-manage-pipelines/operations.png)
+
+
+- Сведения о командлетах PowerShell, которые можно использовать для добавления, получения и удаления предупреждений, см. в статье [Командлеты Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx). Далее приведено несколько примеров использования командлета **Get-AlertRule**.
+
+		PS C:\> Get-AlertRule -res $resourceGroup
+	
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+				Location   : West US
+				Name       : FailedExecutionRunsWest0
+		
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest3
+				Location   : West US
+				Name       : FailedExecutionRunsWest3
+	
+		PS C:\> Get-AlertRule -res $resourceGroup -Name FailedExecutionRunsWest0
+		
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+				Location   : West US
+				Name       : FailedExecutionRunsWest0
+
+	Выполните следующие команды get-help, чтобы просмотреть сведения и примеры для командлета Get-AlertRule.
+
+		get-help Get-AlertRule -detailed 
+		get-help Get-AlertRule -examples
+
+
+- Если события-триггеры отображаются в колонке на портале, но вы не получаете электронных уведомлений, убедитесь, что ваш адрес электронной почты может получать сообщения от внешних отправителей. Получение оповещений может быть заблокировано в параметрах электронной почты.
 
 ### Оповещения по метрикам
 Фабрика данных позволяет собирать различные метрики и создавать по ним оповещения. Вы можете отслеживать и создавать оповещения по следующим метрикам срезов в фабрике данных:
@@ -425,7 +444,7 @@ OnDemandClusterDeleted | Succeeded
 
 **Мониторинг** > **Метрика** > **Параметры диагностики** > **Диагностика**.
 
-В колонке **Диагностика** щелкните **Вкл**, выберите учетную запись хранения и нажмите кнопку "Сохранить".
+В колонке **Диагностика** щелкните **Вкл.**, выберите учетную запись хранения и нажмите кнопку "Сохранить".
 
 ![Включить метрики](./media/data-factory-monitor-manage-pipelines/enable-metrics.png)
 
@@ -497,9 +516,7 @@ OnDemandClusterDeleted | Succeeded
  
 Замените subscriptionId, resourceGroupName и dataFactoryName в приведенном выше примере на соответствующие значения.
 
-Сейчас для *metricName* можно указать только два значения:
-- FailedRuns или
-- SuccessfulRuns.
+Сейчас для *metricName* можно указать только два значения: FailedRuns или SuccessfulRuns.
 
 **Развертывание оповещения**
 
@@ -523,4 +540,4 @@ OnDemandClusterDeleted | Succeeded
 	Parameters        :
 	Outputs           
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

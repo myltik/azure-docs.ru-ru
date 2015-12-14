@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement" 
+<properties
+	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement"
 	description="Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="piyushjo" />
 
 #Интеграция GCM с помощью службы Mobile Engagement
@@ -24,16 +24,11 @@
 
 ##Введение
 
-Интеграция GCM позволяет приложению получать push-уведомления даже в случае, если оно не запущено.
+Интеграция GCM позволяет приложению получать push-уведомления.
 
-Фактически данные рекламной кампании не отправляются через GCM. Речь идет лишь о фоновом сигнале, который сообщает приложению о необходимости получить push-уведомление с платформы Engagement. Если приложение не работает во время получения push-уведомления GCM, оно инициирует подключение к серверам платформы Engagement для получения отправленных данных. Подключение к платформе Engagement остается активным в течение приблизительно минуты в случае, если пользователь запускает приложение в ответ на push-уведомление.
+Полезные данные GCM, перемещаемые при помощи push-технологии в SDK, всегда содержат ключ `azme` в объекте данных. Таким образом, если вы в своем приложении используете GCM для другой цели, вы можете фильтровать push-передачи в зависимости от этого ключа.
 
-Следует иметь в виду, что платформа Engagement использует только сообщения [отправки для синхронизации] с ключом свертывания `engagement.tickle`.
-
-> [AZURE.IMPORTANT]С помощью GCM могут быть активированы только устройства под управлением Android 2.2 или выше с установленным Google Play, а также включенным фоновым подключением Google.Тем не менее можно безопасно интегрировать этот код в более старых версиях пакета SDK для Android, а так же на устройствах, которые не могут поддерживать службу GCM (она использует только цели). Если приложение не удается вывести из спящего режима с помощью GCM, уведомление платформы Engagement будет получено в следующий раз, когда запускается приложение.
-
-
-> [AZURE.WARNING]Если код клиента управляет идентификаторами регистрации C2DM, а пакет SDK для платформы Engagement настроен на использование GCM возникает конфликт идентификаторов регистрации. Следует использовать GCM на платформе Engagement только в случае, если ваш собственный код не использует C2DM.
+> [AZURE.IMPORTANT]С помощью GCM отправлять push-уведомления можно только на устройства под управлением Android 2.2 или выше с установленным Google Play, а также включенным фоновым подключением Google. Тем не менее, этот код можно безопасно интегрировать и на неподдерживаемых устройствах (он использует только намерения).
 
 ##Подписка на GCM и включение службы GCM
 
@@ -74,7 +69,7 @@
 			    <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
 			  </intent-filter>
 			</receiver>
-			
+
 			<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
 			  <intent-filter>
 			    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
@@ -115,13 +110,10 @@
 Теперь проверьте интеграцию, ознакомившись со статьей "Тестирование интеграции Engagement в Android".
 
 
-[отправки для синхронизации]: http://developer.android.com/google/gcm/adv.html#collapsible
 [<http://developer.android.com/guide/google/gcm/gs.html>]: http://developer.android.com/guide/google/gcm/gs.html
 [Google Developers Console]: https://cloud.google.com/console
 [клиентской библиотеки GCM]: http://developer.android.com/guide/google/gcm/gs.html#libs
 [консоли разработчиков Google]: https://cloud.google.com/console
 [откройте консоль разработчиков Google]: https://cloud.google.com/console
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

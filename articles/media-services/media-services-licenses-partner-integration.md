@@ -45,6 +45,6 @@
 
 [Дополнительные сведения см. в статье Использование общего динамического шифрования PlayReady и (или) Widevine DRM.](media-services-protect-with-drm.md)
 
-[Блог по Mingfei](https://azure.microsoft.com/ru-RU/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
+[Блог по Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/16/2015"
+   ms.date="11/19/2015"
    ms.author="chackdan"/>
 
 # Настройка кластера Service Fabric на портале Azure
@@ -64,7 +64,7 @@
 
 
 
-1. **Свойства размещения (необязательно)**. Параметры в этом разделе можно не настраивать, так как система автоматически добавляет стандартное свойство размещения NodeTypeName. Вы можете добавить другие свойства, если это необходимо для вашего приложения. 
+10. **Свойства размещения (необязательно)**. Параметры в этом разделе можно не настраивать, так как система автоматически добавляет стандартное свойство размещения NodeTypeName. Вы можете добавить другие свойства, если это необходимо для вашего приложения. 
 
   
 ## Настройка безопасности
@@ -178,14 +178,11 @@ Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPath -A
 Register your application type with service fabric.
 
 ```powershell
-Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount"
-````
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore "WordCount" ````
 
 Создайте новый экземпляр только что зарегистрированного типа приложения.
 
-```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0
-````
+```powershell New-ServiceFabricApplication -ApplicationName fabric:/WordCount -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0.0 ````
 
 Теперь откройте любой браузер и подключитесь к конечной точке, которую прослушивает приложение. URL-адрес для моего примера приложения выглядит так:
 
@@ -211,4 +208,4 @@ http://sfcluster4doc.westus.cloudapp.azure.com:31000
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [SecureConnection]: ./media/service-fabric-cluster-creation-via-portal/SecureConnection.png
 
-<!------HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

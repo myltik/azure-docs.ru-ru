@@ -185,11 +185,11 @@
 
 Например, если имя хранилища — ContosoKeyVault, а идентификатор клиента приложения — 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, и нужно авторизовать это приложение для расшифровки и подписи с использованием ключей в вашем хранилище, выполните следующее:
 
-    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-keys '[“decrypt”,”sign”]'
+    azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-keys '["decrypt","sign"]'
 
 Если этому же приложению необходимо разрешить читать секретные данные в хранилище, выполните следующую команду:
 
-	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["Get"]'
+	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["get"]'
 
 ## Использование аппаратного модуля безопасности ##
 
@@ -256,4 +256,4 @@
 
 Справочные материалы по программированию см. в [руководстве разработчика для хранилища ключей Azure](key-vault-developers-guide.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

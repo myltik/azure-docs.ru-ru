@@ -225,4 +225,4 @@ return $http.get('/api/tasks');
 - [Azure AD на Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - Документация по Azure AD [на сайте Azure.com](http://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

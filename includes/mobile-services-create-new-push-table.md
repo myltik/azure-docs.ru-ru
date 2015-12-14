@@ -1,5 +1,5 @@
 
-1. Выполните вход на [портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение.
+1. Выполните вход на [классический портал Azure](https://manage.windowsazure.com/), щелкните элемент **Мобильные службы**, а затем щелкните свое приложение.
 
 	![](./media/mobile-services-create-new-push-table/mobile-services-selection.png)
 
@@ -17,7 +17,4 @@
 
 Далее следует изменить приложение, чтобы включить push-уведомления.
 
-<!-- URLs -->
-[портал управления Azure]: https://manage.windowsazure.com/
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

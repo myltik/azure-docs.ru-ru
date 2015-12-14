@@ -237,4 +237,4 @@
 
 ![Снимок экрана с ошибкой, возникающей, если пользователь еще не зарегистрировал свое устройство в Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -99,18 +99,16 @@
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 [Transient Fault Handling]: https://msdn.microsoft.com/ru-RU/library/hh680901(v=pandp.50).aspx
-[Обработка временного сбоя]: https://msdn.microsoft.com/ru-RU/library/hh680901(v=pandp.50).aspx
 
 [Руководство по центру IoT. Совместимость с концентраторами событий]: iot-hub-guidance.md#eventhubcompatible
 
 [хранилище Azure]: https://azure.microsoft.com/ru-RU/documentation/services/storage/
 [служебной шине Azure]: https://azure.microsoft.com/ru-RU/documentation/services/service-bus/
 
-[Azure preview portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 [Отправка сообщений с облака на устройства в центре IoT]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
-[Обработка сообщений, передаваемых с устройства в облако]: iot-hub-csharp-csharp-process-d2c.md
 [Передача файлов из устройств]: iot-hub-csharp-csharp-file-upload.md
 
 [Обзор центра IoT]: iot-hub-what-is-iot-hub.md
@@ -122,4 +120,4 @@
 [Центр разработчика IoT Azure]: http://www.azure.com/develop/iot
 [Центре разработчика IoT в Azure]: http://www.azure.com/develop/iot
 
-<!----HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

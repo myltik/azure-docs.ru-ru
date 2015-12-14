@@ -77,7 +77,7 @@
 
 При работе с шаблонами можно [создавать собственные шаблоны](resource-group-authoring-templates.md) или использовать шаблоны из [коллекции шаблонов](https://azure.microsoft.com/documentation/templates/), которые доступны на сайте [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
-Создание нового шаблона выходит за рамки данной статьи, поэтому для начала воспользуемся шаблоном _101-simple-vm-from-image_, который есть на сайте [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). По умолчанию при его использовании создается одна виртуальная машина Ubuntu 4.04.2-LTS в новой виртуальной сети с одной подсетью в регионе "Запад США". Для использования этого шаблона достаточно указать следующие параметры:
+Создание нового шаблона выходит за рамки данной статьи, поэтому для начала воспользуемся шаблоном _101-simple-vm-from-image_, который есть на сайте [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). По умолчанию при его использовании создается одна виртуальная машина Ubuntu 4.04.2-LTS в новой виртуальной сети с одной подсетью в регионе «Запад США». Для использования этого шаблона достаточно указать следующие параметры:
 
 * уникальное имя учетной записи хранения;
 * имя пользователя администратора виртуальной машины;
@@ -204,10 +204,10 @@
 ## Дальнейшие действия
 
 * Дополнительные сведения о работе с диспетчером ресурсов Azure с помощью Azure PowerShell см. в статье [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager.md).
-* Дополнительные сведения о работе с диспетчером ресурсов Azure в портале предварительной версии Azure см. в статье [Использование групп ресурсов для управления ресурсами Azure][psrm].
+* Дополнительные сведения о работе с диспетчером ресурсов Azure на портале Azure см. в статье [Использование групп ресурсов для управления ресурсами Azure][psrm].
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

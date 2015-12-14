@@ -122,7 +122,7 @@ Engagement использует строку подключения. При ис
 		/* Initialize Engagement angent with above configuration. */
 		EngagementAgent.Instance.Init(engagementConfiguration);
 
-Строка подключения для приложения отображается на портале управления Azure.
+Строка подключения для приложения отображается на классическом портале Azure.
 
 ### Изменение имени элементов
 
@@ -142,4 +142,4 @@ Engagement использует строку подключения. При ис
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

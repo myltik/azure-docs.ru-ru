@@ -1,6 +1,6 @@
 ## <a name="register-app-aad"></a>Регистрация клиентского приложения с помощью Azure Active Directory
 
-1. На **портале управления Azure** перейдите в раздел [Active Directory] и щелкните свой каталог.
+1. На **классическом портале Azure** перейдите в раздел [Active Directory](https://manage.windowsazure.com/) и щелкните свой каталог.
 
    ![](./media/mobile-services-dotnet-adal-register-client/mobile-services-select-aad.png)
 
@@ -28,7 +28,4 @@
 
 Теперь мобильная служба настроена в AAD для принятия попыток единого входа из приложения.
 
-
-[Active Directory]: https://manage.windowsazure.com/
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

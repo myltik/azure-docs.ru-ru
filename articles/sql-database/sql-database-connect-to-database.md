@@ -30,7 +30,7 @@
 
 Для подключения к базе данных требуется полное имя сервера (****имя\_сервера**.database.windows.net*), содержащее базу данных, к которой необходимо подключиться.
 
-1. Войдите на [портал предварительной версии Azure](https://portal.azure.com).
+1. Перейдите на [портал Azure](https://portal.azure.com).
 2. Перейдите к базе данных, к которой нужно подключиться.
 3. Найдите полное имя сервера:
 
@@ -95,4 +95,4 @@
 [6]: ./media/sql-database-connect-to-database/server-name.png
 [7]: ./media/sql-database-connect-to-database/connect-dbengine.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

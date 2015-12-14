@@ -62,7 +62,7 @@
 
 		openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
-2. Загрузите свой CER-файл сертификата на портале Azure. На [портале Azure](https://manage.windowsazure.com) щелкните **Параметры** в левом нижнем углу области обслуживания (как показано ниже).
+2. Загрузите свой CER-файл сертификата на портале Azure. На [классическом портале Azure](https://manage.windowsazure.com) щелкните **Параметры** в левом нижнем углу области обслуживания (как показано ниже).
 
 	![][portalsettingsitem]
 
@@ -214,4 +214,4 @@
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

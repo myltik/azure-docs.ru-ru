@@ -22,4 +22,4 @@
 
 	Дополнительные сведения см. в разделе [Обязательная проверка подлинности для доступа к таблицам](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth) статьи [Использование пакета SDK Node.js для мобильных приложений Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

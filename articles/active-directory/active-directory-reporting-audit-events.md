@@ -13,10 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/21/2015"
+   ms.date="11/30/2015"
    ms.author="kenhoff"/>
 
 # События отчета аудита Azure Active Directory
+
+## Статьи документации по созданию отчетов
+
+ - [API отчетов](active-directory-reporting-api-getting-started.md)
+ - [Аудит событий](active-directory-reporting-audit-events.md)
+ - [Сохранение](active-directory-reporting-retention.md)
+ - [Предварительный просмотр](active-directory-reporting-previews.md)
+ - [Поиск](active-directory-reporting-search.md)
+ - [Обратное заполнение](active-directory-reporting-backfill.md)
+ - [Задержки](active-directory-reporting-latencies.md)
+ - [Событие "Неизвестный субъект"](active-directory-reporting-unknown-actor.md)
+
 Отчет аудита Azure Active Directory позволяет клиентам определить привилегированные действия, выполняемые в их каталогах Azure Active Directory. К привилегированным действиям относятся изменение повышения (например, создание роли или сброс пароля), изменение конфигурации политики (например, политики паролей) или изменение конфигурации каталога (например, изменение параметров федерации домена). Отчеты содержат такие сведения: имя события, выполнивший действие субъект, подвергшийся изменению целевой ресурс, дата и время (в формате UTC). Список событий аудита для службы Azure Active Directory можно получить на [портале управления Azure](https://manage.windowsazure.com/). Подробности см. в статье [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md).
 
 
@@ -45,9 +57,9 @@
 Удаление субъекта-службы | Удален субъект-служба из каталога.
 Добавление учетных данных субъекта-службы | Добавлены учетные данные субъекта-службы.
 Удаление учетных данных субъекта-службы | Удалены учетные данные из субъекта-службы.
-Добавление записи делегирования | Создана запись [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) в каталоге.
-Установка записи делегирования | Обновлена запись [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) в каталоге.
-Удаление записи делегирования | Удалена запись [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) в каталоге.
+Добавление записи делегирования | В данном каталоге создана запись [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity).
+Установка записи делегирования | В данном каталоге обновлена запись [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity).
+Удаление записи делегирования | Из данного каталога удалена запись [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity).
 **События роли** |
 Добавление участника роли к роли | Добавлен пользователь к роли каталога.
 Удаление участника роли из роли | Удален пользователь из роли каталога.
@@ -119,4 +131,4 @@ TelephoneNumber | Номер телефона пользователя.
 
 Записи аудита — это обязательный элемент управления для многих требований соответствия нормативам. Для клиентов, использующих отчет аудита Azure Active Directory в соответствии с нормативными требованиями, рекомендуется отправить копию этого раздела справки и копию экспортированного отчета аудита, чтобы упростить объяснение информации, содержащейся в отчетах. Если аудитору потребуется понять нормативные требования, которым в настоящее время соответствует Azure, направьте аудитора на [страницу нормативных требований](http://azure.microsoft.com/support/trust-center/compliance/) в Центре управления безопасностью Microsoft Azure.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

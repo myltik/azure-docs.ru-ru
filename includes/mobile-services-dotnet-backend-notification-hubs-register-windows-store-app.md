@@ -42,7 +42,7 @@
 
     > [AZURE.NOTE]Секрет клиента и ИД безопасности пакета — это важные учетные данные для безопасного доступа. Не сообщайте никому эти секреты и не распространяйте их вместе с вашим приложением.
 
-11. Выполните вход на [портал управления Azure], щелкните элемент **Мобильные службы**, а затем щелкните свое приложение.
+11. Выполните вход на [классический портал Azure](https://manage.windowsazure.com/), щелкните элемент **Мобильные службы**, а затем щелкните свое приложение.
 
    	![](./media/mobile-services-dotnet-backend-notification-hubs-register-windows-store-app/mobile-services-selection.png)
 
@@ -54,6 +54,5 @@
 
 <!-- URLs. -->
 [Отправить страницу приложения]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[портал управления Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

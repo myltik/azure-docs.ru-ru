@@ -46,7 +46,7 @@
 Чтобы создать веб-приложение и базу данных MySQL, выполните следующие действия.
 
 1. Войдите на [портал Azure][management-portal].
-2. Щелкните значок **+ Создать** в нижнем левом углу портала.
+2. Щелкните значок **+ Создать** в нижнем левом углу портала Azure.
 
 	![Создание нового веб-сайта Azure][new-website]
 
@@ -300,4 +300,4 @@
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -77,7 +77,7 @@ Debian — это важный дистрибутив для Linux и всего
 Дистрибутив CentOS Linux — это стабильная, предсказуемая, управляемая и воспроизводимая платформа, созданная на основе исходного кода Red Hat Enterprise Linux (RHEL).
 
 1. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=centos)
-2. [Коллекция образов](http://azure.microsoft.com/en-in/marketplace/partners/OpenLogic/)
+2. [Коллекция образов](http://azure.microsoft.com/marketplace/partners/OpenLogic/)
 3. [Практическое руководство. Подготовка пользовательской виртуальной машины на основе CentOS для Azure](virtual-machines-linux-create-upload-vhd-centos.md)
 4. [Блог. Развертывание образа виртуальной машины CentOS из OpenLogic](http://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
 6. [Практическое руководство. Установка Apache Qpid Proton-C для AMQP и служебной шины](http://msdn.microsoft.com/library/azure/dn235560.aspx)
@@ -96,7 +96,7 @@ Debian — это важный дистрибутив для Linux и всего
 
 CoreOS — это небольшой оптимизированный дистрибутив, который ориентирован исключительно на вычисления и допускает гибкую настройку управления.
 
-10. [Коллекция образов](http://azure.microsoft.com/en-in/marketplace/partners/coreos/)  
+10. [Коллекция образов](http://azure.microsoft.com/marketplace/partners/coreos/)  
 11. [Практическое руководство. Использование CoreOS в Azure](virtual-machines-linux-coreos-how-to.md)
 12. [Практическое руководство. Начало работы с Fleet и Docker на CoreOS в Azure](virtual-machines-linux-coreos-fleet-get-started.md)
 13. [Блог. TechEd Europe — клиент Windows Docker и контейнеры Linux](http://azure.microsoft.com/blog/2014/10/28/new-docker-coreos-topics-linux-on-azure/)
@@ -121,7 +121,7 @@ CoreOS — это небольшой оптимизированный дистр
 1. [Основные сведения. Интерфейс командной строки Azure (CLI Azure)](../xplat-cli-install.md)
 4. [Основные сведения. Использование сертификатов и управление ими](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 5. [Основные сведения. Выбор имен пользователей Linux](virtual-machines-linux-usernames.md)
-6. [Основные сведения. Вход на виртуальную машину Linux через портал Azure](virtual-machines-linux-how-to-log-on.md)
+6. [Основные сведения. Вход на виртуальную машину Linux через классический портал Azure](virtual-machines-linux-how-to-log-on.md)
 7. [Основные сведения. SSH](virtual-machines-linux-use-ssh-key.md)
 8. [Основные сведения. Сброс пароля или свойств SSH для Linux](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
 9. [Основные сведения. Использование прав корневой учетной записи](virtual-machines-linux-use-root-privileges.md)
@@ -150,7 +150,7 @@ CoreOS — это небольшой оптимизированный дистр
 
 1. [Образы](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=java)
 2. [Практическое руководство. Использование служебной шины из Java с помощью AMQP 1.0](http://msdn.microsoft.com/library/azure/jj841073.aspx)
-3. [Практическое руководство. Настройка Tomcat7 в Linux с использованием портала Azure](virtual-machines-linux-setup-tomcat7-linux.md)
+3. [Практическое руководство. Настройка Tomcat7 в Linux с использованием классического портала Azure](virtual-machines-linux-setup-tomcat7-linux.md)
 4. [Видео. Пакет Azure Java SDK для управления службами](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-157-The-Java-SDK-for-Azure-Management-with-Brady-Gaster)
 5. [Блог. Приступая к работе с библиотеками управления Azure для Java](http://azure.microsoft.com/blog/2014/09/15/getting-started-with-the-azure-java-management-libraries/)
 5. [Репозиторий GitHub. Набор средств Azure для Eclipse с Java](https://github.com/MSOpenTech/WindowsAzureToolkitForEclipseWithJava)
@@ -263,7 +263,7 @@ CoreOS — это небольшой оптимизированный дистр
 1. Docker
 	- [Расширение виртуальных машин Docker для Linux в Azure](virtual-machines-docker-vm-extension.md)
 	- [Использование расширения виртуальных машин Docker в интерфейсе командной строки Azure (CLI Azure)](virtual-machines-docker-with-../xplat-cli-install.md)
-	- [Использование расширения виртуальных машин Docker на портале предварительной версии Azure](virtual-machines-docker-with-portal.md)
+	- [Использование расширения виртуальных машин Docker на портале Azure](virtual-machines-docker-with-portal.md)
 	- [Как быстро приступить к работе с Docker в Azure Marketplace](virtual-machines-docker-ubuntu-quickstart.md)
 	- [Использование docker-machine в Azure](virtual-machines-docker-machine.md)
 	- [Как использовать Docker со Swarm в Azure](virtual-machines-docker-swarm.md)
@@ -311,4 +311,4 @@ CoreOS — это небольшой оптимизированный дистр
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

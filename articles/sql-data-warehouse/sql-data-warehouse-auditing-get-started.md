@@ -59,7 +59,7 @@
 
 ##<a id="subheading-2"></a>Настройка аудита базы данных
 
-1. Запустите <a href="https://portal.azure.com" target="_blank">портал предварительной версии Azure</a>.
+1. Запустите <a href="https://portal.azure.com" target="_blank">портал Azure</a>.
 
 2. Перейдите в колонку конфигурации базы данных хранилища данных SQL или SQL Server, для которой нужно выполнить аудит. Нажмите в верхней части кнопку **Параметры**, а затем в колонке "Параметры" выберите **Аудит**.
 
@@ -102,7 +102,7 @@
 
 
 ##<a id="subheading-4">Рекомендации по использованию в рабочей среде</a>
-Описания в этом разделе относятся к снимкам экрана выше. Можно использовать <a href="https://portal.azure.com" target="_blank">предварительную версию портала Azure</a> или <a href= "https://manage.windowsazure.com/" target="_bank">классический портал Azure</a>.
+Описания в этом разделе относятся к снимкам экрана выше. Можно использовать <a href="https://portal.azure.com" target="_blank">портал Azure</a> или <a href= "https://manage.windowsazure.com/" target="_bank">классический портал Azure</a>.
  
 
 ##<a id="subheading-5"></a>Повторное создание ключа хранилища
@@ -141,4 +141,4 @@
 
 <!--Link references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

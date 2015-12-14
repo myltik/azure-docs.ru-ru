@@ -99,10 +99,10 @@ HEAD|Возвращает метаданные объекта для ответ�
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
   
-  [Management Portal]: http://manage.windowsazure.com/
+  [Azure Classic Portal]: http://manage.windowsazure.com/
 
 
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

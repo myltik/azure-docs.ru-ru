@@ -3,7 +3,7 @@
 	description="Узнайте, как использовать центры уведомлений Azure из серверной части Python." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="ysxu" 
+	authors="wesmc7777"
 	manager="dwrede" 
 	editor=""/>
 
@@ -42,6 +42,7 @@
 
 Например, чтобы создать клиента, необходимо выполнить следующие действия.
 
+	isDebug = True
 	hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 	
 Чтобы отправить всплывающее уведомление Windows:
@@ -391,4 +392,4 @@
 [5]: ./media/notification-hubs-python-backend-how-to/TemplatedNotification.png
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -41,19 +41,19 @@
 	    </appSettings>
 	</configuration>
 
-Значение параметра `Microsoft.ServiceBus.ConnectionString` — это строка подключения служебной шины, используемая для настройки подключения к служебной шине. Используется следующий формат:
+Значение параметра `Microsoft.ServiceBus.ConnectionString` — это строка подключения служебной шины, используемая для настройки подключения к шине. Используется следующий формат:
 
 	Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 
-Где `[namespace]` и `SharedAccessKey` получены с портала Azure. Дополнительные сведения см. в разделе [Использование очередей Service Bus][].
+Здесь `[namespace]` и `SharedAccessKey` получены с [классического портала Azure][]. Дополнительные сведения см. в статье [Как использовать очереди служебной шины][].
 
-Если вы используете AMQP, добавьте в строку подключения `;TransportType=Amqp`. Эта запись сообщает клиентской библиотеке о создании подключения к служебной шине с помощью протокола AMQP 1.0.
+Если вы используете AMQP, добавьте строку подключения с `;TransportType=Amqp`. Эта запись сообщает клиентской библиотеке о создании подключения к служебной шине с помощью протокола AMQP 1.0.
 
 ## Сериализация сообщений
 
-Если вы используете протокол по умолчанию, поведение сериализации по умолчанию для клиентской библиотеки .NET заключается в использовании типа [DataContractSerializer][] для сериализации экземпляра [BrokeredMessage][]. Это делает возможной транспортировку между клиентской библиотекой и службой служебной шины. При использовании транспортного режима AMQP клиентская библиотека применяет систему типов AMQP для сериализации [сообщения в брокере][BrokeredMessage] в сообщение AMQP. Сериализация позволяет получать и распознавать сообщение принимающим приложением, выполняемым на разных платформах. Например, это может быть приложение Java, которое использует JMS API для доступа к служебной шине.
+Если вы используете протокол по умолчанию, в клиентской библиотеке .NET по умолчанию используется тип [DataContractSerializer][] для сериализации экземпляра [BrokeredMessage][]. Это делает возможным транспорт между клиентской библиотекой и службой служебной шины. При использовании транспортного режима AMQP клиентская библиотека применяет систему типов AMQP для сериализации [сообщения в брокере][BrokeredMessage] в сообщение AMQP. Сериализация позволяет получать и распознавать сообщение принимающим приложением, выполняемым на разных платформах. Например, это может быть приложение Java, которое использует JMS API для доступа к служебной шине.
 
-Создавая экземпляр [BrokeredMessage][], вы можете предоставить объект .NET конструктору в качестве параметра (как текст сообщения). Для объектов, которые могут быть сопоставлены с простыми типами AMQP, текст сообщения сериализуется в типы данных AMQP. Если объект не удается непосредственно сопоставить с простым типом AMQP (когда пользовательский тип определяется приложением), объект сериализуется с использованием [DataContractSerializer][], а сериализованные байты отправляются в сообщении о данных AMQP.
+Создавая экземпляр [BrokeredMessage][], вы можете передать объект .NET конструктору в качестве параметра (как текст сообщения). Для объектов, которые могут быть сопоставлены с простыми типами AMQP, текст сообщения сериализуется в типы данных AMQP. Если объект не удается непосредственно сопоставить с простым типом AMQP (когда пользовательский тип определяется приложением), объект сериализуется с использованием [DataContractSerializer][], а сериализованные байты отправляются в сообщении данных AMQP.
 
 Для упрощения взаимодействия с клиентами, отличными от .NET, используйте только те типы .NET, которые могут быть сериализованы непосредственно в типы AMQP (как текст сообщения). В таблице ниже приведены эти типы, а также соответствующие им типы AMQP.
 
@@ -115,35 +115,35 @@
 
 В частности, в настоящее время при использовании AMQP не поддерживаются следующие интерфейсы API:
 
-- [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession][];
-- [Microsoft.ServiceBus.Messaging.MessagingFactory.CreateMessageSender(System.String,System.String)][];
+- [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession;][]
+- [Microsoft.ServiceBus.Messaging.MessagingFactory.CreateMessageSender(System.String,System.String);][]
 
-- [Microsoft.ServiceBus.Messaging.MessageSender.SendBatch(System.Collections.Generic.IEnumerable{Microsoft.ServiceBus.Messaging.BrokeredMessage})][];
+- [Microsoft.ServiceBus.Messaging.MessageSender.SendBatch(System.Collections.Generic.IEnumerable{Microsoft.ServiceBus.Messaging.BrokeredMessage});][]
 
-- [Microsoft.ServiceBus.Messaging.MessageReceiver.Receive(System.Int64)][];
-- [Microsoft.ServiceBus.Messaging.MessageReceiver.ReceiveBatch][];
-- [Microsoft.ServiceBus.Messaging.MessageReceiver.CompleteBatch(System.Collections.Generic.IEnumerable{System.Guid})][];
-- [Microsoft.ServiceBus.Messaging.MessageReceiver.Peek][];
-- [Microsoft.ServiceBus.Messaging.MessageReceiver.PeekBatch][];
+- [Microsoft.ServiceBus.Messaging.MessageReceiver.Receive(System.Int64);][]
+- [Microsoft.ServiceBus.Messaging.MessageReceiver.ReceiveBatch;][]
+- [Microsoft.ServiceBus.Messaging.MessageReceiver.CompleteBatch(System.Collections.Generic.IEnumerable{System.Guid});][]
+- [Microsoft.ServiceBus.Messaging.MessageReceiver.Peek;][]
+- [Microsoft.ServiceBus.Messaging.MessageReceiver.PeekBatch;][]
 
-- [Microsoft.ServiceBus.Messaging.QueueClient.Peek][];
-- [Microsoft.ServiceBus.Messaging.QueueClient.PeekBatch][];
+- [Microsoft.ServiceBus.Messaging.QueueClient.Peek;][]
+- [Microsoft.ServiceBus.Messaging.QueueClient.PeekBatch;][]
 
-- [Microsoft.ServiceBus.Messaging.TopicClient.SendBatch(System.Collections.Generic.IEnumerable{Microsoft.ServiceBus.Messaging.BrokeredMessage})][];
+- [Microsoft.ServiceBus.Messaging.TopicClient.SendBatch(System.Collections.Generic.IEnumerable{Microsoft.ServiceBus.Messaging.BrokeredMessage});][]
 
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.Receive(System.Int64)][];
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.ReceiveBatch][];
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.CompleteBatch(System.Collections.Generic.IEnumerable{System.Guid})][];
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.Peek][];
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.PeekBatch][];
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.AddRule][];
-- [Microsoft.ServiceBus.Messaging.SubscriptionClient.RemoveRule(System.String)][];
+- [Microsoft.ServiceBus.Messaging.SubscriptionClient.Receive(System.Int64);][]
+- [Microsoft.ServiceBus.Messaging.SubscriptionClient.ReceiveBatch;][]
+- [Microsoft.ServiceBus.Messaging.SubscriptionClient.CompleteBatch(System.Collections.Generic.IEnumerable{System.Guid});][]
+- [Microsoft.ServiceBus.Messaging.SubscriptionClient.Peek;][]
+- [Microsoft.ServiceBus.Messaging.SubscriptionClient.PeekBatch;][]
+- [Microsoft.ServiceBus.Messaging.SubscriptionClient.AddRule;][]
+- [Microsoft.ServiceBus.Messaging.SubscriptionClient.RemoveRule(System.String);][]
 
-- [Microsoft.ServiceBus.Messaging.MessageSession.GetState][];
-- [Microsoft.ServiceBus.Messaging.MessageSession.SetState(System.IO.Stream)][];
-- [Microsoft.ServiceBus.Messaging.MessageSession.RenewLock][];
+- [Microsoft.ServiceBus.Messaging.MessageSession.GetState;][]
+- [Microsoft.ServiceBus.Messaging.MessageSession.SetState(System.IO.Stream);][]
+- [Microsoft.ServiceBus.Messaging.MessageSession.RenewLock;][]
 
-- [Microsoft.ServiceBus.Messaging.BrokeredMessage.RenewLock][].
+- [Microsoft.ServiceBus.Messaging.BrokeredMessage.RenewLock.][]
 
 Существуют также некоторые различия в поведении API .NET служебной шины при использовании AMQP в сравнении с протоколом по умолчанию:
 
@@ -159,7 +159,7 @@ API-интерфейсы .NET предоставляют несколько па
 
 -   **MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize**: определяет максимальный размер кадра AMQP, доступный во время согласования при открытии подключения. Значение по умолчанию: 65 536 байт.
 
--   **MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval**: если передачу данных можно разбить на пакеты, это значение определяет максимальную задержку отправки размещений. По умолчанию наследуется отправителями и получателями. Отдельные отправители или получатели могут переопределить значение по умолчанию, составляющее 20 миллисекунд.
+-   **MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval**: если передачу данных можно разбить на пакеты, это значение определяет максимальную задержку отправки стратегий обработки. По умолчанию наследуется отправителями и получателями. Отдельные отправители или получатели могут переопределить значение по умолчанию, составляющее 20 миллисекунд.
 
 -   **MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity**: определяет, устанавливаются ли AMQP-подключения с использованием протокола SSL. Значение по умолчанию — **true**.
 
@@ -168,39 +168,40 @@ API-интерфейсы .NET предоставляют несколько па
 Хотите узнать больше? Перейдите по следующим ссылкам:
 
 - [Протокол AMQP служебной шины — обзор]
-- [Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины]
+- [Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины]
 - [Протокол AMQP служебной шины для Windows Server]
 
-  [Использование очередей Service Bus]: service-bus-dotnet-how-to-use-queues.md
+  [Как использовать очереди служебной шины]: service-bus-dotnet-how-to-use-queues.md
   [DataContractSerializer]: https://msdn.microsoft.com/library/azure/system.runtime.serialization.datacontractserializer.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
-  [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: https://msdn.microsoft.com/library/azure/jj657638.aspx
-  [Microsoft.ServiceBus.Messaging.MessagingFactory.CreateMessageSender(System.String,System.String)]: https://msdn.microsoft.com/library/azure/jj657703.aspx
-  [Microsoft.ServiceBus.Messaging.MessageSender.SendBatch(System.Collections.Generic.IEnumerable{Microsoft.ServiceBus.Messaging.BrokeredMessage})]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.sendbatch.aspx
-  [Microsoft.ServiceBus.Messaging.MessageReceiver.Receive(System.Int64)]: https://msdn.microsoft.com/library/azure/hh322665.aspx
-  [Microsoft.ServiceBus.Messaging.MessageReceiver.ReceiveBatch]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.receivebatch.aspx
-  [Microsoft.ServiceBus.Messaging.MessageReceiver.CompleteBatch(System.Collections.Generic.IEnumerable{System.Guid})]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.completebatch.aspx
-  [Microsoft.ServiceBus.Messaging.MessageReceiver.Peek]: https://msdn.microsoft.com/library/azure/jj908731.aspx
-  [Microsoft.ServiceBus.Messaging.MessageReceiver.PeekBatch]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.peekbatch.aspx
-  [Microsoft.ServiceBus.Messaging.QueueClient.Peek]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peek.aspx
-  [Microsoft.ServiceBus.Messaging.QueueClient.PeekBatch]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx
-  [Microsoft.ServiceBus.Messaging.TopicClient.SendBatch(System.Collections.Generic.IEnumerable{Microsoft.ServiceBus.Messaging.BrokeredMessage})]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.sendbatch.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.Receive(System.Int64)]: https://msdn.microsoft.com/library/azure/hh293110.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.ReceiveBatch]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.receivebatch.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.CompleteBatch(System.Collections.Generic.IEnumerable{System.Guid})]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.completebatch.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.Peek]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.peek.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.PeekBatch]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.peekbatch.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.AddRule]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.addrule.aspx
-  [Microsoft.ServiceBus.Messaging.SubscriptionClient.RemoveRule(System.String)]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.removerule.aspx
-  [Microsoft.ServiceBus.Messaging.MessageSession.GetState]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.getstate.aspx
-  [Microsoft.ServiceBus.Messaging.MessageSession.SetState(System.IO.Stream)]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.setstate.aspx
-  [Microsoft.ServiceBus.Messaging.MessageSession.RenewLock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.renewlock.aspx
-  [Microsoft.ServiceBus.Messaging.BrokeredMessage.RenewLock]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx
+  [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession;]: https://msdn.microsoft.com/library/azure/jj657638.aspx
+  [Microsoft.ServiceBus.Messaging.MessagingFactory.CreateMessageSender(System.String,System.String);]: https://msdn.microsoft.com/library/azure/jj657703.aspx
+  [Microsoft.ServiceBus.Messaging.MessageSender.SendBatch(System.Collections.Generic.IEnumerable{Microsoft.ServiceBus.Messaging.BrokeredMessage});]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesender.sendbatch.aspx
+  [Microsoft.ServiceBus.Messaging.MessageReceiver.Receive(System.Int64);]: https://msdn.microsoft.com/library/azure/hh322665.aspx
+  [Microsoft.ServiceBus.Messaging.MessageReceiver.ReceiveBatch;]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.receivebatch.aspx
+  [Microsoft.ServiceBus.Messaging.MessageReceiver.CompleteBatch(System.Collections.Generic.IEnumerable{System.Guid});]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.completebatch.aspx
+  [Microsoft.ServiceBus.Messaging.MessageReceiver.Peek;]: https://msdn.microsoft.com/library/azure/jj908731.aspx
+  [Microsoft.ServiceBus.Messaging.MessageReceiver.PeekBatch;]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.peekbatch.aspx
+  [Microsoft.ServiceBus.Messaging.QueueClient.Peek;]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peek.aspx
+  [Microsoft.ServiceBus.Messaging.QueueClient.PeekBatch;]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx
+  [Microsoft.ServiceBus.Messaging.TopicClient.SendBatch(System.Collections.Generic.IEnumerable{Microsoft.ServiceBus.Messaging.BrokeredMessage});]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.sendbatch.aspx
+  [Microsoft.ServiceBus.Messaging.SubscriptionClient.Receive(System.Int64);]: https://msdn.microsoft.com/library/azure/hh293110.aspx
+  [Microsoft.ServiceBus.Messaging.SubscriptionClient.ReceiveBatch;]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.receivebatch.aspx
+  [Microsoft.ServiceBus.Messaging.SubscriptionClient.CompleteBatch(System.Collections.Generic.IEnumerable{System.Guid});]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.completebatch.aspx
+  [Microsoft.ServiceBus.Messaging.SubscriptionClient.Peek;]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.peek.aspx
+  [Microsoft.ServiceBus.Messaging.SubscriptionClient.PeekBatch;]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.peekbatch.aspx
+  [Microsoft.ServiceBus.Messaging.SubscriptionClient.AddRule;]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.addrule.aspx
+  [Microsoft.ServiceBus.Messaging.SubscriptionClient.RemoveRule(System.String);]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.removerule.aspx
+  [Microsoft.ServiceBus.Messaging.MessageSession.GetState;]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.getstate.aspx
+  [Microsoft.ServiceBus.Messaging.MessageSession.SetState(System.IO.Stream);]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.setstate.aspx
+  [Microsoft.ServiceBus.Messaging.MessageSession.RenewLock;]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.renewlock.aspx
+  [Microsoft.ServiceBus.Messaging.BrokeredMessage.RenewLock.]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.renewlock.aspx
   [OperationTimeout]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 
+[классического портала Azure]: http://manage.windowsazure.com
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
-[Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[Поддержка AMQP 1.0 для секционированных очередей и разделов служебной шины]: service-bus-partitioned-queues-and-topics-amqp-overview.md
 [Протокол AMQP служебной шины для Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

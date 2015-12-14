@@ -1,18 +1,19 @@
-1. Navigate to the [Google Cloud Console](https://console.developers.google.com/project) and sign-in with your Google account credentials, and then click **Select a project**, then **Create a project**.
+1. Перейдите на веб-сайт [Google Cloud Console](https://console.developers.google.com/project) и войдите с помощью учетной записи Google. Щелкните элемент **Выбрать проект**, а затем **Создать проект**.
 
-2. Enter a project name, accept the terms of service, and click **Create**. If requested, carry out the SMS Verification, and click **Create** again.
+2. Введите имя проекта, примите условия предоставления услуг и щелкните кнопку **Создать**. Выполните требуемую проверку с помощью SMS и снова щелкните **Создать**.
 
-3. Make a note of the project number in the **Projects** section. 
+3. Запишите номер проекта в разделе **Проекты**.
 
-	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
+	Позже в этом учебнике данное значение будет использоваться как переменная PROJECT\_ID в клиенте.
 
-4. Click **Enable and manage APIs** under **User Google APIs** and click **Cloud Messaging for Android**. Then on the next page click **Enable API**. 
+4. Щелкните **Включить и управлять API** в разделе **Пользовательские API Google**, после чего щелкните **Обмен сообщениями в облаке для Android**. Затем на следующей странице щелкните **Включить API**.
 
-5. Click **Credentials**, and then click **Add Credential**->**API Key** 
+5. Щелкните **Credentials** (Учетные данные), а затем последовательно выберите **Add Credential** (Добавить учетные данные) и **API Key** (Ключ API).
 
-6. In **Create a new key**, click **Server key**. In the next window click **Create**.
+6. В окне **Create a new key** (Создание нового ключа) щелкните **Server key** (Ключ сервера). В следующем окне щелкните элемент **Create** (Создать).
 
-7. Make a note of the **API KEY** value.
+7. Запишите значение **API KEY** (Ключ API).
 
-	You will use this API key value to enable Azure to authenticate with GCM and send push notifications on behalf of your app.
+	Этот ключ API службы Azure будут использовать для аутентификации в службе GCM и отправки push-уведомлений от имени вашего приложения.
 
+<!---HONumber=AcomDC_1203_2015-->

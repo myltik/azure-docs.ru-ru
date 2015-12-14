@@ -1,8 +1,8 @@
-## Obtain a Resource Manager token
+## Получение маркера диспетчера ресурсов
 
-Azure Active Directory must authenticate all the tasks that you perform on resources using the Azure Resource Manager. The example shown here uses password authentication, for other approaches see [Authenticating Azure Resource Manager requests][lnk-authenticate-arm].
+Все задачи, выполняемые с ресурсами с помощью диспетчера ресурсов Azure, должны пройти проверку подлинности Azure Active Directory. В примере ниже демонстрируется проверка подлинности с использованием пароля (другие способы см. в статье [Запросы проверки подлинности диспетчера ресурсов Azure][lnk-authenticate-arm]).
 
-1. Add the following code to the **Main** method in Program.cs to retrieve a token from Azure AD using the application id and password.
+1. Добавьте в метод **Main** в файле Program.cs приведенный ниже код, позволяющий получить из системы Azure AD маркер с помощью идентификатора приложения и пароля.
 
     ```
     var authContext = new AuthenticationContext(string.Format  
@@ -18,14 +18,14 @@ Azure Active Directory must authenticate all the tasks that you perform on resou
     }
     ```
 
-2. Create a **ResourceManagementClient** object that uses the token by adding the following code to the end of the **Main** method:
+2. Создайте объект **ResourceManagementClient**, который использует полученный маркер, добавив следующий код в конец метода **Main**:
 
     ```
     var creds = new TokenCloudCredentials(subscriptionId, token.AccessToken);
     var client = new ResourceManagementClient(creds);
     ```
 
-3. Create, or obtain a reference to, the resource group you are using:
+3. Создайте группу ресурсов, которую будете использовать, или получите ссылку на нее:
 
     ```
     var rgResponse = client.ResourceGroups.CreateOrUpdateAsync(rgName,
@@ -39,3 +39,5 @@ Azure Active Directory must authenticate all the tasks that you perform on resou
     ```
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
+
+<!---HONumber=AcomDC_1203_2015-->

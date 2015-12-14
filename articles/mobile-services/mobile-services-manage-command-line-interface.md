@@ -1,27 +1,32 @@
-<properties 
-	pageTitle="Администрирование мобильной службы из командной строки | Microsoft Azure" 
-	description="Узнайте, как с помощью программ командной строки создать и развернуть мобильную службу Azure, а также управлять ею." 
-	services="mobile-services" 
-	documentationCenter="Mobile" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Администрирование мобильной службы из командной строки | Microsoft Azure"
+	description="Узнайте, как с помощью программ командной строки создать и развернуть мобильную службу Azure, а также управлять ею."
+	services="mobile-services"
+	documentationCenter="Mobile"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="NA" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="11/02/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="NA"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="11/02/2015"
 	ms.author="glenga"/>
 
-# Автоматизация мобильных служб с помощью средств командной строки 
+# Автоматизация мобильных служб с помощью средств командной строки
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 ##Обзор
 
 В этом разделе показано, как использовать средства командной строки Azure для автоматизации создания мобильных служб Azure и управления ими. В этом разделе показано, как установить и начать использовать средства командной строки для выполнения ключевых задач мобильных служб.
- 
+
 При объединении в один скрипт или пакетный файл эти отдельные команды автоматизируют процесс создания, проверки и удаления мобильной службы.
 
 В этом разделе описывается набор общих задач администрирования, поддерживаемых средствами командной строки Azure. Дополнительные сведения см. в [документации средств командной строки Azure][reference-docs].
@@ -46,7 +51,7 @@
 
 	azure account download
 
-После этого откроется браузер по умолчанию и появится запрос на вход в портал управления. После входа будет скачан файл `.publishsettings`. Запишите расположение сохраненного файла.
+После этого откроется браузер по умолчанию и появится запрос на вход в классический портал Azure. После входа будет скачан файл `.publishsettings`. Запишите расположение сохраненного файла.
 
 Затем импортируйте файл `.publishsettings`. Для этого выполните следующую команду и замените параметр `<path-to-settings-file>` на путь к файлу `.publishsettings`:
 
@@ -104,9 +109,9 @@
 
 	azure mobile table create <service-name> <table-name> -p read=public,delete=admin
 
-В следующей таблице показано значение разрешения скрипта в сравнении ос значением разрешения на [портале управления Azure].
+В следующей таблице показано значение разрешения скрипта в сравнении со значением разрешения на [классическом портале Azure].
 
-|Значение сценария|Значение портала управления| |========|========| |`public`|Все| |`application`(по умолчанию)|Все с ключом приложения| |`user`|Только прошедшие проверку пользователи| |`admin`|Только скрипты и администраторы|
+|Значение сценария|Значение портала| |========|========| |`public`|Все| |`application` (по умолчанию)|Все с ключом приложения| |`user`|Только прошедшие проверку пользователи| |`admin`|Только скрипты и администраторы|
 
 Команда `mobile table create` завершается ошибкой, если указанная таблица существует. В скриптах автоматизации следует попытаться удалить таблицу, прежде чем попытаться создать ее еще раз.
 
@@ -140,7 +145,7 @@
 
 	function insert(item, user, request) {
 	    ...
-	} 
+	}
 
 Дополнительные сведения о регистрации скриптов сценариев см. в [справочнике по серверным скриптам мобильных служб].
 
@@ -173,7 +178,7 @@
 <!-- URLs. -->
 [справочнике по серверным скриптам мобильных служб]: http://go.microsoft.com/fwlink/p?LinkId=262293
 
-[портале управления Azure]: https://manage.windowsazure.com/
+[классическом портале Azure]: https://manage.windowsazure.com/
 [nodejs-org]: http://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 
@@ -182,6 +187,4 @@
 [reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [Установка программ командной строки Azure для Mac и Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
- 
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

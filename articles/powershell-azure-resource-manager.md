@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="12/01/2015" 
 	ms.author="tomfitz"/>
 
 # Использование Azure PowerShell с диспетчером ресурсов Azure
@@ -34,9 +34,7 @@
   + Вы можете [открыть учетную запись Azure бесплатно](/pricing/free-trial/?WT.mc_id=A261C142F) — вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после использования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, такие как веб-сайты. С вашей кредитной карты не будет взиматься плата, если вы явно не измените параметры и не попросите снимать плату.
   
   + Вы можете [активировать преимущества подписчика MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) — ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты служб Azure.
-- Azure PowerShell
-
-[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+- Azure PowerShell 1.0. Информацию о данном выпуске и его установке см. в разделе [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Этот учебник предназначен для начинающих пользователей PowerShell, но предполагается, что вы знакомы с основными понятиями, такими как модули, командлеты и сеансы. Дополнительные сведения о Windows PowerShell см. в разделе [Начало работы с Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 
@@ -83,7 +81,7 @@
 
 Прежде чем начать работу над решением, необходимо войти в учетную запись.
 
-Чтобы войти в учетную запись Azure, используйте командлет **Login-AzureRmAccount**. В версиях Azure PowerShell до предварительной версии 1.0 используйте команду **Add-AzureAccount**.
+Чтобы войти в учетную запись Azure, используйте командлет **Login-AzureRmAccount**.
 
     PS C:\> Login-AzureRmAccount
 
@@ -394,9 +392,9 @@ ProviderNamespace представляет коллекцию связанных
 		
 		...
 
-- Чтобы получить ресурсы, входящие в группу ресурсов, используйте командлет **Get-AzureRmResource** и его параметр ResourceGroupName. Без параметров командлет Get-AzureRmResource возвращает все ресурсы в подписке Azure.
+- Чтобы получить ресурсы, входящие в группу ресурсов, используйте командлет **Find-AzureRmResource** с параметром **ResourceGroupNameContains**. Без параметров командлет Find-AzureRmResource возвращает все ресурсы в подписке Azure.
 
-		PS C:\> Get-AzureRmResource -ResourceGroupName TestRG1
+		PS C:\> Find-AzureRmResource -ResourceGroupNameContains TestRG1
 		
 		Name              : exampleserver
                 ResourceId        : /subscriptions/{guid}/resourceGroups/TestRG1/providers/Microsoft.Sql/servers/tfserver10
@@ -443,4 +441,4 @@ ProviderNamespace представляет коллекцию связанных
 - Подробный пример развертывания проекта см. в статье [Предсказуемое развертывание микрослужб в Azure](app-service-web/app-service-deploy-complex-application-predictably.md).
 - Сведения об устранении неполадок развертывания, которое завершилось сбоем, см в статье [Устранение неполадок развертывания группы ресурсов в Azure](./virtual-machines/resource-group-deploy-debug.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

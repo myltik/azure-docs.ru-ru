@@ -144,7 +144,7 @@
 
 В этом разделе для мобильных устройств будет создан специальный файл макета.
 
-Сначала скопируйте *Views\\Shared\\\_Layout.cshtml* в *Views\\Shared\\\_Layout.Mobile.cshtml*. Откройте *\_Layout.Mobile.cshtml* и измените заголовок с **Приложение MVC5** на **Приложение MVC5 (мобильное)**.
+Сначала скопируйте *Views\\Shared\\_Layout.cshtml* в *Views\\Shared\\_Layout.Mobile.cshtml*. Откройте *\_Layout.Mobile.cshtml* и измените заголовок с **Приложение MVC5** на **Приложение MVC5 (мобильное)**.
 
 В каждом вызове `Html.ActionLink` панели навигации удалите "Поиск по" в каждой ссылке *ActionLink*. В следующем коде показан законченный тег `<ul class="nav navbar-nav">` файла макета для мобильных устройств.
 
@@ -191,7 +191,7 @@
 
     using System.Web.WebPages;
 
-Сохраните изменения. Скопируйте файл *Views\\Shared\\\_Layout.Mobile.cshtml* в *Views\\Shared\\\_Layout.iPhone.cshtml*. Откройте новый файл и измените заголовок с `MVC5 Application (Mobile)` на `MVC5 Application (iPhone)`.
+Сохраните изменения. Скопируйте файл *Views\\Shared\\_Layout.Mobile.cshtml* в *Views\\Shared\\_Layout.iPhone.cshtml*. Откройте новый файл и измените заголовок с `MVC5 Application (Mobile)` на `MVC5 Application (iPhone)`.
 
 Скопируйте файл *Views\\Home\\AllTags.Mobile.cshtml* в *Views\\Home\\AllTags.iPhone.cshtml*. В новом файле измените значение элемента `<h2>` с "Tags (M)" на "Tags (iPhone)".
 
@@ -209,7 +209,7 @@
 
 ![][AllSpeakers_LayoutMobile]
 
-Вы можете глобально отключить представление по умолчанию (не для мобильных устройств) из отображения в макете для мобильных устройств, задав для параметра `RequireConsistentDisplayMode` значение `true` в файле *Views\\\_ViewStart.cshtml* следующим образом.
+Вы можете глобально отключить представление по умолчанию (не для мобильных устройств) из отображения в макете для мобильных устройств, задав для параметра `RequireConsistentDisplayMode` значение `true` в файле *Views\\_ViewStart.cshtml* следующим образом.
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
@@ -545,7 +545,6 @@
 
 ## Изменения
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
 
 <!-- Internal Links -->
 [Deploy the starter project to an Azure web app]: #bkmk_DeployStarterProject
@@ -619,4 +618,4 @@
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

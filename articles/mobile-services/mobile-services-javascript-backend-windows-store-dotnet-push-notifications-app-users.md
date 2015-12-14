@@ -96,7 +96,4 @@
 [Добавление push-уведомлений в приложение]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Добавление push-уведомлений в приложение мобильных служб]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
-[портал управления Azure]: https://manage.windowsazure.com/
- 
-
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

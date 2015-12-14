@@ -21,7 +21,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-manage-portal.md)
+- [Azure Portal](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
@@ -34,7 +34,7 @@ SQL Server Management Studio (SSMS) можно использовать для �
 
 Для подключения к базе данных SQL необходимо знать имя сервера в Azure. Для получения этой информации может понадобиться войти на портал.
 
-1.  Выполните вход на [портал управления Azure](http://manage.windowsazure.com).
+1.  Перейдите на [классический портал Azure](http://manage.windowsazure.com).
 
 2.  В левой панели щелкните **Базы данных SQL**.
 
@@ -192,4 +192,4 @@ SQL Server 2014 SSMS с последними обновлениями предл
  
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

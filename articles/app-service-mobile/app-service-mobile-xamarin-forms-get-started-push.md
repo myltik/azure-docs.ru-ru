@@ -10,17 +10,15 @@
 <tags 
 	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.tgt_pltfrm="mobile-xamarin" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="11/23/2015" 
+	ms.date="11/25/2015" 
 	ms.author="wesmc"/>
 
 # Добавление push-уведомлений в приложение Xamarin.Forms
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Обзор
 
@@ -62,39 +60,6 @@
 ##Развертывание обновленного серверного проекта в Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
-
-## Обновление проекта переносимой библиотеки классов 
-
-Класс `TodoItemManager`, определенный в общем проекте, служит оболочкой для подключения клиента к серверной части мобильного приложения вместе с операциями, которые нужно выполнять в таблице, размещенной в серверной части мобильного приложения. Мы будем предоставлять клиентское подключение, поэтому вы можете зарегистрироваться для отправки push-уведомлений.
-
-1. В Visual Studio или Xamarin Studio откройте файл TodoItemManager.cs в общем проекте. Добавьте указанный ниже статический член и методы доступа в класс `TodoItemManager`. Он будет использоваться для доступа к `MobileServiceClient`, когда потребуется получить объект `Microsoft.WindowsAzure.MobileServices.Push` для определенной платформы. 
-
-        static TodoItemManager defaultInstance = null;
-
-        public static TodoItemManager DefaultInstance
-        {
-            get
-            {
-                return defaultInstance;
-            }
-            private set
-            {
-                defaultInstance = value;
-            }
-        }
-
-		public MobileServiceClient CurrentClient
-		{
-			get { return client; }
-		}
-
-
-2. Добавьте код для инициализации `DefaultInstance` в начале конструктора класса `TodoItemManager`.
-
-        DefaultClient = this;
-
-
 
 
 ##(Необязательно) Настройка и запуск проекта Android
@@ -145,7 +110,7 @@
 	    }
 
 
-4. Добавьте для вспомогательного метода `CreateAndShowDialog` следующий код:
+4. Добавьте для вспомогательного метода `CreateAndShowDialog` следующий код.
 
 		private void CreateAndShowDialog(String message, String title) 
 		{
@@ -178,7 +143,7 @@
 
 7. Добавьте новый файл класса в проект **Droid**. Присвойте новому файлу класса имя **GcmService**.
 
-8. Обязательно добавьте в начало файла следующие инструкции `using`:
+8. Обязательно добавьте в начало файла следующие операторы `using`.
 
 		using Gcm.Client;
 		using Microsoft.WindowsAzure.MobileServices;
@@ -236,7 +201,7 @@
 		
 		    createNotification("GcmService Registered...", "The device has been Registered, Tap to View!");
 		
-            var push = TodoItemManager.DefaultInstance.CurrentClient.GetPush();
+            var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
 		
 		    MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
 		
@@ -346,7 +311,7 @@
 	
 	> [AZURE.NOTE]Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
 
-2. В приложении введите задачу, а затем щелкните значок плюса (**+**).
+2. В приложении введите задачу, а затем щелкните значок «плюс» (**+**).
 
 3. Убедитесь, что уведомление получено, а затем нажмите кнопку **ОК**, чтобы закрыть его.
 
@@ -363,7 +328,7 @@
 
 ####Настройка концентратора уведомлений для APNs
 
-1. Войдите на [портал Azure](https://portal.azure.com/). Щелкните **Обзор** > **Мобильные приложения** > ваше мобильное приложение > **Параметры** > **Push-уведомления** > **Apple (APNs)** > **Отправка сертификата**. Отправьте экспортированный ранее P12-файл сертификата push-уведомлений. Если вы создали сертификат push-уведомлений для разработки и тестирования, не забудьте выбрать параметр **Песочница**. В противном случае выберите **Рабочая среда**. Теперь ваша служба настроена для работы с push-уведомлениями в iOS.
+1. Войдите на [портал Azure](https://portal.azure.com/). Щелкните **Обзор** > **Мобильные приложения** > ваше мобильное приложение > **Параметры** > **Push-уведомления** > **Apple (APNS)** > **Отправка сертификата**. Отправьте экспортированный ранее P12-файл сертификата push-уведомлений. Если вы создали сертификат push-уведомлений для разработки и тестирования, не забудьте выбрать параметр **Песочница**. В противном случае выберите параметр **Рабочая среда**. Теперь ваша служба настроена для работы с push-уведомлениями в iOS.
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
 
@@ -375,13 +340,13 @@
 
 ####Добавление push-уведомлений в приложение iOS
 
-1. Добавьте следующую инструкцию `using` в верхнюю часть файла **AppDelegate.cs**.
+1. Добавьте следующий оператор `using` в начало файла **AppDelegate.cs**.
 
         using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json.Linq;
 
 
-2. В проекте iOS откройте файл AppDelegate.cs и обновите метод `FinishedLaunching`, чтобы добавить поддержку удаленных уведомлений, как показано ниже.
+2. В проекте iOS откройте файл AppDelegate.cs и измените метод `FinishedLaunching`, чтобы добавить поддержку удаленных уведомлений, как показано ниже.
 
 		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
 		{
@@ -409,7 +374,7 @@
 		}
 
 
-4. В файле AppDelegate.cs также добавьте переопределение для события **RegisteredForRemoteNotifications**, чтобы зарегистрироваться для получения уведомлений:
+4. В файле AppDelegate.cs также добавьте переопределение для события **RegisteredForRemoteNotifications**, чтобы выполнить регистрацию для получения уведомлений.
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
@@ -422,11 +387,11 @@
                 };
 
             // Register for push with your mobile app
-            Push push = TodoItemManager.DefaultInstance.CurrentClient.GetPush();
+            Push push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
             push.RegisterAsync(deviceToken, templates);
         }
 
-5. В файле AppDelegate.cs также добавьте переопределение для события **DidReceivedRemoteNotification**, чтобы входящие уведомления обрабатывались во время выполнения приложения:
+5. В файле AppDelegate.cs также добавьте переопределение для события **DidReceivedRemoteNotification**, чтобы входящие уведомления обрабатывались во время выполнения приложения.
 
         public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
@@ -454,7 +419,7 @@
 	
 	> [AZURE.NOTE]Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
 
-3. В приложении введите задачу, а затем щелкните значок плюса (**+**).
+3. В приложении введите задачу, а затем щелкните значок «плюс» (**+**).
 
 4. Убедитесь, что уведомление получено, а затем нажмите кнопку **ОК**, чтобы закрыть его.
 
@@ -478,7 +443,7 @@
 
 ####Добавление push-уведомлений в приложение Windows
 
-1. В Visual Studio откройте файл **App.xaml.cs** в проекте **WinApp**. Добавьте следующие инструкции `using`:
+1. В Visual Studio откройте файл **App.xaml.cs** в проекте **WinApp**. Добавьте следующие операторы `using`.
 
 		using System.Threading.Tasks;
 		using Windows.Networking.PushNotifications;
@@ -486,7 +451,7 @@
 		using Microsoft.WindowsAzure.MobileServices;
 		using Newtonsoft.Json.Linq;
 
-2. В файле App.xaml.cs добавьте приведенный ниже метод `InitNotificationsAsync`. Этот метод получает канал push-уведомлений и регистрирует шаблон для получения шаблонных уведомлений из концентратора уведомлений. Этому клиенту будет доставлено шаблонное уведомление, поддерживающее параметр `messageParam`.
+2. В файл App.xaml.cs добавьте приведенный ниже метод `InitNotificationsAsync`. Этот метод получает канал push-уведомлений и регистрирует шаблон для получения шаблонных уведомлений из концентратора уведомлений. Этому клиенту будет доставлено шаблонное уведомление, поддерживающее параметр `messageParam`.
 
         private async Task InitNotificationsAsync()
         {
@@ -505,7 +470,7 @@
                   {"headers", headers} // Only needed for WNS & MPNS
                 };
 
-            await TodoItemManager.DefaultInstance.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
+            await TodoItemManager.DefaultManager.CurrentClient.GetPush().RegisterAsync(channel.Uri, templates);
         }
 
 3. В файле App.xaml.cs обновите обработчик событий `OnLaunched` с помощью атрибута `async` и вызовите метод `InitNotificationsAsync`.
@@ -545,7 +510,7 @@
             await InitNotificationsAsync();
         }
 
-4. В обозревателе решений для Visual Studio откройте файл **Package.appxmanifest** и в разделе **Уведомления** задайте для параметра **Всплывающие уведомления** значение **Да**.
+4. В обозревателе решений для Visual Studio откройте файл **Package.appxmanifest** и в разделе **Notifications** задайте для параметра **Toast Capable** значение **Yes**.
 
 5. Выполните сборку приложения и убедитесь в отсутствии ошибок. Теперь клиентское приложение должно зарегистрироваться для получения шаблонных уведомлений из серверной части мобильного приложения.
 
@@ -559,7 +524,7 @@
 	
 	> [AZURE.NOTE]Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
 
-3. В приложении введите задачу, а затем щелкните значок плюса (**+**).
+3. В приложении введите задачу, а затем щелкните значок «плюс» (**+**).
 
 4. Убедитесь, что уведомление получено, а затем нажмите кнопку **ОК**, чтобы закрыть его.
 
@@ -572,10 +537,6 @@
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [Установка Xamarin.iOS в Windows]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
-[Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-
- 
-
-<!---HONumber=AcomDC_1125_2015--->
+<!---HONumber=AcomDC_1203_2015-->

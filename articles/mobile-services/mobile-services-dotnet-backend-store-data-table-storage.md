@@ -1,26 +1,31 @@
-<properties 
-	pageTitle="Построение серверной мобильной службы .NET, использующей табличное хранилище | Мобильные службы Azure" 
-	description="Узнайте, как настроить таблицу Azure в серверной мобильной службе .NET." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Построение серверной мобильной службы .NET, использующей табличное хранилище | Мобильные службы Azure"
+	description="Узнайте, как настроить таблицу Azure в серверной мобильной службе .NET."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="09/14/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/14/2015"
 	ms.author="glenga"/>
 
 # Построение серверной мобильной службы .NET, использующей табличное хранилище
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 В этом разделе рассматривается использование нереляционного хранилища данных для серверной мобильной службы .NET. В этом учебнике вам предстоит изменить учебный проект мобильных служб Azure таким образом, чтобы в качестве хранилища данных вместо Базы данных SQL Azure (по умолчанию) использовалось табличное хранилище Azure.
 
-Для данного учебника требуется предварительное выполнение учебника [Приступая к работе с мобильными службами]. Вам также потребуется учетная запись хранения Azure.
+Для работы с этим учебником требуется сначала выполнить инструкции из учебника [Приступая к работе с мобильными службами]. Вам также потребуется учетная запись хранения Azure.
 
 ##Настройка таблицы Azure в серверной мобильной службе .NET
 
@@ -28,7 +33,7 @@
 
 1. В **обозревателе решений** в Visual Studio щелкните серверный проект .NET правой кнопкой мыши и выберите **Управление пакетами NuGet**.
 
-2. В левой области выберите категорию **Online**, выберите **Только стабильные**, найдите пункт **MobileServices**, щелкните **Установить** в пакете **Расширение хранилища Azure для серверных мобильных служб Microsoft Azure Mobile Services для .NET**, а затем примите лицензионные соглашения.
+2. В левой области выберите категорию **Online**, щелкните **Только стабильные**, найдите пункт **MobileServices**, щелкните **Установить** на пакете **Расширение хранилища Azure для серверных мобильных служб Microsoft Azure Mobile Services для .NET**, а затем примите лицензионные соглашения.
 
   	![](./media/mobile-services-dotnet-backend-store-data-table-storage/mobile-add-storage-nuget-package-dotnet.png)
 
@@ -36,17 +41,17 @@
 
 3. Если вы еще не создали учетную запись хранения, см. раздел [Создание учетной записи хранения](../storage-create-storage-account.md)
 
-4. В портале управления нажмите **Хранилище**, выберите учетную запись хранения, нажмите **Управление ключами**.
+4. На [классическом портале Azure] нажмите **Хранилище**, выберите учетную запись хранения, а затем нажмите **Управление ключами**.
 
 5. Запишите **имя учетной записи хранения** и **ключ доступа к хранилищу**.
- 
-6. В вашей мобильной службе выберите вкладку **Настройка**, найдите в ней раздел **Строка подключения** и введите новую строку подключения с **именем** `StorageConnectionString`. В качестве **значения** используйте строку подключения к учетной записи хранения в следующем формате.
+
+6. В своей мобильной службе откройте вкладку **Настройка**, найдите в ней раздел **Строки подключения** и введите новую строку подключения с **именем** `StorageConnectionString`. В качестве **значения** используйте строку подключения к учетной записи хранения в следующем формате:
 
 		DefaultEndpointsProtocol=https;AccountName=<ACCOUNT_NAME>;AccountKey=<ACCESS_KEY>;
 
 	![](./media/mobile-services-dotnet-backend-store-data-table-storage/mobile-blob-storage-app-settings.png)
 
-7. В приведенной строке замените значения `<ACCOUNT_NAME>` и `<ACCESS_KEY>` значениями с портала, а затем щелкните **Сохранить**.
+7. В приведенной выше строке замените значения `<ACCOUNT_NAME>` и `<ACCESS_KEY>` значениями с портала, а затем щелкните **Сохранить**.
 
 	Строка подключения к учетной записи хранения хранится в зашифрованном виде в параметрах приложения. Вы можете получить доступ к ней во время выполнения, используя любой контроллер таблицы.
 
@@ -54,7 +59,7 @@
 
 		<add name="StorageConnectionString" connectionString="<STORAGE_CONNECTION_STRING>" />
 
-9. Замените `<STORAGE_CONNECTION_STRING>` на строку подключения из шага 6.
+9. Замените `<STORAGE_CONNECTION_STRING>` строкой подключения с шага 6.
 
 	Мобильная служба будет использовать эту строку подключения при с запуске локального компьютера, что позволит проверить код перед его публикацией. При работе в Azure она использует строку подключения, заданную на портале, и игнорирует строку подключения в проекте.
 
@@ -83,25 +88,25 @@
         {
             base.Initialize(controllerContext);
 
-            // Create a new Azure Storage domain manager using the stored 
+            // Create a new Azure Storage domain manager using the stored
             // connection string and the name of the table exposed by the controller.
             string connectionStringName = "StorageConnectionString";
             var tableName = controllerContext.ControllerDescriptor.ControllerName.ToLowerInvariant();
-            DomainManager = new StorageDomainManager<TodoItem>(connectionStringName, 
-                tableName, Request, Services);          
+            DomainManager = new StorageDomainManager<TodoItem>(connectionStringName,
+                tableName, Request, Services);
         }
 
 	Будет создан новый доменный диспетчер хранилища для запрашиваемого контроллера с помощью строки подключения к учетной записи хранения.
 
-3. Замените метод **GetAllTodoItems** следующим кодом:
+3. Замените метод **GetAllTodoItems** следующим кодом.
 
 		public Task<IEnumerable<TodoItem>> GetAllTodoItems(ODataQueryOptions options)
         {
             // Call QueryAsync, passing the supplied query options.
             return DomainManager.QueryAsync(options);
-        } 
+        }
 
-	В отличие от Базы данных SQL эта версия не возвращает IQueryable<TEntity>, поэтому результат может быть связан с запросом, но не изменен в нем.
+	В отличие от базы данных SQL эта версия не возвращает IQueryable<TEntity>, поэтому результат может быть связан с запросом, но не изменен в нем.
 
 ## Обновление клиентского приложения
 
@@ -119,8 +124,8 @@
 
 ## <a name="test-application"></a>Тестирование приложения
 
-1. (Необязательно) Повторно опубликуйте проект серверной мобильной службы .NET. 
-	
+1. (Необязательно) Повторно опубликуйте проект серверной мобильной службы .NET.
+
 	Перед публикацией серверного проекта .NET в Azure вы также можете протестировать мобильную службу локально. Независимо от того, где выполняется тестирование (локально или в Azure), мобильная служба будет использовать табличное хранилище Azure.
 
 4. Запустите учебное клиентское приложение, подключенное к вашей мобильной службе.
@@ -128,7 +133,7 @@
 	Обратите внимание, что элементы, добавленные ранее в этом учебнике, не отображаются. Это связано с тем, что табличное хранилище пусто.
 
 5. Добавьте новые элементы, чтобы сгенерировать изменения в базе данных.
- 
+
 	Поведение приложения и мобильной службы не должно измениться. Единственная разница заключается в том, что теперь данные сохраняются в нереляционном хранилище, а не в Базе данных SQL.
 
 ##Дальнейшие действия
@@ -150,9 +155,8 @@
 
 <!-- URLs. -->
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[классическом портале Azure]: https://manage.windowsazure.com/
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

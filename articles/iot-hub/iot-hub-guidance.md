@@ -78,7 +78,7 @@ IoT решения хранят такие данные об отдельных 
 
 Ниже приведены основные этапы для схемы службы маркеров.
 
-1. Создание [политики общего доступа центра IoT][lnk-devguide-security] с разрешениями **DeviceConnect** для вашего центра IoT. Эту политику можно создать на [портале предварительной версии][lnk-preview-portal] или программным способом. Эту политику служба маркеров будет использовать для подписания создаваемых маркеров.
+1. Создание [политики общего доступа центра IoT][lnk-devguide-security] с разрешениями **DeviceConnect** для вашего центра IoT. Эту политику можно создать на [портале Azure][lnk-portal] или программными средствами. Эту политику служба маркеров будет использовать для подписания создаваемых маркеров.
 2. Когда устройству требуется доступ к центру IoT, оно запрашивает у службы маркеров подписанный маркер. Для определения удостоверения устройства, используемого службой маркеров для создания маркера, устройство может использовать настраиваемую схему проверки подлинности или реестр удостоверений устройств.
 3. Служба маркеров возвращает маркер, созданный согласно требованиям к безопасности, описанным в [руководстве для разработчиков центра IoT][lnk-devguide-security]. `/devices/{deviceId}` используется как `resourceURI`, а в качестве `deviceId` указывается устройство, подлинность которого проверяется. Служба маркеров использует политики общего доступа для создания маркера.
 4. Устройство использует маркер для подключения к центру IoT.
@@ -112,11 +112,11 @@ IoT решения хранят такие данные об отдельных 
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-what-is-hub]: iot-hub-what-is-iot-hub.md
-[lnk-preview-portal]: https://portal.azure.com
+[lnk-portal]: https://portal.azure.com
 [lnk-throttles-quotas]: ../azure-subscription-service-limits.md/#iot-hub-limits
 [lnk-devguide-antispoofing]: iot-hub-devguide.md#antispoofing
 [lnk-devguide-protocol]: iot-hub-devguide.md#amqpvshttp
 [lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

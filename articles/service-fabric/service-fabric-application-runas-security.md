@@ -86,17 +86,18 @@ Service Fabric предоставляет возможность защиты п
 
 Теперь добавим файл MySetup.bat в проект Visual Studio, чтобы проверить права администратора. В Visual Studio щелкните правой кнопкой мыши проект службы и добавьте новый файл MySetup.bat. Далее необходимо убедиться, что этот файл включен в пакет службы. Чтобы проверить, что файл MySetup.bat включен в пакет, выберите файл, щелкните правой кнопкой мыши для вывода контекстного меню, выберите пункт "Свойства" в диалоговом окне свойств и убедитесь, что для параметра **Копировать в выходной каталог** задано значение **Копировать, если новее**. Это показано на приведенном ниже снимке экрана.
 
-![Свойство CopyToOutput в Visual Studio для пакетного файла SetupEntryPoint][Image1]
+![Свойство CopyToOutput в Visual Studio для пакетного файла SetupEntryPoint][image1]
 
 Теперь откройте файл MySetup.bat и добавьте следующие команды.
+
 ~~~
-REM Задайте системную переменную среды. Для этого требуется привилегия администратора privilege
+REM Set a system environment variable. This requires administrator privilege
 setx -m TestVariable "MyValue"
-echo System TestVariable со значением > test.txt
+echo System TestVariable set to > test.txt
 echo %TestVariable% >> test.txt
 
-REM Чтобы удалить эту системную переменную, используйте
-REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
+REM To delete this system variable us
+REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ~~~
 
 Затем постройте и разверните решение в кластере локальной разработки. После запуска службы, как показано в обозревателе Service Fabric, можно двумя способами увидеть успешное выполнение MySetup.bat. Откройте командную строку PowerShell и введите следующую команду.
@@ -183,8 +184,8 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 
 ~~~
 <Policies>
-<RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
-<RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
+  <RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
+  <RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
 </Policies>
 ~~~
 
@@ -289,4 +290,4 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

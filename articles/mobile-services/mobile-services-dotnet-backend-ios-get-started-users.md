@@ -18,9 +18,14 @@
 
 # Добавление проверки подлинности в существующее приложение мобильных служб Azure
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-В этом учебнике вы добавляете проверку подлинности в проект быстрого запуска с помощью поддерживаемого поставщика удостоверений. Этот учебник создан на основе [краткого учебника по мобильным службам], который необходимо пройти в первую очередь.
+В этом учебнике вы добавляете проверку подлинности в проект быстрого запуска с помощью поддерживаемого поставщика удостоверений. Этот учебник создан на основе [учебника по быстрому запуску мобильных служб], который необходимо изучить в первую очередь.
 
 ##<a name="register"></a>Регистрация приложения для проверки подлинности и настройка мобильных служб
 
@@ -55,13 +60,11 @@
 
 <!-- URLs. -->
 [Авторизация пользователей мобильных служб на стороне службы]: mobile-services-dotnet-backend-service-side-authorization.md
-[краткого учебника по мобильным службам]: mobile-services-dotnet-backend-ios-get-started.md
+[учебника по быстрому запуску мобильных служб]: mobile-services-dotnet-backend-ios-get-started.md
 [Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
-[Authorize users with scripts]: ../mobile-services-dotnet-backend-ios-authorize-users-in-scripts.md
-
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

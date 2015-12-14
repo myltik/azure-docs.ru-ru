@@ -31,7 +31,7 @@
 Для создания виртуальных машин с поддержкой Docker см. раздел
 
 + [Использование расширения виртуальных машин Docker из интерфейса командной строки Azure (CLI Azure)]
-+ [Использование расширения для виртуальных машин Docker с порталом Azure]
++ [Использование расширения виртуальных машин Docker на классическом портале Azure]
 + [Быстрое начало работы с Docker в Azure Marketplace]
 
 Дополнительные сведения о расширении и способе его работы см. в разделе [Руководство пользователя по расширению Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md).
@@ -69,7 +69,7 @@ Docker и контейнеры Linux не являются [гипервизор
 Для создания виртуальных машин с поддержкой Docker см. раздел
 
 + [Использование расширения виртуальных машин Docker из интерфейса командной строки Azure (CLI Azure)]
-+ [Использование расширения для виртуальных машин Docker с порталом Azure]
++ [Использование расширения виртуальных машин Docker на классическом портале Azure]
 
 ## Расширения виртуальных машин для Linux и Windows
 [Расширение виртуальных машин Docker для Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) — это лишь одно из нескольких расширений виртуальных машин, которые обеспечивают особое поведение, а еще больше таких расширений находятся на стадии разработки. Например, некоторые возможности [расширения агента ВМ Linux](virtual-machines-linux-agent-user-guide.md) позволяют изменять виртуальную машину и управлять ей, включая компоненты обеспечения безопасности, ядро, сетевые компоненты и т. д. Например, расширение VMAccess позволяет сбросить пароль администратора или ключ SSH.
@@ -78,10 +78,10 @@ Docker и контейнеры Linux не являются [гипервизор
 
 <!--Anchors-->
 [Использование расширения виртуальных машин Docker из интерфейса командной строки Azure (CLI Azure)]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
-[Использование расширения для виртуальных машин Docker с порталом Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
+[Использование расширения виртуальных машин Docker на классическом портале Azure]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 [Быстрое начало работы с Docker в Azure Marketplace]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-ubuntu-quickstart/
 [Контейнеры Docker и Linux]: #Docker-and-Linux-Containers
 [Использование расширения виртуальных машин Docker в Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Расширения виртуальных машин для Linux и Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

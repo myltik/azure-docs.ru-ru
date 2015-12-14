@@ -71,4 +71,4 @@
 - [Защита приложений с помощью условного доступа](active-directory-conditional-access.md)
 - [Самостоятельное управление группами/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

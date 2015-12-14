@@ -70,7 +70,7 @@
 - 14000–14999.
 
 
-Щелкните [здесь](sql-database-develop-direct-route-ports-adonet-v12.md), чтобы узнать больше о портах для базы данных SQL V12. Эти порты необходимы для улучшения производительности базы данных SQL V12.
+Щелкните [здесь](sql-database-develop-direct-route-ports-adonet-v12.md), чтобы узнать больше о портах для базы данных SQL версии 12. Эти порты необходимы для улучшения производительности базы данных SQL V12.
 
 
 ## Улучшенная поддержка поставщиков облачных SaaS-решений
@@ -90,8 +90,8 @@
 
 
 - [безопасность на уровне строк](http://msdn.microsoft.com/library/dn765131.aspx) (RLS);
-- [динамическое маскирование данных](sql-database-dynamic-data-masking-get-started.md);
-- [автономные базы данных](http://msdn.microsoft.com/library/ff929188.aspx);
+- [динамическое маскирование данных;](sql-database-dynamic-data-masking-get-started.md)
+- [автономные базы данных;](http://msdn.microsoft.com/library/ff929188.aspx)
 - [роли приложений](http://msdn.microsoft.com/library/ms190998.aspx), управляемые с помощью инструкций GRANT, DENY, REVOKE;
 - [прозрачное шифрование данных](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) (TDE).
 - [Подключение к базе данных SQL с использованием проверки подлинности Azure Active Directory](sql-database-aad-authentication.md)
@@ -132,7 +132,7 @@
 Проще всего определить версию службы базы данных SQL, которая управляет вашей базой данных или логическим сервером, так:
 
 
-1. Войдите на [портал предварительной версии Azure](http://portal.azure.com/).
+1. Перейдите на [портал Azure](http://portal.azure.com/).
 2. Щелкните **Обзор**.
 3. Выберите **Серверы SQL Server**.
 4. Значок рядом с сервером или базой данных красноречиво укажет на версию службы:
@@ -161,4 +161,4 @@
 
 [Дополнительные условия использования для предварительных версий Microsoft Azure](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

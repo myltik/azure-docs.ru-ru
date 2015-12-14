@@ -16,12 +16,12 @@
  
 # Заметки о выпуске пакета SDK Application Insights для .NET
 
-[Пакет SDK Application Insights для .NET](app-insights-start-monitoring-app-health-usage.md) отправляет телеметрию о вашем работающем приложении службе [Application Insights](http://azure.microsoft.com/services/application-insights/), в которой вы можете проанализировать использование и производительность приложения.
+[Пакет SDK Application Insights для .NET](app-insights-asp-net.md) отправляет телеметрию о вашем работающем приложении службе [Application Insights](http://azure.microsoft.com/services/application-insights/), в которой вы можете проанализировать использование и производительность приложения.
 
 
 #### Установка пакета SDK в приложении
 
-См. статью [Приступая к работе со службой Application Insights для .NET](app-insights-start-monitoring-app-health-usage.md).
+См. статью [Приступая к работе со службой Application Insights для .NET](app-insights-asp-net.md).
 
 #### Обновление до последнего пакета SDK 
 
@@ -32,15 +32,20 @@
 * Сравните файл ApplicationInsights.config со старой копией. Большинство изменений, которые отобразятся, обусловлены тем, что одни модули были удалены, а другие теперь подлежат параметризации. Возобновите использование настроек, выполненных в старом файле.
 * Перестройте свое решение.
 
+
+## Версия 2.0.0-beta3
+
+- [Адаптивная выборка](app-insights-sampling.md)
+
 ## Версия 2.0.0-beta2
-- Добавлена поддержка для ITelemetryProcessor и возможность настройки с помощью кода или конфигурации. [Включает настраиваемую фильтрацию в пакете SDK](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-processors)
+- Добавлена поддержка для ITelemetryProcessor и возможность настройки с помощью кода или конфигурации. [Включает настраиваемую фильтрацию в пакете SDK](app-insights-api-telemetry-processors/#telemetry-processors)
 - Удалены инициализаторы контекста. Вместо них следует использовать [инициализаторы телеметрии](https://azure.microsoft.com/documentation/articles/app-insights-api-telemetry-processors/#telemetry-initializers).
 - Обновлена служба Application Insights для .NET Framework 4.6. 
 - Имена пользовательских событий теперь могут содержать до 512 символов.
 - Свойство ```OperationContext.Name``` переименовано в ```RootName```.
 - Свойство ```RequestTelemetry.Id``` удалено.
-- Свойства ```Id``` и ```Context.Operation.Id``` RequestTelemetry не будут инициализированы при создании нового RequestTelemetry.
-- ```RequestTelemetry.Name``` больше не инициализируется. Вместо него будет использоваться ```RequestTelemetry.Context.Operation.Name```.
+- Свойства ```Id``` и ```Context.Operation.Id``` RequestTelemetry не инициализируются при создании нового объекта RequestTelemetry.
+- Свойство ```RequestTelemetry.Name``` больше не инициализируется. Вместо него будет использоваться ```RequestTelemetry.Context.Operation.Name```.
 - При мониторинге запроса код ответа 401 является частью обычной проверки подлинности и приведет к успешному выполнению запроса.
 - Исправлена блокировка потока пользовательского интерфейса при инициализации InMemoryChannel (канал по умолчанию) из потока пользовательского интерфейса. Это устраняет проблемы с зависанием пользовательского интерфейса в приложениях WPF.
  
@@ -48,16 +53,16 @@
 - TrackDependency будет выдавать правильные данные JSON, если были указаны не все обязательные поля.
 - Избыточное свойство ```RequestTelemetry.ID``` теперь является просто прокси-объектом для ```RequestTelemetry.Operation.Id```.
 - Новый интерфейс ```ISupportSampling``` и его явная реализация для большинства типов элементов данных.
-- Свойство ```Count``` в DependencyTelemetry помечено как устаревшее. Вместо него используйте ```SamplingPercentage```.
-- Представлен новый ```CloudContext```, в который перемещены свойства ```RoleName``` и ```RoleInstance``` из ```DeviceContext```.
-- Новое свойство ```AuthenticatedUserId``` для ```UserContext```, позволяющее указать удостоверение прошедшего проверку подлинности пользователя.
-- Добавлен `Microsoft.ApplicationInsights.Web.AccountIdTelemetryInitializer`, `Microsoft.ApplicationInsights.Web.AuthenticatedUserIdTelemetryInitializer`, который инициализирует контекст прошедшего проверку подлинности пользователя согласно настройкам пакета SDK для JavaScript.
-- Добавлен `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor` и поддержка фиксированной частоты выборки в качестве его реализации.
-- Добавлен `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.TelemetryChannelBuilder`, который позволяет создавать `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` с набором `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor`.
+- Свойство ```Count``` в классе DependencyTelemetry помечено как устаревшее. Вместо него используйте ```SamplingPercentage```.
+- Представлен новый класс ```CloudContext```, в который перемещены свойства ```RoleName``` и ```RoleInstance``` из класса ```DeviceContext```.
+- Добавлено свойство ```AuthenticatedUserId``` для класса ```UserContext```, позволяющее указать удостоверение прошедшего проверку подлинности пользователя.
+- Добавлены классы `Microsoft.ApplicationInsights.Web.AccountIdTelemetryInitializer`и `Microsoft.ApplicationInsights.Web.AuthenticatedUserIdTelemetryInitializer`, которые инициализируют контекст прошедшего проверку подлинности пользователя согласно настройкам пакета SDK для JavaScript.
+- Добавлен класс `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor` и поддержка фиксированной частоты выборки в качестве его реализации.
+- Добавлен класс `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.TelemetryChannelBuilder`, который позволяет создавать канал `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` с набором объектов `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor`.
 
 ## Версия 1.2
 
-- Инициализаторы телеметрии, не имеющие зависимостей от библиотек ASP.NET, были перемещены из `Microsoft.ApplicationInsights.Web` в новый пакет NuGet зависимостей `Microsoft.ApplicationInsights.WindowsServer`.
+- Инициализаторы телеметрии, не имеющие зависимостей от библиотек ASP.NET, были перемещены из пакета `Microsoft.ApplicationInsights.Web` в новый пакет NuGet зависимостей `Microsoft.ApplicationInsights.WindowsServer`.
 - Библиотека `Microsoft.ApplicationInsights.Web.dll` переименована в `Microsoft.AI.Web.dll`.
 - Пакет NuGet `Microsoft.ApplicationInsights.Web.TelemetryChannel` переименован в `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`. Сборка `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` переименована в `Microsoft.AI.ServerTelemetryChannel.dll`. Класс `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` переименован в `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`.
 - Из всех пространств имен, которые являются частью пакета Web SDK, исключена часть `Extensibility`. Это касается всех инициализаторов телеметрии в файле ApplicationInsights.config и модуля `ApplicationInsightsWebTracking` в файле web.config.
@@ -77,10 +82,10 @@
 
 - Инициализаторы и модули телеметрии перемещены из отдельных вложенных пространств имен в корневое пространство имен `Microsoft.ApplicationInsights.Extensibility.Web`.
 - Из имен инициализаторов и модулей телеметрии удален префикс Web, так как он уже присутствует в имени пространства имен `Microsoft.ApplicationInsights.Extensibility.Web`.
-- `DeviceContextInitializer` перемещен из сборки `Microsoft.ApplicationInsights` в сборку `Microsoft.ApplicationInsights.Extensibility.Web` и преобразован в `ITelemetryInitializer`.
+- Класс `DeviceContextInitializer` перемещен из сборки `Microsoft.ApplicationInsights` в сборку `Microsoft.ApplicationInsights.Extensibility.Web` и преобразован в `ITelemetryInitializer`.
 - Имена пространств имен и сборок изменены с `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry` на `Microsoft.ApplicationInsights.Extensibility.DependencyCollector` для согласования с именем пакета NuGet.
-- `RemoteDependencyModule` переименован в `DependencyTrackingTelemetryModule`.
-- `CustomPerformanceCounterCollectionRequest` переименован в `PerformanceCounterCollectionRequest`.
+- Модуль `RemoteDependencyModule` переименован в `DependencyTrackingTelemetryModule`.
+- Класс `CustomPerformanceCounterCollectionRequest` переименован в `PerformanceCounterCollectionRequest`.
 
 ## Версия 0.17
 - Удалена зависимость EventSource NuGet для приложений Framework 4.5.
@@ -109,4 +114,4 @@
 
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

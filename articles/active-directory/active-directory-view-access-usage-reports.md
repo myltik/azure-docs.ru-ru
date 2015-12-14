@@ -13,10 +13,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/10/2015"
+	ms.date="11/30/2015"
 	ms.author="kenhoff;Justinha;curtand"/>
 
+
 # Просмотр отчетов о доступе и использовании
+
+## Статьи документации по созданию отчетов
+
+ - [API отчетов](active-directory-reporting-api-getting-started.md)
+ - [Аудит событий](active-directory-reporting-audit-events.md)
+ - [Сохранение](active-directory-reporting-retention.md)
+ - [Предварительный просмотр](active-directory-reporting-previews.md)
+ - [Поиск](active-directory-reporting-search.md)
+ - [Обратное заполнение](active-directory-reporting-backfill.md)
+ - [Задержки](active-directory-reporting-latencies.md)
+ - [Событие "Неизвестный субъект"](active-directory-reporting-unknown-actor.md)
 
 Вы можете использовать отчеты об использовании и получении доступа Azure Active Directory, чтобы получить информацию о целостности и безопасности каталога вашей организации. C помощью этой информации администратор каталога может более точно определить источники возможных угроз безопасности, что позволяет правильно спланировать их устранение.
 
@@ -56,7 +68,7 @@
 |	Действия по подготовке учетных записей |	Предоставляет журнал попыток подготовки учетных записей к работе с внешними приложениями. |
 |	Состояние смены пароля |	Предоставляет подробные сведения о состоянии автоматической смены пароля в приложениях SaaS. |
 |	Ошибки подготовки учетной записи |	Указывает последствия для доступа пользователей к внешним приложениям. |
-|	**Rights Management**
+|	**Управление правами**
 |	Использование RMS |	Предоставляет сводку по использованию службы Rights Management. |
 |	Самые активные пользователи RMS |	Указывает 1000 самых активных пользователей, обращающихся к файлам, защищенным RMS. |
 |	Использование устройства с RMS |	Содержит список устройств, используемых для доступа к файлам, защищенным RMS. |
@@ -96,7 +108,7 @@
 ## Отчеты об аномальных действиях
 <p>В отчетах об аномальных событиях при входе содержится информация о подозрительных событиях при входе на портал Azure, панель доступа Azure AD, Office 365, Sharepoint Online, Dynamics CRM Online и другие службы Microsoft Online Services.</p>
 <p>Все отчеты, за исключением отчета «Входы после нескольких неудачных попыток», также содержат сведения о подозрительных <i>федеративных</i> операциях входа в упомянутые выше службы независимо от поставщика федерации. </p>
-<p>Доступны следующие отчеты: </p><ul> <li>[Операции входа из неизвестных источников](active-directory-reporting-sign-ins-from-unknown-sources.md);</li> <li>[Операции входа после нескольких сбоев](active-directory-reporting-sign-ins-after-multiple-failures.md);</li> <li>[Операции входа из нескольких географических регионов](active-directory-reporting-sign-ins-from-multiple-geographies.md);</li> <li>[Операции входа с IP-адресов с подозрительными действиями](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md);</li> <li>[Нестандартные действия при входе](active-directory-reporting-irregular-sign-in-activity.md);</li> <li>[Операции входа с возможно инфицированных устройств](active-directory-reporting-sign-ins-from-possibly-infected-devices.md);</li> <li>[Пользователи с аномальными событиями при входе](active-directory-reporting-users-with-anomalous-sign-in-activity.md);</li> <li>Пользователи с утерянными учетными данными</li></ul>.
+<p>Доступны следующие отчеты: </p><ul> <li>[Операции входа из неизвестных источников](active-directory-reporting-sign-ins-from-unknown-sources.md).</li> <li>[Операции входа после нескольких сбоев](active-directory-reporting-sign-ins-after-multiple-failures.md).</li> <li>[Операции входа из нескольких географических регионов](active-directory-reporting-sign-ins-from-multiple-geographies.md).</li> <li>[Операции входа с IP-адресов с подозрительными действиями](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md).</li> <li>[Нестандартные действия при входе](active-directory-reporting-irregular-sign-in-activity.md).</li> <li>[Операции входа, возможно, с инфицированных устройств](active-directory-reporting-sign-ins-from-possibly-infected-devices.md).</li> <li>[Пользователи с аномальными событиями при входе](active-directory-reporting-users-with-anomalous-sign-in-activity.md).</li> <li>Пользователи с утерянными учетными данными</li></ul>
 
 
 
@@ -275,4 +287,4 @@
 - [Начало работы с Azure Active Directory Premium](active-directory-get-started-premium.md)
 - [Добавление фирменной символики компании на страницах входа и панели доступа](active-directory-add-company-branding.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

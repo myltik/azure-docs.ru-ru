@@ -31,7 +31,7 @@
 Чтобы выполнить действия, описанные в этой статье, необходимо следующее.
 
 - **Кластер Azure HDInsight (Hadoop в HDInsight) (на платформе Windows или Linux)**
-- **Рабочая станция с Azure PowerShell**. Обратитесь к разделу [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Рабочая станция с Azure PowerShell**. См. раздел [Установка Azure PowerShell 1.0 и более поздних версий](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
 ##Выполнение запросов Hive с помощью Azure PowerShell
 
@@ -184,4 +184,4 @@ Azure PowerShell предоставляет *командлеты*, позвол
 
 * [Использование MapReduce с Hadoop в HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

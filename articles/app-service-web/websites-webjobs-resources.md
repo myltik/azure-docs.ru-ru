@@ -54,7 +54,7 @@
 ##<a name="deploy"></a>Развертывание веб-заданий
 
 * [Развертывание веб-заданий Azure с помощью Visual Studio](websites-dotnet-deploy-webjobs.md)
-* [Как развернуть веб-задания с использованием портала управления Azure](web-sites-create-web-jobs.md)
+* [Как развернуть веб-задания с использованием портала Azure](web-sites-create-web-jobs.md)
 * [Включение предоставления веб-заданий Azure из командной строки или постоянно](http://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [Развертывание из Git приложения консоли .NET на Azure с помощью веб-заданий](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
 * [Развертывание веб-заданий F# в Azure](http://blogs.msdn.com/b/dave_crooks_dev_blog/archive/2015/02/18/deploying-f-web-job-to-azure.aspx)
@@ -66,7 +66,7 @@
 ##<a name="schedule"></a>Планирование веб-заданий
 
 * [Диалоговое окно "Добавление веб-заданий Azure"](websites-dotnet-deploy-webjobs.md#configure)
-* [Создание запланированного веб-задания на портале управления Azure](web-sites-create-web-jobs.md#CreateScheduled)
+* [Создание запланированного веб-задания на портале Azure](web-sites-create-web-jobs.md#CreateScheduled)
 * [Подключение задания планировщика к веб-заданию](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Планирование веб-заданий Azure с помощью выражений cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 
@@ -142,4 +142,4 @@
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

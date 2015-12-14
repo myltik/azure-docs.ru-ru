@@ -50,7 +50,7 @@
 1. Чтобы создать виртуальную машину Azure с Windows Server 2012 R2 Datacenter, следуйте [этим](virtual-machines-windows-tutorial-classic-portal.md) указаниям.
 
 1. Дайте Azure команду для перенаправления трафика порта 80 из Интернета в порт 80 на виртуальной машине:
- - Перейдите к только что созданной виртуальной машине на портале Azure и откройте вкладку **КОНЕЧНЫЕ ТОЧКИ**.
+ - Перейдите к только что созданной виртуальной машине на классическом портале Azure и откройте вкладку **КОНЕЧНЫЕ ТОЧКИ**.
  - В нижней части страницы нажмите кнопку **ДОБАВИТЬ**. ![добавление конечной точки](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
 
  - Откройте **ОБЩИЙ ПОРТ 80** протокола **TCP** как **ЧАСТНЫЙ ПОРТ 80**. ![][port80]
@@ -184,4 +184,4 @@
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

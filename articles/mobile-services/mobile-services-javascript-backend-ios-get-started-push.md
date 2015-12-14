@@ -22,7 +22,7 @@
 
 В этом разделе показано, как добавить push-уведомления в [проект быстрого запуска](mobile-services-ios-get-started.md), чтобы ваша мобильная служба отправляла push-уведомление при каждой вставке записи. Сначала необходимо выполнить действия, описанные в статье [Приступая к работе с мобильными службами].
 
-> [AZURE.NOTE]\[Симулятор iOS не поддерживает push-уведомления](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), поэтому необходимо использовать физическое устройство под управлением iOS. Вам также необходимо оплатить подписку для [участия в программе разработки решений для Apple](https://developer.apple.com/programs/ios/).
+> [AZURE.NOTE][Симулятор iOS не поддерживает push-уведомления](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), поэтому необходимо использовать физическое устройство под управлением iOS. Вам также необходимо оплатить подписку для [участия в программе разработки решений для Apple](https://developer.apple.com/programs/ios/).
 
 [AZURE.INCLUDE [Включение push-уведомлений Apple](../../includes/enable-apple-push-notifications.md)]
 
@@ -33,9 +33,9 @@
 
 ## <a id="update-scripts"></a>Обновление сценария серверной части для отправки push-уведомлений
 
-* На портале управления откройте вкладку **Данные**, а затем щелкните таблицу **TodoItem**. В **TodoItem** перейдите на вкладку **Сценарий** и выберите **Вставить**. При этом отображается функция, вызываемая при выполнении вставки в таблице **TodoItem**.
+* На [классическом портале Azure] щелкните вкладку **Данные**, а затем щелкните **TodoItem**. В **TodoItem** перейдите на вкладку **Сценарий** и выберите **Вставить**. При этом отображается функция, вызываемая при выполнении вставки в таблице **TodoItem**.
 
-* Замените функцию вставки приведенным ниже кодом и нажмите кнопку **Сохранить**. При этом регистрируется новый скрипт вставки, в котором используется [объект apns] для отправки push-уведомления (вставленный текст) на устройство, указанное в запросе вставки. Этот сценарий задерживает отправку уведомления, чтобы вы успели закрыть приложение для получения push-уведомления.
+* Замените функцию вставки следующим кодом и нажмите кнопку **Сохранить**. При этом регистрируется новый скрипт вставки, в котором используется [объект apns] для отправки push-уведомления (вставленный текст) на устройство, указанное в запросе вставки. Этот сценарий задерживает отправку уведомления, чтобы вы успели закрыть приложение для получения push-уведомления.
 
 
 ```
@@ -106,7 +106,7 @@
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Приступая к работе с мобильными службами]: mobile-services-ios-get-started.md
 [Get started with authentication]: mobile-services-ios-get-started-users.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[классическом портале Azure]: https://manage.windowsazure.com/
 [объект apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
@@ -117,4 +117,4 @@
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

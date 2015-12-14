@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Шаблон ARM высокодоступных доменных служб Active Directory | Microsoft Azure"
-	description="Информация о том, как легко развернуть два сервера в качестве контроллеров домена доменных служб Active Directory с помощью шаблона диспетчера ресурсов и портала предварительной версии Azure, Azure PowerShell или Azure CLI."
+	description="Информация о том, как легко развернуть два сервера в качестве контроллеров домена доменных служб Active Directory с помощью шаблона диспетчера ресурсов и портала Azure, Azure PowerShell или Azure CLI."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -26,11 +26,11 @@
 
 ![](./media/virtual-machines-workload-template-ad-domain/two-server-ad.png)
 
-Шаблон можно запустить с помощью портала предварительной версии Azure, Azure PowerShell или интерфейса командной строки Azure.
+Шаблон можно запустить с помощью портала Azure, Azure PowerShell или интерфейса командной строки Azure.
 
-## Портал предварительной версии Azure
+## Портал Azure
 
-Чтобы развернуть эту рабочую нагрузку с помощью шаблона диспетчера ресурсов и портала предварительной версии Azure, щелкните [здесь](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json).
+Чтобы развернуть эту рабочую нагрузку с помощью шаблона диспетчера ресурсов и портала Azure, щелкните [здесь](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json).
 
 ![](./media/virtual-machines-workload-template-ad-domain/azure-portal-template.png)
 
@@ -108,4 +108,4 @@
 
 [Установка и настройка Azure PowerShell](../install-configure-powershell.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

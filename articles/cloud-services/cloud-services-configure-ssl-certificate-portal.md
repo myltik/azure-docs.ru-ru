@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Настройка SSL для облачной службы (портал предварительной версии) | Microsoft Azure" 
-	description="Узнайте, как определить конечную точку HTTPS для веб-роли и как передать SSL-сертификат, чтобы обеспечить безопасность приложения. В этих примерах используется портал предварительной версии Azure." 
+	pageTitle="Настройка SSL для облачной службы | Microsoft Azure" 
+	description="Узнайте, как определить конечную точку HTTPS для веб-роли и как передать SSL-сертификат, чтобы обеспечить безопасность приложения. В этих примерах используется портал Azure." 
 	services="cloud-services" 
 	documentationCenter=".net" 
 	authors="Thraka" 
@@ -22,8 +22,8 @@
 # Настройка SSL для приложения в Azure
 
 > [AZURE.SELECTOR]
-- [Azure Portal](cloud-services-configure-ssl-certificate.md)
-- [Azure Preview Portal](cloud-services-configure-ssl-certificate-portal.md)
+- [Azure classic portal](cloud-services-configure-ssl-certificate.md)
+- [Azure portal](cloud-services-configure-ssl-certificate-portal.md)
 
 SSL-шифрование — это наиболее распространенный метод обеспечения безопасности данных, отправленных через Интернет. В этой теме, посвященной общим задачам, обсуждается, как определить конечную точку HTTPS для веб-роли и как передать SSL-сертификат, чтобы обеспечить безопасность приложения.
 
@@ -153,13 +153,11 @@ SSL-шифрование — это наиболее распространен
       
     >Создайте сертификат с общим именем (CN), соответствующим полученному по GUID URL-адресу (например, **328187776e774ceda8fc57609d404462.cloudapp.net**), в портале управления добавьте сертификат в промежуточную облачную службу, затем добавьте сведения о сертификате в файлы CSDEF и CSCFG, повторно создайте пакет приложения и обновите промежуточное развертывание для использования нового пакета и файла CSCFG.
 
-[Azure Portal]: http://portal.azure.com/
-
 ## Дальнейшие действия
 
 * [Общая настройка облачной службы](cloud-services-how-to-configure-portal.md).
 * Узнайте, как [развернуть облачную службу](cloud-services-how-to-create-deploy-portal.md).
-* Настройте [пользовательское доменное имя](cloud-services-custom-domain-name-portal.md).
+* [Настройка пользовательского имени домена](cloud-services-custom-domain-name-portal.md)
 * [Управляйте облачной службой](cloud-services-how-to-manage-portal.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

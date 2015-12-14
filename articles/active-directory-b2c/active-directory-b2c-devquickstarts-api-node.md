@@ -21,11 +21,10 @@
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
 
-> [AZURE.NOTE]
-	В этой статье не рассматривается реализация входа, регистрации и управления профилями с помощью Azure AD B2C. Она посвящена вызову веб-API после того, как пользователь прошел проверку подлинности.
-Прочитайте [руководство по началу работы с веб-приложениями .NET](active-directory-b2c-devquickstarts-web-dotnet.md), чтобы изучить основы Azure AD B2C.
+> [AZURE.NOTE]В этой статье не рассматривается реализация входа, регистрации и управления профилями с помощью Azure AD B2C. Она посвящена вызову веб-API после того, как пользователь прошел проверку подлинности. Прочитайте [руководство по началу работы с веб-приложениями .NET](active-directory-b2c-devquickstarts-web-dotnet.md), чтобы изучить основы Azure AD B2C.
 
-> [AZURE.NOTE]	Этот пример рассчитан на подключение к [примеру приложения iOS B2C.](active-directory-b2c-devquickstarts-ios.md) Сначала изучите данное руководство, а затем переходите к этому примеру.
+
+> [AZURE.NOTE]Этот пример рассчитан на подключение к [примеру приложения iOS B2C.](active-directory-b2c-devquickstarts-ios.md) Сначала изучите данное руководство, а затем переходите к этому примеру.
 
 **Passport** — промежуточный слой проверки подлинности для Node.js. Он имеет очень гибкую и модульную структуру, которая позволяет сравнительно незаметно размещать данный слой в любом приложении на основе Express или в веб-приложении Resitify. Полный набор стратегий поддерживает процесс проверки подлинности с помощью имени пользователя и пароля, Facebook, Twitter и проч. Мы разработали стратегию для Microsoft Azure Active Directory. Мы установим этот модуль, а затем добавим подключаемый модуль Microsoft Azure Active Directory `passport-azure-ad`.
 
@@ -37,20 +36,18 @@
 
 Код для этого учебника размещен на портале [GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs). Для понимания процесса можно [скачать основу приложения как ZIP-файл](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/skeleton.zip) или клонировать ее:
 
-```
-git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git
-```
+```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
 
 Готовое приложение также приводится в конце этого руководства.
 
-> [AZURE.WARNING] 	Для предварительной версии B2C следует использовать тот же идентификатор клиента или идентификатор приложения и политики как для сервера задач веб-API, так и для клиента, который к нему подключается. Это верно для учебников по iOS и Android. Если ранее вы создали приложение в любом из этих руководств, используйте эти значения и не создавайте новые в дальнейшем.
+> [AZURE.WARNING]Для предварительной версии B2C следует использовать тот же идентификатор клиента или идентификатор приложения и политики как для сервера задач веб-API, так и для клиента, который к нему подключается. Это верно для учебников по iOS и Android. Если ранее вы создали приложение в любом из этих руководств, используйте эти значения и не создавайте новые в дальнейшем.
 
 
-## 1. Создание каталога Azure AD B2C
+## 1\. Создание каталога Azure AD B2C
 
 Перед использованием Azure AD B2C необходимо создать каталог или клиент. Каталог — это контейнер для всех пользователей, приложений, групп и т. д. Если каталог B2C еще не создан, [создайте его](active-directory-b2c-get-started.md), прежде чем продолжить.
 
-## 2. Создание приложения
+## 2\. Создание приложения
 
 Теперь необходимо создать приложение в каталоге B2C. Оно будет передавать в Azure AD сведения, необходимые для безопасного взаимодействия с вашим приложением. В этом случае как клиентское приложение, так и веб-API будут представлены одним **идентификатором приложения**, так как они включают в себя одно приложение логики. Создайте приложение, выполнив [эти указания](active-directory-b2c-app-registration.md). Не забудьте
 
@@ -61,7 +58,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nod
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## 3. Создание политик
+## 3\. Создание политик
 
 В Azure AD B2C всякое взаимодействие с пользователем определяется [**политикой**](active-directory-b2c-reference-policies.md). Это приложение содержит три вида идентификации: регистрация, вход и вход с помощью учетной записи Facebook. Вам потребуется создать по одной политике каждого типа, как описано в [справочной статье о политиках](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). При создании трех политик обязательно сделайте следующее.
 
@@ -259,6 +256,8 @@ passport-azure-ad@1.0.0 node_modules/passport-azure-ad
 /**
 * Module dependencies.
 */
+var fs = require('fs');
+var path = require('path');
 var util = require('util');
 var assert = require('assert-plus');
 var mongoose = require('mongoose/');
@@ -266,7 +265,7 @@ var bunyan = require('bunyan');
 var restify = require('restify');
 var config = require('./config');
 var passport = require('passport');
-var OIDCBearerStrategy = require('passport-azure-ad').BearerStategy;
+var OIDCBearerStrategy = require('passport-azure-ad').BearerStrategy;
 ```
 
 Сохраните файл. Мы вернемся к нему позже.
@@ -287,7 +286,7 @@ var OIDCBearerStrategy = require('passport-azure-ad').BearerStategy;
 exports.creds = {
 mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
 audience: '<your audience URI>',
-identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-configuration' // For using Microsoft you should never need to change this.
+identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-configuration', // For using Microsoft you should never need to change this.
 tenantName:'<tenant name>',
 policyName:'b2c_1_<sign in policy name>',
 };
@@ -709,7 +708,7 @@ Date: Tue, 14 Jul 2015 05:43:38 GMT
 
 Затем можно добавить задачу следующим образом:
 
-`$ curl -isS -X POST http://127.0.0.1:8888/tasks/brandon/Hello`
+`$ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello`
 
 Ответ должен быть следующим:
 
@@ -845,7 +844,7 @@ next();
 });
 ```
 
-## Шаг 18. Повторный запуск приложения сервера для проверки отклонения
+## Шаг 20. Повторный запуск серверного приложения для проверки отклонения
 
 Снова используем `curl`, чтобы определить, если у нас сейчас защита OAuth2 применительно к нашим конечным точкам. Мы это сделаем до запуска любого клиентского пакета SDK для этой конечной точки. Возвращаемые заголовки должны содержать достаточные сведения, чтобы мы поняли, что двигаемся в правильном направлении.
 
@@ -881,9 +880,7 @@ Transfer-Encoding: chunked
 
 Готовый пример (без ваших значений конфигурации) [можно скачать в виде ZIP-файла здесь](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/complete.zip) или клонировать с портала GitHub.
 
-```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git
-```
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
 
 
 ## Дальнейшие действия
@@ -892,4 +889,4 @@ git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nod
 
 [Подключение к веб API с помощью iOS с B2C >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

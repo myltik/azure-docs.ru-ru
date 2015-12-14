@@ -14,13 +14,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/06/2015"
+   ms.date="11/30/2015"
    ms.author="cherylmc"/>
 
 # Настройка подключения между виртуальными сетями, входящими в одну и ту же подписку, с помощью диспетчера ресурсов Azure и PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
+- [Azure Classic Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 Данная статья поможет пошагово выполнить настройку с помощью модели развертывания диспетчера ресурсов. Вы можете использовать расположенные выше вкладки, чтобы выбрать статьи о моделях и средствах развертывания. В настоящее время решения для взаимного подключения виртуальных сетей, созданных по модели развертывания диспетчера ресурсов и не входящих в одну и ту же подписку, не существует. Мы решаем эту задачу и планируем разработать инструкции к концу года. Новые инструкции будут добавлены в эту статью. Приведенные ниже инструкции предназначены для виртуальных сетей, которые входят в одну и ту же подписку.
@@ -76,17 +76,13 @@
 
 - Трафик между виртуальными сетями проходит через магистральную сеть Azure.
 
-## Подготовка
+## Перед началом работы
 
 Перед началом работы убедитесь, что у вас есть следующие компоненты.
 
 - Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрироваться в бесплатной пробной версии](http://azure.microsoft.com/pricing/free-trial/).
 
-- Командлеты Azure PowerShell 0.9.8 Вы можете загрузить эту версию в разделе Windows PowerShell на [странице загрузки](http://azure.microsoft.com/downloads/), а затем установить. Данная статья написана для версии 0.9.8, хотя эти шаги (с небольшими изменениями в командлетах) можно использовать и для предварительной версии PowerShell 1.0.
-
-**Использование этих шагов с предварительной версией Azure PowerShell 1.0**
-
-	[AZURE.INCLUDE [powershell-preview-inline-include](../../includes/powershell-preview-inline-include.md)] 
+- Командлеты Azure PowerShell (начиная с версии 1.0). Вы можете скачать эту версию в разделе Windows PowerShell на [странице скачивания](http://azure.microsoft.com/downloads/), а затем установить.
 
 
 ## 1\. Планирование диапазонов IP-адресов
@@ -119,17 +115,20 @@
 
 ## 2\. Подключение к подписке 
 
+Для работы с командлетами диспетчера ресурсов необходимо перейти в режим PowerShell. Дополнительную информацию см. в разделе [Использование Windows PowerShell с диспетчером ресурсов](../powershell-azure-resource-manager.md).
+
 Откройте консоль PowerShell и подключитесь к своей учетной записи. Для подключения используйте следующий пример.
 
-		Add-AzureAccount
+		    Login-AzureRmAccount
 
-Если вы используете несколько подписок, используйте командлет *Select-AzureSubscription*, чтобы подключиться к нужной подписке.
+Просмотрите подписки учетной записи.
 
-		Select-AzureSubscription "yoursubscription"
+		    Get-AzureRmSubscription 
 
-Затем переключитесь в режим диспетчера ресурсов Azure.
-		
-		Switch-AzureMode -Name AzureResourceManager
+Укажите подписку, которую нужно использовать.
+
+		    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+
 
 ## 3\. Создать виртуальную сеть
 
@@ -138,13 +137,13 @@
 
 Сначала создайте группу ресурсов.
 
-			New-AzureResourceGroup -Name testrg1 -Location 'West US'
+			New-AzureRmResourceGroup -Name testrg1 -Location 'West US'
 
 Затем создайте виртуальную сеть. В следующем примере создается виртуальная сеть с именем *VNet1* и две подсети с именами *GatewaySubnet* и *Subnet1*. Важно, чтобы одна из подсетей имела имя *GatewaySubnet*. Если вы используете другое имя, подключение не будет настроено. В приведенном ниже примере используется подсеть шлюза /28. При этом для подсети шлюза можно выбрать сеть меньшего размера до /29. Обратите внимание, что для некоторых функций (такие как существующие одновременно соединения ExpressRoute и соединения типа "сеть — сеть") требуется подсеть большего размера /27, поэтому может потребоваться создать собственную подсеть шлюза для размещения дополнительных функций, которые могут потребоваться в будущем.
 
- 		$subnet = New-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.0.0/28
-		$subnet1 = New-AzureVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.1.1.0/28'
-		New-AzureVirtualNetwork -Name VNet1 -ResourceGroupName testrg1 -Location 'West US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet, $subnet1
+ 		$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.0.0/28
+		$subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.1.1.0/28'
+		New-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName testrg1 -Location 'West US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet, $subnet1
 
 ## 4\. Запрос общедоступного IP-адреса
 
@@ -154,7 +153,7 @@
 Используйте следующий пример. Для этого адреса нужно использовать метод динамического распределения (Dynamic).
 
 
-		$gwpip= New-AzurePublicIpAddress -Name gwpip1 -ResourceGroupName testrg1 -Location 'West US' -AllocationMethod Dynamic
+		$gwpip= New-AzureRmPublicIpAddress -Name gwpip1 -ResourceGroupName testrg1 -Location 'West US' -AllocationMethod Dynamic
 
 ## 5\. Создание конфигурации шлюза
 
@@ -162,16 +161,16 @@
 Конфигурация шлюза определяет используемые подсеть и общедоступный IP-адрес. Используйте следующий пример, чтобы создать конфигурацию шлюза.
 
 
-		$vnet = Get-AzureVirtualNetwork -Name VNet1 -ResourceGroupName testrg1
-		$subnet = Get-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-		$gwipconfig = New-AzureVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
+		$vnet = Get-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName testrg1
+		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+		$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
 
 ## 6\. Создание шлюза
 
 
 На этом шаге вы создадите шлюз для своей виртуальной сети. Для подключений типа VNet-to-VNet необходимо использовать тип VPN RouteBased. Создание шлюза может занять некоторое время, поэтому проявите терпение.
 
-		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
 ## 7\. Создание сети VNet2
 
@@ -186,31 +185,31 @@
 
 **От сети VNet1 к сети VNet2**
     
-    $vnetgw1 = Get-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1
-    $vnetgw2 = Get-AzureVirtualNetworkGateway -Name vnetgw2 -ResourceGroupName testrg2
+    $vnetgw1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1
+    $vnetgw2 = Get-AzureRmVirtualNetworkGateway -Name vnetgw2 -ResourceGroupName testrg2
     
-    New-AzureVirtualNetworkGatewayConnection -Name conn1 -ResourceGroupName testrg1 -VirtualNetworkGateway1 $vnetgw1 -VirtualNetworkGateway2 $vnetgw2 -Location 'West US' -ConnectionType Vnet2Vnet -SharedKey 'abc123'
+    New-AzureRmVirtualNetworkGatewayConnection -Name conn1 -ResourceGroupName testrg1 -VirtualNetworkGateway1 $vnetgw1 -VirtualNetworkGateway2 $vnetgw2 -Location 'West US' -ConnectionType Vnet2Vnet -SharedKey 'abc123'
 
 
 **От сети VNet2 к сети VNet1**
     
-    $vnetgw1 = Get-AzureVirtualNetworkGateway -Name vnetgw2 -ResourceGroupName testrg2
-    $vnetgw2 = Get-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1
+    $vnetgw1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw2 -ResourceGroupName testrg2
+    $vnetgw2 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1
     
-    New-AzureVirtualNetworkGatewayConnection -Name conn2 -ResourceGroupName testrg2 -VirtualNetworkGateway1 $vnetgw1 -VirtualNetworkGateway2 $vnetgw2 -Location 'Japan East' -ConnectionType Vnet2Vnet -SharedKey 'abc123'
+    New-AzureRmVirtualNetworkGatewayConnection -Name conn2 -ResourceGroupName testrg2 -VirtualNetworkGateway1 $vnetgw1 -VirtualNetworkGateway2 $vnetgw2 -Location 'Japan East' -ConnectionType Vnet2Vnet -SharedKey 'abc123'
     
 
 Подключение должно установиться через несколько минут. Обратите внимание, что на данный момент шлюзы и подключения, создаваемые с помощью диспетчера ресурсов Azure, не отображаются на портале предварительной версии.
 
 ## Проверка подключений
 
-Сейчас VPN-подключения, созданные с помощью диспетчера ресурсов, не отображаются на портале предварительной версии. Чтобы проверить успешность подключения, используйте команду *Get-AzureVirtualNetworkGatewayConnection –Debug*. Позднее мы предоставим отдельный командлет для этого, а также возможность просматривать подключения на портале предварительной версии.
+Сейчас VPN-подключения, созданные с помощью диспетчера ресурсов, не отображаются на портале предварительной версии. Чтобы проверить успешность подключения, используйте команду *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. Позднее мы предоставим отдельный командлет для этого, а также возможность просматривать подключения на портале предварительной версии.
 
-Можно использовать следующий пример командлета. Обязательно измените значения в соответствии с подключением, которое требуется проверить. При появлении запроса выберите ответ *A*, то есть "Все".
+Можно использовать следующий пример командлета. Обязательно измените значения в соответствии с подключением, которое требуется проверить. При появлении запроса выберите ответ *A*, то есть «All» (Все).
 
-		Get-AzureVirtualNetworkGatewayConnection -Name vnet2connection -ResourceGroupName vnet2vnetrg -Debug 
+		Get-AzureRmVirtualNetworkGatewayConnection -Name vnet2connection -ResourceGroupName vnet2vnetrg -Debug 
 
- После завершения работы командлета просмотрите результаты, которые он выдал. В следующем примере показано, что подключение установлено (состояние *Connected*), а также указан объем полученных и отправленных данных.
+ После завершения работы командлета просмотрите результаты, которые он выдал. В следующем примере показано, что подключение установлено (состояние *Connected*), а также указан объем полученных и отправленных данных в байтах.
 
 	Body:
 	{
@@ -247,21 +246,17 @@
 Если требуется добавить подсети шлюза в собственные виртуальные сети, воспользуйтесь образцом ниже, заменив значения на свои. Обязательно присвойте подсети шлюза имя "GatewaySubnet". Если вы используете другое имя, VPN-подключение не будет работать должным образом.
 
 	
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName testrg -Name testvnet
-		Add-AzureVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
-		Set-AzureVirtualNetwork -VirtualNetwork $vnet
+		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
+		Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
+		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 Проверив правильность настройки подсетей шлюзов, перейдите к разделу **Шаг 4. Запрос общедоступного IP-адреса** и следуйте указаниям.
 
 
 ## Дальнейшие действия
 
-В виртуальные сети можно добавлять виртуальные машины. [Создайте виртуальную машину](../virtual-machines/virtual-machines-windows-tutorial.md).
+В виртуальные сети можно добавлять виртуальные машины. [Создание виртуальной машины](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-Дополнительные сведения о VPN-шлюзах см. в статье [VPN-шлюз: вопросы и ответы](vpn-gateway-vpn-faq.md).
+Дополнительные сведения о виртуальных сетях см. в статье [Обзор виртуальной сети](../virtual-network/virtual-networks-overview.md).
 
-Сведения об API REST см. в [справочнике по API REST шлюза сети Azure](https://msdn.microsoft.com/library/azure/mt163859.aspx).
-
-Дополнительные сведения о виртуальных сетях см. в статье [Общие сведения о виртуальных сетях](../virtual-network/virtual-networks-overview.md).
-
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

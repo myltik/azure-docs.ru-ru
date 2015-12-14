@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="11/30/2015"
 	ms.author="wesmc"/>
 
 # Автономная синхронизация данных в мобильных приложениях Azure
@@ -126,4 +126,4 @@ The sync table uses the [System Properties](https://msdn.microsoft.com/library/a
 [Xamarin Android: включение автономной синхронизации]: ../app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Windows 8.1: включение автономной синхронизации]: ../app-service-mobile-windows-store-dotnet-get-started-offline-data.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

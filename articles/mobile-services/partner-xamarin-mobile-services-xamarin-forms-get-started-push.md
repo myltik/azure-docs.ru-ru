@@ -17,13 +17,18 @@
 	ms.author="wesmc"/>
 
 # Добавление push-уведомлений в приложение Xamarin.Forms
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 ##Обзор
 
 В этом учебнике показано, как использовать мобильные службы Azure для отправки push-уведомлений в iOS, Android и приложение Windows Phone вашего решения Xamarin.Forms. Начните с создания мобильной службы. Затем загрузите начальный образец, зарегистрируйтесь в соответствующих службах push-уведомлений и добавьте код в решение для получения уведомлений от этих служб.
 
-После прохождения этого учебника мобильная служба будет присылать вам push-уведомление каждый раз при добавлении пользователем задачи в одном из приложений. Вы можете найти готовый образец здесь: [Готовый образец push-уведомления Azure для приложения Xamarin.Forms ].
+После прохождения этого учебника мобильная служба будет присылать вам push-уведомление каждый раз при добавлении пользователем задачи в одном из приложений. Вы можете найти готовый пример здесь: [Готовый пример push-уведомления Azure для приложения Xamarin.Forms].
 
 Для работы с данным учебником требуется следующее:
 
@@ -49,7 +54,7 @@
 
 Чтобы иметь возможность сохранять данные приложения в новой мобильной службе, необходимо сначала создать новую таблицу.
 
-1. В портале управления нажмите **Мобильные службы**, затем нажмите только что созданную мобильную службу.
+1. На классическом портале Azure щелкните **Мобильные службы** и выберите только что созданную мобильную службу.
 
 2. Нажмите вкладку **Данные**, а затем нажмите **+Создать**.
 
@@ -75,12 +80,12 @@
 
 Теперь вы готовы использовать новую мобильную службу как хранилище данных для приложения.
 
-## <a name="download-starter-sample"></a>Загрузка и настройка начального образца
+## <a name="download-starter-sample"></a>Скачивание и настройка начального примера
 Push-уведомления будут добавлены в существующий образец.
-  
-1. Скачайте образец [Начальный образец push-уведомления Azure для приложения Xamarin.Forms].
 
-2. На портале управления щелкните **Мобильные службы**, а затем выберите мобильную службу. Откройте вкладку **Панель мониторинга** и запишите значение параметра **URL-адрес сайта**. Затем щелкните **Управление ключами** и запишите значение параметра **Ключ приложения**. Эти значения потребуются при обращении к мобильной службе из кода приложения.
+1. Скачайте пример [Начальный пример push-уведомления Azure для приложения Xamarin.Forms].
+
+2. Войдите на [классический портал Azure], выберите пункт **Мобильные службы**, а затем щелкните свою мобильную службу. Откройте вкладку **Панель мониторинга** и запишите значение параметра **URL-адрес сайта**. Затем щелкните **Управление ключами** и запишите значение параметра **Ключ приложения**. Эти значения потребуются при обращении к мобильной службе из кода приложения.
 
 3. В проекте **ToDoAzure(Portable)** решения откройте файл **Constants.cs**, замените `ApplicationURL` и `ApplicationKey` URL-адресом сайта и ключом приложения, полученными на предыдущем этапе.
 
@@ -214,7 +219,7 @@ APNS использует сертификаты для аутентификац
 
     Запишите имя файла и расположение экспортируемого сертификата.
 
-2. Выполните вход на [портал управления Azure], щелкните элемент **Мобильные службы**, а затем щелкните свое приложение.
+2. Войдите на [классический портал Azure], щелкните элемент **Мобильные службы**, а затем щелкните свое приложение.
 
     ![][18]
 
@@ -264,14 +269,14 @@ APNS использует сертификаты для аутентификац
             global::Xamarin.Forms.Forms.Init();
             instance = this;
             CurrentPlatform.Init();
-            
+
             todoItemManager = new ToDoItemManager();
             App.SetTodoItemManager(todoItemManager);
 
 
             UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
             UIApplication.SharedApplication.RegisterForRemoteNotifications();
-            
+
             LoadApplication(new App());
             return base.FinishedLaunching(app, options);
         }
@@ -289,7 +294,7 @@ APNS использует сертификаты для аутентификац
 
             // Register for push with Mobile Services
             IEnumerable<string> tag = new List<string>() { "uniqueTag" };
-            
+
             const string template = "{"aps":{"alert":"$(message)"}}";
 
             var expiryDate = DateTime.Now.AddDays(90).ToString
@@ -317,9 +322,9 @@ APNS использует сертификаты для аутентификац
 
 Ваше приложение теперь обновлено для поддержки push-уведомлений.
 
-### <a name="update-scripts"></a>Обновление зарегистрированных скриптов вставки на портале управления
+### <a name="update-scripts"></a>Обновление зарегистрированных сценариев вставки на классическом портале Azure
 
-1. На портале управления щелкните вкладку **Данные**, а затем щелкните таблицу **TodoItem**.
+1. На классическом портале Azure щелкните вкладку **Данные**, а затем щелкните таблицу **TodoItem**.
 
     ![][21]
 
@@ -334,26 +339,26 @@ APNS использует сертификаты для аутентификац
           function insert(item, user, request) {
           // Execute the request and send notifications.
              request.execute({
-             success: function() {                      
+             success: function() {
               // Create a template-based payload.
-              var payload = '{ "message" : "New item added: ' + item.text + '" }';            
+              var payload = '{ "message" : "New item added: ' + item.text + '" }';
 
               // Write the default response and send a notification
-              // to all platforms.            
-              push.send(null, payload, {               
+              // to all platforms.
+              push.send(null, payload, {
                   success: function(pushResponse){
                   console.log("Sent push:", pushResponse);
                   // Send the default response.
                   request.respond();
-                  },              
+                  },
                   error: function (pushResponse) {
                       console.log("Error Sending push:", pushResponse);
                        // Send the an error response.
                       request.respond(500, { error: pushResponse });
-                      }           
-               });                 
+                      }
+               });
               }
-           });   
+           });
           }
 
     При этом регистрируется новый скрипт вставки, который отправляет push-уведомления (вставленный текст) на устройство, указанное в запросе вставки.
@@ -366,7 +371,7 @@ APNS использует сертификаты для аутентификац
 
    >[AZURE.NOTE]Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
 
-2. В приложении нажмите кнопку **Добавить**, добавьте название задачи и нажмите кнопку **Сохранить**. 
+2. В приложении нажмите кнопку **Добавить**, добавьте название задачи и нажмите кнопку **Сохранить**.
 
 3. Убедитесь, что уведомление получено, а затем нажмите кнопку **ОК**, чтобы закрыть его.
 
@@ -387,9 +392,9 @@ APNS использует сертификаты для аутентификац
 
 ###<a id="update-scripts"></a>Обновление зарегистрированного скрипта вставки для отправки уведомлений
 
->[AZURE.NOTE]Ниже показано, как обновить скрипт, зарегистрированный для операции вставки в таблице TodoItem на портале управления Azure. Вы также можете вызвать и изменить этот скрипт мобильной службы непосредственно в Visual Studio на узле Azure в обозревателе сервера.
+>[AZURE.NOTE]Ниже показано, как на классическом портале Azure обновить сценарий, зарегистрированный для операции вставки в таблице TodoItem. Вы также можете вызвать и изменить этот скрипт мобильной службы непосредственно в Visual Studio на узле Azure в обозревателе сервера.
 
-На портале управления щелкните вкладку **Данные**, а затем щелкните таблицу **TodoItem**.
+На [классическом портале Azure] щелкните вкладку **Данные**, а затем щелкните таблицу **TodoItem**.
 
    ![][21]
 
@@ -404,26 +409,26 @@ APNS использует сертификаты для аутентификац
           function insert(item, user, request) {
           // Execute the request and send notifications.
              request.execute({
-             success: function() {                      
+             success: function() {
               // Create a template-based payload.
-              var payload = '{ "message" : "New item added: ' + item.text + '" }';            
+              var payload = '{ "message" : "New item added: ' + item.text + '" }';
 
               // Write the default response and send a notification
-              // to all platforms.            
-              push.send(null, payload, {               
+              // to all platforms.
+              push.send(null, payload, {
                   success: function(pushResponse){
                   console.log("Sent push:", pushResponse);
                   // Send the default response.
                   request.respond();
-                  },              
+                  },
                   error: function (pushResponse) {
                       console.log("Error Sending push:", pushResponse);
                        // Send the an error response.
                       request.respond(500, { error: pushResponse });
-                      }           
-               });                 
+                      }
+               });
               }
-           });   
+           });
           }
 
 
@@ -434,7 +439,7 @@ APNS использует сертификаты для аутентификац
 
 ###<a id="configure-app"></a>Настройка существующего проекта для push-уведомлений
 
-1. В представлении решений разверните папку **Компоненты** папки в приложении Xamarin.Android и убедитесь, что установлен пакет мобильных служб Azure. 
+1. В представлении решений разверните папку **Компоненты** папки в приложении Xamarin.Android и убедитесь, что установлен пакет мобильных служб Azure.
 
 2. Щелкните правой кнопкой мыши папку **Компоненты**, выберите пункт **Получить дополнительные компоненты...**, найдите компонент **Клиент Google Cloud Messaging** и добавьте его в проект.
 
@@ -444,7 +449,7 @@ APNS использует сертификаты для аутентификац
 
 
 4.	В классе **MainActivity** добавьте приведенный ниже код в метод **OnCreate** после вызова метода **LoadApplication**.
-            
+
             try
             {
                 // Check to ensure everything's setup right
@@ -470,7 +475,7 @@ APNS использует сертификаты для аутентификац
 
 5. В проекте ToDoAzure.Droid создайте новый класс в проекте с именем `GcmService`.
 
-5. Используя операторы, добавьте приведенные ниже элементы в класс **GcmService**.
+5. Добавьте следующие операторы using в класс **GcmService**.
 
 		using Gcm.Client;
 		using Microsoft.WindowsAzure.MobileServices;
@@ -487,7 +492,7 @@ APNS использует сертификаты для аутентификац
         [assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
 
 7. В файл проекта **GcmService.cs** добавьте приведенный ниже класс.
- 
+
         [BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
         [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
         [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, Categories = new string[] { "@PACKAGE_NAME@" })]
@@ -495,15 +500,15 @@ APNS использует сертификаты для аутентификац
 
         public class PushHandlerBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
         {
-        
+
             public static string[] SENDER_IDS = new string[] { "<PROJECT_NUMBER>" };
 
         }
 
 	В приведенном выше коде необходимо заменить _`<PROJECT_NUMBER>`_ номером проекта, назначенным службой Google при подготовке приложения к работе на портале разработчика Google.
 
-8. В файл проекта GcmService.cs добавьте приведенный ниже код, который является определяющим для класса **GcmService**.
- 
+8. В файл проекта GcmService.cs добавьте приведенный ниже код, который определяет класс **GcmService**.
+
          [Service]
          public class GcmService : GcmServiceBase
          {
@@ -528,7 +533,7 @@ APNS использует сертификаты для аутентификац
             createNotification("GcmService Registered...", "The device has been Registered, Tap to View!");
 
             MobileServiceClient client =  MainActivity.DefaultService.todoItemManager.GetClient;
-            
+
             var push = client.GetPush();
 
             MainActivity.DefaultService.RunOnUiThread(() => Register(push, null));
@@ -627,11 +632,11 @@ APNS использует сертификаты для аутентификац
 > [AZURE.IMPORTANT]Чтобы получать push-уведомления, необходимо настроить учетную запись Google на виртуальном устройстве Google Android (в эмуляторе выберите **Параметры** и **Добавить учетную запись**). Кроме того, убедитесь, что эмулятор подключен к Интернету.
 
 1. В меню **Средства** нажмите **Открыть диспетчер эмулятора Android**, выберите свое устройство и нажмите кнопку **Изменить**.
-    
+
     ![][125]
 
 2. Выберите **API-интерфейсы Google** в поле **Цель**, а затем нажмите кнопку **OK**.
-    
+
     ![][126]
 
 3. На верхней панели инструментов нажмите кнопку **Запуск** и выберите приложение. При этом запускается эмулятор и выполняется приложение.
@@ -657,7 +662,7 @@ APNS использует сертификаты для аутентификац
         using Microsoft.Phone.Notification;
 
 3. Добавьте в App.xaml.cs следующий код:
-	
+
         public static HttpNotificationChannel CurrentChannel { get; private set; }
 
         private void AcquirePushChannel()
@@ -696,7 +701,7 @@ APNS использует сертификаты для аутентификац
 	Это гарантирует, что регистрация запрашивается каждый раз при загрузке страницы. В вашем приложении можно сделать так, чтобы эта регистрация выполнялась только время от времени для гарантии актуальности регистрации.
 
 5. Нажмите клавишу **F5**, чтобы запустить приложение. Отображается всплывающее диалоговое окно с ключом регистрации.
-  
+
 6.	В обозревателе решений разверните узел **Свойства**, откройте файл WMAppManifest.xml, щелкните вкладку **Возможности** и убедитесь, что установлен флажок для возможности **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION**.
 
    	![Включение уведомлений в оболочке VS](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-app-enable-push-wp8.png)
@@ -707,7 +712,7 @@ APNS использует сертификаты для аутентификац
 
 Наконец, необходимо обновить скрипт, зарегистрированный для операции вставки в таблице TodoItem для отправки уведомлений.
 
-1. На портале управления щелкните вкладку **Данные**, а затем щелкните таблицу **TodoItem**.
+1. На [классическом портале Azure] щелкните вкладку **Данные**, а затем щелкните таблицу **TodoItem**.
 
     ![][21]
 
@@ -718,30 +723,30 @@ APNS использует сертификаты для аутентификац
     При этом отображается функция, вызываемая при выполнении вставки в таблице **TodoItem**.
 
 3. Замените функцию вставки следующим кодом и нажмите кнопку **Сохранить**:
-          
+
           function insert(item, user, request) {
           // Execute the request and send notifications.
              request.execute({
-             success: function() {                      
+             success: function() {
               // Create a template-based payload.
-              var payload = '{ "message" : "New item added: ' + item.text + '" }';            
+              var payload = '{ "message" : "New item added: ' + item.text + '" }';
 
               // Write the default response and send a notification
-              // to all platforms.            
-              push.send(null, payload, {               
+              // to all platforms.
+              push.send(null, payload, {
                   success: function(pushResponse){
                   console.log("Sent push:", pushResponse);
                   // Send the default response.
                   request.respond();
-                  },              
+                  },
                   error: function (pushResponse) {
                       console.log("Error Sending push:", pushResponse);
                        // Send the an error response.
                       request.respond(500, { error: pushResponse });
-                      }           
-               });                 
+                      }
+               });
               }
-           });   
+           });
           }
 
 
@@ -766,7 +771,7 @@ APNS использует сертификаты для аутентификац
 	![Получено всплывающее уведомление](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-quickstart-push5-wp8.png)
 
 	>[AZURE.NOTE]Вы не получите уведомление, пока находитесь в приложении. Чтобы получать всплывающие уведомления, когда приложение активно, необходимо обработать событие [ShellToastNotificationReceived](http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived(v=vs.105).aspx).
-   
+
 <!-- Anchors. -->
 [Generate the certificate signing request]: #certificates
 [Register your app and enable push notifications]: #register
@@ -836,15 +841,15 @@ APNS использует сертификаты для аутентификац
 [Подготовка устройства Xamarin]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
 
-[портал управления Azure]: https://manage.windowsazure.com/
+[классический портал Azure]: https://manage.windowsazure.com/
+[классическом портале Azure]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 [Компонент мобильных служб Azure]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
 [Компонент клиента Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
 [клиентский компонент Google Cloud Messaging]: http://components.xamarin.com/view/GCMClient/
-[Начальный образец push-уведомления Azure для приложения Xamarin.Forms]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
-[Готовый образец push-уведомления Azure для приложения Xamarin.Forms ]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
- 
+[Начальный пример push-уведомления Azure для приложения Xamarin.Forms]: https://github.com/Azure/mobile-services-samples/tree/master/TodoListXamarinForms
+[Готовый пример push-уведомления Azure для приложения Xamarin.Forms]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

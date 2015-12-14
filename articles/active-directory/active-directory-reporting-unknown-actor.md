@@ -13,10 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/09/2015"
+   ms.date="11/30/2015"
    ms.author="kenhoff"/>
 
 # Azure Active Directory сообщает о событии "Неизвестный субъект"
+
+## Статьи документации по созданию отчетов
+
+ - [API отчетов](active-directory-reporting-api-getting-started.md)
+ - [Аудит событий](active-directory-reporting-audit-events.md)
+ - [Сохранение](active-directory-reporting-retention.md)
+ - [Предварительный просмотр](active-directory-reporting-previews.md)
+ - [Поиск](active-directory-reporting-search.md)
+ - [Обратное заполнение](active-directory-reporting-backfill.md)
+ - [Задержки](active-directory-reporting-latencies.md)
+ - [Событие "Неизвестный субъект"](active-directory-reporting-unknown-actor.md)
 
 В редких случаях вы можете увидеть необычные значения в полях "Субъект" или "Пользователь" в отчетах Azure AD. Такое поведение является нормальным и вызывается одним из двух следующих событий:
 
@@ -38,4 +49,4 @@
 
 <!-- ![](./media/active-directory-reporting-unknown-actor/uid-actor.png) -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

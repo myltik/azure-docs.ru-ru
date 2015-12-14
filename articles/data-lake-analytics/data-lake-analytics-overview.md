@@ -52,7 +52,7 @@
 ## См. также
 
 - Приступая к работе
-    - [Начало работы с аналитикой озера данных с помощью портала предварительной версии Azure](data-lake-analytics-get-started-portal.md)
+    - [Начало работы с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
     - [Начало работы с аналитикой озера данных с помощью Azure PowerShell](data-lake-analytics-get-started-powershell.md)
     - [Начало работы с аналитикой озера данных с помощью пакета SDK Azure .NET](data-lake-analytics-get-started-net-sdk.md)
     - [Разработка скриптов U-SQL с помощью средств озера данных для Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
@@ -64,9 +64,9 @@
     - [Разработка пользовательских операторов U-SQL для заданий аналитики озера данных](data-lake-analtyics-u-sql-develop-user-defined-operators.md)
     
 - управления
-    - [Управление аналитикой озера данных Azure с помощью портала предварительной версии Azure](data-lake-analytics-manage-use-portal.md)
+    - [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md)
     - [Управление аналитикой озера данных Azure с помощью Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-    - [Мониторинг заданий аналитики озера данных Azure и устранение связанных с ними неполадок с помощью портала предварительной версии Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Мониторинг заданий аналитики озера данных Azure и устранение связанных с ними неполадок с помощью портала Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 - Полный учебник
     - [Использование интерактивных учебников по аналитике озера данных Azure](data-lake-analytics-use-interactive-tutorials.md)
@@ -77,4 +77,4 @@
     - [Отправить запрос на функцию](http://aka.ms/adlafeedback)
     - [Получить помощь на форумах](http://aka.ms/adlaforums)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

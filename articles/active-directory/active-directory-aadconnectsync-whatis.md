@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Службы синхронизации Azure AD Connect: настройка параметров синхронизации | Microsoft Azure"
-	description="В этой статье описывается настройка служб синхронизации Azure AD Connect."
+	pageTitle="Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка | Microsoft Azure"
+	description="В этой статье описываются принципы работы и настройка служб синхронизации Azure AD Connect."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
@@ -17,7 +17,7 @@
 	ms.author="markusvi;andkjell"/>
 
 
-# Службы синхронизации Azure AD Connect: настройка параметров синхронизации
+# Службы синхронизации Azure AD Connect: общие сведений о синхронизации и ее настройка
 
 Службы синхронизации Azure Active Directory Connect (службы синхронизации Azure AD Connect) — это основной компонент Azure AD Connect. Этот компонент отвечает за все операции, относящиеся к синхронизации данных удостоверения между локальной средой и Azure AD в облаке. С точки зрения синхронизации службы синхронизации Azure AD Connect — преемник таких решений, как DirSync, Azure AD Sync и Forefront Identity Manager с настроенным соединителем Azure Active Directory.
 
@@ -35,14 +35,14 @@
 - Если вы хотите узнать о конфигурации по умолчанию в Azure AD Connect, см. статью [Общие сведения о конфигурации по умолчанию](active-directory-aadconnectsync-understanding-default-configuration.md).
 - Дополнительные сведения о пользователях и контактах в службах синхронизации Azure AD Connect см. в статье [Общее представление о пользователях и контактах](active-directory-aadconnectsync-understanding-users-and-contacts.md).
 - Сведения о том, как изменить конфигурацию по умолчанию, см. в статье [Рекомендации по изменению конфигурации по умолчанию](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
-- Дополнительные сведения о работе сервера синхронизации можно получить в статье [Рабочие задачи и рекомендации](active-directory-aadconnectsync-operations.md)
-- Сведения об атрибутах, которые синхронизируются с Azure AD, можно получить в статье [Атрибуты, синхронизированные с Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md).
-- Дополнительные сведения о декларативной подготовке можно получить в статье [Выражения декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
-- Ознакомиться с функциями декларативной подготовки можно в разделе [Справочник по функциям](active-directory-aadconnectsync-functions-reference.md)
+- Дополнительные сведения о работе сервера синхронизации приведены в статье [Рабочие задачи и рекомендации](active-directory-aadconnectsync-operations.md)
+- Сведения об атрибутах, которые синхронизируются с Azure AD, приведены в статье [Атрибуты, синхронизируемые с Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md).
+- Дополнительные сведения о декларативной подготовке приведены в статье [Общие сведения о выражениях декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+- Ознакомиться с функциями декларативной подготовки можно в [справочнике по функциям](active-directory-aadconnectsync-functions-reference.md).
 
 
 ## Дополнительные ресурсы
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

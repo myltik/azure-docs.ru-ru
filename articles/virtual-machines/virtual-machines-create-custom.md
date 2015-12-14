@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Создание настраиваемой виртуальной машины | Microsoft Azure"
-	description="Узнайте, как создать настраиваемую виртуальную машину на портале Azure и использованием классической модели развертывания."
+	description="Узнайте, как создать настраиваемую виртуальную машину на классическом портале Azure с использованием классической модели развертывания."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -36,4 +36,4 @@
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

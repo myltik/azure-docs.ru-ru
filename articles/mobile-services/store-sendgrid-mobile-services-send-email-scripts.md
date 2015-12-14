@@ -1,23 +1,28 @@
-<properties 
-	pageTitle="Отправка электронной почты с помощью службы SendGrid | Microsoft Azure" 
-	description="Узнайте, как использовать службу SendGrid для отправки электронной почты из приложения мобильных служб Azure." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="Erikre" 
-	manager="sendgrid" 
+<properties
+	pageTitle="Отправка электронной почты с помощью службы SendGrid | Microsoft Azure"
+	description="Узнайте, как использовать службу SendGrid для отправки электронной почты из приложения мобильных служб Azure."
+	services="mobile-services"
+	documentationCenter=""
+	authors="Erikre"
+	manager="sendgrid"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/31/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="Erikre"/>
 
 
 # Отправить сообщение электронной почты с мобильных служб с помощью SendGrid
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 В этом разделе объясняется, как добавить в мобильную службу функции работы с электронной почтой. В этом учебнике вы добавляете сценарии на стороне сервера для отправки сообщений электронной почты с помощью SendGrid. По завершении работы ваша мобильная служба будет отправлять сообщение электронной почты каждый раз при вставке записи.
 
@@ -37,14 +42,14 @@ SendGrid — это [облачная служба электронной поч
 
 ## <a name="add-script"></a>Регистрация нового скрипта для отправки электронной почты
 
-1. Выполните вход на [портал управления Azure], щелкните по пункту **Мобильные службы**, а затем щелкните по своей мобильной службе.
+1. Выполните вход на [классический портал Azure], выберите пункт **Мобильные службы**, а затем щелкните свою мобильную службу.
 
-2. На портале управления щелкните вкладку **Данные**, а затем щелкните таблицу **TodoItem**.
+2. На классическом портале Azure щелкните вкладку **Данные**, а затем щелкните таблицу **TodoItem**.
 
 	![][1]
 
 3. В **todoitem** перейдите на вкладку **Скрипт** и выберите **Вставка**.
-   
+
 	![][2]
 
 	При этом отображается функция, вызываемая при выполнении вставки в таблице **TodoItem**.
@@ -52,8 +57,8 @@ SendGrid — это [облачная служба электронной поч
 4. Замените функцию вставки следующим кодом:
 
         var SendGrid = require('sendgrid').SendGrid;
-        
-        function insert(item, user, request) {    
+
+        function insert(item, user, request) {
             request.execute({
                 success: function() {
                     // After the record has been inserted, send the response immediately to the client
@@ -64,8 +69,8 @@ SendGrid — это [облачная служба электронной поч
             });
 
             function sendEmail(item) {
-                var sendgrid = new SendGrid('**username**', '**password**');       
-                
+                var sendgrid = new SendGrid('**username**', '**password**');
+
                 sendgrid.send({
                     to: '**email-address**',
                     from: '**from-address**',
@@ -88,13 +93,13 @@ SendGrid — это [облачная служба электронной поч
 
 	- **_from-address_**: адрес, с которого отправляются сообщения электронной почты. Можно использовать адрес зарегистрированного домена, который принадлежит вашей организации.
 
-     >[AZURE.NOTE]Если зарегистрированного домена нет, вы можете использовать домен своей мобильной службы в формате **notifications@_your-mobile-service_.azure-mobile.net*. Однако сообщения, отправленные на домен вашей мобильной службы, будут игнорироваться.
+     >[AZURE.NOTE]Если зарегистрированного домена нет, можно использовать домен своей мобильной службы в формате **notifications@_your-mobile-service_.azure-mobile.net*. Однако сообщения, отправленные на домен вашей мобильной службы, будут игнорироваться.
 
 6. Нажмите кнопку **Сохранить**. Теперь вы настроили скрипт для отправки сообщения электронной почты каждый раз при вставке записи в таблицу **TodoItem**.
 
 ## <a name="insert-data"></a>Вставка тестовых данных для получения электронной почты
 
-1. В проекте клиентского приложения выполните приложение быстрого запуска. 
+1. В проекте клиентского приложения выполните приложение быстрого запуска.
 
 	В этом разделе показана версия быстрого запуска для Магазина Windows
 
@@ -130,10 +135,8 @@ SendGrid — это [облачная служба электронной поч
 [Приступая к работе с мобильными службами]: /develop/mobile/tutorials/get-started
 [sign up page]: https://sendgrid.com/windowsazure.html
 [Multiple User Credentials page]: https://sendgrid.com/credentials
-[портал управления Azure]: https://manage.windowsazure.com/
+[классический портал Azure]: https://manage.windowsazure.com/
 [облачная служба электронной почты]: https://sendgrid.com/email-solutions
 [доставки электронной почты]: https://sendgrid.com/transactional-email
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

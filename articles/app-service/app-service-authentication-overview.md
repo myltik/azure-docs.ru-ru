@@ -18,6 +18,8 @@
 
 # Проверка подлинности для приложений API и мобильных приложений в службе приложений Azure
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Обзор
 
 В этой статье рассматриваются функции встроенной проверки подлинности для [приложений API](../app-service-api/app-service-api-apps-why-best-platform.md) и [мобильных приложений](../app-service-mobile/app-service-mobile-value-prop-preview.md).
@@ -187,17 +189,17 @@
 ### <a id="apiaclient"></a>Клиентский поток приложений API
 
 * [Защита приложения API](../app-service-api/app-service-api-dotnet-add-authentication.md) — настройка приложения API применима как к клиентскому, так и к серверному потоку, однако тестовая часть в браузере иллюстрирует серверный поток.
-* [Использование приложения API в службе приложений Azure из клиента .NET](../app-service-api/app-service-api-dotnet-consume.md) — пример приложения с вызовом, прошедшим проверку подлинности, иллюстрирует серверный поток. За ним следует раздел, содержащий [клиентский поток](../app-service-api/app-service-api-dotnet-consume.md#client-flow), с примером кода.
+* [Использование приложения API в службе приложений Azure из клиента .NET](../app-service-api/app-service-api-dotnet-consume.md) — пример приложения с вызовом, прошедшим проверку подлинности, иллюстрирует вариант серверного потока. За ним следует раздел, содержащий пример кода для варианта [клиентского потока](../app-service-api/app-service-api-dotnet-consume.md#client-flow).
 
 ### <a id="apiaserver"></a>Серверный поток приложений API
 
 * [Защита приложения API](../app-service-api/app-service-api-dotnet-add-authentication.md) — раздел, посвященный настройке параметров приложения API, относится как к клиентскому, так и к серверному потоку. Раздел, посвященный тестированию в браузере, иллюстрирует серверный поток.
 * [Использование приложения API в службе приложений Azure из клиента .NET](../app-service-api/app-service-api-dotnet-consume.md) — образец кода для авторизованного запроса иллюстрирует серверный поток. 
 
-### <a id="apiaobo"></a>Вызовы приложений API от другого лица
+### <a id="apiaobo"></a>Именные вызовы приложений API
 
 * [Развертывание и настройка соединителя API для приложения SaaS в службе приложений Azure](../app-service-api/app-service-api-connnect-your-app-to-saas-connector.md) — показывает подготовку встроенного соединителя приложения API, его настройку и вызов с помощью средств браузера.
-* [Подключение к платформе SaaS из приложения API ASP.NET в службе приложений Azure](../app-service-api/app-service-api-dotnet-connect-to-saas.md) — описано, как написать собственный соединитель, включая подготовку, настройку и написание кода для пользовательского приложения API, осуществляющего вызовы поставщика SaaS от другого лица.
+* [Подключение к платформе SaaS из приложения API ASP.NET в службе приложений Azure](../app-service-api/app-service-api-dotnet-connect-to-saas.md) — показывает, как написать собственный соединитель, включая подготовку, настройку и написание кода для пользовательского приложения API, осуществляющего вызовы поставщика SaaS от другого лица.
 
 ### <a id="maclient"></a>Клиентский поток для мобильных приложений
 
@@ -214,4 +216,4 @@
 
 * [Получение маркера доступа и вызов API SharePoint в мобильном приложении](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

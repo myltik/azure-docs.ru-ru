@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/02/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
 
 # Отдельные ресурсы Application Insights для разработки, тестирования и эксплуатации
@@ -28,7 +28,7 @@
 
 Перейдите по адресу [portal.azure.com](https://portal.azure.com) и добавьте новый ресурс Application Insights.
 
-![Нажмите «Создать» и «Application Insights»](./media/app-insights-create-new-resource/01-new.png)
+![Нажмите «Создать» и «Application Insights»](./media/app-insights-separate-resources/01-new.png)
 
 
 * Значение в поле **Тип приложения** определяет содержимое колонки «Обзор» и свойства, доступные в [обозревателе метрик][metrics]. Если вы не видите тип своего приложения, выберите тип веб-ресурса для веб-страниц и тип телефона для других устройств.
@@ -46,7 +46,7 @@
 
 Ключ инструментирования идентифицирует созданный вами ресурс.
 
-![Щелкните Essentials, выделите ключ инструментирования и нажмите клавиши CTRL + C.](./media/app-insights-create-new-resource/02-props.png)
+![Щелкните Essentials, выделите ключ инструментирования и нажмите клавиши CTRL + C.](./media/app-insights-separate-resources/02-props.png)
 
 Вам потребуются ключи инструментирования всех ресурсов, в которые приложение будет отправлять данные.
 
@@ -98,4 +98,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

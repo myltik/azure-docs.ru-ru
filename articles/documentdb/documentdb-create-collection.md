@@ -18,11 +18,11 @@
 
 # Создание коллекции DocumentDB
 
-Чтобы использовать Microsoft Azure DocumentDB, необходимы [учетная запись DocumentDB](documentdb-create-account.md), [база данных](documentdb-create-database.md), коллекция и документы. В этом разделе описывается создание коллекции DocumentDB на портале предварительной версии Azure.
+Чтобы использовать Microsoft Azure DocumentDB, необходимы [учетная запись DocumentDB](documentdb-create-account.md), [база данных](documentdb-create-database.md), коллекция и документы. В этом разделе описывается создание коллекции DocumentDB на портале Azure.
 
 ![Снимок экрана, на котором изображены учетные записи DocumentDB на панели быстрых переходов, учетная запись в колонке "Учетные записи DocumentDB" и база данных в колонке учетной записи DocumentDB в группе связанных элементов "База данных"](./media/documentdb-create-collection/docdb-database-creation-1-3.png)
 
-1.  На панели быстрых переходов в разделе [Портал предварительной версии Azure](https://portal.azure.com/) щелкните **Учетные записи DocumentDB**. 
+1.  На панели быстрых переходов в разделе [Портал Azure](https://portal.azure.com/) щелкните **Учетные записи DocumentDB**. 
 
 2.  В колонке **Учетные записи DocumentDB** выберите учетную запись, в которую необходимо добавить коллекцию. При отсутствии учетных записей необходимо [создать учетную запись DocumentDB](documentdb-create-account.md).
 
@@ -53,16 +53,16 @@
 
 ## Другие способы создания коллекции DocumentDB
 
-Коллекции необязательно создавать на портале предварительной версии. Их также можно создать с помощью [пакетов SDK для DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Пример кода C#, показывающий, как создать коллекцию с помощью пакета SDK для DocumentDB .NET, см. файле [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/CollectionManagement/Program.cs) в проекте CollectionManagement, который находится в репозитории [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) на [GitHub.com](https://github.com).
+Коллекции не обязательно создавать на портале. Их также можно создать с помощью [пакетов SDK для DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Пример кода C#, показывающий, как создать коллекцию с помощью пакета SDK для DocumentDB .NET, см. файле [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/CollectionManagement/Program.cs) в проекте CollectionManagement, который находится в репозитории [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) на [GitHub.com](https://github.com).
 
 ## Дальнейшие действия
 
 Следующий шаг после создания коллекция — добавление или импорт документов в коллекцию. Добавить документы в коллекцию можно несколькими способами.
 
-- [Добавить документы](../documentdb-view-json-document-explorer.md) можно с помощью обозревателя документов на портале предварительной версии.
+- [Добавить документы](../documentdb-view-json-document-explorer.md) можно с помощью обозревателя документов на портале.
 - Вы можете [импортировать документы и данные](documentdb-import-data.md) с помощью средства миграции данных DocumentDB, которое позволяет импортировать JSON- и CSV-файлы, а также данные из SQL Server, MongoDB, табличного хранилища Azure и других коллекций DocumentDB. 
 - Либо можно добавить документы с помощью одного из [пакетов SDK для DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). DocumentDB содержит пакеты SDK для .NET, Java, Python, Node.js и JavaScript API. В файле [Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/DocumentManagement/Program.cs) в проекте DocumentManagement в репозитории [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net) на [GitHub.com](https://github.com), показаны операции CRUD в документах с помощью пакета SDK для DocumentDB .NET.
 
-После добавления документов в коллекции можно использовать [DocumentDB SQL](documentdb-sql-query.md) для [выполнения запросов](documentdb-sql-query.md#executing-queries) для документов с помощью [обозревателя запросов](documentdb-query-collections-query-explorer.md) на портале предварительной версии, интерфейса [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) или одного из [пакетов SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
+После добавления документов в коллекции можно использовать [DocumentDB SQL](documentdb-sql-query.md) для [выполнения запросов](documentdb-sql-query.md#executing-queries) для документов с помощью [обозревателя запросов](documentdb-query-collections-query-explorer.md) на портале, интерфейса [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) или одного из [пакетов SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

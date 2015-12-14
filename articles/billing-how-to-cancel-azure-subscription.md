@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/21/2015"
+	ms.date="12/01/2015"
 	ms.author="genli"/>
 
 # Отмена подписки Azure
@@ -30,4 +30,4 @@
 4. Выберите **Да, отменить мою подписку**. </br> ![cancelbox](.\media\billing-how-to-cancel-azure-subscription\cancelbox.png)
 5. Щелкните ![checkbutton](.\media\billing-how-to-cancel-azure-subscription\checkbutton.png), чтобы закрыть диалоговое окно и вернуться к странице подписки.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

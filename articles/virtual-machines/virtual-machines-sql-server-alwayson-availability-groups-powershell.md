@@ -19,7 +19,7 @@
 # Настройка групп доступности AlwaysOn в виртуальной машине Azure (графический пользовательский интерфейс)
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [Azure classic portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
 - [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
 
 <br/>
@@ -631,4 +631,4 @@
 
 Дополнительные сведения об использовании SQL Server в Azure см. в статье [Общие сведения об SQL Server на виртуальных машинах Azure](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

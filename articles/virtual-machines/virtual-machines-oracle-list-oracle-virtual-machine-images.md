@@ -14,7 +14,7 @@ ms.author="bbenz" />
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 
-Чтобы создать виртуальную машину на основе образа Oracle, войдите на [портал предварительной версии Azure](https://ms.portal.azure.com/), щелкните **Marketplace**, выберите меню **Вычисление**, а затем в поле поиска введите **Oracle**. Выберите образ и следуйте указаниям, чтобы установить образ в Microsoft Azure. Обратите внимание, что в образах Oracle корпорации Майкрософт на [портале предварительной версии Azure](https://ms.portal.azure.com/) используется Windows, а в образах Oracle корпорации Oracle — Oracle Linux.
+Чтобы создать виртуальную машину на основе образа Oracle, войдите на [портал Azure](https://ms.portal.azure.com/), щелкните **Marketplace**, выберите меню **Вычисление**, а затем в поле поиска введите **Oracle**. Выберите образ и следуйте указаниям, чтобы установить образ в Microsoft Azure. Обратите внимание, что в образах Oracle корпорации Майкрософт на [портале Azure](https://ms.portal.azure.com/) используется Windows, а в образах Oracle корпорации Oracle используется Oracle Linux.
 
 ![](media/virtual-machines-oracle-list-oracle-virtual-machine-images/image1.png)
 
@@ -63,4 +63,4 @@ ms.author="bbenz" />
 
 [Образы виртуальных машин Oracle. Различные рекомендации](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

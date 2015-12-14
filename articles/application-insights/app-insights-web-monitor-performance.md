@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="11/25/2015" 
 	ms.author="awills"/>
  
 # Отслеживание производительности в веб-приложениях
@@ -134,18 +134,24 @@ HTTP-запросы включают в себя все запросы GET и PO
 
 Для выполнения той же процедуры при желании можно написать код:
 
-    var perfCollector = new PerformanceCollectorModule();
-    perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
+    var perfCollectorModule = new PerformanceCollectorModule();
+    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(electronics)# Items Sold", "Items sold"));
-    perfCollector.Initialize(TelemetryConfiguration.Active);
-    TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
+    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+
+Кроме того, чтобы собрать счетчики производительности системы и передать их в Application Insights, можно использовать следующий фрагмент кода:
+
+    var perfCollectorModule = new PerformanceCollectorModule();
+    perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
+      @"\.NET CLR Memory([replace-with-application-process-name])# GC Handles", "GC Handles")));
+    perfCollectorModule.Initialize(TelemetryConfiguration.Active);
 
 ### Счетчики исключений
 
 *Чем отличаются метрики "Частота исключений" и "Исключения"?*
 
 * *Частота исключений* — это системный счетчик производительности. Среда CLR подсчитывает все обработанные и необработанные исключения и делит их общее количество в интервале выборки на продолжительность интервала. Пакет SDK Application Insights получает этот результат и отправляет его на портал.
-* *Исключения* — это количество отчетов TrackException, полученных порталом в интервале выборки диаграммы. Оно включает только обработанные исключения, если вызовы TrackException прописаны в коде, и не включает [необработанные исключения](app-insights-asp-net-exceptions.md). 
+* *Исключения* — это количество отчетов TrackException, полученных порталом в интервале выборки диаграммы. Включает только обработанные исключения, в коде которых прописаны вызовы TrackException, и не включает [необработанные исключения](app-insights-asp-net-exceptions.md). 
 
 ## Задайте предупреждения
 
@@ -185,7 +191,7 @@ HTTP-запросы включают в себя все запросы GET и PO
 
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[greenbrown]: app-insights-asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
@@ -193,4 +199,4 @@ HTTP-запросы включают в себя все запросы GET и PO
 
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

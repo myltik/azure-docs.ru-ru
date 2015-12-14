@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/25/2015"
+	ms.date="12/01/2015"
 	ms.author="yuaxu"/>
 
 # Отправка кроссплатформенных уведомлений определенному пользователю
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-В этом разделе показано, как отправлять уведомления на все зарегистрированные устройства определенного пользователя с мобильного внутреннего сервера. Здесь вводится концепция [шаблонов], которая позволяет клиентским приложениям указывать форматы полезных данных и заполнители переменных при регистрации. Таким образом, уведомления отправляются на каждую платформу с такими заполнителями.
+В этом разделе показано, как отправлять уведомления на все зарегистрированные устройства определенного пользователя с мобильного внутреннего сервера. Здесь вводятся [шаблоны], которые позволяют клиентским приложениям при регистрации указывать форматы полезных данных и заполнители переменных. При отправке уведомления шаблона с сервера центр уведомлений направляет его на все платформы при помощи этих заполнителей, позволяя создавать кросс-платформенные уведомления.
 
 > [AZURE.NOTE]Чтобы push-уведомления работали с кроссплатформенными клиентами, потребуется пройти этот учебник для каждой задействованной платформы. Для клиентов с общим мобильным внутренним сервером потребуется только одно [обновление мобильного внутреннего сервера](#backend).
  
@@ -58,20 +56,7 @@
         }
         ...
 
-2. В **AppDelegate.cs** замените вызов **RegisterAsync** в **RegisteredForRemoteNotifications** на следующий для работы с шаблонами:
 
-        // delete await push.RegisterAsync (deviceToken);
-        
-        var notificationTemplate = "{"aps": {"alert":"$(message)"}}";
-
-        JObject templateBody = new JObject();
-        templateBody["body"] = notificationTemplate;
-
-        JObject templates = new JObject();
-        templates["testApnsTemplate"] = templateBody;
-
-        // register with templates
-        await push.RegisterAsync (deviceToken, templates);
 
 ##<a name="backend"></a>Обновление внутреннего сервера службы для отправки уведомлений определенному пользователю
 
@@ -92,11 +77,14 @@
             ServiceUser authenticatedUser = this.User as ServiceUser;
             string userTag = "_UserId:" + authenticatedUser.Id;
 
-            var notification = new Dictionary<string, string>{{"message", item.Text}};
+            // Sending the message so that all template registrations that contain "messageParam"
+            // will receive the notifications. This includes APNS, GCM, WNS, and MPNS template registrations.
+            Dictionary<string,string> templateParams = new Dictionary<string,string>();
+            templateParams["messageParam"] = item.Text + " was added to the list.";
 
             try
             {
-                await Hub.Push.SendTemplateNotificationAsync(notification, userTag);
+                await Hub.SendTemplateNotificationAsync(templateParams, userTag);
             }
             catch (System.Exception ex)
             {
@@ -112,6 +100,6 @@
 <!-- URLs. -->
 [Приступая к работе с аутентификацией в мобильных службах]: app-service-mobile-xamarin-ios-get-started-users.md
 [Приступая к работе с push-уведомлениями]: app-service-mobile-xamarin-ios-get-started-push.md
-[шаблонов]: https://msdn.microsoft.com/ru-RU/library/dn530748.aspx
+[шаблоны]: ../notification-hubs/notification-hubs-templates.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

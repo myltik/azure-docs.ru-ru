@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/28/2015"
+   ms.date="12/02/2015"
    ms.author="alkohli" />
 
 # Настройка MPIO на узле StorSimple под управлением CentOS
@@ -163,9 +163,9 @@
 
 Устройство StorSimple должно удовлетворять следующим условиям.
 
-- Наличие как минимум двух активных интерфейсов для iSCSI. Чтобы убедиться в наличии двух активных интерфейсов iSCSI на устройстве StorSimple, выполните следующие действия на портале управления устройством StorSimple.
+- Наличие как минимум двух активных интерфейсов для iSCSI. Чтобы убедиться в наличии двух активных интерфейсов iSCSI на устройстве StorSimple, выполните на классическом портале Azure для устройства StorSimple следующие действия.
 
-	1. Войдите на портал управления устройством StorSimple.
+	1. Перейдите на классический портал для устройства StorSimple.
 
 	1. Выберите службу StorSimple Manager, щелкните **Устройства** и выберите нужное устройство StorSimple. Щелкните **Настройка** и проверьте параметры сетевого интерфейса. На снимке экрана ниже показаны два сетевых интерфейса с поддержкой iSCSI. Здесь оба интерфейса 10 GbE (DATA 2 и DATA 3) поддерживают iSCSI.
 	
@@ -339,10 +339,10 @@
 	    		Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
 
 
-		Если в результатах вы увидите только один интерфейс узла и два канала, необходимо задействовать оба интерфейса на узле для iSCSI. Воспользуйтесь [подробными инструкциями в документации Linux](https://access.redhat.com/documentation/ru-RU/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
+		Если в результатах вы увидите только один интерфейс узла и два канала, необходимо задействовать оба интерфейса на узле для iSCSI. Воспользуйтесь [подробными инструкциями в документации Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
 	
-	1. Том предоставляется серверу CentOS с устройства StorSimple. Дополнительные сведения о создании тома на устройстве StorSimple с помощью портала управления см. в разделе [Этап 6. Создание тома](https://sandboxmsdnstage.redmond.corp.microsoft.com/ru-RU/library/azure/dn772357.aspx).
+	1. Том предоставляется серверу CentOS с устройства StorSimple. Дополнительные сведения о создании тома на устройстве StorSimple с помощью классического портала Azure см. в разделе [Этап 6. Создание тома](storsimple-deployment-walkthrough.md#step-6-create-a-volume).
 
 	1. Проверьте доступные пути. Введите:
 
@@ -459,7 +459,7 @@
     dm-3 devnode blacklisted, unmonitored
 
 
-Дополнительные сведения см. в статье об [использовании интерактивной команды для устранения неполадок многоканального ввода-вывода ](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
+Дополнительные сведения см. в статье об [использовании интерактивной команды для устранения неполадок многоканального ввода-вывода](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
 
 ## Список полезных команд
 
@@ -475,4 +475,4 @@
 - [Настройка MPIO на CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Учебное руководство Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

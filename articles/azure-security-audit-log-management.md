@@ -3,7 +3,7 @@
    description="Эта статья содержит вводные сведения по созданию, сбору и анализу журналов безопасности из служб, размещенных в Azure. Она предназначена для ИТ-специалистов и аналитиков по вопросам безопасности, ежедневно сталкивающихся с различными аспектами управления информационными активами, включая сотрудников, отвечающих за меры по обеспечению безопасности и соответствия в организации."
    services="virtual-machines, cloud-services, storage"
    documentationCenter="na"
-   authors="TerryLanfear"
+   authors="nayak-mahesh"
    manager="msStevenPo"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/13/2015"
+   ms.date="11/30/2015"
    ms.author="mnayak;tomsh;terrylan"/>
 
 # Управление журналами безопасности и аудита Microsoft Azure
@@ -614,4 +614,4 @@ Azure Active Directory (Azure AD) включает в себя набор отч
 [19]: ./media/azure-security-audit-log-management/sec-view-blob-container.png
 [20]: ./media/azure-security-audit-log-management/sec-hdinsight-analysis.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

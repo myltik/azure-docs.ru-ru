@@ -98,7 +98,7 @@
             }];
         }
 
-4. В коде для метода `loginAndGetData` выше замените **INSERT-AUTHORITY-HERE** именем клиента, в котором подготавливалось приложение, используя формат https://login.windows.net/tenant-name.onmicrosoft.com. Это значение можно скопировать со вкладки "Домен" в Azure Active Directory на [портале управления Azure].
+4. В коде для метода `loginAndGetData` выше замените **INSERT-AUTHORITY-HERE** именем клиента, в котором подготавливалось приложение, используя формат https://login.windows.net/tenant-name.onmicrosoft.com. Это значение можно скопировать со вкладки "Домен" в Azure Active Directory на [классическом портале Azure].
 
 5. В коде для метода `loginAndGetData` выше замените **INSERT-RESOURCE-URI-HERE** на **URI идентификатора приложения** для мобильного приложения. Если вы выполнили инструкции из раздела [Настройка мобильного приложения в Azure Active Directory], то ваш URI идентификатора приложения должен быть аналогичен https://contosogateway.azurewebsites.net/login/aad.
 
@@ -118,10 +118,10 @@
 
 <!-- URLs. -->
 [Настройка мобильного приложения в Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[портале управления Azure]: https://manage.windowsazure.com/
+[классическом портале Azure]: https://manage.windowsazure.com/
 [Active Directory для iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 [библиотеку проверки подлинности Active Directory для iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 [Начало работы с мобильными приложениями]: app-service-mobile-ios-get-started.md
 [Добавление проверки подлинности в приложение]: app-service-mobile-ios-get-started-users.md
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

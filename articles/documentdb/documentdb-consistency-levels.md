@@ -56,7 +56,7 @@
 
 ### Изменение уровня согласованности базы данных
 
-1.  На панели быстрых переходов в разделе [Портал предварительной версии Azure](https://portal.azure.com/) щелкните **Учетные записи DocumentDB**.
+1.  На панели быстрых переходов в разделе [Портал Azure](https://portal.azure.com/) щелкните **Учетные записи DocumentDB**.
 
 2. В колонке **Учетные записи DocumentDB** выберите учетную запись базы данных для изменения.
 
@@ -88,4 +88,4 @@
 -	Вернер Вогелс. Возвращаясь к вопросу о согласованности в конечном счете. (Eventual Consistent - Revisited.). [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

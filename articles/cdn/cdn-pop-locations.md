@@ -3,7 +3,7 @@
 	description="В этом разделе перечислены точки присутствия сети доставки содержимого (CDN) Azure" 
 	services="cdn" 
 	documentationCenter="" 
-	authors="Juliako" 
+	authors="camsoper" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,10 +11,10 @@
 	ms.service="cdn" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="juliako"/>
+	ms.date="12/02/2015" 
+	ms.author="casoper"/>
 
 
 #Расположение узлов POP сети доставки содержимого Azure (CDN)
@@ -25,7 +25,7 @@
 ![Расположение POP сети доставки содержимого (CDN)](./media/cdn-pop-locations/CDN_POP_locations_update.png)
 
 
-##США
+##Северная Америка
 
 - Атланта
 - Чикаго
@@ -39,6 +39,10 @@
 - Вашингтон, округ Колумбия
 - Бостон
 
+##Северная Америка
+
+- Сан-Паулу
+- Кито
 
 ##Европа
 
@@ -64,11 +68,14 @@
 - Сеул
 - Сингапур
 - Токио
-
+- Бангалор
+- Ченнай
+- Дели
+- Мумбай
 
 ##Австралия
 
 - Мельбурн
 - Сидней 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

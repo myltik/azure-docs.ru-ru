@@ -13,14 +13,25 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="09/29/2015"
+	ms.date="11/30/2015"
 	ms.author="kenhoff"/>
 
 # Поиск отчетов Azure Active Directory
 
+## Статьи документации по созданию отчетов
+
+ - [API отчетов](active-directory-reporting-api-getting-started.md)
+ - [Аудит событий](active-directory-reporting-audit-events.md)
+ - [Сохранение](active-directory-reporting-retention.md)
+ - [Предварительный просмотр](active-directory-reporting-previews.md)
+ - [Поиск](active-directory-reporting-search.md)
+ - [Обратное заполнение](active-directory-reporting-backfill.md)
+ - [Задержки](active-directory-reporting-latencies.md)
+ - [Событие "Неизвестный субъект"](active-directory-reporting-unknown-actor.md)
+
 Azure Active Directory предоставляет администраторам каталогов возможность поиска в нескольких отчетах событий, связанных с безопасностью пользователей, их деятельностью и аудитом.
 
-Чтобы открыть панели поиска, последовательно выберите **Портал управления Azure -> Ваша служба Azure Active Directory -> Отчеты.** Панель находится в верхней части списка отчетов.
+Чтобы открыть панель поиска, последовательно выберите **Портал управления Azure -> Ваша служба Azure Active Directory -> Отчеты.** Панель находится в верхней части списка отчетов.
 
 Чтобы найти действия или события аудита для конкретного пользователя, выберите диапазон дат в полях «От» и «До», введите имя участника-пользователя или отображаемое имя пользователя и нажмите кнопку с флажком.
 
@@ -56,4 +67,4 @@ Azure Active Directory предоставляет администраторам
  - [Отчеты Azure Active Directory](active-directory-view-access-usage-reports.md)
  - [Отчеты о событиях аудита Azure Active Directory ](active-directory-reporting-audit-events.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

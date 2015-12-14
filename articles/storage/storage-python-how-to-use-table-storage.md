@@ -133,15 +133,13 @@
 
 Вы изучили основную информацию о хранилище таблиц. Дополнительную информацию о более сложных задачах по использованию хранилища можно найти по следующим ссылкам.
 
--   См. справочник MSDN: [Хранилище Azure][].
+-   См. справочник MSDN: [Служба хранилища Azure][].
 -   Посетите [блог команды разработчиков службы хранилища Azure][].
 
 Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
 
-
-[Хранилище Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [блог команды разработчиков службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [пакет Azure для Python]: https://pypi.python.org/pypi/azure
 [Хранилище Azure для Python]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

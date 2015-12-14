@@ -400,7 +400,7 @@
 | displayName | X| |
 | MS-DS-CreatorSID | X| Другое название registeredOwnerReference.|
 | objectGUID | X| Другое название deviceID.|
-| objectSID | X| Другое название omPremisesSecurityIdentifier.|
+| objectSID | X| Другое название onPremisesSecurityIdentifier.|
 | operatingSystem | X| Другое название deviceOSType.|
 | operatingSystemVersion | X| Другое название deviceOSVersion.|
 | userCertificate | X| |
@@ -433,6 +433,6 @@
 ## Дальнейшие действия
 Узнайте больше о настройке [службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
-Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
+Ознакомьтесь с дополнительными сведениями об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

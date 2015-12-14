@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Сравнение инструментов интеграции каталогов | Microsoft Azure"
+	pageTitle="Azure AD Connect: сравнение инструментов интеграции каталогов | Microsoft Azure"
 	description="На этой странице предоставлены комплексные таблицы, в которых сравниваются различные инструменты интеграции каталогов."
 	services="active-directory"
 	documentationCenter=""
@@ -91,4 +91,4 @@
 ## Дальнейшие действия
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

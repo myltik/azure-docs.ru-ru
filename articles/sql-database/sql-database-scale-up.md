@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/10/2015"
+	ms.date="12/01/2015"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -22,10 +22,10 @@
 **Отдельная база данных**
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-scale-up.md)
+- [Azure Portal](sql-database-scale-up.md)
 - [PowerShell](sql-database-scale-up-powershell.md)
 
-В этой статье показано, как изменить уровень производительности и уровень обслуживания базы данных SQL с помощью [портала предварительной версии Azure](https://portal.azure.com).
+В этой статье показано, как изменить уровень производительности и уровень обслуживания базы данных SQL с помощью [портала Azure](https://portal.azure.com).
 
 Используйте сведения, представленные в статьях [Обновление баз данных SQL уровня Web или Business до новых уровней служб](sql-database-upgrade-new-service-tiers.md) и [Уровни служб и уровни производительности в Базе данных SQL Azure](sql-database-service-tiers.md), для определения уровня служб и уровня производительности, соответствующих Базе данных SQL Azure.
 
@@ -50,7 +50,7 @@
 
 Откройте колонку «База данных SQL» для базы данных, которую необходимо масштабировать.
 
-1.	Войдите на [портал предварительной версии Azure](https://portal.azure.com).
+1.	Перейдите на [портал Azure](https://portal.azure.com).
 2.	Нажмите **ПРОСМОТРЕТЬ ВСЕ**.
 3.	Нажмите **Базы данных SQL**.
 2.	Щелкните базу данных, которую хотите изменить.
@@ -98,4 +98,4 @@
 [3]: ./media/sql-database-scale-up/scale-notification.png
 [4]: ./media/sql-database-scale-up/new-tier.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

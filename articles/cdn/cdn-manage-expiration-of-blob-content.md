@@ -3,7 +3,7 @@
  description="" 
  services="cdn" 
  documentationCenter=".NET" 
- authors="zhangmanling" 
+ authors="camsoper" 
  manager="dwrede" 
  editor=""/>
 <tags 
@@ -12,8 +12,8 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="09/01/2015" 
- ms.author="mazha"/>
+ ms.date="12/02/2015" 
+ ms.author="casoper"/>
 
 
 #Управление сроком действия содержимого BLOB-объекта в сети доставки содержимого (CDN) Azure  
@@ -96,4 +96,4 @@
 
 [Управление сроком действия содержимого облачных служб в сети доставки содержимого (CDN Azure)](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

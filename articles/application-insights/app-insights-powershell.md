@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/13/2015" 
+	ms.date="11/23/2015" 
 	ms.author="awills"/>
  
 # Создание ресурсов Application Insights с помощью PowerShell
@@ -76,7 +76,7 @@
 
 2. Откройте [диспетчер ресурсов Azure](https://resources.azure.com/). Прокрутите вниз подписки, группы ресурсов и компоненты и найдите свой ресурс приложения.
 
-    ![](./media/app-insights-create-powershell/01.png)
+    ![](./media/app-insights-powershell/01.png)
 
     *Компоненты* — это основные ресурсы Application Insights для отображения приложений. Для соответствующих правил оповещения и веб-тестов доступности имеются отдельные ресурсы.
 
@@ -288,4 +288,4 @@
 
 ```
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

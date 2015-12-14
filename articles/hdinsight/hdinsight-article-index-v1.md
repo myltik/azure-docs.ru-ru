@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Индекс статей по HDInsight для портала Azure | Microsoft Azure"
-   description="Страница индексов со ссылками на статьи, посвященные HDInsight на портале Azure. Майкрософт рекомендует использовать портал предварительной версии Azure для новых кластеров Hadoop в HDInsight."
+   pageTitle="Указатель статей о HDInsight для классического портала Azure | Microsoft Azure"
+   description="Страница указателя со ссылками на статьи, посвященные использованию HDInsight на классическом портале Azure. Для новых кластеров Hadoop в HDInsight корпорация Майкрософт рекомендует использовать портал Azure."
    services="hdinsight"
    documentationCenter="na"
    authors="cjgronlund"
@@ -16,25 +16,25 @@
    ms.date="08/17/2015"
    ms.author="cjgronlund"/>
 
-# Индекс статей по HDInsight на портале Azure
+# Указатель статей о HDInsight для классического портала Azure
 
-На этой странице индексов содержится список статей, посвященных HDInsight на [портале Azure](https://manage.windowsazure.com/). Azure HDInsight является облачной реализацией Hadoop и платформы Hortonworks Data с открытым исходным кодом.
+На этой странице указателя содержится список статей, посвященных использованию HDInsight на [классическом портале Azure](https://manage.windowsazure.com/). Azure HDInsight является облачной реализацией Hadoop и платформы Hortonworks Data с открытым исходным кодом.
 
 
-> [AZURE.IMPORTANT]Эта страница индексов документации предназначена для клиентов, которые уже имеют развернутые решения на текущем портале Azure.
+> [AZURE.IMPORTANT]Эта страница указателя документации предназначена для клиентов, у которых уже есть развернутые решения на текущем классическом портале Azure.
 >
-> Майкрософт рекомендует использовать **портал предварительной версии Azure** для новых кластеров HDInsight:
+> Для новых кластеров HDInsight корпорация Майкрософт рекомендует использовать **портал Azure**:
 >
-> * [Документация по порталу предварительной версии HDInsight](/documentation/services/hdinsight/)
-> * [Вход на портал предварительной версии Azure](https://portal.azure.com/)
+> * [Переход к документации по порталу HDInsight](/documentation/services/hdinsight/)
+> * [Переход на портал Azure](https://portal.azure.com/)
 >
-> Преимущества портала предварительной версии рассмотрены в статье [о расширении возможностей разработки и операций](/overview/preview-portal/).
+> Преимущества портала рассматриваются в статье [о расширении возможностей разработки и операций](/overview/preview-portal/).
 >
-> С августа 2015 года служба HDInsight на портале Azure заменена на портал предварительной версии Azure, поэтому эта служба больше не будет обновляться.
+> С августа 2015 года служба HDInsight на классическом портале Azure заменена на портал Azure, поэтому эта служба больше не будет обновляться.
 
 ## Приступая к работе
 
-Если вы не знакомы с Hadoop в HDInsight, перейдите на [страницу документации HDInsight](/documentation/services/hdinsight/), чтобы узнать, как начать работу с порталом предварительной версии Azure.
+Если вы не знакомы с Hadoop в HDInsight, перейдите на [страницу документации по HDInsight](/documentation/services/hdinsight/), чтобы узнать, как начать работу с порталом Azure.
 
 ## Linux
 
@@ -81,7 +81,7 @@
 
 ## Apache Spark
 
-Статьи, посвященные использованию оригинальных кластеров Apache Spark на портале предварительной версии Azure, см. на [странице документации HDInsight](/documentation/services/hdinsight/).
+Статьи, посвященные использованию оригинальных кластеров Apache Spark на портале Azure, см. на [странице документации по HDInsight](/documentation/services/hdinsight/).
 
 * [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
 * [Установка и использование Spark в кластерах Hadoop](hdinsight-hadoop-spark-install.md)
@@ -133,4 +133,4 @@
 * [Значение сообщений об ошибках](hdinsight-debug-jobs.md)
 * [Получить помощь на форуме](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

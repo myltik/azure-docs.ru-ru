@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Microsoft Azure AD Connect — обновление средства синхронизации Windows Azure AD (DirSync) | Microsoft Azure"
+   pageTitle="Azure AD Connect — обновление средства синхронизации Microsoft Azure AD (DirSync) | Microsoft Azure"
    description="Узнайте, как обновить DirSync до Azure AD Connect. В этой статье описывается процедура обновления текущего средства синхронизации Windows Azure AD (DirSync) до Azure AD Connect."
    services="active-directory"
    documentationCenter=""
@@ -13,10 +13,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="10/26/2015"
+   ms.date="12/02/2015"
    ms.author="shoatman;billmath"/>
 
-# Обновление службы синхронизации Azure Active Directory (DirSync) до Azure Active Directory Connect (Azure AD Connect)
+# Обновление службы синхронизации Azure Active Directory sync (DirSync) до Azure AD Connect
 
 Следующая документация поможет вам обновить существующую установку DirSync до Azure AD Connect.
 
@@ -198,4 +198,4 @@ Azure AD Connect теперь является активным сервером
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -58,7 +58,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 ## Строка подключения к Базе данных SQL
 
 
-В примере кода объект `Connection` создается с помощью строки подключения. Вы можете получить ее, используя [портал предварительной версии Azure](http://portal.azure.com/). Подробнее о том, как найти строку подключения, читайте в статье [Создание первой Базы данных SQL Azure](sql-database-get-started.md).
+В примере кода объект `Connection` создается с помощью строки подключения. Вы можете получить ее, используя [портал Azure](http://portal.azure.com/). Подробнее о том, как найти строку подключения, читайте в статье [Создание первой Базы данных SQL Azure](sql-database-get-started.md).
 
 
 > [AZURE.NOTE]Драйвер JTDS JDBC. При использовании драйвера JTDS JDBC необходимо будет добавить ssl=require в URL-адрес строки подключения и задать для виртуальной машины Java параметр -Djsse.enableCBCProtection=false. Этот параметр виртуальной машины Java отключает исправление для уязвимости системы безопасности, поэтому убедитесь, что понимаете все связанные с ним риски, прежде чем задавать этот параметр.
@@ -230,4 +230,4 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
 Дополнительную информацию см. в [Центре разработчика Java](/develop/java/).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

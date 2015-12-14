@@ -18,6 +18,6 @@
 
 # Службы доменов Azure AD *(предварительная версия)*
 
-Чтобы узнать, где доступны службы Azure, обратитесь к разделу [Службы по региону](https://azure.microsoft.com/ru-RU/regions/#services).
+Чтобы узнать, где доступны службы Azure, обратитесь к разделу [Службы по региону](https://azure.microsoft.com/regions/#services).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

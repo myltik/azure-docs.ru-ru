@@ -351,4 +351,4 @@ Azure AD создает страницу предоставления досту
 
 - См. [Руководство разработчика по Azure Active Directory](active-directory-developers-guide.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

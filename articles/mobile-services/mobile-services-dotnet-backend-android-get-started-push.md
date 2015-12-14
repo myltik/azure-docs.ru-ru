@@ -18,6 +18,11 @@
 
 # Добавление push-уведомлений к приложению мобильных служб
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 В этом разделе показано, как использовать мобильные службы Azure для отправки push-уведомлений в приложение Android. В этом учебнике вам предстоит добавить push-уведомления в проект быстрого запуска с помощью службы Google Cloud Messaging (GCM). По завершении работы ваша мобильная служба будет отправлять push-уведомление каждый раз при вставке записи.
@@ -104,7 +109,6 @@
 <!-- URLs. -->
 [Get started with push notifications (Eclipse)]: mobile-services-dotnet-backend-android-get-started-push-ec.md
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-android-get-started.md
-[Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 
 [Использование библиотеки клиента Android для мобильных служб]: mobile-services-android-how-to-use-client-library.md
@@ -112,6 +116,5 @@
 [Что такое Центры уведомлений?]: ../notification-hubs-overview.md
 [Рассылка широковещательных уведомлений подписчикам]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [Отправка подписчикам уведомлений на основе шаблонов]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
-[Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

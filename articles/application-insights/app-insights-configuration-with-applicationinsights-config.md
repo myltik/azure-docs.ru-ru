@@ -68,7 +68,7 @@
 
 ### Отслеживание веб-запросов
 
-Передает данные о [времени отклика и коде результата](app-insights-start-monitoring-app-health-usage.md) HTTP-запросов.
+Передает данные о [времени отклика и коде результата](app-insights-asp-net.md) HTTP-запросов.
 
 * `Microsoft.ApplicationInsights.Web.RequestTrackingTelemetryModule`
 * Пакет NuGet [Microsoft.ApplicationInsights.Web](http://www.nuget.org/packages/Microsoft.ApplicationInsights.Web).
@@ -135,6 +135,29 @@
 Обработчики данных телеметрии могут фильтровать и изменять любые элементы телеметрии непосредственно перед отправкой из пакета SDK на портал.
 
 Вы можете [написать собственные обработчики данных телеметрии](app-insights-api-filtering-sampling.md#filtering).
+
+
+#### Обработчик адаптивной выборки телеметрии (начиная с версии 2.0.0-beta3)
+
+Эта функция включена по умолчанию. Если приложение отправляет слишком много телеметрических данных, обработчик удаляет часть из них.
+
+```xml
+
+    <TelemetryProcessors>
+      <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.AdaptiveSamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
+        <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
+      </Add>
+    </TelemetryProcessors>
+
+```
+
+С помощью параметра можно задать целевой показатель, которого алгоритм будет пытаться достичь. Каждый экземпляр пакета SDK работает независимо от других, поэтому если сервер представляет собой кластер из нескольких машин, фактический объем телеметрических данных будет кратен их количеству.
+
+[Дополнительная информация о выборке](app-insights-sampling.md).
+
+
+
+#### Обработчик выборки телеметрии с фиксированной частотой (начиная с версии 2.0.0-beta1)
 
 Также имеется стандартный [обработчик выборочной телеметрии](app-insights-api-filtering-sampling.md#sampling) (начиная с версии 2.0.1):
 
@@ -256,10 +279,10 @@
 [azure]: ../insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-web-failures-exceptions.md
+[exceptions]: app-insights-asp-net-exceptions.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [new]: app-insights-create-new-resource.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
-<!----HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

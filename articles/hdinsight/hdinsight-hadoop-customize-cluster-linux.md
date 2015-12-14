@@ -42,7 +42,7 @@
 
 ## Пример действий сценария
 
-Скрипты действия сценария можно использовать с помощью портала предварительной версии Azure, Azure PowerShell или пакета SDK для HDInsight .NET. В этой статье показано, как использовать действия сценария на портале. Практическое использование действия сценария с помощью PowerShell и пакета SDK для .NET можно увидеть на примерах, приведенных в следующей таблице.
+Действия сценария можно использовать из портала Azure, Azure PowerShell или пакета SDK .NET HDInsight. В этой статье показано, как использовать действия сценария на портале. Практическое использование действия сценария с помощью PowerShell и пакета SDK для .NET можно увидеть на примерах, приведенных в следующей таблице.
 
 HDInsight предоставляет несколько скриптов для установки следующих компонентов в кластерах HDInsight:
 
@@ -54,7 +54,7 @@ HDInsight предоставляет несколько скриптов для 
 **Установка Solr** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. См. статью [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install-linux.md).
 **Установка Giraph** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. См. статью [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install-linux.md).
 
-## Использование действия сценария с помощью портала предварительной версии Azure
+## Использование действия сценария с помощью портала Azure
 
 1. Начните создание кластера, как описано в разделе [Создание кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md#portal).
 
@@ -512,12 +512,9 @@ HDInsight предоставляет несколько скриптов для 
 
 	![Снимок экрана операций](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
-	В этом расположении журналы упорядочены по узлам headnode, workdernode и zookeeper. Примерами могут служить:
-	* **головной узел** – `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
-	* **рабочий узел** – `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
-	* **узел Zookeeper** – `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+	В этом расположении журналы упорядочены по узлам headnode, workdernode и zookeeper. Примерами могут служить: * **головной узел** – `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net` * **рабочий узел** – `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net` * **узел Zookeeper** – `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
-* Все stdout и stderr соответствующего узла передаются в учетную запись хранилища. Для каждого действия сценария есть файл **output-*.txt** и  **errors-\*.txt** . Выходной TXT-файл содержит сведения об универсальном коде ресурса (URI) сценария, который был запущен на узле. Например:
+* Все stdout и stderr соответствующего узла передаются в учетную запись хранилища. Для каждого действия сценария есть файл **output-*.txt** и **errors-*.txt**. Выходной TXT-файл содержит сведения об универсальном коде ресурса (URI) сценария, который был запущен на узле. Например:
 
 		'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
@@ -568,4 +565,4 @@ HDInsight предоставляет несколько скриптов для 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Этапы создания кластера"
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

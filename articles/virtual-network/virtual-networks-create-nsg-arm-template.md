@@ -181,4 +181,4 @@
 	- **-f (или --template-file)**. Путь к файлу шаблона ARM.
 	- **-e (или --parameters-file)**. Путь к файлу параметров ARM.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

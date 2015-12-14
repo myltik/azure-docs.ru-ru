@@ -82,11 +82,11 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 
 | Имя | Значение | | | | |
 |---------------|--------------------------------------------------------------------------------|---|---|---|---|
-| `[namespace]` | Пространство имен служебной шины, полученное с портала Azure. | | | | |
-| `[username]` | Имя издателя служебной шины, полученное с портала Azure. | | | | |
-| `[password]` | Закодированный URL-адрес ключа издателя служебной шины, полученный с портала Azure. | | | | |
+| `[namespace]` | Пространство имен служебной шины, полученное с [классического портала Azure][]. | | | | |
+| `[username]` | Пространство имен издателя служебной шины, полученное с [классического портала Azure][]. | | | | |
+| `[password]` | Закодированный URL-адрес ключа издателя служебной шины, полученный с [классического портала Azure][]. | | | | |
 
-> [AZURE.NOTE]Необходимо применить URL-кодирование к паролю вручную. Полезная служебная программа для кодирования URL-адреса доступна по адресу [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> [AZURE.NOTE]Необходимо применить URL-кодирование к паролю вручную. Полезная служебная программа кодирования URL-адресов доступна по адресу [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
 Например, с портала могут быть получены следующие данные:
 
@@ -153,7 +153,7 @@ producer.send(message);
 
 ### Получение сообщений с помощью JMS
 
-В следующем коде показано, как получить сообщение из подписки раздела служебной шины. Предполагается, что `SBCONNECTIONFACTORY` и TOPIC определены в файле конфигурации **servicebus.properties**, как описано в предыдущем разделе. Также предполагается, что имя подписки — `subscription1`.
+В следующем коде показано `how`, чтобы получить сообщение из подписки раздела служебной шины. Предполагается, что `SBCONNECTIONFACTORY` и TOPIC определены в файле конфигурации **servicebus.properties**, как описано в предыдущем разделе. Также предполагается, что имя подписки — `subscription1`.
 
 ```
 Hashtable<String, String> env = new Hashtable<String, String>(); 
@@ -362,7 +362,7 @@ while (propertyNames.hasMoreElements())
 
 | Тип свойств .NET | Тип свойств JMS | Примечания |
 |--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| byte | UnsignedByte | - | | sbyte | Byte | - | | char | Character | - | | short | Short | - | | ushort | UnsignedShort | - | | int | Integer | - | | uint | UnsignedInteger | - | | long | Long | - | | ulong | UnsignedLong | - | | float | Float | - | | double | Double | - | | decimal | BigDecimal | - | | bool | Boolean | - | | Guid | UUID | - | | string | String | - | | DateTime | Date | - | | DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks сопоставляется с типом AMQP:<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> | | TimeSpan | DescribedType | Timespan.Ticks сопоставляется с типом AMQP:<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> | | Uri | DescribedType | Uri.AbsoluteUri сопоставляется с типом AMQP:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
+| byte | UnsignedByte | - | | sbyte | Byte | - | | char | Character | - | | short | Short | - | | ushort | UnsignedShort | - | | int | Integer | - | | uint | UnsignedInteger | - | | long | Long | - | | ulong | UnsignedLong | - | | float | Float | - | | double | Double | - | | decimal | BigDecimal | - | | bool | Boolean | - | | Guid | UUID | - | | string | String | - | | DateTime | Date | - | | DateTimeOffset | DescribedType | DateTimeOffset.UtcTicks сопоставляется с типом AMQP: <type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type> | | TimeSpan | DescribedType | Timespan.Ticks сопоставляется с типом AMQP: <type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type> | | Uri | DescribedType | Uri.AbsoluteUri сопоставляется с типом AMQP: <type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
 
 ### Стандартные заголовки
 
@@ -384,13 +384,13 @@ while (propertyNames.hasMoreElements())
 
 При использовании JMS через протокол AMQP 1.0 со служебной шиной существуют следующие ограничения.
 
--   В рамках одного сеанса допускается использовать только один объект **MessageProducer** или **MessageConsumer**. Если в приложении нужно создать несколько объектов **MessageProducer** или **MessageConsumer**, создайте выделенные сеансы для каждого из них.
+-   Для одного сеанса допускается только один объект **MessageProducer** или **MessageConsumer**. Если в приложении нужно создать несколько объектов **MessageProducer** или **MessageConsumer**, создайте выделенные сеансы для каждого из них.
 
 -   Временные подписки раздела в настоящее время не поддерживаются.
 
 -   Объекты **MessageSelector** не поддерживаются.
 
--   Временные назначения, например **TemporaryQueue** и **TemporaryTopic**, не поддерживаются, как и API-интерфейсы **QueueRequestor** и **TopicRequestor**, которые используют их.
+-   Временные назначения, например **TemporaryQueue** и **TemporaryTopic**, не поддерживаются, как и API-интерфейсы **QueueRequestor** и **TopicRequestor**, которые их используют.
 
 -   Транзакционные сеансы не поддерживаются.
 
@@ -407,5 +407,6 @@ while (propertyNames.hasMoreElements())
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
 [Протокол AMQP служебной шины — обзор]: service-bus-amqp-overview.md
+[классического портала Azure]: http://manage.windowsazure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

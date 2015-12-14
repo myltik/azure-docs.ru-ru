@@ -18,9 +18,14 @@
 
 # Использование клиентской библиотеки iOS для мобильных служб Azure
 
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
+
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
-В этом руководстве показано, как реализовать типичные сценарии с использованием [пакета SDK iOS] для мобильных служб Azure. Если вы еще не работали с мобильными службами, сначала изучите [краткое руководство по мобильным службам], чтобы научиться настраивать учетную запись, а также создавать таблицу и мобильную службу.
+В этом руководстве показано, как реализовать типичные сценарии с использованием [пакета SDK iOS] для мобильных служб Azure. Если вы еще не работали с мобильными службами, сначала изучите [краткий учебник по мобильным службам], чтобы научиться настраивать учетную запись, а также создавать таблицу и мобильную службу.
 
 > [AZURE.NOTE]В этом руководстве используется последняя версия [пакета SDK iOS для мобильных служб](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Если в проекте используется пакет SDK предыдущей версии, сначала обновите платформу в Xcode.
 
@@ -235,7 +240,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 ##<a name="#custom-api"></a>Практическое руководство. Вызов настраиваемого интерфейса API
 
-Настраиваемый интерфейс API позволяет определить пользовательские конечные точки, которые предоставляют функциональные возможности сервера, не сопоставляемые с операциями вставки, обновления, удаления или чтения. При использовании настраиваемого интерфейса API вы получаете больше возможностей для управления сообщениями, в том числе для чтения и установки заголовков HTTP-сообщений, а также определения форматов текста сообщений, отличных от JSON. Пример создания настраиваемого интерфейса API в мобильной службе см. в разделе [Как определить конечную точку настраиваемого интерфейса API](mobile-services-dotnet-backend-define-custom-api.md).
+Настраиваемый интерфейс API позволяет определить пользовательские конечные точки, которые предоставляют функциональные возможности сервера, не сопоставляемые с операциями вставки, обновления, удаления или чтения. При использовании настраиваемого интерфейса API вы получаете больше возможностей для управления сообщениями, в том числе для чтения и установки заголовков HTTP-сообщений, а также определения форматов текста сообщений, отличных от JSON. Пример создания настраиваемого API в мобильной службе см. в разделе [Практическое руководство. Определение конечной точки настраиваемого интерфейса API](mobile-services-dotnet-backend-define-custom-api.md).
 
 [AZURE.INCLUDE [mobile-services-ios-call-custom-api](../../includes/mobile-services-ios-call-custom-api.md)]
 
@@ -312,8 +317,8 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 <!-- URLs. -->
 [быстрого запуска мобильных служб]: mobile-services-ios-get-started.md
+[краткий учебник по мобильным службам]: mobile-services-ios-get-started.md
 [кратким учебником по мобильным службам]: mobile-services-ios-get-started.md
-[краткое руководство по мобильным службам]: mobile-services-ios-get-started.md
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [статье о проверке подлинности]: /develop/mobile/tutorials/get-started-with-users-ios
@@ -331,4 +336,4 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [статье об обработчике конфликтов]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

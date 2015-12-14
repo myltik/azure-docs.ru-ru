@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Создание приложения списка лидеров для Магазина Windows с помощью внутреннего сервера .NET | Мобильные службы Azure" 
-	description="Узнайте, как создать приложение списка лидеров для Магазина Windows с помощью мобильных служб Azure с внутренним сервером .NET." 
-	documentationCenter="windows" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="jimbe" 
+<properties
+	pageTitle="Создание приложения списка лидеров для Магазина Windows с помощью внутреннего сервера .NET | Мобильные службы Azure"
+	description="Узнайте, как создать приложение списка лидеров для Магазина Windows с помощью мобильных служб Azure с внутренним сервером .NET."
+	documentationCenter="windows"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor="jimbe"
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/19/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/19/2015"
 	ms.author="glenga"/>
 
 # Создание приложения списка лидеров с помощью внутреннего сервера .NET мобильных служб Azure
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 В этом учебнике показано, как создать приложение Магазина Windows с помощью мобильных служб Azure с внутренним сервером .NET. Мобильные службы Azure предоставляют масштабируемый и безопасный внутренний сервер со встроенной проверкой подлинности, мониторингом, push-уведомлениями и другими функциями, включая кроссплатформенную клиентскую библиотеку для создания мобильных приложений. Внутренний сервер .NET для мобильных служб основан на [веб-интерфейсе API ASP.NET](http://asp.net/web-api) и предоставляет разработчикам .NET лучший способ создания API REST.
 
@@ -24,9 +29,9 @@
 
 Веб-интерфейс API — это платформа с открытым исходным кодом, которая предоставляет разработчикам .NET лучший способ создания API REST. Вы можете разместить решение веб-интерфейса API на веб-сайтах Azure, в мобильных службах Azure, использующих внутренний сервер .NET, или даже автономно в пользовательском процессе. Мобильные службы — это среда размещения, разработанная специально для мобильных приложений. При размещении службы веб-интерфейсов API в мобильных службах кроме хранилища данных вы получаете следующие преимущества.
 
-- Встроенная проверка подлинности с помощью поставщиков социальных сетей и Azure Active Directory (AAD). 
+- Встроенная проверка подлинности с помощью поставщиков социальных сетей и Azure Active Directory (AAD).
 - Push-уведомления в приложениях, использующих службы уведомлений устройства.
-- Полный набор клиентских библиотек, который упрощает доступ к службе из любого приложения. 
+- Полный набор клиентских библиотек, который упрощает доступ к службе из любого приложения.
 - Встроенный вход и диагностика.
 
 Изучив данный учебник, вы научитесь:
@@ -71,11 +76,11 @@ PlayerRank содержит внешний ключ к Player. У каждого
 В Visual Studio 2013 в проект веб-приложения ASP.NET будет включен шаблон для мобильной службы Azure. Выберите этот шаблон и нажмите кнопку **ОК**.
 
 ![][4]
- 
+
 В шаблон проекта входит пример контроллера и объект данных.
 
 ![][5]
- 
+
 Они не нужны для учебника, поэтому вы можете удалить их из проекта. Также удалите ссылки на приложение TodoItem в файлах WebApiConfig.cs и LeaderboardContext.cs.
 
 ## Добавление моделей данных
@@ -83,7 +88,7 @@ PlayerRank содержит внешний ключ к Player. У каждого
 Для определения таблиц баз данных будет использоваться [EF Code First](http://msdn.microsoft.com/data/ee712907#codefirst). В папке DataObjects добавьте класс с именем `Player`.
 
 	using Microsoft.WindowsAzure.Mobile.Service;
-	
+
 	namespace Leaderboard.DataObjects
 	{
 	    public class Player : EntityData
@@ -96,14 +101,14 @@ PlayerRank содержит внешний ключ к Player. У каждого
 
 	using Microsoft.WindowsAzure.Mobile.Service;
 	using System.ComponentModel.DataAnnotations.Schema;
-	
+
 	namespace Leaderboard.DataObjects
 	{
 	    public class PlayerRank : EntityData
 	    {
 	        public int Score { get; set; }
 	        public int Rank { get; set; }
-	
+
 	        [ForeignKey("Id")]
 	        public virtual Player Player { get; set; }
 	    }
@@ -124,10 +129,10 @@ PlayerRank содержит внешний ключ к Player. У каждого
 В диалоговом окне **Добавление элемента скаффолдинга**, разверните вкладку **Общие** с левой стороны и выберите **Мобильные службы Azure**. Затем выберите **Контроллер таблиц мобильных служб Azure**. Щелкните **Добавить**.
 
 ![][7]
- 
+
 В диалоговом окне **Добавление контроллера**:
 
-1.	В поле **Класс модели** выберите Player. 
+1.	В поле **Класс модели** выберите Player.
 2.	В поле **Класс контекста данных** выберите MobileServiceContext.
 3.	Назовите контроллер PlayerContoller.
 4.	Щелкните **Добавить**.
@@ -138,9 +143,9 @@ PlayerRank содержит внешний ключ к Player. У каждого
 ![][8]
 
 Контроллер наследуется из **TableController<T>**. Этот класс наследует **ApiController**, но он специализирован для мобильных служб Azure.
- 
+
 - Маршрутизация. Маршрут по умолчанию для **TableController** — `/tables/{table_name}/{id}`, где *table\_name* совпадает с именем сущности. Поэтому маршрут для контроллера Player — */tables/player/{id}*. Это соглашение о маршрутизации выполняет согласование **TableController** с [API REST](http://msdn.microsoft.com/library/azure/jj710104.aspx) мобильных служб.
-- Доступ к данным. Для операций баз данных класс **TableController** использует интерфейс **IDomainManager**, который определяет абстракцию для доступа к данным. Для формирования шаблонов используется параметр **EntityDomainManager**, который является конкретной реализацией интерфейса **IDomainManager**, заключающего в оболочку контекст EF. 
+- Доступ к данным. Для операций баз данных класс **TableController** использует интерфейс **IDomainManager**, который определяет абстракцию для доступа к данным. Для формирования шаблонов используется параметр **EntityDomainManager**, который является конкретной реализацией интерфейса **IDomainManager**, заключающего в оболочку контекст EF.
 
 Теперь добавьте второй контроллер для сущностей PlayerRank. Выполните те же действия, но выберите класс модели PlayerRank. Используйте тот же класс контекста данных, а не создавайте новый. Назовите контроллер PlayerContoller.
 
@@ -167,7 +172,7 @@ PlayerRank содержит внешний ключ к Player. У каждого
 	Expires: 0
 	Server: Microsoft-IIS/8.0
 	Date: Mon, 21 Apr 2014 17:58:43 GMT
-	
+
 	[{"id":"1","rank":1,"score":150},{"id":"2","rank":3,"score":100},{"id":"3","rank":1,"score":150}]
 
 Обратите внимание, что `Player` не включается в граф объекта. Чтобы включить игрока, можно выполнить сведение графа объекта, определив *объект передачи данных* (DTO).
@@ -198,7 +203,7 @@ DTO — это объект, который определяет способ о
 	        Rank = x.Rank
 	    });
 	}
-	
+
 	// GET tables/PlayerRank/48D68C86-6EA6-4C25-AA33-223FC9A27959
 	public SingleResult<PlayerRankDto> GetPlayerRank(string id)
 	{
@@ -209,7 +214,7 @@ DTO — это объект, который определяет способ о
 	        Score = x.Score,
 	        Rank = x.Rank
 	    });
-	
+
 	    return SingleResult<PlayerRankDto>.Create(result);
 	}
 
@@ -223,7 +228,7 @@ DTO — это объект, который определяет способ о
 	Expires: 0
 	Server: Microsoft-IIS/8.0
 	Date: Mon, 21 Apr 2014 19:57:08 GMT
-	
+
 	[{"id":"1","playerName":"Alice","score":150,"rank":1},{"id":"2","playerName":"Bob","score":100,"rank":3},{"id":"3","playerName":"Charles","score":150,"rank":1}]
 
 Обратите внимание, что полезная нагрузка JSON теперь включает имена игроков.
@@ -264,8 +269,8 @@ DTO — это объект, который определяет способ о
 
 Удалите следующие методы из `PlayerRankController`:
 
-- `PatchPlayerRank` 
-- `PostPlayerRank` 
+- `PatchPlayerRank`
+- `PostPlayerRank`
 - `DeletePlayerRank`
 
 Затем добавьте следующий код в `PlayerRankController`:
@@ -327,7 +332,7 @@ DTO — это объект, который определяет способ о
 Добавьте новый проект приложения Магазина Windows в решение. Здесь используется шаблон "Пустое приложение (Windows)".
 
 ![][10]
- 
+
 С помощью диспетчера пакетов NuGet добавьте клиентскую библиотеку мобильных служб. В Visual Studio в меню **Сервис** выберите **Диспетчер пакетов NuGet**. Затем щелкните **Консоль диспетчера пакетов**. В окне "Консоль диспетчера пакетов" введите следующую команду.
 
 	Install-Package WindowsAzure.MobileServices -Project LeaderboardApp
@@ -345,7 +350,7 @@ DTO — это объект, который определяет способ о
 	        public string Id { get; set; }
 	        public string Name { get; set; }
 	    }
-	
+
 	    public class PlayerRank
 	    {
 	        public string Id { get; set; }
@@ -353,7 +358,7 @@ DTO — это объект, который определяет способ о
 	        public int Score { get; set; }
 	        public int Rank { get; set; }
 	    }
-	
+
 	    public class PlayerScore
 	    {
 	        public string PlayerId { get; set; }
@@ -362,13 +367,13 @@ DTO — это объект, который определяет способ о
 	}
 
 Эти классы соответствуют непосредственным сущностям данных в мобильной службе.
- 
+
 ## Создание модели представления
 
 Model-View-ViewModel (MVVM) является вариантом Model-View-Controller (MVC). Шаблон MVVM позволяет отделить логику приложения от презентации.
 
 - Модель представляет данные домена (игрок, рейтинг игрока и баллы игрока).
-- Модель представления является абстрактным представлением. 
+- Модель представления является абстрактным представлением.
 - Представление отображает модель представления и отправляет входные данные пользователя в модель представления. Представление для приложения Магазина Windows определено в XAML.
 
 ![][11]
@@ -380,13 +385,13 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 	using System.ComponentModel;
 	using System.Net.Http;
 	using System.Threading.Tasks;
-	
+
 	namespace LeaderboardApp.ViewModel
 	{
 	    class LeaderboardViewModel : INotifyPropertyChanged
 	    {
 	        MobileServiceClient _client;
-	
+
 	        public LeaderboardViewModel(MobileServiceClient client)
 	        {
 	            _client = client;
@@ -416,7 +421,7 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
                 PropertyChanged(this,
                     new PropertyChangedEventArgs(propertyName));
             }
-        }    
+        }
     }
 
 Далее добавьте наблюдаемые свойства. XAML привяжет данные к этим свойствам.
@@ -540,8 +545,8 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
             {
                 PlayerId = player.Id,
                 Score = score
-            }; 
-            
+            };
+
             try
             {
                 await _client.InvokeApiAsync<PlayerScore, object>("score", playerScore);
@@ -583,7 +588,7 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
             {
                 IsPending = false;
             }
-         }    
+         }
     }
 
 ## Добавление экземпляра MobileServiceClient
@@ -592,7 +597,7 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 
 	// New code:
 	using Microsoft.WindowsAzure.MobileServices;
-	
+
 	namespace LeaderboardApp
 	{
 	    sealed partial class App : Application
@@ -601,8 +606,8 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 	        // TODO: Replace 'port' with the actual port number.
 	        const string serviceUrl = "http://localhost:port/";
 	        public static MobileServiceClient MobileService = new MobileServiceClient(serviceUrl);
-	
-	
+
+
 	        // ...
 	    }
 	}
@@ -632,7 +637,7 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 
 Список игроков отображается в поле **ListBox**:
 
-	<ListBox Width="200" Height="400" x:Name="PlayerListBox" 
+	<ListBox Width="200" Height="400" x:Name="PlayerListBox"
 	    ItemsSource="{Binding Players}" DisplayMemberPath="Name"/>
 
 Рейтинги отображаются в поле **ListView**:
@@ -662,13 +667,13 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 В этом шаге предстоит опубликовать мобильную службу в Microsoft Azure и изменить приложение для использования веб-службы.
 
 В обозревателе решений щелкните правой кнопкой мыши проект "Список лидеров" и нажмите **Опубликовать**.
- 
+
 ![][12]
 
 В диалоговом окне **Публикация** щелкните **Мобильные службы Azure**.
 
 ![][13]
- 
+
 Если вы еще не вошли в учетную запись Azure, щелкните кнопку **Войти**.
 
 ![][14]
@@ -677,7 +682,7 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 Выберите существующую мобильную службу или нажмите кнопку **Создать**, чтобы создать новую. Затем нажмите кнопку **ОК** для публикации.
 
 ![][15]
- 
+
 В процессе публикации будет автоматически создана база данных. Вам не нужно настраивать строку подключения.
 
 Теперь вы можете подключить приложение списка лидеров к веб-службе. Потребуется следующее.
@@ -685,15 +690,15 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 - URL-адрес службы
 - Ключ приложения
 
-И то, и другое можно получить на портале управления Azure. На портале управления щелкните **Мобильные службы**, а затем выберите мобильную службу. URL-адрес службы указан на вкладке "Панель мониторинга". Чтобы получить ключ приложения, щелкните **Управление ключами**.
+И то и другое можно получить на классическом портале Azure. На портале щелкните **Мобильные службы**, а затем выберите мобильную службу. URL-адрес службы указан на вкладке "Панель мониторинга". Чтобы получить ключ приложения, щелкните **Управление ключами**.
 
 ![][16]
- 
+
 В диалоговом окне **Управление ключами доступа** скопируйте значение для ключа приложения.
 
 ![][17]
 
- 
+
 Передайте URL-адрес службы и ключ приложения в конструктор **MobileServiceClient**.
 
     sealed partial class App : Application
@@ -760,6 +765,4 @@ Model-View-ViewModel (MVVM) является вариантом Model-View-Contr
 [Добавление push-уведомлений]: ../notification-hubs-windows-store-dotnet-get-started.md
 [Приступая к работе с проверкой подлинности]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
- 
-
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

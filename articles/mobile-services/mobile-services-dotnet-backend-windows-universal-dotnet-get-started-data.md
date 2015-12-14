@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Добавление мобильных служб в существующее приложение для Магазина Windows | Microsoft Azure" 
-	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении магазина Windows." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Добавление мобильных служб в существующее приложение для Магазина Windows | Microsoft Azure"
+	description="Узнайте, как приступить к работе с мобильными службами, чтобы использовать данные в приложении магазина Windows."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/10/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/10/2015"
 	ms.author="glenga"/>
 
 # Добавление мобильных служб к существующему приложению
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
@@ -35,7 +40,7 @@
 Для работы с этим учебником требуется:
 
 * Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-universal-dotnet-get-started-data%2F).
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> с обновлением 3 или более поздней версии. 
+* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio 2013</a> с обновлением 3 или более поздней версии.
 
 ##Загрузка пакета GetStartedWithData
 
@@ -47,11 +52,11 @@
 
 &nbsp;&nbsp;7. В обозревателе решений откройте файл кода App.xaml.cs в папке проекта GetStartedWithData.Shared и обратите внимание на новое статическое поле, добавленное в класс **App** в блоке условной компиляции приложения Магазина Windows, которое выглядит как в следующем примере:
 
-	public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
+	public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient
 	    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
 	        "https://todolist.azure-mobile.net/",
 	        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-		
+
 
 &nbsp;&nbsp;Этот код предоставляет доступ к новой мобильной службе в вашем приложении с помощью экземпляра [класса MobileServiceClient](http://go.microsoft.com/fwlink/p/?LinkId=302030). Клиент создается с указанием URI и ключа приложения новой мобильной службы. Это статическое поле доступно для всех страниц в приложении.
 
@@ -86,7 +91,7 @@
 ##Просмотр данных, хранящихся в базе данных SQL
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-view-sql-data](../../includes/mobile-services-dotnet-backend-view-sql-data.md)]
- 
+
 Это заключительный шаг учебника.
 
 ##Дальнейшие действия
@@ -111,14 +116,11 @@
 [Приступая к работе с проверкой подлинности]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
 [Приступая к работе с push-уведомлениями]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md
 
-[Приступая к работе с синхронизацией автономных данных]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
-[Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[веб-сайта с примерами кода для разработчиков]: http://go.microsoft.com/fwlink/p/?LinkID=510826
+[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

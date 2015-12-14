@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="08/25/2015"
+   ms.date="12/01/2015"
    ms.author="sstein"/>
 
 # Создание Базы данных SQL и управление ею с помощью C&#x23;
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](sql-database-elastic-pool-portal.md)
+- [Azure Portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
@@ -55,7 +55,7 @@
 
 [API REST диспетчера ресурсов Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx) используют для проверки подлинности Azure Active Directory, а не сертификаты, используемые в более ранних API REST управления службами Azure.
 
-Для проверки подлинности клиентского приложения на основе текущего пользователя необходимо сначала зарегистрировать приложение в домене AAD, связанном с подпиской, в которой были созданы ресурсы Azure. Если подписка Azure была создана на базе учетной записи Microsoft, а не на базе рабочей или учебной учетной записи, у вас уже будет домен AAD по умолчанию. Зарегистрировать приложение можно на [портале управления](https://manage.windowsazure.com/).
+Для проверки подлинности клиентского приложения на основе текущего пользователя необходимо сначала зарегистрировать приложение в домене AAD, связанном с подпиской, в которой были созданы ресурсы Azure. Если подписка Azure была создана на базе учетной записи Microsoft, а не на базе рабочей или учебной учетной записи, у вас уже будет домен AAD по умолчанию. Приложение можно зарегистрировать на [классическом портале Azure](https://manage.windowsazure.com/).
 
 Для создания нового приложения и его регистрации в правильном Active Directory сделайте следующие.
 
@@ -105,7 +105,7 @@
 
 Имя домена требуется для кода. Простой способ идентифицировать правильное имя домена:
 
-1. Войдите на [портал предварительной версии Azure](https://portal.azure.com).
+1. Перейдите на [портал Azure](https://portal.azure.com).
 2. Наведите указатель мыши на имя в правом верхнем углу и запомните домен, который отобразится во всплывающем окне.
 
     ![Идентификация имени домена][3]
@@ -798,4 +798,4 @@
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

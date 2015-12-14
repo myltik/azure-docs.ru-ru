@@ -236,7 +236,7 @@ require_once(ABSPATH . 'wp-settings.php');
 ```
 
 #### Настройка промежуточной среды
-Предположим, что у вас уже есть веб-приложение WordPress, развернутое в Azure. Выполните вход на [портал предварительной версии Azure](http://portal.azure.com) и перейдите к веб-приложению WordPress. Вы также можете создать веб-приложение в магазине. Для получения дополнительных сведений щелкните [здесь](web-sites-php-web-site-gallery). Выберите «Параметры» -> «Слоты развертывания» -> «Добавить», чтобы создать слот развертывания с именем stage. Слот развертывания — это веб-приложение, которое использует те же ресурсы, что и основное веб-приложение, созданное выше.
+Предположим, что у вас уже есть веб-приложение WordPress, развернутое в Azure. Выполните вход на [портал Azure](http://portal.azure.com) и перейдите к веб-приложению WordPress. Вы также можете создать веб-приложение в магазине. Для получения дополнительных сведений щелкните [здесь](web-sites-php-web-site-gallery). Выберите «Параметры» -> «Слоты развертывания» -> «Добавить», чтобы создать слот развертывания с именем stage. Слот развертывания — это веб-приложение, которое использует те же ресурсы, что и основное веб-приложение, созданное выше.
 
 ![Создание промежуточного слота развертывания](./media/app-service-web-staged-publishing-realworld-scenarios/1setupstage.png)
 
@@ -278,7 +278,7 @@ require_once(ABSPATH . 'wp-settings.php');
 
 ![Просмотр изменений при переключении для WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
- >[AZURE.NOTE]> Если в вашем сценарии требуется только передача файлов (без обновления базы данных), то перед выполнением операции перемещения **установите** флажок **Настройка слота** для всех *параметров приложения* и *параметров строки подключения*, связанных с базой данных, в колонке параметров веб-приложения на портале предварительной версии Azure. В этом случае параметры DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER и строка подключения по умолчанию не должны отображаться при предварительном просмотре изменений перед выполнением операции **перемещения**. При выполнении операции **перемещения** в веб-приложении WordPress будут обновлены **только** файлы.
+ >[AZURE.NOTE]> Если в вашем сценарии требуется только передача файлов (без обновления базы данных), то перед выполнением операции перемещения **установите** флажок **Настройка слота** для всех *параметров приложения* и *параметров строки подключения*, связанных с базой данных, в колонке параметров веб-приложения на портале Azure. В этом случае параметры DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER и строка подключения по умолчанию не должны отображаться при предварительном просмотре изменений перед выполнением операции **перемещения**. При выполнении операции **перемещения** в веб-приложении WordPress будут обновлены **только** файлы.
 
 Перед выполнением операции перемещения рабочее приложение WordPress выглядит так: ![Рабочее веб-приложение перед переключением слотов](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
 
@@ -318,7 +318,7 @@ require_once(ABSPATH . 'wp-settings.php');
 
 ![Обновление строки подключения для промежуточного веб-приложения с новой промежуточной базой данных](./media/app-service-web-staged-publishing-realworld-scenarios/9umbconnstr.png)
 
-Щелкните **Получить параметры публикации** для слота развертывания **stage**. Будет загружен файл параметров публикации, в котором хранятся сведения, необходимые Visual Studio или WebMatrix для публикации приложения из локальной среды разработки в веб-приложение Azure.
+Щелкните **Получить параметры публикации** для **промежуточного** слота развертывания. Будет загружен файл параметров публикации, в котором хранятся сведения, необходимые Visual Studio или WebMatrix для публикации приложения из локальной среды разработки в веб-приложение Azure.
 
  ![Получение параметров публикации для промежуточного веб-приложения](./media/app-service-web-staged-publishing-realworld-scenarios/10getpsetting.png)
 
@@ -362,21 +362,14 @@ require_once(ABSPATH . 'wp-settings.php');
   </repositories>
  ```
 
-В `<repositories>` введите URL-адрес рабочего сайта и сведения о пользователе. Если используется поставщик членства Umbraco по умолчанию, следует добавить соответствующий идентификатор для пользователя-администратора в разделе <user>. Если используется собственный поставщик членства Umbraco, укажите `<login>`, `<password>`, с которыми модуль Courier2 должен подключаться к рабочему сайту. Подробности см. в [документации](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) для модуля Courier.
+Under `<repositories>`, enter the production site URL and user information. If you are using default Umbraco Membership provider, then add the ID for the Administration user in <user> section . If you are using a custom Umbraco membership provider, use `<login>`,`<password>` to Courier2 module know how to connect to the production site. For more details, review the [documentation](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) for Courier module.
 
-Аналогичным образом установите модуль Courier на рабочий сайт и настройте его на размещенное веб-приложение в соответствующем файле courier.config, как показано здесь
+Similarly, install Courier module on your production site and configure it point to stage web app in its respective courier.config file as shown here
 
 ```xml
   <!-- Repository connection settings -->
   <!-- For each site, a custom repository must be configured, so Courier knows how to connect and authenticate-->
-  <repositories>
-        <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  -->
-        <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true">
-            <url>http://umbracositecms-1-stage.azurewebsites.net</url>
-            <user>0</user>
-           </repository>
-  </repositories>
-```
+  <repositories> <!-- If a custom Umbraco Membership provider is used, specify login & password + set the passwordEncoding to clear:  --> <repository name="Stage web app" alias="stage" type="CourierWebserviceRepositoryProvider" visible="true"> <url>http://umbracositecms-1-stage.azurewebsites.net</url> <user>0</user> </repository> </repositories> ```
 
 Откройте вкладку Courier2 в панели мониторинга веб-приложений Umbraco CMS и выберите расположения. Вы увидите имя репозитория, указанное в файле `courier.config`. Выполните это действие в рабочем и промежуточном веб-приложениях.
 
@@ -429,4 +422,4 @@ require_once(ABSPATH . 'wp-settings.php');
 
 [Блокирование веб-доступа к непроизводственным областям развертывания](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

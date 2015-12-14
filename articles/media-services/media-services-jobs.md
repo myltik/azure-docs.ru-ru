@@ -33,7 +33,7 @@
 
 [AZURE.INCLUDE [media-services-selector-get-media-processor](../../includes/media-services-selector-get-media-processor.md)]
 
-##Создание заданий 
+##Создание заданий
 
 Задание — это сущность, которая содержит метаданные о наборе задач (например, кодирования или индексирования). Каждая задача выполняет атомарную операцию на входном ресурсе или ресурсах. Пример создания заданий кодирования см. в разделе:
 
@@ -43,22 +43,22 @@
 
 [AZURE.INCLUDE [media-services-selector-index-content](../../includes/media-services-selector-index-content.md)]
 
-##Кодирование 
+##Кодирование
 
-Кодируйте файлы с помощью **кодировщика службы мультимедиа Azure** через **портал управления Azure**, **.NET** или **API REST**.
- 
+Кодируйте файлы с помощью **кодировщика мультимедиа Azure** при помощи **классического портала Azure**, **.NET** или **API REST**.
+
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
 ##Наблюдение за ходом выполнения задания
 
-Мониторинг хода выполнения задания с помощью **портала управления Azure**, **.NET** или **REST API**.
+Осуществляйте мониторинг хода выполнения задания с помощью **классического портала Azure**, **.NET** или **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-job-progress](../../includes/media-services-selector-job-progress.md)]
 
 ##Связанные ссылки
 
 [Квоты и ограничения](media-services-quotas-and-limitations.md) — описание применяемых квот и ограничений кодировщика служб мультимедиа
- 
+
 
 ##Схемы обучения работе со службами мультимедиа
 
@@ -68,4 +68,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

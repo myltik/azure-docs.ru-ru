@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Поиск данных StackExchange с помощью Поиска Azure | Microsoft Azure | Размещенная облачная служба поиска"
+	pageTitle="Поиск данных StackExchange с помощью поиска Azure | Microsoft Azure | Размещенная облачная служба поиска"
 	description="Узнайте, как выполнять поиски REST с помощью Поиска Azure, размещенной облачной службы поиска в Microsoft Azure."
 	services="search"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 
 # Как искать данные в StackExchange с помощью поиска Azure
 
-Эта статья является пошаговым руководством, в котором рассматривается ряд основных возможностей полнотекстового поиска, предоставляемых [поиском Azure](https://azure.microsoft.com/ru-RU/services/search/). В ней используются данные, к которым сеть сайтов StackExchange [предоставила доступ](https://archive.org/details/stackexchange) по лицензии Creative Commons (с тем условием, чтобы соблюдались правила установления авторства, описанные в [этой статье](http://blog.stackoverflow.com/2009/06/attribution-required/)).
+Эта статья является пошаговым руководством, в котором рассматривается ряд основных возможностей полнотекстового поиска, предоставляемых [Поиском Azure](https://azure.microsoft.com/services/search/). В ней используются данные, к которым сеть сайтов StackExchange [предоставила доступ](https://archive.org/details/stackexchange) по лицензии Creative Commons (с тем условием, чтобы соблюдались правила установления авторства, описанные в [этой статье](http://blog.stackoverflow.com/2009/06/attribution-required/)).
 
 ## Приступая к работе
 
@@ -104,9 +104,9 @@
       on PA.[OwnerUserId] = PUA.Id
       WHERE PQ.PostTypeId = 1
 
-После этого вы можете использовать [портал Azure](https://portal.azure.com) для импорта данных из приведенного выше режима SQL Azure. Затем на основе схемы полей в этом режиме будет создан индекс поиска Azure на портале. Если вы хотите использовать созданную мной базу данных SQL Azure, воспользуйтесь следующей строкой подключения (только для чтения):
+После этого вы можете использовать [классический портал Azure](https://portal.azure.com) для импорта данных из приведенного выше режима SQL Azure. Затем на основе схемы полей в этом режиме будет создан индекс поиска Azure на портале. Если вы хотите использовать созданную мной базу данных SQL Azure, воспользуйтесь следующей строкой подключения (только для чтения):
 
     Server=tcp:azs-playground.database.windows.net,1433;Database=StackExchange;User ID=reader@azs-playground;
     Password=EdrERBt3j6mZDP;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

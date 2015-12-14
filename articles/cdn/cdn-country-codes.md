@@ -3,7 +3,7 @@
 	description="Функция фильтрации по странам использует коды стран для определения стран, из которых запрос к защищаемому каталогу будет разрешаться или блокироваться." 
 	services="cdn" 
 	documentationCenter=".NET" 
-	authors="juliako" 
+	authors="camsoper" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="juliako"/>
+	ms.date="12/02/2015" 
+	ms.author="casoper"/>
 
 #Коды стран
 
@@ -268,4 +268,4 @@
 | ZM | Замбия | |
 | ZW | Зимбабве | |
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

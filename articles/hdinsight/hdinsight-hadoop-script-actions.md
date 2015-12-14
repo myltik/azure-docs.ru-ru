@@ -92,7 +92,7 @@ HDInsight предоставляет несколько скриптов для 
 **Установка Solr** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. См. статью [Установка и использование Solr в кластерах HDInsight](hdinsight-hadoop-solr-install.md).
 — **Установка Giraph** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. См. статью [Установка и использование Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md).
 
-Действие сценария можно развернуть из портала предварительной версии Azure, из Azure PowerShell или из пакета SDK для HDInsight .NET. Дополнительную информацию см. в разделе [Настройка кластеров HDInsight с помощью действия сценария][hdinsight-cluster-customize].
+Действие сценария можно развернуть из портала Azure, из пакета SDK для HDInsight .NET или Azure PowerShell. Дополнительную информацию см. в разделе [Настройка кластеров HDInsight с помощью действия сценария][hdinsight-cluster-customize].
 
 > [AZURE.NOTE]Примеры сценариев работают только с кластером HDInsight версии 3.1 или более поздней. Дополнительную информацию о версиях кластера HDInsight см. в статье [Новые возможности версий кластеров Hadoop, предоставляемых HDInsight](../hdinsight-component-versioning/).
 
@@ -202,7 +202,7 @@ HDInsight предоставляет несколько скриптов для 
 
 ### Передача параметров командлету Add-AzureRmHDInsightScriptAction
 
-Чтобы передать несколько параметров командлету Add-AzureRmHDInsightScriptAction, необходимо отформатировать строковое значение, которое содержит все параметры для скрипта. Например:
+Чтобы передать несколько параметров командлету Add-AzureRmHDInsightScriptAction, необходимо отформатировать строковое значение, которое содержит все параметры для данного сценария. Например:
 
 	"-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
  
@@ -351,4 +351,4 @@ HDInsight предоставляет несколько скриптов для 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

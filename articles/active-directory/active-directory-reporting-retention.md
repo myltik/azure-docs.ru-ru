@@ -13,10 +13,22 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="10/02/2015"
+	ms.date="11/30/2015"
 	ms.author="kenhoff"/>
 
 # Политики хранения отчета Azure Active Directory
+
+## Статьи документации по созданию отчетов
+
+ - [API отчетов](active-directory-reporting-api-getting-started.md)
+ - [Аудит событий](active-directory-reporting-audit-events.md)
+ - [Сохранение](active-directory-reporting-retention.md)
+ - [Предварительный просмотр](active-directory-reporting-previews.md)
+ - [Поиск](active-directory-reporting-search.md)
+ - [Обратное заполнение](active-directory-reporting-backfill.md)
+ - [Задержки](active-directory-reporting-latencies.md)
+ - [Событие "Неизвестный субъект"](active-directory-reporting-unknown-actor.md)
+
 Данные из отчетов Azure AD хранятся в течение определенного количества дней, указанного ниже.
 
 Отчет | Описание
@@ -45,4 +57,4 @@
 Использование устройства с RMS | 30 дней
 Использование приложений с поддержкой RMS | 30 дней
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

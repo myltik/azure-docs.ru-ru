@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/07/2015"
+	ms.date="11/29/2015"
 	ms.author="nitinme"/>
 
 # Начало работы в экосистеме Hadoop с эмулятором HDInsight, изолированной средой Hadoop
@@ -37,8 +37,7 @@
 
 - Эмулятор HDInsight требует 64-разрядной версии Windows. Должна быть установлена одна из следующих систем:
 
-	- Windows 7 с пакетом обновления 1
-	- Windows Server 2008 R2 с пакетом обновления 1;
+	- Windows 10
 	- Windows 8
 	- Windows Server 2012
 
@@ -109,7 +108,7 @@
 
 ## Устранение неполадок. Подключение инструментов HDInsight к эмулятору HDInsight
 
-1. При подключении к эмулятору HDInsight, несмотря на то что в диалоговом окне отображается, что HiveServer2 подключен успешно, необходимо вручную задать для свойства **hive.security.authorization.enabled** значение **false** в файле конфигурации Hive, который расположен в папке C:\\hdp\\hive-*версия*\\conf\\hive-site.xml, а затем перезапустить локальный эмулятор. Инструменты HDInsight для Visual Studio подключаются к HiveServer2 только при просмотре 100 верхних строк таблицы. Если вы не планируете использовать такой запрос, можно не изменять конфигурацию Hive.
+1. При подключении к эмулятору HDInsight, хотя в диалоговом окне отображается, что HiveServer2 подключен успешно, необходимо вручную задать для свойства **hive.security.authorization.enabled** значение **false** в файле конфигурации Hive, который расположен в папке C:\\hdp\\hive-*версия*\\conf\\hive-site.xml, а затем перезапустить локальный эмулятор. Инструменты HDInsight для Visual Studio подключаются к HiveServer2 только при просмотре 100 верхних строк таблицы. Если вы не планируете использовать такой запрос, можно не изменять конфигурацию Hive.
 
 2. При использовании выделения динамических IP-адресов (DHCP) на компьютере с эмулятором HDInsight может потребоваться обновить файл, расположенный в папке C:\\hdp\\hadoop-*версия*\\etc\\hadoop\\core-site.xml, и изменить значение свойства **hadoop.proxyuser.hadoop.hosts** на (*). Благодаря этому пользователь Hadoop может подключаться со всех узлов, чтобы войти под именем пользователя, введенного в Visual Studio.
 
@@ -397,14 +396,14 @@ The samples currently contain all the required binaries, so building is not requ
 
 **Создание контейнера**
 
-1. Выполните вход на [портал предварительной версии Azure](https://ms.portal.azure.com/).
-2. Щелкните **СОЗДАТЬ** слева, щелкните **Данные+хранилище**, а затем — **Хранилище**.
+1. Войдите на [портал Azure](https://ms.portal.azure.com/).
+2. Щелкните **СОЗДАТЬ** слева, щелкните **Данные + хранилище**, а затем **Хранилище**.
 3. В колонке учетной записи хранения настройте свойства, как показано на снимке экрана ниже.
 	
 	![Создание учетной записи хранения](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.storage.png)
 
 	Выберите **Закрепить на начальной панели** и нажмите кнопку **Создать**.
-4. Создав учетную запись хранения, в колонке новой учетной записи щелкните **Контейнеры** чтобы открыть колонку контейнеров, и нажмите кнопку **Добавить**.
+4. Создав учетную запись хранения, в колонке новой учетной записи щелкните **Контейнеры**, чтобы открыть колонку контейнеров, и нажмите кнопку **Добавить**.
 5. Введите имя контейнера и нажмите кнопку **Выбрать**.
 
 	![Создание контейнера](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.container.png)
@@ -454,7 +453,7 @@ The samples currently contain all the required binaries, so building is not requ
 	$hdinsightJob = <JobDefinition>
 	Start-AzureHDInsightJob -Cluster http://localhost:50111 -Credential $creds -JobDefinition $hdinsightJob
 
-Будет выведен запрос при вызове Get-Credential. Необходимо использовать **hadoop** в качестве имени пользователя. Паролем может быть любая строка. Имя кластера — всегда ****http://localhost:50111**.
+Будет выведен запрос при вызове Get-Credential. Необходимо использовать **hadoop** в качестве имени пользователя. Паролем может быть любая строка. Именем кластера всегда будет ****http://localhost:50111**.
 
 Дополнительную информацию об отправке заданий Hadoop см. в статье [Отправка заданий Hadoop программным способом](hdinsight-submit-hadoop-jobs-programmatically.md). Дополнительную информацию о командлетах Azure PowerShell для HDInsight см. в разделе [Справочная документация по командлетам PowerShell для HDInsight][hdinsight-powershell-reference].
 
@@ -498,4 +497,4 @@ The samples currently contain all the required binaries, so building is not requ
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

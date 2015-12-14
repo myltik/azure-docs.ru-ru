@@ -24,7 +24,7 @@ Giraph можно установить в кластере любого типа
 
 **Связанные статьи**
 
-- [Установка Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md). Установка Giraph c помощью портала предварительной версии Azure
+- [Установка Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md). Установка Giraph c помощью портала Azure
 - [Установка Giraph на кластерах HDInsight Hadoop (Linux)](hdinsight-hadoop-giraph-install-linux.md)
 - [Создание кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md). Общие сведения о создании кластеров HDInsight
 - [Настройка кластеров HDInsight с помощью действия сценария][hdinsight-cluster-customize]. Общая информация о настройке кластеров HDInsight с помощью действия сценария
@@ -171,7 +171,7 @@ Giraph можно установить в кластере любого типа
 
 ## См. также
 
-- [Установка Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md). Установка Giraph c помощью портала предварительной версии Azure
+- [Установка Giraph в кластерах HDInsight](hdinsight-hadoop-giraph-install.md). Установка Giraph c помощью портала Azure
 - [Установка Giraph на кластерах HDInsight Hadoop (Linux)](hdinsight-hadoop-giraph-install-linux.md)
 - [Создание кластеров Hadoop в HDInsight](hdinsight-provision-clusters.md). Общие сведения о создании кластеров HDInsight
 - [Настройка кластеров HDInsight с помощью действия сценария][hdinsight-cluster-customize]. Общая информация о настройке кластеров HDInsight с помощью действия сценария
@@ -190,4 +190,4 @@ Giraph можно установить в кластере любого типа
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

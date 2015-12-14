@@ -17,7 +17,7 @@
    ms.date="11/16/2015"
    ms.author="danlep"/>
 
-# Приступая к работе с решениями Docker и Compose для запуска многоконтейнерного приложения на виртуальной машине Azure
+# Приступая к работе с решениями Docker и Compose для определения и запуска многоконтейнерного приложения на виртуальной машине Azure
 
 В этой статье показано, как приступить к работе с решениями Docker и [Compose](http://github.com/docker/compose) с целью определения и запуска сложного приложения на виртуальной машине Linux в Azure. Решение Compose (преемник решения *Fig*) позволяет определить приложение, состоящее из нескольких контейнеров Docker, с помощью простого текстового файла. После этого приложение разворачивается с помощью одной команды, которая инициирует все действия, необходимые для его запуска на виртуальной машине. В этой статье показано, как быстро настроить блог WordPress с серверной базой данных SQL MariaDB, однако решение Compose можно использовать для настройки и более сложных приложений.
 
@@ -49,10 +49,7 @@ $ chmod +x /usr/local/bin/docker-compose
 $ docker-compose --version
 ```
 
-Должен появиться результат, аналогичный
-```
-docker-compose 1.3.2
-```.
+Должен появиться результат, аналогичный `docker-compose 1.4.1`.
 
 
 ## Шаг 3. Создание файла конфигурации docker-compose.yml
@@ -61,18 +58,9 @@ docker-compose 1.3.2
 
 Создайте рабочий каталог на своей виртуальной машине и с помощью текстового редактора создайте файл `docker-compose.yml`. Приведем простой пример. Скопируйте следующий текст в файл. Эта конфигурация обеспечивает установку WordPress (системы управления блогами и содержимым с открытым исходным кодом) и связанной серверной базы данных MariaDB с использованием образов из [реестра DockerHub](https://registry.hub.docker.com/_/wordpress/).
 
- ```
- wordpress:
-  image: wordpress
-  links:
-    - db:mysql
-  ports:
-    - 8080:80
+ ``` wordpress: image: wordpress links: - db:mysql ports: - 8080:80
 
-db:
-  image: mariadb
-  environment:
-    MYSQL_ROOT_PASSWORD: <your password>
+db: image: mariadb environment: MYSQL\_ROOT\_PASSWORD: <your password>
 
 ```
 
@@ -88,9 +76,7 @@ $ docker-compose up -d
 This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
 
 ```
-Creating wordpress_db_1...
-Creating wordpress_wordpress_1...
-```
+Creating wordpress\_db\_1... Creating wordpress\_wordpress\_1... ```
 
 >[AZURE.NOTE]При запуске обязательно используйте параметр **-d**, чтобы контейнеры непрерывно выполнялись в фоновом режиме.
 
@@ -120,13 +106,12 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 ## Дальнейшие действия
 
-* Дополнительные примеры сборки и развертывания многоконтейнерных приложений см. в [справке по интерфейсу командной строки Compose](http://docs.docker.com/compose/cli/) и [руководстве пользователя](http://docs.docker.com/compose/).
-* Воспользуйтесь шаблоном диспетчера ресурсов Azure (собственным или полученным из [сообщества](http://azure.microsoft.com/documentation/templates/)), чтобы развернуть виртуальную машину Azure с Docker и настроить приложение при помощи решения Compose. Например: в шаблоне [Развертывание блога WordPress с помощью Docker](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/) решения Docker и Compose используются для быстрого развертывания WordPress с серверной базой данных MySQL на виртуальной машине Ubuntu.
-* Попытайтесь интегрировать Docker Compose с кластером [Docker Swarm](virtual-machines-docker-swarm.md). Доступные сценарии приведены в
-[статье об интеграции Docker Compose и Swarm](https://github.com/docker/compose/blob/master/SWARM.md).
+* Дополнительные примеры сборки и развертывания многоконтейнерных приложений см. в [справочнике по интерфейсу командной строки Compose](http://docs.docker.com/compose/reference/) и [руководстве пользователя](http://docs.docker.com/compose/).
+* Воспользуйтесь шаблоном диспетчера ресурсов Azure (собственным или полученным из [сообщества](http://azure.microsoft.com/documentation/templates/)), чтобы развернуть виртуальную машину Azure с Docker и настроить приложение при помощи решения Compose. Например, в шаблоне [Развертывание блога WordPress с помощью Docker](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/) решения Docker и Compose используются для быстрого развертывания WordPress с серверной базой данных MySQL на виртуальной машине Ubuntu.
+* Попытайтесь интегрировать Docker Compose с кластером [Docker Swarm](virtual-machines-docker-swarm.md). Доступные сценарии приведены в [статье об интеграции Docker Compose и Swarm](https://github.com/docker/compose/blob/master/SWARM.md).
 
 <!--Image references-->
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

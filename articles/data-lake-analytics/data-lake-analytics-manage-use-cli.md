@@ -26,7 +26,7 @@
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/ru-RU/pricing/free-trial/).
+- **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Интерфейс командной строки Azure**. См. статью [Установка и настройка интерфейса командной строки Azure](xplat-cli.md).
 	- Для выполнения этой демонстрации загрузите и установите **предварительный выпуск** [программ CLI Azure](https://github.com/MicrosoftBigData/AzureDataLake/releases).
 - **Пройдите проверку подлинности** с помощью следующей команды:
@@ -210,8 +210,8 @@
 ##См. также 
 
 - [Обзор аналитики озера данных Microsoft Azure](data-lake-analytics-overview.md)
-- [Начало работы с аналитикой озера данных с помощью портала предварительной версии Azure](data-lake-analytics-get-started-portal.md)
-- [Управление аналитикой озера данных Azure с помощью портала предварительной версии Azure](data-lake-analytics-use-portal.md)
-- [Мониторинг заданий аналитики озера данных Azure и устранение связанных с ними неполадок с помощью портала предварительной версии Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Начало работы с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
+- [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-use-portal.md)
+- [Мониторинг заданий аналитики озера данных Azure и устранение связанных с ними неполадок с помощью портала Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

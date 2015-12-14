@@ -94,11 +94,11 @@ CLI версии 0.9.9 и выше поддерживает многофакто
 
 		azure account download
 
-После этого откроется браузер по умолчанию и появится запрос на вход в [портал Azure][portal]. После входа в систему загрузится файл `.publishsettings`. Запишите место сохранения этого файла.
+После этого откроется браузер по умолчанию и появится запрос на вход в [классический портал Azure][portal]. После входа в систему загрузится файл `.publishsettings`. Запишите место сохранения этого файла.
 
 	> [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
 	>
-	> Once selected using the download page, or by visiting the Azure portal, the selected Active Directory becomes the default used by the portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
+	> Once selected using the download page, or by visiting the Azure classic portal, the selected Active Directory becomes the default used by the classic portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
 
 * Чтобы **импортировать файл параметров публикации**, выполните следующую команду:
 
@@ -158,4 +158,4 @@ CLI версии 0.9.9 и выше поддерживает многофакто
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -62,7 +62,7 @@
 
 ## Определение совместимости базы данных с помощью экспорта приложения уровня данных
 
-1. Убедитесь, что вы используете среду SQL Server Management Studio версии 13.0.600.65 или более поздней. Новые версии среды Management Studio обновляются ежемесячно для поддержания синхронизации с обновлениями портала Azure.
+1. Убедитесь, что вы используете среду SQL Server Management Studio версии 13.0.600.65 или более поздней. Новые версии среды Management Studio обновляются ежемесячно для синхронизации с обновлениями классического портала Azure.
 
  	 >[AZURE.IMPORTANT]Загрузите [последнюю](https://msdn.microsoft.com/library/mt238290.aspx) версию среды SQL Server Management Studio. Мы рекомендуем всегда использовать самую последнюю версию среды Management Studio.
 
@@ -99,7 +99,7 @@
 > [AZURE.WARNING]Для обеспечения согласованности транзакций во время миграции перед переносом базы данных с помощью любого из этих методов, убедитесь, что активные транзакции отсутствуют. Существует множество методов замораживания базы данных — от отключения возможности подключения клиента до создания [моментального снимка базы данных](https://msdn.microsoft.com/library/ms175876.aspx).
 
 - Перенос малых и средних [совместимых](#determine-if-your-database-is-compatible) Баз данных SQL Server 2005 или более поздних версий выполняется просто и заключается в запуске [мастера по развертыванию базы данных в базе данных Microsoft Azure](#use-the-deploy-database-to-microsoft-azure-database-wizard) в среде SQL Server Management Studio. При наличии проблем с подключением (отсутствие подключения, низкая пропускная способность или проблемы из-за превышения времени ожидания) можно [использовать BACPAC-файл для переноса](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database) Базы данных SQL Server в Базу данных SQL Azure.
-- Для средних и больших баз данных или при наличии проблем с подключением [используйте BACPAC-файл для переноса](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database) Базы данных SQL Server в Базу данных SQL Azure. Благодаря этому методу вы можете воспользоваться SQL Server Management Studio для экспорта данных и схемы в [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4)-файл (хранящийся локально или в большом двоичном объекте Azure), а затем импортировать BACPAC-файл в экземпляр Azure SQL. При хранении BACPAC-файла в большом двоичном объекте Azure вы также можете импортировать этот файл на [портале Azure](sql-database-import.md) или [с помощью PowerShell](sql-database-import-powershell.md).
+- Для средних и больших баз данных или при наличии проблем с подключением [используйте BACPAC-файл для переноса](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database) Базы данных SQL Server в Базу данных SQL Azure. Благодаря этому методу вы можете воспользоваться SQL Server Management Studio для экспорта данных и схемы в [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4)-файл (хранящийся локально или в большом двоичном объекте Azure), а затем импортировать BACPAC-файл в экземпляр Azure SQL. При хранении BACPAC-файла в большом двоичном объекте Azure вы также можете импортировать этот файл на [классический портале Azure](sql-database-import.md) или [с помощью PowerShell](sql-database-import-powershell.md).
 - В больших базах данных можно достичь повышения производительности за счет отдельного переноса схемы и данных. С помощью этого метода создайте [BACPAC-файл без данных](#use-a-bacpac-to-migrate-a-database-to-azure-sql-database) и импортируйте этот BACPAC в Базу данных SQL Azure. После импорта схемы в Базу данных SQL Azure можно использовать служебную программу [BCP](https://msdn.microsoft.com/library/ms162802.aspx) для извлечения данных в неструктурированные файлы, а затем импортировать эти файлы в Базу данных SQL Azure.
 
 	 ![Схема миграции среды SSMS](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
@@ -127,7 +127,7 @@
 
 > [AZURE.NOTE]При выполнении указанных ниже действий предполагается, что вы уже [подготовили](../sql-database-get-started.md) логический экземпляр SQL Azure и у вас есть сведения о подключении.
 
-1. Убедитесь, что вы используете среду SQL Server Management Studio версии 13.0.600.65 или более поздней. Новые версии среды Management Studio обновляются ежемесячно для поддержания синхронизации с обновлениями портала Azure.
+1. Убедитесь, что вы используете среду SQL Server Management Studio версии 13.0.600.65 или более поздней. Новые версии среды Management Studio обновляются ежемесячно для синхронизации с обновлениями классического портала Azure.
 
 	 >[AZURE.IMPORTANT]Загрузите [последнюю](https://msdn.microsoft.com/library/mt238290.aspx) версию среды SQL Server Management Studio. Мы рекомендуем всегда использовать самую последнюю версию среды Management Studio.
 
@@ -150,7 +150,7 @@
 
 6.	Завершите выполнение мастера, чтобы перенести базу данных. В зависимости от размера и сложности базы данных процесс развертывания может занять от нескольких минут до нескольких часов.
 7.	В обозревателе объектов подключитесь к перенесенной базе данных на сервере базы данных SQL Azure.
-8.	На портале Azure просмотрите базу данных и ее свойства.
+8.	На классическом портале Azure просмотрите базу данных и ее свойства.
 
 ## Использование BACPAC-файла для переноса базы данных SQL Server в базу данных SQL Azure
 
@@ -163,14 +163,14 @@
 
 - [Импорт из BACPAC-файла в базу данных SQL Azure с помощью среды SQL Server Management Studio](#import-from-a-bacpac-file-into-azure-sql-database-using-sql-server-management-studio)
 - [Импорт из BACPAC-файла в базу данных SQL Azure с помощью SqlPackage](#import-from-a-bacpac-file-into-azure-sql-database-using-sqlpackage)
-- [Импорт из BACPAC-файла в базу данных SQL Azure с помощью портала Azure](sql-database-import.md)
+- [Импорт из BACPAC-файла в базу данных SQL Azure с помощью классического портала Azure](sql-database-import.md)
 - [Импорт из BACPAC-файла в базу данных SQL Azure с помощью PowerShell](sql-database-import-powershell.md)
 
 ## Экспорт совместимой базы данных SQL Server в BACPAC-файл с помощью SQL Server Management Studio
 
 Выполните следующие действия для экспорта переносимой [совместимой](#determine-if-your-database-is-compatible) Базы данных SQL Server в BACPAC-файл с помощью среды Management Studio.
 
-1. Убедитесь, что вы используете среду SQL Server Management Studio версии 13.0.600.65 или более поздней. Новые версии среды Management Studio обновляются ежемесячно для поддержания синхронизации с обновлениями портала Azure.
+1. Убедитесь, что вы используете среду SQL Server Management Studio версии 13.0.600.65 или более поздней. Новые версии среды Management Studio обновляются ежемесячно для синхронизации с обновлениями классического портала Azure.
 
 	 >[AZURE.IMPORTANT]Загрузите [последнюю](https://msdn.microsoft.com/library/mt238290.aspx) версию среды SQL Server Management Studio. Мы рекомендуем всегда использовать самую последнюю версию среды Management Studio.
 
@@ -211,7 +211,7 @@
 
 > [AZURE.NOTE]При выполнении указанных ниже действий предполагается, что вы уже подготовили логический экземпляр SQL Azure и у вас есть сведения о подключении.
 
-1. Убедитесь, что вы используете среду SQL Server Management Studio версии 13.0.600.65 или более поздней. Новые версии среды Management Studio обновляются ежемесячно для поддержания синхронизации с обновлениями портала Azure.
+1. Убедитесь, что вы используете среду SQL Server Management Studio версии 13.0.600.65 или более поздней. Новые версии среды Management Studio обновляются ежемесячно для синхронизации с обновлениями классического портала Azure.
 
 	> [AZURE.IMPORTANT]Загрузите [последнюю](https://msdn.microsoft.com/library/mt238290.aspx) версию среды SQL Server Management Studio. Мы рекомендуем всегда использовать самую последнюю версию среды Management Studio.
 
@@ -235,7 +235,7 @@
 
 7. В обозревателе объектов подключитесь к перенесенной базе данных на сервере базы данных SQL Azure.
 
-8.	На портале Azure просмотрите базу данных и ее свойства.
+8.	На классическом портале Azure просмотрите базу данных и ее свойства.
 
 ## Импорт из BACPAC-файла в базу данных SQL Azure с помощью SqlPackage
 
@@ -277,4 +277,4 @@
 
 - SQL Server Management Studio. Исправить ошибки можно в среде Management Studio с помощью команд Transact-SQL, таких как **ALTER DATABASE**.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

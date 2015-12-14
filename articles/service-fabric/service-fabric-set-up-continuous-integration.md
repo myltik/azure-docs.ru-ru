@@ -125,7 +125,7 @@
 
 ### Установка пакета SDK для Service Fabric
 
-Установите [пакет SDK для Service Fabric](https://azure.microsoft.com/ru-RU/campaigns/service-fabric/).
+Установите [пакет SDK для Service Fabric](https://azure.microsoft.com/campaigns/service-fabric/).
 
 ### Регистрация репозитория NuGet пакета SDK для Service Fabric
 
@@ -339,4 +339,4 @@
 
 Дополнительные сведения о непрерывной интеграции с приложениями Service Fabric: [Домашняя страница документации по сборке](https://msdn.microsoft.com/Library/vs/alm/Build/overview); [Развертывание агента сборки](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows); [Создание и настройка определения сборки](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

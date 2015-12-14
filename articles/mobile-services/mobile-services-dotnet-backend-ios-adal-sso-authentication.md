@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="mahender"/>
 
 # Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../../includes/mobile-services-selector-adal-sso.md)]
 
@@ -36,7 +41,7 @@
 Для работы с данным учебником требуется следующее:
 
 * XCode 4.5 и iOS 6.0 (или более поздние версии)
-* Выполнение заданий учебника [Приступая к работе с мобильными службами]
+* Выполнение заданий учебника [Приступая к работе с мобильными службами].
 * Microsoft Azure Mobile Services SDK
 * Библиотека проверки подлинности [Active Directory для iOS]
 
@@ -90,7 +95,7 @@
         }
 
 
-6. В коде для метода `loginAndGetData` выше замените **INSERT-AUTHORITY-HERE** именем клиента, в котором подготавливалось приложение, используя формат https://login.windows.net/tenant-name.onmicrosoft.com. Это значение можно скопировать со вкладки "Домен" в Azure Active Directory на [портале управления Azure].
+6. В коде для метода `loginAndGetData` выше замените **INSERT-AUTHORITY-HERE** именем клиента, в котором подготавливалось приложение, используя формат https://login.windows.net/tenant-name.onmicrosoft.com. Это значение можно скопировать со вкладки "Домен" в Azure Active Directory на [классическом портале Azure].
 
 7. В коде для метода `loginAndGetData` выше замените **INSERT-RESOURCE-URI-HERE** значением **URI кода приложения** для своей мобильной службы. Если вы выполнили инструкции из раздела [Регистрация в Azure Active Directory], то URI кода приложения должен быть аналогичен https://todolist.azure-mobile.net/login/aad.
 
@@ -106,7 +111,7 @@
 ##Тестирование клиента с использованием проверки подлинности
 
 1. В меню «Продукт» щелкните «Выполнить» для запуска приложения
-2. Появится приглашение выполнить вход в Azure Active Directory.  
+2. Появится приглашение выполнить вход в Azure Active Directory.
 3. Приложение выполняет проверку подлинности и возвращает элементы списка дел.
 
    ![](./media/mobile-services-dotnet-backend-ios-adal-sso-authentication/mobile-services-app-run.png)
@@ -116,8 +121,8 @@
 <!-- URLs. -->
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-ios-get-started.md
 [Регистрация в Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
-[портале управления Azure]: https://manage.windowsazure.com/
+[классическом портале Azure]: https://manage.windowsazure.com/
 [Active Directory для iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 [библиотеку проверки подлинности Active Directory для iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

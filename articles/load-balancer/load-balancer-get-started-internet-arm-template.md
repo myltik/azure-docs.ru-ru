@@ -71,4 +71,12 @@
 
 		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.json' -e 'c:\lb\azuredeploy.parameters.json'
 
-<!---HONumber=AcomDC_1125_2015-->
+## Дальнейшие действия
+
+[Приступая к настройке внутренней подсистемы балансировки нагрузки](load-balancer-internal-getstarted.md)
+
+[Настройка режима распределения подсистемы балансировки нагрузки](load-balancer-distribution-mode.md)
+
+[Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
+
+<!---HONumber=AcomDC_1203_2015-->

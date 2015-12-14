@@ -43,7 +43,7 @@
 Выберите модуль чтения и заполните область свойств.
 
 1. Выберите базу данных SQL Azure в качестве базы данных-источника.
-2. Имя сервера баз данных: введите имя сервера. Сведения можно узнать на [портале Azure][].
+2. Имя сервера баз данных: введите имя сервера. Эти сведения можно узнать на [классическом портале Azure][].
 
 ![][server_name]
 
@@ -101,7 +101,7 @@ FROM dbo.DimProduct;
 Выберите модуль записи и заполните панель свойств.
 
 1. Выберите базу данных SQL Azure в качестве целевой базы данных.
-2. Имя сервера баз данных: введите имя сервера. Сведения можно узнать на [портале Azure][]. 
+2. Имя сервера баз данных: введите имя сервера. Эти сведения можно узнать на [классическом портале Azure][]. 
 3. Имя базы данных: введите имя базы данных на сервере, который только что был указан. 
 4. Имя учетной записи пользователя сервера: введите имя пользователя учетной записи, которая имеет разрешение на запись в базу данных. 
 5. Пароль учетной записи пользователя сервера: введите пароль для учетной записи указанного пользователя.
@@ -141,7 +141,7 @@ FROM dbo.DimProduct;
 [Создание эксперимента]: https://azure.microsoft.com/ru-RU/documentation/articles/machine-learning-create-experiment/
 [Основные сведения о машинном обучении Azure]: https://azure.microsoft.com/ru-RU/documentation/articles/machine-learning-what-is-machine-learning/
 [Студии машинного обучения Microsoft Azure]: https://studio.azureml.net/Home
-[портале Azure]: https://portal.azure.com/
+[классическом портале Azure]: https://portal.azure.com/
 
 <!--MSDN references-->
 
@@ -149,4 +149,4 @@ FROM dbo.DimProduct;
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

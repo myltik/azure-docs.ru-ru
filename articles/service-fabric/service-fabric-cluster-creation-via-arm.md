@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/13/2015"
+   ms.date="11/19/2015"
    ms.author="chackdan"/>
 
 # Настройка кластера Service Fabric с помощью шаблона ARM
@@ -37,7 +37,7 @@
 
 ## Создание настраиваемого шаблона ARM
 
-2. Выберите один из вариантов. 
+2. Выберите один из двух вариантов. 
 	1. Можно получить образец шаблона из [коллекции шаблонов быстрого запуска Azure на сайте github ](https://github.com/Azure/azure-quickstart-templates) и внести в него изменения.
 	2. Войдите на портал Azure и, используя сведения на страницах портала Service Fabric, создайте шаблон, который затем будет настроен. Эти действия описаны ниже.
 3. Выполните вход на портал Azure [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal).
@@ -45,7 +45,7 @@
 
 ## Развертывание шаблона ARM Azure с помощью Azure PS
 
-Подробные инструкции см. в статье [Развертывание шаблонов ARM Azure с помощью PS](https://azure.microsoft.com/ru-RU/documentation/articles/resource-group-template-deploy/).
+Подробные инструкции см. в статье [Развертывание шаблонов ARM Azure с помощью PS](resource-group-template-deploy.md).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Дальнейшие действия
@@ -56,4 +56,4 @@
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

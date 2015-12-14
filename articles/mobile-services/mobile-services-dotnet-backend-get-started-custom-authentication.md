@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Приступая к работе с настраиваемой проверкой подлинности | Microsoft Azure" 
-	description="Узнайте, как аутентифицировать пользователей по имени и паролю." 
-	documentationCenter="Mobile" 
-	authors="mattchenderson" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Приступая к работе с настраиваемой проверкой подлинности | Microsoft Azure"
+	description="Узнайте, как аутентифицировать пользователей по имени и паролю."
+	documentationCenter="Mobile"
+	authors="mattchenderson"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="09/28/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/28/2015"
 	ms.author="mahender"/>
 
 # Начало работы с настраиваемой проверкой подлинности
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 ## Обзор
 В этом разделе показывается, как проверять подлинности пользователей в серверной части .NET мобильных служб Azure путем выдачи токена проверки подлинности мобильных служб. В этом руководстве в проект быстрого запуска будет добавляться проверка подлинности с использованием имени пользователя и пароля для приложения.
@@ -35,7 +40,7 @@
 
 2. Добавьте следующий оператор `using`:
 
-		using Microsoft.WindowsAzure.Mobile.Service;  
+		using Microsoft.WindowsAzure.Mobile.Service;
 
 3. Замените определение класса следующим кодом:
 
@@ -45,7 +50,7 @@
 	        public byte[] Salt { get; set; }
 	        public byte[] SaltedAndHashedPassword { get; set; }
 	    }
-    
+
     Это представляет строку в новой таблице учетных записей, содержащую имя пользователя, его соль и безопасно хранящийся пароль.
 
 2. В папке **Модели** можно найти производный класс **DbContext** с именем, соответствующим вашей мобильной службе. Откройте контекст и добавьте таблицу учетных записей в модель данных, включив следующий код:
@@ -53,7 +58,7 @@
         public DbSet<Account> Accounts { get; set; }
 
 	>[AZURE.NOTE]Во фрагментах кода этого учебника в качестве имени контекста используется `todoContext`. Вам необходимо обновить фрагменты кода для контекста своего проекта. Далее вы настроите функции безопасности для работы с этими данными.
- 
+
 5. Создайте класс с именем `CustomLoginProviderUtils` и добавьте в него следующий оператор `using`:
 
 		using System.Security.Cryptography;
@@ -113,14 +118,14 @@
 		using <my_project_namespace>.Models;
 
 	В приведенном выше коде замените заполнитель пространством имен вашего проекта.
- 
+
 4. Замените определение класса следующим кодом:
 
 	    [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 	    public class CustomRegistrationController : ApiController
 	    {
 	        public ApiServices Services { get; set; }
-	
+
 	        // POST api/CustomRegistration
 	        public HttpResponseMessage Post(RegistrationRequest registrationRequest)
 	        {
@@ -132,7 +137,7 @@
 	            {
 	                return this.Request.CreateResponse(HttpStatusCode.BadRequest, "Invalid password (at least 8 chars required)");
 	            }
-	
+
 	            todoContext context = new todoContext();
 	            Account account = context.Accounts.Where(a => a.Username == registrationRequest.username).SingleOrDefault();
 	            if (account != null)
@@ -154,7 +159,7 @@
 	                return this.Request.CreateResponse(HttpStatusCode.Created);
 	            }
 	        }
-	    }   
+	    }
 
     Не забудьте заменить переменную *todoContext* именем **DbContext** проекта. Обратите внимание на то, что этот контроллер с помощью следующего атрибута разрешает весь трафик к данной конечной точке:
 
@@ -173,7 +178,7 @@
 		using Newtonsoft.Json.Linq;
 		using Owin;
 		using System.Security.Claims;
- 
+
 3. Замените определение класса **CustomLoginProvider** следующим кодом:
 
         public class CustomLoginProvider : LoginProvider
@@ -250,12 +255,12 @@
         }
 
 	Этот метод преобразует [ClaimsIdentity] в объект [ProviderCredentials], который используется на этапе выдачи маркера проверки подлинности. В этом методе может снова потребоваться записывать все дополнительные утверждения.
-	
+
 6. После создания **ConfigOptions** откройте файл проекта WebApiConfig.cs в папке App\_Start и перейдите к следующей строке кода:
-		
+
 		options.LoginProviders.Add(typeof(CustomLoginProvider));
 
-	
+
 
 ## Создание конечной точки входа
 
@@ -277,7 +282,7 @@
 	    {
 	        public string UserId { get; set; }
 	        public string MobileServiceAuthenticationToken { get; set; }
-	
+
 	    }
 
 	Этот класс представляет успешный вход с идентификатором пользователя и маркером проверки подлинности. Обратите внимание на то, что этот класс имеет такую же форму, как класс MobileServiceUser на клиенте, что упрощает передачу отклика на вход на строго типизированном клиенте.
@@ -290,13 +295,13 @@
 		using <my_project_namespace>.Models;
 
 3. Замените определение класса **CustomLoginController** следующим кодом:
- 
+
 	    [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 	    public class CustomLoginController : ApiController
 	    {
 	        public ApiServices Services { get; set; }
 	        public IServiceTokenHandler handler { get; set; }
-	
+
 	        // POST api/CustomLogin
 	        public HttpResponseMessage Post(LoginRequest loginRequest)
 	        {
@@ -307,7 +312,7 @@
 	            {
 	                byte[] incoming = CustomLoginProviderUtils
 	                    .hash(loginRequest.password, account.Salt);
-	
+
 	                if (CustomLoginProviderUtils.slowEquals(incoming, account.SaltedAndHashedPassword))
 	                {
 	                    ClaimsIdentity claimsIdentity = new ClaimsIdentity();
@@ -342,7 +347,7 @@
 
 В клиентском приложении необходимо разработать настраиваемый экран для входа, который будет принимать имена и пароли пользователей и отправлять их в виде полезных данных JSON на конечные точки регистрации и входа. Для выполнения данного руководства вместо этого экрана будет просто использоваться встроенный тестовый клиент для серверной части .NET мобильных служб.
 
-1. В Visual Studio щелкните правой кнопкой мыши проект мобильной службы, а затем выберите команды **Отладить** и **Запустить новый экземпляр**.  
+1. В Visual Studio щелкните правой кнопкой мыши проект мобильной службы, а затем выберите команды **Отладить** и **Запустить новый экземпляр**.
 
 	Будет запущен новый экземпляр отладки для серверного проекта мобильной службы. После успешного запуска службы вы увидите начальную страницу, на которой говорится, что **мобильная служба работает**.
 
@@ -389,13 +394,13 @@
 2. Используйте подходящий метод **invokeApi** для **MobileServiceClient** в клиентской библиотеке, чтобы вызвать конечную точку **CustomRegistration**, передав имя пользователя и пароль, предоставленные во время выполнения, в тексте сообщения.
 
 	Для создания учетной записи определенного пользователя потребуется вызвать конечную точку **CustomRegistration** всего один раз, если учетные данные для входа хранятся в таблице учетных записей. Примеры того, как вызывать настраиваемый API для различных поддерживаемых клиентских платформ, см. в статье [Настраиваемый API в мобильных службах Azure — клиентские пакеты SDK](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
-	 
+
 	> [AZURE.IMPORTANT]Так как этот шаг подготовки пользователя выполняется только один раз, рекомендуется создавать учетные записи пользователей, используя внештатный канал. Для общедоступной конечной точки регистрации также следует подумать о реализации проверки через SMS или электронную почту или принятии других мер для предотвращения создания мошеннических учетных записей. Вы можете использовать Twilio для отправки SMS из мобильных служб. Вы также можете использовать SendGrid для отправки сообщений электронной почты из мобильных служб. Дополнительные данные об использовании SendGrid см. в статье [Отправка сообщений электронной почты из мобильных служб с помощью SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
-	
+
 3. Снова используйте нужный метод **invokeApi**, на этот раз для вызова конечной точки **CustomLogin**, передав имя пользователя и пароль, предоставленные во время выполнения, в тексте сообщения.
 
 	В этот раз необходимо записать значения *userId* и *authenticationToken*, возвращаемые в объекте отклика после успешного входа.
-	
+
 4. Используйте возвращенные значения *userId* и *authenticationToken*, чтобы создать объект **MobileServiceUser** и задать его в качестве текущего пользователя для экземпляра **MobileServiceClient**, как показано в разделе [Добавление проверки подлинности к существующему приложению](mobile-services-dotnet-backend-ios-get-started-users.md). Так как результат CustomLogin имеет такую же форму, что и объект **MobileServiceUser**, можно будет выполнить прямое приведение результата.
 
 На этом учебник завершен.
@@ -418,6 +423,5 @@
 
 [ClaimsIdentity]: https://msdn.microsoft.com/library/system.security.claims.claimsidentity(v=vs.110).aspx
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,10 +1,12 @@
 
-1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. In the mobile app settings, click **Quickstart** > **Android)**. Under **Configure your client applicatoin**, click **Download**. This downloads a complete Android project for an app pre-configured to connect to your backend. Open the project using Android Studio, Import project (Eclipse ADT, Gradle, etc.).
+1. Откройте [портал Azure]. Щелкните **Просмотреть все** > **Мобильные приложения** и выберите только что созданную серверную часть приложения. В параметрах мобильного приложения щелкните **Быстрый старт** > **Android**. В разделе **Настройка клиентского приложения** щелкните **Загрузка**. Загрузится полный проект Android для приложения, предварительно настроенный для подключения к серверу. Откройте проект при помощи Android Studio, импортируйте проект (Eclipse ADT, Gradle и т. п.).
 
-2. Press the **Run 'app'** button to build the project and start the app in the Android simulator.
+2. Нажмите кнопку **Запуск приложения**, чтобы создать проект и запустить приложение в симуляторе Android.
 
-3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the 'Add' button. This sends a POST request to the Azure backend you deployed earlier. The backend inserts data from the request is into the TodoItem SQL table, and returns information about the newly stored items back to the mobile app. The mobile app displays this data in the list. 
+3. В приложении введите содержательный текст, например _Работа с руководством_, и нажмите кнопку "Добавить". Это отправляет запрос POST на ранее развернутый внутренний сервер Azure. Сервер вносит данные из запроса в таблицу TodoItem SQL и возвращает сведения о сохраненных элементах в мобильное приложение. В мобильном приложении эти данные отображаются в списке.
 
     ![](./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png)
 
-[Azure Portal]: https://portal.azure.com/
+[портал Azure]: https://portal.azure.com/
+
+<!---HONumber=AcomDC_1203_2015-->

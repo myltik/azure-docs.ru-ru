@@ -1,28 +1,33 @@
-<properties 
+<properties
 	pageTitle="Планирование задач в серверной мобильной службе .NET | Microsoft Azure"
 	description="Используйте планировщик в мобильных служб Azure для запуска заданий серверной части .NET по расписанию."
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="09/14/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="09/14/2015"
 	ms.author="glenga"/>
 
-# Планирование повторяющихся заданий в мобильных службах 
+# Планирование повторяющихся заданий в мобильных службах
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 > [AZURE.SELECTOR]
 - [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 - [Javascript backend](mobile-services-schedule-recurring-tasks.md)
- 
-В этом разделе показано, как использовать функциональные возможности планировщика заданий на портале управления для определения кода серверного сценария, который выполняется на основе определенного расписания. В этом случае сценарий периодически проверяет удаленную службу (в данном случае Twitter) и сохраняет результаты в новой таблице. В число других периодических задач, которые могут быть запланированы, входят следующие:
+
+В этой статье объясняется, как использовать функциональные возможности планировщика заданий на классическом портале Azure для создания кода серверного сценария, который выполняется на основе определенного расписания. В этом случае сценарий периодически проверяет удаленную службу (в данном случае Twitter) и сохраняет результаты в новой таблице. В число других периодических задач, которые могут быть запланированы, входят следующие:
 
 + Архивация старых или повторяющихся записей.
 + Запрос и сохранение внешних данных, например твитов, RSS-записей и сведений о расположении.
@@ -70,13 +75,13 @@
 	Это действие добавит ссылку на новую сборку.
 
 2. Добавьте следующие инструкции **using** в этот новый класс:
- 
+
 		using Microsoft.WindowsAzure.Mobile.Service;
 		using System.ComponentModel.DataAnnotations;
 
 3. Замените определение класса **Updates** следующим кодом:
 
-		public class Updates 
+		public class Updates
 	    {
 	        [Key]
 	        public int UpdateId { get; set; }
@@ -86,7 +91,7 @@
 	        public DateTime Date { get; set; }
     	}
 
-4. Разверните папку Models, откройте файл контекста модели данных (с именем *имя\_службы*Context.cs) и добавьте следующее свойство, которое возвращает типизированный **DbSet**:
+4. Разверните папку Models, откройте файл контекста модели данных (под названием *имя\_службы*Context.cs) и добавьте следующее свойство, которое возвращает типизированный набор **DbSet**:
 
 		public DbSet<Updates> Updates { get; set; }
 
@@ -96,14 +101,14 @@
 
 Теперь можно создать запланированное задание, которое получает доступ к Twitter и сохраняет данные твитов в новой таблице Updates.
 
-##<a name="add-job"></a>Создание нового запланированного задания  
+##<a name="add-job"></a>Создание нового запланированного задания
 
 1. Разверните папку ScheduledJobs и откройте файл проекта SampleJob.cs.
 
-	Этот класс, который наследуется от **ScheduledJob**, представляет собой задание, которое можно запланировать на портале управления Azure для запуска по фиксированному расписанию или по запросу.
+	Этот класс, который наследуется от **ScheduledJob**, представляет собой задание, которое можно запланировать на классическом портале Azure для запуска по фиксированному расписанию или по запросу.
 
 2. Замените содержимое файла SampleJob.cs на код, приведенный ниже:
- 
+
 		using System;
 		using System.Linq;
 		using System.Threading;
@@ -114,7 +119,7 @@
 		using LinqToTwitter;
 		using todolistService.Models;
 		using todolistService.DataObjects;
-		
+
 		namespace todolistService
 		{
 		    // A simple scheduled job which can be invoked manually by submitting an HTTP
@@ -124,29 +129,29 @@
 		        private todolistContext context;
 		        private string accessToken;
 		        private string accessTokenSecret;
-		
-		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, 
+
+		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor,
 					CancellationToken cancellationToken)
 		        {
 		            base.Initialize(scheduledJobDescriptor, cancellationToken);
-		
+
 		            // Create a new context with the supplied schema name.
 		            context = new todolistContext();
 		        }
-		
+
 		        public async override Task ExecuteAsync()
-		        {            
-		            // Try to get the stored Twitter access token from app settings.  
+		        {
+		            // Try to get the stored Twitter access token from app settings.
 		            if (!(Services.Settings.TryGetValue("TWITTER_ACCESS_TOKEN", out accessToken) |
 		            Services.Settings.TryGetValue("TWITTER_ACCESS_TOKEN_SECRET", out accessTokenSecret)))
 		            {
 		                Services.Log.Error("Could not retrieve Twitter access credentials.");
 		            }
-		
+
 		            // Create a new authorizer to access Twitter v1.1 APIs
 		            // using single-user OAUth 2.0 credentials.
 		            MvcAuthorizer auth = new MvcAuthorizer();
-		            SingleUserInMemoryCredentialStore store = 
+		            SingleUserInMemoryCredentialStore store =
 		                new SingleUserInMemoryCredentialStore()
 		            {
 		                ConsumerKey = Services.Settings.TwitterConsumerKey,
@@ -154,13 +159,13 @@
 		                OAuthToken = accessToken,
 		                OAuthTokenSecret = accessTokenSecret
 		            };
-		
+
 		            // Set the credentials for the authorizer.
 		            auth.CredentialStore = store;
-		
+
 		            // Create a new LINQ to Twitter context.
 		            TwitterContext twitter = new TwitterContext(auth);
-		
+
 		            // Get the ID of the most recent stored tweet.
 		            long lastTweetId = 0;
 		            if (context.Updates.Count() > 0)
@@ -170,7 +175,7 @@
 		                               select u).Take(1).SingleOrDefault()
 		                                            .TweetId;
 		            }
-		
+
 		            // Execute a search that returns a filtered result.
 		            var response = await (from s in twitter.Search
 		                                  where s.Type == SearchType.Search
@@ -178,13 +183,13 @@
 		                                  && s.SinceID == Convert.ToUInt64(lastTweetId + 1)
 		                                  && s.ResultType == ResultType.Recent
 		                                  select s).SingleOrDefaultAsync();
-		
+
 		            // Remove retweets and replies and log the number of tweets.
 		            var filteredTweets = response.Statuses
 		                .Where(t => !t.Text.StartsWith("RT") && t.InReplyToUserID == 0);
 		            Services.Log.Info("Fetched " + filteredTweets.Count()
 		                + " new tweets from Twitter.");
-		
+
 		            // Store new tweets in the Updates table.
 		            foreach (Status tweet in filteredTweets)
 		            {
@@ -196,10 +201,10 @@
 		                        Author = tweet.User.Name,
 		                        Date = tweet.CreatedAt
 		                    };
-		
+
 		                context.Updates.Add(newTweet);
 		            }
-		
+
 		            await context.SaveChangesAsync();
 		        }
 		        protected override void Dispose(bool disposing)
@@ -213,8 +218,8 @@
 		    }
 		}
 
-	В приведенном выше коде необходимо заменить строки _todolistService_ и _todolistContext_ на пространство имен и DbContext скачанного проекта, т. е. *mobile&#95;service&#95;name*Service и *mobile&#95;service&#95;name*Context соответственно.
-   	
+	В приведенном выше коде необходимо заменить строки _todolistService_ и _todolistContext_ на пространство имен и DbContext скачанного проекта, т. е. *mobile&#95;service&#95;name*Service и *mobile&#95;service&#95;name*Context соответственно.
+
 	В приведенном выше коде переопределяющий метод **ExecuteAsync** вызывает API запросов Твиттера с помощью сохраненных учетных данных для запроса последних твитов, содержащих хэш-тег `#mobileservices`. Повторяющиеся твиты и ответы исключаются из результатов еще до того, как они сохраняются в таблице.
 
 ##<a name="run-job-locally"></a>Локальное тестирование запланированного задания
@@ -228,7 +233,7 @@
 2. Щелкните **Попробовать**, а затем **POST jobs/{jobName}**.
 
 	![][8]
- 
+
 4. Щелкните **Попробовать**, введите `Sample` в качестве значения параметра **{jobName}**, а затем щелкните **Отправить**.
 
 	![][9]
@@ -239,20 +244,20 @@
 
 	Новые твиты вводятся как строки в таблице данных.
 
-##<a name="register-job"></a>Публикация службы и регистрация нового задания 
+##<a name="register-job"></a>Публикация службы и регистрация нового задания
 
 Задание должно быть зарегистрировано на вкладке **Планировщик**, чтобы мобильные службы могли выполнять его по заданному расписанию.
 
-3. Повторно опубликуйте проект мобильной службы в Azure. 
+3. Повторно опубликуйте проект мобильной службы в Azure.
 
-4. На [портале управления Azure] щелкните элемент «Мобильные службы», а затем выберите свое приложение.
+4. На [классическом портале Azure] щелкните элемент «Мобильные службы», а затем выберите свое приложение.
 
 2. Щелкните вкладку **Планировщик**, а затем нажмите кнопку **+Создать**.
 
     >[AZURE.NOTE]При работе в вашей мобильной службе на <em>бесплатном</em> уровне вы можете выполнять одновременно только одно запланированное задание. На оплачиваемых уровнях можно выполнять одновременно до десяти запланированных заданий.
 
 3. В диалоговом окне планировщика введите _Sample_ в поле **Имя задания**, задайте интервал и единицы планирования, а затем нажмите кнопку проверки.
-   
+
    	![][4]
 
    	В результате создается новое задание **Sample**.
@@ -263,11 +268,11 @@
 
 	>[AZURE.NOTE]Запрос POST по-прежнему можно использовать для запуска запланированного задания. Однако по умолчанию при авторизации применяется пользователь, т. е. запрос должен содержать ключ приложения в заголовке.
 
-4. (Необязательно). На [портале управления Azure] щелкните «Управление» для базы данных, связанной с вашей мобильной службой.
+4. Необязательно: на [классическом портале Azure] щелкните «Управление» для базы данных, связанной с вашей мобильной службой.
 
     ![][6]
 
-5. На портале управления выполните запрос для просмотра изменений, внесенных приложением. Ваш запрос будет похож на показанный ниже, но вместо `todolist` укажите имя вашей мобильной службы в качестве имени схемы.
+5. На классическом портале Azure выполните запрос для просмотра изменений, внесенных приложением. Ваш запрос будет похож на показанный ниже, но вместо `todolist` укажите имя вашей мобильной службы в качестве имени схемы.
 
         SELECT * FROM [todolist].[Updates]
 
@@ -294,10 +299,10 @@
 [9]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-service-try-this-out.png
 
 <!-- URLs. -->
-[портале управления Azure]: https://manage.windowsazure.com/
+[классическом портале Azure]: https://manage.windowsazure.com/
 [Register your apps for Twitter login with Mobile Services]: mobile-services-how-to-register-twitter-authentication.md
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [Проект LINQ to Twitter CodePlex]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

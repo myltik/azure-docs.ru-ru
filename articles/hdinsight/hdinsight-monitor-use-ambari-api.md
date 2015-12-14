@@ -35,7 +35,7 @@
 
 Перед началом работы с этим учебником необходимо иметь следующее:
 
-- **Рабочая станция с Azure PowerShell.**. См. [Установка и использование Azure PowerShell](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
+- **Рабочая станция с Azure PowerShell.**. См. раздел [Установка Azure PowerShell 1.0 и более поздних версий](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
 
 
 - [cURL][curl] (необязательно). Для установки см. раздел [выпусков и скачиваемых файлов cURL][curl-download].
@@ -50,7 +50,7 @@
 Имя пользователя кластера|$clusterUsername||Имя пользователя кластера, указанное при подготовке.
 Пароль кластера|$clusterPassword||Пароль пользователя кластера.
 
-	> [AZURE.NOTE] Введите значения в таблицу. Это будет полезно для изучения данного учебника.
+	> [AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
 
 
 
@@ -147,7 +147,7 @@
 
 Теперь вы узнали, как использовать Ambari API для мониторинга. Дополнительные сведения см. на следующих ресурсах:
 
-- [Управление кластерами HDInsight с помощью портала предварительной версии Azure][hdinsight-admin-portal]
+- [Управление кластерами HDInsight с помощью портала Azure][hdinsight-admin-portal]
 - [Управление кластерами HDInsight с помощью Azure PowerShell][hdinsight-admin-powershell]
 - [Управление кластерами HDInsight с помощью интерфейса командной строки][hdinsight-admin-cli]
 - [Документация по HDInsight][hdinsight-documentation]
@@ -175,4 +175,4 @@
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

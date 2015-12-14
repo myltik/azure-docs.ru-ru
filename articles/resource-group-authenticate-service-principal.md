@@ -142,7 +142,7 @@
 
 1. Для обоих подходов создайте объект X509Certificate из сертификата и извлеките значение ключа. Используйте путь сертификата и соответствующий пароль.
 
-        $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate("C:\certificates\examplecert.pfx", "yourpassword")
+        $cert = New-Object -TypeName System.Security.Cryptography.X509Certificates.X509Certificate -ArgumentList @("C:\certificates\examplecert.pfx", "yourpassword")
         $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
 2. Если вы используете учетные данные ключа, создайте объект учетных данных ключа и присвойте ему значение `$keyValue` из предыдущего шага.
@@ -312,4 +312,4 @@
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

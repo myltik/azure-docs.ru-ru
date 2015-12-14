@@ -55,7 +55,7 @@
 
 Azure AD Connect позволяет выполнять подготовку локальных компьютеров как объектов устройств в облаке. Сведения о развертывании Azure AD Connect см. в статье "Обеспечение гибридного управления для каталога с помощью Azure AD Connect".
 
- - Если вы выполнили [выборочную установку Azure AD Connect](https://azure.microsoft.com/ru-RU/documentation/articles/active-directory-aadconnect-get-started-custom/) (не экспресс-установку), необходимо выполнить процедуру **Создание точки подключения службы в локальной службе Active Directory**, описанную ниже.
+ - Если вы выполнили [выборочную установку Azure AD Connect](active-directory-aadconnect-get-started-custom.md) (не экспресс-установку), необходимо выполнить процедуру **Создание точки подключения службы в локальной службе Active Directory**, описанную ниже.
  - При наличии федеративной конфигурации с Azure AD перед установкой Azure AD Connect (например, в случае предварительного развертывания служб федерации Active Directory) потребуется выполнить процедуру **Настройка правил утверждений служб федерации Active Directory**, описанную ниже.
 
 ### Создание точки подключения службы в локальной службе Active Directory
@@ -137,4 +137,4 @@ Azure AD Connect позволяет выполнять подготовку ло
 * [Подключение присоединенных к домену устройств к Azure AD для работы в Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Настройка присоединения к Azure AD](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,42 +1,42 @@
-<properties 
-	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement" 
+<properties
+	pageTitle="Интеграция пакета Android SDK для Azure Mobile Engagement"
 	description="Последние обновления и процедуры пакета Android SDK для Azure Mobile Engagement"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="piyushjo" />
 
 #Интеграция службы Engagement на Android
 
-> [AZURE.SELECTOR] 
-- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
-- [iOS](mobile-engagement-ios-integrate-engagement.md) 
-- [Android](mobile-engagement-android-integrate-engagement.md) 
+> [AZURE.SELECTOR]
+- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
+- [Android](mobile-engagement-android-integrate-engagement.md)
 
 Эта процедура описывает самый простой способ активации функции аналитики и мониторинга службы Engagement в приложении Android.
 
 > [AZURE.IMPORTANT]Минимальный уровень пакета API SDK Android должен быть 10 или выше (Android 2.3.3 ил выше).
- 
+
 Следующих действий достаточно для активации отчета журналов, который необходим при вычислении всех статистических данных о пользователях, сеансах, действиях сбоях и технических проблемах. Отчеты по журналам, необходимые для вычисления других статистических данных (например, касающихся событий, ошибок и заданий), требуется создавать вручную с помощью API Engagement (см. статью [Использование расширенного API добавления тегов службы Mobile Engagement в приложении Android](mobile-engagement-android-use-engagement-api.md)), так как эти статистические данные зависят от приложения.
 
 ##Внедрение пакета SDK Engagement и службы в проект Android
 
-Загрузите пакет Android SDK [отсюда](http://go.microsoft.com/?linkid=9863935&clcid=0x409). Поместите `mobile-engagement-VERSION.jar` в папку `libs` вашего проекта Android (создайте папку libs, если она еще не создана).
+Загрузите пакет Android SDK [отсюда](https://aka.ms/vq9mfn). Поместите `mobile-engagement-VERSION.jar` в папку `libs` вашего проекта Android (создайте папку libs, если она еще не создана).
 
 > [AZURE.IMPORTANT]При создании пакета приложения с помощью ProGuard необходимо сохранить некоторые классы. Можно использовать следующие фрагменты кода конфигурации:
 >
-> 
+>
 			-keep public class * extends android.os.IInterface
 			-keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
 			<methods>;
@@ -77,7 +77,7 @@
 			 {
 			   if (EngagementAgentUtils.isInDedicatedEngagementProcess(this))
 			     return;
-			
+
 			   ... Your code...
 			 }
 
@@ -94,10 +94,10 @@
 **Без Engagement:**
 
 			package com.company.myapp;
-			
+
 			import android.app.Activity;
 			import android.os.Bundle;
-			
+
 			public class MyApp extends Activity
 			{
 			  @Override
@@ -111,10 +111,10 @@
 **С Engagement:**
 
 			package com.company.myapp;
-			
+
 			import com.microsoft.azure.engagement.activity.EngagementActivity;
 			import android.os.Bundle;
-			
+
 			public class MyApp extends EngagementActivity
 			{
 			  @Override
@@ -148,7 +148,7 @@
 			    String activityNameOnEngagement = EngagementAgentUtils.buildEngagementActivityName(getClass()); // Uses short class name and removes "Activity" at the end.
 			    EngagementAgent.getInstance(this).startActivity(this, activityNameOnEngagement, null);
 			  }
-			
+
 			  @Override
 			  protected void onPause()
 			  {
@@ -270,7 +270,7 @@
     public void onCreate(Bundle savedInstanceState)
     {
       /* Other code... */
-    
+
       /* Request permissions */
       requestPermissions();
     }
@@ -288,7 +288,7 @@
          */
         if (checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
           requestPermissions(new String[] { android.Manifest.permission.ACCESS_FINE_LOCATION }, 0);
-    
+
         /* Only if you want to keep features using external storage */
         if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
           requestPermissions(new String[] { android.Manifest.permission.WRITE_EXTERNAL_STORAGE }, 1);
@@ -380,6 +380,5 @@ API службы Engagement позволяет использовать все �
 
 <!-- URLs. -->
 [Device API]: http://go.microsoft.com/?linkid=9876094
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

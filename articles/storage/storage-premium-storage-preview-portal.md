@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
+	ms.date="12/01/2015"
 	ms.author="tamram;selcint"/>
 
 
@@ -35,7 +35,7 @@
 
 - Для использования хранилища Premium необходимо иметь учетную запись хранилища Premium. Чтобы узнать, как создать учетную запись хранилища Premium, см. раздел [Создание и использование учетной записи хранения Premium для дисков](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
-- Хранилище Premium в настоящее время предоставляется на [портале предварительной версии Microsoft Azure](https://portal.azure.com/), и доступ к нему осуществляется с помощью следующих библиотек SDK: [API-интерфейс REST служб хранилища](http://msdn.microsoft.com//library/azure/dd179355.aspx) версии 2014-02-14 или более поздней; [API-интерфейс REST управления службами](http://msdn.microsoft.com/library/azure/ee460799.aspx) версии 2014-10-01 или более поздней; [Azure PowerShell](../install-configure-powershell.md) версии 0.8.10 или более поздней.
+- Хранилище класса Premium предоставляется на [портале Azure](portal.azure.com), и доступ к нему осуществляется с помощью следующих библиотек SDK: [API-интерфейс REST служб хранилища](http://msdn.microsoft.com//library/azure/dd179355.aspx) версии 2014-02-14 или более поздней; [API-интерфейс REST управления службами](http://msdn.microsoft.com/library/azure/ee460799.aspx) версии 2014-10-01 или более поздней; [Azure PowerShell](../install-configure-powershell.md) версии 0.8.10 или более поздней.
 
 - Список регионов, которые в настоящее время поддерживают хранилище класса Premium, см. в статье [Службы Azure по регионам](http://azure.microsoft.com/regions/#services).
 
@@ -61,7 +61,7 @@
 
 Сведения о переносе существующих виртуальных машин в хранилище класса Premium см. в статье [Перенос в хранилище Azure Premium](storage-migration-to-premium-storage.md).
 
-Чтобы воспользоваться преимуществами хранилища Premium, сначала создайте учетную запись хранилища типа *Premium\_LRS*. Для этого можно использовать [портал предварительной версии Microsoft Azure](https://portal.azure.com/), [оболочку Azure PowerShell](../install-configure-powershell.md) или [API REST управления службами](http://msdn.microsoft.com/library/azure/ee460799.aspx). Пошаговые инструкции см. в разделе [Создание и использование учетной записи хранилища Premium для дисков](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+Чтобы воспользоваться преимуществами хранилища Premium, сначала создайте учетную запись хранилища типа *Premium\_LRS*. Для этого можно использовать [портал Azure](portal.azure.com), [оболочку Azure PowerShell](../install-configure-powershell.md) или [API REST управления службами](http://msdn.microsoft.com/library/azure/ee460799.aspx). Пошаговые инструкции см. в разделе [Создание и использование учетной записи хранилища Premium для дисков](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
 ### Важные примечания.
 
@@ -201,7 +201,7 @@
 	- Если вы используете систему **XFS**, отключите барьеры с помощью параметра подключения “nobarrier” (для их включения используйте параметр “barrier”).
 
 - Для дисков хранилища Premium с параметром кэширования «чтение и запись» барьеры должны быть включены на весь срок выполнения операции записи.
-- Чтобы сохранить метки томов после перезапуска виртуальной машины, необходимо обновить каталог /etc/fstab, указав ссылки UUID на диски. Также см. статью [Подключение диска данных к виртуальной машине Linux](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-how-to-attach-disk).
+- Чтобы сохранить метки томов после перезапуска виртуальной машины, необходимо обновить каталог /etc/fstab, указав ссылки UUID на диски. Также см. статью [Подключение диска данных к виртуальной машине Linux](../virtual-machines/virtual-machines-linux-how-to-attach-disk).
 
 Ниже перечислены дистрибутивы Linux, проверенные на предмет работоспособности с хранилищем Premium. Рекомендуем вам обновить свои виртуальные машины до одной из перечисленных ниже версий (или более поздних), чтобы добиться от хранилища Premium максимально производительной и стабильной работы. Кроме того, для некоторых из этих версий необходима последняя версия LIS (служб интеграции Linux Integration Services 4.0 для Microsoft Azure). Используйте приведенные ниже ссылки для загрузки и установки соответствующих продуктов. По мере завершения проверки мы будем дополнять этот список новыми образами. Обратите внимание, что наши проверки этих образов продемонстрировали колебания показателей производительности, которые также зависят от особенностей рабочей нагрузки и параметров образов. Различные образы лучше подходят для разных типов рабочей нагрузки. <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>Дистрибутив</strong></td> <td><strong>Версия</strong></td> <td><strong>Поддерживаемое ядро</strong></td> <td><strong>Поддерживаемый образ</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-ru-RU-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-ru-RU-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14\_10-amd64-server-20150202-ru-RU-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15\_04-amd64-server-20150422-ru-RU-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 6.7, 7.0</td> <td></td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> Требуется LIS 4.0. </a> </br> * См. примечание ниже. </td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> Рекомендуется LIS 4.0. </a> <br/> * См. примечание ниже. </td> </tr>
 
@@ -250,11 +250,7 @@
 
 В этом разделе рассказывается, как создать учетную запись хранилища Premium с помощью предварительной версии портала Azure.
 
-1.	Выполните вход на [портал предварительной версии Azure](https://portal.azure.com/). Если у вас еще нет подписки, см. предложение [бесплатной пробной версии](http://azure.microsoft.com/pricing/free-trial/).
-
-
-    > [AZURE.NOTE]Если вы вошли на портал управления Azure, щелкните имя своей учетной записи в правом верхнем углу. Затем нажмите кнопку **Переключиться на новый портал**.
-
+1.	Войдите на [портал Azure](portal.azure.com). Если у вас еще нет подписки, см. предложение [бесплатной пробной версии](http://azure.microsoft.com/pricing/free-trial/).
 
 2.	В меню концентратора выберите **Создать**.
 
@@ -331,13 +327,12 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 ## Дальнейшие действия
 
 - [Использование операций службы BLOB-объектов с хранилищем Azure Premium](http://go.microsoft.com/fwlink/?LinkId=521969)
-- [Перенос в хранилище класса Premium Azure](storage-migration-to-premium-storage.md)
+- [Перенос в хранилище Azure класса Premium](storage-migration-to-premium-storage.md).
 - [Создание виртуальной машины под управлением Windows](../virtual-machines-windows-tutorial-azure-preview.md)
 - [Размеры виртуальных машин и облачных служб для Azure](../virtual-machines/virtual-machines-size-specs.md)
 - [Документация по хранилищу](http://azure.microsoft.com/documentation/services/storage/)
-- [Справочник MSDN](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -1,6 +1,6 @@
-1. In your **app** project, open the file `AndroidManifest.xml`. In the code in the next two steps, replace _`**my_app_package**`_ with the name of the app package for your project, which is the value of the `package` attribute of the `manifest` tag. 
+1. В проекте **приложения** откройте файл `AndroidManifest.xml`. В коде в следующих двух действиях замените _`**my_app_package**`_ именем пакета приложения для вашего проекта, которое является значением атрибута `package` тега `manifest`. 
 
-2. Add the following new permissions after the existing `uses-permission` element:
+2. Добавьте следующие новые разрешения после существующего элемента `uses-permission`:
 
         <permission android:name="**my_app_package**.permission.C2D_MESSAGE" 
             android:protectionLevel="signature" />
@@ -9,7 +9,7 @@
         <uses-permission android:name="android.permission.GET_ACCOUNTS" />
         <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-3. Add the following code after the `application` opening tag: 
+3. Добавьте следующий код после открывающего тега `application`:
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             						 	android:permission="com.google.android.c2dm.permission.SEND">
@@ -20,38 +20,38 @@
         </receiver>
 
 
-4. Add this line under *dependencies* in the **build.gradle** file in the app directory and re-sync gradle with the project: 
+4. Добавьте следующую строку под словом *dependencies* в файле **build.gradle** в каталоге приложения и повторно синхронизируйте Gradle с проектом:
 
 	    compile(group: 'com.microsoft.azure', name: 'azure-notifications-handler', version: '1.0.1', ext: 'jar')
 
 
-5. Open the file *ToDoActivity.java*, and add the following import statement:
+5. Откройте файл *ToDoActivity.java* и добавьте следующий оператор импорта:
 
 		import com.microsoft.windowsazure.notifications.NotificationsManager;
 
 
-6. Add the following private variable to the class: replace _`<PROJECT_NUMBER>`_ with the Project Number assigned by Google to your app in the preceding procedure:
+6. Добавьте в класс следующую частную переменную, где _`<PROJECT_NUMBER>`_ — номер проекта, назначенный Google вашему приложению в предыдущей процедуре:
 
 		public static final String SENDER_ID = "<PROJECT_NUMBER>";
 
-7. Change the definition of the *MobileServiceClient* from **private** to **public static**, so it now looks like this:
+7. Измените определение *MobileServiceClient* с **частного** на **публичный статический**, чтобы оно выглядело следующим образом:
 
 		public static MobileServiceClient mClient;
 
-8. Next we need to add a new class to handle notifications. In the Project Explorer, open the **src** => **main** => **java** nodes, and right-click the  package name node: click **New**, then click **Java Class**.
+8. Далее необходимо добавить новый класс для обработки уведомлений. В обозревателе проектов откройте узлы **src** > **main** > **java** и щелкните правой кнопкой мыши узел с именем пакета, выберите **Создать** и **Класс Java**.
 
-9. In **Name** type `MyHandler`, then click **OK**. 
+9. В поле **Имя** введите `MyHandler`, а затем нажмите кнопку **ОК**.
 
 
 	![](./media/mobile-services-android-get-started-push/android-studio-create-class.png)
 
 
-10. In the MyHandler file, replace the class declaration with 
+10. В файле MyHandler замените объявление класса на
 
 		public class MyHandler extends NotificationsHandler {
 
 
-11. Add the following import statements for the `MyHandler` class:
+11. Добавьте следующие операторы импорта для класса `MyHandler`:
 
 		import com.microsoft.windowsazure.notifications.NotificationsHandler;
 		import android.app.NotificationManager;
@@ -63,7 +63,7 @@
 		import android.support.v4.app.NotificationCompat;
 
 	
-12. Next add the following members for the `MyHandler` class:
+12. Затем добавьте в класс `MyHandler` следующие члены:
 
 		public static final int NOTIFICATION_ID = 1;
 		private NotificationManager mNotificationManager;
@@ -71,7 +71,7 @@
 		Context ctx;
 
 
-13. In the `MyHandler` class, add the following code to override the **onRegistered** method, which registers your device with the mobile service Notification Hub.
+13. В классе `MyHandler` добавьте следующий код для переопределения метода **onRegistered**, который регистрирует устройство в Центре уведомлений мобильной службы.
 
 		@Override
 		public void onRegistered(Context context,  final String gcmRegistrationId) {
@@ -94,7 +94,7 @@
 
 
 
-14. In the `MyHandler` class, add the following code to override the **onReceive** method, which causes the notification to display when it is received.
+14. В классе `MyHandler` добавьте следующий код для переопределения метода **onReceive**, который отображает уведомление при получении.
 
 		@Override
 		public void onReceive(Context context, Bundle bundle) {
@@ -124,9 +124,11 @@
 		}
 
 
-15. Back in the TodoActivity.java file, update the **onCreate** method of the *ToDoActivity* class to register the notification handler class. Make sure to add this code after the *MobileServiceClient* is instantiated.
+15. В файле TodoActivity.java обновите метод **onCreate** класса *ToDoActivity*, чтобы зарегистрировать класс обработчика уведомлений. Добавлять этот код нужно обязательно после кода создания экземпляра *MobileServiceClient*.
 
 
 		NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
 
-    Your app is now updated to support push notifications.
+    Ваше приложение теперь обновлено для поддержки push-уведомлений.
+
+<!---HONumber=AcomDC_1203_2015-->

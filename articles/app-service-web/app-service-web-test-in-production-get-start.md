@@ -41,7 +41,7 @@
 
 >[AZURE.NOTE]В этих инструкциях предполагается, что у вас уже есть [нерабочая область развертывания](web-sites-staged-publishing.md), а также что нужное содержимое уже [развернуто](web-sites-publish-source-control.md) в веб-приложении.
 
-1. Войдите на [портал предварительной версии Azure](https://portal.azure.com).
+1. Войдите на [портал Azure](https://portal.azure.com).
 2. В колонке веб-приложения щелкните элементы **Параметры** > **Маршрутизация трафика**. ![](./media/app-service-web-test-in-production/01-traffic-routing.png)
 3. Выберите слот для перенаправления трафика и укажите требуемый процент от общего трафика, а затем нажмите кнопку **Сохранить**.
 
@@ -86,4 +86,4 @@
 -   [Гибкая разработка программного обеспечения с помощью службы приложений Azure.](app-service-agile-software-development.md)
 -	[Эффективное использование сред разработки и операций для веб-приложений](app-service-web-staged-publishing-realworld-scenarios.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

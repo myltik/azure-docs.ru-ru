@@ -13,11 +13,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="11/09/2015"
+   ms.date="11/30/2015"
    ms.author="kenhoff"/>
 
 
 # Приступая к работе с API отчетов Azure AD
+
+## Статьи документации по созданию отчетов
+
+ - [API отчетов](active-directory-reporting-api-getting-started.md)
+ - [Аудит событий](active-directory-reporting-audit-events.md)
+ - [Сохранение](active-directory-reporting-retention.md)
+ - [Предварительный просмотр](active-directory-reporting-previews.md)
+ - [Поиск](active-directory-reporting-search.md)
+ - [Обратное заполнение](active-directory-reporting-backfill.md)
+ - [Задержки](active-directory-reporting-latencies.md)
+ - [Событие "Неизвестный субъект"](active-directory-reporting-unknown-actor.md)
 
 Azure Active Directory предоставляет возможность получения отчетов об активности, аудиту и безопасности. Полученные данные можно использовать на портале Azure, но их также может быть полезно использовать во многих других приложениях, например в приложениях систем SIEM, инструментах аудита и бизнес-аналитики.
 
@@ -160,7 +171,7 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 ## Примечания
 
 - Количество событий, возвращаемых API отчетов Azure AD (с помощью разбиения на страницы OData), не ограничено.
-	- Сведения о предельных показателях хранения данных отчетов приведены в статье [Политики хранения отчетов](active-directory-reporting-retention.md).
+	- Сведения о периоде удержания данных отчетов приведены в статье [Политики периода удержания отчетов](active-directory-reporting-retention.md).
 
 
 ## Дальнейшие действия
@@ -168,4 +179,4 @@ API отчетов использует [OAuth](https://msdn.microsoft.com/libra
 - Дополнительную информацию об отчетах об аудите см. в статье [События отчетов AD Azure об аудите ](active-directory-reporting-audit-events.md)
 - Дополнительную информацию о службе Graph API REST см. в разделе [Отчеты и события Azure AD (предварительная версия)](https://msdn.microsoft.com/library/azure/mt126081.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

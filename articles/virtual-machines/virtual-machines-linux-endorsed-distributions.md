@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/13/2015"
+	ms.date="12/01/2015"
 	ms.author="szark"/>
 
 
@@ -37,12 +37,13 @@
 
 Дистрибутив|Версия|Драйверы|Агент
 ---|---|---|---
-Каноническая Ubuntu|Ubuntu 12.04, 14.04, 15.04 и 15.10|В ядре|Пакет: в репозитории под именем WALinuxAgent <p><p>Источник: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-CentOS через OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3: [скачиваемый пакет LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 и более поздних версий: в ядре|Пакет: в <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">репозитории OpenLogic под именем WALinuxAgent<p><p>Источник: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+Ubuntu|Ubuntu 12.04, 14.04, 15.04 и 15.10|В ядре|Пакет: в разделе репозитория WALinuxAgent<p><p>Источник: [GitHub](https://github.com/Azure/WALinuxAgent)
+CentOS через OpenLogic |CentOS 6.3+, 7.0+| CentOS 6.3: [скачиваемый пакет LIS](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 и более поздних версий: в ядре|Пакет: в <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">репозитории OpenLogic в разделе WALinuxAgent<p><p>Источник: [GitHub](https://github.com/Azure/WALinuxAgent)
 [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0 + |В ядре|Источник: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
 Oracle Linux| 6\.4+, 7.0+|В ядре|Пакет: в репозитории под именем WALinuxAgent<p><p>Источник: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 SUSE Linux Enterprise |SLES 11 с пакетом обновления 3 или более поздней версии, SLES 12 или более поздней версии и<p><p>SLES для SAP 11.3 или более поздней версии |В ядре|Пакет: в репозитории [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) под именем WALinuxAgent<p><p>Источник: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
-openSUSE |openSUSE 13.1+|В ядре|Пакет: в репозитории [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) под именем WALinuxAgent<p><p>Исходный код: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+openSUSE |openSUSE 13.1+|В ядре|Пакет: в репозитории [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) в разделе WALinuxAgent<p><p>Исходный код: [GitHub](https://github.com/Azure/WALinuxAgent)
+Debian от Credativ |Debian 7.9+, 8.2+|В ядре|Пакет: в репозитории в разделе WAAgent<p><p>Исходный код: [GitHub](https://github.com/Azure/WALinuxAgent)
 
 ## Партнеры
 
@@ -79,4 +80,9 @@ Oracle предлагает широкий набор решений для об
 
 SUSE Linux Enterprise Server в Azure — проверенная платформа, предоставляющая высокую степень надежности и безопасности для работы в облаке. Универсальная платформа SUSE Linux легко интегрируется с облачными службами Azure, создавая облачную среду с простым управлением. Свыше 9200 сертифицированных приложений для SUSE Linux Enterprise Server от более чем 1800 независимых поставщиков программного обеспечения гарантируют, что рабочие нагрузки, поддерживаемые в центре обработки данных, могут быть беспрепятственно развернуты в Azure.
 
-<!---HONumber=Nov15_HO4-->
+### Credativ
+[http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](http://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
+
+Credativ представляет собой независимую компанию, предоставляющую консалтинговые и прочие услуги, которая специализируется на разработке и реализации профессиональных решений с помощью бесплатного программного обеспечения. Мы получили международное признание многих ИТ-отделов, использующих наши услуги, как ведущие специалисты по открытому коду. Сейчас Credativ совместно с Майкрософт готовит соответствующие образы Debian для Debian 8 (Jessie) и версий, предшествующих Debian 7, (Wheezy). Они специально разработаны для работы в Azure и ими можно легко управлять с помощью этой платформы. Credativ также поддерживают долгосрочное обслуживание и обновление образов Debian для Azure с помощью своих центров поддержки открытого кода.
+
+<!---HONumber=AcomDC_1203_2015-->

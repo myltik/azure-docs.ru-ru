@@ -37,7 +37,7 @@
 
 1. Если явным образом указано значение "osFamily = "1" в файле ServiceConfiguration.cscfg облачной службы. 
 2. Если не указано явным образом значение для osFamily в файле ServiceConfiguration.cscfg облачной службы. В настоящий момент в такой ситуации системой используется значение по умолчанию, равное "1".
-3. На портале управления Azure в качестве семейства версий вашей гостевой операционной системы указано "Windows Server 2008". См. [здесь](https://msdn.microsoft.com/library/azure/gg456325.aspx), чтобы определить это значение.
+3. На классическом портале Azure в качестве семейства версий вашей операционной системы на виртуальной машине указано "Windows Server 2008". См. [здесь](https://msdn.microsoft.com/library/azure/gg456325.aspx), чтобы определить это значение.
 
 Чтобы узнать, какие облачные службы работают под управлением какого семейства версий ОС, можно запустить указанный ниже сценарий в Azure PowerShell, однако сначала необходимо [настроить Azure PowerShell](../install-configure-powershell.md). Дополнительную информацию о сценарии см. в разделе [Окончание срока жизни семейства версий 1 гостевой ОС Azure, июнь 2014 г.](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx)
 
@@ -81,4 +81,4 @@ foreach($subscription in Get-AzureSubscription) {
 ## Дальнейшие действия
 Просмотрите последние [выпуски гостевой ОС](cloud-services-guestos-update-matrix.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

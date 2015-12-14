@@ -18,6 +18,8 @@
 
 # Использование приложения API в службе приложений Azure из клиента .NET 
 
+[AZURE.INCLUDE [app-service-api-v2-note](../../includes/app-service-api-v2-note.md)]
+
 ## Обзор
 
 В этом учебнике показано, как использовать пакет SDK службы приложений для написания кода, который вызывает [приложение API](app-service-api-apps-why-best-platform.md), настроенное для уровня доступа **Общедоступный (анонимный)** или **Общедоступный (с проверкой подлинности)**. В статье описаны следующие примеры сценариев:
@@ -59,7 +61,7 @@
  
 2. В Visual Studio создайте проект консольного приложения.
  
-### <a id="addclient"></a>Добавление клиентского кода, созданного пакетом SDK службы приложений
+### <a id="addclient"></a>Добавление кода клиента, созданного пакетом SDK службы приложений
 
 [AZURE.INCLUDE [app-service-api-dotnet-add-generated-client](../../includes/app-service-api-dotnet-add-generated-client.md)]
 
@@ -180,9 +182,9 @@
 
 ### <a id="client-flow"></a>Сравнение клиентского потока и серверного потока
 
-Этот пример приложения иллюстрирует [серверный поток](../app-service/app-service-authentication-overview.md#server-flow). Это значит, что шлюз получает маркер доступа поставщика удостоверений. В рамках [клиентского потока](../app-service/app-service-authentication-overview.md#client-flow), когда клиентское приложение получает маркер доступа непосредственно от поставщика удостоверений и отправляет его шлюзу, следует вызвать `LoginAsync` вместо `SetCurrentUser`.
+Этот пример приложения реализует вариант [серверного потока](../app-service/app-service-authentication-overview.md#server-flow). Это значит, что шлюз получает маркер доступа поставщика удостоверений. В рамках [клиентского потока](../app-service/app-service-authentication-overview.md#client-flow), когда клиентское приложение получает маркер доступа непосредственно от поставщика удостоверений и отправляет его шлюзу, следует вызвать `LoginAsync` вместо `SetCurrentUser`.
 
-В следующем примере кода предполагается, что у вас есть маркер доступа поставщика удостоверений в строковой переменной с именем `providerAccessToken`, а также индикатор поставщика удостоверений («aad», «microsoftaccount», «google», «twitter» или «facebook») в строковой переменной с именем `idProvider`.
+В следующем примере кода предполагается, что у вас есть маркер доступа поставщика удостоверений в строковой переменной с именем `providerAccessToken`, а также индикатор поставщика удостоверений (aad, microsoftaccount, google, twitter или facebook) в строковой переменной с именем `idProvider`.
 
 		var appServiceClient = new AppServiceClient(GATEWAY_URL);
 		var providerAccessTokenJSON = new JObject();
@@ -205,4 +207,4 @@
 Сведения об использовании проверки подлинности в приложениях API см. в статье [Проверка подлинности для приложений API и мобильных приложений в службе приложений Azure](../app-service/app-service-authentication-overview.md).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1203_2015-->

@@ -34,7 +34,7 @@
     Publish-AzureServiceProject -Slot staging
     ```
 
-2.  Выполните вход на [портал управления Azure] и выберите **Облачные службы**. После того, как создана облачная служба, и в столбце состояния **Промежуточная среда** установлено значение **Выполняется**, щелкните имя службы.
+2.  Выполните вход на [классический портал Azure] и выберите **Облачные службы**. После того, как создана облачная служба, и в столбце состояния **Промежуточная среда** установлено значение **Выполняется**, щелкните имя службы.
 
 	![портал, на котором отображается выполняющаяся служба][cloud-service]
 
@@ -54,7 +54,7 @@
 
 > [AZURE.NOTE]В этом шаге предполагается, что вы уже развернули приложение в рабочей среде и развернули его обновленную версию в промежуточной среде.
 
-1.  Войдите на [портал управления Azure], щелкните элемент **Облачные службы** и выберите имя службы.
+1.  Перейдите на [классический портал Azure], щелкните элемент **Облачные службы** и выберите имя службы.
 
 2.  В разделе **Панель мониторинга** выберите **Промежуточная среда** и нажмите кнопку **Переключить** внизу страницы. Откроется диалоговое окно "Переключение виртуального IP-адреса".
 
@@ -68,11 +68,11 @@
 
 - [Развертывание обновления службы в рабочей среде путем переключения виртуальных IP-адресов в Azure]
 
-[портал управления Azure]: http://manage.windowsazure.com
+[классический портал Azure]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
 [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
 [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
 [Развертывание обновления службы в рабочей среде путем переключения виртуальных IP-адресов в Azure]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

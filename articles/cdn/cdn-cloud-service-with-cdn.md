@@ -3,8 +3,8 @@
 	description="В этом учебнике объясняется, как развернуть облачную службу, которая обслуживает содержимое из интегрированной конечной точки CDN Azure" 
 	services="cdn, cloud-services" 
 	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	authors="camsoper" 
+	manager="dwrede" 
 	editor="tysonn"/>
 
 <tags 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
-	ms.author="cephalin"/>
+	ms.date="12/02/2015" 
+	ms.author="casoper"/>
 
 
 # <a name="intro"></a>Интеграция облачной службы с Azure CDN 
 
-Облачную службу можно интегрировать с Azure CDN (сетью доставки содержимого), которая выдает любое содержимое из пути облачной службы `~/CDN`. Такой подход обеспечивает следующие преимущества.
+Облачную службу можно интегрировать с сетью Azure CDN, которая обслуживает любое содержимое из расположения облачной службы. Такой подход обеспечивает следующие преимущества.
 
 - Упрощение развертывания и обновления образов, скриптов и таблиц стилей в каталогах проекта облачной службы.
 - Облегчение обновления пакетов NuGet в облачной службе, например, версий jQuery или Bootstrap. 
@@ -46,18 +46,16 @@
 Для работы с этим учебником необходимы следующие компоненты.
 
 -	Активная [учетная запись Microsoft Azure](/account/).
--	Наличие Visual Studio 2013 с [пакетом SDK Azure](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409).
+-	Наличие Visual Studio 2015 с [пакетом SDK Azure](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
 
-> [AZURE.NOTE] Для выполнения этого учебника необходима учетная запись Azure.
-> + Вы можете [открыть учетную запись Azure бесплатно](/pricing/free-trial/) — вы получаете кредиты, которые можно использовать, чтобы опробовать платные службы Azure, и даже израсходовав кредиты вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, например веб-приложения [службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714).
-> + Вы можете [активировать преимущества подписчика MSDN](/pricing/member-offers/msdn-benefits-details/) — ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты служб Azure.
+> [AZURE.NOTE]Для выполнения этого учебника необходима учетная запись Azure. + Вы можете [открыть учетную запись Azure бесплатно](/pricing/free-trial/) — вы получаете кредиты, которые можно использовать, чтобы опробовать платные службы Azure, и даже израсходовав кредиты вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, например веб-сайты. + Вы можете [активировать преимущества подписчика MSDN](/pricing/member-offers/msdn-benefits-details/) — ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты служб Azure.
 
 <a name="deploy"></a>
-## Развертывание облачной службы с интегрированной конечной точкой CDN ##
+## Развертывание облачной службы ##
 
-В этом разделе будет выполняться развертывание шаблона приложения MVC ASP.NET по умолчанию в Visual Studio 2013 в веб-роли облачной службы, а затем интеграция его с новой конечной точкой CDN. Выполните приведенные далее инструкции.
+В этом разделе будет выполняться развертывание шаблона приложения MVC ASP.NET по умолчанию в Visual Studio 2015 в веб-роли облачной службы, после чего оно будет интегрировано с новой конечной точкой CDN. Выполните приведенные далее инструкции.
 
-1. В Visual Studio 2013 создайте новую облачную службу Azure в строке меню, последовательно выбрав пункты **Файл > Создать > Проект > Облако > Облачная служба Azure**. Назначьте ей имя и нажмите кнопку **ОК**.
+1. В Visual Studio 2015 создайте новую облачную службу Azure, последовательно выбрав пункты **Файл > Создать > Проект > Облако > Облачная служба Azure**. Назначьте ей имя и нажмите кнопку **ОК**.
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG)
 
@@ -73,7 +71,7 @@
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-4-publish-a.png)
 
-5. Если вход в Microsoft Azure еще не выполнен, нажмите кнопку **Войти**.
+5. Если вы еще не вошли в Microsoft Azure, щелкните раскрывающийся список **Добавить учетную запись** и выберите пункт **Добавить учетную запись**.
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-5-publish-signin.png)
 
@@ -82,7 +80,7 @@
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-6-publish-signedin.png)
 
-8. Если облачная служба или учетная запись хранения еще не создана, Visual Studio поможет создать их. В диалоговом окне **создания облачной службы и учетной записи** введите нужное имя службы. Затем щелкните **Создать**.
+8. Если облачная служба или учетная запись хранения еще не создана, Visual Studio поможет создать их. В диалоговом окне **Создание облачной службы и учетной записи** введите нужное имя службы и выберите нужный регион. Затем щелкните **Создать**.
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-7-publish-createserviceandstorage.png)
 
@@ -90,66 +88,85 @@
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
 
-	>[AZURE.NOTE] Процесс публикации для облачных служб занимает много времени. Параметр включения веб-развертывания для всех ролей может значительно ускорить отладку облачной службы, обеспечивая быстрые (но временные) обновления веб-ролей. Дополнительные сведения об этом параметре см. в статье [Публикация облачной службы с помощью инструментов Azure](http://msdn.microsoft.com/library/ff683672.aspx).
+	>[AZURE.NOTE]Процесс публикации для облачных служб занимает много времени. Параметр включения веб-развертывания для всех ролей может значительно ускорить отладку облачной службы, обеспечивая быстрые (но временные) обновления веб-ролей. Дополнительные сведения об этом параметре см. в статье [Публикация облачной службы с помощью инструментов Azure](http://msdn.microsoft.com/library/ff683672.aspx).
 
 	Когда **журнал изменений Microsoft Azure** покажет, что публикация имеет состояние **Завершено**, будет создаваться конечная точка CDN, интегрированная с этой облачной службой.
+	
+	>[AZURE.WARNING]Если после публикации в развернутой облачной службе отображается экран сообщения об ошибке, вероятно, это связано с тем, что развернутая облачная служба использует [гостевую ОС без .NET 4.5.2](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates). Чтобы устранить эту проблему, [разверните .NET 4.5.2 в качестве задачи запуска](../cloud-services/cloud-services-dotnet-install-dotnet.md).
 
-1. Чтобы создать конечную точку CDN, войдите на [портал управления Azure](http://manage.windowsazure.com/).
-2. Последовательно выберите пункты **Создать** > **Службы приложений** > **CDN** > **Быстрое создание**. Выберите **http://*&lt;servicenamehttp://.cloudapp.net/cdn/** и щелкните **Создать**.
+## Создание нового профиля сети CDN
 
-	![](media/cdn-cloud-service-with-cdn/cdn-cs-10-createcdn.png)
+Профиль сети CDN представляет собой коллекцию конечных точек сети CDN. Каждый профиль содержит одну или несколько конечных точек сети CDN. Вы можете использовать несколько профилей для упорядочения конечных точек сети CDN по домену Интернета, веб-приложению или согласно другим условиям.
 
-	>[AZURE.NOTE] После создания конечной точки CDN портала Azure показан его URL-адрес и исходный домен, с которым она интегрирована. Однако полное распространение конфигурации новой конечной точки CDN во все расположения узлов CDN может занять некоторое время.
+> [AZURE.TIP]Если у вас уже есть профиль CDN для работы, перейдите к разделу [Создание новой конечной точки сети CDN](#create-a-new-cdn-endpoint).
 
-	Обратите внимание, что конечная точка CDN связана с путем **cdn/** облачной службы. Можно либо создать папку **cdn** в проекте **WebRole1**, либо использовать переопределение URL-адресов, чтобы разбивать все входящие ссылки на этот путь. В данном учебнике будет использоваться последний способ.
+**Создание нового профиля сети CDN**
 
-3. На портале Azure откройте вкладку **CDN** и щелкните имя только что созданной конечной точки CDN.
+1. На [портале управления Azure](https://portal.azure.com) в верхней левой части щелкните **Создать**. В колонке **Новый** выберите **Носитель + CDN**, а затем **CDN**.
 
-	![](media/cdn-cloud-service-with-cdn/cdn-cs-11-disablequerya.png)
+    Появится колонка нового профиля сети CDN.
+    
+    ![Новый профиль сети CDN][new-cdn-profile]
 
-3. Нажмите **Включить строку запроса**, чтобы включать строки запроса в кэш CDN. После этого те же самые ссылки, доступ к которым осуществляется с помощью разных строк запроса, будут кэшироваться как отдельные записи.
+2. Введите имя профиля сети CDN.
 
-	![](media/cdn-cloud-service-with-cdn/cdn-cs-12-disablequeryb.png)
+3. Выберите значение для параметра **Ценовая категория** или используйте значение по умолчанию.
 
-	>[AZURE.NOTE] Хотя включение поддержки строки запроса в этом разделе учебника не обязательно, для удобства это можно сделать как можно раньше, так как распространение любого изменения во все узлы CDN занимает некоторое время, и нежелательно, чтобы содержание без включенных строк запроса засорял кэш CDN (обновление контента CDN будет рассматриваться позднее).
+4. Выберите или создайте **группу ресурсов**. Эта группа ресурсов не обязательно должна совпадать с группой ресурсов для вашей учетной записи хранения.
 
-3. Проверьте связь с конечной точкой CDN, чтобы убедиться, что она распространилась в узлы CDN. Может потребоваться подождать около часа, прежде чем конечная точка начнет отвечать на запросы проверки связи.
+5. Выберите **подписку** для этого профиля сети CDN. Для целей данного учебника это должна быть та же подписка, что и для учетной записи хранения.
 
-	![](media/cdn-cloud-service-with-cdn/cdn-cs-13-testcdn.png)
+6. Выберите значение для параметра **Расположение**. Это расположение Azure, где будут храниться данные профиля сети CDN. Оно не влияет на расположение конечных точек сети CDN. Это расположение не должно совпадать с расположением учетной записи хранения.
 
-2. Вернитесь в Visual Studio 2013, откройте файл **Web.config** в проекте **WebRole1** и добавьте в тег `<system.webServer>` следующий код:
+7. Нажмите кнопку **Создать**, чтобы создать новый профиль.
 
-		<system.webServer>
-		  <rewrite>
-		    <rules>
-		      <rule name="RewriteIncomingCdnRequest" stopProcessing="true">
-		        <match url="^cdn/(.*)$"/>
-		        <action type="Rewrite" url="{R:1}"/>
-		      </rule>
-		    </rules>
-		  </rewrite>
-		  ...
-		</system.webServer>
+## Создание новой конечной точки сети CDN
 
-4. Снова опубликуйте облачную службу. Щелкните правой кнопкой мыши проект облачной службы и выберите **Опубликовать**.
+**Создание новой конечной точки CDN для учетной записи хранения**
 
-	![](media/cdn-cloud-service-with-cdn/cdn-cs-4-publish-a.png)
+1. На [портале управления Azure](https://portal.azure.com) перейдите к профилю сети CDN. На предыдущем шаге вы могли прикрепить его к панели мониторинга. Если профиль не прикреплен, найдите его, нажав кнопку **Обзор**, выбрав **Профили CDN** и щелкнув профиль, к которому нужно добавить конечную точку.
 
-1. Когда публикация перейдет в состояние **Завершено**, откройте окно браузера и перейдите по адресу **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**. В моей настройке это следующий URL-адрес:
+    Появится колонка профиля сети CDN.
+    
+    ![Профиль сети CDN][cdn-profile-settings]
+    
+2. Нажмите кнопку **Добавить конечную точку**.
 
-		http://az632148.vo.msecnd.net/Content/bootstrap.css
+    ![Кнопка "Добавить конечную точку"][cdn-new-endpoint-button]
 
-	Он соответствует следующему исходному URL-адресу в конечной точке CDN:
+    Появится колонка **Добавление конечной точки**.
+    
+    ![Колонка "Добавление конечной точки"][cdn-add-endpoint]
 
-		http://cephalinservice.cloudapp.net/cdn/Content/bootstrap.css
+3. Введите **имя** конечной точки сети CDN. Это имя будет использоваться для доступа к кэшированным ресурсам в домене `<EndpointName>.azureedge.net`.
 
-	После переопределения URL-адреса в моем веб-приложении фактический файл, который кэшируется в соответствующем кэше CDN, имеет следующий адрес:
+4. В раскрывающемся списке **Тип источника** выберите *Облачная служба*.
 
-		http://cephalinservice.cloudapp.net/Content/bootstrap.css
+5. В раскрывающемся списке **Имя узла источника** выберите облачную службу.
 
-	При переходе по адресу **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css** будет предложено скачать файл bootstrap.css, происходящий из опубликованного веб-приложения.
+6. Оставьте значения по умолчанию для параметров **Путь к источнику**, **Заголовок узла источника** и **Протокол и порт источника**. Необходимо указать хотя бы один протокол (HTTP или HTTPS).
 
-	![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
+7. Нажмите кнопку **Создать**, чтобы создать новую конечную точку.
+
+8. Созданная конечная точка отображается в списке конечных точек для профиля. В режиме списка отображается URL-адрес для доступа к кэшированному содержимому, а также исходному домену.
+
+    ![Конечная точка сети CDN][cdn-endpoint-success]
+
+    > [AZURE.NOTE]Конечная точка не сразу будет доступна для использования. Распространение регистрации по сети CDN может занять 90 минут. Если пользователь попытается незамедлительно воспользоваться именем домена CDN, он может столкнуться с кодом состояния 404, пока содержимое не станет доступно через CDN.
+	
+## Тестирование конечной точки сети CDN
+
+Когда публикация перейдет в состояние **Завершено**, откройте окно браузера и перейдите по адресу **http://<cdnName>*.azureedge.net/Content/bootstrap.css** В моей настройке это следующий URL-адрес:
+
+	http://camservice.azureedge.net/Content/bootstrap.css
+
+Он соответствует следующему исходному URL-адресу в конечной точке CDN:
+
+	http://camcdnservice.cloudapp.net/Content/bootstrap.css
+
+При переходе по пути **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css** в зависимости от браузера вам будет предложено загрузить или открыть файл bootstrap.css, происходящий из опубликованного веб-приложения.
+
+![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
 Аналогичным образом можно получать доступ к любому общедоступному URL-адресу в **http://*&lt;serviceName>*.cloudapp.net/** прямо из конечной точки CDN. Например:
 
@@ -158,24 +175,17 @@
 -	к любому контроллеру или действию; 
 -	если в конечной точке CDN включена строка запроса, то к любому URL-адресу со строкой запроса;
 
-Фактически при использовании вышеприведенной конфигурации можно размещать всю облачную службу из **http://*&lt;cdnName>*.vo.msecnd.net/**. Перейдя в ****http://az632148.vo.msecnd.net/**, можно получить результат действия из Home/Index.
+Фактически при использовании вышеприведенной конфигурации можно размещать всю облачную службу из **http://*&lt;cdnName>*.vo.msecnd.net/**. Перейдя в ****http://camservice.azureedge.net/**, можно получить результат действия из Home/Index.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
 Однако это не означает, что следует всегда обслуживать всю облачную службу с помощью Azure CDN. Далее приводятся некоторые предупреждения.
 
--	Для использования этого подхода весь сайт должен быть общедоступным, поскольку Azure CDN не может обслуживать конфиденциальный контент.
+-	Для использования этого подхода весь сайт должен быть общедоступным, поскольку на данный момент Azure CDN не может обслуживать конфиденциальный контент.
 -	Если по какой-либо причине, будь то плановое обслуживание или ошибка пользователя, конечная точка CDN становится автономной, вся облачная служба становится автономной, если нельзя перенаправить клиентов на исходный URL-адрес **http://*&lt;serviceName>*.cloudapp.net/**. 
 -	Даже с настраиваемыми параметрами управления кэшем (см. раздел [Настройка параметров кэширования для статических файлов в облачной службе](#caching)) конечная точка CDN не улучшает производительность высокодинамичного контента. При попытке загрузить домашнюю страницу из конечной точки CDN, как показано выше, обратите внимание, что первая загрузка домашней страницы по умолчанию займет по крайней мере 5 секунд, хотя это довольно простая страница. Представьте, как бы выглядело взаимодействие с клиентом, если бы эта страница содержала динамический контент, который должен обновляться каждую минуту. Обслуживание динамического контента из конечной точки CDN требует, чтобы срок годности кэша был коротким,что приводит к частой потере кэша в конечной точке CDN. Это вредит производительности облачной службы, и смысл CDN теряется.
 
 Альтернатива заключается в том, чтобы определить, какое содержимое должно обслуживаться из Azure CDN на индивидуальной основе в облачной службе. В отношении этого вы уже видели, как получать доступ к отдельным файлам контента из конечной точки CDN. Я покажу, как обслуживать определенное действие контроллера посредством конечной точки CDN, в разделе [Обслуживание контента из действий контроллера посредством Azure CDN](#controller).
-
-Можно указать более ограничивающее правило переопределения URL-адреса, чтобы ограничить содержимое, доступное через конечную точку CDN. Например, чтобы ограничить переопределение URL-адреса папкой *\\Scripts*, измените приведенное выше правило переопределения следующим образом.
-   
-	<rule name="RewriteIncomingCdnRequest" stopProcessing="true">
-	  <match url="^cdn/Scripts/(.*)$"/>
-	  <action type="Rewrite" url="Scripts/{R:1}"/>
-	</rule>
 
 <a name="caching"></a>
 ## Настройка параметров кэширования для статических файлов в облачной службе ##
@@ -269,7 +279,7 @@
 		            }
 		            else // Get content from Azure CDN
 		            {
-		                return Redirect(string.Format("http://<yourCdnName>.vo.msecnd.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+		                return Redirect(string.Format("http://<yourCdnName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
 		            }
 		        }
 		
@@ -341,36 +351,33 @@
 
 При отправке значений формы в `/MemeGenerator/Index` метод действия `Index_Post` возвращает ссылку на метод действия `Show` с соответствующим идентификатором ввода. Если щелкнуть ссылку, появится следующий код:
 
-	[OutputCache(VaryByParam = ";*";, Duration = 1, Location = OutputCacheLocation.Downstream)]
+	[OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
 	public ActionResult Show(string id)
 	{
-	    Tuple&lt;string, string&gt; data = null;
-	    if (!Memes.TryGetValue(id, out data))
-	    {
-	        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-	    }
-	
-	    if (Debugger.IsAttached) // Preserve the debug experience
-	    {
-	        return Redirect(string.Format(";/MemeGenerator/Generate?top={0}&bottom={1}";, data.Item1, data.Item2));
-	    }
-	    else // Get content from Azure CDN
-	    {
-	        return Redirect(string.Format(";http://<mark>&lt;cdnName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}";, data.Item1, data.Item2));
-	    }
+		Tuple<string, string> data = null;
+		if (!Memes.TryGetValue(id, out data))
+		{
+			return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+		}
+
+		if (Debugger.IsAttached) // Preserve the debug experience
+		{
+			return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+		}
+		else // Get content from Azure CDN
+		{
+			return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
+		}
 	}
 	
 Если подключен локальный отладчик, то вы получите обычный интерфейс отладки с локальным перенаправлением. Если отладчик работает в облачной службе, то перенаправление будет выполняться на следующий адрес:
 
-	http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
+	http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
 Он соответствует следующему исходному URL-адресу в конечной точке CDN:
 
-	http://<youCloudServiceName>.cloudapp.net/cdn/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
-
-После правила переопределения URL-адреса, применявшегося ранее, фактический файл, который кэшируется в конечной точке CDN, имеет следующий адрес:
-
 	http://<youCloudServiceName>.cloudapp.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
+
 
 Затем можно с помощью атрибута `OutputCacheAttribute` в методе `Generate` указать, как должен кэшироваться результат действия, которое будет выполнять Azure CDN. В следующем коде задается срок годности кэша в 1 час (3 600 секунд).
 
@@ -423,7 +430,7 @@
 		    bundles.UseCdn = true;
 		    var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
 		        .GetName().Version.ToString();
-		    var cdnUrl = "http://<yourCDNName>.vo.msecnd.net/{0}?v=" + version;
+		    var cdnUrl = "http://<yourCDNName>.azureedge.net/{0}?v=" + version;
 		
 		    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")).Include(
 		                "~/Scripts/jquery-{version}.js"));
@@ -453,7 +460,7 @@
 
 	тот же самый:
 
-		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.vo.msecnd.net/bundles/jquery?v=<W.X.Y.Z>"))
+		new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "http://<yourCDNName>.azureedge.net/bundles/jquery?v=<W.X.Y.Z>"))
 
 	Этот конструктор указывает, что при локальной отладке с помощью объединения и минификации ASP.NET должна выполняться обработка отдельных файлов скриптов, но с использованием указанного адреса CDN для доступа к соответствующему скрипту. Однако отметим две важных характеристики этого тщательно созданного URL-адреса CDN.
 	
@@ -471,15 +478,15 @@
 
 		...
 		
-		<link href="http://az632148.vo.msecnd.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
+		<link href="http://camservice.azureedge.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
 		
-		<script src="http://az632148.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449"></script>
+		<script src="http://camservice.azureedge.net/bundles/modernizer?v=1.0.0.25449"></script>
 		
 		...
 		
-		<script src="http://az632148.vo.msecnd.net/bundles/jquery?v=1.0.0.25449"></script>
+		<script src="http://camservice.azureedge.net/bundles/jquery?v=1.0.0.25449"></script>
 		
-		<script src="http://az632148.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449"></script>
+		<script src="http://camservice.azureedge.net/bundles/bootstrap?v=1.0.0.25449"></script>
 		
 		...
 
@@ -516,32 +523,32 @@
 		{
 		    var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
 		        .GetName().Version.ToString();
-		    var cdnUrl = ";http://cdnurl.vo.msecnd.net/.../{0}?"; + version;
+		    var cdnUrl = "http://cdnurl.azureedge.net/.../{0}?" + version;
 		    bundles.UseCdn = true;
 		
-		    bundles.Add(new ScriptBundle(";~/bundles/jquery";, string.Format(cdnUrl, ";bundles/jquery";)) 
-						<mark>{ CdnFallbackExpression = ";window.jquery"; }</mark>
-		                .Include(";~/Scripts/jquery-{version}.js";));
+		    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
+						{ CdnFallbackExpression = "window.jquery" }
+		                .Include("~/Scripts/jquery-{version}.js"));
 		
-		    bundles.Add(new ScriptBundle(";~/bundles/jqueryval";, string.Format(cdnUrl, ";bundles/jqueryval";)) 
-						<mark>{ CdnFallbackExpression = ";$.validator"; }</mark>
-		            	.Include(";~/Scripts/jquery.validate*";));
+		    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")) 
+						{ CdnFallbackExpression = "$.validator" }
+		            	.Include("~/Scripts/jquery.validate*"));
 		
 		    // Use the development version of Modernizr to develop with and learn from. Then, when you're
 		    // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-		    bundles.Add(new ScriptBundle(";~/bundles/modernizr";, string.Format(cdnUrl, ";bundles/modernizer";)) 
-						<mark>{ CdnFallbackExpression = ";window.Modernizr"; }</mark>
-						.Include(";~/Scripts/modernizr-*";));
+		    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
+						{ CdnFallbackExpression = "window.Modernizr" }
+						.Include("~/Scripts/modernizr-*"));
 		
-		    bundles.Add(new ScriptBundle(";~/bundles/bootstrap";, string.Format(cdnUrl, ";bundles/bootstrap";)) 	
-						<mark>{ CdnFallbackExpression = ";$.fn.modal"; }</mark>
+		    bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")) 	
+						{ CdnFallbackExpression = "$.fn.modal" }
 		        		.Include(
-			              		";~/Scripts/bootstrap.js";,
-			              		";~/Scripts/respond.js";));
+			              		"~/Scripts/bootstrap.js",
+			              		"~/Scripts/respond.js"));
 		
-		    bundles.Add(new StyleBundle(";~/Content/css";, string.Format(cdnUrl, ";Content/css";)).Include(
-		                ";~/Content/bootstrap.css";,
-		                ";~/Content/site.css";));
+		    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
+		                "~/Content/bootstrap.css",
+		                "~/Content/site.css"));
 		}
 
 	Когда выражение `CdnFallbackExpression` не пустое, скрипт внедряется в HTML, чтобы проверить успешность загрузки пакета, и в случае неуспешной загрузки обеспечивает доступ к пакету непосредственно на исходном веб-сервере. В этом свойстве необходимо устанавливать выражение JavaScript, проверяющее, загружен ли соответствующий пакет CDN должным образом. Выражения для проверки каждого пакета отличаются в соответствии с контентом. Для пакетов по умолчанию выше:
@@ -575,13 +582,13 @@
 
 		...
 		
-	    <link href="http://az632148.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
+	    <link href="http://az632148.azureedge.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
 		<script>(function() {
 		                var loadFallback,
 		                    len = document.styleSheets.length;
 		                for (var i = 0; i < len; i++) {
 		                    var sheet = document.styleSheets[i];
-		                    if (sheet.href.indexOf('http://az632148.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
+		                    if (sheet.href.indexOf('http://camservice.azureedge.net/Content/css?v=1.0.0.25474') !== -1) {
 		                        var meta = document.createElement('meta');
 		                        meta.className = 'sr-only';
 		                        document.head.appendChild(meta);
@@ -595,15 +602,15 @@
 		                return true;
 		            }())||document.write('<script src="/Content/css"><\/script>');</script>
 		
-		    <script src="http://az632148.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474"></script>
+		    <script src="http://camservice.azureedge.net/bundles/modernizer?v=1.0.0.25474"></script>
 		<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
 		
 		... 
 		
-		    <script src="http://az632148.vo.msecnd.net/bundles/jquery?v=1.0.0.25474"></script>
+		    <script src="http://camservice.azureedge.net/bundles/jquery?v=1.0.0.25474"></script>
 		<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
 		
-		    <script src="http://az632148.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474"></script>
+		    <script src="http://camservice.azureedge.net/bundles/bootstrap?v=1.0.0.25474"></script>
 		<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
 		
 		...
@@ -622,4 +629,11 @@
 - [Объединение и минификация ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 - [Использование CDN для Azure](cdn-how-to-use.md)
 
-<!---HONumber=Oct15_HO3-->
+
+[new-cdn-profile]: ./media/cdn-cloud-service-with-cdn/cdn-new-profile.png
+[cdn-profile-settings]: ./media/cdn-cloud-service-with-cdn/cdn-profile-settings.png
+[cdn-new-endpoint-button]: ./media/cdn-cloud-service-with-cdn/cdn-new-endpoint-button.png
+[cdn-add-endpoint]: ./media/cdn-cloud-service-with-cdn/cdn-add-endpoint.png
+[cdn-endpoint-success]: ./media/cdn-cloud-service-with-cdn/cdn-endpoint-success.png
+
+<!---HONumber=AcomDC_1203_2015-->

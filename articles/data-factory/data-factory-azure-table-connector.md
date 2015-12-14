@@ -348,7 +348,7 @@
 | Свойство | Описание | Обязательно |
 | -------- | ----------- | -------- |
 | type | Для свойства type необходимо задать значение AzureStorage. | Да |
-| connectionString | В свойстве connectionString указываются сведения, необходимые для подключения к службе хранилища Azure. ConnectionString для хранилища Azure можно получить на портале Azure. | Да |
+| connectionString | В свойстве connectionString указываются сведения, необходимые для подключения к службе хранилища Azure. Значение connectionString для хранилища Azure можно получить на классическом портале Azure. | Да |
 
 ## Свойства типа «Набор данных таблицы Azure»
 
@@ -504,4 +504,4 @@ lastlogindate | Edm.DateTime
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

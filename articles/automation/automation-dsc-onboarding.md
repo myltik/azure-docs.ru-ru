@@ -236,4 +236,4 @@
 * [Командлеты Automation DSC Azure](https://msdn.microsoft.com/library/mt244122.aspx)
 * [Цены на Automation DSC Azure](http://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

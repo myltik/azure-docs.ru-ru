@@ -132,9 +132,7 @@
 <!-- URLs. -->
 [Приступая к работе с мобильными службами]: mobile-services-html-get-started.md
 [Авторизация пользователей с помощью скриптов]: mobile-services-javascript-backend-service-side-authorization.md
-
-[Azure Management Portal]: https://manage.windowsazure.com/
 [Справочник принципов использования мобильных служб HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1203_2015-->

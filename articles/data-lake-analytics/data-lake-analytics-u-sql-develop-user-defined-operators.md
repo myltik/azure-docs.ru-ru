@@ -25,7 +25,7 @@
 
 - Visual Studio 2015, Visual Studio 2013 с обновлением 4 или Visual Studio 2012 с установленным Visual C++. 
 - Пакет SDK Microsoft Azure для .NET (версии 2.5 или выше). Его можно установить с помощью установщика веб-платформы.
-- Учетная запись аналитики озера данных. См. статью [Начало работы со службой аналитики озера данных Azure с использованием портала предварительной версии Azure](data-lake-analytics-get-started-portal.md).
+- Учетная запись аналитики озера данных. [Начало работы с аналитическим модулем озера данных Azure при помощи портала Azure](data-lake-analytics-get-started-portal.md).
 - Пройдите руководство [Приступая к работе с U-SQL Studio для аналитики озера данных Azure](data-lake-analytics-u-sql-studio-get-started.md).
 - Подключитесь к Azure. См. руководство [Приступая к работе с U-SQL Studio для аналитики озера данных Azure](data-lake-analytics-u-sql-studio-get-started.md#connect-to-azure). 
 - Загрузите исходные данные. См. руководство [Приступая к работе с U-SQL Studio для аналитики озера данных Azure](data-lake-analytics-u-sql-studio-get-started.md#upload-source-data-files). 
@@ -147,4 +147,4 @@
 - [Приступая к работе с аналитикой озера данных с помощью портала Azure](data-lake-analytics-get-started-portal.md)
 - [Использование инструментов озера данных для Visual Studio для разработки приложений U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1203_2015-->

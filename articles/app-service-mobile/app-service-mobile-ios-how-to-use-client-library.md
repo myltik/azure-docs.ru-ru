@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="11/30/2015"
 	ms.author="krisragh"/>
 
 # Использование клиентской библиотеки iOS для мобильных приложений Azure
@@ -22,15 +22,19 @@
  
 [AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
-В данном руководстве описывается реализация типичных сценариев с использованием последней версии [пакета iOS SDK для мобильных приложений Azure](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Если вы не знакомы с мобильными приложениями Azure, изучите статью [Быстрый запуск мобильного приложения Azure], чтобы создать внутренний сервер и таблицу, а также скачать предварительно собранный проект Xcode для iOS. В данном руководстве мы сосредоточимся на клиентской части пакета iOS SDK. Дополнительные сведения о пакете SDK для внутреннего сервера .NET см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+В этом руководстве описывается реализация типичных сценариев с использованием последней версии [пакета iOS SDK для мобильных приложений Azure](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). Если вы не знакомы с мобильными приложениями Azure, изучите статью [Быстрый запуск мобильного приложения Azure], чтобы создать серверную часть и таблицу, а также скачать предварительно собранный проект Xcode для iOS. В данном руководстве мы сосредоточимся на клиентской части пакета iOS SDK. Дополнительные сведения о серверном пакете SDK для .NET см. в статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+
+## Справочная документация
+
+Справочная документация по пакету SDK для клиента iOS находится здесь: [Справочник по клиенту iOS мобильных приложений Azure](http://azure.github.io/azure-mobile-services/iOS/v3/).
 
 ##<a name="Setup"></a>Настройка и необходимые компоненты
 
-В данном руководстве предполагается, что вы уже создали серверную часть с таблицей. В этом руководстве предполагается, что в таблице используется та же схему, что и в таблицах, приведенных в этих учебниках. Кроме того, в данном руководстве предполагается, что в коде вы ссылаетесь на `WindowsAzureMobileServices.framework` и импортируете `WindowsAzureMobileServices/WindowsAzureMobileServices.h`.
+В данном руководстве предполагается, что вы уже создали серверную часть с таблицей. В этом руководстве предполагается, что в таблице используется та же схему, что и в таблицах, приведенных в этих учебниках. Кроме того, в данном руководстве предполагается, что в коде можно ссылаться на `WindowsAzureMobileServices.framework` и импортировать `WindowsAzureMobileServices/WindowsAzureMobileServices.h`.
 
-##<a name="create-client"></a>Практическое руководство. Создание клиента
+##<a name="create-client"></a>Создание клиента
 
-Чтобы получить доступ к серверной части мобильных приложений Azure в вашем проекте, создайте `MSClient`. Замените `AppUrl` на URL-адрес приложения. `gatewayURLString` и `applicationKey` можно оставить пустыми. Если вы настроите шлюз для проверки подлинности, укажите в `gatewayURLString` URL-адрес шлюза.
+Для доступа к серверной части мобильных приложений Azure из проекта создайте `MSClient`. Замените `AppUrl` на URL-адрес приложения. Параметры `gatewayURLString` и `applicationKey` можно оставить пустыми. Если вы настроите шлюз для проверки подлинности, укажите в параметре `gatewayURLString` его URL-адрес.
 
 ```
 MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" gatewayURLString:@"" applicationKey:@""];
@@ -191,6 +195,21 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 При удалении необходимо по крайней мере задать атрибут `id`.
 
+##<a name="templates"></a>Использование шаблонов для отправки кроссплатформенных push- уведомлений
+
+Для регистрации шаблонов просто передайте их в клиентское приложение с помощью метода **client.push registerDeviceToken**.
+
+        [client.push registerDeviceToken:deviceToken template:iOSTemplate completion:^(NSError *error) {
+        	...
+        }];
+
+Шаблоны будут относиться к типу NSDictionary и могут содержать несколько шаблонов в следующем формате:
+
+        NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
+
+Обратите внимание, что все теги будут удалены для безопасности. В статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) показано, как добавлять теги для установки устройства или шаблоны в пределах установки.
+
+Для отправки уведомлений с использованием зарегистрированных шаблонов используйте [API концентраторов уведомлений](https://msdn.microsoft.com/library/azure/dn495101.aspx).
 
 ##<a name="errors"></a>Практическое руководство. Обработка ошибок
 
@@ -249,4 +268,4 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [статье об обработчике конфликтов]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

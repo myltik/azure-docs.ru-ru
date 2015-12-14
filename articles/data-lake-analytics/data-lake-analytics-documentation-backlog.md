@@ -38,6 +38,7 @@ U-SQL | Синтаксические диаграммы грамматики | 1
 служба | Защита заданий, данных и таблиц в аналитике озера данных |1| выполняется | [@mumian](https://github.com/mumian) | [@MikeRys](https://github.com/mikerys)
 служба | Перемещение выходных данных задания в хранилище данных SQL с помощью фабрики данных |1 | выполняется | [@mumian](https://github.com/mumian) | 
 Средства | Использование средств диагностики | 1 | Ожидает | [@mumian](https://github.com/mumian) | 
+U-SQL | Объясните методы выполнения операций объединения JOIN на основе диапазонов | 1 | Ожидает | [@MikeRys](https://github.com/mikerys) |[@saveenr](https://github.com/saveenr) 
 
 
 
@@ -46,7 +47,7 @@ U-SQL | Синтаксические диаграммы грамматики | 1
 
 Область |Раздел | location
 ------------- | ------------- | -------------- 
-служба | Координация развертывания аналитики озера данных с другими службами Azure с использованием шаблонов ARM | [расположение](https://azure.microsoft.com/documentation/articles/data-lake-analytics-manage-use-powershell/)
+служба | Координация развертывания аналитики озера данных с другими службами Azure с использованием шаблонов ARM | [расположение](../data-lake-analytics-manage-use-powershell.md)
 
 ## Предоставление обратной связи по списку запланированной документации
 Существует несколько способов предоставить обратную связь по списку запланированной документации.
@@ -55,4 +56,4 @@ U-SQL | Синтаксические диаграммы грамматики | 1
 * Отправить запрос по внесению предложенных изменений в данный документ в [репозиторий содержимого Azure](https://github.com/Azure/azure-content/blob/master/articles/data-lake-analytics/data-lake-analytics-documentation-backlog.md)
 * Отправить сообщение по адресу [adlafeedback на сайте microsoft.com](mailto:adlafeedback@microsoft.com?subject=DocBacklog)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

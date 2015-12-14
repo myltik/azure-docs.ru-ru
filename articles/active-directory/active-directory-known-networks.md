@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Известные сети" 
+	pageTitle="Известные сети | Microsoft Azure" 
 	description="Настроив известные сети, вы избавитесь от ситуации, при которой IP-адреса вашей организации попадают в отчеты ";Операции входа из нескольких географических регионов"; и ";Операции входа с IP-адресов с подозрительными действиями";." 
 	services="active-directory" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="12/01/2015" 
 	ms.author="markvi"/>
 
 # Известные сети
@@ -56,4 +56,4 @@
 * [Операции входа с IP-адресов с подозрительными действиями](active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity.md)
 * [Операции входа из нескольких географических регионов](active-directory-reporting-sign-ins-from-multiple-geographies.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

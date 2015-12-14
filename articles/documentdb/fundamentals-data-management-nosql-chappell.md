@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Основные сведения о технологиях NoSQL в Azure | Microsoft Azure" 
-	description="Вы узнаете, как технологии NoSQL в HDInsight могут помочь вам с управлением данными, для хранения которых не подходят реляционные базы данных. К таким данным можно отнести неструктурированные данные большого размера, документы JSON или графы." 
+	description="Узнайте, как можно воспользоваться возможностями Azure NoSQL для управления данными, не подходящими для реляционных баз данных. DocumentDB, хранилища таблиц, HBase, HDInsight, базе данных SQL." 
 	editor="cgronlun" 
 	manager="jhubbard" 
 	services="documentdb, storage, hdinsight" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/21/2015" 
+	ms.date="12/01/2015" 
 	ms.author="mimig"/>
 
 # Основные сведения о технологиях NoSQL в Azure
@@ -26,9 +26,10 @@
  - Краткий обзор реляционных технологий.
  - Введение в каждую из технологий Azure NoSQL: DocumentDB, хранилище таблиц HBase и HDInsight.
  - Сравнение технологий NoSQL с базой данных Azure SQL. 
+ - Ситуации, подходящие для использования DocumentDB, хранилища таблиц, HBase, HDInsight, базе данных SQL.
 
 **PDF-файл для скачивания**: [основная информация о NoSQL в Microsoft Azure](http://go.microsoft.com/fwlink/p/?LinkId=330292)
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

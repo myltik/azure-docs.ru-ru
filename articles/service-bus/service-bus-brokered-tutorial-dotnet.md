@@ -33,13 +33,13 @@
 
 1. Чтобы создать пространство имен службы, выполните действия, описанные в разделе [Руководство. Создание или изменение пространства имен службы служебной шины](https://msdn.microsoft.com/library/azure/hh690931.aspx).
 
-1. В главном окне портала Azure щелкните пространство имен службы, созданное на предыдущем шаге.
+1. В главном окне [классического портала Azure][] щелкните пространство имен службы, созданное на предыдущем шаге.
 
 1. Нажмите **Настроить**.
 
-1. В разделе **Генератор подписи общего доступа** запишите первичный ключ, связанный с политикой **RootManagerSharedAccessKey**, или скопируйте его в буфер обмена. Этот ключ потребуется позже в этом руководстве.
+1. В разделе **Генератор подписанного URL-адреса** запишите первичный ключ, связанный с политикой **RootManagerSharedAccessKey**, или скопируйте его в буфер обмена. Этот ключ потребуется позже в этом руководстве.
 
-Затем необходимо создать проект Visual Studio и написать две вспомогательные функции, которые загружают разделенный запятыми список сообщений в строго типизированный объект [списка](https://msdn.microsoft.com/library/6sh2ey19.aspx) .NET [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx).
+Затем необходимо создать проект Visual Studio и написать две вспомогательные функции, которые загружают разделенный запятыми список сообщений в строго типизированный объект [List](https://msdn.microsoft.com/library/6sh2ey19.aspx) .NET [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx).
 
 ### Создание проекта Visual Studio
 
@@ -98,7 +98,7 @@
 
 ### Создание функции, которая анализирует список сообщений
 
-1. Перед методом `Main()` объявите две переменные. Первая должна иметь тип **DataTable** и будет содержать список сообщений в файле Data.csv. Вторая должна иметь тип объекта списка, строго типизированный к [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Эта переменная представляет собой список сообщений, доставленных через посредника, которые будут использоваться далее в этом руководстве.
+1. Перед методом `Main()` объявите две переменные. Первая должна иметь тип **DataTable** и будет содержать список сообщений в файле Data.csv. Вторая должна иметь тип объекта List, строго типизированный к [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Эта переменная представляет собой список сообщений, доставленных через посредника, которые будут использоваться далее в этом руководстве.
 
 	```
 	namespace Microsoft.ServiceBus.Samples
@@ -106,8 +106,8 @@
 	    publicclass Program
 	    {
 	
-	        privatestatic DataTable issues;
-	        privatestatic List<BrokeredMessage> MessageList;
+	        private static DataTable issues;
+	        private static List<BrokeredMessage> MessageList;
 	```
 
 1. За пределами `Main()` определите метод `ParseCSV()`, который анализирует список сообщений в файле Data.csv и загружает сообщения в таблицу [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx), как показано ниже. Этот метод возвращает объект **DataTable**.
@@ -161,7 +161,7 @@
 
 ### Создание функции, которая загружает список сообщений
 
-1. За пределами `Main()` определите `GenerateMessages()` метод, который принимает объект **DataTable**, возвращаемый `ParseCSVFile()`, и загружает таблицу в строго типизированный список сообщений, доставленных через посредника. Затем метод возвращает объект **списка**, как показано в следующем примере. 
+1. За пределами `Main()` определите `GenerateMessages()` метод, который принимает объект **DataTable**, возвращаемый `ParseCSVFile()`, и загружает таблицу в строго типизированный список сообщений в брокере. Затем метод возвращает объект **List**, как показано в следующем примере. 
 
 	```
 	static List<BrokeredMessage> GenerateMessages(DataTable issues)
@@ -169,7 +169,8 @@
 	    // Instantiate the brokered list object
 	    List<BrokeredMessage> result = new List<BrokeredMessage>();
 	
-	    // Iterate through the table and create a brokered message for each rowforeach (DataRow item in issues.Rows)
+	    // Iterate through the table and create a brokered message for each row
+	    foreach (DataRow item in issues.Rows)
 	    {
 	        BrokeredMessage message = new BrokeredMessage();
 	        foreach (DataColumn property in issues.Columns)
@@ -437,7 +438,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ### Создание получателя и получение сообщений из очереди
 
-В методе `Queue()` пройдитесь по очереди сообщений и получите сообщения с помощью метода [Microsoft.ServiceBus.Messaging.QueueClient.Receive](https://msdn.microsoft.com/library/azure/hh322678.aspx), выводя каждое сообщение на консоль. Добавьте следующий код сразу после кода, добавленного на предыдущем шаге.
+В методе `Queue()` пройдитесь по очереди сообщений и получите сообщения с помощью метода [Microsoft.ServiceBus.Messaging.QueueClient.Receive](https://msdn.microsoft.com/library/azure/hh322678.aspx), выводя каждое сообщение в консоли. Добавьте следующий код сразу после кода, добавленного на предыдущем шаге.
 
 	```
 	Console.WriteLine("Now receiving messages from Queue.");
@@ -452,7 +453,7 @@ namespace Microsoft.ServiceBus.Samples
 	    }
 	```
 
-### Закончите метод `Queue()` и освободите ресурсы
+### Завершение метода `Queue()` и освобождение ресурсов
 
 Сразу после предыдущего кода добавьте следующий код для освобождения ресурсов фабрики и очереди сообщений.
 
@@ -462,7 +463,7 @@ namespace Microsoft.ServiceBus.Samples
 	namespaceClient.DeleteQueue("IssueTrackingQueue");
 	```
 
-### Вызовите метод `Queue()`
+### Вызов метода `Queue()`
 
 Последний этап — добавить инструкцию, которая вызывает метод `Queue()` из `Main()`. Добавьте следующую выделенную строку кода в конце метода Main():
 	
@@ -621,7 +622,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## Сборка и запуск приложения QueueSample
 
-Теперь после завершения предыдущих шагов можно собрать и запустить приложение **QueueSample**.
+Теперь, после завершения предыдущих шагов, можно собрать и запустить приложение **QueueSample**.
 
 ### Сборка приложения QueueSample
 
@@ -631,7 +632,7 @@ namespace Microsoft.ServiceBus.Samples
 
 1. Перед запуском приложения убедитесь, что вы создали пространство имен службы и получили ключ SAS, как описано в разделе [Введение и предварительные требования](#introduction-and-prerequisites).
 
-1. Откройте веб-браузер и перейдите в [Портал Azure](http://manage.windowsazure.com).
+1. Откройте веб-браузер и перейдите в [классический портал Azure][].
 
 1. В дереве слева щелкните **Служебная шина**.
 
@@ -649,4 +650,7 @@ namespace Microsoft.ServiceBus.Samples
 - [Базовая информация о служебной шине](service-bus-fundamentals-hybrid-solutions.md)
 - [Архитектура служебной шины](service-bus-architecture.md)
 
-<!---HONumber=Nov15_HO4-->
+[классический портал Azure]: http://manage.windowsazure.com
+[классического портала Azure]: http://manage.windowsazure.com
+
+<!---HONumber=AcomDC_1203_2015-->

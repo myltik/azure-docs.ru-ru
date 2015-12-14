@@ -60,11 +60,11 @@
 Сведения об отправке и кодировании ресурсов см. в перечисленных ниже статьях.
 
 
-Отправка файлов с использованием **портала управления Azure**, **.NET** или **API REST**.
+Отправка файлов с использованием **классического портала Azure**, **.NET** или **API REST**.
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-Кодирование файлов с помощью **Azure Media Encoder** с использованием **портала управления Azure**, **.NET** или **API REST**.
+Кодируйте файлы с помощью **кодировщика мультимедиа Azure** при помощи **классического портала Azure**, **.NET** или **API REST**.
 
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
 
@@ -85,7 +85,7 @@
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-Опубликуйте ресурсы (создав указатели) с помощью **портала управления Azure** или **.NET**.
+Опубликуйте ресурсы (создав указатели) с помощью **классического портала Azure** или **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
@@ -105,4 +105,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

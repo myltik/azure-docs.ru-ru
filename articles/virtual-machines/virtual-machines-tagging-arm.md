@@ -28,7 +28,7 @@
 
 Для начала рассмотрим пометку с помощью шаблонов. [Этот шаблон](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm) добавляет теги к следующим ресурсам: Compute (виртуальная машина), Storage (учетная запись хранения) и Network (общедоступный IP-адрес, виртуальная сеть и сетевой интерфейс).
 
-Нажмите кнопку **Развернуть в Azure**, после того как перейдете по [ссылке на шаблон](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Откроется [портал предварительной версии Azure](http://portal.azure.com/), где можно развернуть шаблон.
+Нажмите кнопку **Развернуть в Azure**, после того как перейдете по [ссылке на шаблон](https://github.com/Azure/azure-quickstart-templates/tree/master/101-tags-vm). Откроется [портал Azure](http://portal.azure.com/), где можно развернуть этот шаблон.
 
 ![Простое развертывание с тегами](./media/virtual-machines-tagging-arm/deploy-to-azure-tags.png)
 
@@ -47,7 +47,7 @@
 
 Затем вы можете указать значения для тегов в разделе **Редактирование параметров**.
 
-![Редактирование тегов в портале предварительной версии Azure](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
+![Редактирование тегов на портале Azure](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
 
 Нажмите **Создать**, чтобы развернуть шаблон со значениями тегов.
 
@@ -58,15 +58,15 @@
 
 Выберите значок тегов, чтобы просмотреть свои теги:
 
-![Значок тегов в портале предварительной версии Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-icon.png)
+![Значок тегов на портале Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-icon.png)
 
 Добавьте новый тег с помощью портала, определив собственную пару "ключ-значение", и сохраните его.
 
-![Добавление тега в портале предварительной версии Azure](./media/virtual-machines-tagging-arm/azure-portal-add-new-tag.png)
+![Добавление тега на портале Azure](./media/virtual-machines-tagging-arm/azure-portal-add-new-tag.png)
 
 Новый тег должен появиться в списке тегов для ресурса.
 
-![Сохранение нового тега в портале предварительной версии Azure](./media/virtual-machines-tagging-arm/azure-portal-saved-new-tag.png)
+![Новый тег, сохраненный на портале Azure](./media/virtual-machines-tagging-arm/azure-portal-saved-new-tag.png)
 
 
 ## Маркировка с помощью PowerShell
@@ -159,15 +159,15 @@
 
 Нажмите **Скачать сведения об использовании**, чтобы просмотреть сведения о применении подписки.
 
-![Сведения об использовании в портале предварительной версии Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
+![Сведения об использовании на портале Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-usage-details.png)
 
 Выберите платежный документ и **версию 2** сведений об использовании:
 
-![Сведения об использовании предварительной версии 2 на портале предварительной версии Azure](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
+![Сведения об использовании предварительной версии 2 на портале Azure](./media/virtual-machines-tagging-arm/azure-portal-version2-usage-details.png)
 
 В сведениях об использовании все теги отображаются в столбце **Теги**:
 
-![Столбец тегов на портале предварительной версии Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
+![Столбец "Теги" на портале Azure](./media/virtual-machines-tagging-arm/azure-portal-tags-column.png)
 
 Проанализировав эти теги и сведения об использовании, организации смогут узнать больше из данных о потреблении.
 
@@ -190,4 +190,4 @@
 [Общие сведения о счете Azure]: ../billing-understand-your-bill.md
 [Получение ценных сведений о потреблении ресурсов Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

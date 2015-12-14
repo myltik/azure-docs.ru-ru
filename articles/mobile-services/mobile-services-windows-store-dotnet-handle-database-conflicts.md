@@ -1,22 +1,27 @@
-<properties 
-	pageTitle="Обработка конфликтов записи базы данных с поддержкой оптимистичного параллелизма (Магазин Windows) | Microsoft Azure" 
-	description="Узнайте, как обрабатывать конфликты записи в базу данных как на сервере, так и в приложении магазина Windows." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Обработка конфликтов записи базы данных с поддержкой оптимистичного параллелизма (Магазин Windows) | Microsoft Azure"
+	description="Узнайте, как обрабатывать конфликты записи в базу данных как на сервере, так и в приложении магазина Windows."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="10/05/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="10/05/2015"
 	ms.author="wesmc"/>
 
 # Обработка конфликтов записи базы данных
+
+[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
+&nbsp;
+
 
 
 
@@ -32,10 +37,10 @@
 Для работы с данным учебником требуется следующее
 
 + Microsoft Visual Studio 2013 или более поздняя версия.
-+ Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с мобильными службами]. 
++ Этот учебник создан на основе краткого руководства по мобильным службам. Перед началом работы с учебником необходимо пройти задания учебника [Приступая к работе с мобильными службами].
 + [Учетная запись Azure]
 + Пакет NuGet для мобильных служб Azure 1.1.0 или более поздней версии. Для получения последней версии выполните следующие действия:
-	1. Откройте проект в Visual Studio, щелкните его правой кнопкой мыши в обозревателе решений, а затем щелкните **Управление пакетами NuGet**. 
+	1. Откройте проект в Visual Studio, щелкните его правой кнопкой мыши в обозревателе решений, а затем щелкните **Управление пакетами NuGet**.
 
 		![][19]
 
@@ -44,7 +49,7 @@
 		![][20]
 
 
- 
+
 
 ##Обновите приложение, чтобы разрешить обновления
 
@@ -85,7 +90,7 @@
 
         private async Task UpdateToDoItem(TodoItem item)
         {
-            Exception exception = null;			
+            Exception exception = null;
             try
             {
                 //update at the remote table
@@ -94,7 +99,7 @@
             catch (Exception ex)
             {
                 exception = ex;
-            }			
+            }
             if (exception != null)
             {
                 await new MessageDialog(exception.Message, "Update Failed").ShowAsync();
@@ -111,18 +116,18 @@
 
 		public class TodoItem
 		{
-			public string Id { get; set; }			
+			public string Id { get; set; }
 			[JsonProperty(PropertyName = "text")]
-			public string Text { get; set; }			
+			public string Text { get; set; }
 			[JsonProperty(PropertyName = "complete")]
-			public bool Complete { get; set; }			
+			public bool Complete { get; set; }
 			[JsonProperty(PropertyName = "__version")]
 			public string Version { set; get; }
 		}
 
 	> [AZURE.NOTE]При использовании нетипизированных таблиц включите оптимистичный параллелизм, добавив флаг "Версия" в системные свойства таблицы.
 	>
-	>````` 
+	>`````
 	//Enable optimistic concurrency by retrieving __version
 todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 `````
@@ -132,7 +137,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
         private async Task UpdateToDoItem(TodoItem item)
         {
-            Exception exception = null;			
+            Exception exception = null;
             try
             {
                 //update at the remote table
@@ -145,7 +150,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
             catch (Exception ex)
             {
                 exception = ex;
-            }			
+            }
             if (exception != null)
             {
                 if (exception is MobileServicePreconditionFailedException)
@@ -168,27 +173,27 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
         private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
         {
             //Ask user to choose the resolution between versions
-            MessageDialog msgDialog = new MessageDialog(String.Format("Server Text: "{0}" \nLocal Text: "{1}"\n", 
-                                                        serverItem.Text, localItem.Text), 
+            MessageDialog msgDialog = new MessageDialog(String.Format("Server Text: "{0}" \nLocal Text: "{1}"\n",
+                                                        serverItem.Text, localItem.Text),
                                                         "CONFLICT DETECTED - Select a resolution:");
             UICommand localBtn = new UICommand("Commit Local Text");
             UICommand ServerBtn = new UICommand("Leave Server Text");
             msgDialog.Commands.Add(localBtn);
-            msgDialog.Commands.Add(ServerBtn);			
+            msgDialog.Commands.Add(ServerBtn);
             localBtn.Invoked = async (IUICommand command) =>
             {
-                // To resolve the conflict, update the version of the 
+                // To resolve the conflict, update the version of the
                 // item being committed. Otherwise, you will keep
                 // catching a MobileServicePreConditionFailedException.
-                localItem.Version = serverItem.Version;				
-                // Updating recursively here just in case another 
+                localItem.Version = serverItem.Version;
+                // Updating recursively here just in case another
                 // change happened while the user was making a decision
                 await UpdateToDoItem(localItem);
-            };			
+            };
             ServerBtn.Invoked = async (IUICommand command) =>
             {
 				RefreshTodoItems();
-            };			
+            };
             await msgDialog.ShowAsync();
         }
 
@@ -218,7 +223,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 5. Скопируйте папку пакета todolist\_1.0.0.0\_AnyCPU\_Debug\_Test на второй компьютер. На этом компьютере откройте папку пакета и щелкните правой кнопкой мыши скрипт PowerShell **Add-AppDevPackage.ps1** и нажмите кнопку **Запуск с помощью PowerShell**, как показано ниже. Следуйте инструкциям на экране для установки приложения.
 
 	![][12]
-  
+
 5. Запустите экземпляр 1 приложения в Visual Studio, щелкнув **Отладка**->**Начать отладку**. На экране запуска второго компьютера щелкните стрелку вниз, чтобы увидеть "Приложения по имени". Затем щелкните приложение **todolist** для запуска экземпляра 2 приложения.
 
 	Экземпляр 1 приложения ![][2]
@@ -227,7 +232,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 
 6. В экземпляре 1 приложения измените значение последнего элемента на **Тест записи 1**, а затем выберите второе текстовое поле, чтобы обработчик событий `LostFocus` обновил базу данных. На следующем снимке экрана показан пример.
-	
+
 	Экземпляр 1 приложения ![][3]
 
 	Экземпляр 2 приложения ![][2]
@@ -255,7 +260,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 Дальнейшие действия описывают добавление серверного скрипта обновления и его тестирование.
 
-1. Выполните вход на [портал управления Azure], щелкните элемент **Мобильные службы**, а затем выберите свое приложение. 
+1. Выполните вход на [классический портал Azure], щелкните элемент **Мобильные службы**, а затем щелкните свое приложение.
 
    	![][7]
 
@@ -269,8 +274,8 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 4. Замените имеющийся сценарий следующей функцией и нажмите кнопку **Сохранить**:
 
-		function update(item, user, request) { 
-			request.execute({ 
+		function update(item, user, request) {
+			request.execute({
 				conflict: function (serverRecord) {
 					// Only committing changes if the item is not completed.
 					if (serverRecord.complete === false) {
@@ -282,8 +287,8 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 						request.respond(statusCodes.FORBIDDEN, 'The item is already completed.');
 					}
 				}
-			}); 
-		}   
+			});
+		}
 5. Запустите приложение **todolist** на обоих компьютерах. Измените поле `text` таблицы TodoItem для последнего элемента в экземпляре 2. Затем выберите второе текстовое поле, чтобы обработчик событий `LostFocus` обновил базу данных.
 
 	Экземпляр 1 приложения ![][4]
@@ -321,7 +326,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 * [Добавление проверки подлинности в приложение] <br/>Узнайте, как проверять подлинность пользователей приложения.
 
 * [Добавление push-уведомлений в приложение] <br/>Узнайте, как с помощью мобильных служб отправлять в приложение простейшие push-уведомления.
- 
+
 
 
 <!-- Images. -->
@@ -358,12 +363,10 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 [Добавление проверки подлинности в приложение]: /develop/mobile/tutorials/get-started-with-users-dotnet
 [Добавление push-уведомлений в приложение]: /develop/mobile/tutorials/get-started-with-push-dotnet
 
-[портал управления Azure]: https://manage.windowsazure.com/
-[Management Portal]: https://manage.windowsazure.com/
+[классический портал Azure]: https://manage.windowsazure.com/
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=271146
 [Системные свойства]: http://go.microsoft.com/fwlink/?LinkId=331143
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->

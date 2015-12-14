@@ -72,7 +72,7 @@
 
 Найдите конечную точку службы BLOB-объектов следующим образом.
 
-1. На портале Azure выберите элемент **Обзор** > **Учетные записи хранения**.
+1. На классическом портале Azure выберите элемент **Обзор** > **Учетные записи хранения**.
 2. Щелкните учетную запись хранения, которую хотите использовать.
 3. В колонке учетной записи хранения выберите «BLOB-объекты».
 
@@ -282,4 +282,4 @@ create statistics [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 [Создание учетных данных для базы данных (Transact-SQL)]: https://msdn.microsoft.com/library/mt270260.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1203_2015-->

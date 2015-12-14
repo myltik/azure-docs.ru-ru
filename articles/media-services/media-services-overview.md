@@ -30,7 +30,7 @@
 
 - [REST API для службы мультимедиа](https://msdn.microsoft.com/library/azure/hh973617.aspx).
 - Один из доступных клиентских пакетов SDK: [пакет SDK служб мультимедиа Azure для .NET](https://github.com/Azure/azure-sdk-for-media-services), [пакет SDK Azure для Java](https://github.com/Azure/azure-sdk-for-java), [службы мультимедиа Azure для Node.js](https://github.com/fritzy/node-azure-media), [пакет SDK Azure для PHP](https://github.com/Azure/azure-sdk-for-php).
-- Существующие средства: [портал управления Azure](http://manage.windowsazure.com/) или [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
+- Существующие средства: [классический портал Azure](http://manage.windowsazure.com/) или [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer).
 
 
 ##Схемы обучения работе со службами мультимедиа
@@ -50,7 +50,7 @@
 Приступить к использованию служб мультимедиа Azure можно только при наличии следующих компонентов.
  
 3. Учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](azure.microsoft.com).
-2. Учетная запись служб мультимедиа Azure. Используйте портал управления Azure, .NET или API REST, чтобы создать учетную запись служб мультимедиа Azure. Дополнительные сведения можно найти в разделе [Создание учетной записи](media-services-create-account.md).
+2. Учетная запись служб мультимедиа Azure. Используйте классический портал Azure, .NET или API REST, чтобы создать учетную запись служб мультимедиа Azure. Дополнительные сведения можно найти в разделе [Создание учетной записи](media-services-create-account.md).
 3. Настройка среды разработки (необязательно) Выберите .NET или REST API для среды разработки. Дополнительные сведения можно найти в разделе [Настройка среды](media-services-dotnet-how-to-use.md). 
 
 	Кроме того, ознакомьтесь с разделом о [подключении](media-services-dotnet-connect_programmatically.md) с помощью программных средств.
@@ -231,4 +231,4 @@
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1203_2015-->
