@@ -48,7 +48,9 @@
 -	Активная [учетная запись Microsoft Azure](/account/).
 -	Наличие Visual Studio 2015 с [пакетом SDK Azure](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
 
-> [AZURE.NOTE]Для выполнения этого учебника необходима учетная запись Azure. + Вы можете [открыть учетную запись Azure бесплатно](/pricing/free-trial/) — вы получаете кредиты, которые можно использовать, чтобы опробовать платные службы Azure, и даже израсходовав кредиты вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, например веб-сайты. + Вы можете [активировать преимущества подписчика MSDN](/pricing/member-offers/msdn-benefits-details/) — ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты служб Azure.
+> [AZURE.NOTE] Для выполнения этого учебника необходима учетная запись Azure.
+> + Вы можете [открыть учетную запись Azure бесплатно](/pricing/free-trial/) — вы получаете кредиты, которые можно использовать, чтобы опробовать платные службы Azure, и даже израсходовав кредиты вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, например веб-приложения [службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714).
+> + Вы можете [активировать преимущества подписчика MSDN](/pricing/member-offers/msdn-benefits-details/) — ваша подписка MSDN каждый месяц приносит вам кредиты, которые можно использовать для оплаты служб Azure.
 
 <a name="deploy"></a>
 ## Развертывание облачной службы ##
@@ -88,17 +90,17 @@
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-8-publish-finalize.png)
 
-	>[AZURE.NOTE]Процесс публикации для облачных служб занимает много времени. Параметр включения веб-развертывания для всех ролей может значительно ускорить отладку облачной службы, обеспечивая быстрые (но временные) обновления веб-ролей. Дополнительные сведения об этом параметре см. в статье [Публикация облачной службы с помощью инструментов Azure](http://msdn.microsoft.com/library/ff683672.aspx).
+	>[AZURE.NOTE] Процесс публикации для облачных служб занимает много времени. Параметр включения веб-развертывания для всех ролей может значительно ускорить отладку облачной службы, обеспечивая быстрые (но временные) обновления веб-ролей. Дополнительные сведения об этом параметре см. в статье [Публикация облачной службы с помощью инструментов Azure](http://msdn.microsoft.com/library/ff683672.aspx).
 
 	Когда **журнал изменений Microsoft Azure** покажет, что публикация имеет состояние **Завершено**, будет создаваться конечная точка CDN, интегрированная с этой облачной службой.
 	
-	>[AZURE.WARNING]Если после публикации в развернутой облачной службе отображается экран сообщения об ошибке, вероятно, это связано с тем, что развернутая облачная служба использует [гостевую ОС без .NET 4.5.2](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates). Чтобы устранить эту проблему, [разверните .NET 4.5.2 в качестве задачи запуска](../cloud-services/cloud-services-dotnet-install-dotnet.md).
+	>[AZURE.WARNING] Если после публикации в развернутой облачной службе отображается экран сообщения об ошибке, вероятно, это связано с тем, что развернутая облачная служба использует [гостевую ОС без .NET 4.5.2](../cloud-services/cloud-services-guestos-update-matrix.md#news-updates). Чтобы устранить эту проблему, [разверните .NET 4.5.2 в качестве задачи запуска](../cloud-services/cloud-services-dotnet-install-dotnet.md).
 
 ## Создание нового профиля сети CDN
 
 Профиль сети CDN представляет собой коллекцию конечных точек сети CDN. Каждый профиль содержит одну или несколько конечных точек сети CDN. Вы можете использовать несколько профилей для упорядочения конечных точек сети CDN по домену Интернета, веб-приложению или согласно другим условиям.
 
-> [AZURE.TIP]Если у вас уже есть профиль CDN для работы, перейдите к разделу [Создание новой конечной точки сети CDN](#create-a-new-cdn-endpoint).
+> [AZURE.TIP] Если у вас уже есть профиль CDN для работы, перейдите к разделу [Создание новой конечной точки сети CDN](#create-a-new-cdn-endpoint).
 
 **Создание нового профиля сети CDN**
 
@@ -152,7 +154,7 @@
 
     ![Конечная точка сети CDN][cdn-endpoint-success]
 
-    > [AZURE.NOTE]Конечная точка не сразу будет доступна для использования. Распространение регистрации по сети CDN может занять 90 минут. Если пользователь попытается незамедлительно воспользоваться именем домена CDN, он может столкнуться с кодом состояния 404, пока содержимое не станет доступно через CDN.
+    > [AZURE.NOTE] Конечная точка не сразу будет доступна для использования. Распространение регистрации по сети CDN может занять 90 минут. Если пользователь попытается незамедлительно воспользоваться именем домена CDN, он может столкнуться с кодом состояния 404, пока содержимое не станет доступно через CDN.
 	
 ## Тестирование конечной точки сети CDN
 
@@ -160,7 +162,7 @@
 
 	http://camservice.azureedge.net/Content/bootstrap.css
 
-Он соответствует следующему исходному URL-адресу в конечной точке CDN:
+	Он соответствует следующему исходному URL-адресу в конечной точке CDN:
 
 	http://camcdnservice.cloudapp.net/Content/bootstrap.css
 
@@ -351,23 +353,23 @@
 
 При отправке значений формы в `/MemeGenerator/Index` метод действия `Index_Post` возвращает ссылку на метод действия `Show` с соответствующим идентификатором ввода. Если щелкнуть ссылку, появится следующий код:
 
-	[OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
+	[OutputCache(VaryByParam = ";*";, Duration = 1, Location = OutputCacheLocation.Downstream)]
 	public ActionResult Show(string id)
 	{
-		Tuple<string, string> data = null;
-		if (!Memes.TryGetValue(id, out data))
-		{
-			return new HttpStatusCodeResult(HttpStatusCode.NotFound);
-		}
-
-		if (Debugger.IsAttached) // Preserve the debug experience
-		{
-			return Redirect(string.Format("/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
-		}
-		else // Get content from Azure CDN
-		{
+	    Tuple&lt;string, string&gt; data = null;
+	    if (!Memes.TryGetValue(id, out data))
+	    {
+	        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+	    }
+	
+	    if (Debugger.IsAttached) // Preserve the debug experience
+	    {
+	        return Redirect(string.Format(";/MemeGenerator/Generate?top={0}&bottom={1}";, data.Item1, data.Item2));
+	    }
+	    else // Get content from Azure CDN
+	    {
 			return Redirect(string.Format("http://<yourCDNName>.azureedge.net/MemeGenerator/Generate?top={0}&bottom={1}", data.Item1, data.Item2));
-		}
+	    }
 	}
 	
 Если подключен локальный отладчик, то вы получите обычный интерфейс отладки с локальным перенаправлением. Если отладчик работает в облачной службе, то перенаправление будет выполняться на следующий адрес:

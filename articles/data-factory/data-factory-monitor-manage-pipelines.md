@@ -96,7 +96,6 @@
 <td>ValidationRetry</td><td>Ожидание повторения проверки.</td>
 </tr>
 <tr>
-&lt;tr
 <td rowspan="2">InProgress</td><td>Validating</td><td>Проверка выполняется.</td>
 </tr>
 <td></td>
@@ -120,7 +119,7 @@
 <td>Skipped</td><td></td><td>Срез не обработан.</td>
 </tr>
 <tr>
-<td>None</td><td></td><td>Срез, который ранее существовал с другим состоянием, но был сброшен.</td>
+<td>Без блокировки</td><td></td><td>Срез, который ранее существовал с другим состоянием, но был сброшен.</td>
 </tr>
 </table>
 
@@ -516,7 +515,9 @@ OnDemandClusterDeleted | Succeeded
  
 Замените subscriptionId, resourceGroupName и dataFactoryName в приведенном выше примере на соответствующие значения.
 
-Сейчас для *metricName* можно указать только два значения: FailedRuns или SuccessfulRuns.
+Сейчас для *metricName* можно указать только два значения:
+- FailedRuns или
+- SuccessfulRuns.
 
 **Развертывание оповещения**
 

@@ -63,7 +63,8 @@
 
 1.	Создайте клон или скачайте пример решения с сайта [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) в локальный каталог.
 
-2.	Воспользуйтесь указаниями в разделе [Запуск примера в однопользовательском приложении](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app), чтобы настроить приложение Azure Active Directory и проект. Обязательно выполните инструкции по преобразованию многопользовательского приложения в однопользовательское.
+2.	Воспользуйтесь указаниями в разделе [Запуск примера в однопользовательском приложении](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app), чтобы настроить приложение Azure Active Directory и проект.
+Обязательно выполните инструкции по преобразованию многопользовательского приложения в однопользовательское.
 
 3.	В представлении только что созданного приложения Azure Active Directory на [классическом портале Azure](https://manage.windowsazure.com) щелкните вкладку **ПОЛЬЗОВАТЕЛИ**. Затем назначьте выбранным пользователям выбранные роли.
 
@@ -147,7 +148,9 @@
    &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-&lt;/appSettings></pre>Убедитесь, что значение ida:PostLogoutRedirectUri заканчивается косой чертой "/".
+&lt;/appSettings></pre>
+
+	Убедитесь, что значение ida:PostLogoutRedirectUri заканчивается косой чертой "/".
 
 1. Щелкните правой кнопкой мыши свой проект и выберите **Опубликовать**.
 
@@ -239,12 +242,17 @@ public class WorkItemsController : Controller
     public async Task&lt;ActionResult> Delete(int? id)
     ...
 
-    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-    public async Task&lt;ActionResult> DeleteConfirmed(int id)
-    ...
-}</pre>Так как нас интересует сопоставление ролей в пользовательском интерфейсе классического портала Azure, достаточно просто убедиться, что каждое действие авторизует соответствующую роль.
+        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+        public async Task&lt;ActionResult&gt; DeleteConfirmed(int id)
+        ...
+	}</pre>
 
-	> [AZURE.NOTE]В некоторых действиях вы можете заметить оформление <code>[ValidateAntiForgeryToken]</code>. Из-за поведения, описанного [Алленом Броком (Brock Allen)](https://twitter.com/BrockLAllen) в статье [MVC 4, AntiForgeryToken и утверждений](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), команда HTTP POST может завершиться ошибкой при проверке маркеров защиты от подделки по следующей причине: + Azure Active Directory не отправляет http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, который по умолчанию требуется для маркера защиты от подделки. + Если каталог Azure Active Directory синхронизирован с AD FS, в связи с установленным доверием AD FS также по умолчанию не отправляется утверждение http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider. Однако вы можете вручную настроить AD FS для отправки этого утверждения. Мы займемся этим на следующем шаге.
+	Поскольку нас интересует сопоставление ролей в интерфейсе портала Azure, достаточно просто убедиться, что каждое действие авторизует соответствующую роль.
+
+	> [AZURE.NOTE] В некоторых действиях вы можете заметить оформление <code>[ValidateAntiForgeryToken]</code>. Из-за поведения, описанного [Алленом Броком (Brock Allen)](https://twitter.com/BrockLAllen) в статье [MVC 4, AntiForgeryToken и утверждений](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), команда HTTP POST может завершиться ошибкой при проверке маркеров защиты от подделки по следующей причине:
+	> + Azure Active Directory не отправляет http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, который по умолчанию требуется для маркера защиты от подделки.
+	> + Если каталог Azure Active Directory синхронизирован с AD FS, в связи с установленным доверием AD FS также по умолчанию не отправляется утверждение http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider. Однако вы можете вручную настроить AD FS для отправки этого утверждения.
+	> Мы займемся этим на следующем шаге.
 
 12.  В файле App\_Start\\Startup.Auth.cs добавьте следующую строку кода в метод `ConfigureAuth`. Щелкните правой кнопкой мыши по каждой ошибке разрешения имен, чтобы ее исправить.
 

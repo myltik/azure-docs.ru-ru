@@ -18,7 +18,9 @@
 
 # Отправка кроссплатформенных уведомлений определенному пользователю
 
-[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-push-users](../../includes/app-service-mobile-selector-push-users.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 В этом разделе показано, как отправлять уведомления на все зарегистрированные устройства определенного пользователя с мобильного внутреннего сервера. Здесь вводятся [шаблоны], которые позволяют клиентским приложениям при регистрации указывать форматы полезных данных и заполнители переменных. При отправке уведомления шаблона с сервера центр уведомлений направляет его на все платформы при помощи этих заполнителей, позволяя создавать кросс-платформенные уведомления.
 
@@ -102,4 +104,4 @@
 [Приступая к работе с push-уведомлениями]: app-service-mobile-xamarin-ios-get-started-push.md
 [шаблоны]: ../notification-hubs/notification-hubs-templates.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015--->

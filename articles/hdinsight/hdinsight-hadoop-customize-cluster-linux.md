@@ -512,7 +512,10 @@ HDInsight предоставляет несколько скриптов для 
 
 	![Снимок экрана операций](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
-	В этом расположении журналы упорядочены по узлам headnode, workdernode и zookeeper. Примерами могут служить: * **головной узел** – `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net` * **рабочий узел** – `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net` * **узел Zookeeper** – `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+	В этом расположении журналы упорядочены по узлам headnode, workdernode и zookeeper. Примерами могут служить:
+	* **головной узел** – `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
+	* **рабочий узел** – `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
+	* **узел Zookeeper** – `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
 * Все stdout и stderr соответствующего узла передаются в учетную запись хранилища. Для каждого действия сценария есть файл **output-*.txt** и **errors-*.txt**. Выходной TXT-файл содержит сведения об универсальном коде ресурса (URI) сценария, который был запущен на узле. Например:
 

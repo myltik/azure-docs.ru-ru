@@ -485,7 +485,7 @@ namespace Microsoft.ServiceBus.Samples
 	using System.ServiceModel;
 	```
 
-1. Повторите предыдущие шаги, чтобы добавить в проект ссылку на файл Microsoft.ServiceBus.dll и пространство имен [Microsoft.ServiceBus](https://msdn.microsoft.com/library/microsoft.servicebus.aspx).
+1. Повторите предыдущие шаги, чтобы добавить в проект ссылку на файл Microsoft.servicebus.dll и пространство имен [Microsoft.ServiceBus](https://msdn.microsoft.com/library/microsoft.servicebus.aspx).
 
 1. Добавьте определение контракта службы в пространство имен, как показано в следующем примере. Обратите внимание, что это определение идентично определению в проекте **Service**. Этот код следует добавить в верхнюю часть пространства имен `Microsoft.ServiceBus.Samples`.
 
