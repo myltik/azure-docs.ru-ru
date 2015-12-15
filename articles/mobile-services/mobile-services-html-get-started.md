@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article" 
-	ms.date="11/06/2015"
+	ms.date="11/30/2015"
 	ms.author="glenga"/>
 
 
@@ -90,7 +90,7 @@
 
 1. Перейдите в место, где сохранены сжатые файлы проекта, разверните файлы на своем компьютере и запустите один из следующих файлов команд в подпапке **server**.
 
-	+ **.\\start-iisexpress.ps1** (компьютеры с ОС Windows)
+	+ **launch-windows** (компьютеры с ОС Windows)
 	+ **launch-mac.command** (компьютеры с ОС Mac OS X)
 	+ **launch-linux.sh** (компьютеры с ОС Linux)
 
@@ -154,4 +154,4 @@
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

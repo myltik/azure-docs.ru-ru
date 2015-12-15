@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/27/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Настройка портала разработчика в службе управления Azure API
@@ -24,7 +24,7 @@
 
 Одним из важных аспектов настройки портала является замена текста вверху всех страниц на название или логотип компании.
 
-Контент портала разработчика можно изменять с портала издателя, который доступен на портале Azure. Чтобы перейти на портал издателя для API, щелкните **Управление** на портале Azure для службы управления API.
+Содержимое портала разработчика можно изменять на портале издателя, попасть на который можно с классического портала Azure. Чтобы перейти на портал издателя API, выберите на портале Azure службу управления API и нажмите кнопку **Управление**.
 
 ![Портал издателя][api-management-management-console]
 
@@ -85,7 +85,7 @@
 [Edit the contents of a page]: #edit-page-contents
 [Next steps]: #next-steps
 
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -99,4 +99,4 @@
 [начальной загрузкой]: http://getbootstrap.com/
 [переменным LESS]: http://getbootstrap.com/css/
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

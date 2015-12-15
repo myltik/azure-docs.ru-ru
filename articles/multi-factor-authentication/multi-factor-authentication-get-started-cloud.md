@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/19/2015" 
+	ms.date="12/10/2015" 
 	ms.author="billmath"/>
 
 # Приступая к работе с Azure Multi-Factor Authentication в облаке
@@ -25,13 +25,13 @@
 Теперь, определив, что многофакторную проверку подлинности мы будем использовать в облаке, давайте перейдем к делу. Обратите внимание, что при использовании Multi-Factor Authentication для Office 365 или Multi-Factor Authentication для администраторов Azure можно перейти к шагу 3. В этом документе также рассматривается
 
 
-1. **Зарегистрируйтесь, чтобы оформить подписку Azure.**
+1. [Зарегистрируйтесь, чтобы оформить подписку Azure.](https://azure.microsoft.com/pricing/free-trial/)
 	- Если у вас еще нет подписки Azure, вам необходимо зарегистрироваться для ее оформления. Если вы только начинаете работать с Azure Multi-Factor Authentication, вы можете воспользоваться пробной подпиской.
-2. **Создайте поставщик Multi-Factor Authentication либо назначьте пользователям лицензию Azure AD Premium или Enterprise Mobility Suite.**
+2. [Создание поставщика Multi-Factor Authentication](#creating-an-azure-multi-factor-auth-provider) и [назначение пользователям лицензии Azure AD Premium или Enterprise Mobility Suite](#assigning-an-azure-ad-premium-or-enterprise-mobility-license-top-users).
 	- Вам потребуется создать поставщик Azure Multi-Factor Authentication и назначить его вашему каталогу либо назначить лицензии пользователям Azure AD Premium или EMS. Служба Azure Multi Factor Authentication включена в предложение Azure Active Directory Premium, а следовательно, и в Enterprise Mobility Suite. Если вы используете Azure AD Premium или EMS, не нужно создавать поставщик Multi Factor Authentication. Вместо этого, чтобы включить Multi Factor Authentication для пользователя Azure AD Premium или EMS, следует назначить этому пользователю лицензию Azure AD Premium или EMS, после чего администратор сможет назначить пользователю Multi Factor Authentication через портал управления. См. ниже раздел о том, как назначать пользователям лицензии.
-3. **Включите Multi-Factor Authentication для пользователей.** 
+3. [Включите Multi-Factor Authentication для пользователей.](#turn-on-multi-factor-authentication-for-users)
 	- Включите Azure Multi-Factor Authentication для пользователей через портал Office 365 или Azure. В разделе ниже вы найдете сведения о том, как это сделать.
-4. **Отправьте пользователям сообщение электронной почты, чтобы уведомить их о включении Multi-Factor Authentication.**
+4. [Отправьте пользователям сообщение электронной почты, чтобы уведомить их о включении Multi-Factor Authentication.](#send-email-to-end-users)
 	- После включения многофакторной проверки подлинности в учетных записях пользователей рекомендуется сообщить им об этом по электронной почте. При следующем входе в учетную запись пользователям будет предложено завершить процесс, так что они будут знать, чего ожидать. В разделе ниже см. пример шаблона сообщения электронной почты.
 
 
@@ -108,7 +108,7 @@
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-cloud/user.png)</center>
 
-Чтобы изменить состояние пользователя с помощью Windows PowerShell, можно использовать указанные ниже команды. Значение параметра `$st.State` можно изменить на одно из состояний, упомянутых выше.
+Чтобы изменить состояние пользователя с помощью Windows PowerShell, можно использовать указанные ниже команды. Для параметра `$st.State` можно задать одно из упомянутых выше состояний.
 
 		$st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
 		$st.RelyingParty = "*"
@@ -154,6 +154,6 @@
 		Your Administrator
 
 ## Дальнейшие действия
-Настроив многофакторную проверку подлинности в облаке, можно перейти к следующему шагу, описанному в разделе [Настройка Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md). Вы узнаете о создании отчетов, предупреждении о мошенничестве, настройке голосовых сообщений и всех функциях, которые предлагает служба Azure Multi-Factor Authentication.
+Настроив многофакторную проверку подлинности в облаке, можно переходить к следующему шагу, описанному в статье [Настройка Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md). Вы узнаете о создании отчетов, предупреждении о мошенничестве, настройке голосовых сообщений и всех функциях, которые предлагает служба Azure Multi-Factor Authentication.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

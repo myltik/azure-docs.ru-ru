@@ -3,8 +3,8 @@
 	description="Вы узнаете дополнительные сведения об использовании службы очередей Microsoft Azure для создания и удаления очередей, вставки, получения и удаления сообщений."
 	services="storage"
 	documentationCenter=".net"
-	authors="tamram"
-	manager="adinah"
+	authors="robinsh"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="10/21/2015"
-	ms.author="tamram"/>
+	ms.date="12/04/2015"
+	ms.author="robinsh"/>
 
 # Использование хранилища очередей из .NET
 
@@ -261,4 +261,4 @@
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

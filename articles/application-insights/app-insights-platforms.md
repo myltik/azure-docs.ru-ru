@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Application Insights: языки и платформы | Microsoft Azure"
-	description="Доступные языки и платформы для Application Insights"
+	pageTitle="Application Insights: языки, платформы, интеграция | Microsoft Azure"
+	description="Языки, платформы и варианты интеграции для Application Insights."
 	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills"
+	authors="OlegAnaniev-MSFT"
 	manager="douge"/>
 
 <tags
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="11/29/2015"
+	ms.date="12/07/2015"
 	ms.author="awills"/>
 
-# Application Insights: языки и платформы
+# Application Insights: языки, платформы, интеграция
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
@@ -34,7 +34,7 @@
 + [Ruby](https://rubygems.org/gems/application_insights)
 + [Другие варианты](#projects)
 
-## Платформы
+## Платформы и среды
 
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 + [ASP.NET](app-insights-asp-net.md)
@@ -43,24 +43,16 @@
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Веб-приложения и виртуальные машины Azure](../insights-perf-analytics.md)
 + [Облачные службы Azure](app-insights-cloudservices.md) — рабочие роли и веб-роли
-+ [Concrete](https://github.com/fidmor89/appInsights-Concrete)
-+ [CRM Online от Microsoft Dynamics](app-insights-sample-mscrm.md).
-+ [Docker](app-insights-docker.md)
-+ [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
++ [CRM Online от Microsoft Dynamics.](app-insights-sample-mscrm.md)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE — для приложений, которые уже доступны в Интернете](app-insights-java-live.md)
-+ [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
-+ [Microsoft CRM](app-insights-sample-mscrm.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
-+ [Orchard](https://orchardazureappinsights.codeplex.com) 
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
-+ [SharePoint](app-insights-sharepoint.md)
-+ Семантическое ведение журнала [SLAB](https://github.com/fidmor89/SLAB_AppInsights)
 + [C#|VB для Магазина Windows](app-insights-windows-get-started.md)
 + [C++ для Магазина Windows](app-insights-windows-cpp.md)
 + [Классические приложения, службы и рабочие роли Windows](app-insights-windows-desktop.md)
-+ [WordPress](https://wordpress.org/plugins/application-insights/)
++ [Xamarin](https://github.com/Microsoft/ApplicationInsights-Xamarin)
 + [Другие варианты](#projects)
 
 
@@ -68,11 +60,22 @@
 
 +	[Log4Net, NLog или System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java, Log4J или Logback](app-insights-java-trace-logs.md)
-+   [Семантическое ведение журнала](https://github.com/fidmor89/SLAB_AppInsights) — интегрируется с [блоком приложения для семантического ведения журнала](https://msdn.microsoft.com/library/dn440729.aspx).
++   [Semantic Logging (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) — интеграция с [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
 +   [Облачное нагрузочное тестирование](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 
-## экспорт.
 
+## Системы управления содержимым
+
++ [Concrete](https://github.com/fidmor89/appInsights-Concrete)
++ [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
++ [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
++ [Orchard](https://orchardazureappinsights.codeplex.com) 
++ [SharePoint](app-insights-sharepoint.md)
++ [WordPress](https://wordpress.org/plugins/application-insights/)
+
+## Экспорт и анализ данных
+
++ [Alooma](http://alooma.com/blog/application-insights-amazon-redshift)
 + [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 + [Анализ потока](app-insights-export-power-bi.md)
 
@@ -80,4 +83,4 @@
 
 Если для языка или платформы, которые вы используете, не существует пакета SDK, возможно, вы захотите создать его. Просмотрите код существующих пакетов SDK, перечисленных в описании [проекта пакета SDK для Application Insights на GitHub](https://github.com/Microsoft/AppInsights-Home).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

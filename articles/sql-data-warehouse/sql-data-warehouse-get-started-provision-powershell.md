@@ -67,8 +67,8 @@
 [загрузить демонстрационные данные]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
 [Powershell]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-reference-powershell-cmdlets/
 [REST API]: https://msdn.microsoft.com/library/azure/dn505719.aspx
-[MSDN]: https://msdn.microsoft.com/ru-RU/library/azure/dn546722.aspx
+[MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
 [firewall rules]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-database-configure-firewall-settings/
 [Установка и настройка Azure PowerShell]: powershell-install-configure.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

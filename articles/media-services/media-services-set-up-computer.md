@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/07/2015"  
+	ms.date="12/05/2015"  
 	ms.author="juliako"/>
 
 # Настройка среды
@@ -23,6 +23,8 @@
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
 <a id="create_account"></a>
+
+В этой статье описаны действия, которые необходимо выполнить, чтобы получить возможность разрабатывать решения с использованием служб мультимедиа Azure.
 
 ## Создание учетной записи служб мультимедиа
 
@@ -51,4 +53,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

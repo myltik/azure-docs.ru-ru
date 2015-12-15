@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="08/04/2015"
+ ms.date="12/04/2015"
  ms.author="krisragh"/>
 
 # Основные понятия, терминология и иерархия сущностей планировщика
@@ -190,7 +190,7 @@ errorAction ― это обработчик ошибок, действие, ко
 ## См. также
 
  [Что такое планировщик?](scheduler-intro.md)
-
+ 
  [Приступая к работе с планировщиком Azure на портале Azure](scheduler-get-started-portal.md)
 
  [Планы и выставление счетов в планировщике Azure](scheduler-plans-billing.md)
@@ -207,4 +207,4 @@ errorAction ― это обработчик ошибок, действие, ко
 
  [Исходящая аутентификация планировщика Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

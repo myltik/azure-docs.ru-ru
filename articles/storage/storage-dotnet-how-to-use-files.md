@@ -3,8 +3,8 @@
             description="Создайте общую папку в облаке и управляйте содержимым файлов. Подключите общую папку из виртуальной машины Azure или из локального приложения."
             services="storage"
             documentationCenter=".net"
-            authors="tamram"
-            manager="adinah"
+            authors="robinsh"
+            manager="carmonm"
             editor="" />
 
 <tags ms.service="storage"
@@ -12,8 +12,8 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="10/26/2015"
-      ms.author="tamram" />
+      ms.date="12/04/2015"
+      ms.author="robinsh" />
 
 # Использование хранилища файлов Azure в Windows
 
@@ -550,4 +550,4 @@ AzCopy можно использовать для копирования одн�
 - [Введение в службы файлов Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Сохраняемые подключения к файлам Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/27/2015"
+	ms.date="12/07/2015"
 	ms.author="sdanie"/>
 
 # Защита API путем ограничения скорости с помощью управления API Azure
@@ -28,7 +28,7 @@
 
 На этом шаге создается бесплатный пробный продукт, который не требует утверждения подписки.
 
-Для начала щелкните **Управление** на портале Azure службы управления API. Будет открыт портал издателя службы управления API.
+Для начала выберите на классическом портале Azure службу управления API и нажмите кнопку **Управление**. Будет открыт портал издателя службы управления API.
 
 ![Портал издателя][api-management-management-console]
 
@@ -292,4 +292,4 @@
 [Ограничить скорость вызова]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Задать квоту использования]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

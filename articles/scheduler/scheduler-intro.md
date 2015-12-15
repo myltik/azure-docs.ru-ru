@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="08/04/2015"
+ ms.date="12/04/2015"
  ms.author="krisragh"/>
 
 # Что такое планировщик Azure?
@@ -50,4 +50,4 @@
 
  [Исходящая аутентификация планировщика Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Единый интерфейс Office 365 на всех устройствах c Azure RemoteApp"
+   pageTitle="Единый интерфейс Office 365 на всех устройствах c Azure RemoteApp | Microsoft Azure"
    description="Узнайте, как опубликовать приложение Office 365 для своих пользователей с помощью Azure RemoteApp."
    services="remoteapp"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="08/12/2015"
+   ms.date="12/05/2015"
    ms.author="guscatal;elizapo"/>
 
 
@@ -25,19 +25,19 @@
 
 ## Создание облачной коллекции
 
-Создав учетную запись Azure, перейдите в раздел **RemoteApp**, щелкнув ссылку слева. ![Демонстрация Azure RemoteApp на портале Azure](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/1-menu.png)
+Создав учетную запись Azure, перейдите в раздел **RemoteApp**, щелкнув ссылку слева. ![Демонстрация Azure RemoteApp на портале Azure](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
 
-Затем нажмите внизу **Создать** и выберите режим быстрого создания коллекции. Укажите имя, регион, подписку, план и образ «Office профессиональный 2013», который мы вам предлагаем. ![Создание диалогового окна](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/2-quickcreate.PNG)
+Затем нажмите внизу **Создать** и выберите режим быстрого создания коллекции. Укажите имя, регион, подписку, план и образ «Office профессиональный 2013», который мы вам предлагаем. ![Создание диалогового окна](./media/remoteapp-tutorial-o365anywhere/2-quickcreate.png)
 
 После заполнения формы начнется создание коллекции. Эта процедура может занять около часа.
 
-![Ожидание](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/3-waiting.PNG)
+![Ожидание](./media/remoteapp-tutorial-o365anywhere/3-waiting.png)
 
-После ее завершения вы увидите примерно следующее: Если щелкнуть **Публикация**, вы увидите, что основная часть приложений Office уже опубликована. ![Созданная коллекция](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/4-done.PNG)
+После ее завершения вы увидите примерно следующее: Если щелкнуть **Публикация**, вы увидите, что основная часть приложений Office уже опубликована. ![Созданная коллекция](./media/remoteapp-tutorial-o365anywhere/4-done.png)
 
-![Опубликованные приложения](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/5-publish.PNG)
+![Опубликованные приложения](./media/remoteapp-tutorial-o365anywhere/5-publish.png)
 
-На этом этапе можно добавить пользователей, которым будет доступна эта коллекция (для этого щелкните **Доступ пользователя**). ![настройка доступа пользователей](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/6-user.PNG)
+На этом этапе можно добавить пользователей, которым будет доступна эта коллекция. Для этого щелкните **Доступ пользователя**. ![настройка доступа пользователей](./media/remoteapp-tutorial-o365anywhere/6-user.png)
 
 Теперь попытаемся подключиться к Office 365.
 
@@ -47,21 +47,20 @@
 
 После запуска приложения вам будет предложено выполнить вход по учетной записи Майкрософт (которая раньше называлась идентификатором Live ID). Она совпадает с вашей учетной записью Azure. Выполнив вход, вы увидите уведомление о новых приглашениях, щелкнув которое, вы откроете список представленного ниже вида. Примите приглашение, соответствующее вашему адресу электронной почты владельца учетной записи Azure.
 
-![Новое приглашение](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/7-araclient.PNG)
+![Новое приглашение](./media/remoteapp-tutorial-o365anywhere/7-araclient.png)
 
 Экран с новыми приглашениями.
 
-![Принятие приглашения](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/8-invitation.PNG)
+![Принятие приглашения](./media/remoteapp-tutorial-o365anywhere/8-invitation.png)
 
 Приняв приглашение, вы увидите все приложения Office в клиенте Azure RemoteApp.
 
-![Список приложений](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/9-work.PNG)
+![Список приложений](./media/remoteapp-tutorial-o365anywhere/9-work.png)
 
 Если щелкнуть любое из них, оно запустится на виртуальной машине Azure, и все будет готово к работе. Вот и все!
 
-![запуск](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/10-arastart.PNG)
+![запуск](./media/remoteapp-tutorial-o365anywhere/10-arastart.png)
 
-![PowerPoint](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/11-pp.PNG)
- 
+![PowerPoint](./media/remoteapp-tutorial-o365anywhere/11-pp.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

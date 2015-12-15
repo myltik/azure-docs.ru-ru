@@ -3,8 +3,8 @@
 	description="Узнайте, как на классическом портале Azure можно создать или удалить учетную запись хранения, а также управлять ею."
 	services="storage"
 	documentationCenter=""
-	authors="tamram"
-	manager="adinah"
+	authors="robinsh"
+	manager="carmonm"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 
 # Об учетных записях хранения Azure
@@ -172,4 +172,4 @@ URL-адрес для доступа к объекту в учетной зап�
 - Дополнительную информацию о службе хранилища Azure см. в соответствующей документации на сайте [Azure.com](http://azure.microsoft.com/documentation/services/storage/).
 - Посетите [блог команды разработчиков хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

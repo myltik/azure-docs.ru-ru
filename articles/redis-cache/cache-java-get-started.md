@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="10/23/2015"
+	ms.date="12/03/2015"
 	ms.author="sdanie"/>
 
 # Использование кэша Redis для Azure с Java
@@ -38,7 +38,7 @@
 
 ## Создание кэша Redis в Azure
 
-На [портале предварительной версии Azure](http://go.microsoft.com/fwlink/?LinkId=398536) щелкните **Создать**, **Данные+хранилище** и выберите **Кэш Redis**.
+На [портале Azure](http://go.microsoft.com/fwlink/?LinkId=398536) последовательно щелкните **Создать** и **Данные+хранилище**, а затем выберите **Кэш Redis**.
 
   ![][1]
 
@@ -47,7 +47,7 @@
   ![][2]
 
 
-Создав кэш, щелкните его на портале предварительной версии, чтобы просмотреть параметры кэша. Щелкните ссылку в разделе **Ключи** и скопируйте первичный ключ. Он потребуется для проверки подлинности запросов.
+Создав кэш, щелкните его на портале Azure, чтобы просмотреть параметры кэша. Щелкните ссылку в разделе **Ключи** и скопируйте первичный ключ. Он потребуется для проверки подлинности запросов.
 
   ![][4]
 
@@ -66,7 +66,7 @@
 	import redis.clients.jedis.Jedis;
 	import redis.clients.jedis.JedisShardInfo;
 
-	/* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the preview portal */
+	/* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the Azure Portal */
 	public class App
 	{
 	  public static void main( String[] args )
@@ -93,4 +93,4 @@
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

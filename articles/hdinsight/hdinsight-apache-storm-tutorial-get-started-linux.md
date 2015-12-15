@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/26/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 
@@ -66,7 +66,7 @@ Storm в HDInsight использует хранилище BLOB-объектов
 
 	* [Использование SSH с Hadoop под управлением Linux в HDInsight в Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Использование SSH с Hadoop под управлением Linux в HDInsight в Windows](hdinsight-hadoop-linux-use-ssh-windows)
+	* [Использование SSH с Hadoop под управлением Linux в HDInsight в Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 6. Щелкните запись __Источник данных__, чтобы выбрать существующий или создать новый источник данных.
 
@@ -233,4 +233,4 @@ Storm в HDInsight использует хранилище BLOB-объектов
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->
