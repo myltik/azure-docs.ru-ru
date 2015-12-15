@@ -32,7 +32,7 @@ Azure DNS — это служба размещения для доменов DNS
 
 Зона DNS используется для размещения DNS-записей определенного домена. Например, домен contoso.com может содержать несколько записей DNS, таких как mail.contoso.com (для почтового сервера) и www.contoso.com (для веб-сайта).
 
-Azure DNS позволяет размещать зону DNS и тем самым управлять записями DNS для домена в Azure. Помните, что Azure DNS — это не регистратор доменных имен.
+Azure DNS позволяет размещать зону DNS и тем самым управлять записями DNS для домена в Azure. Помните, что Azure DNS — это не регистратор доменных имен.
 
 Система доменных имен — это иерархия доменов. Иерархия начинается с "корневого" домена, имя которого — просто ".". Ниже находятся домены верхнего уровня, такие как com, net, org, uk и jp. Под ними расположены домены второго уровня, например org.uk и co.jp. И т. д.
 
@@ -129,15 +129,15 @@ DNS-клиенты на ПК или мобильных устройствах о
 
 	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset
+	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
 
 Чтобы убедиться в корректности настройки зоны, нужно, как и при делегировании с помощью регистратора доменных имен, найти запись SOA дочерней зоны.
 
 	PS C:\> nslookup –type=SOA partners.contoso.com
-
+	
 	Server: ns1-08.azure-dns.com
 	Address: 208.76.47.8
-
+	
 	partners.contoso.com
 		primary name server = ns1-08.azure-dns.com
 		responsible mail addr = msnhst.microsoft.com

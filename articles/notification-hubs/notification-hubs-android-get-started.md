@@ -84,7 +84,7 @@
 1. На странице [Notification-Hubs-Android-SDK сайта Bintray](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4) на вкладке **Files** (Файлы) скачайте файл notification-hubs-0.4.jar. Также скачайте файл [notifications-1.0.1.jar](https://bintray.com/microsoftazuremobile/SDK/Notifications-Handler/view) в каталог **app\\libs** своего проекта. Это можно сделать, перетащив файлы в папку **libs** в окне представления проекта Android Studio. Обновите папку **libs**.
 
 
-    >[AZURE.NOTE]Числа в конце этого имени файла могут меняться в последующих выпусках SDK.
+    > [AZURE.NOTE] Числа в конце этого имени файла могут меняться в последующих выпусках SDK.
 
 2. Настройте приложение для получения registrationId из GCM и используйте его, чтобы зарегистрировать экземпляр приложения в центре уведомлений.
 
@@ -118,7 +118,10 @@
 	    private static Boolean isVisible = false;
 
 
-	Обязательно обновите три заполнителя: * **SENDER\_ID** — укажите для `SENDER_ID` номер проекта, полученный ранее из проекта, созданного в [Google Cloud Console](http://cloud.google.com/console). * **HubListenConnectionString** — укажите для `HubListenConnectionString` строку подключения к центру **DefaultListenAccessSignature**. Вы можете скопировать эту строку подключения: на [классическом портале Azure] на вкладке **Панель мониторинга** центра щелкните элемент **Просмотреть строку подключения**. * **HubName** — имя центра уведомлений, которое отображается в верхней части страницы в Azure для вашего центра (**не** полный URL-адрес). Например, можно использовать `"myhub"`.
+	Обязательно измените три заполнителя:
+	* **SENDER\_ID**: задайте для `SENDER_ID` номер проекта, полученный ранее из проекта, созданного в [Google Cloud Console](http://cloud.google.com/console).
+	* **HubListenConnectionString**: задайте для `HubListenConnectionString` строку подключения **DefaultListenAccessSignature** к центру. Можно скопировать эту строку подключения, щелкнув **Просмотреть строку подключения** на вкладке **Панель мониторинга** центра на [портале Azure].
+	* **HubName**: имя центра уведомлений, которое отображается в верхней части страницы в Azure для вашего центра (**не** полный URL-адрес). Например, используйте `"myhub"`.
 
 
 
@@ -177,6 +180,7 @@
 	        isVisible = false;
 	    }
 
+
 		/**
 		  * A modal AlertDialog for displaying a message on the UI thread
 		  * when there's an exception or message to report.
@@ -213,7 +217,7 @@
 
 8. Поскольку Android не отображает уведомлений, необходимо написать собственный приемник. В файле **AndroidManifest.xml** добавьте следующий элемент в середину элемента `<application>`.
 
-	> [AZURE.NOTE]Замените заполнитель на имя своего пакета.
+	> [AZURE.NOTE] Замените заполнитель на имя своего пакета.
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">

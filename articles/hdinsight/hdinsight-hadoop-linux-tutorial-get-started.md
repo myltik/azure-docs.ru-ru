@@ -168,6 +168,7 @@
 		CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
 		INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
+
 	Эти инструкции выполняют следующие действия.
 
 	- **CREATE TABLE IF NOT EXISTS**: создание таблицы, если она до этого не существовала. Так как ключевое слово **EXTERNAL** не было использовано, данная таблица будет внутренней. То есть она хранится в хранилище данных Hive, и ею полностью управляет Hive. В отличие от внешних таблиц, удаление внутренних таблиц приводит также к удалению данных.
