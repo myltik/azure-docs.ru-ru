@@ -75,11 +75,11 @@
 
 
 	<table border="1">
-<tr><th>Свойство кластера</th><th>Описание</th></tr>
-<tr><td>Имя кластера HBase</td><td>Имя вашего кластера HBase в HDInsight. Пример: https://myhbase.azurehdinsight.net/</td></tr>
-<tr><td>Имя пользователя кластера</td><td>Имя учетной записи пользователя Hadoop. Имя пользователя Hadoop по умолчанию&#160;— <strong>admin</strong>.</td></tr>
-<tr><td>Пароль пользователя кластера</td><td>Пароль пользователя кластера Hadoop.</td></tr>
-</table>
+	<tr><th>Свойство кластера</th><th>Описание</th></tr>
+	<tr><td>Имя кластера HBase</td><td>Имя вашего кластера HBase в HDInsight. Пример: https://myhbase.azurehdinsight.net/</td></tr>
+	<tr><td>Имя пользователя кластера</td><td>Имя учетной записи пользователя Hadoop. Имя пользователя Hadoop по умолчанию&#160;— <strong>admin</strong>.</td></tr>
+	<tr><td>Пароль пользователя кластера</td><td>Пароль пользователя кластера Hadoop.</td></tr>
+	</table>
 
 - **Рабочая станция**, на которой установлено программное обеспечение Visual Studio 2013. Инструкции см. в разделе [Установка Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
@@ -98,11 +98,13 @@
 3. Введите **имя**, **описание** и **веб-сайт**. Поле "Веб-сайт" на самом деле не используется. В нем не обязательно указывать действительный URL-адрес. В следующей таблице приведены некоторые примеры значений:
 
 	<table border="1">
-<tr><th>Поле</th><th>Значение</th></tr>
-<tr><td>Имя</td><td>MyHDInsightHBaseApp</td></tr>
-<tr><td>Описание</td><td>MyHDInsightHBaseApp</td></tr>
-<tr><td>Веб-сайт</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-</table>> [AZURE.NOTE]Имя приложения Twitter должно быть уникальным.
+	<tr><th>Поле</th><th>Значение</th></tr>
+	<tr><td>Имя</td><td>MyHDInsightHBaseApp</td></tr>
+	<tr><td>Описание</td><td>MyHDInsightHBaseApp</td></tr>
+	<tr><td>Веб-сайт</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+	</table>
+
+	> [AZURE.NOTE]Имя приложения Twitter должно быть уникальным.
 
 4. Установите значок **Да, я согласен** и нажмите кнопку **Создать приложение Twitter**.
 5. Выберите вкладку **Разрешения**. Разрешение по умолчанию: **Только для чтения**. Этого разрешения достаточно для данного учебника. 
@@ -1355,4 +1357,4 @@
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
