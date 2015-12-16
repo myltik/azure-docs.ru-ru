@@ -76,7 +76,7 @@ db:
 
 ```
 
-## Step 4: Start the containers with Compose
+## Шаг 4: Start the containers with Compose
 
 In the working directory on your VM, simply run the following command.
 
