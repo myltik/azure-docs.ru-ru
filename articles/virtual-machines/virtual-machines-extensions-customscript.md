@@ -23,7 +23,8 @@
 
 Расширения виртуальной машины разработаны корпорацией Майкрософт и доверенными сторонними компаниями для расширения функциональных возможностей виртуальной машины. Общие сведения о расширениях виртуальных машин см. в статье [Расширения и компоненты виртуальных машин Azure](virtual-machines-extensions-features.md).
 
-Ссылка:[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript%20-with%20template.md).
+Ссылка:
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Модель диспетчера ресурсов](virtual-machines-extensions-customscript%20-with%20template.md).
 
 
 ## Общие сведения о расширении Custom Script
@@ -92,3 +93,4 @@
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
 <!---HONumber=AcomDC_1203_2015-->
+
