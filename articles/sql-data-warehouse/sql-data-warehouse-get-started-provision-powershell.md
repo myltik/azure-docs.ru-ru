@@ -71,4 +71,4 @@
 [firewall rules]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-database-configure-firewall-settings/
 [Установка и настройка Azure PowerShell]: powershell-install-configure.md
 
-<!---HONumber=AcomDC_1210_2015-->
+<!-----HONumber=AcomDC_1210_2015-->
