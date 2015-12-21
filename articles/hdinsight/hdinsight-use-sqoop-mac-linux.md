@@ -50,7 +50,7 @@
 
 ##Ознакомление со сценарием
 
-Кластер HDInsight включает несколько примеров данных. Будет использована таблица Hive с именем **hivesampletable**, которая ссылается на файл данных в ****wasb:///hive/warehouse/hivesampletable**. Эта таблица содержит некоторые данные о мобильных устройствах. Схема таблицы Hive:
+Кластер HDInsight включает несколько примеров данных. Будет использована таблица Hive с именем **hivesampletable**, которая ссылается на файл данных в **wasb:///hive/warehouse/hivesampletable**. Эта таблица содержит некоторые данные о мобильных устройствах. Схема таблицы Hive:
 
 | Поле | Тип данных |
 | ----- | --------- |
@@ -66,7 +66,7 @@
 | sessionid | bigint |
 | sessionpagevieworder | bigint |
 
-Сначала необходимо экспортировать **hivesampletable** в базу данных SQL Azure или в SQL Server в таблицу **mobiledata**, а затем импортировать таблицу обратно в HDInsight в ****wasb:///tutorials/usesqoop/importeddata**.
+Сначала необходимо экспортировать **hivesampletable** в базу данных SQL Azure или в SQL Server в таблицу **mobiledata**, а затем импортировать таблицу обратно в HDInsight в **wasb:///tutorials/usesqoop/importeddata**.
 
 ##Создание базы данных
 
@@ -186,7 +186,7 @@
 
 ##Импорт Sqoop
 
-1. Для импорта данных из таблицы **mobiledata** базы данных SQL в каталог ****wasb:///tutorials/usesqoop/importeddata** в HDInsight используйте следующую команду:
+1. Для импорта данных из таблицы **mobiledata** базы данных SQL в каталог **wasb:///tutorials/usesqoop/importeddata** в HDInsight используйте следующую команду:
 
         sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
 
@@ -239,9 +239,9 @@ Sqoop можно также использовать для импорта и э
 
 Теперь вы узнали, как использовать Sqoop. Дополнительные сведения см. на следующих ресурсах:
 
-- [Использование Oozie с HDInsight][hdinsight-use-oozie]\: используйте действие Sqoop в рабочем процессе Oozie.
-- [Анализ данных о задержке рейсов с помощью HDInsight][hdinsight-analyze-flight-data]\: используйте Hive для анализа данных о задержке рейсов, а затем используйте Sqoop для экспорта данных в базу данных SQL Azure.
-- [Передача данных в HDInsight][hdinsight-upload-data]\: узнайте о других способах отправки данных в HDInsight и хранилище больших двоичных объектов Azure.
+- [Использование Oozie с HDInsight][hdinsight-use-oozie]: используйте действие Sqoop в рабочем процессе Oozie.
+- [Анализ данных о задержке рейсов с помощью HDInsight][hdinsight-analyze-flight-data]: используйте Hive для анализа данных о задержке рейсов, а затем используйте Sqoop для экспорта данных в базу данных SQL Azure.
+- [Передача данных в HDInsight][hdinsight-upload-data]: узнайте о других способах отправки данных в HDInsight и хранилище больших двоичных объектов Azure.
 
 
 

@@ -30,7 +30,7 @@
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Учетная запись хранения Azure.](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/ru-RU/download/details.aspx?id=34595) или [Windows Management Framework 4.0.](http://www.microsoft.com/ru-RU/download/details.aspx?id=40855)
+- [Windows Management Framework 3.0](http://www.microsoft.com/ru-ru/download/details.aspx?id=34595) или [Windows Management Framework 4.0.](http://www.microsoft.com/ru-ru/download/details.aspx?id=40855)
 
 [AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
@@ -85,9 +85,9 @@
 Теперь, когда создано приложение Azure Active Directory и установлена библиотека проверки подлинности, можно на основе сведений о приложении создать учетные данные, которые будут использоваться для проверки подлинности запросов к диспетчеру ресурсов Azure. Выполните следующие действия.
 
 1.	Откройте файл Program.cs для созданного вами проекта и добавьте в начало файла указанные ниже операторы using:
-		
-		using Microsoft.Azure;
-		using Microsoft.IdentityModel.Clients.ActiveDirectory;
+
+        using Microsoft.Azure;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
 		using Microsoft.Azure.Management.Resources;
 		using Microsoft.Azure.Management.Resources.Models;
 		using Microsoft.Azure.Management.Storage;
@@ -342,14 +342,14 @@
           }
         }
 
-	>[AZURE.NOTE]Имена образов виртуальных жестких дисков в коллекции образов регулярно изменяются, поэтому для развертывания виртуальной машины необходимо получить текущее имя образа. В разделе [Управление образами с помощью Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx) прочитайте сведения о том, как сделать это, и замените текст {source-image-name} именем файла виртуального жесткого диска, который необходимо использовать. Имя может иметь следующий вид: a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201411.01-en.us-127GB.vhd.
+	>[AZURE.NOTE]Имена образов виртуальных жестких дисков в коллекции образов регулярно изменяются, поэтому для развертывания виртуальной машины необходимо получить текущее имя образа. В разделе [Управление образами с помощью Windows PowerShell](https://msdn.microsoft.com/library/azure/dn790330.aspx) прочитайте сведения о том, как сделать это, и замените текст {source-image-name} именем файла виртуального жесткого диска, который необходимо использовать. Имя может иметь следующий вид: a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd.
 
 	Замените текст {subscription-id} идентификатором вашей подписки.
 
 2.	Для вызова только что добавленного метода добавьте указанный ниже код в метод Main.
 
 		CreateVirtualMachine(credential);
-    Console.ReadLine();
+        Console.ReadLine();
 
 ##Действие 5. Добавление кода для удаления ресурсов
 

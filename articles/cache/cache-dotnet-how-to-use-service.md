@@ -63,7 +63,7 @@
 
 Чтобы создать экземпляр службы управляемого кэша, откройте окно Azure PowerShell.
 
->Инструкции по установке и использованию Azure PowerShell см. в разделе [Установка и настройка Windows Azure PowerShell][].
+>Инструкции по установке и использованию Azure PowerShell см. в разделе [Установка и настройка Microsoft Azure PowerShell][].
 
 Вызовите командлет [Add-AzureAccount][] и введите адрес электронной почты и пароль, связанные с вашей учетной записью. Подписка выбирается по умолчанию, она отображается после вызова командлета [Add-AzureAccount][]. Чтобы сменить подписку, вызовите командлет [Select-AzureSubscription][].
 
@@ -478,7 +478,7 @@
 [New-AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
 [Azure Managed Cache Cmdlets]: http://go.microsoft.com/fwlink/?LinkID=398555
 [Установка и настройка Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
-[Установка и настройка Windows Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
+[Установка и настройка Microsoft Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
 [Add-AzureAccount]: http://msdn.microsoft.com/library/dn495128.aspx
 [Select-AzureSubscription]: http://msdn.microsoft.com/library/dn495203.aspx
 

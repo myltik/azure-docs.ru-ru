@@ -67,7 +67,7 @@
 
 [Схема конфигурации службы Azure (CSCFG-файл)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
 
-[Схема конфигурации виртуальной сети Windows Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Схема конфигурации виртуальной сети Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
 
 [Укажите параметры DNS с помощью файлов конфигурации сети](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 

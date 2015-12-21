@@ -118,7 +118,7 @@ Push-уведомления являются одним из наиболее в
 
 ##Интеграция с мобильными приложениями службы приложений
 
-Для упрощения и унификации взаимодействия между службами Azure [мобильные приложения службы приложений] располагают встроенной поддержкой push-уведомлений с помощью концентраторов уведомлений. [Мобильные приложения службы приложений] — это доступная по всему миру высокомасштабируемая платформа разработки мобильных приложений, предназначенная для корпоративных разработчиков и системных интеграторов и расширяющая возможности разработки мобильных приложений.
+Для упрощения и унификации взаимодействия между службами Azure [Мобильные приложения службы приложений] располагают встроенной поддержкой push-уведомлений с помощью концентраторов уведомлений. [Мобильные приложения службы приложений] — это доступная по всему миру высокомасштабируемая платформа разработки мобильных приложений, предназначенная для корпоративных разработчиков и системных интеграторов и расширяющая возможности разработки мобильных приложений.
 
 Разработчики мобильных приложений могут использовать концентраторы уведомлений в следующем рабочем процессе.
 
@@ -160,7 +160,7 @@ Push-уведомления являются одним из наиболее в
   [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
-  [мобильные приложения службы приложений]: https://azure.microsoft.com/ru-RU/documentation/articles/app-service-mobile-value-prop/
+  [Мобильные приложения службы приложений]: https://azure.microsoft.com/ru-RU/documentation/articles/app-service-mobile-value-prop/
   [шаблонов]: https://msdn.microsoft.com/library/azure/dn530748.aspx
   [портале Azure]: https://portal.azure.com
   [здесь]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)

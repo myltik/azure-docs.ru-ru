@@ -48,9 +48,9 @@ Apache Oozie — это система рабочих процессов и ко
 
 1. Действие Hive запускает скрипт HiveQL для извлечения записей из таблицы **hivesampletable**, входящей в состав в HDInsight. Каждая строка данных описывает посещение с определенного мобильного устройства. Формат записи таков:
 
-		8       18:54:20        ru-RU   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-		23      19:19:44        ru-RU   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-		23      19:19:46        ru-RU   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+		8       18:54:20        ru-ru   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+		23      19:19:44        ru-ru   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+		23      19:19:46        ru-ru   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
 	Скрипт Hive, используемый в данном документе, подсчитывает общее количество посещений для каждой платформы (например, Android или iPhone) и сохраняет результаты в новой таблице Hive.
 
@@ -361,7 +361,7 @@ Apache Oozie — это система рабочих процессов и ко
 		  </property>
 		</configuration>
 
-	* Замените все вхождения ****wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее.
+	* Замените все вхождения **wasb://mycontainer@mystorageaccount.blob.core.windows.net** значением, полученным ранее.
 
 	> [AZURE.WARNING]В составе пути необходимо использовать полный путь WASB с контейнером и учетной записью хранилища. Использование короткого формата (wasb:///) приведет к сбою при запуске задания RunHiveScript.
 
@@ -711,7 +711,7 @@ Oozie REST API позволяет создавать собственные ут
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: powershell-install-configure.md
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/ru-RU/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/ru-ru/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
