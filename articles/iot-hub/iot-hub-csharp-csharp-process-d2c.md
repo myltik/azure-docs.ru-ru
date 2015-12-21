@@ -98,7 +98,7 @@
 [очередь служебной шины]: https://azure.microsoft.com/ru-RU/documentation/articles/service-bus-dotnet-how-to-use-queues/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
-[Transient Fault Handling]: https://msdn.microsoft.com/ru-RU/library/hh680901(v=pandp.50).aspx
+[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [Руководство по центру IoT. Совместимость с концентраторами событий]: iot-hub-guidance.md#eventhubcompatible
 
@@ -120,4 +120,4 @@
 [Центр разработчика IoT Azure]: http://www.azure.com/develop/iot
 [Центре разработчика IoT в Azure]: http://www.azure.com/develop/iot
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

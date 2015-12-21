@@ -35,11 +35,11 @@ Azure CLI представляет собой кроссплатформенну
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- __Интерфейс командной строки Azure__. Сведения об установке интерфейса командной строки Azure см. в разделе [Установка интерфейса командной строки Azure](xplat-cli-install.md).
+- __Интерфейс командной строки Azure__. Сведения об установке интерфейса командной строки Azure см. в разделе [Установка интерфейса командной строки Azure](../xplat-cli-install.md).
 
 ##Вход в подписку Azure
 
-Выполните действия, описанные в статье [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](xplat-cli-connect.md), и подключитесь к подписке с помощью метода __login__.
+Выполните действия, описанные в статье [Подключение к среде Azure с использованием интерфейса командной строки Azure (Azure CLI)](../xplat-cli-connect.md), и подключитесь к подписке с помощью метода __login__.
 
 ##Создание кластера
 
@@ -112,13 +112,13 @@ Azure CLI представляет собой кроссплатформенну
 
 ###Кластеры HBase
 
-* [Начало работы с HBase в HDInsight](hdinsight-hbase-tutorial-get-stared-linux.md)
-* [Разработка приложений Java для HBase в HDInsight](hdinsight-hbase-build-java-maven-linux)
+* [Начало работы с HBase в HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
+* [Разработка приложений Java для HBase в HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
 ###Кластеры Storm
 
 * [Разработка приложений Java для Storm в HDInsight](hdinsight-storm-develop-java-topology.md)
-* [Использование компонентов Python в Storm в HDInsight](hdinsight-storm-develop-python.md)
+* [Использование компонентов Python в Storm в HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Развертывание и мониторинг топологий со Storm в HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -75,13 +75,15 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 
 ### Пример
 
-В следующем примере создается новый HPC-кластер с помощью файла конфигурации MyConfigFile.xml, а также указываются учетные данные администратора для установки кластера. ```
-New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName
-<username> –AdminPassword <password>
+В следующем примере создается новый HPC-кластер с помощью файла конфигурации MyConfigFile.xml, а также указываются учетные данные администратора для установки кластера.
+
 ```
+New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
+```
+
 ### Дополнительные замечания
 
-* Скрипт использует образ виртуальной машины на основе пакета HPC, доступный в Azure Marketplace, для создания головного узла кластера. Текущая версия образа предполагает, что установлена ОС Windows Server 2012 R2 Datacenter с пакетом HPC 2012 R2 с обновлением 2.
+* Скрипт использует образ виртуальной машины на основе пакета HPC, доступный в Azure Marketplace, для создания головного узла кластера. Текущая версия образа предполагает, что установлена ОС Windows Server 2012 R2 Datacenter с пакетом HPC 2012 R2 с обновлением 3.
 
 * Скрипт дополнительно может включать отправку заданий через веб-портал для пакета HPC или с помощью REST API для пакета HPC.
 
@@ -386,8 +388,8 @@ New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName
 
 * Попробуйте запустить рабочую нагрузку в кластере. См. пример в [руководстве по началу работы](https://technet.microsoft.com/library/jj884144) с пакетом HPC.
 
-* Учебник, в котором рассматривается скрипт для создания кластера и запуска рабочей нагрузки HPC, см. в статьях [Начало работы с кластером на основе пакета HPC в Azure для запуска рабочих нагрузок Excel и SOA](virtual-machines-excel-cluster-hpcpac) или [Запуск NAMD с пакетом Microsoft HPC на вычислительных узлах Linux в Azure](virtual-machines-linux-cluster-hpcpack-namd.md).
+* Учебник, в котором рассматривается скрипт для создания кластера и запуска рабочей нагрузки HPC, см. в статьях [Начало работы с кластером пакета HPC в Azure для запуска рабочих нагрузок Excel и SOA](virtual-machines-excel-cluster-hpcpac), [Запуск NAMD с пакетом Microsoft HPC на вычислительных узлах Linux в Azure](virtual-machines-linux-cluster-hpcpack-namd.md) или [Запуск OpenFOAM с пакетом Microsoft HPC на вычислительных узлах Linux в Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md).
 
 * Поэкспериментируйте со средствами HPC для запуска, остановки, добавления и удаления вычислительных узлов в кластере. См. статью [Управление вычислительными узлами в кластере на основе пакета HPC в Azure](virtual-machines-hpcpack-cluster-node-manage.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

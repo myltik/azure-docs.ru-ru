@@ -1,5 +1,5 @@
 <properties
-	pageTitle="PHP в ОС Windows для подключения к базе данных SQL | Microsoft Azure"
+	pageTitle="Логика повторов в PHP для подключения к базе данных SQL | Microsoft Azure"
 	description="В этой статье представлен пример программы PHP, которая подключается к Базе данных SQL Azure из клиентской ОС Windows с обработкой временных сбоев, и показаны ссылки на программные компоненты, необходимые для клиента."
 	services="sql-database"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/08/2015"
 	ms.author="meetb"/>
 
 
@@ -29,20 +29,22 @@
 
 [AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
+### База данных SQL
 
-## Создание базы данных и получение строки подключения
-
-
-Чтобы узнать, как создать базу данных и получить строку подключения, см. раздел [Начало работы](sql-database-get-started.md). Очень важно соблюдать инструкции руководства во время создания **шаблона базы данных AdventureWorks**. Приведенные ниже примеры работают только со **схемой AdventureWorks**.
+Чтобы узнать, как создать образец базы данных, перейдите на страницу [Начало работы](sql-database-get-started.md). Очень важно соблюдать инструкции руководства во время создания **шаблона базы данных AdventureWorks**. Приведенные ниже примеры работают только со **схемой AdventureWorks**.
 
 
-## Подключение к базе данных и отправка запросов к ней 
+## Шаг 1. Получение сведений о подключении
+
+[AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
+
+## Шаг 2. Подключение и запрос
 
 Демонстрационная программа разработана так, чтобы временная ошибка во время попытки подключения вызывала повторную попытку. Тем не менее, в случае временной ошибки во время выполнения команды запроса программа отменяет текущее подключение и создает новое, прежде чем повторять попытку запроса. Мы не выступаем на за, ни против использования этого метода. Демонстрационная программа иллюстрирует некоторые возможности разработки, доступные пользователю.
 
 <br>Длина этого примера кода в основном связана с логикой перехвата исключений. Сокращенная версия файла Program.cs доступна [здесь](sql-database-develop-php-simple-windows.md). <br>Метод Main находится в файле Program.cs. Стек вызовов выполняется следующим образом: * Метод Main вызывает ConnectAndQuery. * ConnectAndQuery вызывает EstablishConnection. * EstablishConnection вызывает IssueQueryCommand.
 
-Функция [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) может использоваться для извлечения результирующего набора из запроса к базе данных SQL. Эта функция фактически принимает любой запрос и объект подключения и возвращает результирующий набор, по которому может быть выполнена итерация с использованием [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
+Функция [sqlsrv\_query()](http://php.net/manual/en/function.sqlsrv-query.php) может использоваться для извлечения результирующего набора из запроса к базе данных SQL. Эта функция фактически принимает любой запрос и объект соединения и возвращает результирующий набор, по которому может быть выполнена итерация с использованием [sqlsrv\_fetch\_array()](http://php.net/manual/en/function.sqlsrv-fetch-array.php).
 
 	<?php
 		// Variables to tune the retry logic.  
@@ -59,13 +61,13 @@
 		{
 		    $errorArr = array();
 		    $ctr = 0;
-		    // [A.2] Connect, which proceeds to issue a query command. 
+		    // [A.2] Connect, which proceeds to issue a query command.
 		    $conn = sqlsrv_connect($serverName, $connectionOptions);  
 		    if( $conn == true)
 		    {
-		        echo "Connection was established"; 
+		        echo "Connection was established";
 		        echo "<br>";
-		 
+
 		        $tsql = "SELECT [CompanyName] FROM SalesLT.Customer";
 		        $getProducts = sqlsrv_query($conn, $tsql);
 		        if ($getProducts == FALSE)
@@ -96,8 +98,8 @@
 		        // [A.4] Check whether sqlExc.Number is on the whitelist of transients.
 		        $isTransientError = IsTransientStatic($errorArr);
 		        if ($isTransientError == TRUE)  // Is a static persistent error...
-		        { 
-		            echo("Persistent error suffered, SqlException.Number==". $errorArr[0].". Program Will terminate."); 
+		        {
+		            echo("Persistent error suffered, SqlException.Number==". $errorArr[0].". Program Will terminate.");
 		            echo "<br>";
 		            // [A.5] Either the connection attempt or the query command attempt suffered a persistent SqlException.
 		            // Break the loop, let the hopeless program end.
@@ -129,11 +131,9 @@
 		        return TRUE;
 		}
 	?>
-	
+
 ## Дальнейшие действия
 
 Дополнительные сведения об установке и использовании PHP см. в статье [Доступ к базам данных SQL Server с помощью PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
- 
-
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

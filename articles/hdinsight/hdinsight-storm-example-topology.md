@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="09/23/2015"
+ ms.date="12/04/2015"
  ms.author="larryfr"/>
 
 # Примеры топологий и компонентов Storm для Apache Storm в HDInsight
@@ -45,7 +45,7 @@
 
 * [Развертывание топологий Storm и управлении ими с использованием средств Storm в HDInsight][6eb0d3b8]
 
-  [2b8c3488]: ../hdinsight-storm-getting-started.md "Создание среды Storm в кластере HDInsight и развертывание образцов топологий с использованием панели мониторинга Storm."
+  [2b8c3488]: hdinsight-apache-storm-tutorial-get-started-linux.md "Создание среды Storm в кластере HDInsight и развертывание образцов топологий с использованием панели мониторинга Storm."
   [6eb0d3b8]: hdinsight-storm-deploy-monitor-topology.md "Развертывание топологий и управление ими с использованием веб-панели мониторинга и пользовательского интерфейса Storm или средств HDInsight для Visual Studio."
   [16fce2d1]: hdinsight-storm-develop-csharp-visual-studio-topology.md "Создание топологии Storm на C# с помощью средств HDInsight для Visual Studio."
   [5797064f]: hdinsight-storm-develop-java-topology.md "Разработка топологий Storm на языке Java с использованием Maven путем создания простой топологии для подсчета статистики."
@@ -60,4 +60,4 @@
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "Этот проект содержит шаблоны для «воронок», «сит» и топологий, обеспечивающих взаимодействие с различными сервисами Azure, такими как концентраторы событий, DocumentDB и база данных SQL."
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

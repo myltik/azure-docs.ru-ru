@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/13/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Как создавать и использовать группы для управления учетными записями разработчика в службе управления Azure API
@@ -34,7 +34,7 @@
 
 ## <a name="create-group"></a>Создание группы
 
-Чтобы создать новую группу, щелкните **Управление** в портале Azure службы управления API. Будет открыт издательский портал службы управления API.
+Чтобы создать новую группу, щелкните **Управление** на классическом портале Azure службы управления API. Будет открыт портал издателя службы управления API.
 
 ![Портал издателя][api-management-management-console]
 
@@ -111,4 +111,4 @@
 [Создание экземпляра службы управления API]: api-management-get-started.md#create-service-instance
 [использовать внешние группы в связанных с ними клиентах Azure Active Directory]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

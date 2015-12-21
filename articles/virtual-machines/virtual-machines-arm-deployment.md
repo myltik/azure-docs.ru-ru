@@ -85,9 +85,9 @@
 Теперь, когда создано приложение Azure Active Directory и установлена библиотека проверки подлинности, можно на основе сведений о приложении создать учетные данные, которые будут использоваться для проверки подлинности запросов к диспетчеру ресурсов Azure. Выполните следующие действия.
 
 1.	Откройте файл Program.cs для созданного вами проекта и добавьте в начало файла указанные ниже операторы using:
-
-        using Microsoft.Azure;
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+		
+		using Microsoft.Azure;
+		using Microsoft.IdentityModel.Clients.ActiveDirectory;
 		using Microsoft.Azure.Management.Resources;
 		using Microsoft.Azure.Management.Resources.Models;
 		using Microsoft.Azure.Management.Storage;
@@ -384,4 +384,4 @@
 
 	![Создание приложения AD](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

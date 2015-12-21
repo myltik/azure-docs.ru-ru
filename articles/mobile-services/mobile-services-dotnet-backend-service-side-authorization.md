@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="10/01/2015"
+	ms.date="12/09/2015"
 	ms.author="krisragh"/>
 
 # Авторизация пользователей на стороне службы в мобильных службах
@@ -41,7 +41,7 @@
 
 2. В Visual Studio разверните папку "Контроллеры", откройте файл **TodoItemController.cs** и добавьте следующее выражение:
 
-		using Microsoft.Azure.Mobile.Server.Security;
+		using Microsoft.WindowsAzure.Mobile.Service.Security;
 
 3. Найдите метод **PostTodoItem** и добавьте следующий код в начало метода:
 
@@ -84,4 +84,4 @@
 <!-- URLs. -->
 [Добавление проверки подлинности в существующее приложение мобильных служб]: mobile-services-dotnet-backend-ios-get-started-users.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

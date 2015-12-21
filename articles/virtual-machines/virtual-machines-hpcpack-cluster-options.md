@@ -49,11 +49,13 @@ ms.service="virtual-machines"
 
 ### Учебники
 
-* [Учебник: начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack.md)
+* [Учебник: начало работы с вычислительными узлами Linux в кластере пакета HPC в Azure](virtual-machines-linux-cluster-hpcpack.md)
 
-* [Учебник. Запуск NAMD с пакетом Microsoft HPC на вычислительных узлах Linux в Azure](../virtual-machines/virtual-machines-linux-cluster-hpcpack-namd.md)
+* [Учебник. Запуск NAMD с пакетом Microsoft HPC на вычислительных узлах Linux в Azure](virtual-machines-linux-cluster-hpcpack-namd.md)
 
-* [Учебник: начало работы с кластером пакета HPC в Azure для запуска рабочих нагрузок Excel и SOA](../virtual-machines/virtual-machines-excel-cluster-hpcpack.md)
+* [Учебник: выполнение заданий OpenFOAM с помощью пакета Microsoft HPC в кластере Linux RDMA в Azure](virtual-machines-linux-cluster-hpcpack-openfoam.md)
+
+* [Учебник: начало работы с кластером пакета HPC в Azure для запуска рабочих нагрузок Excel и SOA](virtual-machines-excel-cluster-hpcpack.md)
 
 
 
@@ -97,4 +99,4 @@ ms.service="virtual-machines"
 
 <!-- * [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-hpcpack-cluster-rdma.md) -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

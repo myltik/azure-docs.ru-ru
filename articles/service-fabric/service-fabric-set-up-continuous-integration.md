@@ -3,8 +3,8 @@
    description="Общие сведения о том, как настроить непрерывную интеграцию для приложения Service Fabric, используя Visual Studio Online (VSO)."
    services="service-fabric"
    documentationCenter="na"
-   authors="cawa"
-   manager="paulyuk"
+   authors="cawams"
+   manager="timlt"
    editor="" />
 <tags
    ms.service="multiple"
@@ -339,4 +339,4 @@
 
 Дополнительные сведения о непрерывной интеграции с приложениями Service Fabric: [Домашняя страница документации по сборке](https://msdn.microsoft.com/Library/vs/alm/Build/overview); [Развертывание агента сборки](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows); [Создание и настройка определения сборки](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

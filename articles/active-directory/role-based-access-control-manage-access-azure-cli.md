@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="10/12/2015"
+	ms.date="12/04/2015"
 	ms.author="inhenk"/>
 
 # Контроль доступа на основе ролей (RBAC) с помощью интерфейса командной строки Azure (Azure CLI)
@@ -107,7 +107,50 @@
 
 ![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
 
+## Создание настраиваемой роли
+Чтобы создать настраиваемую роль, используйте команду `azure role create`.
+
+В следующем примере создается настраиваемая роль с именем *Оператор виртуальной машины*, которая предоставляет доступ ко всем операциям чтения поставщиков ресурсов *Microsoft.Compute*, *Microsoft.Storage* и *Microsoft.Network*, а также доступ для запуска, перезапуска и мониторинга виртуальных машин. Настраиваемую роль можно использовать в двух подписках. В этом примере в качестве входного файла используется JSON-файл.
+
+![](./media/role-based-access-control-manage-access-azure-cli/2-azure-role create-1.png)
+
+![](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
+
+## Изменение настраиваемой роли
+
+Чтобы изменить настраиваемую роль, используйте команду отображения роли Azure для получения определения роли. Затем внесите необходимые изменения в определение роли. Наконец, с помощью команды задания роли Azure сохраните измененное определение роли.
+
+В следующем примере добавляется операция Microsoft.Insights/diagnosticSettings/* в действия и подписка Azure в AssignableScopes настраиваемой роли "Оператор виртуальной машины".
+
+![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set-1.png)
+
+![](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
+
+## Удаление настраиваемой роли
+
+Чтобы удалить настраиваемую роль, используйте `azure role show` команду для определения **идентификатора** роли. Затем с помощью команды `azure role delete` удалите роль, указав **идентификатор**.
+
+В следующем примере показано удаление настраиваемой роли *Оператор виртуальной машины*.
+
+![](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-delete.png)
+
+## Вывод списка настраиваемых ролей
+
+Чтобы получить список ролей, доступных для назначения в области, используйте команду `azure role list`.
+
+В следующем примере перечисляются все роли, доступные для назначения в выбранной подписке.
+
+![](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
+
+В следующем примере настраиваемая роль *Оператор виртуальной машины* не доступна в подписке *Production4*, так как эта подписка не входит в **AssignableScopes** роли.
+
+![](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
+
+
+
+
+
 ## Разделы о RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

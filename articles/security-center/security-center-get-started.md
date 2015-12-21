@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="stevenpo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -29,12 +29,12 @@
 
 Для начала работы с Центром безопасности Azure необходима подписка на Microsoft Azure. Центр безопасности Azure включается в подписке. Если у вас нет подписки, вы можете зарегистрироваться для получения [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial).
 
-Доступ к Центру безопасности Azure осуществляется через [портал предварительной версии Microsoft Azure](http://azure.microsoft.com/features/azure-portal/). Дополнительные сведения см. в [документации по порталу предварительной версии Azure](https://azure.microsoft.com/documentation/services/azure-portal/).
+Доступ к Центру безопасности Azure осуществляется через [портал Azure](http://azure.microsoft.com/features/azure-portal/). Дополнительные сведения см. в [документации по порталу](https://azure.microsoft.com/documentation/services/azure-portal/).
 
 
 ## Доступ к Центру безопасности Azure
 
-Для получения доступа к Центру безопасности Azure на портале Azure выполните следующие действия.
+Для получения доступа к Центру безопасности Azure выполните на портале следующие действия.
 
 1. Выберите **Обзор** и перейдите к параметру **Центр безопасности**. ![][1]
 
@@ -103,4 +103,4 @@
 [6]: ./media/security-center-get-started/security-alert.png
 [7]: ./media/security-center-get-started/security-alert-detail.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

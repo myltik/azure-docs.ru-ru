@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="10/13/2015"
+   ms.date="12/04/2015"
    ms.author="ryanwi"/>
 
 # Управление службами Service Fabric
@@ -28,13 +28,13 @@
 - [Создание пакета приложения](service-fabric-application-model.md)
 - [Развертывание и удаление приложения](service-fabric-deploy-remove-applications.md)
 - [Развертывание существующего приложения](service-fabric-deploy-existing-app.md)
+- [Запуск приложения Service Fabric с использованием различных разрешений безопасности](service-fabric-application-runas-security.md)
 - [Управление приложениями Service Fabric в Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 
 ## Обновление приложения
 Для получения дополнительных сведений об обновлении приложения ознакомьтесь с такими статьями:
 
 - [Обновление приложения Service Fabric с помощью Visual Studio](service-fabric-application-upgrade.md)
-- [Обновление приложения Service Fabric с помощью PowerShell](service-fabric-application-upgrade-powershell.md)
 - [Пошаговое руководство по обновлению приложения](service-fabric-application-upgrade-tutorial.md)
 - [Параметры обновления](service-fabric-application-upgrade-parameters.md)
 - [Обновление вручную и с помощью пакета Diff](service-fabric-application-upgrade-advanced.md)
@@ -48,6 +48,12 @@
 - [Масштабирование приложений Service Fabric](service-fabric-concepts-scalability.md)
 
 ## Управление кластером
+- [Настройка кластера Service Fabric на портале Azure](service-fabric-cluster-creation-via-portal.md)
+- [Настройка кластера Service Fabric с помощью шаблона ARM](service-fabric-cluster-creation-via-arm.md)
+- [Обновление кластера Service Fabric](service-fabric-cluster-upgrade.md)
+- [Защита кластера Service Fabric](service-fabric-cluster-security.md)
+- [Масштабирование кластера Service Fabric путем добавления или удаления виртуальных машин](service-fabric-cluster-scale-up-down.md)
+- [Развертывание кластера Service Fabric в Windows или Linux](service-fabric-deploy-anywhere.md)
 - [Визуализация кластера с помощью обозревателя Service Fabric](service-fabric-visualizing-your-cluster.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

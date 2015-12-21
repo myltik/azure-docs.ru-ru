@@ -27,12 +27,11 @@
 
 ## Получение образца шаблона ARM
 
-1. Образцы шаблонов ARM доступны в [коллекции шаблонов быстрого запуска Azure на сайте github](https://github.com/Azure/azure-quickstart-templates). Все шаблоны Service Fabric начинаются с имени "service-fabric-cluster-...". Можно выполнить поиск в репозитории по слову "fabric" или просто прокрутить вниз до набора образцов шаблонов.
+1. Образцы шаблонов ARM доступны в [коллекции шаблонов быстрого запуска Azure на сайте github](https://github.com/Azure/azure-quickstart-templates). Все шаблоны Service Fabric начинаются с имени "service-fabric-...". Можно выполнить поиск в репозитории по слову "fabric" или просто прокрутить вниз до набора образцов шаблонов.
 2. В целях упрощения поиска шаблоны именованы следующим образом:
-	1. [service-fabric-cluster-5-node-1-nodetype](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-cluster-5-node-1-nodetype) для указания шаблона небезопасного кластера с одним узлом 5 узлами.
-	2. [service-fabric-cluster-5-node-1-nodetype-wad](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-cluster-5-node-1-nodetype-wad) для указания шаблона небезопасного кластера с одним узлом 5 узлами с поддержкой WAD.
-	3. [service-fabric-cluster-5-node-secure-1-nodetype-wad](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-cluster-5-node-secure-1-nodetype-wad) для указания шаблона безопасного кластера с одним узлом 5 узлами с поддержкой WAD.
-	4. [service-fabric-cluster-10-node-secure-2-nodetype-wad](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-cluster-5-node-secure-1-nodetype-wad) для указания шаблона безопасного кластера с двумя узлами 10 узлами с поддержкой WAD.
+	1. [service-fabric-unsecure-cluster-5-node-1-nodetype](http://go.microsoft.com/fwlink/?LinkId=716923) для указания шаблона небезопасного кластера с 5 одинарными узлами. 
+	3. [service-fabric-secure-cluster-5-node-1-nodetype-wad](http://go.microsoft.com/fwlink/?LinkID=716924) для указания шаблона безопасного кластера с 5 одинарными узлами с поддержкой WAD. 
+	4. [service-fabric-secure-cluster-10-node-2-nodetype-wad](http://go.microsoft.com/fwlink/?LinkId=716925) для указания шаблона безопасного кластера с 10 двойными узлами с поддержкой WAD. 
 	
 
 ## Создание настраиваемого шаблона ARM
@@ -41,11 +40,13 @@
 	1. Можно получить образец шаблона из [коллекции шаблонов быстрого запуска Azure на сайте github ](https://github.com/Azure/azure-quickstart-templates) и внести в него изменения.
 	2. Войдите на портал Azure и, используя сведения на страницах портала Service Fabric, создайте шаблон, который затем будет настроен. Эти действия описаны ниже.
 3. Выполните вход на портал Azure [http://aka.ms/servicefabricportal](http://aka.ms/servicefabricportal).
-2. Пройдите процесс создания кластера, как описано в статье [Создание кластера Service Fabric с помощью портала](service-fabric-cluster-creation-via-portal.md), но не нажимайте кнопку ***Создать**, а перейдите в раздел "Сводка" и загрузите шаблон. ![DownloadTemplate][DownloadTemplate]
+2. Пройдите процесс создания кластера, как описано в статье [Создание кластера Service Fabric с помощью портала](service-fabric-cluster-creation-via-portal.md), но не нажимайте кнопку ***Создать**, а перейдите в раздел "Сводка" и загрузите шаблон.
+
+ ![DownloadTemplate][DownloadTemplate]
 
 ## Развертывание шаблона ARM Azure с помощью Azure PS
 
-Подробные инструкции см. в статье [Развертывание шаблонов ARM Azure с помощью PS](resource-group-template-deploy.md).
+Подробные инструкции по развертыванию шаблона с помощью PowerShell см. в статье [Развертывание шаблонов ARM с помощью PS](resource-group-template-deploy.md).
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Дальнейшие действия
@@ -56,4 +57,4 @@
 <!--Image references-->
 [DownloadTemplate]: ./media/service-fabric-cluster-creation-via-arm/DownloadTemplate.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

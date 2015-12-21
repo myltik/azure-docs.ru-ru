@@ -126,14 +126,14 @@ Azure Site Recovery (ASR) имеет встроенную поддержку SQL
 - Настроенные группы доступности SQL между локальным SQL Server и SQL Server, работающим в Azure
 - На локальном SQL Server необходимо включить удаленное взаимодействие PowerShell. Сервер VMM должен иметь возможность удаленного вызова PowerShell на SQL Server
 - На локальном SQL Server необходимо добавить учетную запись пользователя в группы пользователей SQL как минимум со следующими разрешениями:
-	- ИЗМЕНЕНИЕ ГРУППЫ ДОСТУПНОСТИ — [ссылка 1](https://msdn.microsoft.com/ru-RU/library/hh231018.aspx), [ссылка 2](https://msdn.microsoft.com/ru-RU/library/ff878601.aspx#Anchor_3)
-	- ИЗМЕНЕНИЕ БАЗЫ ДАННЫХ — [ссылка 1](https://msdn.microsoft.com/ru-RU/library/ff877956.aspx#Security)
+	- ИЗМЕНЕНИЕ ГРУППЫ ДОСТУПНОСТИ — [ссылка 1](https://msdn.microsoft.com/library/hh231018.aspx), [ссылка 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ИЗМЕНЕНИЕ БАЗЫ ДАННЫХ — [ссылка 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 - На сервере VMM необходимо создать учетную запись запуска для учетной записи, добавленной на предыдущем этапе.
 - Модуль SQL PS необходимо установить на серверы SQL Server, работающие локально и на виртуальных машинах Azure.
 - На виртуальные машины, работающие на Azure, необходимо установить агент виртуальной машины.
 - Каталогу NTAUTHORITY\\System необходимо предоставить следующие разрешения на SQL Server, работающему на виртуальных машинах в Azure:
-	- ИЗМЕНЕНИЕ ГРУППЫ ДОСТУПНОСТИ — [ссылка 1](https://msdn.microsoft.com/ru-RU/library/hh231018.aspx), [ссылка 2](https://msdn.microsoft.com/ru-RU/library/ff878601.aspx#Anchor_3)
-	- ИЗМЕНЕНИЕ БАЗЫ ДАННЫХ — [ссылка 1](https://msdn.microsoft.com/ru-RU/library/ff877956.aspx#Security)
+	- ИЗМЕНЕНИЕ ГРУППЫ ДОСТУПНОСТИ — [ссылка 1](https://msdn.microsoft.com/library/hh231018.aspx), [ссылка 2](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
+	- ИЗМЕНЕНИЕ БАЗЫ ДАННЫХ — [ссылка 1](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 
 ##### 1\. Добавление SQL Server
 
@@ -374,4 +374,4 @@ Site Recovery не поддерживает гостевой кластер пр
 
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

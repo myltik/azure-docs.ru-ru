@@ -1,19 +1,19 @@
 
-<properties 
-    pageTitle="Отправка пользовательского образа для Azure RemoteApp"
-    description="Сведения о процессе отправки пользовательского образа для Azure RemoteApp" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="ericorman" 
+<properties
+    pageTitle="Отправка пользовательского образа для Azure RemoteApp | Microsoft Azure"
+    description="Сведения о процессе отправки пользовательского образа для Azure RemoteApp"
+    services="remoteapp"
+    documentationCenter=""
+    authors="ericorman"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="ericor" />
 
 
@@ -32,7 +32,7 @@
 
 1.      Откройте портал управления Azure и перейдите на страницу RemoteApp.
 2.      На вкладке **Образы шаблона** щелкните **Отправить** в нижней части страницы.
-4.      Введите понятное имя образа и укажите расположение учетной записи хранения. Расположение должно быть тем же, в котором находится коллекция RemoteApp или в котором вы хотите ее создать. 
+4.      Введите понятное имя образа и укажите расположение учетной записи хранения. Расположение должно быть тем же, в котором находится коллекция RemoteApp или в котором вы хотите ее создать.
 5.      При запросе скачайте скрипт на локальный ПК.
 6.      Скопируйте параметры команды в текстовом поле в буфер обмена.
 7.      Откройте окно Windows PowerShell с повышенными привилегиями.
@@ -47,9 +47,8 @@
 
 ## Распространенные проблемы
 
-- Убедитесь, что вы используете Windows PowerShell, а не Azure PowerShell. Следует установить модуль Azure PowerShell, так как некоторые модули нужны во время процесса отправки. 
+- Убедитесь, что вы используете Windows PowerShell, а не Azure PowerShell. Следует установить модуль Azure PowerShell, так как некоторые модули нужны во время процесса отправки.
 - Никогда не изменяйте скрипт; для вашего удобства существуют проверки.
 - Если VHD-файл будет заблокирован во время отправки, скопируйте файл или переместите его в новое расположение и повторите попытку отправки. Возможно, какой-то процесс Windows препятствует отправке.  
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

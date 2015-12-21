@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="12/04/2015"
    ms.author="nitinme"/>
 
 # Начало работы с хранилищем озера данных Azure с помощью Azure PowerShell
@@ -32,7 +32,38 @@
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Включите свою подписку Azure** для общедоступной предварительной версии хранилища озера данных. См. [инструкции](data-lake-store-get-started-portal.md#signup).
-- **Azure PowerShell версии 1.0 или выше**. Инструкции см. в статье [Установка и настройка Azure PowerShell](../install-configure-powershell.md).
+
+
+##См. статью "Установка Azure PowerShell 1.0 и более поздних версий".
+
+Сначала необходимо удалить версии 0.9x Azure PowerShell. Чтобы узнать установленную версию PowerShell, выполните следующую команду в окне PowerShell:
+
+	Get-Module *azure*
+	
+Чтобы удалить старую версию, откройте панель управления, запустите компонент **Программы и компоненты** и удалите установленную версию, если она предшествует PowerShell 1.0.
+
+Существует два основных варианта установки Azure PowerShell.
+
+- [Коллекция PowerShell](https://www.powershellgallery.com/). Выполните следующие команды из интегрированной среды сценариев с повышенными привилегиями PowerShell или консоли Windows PowerShell с повышенными привилегиями:
+
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
+		
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	Дополнительные сведения см. в статье [Коллекция PowerShell](https://www.powershellgallery.com/).
+
+- [Установщик веб-платформы Майкрософт (WebPI)](http://aka.ms/webpi-azps). Если вы установили Azure PowerShell 0.9.x, появится запрос для удаления версии 0.9.x. Если вы установили модули Azure PowerShell из коллекции PowerShell, установщик требует удалить эти модули перед установкой, чтобы обеспечить целостность среды PowerShell Azure. Инструкции см. в разделе [Установка Azure PowerShell 1.0 с помощью установщика веб-платформы](https://azure.microsoft.com/blog/azps-1-0/).
+
+Обновления для установщика веб-платформы будут выпускаться ежемесячно. Обновления для коллекции PowerShell будут выпускаться на постоянной основе. Если вы решите использовать для установки коллекцию PowerShell, она станет основным источником всего нового и лучшего в Azure PowerShell.
 
 ## Создание учетной записи хранения озера данных Azure
 
@@ -69,7 +100,7 @@
 
 		Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
-	Должен быть возвращен результат **True**.
+	Результат должен иметь значение **True**.
 
 ## Создание структуры каталогов в хранилище озера данных Azure
 
@@ -94,7 +125,7 @@
 
 ## Передача данных в хранилище озера данных Azure
 
-Данные можно передавать в хранилище озера данных Azure непосредственно на корневой уровень или в каталог, созданный в учетной записи. Фрагменты кода ниже показывают, как передать некоторые образцы данных в каталог (**mynewdirectory**), который был создан в предыдущем шаге.
+Данные можно передавать в хранилище озера данных Azure непосредственно на корневой уровень или в каталог, созданный в учетной записи. Фрагменты кода ниже показывают, как отправить некоторые образцы данных в каталог (**mynewdirectory**), который был создан в предыдущем шаге.
 
 Если у вас нет под рукой подходящих для этих целей данных, передайте папку **Ambulance Data** из [репозитория Git для озера данных Azure](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData). Загрузите файл и сохраните его в локальном каталоге на компьютере, например C:\\sampledata.
 
@@ -141,4 +172,4 @@
 - [Использование аналитики озера данных Azure с хранилищем озера данных](data-lake-analytics-get-started-portal.md)
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

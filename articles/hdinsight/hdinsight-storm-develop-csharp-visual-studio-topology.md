@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/23/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 # Разработка топологий для Apache Storm в HDInsight на C# с помощью средств Hadoop для Visual Studio
@@ -656,6 +656,6 @@ Context.Logger.Info("Component started");
 
 **Apache HBase в HDInsight**
 
--	[Начало работы с HBase в HDInsight](../hdinsight-hbase-get-started.md)
+-	[Начало работы с HBase в HDInsight](hdinsight-hbase-get-started.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Подключение к базе данных SQL с использованием Node.js с Tedious в Mac OS X" 
+<properties
+	pageTitle="Подключение к базе данных SQL с использованием Node.js с Tedious в Mac OS X"
 	description="В этой статье представлен пример кода Node.js, который можно использовать для подключения к базе данных SQL Azure. Для подключения пример использует драйвер Tedious."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="meet-bhagdev" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="meet-bhagdev"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="10/20/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="12/08/2015"
 	ms.author="meetb"/>
 
 
@@ -27,7 +27,7 @@
 В этом разделе представлен образец кода Node.js для Mac OS X. В нем осуществляется подключение к базе данных SQL Azure с использованием драйвера Tedious.
 
 
-## Необходимое программное обеспечение
+## Предварительные требования
 
 
 Установите **node**, если он еще не установлен на компьютере.
@@ -47,14 +47,15 @@
 
 Команда **npm init** создает узел проекта. Чтобы сохранить значения по умолчанию во время создания проекта, удерживайте нажатой клавишу Enter, пока проект создается. Теперь в каталоге проекта появится файл **package.json**.
 
+### База данных SQL
 
-### Создание базы данных AdventureWorks
+Чтобы узнать, как создать образец базы данных, перейдите на страницу [Начало работы](sql-database-get-started.md). Очень важно соблюдать инструкции руководства во время создания **шаблона базы данных AdventureWorks**. Приведенные ниже примеры работают только со **схемой AdventureWorks**.
 
+## Шаг 1. Получение сведений о подключении
 
-Пример кода в этом разделе ожидает тестовую базу данных **AdventureWorks**. Если вы не создали ее, см. раздел [Начало работы с базой данных SQL](sql-database-get-started.md). Очень важно соблюдать инструкции руководства во время создания **шаблона базы данных AdventureWorks**. Приведенные ниже примеры работают только со **схемой AdventureWorks**.
+[AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
-
-## Подключение к базе данных SQL
+## Шаг 2. Подключение
 
 Функция [new Connection](http://pekim.github.io/tedious/api-connection.html) используется для подключения к базе данных SQL.
 
@@ -73,7 +74,7 @@
 	});
 
 
-## Выполнение оператора SQL SELECT
+## Шаг 3. Выполнение запроса
 
 
 Все операторы SQL выполняются с помощью функции [new Request()](http://pekim.github.io/tedious/api-request.html). Если оператор возвращает строки, например оператор select, их можно будет извлечь с помощью функции [request.on()](http://pekim.github.io/tedious/api-request.html). Если строк нет, функция [request.on()](http://pekim.github.io/tedious/api-request.html) возвращает пустые списки.
@@ -95,12 +96,12 @@
 		console.log("Connected");
 		executeStatement();
 	});
-	
-	
+
+
 	function executeStatement() {
 		request = new Request("SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC;", function(err) {
 	  	if (err) {
-	   		console.log(err);} 
+	   		console.log(err);}
 		});
 		var result = "";
 		request.on('row', function(columns) {
@@ -114,7 +115,7 @@
 		    console.log(result);
 		    result ="";
 		});
-	
+
 		request.on('done', function(rowCount, more) {
 		console.log(rowCount + ' rows returned');
 		});
@@ -122,13 +123,9 @@
 	}
 
 
-## Вставка строки, применение параметров и извлечение созданного первичного ключа
+## Шаг 4. Вставка строки
 
-
-Для получения автоматически созданных [значений первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx) в Базе данных SQL можно использовать свойство [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) и объект [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx). В этом примере мы рассмотрим, как выполнять инструкцию insert, передавать параметры в режиме защиты от внедрения кода SQL и извлекать автоматически созданные значения первичного ключа.
-
-
-Пример кода в этом разделе применяет параметры к оператору SQL INSERT. Значение первичного ключа, который создается, извлекается программой.
+В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от внедрения кода SQL (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
 
 
 	var Connection = require('tedious').Connection;
@@ -147,12 +144,12 @@
 		console.log("Connected");
 		executeStatement1();
 	});
-	
-	
+
+
 	function executeStatement1() {
 		request = new Request("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES (@Name, @Number, @Cost, @Price, CURRENT_TIMESTAMP);", function(err) {
 		 if (err) {
-		 	console.log(err);} 
+		 	console.log(err);}
 		});
 		request.addParameter('Name', TYPES.NVarChar,'SQL Server Express 2014');
 		request.addParameter('Number', TYPES.NVarChar , 'SQLEXPRESS2014');
@@ -170,4 +167,9 @@
 		connection.execSql(request);
 	}
 
-<!---HONumber=Oct15_HO4-->
+
+## Дальнейшие действия
+
+Дополнительную информацию см. в [Центре разработчика Node.js](/develop/nodejs/).
+
+<!---HONumber=AcomDC_1210_2015-->

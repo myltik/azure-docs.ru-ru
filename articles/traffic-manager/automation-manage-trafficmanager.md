@@ -3,7 +3,7 @@
  description="Сведения об использовании службы автоматизации Azure для управления диспетчером трафика Azure." 
  services="traffic-manager, automation" 
  documentationCenter="" 
- authors="eamonoreilly" 
+ authors="joaoma" 
  manager="carmonm" 
  editor=""/>
 
@@ -42,4 +42,4 @@
 * Ознакомьтесь с содержанием [руководства по началу работы](http://go.microsoft.com/fwlink/?LinkId=390560) в службе автоматизации Azure
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

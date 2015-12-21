@@ -1,12 +1,14 @@
-1. В проекте Visual Studio на внутреннем сервере разверните папку **Контроллеры**, а затем откройте файл **TodoItemController.cs**. Добавьте следующий оператор `using` в начало файла:
+
++ **Серверная служба .NET**:  
+
+	В данном проекте сервера в Visual Studio разверните папку **Контроллеры**, а затем откройте файл **TodoItemController.cs**. Добавьте в начало файла следующий оператор `using`:
 
 
         using Microsoft.Azure.Mobile.Server.Config;
         using Microsoft.Azure.NotificationHubs;
 
 
-
-2. Замените метод `PostTodoItem` следующим кодом:
+	Замените метод `PostTodoItem` следующим кодом:
 
       
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
@@ -47,4 +49,50 @@
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-<!---HONumber=Oct15_HO3-->
+
++ **Серверный проект Node.js**:
+	
+	Замените сценарий таблицы todoitem.js на следующий код:
+
+
+        var azureMobileApps = require('azure-mobile-apps'),
+            promises = require('azure-mobile-apps/src/utilities/promises'),
+            logger = require('azure-mobile-apps/src/logger');
+        
+        var table = azureMobileApps.table();
+        
+        // When adding record, send a push notification via APNS
+        // For this to work, you must have an APNS Hub already configured
+        table.insert(function (context) {
+            // For details of the Notification Hubs JavaScript SDK, 
+            // see http://aka.ms/nodejshubs
+            logger.info('Running TodoItem.insert');
+            
+			// Create a payload that contains the new item Text.
+            var payload = "{"aps":{"alert":"" + context.item.text + ""}}";
+            
+            // Execute the insert.  The insert returns the results as a Promise,
+            // Do the push as a post-execute action within the promise flow.
+            return context.execute()
+                .then(function (results) {
+                    // Only do the push if configured
+                    if (context.push) {
+                        context.push.apns.send(null, payload, function (error) {
+                            if (error) {
+                                logger.error('Error while sending push notification: ', error);
+                            } else {
+                                logger.info('Push notification sent successfully!');
+                            }
+                        });
+                    }
+                    // Don't forget to return the results from the context.execute()
+                    return results;
+                })
+                .catch(function (error) {
+                    logger.error('Error while running context.execute: ', error);
+                });
+        });
+        
+        module.exports = table;
+
+<!---HONumber=AcomDC_1210_2015-->

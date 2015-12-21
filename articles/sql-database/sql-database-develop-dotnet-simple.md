@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="Использование Базы данных SQL из .NET (C#)" 
+<properties
+	pageTitle="Подключение к базе данных SQL с помощью .NET (C#)"
 	description="Используйте приведенный в этом кратком руководстве пример кода, чтобы с помощью Базы данных SQL Azure разработать современное приложение на C# на основе мощной облачной реляционной базы данных."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="tobbox" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="tobbox"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="07/16/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="sql-database"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/08/2015"
 	ms.author="tobiast"/>
 
 
-# Использование базы данных SQL из .NET (C#) 
+# Использование базы данных SQL из .NET (C#)
 
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-## Требования
+## Предварительные требования
 
 ### .NET Framework
 
@@ -32,12 +32,17 @@
 
 ### База данных SQL
 
-Чтобы узнать, как создать базу данных и извлечь строку подключения, перейдите на страницу [Начало работы](sql-database-get-started.md).
+Чтобы узнать, как создать образец базы данных, перейдите на страницу [Начало работы](sql-database-get-started.md). Очень важно соблюдать инструкции руководства во время создания **шаблона базы данных AdventureWorks**. Приведенные ниже примеры работают только со **схемой AdventureWorks**.
 
-## Подключение к Базе данных SQL
+## Шаг 1. Получение строки подключения
+
+[AZURE.INCLUDE [sql-database-include-connection-string-dotnet-20-portalshots](../../includes/sql-database-include-connection-string-dotnet-20-portalshots.md)]
+
+## Шаг 2. Подключение
 
 Для подключения к Базе данных SQL используется класс [System.Data.SqlClient.SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx).
-	
+
+
 ```
 using System.Data.SqlClient;
 
@@ -45,18 +50,18 @@ class Sample
 {
   static void Main()
   {
-	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
 	  {
-		  conn.Open();	
+		  conn.Open();
 	  }
   }
-}	
+}
 ```
 
-## Выполнение запроса и получение результирующего набора 
+## Шаг 3. Выполнение запроса
 
 Для получения результирующего набора по запросу к Базе данных SQL можно использовать классы [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) и [SqlDataReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqldatareader.aspx). Обратите внимание, что System.Data.SqlClient также поддерживает извлечение данных в автономный набор [System.Data.DataSet](https://msdn.microsoft.com/library/system.data.dataset.aspx).
-	
+
 ```
 using System;
 using System.Data.SqlClient;
@@ -65,11 +70,11 @@ class Sample
 {
 	static void Main()
 	{
-	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
 		{
 			var cmd = conn.CreateCommand();
 			cmd.CommandText = @"
-					SELECT 
+					SELECT
 						c.CustomerID
 						,c.CompanyName
 						,COUNT(soh.SalesOrderID) AS OrderCount
@@ -78,8 +83,8 @@ class Sample
 					GROUP BY c.CustomerID, c.CompanyName
 					ORDER BY OrderCount DESC;";
 
-			conn.Open();	
-		
+			conn.Open();
+
 			using(var reader = cmd.ExecuteReader())
 			{
 				while(reader.Read())
@@ -91,24 +96,25 @@ class Sample
 	}
 }
 
+```  
+
+## Шаг 4. Вставка строки
+
+В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от внедрения кода SQL (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
+
 ```
+using System;
+using System.Data.SqlClient;
 
-## Вставка строки, передача параметров и получение автоматически созданного значения первичного ключа 
-
-Для получения автоматически созданных значений [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx) в Базе данных SQL можно использовать свойство [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) и объект [SEQUENECE](https://msdn.microsoft.com/library/ff878058.aspx). В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от [внедрения кода SQL](https://msdn.microsoft.com/magazine/cc163917.aspx) и извлекать автоматически созданные значения первичного ключа.
-
-Для выполнения инструкции и получения возвращаемых ей первых столбца и строки можно использовать метод [ExecuteScalar](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executescalar.aspx) в классе [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx). Для возврата вызывающему приложению вставленных значений в качестве результирующего набора можно включить в инструкцию INSERT предложение [OUTPUT](https://msdn.microsoft.com/library/ms177564.aspx). Обратите внимание, что предложение OUTPUT также поддерживается в инструкциях [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx), [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) и [MERGE](https://msdn.microsoft.com/library/bb510625.aspx). При вставке нескольких строк используйте метод [ExecuteReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executereader.aspx), чтобы получить вставленные значения для всех строк.
-	
-```
 class Sample
 {
     static void Main()
     {
-		using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+		using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={yourpassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
         {
             var cmd = conn.CreateCommand();
             cmd.CommandText = @"
-                INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) 
+                INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate)
                 OUTPUT INSERTED.ProductID
                 VALUES (@Name, @Number, @Cost, @Price, CURRENT_TIMESTAMP)";
 
@@ -127,6 +133,4 @@ class Sample
 }
 ```
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

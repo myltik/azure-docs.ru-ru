@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/03/2015"   
+	ms.date="12/09/2015"   
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@
 
 - [Известные проблемы](#issues)
 - [Журнал версий интерфейса API REST](#rest_version_history)
+- [Выпуск: декабрь 2015 г.](#dec_changes_15)
 - [Выпуск: ноябрь 2015 г.](#nov_changes_15)
 - [Выпуск: октябрь 2015 г.](#oct_changes_15)
 - [Выпуск от сентября 2015 г.](#september_changes_15)
@@ -76,6 +77,19 @@
 
 Информацию о журнале версий интерфейса API REST служб мультимедиа см. в [Справочнике по API-интерфейсу REST для служб мультимедиа Azure].
 
+##<a id="dec_changes_15"></a>Выпуск: декабрь 2015 г.
+
+Команда SDK Azure опубликовала новый выпуск пакета [SDK Azure для PHP](http://github.com/Azure/azure-sdk-for-php), содержащий обновления и новые функции для служб мультимедиа Microsoft Azure. В частности, пакет SDK служб мультимедиа Azure для PHP теперь поддерживает новые функции [защиты контента](media-services-content-protection-overview.md): динамическое шифрование с использованием AES и управления цифровыми правами (PlayReady и Widevine) с ограничением по маркеру или без него. Кроме того, он поддерживает масштабирование [единиц кодирования](media-services-dotnet-encoding-units.md).
+
+Дополнительные сведения см. в следующих статьях:
+
+- Блог [SDK служб мультимедиа Microsoft Azure для PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/).
+- Быстро приступить к работе вам помогут [следующие примеры](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices).
+	- **vodworkflow\_aes.php**: PHP-файл, показывающий, как использовать динамическое шифрование c помощью алгоритма AES-128 и службы доставки ключей. Он основан на примере кода .NET, подробно описанном в [этой](media-services-protect-with-aes128.md) статье.
+	- **vodworkflow\_aes.php**: PHP-файл, показывающий, как использовать динамическое шифрование c помощью алгоритма PlayReady и службы доставки лицензий. Он основан на примере кода .NET, подробно описанном в [этой](media-services-protect-with-drm.md) статье.
+	- **scale\_encoding\_units.php**: PHP-файл, показывающий, как масштабировать зарезервированную единицу кодирования.
+
+
 ##<a id="nov_changes_15"></a>Выпуск: ноябрь 2015 г.
 
 Теперь в службах мультимедиа Azure предлагается служба доставки лицензий Google Widevine. Для получения дополнительной информации см. [этот блог объявлений](http://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/). Также см. [этот учебник](media-services-protect-with-drm.md) и [репозиторий GitHub](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
@@ -94,7 +108,7 @@
 
 - Теперь AMS позволяет защищать видео по запросу и потоки Live Stream с технологией Widevine Modular DRM. Вы можете использовать следующих партнеров служб доставки для доставки лицензий Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) и [castLabs](http://castlabs.com/company/partners/azure/). Дополнительную информацию см. в [этом блоге](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/).
 
-	Чтобы настроить AssetDeliveryConfiguration для использования Widevine, можно воспользоваться [пакетом SDK AMS для .NET](https://www.nuget.org/packages/windowsazure.mediaservices/) (начиная с версии 3.5.1) или REST API.
+	Чтобы настроить AssetDeliveryConfiguration для использования Widevine, можно воспользоваться пакетом [SDK AMS .NET](https://www.nuget.org/packages/windowsazure.mediaservices/) (начиная с версии 3.5.1) или REST API.
 
 - AMS поддерживает видео в формате Apple ProRes. Теперь вы можете отправлять исходные видеофайлы в формате QuickTime, использующие Apple ProRes или другие кодеки. Дополнительную информацию см. в [этом блоге](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/).
 
@@ -623,4 +637,4 @@ API REST служб мультимедиа обновлены до версии 
 [Обработка уведомлений из заданий служб мультимедиа]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

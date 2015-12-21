@@ -231,11 +231,11 @@
 
   [Пакет Azure SDK для Java]: http://azure.microsoft.com/develop/java/
   [пакет SDK Azure для Java]: http://azure.microsoft.com/develop/java/
-  [набор средств Azure для Eclipse]: https://msdn.microsoft.com/ru-RU/library/azure/hh694271.aspx
+  [набор средств Azure для Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
   [Azure classic portal]: http://manage.windowsazure.com/
   [Очереди, темы и подписки]: service-bus-queues-topics-subscriptions.md
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

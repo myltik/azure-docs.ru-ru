@@ -45,11 +45,14 @@
 
 Дополнительные сведения о том, как Azure IoT реализует сценарии прогнозирования обслуживания, см. в разделе [Захват значения из Интернета вещей][lnk_capture_value].
 
+Воспользуйтесь [пошаговым руководством][lnk-predictive-walkthrough] по работе с предварительно настроенным решением прогнозируемого обслуживания.
+
+[lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
 [lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk_iot_suite]: iot-suite-overview.md
 [lnk_machine_learning]: https://azure.microsoft.com/services/machine-learning/
-[lnk_infographic]: https://www.microsoft.com/server-cloud/predictivemaintenance/Index.html
+[lnk_infographic]: https://www.microsoft.com/ru-RU/server-cloud/predictivemaintenance/Index.html
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

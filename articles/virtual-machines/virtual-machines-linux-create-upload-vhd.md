@@ -54,6 +54,7 @@
 Microsoft Azure поддерживает различные дистрибутивы Linux (см. раздел [Рекомендованные дистрибутивы](../linux-endorsed-distributions.md)). В следующих статьях описывается подготовка различных дистрибутивов Linux, которые поддерживаются в Azure:
 
 - **[Дистрибутивы на основе CentOS](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Debian Linux](virtual-machines-linux-create-upload-vhd-debian.md)**
 - **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
 - **[Red Hat Enterprise Linux](virtual-machines-linux-create-upload-vhd-redhat.md)**
 - **[SLES и openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
@@ -74,7 +75,7 @@ Microsoft Azure поддерживает различные дистрибути
 
 Последняя версия CLI Azure включается в модель развертывания диспетчера ресурсов по умолчанию, поэтому убедитесь, что вы находитесь в классической модели развертывания, выполнив следующую команду:
 
-		azure change mode asm  
+		azure config mode asm  
 
 Затем войдите в систему для подключения к подписке Azure любым из описанных ниже способов.
 
@@ -171,4 +172,4 @@ Microsoft Azure поддерживает различные дистрибути
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

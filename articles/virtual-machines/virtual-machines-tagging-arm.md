@@ -183,11 +183,11 @@
 
 
 [среду PowerShell с диспетчером ресурсов Azure]: ../powershell-azure-resource-manager.md
-[Командлеты ресурсов Azure]: https://msdn.microsoft.com/ru-RU/library/azure/dn757692.aspx
+[Командлеты ресурсов Azure]: https://msdn.microsoft.com/library/azure/dn757692.aspx
 [среду интерфейса командной строки Azure]: ./xplat-cli-azure-resource-manager.md
 [Общие сведения о диспетчере ресурсов Azure]: ../resource-group-overview.md
 [Использование тегов для упорядочивания ресурсов Azure]: ../resource-group-using-tags.md
 [Общие сведения о счете Azure]: ../billing-understand-your-bill.md
 [Получение ценных сведений о потреблении ресурсов Microsoft Azure]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -7,13 +7,14 @@
 	authors="lindydonna"
 	editor=""/>
 
+
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="11/30/2015"
 	ms.author="donnam"/>
 
 # Добавление проверки подлинности к приложению мобильных служб
@@ -57,7 +58,7 @@
 
 ##<a name="add-authentication"></a>Добавление проверки подлинности в приложение
 
-1. Откройте файл проекта **TodoService** и добавьте следующие переменные:
+1. Откройте файл проекта **QSToDoService** и добавьте следующие переменные:
 
 		// Mobile Service logged in user
 		private MobileServiceUser user;
@@ -101,18 +102,19 @@
         {
             base.ViewDidAppear(animated);
 
-            if (QSToDoService.DefaultService.User == null)
+            if (QSTodoService.DefaultService.User == null)
             {
-                await QSToDoService.DefaultService.LoginAndGetData(this);
+                await QSTodoService.DefaultService.LoginAndGetData(this);
             }
 
-            if (QSToDoService.DefaultService.User == null)
+            if (QSTodoService.DefaultService.User == null)
             {
                 // TODO:: show error
                 return;
             }
 
-            RefreshAsync();
+
+            await RefreshAsync();
         }
 6. Удалите исходный вызов **RefreshAsync** из **TodoListViewController.ViewDidLoad**.
 
@@ -153,4 +155,4 @@
 [полный пример проекта]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

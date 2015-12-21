@@ -14,7 +14,7 @@
 -   Повышенная производительность и впечатления от использования для конечных пользователей, которые находятся далеко от источника содержимого и работают с приложениями, в которых для загрузки содержимого требуется множество обращений в Интернет.
 -   Крупномасштабное распределение для улучшения мгновенной обработки высокой нагрузки, например, в начале события, такого как запуск продукта.
 
-Существующие клиенты сети CDN теперь могут использовать сеть Azure CDN на [портале управления Azure]. CDN является функцией расширения для подписки и имеет отдельный [план выставления счетов]
+Существующие клиенты сети CDN теперь могут использовать сеть Azure CDN на [классическом портале Azure]. CDN является функцией расширения для подписки и имеет отдельный [план выставления счетов]
 
 <a id="Step1"> </a> <h2>Шаг 1. Создание учетной записи хранения</h2>
 
@@ -26,7 +26,7 @@
 
 **Создание учетной записи хранения для подписки Azure**
 
-1.  Выполните вход на [портал управления Azure].
+1.  Перейдите на [классический портал Azure].
 2.  В нижнем левом углу щелкните **Создать**. В диалоговом окне **Создать** выберите **Службы данных**, затем щелкните **Хранилище** и **Быстрое создание**.
 
     Откроется диалоговое окно **Создание учетной записи хранения**.
@@ -57,7 +57,7 @@
 
 **Создание новой конечной точки CDN для учетной записи хранения**
 
-1. На [портале управления Azure] на панели управления выберите **CDN**.
+1. На панели управления [классического портала Azure] выберите **CDN**.
 
 2. На ленте щелкните **Создать** В диалоговом окне **Создать** выберите **Служба приложений**, затем **CDN**, затем **Быстрое создание**.
 
@@ -100,8 +100,9 @@ http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 
   [Create Storage Account]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
   [Расположения узлов сети CDN для Azure]: http://msdn.microsoft.com/library/windowsazure/gg680302.aspx
-  [портал управления Azure]: https://manage.windowsazure.com/
-  [портале управления Azure]: https://manage.windowsazure.com/
+  [классический портал Azure]: https://manage.windowsazure.com/
+  [классического портала Azure]: https://manage.windowsazure.com/
+  [классическом портале Azure]: https://manage.windowsazure.com/
   [план выставления счетов]: /pricing/calculator/?scenario=full
   [Создание территориальной группы в Azure]: http://msdn.microsoft.com/library/azure/ee460798.aspx
   [Overview of the Azure CDN]: http://msdn.microsoft.com/library/windowsazure/ff919703.aspx
@@ -112,4 +113,4 @@ http://<*CDNNamespace*>.vo.msecnd.net/<*myPublicContainer*>/<*BlobName*>
 [create-new-storage-account]: ./media/cdn/CDN_CreateNewStorageAcct.png
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

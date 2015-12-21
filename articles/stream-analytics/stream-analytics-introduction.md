@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Основные сведения о Stream Analytics | Microsoft Azure" 
-	description="Дополнительные сведения об Azure Stream Analytics, полностью управляемой облачной службе, предназначенной для аналитики потоковой передачи данных из Интернета вещей (IoT) в режиме реального времени." 
-	keywords="аналитика больших данных, облачная служба, интернет вещей, управляемые службы, потоковая обработка, аналитика потока, потоковая передача данных"
+	description="Узнайте больше о Stream Analytics — полностью управляемой облачной службе, предназначенной для аналитики потоковой передачи данных из Интернета вещей (IoT) в режиме реального времени." 
+	keywords="аналитика как услуга, управляемые службы, обработка потоков, аналитики потоковой передачи, что такое stream analytics"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,11 +14,11 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 
-# Что такое Azure Stream Analytics?
+# Что такое Stream Analytics?
 
 Azure Stream Analytics (ASA) — это полностью управляемый экономичный модуль обработки событий в реальном времени, позволяющий получать ценную информацию из данных. Stream Analytics позволяет без усилий настроить аналитические вычисления потоковых данных, поступающих от устройств, датчиков, веб-сайтов, социальных сетей, приложений, систем инфраструктуры и пр., в режиме реального времени.
 
@@ -53,4 +53,4 @@ Azure Stream Analytics (ASA) — это полностью управляемы
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

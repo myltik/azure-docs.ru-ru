@@ -1,15 +1,17 @@
-Object|Limit
+Объект|Ограничение
 ---|---
-Maximum number of indexes|50 per Search service
-Maximum number of fields per index|1000
-Maximum document count|15 million per partition
-Maximum storage size|25 GB per partition
-Maximum partitions|12 per Search service
-Maximum replicas|12 per Search service
-Maximum search units|36 per Search service
-Maximum search services|12 per Azure subscription
-Maximum number of indexers|50 per Search service
-Maximum number of datasources|50 per Search service
-Maximum number of documents that can be indexed in a single indexer invocation|Unlimited
-Maximum number of scoring profiles per index|16
-Maximum number of functions per profile|8
+Максимальное количество индексов|50 на одну службу поиска
+Максимальное количество полей на один индекс|1000
+Максимальное количество документов|15 млн на раздел
+Максимальный размер хранилища|25 ГБ на один раздел
+Максимальное количество разделов|12 на одну службу поиска
+Максимальное количество реплик|12 на одну службу поиска
+Максимальное количество единиц поиска|36 на одну службу поиска
+Максимальное количество служб поиска|12 для каждой подписки Azure
+Максимальное количество индексаторов|50 на одну службу поиска
+Максимальное количество источников данных|50 на одну службу поиска
+Максимальное количество документов, которые можно проиндексировать в вызове одного индексатора|Без ограничений
+Максимальное количество профилей оценки на индекс|16
+Максимальное количество функций на профиль|8
+
+<!---HONumber=AcomDC_1210_2015-->

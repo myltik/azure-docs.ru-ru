@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Добавление пользователя в коллекцию Azure RemoteApp" 
-    description="Узнайте о том, как добавить пользователя в коллекцию Azure RemoteApp" 
-    services="remoteapp" 
-	documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Добавление пользователя в коллекцию Azure RemoteApp | Microsoft Azure"
+    description="Узнайте о том, как добавить пользователя в коллекцию Azure RemoteApp"
+    services="remoteapp"
+	documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 # Добавление пользователя в коллекцию Azure RemoteApp
@@ -36,12 +36,12 @@
 |Учетные записи пользователей |Облако |Гибридная среда|
 |--------------|--------|------|
 |Учетная запись Майкрософт| 	Да|	Нет|
-|Azure Active Directory (Azure AD)| | |	
+|Azure Active Directory (Azure AD)| | |
 |Только облако Azure AD |Да |Нет |
 |ADsync с синхронизацией паролей |Да |Да |
 |ADsync без синхронизации паролей|	Да |Нет |
 |ADsync с AD FS |Да |Да |
-|Сторонние поставщики удостоверений, поддерживаемые службой Azure (например, Ping) |Да |Да|	
+|Сторонние поставщики удостоверений, поддерживаемые службой Azure (например, Ping) |Да |Да|
 |Multi-Factor Authentication |Да |Да |
 
 [Узнайте больше](remoteapp-ad.md) о настройке Active Directory для RemoteApp.
@@ -51,6 +51,5 @@
 
 ## Данные учетных записей пользователей для Office 365 профессиональный плюс
 Если в коллекции используется образ шаблона Office 365 профессиональный плюс *или* пользовательский образ шаблона, использующий Office 365, разрешается добавлять только тех пользователей Azure Active Directory, у которых есть подписки на Office 365 для домена организации по умолчанию. Дополнительные сведения см. в [статье, посвященной использованию Office 365 с Azure RemoteApp](remoteapp-o365.md).
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

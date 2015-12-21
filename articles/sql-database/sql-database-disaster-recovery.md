@@ -23,7 +23,7 @@
 - активная георепликация [(блог)](http://azure.microsoft.com/blog/2014/07/12/spotlight-on-sql-database-active-geo-replication/);
 - стандартная георепликация [(блог)](http://azure.microsoft.com/blog/2014/09/03/azure-sql-database-standard-geo-replication/);
 - геовосстановление [(блог)](http://azure.microsoft.com/blog/2014/09/13/azure-sql-database-geo-restore/).
-- Новые возможности георепликации [(блог)](https://azure.microsoft.com/blog/azure-sql-database-geo-replication-october-2015-update/)
+- Новые возможности георепликации [(блог)](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 
 Информацию о подготовке к аварии и времени восстановления базы данных см. на нашей странице [проекта обеспечения непрерывности бизнес-процессов](sql-database-business-continuity-design.md).
 
@@ -131,4 +131,4 @@
 
 Если для доступа к базе данных требуется аудит, то после восстановления базы данных необходимо включить аудит. Индикатором того, что необходим аудит, служит использование в клиентских приложениях строк безопасного подключения вида *. database.secure.windows.net. Дополнительные сведения см. в статье [Приступая к работе с аудитом базы данных SQL](sql-database-auditing-get-started.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/03/2015" 
+	ms.date="12/05/2015" 
 	ms.author="juliako"/>
 
 #Общие сведения о защите содержимого
 
 
-Службы мультимедиа Microsoft Azure позволяют защитить данные мультимедиа, покидающие ваш компьютер, на этапах их хранения, обработки и доставки. Службы мультимедиа позволяют доставлять содержимое, зашифрованное динамически с помощью AES (с использованием 128-битных ключей шифрования) и общим шифрованием (CENC), используя PlayReady и (или) Widevine DRM. Они также обеспечивают службы доставки ключей и лицензий PlayReady авторизованным клиентам. В настоящее время службы мультимедиа не предоставляют сервер лицензирования Widevine. Вы можете использовать следующих партнеров AMS для доставки лицензий Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) и [castLabs](http://castlabs.com/company/partners/azure/).
+Службы мультимедиа Microsoft Azure позволяют защитить данные мультимедиа, покидающие ваш компьютер, на этапах их хранения, обработки и доставки. Службы мультимедиа позволяют доставлять содержимое, зашифрованное динамически с помощью AES (с использованием 128-битных ключей шифрования) и общим шифрованием (CENC), используя PlayReady и (или) Widevine DRM. Они также обеспечивают службы доставки ключей AES и лицензий PlayReady авторизованным клиентам. Службы доставки лицензий Widevine входят в предварительную версию служб мультимедиа Azure. Для доставки лицензий Widevine можно использовать следующих партнеров AMS: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/) и [castLabs](http://castlabs.com/company/partners/azure/).
 
 - На следующем изображении показан рабочий процесс общего динамического шифрования PlayReady и (или) Widevine DRM. Дополнительные сведения см. в статье [Использование общего динамического шифрования PlayReady и (или) Widevine DRM](media-services-protect-with-drm.md).
 
@@ -138,4 +138,4 @@ AMS позволяет также передавать MPEG DASH с шифров
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Реализация аварийного восстановления с помощью функций резервного копирования и восстановления службы в Azure API Management
@@ -36,9 +36,9 @@
 -	настройте разрешения для добавленного приложения;
 -	получите маркер для проверки подлинности запросов к диспетчеру ресурсов Azure.
 
-В первую очередь необходимо создать приложение Azure Active Directory. Войдите на [портал управления](http://manage.windowsazure.com/), используя подписку, включающую экземпляр службы управления API, и перейдите на вкладку **Приложения**, чтобы открыть используемый по умолчанию каталог Azure Active Directory.
+В первую очередь необходимо создать приложение Azure Active Directory. Войдите на [классический портал Azure](http://manage.windowsazure.com/), используя подписку, включающую экземпляр службы управления API, и перейдите на вкладку **Приложения**, чтобы открыть используемый по умолчанию каталог Azure Active Directory.
 
->[AZURE.NOTE]Если этот каталог не отображается в вашей учетной записи, обратитесь к администратору подписки Azure, чтобы получить необходимые разрешения для учетной записи. Сведения о расположении каталога по умолчанию см. в статье [Поиск используемого по умолчанию каталога на портале Azure](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
+>[AZURE.NOTE]Если этот каталог не отображается в вашей учетной записи, обратитесь к администратору подписки Azure, чтобы получить необходимые разрешения для учетной записи. Сведения о расположении каталога по умолчанию см. в статье [Поиск каталога по умолчанию](../virtual-machines/resource-group-create-work-id-from-persona.md/#locate-your-default-directory-in-the-azure-portal).
 
 ![Создание приложения Azure Active Directory][api-management-add-aad-application]
 
@@ -189,4 +189,4 @@
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

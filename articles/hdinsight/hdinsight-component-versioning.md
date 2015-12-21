@@ -14,31 +14,31 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="12/03/2015"
 	ms.author="jgao"/>
 
 
 #Новые возможности в версиях кластеров Hadoop, предоставляемых в HDInsight
 
 ##Версии HDInsight и компоненты Hadoop
-Azure HDInsight поддерживает несколько версий кластера Hadoop, которые могут быть развернуты в любое время. Каждая из версий создает конкретную версию платформы HortonWorks Data Platform (HDP) и набор компонентов, содержащихся в этой версии. Версии компонентов, связанные с версиями кластера HDInsight, приведены в следующей таблице. Обратите внимание, что в настоящее время Azure HDInsight по умолчанию использует версию кластера 3.2 на основе HDP 2.2 (с 19.11.2015).
+Azure HDInsight поддерживает несколько версий кластера Hadoop, которые могут быть развернуты в любое время. Каждая из версий создает конкретную версию платформы HortonWorks Data Platform (HDP) и набор компонентов, содержащихся в этой версии. Версии компонентов, связанные с версиями кластера HDInsight, приведены в следующей таблице. Обратите внимание, что в настоящее время Azure HDInsight по умолчанию использует версию кластера 3.2 на основе HDP 2.2 (с 12.03.2015 г.).
 
 
-Компонент|HDInsight версия 3.2|HDInsight версия 3.1 (по умолчанию)|HDInsight версия 3,0|HDInsight версия 2.1
+Компонент|HDInsight версия 3.3 | HDInsight версия 3.2 (по умолчанию)|HDInsight версия 3.1 |HDInsight версия 3,0|
 ---|---|---|---|---
-Hortonworks Data Platform|2\.2|2\.1.7|2,0|1,3
-Apache Hadoop & YARN|2\.6.0|2\.4.0|2\.2.0|1\.2.0
-Apache Tez|0\.5.2|0\.4.0||
-Apache Pig|0\.14.0|0\.12.1|0\.12.0|0\.11.0
-Apache Hive & HCatalog|0\.14.0|0\.13.1|0\.12.0|0\.11.0
-Apache HBase |0\.98.4|0\.98.0||
-Apache Sqoop|1\.4.5|1\.4.4|1\.4.4|1\.4.3
-Apache Oozie|4\.1.0|4\.0.0|4\.0.0|3\.3.2
-Apache Zookeeper|3\.4.6|3\.4.5|3\.4.5|
-Apache Storm|0\.9.3|0\.9.1||
-Apache Mahout|0\.9.0|0\.9.0||
-Apache Phoenix|4\.2.0|4\.0.0.2.1.7.0-2162||
-Apache Spark|1\.3.1|||
+Hortonworks Data Platform|2\.3|2\.2|2\.1.7|2,0|
+Apache Hadoop & YARN|2\.7.1|2\.6.0|2\.4.0|2\.2.0|
+Apache Tez|0\.7.0 | 0\.5.2|0\.4.0||
+Apache Pig|0\.15.0|0\.14.0|0\.12.1|0\.12.0|
+Apache Hive & HCatalog|1\.2.1|0\.14.0|0\.13.1|0\.12.0|
+Apache HBase |1\.1.1|0\.98.4|0\.98.0||
+Apache Sqoop|1\.4.6|1\.4.5|1\.4.4|1\.4.4|1\.4.3
+Apache Oozie|4\.2.0|4\.1.0|4\.0.0|4\.0.0|
+Apache Zookeeper|3\.4.6|3\.4.6|3\.4.5|3\.4.5|
+Apache Storm|0\.10.0|0\.9.3|0\.9.1||
+Apache Mahout|0\.9.0+|0\.9.0|0\.9.0||
+Apache Phoenix|4\.4.0|4\.2.0|4\.0.0.2.1.7.0-2162||
+Apache Spark|1\.3.1|1\.3.1|||
 
 
 **Получение сведений о текущей версии компонентов**
@@ -103,13 +103,14 @@ Apache Spark|1\.3.1|||
 * Высокодоступные кластеры с двумя головными узлами развертываются по умолчанию для HDInsight 2.1 и последующих версий. Они недоступны для кластеров HDInsight 1.6.
 * После прекращения поддержки для определенной версии она может стать недоступной на портале Azure. В таблице ниже указаны версии, доступные на классическом портале Azure. Доступ к версиям кластера по-прежнему можно будет получить с помощью параметра `Version` в командлете Windows PowerShell [New-AzureHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) и пакета SDK .NET до даты его устаревания.
 
-Версия HDInsight|Версия HDP|Высокая доступность|Дата выпуска|Доступно на классическом портале Azure|Дата прекращения поддержки|Дата прекращения сопровождения
+Версия HDInsight|Версия HDP|Высокая доступность|Дата выпуска|Доступно на портале Azure|Дата прекращения поддержки|Дата прекращения сопровождения
 ---|---|---|---|---|---|---
+HDI 3.3|HDP 2.3|Да|12\.02.2015|Да||
 HDI 3.2|HDP 2.2|Да|18\.02.2015|Да||
 HDI 3,1|HDP 2,1|Да|24\.06.2014|Да||
 HDI 3,0|HDP 2,0|Да|11\.02.2014|Да|17\.09.2014|30\.06.2015
-HDI 2,1|HDP 1,3|Да|28\.10.2013|Нет|12\.05.2014|31\.05.2015
-HDI 1.6|HDP 1.1|Нет|28\.10.2013|Нет|26\.04.2014|31\.05.2015
+HDI 2,1|HDP 1,3|Да|28\.10.2013|Да|12\.05.2014|31\.05.2015
+HDI 1.6|HDP 1.1|Нет|28\.10.2013|Да|26\.04.2014|31\.05.2015
 
 **Развертывание кластеров не по умолчанию**
 
@@ -126,12 +127,16 @@ HDI 1.6|HDP 1.1|Нет|28\.10.2013|Нет|26\.04.2014|31\.05.2015
 
 ## Заметки о выпуске Hortonworks, связанные с версиями HDInsight##
 
-* Кластер HDInsight версии 3.2 использует пакет Hadoop, построенный на платформе [Нortonworks Data Platform 2.2][hdp-2-2].
+* Кластер HDInsight версии 3.3 использует пакет Hadoop, построенный на платформе [Нortonworks Data Platform 2.3](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html).
+	* Заметки о выпуске Apache Storm доступны [здесь](https://storm.apache.org/2015/11/05/storm0100-released.html).
+	* Заметки о выпуске Apache Hive доступны [здесь](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843).
+
+* Кластер HDInsight версии 3.2 использует пакет Hadoop, построенный на платформе [Нortonworks Data Platform 2.2][hdp-2-2]. Это кластер Hadoop **по умолчанию**, который создается при использовании портала.
 
 	* Заметки о выпуске для отдельных компонентов Apache — [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112), [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
 
 
-* Кластер HDInsight версии 3.1 использует пакет Hadoop, построенный на платформе [Нortonworks Data Platform 2.1.7][hdp-2-1-7]. Это кластер Hadoop **по умолчанию**, который создается при использовании портала после 07.11.14. Кластеры HDInsight 3.1, созданные до 07.11.2014 г., построены на платформе [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
+* Кластер HDInsight версии 3.1 использует пакет Hadoop, построенный на платформе [Нortonworks Data Platform 2.1.7][hdp-2-1-7]. Кластеры HDInsight 3.1, созданные до 07.11.2014, основаны на платформе [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
 
 * Кластер HDInsight версии 3.0 использует пакет Hadoop, построенный на платформе [Нortonworks Data Platform 2.0][hdp-2-0-8].
 
@@ -162,4 +167,4 @@ HDI 1.6|HDP 1.1|Нет|28\.10.2013|Нет|26\.04.2014|31\.05.2015
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

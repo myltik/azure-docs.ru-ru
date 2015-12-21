@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Управление учетными записями пользователей в службе управления API Azure
@@ -22,7 +22,7 @@
 
 ## <a name="create-developer"> </a>Создание нового разработчика
 
-Для создания нового разработчика щелкните **Управление** на портале Azure службы управления API. Будет открыт портал издателя службы управления API. Если экземпляр службы API Management еще не создан, см. раздел [Создание экземпляра службы API Management][] в руководстве [Начинаем работу с API Management][].
+Для создания нового разработчика щелкните **Управление** на классическом портале Azure службы управления API. Будет открыт портал издателя службы управления API. Если экземпляр службы API Management еще не создан, см. раздел [Создание экземпляра службы API Management][] в руководстве [Начинаем работу с API Management][].
 
 ![Портал издателя][api-management-management-console]
 
@@ -91,4 +91,4 @@
 [Создание экземпляра службы API Management]: api-management-get-started.md#create-service-instance
 [Настройка почтовых шаблонов]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -10,7 +10,11 @@
 
 # Настройка принудительного туннелирования с помощью PowerShell и диспетчера ресурсов Azure
 
-Сведения в этой статье применимы к виртуальным сетям и VPN-шлюзам, созданным с использованием модели развертывания диспетчера ресурсов. Сведения о настройке принудительного туннелирования с помощью модели развертывания "Управление службами" см. в разделе [Настройка принудительного туннелирования](vpn-gateway-about-forced-tunneling.md).
+> [AZURE.SELECTOR]
+- [PowerShell - Service Management](vpn-gateway-about-forced-tunneling.md)
+- [PowerShell - Resource Manager](vpn-gateway-forced-tunneling-rm.md)
+
+Сведения в этой статье применимы к виртуальным сетям и VPN-шлюзам, созданным с использованием модели развертывания диспетчера ресурсов. Сведения о настройке принудительного туннелирования виртуальных машин, созданных с использованием управления службами (которое также называется классической моделью развертывания) см. в статье [Настройка принудительного туннелирования](vpn-gateway-about-forced-tunneling.md).
 
 [AZURE.INCLUDE [vpn-gateway-sm-rm](../../includes/vpn-gateway-sm-rm-include.md)]
 
@@ -57,7 +61,7 @@
 
 - Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрироваться в бесплатной пробной версии](http://azure.microsoft.com/pricing/free-trial/).
 
-- Командлеты Azure PowerShell (версии 1.0 или более поздней) Вы можете загрузить эту версию в разделе Windows PowerShell на следующей [странице загрузки](http://azure.microsoft.com/downloads/), а затем установить. Это документация была написана для PowerShell 1.0 или более поздней версии. Командлеты, необходимые для этой конфигурации, отсутствуют в более ранних версиях.
+- Командлеты Azure PowerShell (версии 1.0 или более поздней) Вы можете скачать эту версию в разделе Windows PowerShell на [странице скачивания](http://azure.microsoft.com/downloads/), а затем установить. Это документация была написана для PowerShell 1.0 или более поздней версии. Командлеты, необходимые для этой конфигурации, отсутствуют в более ранних версиях.
 
 - Если вы не знакомы с использованием диспетчера ресурсов Azure и PowerShell, дополнительные сведения см. в [этой статье](../articles/powershell-azure-resource-manager.md).
 
@@ -132,4 +136,4 @@
 		Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
 		
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

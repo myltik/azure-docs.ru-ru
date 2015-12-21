@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="08/18/2015" 
+ms.date="12/07/2015" 
 ms.author="adegeo"/>
 
 # Включение обмена данными между экземплярами роли в Azure
@@ -359,4 +359,4 @@ namespace WorkerRole1
 ## Дальнейшие действия
 Дополнительная информация о [модели](cloud-services-model-and-package.md) облачной службы
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -45,6 +45,8 @@ Azure Mobile Engagement — предоставляемая по принципу
 
 ###Дальнейшие действия
 
+[Создание учетной записи Azure Mobile Engagement](mobile-engagement-create-account.md)
+
 [Рекомендации и ход работы по созданию Mobile Engagement](mobile-engagement-getting-started-best-practices.md)
 
 [Учебник по началу работы (для маркетологов)](mobile-engagement-define-your-mobile-engagement-strategy.md)
@@ -52,4 +54,4 @@ Azure Mobile Engagement — предоставляемая по принципу
 [Учебник по началу работы (для разработчиков)](/documentation/services/mobile-engagement/)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Добавление ресурсов в группу ресурсов Azure"
-   description="Узнайте, как добавить ресурсы в группу ресурсов Azure с помощью Visual Studio."
+   pageTitle="Редактирование шаблона диспетчера ресурсов с помощью Visual Studio | Microsoft Azure"
+   description="Узнайте, как добавить ресурсы в шаблон диспетчера ресурсов Azure с помощью Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
    authors="kempb"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="11/13/2015"
    ms.author="kempb" />
 
-# Добавление ресурсов в группу ресурсов Azure
+# Редактирование шаблонов диспетчера ресурсов с помощью Visual Studio
 
-Если в группу ресурсов необходимо добавить дополнительные ресурсы, это можно сделать в окне «Структура JSON» в Visual Studio.
+Visual Studio позволяет редактировать шаблон диспетчера ресурсов для группы ресурсов. Вносить изменения в шаблон можно либо в окне структуры JSON Visual Studio, либо непосредственно в синтаксисе шаблона.
 
-## Добавление ресурсов в группу ресурсов
+## Добавление ресурсов в группу ресурсов в окне "Структура JSON"
 
 ### Чтобы добавить ресурсы в группу ресурсов, сделайте следующее.
 
@@ -51,14 +51,22 @@
 
 1. Если нужно указать какие-либо параметры, откроется диалоговое окно **Изменение параметров**. Введите все необходимые значения, а затем нажмите кнопку **Сохранить**. Новый ресурс будет развернут в группе ресурсов Azure.
 
+## Редактирование синтаксиса шаблона
+
+С помощью Visual Studio можно изменить непосредственно сам шаблон. Когда вы начнете изменять значения в шаблоне, редактор выведет ряд возможных значений, которые можно указать.
+
+![Изменить шаблон](./media/vs-azure-tools-resource-group-adding-resources/arm-edit-template.png)
+
+Дополнительную информацию о структуре шаблона см. в разделе [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
+
 ## См. также
 
-[Создание и развертывание проектов развертывания группы ресурсов Azure](http://go.microsoft.com/fwlink/p/?LinkID=623073)
+[Создание и развертывание групп ресурсов Azure с помощью Visual Studio](vs-azure-tools-resource-groups-deployment-project-create-deploy.md)
 
-[Командлеты диспетчера ресурсов Azure](https://msdn.microsoft.com/library/dn654592.aspx)
+[Командлеты диспетчера ресурсов Azure](https://msdn.microsoft.com/library/azure/dn757692.aspx)
 
 [Использование Azure PowerShell с диспетчером ресурсов Azure](../powershell-azure-resource-manager/)
 
 [Видео Channel9. Диспетчер ресурсов Azure](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B224#fbid=)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

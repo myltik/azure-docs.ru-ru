@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Управление удаленными приложениями Azure RemoteApp с помощью службы автоматизации Azure"
+	pageTitle="Управление службой Azure RemoteApp с помощью службы автоматизации Azure | Microsoft Azure"
 	description="Способы использования службы автоматизации Azure для управления удаленными приложениями Azure RemoteApp."
 	services="remoteapp, automation"
 	documentationCenter=""
@@ -42,4 +42,4 @@
 
 * См. [Учебник по началу работы](../automation-create-runbook-from-samples.md) в службе автоматизации Azure
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

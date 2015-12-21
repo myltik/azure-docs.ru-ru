@@ -132,11 +132,11 @@
 Вы можете повторно выполнить срез одним из следующих способов:
 
 - Щелкните **Выполнить** в командной строке в колонке **СРЕЗ ДАННЫХ** для среза на портале. 
-- Выполните командлет **AzureDataFactorySliceStatus** с состоянием, имеющим значение **PendingExecution** для этого среза.   
+- Выполните командлет **Set-AzureRmDataFactorySliceStatus** с состоянием, имеющим значение **PendingExecution** для этого среза.   
 	
-		Set-AzureDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
+		Set-AzureRmDataFactorySliceStatus -Status PendingExecution -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00" 
 
-Дополнительные сведения об этом командлете см. в разделе [Set-AzureDataFactorySliceStatus][set-azure-datafactory-slice-status].
+Дополнительные сведения об этом командлете см. в разделе [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status].
 
 ### Сколько времени занимает обработка среза?
 1. Щелкните плитку **Наборы данных** в колонке **ФАБРИКА ДАННЫХ** для своей фабрики данных.
@@ -147,7 +147,7 @@
 6. Вы увидите поле **ДЛИТЕЛЬНОСТЬ** со значением. Это время, затраченное на обработку среза.   
 
 ### Как остановить выполнение среза?
-Если необходимо остановить выполнение конвейера, можно использовать командлет [Suspend-AzureDataFactoryPipeline](https://msdn.microsoft.com/library/dn834939.aspx). В настоящее время приостановка конвейера не останавливает выполняющиеся срезы. После завершения текущих выполняемых задач никакие дополнительные срезы выбираются.
+Если необходимо остановить выполнение конвейера, можно использовать командлет [Suspend-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt603721.aspx). В настоящее время приостановка конвейера не останавливает выполняющиеся срезы. После завершения текущих выполняемых задач никакие дополнительные срезы выбираются.
 
 Если вы действительно хотите немедленно прекратить все выполняемые задачи, единственным способом является удаление конвейера и создание его заново. Если вы решили удалить конвейер, НЕ обязательно удалять таблицы и связанные службы, используемые конвейером.
 
@@ -169,7 +169,7 @@
 [adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx
 [adf-documentation-landingpage]: http://go.microsoft.com/fwlink/?LinkId=516909
 [azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/azure/dn835095.aspx
+[set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/mt603522.aspx
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
@@ -177,4 +177,4 @@
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

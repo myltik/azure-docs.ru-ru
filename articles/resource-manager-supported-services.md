@@ -13,13 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/01/2015"
+   ms.date="12/04/2015"
    ms.author="tomfitz"/>
 
 # Поддержка диспетчера ресурсов для служб, регионов и версий API
 
-Диспетчер ресурсов Azure предлагает новый способ развертывания служб, составляющих ваши приложения, и управления ими.
-Большинство служб (хотя и не все) поддерживает диспетчер ресурсов, а некоторые службы поддерживают диспетчер ресурсов лишь частично. Корпорация Майкрософт обеспечит поддержку диспетчера ресурсов для каждой службы, имеющей важное значение для будущих решений, однако перед обеспечением согласованной поддержки необходимо знать текущее состояние для каждой службы. В этом разделе представлен список поддерживаемых поставщиков ресурсов для диспетчера ресурсов Azure.
+Диспетчер ресурсов Azure предлагает новый способ развертывания служб, составляющих ваши приложения, и управления ими. Большинство служб (хотя и не все) поддерживает диспетчер ресурсов, а некоторые службы поддерживают диспетчер ресурсов лишь частично. Корпорация Майкрософт обеспечит поддержку диспетчера ресурсов для каждой службы, имеющей важное значение для будущих решений, однако перед обеспечением согласованной поддержки необходимо знать текущее состояние для каждой службы. В этом разделе представлен список поддерживаемых поставщиков ресурсов для диспетчера ресурсов Azure.
 
 При развертывании ресурсов вам также необходимо знать, в каких регионах поддерживаются эти ресурсы и какие версии API доступны для ресурсов. В разделе [Поддерживаемые регионы](#supported-regions) показано, как определить, какие именно регионы будут работать для вашей подписки и ресурсов. В разделе [Поддерживаемые версии API](#supported-api-versions) показано, как определить, какие версии API вы сможете использовать.
 
@@ -33,9 +32,7 @@
 | Виртуальные машины | Да | Да, много вариантов | Нет | [Создание виртуальной машины](https://msdn.microsoft.com/library/azure/mt163591.aspx) | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Compute.json) |
 | Пакетная служба | Да | [Да (только классическая версия)](https://portal.azure.com/#create/Microsoft.BatchAccount) | Да | [Пакетная служба (REST)](https://msdn.microsoft.com/library/azure/dn820158.aspx) | |
 | Службы жизненного цикла Dynamics | Да | Нет | | | |
-| Виртуальные машины (классические) | Ограничена | Да, много вариантов | Частично (см. ниже) | — | — |
-| Удаленное приложение | Нет | Нет | — | — | — |
-| Service Fabric | Нет | Нет | — | — | — |
+| Виртуальные машины (классические) | Ограничена | Да, много вариантов | Частично (см. ниже) | — | — | | Удаленное приложение | Нет | Нет | — | — | — | | Service Fabric | Нет | Нет | — | — | — |
 
 Пункт "Виртуальные машины (классические)" относится к ресурсам, которые были развернуты с помощью классической модели развертывания, а не через модель развертывания диспетчера ресурсов. Как правило эти ресурсы не поддерживают операции диспетчера ресурсов, однако некоторые операции стали доступны. Дополнительные сведения об этих моделях развертывания вы найдете в статье [Общие сведения о развертывании диспетчера ресурсов и классическом развертывании](resource-manager-deployment-model.md).
 
@@ -59,18 +56,17 @@
 | DocumentDB | Да | [Да](https://portal.azure.com/#create/Microsoft.DocumentDB) | Да | [DocumentDB REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) | |
 | Хранилище | Да | [Да](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) | Нет | [Создание хранилища](https://msdn.microsoft.com/library/azure/mt163564.aspx) | [Учетная запись хранения](resource-manager-template-storage.md) |
 | Кэш Redis | Да | [Да](https://portal.azure.com/#create/Microsoft.Cache.1.0.4) | Да | | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Cache.json) |
-| База данных SQL | Да | [Да](https://portal.azure.com/#create/Microsoft.SQLDatabase.0.5.9-preview) | Да | [Создание базы данных](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
+| База данных SQL | Да | [Да](https://portal.azure.com/#create/Microsoft.SQLDatabase.1.0.3) | Да | [Создание базы данных](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) |
 | Поиск | Да | [Да](https://portal.azure.com/#create/Microsoft.Search) | Да | [Поиск REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | |
-| Хранилище данных SQL | Да | [Да](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.12-preview) | | | |
-| StorSimple | Нет | Нет | - | - | - |
-| Управляемый кэш | Нет | Нет | - | - | - |
+| Хранилище данных SQL | Да | [Да](https://portal.azure.com/#create/Microsoft.SQLDataWarehouse.0.1.13-preview) | | | |
+| StorSimple | Нет | Нет | - | - | - | | Управляемый кэш | Нет | Нет | - | - | - |
 
 ## Интернет и мобильные устройства
 
 | служба | Доступность диспетчера ресурсов | Портал | Перемещение ресурсов | Интерфейс REST API | Схема |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
 | Управление API | Да | Нет | Да | [Создание API](https://msdn.microsoft.com/library/azure/dn781423.aspx#CreateAPI) | |
-| Приложения API | Да | [Да](https://portal.azure.com/#create/microsoft_com.ApiApp.0.2.0-preview) | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
+| Приложения API | Да | [Да](https://portal.azure.com/#create/Microsoft.ApiApp) | | | [2015-03-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-03-01-preview/Microsoft.AppService.json) |
 | Веб-приложения | Да | [Да](https://portal.azure.com/#create/Microsoft.WebSite) | Да, с ограничениями (см. ниже) | | [2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.Web.json) |
 | Центры уведомлений | Да | [Да](https://portal.azure.com/#create/Microsoft.NotificationHub) | Да | [Создание центра уведомлений](https://msdn.microsoft.com/library/azure/dn223269.aspx) | [2015-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-04-01/Microsoft.NotificationHubs.json) |
 | Приложения логики | Да | [Да](https://portal.azure.com/#create/Microsoft.EmptyWorkflow.0.2.0-preview) | Да | | |
@@ -89,14 +85,13 @@
 | Анализ потока | Да | [Да](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) | | | |
 | HDInsights | Да | [Да](https://portal.azure.com/#create/Microsoft.HDInsightCluster) | Да | | |
 | Фабрика данных | Да | [Да](https://portal.azure.com/#create/Microsoft.DataFactory) | Да | [Создание фабрики данных](https://msdn.microsoft.com/library/azure/dn906717.aspx) | |
-| Машинное обучение | Нет | Нет | - | - | - |
-| Каталог данных | Нет | Нет | - | - | - |
+| Машинное обучение | Нет | Нет | - | - | - | | Каталог данных | Нет | Нет | - | - | - |
 
 ## Мультимедиа и CDN
 
 | служба | Доступность диспетчера ресурсов | Портал | Перемещение ресурсов | Интерфейс REST API | Схема |
 | ------- | ------- | -------- | -------------- | -------- | ------ |
-| CDN | Да (предварительная версия) | Нет | | | |
+| CDN | Да | [Да](https://portal.azure.com/#create/Microsoft.CDN) | | | |
 | Служба мультимедиа | Нет | Нет | | | |
 
 
@@ -112,15 +107,13 @@
 
 | служба | Доступность диспетчера ресурсов | Портал | Перемещение ресурсов | Интерфейс REST API | Схема |
 | ------- | ------- | -------------- | -------------- | -------- | ------ |
-| Azure Active Directory | Нет | Нет | — | — | — |
-| Azure Actice Directory B2C | Нет | Нет | — | — | — |
-| Многофакторная проверка подлинности | Нет | Нет | — | — | — |
+| Azure Active Directory | Нет | Нет | — | — | — | | Azure Actice Directory B2C | Нет | Нет | — | — | — | | Многофакторная проверка подлинности | Нет | Нет | — | — | — |
 
 ## Службы разработки 
 
 | служба | Доступность диспетчера ресурсов | Портал | Перемещение ресурсов | Интерфейс REST API | Схема |
 | ------- | ------- | ---------- | -------------- | -------- | ------ |
-| Application Insights | Да | [Да](https://portal.azure.com/#create/Microsoft.AppInsights.0.2.3-preview) | Нет | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
+| Application Insights | Да | [Да](https://portal.azure.com/#create/Microsoft.AppInsights) | Нет | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.Insights.json) |
 | Карты Bing | Да | [Да](https://portal.azure.com/#create/bingmaps.mapapis.1.0.4) | | | |
 | Учетная запись Visual Studio | Да | | | | [2014-02-26](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-02-26/microsoft.visualstudio.json) |
 
@@ -128,7 +121,7 @@
 
 | служба | Доступность диспетчера ресурсов | Портал | Перемещение ресурсов | Интерфейс REST API | Схема |
 | ------- | ------- | --------- | -------------- | -------- | ------ |
-| Автоматизация | Да | [Да](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.2-preview) | Да | | |
+| Автоматизация | Да | [Да](https://portal.azure.com/#create/Microsoft.AutomationAccount.1.0.5) | Да | | |
 | хранилище ключей; | Да | Нет | Да | [REST хранилища ключей](https://msdn.microsoft.com/library/azure/dn903609.aspx) | |
 | Планировщик | Да | Нет | | | [2014-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-08-01/Microsoft.Scheduler.json) |
 | Operational Insights; | Да | Нет | Да | | |
@@ -184,7 +177,7 @@
 
     azure location list
 
-Вы можете отфильтровать результаты расположения (например, с помощью средства **jq**). Дополнительные сведения о jq и других инструментах см. в статье [Полезные средства для работы с Azure](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure).
+Вы можете отфильтровать результаты расположения (например, с помощью средства **jq**). Дополнительные сведения о таких средствах, как jq, см. в разделе [Полезные средства для работы с Azure](/virtual-machines/resource-group-deploy-debug/#useful-tools-to-interact-with-azure).
 
     azure location list --json | jq '.[] | select(.name == "Microsoft.Web/sites")'
 
@@ -240,4 +233,4 @@
 - Сведения о создании шаблонов диспетчера ресурсов см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 - Сведения о развертывании ресурсов см. в статье [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

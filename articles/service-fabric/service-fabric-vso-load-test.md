@@ -3,7 +3,7 @@
     description="Узнайте, как выполнить нагрузочное тестирование приложений службы Azure Service Fabric с помощью Visual Studio Online."
     services="service-fabric"
     documentationCenter="na"
-    authors="cawa"
+    authors="cawams"
     manager="timlt"
     editor="" />
 
@@ -140,4 +140,4 @@
 [8]: ./media/service-fabric-vso-load-test/RunTest2.png
 [9]: ./media/service-fabric-vso-load-test/Graph.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

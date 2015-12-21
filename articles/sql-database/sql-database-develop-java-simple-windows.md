@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Подключение к Базе данных SQL с помощью Java и драйвера JDBC в операционной системе Windows" 
+<properties
+	pageTitle="Подключение к Базе данных SQL с помощью Java и драйвера JDBC в операционной системе Windows"
 	description="В статье представлен пример кода Java, который можно использовать для подключения к базе данных SQL Azure. В примере кода драйвер JDBC запускается на компьютере с клиентской версией Windows."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="LuisBosquez" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="LuisBosquez"
+	manager="jeffreyg"
 	editor="genemi"/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="09/28/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="12/08/2015"
 	ms.author="lbosq"/>
 
 
@@ -27,19 +27,20 @@
 В этой статье представлен пример кода Java, который можно использовать для подключения к Базе данных SQL Azure. Для использования примера кода Java требуется пакет средств разработки Java Development Kit (JDK) версии 1.8. Подключение к Базе данных SQL Azure осуществляется с помощью драйвера JDBC.
 
 
-## Требования
+## Предварительные требования
 
+### Драйверы и библиотеки
 
 - [Драйвер Microsoft JDBC для SQL Server — SQL JDBC 4](http://www.microsoft.com/download/details.aspx?displaylang=en&id=11774).
 - Любая операционная система с поддержкой [пакета JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-- Существующая база данных SQL Azure Чтобы узнать, как создать пример базы данных и извлечь строку подключения, см. статью [Начало работы](sql-database-get-started.md).
 
+### База данных SQL
 
-## Тестовая среда
+Чтобы узнать, как создать базу данных, перейдите на страницу [Начало работы](sql-database-get-started.md).
 
+### Таблица SQL
 
 В приведенном примере кода Java предполагается, что в вашей базе данных SQL Azure уже есть следующая тестовая таблица.
-
 
 <!--
 Could this instead be a #tempPerson table, so that the Java code sample could be fully self-sufficient and be runnable (with automatic cleanup)?
@@ -55,16 +56,14 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	);
 
 
-## Строка подключения к Базе данных SQL
+## Шаг 1. Получение строки подключения
+
+[AZURE.INCLUDE [sql-database-include-connection-string-jdbc-20-portalshots](../../includes/sql-database-include-connection-string-jdbc-20-portalshots.md)]
+
+> [AZURE.NOTE]При использовании драйвера JTDS JDBC необходимо будет добавить ssl=require в URL-адрес строки подключения и задать для виртуальной машины Java параметр -Djsse.enableCBCProtection=false. Этот параметр виртуальной машины Java отключает исправление для уязвимости системы безопасности, поэтому убедитесь, что понимаете все связанные с ним риски, прежде чем задавать этот параметр.
 
 
-В примере кода объект `Connection` создается с помощью строки подключения. Вы можете получить ее, используя [портал Azure](http://portal.azure.com/). Подробнее о том, как найти строку подключения, читайте в статье [Создание первой Базы данных SQL Azure](sql-database-get-started.md).
-
-
-> [AZURE.NOTE]Драйвер JTDS JDBC. При использовании драйвера JTDS JDBC необходимо будет добавить ssl=require в URL-адрес строки подключения и задать для виртуальной машины Java параметр -Djsse.enableCBCProtection=false. Этот параметр виртуальной машины Java отключает исправление для уязвимости системы безопасности, поэтому убедитесь, что понимаете все связанные с ним риски, прежде чем задавать этот параметр.
-
-
-## Пример кода Java
+## Шаг 2. Компиляция образца кода Java
 
 
 В этом разделе приведена основная часть кода Java. Она содержит комментарии, указывающие, куда следует вставлять сегменты кода Java из последующих разделов. Код из этого раздела можно скомпилировать и запустить даже без вставки дополнительных сегментов. При этом после подключения выполнение кода прекратится. Примеры комментариев:
@@ -80,36 +79,36 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
 	import java.sql.*;
 	import com.microsoft.sqlserver.jdbc.*;
-	
+
 	public class SQLDatabaseTest {
-	
+
 		public static void main(String[] args) {
 			String connectionString =
-				"jdbc:sqlserver://your_server.database.windows.net:1433;" 
+				"jdbc:sqlserver://your_server.database.windows.net:1433;"
 				+ "database=your_database;"
 				+ "user=your_user@your_server;"
 				+ "password=your_password;"
 				+ "encrypt=true;"
 				+ "trustServerCertificate=false;"
 				+ "hostNameInCertificate=*.database.windows.net;"
-				+ "loginTimeout=30;"; 
-	
+				+ "loginTimeout=30;";
+
 			// Declare the JDBC objects.
 			Connection connection = null;
 			Statement statement = null;
 			ResultSet resultSet = null;
 			PreparedStatement prepsInsertPerson = null;
 			PreparedStatement prepsUpdateAge = null;
-	
+
 			try {
 				connection = DriverManager.getConnection(connectionString);
-	
+
 				// INSERT two rows into the table.
 				// ...
-	
+
 				// TRANSACTION and commit for an UPDATE.
 				// ...
-	
+
 				// SELECT rows from the table.
 				// ...
 			}
@@ -137,7 +136,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 - your\_password
 
 
-## ВСТАВКА двух строк в таблицу
+## Шаг 3. Вставка строк
 
 
 Этот сегмент кода Java выполняет инструкцию INSERT Transact-SQL для вставки двух строк в таблицу Person. Общая последовательность выглядит так:
@@ -157,7 +156,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	String insertSql = "INSERT INTO Person (firstName, lastName, age) VALUES "
 		+ "('Bill', 'Gates', 59), "
 		+ "('Steve', 'Ballmer', 59);";
-	
+
 	prepsInsertPerson = connection.prepareStatement(
 		insertSql,
 		Statement.RETURN_GENERATED_KEYS);
@@ -170,8 +169,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	}
 
 
-## ТРАНЗАКЦИЯ и фиксация ОБНОВЛЕНИЙ
-
+## Шаг 4. Выполнение транзакции
 
 Следующий сегмент кода Java выполняет инструкцию UPDATE Transact-SQL для увеличения значения `age` в каждой строке таблицы Person. Общая последовательность выглядит так:
 
@@ -186,22 +184,22 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
 	// Set AutoCommit value to false to execute a single transaction at a time.
 	connection.setAutoCommit(false);
-	
+
 	// Write the SQL Update instruction and get the PreparedStatement object.
 	String transactionSql = "UPDATE Person SET Person.age = Person.age + 1;";
 	prepsUpdateAge = connection.prepareStatement(transactionSql);
-	
+
 	// Execute the statement.
 	prepsUpdateAge.executeUpdate();
-	
+
 	//Commit the transaction.
 	connection.commit();
-	
+
 	// Return the AutoCommit value to true.
 	connection.setAutoCommit(true);
 
 
-## ВЫБОР строк из таблицы
+## Шаг 4. Выполнение запроса
 
 
 Этот сегмент кода Java выполняет инструкцию SELECT Transact-SQL для вывода всех обновленных строк таблицы Person. Общая последовательность выглядит так:
@@ -219,7 +217,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 	String selectSql = "SELECT firstName, lastName, age FROM dbo.Person";
 	statement = connection.createStatement();
 	resultSet = statement.executeQuery(selectSql);
-	
+
 	// Iterate through the result set and print the attributes.
 	while (resultSet.next()) {
 		System.out.println(resultSet.getString(2) + " "
@@ -230,4 +228,4 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
 Дополнительную информацию см. в [Центре разработчика Java](/develop/java/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

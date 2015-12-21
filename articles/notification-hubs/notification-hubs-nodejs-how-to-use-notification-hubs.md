@@ -67,9 +67,9 @@
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-Значение подключения **connectionstring** можно получить через портал управления Azure, выполнив следующие действия:
+Значение подключения **connectionstring** можно получить через [классический портал Azure], выполнив следующие действия:
 
-1. На портале управления Azure выберите **Service Bus**, затем выберите пространство имен, содержащее концентратор уведомления.
+1. На [классическом портале Azure] откройте раздел **Служебная шина**, затем выберите пространство имен, содержащее концентратор уведомления.
 
 2. Выберите **КОНЦЕНТРАТОРЫ УВЕДОМЛЕНИЙ**, затем выберите концентратор, который хотите использовать.
 
@@ -197,7 +197,8 @@
   [How to: Delete Topics and Subscriptions]: #How_to_Delete_Topics_and_Subscriptions
   [1]: #Next_Steps
   [Topic Concepts]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-topics-01.png
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [классический портал Azure]: http://manage.windowsazure.com
+  [классическом портале Azure]: http://manage.windowsazure.com
   [image]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-03.png
   [2]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-04.png
   [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
@@ -213,4 +214,4 @@
   [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

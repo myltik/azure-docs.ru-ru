@@ -24,12 +24,6 @@
  
 Чтобы скопировать данные эффективности маркетинговой кампании из большого двоичного объекта Azure на локальный сервер SQL, необходимо создать дополнительную локальную связанную службу, таблицу и конвейер, используя тот же набор командлетов, представленный в первом пошаговом руководстве.
 
-> [AZURE.IMPORTANT]В этой статье рассматриваются не все командлеты фабрики данных. Полную документацию по командлетам фабрики данных см. в [справочнике по командлетам фабрики данных][cmdlet-reference].
->    
-> Если вы используете Azure PowerShell 1.0, используйте командлеты, описанные [здесь](https://msdn.microsoft.com/library/dn820234.aspx). Например, используйте командлет New AzureRMDataFactory вместо New AzureDataFactory.
-
-## Предварительные требования
-
 Перед тем как приступить к пошаговому руководству, описанному в этом разделе, **необходимо** выполнить пошаговое руководство [Учебник. Перемещение и обработка файлов журналов с помощью фабрики данных][datafactorytutorial].
 
 **(Рекомендуется.)** Чтобы выполнить пошаговое руководство по созданию конвейера для перемещения данных из локального сервера SQL Server в хранилище больших двоичных объектов Azure, прочитайте и выполните инструкции, изложенные в статье [Использование конвейера для работы с локальными данными][useonpremisesdatasources].
@@ -102,7 +96,7 @@
 
 ### Создание связанной службы
 
-1.	На **портале Azure** щелкните поле **Связанные службы** в колонке **ФАБРИКА ДАННЫХ** для **LogProcessingFactory**.
+1.	На **портале Azure** щелкните плитку **Связанные службы** в колонке **ФАБРИКА ДАННЫХ** для **LogProcessingFactory**.
 2.	В колонке **Связанные службы** щелкните **Добавить хранилище данных**.
 3.	В колонке **Новое хранилище данных** в поле **Имя** введите **OnPremSqlLinkedService**. 
 4.	Щелкните **ТИП (необходимо настроить)** и выберите **SQL Server**. Теперь вы должны увидеть настройки **ШЛЮЗ ДАННЫХ**, **Сервер**, **База данных** и **УЧЕТНЫЕ ДАННЫЕ** в колонке **Создать хранилище данных**. 
@@ -121,22 +115,22 @@
 ### Создание локальной логической таблицы
 
 1.	В **Azure PowerShell** перейдите к папке **C:\\ADFWalkthrough\\OnPremises**. 
-2.	Воспользуйтесь командлетом **New-AzureDataFactoryDataset**, чтобы создать таблицы для файла **MarketingCampaignEffectivenessOnPremSQLTable.json**, как показано ниже.
+2.	Воспользуйтесь командлетом **New-AzureRmDataFactoryDataset**, чтобы создать таблицы для файла **MarketingCampaignEffectivenessOnPremSQLTable.json**, как показано ниже.
 
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
 	 
 #### Создание конвейера для копирования данных из большого двоичного объекта Azure на сервер SQL Server
 
-1.	Воспользуйтесь командлетом **New-AzureDataFactoryPipeline**, чтобы создать конвейер, как показано для **EgressDataToOnPremPipeline.json**.
+1.	Воспользуйтесь командлетом **New-AzureRmDataFactoryPipeline**, чтобы создать конвейер, как показано для **EgressDataToOnPremPipeline.json**.
 
 			
-		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
+		New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
 	 
-2. Воспользуйтесь командлетом **Set-AzureDataFactoryPipelineActivePeriod**, чтобы указать период активности для **EgressDataToOnPremPipeline**.
+2. Воспользуйтесь командлетом **Set-AzureRmDataFactoryPipelineActivePeriod**, чтобы указать период активности для **EgressDataToOnPremPipeline**.
 
 			
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
 
 	Нажмите клавишу **Y** для продолжения.
 	
@@ -170,9 +164,11 @@
 [download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+[old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+
 
 [image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises-using-powershell/DataManagementGatewayConfigurationManager.png
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

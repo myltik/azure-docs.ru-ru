@@ -18,9 +18,7 @@
 
 #Создание приложения Android
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ## Обзор
 
@@ -32,13 +30,10 @@
 
 Для работы с этим учебником требуется:
 
-* [Активная учетная запись Azure](http://azure.microsoft.com/pricing/free-trial/).
-
-* Компьютер с [Visual Studio Community 2013] или более поздней версией.
-
 * [Средства разработчика Android](https://developer.android.com/sdk/index.html), которые включают интегрированную среду разработки Android Studio и новейшую платформу Android.
-
 * Пакет SDK для мобильных приложений Android в Azure, который автоматически включается как часть скачиваемого вами ознакомительного проекта.
+* ПК с [Visual Studio Community 2013] или более поздней версией не требуется для серверной части Node.js.
+* [Активная учетная запись Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 ## Создание серверной части мобильного приложения Azure
 
@@ -57,6 +52,6 @@
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015-->

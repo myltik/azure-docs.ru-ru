@@ -13,10 +13,19 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/12/2015" 
+	ms.date="12/10/2015" 
 	ms.author="jeffstok"/>
 
 #Заметки о выпуске Microsoft Stream Analytic
+
+## Заметки о выпуске Stream Analytics от 10.12.2015 ##
+
+Этот выпуск содержит следующее обновление.
+
+Название | Описание
+---|---
+Обновление версии API REST | API REST обновлен до версии от 01.10.2015. Подробные сведения см. на сайте MSDN в [Справочнике по управлению API REST Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx).
+Интеграция машинного обучения Azure | В этом выпуске обеспечена поддержка определяемых пользователем функций машинного обучения Azure. Учебник можно найти [здесь](stream-analytics-machine-learning-tutorial.md), а объявление в блоге — [здесь](http://blogs.msdn.com/b/streamanalytics/).
 
 ## Заметки о выпуске Stream Analytics от 12.11.2015 ##
 
@@ -35,7 +44,7 @@
 Дополнительные возможности языка запросов | Stream Analytics расширяет язык запросов, добавляя следующие функции: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [CEILING](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [FLOOR](https://msdn.microsoft.com/library/azure/mt605240.aspx), [POWER](https://msdn.microsoft.com/library/azure/mt605287.aspx), [SIGN](https://msdn.microsoft.com/library/azure/mt605290.aspx), [SQUARE](https://msdn.microsoft.com/library/azure/mt605288.aspx) и [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx).
 Сняты ограничения статистических функций | В этом выпуске сняты ограничения для 15 статистических функций запросов. Теперь нет ограничений на количество статистических выражений в запросе.
 Добавлена функция GROUP BY System.Timestamp | Функция [GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) теперь поддерживает параметры window\_type и [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx).
-Добавлена функция OFFSET для «переворачивающегося» и «прыгающего» окон | По умолчанию [переворачивающиеся](https://msdn.microsoft.com/library/azure/dn835055.aspx) и [прыгающие](https://msdn.microsoft.com/library/azure/dn835041.aspx) окна настраиваются по нулевому времени (01.01.01 12:00:00 по Гринвичу). Новый (необязательный) параметр offsetsize позволяет задавать собственное смещение (или выравнивание).
+Добавлена функция OFFSET для «переворачивающегося» и «прыгающего» окон | По умолчанию [переворачивающиеся](https://msdn.microsoft.com/library/azure/dn835055.aspx) и [прыгающие](https://msdn.microsoft.com/library/azure/dn835041.aspx) окна настраиваются по нулевому времени (01.01.0001 12:00:00 по Гринвичу). Новый (необязательный) параметр offsetsize позволяет задавать собственное смещение (или выравнивание).
 
 
 ## Заметки о выпуске Stream Analytics от 29.09.2015 ##
@@ -45,7 +54,7 @@
 Название | Описание
 ---|---
 Общедоступная предварительная версия Azure IoT | Служба Stream Analytics включена в общедоступную предварительную версию пакета Azure IoT.
-Интеграция с порталом Azure | Помимо постоянного присутствия на классическом портале Azure, служба Stream Analytics теперь интегрирована в [портал Azure](http://azure.microsoft.com/overview/preview-portal/). Обратите внимание, что сейчас функции Stream Analytics на портале являются подмножеством функций классического портала Azure без поддержки тестирования запросов в браузере, настройки выходных данных Power BI и перехода ко входным и выходным ресурсам в доступных вам подписках, а также создания новых.
+Интеграция портала предварительной версии Azure | Помимо постоянного присутствия на портале управления Azure, служба Stream Analytics теперь интегрирована в [портал предварительной версии Azure](http://azure.microsoft.com/overview/preview-portal/). Обратите внимание, что функции Stream Analytics на портале предварительной версии в настоящий момент являются подмножеством функций портала управления Azure без поддержки тестирования запросов в браузере, настройки выходных данных Power BI и перехода ко входным и выходным ресурсам в доступных вам подписках, а также создания новых.
 Поддержка выходных данных DocumentDB | Теперь задания Stream Analytics могут отправлять выходные данные в [DocumentDB](http://azure.microsoft.com/services/documentdb/).
 Поддержка ввода из центра IoT | Теперь задания Stream Analytics могут принимать данные из центров IoT.
 TIMESTAMP BY для разнородных событий | Если один поток данных содержит события нескольких типов с временными метками в разных полях, то вы можете использовать команду [TIMESTAMP BY](http://msdn.microsoft.com/library/mt573293.aspx) с выражениями, чтобы указывать разные поля временных меток для каждого случая.
@@ -124,4 +133,4 @@ TIMESTAMP BY для разнородных событий | Если один п
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

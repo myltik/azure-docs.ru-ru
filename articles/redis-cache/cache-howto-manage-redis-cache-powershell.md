@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="multiple"
-   ms.date="12/02/2015"
+   ms.date="12/03/2015"
    ms.author="riande"/>
 
 # Управление кэшем Redis для Azure с использованием Azure PowerShell
@@ -94,9 +94,9 @@
 
 - [Документация по командлету кэша Redis для Azure на MSDN](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 - [Командлеты диспетчера ресурсов Azure](http://go.microsoft.com/fwlink/?LinkID=394765): узнайте, как использовать командлеты в модуле диспетчера ресурсов Azure.
-- [Использование групп ресурсов для управления ресурсами Azure](../azure-portal/resource-group-portal.md): узнайте, как создавать группы ресурсов и управлять ими на портале предварительной версии Azure.
+- [Использование групп ресурсов для управления ресурсами Azure](../azure-portal/resource-group-portal.md): узнайте, как создавать группы ресурсов и управлять ими на портале Azure.
 - [Блог Azure](http://blogs.msdn.com/windowsazure): узнайте о новых возможностях в Azure.
 - [Блог Windows PowerShell](http://blogs.msdn.com/powershell): узнайте о новых возможностях в Windows PowerShell.
 - [Блог "Hey, Scripting Блог](http://blogs.technet.com/b/heyscriptingguy/): реальные советы и рекомендации от сообщества Windows PowerShell.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

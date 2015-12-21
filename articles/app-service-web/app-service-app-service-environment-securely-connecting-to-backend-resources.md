@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/11/2015" 
+	ms.date="12/08/2015" 
 	ms.author="stefsch"/>
 
 # Безопасное подключение к серверным ресурсам из среды службы приложений #
@@ -21,7 +21,7 @@
 ## Обзор ##
 Так как среда службы приложений всегда создается в подсети региональной [виртуальной сети][virtualnetwork] v1, исходящие соединения из среды службы приложений к другим серверным ресурсам могут передаваться исключительно по виртуальной сети.
 
-**Примечание.** Среду службы приложений невозможно создать в виртуальной сети v2.
+**Примечание.** Среду службы приложений невозможно создать в виртуальной сети v2 под управлением ARM.
 
 Например, SQL Server может работать в кластере виртуальных машин с заблокированным портом 1433. Конечная точка может быть ACLd, разрешая только доступ от других ресурсов в той же виртуальной сети.
 
@@ -114,4 +114,4 @@
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/01/2015" 
 	ms.author="wesmc;ricksal"/>
 
 # Устранение неполадок серверной части .NET мобильных служб
@@ -73,7 +73,7 @@
 
     ![Настройка загрузки символов][SymbolLoading]
 
-3. Выберите узел **Символы** слева и добавьте ссылку на сервер (SymbolSource)[http://symbolsource.org], используя универсальный код ресурса (URI) [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). Символы для серверной части .NET мобильных служб становятся доступными здесь с каждым новым выпуском.
+3. Выберите узел **Символы** слева и добавьте ссылку на сервер [SymbolSource], используя универсальный код ресурса (URI) [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public). Символы для серверной части .NET мобильных служб становятся доступными здесь с каждым новым выпуском.
 
     ![Настройка сервера символов][SymbolServer]
 
@@ -159,4 +159,8 @@
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=AcomDC_1203_2015-->
+
+<!-- Links -->
+[SymbolSource]: http://symbolsource.org
+
+<!---HONumber=AcomDC_1210_2015-->
