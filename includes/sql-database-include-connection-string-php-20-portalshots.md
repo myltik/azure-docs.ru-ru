@@ -7,31 +7,31 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 -->
 
 
-### Obtain the connection string from the Azure portal
+### Получение строки подключения на портале Azure
 
 
-Use the [Azure preview portal](http://portal.azure.com/) to obtain the connection string necessary for your client program to interact with Azure SQL Database:
+Для получения строки подключения, необходимой для взаимодействия клиентской программы с Базой данных SQL Azure, используйте [портал предварительной версии Azure](http://portal.azure.com/):
 
 
-1. Click **BROWSE** > **SQL databases**.
+1. Последовательно выберите **ПРОСМОТРЕТЬ** > **Базы данных SQL**.
 
-    ![Select SQL][1-select-sql]
+    ![Выбор SQL][1-select-sql]
 
-2. Enter the name of your database into the filter text box near the upper-left of the **SQL databases** blade.
+2. Введите имя базы данных в текстовое поле фильтра рядом с верхней левой частью колонки **базы данных SQL**.
 
-    ![Select Database][2-select-database]]
+    ![Выбор базы данных][2-select-database]]
 
-3. Click the row for your database.
+3. Щелкните строку с вашей базой данных.
 
-4. After the blade appears for your database, for visual convenience you can click the standard minimize controls to collapse the blades  you used for browsing and database filtering.
+4. Для наглядности после появления колонки для базы данных можно щелкнуть кнопки "Свернуть", чтобы свернуть колонки, используемые для просмотра и фильтрации базы данных.
 
-5. On the blade for your database, click **Show database connection strings**.
+5. На колонке для базы данных нажмите **Показать строки подключения к базе данных**.
 
-6. If you intend to use the PHP connection library, copy the string labeled **PHP**.
+6. Если вы планируете использовать библиотеку подключений PHP, скопируйте строку с меткой **PHP**.
 
-	![Copy the PHP connection string for your database][3-get-connection-string]
+	![Копирование строки подключения PHP для базы данных][3-get-connection-string]
 
-7. Paste the connection string information into your client program code.  You will need to replace the {your_password_here} with your real password.
+7. Вставьте данные строки подключения в код клиентской программы. Текст {your\_password\_here} необходимо заменять на фактический пароль.
 
 
 <!--
@@ -57,3 +57,5 @@ includes/sql-database-include-connection-string-20-portalshots.md
 includes/sql-database-include-connection-string-30-compare.md
 includes/sql-database-include-connection-string-40-config.md
 -->
+
+<!---HONumber=AcomDC_1210_2015-->

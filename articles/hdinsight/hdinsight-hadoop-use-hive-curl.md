@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="10/09/2015"
+   ms.date="12/04/2015"
    ms.author="larryfr"/>
 
 #Выполнение запросов Hive с Hadoop в HDInsight с помощью Curl
@@ -116,7 +116,7 @@ Curl используется для демонстрации возможнос
 
 4. После изменения состояния задания на **SUCCEEDED** результаты задания можно получить из хранилища больших двоичных объектов Azure. Параметр `statusdir`, передаваемый с помощью запроса, содержит расположение выходного файла. В нашем случае это ****wasb:///example/curl**. При использовании этого адреса выходные данные задания сохраняются в каталоге **example/curl** в контейнере хранилища, используемом по умолчанию кластером HDInsight.
 
-    Можно вывести список этих файлов и скачать их с помощью [CLI Azure для Mac, Linux и Windows](xplat-cli-install.md). Например, для просмотра списка файлов в **example/curl** можно использовать следующую команду:
+    Можно вывести список этих файлов и скачать их с помощью [CLI Azure для Mac, Linux и Windows](../xplat-cli-install.md). Например, для просмотра списка файлов в **example/curl** можно использовать следующую команду:
 
 		azure storage blob list <container-name> example/curl
 
@@ -180,18 +180,11 @@ Curl используется для демонстрации возможнос
 
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
-[image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
-[img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
-[image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

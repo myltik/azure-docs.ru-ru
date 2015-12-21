@@ -19,10 +19,6 @@
 # Руководство: перемещение и обработка файлов журнала с помощью фабрики данных [PowerShell]
 Эта статья содержит сквозное руководство по каноническому сценарию обработки журнала с помощью фабрики данных Azure для преобразования данных из файлов журнала в аналитические данные.
 
-> [AZURE.IMPORTANT]В этой статье рассматриваются не все командлеты фабрики данных. Полную документацию по командлетам фабрики данных см. в [справочнике по командлетам фабрики данных][cmdlet-reference].
->    
-> Если вы используете предварительную версию Azure PowerShell 1.0, используйте командлеты, описанные [здесь](https://msdn.microsoft.com/library/dn820234.aspx). Например, используйте командлет New-AzureRMDataFactory вместо New-AzureDataFactory.
-
 ## Сценарий
 Contoso — это компания, которая создает игры для нескольких платформ: игровых консолей, карманных устройств и персональных компьютеров (ПК). Каждая из таких игр создает множество журналов. Цель компании Contoso — собрать и проанализировать журналы, созданные этими играми, чтобы получить информацию об использовании, определить возможности увеличения продаж и перекрестных продаж, разработать новые привлекательные функции и т.д. Все это позволит оптимизировать бизнес и предоставить клиентам больше удобства и возможностей.
  
@@ -31,8 +27,21 @@ Contoso — это компания, которая создает игры дл
 ## Подготовка к работе с учебником
 1.	Чтобы получить общее представление о фабрике данных Azure и об основных понятиях, прочтите статью [Введение в фабрику данных Azure][adfintroduction].
 2.	Для выполнения инструкций этого учебника необходимо иметь подписку Azure. Сведения о получении подписки см. в разделе [Варианты приобретения][azure-purchase-options], [Предложения для участников][azure-member-offers] или [Бесплатное пробное использование][azure-free-trial].
-3.	Загрузите и установите на своем компьютере [Azure PowerShell][download-azure-powershell]. 
-2.	**(рекомендуется)** Чтобы ознакомиться с порталом и командлетами, прочтите и выполните простые инструкции учебника, изложенные в статье [Приступая к работе с фабрикой данных Azure][adfgetstarted].
+3.	Загрузите и установите на своем компьютере [Azure PowerShell][download-azure-powershell].
+
+	В этой статье рассматриваются не все командлеты фабрики данных. Полную документацию по командлетам фабрики данных см. в [справочнике по командлетам фабрики данных](https://msdn.microsoft.com/library/dn820234.aspx).
+    
+	Если вы используете версию Azure PowerShell **более раннюю, чем 1.0**, используйте командлеты, описанные [здесь][old-cmdlet-reference]. Перед использованием командлетов фабрики данных также потребуется выполнить следующие команды:
+
+	1. Выполните командлет **Add-AzureAccount** и введите имя пользователя и пароль, которые используются для входа на портал Azure.
+	2. Выполните командлет **Get-AzureSubscription**, чтобы просмотреть все подписки для этой учетной записи.
+	3. Выполните командлет **Select-AzureSubscription**, чтобы выбрать подписку, с которой вы собираетесь работать. Эта подписка должна совпадать с той, которая используется на портале Azure.
+	
+	Не закрывайте Azure PowerShell, пока выполняются описанные в учебнике инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
+
+2. Переключитесь в режим AzureResourceManager, поскольку командлеты фабрики данных Azure доступны только в этом режиме: **Switch-AzureMode AzureResourceManager**.
+ 
+2.	**(рекомендуется)** Чтобы ознакомиться с порталом и командлетами, изучите и выполните простые инструкции, изложенные в статье [Приступая к работе с фабрикой данных Azure][adfgetstarted].
 3.	**(рекомендуется)** Изучите пошаговое руководство в статье [Использование Pig и Hive с фабрикой данных Azure][usepigandhive], чтобы узнать, как создать конвейер для перемещения данных из локального источника данных в хранилище BLOB-объектов Azure.
 4.	Загрузите файлы [ADFWalkthrough][adfwalkthrough-download] в папку **C:\\ADFWalkthrough**, **сохраняя такую структуру папок**.
 	- Папка **Pipelines** включает JSON-файлы, содержащие определение конвейеров.
@@ -51,7 +60,7 @@ Contoso — это компания, которая создает игры дл
 	- **База данных SQL Azure** — сервер, база данных, имя пользователя и пароль.
 	- **Кластер HDInsight Azure** — имя кластера HDInsight, имя пользователя, пароль, имя и ключ учетной записи хранилища Azure, связанной с этим кластером. Этот шаг можно пропустить, если вы хотите использовать кластер HDInsight по запросу вместо собственного кластера HDInsight.  
 8. Запустите **Azure PowerShell** и выполните приведенные ниже команды. Не закрывайте Azure PowerShell. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
-	- Выполните командлет **Add-AzureAccount** и введите имя пользователя и пароль, которые используются для входа на портал Azure.  
+	- Выполните командлет **Login-AzureRmAccount** и введите имя пользователя и пароль, которые используются для входа на портал Azure.  
 	- Выполните командлет **Get-AzureSubscription**, чтобы просмотреть все подписки для этой учетной записи.
 	- Выполните командлет **Select-AzureSubscription**, чтобы выбрать подписку, с которой вы собираетесь работать. Эта подписка должна совпадать с той, которую вы используете на портале Azure.
 	
@@ -122,7 +131,7 @@ Contoso — это компания, которая создает игры дл
 	
 	Или вы можете использовать файлы в папке C:\\ADFWalkthrough\\Scripts для отправки сценариев или примеров файлов Pig либо Hive в контейнер adfwalkthrough в хранилище больших двоичных объектов. Кроме того, вы можете создать таблицу MarketingCampaignEffectiveness в базе данных MarketingCamapaigns Azure SQL.
    
-2. Убедитесь, что вашему локальному компьютеру разрешен доступ к базе данных SQL Azure. Чтобы разрешить доступ, используйте [классический портал Azure](http://manage.windowsazure.com) или процедуру **sp\_set\_firewall\_rule** в базе данных master, чтобы создать правило брандмауэра для IP-адреса своего компьютера. Может потребоваться до пяти минут, чтобы это изменение вступило в силу. См. раздел [Настройка правил брандмауэра для SQL Azure][azure-sql-firewall].
+2. Убедитесь, что вашему локальному компьютеру разрешен доступ к базе данных SQL Azure. Чтобы разрешить доступ, примените [классический портал Azure](http://manage.windowsazure.com) или процедуру **sp\_set\_firewall\_rule** в базе данных master, чтобы создать правило брандмауэра для IP-адреса своего компьютера. Может потребоваться до пяти минут, чтобы это изменение вступило в силу. См. раздел [Настройка правил брандмауэра для SQL Azure][azure-sql-firewall].
 4. В Azure PowerShell перейдите в расположение, в которое вы извлекли примеры файлов (например, **C:\\ADFWalkthrough**).
 5. Запустите **uploadSampleDataAndScripts.ps1**. 
 6. Если сценарий выполнится успешно, вы увидите следующее:
@@ -160,99 +169,50 @@ Contoso — это компания, которая создает игры дл
 ## <a name="MainStep2"></a>Шаг 2. Создание фабрики данных Azure.
 На этом шаге вы создадите фабрику данных Azure с именем **LogProcessingFactory**.
 
-1.	После входа на [портал Azure][azure-portal] в нижнем левом углу щелкните **СОЗДАТЬ**, затем в колонке **Создать** выберите **Фабрика данных**. 
+1. Переключитесь в **Azure PowerShell**, если он уже открыт, (или) запустите **Azure PowerShell**. Если вы закрыли и повторно открыли Azure PowerShell, потребуется выполнить следующие команды. 
+	- Выполните командлет **Login-AzureRmAccount** и введите имя пользователя и пароль, которые используются для входа на портал Azure.  
+	- Выполните командлет **Get-AzureSubscription**, чтобы просмотреть все подписки для этой учетной записи.
+	- Выполните командлет **Select-AzureSubscription**, чтобы выбрать подписку, с которой вы собираетесь работать. Эта подписка должна совпадать с той, которую вы используете на портале Azure. 
 
-	![Создать -> Фабрика данных][image-data-factory-new-datafactory-menu]
-	
-	Если в колонке **Создать** вы не видите **Фабрика данных**, прокрутите колонку вниз.
-	
-5. В колонке **New data factory** (Создать фабрику данных) введите **LogProcessingFactory** в поле **Имя**.
+2. Создайте группу ресурсов Azure с именем **ADFTutorialResourceGroup** (если это еще не сделано), выполнив следующую команду.
 
-	![Колонка "Фабрика данных"][image-data-factory-tutorial-new-datafactory-blade]
+		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
-6. Если вы еще не создали группу ресурсов Azure с именем **ADF**, сделайте вот что.
-	1. Щелкните **RESOURCE GROUP NAME** (Имя группы ресурсов), затем щелкните **Создать новую группу ресурсов**.
-	
-		![Колонка "Группа ресурсов"][image-data-factory-tutorial-resourcegroup-blade]
-	2. В колонке **Create resource group** (Создать группу ресурсов) введите **ADF** в качестве имени группы ресурсов, а затем нажмите **ОК**.
-	
-		![Создать группу ресурсов][image-data-factory-tutorial-create-resourcegroup]
-7. Выберите **ADF** в качестве **ИМЕНИ ГРУППЫ РЕСУРСОВ**.  
-8.	Обратите внимание, что в колонке **New data factory** (Создать фабрику данных) флажок **Add to Startboard** (Добавить на начальную панель) установлен по умолчанию. В результате будет добавлена связь с фабрикой данных на начальной панели (то, что вы видите при входе на портал Azure).
+	Некоторые действия, описанные в этом учебнике, предполагают, что вы используете группу ресурсов с именем ADFTutorialResourceGroup. Если вы используете другую группу ресурсов, вместо ADFTutorialResourceGroup указывайте на этом уроке выбранную вами группу.
+4. Выполните командлет **New-AzureRmDataFactory**, чтобы создать фабрику данных с именем DataFactoryMyFirstPipelinePSH.  
 
-	![Создать колонку "Фабрика данных"][image-data-factory-tutorial-create-datafactory]
+		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name LogProcessingFactory –Location "West US"
 
-9.	В колонке **New data factory** (Создать фабрику данных) нажмите **Создать**, чтобы создать фабрику данных.
-10.	После этого должна появиться колонка **ФАБРИКА ДАННЫХ** с заголовком **LogProcessingFactory**.
+	> [AZURE.IMPORTANT]Имя фабрики данных Azure должно быть глобально уникальным. Если возникает ошибка **Имя фабрики данных LogProcessingFactory недоступно**, измените это имя (например, на ваше\_имяLogProcessingFactory). Используйте выбранное имя вместо LogProcessingFactory при выполнении действий из этого учебника. Ознакомьтесь с разделом [Фабрика данных — правила именования](data-factory-naming-rules.md), чтобы узнать о правилах именования артефактов фабрики данных.
+	> 
+	> В будущем имя фабрики данных может быть зарегистрировано в качестве DNS-имени и, следовательно, стать отображаемым.
 
-	![Домашняя страница фабрики данных][image-data-factory-tutorial-datafactory-homepage]
-
-	
-	Если вы ее не видите, выполните одно из следующих действий:
-
-	- Щелкните **LogProcessingFactory** на **начальной панели** (домашней странице).
-	- Нажмите **ОБЗОР** слева, затем последовательно выберите пункты **Все**, **Фабрики данных** и выберите нужную фабрику данных.
- 
-	Имя фабрики данных Azure должно быть глобально уникальным. Если возникает ошибка **Имя фабрики данных LogProcessingFactory недоступно**, измените это имя (например, на ваше\_имяLogProcessingFactory). Используйте выбранное имя вместо LogProcessingFactory при выполнении действий из этого учебника.
  
 ## <a name="MainStep3"></a>Шаг 3. Создание связанных служб.
 
-> [AZURE.NOTE]В этой статье Azure PowerShell используется для создания связанных служб, таблиц и конвейеров. Если вы хотите выполнить процедуры, описанные в этом учебнике, с помощью классического портала Azure, прочитайте [учебник по использованию редактора фабрики данных][adftutorial-using-editor].
+> [AZURE.NOTE]В этой статье Azure PowerShell используется для создания связанных служб, таблиц и конвейеров. Если вы хотите выполнить процедуры, описанные в этом учебнике, с помощью портала Azure, прочитайте [учебник по использованию редактора фабрики данных][adftutorial-using-editor].
 
 В этом шаге вы создадите следующие связанные службы: StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService и HDInsightLinkedService.
 
+16. В Azure PowerShell перейдите к вложенной папке **LinkedServices** в каталоге **C:\\ADFWalkthrough** или к папке из того расположения, где вы извлекли файлы.
+17. Воспользуйтесь следующей командой, чтобы установить переменную $df в имя фабрики данных.
 
-1.	В колонке **LogProcessingFactory** щелкните плитку **Связанные службы**.
+		$df = “LogProcessingFactory”
+17. В редакторе откройте **StorageLinkedService.json**, укажите **имя учетной записи** и **ключ учетной записи** и сохраните файл.
+17. Чтобы создать связанную службу, воспользуйтесь командлетом **New-AzureRmDataFactoryLinkedService**, как показано далее. 
 
-	![Плитка "Связанные службы"][image-data-factory-tutorial-linkedservice-tile]
+		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADF -DataFactoryName $df -File .\StorageLinkedService.json
+	
+18. В редакторе откройте **StorageLinkedService.json**, укажите **имя учетной записи** и **ключ учетной записи** и сохраните файл.
+19. Создайте **HDInsightStorageLinkedService**.
 
-2. В колонке **Связанные службы** щелкните **+ Хранилище данных** на панели команд.
+		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADF -DataFactoryName $df -File .\HDInsightStorageLinkedService.json
+ 
+19. В редакторе откройте **AzureSqlLinkedService.json**, укажите имя **azure sql server**, **имя пользователя**, **пароль** и сохраните файл.
+19. Чтобы создать связанную службу, воспользуйтесь командлетом **New-AzureRmDataFactoryLinkedService**, как показано далее. 
 
-	![Связанные службы — добавление хранилища][image-data-factory-tutorial-linkedservices-add-datstore]
-
-3. В колонке **Создать хранилище данных** введите **StorageLinkedService** в поле **Имя**, щелкните **Тип (обязательные настройки)** и выберите **Учетная запись хранения Azure**.
-
-	![Тип хранилища данных — хранилище Azure][image-data-factory-tutorial-datastoretype-azurestorage]
-
-4. В колонке **Создать хранилище данных** вы увидите два новых поля: **Имя учетной записи** и **Ключ учетной записи**. Введите имя и ключ учетной записи для своей **учетной записи хранения Azure**.
-
-	![Параметры хранилища Azure][image-data-factory-tutorial-azurestorage-settings]
-
-	Вы можете получить имя и ключ учетной записи для своей учетной записи хранения Azure на портале, как показано ниже:
-
-	![Ключ хранилища][image-data-factory-tutorial-storage-key]
-  
-5. После нажатия кнопки **OK** в колонке "Создать хранилище данных" вы должны увидеть **StorageLinkedService** в списке **Хранилища данных** в колонке **Связанные службы**. Щелкните центр **Уведомления** (слева), чтобы просмотреть сообщения.
-
-	![Колонка "Связанные службы" с хранилищем][image-data-factory-tutorial-linkedservices-blade-storage]
-   
-6. Повторите **шаги 2–5**, чтобы создать другую связанную службу с именем **HDInsightStorageLinkedService**. Это хранилище, используемое вашим кластером HDInsight.
-7. Убедитесь, что обе службы, **StorageLinkedService** и **HDInsightStorageLinkedService**, отображаются в списке в колонке "Связанные службы".
-8. В колонке **Связанные службы** нажмите **Добавить (+) хранилище данных** на панели команд.
-9. В поле имени введите **AzureSqlLinkedService**.
-10. Щелкните **ТИП (обязательные настройки)** и выберите **База данных SQL Azure**.
-11. Теперь в колонке **Создать хранилище данных** должны отобразиться следующие дополнительные поля. Введите имя **сервера** базы данных SQL Azure, имя **базы данных**, **имя пользователя** и **пароль**, а затем нажмите **ОК**.
-	1. Введите **MarketingCampaigns** в поле **База данных**. Это база данных SQL Azure, созданная скриптами, которые выполнялись в шаге 1. Вы должны убедиться, что эта база данных действительно создана скриптами (в случае если возникли ошибки).
-		
- 		![Параметры Azure SQL][image-data-factory-tutorial-azuresql-settings]
-
-		Чтобы получить эти значения с [классического портала управления Azure](http://manage.windowsazure.com), щелкните «Просмотреть строки подключения базы данных SQL» для базы данных MarketingCampaigns.
-
-		![Строка подключения базы данных Azure SQL][image-data-factory-tutorial-azuresql-database-connection-string]
-
-12. Убедитесь, что отображаются все три созданные вами хранилища данных: **StorageLinkedService**, **HDInsightStorageLinkedService** и **AzureSqlLinkedService**.
-13. Необходимо создать другую связанную службу, но в этот раз — вычислительную службу, а именно **кластер HDInsight Azure**. Портал пока не поддерживает создание вычислительной связанной службы. Поэтому для создания этой связанной службы необходимо воспользоваться Azure PowerShell. 
-14. Переключитесь в **Azure PowerShell**, если он уже открыт, (или) запустите **Azure PowerShell**. Если вы закрыли и повторно открыли Azure PowerShell, потребуется выполнить следующие команды. 
-	- Выполните командлет **Add-AzureAccount** и введите имя пользователя и пароль, которые используются для входа на портал Azure.  
-	- Выполните командлет **Get-AzureSubscription**, чтобы просмотреть все подписки для этой учетной записи.
-	- Выполните командлет **Select-AzureSubscription**, чтобы выбрать подписку, с которой вы собираетесь работать. Эта подписка должна совпадать с той, которую вы используете на портале Azure. 
-15. Переключитесь в режим **AzureResourceManager**, поскольку командлеты фабрики данных Azure доступны только в этом режиме.
-
-		Switch-AzureMode AzureResourceManager
-
-16. Перейдите к вложенной папке **LinkedServices** в каталоге **C:\\ADFWalkthrough** или к папке из того расположения, где вы извлекли файлы.
-17. Откройте **HDInsightLinkedService.json** в любом редакторе и обратите внимание, что тип имеет значение **HDInsightOnDemandLinkedService**.
-
+		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADF -DataFactoryName $df -File .\AzureSqlLinkedService.json
+19. Откройте **HDInsightLinkedService.json** в любом редакторе и обратите внимание, что тип имеет значение **HDInsightOnDemandLinkedService**.
 
 	Служба фабрики данных Azure поддерживает создание кластера по запросу и использует его для обработки входных данных, чтобы создать выходные данные. Вы также можете использовать для этого собственный кластер. Когда вы используете кластер HDInsight по запросу, для каждого среза создается отдельный кластер. В то же время, когда вы используете свой собственный кластер HDInsight, кластер готов к обработке среза немедленно. Поэтому при использовании кластера по запросу выходные данные могут выводится не так быстро, как при использовании собственного кластера. Давайте в качестве примера используем кластер по запросу.
 	
@@ -268,17 +228,13 @@ Contoso — это компания, которая создает игры дл
 		}
 		
 
-18. Воспользуйтесь следующей командой, чтобы установить переменную $df в имя фабрики данных.
 
-		$df = “LogProcessingFactory”
-19. Чтобы создать связанную службу, воспользуйтесь командлетом **New-AzureDataFactoryLinkedService**, как показано далее. Начните с учетной записи хранения:
+19. Чтобы создать связанную службу, воспользуйтесь командлетом **New-AzureRmDataFactoryLinkedService**, как показано далее. Начните с учетной записи хранения:
 
-		New-AzureDataFactoryLinkedService -ResourceGroupName ADF -DataFactoryName $df -File .\HDInsightLinkedService.json
+		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADF -DataFactoryName $df -File .\HDInsightLinkedService.json
  
 	Если используются другие имена для ResourceGroupName, DataFactoryName или LinkedService, сошлитесь на них в вышеупомянутом командлете. Также укажите полный путь к JSON-файлу связанной службы, если не удается найти этот файл.
-20. Вы должны увидеть все четыре связанные службы в колонке **Связанные службы**, как показано ниже. Если колонка "Связанные службы" не открыта, щелкните "Связанные службы" на странице **ФАБРИКА ДАННЫХ**, чтобы открыть **LogProcessingFactory**. Обновление колонки "Linked services" (Связанные службы) может продлиться несколько секунд.
 
-	![Связанные службы — все][image-data-factory-tutorial-linkedservices-all]
  
 
 ## <a name="MainStep4"></a>Шаг 4. Создание таблиц. 
@@ -301,26 +257,26 @@ Contoso — это компания, которая создает игры дл
 ### Создание таблиц
 
 1.	В Azure PowerShell перейдите к папке **Tables** (**C:\\ADFWalkthrough\\Tables\\**) из расположения, в которое вы извлекли примеры файлов.
-2.	Воспользуйтесь командлетом **New-AzureDataFactoryDataset**, чтобы создать наборы данных для файла **RawGameEventsTable**.json, как показано далее.	
+2.	Воспользуйтесь командлетом **New-AzureRmDataFactoryDataset**, чтобы создать наборы данных для файла **RawGameEventsTable**.json, как показано далее.	
 
 
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RawGameEventsTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RawGameEventsTable.json
 
 	Если вы используете другие имена для ResourceGroupName и DataFactoryName, сошлитесь на них в вышеупомянутом командлете. Также укажите полный путь к JSON-файлу таблицы, если не удается найти этот файл с помощью командлета.
 
 3. Повторите предыдущий шаг, чтобы создать следующие таблицы:
 		
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionedGameEventsTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionedGameEventsTable.json
 		
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefGeoCodeDictionaryTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefGeoCodeDictionaryTable.json
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefMarketingCampaignTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\RefMarketingCampaignTable.json
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichedGameEventsTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichedGameEventsTable.json
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessSQLTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessSQLTable.json
 			
-		New-AzureDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessBlobTable.json
+		New-AzureRmDataFactoryDataset -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessBlobTable.json
 
 
 
@@ -330,7 +286,7 @@ Contoso — это компания, которая создает игры дл
 
 	Вы также можете воспользоваться следующей командой из Azure PowerShell:
 			
-		Get-AzureDataFactoryDataset –ResourceGroupName ADF –DataFactoryName $df
+		Get-AzureRmDataFactoryDataset –ResourceGroupName ADF –DataFactoryName $df
 
 	
 
@@ -351,29 +307,29 @@ Contoso — это компания, которая создает игры дл
 	**ВАЖНО!** Убедитесь, что вы заменили все вхождения <storageaccountname> именем вашей учетной записи хранения.
  
 4.  В **Azure PowerShell** перейдите к вложенной папке **Pipelines** в каталоге **C:\\ADFWalkthrough** (или из расположения, в которое вы извлекли примеры файлов).
-5.  Воспользуйтесь командлетом **New-AzureDataFactoryPipeline**, чтобы создать конвейеры для файла **PartitionGameLogspeline.json**, как показано далее.	 
+5.  Воспользуйтесь командлетом **New-AzureRmDataFactoryPipeline**, чтобы создать конвейеры для файла **PartitionGameLogspeline.json**, как показано далее.	 
 			
-		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionGameLogsPipeline.json
+		New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionGameLogsPipeline.json
 
 	Если вы используете другие имена для ResourceGroupName, DataFactoryName или имени конвейера, сошлитесь на них в вышеупомянутом командлете. Также укажите полный путь к JSON-файлу конвейера.
 6. Повторите предыдущий шаг, чтобы создать следующие конвейеры:
 	1. **EnrichGameLogsPipeline**
 			
-			New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichGameLogsPipeline.json
+			New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichGameLogsPipeline.json
 
 	2. **AnalyzeMarketingCampaignPipeline**
 				
-			New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\AnalyzeMarketingCampaignPipeline.json
+			New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\AnalyzeMarketingCampaignPipeline.json
 
-7. Выполните командлет **Get-AzureDataFactoryPipeline**, чтобы получить список конвейеров.
+7. Выполните командлет **Get-AzureRmDataFactoryPipeline**, чтобы получить список конвейеров.
 			
-		Get-AzureDataFactoryPipeline –ResourceGroupName ADF –DataFactoryName $df
+		Get-AzureRmDataFactoryPipeline –ResourceGroupName ADF –DataFactoryName $df
 
 8. После создания конвейеров вы можете указать время, в течение которого будет выполняться обработка данных. Указывая период активности для конвейера, вы определяете интервал времени, в который будут производиться срезы данных на основе свойств доступности, определенных для каждой таблицы фабрики данных Azure.
 
-Чтобы указать период активности конвейера, вы можете воспользоваться командлетом Set-AzureDataFactoryPipelineActivePeriod. В этом пошаговом руководстве используются демонстрационные данные от 05/01 до 05/05. Используйте 2014-05-01 как значение для StartDateTime. EndDateTime — необязательный параметр.
+Чтобы указать период активности конвейера, вы можете воспользоваться командлетом Set-AzureRmDataFactoryPipelineActivePeriod. В этом пошаговом руководстве используются демонстрационные данные от 05/01 до 05/05. Используйте 2014-05-01 как значение для StartDateTime. EndDateTime — необязательный параметр.
 			
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name PartitionGameLogsPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name PartitionGameLogsPipeline
   
 9. Подтвердите, чтобы задать период активности конвейера.
 			
@@ -384,11 +340,11 @@ Contoso — это компания, которая создает игры дл
 10. Повторите предыдущие два шага, чтобы задать период активности для следующих конвейеров.
 	1. **EnrichGameLogsPipeline**
 			
-			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z –EndDateTime 2014-05-05Z –Name EnrichGameLogsPipeline
+			Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z –EndDateTime 2014-05-05Z –Name EnrichGameLogsPipeline
 
 	2. **AnalyzeMarketingCampaignPipeline**
 			
-			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name AnalyzeMarketingCampaignPipeline
+			Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name AnalyzeMarketingCampaignPipeline
 
 11. На **портале Azure** щелкните элемент **Конвейеры** (но не имена конвейеров) в колонке **ФАБРИКА ДАННЫХ** для **LogProcessingFactory**. После этого должны появиться созданные вами конвейеры.
 
@@ -486,6 +442,8 @@ Contoso — это компания, которая создает игры дл
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
+[old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
+
 
 [image-data-factory-tutorial-end-to-end-flow]: ./media/data-factory-tutorial-using-powershell/EndToEndWorkflow.png
 
@@ -562,4 +520,4 @@ Contoso — это компания, которая создает игры дл
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

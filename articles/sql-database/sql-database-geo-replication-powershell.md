@@ -38,10 +38,7 @@
 
 - Подписка Azure. Если вам требуется подписка Azure, нажмите в верхней части этой страницы кнопку **БЕСПЛАТНАЯ ПРОБНАЯ ВЕРСИЯ**. Оформив подписку, вернитесь к этой статье.
 - База данных SQL Azure — база данных-источник, которую необходимо реплицировать в другом географическом регионе.
-- Предварительная версия Azure PowerShell 1.0. Модули Azure PowerShell можно загрузить и установить, выполнив инструкции из раздела [Установка и настройка Azure PowerShell](powershell-install-configure.md).
-
-> [AZURE.IMPORTANT]Начиная с выпуска предварительной версии Azure PowerShell 1.0, командлет Switch-AzureMode больше не доступен, а командлеты, которые были в модуле Azure ResourceManger, переименованы. В примерах в этой статье используется новое соглашение об именовании предварительной версии PowerShell 1.0. Дополнительные сведения см. в разделе [Устаревший командлет Switch-AzureMode в Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
-
+- Azure PowerShell, начиная с версии 1.0. Модули Azure PowerShell можно загрузить и установить, выполнив инструкции из раздела [Установка и настройка Azure PowerShell](powershell-install-configure.md).
 
 
 
@@ -218,4 +215,4 @@
 - [Общие сведения о непрерывности бизнес-процессов](sql-database-business-continuity.md)
 - [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

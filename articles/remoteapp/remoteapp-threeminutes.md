@@ -1,19 +1,19 @@
 
-<properties 
-    pageTitle="Испытайте Azure RemoteApp на своем устройстве за 3 минуты или меньше"
-    description="Протестируйте функции Azure RemoteApp, не устанавливая службу." 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Испытайте Azure RemoteApp на своем устройстве за 3 минуты или меньше | Microsoft Azure"
+    description="Протестируйте функции Azure RemoteApp, не устанавливая службу."
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="mbaldwin" />
 
 
@@ -28,13 +28,11 @@
 2. Щелкните **Установить клиент** в правом верхнем углу.  
 3. Система автоматически определит ваше устройство и перенаправит вас к клиенту для вашего устройства. Установите клиент.
 4. Вернитесь на сайт [http://remoteapp.azure.com](http://remoteapp.azure.com) и войдите по учетной записи Майкрософт.
- 
+
 Теперь вы можете получить доступ к выполняющимся приложениям в Azure RemoteApp.
 
 Нам важно ваше мнение. В конце каждого сеанса вы увидите диалоговое окно для отзыва. Если у вас найдется минутка, сообщите нам, может ли Майкрософт связаться с вами для получения дополнительных сведений.
 
 >[AZURE.NOTE]Так как это управляемая среда демоверсии, внешний доступ к Интернету из опубликованных демоверсий приложений отключен. По этой причине такие службы, как OneDrive, недоступны. Также отключен общий доступ к буферу обмена (копирование и вставка), подключение по USB и перенаправление принтера.
 
- 
-
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

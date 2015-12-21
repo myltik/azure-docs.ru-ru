@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/25/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Примеры кэша Redis для Azure 
@@ -65,7 +65,7 @@
 
 ## Пример настраиваемого мониторинга
 
-Пример [Доступ к данным мониторинга кэша Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) показывает, как можно получать доступ к данным мониторинга кэша Redis для Azure за пределами портала предварительной версии Azure.
+Пример [Доступ к данным мониторинга кэша Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) показывает, как можно получать доступ к данным мониторинга кэша Redis для Azure за пределами портала Azure.
 
 ## Приложение в стиле Twitter, написанное с помощью PHP и Redis
 
@@ -75,4 +75,4 @@
 
 Пример [Монитор пропускной способности](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) позволяет наблюдать за пропускной способностью, используемой на клиентском компьютере. Чтобы измерить пропускную способность, запустите пример на клиентском компьютере кэша, выполните вызовы кэша и отследите пропускную способность, передаваемую примером монитора пропускной способности.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

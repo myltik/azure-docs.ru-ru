@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Как с помощью инспектора API отслеживать вызовы в управлении Azure API
@@ -34,7 +34,7 @@
 
 
 
-Для начала работы щелкните **Портал разработки** на портале Azure для службы управления API. Операции можно вызывать напрямую из портала разработчика, в который встроен удобный способ просмотра и проверки операций API.
+Для начала работы щелкните **Портал разработки** на классическом портале Azure для службы управления API. Операции можно вызывать напрямую из портала разработчика, в который встроен удобный способ просмотра и проверки операций API.
 
 >Если вы еще не создали экземпляр службы управления API, изучите раздел [Создание экземпляра службы управления API][] в учебнике [Приступая к работе со службой управления API][].
 
@@ -245,7 +245,7 @@
 [Приступая к работе со службой управления API]: api-management-get-started.md
 [Создание экземпляра службы управления API]: api-management-get-started.md#create-service-instance
 [Приступая к работе с расширенными параметрами API]: api-management-get-started-advanced.md
-[Management Portal]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 
 [api-management-developer-portal-menu]: ./media/api-management-howto-api-inspector/api-management-developer-portal-menu.png
@@ -261,4 +261,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -20,7 +20,7 @@
 
 # Краткое руководство по API Graph Azure AD
 
-API Graph Azure Active Directory обеспечивает программный доступ к Azure AD через конечные точки REST API OData. Приложения могут использовать Graph API для выполнений операций создания, чтения, обновления и удаления (CRUD) с данными и объектами каталогов. Например, можно использовать API Graph для создания нового пользователя, просмотра или обновления свойств пользователя, изменения пароля пользователя, проверки членства в группе для доступа на основе ролей, а также отключения или удаления пользователя. Дополнительные сведения о функциях API Graph и сценариях приложений см. в разделах [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) и [Необходимые условия для использования Azure AD Graph API](https://msdn.microsoft.com/ru-RU/library/hh974476(Azure.100).aspx).
+API Graph Azure Active Directory обеспечивает программный доступ к Azure AD через конечные точки REST API OData. Приложения могут использовать Graph API для выполнений операций создания, чтения, обновления и удаления (CRUD) с данными и объектами каталогов. Например, можно использовать API Graph для создания нового пользователя, просмотра или обновления свойств пользователя, изменения пароля пользователя, проверки членства в группе для доступа на основе ролей, а также отключения или удаления пользователя. Дополнительные сведения о функциях API Graph и сценариях приложений см. в разделах [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) и [Необходимые условия для использования Azure AD Graph API](https://msdn.microsoft.com/library/hh974476(Azure.100).aspx).
 
 > [AZURE.IMPORTANT]Функциональные возможности API Azure AD Graph доступны также в [Microsoft Graph](https://graph.microsoft.io/) — едином API, который включает API из других служб Майкрософт, таких как Outlook, OneDrive, OneNote, Planner и Office Graph, для которых применяются единая конечная точка и единый маркер доступа.
 
@@ -125,4 +125,4 @@ Content-Type: application/json
 
 Узнайте больше о [API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Создание приложения логики" 
+	pageTitle="Создание приложения логики с помощью шаблонов диспетчера ресурсов Azure в службе приложений Azure | Microsoft Azure" 
 	description="Использование шаблона диспетчера ресурсов Azure для развертывания пустого приложения логики для определения рабочих процессов." 
 	services="app-service\logic" 
 	documentationCenter="" 
@@ -13,20 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/01/2015" 
+	ms.date="12/07/2015" 
 	ms.author="tomfitz"/>
 
 # Создание приложения логики с помощью шаблона
 
-В этом разделе вы узнаете, как создать шаблон диспетчера ресурсов Azure для создания пустого приложения логики, которое можно использовать для определения рабочих процессов. Вы узнаете, как определить развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
+Применение шаблона диспетчера ресурсов Azure для создания пустого приложения логики, которое можно использовать для определения рабочих процессов. Вы определите развертываемые ресурсы и параметры, указываемые при развертывании. Этот шаблон можно использовать для собственных развертываний или настроить его в соответствии с вашими требованиями.
 
-Дополнительную информацию о свойствах приложения логики см. в статье [API управления рабочим процессом с помощью приложения логики](https://msdn.microsoft.com/library/azure/dn948513.aspx). Примеры собственно определения см. в статье [Создание определений приложений логики](app-service-logic-author-definitions.md).
+Дополнительную информацию о свойствах приложения логики см. в статье [API управления рабочим процессом с помощью приложения логики](https://msdn.microsoft.com/library/azure/dn948513.aspx).
+
+Примеры собственно определения см. в статье [Создание определений приложений логики](app-service-logic-author-definitions.md).
 
 Дополнительную информацию о создании шаблонов см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md).
 
 Полный шаблон см. в разделе [Шаблон приложения логики](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json).
 
-## Что вы развернете?
+## Что именно развертывается
 
 С помощью этого шаблона развертывается приложение логики.
 
@@ -133,11 +135,11 @@
 
     New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
 
-### Интерфейс командной строки Azure
+### Инфраструктура CLI Azure
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
 
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -55,10 +55,103 @@
 
 ##<a id="update-service"></a>Обновление сервера для отправки push-уведомлений
 
-После включения push-уведомлений в приложении необходимо обновить внутренний сервер приложения так, чтобы он отправлял push-уведомления.
+После включения push-уведомлений в приложении необходимо обновить внутренний сервер приложения так, чтобы он отправлял push-уведомления. Используйте приведенную ниже процедуру, которая соответствует типу вашего серверного проекта — [серверный проект .NET](#dotnet) или [серверный проект Node.js](#nodejs).
 
-[AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
+### <a name="dotnet"></a>Серверный проект .NET
 
+1. В Visual Studio щелкните правой кнопкой мыши серверный проект, затем щелкните **Управление пакетами NuGet**, найдите пакет Microsoft.Azure.NotificationHubs и нажмите кнопку **Установить**. Будет установлена клиентская библиотека центров уведомлений.
+
+2. Разверните **Контроллеры**, откройте TodoItemController.cs и добавьте следующие операторы using:
+
+		using System.Collections.Generic;
+		using Microsoft.Azure.NotificationHubs;
+		using Microsoft.Azure.Mobile.Server.Config;
+
+3. В метод **PostTodoItem** добавьте следующий код после вызова **InsertAsync**:
+
+	    // Get the settings for the server project.
+	    HttpConfiguration config = this.Configuration;
+	    MobileAppSettingsDictionary settings =
+	        this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+	
+	    // Get the Notification Hubs credentials for the Mobile App.
+	    string notificationHubName = settings.NotificationHubName;
+	    string notificationHubConnection = settings
+	        .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
+	
+	    // Create the notification hub client.
+	    NotificationHubClient hub = NotificationHubClient
+	        .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
+	
+	    // Define a WNS payload
+	    var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">"
+	                            + item.Text + @"</text></binding></visual></toast>";
+	    try
+	    {
+	        // Send the push notification.
+	        var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
+	
+	        // Write the success result to the logs.
+	        config.Services.GetTraceWriter().Info(result.State.ToString());
+	    }
+	    catch (System.Exception ex)
+	    {
+	        // Write the failure result to the logs.
+	        config.Services.GetTraceWriter()
+	            .Error(ex.Message, null, "Push.SendAsync Error");
+	    }
+	
+	Этот код заставляет центр уведомлений отправить push-уведомление после вставки элемента задачи.
+
+### <a name="nodejs"></a>Серверный проект Node.js
+
+1. Если это еще не сделано, [загрузите проект быстрого запуска](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) или воспользуйтесь [онлайн-редактором на портале Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+
+2. Замените существующий код в файле todoitem.js следующим кодом:
+
+		var azureMobileApps = require('azure-mobile-apps'),
+	    promises = require('azure-mobile-apps/src/utilities/promises'),
+	    logger = require('azure-mobile-apps/src/logger');
+	
+		var table = azureMobileApps.table();
+		
+		table.insert(function (context) {
+	    // For more information about the Notification Hubs JavaScript SDK,  
+	    // see http://aka.ms/nodejshubs
+	    logger.info('Running TodoItem.insert');
+	    
+	    // Define the WNS payload that contains the new item Text.
+	    var payload = "<toast><visual><binding template=\ToastText01><text id="1">"
+		                            + context.item.text + "</text></binding></visual></toast>";
+	    
+	    // Execute the insert.  The insert returns the results as a Promise,
+	    // Do the push as a post-execute action within the promise flow.
+	    return context.execute()
+	        .then(function (results) {
+	            // Only do the push if configured
+	            if (context.push) {
+					// Send a WNS native toast notification.
+	                context.push.wns.sendToast(null, payload, function (error) {
+	                    if (error) {
+	                        logger.error('Error while sending push notification: ', error);
+	                    } else {
+	                        logger.info('Push notification sent successfully!');
+	                    }
+	                });
+	            }
+	            // Don't forget to return the results from the context.execute()
+	            return results;
+	        })
+	        .catch(function (error) {
+	            logger.error('Error while running context.execute: ', error);
+	        });
+		});
+
+		module.exports = table;  
+
+	При вставке нового элемента todo будет отправляться всплывающее уведомление WNS, содержащее item.text.
+
+2. При редактировании этого файла на локальном компьютере повторно опубликуйте серверный проект.
 
 ## <a name="publish-the-service"></a>Публикация мобильного внутреннего сервера в Azure
 
@@ -75,10 +168,12 @@
     
         private async Task InitNotificationsAsync()
         {
+            // Get a channel URI from WNS.
             var channel = await PushNotificationChannelManager
                 .CreatePushNotificationChannelForApplicationAsync();
 
-            await MobileService.GetPush().RegisterAsync(channel.Uri);
+            // Register the channel URI with Notification Hubs.
+            await App.MobileService.GetPush().RegisterAsync(channel.Uri);
         }
     
     Этот код возвращает ChannelURI для приложения из WNS, а затем регистрирует ChannelURI в мобильном приложении службы приложений.
@@ -106,11 +201,8 @@
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
-##Дальнейшие действия
 
-Наконец, в учебнике [Отправка кроссплатформенных уведомлений определенному пользователю](app-service-mobile-windows-store-dotnet-push-notifications-to-users.md) объясняется, как отправить push-уведомления на все зарегистрированные устройства на любой платформе, принадлежащие определенному пользователю, который прошел проверку подлинности.
-
-##<a id="more"></a>Дополнительные сведения
+##<a id="more"></a>Подробнее
 
 * Шаблоны обеспечивают гибкость при отправке push-уведомлений локально и между различными платформами. В статье [Использование управляемого клиента для мобильных приложений Azure](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications) описано, как зарегистрировать шаблоны.
 * Теги позволяют отправлять push-уведомления клиентам в зависимости от их сегмента. В статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) показано, как добавлять теги для установки устройства.
@@ -122,4 +214,4 @@
 
 <!-- Images. -->
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015--->

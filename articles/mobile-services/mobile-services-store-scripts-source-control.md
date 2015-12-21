@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015"
-	ms.author="ggailey777"/>
+	ms.date="12/07/2015"
+	ms.author="glenga"/>
 
 # Хранение кода проекта мобильной службы в системе управления версиями
 
@@ -156,8 +156,9 @@
 [Установка Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Приступая к работе с мобильными службами]: mobile-services-ios-get-started.md
 [Работа с серверными сценариями в мобильных службах]: mobile-services-how-to-use-server-scripts.md
-[классическом портале Azure]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
+[портал управления Azure]: https://manage.windowsazure.com/
 [Модули]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

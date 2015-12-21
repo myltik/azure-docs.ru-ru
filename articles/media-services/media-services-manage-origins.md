@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="12/09/2015"
 	ms.author="juliako"/>
 
 
@@ -23,6 +23,7 @@
 > [AZURE.SELECTOR]
 - [Portal](media-services-manage-origins.md)
 - [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
 В службах мультимедиа Microsoft Azure **конечная точка потоковой передачи** — это служба потоковой передачи, которая может доставить содержимое непосредственно в клиентское приложение проигрывателя или в сеть доставки содержимого (CDN) для дальнейшего распространения. Службы мультимедиа также обеспечивают прозрачную интеграцию с Azure CDN. Исходящий поток из службы StreamingEndpoint может быть потоком трансляции или активом видео по запросу в учетной записи служб мультимедиа.
 
@@ -149,4 +150,4 @@
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

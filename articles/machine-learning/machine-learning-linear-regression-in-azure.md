@@ -3,7 +3,6 @@
 	description="Сравнение моделей линейной регрессии в Excel и Студии машинного обучения Azure" 
 	metaKeywords="" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="garyericson" 
 	manager="paulettm" 
@@ -15,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="12/11/2015" 
 	ms.author="kbaroni;garye" />
 
 # Использование линейной регрессии в Машинном обучении Azure
@@ -158,4 +157,4 @@
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

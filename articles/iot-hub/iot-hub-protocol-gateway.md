@@ -37,4 +37,4 @@
 * [Репозиторий шлюза протокола IoT Azure в GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
 * [Руководство разработчика для шлюза протокола IoT Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

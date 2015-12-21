@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="11/16/2015" 
+	ms.date="12/07/2015" 
 	ms.author="ryancraw"/>
 
 # Пакет SDK для DocumentDB
@@ -29,6 +29,9 @@
 <table> <tr><td>**Загрузить**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr> <tr><td>**Добавить**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr> <tr><td>**Документация**</td><td>[Справочная документация по пакету SDK для Java](http://azure.github.io/azure-documentdb-java/)</td></tr> <tr><td>**Приступая к работе**</td><td>[Приступая к работе с пакетом SDK для Java](documentdb-java-application.md)</td></tr> <tr><td>**Текущая поддерживаемая среда выполнения **</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr> </table></br>
 
 ## Заметки о выпуске
+
+### <a name="1.5.0"/>[1\.5.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.5.0)
+- Добавьте сопоставители разделов "Хэш" и "Диапазон" для сегментирования приложений на разделы.
 
 ### <a name="1.4.0"/>[1\.4.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.4.0)
 - Реализована операция Upsert. Для поддержки функции Upsert добавлены новые методы upsertXXX.
@@ -81,4 +84,4 @@
 
 Дополнительные сведения о DocumentDB см. на странице документации по [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

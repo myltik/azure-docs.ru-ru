@@ -1,5 +1,5 @@
 <properties 
-pageTitle="Отклик на события жизненного цикла для облачных служб при помощи .NET" 
+pageTitle="Обработка событий жизненного цикла облачной службы | Microsoft Azure" 
 description="Узнайте об использовании методов жизненного цикла роли облачной службы в .NET" 
 services="cloud-services" 
 documentationCenter=".net" 
@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="09/08/2015" 
+ms.date="12/07/2015" 
 ms.author="adegeo"/>
 
 # Адаптируйте жизненный цикл веб-роли или рабочей роли в .NET
@@ -80,4 +80,4 @@ public override bool OnStart()
 ## Дальнейшие действия
 Узнайте, как [создать пакет облачной службы](cloud-services-model-and-package.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

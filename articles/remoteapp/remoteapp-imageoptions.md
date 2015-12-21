@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Создание образа Azure RemoteApp"
-    description="Узнайте о способах и вариантах создания образов для среды Azure RemoteApp" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Создание образа Azure RemoteApp | Microsoft Azure"
+    description="Узнайте о способах и вариантах создания образов для среды Azure RemoteApp"
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 
@@ -30,6 +30,5 @@
 - Можно использовать один из [шаблонов образов](remoteapp-images.md), которые предлагаются в составе подписки на RemoteApp. Они создаются и обслуживаются специалистами RemoteApp и содержат стандартные приложения (например, из набора Office), которые можно предложить пользователям. Обратите внимание на то, что для рабочего развертывания можно использовать только образ Office 365 профессиональный плюс.
 
 Независимо от источника и способа создания образа необходимо понимать [требования к приложениям](remoteapp-appreqs.md) для их эффективной работы в среде RemoteApp. Затем нужно создать [облачную](remoteapp-create-cloud-deployment.md) или [гибридную](remoteapp-create-hybrid-deployment.md) коллекцию.
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

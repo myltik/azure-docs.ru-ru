@@ -51,7 +51,7 @@
 | Cisco | ASR | IOS 15.1 (статическая), IOS 15.2 (динамическая) | [Примеры Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Примеры Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Cisco | ISR | IOS 15.0 (статическая), IOS 15.1 (динамическая) | [Примеры Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) | [Примеры Cisco](http://go.microsoft.com/fwlink/p/?LinkId=691833) |
 | Citrix | Устройство CloudBridge MPX или виртуальное устройство VPX | Недоступно | [Инструкции по интеграции](https://www.citrix.com/welcome.html?resource=%2Fdownloads%2Fcloudbridge%2Fbetas-and-tech-previews%2Fcloudbridge-azure-integration) | Не совместимо |
-| Dell SonicWALL | Серия TZ, серия NSA, серия SuperMassive, серия NSA класса E | SonicOS 5.8.x, SonicOS 5.9.x, SonicOS 6.x | [Инструкции по настройке](https://www.sonicwall.com/app/projects/file_downloader/document_lib.php?t=TN&id=348) | Не совместимо |
+| Dell SonicWALL | Серия TZ, серия NSA, серия SuperMassive, серия NSA класса E | SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) | [Инструкции — SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [инструкции — SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) | [Инструкции — SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [инструкции — SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 | Серия BIG-IP | Недоступно | [Инструкции по настройке](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) | Не совместимо |
 | Fortinet | FortiGate | FortiOS 5.0.7 | [Инструкции по настройке](http://docs.fortinet.com/fortigate/admin-guides) | [Инструкции по настройке](http://docs.fortinet.com/fortigate/admin-guides) |
 | Internet Initiative Japan (IIJ) | Серия SEIL | SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 | [Инструкции по настройке](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) | Не совместимо |
@@ -68,7 +68,7 @@
 ### Устройства, отсутствующие в списке совместимых устройств
 
 
-Если не видите своего устройства в списке совместимых VPN-устройств и хотите использовать его для VPN-подключения, потребуется убедиться, что это устройство соответствует минимальным требованиям, приведенным в таблице [Требования к шлюзу](vpn-gateway-about-vpngateways.md#gateway-requirements). Устройства, соответствующие минимальным требованиям, также должны работать с виртуальной сетью. Чтобы получить дополнительную информацию и инструкции по настройке, обратитесь к изготовителю устройства.
+Если вы не видите своего устройства в списке совместимых VPN-устройств и хотите использовать его для VPN-подключения, потребуется убедиться, что это устройство соответствует минимальным требованиям, приведенным в таблице [Требования к шлюзу](vpn-gateway-about-vpngateways.md#gateway-requirements). Устройства, соответствующие минимальным требованиям, также должны работать с виртуальной сетью. Чтобы получить дополнительную информацию и инструкции по настройке, обратитесь к изготовителю устройства.
 
 
 ## Изменение примеров конфигурации устройств
@@ -154,6 +154,6 @@
 
 Чтобы больше узнать о VPN-шлюзах, см. статью [Шлюзы VPN](vpn-gateway-about-vpngateways.md).
 
-Чтобы настроить VPN типа «сеть-сеть», см. раздел [Создание виртуальной сети с VPN-подключением «сеть-сеть»](vpn-gateway-site-to-site-create.md).
+Чтобы настроить VPN типа "сеть-сеть", см. раздел [Создание виртуальной сети с VPN-подключением "сеть-сеть"](vpn-gateway-site-to-site-create.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1210_2015-->

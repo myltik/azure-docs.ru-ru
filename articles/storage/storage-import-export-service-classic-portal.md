@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="Использование службы экспорта и импорта для передачи данных BLOB-объектов в хранилище Microsoft Azure" 
 	description="Узнайте, как создавать задания для службы импорта и экспорта данных через портал управления службой хранилища Azure для передачи данных в хранилище больших двоичных объектов." 
-	authors="tamram" 
-	manager="adinah" 
+	authors="robinsh" 
+	manager="carmonm" 
 	editor="" 
 	services="storage" 
 	documentationCenter=""/>
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
-	ms.author="tamram"/>
+	ms.date="12/04/2015" 
+	ms.author="robinsh"/>
 
 
 # Использование службы импорта и экспорта Azure для передачи данных в хранилище BLOB-объектов
@@ -275,4 +275,4 @@
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

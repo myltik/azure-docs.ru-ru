@@ -178,7 +178,6 @@ AAD
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure Scheduler]: /ru-RU/documentation/services/scheduler/
 [Web Job]: ../app-service-web/websites-webjobs-resources.md
-[Send cross-platform push notifications]: app-service-mobile-xamarin-ios-push-notifications-to-user.md
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
 
@@ -186,6 +185,6 @@ AAD
 [ценами службы приложений]: https://azure.microsoft.com/ru-RU/pricing/details/app-service/
 [среде службы приложений]: app-service-app-service-environment-intro.md
 [Сравнение мобильных служб и службы приложений]: app-service-mobile-value-prop-migration-from-mobile-services-preview.md
-[migrate a mobile service to a mobile app on App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[migrate a mobile service to a mobile app on App Service]: app-service-mobile-migrating-from-mobile-services.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

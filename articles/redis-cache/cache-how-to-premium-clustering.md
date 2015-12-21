@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Настройка кластеризации для кэша Redis для Azure уровня Премиум
@@ -36,7 +36,7 @@
 В Azure кластер Redis предоставляется в виде модели основного экземпляра и реплики. У каждого сегмента есть пара основного экземпляра и реплики. Репликацией управляет служба кэша Redis для Azure.
 
 ## Кластеризация
-Кластер настраивается во время создания кэша в колонке **Новый кэш Redis**. Для создания кэша войдите на [портал предварительной версии Azure](https://portal.azure.com), щелкните **Создать** -> **Данные + хранилище** > **Кэш Redis**.
+Кластер настраивается во время создания кэша в колонке **Новый кэш Redis**. Для создания кэша войдите на [портал Azure](https://portal.azure.com), щелкните **Создать** > **Данные+хранилище** > **Кэш Redis**.
 
 ![Создание кэша Redis][redis-cache-new-cache-menu]
 
@@ -166,4 +166,4 @@
 
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

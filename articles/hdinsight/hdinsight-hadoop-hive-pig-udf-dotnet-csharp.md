@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="12/04/2015"
 	ms.author="larryfr"/>
 
 
@@ -241,4 +241,4 @@ Hive и Pig идеально подходят для работы с данны�
 
 * [Использование MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

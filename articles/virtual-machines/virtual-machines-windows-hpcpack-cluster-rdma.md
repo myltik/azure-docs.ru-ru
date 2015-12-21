@@ -63,7 +63,7 @@ ms.service="virtual-machines"
 
 4. **Развертывание и настройка головного узла HPC Pack 2012 R2**.
 
-    Загрузите новейшую версию пакета установки HPC Pack из [Центра загрузки Майкрософт](https://www.microsoft.com/download/details.aspx?id=47755). Требования и инструкции для подготовки к развертыванию ускорения в Azure см. в разделах [Руководство по началу работы с HPC Pack](https://technet.microsoft.com/library/jj884144.aspx) и [Ускорение в Azure с помощью пакета Microsoft HPC](https://technet.microsoft.com/library/gg481749.aspx).
+    Загрузите новейшую версию пакета установки HPC Pack из [Центра загрузки Майкрософт](https://www.microsoft.com/download/details.aspx?id=49922). Требования и инструкции для подготовки к развертыванию ускорения в Azure см. в разделах [Руководство по началу работы с HPC Pack](https://technet.microsoft.com/library/jj884144.aspx) и [Ускорение в Azure с помощью пакета Microsoft HPC](https://technet.microsoft.com/library/gg481749.aspx).
 
 5. **Настройка сертификата управления в подписке Azure**.
 
@@ -114,7 +114,7 @@ ms.service="virtual-machines"
 
 1. **Создание головного узла кластера и виртуальных машин вычислительных узлов путем выполнения скрипта развертывания IaaS с пакетом HPC на клиентском компьютере**.
 
- Загрузите пакет скрипта развертывания IaaS для пакета HPC Pack из [Центра загрузки Майкрософт](https://www.microsoft.com/download/details.aspx?id=47755).
+ Загрузите пакет скрипта развертывания IaaS для пакета HPC Pack из [Центра загрузки Майкрософт](https://www.microsoft.com/download/details.aspx?id=49922).
 
  Чтобы подготовить клиентский компьютер, создайте файл конфигурации скрипта и выполните скрипт. См. раздел [Создание кластера HPC с помощью скрипта развертывания IaaS с пакетом HPC Pack](virtual-machines-hpcpack-cluster-powershell-script.md). Для развертывания вычислительных узлов размера A8 и A9 см. дополнительные рекомендации далее в этой статье.
 
@@ -198,8 +198,12 @@ ms.service="virtual-machines"
 
     В кластере HPC Pack, развернутом на виртуальных машинах Azure, измените команду, как указано в шаге 2.
 
-5. Чтобы после выполнения задания просмотреть выходные данные (в этом случае — выходные данные задачи 1 задания), введите следующее: task view &lt;JobID&gt;.1
+5. Чтобы после завершения задания просмотреть выходные данные (в данном случае — выходные данные задачи 1 задания), введите следующую команду:
 
+    ```
+    task view &lt;JobID&gt;.1
+    ```
+    
   Выходные данные будут содержать сведения о пропускной способности, подобные следующим.
 
   ![Пропускная способность при «пинг-понговой» передаче данных][pingpong2]
@@ -246,4 +250,4 @@ ms.service="virtual-machines"
 [pingpong1]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong1.png
 [pingpong2]: ./media/virtual-machines-windows-hpcpack-cluster-rdma/pingpong2.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

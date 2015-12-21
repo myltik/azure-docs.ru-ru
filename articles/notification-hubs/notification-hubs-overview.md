@@ -161,8 +161,8 @@ Push-уведомления являются одним из наиболее в
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
   [Мобильные приложения службы приложений]: https://azure.microsoft.com/ru-RU/documentation/articles/app-service-mobile-value-prop/
-  [шаблонов]: https://msdn.microsoft.com/ru-RU/library/azure/dn530748.aspx
+  [шаблонов]: https://msdn.microsoft.com/library/azure/dn530748.aspx
   [портале Azure]: https://portal.azure.com
   [здесь]: (http://msdn.microsoft.com/library/azure/dn530749.aspx)
 
-<!----HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

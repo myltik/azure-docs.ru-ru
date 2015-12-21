@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Переход с платформы RemoteApp VNET на платформу Azure VNET"
-    description="Сведения о переходе с платформы RemoteApp VNET на платформу Azure VNET" 
-    services="remoteapp" 
-	documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Переход с платформы RemoteApp VNET на платформу Azure VNET | Microsoft Azure"
+    description="Сведения о переходе с платформы RemoteApp VNET на платформу Azure VNET"
+    services="remoteapp"
+	documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/02/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/02/2015"
     ms.author="elizapo" />
 
 
@@ -48,6 +48,5 @@
 Готово!
 
 Если у вас есть какие-либо вопросы или вам необходима дополнительная помощь, напишите по адресу [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help).
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

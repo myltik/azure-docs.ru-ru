@@ -49,4 +49,4 @@
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [Что такое центр IoT в Azure?]: iot-hub-what-is-iot-hub.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

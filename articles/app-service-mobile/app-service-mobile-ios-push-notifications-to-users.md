@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Отправка кроссплатформенных уведомлений определенному пользователю в iOS" 
 	description="Отправка push-уведомлений на все устройства определенного пользователя."
-	services="app-service\mobile" 
+	services="app-service\mobile,notification-hubs" 
 	documentationCenter="ios" 
 	authors="ysxu" 
 	manager="dwrede" 
@@ -65,38 +65,11 @@
             }
         }];
 
+	Перед регистрацией для использования push-уведомлений важно проверить подлинность пользователя. Когда прошедший проверку пользователь регистрируется для работы с push-уведомлениями, автоматически добавляется тег с идентификатором пользователя.
+
 ##<a name="backend"></a>Обновление внутреннего сервера службы для отправки уведомлений определенному пользователю
 
-1. В Visual Studio измените определение метода `PostTodoItem` с помощью следующего кода:  
-
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
-        {
-            TodoItem current = await InsertAsync(item);
-
-            // get notification hubs credentials associated with this mobile app
-            string notificationHubName = this.Services.Settings.NotificationHubName;
-            string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
-
-            // connect to notification hub
-            NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
-
-            // get the current user id and create tag to identify user
-            ServiceUser authenticatedUser = this.User as ServiceUser;
-            string userTag = "_UserId:" + authenticatedUser.Id;
-
-            // build dictionary for template
-            var notification = new Dictionary<string, string>{{"message", item.Text}};
-
-            try
-            {
-            	await Hub.Push.SendTemplateNotificationAsync(notification, userTag);
-            }
-            catch (System.Exception ex)
-            {
-                throw;
-            }
-            return CreatedAtRoute("Tables", new { id = current.Id }, current);
-        }
+[AZURE.INCLUDE [app-service-mobile-push-notifications-to-users](../../includes/app-service-mobile-push-notifications-to-users.md)]
 
 ##<a name="test"></a>Тестирование приложения
 
@@ -105,7 +78,7 @@
 <!-- URLs. -->
 [Приступая к работе с аутентификацией в мобильных службах]: app-service-mobile-ios-get-started-users.md
 [Приступая к работе с push-уведомлениями]: app-service-mobile-ios-get-started-push.md
-[шаблонов]: https://msdn.microsoft.com/ru-RU/library/dn530748.aspx
+[шаблонов]: https://msdn.microsoft.com/library/dn530748.aspx
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015--->

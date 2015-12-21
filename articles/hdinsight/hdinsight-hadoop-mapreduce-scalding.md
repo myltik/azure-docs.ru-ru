@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="10/15/2015"
+ ms.date="12/04/2015"
  ms.author="larryfr"/>
 
 # Разработка заданий Scalding MapReduce с помощью Apache Hadoop в HDInsight
@@ -231,7 +231,7 @@ Scalding — это библиотека Scala, которая позволяе
 
 > [AZURE.NOTE]В следующих действиях используется Windows PowerShell. Другие способы выполнения заданий MapReduce см. в разделе [Использование MapReduce в Hadoop в HDInsight](hdinsight-use-mapreduce.md).
 
-1. [Установите и настройте Azure PowerShell](../install-configure-powershell.md).
+1. [Установите и настройте Azure PowerShell](../powershell-install-configure.md).
 
 2. Запустите Azure PowerShell и войдите в учетную запись Azure. После предоставления учетных данных команда возвращает информацию о вашей учетной записи.
 
@@ -298,7 +298,7 @@ Scalding — это библиотека Scala, которая позволяе
             -HttpCredential $creds
         #Download the output of the job
         Get-AzureStorageBlobContent `
-            -Blob example/wordcountout/part-r-00000 `
+            -Blob example/wordcountout/part-00000 `
             -Container $container `
             -Destination output.txt `
             -Context $context
@@ -344,4 +344,4 @@ Scalding — это библиотека Scala, которая позволяе
 
 * [Использование заданий MapReduce с HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

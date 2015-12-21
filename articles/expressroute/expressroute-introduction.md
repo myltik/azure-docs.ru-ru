@@ -63,7 +63,7 @@ ExpressRoute поддерживает описанные ниже функции
 
 - Службы Microsoft Azure
 - Службы Microsoft Office 365
-- Microsoft CRM Online Services (ожидается) 
+- Microsoft CRM Online Services 
  
 Подробный список служб, поддерживаемых подключениями ExpressRoute, см. на странице [Вопросы и ответы по ExpressRoute](expressroute-faqs.md).
 
@@ -124,4 +124,4 @@ ExpressRoute обладает постоянно растущей экосист
 	- [Настройка маршрутизации](expressroute-howto-routing-classic.md)
 	- [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Начало работы с Azure RemoteApp с помощью PowerShell"
+   pageTitle="Начало работы с Azure RemoteApp с помощью PowerShell | Microsoft Azure"
    description="Инструкции по началу работы с платформой Azure RemoteApp с помощью командной оболочки PowerShell"
    services="remoteapp"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="08/12/2015"
+   ms.date="12/05/2015"
    ms.author="guscatal;spatnaik;elizapo"/>
 
 
@@ -22,7 +22,7 @@
 =====================================
 
 
-## Загрузка командлетов 
+## Загрузка командлетов
 -------------
 Сначала необходимо загрузить командлеты PowerShell для Azure [здесь](http://go.microsoft.com/?linkid=9811175); в их состав уже входят командлеты для RemoteApp.
 
@@ -99,6 +99,5 @@
 - Get-AzureRemoteAppWorkspace
 - Set-AzureRemoteAppWorkspace
 - Get-AzureRemoteAppOperationResult
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

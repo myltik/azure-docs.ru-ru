@@ -153,55 +153,54 @@
 
 ### Подготовка администратора Azure AD для сервера Azure SQL Server с помощью PowerShell 
 
-> [AZURE.IMPORTANT]Начиная с выпуска предварительной версии Azure PowerShell 1.0 командлет Switch-AzureMode больше не требуется, а командлеты, которые были в модуле Azure ResourceManger, переименованы. В примерах в этой статье используется новое соглашение об именовании предварительной версии PowerShell 1.0. Подробнее об этом см. в разделе [Устаревший командлет Switch-AzureMode в Azure PowerShell](https://github.com/Azure/azure-powershell/wiki/Deprecation-of-Switch-AzureMode-in-Azure-PowerShell).
 
 
-Чтобы выполнить командлеты PowerShell, необходимо установить и запустить Azure PowerShell. А из-за удаления Switch-AzureMode необходимо скачать и установить последнюю версию Azure PowerShell, запустив [установщик веб-платформы Майкрософт](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+Чтобы выполнять командлеты PowerShell, необходимо установить и запустить Azure PowerShell. Дополнительные сведения можно узнать в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
 
 Для подготовки администратора Azure AD необходимо выполнить следующие команды Azure PowerShell:
 
-- Add-AzureAccount
-- Select-AzureSubscription
+- Add-AzureRmAccount
+- Select-AzureRmSubscription
 
 
 Командлеты, используемые для подготовки администратора Azure AD и управления им:
 
 | Имя командлета | Описание |
 |---------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| [Set-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603544.aspx) | Подготавливает администратора Azure Active Directory для сервера Azure SQL Server (должен входить в текущую подписку). |
-| [Remove-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt619340.aspx) | Удаляет администратора Azure Active Directory для сервера Azure SQL Server. |
-| [Get-AzureRMSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603737.aspx) | Возвращает сведения о текущем администраторе Azure Active Directory, настроенном для сервера Azure SQL Server. |
+| [Set-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603544.aspx) | Подготавливает администратора Azure Active Directory для сервера Azure SQL Server (должен входить в текущую подписку). |
+| [Remove-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt619340.aspx) | Удаляет администратора Azure Active Directory для сервера Azure SQL Server. |
+| [Get-AzureRmSqlServerActiveDirectoryAdministrator](https://msdn.microsoft.com/library/azure/mt603737.aspx) | Возвращает сведения о текущем администраторе Azure Active Directory, настроенном для сервера Azure SQL Server. |
 
-Чтобы получить дополнительные сведения о каждой из этих команд, используйте команду PowerShell get-help, например ``get-help Set-AzureRMSqlServerActiveDirectoryAdministrator``.
+Чтобы получить дополнительные сведения о каждой из этих команд, используйте команду PowerShell get-help, например ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.
 
 Приведенный ниже сценарий выполняет подготовку группы администраторов Azure AD с именем **DBA\_Group** (идентификатор объекта `40b79501-b343-44ed-9ce7-da4c8cc7353f`) для сервера **demo\_server** в группе ресурсов с именем **Group-23**.
 
 ```
-Set-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
+Set-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
 –ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
 Входной параметр **DisplayName** принимает отображаемое имя Azure AD или имя участника-пользователя. Например, ``DisplayName="John Smith"`` и ``DisplayName="johns@contoso.com"``. Для групп Azure AD поддерживается только отображаемое имя Azure AD.
 
-> [AZURE.NOTE]Команда Azure PowerShell ```Set-AzureRMSqlServerActiveDirectoryAdministrator``` не запрещает подготовку администраторов Azure AD для неподдерживаемых пользователей. Неподдерживаемого пользователя можно подготовить, но он не сможет подключиться к базе данных (См. список поддерживаемых администраторов в разделе **Функции и ограничения Azure AD** выше.)
+> [AZURE.NOTE]Команда Azure PowerShell ```Set-AzureRmSqlServerActiveDirectoryAdministrator``` не запрещает подготовку администраторов Azure AD для неподдерживаемых пользователей. Неподдерживаемого пользователя можно подготовить, но он не сможет подключиться к базе данных (См. список поддерживаемых администраторов в разделе **Функции и ограничения Azure AD** выше.)
 
 В следующем примере используется необязательный параметр **ObjectID**:
 
 ```
-Set-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
+Set-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" 
 –ServerName "demo_server" -DisplayName "DBA_Group" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353f"
 ```
 
-> [AZURE.NOTE]Параметр **ObjectID** Azure AD является обязательным, если параметр **DisplayName** не является уникальным. Чтобы получить значения **ObjectID** и **DisplayName**, используйте раздел Active Directory классического портала Azure. Там можно просмотреть свойства пользователя или группы.
+> [AZURE.NOTE]Параметр **ObjectID** Azure AD является обязательным, если параметр **DisplayName** не уникален. Чтобы получить значения **ObjectID** и **DisplayName**, используйте раздел Active Directory классического портала Azure. Там можно просмотреть свойства пользователя или группы.
 
 Следующий пример возвращает сведения о текущем администраторе Azure AD для сервера Azure SQL Server:
 
 ```
-Get-AzureRMSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
+Get-AzureRmSqlServerActiveDirectoryAdministrator –ResourceGroupName "Group-23" –ServerName "demo_server" | Format-List
 ```
 
 В следующем примере выполняется удаление администратора Azure AD: ```
-Remove-AzureRMSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
+Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" –ServerName "demo_server"
 ```
 
 ## 5\. Настройка клиентских компьютеров
@@ -235,7 +234,7 @@ Remove-AzureRMSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 Этот метод следует использовать, если вы входите в систему Windows с помощью учетных данных Azure Active Directory из федеративного домена.
 
 1. Запустите Management Studio, и в диалоговом окне **Подключение к ядру СУБД** (или **Подключение к серверу**) в поле **Проверка подлинности** выберите пункт **Встроенная проверка подлинности Active Directory**. Пароль не требуется (или его нельзя ввести), поскольку для подключения используются существующие учетные данные.
-2. Нажмите кнопку **Параметры** и на странице **Свойства подключения** в поле **Подключение к базе данных** введите имя пользовательской базы данных для подключения.
+2. Нажмите кнопку **Параметры**, и на странице **Свойства подключения** в поле **Подключение к базе данных** введите имя пользовательской базы данных для подключения.
 
 #### Подключение с помощью проверки пароля Active Directory 
 
@@ -246,7 +245,7 @@ Remove-AzureRMSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 1. Запустите Management Studio, и в диалоговом окне **Подключение к ядру СУБД** (или **Подключение к серверу**) в поле **Проверка подлинности** выберите пункт **Проверка пароля Active Directory**.
 2. В поле **Имя пользователя** введите свое имя пользователя Azure Active Directory в формате ****username@domain.com**. Это должна быть учетная запись из Azure Active Directory или учетная запись из федерации домена с Azure Active Directory.
 3. В поле **Пароль** введите пароль пользователя для учетной записи Azure Active Directory или учетной записи федеративного домена.
-4. Нажмите кнопку **Параметры** и на странице **Свойства подключения** в поле **Подключение к базе данных** введите имя пользовательской базы данных для подключения.
+4. Нажмите кнопку **Параметры**, и на странице **Свойства подключения** в поле **Подключение к базе данных** введите имя пользовательской базы данных для подключения.
 
 
 ### Создание пользователя автономной базы данных Azure AD в пользовательской базе данных
@@ -327,4 +326,4 @@ Remove-AzureRMSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

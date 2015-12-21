@@ -20,6 +20,8 @@
 Вы можете устранять неполадки фабрики данных Azure с помощью классического портала Azure (или) командлетов Azure PowerShell. Эта статья содержит пошаговые инструкции, показывающие, как с помощью классического портала Azure быстро устранять ошибки, возникающие при работе с фабрикой данных.
 
 ## Проблема: не удается выполнить командлеты фабрики данных
+Если вы используете Azure PowerShell версии более ранней, чем 1.0:
+ 
 Чтобы устранить эту проблему, переключите Azure в режим **AzureResourceManager**.
 
 Чтобы перейти в режим **AzureResourceManager**, запустите **Azure PowerShell** и выполните приведенную ниже команду. Командлеты фабрики данных Azure доступны в режиме **AzureResourceManager**.
@@ -173,11 +175,11 @@
 ### Предварительные требования
 1. Выполните инструкции, приведенные в статье [Приступая к работе с фабрикой данных Azure][adfgetstarted].
 2. Убедитесь, что объект **ADFTutorialDataFactory** создает данные в таблице **emp** в базе данных SQL Azure.  
-3. Теперь удалите таблицу **emp** (**drop table emp**) из Базы данных SQL Azure. Это приведет к ошибке.
+3. Теперь удалите таблицу **emp** (**drop table emp**) из базы данных SQL Azure. Это приведет к ошибке.
 4. Выполните следующую команду в **Azure PowerShell**, чтобы обновить период активности конвейера. Она попытается записать данные в несуществующую таблицу **emp**.
 
          
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
+		Set-AzureRmDataFactoryPipelineActivePeriod -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -StartDateTime 2014-09-29 –EndDateTime 2014-09-30 –Name ADFTutorialPipeline
 	
 	В качестве значения **StartDateTime** укажите сегодняшний день, а в качестве значения **EndDateTime** — следующий день.
 
@@ -214,17 +216,12 @@
 
 ### Устранение ошибки с помощью командлетов Azure PowerShell
 1.	Запустите **Azure PowerShell**. 
-2.	Перейдите в режим **AzureResourceManager**, так как командлеты фабрики данных доступны только в нем.
+3. Выполните команду Get-AzureRmDataFactorySlice, чтобы просмотреть срезы и их состояние. Вы должны увидеть срез с состоянием Failed (сбой).	
 
          
-		switch-azuremode AzureResourceManager
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
 
-3. Выполните команду Get-AzureDataFactorySlice, чтобы просмотреть срезы и их состояние. Вы должны увидеть срез с состоянием Failed (сбой).
-
-         
-		Get-AzureDataFactorySlice -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime 2014-10-15
-
-	Замените **StartDateTime** на значение StartDateTime, которое вы указали для **Set-AzureDataFactoryPipelineActivePeriod**.
+	Замените **StartDateTime** на значение StartDateTime, которое вы указали для **Set-AzureRmDataFactoryPipelineActivePeriod**.
 
 		ResourceGroupName 		: ADFTutorialResourceGroup
 		DataFactoryName   		: ADFTutorialDataFactory
@@ -237,9 +234,9 @@
 		LongRetryCount    		: 0
 
 	Запишите значение **Start** для проблемного среза (среза, у которого параметр **Status** имеет значение **Failed**), полученное в результате выполнения команды. 
-4. Теперь запустите командлет **Get-AzureDataFactoryRun**, чтобы получить подробные сведения о выполненном для среза действии.
+4. Теперь запустите командлет **Get-AzureRmDataFactoryRun**, чтобы получить подробные сведения о выполненном для среза действии.
          
-		Get-AzureDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactory -TableName EmpSQLTable -StartDateTime "10/15/2014 4:00:00 PM"
 
 	В качестве значения **StartDateTime** укажите время начала для проблемного (содержащего ошибку) среза, которое вы отметили на предыдущем шаге. Значение даты-времени необходимо заключить в двойные кавычки.
 5. Вы должны увидеть выходные данные с подробными сведениями об ошибке (аналогично следующему):
@@ -296,17 +293,12 @@
     
 ### Пошаговое руководство. Использование Azure PowerShell для устранения ошибки обработки Pig или Hive
 1.	Запустите **Azure PowerShell**. 
-2.	Перейдите в режим **AzureResourceManager**, так как командлеты фабрики данных доступны только в нем.
+3. Выполните команду Get-AzureRmDataFactorySlice, чтобы просмотреть срезы и их состояние. Вы должны увидеть срез с состоянием Failed (сбой).	
 
          
-		switch-azuremode AzureResourceManager
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
-3. Выполните команду Get-AzureDataFactorySlice, чтобы просмотреть срезы и их состояние. Вы должны увидеть срез с состоянием Failed (сбой).
-
-         
-		Get-AzureDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
-
-	Замените **StartDateTime** на значение StartDateTime, которое вы указали для **Set-AzureDataFactoryPipelineActivePeriod**.
+	Замените **StartDateTime** на значение StartDateTime, которое вы указали для **Set-AzureRmDataFactoryPipelineActivePeriod**.
 
 		ResourceGroupName : ADF
 		DataFactoryName   : LogProcessingFactory
@@ -320,9 +312,9 @@
 
 
 	Запишите значение **Start** для проблемного среза (среза, у которого параметр **Status** имеет значение **Failed**), полученное в результате выполнения команды. 
-4. Теперь запустите командлет **Get-AzureDataFactoryRun**, чтобы получить подробные сведения о выполненном для среза действии.
+4. Теперь запустите командлет **Get-AzureRmDataFactoryRun**, чтобы получить подробные сведения о выполненном для среза действии.
          
-		Get-AzureDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
 	В качестве значения **StartDateTime** укажите время начала для проблемного (содержащего ошибку) среза, которое вы отметили на предыдущем шаге. Значение даты-времени необходимо заключить в двойные кавычки.
 5. Вы должны увидеть выходные данные с подробными сведениями об ошибке (аналогично следующему):
@@ -346,7 +338,7 @@
 		PipelineName        : EnrichGameLogsPipeline
 		Type                :
 
-6. Вы можете выполнить командлет **Save-AzureDataFactoryLog** с идентификатором, который отображается в результате описанных выше команд, и загрузить файлы журналов, используя параметр **-DownloadLogs** командлета.
+6. Вы можете выполнить командлет **Save-AzureRmDataFactoryLog** с идентификатором, который отображается в результате описанных выше команд, и загрузить файлы журналов, используя параметр **-DownloadLogs** командлета.
 
 
 
@@ -382,4 +374,4 @@
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

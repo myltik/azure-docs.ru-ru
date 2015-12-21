@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Лицензирование Azure RemoteApp" 
-    description="Узнайте о лицензировании в Azure RemoteApp." 
-    services="remoteapp" 
-    solutions="" documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Лицензирование Azure RemoteApp | Microsoft Azure"
+    description="Узнайте о лицензировании в Azure RemoteApp."
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 
@@ -34,6 +34,5 @@
 Звучит разумно, не так ли? Вы можете опубликовать любое приложение, права на которое есть у вас. Кроме того, вам нужно убедиться, что у вас действительно есть права на предоставление доступа к своим программам.
 
 Обратите внимание, что в облачной коллекции невозможно использовать соглашение лицензию клиентского доступа или корпоративной лицензии. Вы *можете* использовать соглашение о корпоративном лицензировании, чтобы активировать приложения в гибридной коллекции (за исключением Office). Достаточно установить их в образе шаблона с носителя корпоративной лицензии. Следуйте указаниям поставщика приложения, чтобы установить лицензии в среде удаленного рабочего стола.
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

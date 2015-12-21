@@ -114,7 +114,7 @@
 |[локально глубокий метод опорных векторов](https://msdn.microsoft.com/library/azure/dn913070.aspx)|○| | |8|Подходит для больших наборов функций|
 |[точечная машина Байеса](https://msdn.microsoft.com/library/azure/dn905930.aspx)| |○|●|3| |
 |**Многоклассовая классификация**| | | | | |
-|[логистическая регрессия](https://msdn.microsoft.com/ru-RU/library/azure/dn905853.aspx)| |●|●|5| |
+|[логистическая регрессия](https://msdn.microsoft.com/library/azure/dn905853.aspx)| |●|●|5| |
 |[лес решений](https://msdn.microsoft.com/library/azure/dn906015.aspx)|●|○| |6| |
 |[джунгли решений](https://msdn.microsoft.com/library/azure/dn905963.aspx)|●|○| |6|Низкий объем памяти|
 |[нейронная сеть](https://msdn.microsoft.com/library/azure/dn906030.aspx)|●| | |9|[Возможна дополнительная настройка](http://go.microsoft.com/fwlink/?LinkId=402867)|
@@ -237,4 +237,4 @@
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!----HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

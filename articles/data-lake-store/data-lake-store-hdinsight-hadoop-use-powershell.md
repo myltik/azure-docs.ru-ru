@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="12/04/2015"
    ms.author="nitinme"/>
 
 # Подготовка кластера HDInsight и хранилища озера данных с помощью Azure PowerShell
@@ -46,7 +46,38 @@
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 - **Включите свою подписку Azure** для общедоступной предварительной версии хранилища озера данных. См. [инструкции](data-lake-store-get-started-portal.md#signup).
 - **Пакет SDK Windows**. Его можно установить [отсюда](https://dev.windows.com/ru-RU/downloads). Пакет используется для создания сертификата безопасности.
-- **Azure PowerShell версии 1.0 или выше**. Инструкции см. в статье [Установка и настройка Azure PowerShell](../install-configure-powershell.md).
+
+
+##См. статью "Установка Azure PowerShell 1.0 и более поздних версий".
+
+Сначала необходимо удалить версии 0.9x Azure PowerShell. Чтобы узнать установленную версию PowerShell, выполните следующую команду в окне PowerShell:
+
+	Get-Module *azure*
+	
+Чтобы удалить старую версию, откройте панель управления, запустите компонент **Программы и компоненты** и удалите установленную версию, если она предшествует PowerShell 1.0.
+
+Существует два основных варианта установки Azure PowerShell.
+
+- [Коллекция PowerShell](https://www.powershellgallery.com/). Выполните следующие команды из интегрированной среды сценариев с повышенными привилегиями PowerShell или консоли Windows PowerShell с повышенными привилегиями:
+
+		# Install the Azure Resource Manager modules from PowerShell Gallery
+		Install-Module AzureRM
+		Install-AzureRM
+		
+		# Install the Azure Service Management module from PowerShell Gallery
+		Install-Module Azure
+		
+		# Import AzureRM modules for the given version manifest in the AzureRM module
+		Import-AzureRM
+		
+		# Import Azure Service Management module
+		Import-Module Azure
+
+	Дополнительные сведения см. в статье [Коллекция PowerShell](https://www.powershellgallery.com/).
+
+- [Установщик веб-платформы Майкрософт (WebPI)](http://aka.ms/webpi-azps). Если вы установили Azure PowerShell 0.9.x, появится запрос для удаления версии 0.9.x. Если вы установили модули Azure PowerShell из коллекции PowerShell, установщик требует удалить эти модули перед установкой, чтобы обеспечить целостность среды PowerShell Azure. Инструкции см. в разделе [Установка Azure PowerShell 1.0 с помощью установщика веб-платформы](https://azure.microsoft.com/blog/azps-1-0/).
+
+Обновления для установщика веб-платформы будут выпускаться ежемесячно. Обновления для коллекции PowerShell будут выпускаться на постоянной основе. Если вы решите использовать для установки коллекцию PowerShell, она станет основным источником всего нового и лучшего в Azure PowerShell.
  
 
 ## Создание хранилища озера данных Azure
@@ -85,7 +116,7 @@
 
 		Test-AzureRmDataLakeStoreAccount -Name $dataLakeStoreName
 
-	Командлет должен возвратить результат **True**.
+	Результат должен иметь значение **True**.
 
 4. Отправьте пример данных в озеро данных Azure. Позже мы проверим, доступны ли эти данные из кластера HDInsight. Если у вас нет под рукой подходящих для этих целей данных, передайте папку **Ambulance Data** из [репозитория Git для озера данных Azure](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
 
@@ -116,13 +147,13 @@
 
 		makecert -sv mykey.pvk -n "cn=HDI-ADL-SP" CertFile.cer -b $startDate -e $endDate -r -len 2048
 
-	Вам будет предложено ввести пароль для закрытого ключа. После успешного выполнения команды в указанном каталоге должны появиться файлы **CertFile.cer** и **mykey.pvk**.
+	Вам будет предложено ввести пароль для закрытого ключа. После успешного выполнения команды в указанном каталоге сертификатов должны появиться файлы **CertFile.cer** и **mykey.pvk**.
 
-4. С помощью служебной программы [Pvk2Pfx][pvk2pfx] преобразуйте созданные программой MakeCert файлы PVK и CER в файл PFX. Выполните следующую команду:
+4. С помощью служебной программы [Pvk2Pfx][pvk2pfx] преобразуйте созданные программой MakeCert PVK- и CER-файлы в PFX-файл. Выполните следующую команду:
 
 		pvk2pfx -pvk mykey.pvk -spc CertFile.cer -pfx CertFile.pfx -po <password>
 
-	При появлении соответствующего запроса введите указанный ранее пароль для закрытого ключа. Значение, указываемое для параметра **-po** — это пароль, связанный с файлом PFX. После успешного выполнения команды вы должны увидеть в указанном каталоге сертификата файл CertFile.pfx.
+	При появлении соответствующего запроса введите указанный ранее пароль для закрытого ключа. Значение, указываемое для параметра **-po** — это пароль, связанный с PFX-файлом. После успешного выполнения команды вы должны увидеть в указанном каталоге сертификата файл CertFile.pfx.
 
 ###  Создание приложения в Azure Active Directory и субъекта-службы
 
@@ -265,7 +296,7 @@
 
 Настроив в кластере HDInsight параметры для работы с хранилищем озера данных, используйте для доступа к хранилищу команды оболочки HDFS.
 
-1. Перейдите на новый [портал Azure](https://portal.azure.com).
+1. Войдите на новый [портал Azure](https://portal.azure.com).
 
 2. Последовательно щелкните **Обзор** и **Кластеры HDInsight**, а затем выберите кластер HDInsight, который вы создали.
 
@@ -285,13 +316,13 @@
 		Found 1 items
 		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/vehicle1_09142014.csv
 
-	С помощью команды `hdfs dfs -put` вы можете отправить в озеро данных Azure новые файлы, а затем с помощью команды `hdfs dfs -ls` проверить, успешно ли они передались.
+	С помощью команды `hdfs dfs -put` вы можете отправить файлы в озеро данных Azure, а затем с помощью команды `hdfs dfs -ls` проверить, успешно ли они передались.
 
 ## См. также
 
 * [Портал: создание кластера HDInsight для работы с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-[makecert]: https://msdn.microsoft.com/ru-RU/library/windows/desktop/ff548309(v=vs.85).aspx
-[pvk2pfx]: https://msdn.microsoft.com/ru-RU/library/windows/desktop/ff550672(v=vs.85).aspx
+[makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
+[pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

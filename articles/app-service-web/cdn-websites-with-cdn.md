@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="12/08/2015" 
 	ms.author="cephalin"/>
 
 
@@ -39,7 +39,7 @@
 Для работы с этим учебником необходимы следующие компоненты.
 
 -	Активная [учетная запись Microsoft Azure](/account/).
--	Visual Studio 2013 с [пакетом Azure SDK для .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
+-	Visual Studio 2015 с [пакетом Azure SDK для .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) Если вы используете Visual Studio, действия могут отличаться.
 
 > [AZURE.NOTE]Для выполнения этого учебника необходима учетная запись Azure.
 > + Вы можете [открыть учетную запись Azure бесплатно](/pricing/free-trial/?WT.mc_id=A261C142F) — вы получаете кредиты, которые можно использовать для опробования платных служб Azure, и даже после израсходования кредитов вы сохраняете учетную запись и возможность использовать бесплатные службы Azure, такие как веб-сайты.
@@ -51,31 +51,28 @@
 
 В этом разделе вы будете развертывать шаблон приложения MVC ASP.NET по умолчанию в Visual Studio 2013 в службе приложений Azure, а интегрируете его с новой конечной точкой CDN. Выполните приведенные далее инструкции.
 
-1. В Visual Studio 2013 создайте новое веб-приложение ASP.NET, последовательно выбрав в строке меню **Файл -> Создать -> Проект > Интернет -> Веб-приложение ASP.NET**. Назначьте ей имя и нажмите кнопку **ОК**.
+1. В Visual Studio 2015 создайте новое веб-приложение ASP.NET, последовательно выбрав в строке меню **Файл -> Создать -> Проект > Интернет -> Веб-приложение ASP.NET**. Назначьте ей имя и нажмите кнопку **ОК**.
 
 	![](media/cdn-websites-with-cdn/1-new-project.png)
 
-3. Выберите **MVC** и щелкните **Управление подписками**.
+3. Выберите **MVC** и нажмите кнопку **ОК**.
 
 	![](media/cdn-websites-with-cdn/2-webapp-template.png)
 
-4. Щелкните **Войти**.
+4. Если вы еще не выполнили вход в учетную запись Azure, щелкните значок учетной записи в правом верхнем углу и следуйте инструкциям в диалоговом окне для входа в учетную запись Azure. После этого настройте свое приложение, как показано ниже, а затем щелкните **Создать**, чтобы создать новый план службы приложений для вашего приложения.
 
-	![](media/cdn-websites-with-cdn/3-manage-subscription.png)
+	![](media/cdn-websites-with-cdn/3-configure-webapp.png)
 
-6. На странице входа войдите с учетной записью Майкрософт, которая использовалась для активации учетной записи Azure.
-7. После входа нажмите кнопку **Закрыть**. Затем нажмите кнопку **ОК** для продолжения.
+5. Настройте новый план службы приложений в диалоговом окне, как показано ниже, и нажмите кнопку **ОК**.
 
-	![](media/cdn-websites-with-cdn/4-signed-in.png)
+	![](media/cdn-websites-with-cdn/4-app-service-plan.png)
 
-8. Предположим, что вы не создали веб-приложение в Azure. Visual Studio может помочь создать его. В диалоговом окне **настройки веб-сайта Microsoft Azure** убедитесь, что имя вашего сайта является уникальным. Затем нажмите кнопку **ОК**.
+8. Нажмите кнопку **Создать**, чтобы создать веб-приложение.
 
-	<!--todo: need 2.5.1 screenshot-->
 	![](media/cdn-websites-with-cdn/5-create-website.png)
 
-9. Создав приложение ASP.NET, опубликуйте его в Azure в области действий веб-публикации, щелкнув **Опубликовать `<app name>` на этом сайте сейчас**. Для завершения процесса нажмите **Опубликовать**.
+9. Создав приложение ASP.NET, опубликуйте его в Azure в области действий службы приложений Azure, щелкнув **Опубликовать `<app name>` на этом сайте**. Для завершения процесса нажмите **Опубликовать**.
 
-	<!--todo: need 2.5.1 screenshot-->
 	![](media/cdn-websites-with-cdn/6-publish-website.png)
 
 	После завершения публикации вы увидите опубликованное веб-приложение в браузере.
@@ -382,7 +379,7 @@
 
           // Use the development version of Modernizr to develop with and learn from. Then, when you're
           // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")).Include(
+          bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizr")).Include(
                 "~/Scripts/modernizr-*"));
 
           bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")).Include(
@@ -542,11 +539,11 @@
 	...
 	```
 
-	Обратите внимание, что внедренный скрипт для пакета CSS по-прежнему содержит ошибочный фрагмент из свойства `CdnFallbackExpression` в следующей строке:
+	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	Но поскольку первая часть выражения '||' будет всегда возвращать значение true (в строке прямо над этой), функция document.write() никогда не будет выполняться.
+	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
 
 6. Чтобы проверить, правильно ли работает сценарий резервного действия, вернитесь в панель мониторинга своей конечной точки CDN и щелкните **Отключить конечную точку**.
 
@@ -566,4 +563,4 @@
 * Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

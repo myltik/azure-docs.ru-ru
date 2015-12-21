@@ -16,7 +16,7 @@
     ms.date="11/30/2015" 
     ms.author="robmcm"/>
 
-<!-- Legacy MSDN URL = https://msdn.microsoft.com/ru-RU/library/azure/dn268601.aspx -->
+<!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/dn268601.aspx -->
 
 # Развертывание крупных систем #
 
@@ -55,4 +55,4 @@
 
 [ic667943]: ./media/azure-toolkit-for-eclipse-deploying-large-deployments/ic667943.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

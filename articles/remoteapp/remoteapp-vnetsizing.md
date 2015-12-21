@@ -1,19 +1,19 @@
 
-<properties 
-    pageTitle="Выбор размера виртуальной сети при работе в среде Azure RemoteApp"
-    description="Узнайте о требованиях к IP-адресам для Azure RemoteApp в виртуальной сети" 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Выбор размера виртуальной сети при работе в среде Azure RemoteApp | Microsoft Azure"
+    description="Узнайте о требованиях к IP-адресам для Azure RemoteApp в виртуальной сети"
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/02/2015" 
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="12/05/2015"
     ms.author="elizapo" />
 
 
@@ -28,7 +28,5 @@
 
 - [Переход с личной виртуальной сети на виртуальную сеть Azure](remoteapp-migratevnet.md)
 - [Проверка виртуальной сети Azure для использования с Azure RemoteApp](remoteapp-vnet.md)
-  
- 
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

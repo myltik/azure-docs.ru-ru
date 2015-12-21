@@ -20,7 +20,8 @@
 # Загрузка данных с помощью PolyBase
 Технология PolyBase позволяет создавать запросы и объединять данные из разных источников с помощью команд Transact-SQL.
 
-PolyBase позволяет запрашивать данные в хранилище больших двоичных объектов Azure и загружать их в базу данных хранилища данных SQL с помощью следующих действий.
+PolyBase позволяет запрашивать данные в хранилище больших двоичных объектов Azure и загружать их в базу данных хранилища данных SQL с 
+помощью следующих действий.
 
 - Создание главного ключа базы данных и учетных данных.
 - Создание объектов PolyBase: внешний источник данных, формат внешнего файла и внешняя таблица. 
@@ -210,7 +211,7 @@ SELECT * FROM [ext].[CarSensor_Data]
 
 ```
 
-> [AZURE.NOTE]Запрос к внешней таблице может завершиться с ошибкой *Запрос прерван — достигнуто максимальное число отклонений при чтении из внешнего источника*. Это означает, что внешние данные содержат *"грязные"* записи. Запись данных считается "грязной", если фактические типы данных и количество столбцов не соответствуют определениям столбцов из внешней таблицы или если данные не соответствуют указанному формату внешнего файла. Чтобы устранить эту проблему, убедитесь в правильности определений внешней таблицы и формата внешнего файла, а также в том, что внешние данные соответствуют этим определениям. Если подмножество записей внешних данных "грязные", можно отклонить эти записи для запросов с помощью параметров отклонения в CREATE EXTERNAL TABLE DDL.
+> [AZURE.NOTE]Запрос к внешней таблице может завершиться с ошибкой *"Запрос прерван — достигнуто максимальное число отклонений при чтении из внешнего источника"*. Это означает, что внешние данные содержат *"грязные"* записи. Запись данных считается "грязной", если фактические типы данных и количество столбцов не соответствуют определениям столбцов из внешней таблицы или если данные не соответствуют указанному формату внешнего файла. Чтобы устранить эту проблему, убедитесь в правильности определений внешней таблицы и формата внешнего файла, а также в том, что внешние данные соответствуют этим определениям. Если подмножество записей внешних данных "грязные", можно отклонить эти записи для запросов с помощью параметров отклонения в CREATE EXTERNAL TABLE DDL.
 
 
 ## Загрузка данных из хранилища больших двоичных объектов Azure
@@ -355,13 +356,13 @@ $write.Dispose()
 [CREATE EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/dn935026(v=sql.130).aspx
 [CREATE EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/dn935021(v=sql.130).aspx
 
-[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/ru-RU/library/mt146367.aspx
-[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/ru-RU/library/mt146379.aspx
-[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/ru-RU/library/mt130698.aspx
+[DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/library/mt146367.aspx
+[DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/library/mt146379.aspx
+[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/library/mt130698.aspx
 
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/ru-RU/library/ms174382.aspx
-[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ru-RU/library/ms189522.aspx
-[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ru-RU/library/ms189450.aspx
+[CREATE MASTER KEY (Transact-SQL)]: https://msdn.microsoft.com/library/ms174382.aspx
+[CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189522.aspx
+[DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
-<!-----HONumber=Nov15_HO3-->
+<!-----HONumber=AcomDC_1210_2015-->

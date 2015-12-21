@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="12/09/2015"
    ms.author="guayan"/>
 
 # Регистрация API, размещенных в среде службы приложений
@@ -27,11 +27,11 @@ PowerApps поддерживает регистрацию существующи
 
 Для использования API в приложениях их необходимо зарегистрировать на портале Azure. Доступны следующие параметры:
 
-- Зарегистрируйте [API, управляемый корпорацией Майкрософт, или API, управляемый ИТ-службой](powerapps-register-from-available-apis.md).
-- Зарегистрируйте API, размещенный в среде службы приложений.
-- Зарегистрируйте API с помощью [определения API Swagger 2.0](powerapps-register-existing-api-from-api-definition.md).
+- Регистрация предварительно созданных [API, управляемых корпорацией Майкрософт, и API, управляемых ИТ-службой](powerapps-register-from-available-apis.md).
+- Регистрация веб-приложения, приложения API или мобильного приложения, размешенного в среде службы приложений (в данном разделе).
+- Регистрация собственного API Swagger с помощью [определения API Swagger 2.0](powerapps-register-existing-api-from-api-definition.md).
 
-В этой статье описывается процедура **регистрации API, размещенного в среде службы приложений**.
+В этой статье описывается процедура **регистрации веб-приложения, приложения API или мобильного приложения, размещенного в среде службы приложений**.
 
 #### Предварительные требования для начала работы
 
@@ -67,8 +67,9 @@ PowerApps поддерживает регистрацию существующи
 ## Сводка и дальнейшие действия
 В этом разделе вы узнали, как зарегистрировать API, размещенный в среде службы приложений. Ниже приведены некоторые связанные разделы и ресурсы для подробного изучения PowerApps.
 
-- [Настройка API](../powerapps-configure-apis.md)
-- [Добавление API](../powerapps-register-from-available-apis.md)
+- [Настройка свойств API](powerapps-configure-apis.md)
+- [Предоставление пользователям доступа к API](powerapps-manage-api-connection-user-access.md)
+- [Создание собственных приложений PowerApps](https://powerapps.microsoft.com/tutorials/)
 
 <!--Reference-->
 [11]: ./media/powerapps-register-api-hosted-in-app-service/registered-apis-part.png
@@ -76,4 +77,4 @@ PowerApps поддерживает регистрацию существующи
 [13]: ./media/powerapps-register-api-hosted-in-app-service/add-api-blade.png
 [14]: ./media/powerapps-register-api-hosted-in-app-service/add-api-select-from-ase.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

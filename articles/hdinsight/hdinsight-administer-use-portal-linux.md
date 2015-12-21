@@ -73,7 +73,7 @@
 
 	* [Использование SSH с Hadoop под управлением Linux в HDInsight в Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Использование SSH с Hadoop под управлением Linux в HDInsight в Windows](hdinsight-hadoop-linux-use-ssh-windows)
+	* [Использование SSH с Hadoop под управлением Linux в HDInsight в Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 7. Выберите запись __Источник данных__, чтобы выбрать существующий источник данных или создать новый.
 
@@ -188,9 +188,9 @@
 * [Администрирование HDInsight с помощью CLI Azure](hdinsight-administer-use-command-line.md)
 * [Подготовка кластеров HDInsight к работе](hdinsight-provision-clusters.md)
 * [Отправка заданий Hadoop в HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Начало работы с Azure HDInsight](../hdinsight-get-started.md)
+* [Начало работы с Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Какая версия Hadoop включена в Azure HDInsight?](hdinsight-component-versioning.md)
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

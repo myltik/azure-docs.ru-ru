@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/29/2015"
+   ms.date="12/09/2015"
    ms.author="guayan"/>
 
 # Регистрация API, управляемого корпорацией Майкрософт, или API, управляемого ИТ-службой
@@ -24,11 +24,11 @@ API, управляемые ИТ-службами, позволяют контр
 
 Для использования API, **управляемых корпорацией Майкрософт** или **ИТ-службами**, необходимо зарегистрировать API на портале Azure. После регистрации вы сможете использовать API в своих приложениях. Доступны следующие параметры:
 
-- Регистрация API, управляемого корпорацией Майкрософт, или API, управляемого ИТ-службой
-- Регистрация API, размещенного в [среде службы приложений](powerapps-register-api-hosted-in-app-service.md)
-- Регистрация API с помощью [определения API Swagger 2.0](powerapps-register-existing-api-from-api-definition.md)
+- Регистрация предварительно созданных API, управляемых корпорацией Майкрософт, и API, управляемых ИТ-службой.
+- Регистрация веб-приложения, приложения API или мобильного приложения, размешенного в [среде службы приложений](powerapps-register-api-hosted-in-app-service.md).
+- Регистрация собственного API Swagger с помощью [определения API Swagger 2.0](powerapps-register-existing-api-from-api-definition.md).
 
-В этой статье рассматривается **регистрация API, управляемых корпорацией Майкрософт, и API, управляемых ИТ-службами**.
+В этой статье рассматривается **регистрация предварительно созданных API, управляемых корпорацией Майкрософт, и API, управляемых ИТ-службами**.
 
 #### Предварительные требования для начала работы
 
@@ -124,8 +124,11 @@ API | Описание | Ссылка на инструкции
 
 В этом разделе было показано, как зарегистрировать собственный экземпляр доступных API, включенных в PowerApps. Ниже приведены некоторые связанные разделы и ресурсы для подробного изучения PowerApps.
 
-- [Настройка API](powerapps-configure-apis.md)
-- [Добавление API](powerapps-register-from-available-apis.md)
+
+- [Настройка свойств API](powerapps-configure-apis.md)
+- [Предоставление пользователям доступа к API](powerapps-manage-api-connection-user-access.md)
+- [Создание собственных приложений PowerApps](https://powerapps.microsoft.com/tutorials/)
+
 
 <!--References-->
 
@@ -148,4 +151,4 @@ API | Описание | Ссылка на инструкции
 [42]: ./media/powerapps-register-from-available-apis/sqlserver.png
 [43]: ./media/powerapps-register-from-available-apis/twitter.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

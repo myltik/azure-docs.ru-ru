@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="11/30/2015" 
 	ms.author="glenga"/>
 
 # Добавление проверки подлинности к приложению мобильных служб 
@@ -35,7 +35,7 @@
 
 3. Запустите в подпапке **server** каталога приложения один из следующих файлов команд.
 
-	+ **.\\start-iisexpress.ps1** (компьютеры с ОС Windows) 
+	+ **launch-windows** (компьютеры с ОС Windows) 
 	+ **launch-mac.command** (компьютеры с ОС Mac OS X)
 	+ **launch-linux.sh** (компьютеры с ОС Linux)
 
@@ -135,4 +135,4 @@
 [Справочник принципов использования мобильных служб HTML/JavaScript]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

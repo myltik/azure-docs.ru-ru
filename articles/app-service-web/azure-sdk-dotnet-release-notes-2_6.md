@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="12/01/2015"
+   ms.date="12/02/2015"
    ms.author="juliako"/>
 
 
@@ -62,6 +62,8 @@
 
 	В настоящее время хранилище Azure Storage версии 2011-08-18 должно прекратить существование 1 августа 2016 года. Необходимо завершить всю миграцию кэша роли с пакетом Azure SDK 2.5 или более поздних до версии 2.6 к этому сроку. Для получения дополнительных сведений об окончании срока действия хранилища Azure версии 2011-08-18 см. [Удаление версии службы хранилища Microsoft Azure с целью обновления: продление срока до 2016 года](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
+>[AZURE.IMPORTANT]Мы объявляем о прекращении поддержки управляемой службы кэша Azure и кэша роли Azure 30 ноября 2016 г. В процессе подготовки к завершению использования рекомендуется перейти на кэш Redis для Azure. Дополнительные сведения о датах и руководства по миграции см. в разделе [Какой кэш Azure подходит мне лучше всего?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
+
 ##Средства службы приложений Azure
 
 Указанные ниже компоненты были обновлены в пакете SDK Azure версии 2.6.
@@ -106,4 +108,4 @@
 
 [Сведения о поддержке и прекращении использования пакета Azure SDK для .NET и API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

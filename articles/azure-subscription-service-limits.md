@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/17/2015"
+	ms.date="12/03/2015"
 	ms.author="jroth"/>
 
 # Подписка Azure, границы, квоты и ограничения службы
@@ -179,9 +179,17 @@
 
 ### Ограничение поиска
 
-[AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
+Ценовая категория определяет емкость и ограничения службы поиска.
 
-Дополнительные сведения об ограничениях для общей службы и разделении ограничений для ключей, запросов и ответов см. в статье [Ограничения поиска Azure](search/search-limits-quotas-capacity.md).
+####Уровень Standard
+
+[AZURE.INCLUDE [azure-search-limits-standard](../includes/azure-search-limits-standard.md)]
+
+####Уровень Shared (часть многопользовательской службы, бесплатной для подписчиков Azure)
+
+[AZURE.INCLUDE [azure-search-limits-free](../includes/azure-search-limits-free.md)]
+
+Дополнительные сведения об ограничениях на ключи, сочетания реплик и разделов, запросы, ответы и о том, как добиться высокого уровня доступности для разных рабочих нагрузок, см. в разделе [Ограничения поиска Azure](search/search-limits-quotas-capacity.md).
 
 ### Ограничения служб мультимедиа
 
@@ -272,4 +280,4 @@
 
 [Размеры виртуальных машин и облачных служб для Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1210_2015-->

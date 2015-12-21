@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/24/2015"
+   ms.date="12/04/2015"
    ms.author="mbaldwin"/>
 
 # Устранение неполадок: элемент Active Directory отсутствует или недоступен
@@ -54,4 +54,4 @@
 
 ![Снимок экрана: Active Directory недоступен](./media/active-directory-troubleshooting/not-available.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

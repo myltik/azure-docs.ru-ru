@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/24/2015" 
+	ms.date="12/03/2015" 
 	ms.author="mandia"/>
 
 
@@ -41,7 +41,7 @@
 2. В левой панели навигации щелкните **Службы BizTalk**, а затем выберите нужную службу BizTalk. 
 
 	Если служба BizTalk отсутствует, можно создать ее с помощью команды [Создать службу BizTalk](biztalk-provision-services.md).
-3. Выберите вкладку "Гибридные подключения": ![вкладка "Гибридные подключения"][HybridConnectionTab]
+3. Откройте вкладку **Гибридные подключения**: ![вкладка "Гибридные подключения"][HybridConnectionTab]
 
 4. Щелкните **Создать гибридное подключение** или нажмите кнопку **ДОБАВИТЬ** в области задач. Заполните следующие поля:
 
@@ -70,9 +70,9 @@
 
 После создания гибридного подключения необходимо установить диспетчер гибридных подключений на локальном ресурсе. Его можно скачать из веб-приложения Azure или из службы BizTalk. Действия, выполняемые в службе BizTalk:
 
-1. Перейдите на [классический портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+1. Войдите на [классический портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. В левой панели навигации щелкните **Службы BizTalk**, а затем выберите нужную службу BizTalk. 
-3. Выберите вкладку **Гибридные подключения**: ![вкладка "Гибридные подключения"][HybridConnectionTab]
+3. Откройте вкладку **Гибридные подключения**: ![вкладка "Гибридные подключения"][HybridConnectionTab]
 4. На панели задач нажмите кнопку **Настройка локального подключения**: ![Локальная установка][HCOnPremSetup]
 5. Щелкните **Установить и настроить**, чтобы запустить или загрузить диспетчер гибридных подключений в локальной системе. 
 6. Установите флажок для запуска процесса установки. 
@@ -112,9 +112,9 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 #### Копирование или повторное создание строк гибридных подключений
 
-1. Перейдите на [классический портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+1. Войдите на [классический портал Azure](http://go.microsoft.com/fwlink/p/?LinkID=213885).
 2. В левой панели навигации щелкните **Службы BizTalk**, а затем выберите нужную службу BizTalk. 
-3. Выберите вкладку **Гибридные подключения**: ![вкладка "Гибридные подключения"][HybridConnectionTab]
+3. Откройте вкладку **Гибридные подключения**: ![вкладка "Гибридные подключения"][HybridConnectionTab]
 4. Выберите гибридное подключение. На панели задач нажмите кнопку **Управление подключением**: ![Управление параметрами][HCManageConnection]
 
 	В разделе **Управление подключением** содержится перечень строк подключения к приложению и локальных строк подключения. Вы можете скопировать сроки подключений или повторно создать ключ доступа, используемый в строке подключения.
@@ -143,11 +143,11 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 
 ## См. также
 
-[REST API для управления службами BizTalk в Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx) [Службы BizTalk. Диаграмма выпусков](biztalk-editions-feature-chart.md) [Создание службы BizTalk с помощью классического портала Azure](biztalk-provision-services.md) [Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"](biztalk-dashboard-monitor-scale-tabs.md)
+[REST API для управления службами BizTalk в Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx) [Службы BizTalk: диаграмма выпусков](biztalk-editions-feature-chart.md) [Создание службы BizTalk с помощью классического портала Azure](biztalk-provision-services.md) [Службы BizTalk: вкладки "Панель мониторинга", "Монитор" и "Масштаб"](biztalk-dashboard-monitor-scale-tabs.md)
 
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

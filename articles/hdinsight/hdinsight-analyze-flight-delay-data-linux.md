@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/09/2015" 
+	ms.date="12/04/2015" 
 	ms.author="larryfr"/>
 
 #Анализ данных о задержке рейсов с помощью Hive в HDInsight
@@ -31,7 +31,7 @@
 
 - __Кластер HDInsight__. Действия для создания нового кластера HDInsight см. в разделе [Приступая к работе с Hadoop с Hive в HDInsight на платформе Linux](hdinsight-hadoop-linux-tutorial-get-started.md).
 
-- __База данных SQL Azure__. Вы будете использовать базу данных SQL Azure в качестве конечного хранилища данных. Если у вас еще нет базы данных SQL Azure, см. раздел [Создание и настройка базы данных SQL Azure](../sql-database/sql-database-create-configure.md).
+- __База данных SQL Azure__. Вы будете использовать базу данных SQL Azure в качестве конечного хранилища данных. Если у вас еще нет базы данных SQL, см. раздел [Создание базы данных SQL Azure](../sql-database/sql-database-create.md).
 
 - __Azure CLI__. Если вы еще не установили Azure CLI, см. раздел [Установка и настройка CLI Azure](../xplat-cli-install.md).
 
@@ -63,7 +63,7 @@
 	
 	* [Использование SSH с Hadoop под управлением Linux в HDInsight в Linux, Unix или OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-	* [Использование SSH с Hadoop под управлением Linux в HDInsight в Windows](hdinsight-hadoop-linux-use-ssh-windows)
+	* [Использование SSH с Hadoop под управлением Linux в HDInsight в Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 	
 3. После установления подключения используйте следующую команду, чтобы распаковать ZIP-файл:
 
@@ -285,7 +285,6 @@
 
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
-[powershell-install-configure]: ../install-configure-powershell.md
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
@@ -305,4 +304,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

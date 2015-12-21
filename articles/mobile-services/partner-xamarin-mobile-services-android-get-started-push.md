@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="12/07/2015"
 	ms.author="glenga"/>
 
 # Добавление push-уведомлений к приложению мобильных служб
@@ -45,7 +45,7 @@
 
 ##<a id="update-scripts"></a>Обновление зарегистрированного скрипта вставки для отправки уведомлений
 
->[AZURE.TIP]Ниже показано, как обновить скрипт, зарегистрированный для операции вставки в таблице TodoItem на классическом портале Azure. Вы также можете вызвать и изменить этот скрипт мобильной службы непосредственно в Visual Studio на узле Azure в обозревателе сервера.
+>[AZURE.TIP]Ниже показано, как на классическом портале Azure обновить сценарий, зарегистрированный для операции вставки в таблице TodoItem. Вы также можете вызвать и изменить этот скрипт мобильной службы непосредственно в Visual Studio на узле Azure в обозревателе сервера.
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
@@ -87,4 +87,4 @@
 [Xamarin.Android]: http://xamarin.com/download/
 [мобильные службы Azure]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

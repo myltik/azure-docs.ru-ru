@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="12/07/2015" 
 	ms.author="sdanie"/>
 
 # Авторизация учетных записей разработчиков с помощью Azure Active Directory в управлении API Azure
@@ -26,7 +26,7 @@
 
 ## Авторизация учетных записей разработчиков с помощью Azure Active Directory
 
-Чтобы приступить к работе, на портале Azure нажмите кнопку **Manage** (Управление) для вашей службы управления API. Будет открыт портал издателя службы управления API.
+Для начала на классическом портале Azure для службы управления API щелкните **Управление**. Будет открыт портал издателя службы управления API.
 
 ![Портал издателя][api-management-management-console]
 
@@ -36,7 +36,7 @@
 
 ![Внешние удостоверения][api-management-security-external-identities]
 
-Установите флажок **Azure Active Directory** Запишите **URL-адрес перенаправления** и переключитесь в Azure Active Directory на портале Azure.
+Установите флажок **Azure Active Directory** Запишите **URL-адрес перенаправления** и переключитесь в Azure Active Directory на классическом портале Azure.
 
 ![Внешние удостоверения][api-management-security-aad-new]
 
@@ -228,4 +228,4 @@
 
 [Вход на портал разработчика с помощью учетной записи Azure Active Directory]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/27/2015" 
+	ms.date="12/07/2015" 
 	ms.author="mahender"/>
 
 # Добавление проверки подлинности в приложение Xamarin.Android
@@ -97,7 +97,11 @@
             android:onClick="LoginUser"
             android:text="@string/login_button_text" />
 
-4. В Visual Studio или Xamarin Studio запустите клиентский проект на устройстве или в эмуляторе либо выполните вход с помощью выбранного поставщика удостоверений.
+5. Добавьте следующий элемент в файл ресурсов Strings.xml:
+
+		<string name="login_button_text">Sign in</string> 
+
+6. В Visual Studio или Xamarin Studio запустите клиентский проект на устройстве или в эмуляторе либо выполните вход с помощью выбранного поставщика удостоверений.
 
    	После успешного выполнения входа в приложении отобразится ваш идентификатор для входа и список элементов задач, и вы сможете внести изменения в данные.
 
@@ -106,4 +110,4 @@
 [Создание приложения Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md
  
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015--->

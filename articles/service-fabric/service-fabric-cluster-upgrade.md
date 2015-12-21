@@ -66,6 +66,8 @@
 
 ![CertificateUpgrade][CertificateUpgrade]
 
+**Примечание**. Перед идентификацией сертификатов, которые вы хотите использовать в ресурсах кластеров, необходимо выполнить описанные ниже действия, иначе новый сертификат использоваться не будет. 1) Загрузите новый сертификат в хранилище ключей — инструкции см. в документе [Защита Service Fabric](service-fabric-cluster-security.md) (начните с шага 2). 2) Обновите все виртуальные машины в составе кластера, чтобы развернуть на них сертификат. Инструкции см. в [этой записи блога](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
+
 ### Порты приложения
 
 Это можно сделать, изменив свойства ресурса балансировщика нагрузки, связанные с типом узла. Можно использовать портал или ARM PowerShell.
@@ -113,4 +115,4 @@
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

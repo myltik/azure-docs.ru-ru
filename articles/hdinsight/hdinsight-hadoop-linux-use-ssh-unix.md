@@ -107,7 +107,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 ###Интерфейс командной строки Azure для Mac, Linux и Windows
 
-Вы можете использовать [интерфейс командной строки Azure для Mac, Linux и Windows](../xplat.md) для создания нового кластера с помощью команды `azure hdinsight cluster create`.
+Вы можете использовать [интерфейс командной строки Azure для Mac, Linux и Windows](../xplat-cli.md) для создания нового кластера с помощью команды `azure hdinsight cluster create`.
 
 Дополнительные сведения об использовании этой команды см. в статье [Подготовка кластеров Hadoop под управлением Linux в HDInsight с помощью настраиваемых параметров](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -238,4 +238,4 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

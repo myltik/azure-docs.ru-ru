@@ -28,7 +28,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-migrate-vs-upgrade](../../includes/app-service-mobile-migrate-vs-upgrade.md)]
 
->[AZURE.TIP]Перед обновлением рекомендуем [выполнить миграцию](app-service-mobile-dotnet-backend-migrating-from-mobile-services.md). Таким образом, к обеим версиям приложения будет применен один тарифный план службы, а дополнительные затраты будут исключены.
+>[AZURE.TIP]Перед обновлением рекомендуется [выполнить миграцию](app-service-mobile-migrating-from-mobile-services.md). Таким образом, к обеим версиям приложения будет применен один тарифный план службы, а дополнительные затраты будут исключены.
 
 ### Улучшения в пакете SDK сервера Node.js мобильных приложений
 
@@ -244,10 +244,9 @@ CORS можно включить с помощью [параметра конф�
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [планировщике Azure]: /ru-RU/documentation/services/scheduler/
 [веб-задание]: ../app-service-web/websites-webjobs-resources.md
-[Send cross-platform push notifications]: app-service-mobile-xamarin-ios-push-notifications-to-user.md
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
-[Migrate your existing Mobile Service to App Service]: app-service-mobile-dotnet-backend-migrating-from-mobile-services.md
+[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
+[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [ценами службы приложений]: https://azure.microsoft.com/ru-RU/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
@@ -266,4 +265,4 @@ CORS можно включить с помощью [параметра конф�
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

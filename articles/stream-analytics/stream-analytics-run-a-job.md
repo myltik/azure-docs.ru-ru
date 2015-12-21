@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Выполнение задания | Microsoft Azure" 
-	description="Выполнение задания Stream Analytics | Сегмент схемы обучения"
+	pageTitle="Запуск заданий потоковой передачи в Stream Analytics | Microsoft Azure" 
+	description="Выполнение задания потоковой передачи в Azure Stream Analytics | сегмент схемы обучения."
+    keywords="задания потоковой передачи"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -13,34 +14,34 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
-# Выполнение задания Stream Analytics
+# Выполнение задания потоковой передачи в Azure Stream Analytics
 
 После указания входных данных, запроса и выходных данных вы можете запустить задание Stream Analytics.
 
 Для запуска задания:
 
-1.	На панели мониторинга заданий классического портала Azure нажмите кнопку **Начало** в нижней части страницы.
+1.	На панели мониторинга заданий портала Azure нажмите **Запустить** в нижней части страницы.
 
-    ![Кнопка "Начало"](./media/stream-analytics-run-a-job/1-stream-analytics-run-a-job.png)
+    ![Кнопка запуска задания](./media/stream-analytics-run-a-job/1-stream-analytics-run-a-job.png)
 
-    На портале Azure нажмите **Запустить** в верхней части страницы вашего задания.
+    На портале предварительной версии Azure нажмите **Запустить** в верхней части страниц заданий.
 
-    ![Кнопка "Начало" на портале Azure](./media/stream-analytics-run-a-job/4-stream-analytics-run-a-job.png)
+    ![Кнопка запуска задания на портале предварительной версии Azure](./media/stream-analytics-run-a-job/4-stream-analytics-run-a-job.png)
 
 2.	Укажите значение параметра **Начало передачи выходных данных**, чтобы определить время, когда задание начнет выдавать выходные данные. Для заданий, которые не были запущены ранее, значение по умолчанию — **Время начала задания**, то есть задание начнет обработку данных немедленно. Вы также можете указать **Настраиваемое** время в прошлом (для использования данных за прошедший период) или в будущем (для задержки обработки до будущего времени). В случаях, когда задание было запущено и остановлено ранее, становится доступен параметр **Время последней остановки**, который позволяет возобновить задание с момента последнего вывода и избежать потери данных.
 
-    ![Время начала](./media/stream-analytics-run-a-job/2-stream-analytics-run-a-job.png)
+    ![Время запуска задания потоковой передачи](./media/stream-analytics-run-a-job/2-stream-analytics-run-a-job.png)
 
-    ![Время запуска на портале Azure](./media/stream-analytics-run-a-job/5-stream-analytics-run-a-job.png)
+    ![Время запуска задания потоковой передачи на портале предварительной версии Azure](./media/stream-analytics-run-a-job/5-stream-analytics-run-a-job.png)
 
 3.	Подтвердите выбор. Состояние задания изменится на *Запуск*, а после запуска задания — на *Выполняется*. Ход выполнения операции **Запуск** можно отслеживать в **центре уведомлений**:
 
-    ![Ход выполнения](./media/stream-analytics-run-a-job/3-stream-analytics-run-a-job.png)
+    ![ход выполнения задания потоковой передачи](./media/stream-analytics-run-a-job/3-stream-analytics-run-a-job.png)
 
-    ![Ход выполнения на портале Azure](./media/stream-analytics-run-a-job/6-stream-analytics-run-a-job.png)
+    ![Ход выполнения задания потоковой передачи на портале предварительной версии Azure](./media/stream-analytics-run-a-job/6-stream-analytics-run-a-job.png)
 
 ## Получение справки
 Дополнительную помощь и поддержку вы можете получить на нашем [форуме Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/ru-RU/home?forum=AzureStreamAnalytics).
@@ -53,4 +54,4 @@
 - [Справочник по языку запросов Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/05/2015"
+   ms.date="12/08/2015"
    ms.author="cherylmc"/>
 
 # Создание и изменение канала ExpressRoute с помощью PowerShell
@@ -108,11 +108,11 @@
 		$ServiceProvider = "Equinix"
 		$Location = "Silicon Valley"
 
-		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Standard
+		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Standard -BillingType MeteredData 
 
 	Если же вы хотите создать канал ExpressRoute с надстройкой Premium, воспользуйтесь приведенным ниже примером. Дополнительные сведения о надстройке Premium см. на странице [Вопросы и ответы по ExpressRoute](expressroute-faqs.md).
 
-		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Premium
+		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -sku Premium - BillingType MeteredData
 	
 	
 	Ответ будет содержать ключ службы. Подробное описание всех параметров можно получить, выполнив следующую команду:
@@ -327,6 +327,5 @@
 ## Дальнейшие действия
 
 - [Настройка маршрутизации](expressroute-howto-routing-classic.md)
-- [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

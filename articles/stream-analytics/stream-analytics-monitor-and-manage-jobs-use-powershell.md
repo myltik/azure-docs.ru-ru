@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Отслеживание заданий Stream Analytics и управление ими с помощью PowerShell | Microsoft Azure" 
 	description="Сведения об использовании Azure PowerShell и командлетов для отслеживания заданий Stream Analytics и управления ими." 
-	keywords="powershell azure, командлеты powershell azure, команда powershell"	
+	keywords="azure powershell, командлеты azure powershell, команда powershell, сценарии powershell"	
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,14 +14,13 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="11/17/2015" 
+	ms.date="12/04/2015" 
 	ms.author="jeffstok"/>
 
 
 # Отслеживание заданий Stream Analytics и управление ими с помощью командлетов Azure PowerShell
 
-Узнайте, как отслеживать ресурсы Stream Analytics и управлять ими с помощью командлетов Azure PowerShell, выполняющих базовые задания Stream Analytics.
-
+Узнайте, как отслеживать ресурсы Stream Analytics и управлять ими с помощью командлетов Azure PowerShell и сценариев PowerShell, выполняющих базовые задания Stream Analytics.
 
 ## Необходимые условия для запуска командлетов Azure PowerShell службы Stream Analytics
 
@@ -290,4 +289,4 @@
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1210_2015-->

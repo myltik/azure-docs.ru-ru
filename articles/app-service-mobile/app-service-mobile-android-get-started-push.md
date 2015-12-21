@@ -29,9 +29,9 @@
 
 Для работы с этим учебником требуется:
 
-* [учетная запись Google](http://go.microsoft.com/fwlink/p/?LinkId=268302) с подтвержденным адресом электронной почты;
-* [Visual Studio Community 2013;](https://go.microsoft.com/fwLink/p/?LinkID=391934)
-* выполнение инструкций из [учебника с ознакомительным проектом](../app-service-mobile-android-get-started.md).
+* [Учетная запись Google](http://go.microsoft.com/fwlink/p/?LinkId=268302) с подтвержденным адресом электронной почты.
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) не требуется для серверного проекта Node.js.
+* Изучение [краткого руководства](../app-service-mobile-android-get-started.md).
 
 ##<a name="create-hub"></a>Создание концентратора уведомлений
 
@@ -83,4 +83,4 @@
 [ознакомительного проекта для платформы Android]: app-service-mobile-android-get-started.md
 [ознакомительный проект для платформы Android]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1210_2015--->

@@ -116,18 +116,32 @@
 
 |Устройство| Протестированные ОС |Язык|
 |:---------|:----------|:----------|
-|Raspberry Pi 2| Raspbian | C, Javascript, Java |
-|Raspberry Pi 2| Windows 10 IoT Core| C, Javascript, C#|
-|BeagleBone Black| Debian |C, Javascript, Java|
-|BeagleBone Green|Debian |C, Javascript, Java|
-|TI CC3200 | TI-RTOS 2.x|C|
-|Intel Edison |Yocto |C, Javascript|
-|Minnowboard Max |Windows 7, 8, 10 |C#|
-|Arrow DragonBoard 410c |Windows 10 IoT Core | C#|
-|Freescale FRDM K64 |mbed 2.0 | C|
+|[ADLINK MXE-202i](http://www.adlinktech.com/PD/web/PD_detail.php?cKind=&pid=1505&seq=&id=&sid=&category=Fanless-Embedded-Computer_Integrated-Embedded-Computer&utm_source=) |Wind River | JavaScript|
+|[Ankaa](http://www.e-consystems.com/iMX6-development-board.asp) |Ubuntu | C|
+|[Apalis iMX6](https://www.toradex.com/computer-on-modules/apalis-arm-family/freescale-imx-6) |Linux Angstrom(Yocto) | Javascript, Java|
+|[Apalis T30](https://www.toradex.com/computer-on-modules/apalis-arm-family/nvidia-tegra-3) |Linux Angstrom(Yocto) | Javascript, Java|
+|[Arrow DragonBoard 410c](http://partners.arrow.com/campaigns-na/qualcomm/dragonboard-410c/) |Windows 10 IoT Core | C#|
+|[ARTIK](http://developer.samsung.com/artik) |Fedora | C|
+|[BeagleBone Black](http://beagleboard.org/black) | Debian | C, Javascript, Java|
+|[BeagleBone Green](http://beagleboard.org/green) |Debian | C, Javascript, Java|
+|[Colibri iMX6](https://www.toradex.com/computer-on-modules/colibri-arm-family/freescale-imx6) |Linux Angstrom(Yocto) | Javascript, Java|
+|[Colibri T20](https://www.toradex.com/computer-on-modules/colibri-arm-family/nvidia-tegra-2) |Linux Angstrom(Yocto) | Java|
+|[Colibri T30](https://www.toradex.com/computer-on-modules/colibri-arm-family/nvidia-tegra-3) |Windows 10 IoT Core | C#|
+|[Colibri VF61](https://www.toradex.com/computer-on-modules/colibri-arm-family/freescale-vybrid-vf6xx) |Linux Angstrom(Yocto) | Javascript, Java|
+|[Freescale FRDM K64](http://www.freescale.com/products/arm-processors/kinetis-cortex-m/k-series/k6x-ethernet-mcus/freescale-freedom-development-platform-for-kinetis-k64-k63-and-k24-mcus:FRDM-K64F) |mbed 2.0 | C|
+|[Intel Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html) |Yocto | C, Javascript|
+|[LogicMachine Series](http://openrb.com/products/) |Пользовательский Linux | C|
+|[Minnowboard Max](http://www.minnowboard.org/meet-minnowboard-max/) |Windows 7, 8, 10 | C#|
+|[NISE 50C](http://www.nexcom.com/Products/industrial-computing-solutions/industrial-fanless-computer/atom-compact/fanless-computer-nise-50c) |Windows 10 IoT Core | C#|
+|[Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) | Raspbian | C, Javascript, Java |
+|[Raspberry Pi 2](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) | Windows 10 IoT Core| C, Javascript, C#|
+|[STM32 Nucleo](http://www.st.com/stm32nucleo) |STM32Cube | C|
+|[TI CC3200](http://www.ti.com/product/cc3200) |TI-RTOS 2.x | C|
+
+Начните работу с этими устройствами [здесь](https://azure.microsoft.com/develop/iot/get-started/) или посетите наш [репозиторий](https://github.com/Azure/azure-iot-sdks) GitHub и найдите документацию к устройству на нужном вам языке.
 
 ## Дальнейшие действия
 
 Дополнительные сведения о разработке решений с использованием устройств, **сертифицированных для Интернета вещей**, см. [здесь](http://azure.com/iotdev).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 # Настройка постоянного хранения для кэша Redis для Azure уровня Премиум
@@ -33,7 +33,7 @@
 
 ## Создание кэша Премиум
 
-Для создания кэша и настройки сохраняемости войдите на [портал предварительной версии Azure](https://portal.azure.com), щелкните **Создать** -> **Данные + хранилище** > **Кэш Redis**.
+Для создания кэша и настройки сохраняемости войдите на [портал Azure](https://portal.azure.com), щелкните **Создать** -> **Данные + хранилище** > **Кэш Redis**.
 
 ![Создание кэша Redis][redis-cache-new-cache-menu]
 
@@ -107,4 +107,4 @@
 
 [redis-cache-settings]: ./media/cache-how-to-premium-persistence/redis-cache-settings.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

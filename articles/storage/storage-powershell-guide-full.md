@@ -3,8 +3,8 @@
 	description="Узнайте, как использовать командлеты Azure PowerShell для службы хранилища Azure для создания и управления учетными записями хранения; для работы с большими двоичными объектами, таблицами, очередями и файлами; для настройки и запроса аналитики хранилища, а также для создания подписанных URL-адресов"
 	services="storage"
 	documentationCenter="na"
-	authors="tamram" 
-	manager="adinah"/>
+	authors="robinsh" 
+	manager="carmonm"/>
 
 <tags
 	ms.service="storage"
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/26/2015"
-	ms.author="selcint"/>
+	ms.date="12/07/2015"
+	ms.author="robinsh"/>
 
 # Использование Azure PowerShell со службой хранилища Azure
 
@@ -730,4 +730,4 @@ Azure позволяет создать моментальный снимок BL
 [Next Steps]: #next
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

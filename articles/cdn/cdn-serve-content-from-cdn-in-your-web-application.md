@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/08/2015" 
 	ms.author="cephalin"/>
 
 # Обслуживание содержимого из CDN Azure в вашем веб-приложении #
@@ -100,7 +100,7 @@
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-5.PNG)
 
 7.  Следуйте указаниям по входу в учетную запись Azure.
-8.  Выполнив вход, последовательно выберите **Windows Azure > Хранилище > учетная запись**. Правой кнопкой мыши щелкните **BLOB-объект**, а затем выберите пункт **Создать контейнер BLOB-объектов**.
+8.  Выполнив вход, последовательно выберите **Microsoft Azure > Хранилище > учетная запись**. Правой кнопкой мыши щелкните **BLOB-объект**, а затем выберите пункт **Создать контейнер BLOB-объектов**.
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-6.PNG)
 
@@ -271,4 +271,4 @@
 - [Использование CDN для Azure](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

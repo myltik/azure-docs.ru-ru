@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="12/03/2015"
 	ms.author="inhenk"/>
 
 # Azure AD и приложения: назначение групп для приложения
 Прежде чем назначить пользователей и группы для приложения, необходимо настроить требование назначения пользователей. Чтобы узнать, как настроить требование назначения пользователей, см. статью [Требование назначения пользователей](active-directory-applications-guiding-developers-requiring-user-assignment.md).
 
-В этой статье предполагается, что вы уже создали в Active Directory группу, которая используется для этого приложения. Соответствующие действия описаны в видео ниже.
+В этой статье предполагается, что вы уже создали в Active Directory группу, которая используется для этого приложения.
 
 ## Назначение групп для приложения
 1. Войдите на портал Azure с учетной записью администратора.
@@ -36,4 +36,4 @@
 ## Дальнейшие действия
 [AZURE.INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

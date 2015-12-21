@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/17/2015"
+   ms.date="12/04/2015"
    ms.author="hascipio" />
 
 # Как опубликовать предложение в Microsoft Azure Marketplace
@@ -58,7 +58,11 @@
 - [Локальное создание образа виртуальной машины](marketplace-publishing-vm-image-creation-on-premise.md)
 - [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](../virtual-machines-windows-tutorial/)
 
-**Службы данных** — [Сопоставление OData для службы данных](marketplace-publishing-data-service-creation-odata-mapping.md) — [Узлы сопоставления OData для службы данных](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) — [Примеры сопоставления OData для службы данных](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
+**Службы данных**
+
+- [Сопоставление OData для службы данных](marketplace-publishing-data-service-creation-odata-mapping.md)
+- [Узлы сопоставления OData для службы данных](marketplace-publishing-data-service-creation-odata-mapping-nodes.md)
+- [Примеры сопоставления OData для службы данных](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
 
 [suppt-general]: marketplace-publishing-get-publisher-support.md
 [suppt-rpt-insights]: marketplace-publishing-report-seller-insights.md
@@ -77,4 +81,4 @@
 [link-pushstaging]: marketplace-publishing-push-to-staging.md
 [link-pushprod]: marketplace-publishing-push-to-production.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

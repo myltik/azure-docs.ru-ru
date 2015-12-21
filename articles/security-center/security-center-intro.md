@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="stevenpo"
+   manager="StevenPo"
    editor=""/>
 
 <tags
@@ -42,7 +42,7 @@
 | | Предлагает способ пресечения текущей атаки и помогает предотвратить дальнейшие нападения. |
 
 ## Вводное пошаговое руководство
-Доступ к Центру безопасности Azure осуществляется через [портал предварительной версии Microsoft Azure](http://azure.microsoft.com/features/azure-portal/). Чтобы получить доступ, [войдите в портал предварительной версии Azure](https://ms.portal.azure.com/), выберите **Обзор** и найдите параметр **Центр безопасности** либо выберите элемент **Центр безопасности**, закрепленный ранее на панели мониторинга портала предварительной версии Azure.
+Доступ к Центру безопасности Azure осуществляется через [портал Azure](http://azure.microsoft.com/features/azure-portal/). Чтобы получить доступ, [войдите в портал](https://portal.azure.com), выберите **Обзор** и найдите параметр **Центр безопасности** либо выберите элемент **Центр безопасности**, закрепленный ранее на панели мониторинга портала.
 
 ![][1]
 
@@ -104,7 +104,7 @@
 ## Приступая к работе
 Для начала работы с Центром безопасности Azure необходима подписка на Microsoft Azure. Центр безопасности Azure включается в подписке Azure. Если у вас нет подписки, вы можете зарегистрироваться для получения [бесплатной пробной версии](https://azure.microsoft.com/pricing/free-trial).
 
-Доступ к Центру безопасности Azure осуществляется через [портал предварительной версии Microsoft Azure](http://azure.microsoft.com/features/azure-portal/). Дополнительные сведения см. в [документации по порталу предварительной версии Azure](https://azure.microsoft.com/documentation/services/azure-portal/).
+Доступ к Центру безопасности Azure осуществляется через [портал Azure](http://azure.microsoft.com/features/azure-portal/). Дополнительные сведения см. в [документации по порталу](https://azure.microsoft.com/documentation/services/azure-portal/).
 
 Статья [Приступая к работе с Центром безопасности Azure](security-center-get-started.md) поможет вам быстро ознакомиться с компонентами мониторинга безопасности и управления политиками в Центре безопасности Azure.
 
@@ -126,4 +126,4 @@
 [5]: ./media/security-center-intro/security-alert.png
 [6]: ./media/security-center-intro/security-alert-detail.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="10/05/2015"
+	ms.date="12/03/2015"
 	ms.author="larryfr"/>
 
 # Использование Hive и HiveQL с Hadoop в HDInsight для анализа примера файла Apache log4j
@@ -129,10 +129,11 @@ HDInsight может выполнять задания HiveQL, использу�
 
 | **Используйте**, если требуется... | ...**интерактивная** оболочка | ...**пакетная** обработка | ... с **кластерной операционной системой** | ...из этого **кластера операционной системы** |
 |:--------------------------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
+| [Представление Hive](hdinsight-hadoop-use-hive-ambari-view.md) | ✔ | ✔ | Linux | Для приложений на основе браузера |
 | [Команда Beeline (из сеанса SSH)](hdinsight-hadoop-use-hive-beeline.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X или Windows |
 | [Команда Hive (из сеанса SSH)](hdinsight-hadoop-use-hive-ssh.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X или Windows |
 | [Curl](hdinsight-hadoop-use-hive-curl.md) | &nbsp; | ✔ | Linux или Windows | Linux, Unix, Mac OS X или Windows |
-| [Консоль запросов](hdinsight-hadoop-use-hive-query-console.md) | &nbsp; | ✔ | Windows | На основе браузера |
+| [Консоль запросов](hdinsight-hadoop-use-hive-query-console.md) | &nbsp; | ✔ | Windows | Для приложений на основе браузера |
 | [Средства HDInsight для Visual Studio](hdinsight-hadoop-use-hive-visual-studio.md) | &nbsp; | ✔ | Linux или Windows | Windows |
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) | &nbsp; | ✔ | Linux или Windows | Windows |
 | [Удаленный рабочий стол](hdinsight-hadoop-use-hive-remote-desktop.md) | ✔ | ✔ | Windows | Windows |
@@ -173,9 +174,9 @@ HDInsight может выполнять задания HiveQL, использу�
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-[hivetask]: http://msdn.microsoft.com/ru-RU/library/mt146771(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/ru-RU/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/ru-RU/library/mt146770(v=sql.120).aspx
+[hivetask]: http://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -200,4 +201,4 @@ HDInsight может выполнять задания HiveQL, использу�
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

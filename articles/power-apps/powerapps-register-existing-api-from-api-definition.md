@@ -14,17 +14,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="11/25/2015"
+   ms.date="12/09/2015"
    ms.author="guayan"/>
 
 # Регистрация API из определения API Swagger 2.0  
 Во многих организациях уже имеются API, которые пользователи могут включать в свои приложения. Для использования API в приложениях их необходимо зарегистрировать на портале Azure. Доступны следующие параметры:
 
-- Регистрация [API, управляемого корпорацией Майкрософт, или API, управляемого ИТ-службой](powerapps-register-from-available-apis.md)
-- Регистрация API, размещенного в [среде службы приложений](powerapps-register-api-hosted-in-app-service.md)
-- Регистрация API с помощью определения API Swagger 2.0
+- Регистрация предварительно созданных [API, управляемых корпорацией Майкрософт, и API, управляемых ИТ-службой](powerapps-register-from-available-apis.md).
+- Регистрация веб-приложения, приложения API или мобильного приложения, размешенного в [среде службы приложений](powerapps-register-api-hosted-in-app-service.md).
+- Регистрация собственного API Swagger с помощью определения API Swagger 2.0 (в этом разделе).
 
-В этой статье показано, как **зарегистрировать определение API Swagger 2.0**, созданное на основе существующего API.
+В этой статье показано, как **зарегистрировать собственный API, используя определение API Swagger 2.0**, созданное на основе существующего API.
 
 #### Предварительные требования для начала работы
 
@@ -58,12 +58,13 @@
 
 В этом разделе было показано, как зарегистрировать API, используя определение API Swagger 2.0. Ниже приведены некоторые связанные разделы и ресурсы для подробного изучения PowerApps.
 
-- [Настройка API](powerapps-configure-apis.md)
-- [Добавление API](powerapps-register-from-available-apis.md)
+- [Настройка свойств API](powerapps-configure-apis.md)
+- [Предоставление пользователям доступа к API](powerapps-manage-api-connection-user-access.md)
+- [Создание собственных приложений PowerApps](https://powerapps.microsoft.com/tutorials/)
 
 <!--References-->
 [11]: ./media/powerapps-register-existing-api-from-api-definition/registered-apis-part.png
 [12]: ./media/powerapps-register-existing-api-from-api-definition/add-api-button.png
 [13]: ./media/powerapps-register-existing-api-from-api-definition/add-api-blade.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

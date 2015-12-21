@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" y
-	ms.date="10/20/2015" 
+	ms.date="12/08/2015" 
 	ms.author="spelluru"/>
 
 # Основные сведения о конвейерах и действиях
@@ -258,7 +258,7 @@ longRetryInterval | TimeSpan | 00:00:00 | Период времени между
 
 ### Использование портала Azure
 
-1. Войдите на [портал предварительной версии Azure](https://portal.azure.com/).
+1. Перейдите на [портал Azure](https://portal.azure.com/).
 2. Выберите экземпляр фабрики данных Azure, в котором хотите создать конвейер.
 3. Щелкните элемент **Создание и развертывание** в группе связанных элементов **Сводка**. 
  
@@ -282,9 +282,9 @@ longRetryInterval | TimeSpan | 00:00:00 | Период времени между
 ### Использование Azure PowerShell
 Для создания конвейеров в фабрике данных Azure можно использовать Azure PowerShell. Предположим, вы определили JSON конвейера в файле, который находится в папке c:\\DPWikisample.json. В следующем примере показано, как можно загрузить его в экземпляр фабрики данных Azure.
 
-	New-AzureDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
+	New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
 
-Дополнительные сведения об этом командлете см. в разделе [Командлет New-AzureDataFactoryPipeline](https://msdn.microsoft.com/library/dn820227.aspx).
+Дополнительные сведения об этом командлете см. в разделе [Командлет New-AzureRmDataFactoryPipeline](https://msdn.microsoft.com/library/mt619358.aspx).
 
 ### Использование интерфейса REST API
 Вы можете создавать и развертывать конвейеры также с помощью интерфейса REST API. Это способ является программным. Дополнительные сведения см. в разделе [Создание и обновление конвейеров](https://msdn.microsoft.com/library/azure/dn906741.aspx).
@@ -335,4 +335,4 @@ longRetryInterval | TimeSpan | 00:00:00 | Период времени между
 
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

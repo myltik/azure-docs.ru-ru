@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="11/30/2015"
+    ms.date="12/03/2015"
     ms.author="sdanie" />
 
 # Перенос из управляемой службы кэша в кэш Redis для Azure
@@ -64,9 +64,9 @@
 
 ## Создание кэша
 
-Кэши в кэше Redis для Azure можно создать на [портале предварительной версии Azure](https://portal.azure.com), а также с помощью шаблонов ARM, модуля PowerShell и командной строки Azure.
+Кэши в кэше Redis для Azure можно создать на [портале Azure](https://portal.azure.com), а также с помощью шаблонов ARM, модуля PowerShell и командной строки Azure.
 
--	Информацию о создании кэшей на портале предварительной версии Azure см. в разделе [Создание кэша](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+-	Информацию о создании кэшей на портале Azure см. в разделе [Создание кэша](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 -	Информацию о создании кэшей с помощью шаблонов ARM см. в статье [Создание кэша Redis с помощью шаблона](cache-redis-cache-arm-provision.md).
 -	Информацию о создании кэшей с помощью Azure PowerShell см. в статье [Управление кэшем Redis для Azure с помощью Azure PowerShell](cache-howto-manage-redis-cache-powershell.md).
 -	Информацию о создании кэшей с помощью интерфейса командной строки Azure см. в статье [Как создать кэш Redis для Azure и управлять им с помощью интерфейса командной строки Azure (Azure CLI)](cache-manage-cli.md).
@@ -195,4 +195,4 @@
 
 Ознакомьтесь с руководствами, образцами и видеозаписями в [документации по кэшу Redis для Azure](https://azure.microsoft.com/documentation/services/cache/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

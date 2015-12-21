@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015" 
+	ms.date="12/04/2015" 
 	ms.author="larryfr"/>
 
 #Анализ данных датчика с помощью консоли запросов Hive с Hadoop в HDInsight
@@ -54,4 +54,4 @@
 
 3. Следуйте инструкциям, представленным на веб-странице, чтобы закончить образец.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

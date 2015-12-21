@@ -66,11 +66,11 @@ FROM
 
  
 <!--Anchors-->
-[Прозрачное шифрование данных (TDE)]: https://msdn.microsoft.com/ru-RU/library/bb934049.aspx
+[Прозрачное шифрование данных (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

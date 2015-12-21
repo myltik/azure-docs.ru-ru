@@ -132,7 +132,7 @@
 
         using Microsoft.Azure.NotificationHubs;
 
-6. Замените определение класса `Notifications` указанным ниже и замените два заполнителя строкой подключения (с полным доступом) для своего центра уведомлений и именем центра (доступно на [портале управления Azure](http://manage.windowsazure.com)):
+6. Замените определение класса `Notifications` указанным ниже и замените два заполнителя строкой подключения (с полным доступом) для своего центра уведомлений и именем центра (доступно на [классическом портале Azure](http://manage.windowsazure.com)):
 
 		public class Notifications
         {
@@ -364,4 +364,4 @@
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

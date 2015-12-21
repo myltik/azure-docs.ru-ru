@@ -7,13 +7,13 @@
 	manager="dwrede"
 	editor=""/>
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="NA"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="11/15/2015"
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="NA" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/30/2015" 
 	ms.author="glenga"/>
 
 # Регистрация приложения для использования учетной записи Майкрософт с целью проверки подлинности.
@@ -93,4 +93,4 @@
 
 [классическом портале Azure]: https://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

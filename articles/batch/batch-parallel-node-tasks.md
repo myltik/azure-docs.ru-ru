@@ -48,7 +48,7 @@
 
 Свойство [CloudPool.TaskSchedulingPolicy][task_schedule] позволяет выбрать один из двух вариантов распределения. Пул может равномерно распределять задачи между узлами («распространение») или передавать максимально возможное количество задач на один узел, прежде чем переходить к следующему («упаковка»).
 
-Чтобы понять важность этой функции, давайте рассмотрим пул из предыдущего примера. Он состоит из узлов размера Standard\_D14, для которых параметр [CloudPool.MaxTasksPerComputeNode][maxtasks_net] имеет значение 16. Если в свойстве [CloudPool.TaskSchedulingPolicy][task_schedule] для параметра [ComputeNodeFillType][fill_type] будет указано значение *Pack* («упаковка»), на каждом узле все 16 ядер будут задействованы по максимуму. При этом [автомасштабируемый пул](./batch-automatic-scaling.md) будет исключать неиспользуемые узлы (для которых не назначены задачи), что снизит использование ресурсов и расходы на них.
+Чтобы понять важность этой функции, давайте рассмотрим пул из предыдущего примера. Он состоит из узлов размера Standard\_D14, для которых параметр [CloudPool.MaxTasksPerComputeNode][maxtasks_net] имеет значение 16. Если в свойстве [CloudPool.TaskSchedulingPolicy][task_schedule] для параметра [ComputeNodeFillType][fill_type] будет указано значение *Pack* (Упаковка), на каждом узле все 16 ядер будут задействованы по максимуму. При этом [автомасштабируемый пул](./batch-automatic-scaling.md) будет исключать неиспользуемые узлы (для которых не назначены задачи), что снизит использование ресурсов и расходы на них.
 
 ## Пример использования компонента .NET пакетной службы
 
@@ -117,7 +117,7 @@ Duration: 00:08:48.2423500
 [batch_explorer]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [enable_autoscaling]: https://msdn.microsoft.com/library/azure/dn820173.aspx
-[fill_type]: https://msdn.microsoft.com/ru-RU/library/microsoft.azure.batch.common.computenodefilltype.aspx
+[fill_type]: https://msdn.microsoft.com/library/microsoft.azure.batch.common.computenodefilltype.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [maxtasks_net]: http://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.maxtaskspercomputenode.aspx
 [maxtasks_rest]: https://msdn.microsoft.com/library/azure/dn820174.aspx
@@ -127,4 +127,4 @@ Duration: 00:08:48.2423500
 
 [1]: ./media/batch-parallel-node-tasks\heat_map.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

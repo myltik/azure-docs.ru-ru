@@ -1,16 +1,18 @@
-Object|Limit
+Объект|Ограничение
 ---|---
-Maximum number of indexes|3 per Search service
-Maximum number of fields per index|1000
-Maximum document count|10,000
-Maximum storage size|50 MB
-Maximum partitions|N/A
-Maximum replicas|N/A
-Maximum search units|N/A
-Maximum search services|N/A
-Maximum number of indexers|3
-Maximum number of datasources|3
-Maximum number of documents that can be indexed in a single indexer invocation|10,000
-Maximum indexer running time|3 minutes
-Maximum number of scoring profiles per index|16
-Maximum number of functions per profile|8
+Максимальное количество индексов|3 на одну службу поиска
+Максимальное количество полей на один индекс|1000
+Максимальное количество документов|10 000
+Максимальный размер хранилища|50 MB
+Максимальное количество разделов|Недоступно
+Максимальное количество реплик|Недоступно
+Максимальное количество единиц поиска|Недоступно
+Максимальное количество служб поиска|Недоступно
+Максимальное количество индексаторов|3
+Максимальное количество источников данных|3
+Максимальное количество документов, которые можно проиндексировать в вызове одного индексатора|10 000
+Максимальное время работы индексатора|3 минуты
+Максимальное количество профилей оценки на индекс|16
+Максимальное количество функций на профиль|8
+
+<!---HONumber=AcomDC_1210_2015-->

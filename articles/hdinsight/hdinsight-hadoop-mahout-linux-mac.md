@@ -249,9 +249,9 @@ Mahout — это библиотека [машинного обучения][ml]
 
 Теперь, когда вы узнали, как использовать Mahout, откройте для себя другие способы работы с данными в HDInsight:
 
-* [Использование Hive с HDInsight](../hadoop-use-hive.md)
-* [Использование Pig с HDInsight](../hadoop-use-pig.md)
-* [Использование MapReduce с HDInsight](../hadoop-use-mapreduce.md)
+* [Использование Hive с HDInsight](hadoop-use-hive.md)
+* [Использование Pig с HDInsight](hadoop-use-pig.md)
+* [Использование MapReduce с HDInsight](hadoop-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [movielens]: http://grouplens.org/datasets/movielens/
@@ -267,4 +267,4 @@ Mahout — это библиотека [машинного обучения][ml]
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

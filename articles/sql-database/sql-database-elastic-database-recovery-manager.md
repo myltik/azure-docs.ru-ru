@@ -24,7 +24,7 @@ GSM и LSM отслеживают сопоставление каждой баз
 Класс RecoveryManager является частью [клиентской библиотеки эластичной базы данных](sql-database-elastic-database-client-library).
 
 
-![Сопоставление сегментов][1]
+![Карта сегментов][1]
 
 
 Определения терминов см. в статье [Глоссарий инструментов эластичных баз данных](sql-database-elastic-scale-glossary.md). Чтобы узнать, как с помощью объекта **ShardMapManager** управлять данными в сегментированном решении, см. статью [Управление размещением сегментов](sql-database-elastic-scale-shard-map-management.md).
@@ -85,7 +85,7 @@ GSM и LSM отслеживают сопоставление каждой баз
 
 ## Устранение различий сопоставления
 
-[Метод ResolveMappingDifferences](https://msdn.microsoft.com/ru-RU/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) выбирает одно из сопоставлений сегментов (локальное или глобальное) как источник истины и согласовывает сопоставления на обоих сопоставлениях сегментов (GSM и LSM).
+[Метод ResolveMappingDifferences](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) выбирает одно из сопоставлений сегментов (локальное или глобальное) как источник истины и согласовывает сопоставления на обоих сопоставлениях сегментов (GSM и LSM).
 
 	ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution);
    
@@ -157,4 +157,4 @@ GSM и LSM отслеживают сопоставление каждой баз
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

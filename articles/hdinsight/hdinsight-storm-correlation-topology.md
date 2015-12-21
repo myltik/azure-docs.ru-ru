@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="10/30/2015"
+ ms.date="12/04/2015"
  ms.author="larryfr"/>
 
 # Сопоставление событий в динамике по времени с помощью Storm и HBase в HDInsight
@@ -200,4 +200,4 @@
 Другие примеры топологий для Storm см. в разделе [Примеры топологий для Storm в HDInsight](hdinsight-storm-example-topology.md).
  
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1210_2015-->

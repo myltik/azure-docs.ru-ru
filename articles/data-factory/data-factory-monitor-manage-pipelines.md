@@ -96,6 +96,7 @@
 <td>ValidationRetry</td><td>Ожидание повторения проверки.</td>
 </tr>
 <tr>
+&lt;tr
 <td rowspan="2">InProgress</td><td>Validating</td><td>Проверка выполняется.</td>
 </tr>
 <td></td>
@@ -119,7 +120,7 @@
 <td>Skipped</td><td></td><td>Срез не обработан.</td>
 </tr>
 <tr>
-<td>Без блокировки</td><td></td><td>Срез, который ранее существовал с другим состоянием, но был сброшен.</td>
+<td>None</td><td></td><td>Срез, который ранее существовал с другим состоянием, но был сброшен.</td>
 </tr>
 </table>
 
@@ -157,7 +158,7 @@
 Управлять конвейерами можно с помощью Azure Powershell. Например, вы можете приостановить и возобновить работу конвейеров, используя командлеты Azure PowerShell.
 
 ### Приостановка и возобновление работы конвейеров
-Вы можете приостановить работу конвейеров с помощью командлета PowerShell **Suspend-AzureDataFactoryPipeline**. Это полезно, например, если вы если выявили проблему с данными и не хотите обрабатывать их с помощью конвейера до ее устранения.
+Вы можете приостановить работу конвейеров с помощью командлета PowerShell **Suspend-AzureRmDataFactoryPipeline**. Это полезно, например, если вы если выявили проблему с данными и не хотите обрабатывать их с помощью конвейера до ее устранения.
 
 Например, на следующем снимке экрана показано, что в фабрике **productrecgamalbox1dev** в конвейере **PartitionProductsUsagePipeline** обнаружена проблема и конвейер нужно приостановить.
 
@@ -165,19 +166,19 @@
 
 Чтобы приостановить конвейер **PartitionProductsUsagePipeline**, выполните следующую команду PowerShell.
 
-	Suspend-AzureDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+	Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
 Например:
 
-	Suspend-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
+	Suspend-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
 Устранив проблему в конвейере **PartitionProductsUsagePipeline**, возобновите его работу. Для этого выполните следующую команду PowerShell.
 
-	Resume-AzureDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
+	Resume-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
 Например:
 
-	Resume-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
+	Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline 
 
 
 ## Отладка конвейеров
@@ -209,26 +210,26 @@
 2.	Перейдите в режим **AzureResourceManager**, так как командлеты фабрики данных доступны только в нем.
 
 		switch-azuremode AzureResourceManager
-3.	Выполните команду **Get-AzureDataFactorySlice**, чтобы просмотреть срезы и их состояния. Вы должны увидеть срез с состоянием **Ошибка**.
+3.	Выполните команду **Get-AzureRmDataFactorySlice**, чтобы просмотреть срезы и их состояние. Вы должны увидеть срез с состоянием **Ошибка**.
 
-		Get-AzureDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+		Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
 	Например:
 
 
-		Get-AzureDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
+		Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
 
-	Замените значение параметра **StartDateTime** тем, которое вы указали в командлете Set-AzureDataFactoryPipelineActivePeriod.
-4. Теперь запустите командлет **Get-AzureDataFactoryRun**, чтобы получить подробные сведения о выполненном для среза действии.
+	Замените **StartDateTime** на значение StartDateTime, которое вы указали для Set-AzureRmDataFactoryPipelineActivePeriod.
+4. Теперь запустите командлет **Get-AzureRmDataFactoryRun**, чтобы получить подробные сведения о выполненном для среза действии.
 
-		Get-AzureDataFactoryRun [-ResourceGroupName] <String> [-
+		Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-
 		DataFactoryName] <String> [-TableName] <String> [-StartDateTime] 
 		<DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
 	
 	Например:
 
 
-		Get-AzureDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+		Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
 
 	В качестве значения StartDateTime укажите время начала для проблемного (содержащего ошибку) среза, которое вы отметили на предыдущем шаге. Значение даты-времени необходимо заключить в двойные кавычки.
 5. 	Вы должны увидеть выходные данные с подробными сведениями об ошибке (аналогично следующему):
@@ -255,9 +256,9 @@
 		Type                	:
 	
 	
-6. 	Вы можете выполнить командлет **Save-AzureDataFactoryLog** с идентификатором, который отображается в результате описанных выше команд, и скачать файлы журналов, используя параметр **-DownloadLogs** командлета.
+6. 	Вы можете выполнить командлет **Save-AzureRmDataFactoryLog** с идентификатором, который отображается в результате описанных выше команд, и скачать файлы журналов, используя параметр **-DownloadLogs** командлета.
 
-	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\\Test"
+	Save-AzureRmDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\\Test"
 
 
 ## Повторная обработка проблемных срезов в конвейере
@@ -272,15 +273,15 @@
 
 ### Использование Azure PowerShell
 
-Вы можете повторно обработать проблемные срезы, используя командлет Set-AzureDataFactorySliceStatus.
+Вы можете повторно обработать проблемные срезы, используя командлет Set-AzureRmDataFactorySliceStatus.
 
-	Set-AzureDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+	Set-AzureRmDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 
 **Пример.** В следующем примере состояние всех срезов в таблице DAWikiAggregatedData в фабрике данных WikiADF меняется на PendingExecution.
 
 **Примечание.** Для UpdateType задано значение UpstreamInPipeline. Это означает, что каждый срез в этой таблице и всех зависимых (восходящих) таблицах, используемых в качестве входных таблиц для действия в конвейере, переходит в состояние PendingExecution. Этот параметр может иметь еще одно значение — Individual.
 
-	Set-AzureDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status PendingExecution -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
+	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status PendingExecution -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
 
 ## Создание оповещений
@@ -353,6 +354,8 @@ OnDemandClusterCreateStarted | Started
 OnDemandClusterCreateSuccessful | Succeeded
 OnDemandClusterDeleted | Succeeded
 
+Подробные сведения об элементах JSON, используемые в примере выше, см. в разделе [Создание правила оповещения](https://msdn.microsoft.com/library/azure/dn510366.aspx).
+
 #### Развертывание оповещения 
 Для развертывания оповещения используйте командлет Azure PowerShell **New-AzureResourceGroupDeployment**, как показано в следующем примере:
 
@@ -395,32 +398,21 @@ OnDemandClusterDeleted | Succeeded
 
 - Вы можете просмотреть все созданные события, щелкнув элемент **Операции**, и настроить уведомления для любых операций, отображаемых в колонке **События**.
 
-	![Операции](./media/data-factory-monitor-manage-pipelines/operations.png)
+![Операции](./media/data-factory-monitor-manage-pipelines/operations.png)
 
 
 - Сведения о командлетах PowerShell, которые можно использовать для добавления, получения и удаления предупреждений, см. в статье [Командлеты Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx). Далее приведено несколько примеров использования командлета **Get-AlertRule**.
 
-		PS C:\> Get-AlertRule -res $resourceGroup
-	
-				Properties : Microsoft.Azure.Management.Insights.Models.Rule
-				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
-				Location   : West US
-				Name       : FailedExecutionRunsWest0
-		
-				Properties : Microsoft.Azure.Management.Insights.Models.Rule
-				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest3
-				Location   : West US
-				Name       : FailedExecutionRunsWest3
-	
-		PS C:\> Get-AlertRule -res $resourceGroup -Name FailedExecutionRunsWest0
-		
-				Properties : Microsoft.Azure.Management.Insights.Models.Rule
-				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
-				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
-				Location   : West US
-				Name       : FailedExecutionRunsWest0
+
+	ResourceGroupName : mdwevent
+	Location          : westus
+	ProvisioningState : Succeeded
+	Resources         :
+                    Name                  Type                                 Location
+                    ====================  ===================================  ========
+                    abhieventtest1        Microsoft.DataFactory/dataFactories  westus
+                    abhieventtest2        Microsoft.DataFactory/dataFactories  westus
+                    FailedValidationRuns  microsoft.insights/alertrules        eastus
 
 	Выполните следующие команды get-help, чтобы просмотреть сведения и примеры для командлета Get-AlertRule.
 
@@ -452,7 +444,7 @@ OnDemandClusterDeleted | Succeeded
 
 ### Настройка оповещений по метрикам
 
-Чтобы настроить оповещения о метриках, в колонке "Фабрика данных" выберите **Мониторинг** > **Метрика** > **Добавить оповещение** > **Добавление правила оповещения**.
+Чтобы настроить оповещения о метриках, в колонке "Фабрика данных" выберите **Мониторинг** > **Метрика** > **Добавить оповещение** > **Добавить правило оповещения**.
 
 Введите необходимые сведения для правила, укажите электронные адреса, на которые будут отправляться оповещения, и нажмите кнопку **ОК**.
 
@@ -541,4 +533,4 @@ OnDemandClusterDeleted | Succeeded
 	Parameters        :
 	Outputs           
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

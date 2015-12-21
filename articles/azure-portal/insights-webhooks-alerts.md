@@ -87,11 +87,11 @@
 |conditionType |Да |Metric, Event |Поддерживаются два типа оповещений: оповещения на основе метрик и оповещения на основе событий. В дальнейшем мы добавим поддержку оповещений для событий, поэтому используйте это значение, чтобы проверить, основано ли оповещение на метрике или событии|
 |condition |Да | |Здесь задаются специальные поля для проверки с учетом параметра conditionType|
 |metricName |Для оповещений на основе метрик | |Имя метрики, определяющей, что контролирует метрика.|
-|metricUnit |Для оповещений на основе метрик |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds|	 Допустимая метрикой единица Допустимые значения: https://msdn.microsoft.com/ru-RU/library/microsoft.azure.insights.models.unit.aspx|
+|metricUnit |Для оповещений на основе метрик |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds|	 Допустимая метрикой единица Допустимые значения: https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx|
 |metricValue |Для оповещений на основе метрик | |Фактическое значение метрики, которая вызвала оповещение|
 |threshold |Для оповещений на основе метрик | |Пороговое значение, активирующее оповещение|
 |windowSize |Для оповещений на основе метрик | |Период времени, используемый для отслеживания активности оповещения по пороговому значению. Это должен быть период от 5 минут до 1 дня. Формат длительности — ISO 8601.|
-|timeAggregation |Для оповещений на основе метрик |Average, Last, Maximum, Minimum, None, Total |	Порядок объединения данных, собранных за определенный период. Значение по умолчанию — Average (Среднее). Допустимые значения: https://msdn.microsoft.com/ru-RU/library/microsoft.azure.insights.models.aggregationtype.aspx|
+|timeAggregation |Для оповещений на основе метрик |Average, Last, Maximum, Minimum, None, Total |	Порядок объединения данных, собранных за определенный период. Значение по умолчанию — Average (Среднее). Допустимые значения: https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx|
 |operator |Для оповещений на основе метрик | |Оператор, используемый для сравнения данных с пороговым значением.|
 |subscriptionId |Да | |GUID подписки Azure|
 |имя\_группы\_ресурсов |Да | |Имя группы затронутых ресурсов|
@@ -123,4 +123,4 @@
 
 [Использование приложения логики для отправки сообщений в очередь Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1210_2015-->

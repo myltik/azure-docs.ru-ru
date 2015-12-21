@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/01/2015" 
+	ms.date="12/03/2015" 
 	ms.author="sdanie"/>
 
 
@@ -25,7 +25,7 @@
 
 В этом руководстве объясняется, как приступить к работе с **кешом роли для кеша Azure**. Примеры написаны на языке C# и используют интерфейс .NET API. Рассматриваются разнообразные сценарии, в том числе **настройка кластера кэша**, **настройка клиентов кэша**, **добавление и удаление объектов из кэша, хранение состояния сеанса ASP.NET в кэше** и **включение кэширования вывода страниц ASP.NET с помощью кэша**. Дополнительную информацию об использовании кэша роли см. в разделе [Дальнейшие действия][].
 
->[AZURE.NOTE]Более подробное руководство по выбору кэша Azure для вашего приложения см. в разделе [Какой кэш Azure подходит мне лучше всего?][].
+>[AZURE.IMPORTANT]Мы объявляем о прекращении поддержки управляемой службы кэша Azure и кэша роли Azure 30 ноября 2016 г. В процессе подготовки к завершению использования рекомендуется перейти на кэш Redis для Azure. Дополнительные сведения о датах и руководства по миграции см. в разделе [Какой кэш Azure подходит мне лучше всего?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
 
 <a name="what-is"></a>
 ## Что такое кэш роли?
@@ -405,10 +405,9 @@
 [Team Blog]: http://blogs.msdn.com/b/windowsazure/
 [Устранение неполадок и диагностика для кэша роли]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-[Azure Management Portal]: http://windows.azure.com/
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
-[Какой кэш Azure подходит мне лучше всего?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
+[Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->

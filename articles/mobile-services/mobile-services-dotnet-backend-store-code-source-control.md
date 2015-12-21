@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="12/07/2015"
 	ms.author="glenga"/>
 
 # Хранение кода проекта мобильной службы в системе управления версиями
@@ -65,7 +65,7 @@
 
 ##<a name="deploy-scripts"></a>Публикация проекта с использованием Git
 
-1. Создайте новый проект серверной службы для .NET в Visual Studio 2013 или перенесите существующий проект в новый локальный репозиторий.
+1. Создайте новый проект серверной службы для .NET в Visual Studio 2013 или перенесите существующий проект в новый локальный репозиторий.  
 
 	Для быстрой проверки загрузите и сохраните в эту папку проект быстрого запуска мобильных служб.
 
@@ -102,6 +102,7 @@
 [Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Установка Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-ios-get-started.md
+[портал управления Azure]: https://manage.windowsazure.com/
 [Изменение модели данных в серверной мобильной службе для .NET]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1210_2015-->
