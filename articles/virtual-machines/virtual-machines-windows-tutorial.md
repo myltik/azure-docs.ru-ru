@@ -20,12 +20,15 @@
 # Создание виртуальной машины под управлением Windows на портале Azure#
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-windows-tutorial.md)
-- [Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
-- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [Azure CLI](virtual-machines-linux-tutorial.md)
 
 <br>
+
+
 
 В этом руководстве мы покажем, как на портале Azure всего за несколько минут можно создать виртуальную машину Azure. В качестве примера мы создадим виртуальную машину с помощью образа Windows Server 2012 R2 Datacenter, но это лишь один из многих образов, предлагаемых в Azure. Доступность образов зависит от подписки. Например, подписчикам MSDN могут быть доступны образы рабочих столов.
 
@@ -69,7 +72,7 @@
 
 	![Снимок экрана с доступными размерами виртуальных машин Azure](./media/virtual-machines-windows-tutorial/create_vm_size.PNG)
 
-	>[AZURE.NOTE]Хранилище класса Premium доступно для виртуальных машин серии DS в определенных регионах. Хранилище класса Premium — наилучший вариант хранения данных для рабочих нагрузок с интенсивным обменом данными, например для базы данных. Дополнительные сведения см. в статье [Хранилище Premium: хранилище высокой производительности для рабочих нагрузок виртуальных машин Azure](storage-premium-storage-preview-portal.md).
+	>[AZURE.NOTE] Хранилище класса Premium доступно для виртуальных машин серии DS в определенных регионах. Хранилище класса Premium — наилучший вариант хранения данных для рабочих нагрузок с интенсивным обменом данными, например для базы данных. Дополнительные сведения см. в статье [Хранилище Premium: хранилище высокой производительности для рабочих нагрузок виртуальных машин Azure](storage-premium-storage-preview-portal.md).
 
 3. Щелкните **Параметры**, чтобы отобразить параметры хранилища и сети для новой виртуальной машины. Для первой виртуальной машины можно в целом принять значения параметров по умолчанию. Если вы выбрали размер виртуальной машины, который поддерживает хранилище класса «Премиум», можно опробовать его, выбрав для параметра **Тип диска** значение **Premium (SSD)**.
 
@@ -85,7 +88,7 @@
 
 После создания виртуальной машины необходимо войти в систему, чтобы управлять ее параметрами и приложениями, которые будут выполняться в ней.
 
->[AZURE.NOTE]Информацию о требованиях и устранении неполадок см. в разделе [Подключение к виртуальной машине Azure по RDP или SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
+>[AZURE.NOTE] Информацию о требованиях и устранении неполадок см. в разделе [Подключение к виртуальной машине Azure по RDP или SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
 1. Войдите на портал Azure, если вы еще этого не сделали.
 
@@ -110,4 +113,4 @@
 * Использование Azure PowerShell и интерфейса командной строки Azure для [поиска и выбора образов виртуальных машин](resource-groups-vm-searching.md).
 * Автоматизация развертывания виртуальных машин и рабочих нагрузок и управления ими с помощью[диспетчера ресурсов Azure](virtual-machines-how-to-automate-azure-resource-manager.md) и [шаблонов диспетчера ресурсов Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

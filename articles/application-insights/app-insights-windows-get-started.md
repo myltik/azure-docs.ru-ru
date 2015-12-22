@@ -186,7 +186,7 @@
 
 Выберите Application Insights в диалоговом окне создания проекта.
 
-Если появляется запрос на вход, используйте учетные данные для своей учетной записи Azure (которая отличается от учетной записи Visual Studio Online).
+Если появится запрос на вход, используйте учетные данные для своей учетной записи Azure (которая отличается от учетной записи Visual Studio Team Services).
 
 ![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
 
@@ -231,4 +231,4 @@
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

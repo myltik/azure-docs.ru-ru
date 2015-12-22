@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Создание первого конвейера фабрики данных Azure с помощью редактора фабрики данных"
-	description="Это руководство предусматривает создание образца конвейера фабрики данных Azure с помощью редактора фабрики данных на классическом портале Azure."
+	description="В этом учебнике вы создадите образец конвейера фабрики данных Azure с помощью редактора фабрики данных на портале Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,12 +16,13 @@
 	ms.date="11/02/2015"
 	ms.author="spelluru"/>
 
-# Построение первого конвейера фабрики данных Azure с помощью редактора фабрики данных (на классическом портале Azure)
+# Построение первого конвейера фабрики данных Azure с помощью редактора фабрики данных (на портале Azure)
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 Из этой статьи вы узнаете, как создать конвейер с помощью [портала Azure](https://portal.azure.com/). В учебнике рассматриваются следующие действия:
@@ -233,4 +234,4 @@
 В этой статье вы создали конвейер с действием преобразования (действие HDInsight), которое выполняет сценарий Hive в кластере HDInsight по требованию. Сведения о том, как копировать данные из хранилища больших двоичных объектов Azure в SQL Azure с помощью действия копирования, см. в статье [Руководство по копированию данных из хранилища больших двоичных объектов Azure в Azure SQL](./data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

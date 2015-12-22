@@ -22,6 +22,7 @@
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 Из этой статьи вы узнаете, как создать конвейер с помощью Visual Studio. В учебнике рассматриваются следующие действия:
@@ -243,4 +244,4 @@
 В этой статье вы создали конвейер с действием преобразования (действие HDInsight), которое выполняет сценарий Hive в кластере HDInsight по требованию. Сведения о том, как копировать данные из хранилища больших двоичных объектов Azure в SQL Azure с помощью действия копирования, см. в статье [Руководство по копированию данных из хранилища больших двоичных объектов Azure в Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

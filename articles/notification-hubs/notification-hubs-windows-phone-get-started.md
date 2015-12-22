@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/23/2015"
+	ms.date="12/14/2015"
 	ms.author="wesmc"/>
 
 # Приступая к работе с Центрами уведомлений для Windows Phone
@@ -51,7 +51,7 @@
 
 Концентратор будет создан и настроен для отправки уведомлений без проверки подлинности для Windows Phone.
 
-> [AZURE.NOTE]В этом учебнике используется MPNS в режиме без проверки подлинности. Режим MPNS без проверки подлинности налагает ограничения на использование уведомлений, отправляемых для каждого канала. Центры уведомлений поддерживают [Режим работы MPNS с проверкой подлинности](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx), позволяя отправить ваш сертификат.
+> [AZURE.NOTE] В этом учебнике используется MPNS в режиме без проверки подлинности. Режим MPNS без проверки подлинности налагает ограничения на использование уведомлений, отправляемых для каждого канала. Центры уведомлений поддерживают [режим работы MPNS с проверкой подлинности](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx)
 <!--Refer to [Notification Hubs How-To for Windows Phone 8] for more information on how to use MPNS authenticated mode.-->
 
 ##Подключение приложения к центру уведомлений
@@ -92,7 +92,12 @@
         channel.ChannelUriUpdated += new EventHandler<NotificationChannelUriEventArgs>(async (o, args) =>
         {
             var hub = new NotificationHub("<hub name>", "<connection string>");
-            await hub.RegisterNativeAsync(args.ChannelUri.ToString());
+            var result = await hub.RegisterNativeAsync(args.ChannelUri.ToString());
+
+            System.Windows.Deployment.Current.Dispatcher.BeginInvoke(() =>
+            {
+                MessageBox.Show("Registration :" + result.RegistrationId, "Registered", MessageBoxButton.OK);
+            });
         });
 
     Обязательно вставьте имя концентратора и строку подключения с именем **DefaultListenSharedAccessSignature**, полученные в предыдущем разделе. Этот код получает универсальный код ресурса (URI) канала (ChannelURI) для приложения из MPNS, а затем регистрирует ChannelURI в вашем центре уведомлений. Он также гарантирует регистрацию ChannelURI в центре уведомлений при каждом запуске приложения.
@@ -103,17 +108,20 @@
 
    	![][14]
 
+
    	Это гарантирует, что приложение сможет получать push-уведомления.
 
 7. Нажмите клавишу F5, чтобы запустить приложение.
 
 	Отобразится сообщение о регистрации сообщения.
 
+8. Закройте приложение. Это необходимо для получения всплывающего уведомления.
+
 ##Отправка уведомления из серверной части
 
-Уведомления можно отправлять с помощью Центров уведомлений из любого серверного компонента через <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">интерфейс REST</a>. В этом учебнике мы будем отправлять уведомления с помощью консольного приложения .NET. Примеры отправки уведомлений из интерфейса мобильных служб Azure, интегрированного с Центрами уведомлений, см. в статье «Приступая к работе с push-уведомлениями в мобильных службах» ([Серверная часть .NET](../mobile-services-javascript-backend-windows-phone-get-started-push.md) | [Серверная часть JavaScript](../mobile-services-javascript-backend-windows-phone-get-started-push.md)). Примеры отправки уведомлений с использованием REST API см. в статье «Использование Центров уведомлений в Java/PHP» ([Java](notification-hubs-java-backend-how-to.md); [PHP](notification-hubs-php-backend-how-to.md)).
+Уведомления можно отправлять с помощью Центров уведомлений из любой серверной части через <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">интерфейс REST</a>. В этом учебнике мы будем отправлять уведомления с помощью консольного приложения .NET. Примеры отправки уведомлений из интерфейса мобильных служб Azure, интегрированного с концентраторами уведомлений, см. в статье «Добавление push-уведомлений к приложению мобильных служб» ([серверная часть .NET](../mobile-services-javascript-backend-windows-phone-get-started-push.md) | [серверная часть JavaScript](../mobile-services-javascript-backend-windows-phone-get-started-push.md)). Примеры отправки уведомлений с использованием REST API см. в статье «Использование концентраторов уведомлений из Java/PHP» ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
-1. Щелкните решение правой кнопкой мыши, выберите элементы **Добавить** и **Новый проект**. После этого в разделе **Visual C#** последовательно выберите элементы **Windows** и **Консольное приложение**, а затем нажмите кнопку **ОК**.
+1. Щелкните решение правой кнопкой мыши, выберите пункты **Добавить** и **Новый проект**. После этого в разделе **Visual C#** последовательно выберите элементы **Windows** и **Консольное приложение**, а затем нажмите кнопку **ОК**.
 
    	![][6]
 
@@ -127,7 +135,7 @@
 
         Install-Package Microsoft.Azure.NotificationHubs
 
-	После этого будет добавлена ссылка на пакет SDK для Центров уведомлений Azure с помощью <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">пакета NuGet Microsoft.Azure.NotificationHubs</a>.
+	После этого будет добавлена ссылка на пакет SDK для концентраторов уведомлений Azure с помощью <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">пакета NuGet Microsoft.Azure.Notification Hubs</a>.
 
 6. Откройте файл Program.cs и добавьте следующий оператор `using`:
 
@@ -148,7 +156,7 @@
             await hub.SendMpnsNativeNotificationAsync(toast);
         }
 
-	Обязательно замените заполнитель «hub name» на имя центра уведомлений, отображаемое на вкладке **Центры уведомлений** портала. Кроме того, замените заполнитель строки подключения строкой подключения с именем **DefaultFullSharedAccessSignature**, полученной в разделе «Настройка центра уведомлений».
+	Обязательно замените заполнитель «hub name» на имя центра уведомлений, отображаемое на вкладке **Центры уведомлений** портала. Кроме того, замените заполнитель строки подключения строкой подключения с именем **DefaultFullSharedAccessSignature**, полученной в разделе «Настройка концентратора уведомлений».
 
 	>[AZURE.NOTE]Обязательно используйте строку подключения с **полным** доступом, а не доступом к **прослушиванию**. У строки с доступом к прослушиванию отсутствуют разрешения для отправки уведомлений.
 
@@ -198,4 +206,4 @@
 [каталоге уведомлений на плитке]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hub - WP Silverlight tutorial]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

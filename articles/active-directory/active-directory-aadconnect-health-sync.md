@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/25/2015" 
+	ms.date="12/16/2015" 
 	ms.author="billmath"/>
 
 # Использование Azure AD Connect Health для синхронизации
@@ -29,12 +29,30 @@
 
 ![Ошибка синхронизации Azure AD Connect](./media/active-directory-aadconnect-health-sync/alert.png)
 
+## Sync Insight
+В последнем выпуске службы Azure AD Connect Health для синхронизации добавлены следующие новые возможности:
+
+- задержка операций синхронизации;
+- тренд, отображающий изменения объектов.
+
+### Задержка синхронизации
+Этот компонент отвечает за графическое отображение тренда задержек операций синхронизации (импорт, экспорт и т. д.) для соединителей. Он позволяет не только быстро оценить задержки операций (например, при наличии большого количества происходящих изменений), но также определить аномальные задержки, требующие дополнительного изучения.
+
+![Задержка синхронизации](./media/active-directory-aadconnect-health-sync/synclatency.png)
+
+По умолчанию для соединителя Azure AD отображаются только задержки операции экспорта. Чтобы просмотреть дополнительные операции в этом соединителе или операции в других соединителях, щелкните правой кнопкой мыши на схеме и выберите интересующие вас операцию и соединитель.
+
+### Изменения объектов синхронизации
+Этот компонент отвечает за графическое отображение тренда количества изменений, которые вычисляются и экспортируются в Azure AD. Сейчас сбор такой информации из журналов синхронизации затруднен. Схема — это не только простое средство мониторинга количества изменений, происходящих в вашей среде, она также предоставляет визуальные сведения о происходящих сбоях.
+
+![Задержка синхронизации](./media/active-directory-aadconnect-health-sync/syncobjectchanges.png)
+
 ## Связанные ссылки
 
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
-* [Установка агента Azure AD Connect Health](active-directory-aadconnect-health-install.md)
+* [Установка агента Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Операции Azure AD Connect Health](active-directory-aadconnect-health-operations.md)
 * [Использование Azure AD Connect Health с AD FS](active-directory-aadconnect-health-adfs.md)
 * [Часто задаваемые вопросы об Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

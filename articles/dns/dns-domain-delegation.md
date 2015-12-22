@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="12/15/2015"
    ms.author="joaoma"/>
 
 
@@ -32,7 +32,7 @@ Azure DNS — это служба размещения для доменов DNS
 
 Зона DNS используется для размещения DNS-записей определенного домена. Например, домен contoso.com может содержать несколько записей DNS, таких как mail.contoso.com (для почтового сервера) и www.contoso.com (для веб-сайта).
 
-Azure DNS позволяет размещать зону DNS и тем самым управлять записями DNS для домена в Azure. Помните, что Azure DNS — это не регистратор доменных имен.
+Azure DNS позволяет размещать зону DNS и тем самым управлять записями DNS для домена в Azure. Помните, что Azure DNS — это не регистратор доменных имен.
 
 Система доменных имен — это иерархия доменов. Иерархия начинается с "корневого" домена, имя которого — просто ".". Ниже находятся домены верхнего уровня, такие как com, net, org, uk и jp. Под ними расположены домены второго уровня, например org.uk и co.jp. И т. д.
 
@@ -71,8 +71,8 @@ DNS-клиенты на ПК или мобильных устройствах о
 
 С помощью Azure PowerShell полномочные записи NS можно получить следующим образом (имя записи "@" используется для указания на записи на вершине зоны).
 
-	PS C:\> $zone = Get-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
-	PS C:\> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
+	PS C:\> $zone = Get-AzureRmDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
 	ZoneName          : contoso.com
@@ -118,18 +118,18 @@ DNS-клиенты на ПК или мобильных устройствах о
 
 Этот процесс продемонстрирован в приведенном ниже примере PowerShell. Сначала нужно создать родительскую и дочернюю зоны (они могут находиться как в одной, так и в разных группах ресурсов).
 
-	PS C:\> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
-	PS C:\> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
+	PS C:\> $parent = New-AzureRmDnsZone -Name contoso.com -ResourceGroupName RG1
+	PS C:\> $child = New-AzureRmDnsZone -Name partners.contoso.com -ResourceGroupName RG1
 
 После этого нужно получить заслуживающие доверия записи NS из дочерней зоны, как показано в следующем примере.
 
-	PS C:\> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
+	PS C:\> $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
 Наконец, чтобы завершить делегирование, в родительской зоне нужно создать соответствующий набор записей NS (обратите внимание, что имя набора записей в родительской зоне совпадает с именем дочерней зоны, которая в этом случае названа partners).
 
-	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
+	PS C:\> $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
+	PS C:\> Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
 
 Чтобы убедиться в корректности настройки зоны, нужно, как и при делегировании с помощью регистратора доменных имен, найти запись SOA дочерней зоны.
 
@@ -149,14 +149,14 @@ DNS-клиенты на ПК или мобильных устройствах о
 
 ## Дальнейшие действия
 
-[Управление зонами DNS](../dns-operations-dnszones)
+[Управление зонами DNS](dns-operations-dnszones.md)
 
-[Управление зонами DNS](../dns-operations-recordsets)
+[Управление зонами DNS](dns-operations-recordsets.md)
 
-[Обзор диспетчера трафика](../traffic-manager-overview)
+[Обзор диспетчера трафика](traffic-manager-overview.md)
 
-[Автоматизация операций Azure с помощью пакета SDK для .NET](../dns-sdk)
+[Автоматизация операций Azure с помощью пакета SDK для .NET](dns-sdk.md)
 
 [Справочник по REST API службы Azure DNS](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->
