@@ -53,7 +53,7 @@
 
 ###Подключение приложения к серверной части Mobile Engagement
 
-1. Скачайте пакет [Mobile Engagement iOS SDK].
+1. Скачайте [пакет SDK iOS для Mobile Engagement].
 2. Извлеките файл .tar.gz в папку на компьютере.
 3. Щелкните правой кнопкой мыши проект и выберите пункт **Добавить файлы в**.
 
@@ -176,8 +176,8 @@ Mobile Engagement позволяет взаимодействовать и св�
 [AZURE.INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
 
 <!-- URLs. -->
-[Mobile Engagement iOS SDK]: http://go.microsoft.com/?linkid=9864553
-[Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
+[Mobile Engagement iOS SDK]: http://aka.ms/qk2rnj
+[пакет SDK iOS для Mobile Engagement]: http://aka.ms/qk2rnj
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-ios-get-started/xcode-add-files.png
@@ -185,4 +185,4 @@ Mobile Engagement позволяет взаимодействовать и св�
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -20,12 +20,15 @@
 # Создание виртуальной машины под управлением Windows на портале Azure#
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-windows-tutorial.md)
-- [Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
-- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Azure Portal - Windows](virtual-machines-windows-tutorial.md)
+- [Azure PowerShell](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
+- [Azure PowerShell - Template](virtual-machines-create-windows-powershell-resource-manager-template.md)
+- [Azure Portal - Linux](virtual-machines-linux-tutorial-portal-rm.md)
+- [Azure CLI](virtual-machines-linux-tutorial.md)
 
 <br>
+
+
 
 В этом руководстве мы покажем, как на портале Azure всего за несколько минут можно создать виртуальную машину Azure. В качестве примера мы создадим виртуальную машину с помощью образа Windows Server 2012 R2 Datacenter, но это лишь один из многих образов, предлагаемых в Azure. Доступность образов зависит от подписки. Например, подписчикам MSDN могут быть доступны образы рабочих столов.
 
@@ -110,4 +113,4 @@
 * Использование Azure PowerShell и интерфейса командной строки Azure для [поиска и выбора образов виртуальных машин](resource-groups-vm-searching.md).
 * Автоматизация развертывания виртуальных машин и рабочих нагрузок и управления ими с помощью[диспетчера ресурсов Azure](virtual-machines-how-to-automate-azure-resource-manager.md) и [шаблонов диспетчера ресурсов Azure](http://azure.microsoft.com/documentation/templates/).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

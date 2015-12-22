@@ -1,7 +1,7 @@
 <properties
     pageTitle="Разработка веб-приложений Python Flask с использованием DocumentDB | Microsoft Azure"
     description="Изучите учебник по использованию DocumentDB для хранения и применения данных из веб-приложения Python Flask, размещенного в Azure. Найдите решения для разработки приложений." 
-	keywords="Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure"
+	keywords="Разработка приложений, руководство по базе данных, python flask, веб-приложение python, разработка веб-приложения python, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
     authors="ryancrawcour"
@@ -47,9 +47,9 @@
 
 - [Visual Studio 2013](http://www.visualstudio.com/) или более поздней версии или Visual Studio Express (бесплатная версия Visual Studio).
 - Средства Python для Visual Studio [отсюда][].
-- Пакет Azure SDK для Visual Studio 2013 версии 2.4 и выше доступен [здесь][1].
-- Python 2.7 [отсюда][2].
-- Компилятор Microsoft Visual C++ для Python 2.7 [отсюда][3].
+- Пакет Azure SDK для Visual Studio 2013 версии 2.4 и выше [отсюда][1].
+- Python 2.7 [отсюда][2].
+- Компилятор Microsoft Visual C++ для Python 2.7 [отсюда][3].
 
 ## Шаг 1. Создание учетной записи базы данных DocumentDB
 
@@ -105,7 +105,7 @@
 
 Убедимся, что все установлено правильно.
 
-- Запустите веб-сайт, нажав клавишу **F5**. При этом будут запущены сервер разработки Flask и веб-браузер. Вы должны увидеть следующую страницу:
+- Запустите веб-сайт, нажав клавишу **F5**. Будут запущены сервер разработки Flask и веб-браузер. Вы должны увидеть следующую страницу:
 
 	![Пустой проект веб-приложения Python Flask отображается в браузере](./media/documentdb-python-application/image12.png)
 
@@ -115,108 +115,120 @@
 
 - Добавьте файл Python, щелкнув правой кнопкой мыши в обозревателе решений папку с именем **tutorial**. Присвойте файлу имя **forms.py**.  
 
-    	from flask.ext.wtf import Form
-    	from wtforms import RadioField
+```python
+from flask.ext.wtf import Form
+from wtforms import RadioField
 
-    	class VoteForm(Form):
-        	deploy_preference  = RadioField('Deployment Preference', choices=[
-            	('Web Site', 'Web Site'),
-            	('Cloud Service', 'Cloud Service'),
-            	('Virtual Machine', 'Virtual Machine')], default='Web Site')
+class VoteForm(Form):
+	deploy_preference  = RadioField('Deployment Preference', choices=[
+        ('Web Site', 'Web Site'),
+        ('Cloud Service', 'Cloud Service'),
+        ('Virtual Machine', 'Virtual Machine')], default='Web Site')
+```
 
 ### Добавьте необходимые файлы импорта в views.py.
 
 - Добавьте следующие инструкции import в начало файла **views.py**. Они выполнят импорт пакета SDK для Python и пакетов Flask DocumentDB.
 
-    	from forms import VoteForm
-    	import config
-    	import pydocumentdb.document_client as document_client
+```python
+from forms import VoteForm
+import config
+import pydocumentdb.document_client as document_client
+```
 
 
 ### Создание базы данных, коллекции и документа
 
-- Добавьте следующий код в файл **views.py**. Он отвечает за создание базы данных, используемой формой. Не удаляйте код, существующий в файле **views.py**. Просто переместите его в конец.
+- Добавьте следующий код в файл **views.py**. Он отвечает за создание базы данных, используемой формой. Не удаляйте код в файле **views.py**. Просто переместите его в конец.
 
-    	@app.route('/create')
-    	def create():
-        	"""Renders the contact page."""
-        	client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
-
-        	# Attempt to delete the database.  This allows this to be used to recreate as well as create
-        	try:
-            	db = next((data for data in client.ReadDatabases() if data['id'] == config.DOCUMENTDB_DATABASE))
-            	client.DeleteDatabase(db['_self'])
-        	except:
-            	pass
-
-       		# Create database
-        	db = client.CreateDatabase({ 'id': config.DOCUMENTDB_DATABASE })
-        	# Create collection
-        	collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION }, { 'offerType': 'S1' })
-        	# Create document
-        	document = client.CreateDocument(collection['_self'],
-            	{ 'id': config.DOCUMENTDB_DOCUMENT,
-            	'Web Site': 0,
-            	'Cloud Service': 0,
-            	'Virtual Machine': 0,
-            	'name': config.DOCUMENTDB_DOCUMENT })
-
-        	return render_template(
-            	'create.html',
-            	title='Create Page',
-            	year=datetime.now().year,
-            	message='You just created a new database, collection, and document.  Your old votes have been deleted')
+```python
+@app.route('/create')
+def create():
+	"""Renders the contact page."""
+        client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
+	
+        # Attempt to delete the database.  This allows this to be used to recreate as well as create
+        try:
+        db = next((data for data in client.ReadDatabases() if data['id'] == config.DOCUMENTDB_DATABASE))
+        client.DeleteDatabase(db['_self'])
+        except:
+        pass
+	
+       	# Create database
+        db = client.CreateDatabase({ 'id': config.DOCUMENTDB_DATABASE })
+        
+        # Create collection
+        collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION }, { 'offerType': 'S1' })
+        
+        # Create document
+        document = client.CreateDocument(collection['_self'],
+        { 'id': config.DOCUMENTDB_DOCUMENT,
+          'Web Site': 0,
+          'Cloud Service': 0,
+          'Virtual Machine': 0,
+          'name': config.DOCUMENTDB_DOCUMENT 
+        })
+	
+        return render_template(
+        	'create.html',
+        	title='Create Page',
+        	year=datetime.now().year,
+        	message='You just created a new database, collection, and document.  Your old votes have been deleted')
+```
 
 > [AZURE.TIP]Метод **CreateCollection** имеет третий необязательный параметр **RequestOptions**. Его можно использовать для указания типа предложения коллекции. Если значение типа предложения не указано, будет создана коллекция с использованием типа предложения по умолчанию. Дополнительные сведения о типах предложений DocumentDB см. в статье [Уровни производительности в DocumentDB](documentdb-performance-levels.md).
 >
 ### Чтение базы данных, коллекции и документа и отправка формы
 
-- Добавьте следующий код в файл **views.py**. Он служит для настройки формы, чтения базы данных, коллекции и документа. Не удаляйте код из файла **views.py**. Просто переместите его в конец.
+- Добавьте следующий код в файл **views.py**. Он служит для настройки формы, чтения базы данных, коллекции и документа. Не удаляйте код в файле **views.py**. Просто переместите его в конец.
 
-    	@app.route('/vote', methods=['GET', 'POST'])
-    	def vote():
-        	form = VoteForm()
-        	replaced_document ={}
-        	if form.validate_on_submit(): # is user submitted vote  
-            	client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
-
-            	# Read databases and take the first since the id should not be duplicated.
-            	db = next((data for data in client.ReadDatabases() if data['id'] == config.DOCUMENTDB_DATABASE))
-
-            	# Read collections and take the first since the id should not be duplicated.
-            	coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.DOCUMENTDB_COLLECTION))
-
-            	# Read documents and take the first since the id should not be duplicated.
-            	doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config.DOCUMENTDB_DOCUMENT))
-
-            	# Take the data from the deploy_preference and increment your database
-            	doc[form.deploy_preference.data] = doc[form.deploy_preference.data] + 1
-            	replaced_document = client.ReplaceDocument(doc['_self'], doc)
-
-            	# Create a model to pass to results.html
-            	class VoteObject:
-                	choices = dict()
-                	total_votes = 0
-
-            	vote_object = VoteObject()
-            	vote_object.choices = {
-                	"Web Site" : doc['Web Site'],
-                	"Cloud Service" : doc['Cloud Service'],
-                	"Virtual Machine" : doc['Virtual Machine']
-            	}
-            	vote_object.total_votes = sum(vote_object.choices.values())
-
-            	return render_template(
-                	'results.html',
-                	year=datetime.now().year,
-                	vote_object = vote_object)
-
-        	else :
-            	return render_template(
-                	'vote.html',
-                	title = 'Vote',
-                	year=datetime.now().year,
-                	form = form)
+```python
+@app.route('/vote', methods=['GET', 'POST'])
+def vote():
+	form = VoteForm()
+        replaced_document ={}
+        if form.validate_on_submit(): # is user submitted vote  
+        client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
+	
+        # Read databases and take the first since the id should not be duplicated.
+        db = next((data for data in client.ReadDatabases() if data['id'] == config.DOCUMENTDB_DATABASE))
+	
+        # Read collections and take the first since the id should not be duplicated.
+        coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.DOCUMENTDB_COLLECTION))
+	
+        # Read documents and take the first since the id should not be duplicated.
+        doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config.DOCUMENTDB_DOCUMENT))
+	
+        # Take the data from the deploy_preference and increment your database
+        doc[form.deploy_preference.data] = doc[form.deploy_preference.data] + 1
+        replaced_document = client.ReplaceDocument(doc['_self'], doc)
+	
+        # Create a model to pass to results.html
+        class VoteObject:
+        	choices = dict()
+                total_votes = 0
+		
+	vote_object = VoteObject()
+        vote_object.choices = {
+        	"Web Site" : doc['Web Site'],
+                "Cloud Service" : doc['Cloud Service'],
+                "Virtual Machine" : doc['Virtual Machine']
+	}
+        
+        vote_object.total_votes = sum(vote_object.choices.values())
+	
+        return render_template(
+        	'results.html',
+                year=datetime.now().year,
+                vote_object = vote_object)
+		
+	else :
+        return render_template(
+        	'vote.html',
+                title = 'Vote',
+                year=datetime.now().year,
+                form = form)
+```
 
 
 ### Создание HTML-файлов
@@ -225,60 +237,66 @@
 
 1. Добавьте следующий код в файл **create.html**. Он служит для отображения сообщения о создании новой базы данных, коллекции и документа.
 
-    	{% extends "layout.html" %}
-    	{% block content %}
-    	<h2>{{ title }}.</h2>
-    	<h3>{{ message }}</h3>
-    	<p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
-    	{% endblock %}
+```html
+{% extends "layout.html" %}
+{% block content %}
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+<p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
+{% endblock %}
+```
 
 2. Добавьте следующий код в файл **results.html**. Он служит для отображения результатов опроса.
 
-    	{% extends "layout.html" %}
-    	{% block content %}
-    	<h2>Results of the vote</h2>
-   	 	<br />
+```html
+{% extends "layout.html" %}
+{% block content %}
+<h2>Results of the vote</h2>
+	<br />
+	
+{% for choice in vote_object.choices %}
+<div class="row">
+	<div class="col-sm-5">{{choice}}</div>
+        <div class="col-sm-5">
+        	<div class="progress">
+        		<div class="progress-bar" role="progressbar" aria-valuenow="{{vote_object.choices[choice]}}" aria-valuemin="0" aria-valuemax="{{vote_object.total_votes}}" style="width: {{(vote_object.choices[choice]/vote_object.total_votes)*100}}%;">
+                    		{{vote_object.choices[choice]}}
+			</div>
+		</div>
+        </div>
+</div>
+{% endfor %}
 
-    	{% for choice in vote_object.choices %}
-    	<div class="row">
-        	<div class="col-sm-5">{{choice}}</div>
-        	<div class="col-sm-5">
-            	<div class="progress">
-                	<div class="progress-bar" role="progressbar" aria-valuenow="{{vote_object.choices[choice]}}" aria-valuemin="0"
-                     aria-valuemax="{{vote_object.total_votes}}" style="width: {{(vote_object.choices[choice]/vote_object.total_votes)*100}}%;">
-                    	{{vote_object.choices[choice]}}
-                	</div>
-            	</div>
-        	</div>
-    	</div>
-    	{% endfor %}
-
-    	<br />
-    	<a class="btn btn-primary" href="{{ url_for('vote') }}">Vote again?</a>
-    	{% endblock %}
+<br />
+<a class="btn btn-primary" href="{{ url_for('vote') }}">Vote again?</a>
+{% endblock %}
+```
 
 3. Добавьте следующий код в файл **vote.html**. Он служит для отображения опроса и принимает голоса. При регистрации голосов управление передается файлу views.py, в котором голоса будут учитываться и, соответственно, добавляться в документ.
 
-    	{% extends "layout.html" %}
-    	{% block content %}
-    	<h2>What is your favorite way to host an application on Azure?</h2>
-    	<form action="" method="post" name="vote">
-        	{{form.hidden_tag()}}
-        	{{form.deploy_preference}}
-        	<button class="btn btn-primary" type="submit">Vote</button>
-    	</form>
-    	{% endblock %}
+```html
+{% extends "layout.html" %}
+{% block content %}
+<h2>What is your favorite way to host an application on Azure?</h2>
+<form action="" method="post" name="vote">
+	{{form.hidden_tag()}}
+        {{form.deploy_preference}}
+        <button class="btn btn-primary" type="submit">Vote</button>
+</form>
+{% endblock %}
+```
 
 4. Замените содержимое файла **index.html** приведенным ниже кодом. Он будет служить главной страницей приложения.
 
-    	{% extends "layout.html" %}
-    	{% block content %}
-    	<h2>Python + DocumentDB Voting Application.</h2>
-    	<h3>This is a sample DocumentDB voting application using PyDocumentDB</h3>
-    	<p><a href="{{ url_for('create') }}" class="btn btn-primary btn-large">Create/Clear the Voting Database &raquo;</a></p>
-    	<p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
-    	{% endblock %}
-
+```html
+{% extends "layout.html" %}
+{% block content %}
+<h2>Python + DocumentDB Voting Application.</h2>
+<h3>This is a sample DocumentDB voting application using PyDocumentDB</h3>
+<p><a href="{{ url_for('create') }}" class="btn btn-primary btn-large">Create/Clear the Voting Database &raquo;</a></p>
+<p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
+{% endblock %}
+```
 
 ### Добавьте файл конфигурации и измените файл \_\_init\_\_.py
 
@@ -286,22 +304,26 @@
 
 2. Добавьте следующий код в файл config.py. Измените значения **DOCUMENTDB\_HOST** и **DOCUMENTDB\_KEY**.
 
-    	CSRF_ENABLED = True
-    	SECRET_KEY = 'you-will-never-guess'
+```python
+CSRF_ENABLED = True
+SECRET_KEY = 'you-will-never-guess'
 
-    	DOCUMENTDB_HOST = 'https://YOUR_DOCUMENTDB_NAME.documents.azure.com:443/'
-    	DOCUMENTDB_KEY = 'YOUR_SECRET_KEY_ENDING_IN_=='
+DOCUMENTDB_HOST = 'https://YOUR_DOCUMENTDB_NAME.documents.azure.com:443/'
+DOCUMENTDB_KEY = 'YOUR_SECRET_KEY_ENDING_IN_=='
 
-    	DOCUMENTDB_DATABASE = 'voting database'
-    	DOCUMENTDB_COLLECTION = 'voting collection'
-    	DOCUMENTDB_DOCUMENT = 'voting document'
+DOCUMENTDB_DATABASE = 'voting database'
+DOCUMENTDB_COLLECTION = 'voting collection'
+DOCUMENTDB_DOCUMENT = 'voting document'
+```
 
 3. Аналогичным образом замените содержимое файла **\_\_init\_\_.py** следующим кодом.
 
-    	from flask import Flask
-    	app = Flask(__name__)
-    	app.config.from_object('config')
-    	import tutorial.views
+```python
+from flask import Flask
+app = Flask(__name__)
+app.config.from_object('config')
+import tutorial.views
+```
 
 4. После выполнения указанных выше шагов ваш обозреватель решений должен выглядеть примерно так:
 
@@ -349,7 +371,7 @@
 
 Чтобы узнать, как добавить дополнительные функции в веб-приложение, ознакомьтесь с доступными интерфейсами API в [пакете SDK для Python в DocumentDB](https://pypi.python.org/pypi/pydocumentdb).
 
-Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
+Дополнительные сведения см. в [Центре по разработке Python](/develop/python/).
 
 
   [Учебники по Flask доступны здесь]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
@@ -361,4 +383,4 @@
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

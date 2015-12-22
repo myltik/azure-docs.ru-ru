@@ -13,24 +13,28 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="10/22/2015"
+	ms.date="12/14/2015"
 	ms.author="tdykstra"/>
 
 # Создание веб-задания .NET в службе приложений Azure
 
-В этом учебнике показано, как написать код для простого многоуровневого приложения ASP.NET MVC 5, которое использует пакет [WebJobs SDK](websites-dotnet-webjobs-sdk.md) для работы с [очередями Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) и [BLOB-объектами Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage). В учебнике показано, как развернуть приложение в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714) и [базе данных SQL Azure](http://msdn.microsoft.com/library/azure/ee336279).
+В этом руководстве показано, как написать код для простого многоуровневого приложения ASP.NET MVC 5, которое использует пакет [WebJobs SDK](websites-dotnet-webjobs-sdk.md).
+
+Назначение [веб-заданий SDK](websites-webjobs-resources.md) — упрощение кода, с помощью которого веб-задание выполняет такие общие задачи, как обработка изображений, обработка очереди, объединение RSS, обслуживание файлов и отправка сообщений электронной почты. Пакет SDK для веб-заданий имеет встроенные функции для работы с хранилищем Azure и служебной шиной для планирования задач и обработки ошибок, а также других распространенных сценариев. Этот пакет расширяемый; также существует [репозиторий открытого кода для расширений](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
 Пример приложения представляет собой рекламную доску объявлений. Пользователи могут загружать изображения для рекламы, а серверный процесс преобразует эти изображения в эскизы. На странице списка рекламных объявлений отображаются эскизы, а на странице подробных рекламных сведений — полноразмерное изображение. Ниже приведен снимок экрана:
 
 ![Список рекламы](./media/websites-dotnet-webjobs-sdk-get-started/list.png)
 
+В этом примере приложение работает с [очередями Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) и [большими двоичными объектами Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage). В руководстве показано, как развернуть приложение в [службе приложений Azure](http://go.microsoft.com/fwlink/?LinkId=529714) и [базе данных SQL Azure](http://msdn.microsoft.com/library/azure/ee336279).
+
 ## <a id="prerequisites"></a>Предварительные требования
 
-В учебнике предполагается, что у вас есть опыт работы с проектами [ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) в Visual Studio.
+Предполагается, что у вас есть опыт работы с проектами [ASP.NET MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) в Visual Studio.
 
 Учебник написан для Visual Studio 2013. Если у вас еще нет Visual Studio, это ПО будет установлено автоматически при установке пакета Azure SDK для .NET.
 
-Учебник можно использовать и с Visual Studio 2015, но перед запуском приложения в локальной среде необходимо изменить часть `Data Source` строки подключения SQL Server LocalDB в файлах Web.config и App.config с `Data Source=(localdb)\v11.0` на `Data Source=(LocalDb)\MSSQLLocalDB`.
+Руководство можно использовать и с Visual Studio 2015, но перед запуском приложения в локальной среде необходимо изменить часть `Data Source` строки подключения SQL Server LocalDB в файлах Web.config и App.config с `Data Source=(localdb)\v11.0` на `Data Source=(LocalDb)\MSSQLLocalDB`.
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note2.md)]
 
@@ -53,7 +57,7 @@
 
 ![Таблица рекламы](./media/websites-dotnet-webjobs-sdk-get-started/adtable.png)
 
-Когда пользователь отправляет изображение, веб-приложение сохраняет его в [BLOB-объекте Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), а рекламную информацию — в базе данных с URL-адресом, который указывает на BLOB-объект. В это же время оно записывает сообщение в очередь Azure. В ходе серверного процесса, выполняемого как веб-задание Azure, пакет WebJobs SDK опрашивает очередь на предмет новых сообщений. Когда появляется новое сообщение, веб-задание создает эскиз для изображения и обновляет поле базы данных с URL-адресом эскиза для этой рекламы. Вот диаграмма, которая показывает, как взаимодействуют части приложения:
+Когда пользователь отправляет изображение, веб-приложение сохраняет его в [BLOB-объекте Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), а рекламную информацию — в базе данных с URL-адресом, который указывает на этот BLOB-объект. В это же время оно записывает сообщение в очередь Azure. В ходе серверного процесса, выполняемого как веб-задание Azure, пакет WebJobs SDK опрашивает очередь на предмет новых сообщений. Когда появляется новое сообщение, веб-задание создает эскиз для изображения и обновляет поле базы данных с URL-адресом эскиза для этой рекламы. Вот диаграмма, которая показывает, как взаимодействуют части приложения:
 
 ![Архитектура Contoso Ads](./media/websites-dotnet-webjobs-sdk-get-started/apparchitecture.png)
 
@@ -69,13 +73,11 @@
 
 1. Откройте окно **Обозреватель серверов** в Visual Studio.
 
-2. Щелкните правой кнопкой мыши узел **Azure** и выберите **Подключиться к Microsoft Azure**.
-![Подключение к Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. Щелкните правой кнопкой мыши узел **Azure** и выберите **Подключиться к Microsoft Azure**. ![Подключение к Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Выполните вход с использованием учетных данных Azure.
 
-5. Щелкните правой кнопкой мыши **Хранилище** в узле Azure и выберите пункт **Создать учетную запись хранения**.
-![Создать учетную запись хранения](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Щелкните правой кнопкой мыши **Хранилище** в узле Azure и выберите пункт **Создать учетную запись хранения**. ![Создать учетную запись хранения](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. В диалоговом окне **Создание учетной записи хранения** введите имя для учетной записи хранения.
 
@@ -119,12 +121,10 @@
 
 	В примере строки подключения к хранилищу использованы заполнители для имени учетной записи хранения и ключа доступа. Замените это строкой подключения, которая содержит имя и ключ для вашей учетной записи хранения.
 
-	<pre class="prettyprint">&lt;connectionStrings&gt;
-	  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" /&gt;
-	  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-	&lt;/connectionStrings&gt;</pre>
-
-	Строка подключения хранилища называется AzureWebJobsStorage, поскольку пакет SDK веб-заданий использует это имя по умолчанию. Здесь используется то же имя, поэтому вам нужно задать только одно значение строки подключения в среде Azure.
+	<pre class="prettyprint">&lt;connectionStrings>
+  &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
+  &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/>
+&lt;/connectionStrings></pre>Строка подключения хранилища называется AzureWebJobsStorage, поскольку пакет SDK веб-заданий использует это имя по умолчанию. Здесь используется то же имя, поэтому вам нужно задать только одно значение строки подключения в среде Azure.
 
 2. В **обозревателе серверов** щелкните правой кнопкой мыши учетную запись хранения в узле **Хранилище** и щелкните **Свойства**.
 
@@ -142,17 +142,7 @@
 
 6. Откройте файл *App.config* в проекте ContosoAdsWebJob.
 
-	Этот файл содержит две строки подключения хранилища: одну для данных приложения, а другую для ведения журнала. В этом учебнике будет использоваться одна учетная запись. В строках подключения есть заполнители для ключей учетной записи хранения.
-  	<pre class="prettyprint">&lt;configuration&gt;
-    &lt;connectionStrings&gt;
-        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
-        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
-    &lt;/connectionStrings&gt;
-        &lt;startup&gt;
-            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
-    &lt;/startup&gt;
-&lt;/configuration&gt;</pre>
+	Этот файл содержит две строки подключения хранилища: одну для данных приложения, а другую для ведения журнала. Можно использовать отдельные учетные записи хранения для данных приложений и ведения журнала; также можно использовать [несколько учетных записей хранения для данных](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs). В этом руководстве будет использоваться одна учетная запись. В строках подключения есть заполнители для ключей учетной записи хранения. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
 
 	По умолчанию пакет SDK веб-заданий ищет строки подключения с именами AzureWebJobsStorage и AzureWebJobsDashboard. В качестве альтернативы можно [сохранить строку подключения любым способом и передать ее явно в объект `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
@@ -291,11 +281,11 @@
 
 ### Настройка веб-приложения для использования базы данных SQL Azure и учетной записи хранения.
 
-В целях безопасности рекомендуется [не указывать конфиденциальную информацию, такую как строки подключения, в файлах, которые хранятся в репозиториях исходного кода](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Это можно сделать с помощью Azure: вы можете задать строку подключения и другие значения параметров в среде Azure, и API конфигурации ASP.NET автоматически выберут эти значения при запуске приложения в Azure. Вы можете задать эти значения в Azure с помощью **обозревателя серверов**, портала Azure, Windows PowerShell или кроссплатформенного интерфейса командной строки. Дополнительные сведения см. в статье [Как работают строки приложений и строки подключения](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
+В целях безопасности рекомендуется [не указывать конфиденциальную информацию, такую как строки подключения, в файлах, которые хранятся в репозиториях исходного кода](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets). Это можно сделать с помощью Azure: вы можете задать строку подключения и другие значения параметров в среде Azure, и API конфигурации ASP.NET автоматически выберут эти значения при запуске приложения в Azure. Вы можете задать эти значения в Azure с помощью **обозревателя сервера**, портала Azure, Windows PowerShell или кроссплатформенного интерфейса командной строки. Дополнительные сведения см. в статье [Как работают строки приложений и строки подключения](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/).
 
-В этом разделе вы сможете задать значения строк подключения в Azure с помощью **обозревателя серверов**.
+В этом разделе вы зададите значения строк подключения в Azure с помощью **обозревателя сервера**.
 
-7. В **обозревателе серверов** щелкните правой кнопкой мыши свое веб-приложение в узле **Azure > {ваша группа ресурсов}**, а затем щелкните **Просмотреть параметры**.
+7. В **обозревателе сервера** щелкните правой кнопкой мыши свое веб-приложение в узле **Azure > {ваша группа ресурсов}**, а затем щелкните **Просмотреть параметры**.
 
 	Окно **Веб-приложение Azure** откроется на вкладке **Конфигурация**.
 
@@ -311,7 +301,7 @@
 
 	![Строки подключения на портале Azure](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
 
-10. В **обозревателе серверов** щелкните правой кнопкой мыши веб-приложение и выберите **Остановить**.
+10. В **обозревателе сервера** щелкните правой кнопкой мыши веб-приложение, а затем нажмите кнопку **Остановить**.
 
 12. Остановив веб-приложение, снова щелкните его правой кнопкой мыши и выберите **Запустить**.
 
@@ -327,11 +317,11 @@
 
 11.	Через несколько секунд обновите страницу, чтобы появился эскиз.
 
-	Если эскиз не отображается, подождите какое время (около минуты), пока веб-задание запустится повторно. Если через некоторое время эскиз по-прежнему не отображается при обновлении страницы, возможно, веб-задание не запускается автоматически. В этом случае перейдите на вкладку «Веб-задания» на странице [классического портала](https://manage.windowsazure.com) с вашим веб-приложением и нажмите кнопку **Запустить**.
+	Если эскиз не отображается, подождите какое время (около минуты), пока веб-задание запустится повторно. Если через некоторое время эскиз по-прежнему не отображается при обновлении страницы, возможно, веб-задание не запускается автоматически. В этом случае перейдите на вкладку «Веб-задания» на странице [классического портала](https://manage.windowsazure.com) для веб-приложения и нажмите кнопку **Запустить**.
 
 ### Просмотр панели мониторинга SDK веб-заданий
 
-1. На [классическом портале](https://manage.windowsazure.com) выберите свое веб-приложение.
+1. На [классическом портале](https://manage.windowsazure.com) выберите веб-приложение.
 
 2. Перейдите на вкладку **Веб-задания**.
 
@@ -413,7 +403,7 @@
 	* Добавляется файл *webjobs-list.json* в папку "Свойства" веб-проекта.
 	* Устанавливается пакет NuGet Microsoft.Web.WebJobs.Publish в проект веб-задания.
 
-	Дополнительные сведения об этих изменениях см. в разделе [Развертывание веб-заданий с помощью Visual Studio](websites-dotnet-deploy-webjobs.md).
+	Дополнительные сведения об этих изменениях см. в статье [Развертывание веб-заданий с помощью Visual Studio](websites-dotnet-deploy-webjobs.md).
 
 ### Добавление пакетов NuGet
 
@@ -465,9 +455,9 @@
 	- *Web.config*
 	- *Global.asax.cs*  
 	- В папку *Controllers*: *AdController.cs*
-	- В папку *Views\\Shared*: файл *\_Layout.cshtml*
-	- В папку *Views\\Home*: файл *Index.cshtml*
-	- В папку *Views\\Ad* (сначала создайте эту папку): пять файлов *.cshtml*<br/><br/>
+	- В папку *Views\\Shared*: файл *\_Layout.cshtml*.
+- В папку *Views\\Home*: файл *Index.cshtml*.
+	- В папку *Views\\Ad* (сначала создайте эту папку): пять файлов *.cshtml*.<br/><br/>
 
 3. В проекте ContosoAdsWebJob добавьте следующие файлы из скачанного проекта.
 
@@ -481,7 +471,7 @@
 
 В следующих разделах объясняется код, связанный с работой с пакетом SDK веб-заданий и большими двоичными объектами и очередями Azure.
 
-> [AZURE.NOTE]Код, характерный для пакета SDK веб-заданий, см. в разделах [Program.cs и Functions.cs](#programcs).
+> [AZURE.NOTE]Код, связанный с пакетом SDK для веб-заданий, см. в разделах [Program.cs и Functions.cs](#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -615,7 +605,7 @@
 
 В файле *AdController.cs* конструктор вызывает метод `InitializeStorage` для создания объектов клиентской библиотеки хранилища Azure, которые предоставляют API-интерфейс для работы с большими двоичными объектами и очередями.
 
-Затем код получает ссылку на контейнер больших двоичных объектов *images*, как показано ранее в *Global.asax.cs*. При этом он устанавливает [политику повторных попыток](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) по умолчанию, подходящую для веб-приложения. Политика повторения с экспоненциальной задержкой по умолчанию может застопорить веб-приложение более чем на минуту при повторяющихся повторах во время кратковременного сбоя. Политика повторения здесь указывает ожидание в 3 секунды после каждой попытки, всего до 3 повторений.
+Затем код получает ссылку на контейнер больших двоичных объектов *images*, как показано ранее в *Global.asax.cs*. При этом он устанавливает [политику повторения](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) по умолчанию, подходящую для веб-приложения. Политика повторения с экспоненциальной задержкой по умолчанию может застопорить веб-приложение более чем на минуту при повторяющихся повторах во время кратковременного сбоя. Политика повторения здесь указывает ожидание в 3 секунды после каждой попытки, всего до 3 повторений.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
 		blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
@@ -811,6 +801,6 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 ### Дополнительная документация по веб-заданиям
 
-Дополнительные сведения см. в разделе [Документация по веб-заданиям Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
+Дополнительные сведения см. в статье [Документация по веб-заданиям Azure](http://go.microsoft.com/fwlink/?LinkId=390226).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -531,6 +531,7 @@ AzCopy можно использовать для копирования одн�
 
 - [Хранилище файлов Azure: удобная облачная файловая система SMB для Windows и Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 - [Использование хранилища файлов Azure в Linux](storage-how-to-use-files-linux.md)
+- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
 
 ### Средства для работы с хранилищем файлов
 
@@ -550,4 +551,4 @@ AzCopy можно использовать для копирования одн�
 - [Введение в службы файлов Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Сохраняемые подключения к файлам Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

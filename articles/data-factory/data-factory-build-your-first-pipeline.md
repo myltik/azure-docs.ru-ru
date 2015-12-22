@@ -22,6 +22,7 @@
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 Эта статья поможет вам создать свою первую фабрику данных Azure.
 
@@ -172,4 +173,4 @@
 - Щелкните ссылку [Использование PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) вверху, чтобы пройти учебник с помощью Azure PowerShell.
 - Щелкните ссылку [Использование Visual Studio](data-factory-build-your-first-pipeline-using-vs.md), чтобы изучить учебник с применением Visual Studio. 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

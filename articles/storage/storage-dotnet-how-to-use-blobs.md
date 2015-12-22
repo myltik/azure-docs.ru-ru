@@ -350,6 +350,7 @@
 - [Приступая к работе с хранилищем таблиц для .NET](storage-dotnet-how-to-use-tables.md)
 - [Приступая к работе с хранилищем очередей для .NET](storage-dotnet-how-to-use-queues.md)
 - [Приступая к работе с хранилищем файлов для .NET](storage-dotnet-how-to-use-files.md)
+- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
 - [Использование базы данных SQL для хранения реляционных данных](../sql-database/articles/sql-database-dotnet-how-to-use.md)
 - [Использование хранилища больших двоичных объектов Azure с пакетом SDK веб-заданий](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
@@ -365,4 +366,4 @@
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

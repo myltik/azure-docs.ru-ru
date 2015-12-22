@@ -22,6 +22,7 @@
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 
 В этой статье описано, как создать конвейер с помощью Azure PowerShell. В учебнике рассматриваются следующие действия:
@@ -35,11 +36,11 @@
 > В этой статье рассматриваются не все командлеты фабрики данных. Полную документацию по командлетам фабрики данных см. в [справочнике по командлетам фабрики данных](https://msdn.microsoft.com/library/dn820234.aspx).
 
 ## Предварительные требования
-Помимо необходимых компонентов, перечисленных в разделе «Обзор руководства», необходимо установить следующее:
+Помимо необходимых компонентов, перечисленных в разделе "Обзор учебника", необходимо установить на компьютер Azure PowerShell.
 
 - **Azure PowerShell**. Чтобы установить последнюю версию Azure PowerShell на локальном компьютере, следуйте указаниям в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md). 
 
-Если вы используете Azure PowerShell **более ранней версии, чем 1.0**, используйте командлеты, описанные [здесь][cmdlet-reference]. Перед выполнением командлетов фабрики данных также потребуется выполнить следующие команды:
+Если вы используете Azure PowerShell **более ранней версии, чем 1.0**, используйте командлеты, описанные [здесь][cmdlet-reference]. Перед использованием командлетов фабрики данных также потребуется выполнить следующие команды:
  
 1. Откройте Azure PowerShell и выполните следующие команды. Не закрывайте Azure PowerShell, пока выполняются описанные в учебнике инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
 	1. Выполните командлет **Add-AzureAccount** и введите имя пользователя и пароль, которые используются для входа на портал Azure.
@@ -279,4 +280,4 @@
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->
