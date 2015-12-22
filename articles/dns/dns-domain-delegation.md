@@ -134,10 +134,10 @@ DNS-клиенты на ПК или мобильных устройствах о
 Чтобы убедиться в корректности настройки зоны, нужно, как и при делегировании с помощью регистратора доменных имен, найти запись SOA дочерней зоны.
 
 	PS C:\> nslookup –type=SOA partners.contoso.com
-
+	
 	Server: ns1-08.azure-dns.com
 	Address: 208.76.47.8
-
+	
 	partners.contoso.com
 		primary name server = ns1-08.azure-dns.com
 		responsible mail addr = msnhst.microsoft.com

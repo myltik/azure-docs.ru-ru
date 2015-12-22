@@ -73,11 +73,13 @@
 
 1. Откройте окно **Обозреватель серверов** в Visual Studio.
 
-2. Щелкните правой кнопкой мыши узел **Azure** и выберите **Подключиться к Microsoft Azure**. ![Подключение к Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
+2. Щелкните правой кнопкой мыши узел **Azure** и выберите **Подключиться к Microsoft Azure**.
+![Подключение к Azure](./media/websites-dotnet-webjobs-sdk-get-started/connaz.png)
 
 3. Выполните вход с использованием учетных данных Azure.
 
-5. Щелкните правой кнопкой мыши **Хранилище** в узле Azure и выберите пункт **Создать учетную запись хранения**. ![Создать учетную запись хранения](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
+5. Щелкните правой кнопкой мыши **Хранилище** в узле Azure и выберите пункт **Создать учетную запись хранения**.
+![Создать учетную запись хранения](./media/websites-dotnet-webjobs-sdk-get-started/createstor.png)
 
 3. В диалоговом окне **Создание учетной записи хранения** введите имя для учетной записи хранения.
 
@@ -142,7 +144,17 @@
 
 6. Откройте файл *App.config* в проекте ContosoAdsWebJob.
 
-	Этот файл содержит две строки подключения хранилища: одну для данных приложения, а другую для ведения журнала. Можно использовать отдельные учетные записи хранения для данных приложений и ведения журнала; также можно использовать [несколько учетных записей хранения для данных](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs). В этом руководстве будет использоваться одна учетная запись. В строках подключения есть заполнители для ключей учетной записи хранения. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
+	Этот файл содержит две строки подключения хранилища: одну для данных приложения, а другую для ведения журнала. В этом учебнике будет использоваться одна учетная запись. В строках подключения есть заполнители для ключей учетной записи хранения.
+  	<pre class="prettyprint">&lt;configuration&gt;
+    &lt;connectionStrings&gt;
+        &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt;
+        &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt;
+    &lt;/connectionStrings&gt;
+        &lt;startup&gt;
+            &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt;
+    &lt;/startup&gt;
+&lt;/configuration&gt;</pre>
 
 	По умолчанию пакет SDK веб-заданий ищет строки подключения с именами AzureWebJobsStorage и AzureWebJobsDashboard. В качестве альтернативы можно [сохранить строку подключения любым способом и передать ее явно в объект `JobHost`](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config).
 
@@ -456,7 +468,7 @@
 	- *Global.asax.cs*  
 	- В папку *Controllers*: *AdController.cs*
 	- В папку *Views\\Shared*: файл *\_Layout.cshtml*.
-- В папку *Views\\Home*: файл *Index.cshtml*.
+	- В папку *Views\\Home*: файл *Index.cshtml*.
 	- В папку *Views\\Ad* (сначала создайте эту папку): пять файлов *.cshtml*.<br/><br/>
 
 3. В проекте ContosoAdsWebJob добавьте следующие файлы из скачанного проекта.

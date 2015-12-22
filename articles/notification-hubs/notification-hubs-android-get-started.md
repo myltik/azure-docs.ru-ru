@@ -129,7 +129,10 @@
 	    private static Boolean isVisible = false;
 
 
-	Обязательно обновите три заполнителя: * **SENDER\_ID** — укажите для `SENDER_ID` номер проекта, полученный ранее из проекта, созданного в [консоли Google Cloud](http://cloud.google.com/console). * **HubListenConnectionString** — укажите для `HubListenConnectionString` следующую строку подключения к вашему центру: **DefaultListenAccessSignature**. Вы можете скопировать эту строку подключения: на [классическом портале Azure] на вкладке **Панель мониторинга** центра щелкните элемент **Просмотреть строку подключения**. * **HubName** — укажите имя центра уведомлений, которое отображается в верхней части страницы в Azure для вашего центра (**не** полный URL-адрес). Например, можно использовать `"myhub"`.
+	Обязательно измените три заполнителя:
+	* **SENDER\_ID**: задайте для `SENDER_ID` номер проекта, полученный ранее из проекта, созданного в [Google Cloud Console](http://cloud.google.com/console).
+	* **HubListenConnectionString**: задайте для `HubListenConnectionString` строку подключения **DefaultListenAccessSignature** к центру. Можно скопировать эту строку подключения, щелкнув **Просмотреть строку подключения** на вкладке **Панель мониторинга** центра на [портале Azure].
+	* **HubName**: имя центра уведомлений, которое отображается в верхней части страницы в Azure для вашего центра (**не** полный URL-адрес). Например, используйте `"myhub"`.
 
 
 
@@ -201,7 +204,7 @@
 
 8. Поскольку Android не отображает уведомлений, необходимо написать собственный приемник. В файле **AndroidManifest.xml** добавьте следующий элемент в середину элемента `<application>`.
 
-	> [AZURE.NOTE]Замените заполнитель на имя своего пакета.
+	> [AZURE.NOTE] Замените заполнитель на имя своего пакета.
 
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
