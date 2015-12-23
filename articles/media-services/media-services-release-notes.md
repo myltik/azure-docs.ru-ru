@@ -507,7 +507,7 @@ API REST служб мультимедиа обновлены до версии 
 * Зависимость от OData 5.5 (Microsoft.Data.OData.dll).
 
 
-##<a id="december_changes_12"></a>Выпуск: декабрь 2012 г.
+###<a id="december_changes_12"></a>Выпуск: декабрь 2012 г.
 
 ### <a name="dec_12_dotnet_changes"></a>Изменения в пакете SDK служб мультимедиа Azure для .NET
 
@@ -637,4 +637,4 @@ API REST служб мультимедиа обновлены до версии 
 [Обработка уведомлений из заданий служб мультимедиа]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->
