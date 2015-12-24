@@ -539,11 +539,11 @@
 	...
 	```
 
-	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
+	Обратите внимание, что внедренный сценарий для пакета CSS по-прежнему содержит ошибочный фрагмент из свойства `CdnFallbackExpression` в следующей строке:
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
+	Но поскольку первая часть выражения '||' будет всегда возвращать значение true (в строке прямо над этой), функция document.write() никогда не будет выполняться.
 
 6. Чтобы проверить, правильно ли работает сценарий резервного действия, вернитесь в панель мониторинга своей конечной точки CDN и щелкните **Отключить конечную точку**.
 
