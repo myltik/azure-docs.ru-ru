@@ -174,9 +174,6 @@
 
 ## Дальнейшие действия
 
-- Узнайте больше о [компонентах StorSimple](storsimple-components.md). 
 - Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
-
-<!---HONumber=Sept15_HO3-->
 
 <!---HONumber=AcomDC_1203_2015-->
