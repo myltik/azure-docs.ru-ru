@@ -102,9 +102,9 @@
 	resource type could not be found in the namespace 
 	'Microsoft.BizTaIkServices for api version 2014-06-01'.
 
-The error indicates it couldn't find the type, not the instance.
-![Success notification][CreateHCSuccessNotification]
--->
+	The error indicates it couldn't find the type, not the instance.
+	![Success notification][CreateHCSuccessNotification]
+	-->
 7. Теперь в колонке веб-приложения значок **Гибридные подключения** показывает, что создано одно гибридное подключение.
 	
 	![Создано одно гибридное подключение][CreateHCOneConnectionCreated]

@@ -215,11 +215,11 @@ public class RoleClaimContext : DbContext
 
 11. Добавьте выделенные оформления [Authorize] к соответствующим действиям ниже.
 	<pre class="prettyprint">
-...
+	...
 
-<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-public class WorkItemsController : Controller
-{
+	<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+	public class WorkItemsController : Controller
+	{
 	...
 
     <mark>[Authorize(Roles = "Admin, Writer")]</mark>
@@ -278,7 +278,7 @@ public class WorkItemsController : Controller
 		
 14.	В файле Views\\WorkItems\\Create.cshtml (автоматически сформированный на основе шаблона элемент) найдите вспомогательный метод `Html.BeginForm` и измените его следующим:
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
-{
+	{
     @Html.AntiForgeryToken()
 
     &lt;div class="form-horizontal">
@@ -326,7 +326,6 @@ public class WorkItemsController : Controller
 
     <mark>&lt;script>
             // People/Group Picker Code
-            var maxResultsPerPage = 14;
             var input = document.getElementById("AssignedToName");
             var token = "@ViewData["token"]";
             var tenant = "@ViewData["tenant"]";
@@ -341,7 +340,9 @@ public class WorkItemsController : Controller
             });
     &lt;/script></mark>
 
-}</pre>В сценарии объект AadPicker вызывает [API Graph Azure Active Directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) для поиска пользователей и групп, которые соответствуют введенным данным.
+	}</pre>
+
+	В сценарии объект AadPicker вызывает [API Graph Azure Active Directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) для поиска пользователей и групп, которые соответствуют введенным данным.
 
 15. Откройте [Консоль диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) и запустите **Enable-Migrations – EnableAutomaticMigrations**. По аналогии с параметром, который вы выбираете при публикации приложения в Azure, эта команда позволяет обновить схему базы данных приложения в [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) при отладке в Visual Studio.
 
