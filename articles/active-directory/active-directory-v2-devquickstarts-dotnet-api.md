@@ -37,7 +37,7 @@
 Готовое приложение также приводится в конце этого руководства.
 
 
-## 1\. Регистрация приложения
+## 1. Регистрация приложения
 Создайте приложение на странице [apps.dev.microsoft.com](https://apps.dev.microsoft.com) или выполните [эти подробные указания](active-directory-v2-app-registration.md). Не забудьте:
 
 - запишите назначенный вашему приложению **идентификатор**. Он вскоре вам понадобится.
@@ -48,7 +48,7 @@
 - Скопируйте с портала **URI перенаправления**. Необходимо использовать стандартное значение `urn:ietf:wg:oauth:2.0:oob`.
 
 
-## 2\. Настройка в приложении проверки подлинности OWIN
+## 2. Настройка в приложении проверки подлинности OWIN
 
 Зарегистрировав приложение, вам нужно настроить в нем обмен данными с конечной точкой v2.0. Это позволит проверять входящие запросы и маркеры.
 
@@ -57,7 +57,7 @@
 ```
 PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService
 PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService
-PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
+PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService 
 ```
 
 -	Добавьте класс OWIN Startup в проект TodoListService под именем `Startup.cs`. Щелкните правой кнопкой мыши проект и выберите в контекстном меню **Добавить**, затем **Новый элемент** и найдите OWIN. При запуске приложения промежуточный слой OWIN вызовет метод `Configuration(…)`.

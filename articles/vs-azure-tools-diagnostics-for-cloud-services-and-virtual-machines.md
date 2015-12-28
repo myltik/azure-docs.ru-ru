@@ -221,7 +221,7 @@
 
   ![Журналы трассировки событий Windows](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC766025.png)
 
-  ASP.NET поддерживает структуру ETW с использованием классов в пространстве имен [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110). Пространство имен Microsoft.WindowsAzure.Diagnostics, которое наследует и расширяет стандартные классы [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110), позволяет использовать [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) как платформу ведения журналов в среде Azure. Дополнительные сведения см. в статьях [Управление протоколированием и трассировкой в Windows Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) и [Включение диагностики в облачных службах и виртуальных машинах Azure](cloud-services-dotnet-diagnostics.md).
+  ASP.NET поддерживает структуру ETW с использованием классов в пространстве имен [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110). Пространство имен Microsoft.WindowsAzure.Diagnostics, которое наследует и расширяет стандартные классы [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110), позволяет использовать [System.Diagnostics.aspx](https://msdn.microsoft.com/library/system.diagnostics(v=vs.110) как платформу ведения журналов в среде Azure. Дополнительные сведения см. в статьях [Управление протоколированием и трассировкой в Microsoft Azure](https://msdn.microsoft.com/magazine/ff714589.aspx) и [Включение диагностики в облачных службах и виртуальных машинах Azure](cloud-services-dotnet-diagnostics.md).
 
 ### Аварийные дампы
 
@@ -357,4 +357,4 @@
 
 Дополнительные сведения о ведении журналов диагностики в Azure см. в статьях [Включение диагностики в облачных службах и виртуальных машинах Azure](cloud-services-dotnet-diagnostics.md) и [Включение ведения журнала диагностики для веб-приложений в службе приложений Azure](web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

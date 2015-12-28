@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure AD Connect — обновление средства синхронизации Microsoft Azure AD (DirSync) | Microsoft Azure"
-   description="Узнайте, как обновить DirSync до Azure AD Connect. В этой статье описывается процедура обновления текущего средства синхронизации Windows Azure AD (DirSync) до Azure AD Connect."
+   description="Узнайте, как обновить DirSync до Azure AD Connect. В этой статье описывается процедура обновления текущего средства синхронизации Microsoft Azure AD (DirSync) до Azure AD Connect."
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
@@ -169,8 +169,8 @@
 
 ### Удаление DirSync (старый сервер)
 
-- В окне **Программы и компоненты** найдите **Средство синхронизации Windows Azure Active Directory**.
-- Удаление **средства синхронизации Windows Azure Active Directory**
+- В окне **Программы и компоненты** найдите **Средство синхронизации Microsoft Azure Active Directory**.
+- Удаление **средства синхронизации Microsoft Azure Active Directory**
 - Обратите внимание, что удаление может занимать до 15 минут.
 
 После удаления DirSync нет ни одного активного сервера, экспортируемого в Azure AD. Следующий шаг необходимо завершить, прежде чем продолжать синхронизацию изменений вашей локальной службы Active Directory с Azure AD.
@@ -197,4 +197,4 @@ Azure AD Connect теперь является активным сервером
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

@@ -18,7 +18,8 @@
 
 # Предварительная версия модели приложений 2.0: вызов веб-API из веб-приложения .NET
 
-> [AZURE.NOTE]Эти сведения относятся к общедоступной предварительной версии конечных точек 2.0. Инструкции по интеграции с общедоступной службой Azure AD см. в статье [Руководство разработчика Azure Active Directory](active-directory-developers-guide.md).
+> [AZURE.NOTE]
+	Эти сведения относятся к общедоступной предварительной версии конечных точек 2.0. Инструкции по интеграции с общедоступной службой Azure AD см. в статье [Руководство разработчика Azure Active Directory](active-directory-developers-guide.md).
 
 Модель приложений версии 2.0 позволяет быстро реализовать проверку подлинности для веб-приложения и веб-API с поддержкой личных учетных записей Майкрософт, а также рабочих и учебных учетных записей. Здесь мы выполним сборку веб-приложения MVC, которое:
 
@@ -45,7 +46,7 @@
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-## 1\. Регистрация приложения
+## 1. Регистрация приложения
 Создайте приложение на странице [apps.dev.microsoft.com](https://apps.dev.microsoft.com) или выполните [эти подробные указания](active-directory-v2-app-registration.md). Не забудьте:
 
 - запишите назначенный вашему приложению **идентификатор**. Он вскоре вам понадобится.
@@ -54,7 +55,7 @@
 - Введите правильный **универсальный код ресурса (URI) перенаправления**. Универсальный код ресурса (URI) перенаправления сообщает Azure AD, куда следует направлять ответы аутентификации. Значение по умолчанию в этом руководстве — `https://localhost:44326/`.
 
 
-## 2\. Вход пользователя с помощью OpenID Connect
+## 2. Вход пользователя с помощью OpenID Connect
 Здесь мы настроим ПО промежуточного слоя OWIN для использования [протокола аутентификации OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). Кроме всего прочего, OWIN будет использоваться для выдачи запросов входа и выхода, управления сеансом пользователя и получения сведений о пользователе.
 
 -	Сначала откройте файл `web.config` в корневом каталоге проекта `TodoList-WebApp`, а затем укажите параметры конфигурации приложения в разделе `<appSettings>`.
@@ -118,7 +119,9 @@ public void ConfigureAuth(IAppBuilder app)
 
 - Сначала установите предварительную версию ADAL:
 
-```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease``` И добавьте еще одну инструкцию`using` в файл `App_Start\Startup.Auth.cs` для ADAL. Теперь добавьте новый метод, обработчик событий `OnAuthorizationCodeReceived`. Этот обработчик будет обращаться к ADAL для получения маркера доступа к API списка дел и сохранять этот маркер в кэше маркеров ADAL для последующего использования.
+```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
+И добавьте еще одну инструкцию`using` в файл `App_Start\Startup.Auth.cs` для ADAL.
+Теперь добавьте новый метод, обработчик событий `OnAuthorizationCodeReceived`. Этот обработчик будет обращаться к ADAL для получения маркера доступа к API списка дел и сохранять этот маркер в кэше маркеров ADAL для последующего использования.
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -200,6 +203,8 @@ catch (AdalException ee)
 
 ## Дальнейшие действия
 
-Дополнительные ресурсы: - [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow: тег adal >>](http://stackoverflow.com/questions/tagged/adal)
+Дополнительные ресурсы:
+- [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md)
+- [Тег StackOverflow "adal" >>](http://stackoverflow.com/questions/tagged/adal)
 
 <!---HONumber=AcomDC_1217_2015-->

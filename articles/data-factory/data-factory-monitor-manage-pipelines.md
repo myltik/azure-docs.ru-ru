@@ -96,7 +96,6 @@
 <td>ValidationRetry</td><td>Ожидание повторения проверки.</td>
 </tr>
 <tr>
-&lt;tr
 <td rowspan="2">InProgress</td><td>Validating</td><td>Проверка выполняется.</td>
 </tr>
 <td></td>
@@ -323,7 +322,7 @@ Azure регистрирует пользовательские события, 
 	                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
 	                        "operationName": "RunFinished",
 	                        "status": "Failed",
-	                        "subStatus": "FailedExecution"   
+	                            "subStatus": "FailedExecution"   
 	                    }
 	                },
 	                "action": 
@@ -357,7 +356,7 @@ OnDemandClusterDeleted | Succeeded
 #### Развертывание оповещения 
 Для развертывания оповещения используйте командлет Azure PowerShell **New-AzureResourceGroupDeployment**, как показано в следующем примере:
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureResourceGroupDeployment -ResourceGroupName adf     -TemplateFile .\ADFAlertFailedSlice.json  
 
 После успешного завершения развертывания группы ресурсов вы увидите следующие сообщения:
 
@@ -396,7 +395,7 @@ OnDemandClusterDeleted | Succeeded
 
 - Вы можете просмотреть все созданные события, щелкнув элемент **Операции**, и настроить уведомления для любых операций, отображаемых в колонке **События**.
 
-	![Операции](./media/data-factory-monitor-manage-pipelines/operations.png)
+![Операции](./media/data-factory-monitor-manage-pipelines/operations.png)
 
 
 - Сведения о командлетах PowerShell, которые можно использовать для добавления, получения и удаления предупреждений, см. в статье [Командлеты Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx). Далее приведено несколько примеров использования командлета **Get-AlertRule**.
@@ -543,7 +542,9 @@ OnDemandClusterDeleted | Succeeded
  
 Замените subscriptionId, resourceGroupName и dataFactoryName в приведенном выше примере на соответствующие значения.
 
-Сейчас для *metricName* можно указать только 2 значения: FailedRuns или SuccessfulRuns.
+Сейчас для *metricName* можно указать только два значения:
+- FailedRuns или
+- SuccessfulRuns.
 
 **Развертывание оповещения**
 
