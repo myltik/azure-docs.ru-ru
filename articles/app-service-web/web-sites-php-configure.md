@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Настройка PHP в веб-приложениях службы приложений Azure"
+	pageTitle="Настройка PHP в веб-приложениях службы приложений Azure | Microsoft Azure"
 	description="Узнайте, как настроить установку PHP по умолчанию или добавить пользовательскую установку PHP для веб-приложений в службе приложений Azure."
 	services="app-service"
 	documentationCenter="php"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="12/16/2015"
 	ms.author="tomfitz"/>
 
 #Настройка PHP в веб-приложениях службы приложений Azure
@@ -45,27 +45,34 @@
 
 ### Azure PowerShell (только для Windows)
 
-1. Откройте Windows PowerShell
-2. Введите `Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name <site-name>` и нажмите клавишу "ВВОД".
-3. После этого версия PHP будет установлена.
+1. Запустите Azure PowerShell и войдите в свою учетную запись.
 
-	![Задание версии PHP с помощью Azure PowerShell][SETPHPVERPS]
-4. Чтобы подтвердить параметры, введите `Get-AzureWebiste -Name <site-name>` и нажмите клавишу "ВВОД".
+        PS C:\> Login-AzureRmAccount
 
-	![Проверка версии PHP с помощью Azure PowerShell][GETPHPVERPS]
+2. Укажите версию PHP для веб-приложения.
+
+        PS C:\> Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name {site-name}
+
+3. После этого версия PHP будет установлена. Можно подтвердить эти параметры.
+
+        PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
 
 ### Интерфейс командной строки Azure для Mac, Linux и Windows
 
 Для использования интерфейса командной строки Azure требуется установить на компьютер **Node.js**.
 
-1. Откройте терминал.
-2. Введите `azure site set --php-version [5.4 | 5.5] [site-name]` и нажмите клавишу "ВВОД".
-3. После этого версия PHP будет установлена.
+1. Откройте терминал и войдите в свою учетную запись.
 
-	![Задание версии PHP с помощью интерфейса командной строки Azure][SETPHPVERCLI]
-4. Чтобы подтвердить параметры, введите `azure site show [site-name]` и нажмите клавишу "ВВОД".
+        azure login
 
-	![Проверка версии PHP с помощью интерфейса командной строки Azure][GETPHPVERCLI]
+2. Укажите версию PHP для веб-приложения.
+
+        azure site set --php-version [5.4 | 5.5] {site-name}
+
+3. После этого версия PHP будет установлена. Можно подтвердить эти параметры.
+
+        azure site show {site-name}
+
 
 ## Практическое руководство. Изменение встроенной конфигурации PHP
 
@@ -155,12 +162,12 @@
 
 ## Дальнейшие действия
 
-Дополнительные сведения можно найти в [Центре разработчика PHP](/develop/php/).
+Дополнительную информацию можно найти в [Центре разработчика PHP](/develop/php/).
 
 >[AZURE.NOTE]Чтобы приступить к работе со службой приложений Azure до создания учетной записи Azure, перейдите к разделу [Пробное использование службы приложений](http://go.microsoft.com/fwlink/?LinkId=523751), где вы можете быстро создать кратковременное веб-приложение начального уровня в службе приложений. Никаких кредитных карт и обязательств.
 
 ## Изменения
-* Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+* Руководство по переходу от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 [бесплатную пробную версию]: https://www.windowsazure.com/pricing/free-trial/
 [phpinfo()]: http://php.net/manual/en/function.phpinfo.php
@@ -181,4 +188,4 @@
 [GETPHPVERPS]: ./media/web-sites-php-configure/ShowPHPVersion-PS.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -32,12 +32,9 @@
 
 ##Заметки о выпуске
 
-##3\.2.0 (08.10.2015)
+###3\.2.1 (11.12.2015)
 
--   В пакете SDK включен Bitcode для работы с **Xcode 7**.
--   Исправлены ошибки, связанные с уведомлениями в приложении.
--   Уведомления в приложении стали более надежными при низком уровне заряда аккумулятора и в других подобных ситуациях.
--   Удалены лишние журналы консоли, созданные библиотекой сторонних производителей.
+-   Фиксированная задержка при активации нового экземпляра приложения уведомлением с прямыми ссылками. 
 
 Информацию о предыдущих версиях см. в [полных заметках о выпуске](mobile-engagement-ios-release-notes.md).
 
@@ -56,10 +53,10 @@
 
 Метод `application:didReceiveRemoteNotification:` необходимо заменить на `application:didReceiveRemoteNotification:fetchCompletionHandler:` в делегате приложения.
 
-"AEPushDelegate.h" — нерекомендуемый интерфейс, поэтому все ссылки на него необходимо удалить. Это, в частности, подразумевает удаление `[[EngagementAgent shared] setPushDelegate:self]` и методов делегата из делегата приложения:
+"AEPushDelegate.h" — нерекомендуемый интерфейс, поэтому все ссылки на него необходимо удалить. Это, в частности, подразумевает удаление `[[EngagementAgent shared] setPushDelegate:self]` и методов делегата в делегате приложения:
 
 	-(void)willRetrieveLaunchMessage;
 	-(void)didFailToRetrieveLaunchMessage;
 	-(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="12/04/2015"
+	ms.date="12/16/2015"
 	ms.author="jeffstok"/>
 
 # Масштабирование заданий Azure Stream Analytics для повышения пропускной способности базы данных #
@@ -61,7 +61,7 @@
 
 Разделение шага требует наличия следующих условий.
 
-- Источник входных данных должен быть секционирован. Дополнительные сведения см. в [руководстве разработчика по Stream Analytics](../stream-analytics-developer-guide.md) и [руководстве по программированию концентраторов событий](../azure-event-hubs-developer-guide.md).
+- Источник входных данных должен быть секционирован. Дополнительные сведения см. в [руководстве разработчика по Stream Analytics](../stream-analytics-developer-guide.md) и [руководстве по программированию концентраторов событий](../event-hubs/event-hubs-programming-guide.md).
 - Инструкция SELECT запроса должна читаться из разделенного источника входных данных.
 - Запрос внутри шага должен включать ключевое слово **Partition By**.
 
@@ -265,4 +265,4 @@
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Добавление модулей Runbook службы автоматизации Azure в планы восстановления" 
+   pageTitle="Добавление модулей Runbook службы автоматизации Azure в планы восстановления | Microsoft Azure" 
    description="В этой статье описывается, как Azure Site Recovery позволяет расширить планы восстановления с помощью службы автоматизации Azure для выполнения сложных задач во время восстановления в Azure." 
    services="site-recovery" 
    documentationCenter="" 
@@ -13,11 +13,9 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="10/07/2015"
+   ms.date="12/14/2015"
    ms.author="ruturajd@microsoft.com"/>
 
-  
-   
 
 # Добавление модулей Runbook службы автоматизации Azure в планы восстановления
 
@@ -158,69 +156,68 @@ CloudServiceName | Имя облачной службы Azure, под котор
 
 1.  Создайте новый модуль Runbook в учетной записи службы автоматизации Azure и присвойте ему имя **OpenPort80**
 
-![](media/site-recovery-runbook-automation/14.png)
+	![](media/site-recovery-runbook-automation/14.png)
 
 2.  Перейдите в представление создания модуля Runbook и войдите в режиме черновика.
 
 3.  Сначала укажите переменную, которая будет использоваться в качестве контекста плана восстановления.
-
-```
-	param (
-		[Object]$RecoveryPlanContext
-	)
-
-```
   
+	```
+		param (
+			[Object]$RecoveryPlanContext
+		)
+
+	```
 
 4.  Затем подключитесь к подписке, указав учетные данные и название подписки.
 
-```
-	$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
+	```
+		$Cred = Get-AutomationPSCredential -Name 'AzureCredential'
 	
-	# Connect to Azure
-	$AzureAccount = Add-AzureAccount -Credential $Cred
-	$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
-	Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
-```
+		# Connect to Azure
+		$AzureAccount = Add-AzureAccount -Credential $Cred
+		$AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
+		Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
+	```
 
-> Обратите внимание, что здесь используются ресурсы **AzureCredential** и **AzureSubscriptionName**.
+	Обратите внимание, что здесь используются ресурсы **AzureCredential** и **AzureSubscriptionName**.
 
-5.  Теперь укажите сведения о конечной точке и идентификатор GUID виртуальной машины, для которой требуется предоставить конечную точку (в данном случае это интерфейсная виртуальная машина).
+5.  Теперь укажите сведения о конечной точке и идентификатор GUID виртуальной машины, для которой требуется предоставить конечную точку. В данном случае это интерфейсная виртуальная машина.
 
-```
-	# Specify the parameters to be used by the script
-	$AEProtocol = "TCP"
-	$AELocalPort = 80
-	$AEPublicPort = 80
-	$AEName = "Port 80 for HTTP"
-	$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
-```
+	```
+		# Specify the parameters to be used by the script
+		$AEProtocol = "TCP"
+		$AELocalPort = 80
+		$AEPublicPort = 80
+		$AEName = "Port 80 for HTTP"
+		$VMGUID = "7a1069c6-c1d6-49c5-8c5d-33bfce8dd183"
+	```
 
-Эти сведения включают протокол конечной точки Azure, локальный порт на виртуальной машине и сопоставленный ему открытый порт. Эти переменные выступают в качестве параметров, необходимых для выполнения команд Azure по добавлению конечных точек для виртуальных машин. VMGUID содержит идентификатор GUID виртуальной машины, с которой необходимо выполнить требуемые операции.
+	Эти сведения включают протокол конечной точки Azure, локальный порт на виртуальной машине и сопоставленный ему открытый порт. Эти переменные выступают в качестве параметров, необходимых для выполнения команд Azure по добавлению конечных точек для виртуальных машин. VMGUID содержит идентификатор GUID виртуальной машины, с которой необходимо выполнить требуемые операции.
 
 6.  Теперь этот сценарий позволит извлечь контекст для заданного идентификатора VMGUID и создать конечную точку на виртуальной машине, на которую указывает этот идентификатор.
 
-```
-	#Read the VM GUID from the context
-	$VM = $RecoveryPlanContext.VmMap.$VMGUID
+	```
+		#Read the VM GUID from the context
+		$VM = $RecoveryPlanContext.VmMap.$VMGUID
 
-	if ($VM -ne $null)
-	{
-		# Invoke pipeline commands within an InlineScript
+		if ($VM -ne $null)
+		{
+			# Invoke pipeline commands within an InlineScript
 
-		$EndpointStatus = InlineScript {
-			# Invoke the necessary pipeline commands to add a Azure Endpoint to a specified Virtual Machine
-			# This set of commands includes: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including necessary parameters)
+			$EndpointStatus = InlineScript {
+				# Invoke the necessary pipeline commands to add a Azure Endpoint to a specified Virtual Machine
+				# Commands include: Get-AzureVM | Add-AzureEndpoint | Update-AzureVM (including parameters)
 
-			$Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
-				Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
-				Update-AzureVM
-			Write-Output $Status
+				$Status = Get-AzureVM -ServiceName $Using:VM.CloudServiceName -Name $Using:VM.RoleName | `
+					Add-AzureEndpoint -Name $Using:AEName -Protocol $Using:AEProtocol -PublicPort $Using:AEPublicPort -LocalPort $Using:AELocalPort | `
+					Update-AzureVM
+				Write-Output $Status
+			}
 		}
-	}
-```
+	```
 
-7. После этого нажмите "Опубликовать" ![](media/site-recovery-runbook-automation/20.png), чтобы сценарий стал доступен для выполнения. 
+7. После этого нажмите "Опубликовать" ![](media/site-recovery-runbook-automation/20.png), чтобы сценарий стал доступен для выполнения.
 
 Ниже приведен полный код сценария для справки.
 
@@ -313,4 +310,4 @@ CloudServiceName | Имя облачной службы Azure, под котор
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

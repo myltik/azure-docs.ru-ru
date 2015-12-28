@@ -156,6 +156,6 @@
 
 ## Дальнейшие действия
 
-Дополнительные сведения об интеграции системы управления версиями доступны по следующим ссылкам: – [Служба автоматизации Azure: интеграция системы управления версиями в службе автоматизации Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/) – [Голосование за лучшую систему управления версиями](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) – [Служба автоматизации Azure: интеграция системы управления версиями модулей Runbook с помощью Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)
+Дополнительную информацию об интеграции системы управления версиями доступны по следующим ссылкам: – [Azure Automation: Source Control Integration in Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/) – [Vote for your favorite source control system](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d) – [Azure Automation: Integrating Runbook Source Control using Visual Studio Team Services](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -22,16 +22,12 @@
 
 Раньше разработчику приложения, поддерживающего как учетные записи Майкрософт, так и Azure Active Directory, необходимо было обеспечивать интеграцию с двумя отдельными системами. Модель приложений версии 2.0 поддерживает вход для пользователей обоих типов учетных записей. Одна простая интеграция позволяет охватить миллионы пользователей личных, рабочих и (или) учебных учетных записей.
 
-Кроме того, приложения могут использовать [набор API REST Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) на основе любого типа учетной записи. В настоящее время в число таких API входят API почтовой службы Outlook, контактов и календарей. В будущем будут добавлены и другие службы.
-<!-- TODO: customer reference article -->
-<!-- Several apps have already begun to bridge the gap between consumer and enterprise accounts, including: [Boomerang](), [TripIt](), & [Uber](). -->
+Кроме того, приложения могут использовать [набор REST API Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) с помощью учетной записи любого типа. В настоящее время в число таких API входят API почтовой службы Outlook, контактов и календарей. В будущем будут добавлены и другие службы. <!-- TODO: customer reference article --> <!-- Several apps have already begun to bridge the gap between consumer and enterprise accounts, including: [Boomerang](), [TripIt](), & [Uber](). -->
 
-Модель приложений 2.0 сейчас доступна в предварительной версии. В течение периода использования предварительной версии просим вас сообщать нам свое мнение и впечатления от работы с новой моделью приложения. С учетом ваших отзывов мы усовершенствуем это решение. До конца периода использования предварительной версии не используйте модель приложений 2.0 для выпуска производственных приложений.
-<!-- TODO: Get approval on how it looks  -->
+Модель приложений 2.0 сейчас доступна в предварительной версии. В течение периода использования предварительной версии просим вас сообщать нам свое мнение и впечатления от работы с новой моделью приложения. С учетом ваших отзывов мы усовершенствуем это решение. До конца периода использования предварительной версии не используйте модель приложений 2.0 для выпуска производственных приложений. <!-- TODO: Get approval on how it looks  -->
 
 ## Приступая к работе
-Создать и запустить собственное приложение, используя модель приложений версии 2.0, можно одним из двух способов. Вы можете выбрать отправку сообщений протокола напрямую, используя [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) или [Open ID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). Второй вариант — возложить эту работу на наши библиотеки. Для этого выберите в приведенной ниже таблице желаемую платформу и приступайте к работе.
-<!-- TODO: Finalize this table  -->
+Создать и запустить собственное приложение, используя модель приложений версии 2.0, можно одним из двух способов. Вы можете выбрать отправку сообщений протокола напрямую, используя [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) или [Open ID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow). Второй вариант — возложить эту работу на наши библиотеки. Для этого выберите в приведенной ниже таблице желаемую платформу и приступайте к работе. <!-- TODO: Finalize this table  -->
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
@@ -49,7 +45,7 @@
 - Сообщите нам свое мнение о предварительной версии через сайт [пользовательских мнений](http://feedback.azure.com/forums/169401-azure-active-directory). В заголовке сообщения укажите AppModelv2, чтобы мы смогли его найти.
 - [Справочник по протоколу модели приложений версии 2.0](active-directory-v2-protocols.md)
 - [Справочник по маркеру модели приложений версии 2.0](active-directory-v2-tokens.md)
-- [Справочник по API REST Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
+- [Справочник по API REST Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [Области и разрешения в конечной точке v2](active-directory-v2-scopes.md)
 
 <!-- TODO: These articles
@@ -57,4 +53,4 @@
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

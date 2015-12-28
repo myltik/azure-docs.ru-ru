@@ -236,10 +236,10 @@
 -	[Перечисление ресурсов хранилища Azure в C++](storage-c-plus-plus-enumeration.md)
 -	[Справочник по клиентской библиотеке хранилища для C++](http://azure.github.io/azure-storage-cpp)
 -	[Документация по хранилищу Azure](http://azure.microsoft.com/documentation/services/storage/)
-
+- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
 
 
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

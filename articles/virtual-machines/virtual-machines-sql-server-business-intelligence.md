@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
+	ms.date="12/11/2015"
 	ms.author="jroth" />
 
 # Бизнес-аналитика SQL Server на виртуальных машинах Azure
@@ -388,9 +388,7 @@
 
 	|Порт|Тип|Описание|
 |---|---|---|
-|**80**|TCP|Удаленный доступ к серверу отчетов (*).|
-|**1433**|TCP|SQL Server Management Studio (*).|
-|**1434**|UDP|Обозреватель SQL Server. Это необходимо, если виртуальная машина присоединена к домену.|
+|**80**|TCP|Удаленный доступ к серверу отчетов (*).| |**1433**|TCP|SQL Server Management Studio (*).| |**1434**|UDP|Обозреватель SQL Server. Это необходимо, если виртуальная машина присоединена к домену.|
 |**2382**|TCP|Обозреватель SQL Server.|
 |**2383**|TCP|Экземпляр SQL Server Analysis Services по умолчанию и кластеризованные именованные экземпляры.|
 |**Определяется пользователем**|TCP|Создайте статический порт именованного экземпляра служб Analysis Services для выбранного номера порта, а затем разблокируйте этот порт в брандмауэре.|
@@ -433,4 +431,4 @@
 
 - [Управление базой данных SQL Azure с помощью PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Перенос виртуальных машин Windows из Amazon Web Services в Microsoft Azure"
+	pageTitle="Перенос виртуальных машин Windows из Amazon Web Services (AWS) в Azure с помощью Azure Site Recovery | Microsoft Azure"
 	description="Используйте Azure Site Recovery для переноса виртуальных машин Windows, работающих в Amazon Web Services (AWS), в Azure."
 	services="site-recovery"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="08/26/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
-#  Перенос виртуальных машин Windows из Amazon Web Services (AWS) в Azure
+#  Перенос виртуальных машин Windows из Amazon Web Services (AWS) в Azure с помощью Azure Site Recovery
 
 
 ## Обзор
@@ -71,4 +71,4 @@
 
 Комментарии и вопросы вы можете оставить на [форуме службы Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

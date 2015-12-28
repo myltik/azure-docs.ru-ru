@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,19 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Начало работы с подключенными службами хранилища больших двоичных объектов Azure и Visual Studio (проекты веб-заданий)
-
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-webjobs-getting-started-blobs.md)
-> - [What happened](vs-storage-webjobs-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
-> - [Queues](vs-storage-webjobs-getting-started-queues.md)
-> - [Tables](vs-storage-webjobs-getting-started-tables.md)
 
 ## Обзор
 
@@ -91,11 +82,11 @@
 Атрибут **BlobTrigger** можно использовать со следующими типами:
 
 * **string**
-* **TextReader**;
+* **TextReader;**
 * **Поток**
-* **ICloudBlob**;
+* **ICloudBlob;**
 * **CloudBlockBlob**
-* **CloudPageBlob**.
+* **CloudPageBlob.**
 * другие типы, десериализованные с помощью [ICloudBlobStreamBinder](#icbsb).
 
 При работе непосредственно с учетной записью хранения Azure можно также добавить параметр **CloudStorageAccount** в сигнатуру метода.
@@ -159,7 +150,7 @@
 
 Сообщением очереди для подозрительных больших двоичных объектов является объект JSON, содержащий следующие свойства:
 
-* FunctionId (в формате *{имя\_веб-задания}*. Functions.*{имя\_функции}*, например: WebJob1.Functions.CopyBlob)
+* FunctionId (в формате *{имя\_веб-задания}*. Functions.*{имя\_функции}*, например: WebJob1.Functions.CopyBlob);
 * BlobType (BlockBlob или PageBlob);
 * ContainerName;
 * BlobName
@@ -210,7 +201,7 @@
 
 Уведомления о получении большого двоичного объекта хранятся в контейнере с именем *azure-webjobs-hosts* в учетной записи хранения Azure, указанной в строке подключения AzureWebJobsStorage. Уведомление о получении большого двоичного объекта содержит следующую информацию:
 
-* функция, вызванная для BLOB-объекта (*{имя\_веб-задания}*.Functions.*{имя\_функции}*, например WebJob1.Functions.CopyBlob);
+* функция, вызванная для большого двоичного объекта (*{имя\_веб-задания}*.Functions.*{имя\_функции}*, например WebJob1.Functions.CopyBlob);
 * имя контейнера;
 * тип большого двоичного объекта (BlockBlob или PageBlob);
 * имя большого двоичного объекта;
@@ -238,4 +229,4 @@
 
 В этой статье приведены примеры кода обработки обычных сценариев для работы с большими двоичными объектами Azure. Дополнительную информацию об использовании веб-заданий Azure и пакета SDK для веб-заданий см. в статье [Рекомендуемые ресурсы по веб-заданиям Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

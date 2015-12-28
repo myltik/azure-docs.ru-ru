@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/24/2015" 
+	ms.date="12/10/2015" 
 	ms.author="wesmc"/>
 
 # Развертывание и управление центров уведомлений с помощью PowerShell
@@ -27,7 +27,7 @@
 
 Если необходимо создать новое пространство имен служебной шины для ваших центров уведомлений, см. [Управление Service Bus с помощью PowerShell](../service-bus/service-bus-powershell-how-to-provision.md).
 
-Управление центрами уведомлений не поддерживается напрямую с помощью командлетов, включенных в Azure PowerShell. Лучше всего из PowerShell указать сборку Microsoft.ServiceBus.dll. Сборка входит в состав [пакета NuGet для служебной шины](http://www.nuget.org/packages/WindowsAzure.ServiceBus/).
+Управление центрами уведомлений не поддерживается напрямую с помощью командлетов, включенных в Azure PowerShell. Лучше всего для PowerShell указать сборку Microsoft.Azure.NotificationHubs.dll. Сборка входит в состав [пакета NuGet для центров уведомлений Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 
 ## Предварительные требования
@@ -43,13 +43,13 @@
 
 ## Добавление ссылки на сборку .NET для Service Bus
 
-Управление центрами уведомлений Azure еще не включено в командлеты PowerShell в Azure PowerShell. Для подготовки центров уведомлений и других сущностей служебной шины, которые недоступны через существующие командлеты, можно использовать клиент .NET для служебной шины в [пакете NuGet для служебной шины](http://www.nuget.org/packages/WindowsAzure.ServiceBus/).
+Управление центрами уведомлений Azure еще не включено в командлеты PowerShell в Azure PowerShell. Для подготовки центров уведомлений можно использовать клиент .NET, содержащийся в [пакете NuGet для центров уведомлений Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-Сначала убедитесь, что сценарий может найти сборку **Microsoft.ServiceBus.dll**, которая устанавливается как пакет NuGet в проекте Visual Studio. Для гибкости сценарий выполняет такие действия:
+Сначала убедитесь, что сценарий может найти сборку **Microsoft.Azure.NotificationHubs.dll**, которая устанавливается как пакет NuGet в проекте Visual Studio. Для гибкости сценарий выполняет такие действия:
 
 1. Определяет путь, по которому он был вызван.
 2. Проходит по пути и находит папку с именем `packages`. Эта папка создается при установке пакетов NuGet для проектов Visual Studio.
-3. Рекурсивно ищет в папке `packages` сборку с именем **Microsoft.ServiceBus.dll**.
+3. Рекурсивно ищет в папке `packages` сборку с именем **Microsoft.Azure.NotificationHubs.dll**.
 4. Создает ссылку на сборку, чтобы типы стали доступны для дальнейшего использования.
 
 В сценарии PowerShell эти действия выполняются следующим образом:
@@ -58,53 +58,53 @@
 
 try
 {
-    # WARNING: Make sure to reference the latest version of Microsoft.ServiceBus.dll
-    Write-Output "Adding the [Microsoft.ServiceBus.dll] assembly to the script..."
+    # WARNING: Make sure to reference the latest version of Microsoft.Azure.NotificationHubs.dll
+    Write-Output "Adding the [Microsoft.Azure.NotificationHubs.dll] assembly to the script..."
     $scriptPath = Split-Path (Get-Variable MyInvocation -Scope 0).Value.MyCommand.Path
     $packagesFolder = (Split-Path $scriptPath -Parent) + "\packages"
-    $assembly = Get-ChildItem $packagesFolder -Include "Microsoft.ServiceBus.dll" -Recurse
+    $assembly = Get-ChildItem $packagesFolder -Include "Microsoft.Azure.NotificationHubs.dll" -Recurse
     Add-Type -Path $assembly.FullName
 
-    Write-Output "The [Microsoft.ServiceBus.dll] assembly has been successfully added to the script."
+    Write-Output "The [Microsoft.Azure.NotificationHubs.dll] assembly has been successfully added to the script."
 }
 
 catch [System.Exception]
 {
-    Write-Error("Could not add the Microsoft.ServiceBus.dll assembly to the script. Make sure you build the solution before running the provisioning script.")
+    Write-Error("Could not add the Microsoft.Azure.NotificationHubs.dll assembly to the script. Make sure you build the solution before running the provisioning script.")
 }
 ```
 
 ## Создание класса NamespaceManager
 
-Для подготовки центров уведомлений и других сущностей служебной шины создайте экземпляр класса [NamespaceManager](http://msdn.microsoft.com/library/microsoft.servicebus.namespacemanager.aspx) из пакета SDK.
+Для подготовки центров уведомлений создайте экземпляр класса [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.namespacemanager.aspx) из пакета SDK.
 
 Получить правило авторизации для указания строки подключения можно с помощью командлета [Get-AzureSBAuthorizationRule] в составе Azure PowerShell. Ссылка на экземпляр `NamespaceManager` будет сохранена в переменной `$NamespaceManager`. Для подготовки центра уведомлений будет использоваться `$NamespaceManager`.
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
-# Create the NamespaceManager object to create the event hub
+# Create the NamespaceManager object to create the hub
 Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
-$NamespaceManager=[Microsoft.ServiceBus.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
+$NamespaceManager=[Microsoft.Azure.NotificationHubs.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
 Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
 ```
 
 
 ## Подготовка нового центра уведомлений 
 
-Для подготовки нового центра уведомлений используйте [API .NET для служебной шины]. Данная статья целиком посвящена центрам уведомлений. Для работы с другими сущностями служебной шины см. [Управление служебной шиной с помощью PowerShell](../service-bus/service-bus-powershell-how-to-provision.md).
+Для подготовки нового центра уведомлений используйте [API .NET для центров уведомлений].
 
 В этой части сценария выполняется настройка четырех локальных переменных.
 
-1. `$Namespace`: присвоить данное значение имени пространства имен, в котором нужно создать центр уведомлений.
-2. `$Path`: присвоить путь имени нового центра уведомлений. Например, MyHub.    
-3. `$WnsPackageSid`: присвоить данное значение пакету SID для своего приложения Windows из [Центра разработок для Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
-4. `$WnsSecretkey`: присвоить данное значение секретному ключу для своего приложения Windows из [Центра разработок для Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+1. `$Namespace`: присвойте имя пространства имен, в котором нужно создать центр уведомлений.
+2. `$Path`: присвойте путь к имени нового центра уведомлений. Например, MyHub.    
+3. `$WnsPackageSid`: присвойте идентификатор безопасности пакета для своего приложения для Windows из [Центра разработки для Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+4. `$WnsSecretkey`: присвойте значение секретного ключа для своего приложения Windows из [Центра разработки для Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
 
-Эти переменные используются для подключения к своему пространству имен служебной шины и создания нового центра уведомлений, настроенного на обработку уведомлений от служб уведомлений Windows (WNS) с использованием учетных данных WNS для приложения Windows. Сведения о получении пакета SID и секретного ключа см. в учебнике [Приступая к работе с центрами уведомлений](notification-hubs-windows-store-dotnet-get-started.md).
+Эти переменные используются для подключения к пространству имен и создания нового центра уведомлений, настроенного для обработки уведомлений от служб уведомлений Windows (WNS) с использованием учетных данных WNS для приложения для Windows. Сведения о получении идентификатора безопасности пакета и секретного ключа см. в учебнике [Приступая к работе с центрами уведомлений](notification-hubs-windows-store-dotnet-get-started.md).
 
-+ Фрагмент сценария использует объект `NamespaceManager` для проверки существования центра уведомлений, идентифицируемого посредством `$Path`.
++ Фрагмент сценария использует объект `NamespaceManager` для проверки существования центра уведомлений, идентифицируемого по `$Path`.
 
-+ Если его не существует, сценарий создает `NotificationHubDescription` по учетным данным WNS и передает его в класс `NamespaceManager` метод `CreateNotificationHub`.
++ Если его не существует, сценарий создает `NotificationHubDescription` по учетным данным WNS и передает его в метод `CreateNotificationHub` класса `NamespaceManager`.
 
 ``` powershell
 
@@ -113,7 +113,7 @@ $Path  = "<Enter a name for your notification hub>"
 $WnsPackageSid = "<your package sid>"
 $WnsSecretkey = "<enter your secret key>"
 
-$WnsCredential = New-Object -TypeName Microsoft.ServiceBus.Notifications.WnsCredential -ArgumentList $WnsPackageSid,$WnsSecretkey
+$WnsCredential = New-Object -TypeName Microsoft.Azure.NotificationHubs.WnsCredential -ArgumentList $WnsPackageSid,$WnsSecretkey
 
 # Query the namespace
 $CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
@@ -126,7 +126,7 @@ if ($CurrentNamespace)
     # Create the NamespaceManager object used to create a new notification hub
     $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
     Write-Output "Creating a NamespaceManager object for the [$Namespace] namespace..."
-    $NamespaceManager = [Microsoft.ServiceBus.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
+    $NamespaceManager = [Microsoft.Azure.NotificationHubs.NamespaceManager]::CreateFromConnectionString($sbr.ConnectionString);
     Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
 
     # Check to see if the Notification Hub already exists
@@ -137,7 +137,7 @@ if ($CurrentNamespace)
     else
     {
         Write-Output "Creating the [$Path] notification hub in the [$Namespace] namespace."
-        $NHDescription = New-Object -TypeName Microsoft.ServiceBus.Notifications.NotificationHubDescription -ArgumentList $Path;
+        $NHDescription = New-Object -TypeName Microsoft.Azure.NotificationHubs.NotificationHubDescription -ArgumentList $Path;
         $NHDescription.WnsCredential = $WnsCredential;
         $NamespaceManager.CreateNotificationHub($NHDescription);
         Write-Output "The [$Path] notification hub was created in the [$Namespace] namespace."
@@ -165,10 +165,10 @@ else
 [Предложения для участников]: http://azure.microsoft.com/pricing/member-offers/
 [Бесплатное пробное использование]: http://azure.microsoft.com/pricing/free-trial/
 [Установка и настройка Azure PowerShell]: ../install-configure-powershell.md
-[API .NET для служебной шины]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
+[API .NET для центров уведомлений]: https://msdn.microsoft.com/library/azure/mt414893.aspx
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

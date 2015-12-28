@@ -1,7 +1,9 @@
-#### To delete a virtual device
+#### Удаление виртуального устройства
 
-1. Sign in to the Management Portal.
+1. Выполните вход на портал управления.
 
-- Click **Virtual Machines**, and then select the virtual device.
+- Щелкните **Виртуальные машины** и выберите виртуальное устройство.
 
-- Click **Delete** and choose to delete all the virtual machine disks.
+- Щелкните **Удалить** и удалите все диски виртуальной машины.
+
+<!---HONumber=AcomDC_1217_2015-->

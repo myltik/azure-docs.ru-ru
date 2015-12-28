@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Управление служебной шиной Azure при помощи службы автоматизации Azure"
+	pageTitle="Управление служебной шиной Azure при помощи службы автоматизации Azure | Microsoft Azure"
 	description="Узнайте о том, как служба автоматизации Azure может использоваться для управления служебной шиной Azure."
 	services="service-bus, automation"
 	documentationCenter=""
@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="service-bus"
-	ms.workload="core"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.date="12/09/2015"
 	ms.author="csand"/>
 
 
@@ -42,4 +42,4 @@
 * См. статью [Управление служебной шиной с помощью PowerShell](service-bus-powershell-how-to-provision.md)
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

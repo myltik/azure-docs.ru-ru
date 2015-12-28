@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Перенос виртуальных машин IaaS Azure из одного региона Azure в другой"
+	pageTitle="Перенос виртуальных машин IaaS Azure из одного региона Azure в другой с помощью Site Recovery | Microsoft Azure"
 	description="Используйте службу Site Recovery для переноса виртуальных машин IaaS Azure из одного региона Azure в другой."
 	services="site-recovery"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.date="12/14/2015"
 	ms.author="raynew"/>
 
-#  Перенос виртуальных машин IaaS Azure между регионами Azure
+#  Перенос виртуальных машин IaaS Azure между регионами Azure с помощью Site Recovery
 
 
 ## Обзор
@@ -69,4 +69,4 @@
 
 Комментарии и вопросы вы можете оставить на [форуме службы Site Recovery](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

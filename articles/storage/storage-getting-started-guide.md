@@ -101,6 +101,7 @@
 * [Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md)
 * [Использование табличного хранилища из .NET](storage-dotnet-how-to-use-tables.md)
 * [Использование хранилища очередей из .NET](storage-dotnet-how-to-use-queues.md)
+* [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
 * [Документация по хранилищу Azure](http://azure.microsoft.com/documentation/services/storage/)
 * [Клиентская библиотека хранилища Azure](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 * [REST API службы хранилища Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
@@ -108,4 +109,4 @@
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,19 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Начало работы с хранилищем больших двоичных объектов Azure и подключенными службами Visual Studio (ASP.NET 5)
-
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-aspnet5-getting-started-blobs.md)
-> - [What happened](vs-storage-aspnet5-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet5-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
 ##Обзор
 
@@ -69,7 +60,7 @@
 
 ##Создание контейнера в коде
 
-Вы также можете использовать объект **CloudBlobClient** для создания контейнера в учетной записи хранения. Вам нужно всего лишь добавить вызов **CreateIfNotExistsAsync**, как это сделано в следующем коде:
+Вы также можете использовать объект **CloudBlobClient** для создания контейнера в учетной записи хранения. Вам нужно всего лишь добавить вызов **CreateIfNotExistsAsync**, как это сделано в следующем коде.
 
 	// Create a blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -92,7 +83,7 @@
 
 ##Отправка BLOB-объекта в контейнер
 
-Для отправки файла большого двоичного объекта в контейнер получите ссылку на контейнер и используйте ее для получения ссылки на большой двоичный объект. Получив ссылку на большой двоичный объект, вы можете отправить в него любой поток данных с помощью метода **UploadFromStreamAsync**. Эта операция создает большой двоичный объект, если он не существует, или заменяет его, если он существует. В следующем примере показано, как отправить BLOB-объект в контейнер. Предполагается, что контейнер уже был создан.
+Для отправки файла большого двоичного объекта в контейнер получите ссылку на контейнер и используйте ее для получения ссылки на большой двоичный объект. Получив ссылку на большой двоичный объект, вы можете передать в него любой поток данных с помощью метода **UploadFromStreamAsync**. Эта операция создает большой двоичный объект, если он не существует, или заменяет его, если он существует. В следующем примере показано, как отправить BLOB-объект в контейнер. Предполагается, что контейнер уже был создан.
 
 	// Get a reference to a blob named "myblob".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
@@ -137,7 +128,7 @@
             }
         } while (token != null);
 
-Можно вывести список содержимого контейнера BLOB-объектов и другими способами. Дополнительные сведения см. в статье [Как использовать хранилище больших двоичных объектов из .NET](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
+Можно вывести список содержимого контейнера BLOB-объектов и другими способами. Подробнее об этом см. в статье [Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
 
 ##Загрузка BLOB-объектов
 Чтобы скачать большой двоичный объект, сначала получите ссылку на него, а затем вызовите метод **DownloadToStreamAsync**. В следующем примере метод **DownloadToStreamAsync** используется для переноса содержимого большого двоичного объекта в объект потока, который затем можно сохранить в локальном файле.
@@ -151,7 +142,7 @@
     	await blockBlob.DownloadToStreamAsync(fileStream);
 	}
 
-Вы можете сохранить BLOB-объекты в виде файлов и другими способами. Дополнительные сведения см. в статье [Как использовать хранилище больших двоичных объектов из .NET](storage-dotnet-how-to-use-blobs.md/#download-blobs).
+Вы можете сохранить BLOB-объекты в виде файлов и другими способами. Подробнее об этом см. в статье [Использование хранилища BLOB-объектов из .NET](storage-dotnet-how-to-use-blobs.md/#download-blobs).
 
 ##Удаление большого двоичного объекта
 Чтобы удалить большой двоичный объект, сначала получите ссылку на него, а затем вызовите метод **DeleteAsync**.
@@ -166,4 +157,4 @@
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

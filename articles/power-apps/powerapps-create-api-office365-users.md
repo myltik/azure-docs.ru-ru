@@ -67,7 +67,7 @@
 
 6. На экране **Свойства приложения**:
 
-	а) введите **URL-адрес входа** приложения. Поскольку для PowerApps будет использоваться проверка подлинности AAD, в качестве URL-адреса входа укажите \__https://login.windows.net_; б) введите допустимый **универсальный код ресурса (URI) кода приложения** для своего приложения; в) нажмите **ОК**.
+	а) введите **URL-адрес входа** приложения. Поскольку для PowerApps будет использоваться проверка подлинности AAD, в качестве URL-адреса входа укажите \__https://login.windows.net_; б) введите допустимый **универсальный код ресурса URI кода приложения** для своего приложения; в) нажмите **ОК**.
 
 	![Добавление приложения AAD: свойства приложения][9]
 
@@ -84,7 +84,7 @@
 Будет создано новое приложение Azure Active Directory. Вы можете использовать это приложение при настройке API Office 365 Users на портале Azure.
 
 ## Сводка и дальнейшие действия
-В этом разделе вы добавили API Office 365 Outlook в службу PowerApps Enterprise. Теперь необходимо предоставить пользователям доступ к этому API, чтобы они могли добавлять его в свои приложения:
+В этом разделе вы добавили API пользователей Office 365 в PowerApps Enterprise. Теперь необходимо предоставить пользователям доступ к этому API, чтобы они могли добавлять его в свои приложения.
 
 [Добавление подключения и предоставление доступа пользователям](powerapps-manage-api-connection-user-access.md)
 
@@ -101,9 +101,5 @@
 [9]: ./media/powerapps-create-api-office365-users/aad-tenant-applications-add-app-properties.PNG
 [10]: ./media/powerapps-create-api-office365-users/contoso-aad-app.PNG
 [11]: ./media/powerapps-create-api-office365-users/contoso-aad-app-configure.PNG
-[12]: ./media/powerapps-create-api-office365-users/contoso-aad-app-delegate-office365-users.PNG
-[13]: ./media/powerapps-create-api-office365-users/contoso-aad-app-delegate-office365-users-permissions.PNG
-[14]: ./media/powerapps-create-api-office365-outlook/browseall.png
-[15]: ./media/powerapps-create-api-office365-outlook/allresources.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

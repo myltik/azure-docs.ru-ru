@@ -306,7 +306,7 @@
 
 • Сохраните файл на локальном компьютере.
 
-**Настройка отчетов PowerBI**. • Откройте файл конструктора VehicleTelemetryAnalytics - Desktop Report.pbix с помощью PowerBI Desktop. Установите PowerBI Desktop (если вы еще не сделали это) [отсюда](http://www.microsoft.com/download/details.aspx?id=45331).
+**Настройка отчетов PowerBI**. • Откройте файл конструктора VehicleTelemetryAnalytics - Desktop Report.pbix с помощью PowerBI Desktop. Установите PowerBI Desktop (если вы еще не сделали это) с помощью [установщика PowerBI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
 
 • Щелкните **Изменить запросы**.
 
@@ -390,4 +390,4 @@
 
 Поздравляем! Вы создали отчеты и панель мониторинга для сбора данных о состоянии автомобилей и манере вождения (в том числе прогнозные данные и данные пакетной обработки) в режиме реального времени.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

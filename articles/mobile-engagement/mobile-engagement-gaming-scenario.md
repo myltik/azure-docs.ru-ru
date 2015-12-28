@@ -1,6 +1,6 @@
-	<properties 
-	pageTitle="Azure Mobile Engagement implementation for Gaming App"
-	description="Gaming app scenario to implement Azure Mobile Engagement" 
+<properties 
+	pageTitle="Реализация службы Azure Mobile Engagement в игровом приложении"
+	description="Сценарий для реализации службы Azure Mobile Engagement в игровом приложении." 
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo"
@@ -61,7 +61,7 @@
 * пользователи, которые прошли уровень 20, начинают тратить более 10 долларов в неделю;
 * пользователи склонны приобретать премиум-пакеты на уровнях 16, 24 и 32.
 
-Благодаря анализу руководитель проектов для мобильных устройств решает создать специальную серию push-уведомлений для увеличения продаж в приложении. Он создает три серии push-уведомлений, которые он называет: "Программа приветствия", "Программа продаж" и "Программа неактивности". Дополнительные сведения см. в [сборниках тренировочных заданий](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks) ![][1]
+Благодаря анализу руководитель проектов для мобильных устройств решает создать специальную серию push-уведомлений для увеличения продаж в приложении. Он создает три серии push-уведомлений, которые он называет: "Программа приветствия", "Программа продаж" и "Программа неактивности". Дополнительные сведения см. в [сборниках тренировочных заданий](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks). ![][1]
 
 <!--Image references-->
 
@@ -69,4 +69,4 @@
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

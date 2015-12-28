@@ -1,31 +1,22 @@
-<properties 
+<properties
     pageTitle="Начало работы с хранилищем очередей и подключенными службами Visual Studio (облачными службами) | Microsoft Azure"
 	description="Как приступить к работе, используя хранилище очередей Azure в проекте облачной службы в Visual Studio после подключения к учетной записи хранения с помощью подключенных служб Visual Studio"
-	services="storage" 
-	documentationCenter="" 
-	authors="TomArcher" 
-	manager="douge" 
-	editor="tglee"/>
+	services="storage"
+	documentationCenter=""
+	authors="TomArcher"
+	manager="douge"
+	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="web" 
+<tags
+	ms.service="storage"
+	ms.workload="web"
 	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.devlang="na"
+	ms.topic="article"
+  ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Приступая к работе с подключенными службами хранилища очередей Azure и Visual Studio (проекты облачных служб)
-
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-cloud-services-getting-started-queues.md)
-> - [What happened](vs-storage-cloud-services-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-cloud-services-getting-started-blobs.md)
-> - [Queues](vs-storage-cloud-services-getting-started-queues.md)
-> - [Tables](vs-storage-cloud-services-getting-started-tables.md)
 
 ## Обзор
 
@@ -35,10 +26,10 @@
 
 Операция **Добавить подключенные службы** устанавливает соответствующие пакеты NuGet для доступа к хранилищу Azure в вашем проекте и добавляет строку подключения для учетной записи хранения в файлы конфигурации проекта.
 
- - Дополнительные сведения об обработке очередей в коде см. в статье [Использование хранилища очередей средствами .NET](storage-dotnet-how-to-use-queues.md).
+ - Дополнительные сведения об оперировании очередями в коде см. в статье [Использование хранилища очередей из .NET](storage-dotnet-how-to-use-queues.md).
  - Общие сведения о службе хранилища Azure см. в [документации по службе хранилища](https://azure.microsoft.com/documentation/services/storage/).
  - Общие сведения об облачных службах Azure см. в [документации по облачным службам](http://azure.microsoft.com/documentation/services/cloud-services/).
- - Дополнительную информацию о программировании для приложений ASP.NET см. в разделе [ASP.NET](http://www.asp.net).
+ - Дополнительную информацию о программировании для ASP.NET см. в разделе [ASP.NET](http://www.asp.net).
 
 
 Хранилище очередей Azure — это служба для хранения большого количества сообщений, к которым можно получить доступ практически из любой точки мира с помощью вызовов с проверкой подлинности по протоколам HTTP или HTTPS. Одно сообщение очереди может быть размером до 64 КБ, а очередь может содержать миллионы сообщений до общего ограничения емкости учетной записи хранения.
@@ -48,7 +39,7 @@
 
 Для доступа к очередям в проектах облачных служб Visual Studio необходимо включить следующие элементы во все файлы исходного кода C#, которые обращаются к хранилищу очередей Azure.
 
-1. Убедитесь, что объявления пространств имен в верхней части файла C# содержат указанные ниже выражения **using**.
+1. Убедитесь, что объявления пространств имен в верхней части файла C# содержат указанные ниже операторы **using**.
 
 		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
@@ -59,12 +50,12 @@
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-3. Используйте объект **CloudQueueClient** для ссылки на объекты очереди в вашей учетной записи хранения.
+3. Получите объект **CloudQueueClient**, чтобы указать ссылку на объекты очереди в вашей учетной записи хранения.
 
 	    // Create the queue client.
     	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-4. Используйте объект **CloudQueue**, чтобы указать ссылку на определенную очередь.
+4. Получите объект **CloudQueue** для ссылки на определенную очередь.
 
     	// Get a reference to a queue named "messageQueue"
 	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
@@ -76,9 +67,9 @@
 
 Чтобы создать очередь Azure в коде, просто добавьте вызов **CreateIfNotExists**.
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue' 
+    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
     // as described in the "Access queues in code" section.
-	
+
 	// Create the CloudQueue if it does not exist
 	messageQueue.CreateIfNotExists();
 
@@ -90,7 +81,7 @@
 
 Ниже приведен пример, который вставляет сообщение "Hello, World".
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue' as described in 
+    // Get a reference to a CloudQueue object with the variable name 'messageQueue' as described in
     // the "Access queues in code" section.
 
 	// Create a message and add it to the queue.
@@ -101,9 +92,9 @@
 
 Просмотреть сообщение в начале очереди, не удаляя его, можно с помощью метода **PeekMessage**.
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue' 
+    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
     // as described in the "Access queues in code" section.
-	
+
 	// Peek at the next message
     CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
 
@@ -112,13 +103,13 @@
 Ваш код может удалить сообщение из очереди в два этапа.
 
 1. Вызовите метод **GetMessage**, чтобы получить следующее сообщение в очереди. Сообщение, возвращаемое методом **GetMessage**, становится невидимым для другого кода, считывающего сообщения из этой очереди. По умолчанию это сообщение остается невидимым в течение 30 секунд.
-2.	Чтобы завершить удаление сообщения из очереди, необходимо вызвать метод **DeleteMessage**.
+2.	Чтобы завершить удаление сообщения из очереди, вызовите метод **DeleteMessage**.
 
 Этот двухэтапный процесс удаления сообщения позволяет удостовериться, что если коду не удастся обработать сообщение из-за сбоя оборудования или программного обеспечения, другой экземпляр кода сможет получить то же сообщение и повторить попытку. Код вызывает метод **DeleteMessage** сразу после обработки сообщения.
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue' 
+    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
     // as described in the "Access queues in code" section.
-	
+
 	// Get the next message in the queue.
 	CloudQueueMessage retrievedMessage = messageQueue.GetMessage();
 
@@ -137,25 +128,25 @@
 
 Ниже приведен пример:
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue' 
+    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
     // as described in the "Access queues in code" section.
-	
+
     foreach (CloudQueueMessage message in messageQueue.GetMessages(20, TimeSpan.FromMinutes(5)))
     {
         // Process all messages in less than 5 minutes, deleting each message after processing.
-    
+
         // Then delete the message after processing
         messageQueue.DeleteMessage(message);
-    
+
     }
 
 ## Получение длины очереди
 
 Вы можете узнать приблизительное количество сообщений в очереди. Метод **FetchAttributes** отправляет в службу очередей запрос на извлечение атрибутов очереди, включая количество сообщений. Свойство **ApproximateMethodCount** возвращает последнее значение, полученное с использованием метода **FetchAttributes**, без обращения к службе очередей.
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue' 
+    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
     // as described in the "Access queues in code" section.
-	
+
 	// Fetch the queue attributes.
 	messageQueue.FetchAttributes();
 
@@ -167,11 +158,11 @@
 
 ## Использование алгоритма Async-Await со стандартными API очередей Azure
 
-В этом примере показано использование алгоритма Async-Await со стандартными API очередей Azure. Вызывается асинхронная версия каждого из методов (на это указывает постфикс **Async** после их названий). При использовании асинхронного метода алгоритм Async-Await приостанавливает локальное выполнение процесса до завершения вызова. Благодаря этому текущий поток может выполнять другие задачи, что позволяет избежать возникновения узких мест и повысить общую скорость реагирования приложения. Дополнительные сведения об использовании алгоритма Async-Await в .NET см. в статье [Асинхронное программирование с использованием ключевых слов Async и Await (C# и Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
+В этом примере показано использование алгоритма Async-Await со стандартными API очередей Azure. Вызывается асинхронная версия каждого из методов (на это указывает постфикс **Async**). При использовании асинхронного метода алгоритм Async-Await приостанавливает локальное выполнение процесса до завершения вызова. Благодаря этому текущий поток может выполнять другие задачи, что позволяет избежать возникновения узких мест и повысить общую скорость реагирования приложения. Дополнительные сведения об использовании алгоритма Async-Await в .NET см. в статье [Асинхронное программирование с использованием ключевых слов Async и Await (C# и Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue' 
+    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
     // as described in the "Access queues in code" section.
-	
+
     // Create a message to put in the queue
     CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
 
@@ -191,15 +182,14 @@
 
 Чтобы удалить очередь и все сообщения в ней, вызовите метод **Delete** для объекта очереди.
 
-    // Get a reference to a CloudQueue object with the variable name 'messageQueue' 
+    // Get a reference to a CloudQueue object with the variable name 'messageQueue'
     // as described in the "Access queues in code" section.
-	
+
     // Delete the queue.
     messageQueue.Delete();
 
 ## Дальнейшие действия
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
-			
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

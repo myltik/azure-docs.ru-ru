@@ -66,10 +66,10 @@
 
 Заполните таблицу D для двух локальных DNS-серверов, которые планируете использовать на этапе начальной настройки контроллеров домена виртуальной сети. Задайте для каждого из них понятное имя и один IP-адрес. Понятное имя не обязано совпадать с именем узла или компьютера DNS-сервера. В списке предлагаются две записи, однако их число можно увеличить. Составьте его вместе со специалистами своего ИТ-отдела.
 
-Элемент | Понятное имя DNS-сервера | IP-адрес DNS-сервера 
---- | --- | ---
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ 
+Элемент | IP-адрес DNS-сервера 
+--- | ---
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ 
 
 **Таблица D: локальные DNS-серверы**
 
@@ -85,13 +85,24 @@
 
 **Таблица L: префиксы адресов локальной сети**
 
-> [AZURE.NOTE]Эта статья содержит команды для предварительной версии Azure PowerShell 1.0. Для выполнения этих команд в Azure PowerShell 0.9.8 или предыдущих версиях замените все случаи «-AzureRM» на «-Azure» и добавьте команду **Switch-AzureMode AzureResourceManager** до выполнения всех остальных команд. Дополнительные сведения см. в статье [Предварительная версия Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0-pre/).
+Запустите командную строку Azure PowerShell.
 
-Откройте командную строку Azure PowerShell.
+> [AZURE.NOTE]Следующая команда задает использование Azure PowerShell 1.0 и более поздней версии. Дополнительные сведения см. в статье [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
-Затем создайте группу ресурсов для своего бизнес-приложения.
+Сначала запустите командную строку Azure PowerShell и войдите в свою учетную запись.
 
-Чтобы вывести список существующих групп ресурсов и выбрать уникальное имя для новой группы, используйте эту команду.
+	Login-AzureRMAccount
+
+Получите имя своей подписки, выполнив указанную ниже команду.
+
+	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
+
+Настройте свою подписку Azure. Замените все содержимое внутри кавычек, включая символы < and >, на правильные имена.
+
+	$subscr="<subscription name>"
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
+
+Затем создайте группу ресурсов для своего бизнес-приложения. Чтобы вывести список существующих групп ресурсов и выбрать уникальное имя для новой группы, используйте эту команду.
 
 	Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
 
@@ -114,7 +125,7 @@
 
 Для каждой учетной записи хранения вам нужно выбрать глобально уникальное имя, содержащее только строчные буквы и цифры. Чтобы вывести список существующих учетных записей хранения, используйте эту команду.
 
-	Get-AzureRMStorageAccount | Sort Name | Select Name
+	Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
 
 Чтобы создать первую учетную запись хранения, выполните следующие команды.
 
@@ -169,12 +180,12 @@
 	$vnetConnectionKey="<Table V – Item 8 – Value column>"
 	$vnetConnection=New-AzureRMVirtualNetworkGatewayConnection -Name $vnetConnectionName -ResourceGroupName $rgName -Location $locName -ConnectionType IPsec -SharedKey $vnetConnectionKey -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localGateway
 
-Настройте локальное VPN-устройство для подключения к VPN-шлюзу Azure. Дополнительные сведения см. в статье [Настройка VPN-устройства](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
+После этого настройте локальное VPN-устройство для подключения к VPN-шлюзу Azure. Дополнительные сведения см. в статье [Настройка VPN-устройства](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
 
 Чтобы настроить локальное VPN-устройство, вам потребуются:
 
-- общедоступный IPv4-адрес VPN-шлюза Azure для виртуальной сети (можно узнать, выполнив команду **Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName**);
-- общий ключ IPsec для VPN-подключения типа «сеть — сеть» (в таблице V в столбце значений см. позицию 8).
+- общедоступный IPv4-адрес VPN-шлюза Azure для виртуальной сети (его можно узнать, выполнив команду **Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName**);
+- общий ключ IPsec для VPN-подключения типа «сеть-сеть» (таблица V, элемент 8, столбец «Значение»).
 
 Затем убедитесь в том, что адресное пространство виртуальной сети доступно из вашей локальной сети. Для этого на VPN-устройство обычно добавляется маршрут, соответствующий адресному пространству вашей виртуальной сети, который затем объявляется остальным элементам инфраструктуры маршрутизации корпоративной сети. За дополнительными инструкциями обратитесь к специалистам своего ИТ-отдела.
 
@@ -207,18 +218,6 @@
 
 ## Дальнейшие действия
 
-Дальнейшие действия по настройке этой рабочей нагрузки см. в разделе [Этап 2. Настройка контроллеров домена](virtual-machines-workload-high-availability-LOB-application-phase2.md).
+- Чтобы продолжить настройку этой рабочей нагрузки, см. [этап 2](virtual-machines-workload-high-availability-LOB-application-phase2.md).
 
-## Дополнительные ресурсы
-
-[Развертывание высокодоступных бизнес-приложений в Azure](virtual-machines-workload-high-availability-LOB-application-overview.md)
-
-[Архитектурный проект бизнес-приложений](http://msdn.microsoft.com/dn630664)
-
-[Настройка веб-бизнес-приложения в гибридном облаке для тестирования](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
-
-[Руководство по реализации служб инфраструктуры Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Рабочая нагрузка служб инфраструктуры Azure: ферма SharePoint Server 2013](virtual-machines-workload-intranet-sharepoint-farm.md)
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

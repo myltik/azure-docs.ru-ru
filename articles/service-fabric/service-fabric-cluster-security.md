@@ -60,7 +60,7 @@ Service Fabric обеспечивает безопасность для след
 
 ## Шаг 2. Отправка сертификата x509 в хранилище ключей
 
-Это сложный процесс, поэтому для его выполнения мы отправили в репозиторий Git модуль Powershell.
+Это сложный процесс, поэтому для его выполнения мы передали в репозиторий Git модуль PowerShell.
 
 **Шаг 2.1.**. Скопируйте эту папку на компьютер из [репозитория Git](https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers).
 
@@ -72,7 +72,9 @@ Service Fabric обеспечивает безопасность для след
 Remove-Module ServiceFabricRPHelpers
 ```
 
-Скопируйте следующие данные и измените путь к файлу PSM1, как на вашем компьютере. Вот пример: ```
+Скопируйте следующие данные и измените путь к файлу PSM1, как на вашем компьютере. Ниже приведен пример.
+
+```
 Import-Module "C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 ```
   
@@ -91,8 +93,10 @@ Login-AzureRmAccount
 ```
 Invoke-AddCertToKeyVault -SubscriptionId <you subscription id> -ResourceGroupName <string> -Location <region> -VaultName <Name of the Vault> -CertificateName <Name of the Certificate> -Password <Certificate password> -UseExistingCertificate -ExistingPfxFilePath <Full path to the .pfx file> 
 ```
-Вот пример заполненного сценария: ```
-Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate2 -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ") -UseExistingCertificate -ExistingPfxFilePath C:\MyCertificates\ChackdanTestCertificate.pfx 
+Вот пример заполненного сценария.
+
+```
+Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate2 -Password abcd123 -UseExistingCertificate -ExistingPfxFilePath C:\MyCertificates\ChackdanTestCertificate.pfx 
 ```
 
 При успешном выполнении сценария вы получите следующие выходные данные, которые потребуются на шаге 3.
@@ -124,8 +128,8 @@ Invoke-AddCertToKeyVault -SubscriptionId <you subscription id> -ResourceGroupNam
 
 Общие сведения о создании самозаверяющих сертификатов см. по адресу [https://technet.microsoft.com/library/hh848633.aspx](https://technet.microsoft.com/library/hh848633.aspx).
 
-Вот пример заполненного сценария: ```
-Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate3 -Password (Read-Host -AsSecureString -Prompt "Enter Certificate Password ") -CreateSelfSignedCertificate -DnsName www.chackdan.westus.azure.com -OutputPath C:\MyCertificates
+Вот пример заполненного сценария. ```
+Invoke-AddCertToKeyVault -SubscriptionId 35389201-c0b3-405e-8a23-9f1450994307 -ResourceGroupName chackdankeyvault4doc -Location westus -VaultName chackdankeyvault4doc  -CertificateName chackdantestcertificate3 -Password abcd123 -CreateSelfSignedCertificate -DnsName www.chackdan.westus.azure.com -OutputPath C:\MyCertificates
 ```
 
 Так как это самозаверяющий сертификат, перед его использованием для подключения к безопасному кластеру необходимо импортировать его в хранилище TrustedPeople на вашем компьютере. ```
@@ -240,4 +244,4 @@ Service Fabric позволяет указать два сертификата 
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
 [Client-to-Node]: ./media/service-fabric-cluster-security/client-to-node.png
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

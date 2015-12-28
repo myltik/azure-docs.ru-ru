@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Доступ к виртуальным машинам Azure из обозревателя сервера"
+   pageTitle="Доступ к виртуальным машинам Azure из обозревателя сервера | Microsoft Azure"
    description="Общие сведения о просмотре и создании виртуальных машин Azure, а также об управлении ими в обозревателе сервера в Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/30/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Доступ к виртуальным машинам Azure из обозревателя сервера
 
@@ -53,4 +53,4 @@
 
 Дополнительные сведения об использовании ролей Azure в Visual Studio см. в статье [Использование удаленного рабочего стола с ролями Azure](vs-azure-tools-remote-desktop-roles.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

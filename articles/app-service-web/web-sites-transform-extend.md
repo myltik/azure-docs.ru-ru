@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="12/09/2015"
 	ms.author="cephalin"/>
 
 # Дополнительные настройки и расширения веб-приложений службы приложений Azure
@@ -26,7 +26,7 @@
 ##<a id="transform"></a>Дополнительные настройки посредством ApplicationHost.config
 Платформа службы приложений представляет собой гибкое решение для управления настройками веб-приложения. Хотя стандартный файл конфигурации IIS ApplicationHost.config недоступен для непосредственного редактирования в службе приложений, платформа поддерживает декларативную модель преобразования ApplicationHost.config, основанную на преобразовании XML-документа (XDT).
 
-Чтобы использовать эту возможность преобразования, создайте файл ApplicationHost.xdt с содержимым XDT и поместите его в корневой каталог веб-приложения. Возможно, вам понадобится перезапустить веб-приложение, чтобы изменения вступили в силу.
+Чтобы использовать эту возможность преобразования, создайте файл ApplicationHost.xdt с содержимым XDT и поместите его в корневой каталог сайта (d:\\home\\site) в [Kudu Console](https://github.com/projectkudu/kudu/wiki/Kudu-console). Возможно, вам понадобится перезапустить веб-приложение, чтобы изменения вступили в силу.
 
 В приведенном ниже примере с файлом applicationHost.xdt показано, как добавить новую пользовательскую переменную среды для веб-приложения, использующего PHP 5.4.
 
@@ -46,7 +46,7 @@
 
 Файл журнала с состоянием преобразования и соответствующими сведениями находится в папке LogFiles\\Transform корневого каталога FTP.
 
-Дополнительные примеры см. по адресу [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions).
+Дополнительные примеры см. по адресу [https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples).
 
 **Примечание.**<br /> Элементы из списка модулей в файле `system.webServer` нельзя удалить или переупорядочить, однако можно добавлять элементы в этот список.
 
@@ -181,4 +181,4 @@
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/11/2015"
 	ms.author="josephd"/>
 
 # Ферма SharePoint в интрасети, этап 4: настройка серверов SharePoint
 
-[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Модель развертывания диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
 
 На этом этапе развертывания фермы SharePoint 2013 в интрасети с группами доступности AlwaysOn для SQL Server на базе служб инфраструктуры Azure создаются уровень приложений и веб-уровень фермы и сама ферма с помощью мастера настройки SharePoint.
 
@@ -29,76 +29,131 @@
 
 Для серверов SharePoint создаются четыре виртуальные машины. Две из них являются интерфейсными веб-серверами, а две используются для администрирования и размещения приложений SharePoint. Наличие двух серверов SharePoint на каждом уровне обеспечивает высокий уровень доступности.
 
-С помощью приведенного ниже набора команд Azure PowerShell создайте виртуальные машины для четырех серверов SharePoint. Укажите значения переменных, удалив знаки < and >. Обратите внимание на то, что в наборе команд Azure PowerShell используются значения из перечисленных ниже таблиц.
+Сначала нужно настроить внутреннюю балансировку нагрузки, чтобы среда Azure равномерно распределяла трафик клиентов между двумя интерфейсными веб-серверами. Для этого необходимо задать экземпляр подсистемы внутренней балансировки нагрузки, состоящий из имени и собственного IP-адреса из адресного пространства подсети, которое было назначено вашей виртуальной сети Azure.
+
+> [AZURE.NOTE]Следующая команда задает использование Azure PowerShell 1.0 и более поздней версии. Дополнительные сведения см. в статье [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
+
+Укажите значения переменных, удалив знаки < and >. Обратите внимание на то, что в приведенных наборах команд Azure PowerShell используются значения из следующих таблиц.
 
 - Таблица M (для виртуальных машин)
 - Таблица V (для параметров виртуальной сети)
 - Таблица S (для подсети)
+- Таблица ST (для учетных записей хранения)
 - Таблица A (для групп доступности)
-- Таблица C (для облачных служб)
 
-Значения в таблице M были заданы на [втором (настройка контроллеров домена)](virtual-machines-workload-intranet-sharepoint-phase2.md), а в таблицах V, S, A и C — на [первом этапе (настройка Azure)](virtual-machines-workload-intranet-sharepoint-phase1.md).
+Значения в таблице M были заданы на [втором (настройка контроллеров домена)](virtual-machines-workload-intranet-sharepoint-phase2.md), а в таблицах V, S, ST и A — на [первом этапе (настройка Azure)](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
 Указав все необходимые значения, выполните полученные команды в среде Azure PowerShell.
 
-	# Create the first SharePoint application server
-	$vmName="<Table M – Item 6 - Virtual machine name column>"
-	$vmSize="<Table M – Item 6 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
-	$availSet="<Table A – Item 3 – Availability set name column>"
-	$image= Get-AzureVMImage | where { $_.Label -eq "SharePoint Server 2013 Trial" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
-
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first SharePoint application server."
-	$cred2=Get-Credential –Message "Now type the name and password of an account that has permissions to add this virtual machine to the domain."
-	$ADDomainName="<name of the AD domain that the server is joining (example CORP)>"
-	$domainDNS="<FQDN of the AD domain that the server is joining (example corp.contoso.com)>"
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $ADDomainName -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domainDNS
-
-	$subnetName="<Table 6 – Item 1 – Subnet name column>"
-	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-
-	$serviceName="<Table C – Item 3 – Cloud service name column>"
+	# Set up key variables
+	$rgName="<resource group name>"
+	$locName="<Azure location of your resource group>"
 	$vnetName="<Table V – Item 1 – Value column>"
-	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
+	$privIP="<available IP address on the subnet>"
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
-	# Create the second SharePoint application server
+	$frontendIP=New-AzureRMLoadBalancerFrontendIpConfig -Name SharePointWebServers-LBFE -PrivateIPAddress $privIP -SubnetId $vnet.Subnets[1].Id
+	$beAddressPool=New-AzureRMLoadBalancerBackendAddressPoolConfig -Name SharePointWebServers-LBBE
+
+	# This example assumes unsecured (HTTP-based) web traffic to the web servers.
+	$healthProbe=New-AzureRMLoadBalancerProbeConfig -Name WebServersProbe -Protocol "TCP" -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+	$lbrule=New-AzureRMLoadBalancerRuleConfig -Name "WebTraffic" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "TCP" -FrontendPort 80 -BackendPort 80
+	New-AzureRMLoadBalancer -ResourceGroupName $rgName -Name "SharePointWebServersInAzure" -Location $locName -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe -FrontendIpConfiguration $frontendIP
+
+Затем добавьте во внутреннюю инфраструктуру DNS своей организации запись DNS-адреса для сопоставления полного доменного имени фермы SharePoint (например, spfarm.corp.contoso.com) с IP-адресом, который назначен внутреннему балансировщику нагрузки (значение $privIP в блоке команд Azure PowerShell выше).
+
+С помощью приведенного ниже набора команд Azure PowerShell создайте виртуальные машины для четырех серверов SharePoint. Указав все необходимые значения, выполните полученные команды в среде Azure PowerShell.
+
+	# Set up key variables
+	$rgName="<resource group name>"
+	$locName="<Azure location of your resource group>"
+	$saName="<Table ST – Item 2 – Storage account name column>"
+	$vnetName="<Table V – Item 1 – Value column>"
+	$avName="<Table A – Item 3 – Availability set name column>"
+	
+	# Create the first application server
+	$vmName="<Table M – Item 6 - Virtual machine name column>"
+	$vmSize="<Table M – Item 6 - Minimum size column>"
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$nic=New-AzureRMNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id
+	$avSet=Get-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName 
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the first application server." 
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftSharePoint -Offer MicrosoftSharePointServer -Skus 2013 -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+
+	# Create the second application server
 	$vmName="<Table M – Item 7 - Virtual machine name column>"
-	$vmSize="<Table M – Item 7 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
-	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
+	$vmSize="<Table M – Item 7 - Minimum size column>"
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$nic=New-AzureRMNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id
+	$avSet=Get-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName 
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second application server." 
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftSharePoint -Offer MicrosoftSharePointServer -Skus 2013 -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second SharePoint application server."
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $ADDomainName -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domainDNS
+	# Change the availability set
+	$avName="<Table A – Item 4 – Availability set name column>"
 
-	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-
-	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
-
-	# Create the first SharePoint web server
+	# Set up key variables
+	$beSubnetName="<Table S - Item 2 - Name column>"
+	$webLB=Get-AzureRMLoadBalancer -ResourceGroupName $rgName -Name "SharePointWebServersInAzure"	
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$backendSubnet=Get-AzureRMVirtualNetworkSubnetConfig -Name $beSubnetName -VirtualNetwork $vnet
+	
+	# Create the first front end web server virtual machine
 	$vmName="<Table M – Item 8 - Virtual machine name column>"
-	$vmSize="<Table M – Item 8 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
-	$availSet="<Table A – Item 4 – Availability set name column>"
-	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
-
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first SharePoint web server."
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $ADDomainName -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domainDNS
-
-	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-
-	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
-
-	# Create the second SharePoint web server
+	$vmSize="<Table M – Item 8 - Minimum size column>"
+	$nic=New-AzureRMNetworkInterface -Name ($vmName + "-NIC") -ResourceGroupName $rgName -Location $locName -Subnet $backendSubnet -LoadBalancerBackendAddressPool $webLB.BackendAddressPools[0]
+	$avSet=Get-AzureRMAvailabilitySet -Name $avName –ResourceGroupName $rgName 
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the first front end web server." 
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftSharePoint -Offer MicrosoftSharePointServer -Skus 2013 -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+	
+	# Create the second front end web server virtual machine
 	$vmName="<Table M – Item 9 - Virtual machine name column>"
-	$vmSize="<Table M – Item 9 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
-	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
+	$vmSize="<Table M – Item 9 - Minimum size column>"
+	$nic=New-AzureRMNetworkInterface -Name ($vmName + "-NIC") -ResourceGroupName $rgName -Location $locName -Subnet $backendSubnet -LoadBalancerBackendAddressPool $webLB.BackendAddressPools[0]
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second front end web server." 
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftSharePoint -Offer MicrosoftSharePointServer -Skus 2013 -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second SharePoint web server."
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $ADDomainName -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domainDNS
+> [AZURE.NOTE]Так как эти виртуальные машины предназначены для приложения интрасети, им не назначается общедоступный IP-адрес, у них нет метки DNS-имени домена и они не доступны в Интернете. Однако это также означает, что к ним невозможно подключиться с помощью портала Azure. Кнопка **Подключить** будет недоступна при просмотре свойств виртуальной машины.
 
-	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
+Используя предпочитаемый клиент удаленного рабочего стола, создайте подключение к удаленному рабочему столу каждой виртуальной машины. Для подключения используйте DNS интрасети контроллера домена или имя компьютера, а также учетные данные локальной учетной записи администратора.
 
-	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
+Присоедините все виртуальные машины к соответствующему домену AD DS, выполнив на каждой машине следующие команды в командной строке Windows PowerShell.
 
-С помощью процедуры, описанной в разделе [Вход на виртуальную машину с помощью подключения удаленного рабочего стола](virtual-machines-workload-intranet-sharepoint-phase2.md#logon), войдите на каждый из четырех серверов SharePoint с учетной записью [домен]\\sp\_farm\_db. Вы создали эти учетные данные на [втором этапе (настройка контроллеров домена)](virtual-machines-workload-intranet-sharepoint-phase2.md).
+	$domName="<Active Directory domain name to join, such as corp.contoso.com>"
+	Add-Computer -DomainName $domName
+	Restart-Computer
+
+Обратите внимание, что после ввода команды **Add-Computer** необходимо ввести данные для входа в учетную запись домена.
+
+После их перезапуска, следуя процедуре, описанной в разделе [Вход на виртуальную машину с помощью подключения удаленного рабочего стола](virtual-machines-workload-intranet-sharepoint-phase2.md#logon), войдите на каждый из четырех серверов SharePoint с учетной записью [домен]\\sp\_farm\_db. Вы создали эти учетные данные на [втором этапе (настройка контроллеров домена)](virtual-machines-workload-intranet-sharepoint-phase2.md).
 
 На каждом из четырех серверов SharePoint с помощью процедуры [проверки подключения](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) убедитесь в наличии доступа к ресурсам в сети организации.
 
@@ -114,7 +169,7 @@
 4.	На странице **Подключение к ферме серверов** выберите **Создать новую ферму серверов** и нажмите кнопку **Далее**.
 5.	Откроется страница **Указание параметров базы данных конфигурации**.
  - В поле **Сервер базы данных** введите имя сервера базы данных-источника.
- - В поле **Имя пользователя** введите [домен]**\\sp\_farm\_db** (эта учетная запись была создана на [этапе 2 «Настройка контроллеров домена»)](virtual-machines-workload-intranet-sharepoint-phase2.md). Обратите внимание, что у учетной записи sp\_farm\_db есть привилегии sysadmin на сервере базы данных.
+ - В поле **Имя пользователя** введите [домен]**\\sp\_farm\_db** (эта учетная запись была создана на [втором этапе (настройка контроллеров домена))](virtual-machines-workload-intranet-sharepoint-phase2.md). Обратите внимание, что у учетной записи sp\_farm\_db есть привилегии sysadmin на сервере базы данных.
  - В поле **Пароль** введите пароль к учетной записи sp\_farm\_db.
 6.	Нажмите кнопку **Далее**.
 7.	На странице **Задание параметров безопасности фермы** дважды введите парольную фразу. Запишите эту парольную фразу и сохраните ее в надежном месте. Нажмите кнопку **Далее**.
@@ -142,59 +197,12 @@
 
 После завершения этой начальной настройки можно задать и другие параметры фермы SharePoint. Дополнительные сведения см. в статье [Планирование для SharePoint 2013 в службах инфраструктуры Azure](http://msdn.microsoft.com/library/dn275958.aspx).
 
-## Настройка внутренней балансировки нагрузки
-
-Внутренняя балансировка нагрузки настраивается для того, чтобы равномерно распределить клиентский трафик, поступающий на ферму SharePoint, между двумя интерфейсными веб-серверами. Для этого необходимо задать экземпляр подсистемы внутренней балансировки нагрузки, состоящий из имени и собственного IP-адреса из адресного пространства подсети. Определить, доступен ли IP-адрес, выбранный для внутренней подсистемы балансировки нагрузки, можно с помощью следующих команд Azure PowerShell:
-
-	$vnet="<Table V – Item 1 – Value column>"
-	$testIP="<a chosen IP address from the subnet address space, Table S - Item 1 – Subnet address space column>"
-	Test-AzureStaticVNetIP –VNetName $vnet –IPAddress $testIP
-
-Если в поле **IsAvailable** в данных, возвращаемых командой **Test-AzureStaticVNetIP**, стоит значение **True**, IP-адрес можно использовать.
-
-В консоли Azure PowerShell на локальном компьютере выполните следующий набор команд:
-
-	$serviceName="<Table C – Item 3 – Cloud service name column>"
-	$ilb="<name of your internal load balancer instance>"
-	$subnet="<Table S – Item 1 – Subnet name column>"
-	$IP="<an available IP address for your ILB instance>"
-	Add-AzureInternalLoadBalancer –ServiceName $serviceName -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
-
-	$prot="tcp"
-	$locport=80
-	$pubport=80
-	# This example assumes unsecured HTTP traffic to the SharePoint farm.
-
-	$epname="SPWeb1"
-	$vmname="<Table M – Item 8 – Virtual machine name column>"
-	Get-AzureVM –ServiceName $serviceName –Name $vmname | Add-AzureEndpoint -Name $epname -LBSetName $ilb -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
-
-	$epname="SPWeb2"
-	$vmname="<Table M – Item 9 – Virtual machine name column>"
-	Get-AzureVM –ServiceName $serviceName –Name $vmname | Add-AzureEndpoint -Name $epname -LBSetName $ilb -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
-
-Затем добавьте в инфраструктуру DNS своей организации запись DNS-адреса для сопоставления полного доменного имени фермы SharePoint (например, sp.corp.contoso.com) с IP-адресом, который назначен подсистеме внутренней балансировки нагрузки (значение **$IP** в блоке команд Azure PowerShell выше).
-
-После успешного выполнения этого этапа у вас должна быть следующая конфигурация:
+После успешного выполнения этого этапа у вас должна быть следующая конфигурация.
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-phase4/workload-spsqlao_04.png)
 
 ## Дальнейшие действия
 
-Дальнейшие действия по настройке этой рабочей нагрузки см. в статье [Этап 5. Создание группы доступности и добавление баз данных SharePoint](virtual-machines-workload-intranet-sharepoint-phase5.md).
+- Чтобы продолжить настройку этой рабочей нагрузки, см. [этап 5](virtual-machines-workload-intranet-sharepoint-phase5.md).
 
-## Дополнительные ресурсы
-
-[Развертывание среды SharePoint с группами доступности AlwaysOn для SQL Server на платформе Azure](virtual-machines-workload-intranet-sharepoint-overview.md)
-
-[Фермы SharePoint, размещенные в службах инфраструктуры Azure](virtual-machines-sharepoint-infrastructure-services.md)
-
-[Инфографика SharePoint с SQL Server AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=394788)
-
-[Архитектуры Microsoft Azure для SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
-
-[Руководство по реализации служб инфраструктуры Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Службы инфраструктуры Azure: высокодоступное бизнес-приложение](virtual-machines-workload-high-availability-lob-application.md)
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

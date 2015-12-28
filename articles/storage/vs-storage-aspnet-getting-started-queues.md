@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,19 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Начало работы с хранилищем очередей Azure и подключенными службами Visual Studio
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-aspnet-getting-started-queues.md)
-> - [What Happened](vs-storage-aspnet-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
 ## Обзор
 
@@ -39,7 +30,7 @@
 
 Для доступа к очередям в проектах ASP.NET необходимо включить следующие элементы во все файлы исходного кода C#, которые обращаются к хранилищу очередей Azure.
 
-1. Убедитесь, что объявления пространств имен в верхней части файла C# содержат указанные ниже выражения **using**.
+1. Убедитесь, что объявления пространств имен в верхней части файла C# содержат указанные ниже операторы **using**.
 
 		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
@@ -50,18 +41,18 @@
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-3. Получите объект **CloudQueueClient**, чтобы указать ссылку на объекты очереди в вашей учетной записи хранения.
+3. Получите объект **CloudQueueClient**, чтобы указать ссылку на объекты очереди в своей учетной записи хранения.
 
 	    // Create the queueclient.
     	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-4. Получите объект **CloudQueue**, чтобы указать ссылку на определенную очередь.
+4. Используйте объект **CloudQueue**, чтобы указать ссылку на определенную очередь.
 
     	// Get a reference to a queue named "messageQueue"
 	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
-**ПРИМЕЧАНИЕ.** Вставьте весь код, представленный выше, перед кодом в указанных ниже примерах.
+**ПРИМЕЧАНИЕ.** Вставьте весь код, представленный выше, перед кодом в следующих примерах.
 
 ## Создание очереди в коде
 
@@ -97,7 +88,7 @@
 
 Ваш код может удалить сообщение из очереди в два этапа. 1. Вызовите метод GetMessage(), чтобы получить следующее сообщение в очереди. Сообщение, возвращаемое методом GetMessage(), становится невидимым для другого кода, считывающего сообщения из этой очереди. По умолчанию это сообщение остается невидимым в течение 30 секунд. 2. Чтобы завершить удаление сообщения из очереди, вызовите метод **DeleteMessage**.
 
-Этот двухэтапный процесс удаления сообщения позволяет удостовериться, что если коду не удастся обработать сообщение из-за сбоя оборудования или программного обеспечения, другой экземпляр кода сможет получить то же сообщение и повторить попытку. Указанный ниже код вызывает метод **DeleteMessage** сразу после обработки сообщения.
+Этот двухэтапный процесс удаления сообщения позволяет удостовериться, что если коду не удастся обработать сообщение из-за сбоя оборудования или программного обеспечения, другой экземпляр кода сможет получить то же сообщение и повторить попытку. Код вызывает метод **DeleteMessage** сразу после обработки сообщения.
 
 	// Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code"
 
@@ -179,4 +170,4 @@
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

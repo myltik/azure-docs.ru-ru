@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/11/2015"
 	ms.author="josephd"/>
 
 # Ферма SharePoint в интрасети, этап 3: настройка инфраструктуры SQL Server
 
-[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Модель развертывания диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
 
-На этом этапе развертывания фермы SharePoint 2013 в интрасети с группами доступности AlwaysOn для SQL Server на базе служб инфраструктуры Azure в управлении службами создаются и настраиваются два компьютера SQL Server и компьютер узла большинства кластера, после чего они объединяются в кластер Windows Server.
+На этом этапе развертывания фермы SharePoint 2013 в интрасети с группами доступности AlwaysOn для SQL Server на базе служб инфраструктуры Azure вы создаете и настраиваете два компьютера SQL Server и компьютер узла большинства кластера, после чего они объединяются в кластер Windows Server.
 
 Этот этап необходимо выполнить, прежде чем переходить к [этапу 4](virtual-machines-workload-intranet-sharepoint-phase4.md). Описания всех этапов см. в разделе [Развертывание среды SharePoint с группами доступности AlwaysOn для SQL Server на платформе Azure](virtual-machines-workload-intranet-sharepoint-overview.md).
 
@@ -33,73 +33,98 @@
 
 С помощью приведенного ниже набора команд PowerShell создайте виртуальные машины для трех серверов. Укажите значения переменных, удалив знаки < and >. Обратите внимание на то, что в наборе команд PowerShell используются значения из перечисленных ниже таблиц.
 
-- Таблица M (для виртуальных машин).
-- Таблица V (для параметров виртуальной сети).
-- Таблица S (для подсети).
-- Таблица A (для групп доступности).
-- Таблица C (для облачных служб).
+- Таблица M (для виртуальных машин)
+- Таблица V (для параметров виртуальной сети)
+- Таблица S (для подсети)
+- Таблица ST (для учетных записей хранения)
+- Таблица A (для групп доступности)
 
-Значения в таблице M были заданы на [этапе 2 «Настройка контроллеров домена»](virtual-machines-workload-intranet-sharepoint-phase2.md), а в таблицах V, S, A и C — на [этапе 1 «Настройка Azure»](virtual-machines-workload-intranet-sharepoint-phase1.md).
+Значения в таблице M были заданы на [втором (настройка контроллеров домена)](virtual-machines-workload-intranet-sharepoint-phase2.md), а в таблицах V, S, ST и A — на [первом этапе (настройка Azure)](virtual-machines-workload-intranet-sharepoint-phase1.md).
+
+> [AZURE.NOTE]Следующая команда задает использование Azure PowerShell 1.0 и более поздней версии. Дополнительные сведения см. в статье [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Указав все необходимые значения, выполните полученные команды в среде Azure PowerShell.
 
-	# Create the first SQL server
-	$vmName="<Table M – Item 3 - Virtual machine name column>"
-	$vmSize="<Table M – Item 3 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
-	$availSet="<Table A – Item 2 – Availability set name column>"
 
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Enterprise on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
-
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first SQL Server computer."
-	$cred2=Get-Credential –Message "Now type the name and password of an account that has permissions to add this virtual machine to the domain."
-	$ADDomainName="<name of the AD domain that the server is joining (example CORP)>"
-	$domainDNS="<FQDN of the AD domain that the server is joining (example corp.contoso.com)>"
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $ADDomainName -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domainDNS
-
-	$diskSize=<size of the additional data disk in GB>
-	$diskLabel="<the label on the disk>"
-	$lun=<Logical Unit Number (LUN) of the disk>
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $diskSize -DiskLabel $diskLabel -LUN $lun -HostCaching None
-
-	$subnetName="<Table 6 – Item 1 – Subnet name column>"
-	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-
-	$serviceName="<Table C – Item 2 – Cloud service name column>"
+	# Set up key variables
+	$rgName="<your resource group name>"
+	$locName="<Azure location of your resource group>"
+	$saName="<Table ST – Item 1 – Storage account name column>"
 	$vnetName="<Table V – Item 1 – Value column>"
-	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
-
-	# Create the second SQL server
-	$vmName="<Table M – Item 4 - Virtual machine name column>"
-	$vmSize="<Table M – Item 4 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
-	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image -AvailabilitySetName $availSet
-
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second SQL Server computer."
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $ADDomainName -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domainDNS
-
-	$diskSize=<size of the additional data disk in GB>
+	$avName="<Table A – Item 2 – Availability set name column>"
+	
+	# Create the first SQL Server virtual machine
+	$vmName="<Table M – Item 3 - Virtual machine name column>"
+	$vmSize="<Table M – Item 3 - Minimum size column>"
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$nic=New-AzureRMNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id
+	$avSet=Get-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName 
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	
+	$diskSize=<size of the extra disk for SQL data in GB>
 	$diskLabel="<the label on the disk>"
-	$lun=<Logical Unit Number (LUN) of the disk>
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $diskSize -DiskLabel $diskLabel -LUN $lun -HostCaching None
-
-	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-
-	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
-
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-SQLDataDisk.vhd"
+	Add-AzureRMVMDataDisk -VM $vm -Name $diskLabel -DiskSizeInGB $diskSize -VhdUri $vhdURI  -CreateOption empty
+	
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the first SQL Server computer." 
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftSQLServer -Offer SQL2014-WS2012R2 -Skus Enterprise -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+	
+	# Create the second SQL Server virtual machine
+	$vmName="<Table M – Item 4 - Virtual machine name column>"
+	$vmSize="<Table M – Item 4 - Minimum size column>"
+	$nic=New-AzureRMNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	
+	$diskSize=<size of the extra disk for SQL data in GB>
+	$diskLabel="<the label on the disk>"
+	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-ADDSDisk.vhd"
+	Add-AzureRMVMDataDisk -VM $vm -Name $diskLabel -DiskSizeInGB $diskSize -VhdUri $vhdURI  -CreateOption empty
+	
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second SQL Server computer." 
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftSQLServer -Offer SQL2014-WS2012R2 -Skus Enterprise -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+	
 	# Create the cluster majority node server
 	$vmName="<Table M – Item 5 - Virtual machine name column>"
-	$vmSize="<Table M – Item 5 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
+	$vmSize="<Table M – Item 5 - Minimum size column>"
+	$nic=New-AzureRMNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the cluster majority node server." 
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the cluster majority node server."
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $ADDomainName -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domainDNS
-
-	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-
-	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
+> [AZURE.NOTE]Так как эти виртуальные машины предназначены для приложения интрасети, им не назначается общедоступный IP-адрес, у них нет метки DNS-имени домена и они не доступны в Интернете. Однако это также означает, что к ним невозможно подключиться с помощью портала Azure. Кнопка **Подключить** будет недоступна при просмотре свойств виртуальной машины. Используйте помощник "Подключение к удаленному рабочему столу" или другое аналогичное средство, чтобы подключиться к виртуальной машине с помощью частного IP-адреса или DNS-имени интрасети.
 
 ## Настройка компьютеров с SQL Server
+
+Используйте предпочитаемый клиент удаленного рабочего стола и создайте отдельное подключение для каждой виртуальной машины с SQL Server. Для подключения используйте DNS интрасети контроллера домена или имя компьютера, а также учетные данные локальной учетной записи администратора.
+
+Объедините виртуальные машины с сервером SQL Server в соответствующий домен AD DS, выполнив на каждой машине следующие команды Windows PowerShell.
+
+	$domName="<AD DS domain name to join, such as corp.contoso.com>"
+	Add-Computer -DomainName $domName
+	Restart-Computer
+
+Обратите внимание, что после ввода команды Add-Computer необходимо ввести данные для входа в учетную запись домена.
+
+Когда виртуальные машины перезапустятся, повторно подключитесь к ним, используя учетную запись с правами локального администратора.
 
 Для каждого сервера SQL Server выполните указанные ниже действия.
 
@@ -116,7 +141,6 @@
 4. Теперь с помощью процедуры [проверки подключения](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) выясните, доступны ли ресурсы в сети вашей организации. Эта процедура позволяет убедиться в том, что DNS-имена разрешаются правильно (виртуальная машина правильно настроена для работы с DNS-серверами в виртуальной сети), а пакеты данных можно отправлять в распределенную виртуальную сеть и из нее.
 
 Дважды выполните описанную ниже процедуру (по одному разу для каждого сервера SQL Server), чтобы настроить их для работы с диском F:, а также задать учетные записи и разрешения.
-
 
 1.	На начальном экране введите **SQL Studio** и выберите **SQL Server 2014 Management Studio**.
 2.	В окне **Подключение к серверу** щелкните **Подключить**.
@@ -176,8 +200,8 @@
 3.	В левой области щелкните правой кнопкой элемент **Диспетчер отказоустойчивости кластеров** и выберите команду **Создать кластер**.
 4.	На странице «Перед началом работы» нажмите кнопку **Далее**.
 5.	На странице «Выбор серверов» введите имя виртуальной машины с сервером-источником SQL Server, нажмите кнопку **Добавить**, а затем — **Далее**.
-6.	На странице «Предупреждение проверки» выберите вариант **Нет. Для этого кластера не требуется поддержка Microsoft и, соответственно, не требуется выполнять проверочные тесты. Когда я нажму кнопку "Далее", продолжить создание кластера.**, а затем нажмите кнопку **Далее**.
-7.	На странице "Точка доступа для администрирования кластера" в поле **Имя кластера** введите имя кластера и нажмите кнопку **Далее**.
+6.	На странице «Предупреждение проверки» выберите вариант **Нет. Для этого кластера не требуется поддержка Microsoft и, соответственно, не требуется выполнять проверочные тесты. После нажатия кнопки «Далее» продолжить создание кластера**, а затем нажмите кнопку **Далее**.
+7.	На странице «Точка доступа для администрирования кластера» в поле **Имя кластера** введите имя кластера и нажмите кнопку **Далее**.
 8.	На странице подтверждения нажмите кнопку **Далее**, чтобы начать создание кластера.
 9.	На странице сводки нажмите кнопку **Готово**.
 10.	В левой области щелкните новый кластер. В разделе **Ресурсы ядра кластера** области содержимого откройте имя кластера серверов. Для ресурса **IP-адрес** будет указано состояние **Сбой**. Его невозможно подключить к сети, так как кластеру назначен тот же IP-адрес, что и самой виртуальной машине. В результате адреса дублируются.
@@ -190,7 +214,7 @@
 17.	Чтобы добавить в кластер остальные узлы, щелкните правой кнопкой мыши его имя на левой панели и выберите команду **Добавить узел**.
 18.	На странице «Перед началом работы» нажмите кнопку **Далее**.
 19.	На странице «Выбор серверов» добавьте в кластер сервер-получатель SQL Server и узел большинства (для каждого из них введите имя и нажмите кнопку **Добавить**). Добавив два компьютера, нажмите кнопку **Далее**. Если добавить машину не удается и появляется сообщение об ошибке «Служба удаленного реестра не запущена», выполните указанные ниже действия. Войдите на машину, откройте оснастку «Службы» (файл services.msc) и включите удаленный реестр. Дополнительные сведения см. в статье [Не удается подключиться к службе удаленного реестра](http://technet.microsoft.com/library/bb266998.aspx).
-20.	На странице «Предупреждение проверки» выберите вариант **Нет. Для этого кластера не требуется поддержка Microsoft и, соответственно, не требуется выполнять проверочные тесты. Когда я нажму кнопку "Далее", продолжить создание кластера.**, а затем нажмите кнопку **Далее**.
+20.	На странице «Предупреждение проверки» выберите вариант **Нет. Для этого кластера не требуется поддержка Microsoft и, соответственно, не требуется выполнять проверочные тесты. После нажатия кнопки «Далее» продолжить создание кластера**, а затем нажмите кнопку **Далее**.
 21.	На странице подтверждения нажмите кнопку **Далее**.
 22.	На странице сводки нажмите кнопку **Готово**.
 23.	В левой области щелкните **Узлы**. Вы должны увидеть в списке все три компьютера.
@@ -205,7 +229,7 @@
 2.	На начальном экране введите **Конфигурация SQL Server** и выберите **Диспетчер конфигурации SQL Server**.
 3.	В левой области выберите **Службы SQL Server**.
 4.	В области содержимого дважды щелкните **SQL Server (MSSQLSERVER)**.
-5.	В разделе **Свойства SQL Server (MSSQLSERVER)** перейдите на вкладку **Высокий уровень доступности AlwaysOn**, выберите **Включить группы доступности AlwaysOn**, нажмите **Применить**, а когда появится запрос, — **ОК**. Не закрывайте окно свойств.
+5.	В разделе **Свойства SQL Server (MSSQLSERVER)** откройте вкладку **Высокий уровень доступности AlwaysOn**, выберите **Включить группы доступности AlwaysOn**, нажмите кнопку **Применить**, а затем — кнопку **ОК**. Не закрывайте окно свойств.
 6.	Откройте вкладку с настройками управления доступностью виртуальных машин и введите [домен]**\\sqlservice** в поле **Имя учетной записи**. Введите пароль учетной записи sqlservice в поля **Пароль** и **Подтверждение пароля**, а затем нажмите кнопку **ОК**.
 7.	В окне с сообщением нажмите кнопку **Да**, чтобы перезапустить службу SQL Server.
 8.	Войдите на сервер-получатель SQL Server и повторите эту процедуру.
@@ -216,20 +240,6 @@
 
 ## Дальнейшие действия
 
-Дальнейшие действия по настройке этой среды см. в разделе [Этап 4. Настройка серверов SharePoint](virtual-machines-workload-intranet-sharepoint-phase4.md).
+- Чтобы продолжить настройку этой рабочей нагрузки, см. [этап 4](virtual-machines-workload-intranet-sharepoint-phase4.md).
 
-## Дополнительные ресурсы
-
-[Развертывание среды SharePoint с группами доступности AlwaysOn для SQL Server на платформе Azure](virtual-machines-workload-intranet-sharepoint-overview.md)
-
-[Фермы SharePoint, размещенные в службах инфраструктуры Azure](virtual-machines-sharepoint-infrastructure-services.md)
-
-[Среда SharePoint с группами доступности AlwaysOn для SQL Server](http://go.microsoft.com/fwlink/?LinkId=394788)
-
-[Архитектуры Microsoft Azure для SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
-
-[Руководство по реализации служб инфраструктуры Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Службы инфраструктуры Azure: высокодоступное бизнес-приложение](virtual-machines-workload-high-availability-lob-application.md)
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

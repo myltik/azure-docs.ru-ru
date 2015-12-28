@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Общие сведения о защите между сайтом и Azure" 
+	pageTitle="Общие сведения о репликации Hyper-V с помощью Azure Site Recovery | Microsoft Azure" 
 	description="Эта статья поможет изучить технические концепции, которые помогут успешно устанавливать и настраивать службу Azure Site Recovery, а также управлять ею." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="09/01/2015" 
+	ms.date="12/14/2015" 
 	ms.author="anbacker"/>
 
 
-# Общие сведения о защите между сайтом VMM или Hyper-V и Azure
+# Общие сведения о репликации Hyper-V с помощью Azure Site Recovery
 
 Эта статья описывает технические концепции, которые помогут вам успешно настраивать и контролировать защиту между сайтом Hyper-V или сайтом VMM и Azure с помощью Azure Site Recovery.
 
@@ -79,4 +79,4 @@
 - [Служба технической поддержки Майкрософт](./site-recovery-monitoring-and-troubleshooting.md#reaching-out-for-microsoft-support)
 - [Распространенные ошибки ASR и способы их устранения](./site-recovery-monitoring-and-troubleshooting.md#common-asr-errors-and-their-resolutions)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

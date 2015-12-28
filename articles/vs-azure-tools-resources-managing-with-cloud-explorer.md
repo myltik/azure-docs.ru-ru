@@ -3,9 +3,9 @@
    description="Узнайте, как использовать Cloud Explorer для просмотра ресурсов Azure и управления ими в Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags 
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="08/13/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Управление ресурсами Azure с помощью Cloud Explorer
 
@@ -95,4 +95,4 @@ Cloud Explorer устанавливается в составе набора с�
 
 По мере ввода символов в поле поиска в дереве ресурсов остаются только те ресурсы, имена которых соответствуют этим символам.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

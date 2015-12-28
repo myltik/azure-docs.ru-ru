@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,28 +13,20 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Начало работы с табличным хранилищем и подключенными службами Visual Studio (ASP.NET)
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-aspnet-getting-started-tables.md)
-> - [What Happened](vs-storage-aspnet-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
 ## Обзор
-В этой статье описывается, как приступить к использованию табличного хранилища Azure в Visual Studio после создания учетной записи хранения Azure или указания ссылки на нее в проекте ASP.NET с помощью диалогового окна **Добавление подключенных служб** в Visual Studio. В этой статье показано, как выполнять типовые задачи в таблицах Azure, включая создание и удаление таблицы, а также работать с сущностями таблицы. Примеры написаны на C#, и в них используется [клиентская библиотека службы хранилища Azure для .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Дополнительные сведения об использовании табличного хранилища Azure см. в разделе [Использование табличного хранилища в .NET](storage-dotnet-how-to-use-tables.md).
+В этой статье описывается, как приступить к использованию хранилища таблиц Azure в Visual Studio после создания учетной записи хранения Azure или указания ссылки на нее в проекте ASP.NET с помощью диалогового окна **Добавление подключенных служб** в Visual Studio. В этой статье показано, как выполнять типовые задачи в таблицах Azure, включая создание и удаление таблицы, а также работать с сущностями таблицы. Примеры написаны на C#, и в них используется [клиентская библиотека службы хранилища Azure для .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Дополнительные сведения об использовании хранилища таблиц Azure см. в разделе [Использование табличного хранилища из .NET](storage-dotnet-how-to-use-tables.md).
 
 В табличном хранилище Azure можно хранить большие объемы структурированных данных. Эта служба — хранилище данных NoSQL, которое принимает вызовы внутри и снаружи облака Azure с проверкой подлинности. Таблицы Azure идеально подходят для хранения нереляционных структурированных данных.
 
 
 ## Доступ к таблицам в коде
 
-1. Убедитесь, что объявления пространств имен в верхней части файла C# содержат указанные ниже выражения **using**.
+1. Убедитесь, что объявления пространств имен в верхней части файла C# содержат указанные ниже операторы **using**.
 
 		 using Microsoft.Azure;
 		 using Microsoft.WindowsAzure.Storage;
@@ -46,14 +38,14 @@
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    **ПРИМЕЧАНИЕ.** Вставьте весь код, представленный выше, перед кодом в указанных ниже примерах.
+    **ПРИМЕЧАНИЕ.** Вставьте весь код, представленный выше, перед кодом в следующих примерах.
 
-3. Получите объект **CloudTableClient**, чтобы указать ссылку на объекты таблицы в учетной записи хранения.
+3. Получите объект **CloudTableClient**, чтобы указать ссылку на объекты таблицы в своей учетной записи хранения.
 
 	    // Create the table client.
     	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-4. Получите объект ссылки **CloudTable**, чтобы указать ссылку на определенную таблицу и сущности.
+4. Получите объект ссылки **CloudTable** для указания ссылки на определенную таблицу и сущности.
 
     	// Get a reference to a table named "peopleTable"
 	    CloudTable table = tableClient.GetTableReference("peopleTable");
@@ -68,7 +60,7 @@
 
 ## Вставка пакета сущностей
 
-В таблицу можно вставить несколько сущностей с помощью одной операции записи. Указанный ниже пример кода создает два объекта сущностей (Jeff Smith и Ben Smith), добавляет их в объект **TableBatchOperation** с помощью метода Insert и запускает операцию с помощью вызова **CloudTable.ExecuteBatchAsync**.
+В таблицу можно вставить несколько сущностей с помощью одной операции записи. В следующем примере кода показано создание двух объектов сущности (Jeff Smith и Ben Smith), добавление их в объект **TableBatchOperation** с помощью метода Insert и запуск операции с помощью вызова **CloudTable.ExecuteBatchAsync**.
 
 	// Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
@@ -119,7 +111,7 @@
 
 
 ## Получение одной сущности
-Можно написать запрос для получения отдельной сущности. Следующий пример кода использует **TableOperation** для указания клиента "Ben Smith". Этот метод возвращает только одну сущность, а не коллекцию. Возвращаемое значение в **TableResult.Result** — это объект **CustomerEntity**. Указание ключа секции и ключа строки в запросе — самый быстрый способ для получения одной сущности из службы таблиц.
+Можно написать запрос для получения отдельной сущности. Следующий пример кода использует **TableOperation** для указания клиента "Ben Smith". Этот метод возвращает только одну сущность, а не коллекцию, а возвращаемое значение в **TableResult.Result** является объектом **CustomerEntity**. Указание ключа секции и ключа строки в запросе — самый быстрый способ для получения одной сущности из службы таблиц.
 
         // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code"
 
@@ -167,4 +159,4 @@
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

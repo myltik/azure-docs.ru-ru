@@ -20,9 +20,11 @@
 # Управление виртуальными машинами с помощью диспетчера ресурсов Azure и PowerShell
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-windows-tutorial.md)
-- [PowerShell - Windows](virtual-machines-deploy-rmtemplates-powershell.md)
+- [Azure PowerShell](virtual-machines-deploy-rmtemplates-powershell.md)
 - [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
+
+<br>
+
 
 Использование шаблонов Azure PowerShell и диспетчера ресурсов предоставляет разнообразные гибкие возможности для управления ресурсами в Microsoft Azure. Задачи, описанные в этой статье, можно использовать для создания ресурсов виртуальных машин и управления ими.
 
@@ -79,7 +81,7 @@
 
 	New-AzureRmResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 
-Появится запрос на ввод значений параметров в разделе **parameters** JSON-файла:
+Появится запрос на ввод значений параметров в разделе **parameters** JSON-файла.
 
 	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
@@ -136,7 +138,7 @@
 
 	New-AzureRmResourceGroupDeployment -Name "TestDeployment" -ResourceGroupName "TestRG" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 
-Появится запрос на ввод значений параметров в разделе **parameters** JSON-файла:
+Появится запрос на ввод значений параметров в разделе **parameters** JSON-файла.
 
 	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
@@ -163,7 +165,7 @@
 
 	New-AzureRmResourceGroupDeployment -Name "deployment name" -ResourceGroupName "resource group name" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
 
-Появится запрос на ввод значений параметров в разделе **parameters** JSON-файла:
+Появится запрос на ввод значений параметров в разделе **parameters** JSON-файла.
 
 	cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
@@ -376,4 +378,4 @@
 
 [Документация по виртуальным машинам](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

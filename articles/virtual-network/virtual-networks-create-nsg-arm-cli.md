@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/15/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Создание групп безопасности сети с помощью интерфейса командной строки Azure
@@ -68,10 +68,7 @@
 		data:    DenyAllOutBound                *                  *            *               *                 *         Outbound   Deny    65500   
 		info:    network nsg create command OK
 
-	Параметры
-	- **-g (или --resource-group)**. Имя группы ресурсов, в которой будет создана группа безопасности сети. В нашем случае это *TestRG*.
-	- **-l (или --location)**. Регион Azure, в котором будет создана группа безопасности сети. В нашем случае это *westus*.
-	- **-n (или --name)**. Имя новой группы безопасности сети. В нашем случае это *NSG-FrontEnd*.
+	Параметры - **-g (или --resource-group)**. Имя группы ресурсов, в которой будет создана группа безопасности сети. В нашем случае это *TestRG*. - **-l (или --location)**. Регион Azure, в котором будет создана группа безопасности сети. В нашем случае это *westus*. - **-n (или --name)**. Имя новой группы безопасности сети. В нашем случае это *NSG-FrontEnd*.
 
 4. Выполните команду **azure network nsg rule create**, чтобы создать правило, которое разрешает доступ к порту 3389 (RDP) из Интернета.
 
@@ -105,7 +102,7 @@
 	- **-n (или --name)**. Имя нового правила. В нашем случае это *rdp-rule*.
 	- **-c (или --access)**. Уровень доступа для правила (Deny или Allow).
 	- **-p (или --protocol)**. Протокол для правила (TCP, UDP или «*»).
-	- **-r (or --direction)**. Направление подключения (Inbound или Outbound).
+- **-r (or --direction)**. Направление подключения (Inbound или Outbound).
 	- **-y (или --priority)**. Приоритет правила.
 	- **-f (или --source-address-prefix)**. Префикс адреса источника в CIDR или использование тегов по умолчанию.
 	- **-o (или --source-port-range)**. Исходный порт или диапазон портов.
@@ -269,4 +266,4 @@
 		data:    
 		info:    network vnet subnet set command OK
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

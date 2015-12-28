@@ -3,7 +3,7 @@
 	description="Быстрый порядок копирования, перемещения и переноса данных и баз данных в базу данных SQL Azure."
 	services="sql-database"
 	documentationCenter=""
-	authors="dalechen"
+	authors="v-shysun"
 	manager="msmets"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="daleche"/>
+	ms.date="12/11/2015"
+	ms.author="v-shysun"/>
 
 # Перенос баз данных между серверами, между подписками, в службу Azure и из нее
 ##Перенос базы данных на другой сервер в пределах одной подписки
@@ -29,4 +29,4 @@
 ## Создание копии базы данных для использования за пределами Azure
 - [Экспортируйте файл BACPAC.](sql-database-export.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

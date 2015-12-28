@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="10/14/2015" 
+	ms.date="12/10/2015" 
 	ms.author="cephalin"/>
 
 # Создание веб-приложения .NET MVC в службе приложений Azure с аутентификацией Azure Active Directory #
@@ -46,8 +46,8 @@
 
 - Клиент Azure Active Directory с пользователями в различных группах
 - Разрешения на создание приложений в клиенте Azure Active Directory
-- Visual Studio 2013
-- [Пакет SDK для Azure 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) или более поздней версии.
+- Visual Studio 2013 или более поздней версии
+- [Пакет SDK Azure, начиная с версии 2.8.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409).
 
 <a name="bkmk_sample"></a>
 ## Использование примера приложения в качестве шаблона бизнес-приложения ##
@@ -63,8 +63,7 @@
 
 1.	Создайте клон или скачайте пример решения с сайта [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) в локальный каталог.
 
-2.	Воспользуйтесь указаниями в разделе [Запуск примера в однопользовательском приложении](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app), чтобы настроить приложение Azure Active Directory и проект.
-Обязательно выполните инструкции по преобразованию многопользовательского приложения в однопользовательское.
+2.	Воспользуйтесь указаниями в разделе [Запуск примера в однопользовательском приложении](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims#how-to-run-the-sample-as-a-single-tenant-app), чтобы настроить приложение Azure Active Directory и проект. Обязательно выполните инструкции по преобразованию многопользовательского приложения в однопользовательское.
 
 3.	В представлении только что созданного приложения Azure Active Directory на [классическом портале Azure](https://manage.windowsazure.com) щелкните вкладку **ПОЛЬЗОВАТЕЛИ**. Затем назначьте выбранным пользователям выбранные роли.
 
@@ -91,9 +90,17 @@
 
 4. После входа щелкните **Создать**, чтобы создать новое веб-приложение в Azure.
 
-5. Заполните все обязательные поля. Для этого приложения необходимо подключение к базе данных, чтобы хранить сопоставления ролей, кэшированные токены и любые данные приложения.
+5. Заполните все обязательные поля в разделе **Размещение**.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/4-create-website.png)
+
+5. Для этого приложения необходимо подключение к базе данных, чтобы хранить сопоставления ролей, кэшированные токены и любые данные приложения. В диалоговом окне **Создать службу приложений** щелкните **Службы**. Рядом с элементом **База данных SQL** щелкните знак «плюс», чтобы добавить новую базу данных.
+
+	![](./media/web-sites-dotnet-lob-application-azure-ad/4-create-database.png)
+
+5. В диалоговом окне **Настройка базы данных SQL** выберите или создайте сервер, задайте его имя и нажмите кнопку **ОК**.
+
+	 ![](./media/web-sites-dotnet-lob-application-azure-ad/4-config-database.png)
 
 6. Щелкните **Создать**. После создания веб-приложения открывается диалоговое окно **Публикация в Интернете**.
 
@@ -148,9 +155,7 @@
    &lt;add key="ida:ClientId" value="<mark>[e.g. 82692da5-a86f-44c9-9d53-2f88d52b478b]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:AppKey" value="<mark>[e.g. rZJJ9bHSi/cYnYwmQFxLYDn/6EfnrnIfKoNzv9NKgbo=]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
    &lt;add key="ida:PostLogoutRedirectUri" value="<mark>[e.g. https://mylobapp.azurewebsites.net/]</mark>" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
-&lt;/appSettings></pre>
-
-	Убедитесь, что значение ida:PostLogoutRedirectUri заканчивается косой чертой "/".
+&lt;/appSettings></pre>Убедитесь, что значение ida:PostLogoutRedirectUri заканчивается косой чертой "/".
 
 1. Щелкните правой кнопкой мыши свой проект и выберите **Опубликовать**.
 
@@ -165,7 +170,7 @@
 
 В этой части учебника вы научитесь создавать необходимую функциональность бизнес-приложения на основе примера приложения. Вы займетесь созданием простого приложения CRUD для отслеживания рабочих элементов, аналогичного контроллеру TaskTracker, но с использованием формирования стандартного шаблона CRUD и шаблона разработки. Кроме этого, будут использоваться приведенные скрипты Scripts\\AadPickerLibrary.js для обогащения приложения данными из API Azure Active Directory Graph.
 
-5.	В папке Models создайте новую модель [Code First](http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) с именем WorkItem.cs и замените ее код следующим кодом:
+5.	В папке Models создайте новую модель [Code First](http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) с именем WorkItem.cs и замените ее код следующим кодом.
 
 		using System.ComponentModel.DataAnnotations;
 		
@@ -215,11 +220,11 @@ public class RoleClaimContext : DbContext
 
 11. Добавьте выделенные оформления [Authorize] к соответствующим действиям ниже.
 	<pre class="prettyprint">
-	...
+...
 
-	<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
-	public class WorkItemsController : Controller
-	{
+<mark>[Authorize(Roles = "Admin, Observer, Writer, Approver")]</mark>
+public class WorkItemsController : Controller
+{
 	...
 
     <mark>[Authorize(Roles = "Admin, Writer")]</mark>
@@ -242,17 +247,12 @@ public class RoleClaimContext : DbContext
     public async Task&lt;ActionResult> Delete(int? id)
     ...
 
-        <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
-        public async Task&lt;ActionResult&gt; DeleteConfirmed(int id)
-        ...
-	}</pre>
+    <mark>[Authorize(Roles = "Admin, Writer, Approver")]</mark>
+    public async Task&lt;ActionResult> DeleteConfirmed(int id)
+    ...
+}</pre>Так как нас интересует сопоставление ролей в пользовательском интерфейсе классического портала Azure, достаточно просто убедиться, что каждое действие авторизует соответствующую роль.
 
-	Поскольку нас интересует сопоставление ролей в интерфейсе портала Azure, достаточно просто убедиться, что каждое действие авторизует соответствующую роль.
-
-	> [AZURE.NOTE] В некоторых действиях вы можете заметить оформление <code>[ValidateAntiForgeryToken]</code>. Из-за поведения, описанного [Алленом Броком (Brock Allen)](https://twitter.com/BrockLAllen) в статье [MVC 4, AntiForgeryToken и утверждений](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), команда HTTP POST может завершиться ошибкой при проверке маркеров защиты от подделки по следующей причине:
-	> + Azure Active Directory не отправляет http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, который по умолчанию требуется для маркера защиты от подделки.
-	> + Если каталог Azure Active Directory синхронизирован с AD FS, в связи с установленным доверием AD FS также по умолчанию не отправляется утверждение http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider. Однако вы можете вручную настроить AD FS для отправки этого утверждения.
-	> Мы займемся этим на следующем шаге.
+	> [AZURE.NOTE]В некоторых действиях вы можете заметить оформление <code>[ValidateAntiForgeryToken]</code>. Из-за поведения, описанного [Алленом Броком (Brock Allen)](https://twitter.com/BrockLAllen) в статье [MVC 4, AntiForgeryToken и утверждений](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/), команда HTTP POST может завершиться ошибкой при проверке маркеров защиты от подделки по следующей причине: + Azure Active Directory не отправляет http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, который по умолчанию требуется для маркера защиты от подделки. + Если каталог Azure Active Directory синхронизирован с AD FS, в связи с установленным доверием AD FS также по умолчанию не отправляется утверждение http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider. Однако вы можете вручную настроить AD FS для отправки этого утверждения. Мы займемся этим на следующем шаге.
 
 12.  В файле App\_Start\\Startup.Auth.cs добавьте следующую строку кода в метод `ConfigureAuth`. Щелкните правой кнопкой мыши по каждой ошибке разрешения имен, чтобы ее исправить.
 
@@ -278,7 +278,7 @@ public class RoleClaimContext : DbContext
 		
 14.	В файле Views\\WorkItems\\Create.cshtml (автоматически сформированный на основе шаблона элемент) найдите вспомогательный метод `Html.BeginForm` и измените его следующим:
 	<pre class="prettyprint">@using (Html.BeginForm(<mark>"Create", "WorkItems", FormMethod.Post, new { id = "main-form" }</mark>))
-	{
+{
     @Html.AntiForgeryToken()
 
     &lt;div class="form-horizontal">
@@ -326,6 +326,7 @@ public class RoleClaimContext : DbContext
 
     <mark>&lt;script>
             // People/Group Picker Code
+            var maxResultsPerPage = 14;
             var input = document.getElementById("AssignedToName");
             var token = "@ViewData["token"]";
             var tenant = "@ViewData["tenant"]";
@@ -340,11 +341,9 @@ public class RoleClaimContext : DbContext
             });
     &lt;/script></mark>
 
-	}</pre>
+}</pre>В сценарии объект AadPicker вызывает [API Graph Azure Active Directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) для поиска пользователей и групп, которые соответствуют введенным данным.
 
-	В сценарии объект AadPicker вызывает [API Graph Azure Active Directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) для поиска пользователей и групп, которые соответствуют введенным данным.
-
-15. Откройте [Консоль диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) и запустите **Enable-Migrations – EnableAutomaticMigrations**. По аналогии с параметром, который вы выбираете при публикации приложения в Azure, эта команда позволяет обновить схему базы данных приложения в [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) при отладке в Visual Studio.
+15. Откройте [консоль диспетчера пакетов](http://docs.nuget.org/Consume/Package-Manager-Console) и выполните команду **Enable-Migrations – EnableAutomaticMigrations**. По аналогии с параметром, который вы выбираете при публикации приложения в Azure, эта команда позволяет обновить схему базы данных приложения в [LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) при отладке в Visual Studio.
 
 15. Теперь можно либо запустить приложение в отладчике Visual Studio, либо снова опубликовать его в веб-приложениях службы приложений. Войдите в систему как владелец приложения и перейдите на страницу `https://<webappname>.azurewebsites.net/WorkItems/Create`. Теперь вы сможете выбрать пользователя или группу Azure Active Directory из раскрывающегося списка или ввести какие-либо данные для фильтрации списка.
 
@@ -381,4 +380,4 @@ public class RoleClaimContext : DbContext
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

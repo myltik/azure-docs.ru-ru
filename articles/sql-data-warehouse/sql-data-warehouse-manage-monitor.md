@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="12/15/2015"
    ms.author="sahajs"/>
 
 # Мониторинг рабочей нагрузки с помощью динамических административных представлений
@@ -131,7 +131,7 @@ ORDER BY step_index;
 
 ### Шаг 4а. Поиск сведений о ходе выполнения этапа SQL
 
-Используйте идентификатор запроса и индекса этапа для получения сведений о распределении запросов SQL Server в рамках этапа SQL в запросе. Сохраните идентификатор узла и SPID.
+Используйте идентификатор запроса и индекса этапа для получения сведений о распределении запросов SQL Server в рамках этапа SQL в запросе. Сохраните идентификатор и код SPID распределения.
 
 ```
 
@@ -149,7 +149,7 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 ```
 
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node. 
--- Replace node_id and spid with values from previous query.
+-- Replace distribution_id and spid with values from previous query.
 
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 
@@ -203,4 +203,4 @@ DBCC PDW_SHOWSPACEUSED("dbo.FactInternetSales");
 
 <!--MSDN references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -24,8 +24,8 @@
 
 Название | Описание
 ---|---
-Обновление версии API REST | API REST обновлен до версии от 01.10.2015. Подробные сведения см. на сайте MSDN в [Справочнике по управлению API REST Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx).
-Интеграция машинного обучения Azure | В этом выпуске обеспечена поддержка определяемых пользователем функций машинного обучения Azure. Учебник можно найти [здесь](stream-analytics-machine-learning-tutorial.md), а объявление в блоге — [здесь](http://blogs.msdn.com/b/streamanalytics/).
+Обновление версии API REST | API REST обновлен до версии от 01.10.2015. Дополнительную информацию можно найти на сайте MSDN, в разделах [Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx) и [Machine Learning integration in Stream Analytics](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md).
+Интеграция машинного обучения Azure | В этом выпуске обеспечена поддержка определяемых пользователем функций машинного обучения Azure. Учебник можно найти [здесь](stream-analytics-machine-learning-tutorial.md), а объявление в блоге — [здесь](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx).
 
 ## Заметки о выпуске Stream Analytics от 12.11.2015 ##
 
@@ -133,4 +133,4 @@ TIMESTAMP BY для разнородных событий | Если один п
 - [Справочник по API-интерфейсу REST управления Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

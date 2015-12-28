@@ -20,7 +20,7 @@
 ## Введение
 В этой статье описывается, как приложения [Service Fabric](http://azure.microsoft.com/documentation/services/service-fabric/) используют **ElasticSearch** и **Kibana** для хранения данных трассировки приложений, индексирования и поиска. [ElasticSearch](https://www.elastic.co/guide/index.html) — это распределенная и масштабируемая система с открытым кодом, предназначенная для поиска и анализа данных в режиме реального времени. Она хорошо подходит для описанной здесь задачи, и ее можно установить на виртуальные машины Windows или Linux, запущенные в Microsoft Azure. ElasticSearch может очень эффективно обрабатывать *структурированные* трассировки, созданные с помощью таких технологий, как **трассировка событий Windows (ETW)**.
 
-Трассировка событий Windows используется средой выполнения Service Fabric для получения диагностических сведений (трассировки). Рекомендуем использовать ее для получения диагностических сведений о приложениях Service Fabric. Это позволяет коррелировать трассировки в среде выполнения и в приложении, а также облегчает устранение неполадок. Шаблоны проектов Service Fabric в Visual Studio включают API-интерфейс ведения журналов (в зависимости от класса **EventSource** .NET), который выдает трассировки ETW по умолчанию. Общие сведения о трассировке приложения Service Fabric с использованием ETW см. в [этой статье](https://azure.microsoft.com/documentation/articles/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/).
+Трассировка событий Windows используется средой выполнения Service Fabric для получения диагностических сведений (трассировки). Рекомендуем использовать ее для получения диагностических сведений о приложениях Service Fabric. Это позволяет коррелировать трассировки в среде выполнения и в приложении, а также облегчает устранение неполадок. Шаблоны проектов Service Fabric в Visual Studio включают API-интерфейс ведения журналов (в зависимости от класса **EventSource** .NET), который выдает трассировки ETW по умолчанию. Общие сведения о трассировке приложения Service Fabric с использованием ETW см. в [этой статье](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 Чтобы данные трассировки отображались в ElasticSearch, их необходимо собирать на узлах кластера Service Fabric в реальном времени (во время работы приложения) и затем отправлять в конечную точку ElasticSearch. Есть два основных способа записи данных трассировки.
 
@@ -32,7 +32,7 @@
 
 
 ## Настройка ElasticSearch в Azure
-Самый простой способ настройки службы ElasticSearch в Azure — с помощью [**шаблонов ARM Azure**](https://azure.microsoft.com/documentation/articles/resource-group-overview/). Полнофункциональный [шаблон ARM быстрого запуска для ElasticSearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) можно получить из репозитория шаблонов быстрого запуска Azure. Этот шаблон использует отдельные учетные записи хранения для единиц масштабирования (групп узлов) и может подготавливать отдельные узлы клиента и сервера с различными конфигурациями и различным количеством подключенных дисков с данными.
+Самый простой способ настройки службы ElasticSearch в Azure — с помощью [**шаблонов ARM Azure**](../resource-group-overview.md). Полнофункциональный [шаблон ARM быстрого запуска для ElasticSearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) можно получить из репозитория шаблонов быстрого запуска Azure. Этот шаблон использует отдельные учетные записи хранения для единиц масштабирования (групп узлов) и может подготавливать отдельные узлы клиента и сервера с различными конфигурациями и различным количеством подключенных дисков с данными.
 
 В этой статье мы будем использовать другой шаблон, который называется **ES-MultiNode** от подразделения [Microsoft Patterns & Practices ELK](https://github.com/mspnp/semantic-logging/tree/elk/). Этот шаблон немного проще в использовании. Он создает кластер ElasticSearch, защищенный обычной проверкой подлинности HTTP по умолчанию. Прежде чем продолжать, скачайте [репозиторий «elk» Microsoft P&P](https://github.com/mspnp/semantic-logging/tree/elk/) с сайта GitHub на свой компьютер (путем клонирования репозитория или загрузки ZIP-файла). Шаблон ES-MultiNode находится в одноименной папке.
 >[AZURE.NOTE]Сейчас шаблон ES-MultiNode и связанные скрипты поддерживают выпуск ElasticSearch 1.7. Поддержка ElasticSearch 2.0 будет добавлена позже.
@@ -240,10 +240,10 @@ namespace Stateless1
 ![Отображение событий приложения PartyCluster в службе Kibana][2]
 
 ## Дальнейшие действия
-- [Дополнительные сведения о диагностике и мониторинге службы Service Fabric](service-fabric-diagnose-monitor-your-service-index.md)
+- [Дополнительные сведения о диагностике и мониторинге службы Service Fabric](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

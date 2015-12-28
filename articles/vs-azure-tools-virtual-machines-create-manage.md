@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Создание и управление виртуальными машинами Azure в Visual Studio"
+   pageTitle="Создание и управление виртуальными машинами Azure в Visual Studio | Microsoft Azure"
    description="Создание и управление виртуальными машинами Azure в Visual Studio"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="virtual-machines"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/30/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Создание и управление виртуальными машинами Azure в Visual Studio
 
@@ -177,4 +177,4 @@
 
 Дополнительные сведения о создании виртуальных машин см. в статьях [Создание виртуальной машины под управлением Linux](virtual-machines-linux-tutorial.md) и [Создание виртуальной машины под управлением Windows на портале предварительной версии Azure](virtual-machines-windows-tutorial.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

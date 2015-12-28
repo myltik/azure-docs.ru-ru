@@ -3,9 +3,9 @@
    description="Узнайте, как настроить проект облачной службы Azure, изменяя файлы ServiceDefinition.csdef и ServiceConfiguration.cscfg."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/29/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Настройка проекта Azure с помощью нескольких конфигураций службы
 
@@ -110,4 +110,4 @@
 |Разработка|На этой странице можно указать инструкции конфигурации сборки и условия, при которых будут выполняться любые события после сборки.|
 |Веб-приложения|На этой странице можно настроить параметры, связанные с веб-сервером.|
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

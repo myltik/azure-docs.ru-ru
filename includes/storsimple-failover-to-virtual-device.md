@@ -1,19 +1,21 @@
-#### To restore your physical device to the StorSimple virtual device
+#### Восстановление физического устройства на виртуальном устройстве StorSimple
 
-1. Verify that the volume container you want to fail over has associated cloud snapshots.
+1. Убедитесь, что контейнер томов, для которого необходимо выполнить отработку отказа, имеет связанные с собой облачные моментальные снимки.
 
-2. Open the **Device** page, and then click the **Volume Containers** tab.
+2. Откройте страницу **Устройство**, а затем выберите вкладку **Контейнеры томов**.
 
-3. Select a volume container that you would like to fail over to the virtual device. Click the volume container to display the list of volumes within the container. Select a volume and click **Take Offline** to take the volume offline. Repeat this process for all the volumes in the volume container.
+3. Выберите контейнер томов, для которого следует выполнить отработку отказа на виртуальное устройство. Щелкните контейнер томов, чтобы открыть список томов в контейнере. Выберите том и щелкните **Отключить**, чтобы отключить том. Повторите эту процедуру для всех томов в контейнере томов.
 
-4. Repeat the previous step for all the volume containers you want to fail over to the virtual device.
+4. Повторите предыдущий шаг для всех контейнеров томов, для которых следует выполнить отработку отказа на виртуальное устройство.
 
-5. On the **Device** page, select the device that you need to fail over, and then click **Failover** to open the **Device Failover** wizard.
+5. На странице **Устройство** выберите устройство, для которого необходимо выполнить отработку отказа, а затем щелкните **Отработка отказа**, чтобы открыть мастер **отработки отказа устройства**.
 
-6. In **Choose volume container to failover**, select the volume containers you would like to fail over. To be displayed in this list, the volume container must contain a cloud snapshot and be offline. If a volume container that you expected to see is not present, cancel the wizard and verify that it is offline.
+6. В поле **Выберите контейнер томов для отработки отказа** укажите контейнеры томов, для которых следует выполнить отработку отказа. Чтобы контейнер томов отображался в этом списке, он должен иметь связанный с собой облачный моментальный снимок и быть отключенным. Если ожидаемый контейнер томов отсутствует, закройте мастер и убедитесь, что он отключен.
 
-7. On the next page, in **Choose a target device for the volumes** in the selected containers, select the virtual device from the drop-down list of available devices. Only the devices that have the available capacity are displayed on the list. 
+7. На следующей странице в поле **Выберите целевое устройство для томов** для выделенных контейнеров укажите виртуальное устройство из раскрывающегося списка доступных устройств. В списке отображаются только устройства с доступной емкостью.
 
-8. Review all the failover settings on the **Confirm failover** page. If they are correct, click the check icon.
+8. Просмотрите параметры отработки отказа на странице **Подтверждение отработки отказа**. Если они правильные, установите флажок.
 
-The failover process will begin. When the failover is finished, go to the Devices page and select the virtual device that was used as the target for the failover process. Go to the Volume Containers page. All the volume containers, along with the volumes from the old device should appear.
+Начнется процесс отработки отказа. По завершении отработки отказа перейдите на страницу "Устройства" и выберите виртуальное устройство, которое использовалось как целевое для отработки отказа. Перейдите на страницу "Контейнеры томов". Должны отобразиться все контейнеры томов, а также тома со старого устройства.
+
+<!---HONumber=AcomDC_1217_2015-->

@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/12/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Определяемые пользователем маршруты и IP-пересылка
@@ -90,4 +90,4 @@
 - Узнайте, как [создать маршруты в модели развертывания диспетчера ресурсов](../virtual-network-create-udr-arm-template) и связать их с подсетями. 
 - Узнайте, как [создать маршруты в классической модели развертывания](../virtual-network-create-udr-classic-ps) и связать их с подсетями.
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

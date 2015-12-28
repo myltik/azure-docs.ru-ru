@@ -268,6 +268,9 @@
 
 - Отправляйте только жесткие диски. Не посылайте ничего другого, например, кабели питания или USB-кабели.
 
+## См. также
+
+[Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
 
 
 [import-job-03]: ./media/storage-import-export-service-classic-portal/import-job-03.png
@@ -275,4 +278,4 @@
 [export-job-bitlocker-keys]: ./media/storage-import-export-service-classic-portal/export-job-bitlocker-keys.png
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

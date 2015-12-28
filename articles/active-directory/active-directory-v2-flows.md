@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Предварительная версия модели приложений 2.0: типы приложений
@@ -127,4 +127,4 @@ Accept: application/json
 
 Сценарий связанных веб-API может поддерживаться с помощью предоставления учетных данных носителя маркера JWT OAuth 2.0, которое также называется потоком [On-Behalf-Of Flow](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow). Однако поток "On-Behalf-Of" еще не реализован в предварительной версии модели приложений 2.0. Чтобы увидеть его в общедоступной службе Azure AD, изучите [пример кода "On-Behalf-Of" на GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

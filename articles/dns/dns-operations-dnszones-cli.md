@@ -23,13 +23,16 @@
 - [PowerShell](dns-operations-dnszones.md)
 
 В этом руководстве показано, как управлять зоной DNS. Оно поможет вам понять последовательность операций для администрирования зоны DNS.
- 
+
+>[AZURE.NOTE]DNS Azure является исключительно службой диспетчера ресурсов Azure. У нее нет API ASM. Поэтому необходимо будет убедиться, что Azure CLI настроен на использование режима диспетчера ресурсов, с помощью команды azure config mode arm.
+
+>Если вы видите сообщение «ошибка: "dns" не является командой Azure», скорее всего вы используете Azure CLI в режиме ASM, а не диспетчера ресурсов.
  
 ## Создание зоны DNS
 
-Чтобы создать зону DNS для размещения домена, используйте командлет `azure network dns zone create`:
+Чтобы создать зону DNS для размещения домена, используйте командлет `azure network dns zone create`.
 
-		Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+	azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
 В результате этой операции в Azure DNS будет создана зона DNS. При необходимости можно указать массив тегов диспетчера ресурсов Azure. Дополнительные сведения см. в разделе [Etag и теги](dns-getstarted-create-dnszone.md#Etags-and-tags).
 
@@ -39,7 +42,7 @@
 
 ## Получение зоны DNS
 
-Чтобы получить зону DNS, используйте командлет `azure network dns zone show`:
+Чтобы получить зону DNS, используйте командлет `azure network dns zone show`.
 
 	azure network dns zone show myresourcegroup contoso.com
 
@@ -48,7 +51,7 @@
 
 ## Перечисление зон DNS
 
-Чтобы получить зоны DNS в группе ресурсов, используйте командлет `azure network dns zone list`:
+Чтобы получить зоны DNS в группе ресурсов, используйте командлет `azure network dns zone list`.
 
 	azure network dns zone list myresourcegroup
 
@@ -77,4 +80,4 @@
 
 [Автоматизация операций с помощью пакета SDK для .NET](dns-sdk.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1217_2015-->

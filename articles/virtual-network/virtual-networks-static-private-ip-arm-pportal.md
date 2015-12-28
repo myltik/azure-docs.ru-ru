@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/08/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Как задать статический частный IP-адрес на портале предварительной версии
@@ -54,9 +54,7 @@
 
 6. Убедитесь, что в колонке **Параметры** заданы значения свойств, указанные ниже, и нажмите кнопку **ОК**.
 
-	-**Учетная запись хранения**: *vnetstorage*.
-	- **Сеть**: *TestVNet*.
-	- **Подсеть**: *FrontEnd*.
+	-**Учетная запись хранения**: *vnetstorage*. - **Сеть**: *TestVNet*. - **Подсеть**: *FrontEnd*.
 
 	![Колонка «Выбор размера»](./media/virtual-networks-static-ip-arm-pportal/figure05.png)
 
@@ -97,4 +95,4 @@
 - Узнайте об [общедоступных IP-адресах уровня экземпляра (ILPIP)](../virtual-networks-instance-level-public-ip).
 - Ознакомьтесь с [REST API зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

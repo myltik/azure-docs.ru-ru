@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="command-line-interface"
    ms.workload="infrastructure"
-   ms.date="08/25/2015"
+   ms.date="12/08/2015"
    ms.author="rasquill"/>
 
 # Просмотр и выбор образов виртуальных машин Azure с помощью оболочки Windows PowerShell и инфраструктуры Azure CLI
@@ -23,7 +23,7 @@
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
 
 
-В этой статье описывается, как найти и выбрать образы виртуальных машин, используя CLI Azure или Azure PowerShell последней версии. Для начала необходимо изменить режим диспетчера ресурсов. В случае использования интерфейса командной строки Azure запустите этот режим, введя `azure config mode arm`. При использовании PowerShell введите `Switch-AzureMode AzureResourceManager`. Полную информацию об обновлении и настройке см. в статье [Использование интерфейса командной строки Azure в режиме управления ресурсами](xplat-cli-azure-resource-manager.md) и [Использование Azure PowerShell в режиме управления ресурсами Azure](../powershell-azure-resource-manager.md).
+
 
 ## Таблица часто используемых образов
 
@@ -51,6 +51,8 @@
 
 
 ## Инфраструктура CLI Azure
+
+> [AZURE.NOTE]В этой статье описывается, как найти и выбрать образы виртуальных машин, используя CLI Azure или Azure PowerShell последней версии. Для начала необходимо изменить режим диспетчера ресурсов. В случае использования интерфейса командной строки Azure запустите этот режим, введя `azure config mode arm`.
 
 Для поиска образа, который можно использовать с `azure vm quick-create` или для создания файла шаблона группы ресурсов, проще и быстрее всего воспользоваться командой `azure vm image list`, которой передается расположение, имя издателя (без учета регистра) и предложение (если оно вам известно). Например, вот короткий пример (многие списки достаточно длинные), в котором вам известно, что издателем образа является Canonical, а предложение называется UbuntuServer.
 
@@ -85,7 +87,7 @@
     data:    AlertLogic.Extension                            westus  
 
 
-Эти списки часто бывают довольно длинными, поэтому в примере приведен лишь фрагмент. Предложим, мы выяснили, что Canonical — издатель из западной части США. Теперь мы можем найти его предложения, вызвав команду `azure vm image list-offers` и указав расположение и издателя, как в следующем примере:
+Эти списки часто бывают довольно длинными, поэтому в примере приведен лишь фрагмент. Предложим, мы выяснили, что Canonical — издатель из западной части США. Теперь мы можем найти его предложения, вызвав `azure vm image list-offers` и указав расположение и издателя, как в следующем примере.
 
     azure vm image list-offers
     info:    Executing command vm image list-offers
@@ -97,7 +99,7 @@
     data:    canonical  UbuntuServer  westus  
     info:    vm image list-offers command OK
 
-Теперь мы знаем, что издатель Canonical из западной части США предлагает **UbuntuServer** для Azure. Однако нам также нужны номера SKU. Для этого мы вызываем команду `azure vm image list-skus` и указываем расположение, издателя и предложение.
+Теперь мы знаем, что издатель Canonical из западной части США предлагает **UbuntuServer** для Azure. Однако нам также нужны номера SKU. Для этого вы вызываете `azure vm image list-skus` и указываете расположение, издателя и предложение.
 
     azure vm image list-skus
     info:    Executing command vm image list-skus
@@ -148,6 +150,11 @@
 
 
 ## PowerShell
+
+При использовании PowerShell введите `Switch-AzureMode AzureResourceManager`. Полную информацию об обновлении и настройке см. в статьях [Использование интерфейса командной строки Azure в режиме управления ресурсами](xplat-cli-azure-resource-manager.md) и [Использование Azure PowerShell в режиме управления ресурсами Azure](../powershell-azure-resource-manager.md).
+
+> [AZURE.NOTE]В модулях Azure PowerShell версии выше 1.0 командлет `Switch-AzureMode` был удален. Если используется эта или более ранняя версия, в приведенных ниже командах замените `Azure` на `AzureRm`. Если вы используете модули Azure PowerShell версии ниже 1.0, то будете использовать приведенные ниже команды. Но сначала необходимо выполнить `Switch-AzureMode AzureResourceManager`.
+
 
 При создании виртуальной машины с помощью диспетчера ресурсов Azure иногда бывает нужно указать образ по сочетанию следующих свойств:
 
@@ -244,4 +251,4 @@
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

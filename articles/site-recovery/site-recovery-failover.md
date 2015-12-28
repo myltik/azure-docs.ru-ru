@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Отработка отказа в Site Recovery" 
+	pageTitle="Отработка отказа в Site Recovery | Microsoft Azure" 
 	description="Azure Site Recovery координирует репликацию, отработку отказа и восстановление виртуальных машин и физических серверов. Узнайте о функции отработки отказа с выполнением переноса в Azure или в дополнительный центр обработки данных." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="10/12/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 # Отработка отказа в Site Recovery
@@ -250,4 +250,4 @@ C дополнительного сайта VMM на основной сайт V
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

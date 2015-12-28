@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,21 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Начало работы со службой хранилища Azure (проекты веб-заданий Azure)
-
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-webjobs-getting-started-tables.md)
-> - [What happened](vs-storage-webjobs-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
-> - [Queues](vs-storage-webjobs-getting-started-queues.md)
-> - [Tables](vs-storage-webjobs-getting-started-tables.md)
-
-
 
 ## Обзор
 
@@ -93,7 +82,7 @@
 
 Для чтения таблиц используйте атрибут **Table** с параметром **IQueryable<T>**, где тип **T** является производным от **TableEntity** или реализует **ITableEntity**.
 
-Следующий пример кода считывает и записывает все строки таблицы **Ingress**:
+Следующий пример кода считывает и записывает все строки таблицы **Ingress**.
 
 		public static void ReadTable(
 		    [Table("Ingress")] IQueryable<Person> tableBinding,
@@ -111,7 +100,7 @@
 
 Конструктор атрибута **Table** с двумя дополнительными параметрами позволяет указать ключ раздела и ключ строки, если необходимо выполнить привязку к одной сущности таблицы.
 
-Следующий пример кода считывает строку таблицы для сущности **Person** на основе значений ключа раздела и ключа строки, полученных в сообщении очереди:
+Следующий пример кода считывает строку таблицы для сущности **Person** на основе значений ключа раздела и ключа строки, полученных в сообщении очереди.
 
 		public static void ReadTableEntity(
 		    [QueueTrigger("inputqueue")] Person personInQueue,
@@ -165,4 +154,4 @@
 
 В этой статье предоставлены примеры кода обработки обычных сценариев для работы с таблицами Azure. Дополнительную информацию об использовании веб-заданий Azure и пакета SDK для веб-заданий см. в статье [Рекомендуемые ресурсы по веб-заданиям Azure](http://go.microsoft.com/fwlink/?linkid=390226).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

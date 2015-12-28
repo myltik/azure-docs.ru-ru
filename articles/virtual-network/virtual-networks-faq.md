@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="10/19/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Часто задаваемые вопросы по виртуальной сети
@@ -23,4 +23,4 @@
 
 Самые новые часто задаваемые вопросы о VPN виртуальной сети см. в статье [Часто задаваемые вопросы о шлюзах VPN](vpn-gateway-vpn-faq.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

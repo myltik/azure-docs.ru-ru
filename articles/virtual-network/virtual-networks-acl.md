@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Список управления доступом (ACL) конечной точки
@@ -99,4 +99,4 @@ ACL — это объект, содержащий список правил. П
 
 [Управление списками управления доступом для конечных точек с помощью PowerShell](../virtual-networks-acl-powershell)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

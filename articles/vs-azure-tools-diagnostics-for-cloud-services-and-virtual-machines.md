@@ -3,9 +3,9 @@
    description="Из этой статьи вы узнаете, как в Visual Studio настроить сбор диагностической информации для отладки облачных служб и виртуальных машин Azure."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/08/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Настройка системы диагностики для облачных служб и виртуальных машин Azure
 
@@ -357,4 +357,4 @@
 
 Дополнительные сведения о ведении журналов диагностики в Azure см. в статьях [Включение диагностики в облачных службах и виртуальных машинах Azure](cloud-services-dotnet-diagnostics.md) и [Включение ведения журнала диагностики для веб-приложений в службе приложений Azure](web-sites-enable-diagnostic-log.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -42,6 +42,7 @@
 В GitHub для скачивания доступен следующий пакет SDK для службы IoT:
 
 - [Пакет SDK для службы Azure IoT для Node.js][]
+- [Пакет SDK для службы Azure IoT для Java][]
 
 ## Справочная документация по API в Интернете
 
@@ -62,6 +63,7 @@
 [Пакет SDK для устройств Azure IoT для C]: https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md
 [Пакет SDK для устройств Azure IoT для .NET]: https://github.com/Azure/azure-iot-sdks/blob/master/csharp/device/readme.md
 [Пакет SDK для устройств Azure IoT для Java]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/readme.md
+[Пакет SDK для службы Azure IoT для Java]: https://github.com/Azure/azure-iot-sdks/blob/master/java/service/readme.md
 [Пакет SDK для устройств Azure IoT для Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/device/readme.md
 [Пакет SDK для службы Azure IoT для Node.js]: https://github.com/Azure/azure-iot-sdks/blob/master/node/service/
 [OS Platforms and hardware compatibility]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
@@ -73,4 +75,4 @@
 [Пакет SDK для устройств Microsoft Azure IoT для Node.js]: http://azure.github.io/azure-iot-sdks/node/api_reference/index.html
 [REST для центра IoT]: https://msdn.microsoft.com/library/mt548492.aspx
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -3,7 +3,7 @@
 	description="Быстрое устранение распространенных неполадок, связанных с разрешениями, доступом, пользователями и именами входа"
 	services="sql-database"
 	documentationCenter=""
-	authors="dalechen"
+	authors="v-shysun"
 	manager="msmets"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/10/2015"
-	ms.author="daleche"/>
+	ms.date="12/11/2015"
+	ms.author="v-shysun"/>
 
 #Устранение распространенных неполадок с разрешениями и доступом к базе данных SQL Azure
 В этом разделе вы найдете инструкции по быстрому предоставлению и отмене доступа к базе данных SQL Azure. Более подробную информацию см. в следующих статьях:
@@ -37,4 +37,4 @@
 ## Создание дополнительных имен входа для привилегированных пользователей в виртуальной базе данных master
 Используйте оператор [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx). Дополнительные сведения см. в разделе "Управление именами входа" статьи [Управление базами данных и учетными записями в базе данных SQL Azure](sql-database-manage-logins.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

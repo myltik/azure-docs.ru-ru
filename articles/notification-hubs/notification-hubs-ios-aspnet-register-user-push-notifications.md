@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/16/2015"
 	ms.author="wesmc"/>
 
 # Регистрация текущего пользователя для push-уведомлений с помощью ASP.NET
@@ -111,7 +111,7 @@
 
 	Таким образом задается маркер устройства для запроса.
 
-	> [AZURE.NOTE]На этом этапе в методе не должно быть никакого другого кода. Если в методе **registerNativeWithDeviceToken** уже есть вызов, добавленный при прохождении учебника [Приступая к работе с концентраторами уведомлений](/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank"), этот вызов нужно закомментировать или удалить.
+	> [AZURE.NOTE]На этом этапе в методе не должно быть никакого другого кода. Если в методе **registerNativeWithDeviceToken** уже есть вызов, добавленный при прохождении учебника [Приступая к работе с концентраторами уведомлений](/manage/services/notification-hubs/get-started-notification-hubs-ios/), этот вызов нужно закомментировать или удалить.
 
 10.	В файле PushToUserAppDelegate.m добавьте следующий метод обработчика:
 
@@ -237,4 +237,4 @@
 
 [Приступая к работе с концентраторами уведомлений]: /manage/services/notification-hubs/get-started-notification-hubs-ios
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

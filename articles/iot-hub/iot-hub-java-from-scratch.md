@@ -20,7 +20,7 @@
 
 В этой статье описывается, как создать клиентское приложение, которое использует [пакет SDK устройства Microsoft Azure IoT для Java][lnk-java-sdk] для взаимодействия с центром Azure IoT. В руководстве показано, как создать и построить проект с помощью средства [Maven][apache-maven]. Вы можете следовать этим инструкциям на компьютере под управлением Windows или Linux.
 
-Документацию по API Java можно найти [здесь][lnk-java-api-docs].
+Для справки можно просмотреть [документы по API Java][lnk-java-api-docs].
 
 ## Установка
 
@@ -214,7 +214,7 @@
 .level = {LOGGING_LEVEL}
 ```
 
-> [AZURE.NOTE]Описание различных уровней ведения журнала можно найти [здесь](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html).
+> [AZURE.NOTE]Вы можете прочитать описание различных [уровней ведения журнала](http://docs.oracle.com/javase/7/docs/api/java/util/logging/Level.html).
 
 Затем установите свойство JVM `java.util.logging.config.file={Path to your config.properties file}`.
 
@@ -229,4 +229,4 @@
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 [lnk-iothub-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/doc/provision_device.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

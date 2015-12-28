@@ -97,7 +97,7 @@
     > [AZURE.NOTE]Обратитесь в службу поддержки StatusPage по адресу [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io), чтобы запросить метаданные, необходимые для настройки единого входа.
 
 
-    а. В полученных метаданных скопируйте значение издателя и вставьте его в текстовое поле **Издатель**.
+    а. В метаданных скопируйте значение издателя и вставьте его в текстовое поле **Идентификатор**.
 
     b. В полученных метаданных скопируйте значение URL-адреса ответа и вставьте его в текстовое поле **URL-адрес ответа**.
 
@@ -244,4 +244,4 @@
 [204]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-statuspage-tutorial/tutorial_general_205.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -6,7 +6,7 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
-<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="09/22/2015" ms.author="jimpark"; "aashishr"; "sammehta"/>
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="12/15/2015" ms.author="jimpark"; "aashishr"; "sammehta"/>
 
 # Использование службы архивации Azure для замены ленточной инфраструктуры
 Пользователи службы архивации Azure и System Center Data Protection Manager могут: создавать резервные копии данных по расписанию, которое лучше всего соответствует потребностям их организации; хранить резервные копии данных в течение более длительного времени; сделать Azure одним из средств длительного хранения данных (вместо магнитных лент).
@@ -60,4 +60,4 @@
 - [Общие сведения о службе архивации Azure](backup-introduction-to-azure-backup.md)
 - [Знакомство со службой архивации Azure](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

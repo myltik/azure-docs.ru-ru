@@ -129,7 +129,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
 ```
 
-## Применение политики запуска от имени к службам
+## Применение политики запуска от имени к службам 
 Ранее вы узнали, как применить политику запуска от имени к точке SetupEntryPoint. Давайте более подробно рассмотрим процесс создания разных субъектов, которые могут применяться в качестве политик служб.
 
 ### Создание локальных групп пользователей
@@ -169,7 +169,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
   </Users>
 </Principals>
 ~~~
-
+ 
 <!-- If an application requires that the user account and password be same on all machines (e.g. to enable NTLM authentication), the cluster manifest must set NTLMAuthenticationEnabled to true and also specify an NTLMAuthenticationPasswordSecret that will be used to generate the same password across all machines.
 
 <Section Name="Hosting">
@@ -184,8 +184,8 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 
 ~~~
 <Policies>
-  <RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
-  <RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
+<RunAsPolicy CodePackageRef="Code" UserRef="LocalAdmin" EntryPointType="Setup"/>
+<RunAsPolicy CodePackageRef="Code" UserRef="Customer3" EntryPointType="Main"/>
 </Policies>
 ~~~
 
@@ -272,7 +272,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
       </Users>
    </Principals>
    <Policies>
-      <DefaultRunAsPolicy UserRef="MyDefaultAccount" />
+      <DefaultRunAsPolicy UserRef="LocalAdmin" />
    </Policies>
    <Certificates>
 	 <EndpointCertificate Name="Cert1" X509FindValue="FF EE E0 TT JJ DD JJ EE EE XX 23 4T 66 "/>
@@ -290,4 +290,4 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

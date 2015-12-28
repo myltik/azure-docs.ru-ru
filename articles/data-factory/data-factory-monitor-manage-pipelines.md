@@ -323,7 +323,7 @@ Azure регистрирует пользовательские события, 
 	                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
 	                        "operationName": "RunFinished",
 	                        "status": "Failed",
-	                            "subStatus": "FailedExecution"   
+	                        "subStatus": "FailedExecution"   
 	                    }
 	                },
 	                "action": 
@@ -348,18 +348,16 @@ Azure регистрирует пользовательские события, 
 -------------- | ------ | ----------
 RunStarted | Started | Starting
 RunFinished | Failed / Succeeded | <p>FailedResourceAllocation</p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p><Canceled/p><p>FailedValidation</p><p>Abandoned</p>
-SliceOnTime | In Progress | Ontime
-SliceDelayed | In Progress | Late
 OnDemandClusterCreateStarted | Started
 OnDemandClusterCreateSuccessful | Succeeded
 OnDemandClusterDeleted | Succeeded
 
-Подробные сведения об элементах JSON, используемые в примере выше, см. в разделе [Создание правила оповещения](https://msdn.microsoft.com/library/azure/dn510366.aspx).
+Подробные сведения об элементах JSON, используемых в примере выше, см. в разделе [Создание правила оповещения](https://msdn.microsoft.com/library/azure/dn510366.aspx).
 
 #### Развертывание оповещения 
 Для развертывания оповещения используйте командлет Azure PowerShell **New-AzureResourceGroupDeployment**, как показано в следующем примере:
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf     -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
 После успешного завершения развертывания группы ресурсов вы увидите следующие сообщения:
 
@@ -398,21 +396,59 @@ OnDemandClusterDeleted | Succeeded
 
 - Вы можете просмотреть все созданные события, щелкнув элемент **Операции**, и настроить уведомления для любых операций, отображаемых в колонке **События**.
 
-![Операции](./media/data-factory-monitor-manage-pipelines/operations.png)
+	![Операции](./media/data-factory-monitor-manage-pipelines/operations.png)
 
 
 - Сведения о командлетах PowerShell, которые можно использовать для добавления, получения и удаления предупреждений, см. в статье [Командлеты Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx). Далее приведено несколько примеров использования командлета **Get-AlertRule**.
 
 
-	ResourceGroupName : mdwevent
-	Location          : westus
-	ProvisioningState : Succeeded
-	Resources         :
-                    Name                  Type                                 Location
-                    ====================  ===================================  ========
-                    abhieventtest1        Microsoft.DataFactory/dataFactories  westus
-                    abhieventtest2        Microsoft.DataFactory/dataFactories  westus
-                    FailedValidationRuns  microsoft.insights/alertrules        eastus
+		PS C:\> get-alertrule -res $resourceGroup -n ADFAlertsSlice -det
+			
+				Properties :
+		        Action      : Microsoft.Azure.Management.Insights.Models.RuleEmailAction
+		        Condition   :
+				DataSource :
+				EventName             :
+				Category              :
+				Level                 :
+				OperationName         : RunFinished
+				ResourceGroupName     :
+				ResourceProviderName  :
+				ResourceId            :
+				Status                : Failed
+				SubStatus             : FailedExecution
+				Claims                : Microsoft.Azure.Management.Insights.Models.RuleManagementEventClaimsDataSource
+		        Condition  	:
+				Description : One or more of the data slices for the Azure Data Factory has failed processing.
+				Status      : Enabled
+				Name:       : ADFAlertsSlice
+				Tags       :
+				$type          : Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage
+				Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/ADFAlertsSlice
+				Location   : West US
+				Name       : ADFAlertsSlice
+		
+		PS C:\> Get-AlertRule -res $resourceGroup
+	
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+				Location   : West US
+				Name       : FailedExecutionRunsWest0
+		
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest3
+				Location   : West US
+				Name       : FailedExecutionRunsWest3
+	
+		PS C:\> Get-AlertRule -res $resourceGroup -Name FailedExecutionRunsWest0
+		
+				Properties : Microsoft.Azure.Management.Insights.Models.Rule
+				Tags       : {[$type, Microsoft.WindowsAzure.Management.Common.Storage.CasePreservedDictionary, Microsoft.WindowsAzure.Management.Common.Storage]}
+				Id         : /subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/microsoft.insights/alertrules/FailedExecutionRunsWest0
+				Location   : West US
+				Name       : FailedExecutionRunsWest0
 
 	Выполните следующие команды get-help, чтобы просмотреть сведения и примеры для командлета Get-AlertRule.
 
@@ -435,7 +471,7 @@ OnDemandClusterDeleted | Succeeded
 
 **Мониторинг** > **Метрика** > **Параметры диагностики** > **Диагностика**.
 
-В колонке **Диагностика** щелкните **Вкл.**, выберите учетную запись хранения и нажмите кнопку "Сохранить".
+В колонке **Диагностика** щелкните **Вкл.**, выберите учетную запись хранения и нажмите кнопку «Сохранить».
 
 ![Включить метрики](./media/data-factory-monitor-manage-pipelines/enable-metrics.png)
 
@@ -444,7 +480,7 @@ OnDemandClusterDeleted | Succeeded
 
 ### Настройка оповещений по метрикам
 
-Чтобы настроить оповещения о метриках, в колонке "Фабрика данных" выберите **Мониторинг** > **Метрика** > **Добавить оповещение** > **Добавить правило оповещения**.
+Чтобы настроить оповещения о метриках, в колонке «Фабрика данных» выберите **Мониторинг** > **Метрика** > **Добавить оповещение** > **Добавить правило оповещения**.
 
 Введите необходимые сведения для правила, укажите электронные адреса, на которые будут отправляться оповещения, и нажмите кнопку **ОК**.
 
@@ -507,9 +543,7 @@ OnDemandClusterDeleted | Succeeded
  
 Замените subscriptionId, resourceGroupName и dataFactoryName в приведенном выше примере на соответствующие значения.
 
-Сейчас для *metricName* можно указать только два значения:
-- FailedRuns или
-- SuccessfulRuns.
+Сейчас для *metricName* можно указать только 2 значения: FailedRuns или SuccessfulRuns.
 
 **Развертывание оповещения**
 
@@ -533,4 +567,4 @@ OnDemandClusterDeleted | Succeeded
 	Parameters        :
 	Outputs           
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,27 +1,27 @@
 
-This section shows how to send breaking news as tagged template notifications from a .NET console app.
+В этом разделе показано, как отправлять экстренные новости в виде шаблонных уведомлений с тегами из консольного приложения .NET.
 
-If you are using Mobile Services please refer to the [Get Started with Push](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) tutorials. 
+Сведения об использовании уведомлений в мобильных службах см. в учебниках [Приступая к работе с push-уведомлениями](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md).
 
-If you want to use Java or PHP refer to [How to use Notification Hubs from Java/PHP](../articles/notification-hubs/notification-hubs-java-backend-how-to.md). You can send notifications from any backend using the [Notification Hub REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+Если вы хотите использовать Java или PHP, см. раздел [Использование концентраторов уведомлений из Java/PHP](../articles/notification-hubs/notification-hubs-java-backend-how-to.md). Уведомления можно отправлять из любого серверного компонента с помощью [интерфейса REST центров уведомлений](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 
-Skip steps 1-3 if you created the console app for sending notifications when you completed [Get started with Notification Hubs][get-started].
+Пропустите шаги 1–3, если консольное приложение для отправки уведомлений было создано при завершении раздела [Приступая к работе с центрами уведомлений][get-started].
 
-1. In Visual Studio create a new Visual C# console application: 
+1. В Visual Studio создайте новое консольное приложение Visual C#: 
 
    	![][13]
 
-2. In the Visual Studio main menu, click **Tools**, **Library Package Manager**, and **Package Manager Console**, then in the console window type the following and press **Enter**:
+2. В главном меню Visual Studio выберите пункт **Сервис**, **Диспетчер пакетов библиотеки** и **Консоль диспетчера пакетов**, затем в окне консоли введите следующую команду и нажмите клавишу **ВВОД**:
 
         Install-Package Microsoft.Azure.NotificationHubs
  	
-	This adds a reference to the Azure Notification Hubs SDK using the <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet package</a>. 
+	После этого будет добавлена ссылка на пакет SDK для центров уведомлений Azure с помощью <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">пакета NuGet Microsoft.Azure.Notification Hubs</a>.
 
-3. Open the file Program.cs and add the following `using` statement:
+3. Откройте файл Program.cs и добавьте следующий оператор `using`:
 
         using Microsoft.Azure.NotificationHubs;
 
-4. In the `Program` class, add the following method, or replace it if it already exists:
+4. В класс `Program` добавьте следующий метод или замените его, если он уже существует:
 
         private static async void SendTemplateNotificationAsync()
         {
@@ -47,16 +47,16 @@ Skip steps 1-3 if you created the console app for sending notifications when you
             }
 		 }
 
-	This code sends a template notification for each of the six tags in the string array. The use of tags makes sure that devices receive notifications only for the registered categories.	
+	Этот код отправляет шаблонное уведомление по каждому из шести тегов в массиве строк. Использование тегов гарантирует, что устройства будут получать уведомления только зарегистрированных категорий.
 
-6. In the above code, replace the `<hub name>` and `<connection string with full access>` placeholders with your notification hub name and the connection string for *DefaultFullSharedAccessSignature* from the dashboard of your notification hub.
+6. В приведенном выше коде замените заполнители `<hub name>` и `<connection string with full access>` именем центра уведомлений и строкой подключения для *DefaultFullSharedAccessSignature*, полученными ранее на панели мониторинга центра уведомлений.
 
-7. Add the following lines in the **Main** method:
+7. Добавьте следующие строки в метод **Main**:
 
          SendTemplateNotificationAsync();
 		 Console.ReadLine();
 
-8. Build the console app.
+8. Выполните сборку консольного приложения.
 
 <!-- Anchors -->
 [From a console app]: #console
@@ -77,3 +77,5 @@ Skip steps 1-3 if you created the console app for sending notifications when you
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
+
+<!---HONumber=AcomDC_1217_2015-->

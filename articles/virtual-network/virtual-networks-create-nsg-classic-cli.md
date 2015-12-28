@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-service-management"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/15/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Как создавать сетевые группы безопасности (в классическом режиме) в интерфейсе командной строки Azure
@@ -104,7 +104,7 @@
 	- **-n (или --name)**. Имя нового правила. В данном сценарии это *rdp-rule*.
 	- **-c (или --action)**. Уровень доступа для правила (Deny или Allow).
 	- **-p (или --protocol)**. Протокол (Tcp, Udp или *) для правила.
-	- **-r (или --type)**. Направление подключения (Inbound или Outbound).
+- **-r (или --type)**. Направление подключения (Inbound или Outbound).
 	- **-y (или --priority)**. Приоритет правила.
 	- **-f (или --source-address-prefix)**. Префикс адреса источника в CIDR или использование тегов по умолчанию.
 	- **-o (или --source-port-range)**. Исходный порт или диапазон портов.
@@ -239,4 +239,4 @@
 		info:    Creating a network security group "NSG-BackEndX"
 		info:    network nsg subnet add command OK
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

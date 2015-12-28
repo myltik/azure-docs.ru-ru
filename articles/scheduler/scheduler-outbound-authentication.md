@@ -234,10 +234,14 @@
 |:--|:--|
 |_authentication (родительский элемент)_ |Объект проверки подлинности для использования проверки подлинности ActiveDirectoryOAuth.|
 |_type_ |обязательный параметр. Тип проверки подлинности. Для проверки подлинности ActiveDirectoryOAuth используйте значение `ActiveDirectoryOAuth`.|
-|_tenant_ |обязательный параметр. Идентификатор клиента — это идентификатор, который используется для идентификации клиента AD.|
+|_tenant_ |обязательный параметр. Идентификатор клиента Azure AD.|
 |_audience_ |обязательный параметр. Это свойство имеет значение https://management.core.windows.net/.|.
 |_clientid_ |обязательный параметр. Укажите идентификатор клиента для приложения Azure AD.|
 |_secret_ |обязательный параметр. Секретные данные клиента, запрашивающего маркер.|
+
+### Определение идентификатора клиента
+
+Идентификатор клиента Azure AD можно узнать, выполнив команду `Get-AzureAccount` в Azure PowerShell.
 
 ## Текст ответа при проверке подлинности ActiveDirectoryOAuth
 
@@ -246,14 +250,14 @@
 |Элемент |Описание |
 |:--|:--|
 |_authentication (родительский элемент)_ |Объект проверки подлинности для использования проверки подлинности ActiveDirectoryOAuth.|
-|_type_ |Тип проверки подлинности. Для проверки подлинности ActiveDirectoryOAuth это значение равно `ActiveDirectoryOAuth`.|
-|_tenant_ |Идентификатор клиента, используемый для идентификации клиента AD.|
-|_audience_ |Это свойство имеет значение https://management.core.windows.net/.|.
+|_type_ |Тип проверки подлинности. Для аутентификации ActiveDirectoryOAuth это значение равно `ActiveDirectoryOAuth`.|
+|_tenant_ |Идентификатор клиента Azure AD. |
+|_audience_ |Имеет значение https://management.core.windows.net/.|.
 |_clientid_ |Идентификатор клиента для приложения Azure AD.|
 
 ## Пример запроса и ответа при использовании проверки подлинности ActiveDirectoryOAuth
 
-В приведенном ниже примере отправляется запрос PUT, включающий проверку подлинности `ActiveDirectoryOAuth`. Запрос выглядит следующим образом:
+В приведенном ниже примере отправляется запрос PUT, включающий аутентификацию `ActiveDirectoryOAuth`. Запрос выглядит следующим образом:
 
 	PUT https://management.core.windows.net/7e2dffb5-45b5-475a-91be-d3d9973c82d5/cloudservices/cs-brazilsouth-scheduler/resources/scheduler/~/JobCollections/testScheduler/jobs/testScheduler 
 	x-ms-version: 2013-03-01
@@ -272,7 +276,7 @@
 			"x-ms-version": "2013-03-01"
 		  },
 		  "authentication":{  
-			"tenant":"contoso.com",
+			"tenant":"01234567-89ab-cdef-0123-456789abcdef",
 			"audience":"https://management.core.windows.net/",
 			"clientId":"8a14db88-4d1a-46c7-8429-20323727dfab",
 			"secret": "&lt;secret-key&gt;",
@@ -310,7 +314,7 @@
 			"x-ms-version": "2013-03-01"
 		  },
 		  "authentication":{  
-			"tenant":"contoso.com",
+			"tenant":"01234567-89ab-cdef-0123-456789abcdef",
 			"audience":"https://management.core.windows.net/",
 			"clientId":"8a14db88-4d1a-46c7-8429-20323727dfab",
 			"type":"ActiveDirectoryOAuth"
@@ -356,4 +360,4 @@
  
   
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

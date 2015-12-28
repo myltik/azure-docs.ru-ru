@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/11/2015" 
 	ms.author="bradsev" />
 
 # Параллельный массовый импорт данных с использованием таблиц секционирования SQL
@@ -184,4 +184,4 @@
 Полноценный пошаговый пример применения процесса аналитики Кортаны с использованием общедоступного набора данных см. в разделе [Процесс аналитики Кортаны в действии: использование SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

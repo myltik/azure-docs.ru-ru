@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/11/2015"
 	ms.author="josephd"/>
 
 # Ферма SharePoint в интрасети, этап 2: настройка контроллеров домена
 
-[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Модель развертывания диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
 
-На этом этапе развертывания фермы SharePoint 2013 в инстрасети с группами доступности AlwaysOn для SQL Server на базе служб инфраструктуры Azure создаются два контроллера домена в виртуальной сети Azure в управлении службами. Интернет-запросы клиента к ресурсам фермы SharePoint могут проходить аутентификацию в виртуальной сети Azure вместо отправки трафика аутентификации через VPN или подключение Azure ExpressRoute в локальную сеть.
+На этом этапе развертывания фермы SharePoint 2013 в инстрасети с группами доступности AlwaysOn для SQL Server на базе служб инфраструктуры Azure создаются два контроллера домена в виртуальной сети Azure. Интернет-запросы клиента к ресурсам фермы SharePoint могут проходить аутентификацию в виртуальной сети Azure вместо отправки трафика аутентификации через VPN типа «сеть-сеть» или подключение Azure ExpressRoute в локальную сеть.
 
 Этот этап необходимо выполнить, прежде чем переходить к [этапу 3](virtual-machines-workload-intranet-sharepoint-phase3.md). Описания всех этапов см. в разделе [Развертывание среды SharePoint с группами доступности AlwaysOn для SQL Server на платформе Azure](virtual-machines-workload-intranet-sharepoint-overview.md).
 
@@ -31,15 +31,15 @@
 
 Элемент | Имя виртуальной машины | Образ из коллекции | Минимальный размер
 --- | --- | --- | ---
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (первый контроллер домена, например DC1) | Центр обработки данных Windows Server 2012 R2 | A2 (средний)
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (второй контроллер домена, например DC2) | Центр обработки данных Windows Server 2012 R2 | A2 (средний)
-3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (первый компьютер SQL Server, например SQL1) | Microsoft SQL Server 2014 Enterprise — Windows Server 2012 R2 | A5
-4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (второй компьютер SQL Server, например SQL2) | Microsoft SQL Server 2014 Enterprise — Windows Server 2012 R2 | A5
-5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (узел большинства кластера, например MN1) | Центр обработки данных Windows Server 2012 R2 | A1 (малый)
-6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (первый сервер приложений SharePoint, например APP1) | Microsoft SharePoint Server 2013 Trial — Windows Server 2012 R2 | A4 (очень большой)
-7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (второй сервер приложений SharePoint, например APP2) | Microsoft SharePoint Server 2013 Trial — Windows Server 2012 R2 | A4 (очень большой)
-8\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (первый веб-сервер SharePoint, например WEB1) | Microsoft SharePoint Server 2013 Trial — Windows Server 2012 R2 | A4 (очень большой)
-9\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (второй веб-сервер SharePoint, например WEB2) | Microsoft SharePoint Server 2013 Trial — Windows Server 2012 R2 | A4 (очень большой)
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (первый контроллер домена, например DC1) | Центр обработки данных Windows Server 2012 R2 | Standard\_A2
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (второй контроллер домена, например DC2) | Центр обработки данных Windows Server 2012 R2 | Standard\_A2
+3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (первый компьютер SQL Server, например SQL1) | Microsoft SQL Server 2014 Enterprise — Windows Server 2012 R2 | Standard\_A5
+4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (второй компьютер SQL Server, например SQL2) | Microsoft SQL Server 2014 Enterprise — Windows Server 2012 R2 | Standard\_A5
+5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (узел большинства кластера, например MN1) | Центр обработки данных Windows Server 2012 R2 | Standard\_A1
+6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (первый сервер приложений SharePoint, например APP1) | Microsoft SharePoint Server 2013 Trial — Windows Server 2012 R2 | Standard\_A4
+7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (второй сервер приложений SharePoint, например APP2) | Microsoft SharePoint Server 2013 Trial — Windows Server 2012 R2 | Standard\_A4
+8\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (первый веб-сервер SharePoint, например WEB1) | Microsoft SharePoint Server 2013 Trial — Windows Server 2012 R2 | Standard\_A4
+9\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_ (второй веб-сервер SharePoint, например WEB2) | Microsoft SharePoint Server 2013 Trial — Windows Server 2012 R2 | Standard\_A4
 
 **Таблица M: виртуальные машины для фермы SharePoint 2013 для интрасети на базе Azure**
 
@@ -50,75 +50,73 @@
 - Таблица M (для виртуальных машин)
 - Таблица V (для параметров виртуальной сети)
 - Таблица S (для подсети)
+- Таблица ST (для учетных записей хранения)
 - Таблица A (для групп доступности)
-- Таблица C (для облачных служб)
 
-Значения в таблицах V, S, A и C были заданы на [этапе 1 «Настройка Azure»](virtual-machines-workload-intranet-sharepoint-phase1.md).
+Значения в таблицах V, S, ST и A были заданы на [первом этапе (настройка Azure)](virtual-machines-workload-intranet-sharepoint-phase1.md).
+
+> [AZURE.NOTE]Следующая команда задает использование Azure PowerShell 1.0 и более поздней версии. Дополнительные сведения см. в статье [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
 Указав все необходимые значения, выполните полученные команды в среде Azure PowerShell.
 
+	# Set up key variables
+	$rgName="<resource group name>"
+	$locName="<Azure location of your resource group>"
+	$saName="<Table ST – Item 1 – Storage account name column>"
+	$vnetName="<Table V – Item 1 – Value column>"
+	$avName="<Table A – Item 1 – Availability set name column>"
+	
 	# Create the first domain controller
 	$vmName="<Table M – Item 1 - Virtual machine name column>"
-	$vmSize="<Table M – Item 1 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
-	$availSet="<Table A – Item 1 – Availability set name column>"
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
-
-	$cred=Get-Credential –Message "Type the name and password of the local administrator account for the first domain controller."
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
-
-	$diskSize=<size of the additional data disk in GB>
-	$diskLabel="<the label on the disk>"
-	$lun=<Logical Unit Number (LUN) of the disk>
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $diskSize -DiskLabel $diskLabel -LUN $lun -HostCaching None
-
-	$subnetName="<Table S – Item 1 – Subnet name column>"
-	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-
-	$vm1 | Set-AzureStaticVNetIP -IPAddress <Table V – Item 6 – Value column>
-
-	$serviceName="<Table C – Item 1 – Cloud service name column>"
-	$vnetName="<Table V – Item 1 – Value column>"
-	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
-
+	$vmSize="<Table M – Item 1 - Minimum size column>"
+	$staticIP="<Table V – Item 6 - Value column>"
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$nic=New-AzureRMNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id -PrivateIpAddress $staticIP
+	$avSet=Get-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName 
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	
+	$diskSize=<size of the extra disk for AD DS data in GB>
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-ADDSDisk.vhd"
+	Add-AzureRMVMDataDisk -VM $vm -Name "ADDSData" -DiskSizeInGB $diskSize -VhdUri $vhdURI  -CreateOption empty
+	
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the first domain controller." 
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
+	
 	# Create the second domain controller
 	$vmName="<Table M – Item 2 - Virtual machine name column>"
-	$vmSize="<Table M – Item 2 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	$vmSize="<Table M – Item 2 - Minimum size column>"
+	$staticIP="<Table V – Item 7 - Value column>"
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	$nic=New-AzureRMNetworkInterface -Name ($vmName +"-NIC") -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[1].Id -PrivateIpAddress $staticIP
+	$avSet=Get-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName 
+	$vm=New-AzureRMVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
+	
+	$diskSize=<size of the extra disk for AD DS data in GB>
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-ADDSDisk.vhd"
+	Add-AzureRMVMDataDisk -VM $vm -Name "ADDSData" -DiskSizeInGB $diskSize -VhdUri $vhdURI  -CreateOption empty
+	
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for the second domain controller." 
+	$vm=Set-AzureRMVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm=Set-AzureRMVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+	$vm=Add-AzureRMVMNetworkInterface -VM $vm -Id $nic.Id
+	$storageAcc=Get-AzureRMStorageAccount -ResourceGroupName $rgName -Name $saName
+	$osDiskUri=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + "-OSDisk.vhd"
+	$vm=Set-AzureRMVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureRMVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
-	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
-
-	$cred=Get-Credential –Message "Type the name and password of the local administrator account for the second domain controller."
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
-
-	$diskSize=<size of the additional data disk in GB>
-	$diskLabel="<the label on the disk>"
-	$lun=<Logical Unit Number (LUN) of the disk>
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $diskSize -DiskLabel $diskLabel -LUN $lun -HostCaching None
-
-	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-
-	$vm1 | Set-AzureStaticVNetIP -IPAddress <Table V – Item 7 – Value column>
-
-	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
+> [AZURE.NOTE]Так как эти виртуальные машины предназначены для приложения интрасети, им не назначается общедоступный IP-адрес, у них нет метки DNS-имени домена и они не доступны в Интернете. Однако это также означает, что к ним невозможно подключиться с помощью портала Azure. Кнопка **Подключить** будет недоступна при просмотре свойств виртуальной машины. Используйте помощник "Подключение к удаленному рабочему столу" или другое аналогичное средство, чтобы подключиться к виртуальной машине с помощью частного IP-адреса или DNS-имени интрасети.
 
 ## Настройка первого контроллера домена
 
-Войдите на компьютер первого контроллера домена с помощью учетной записи локального администратора.
-
-### <a id="logon"></a>Вход на виртуальную машину с помощью подключения удаленного рабочего стола
-
-1.	На левой панели на классическом портале Azure щелкните **Виртуальные машины**.
-2.	Чтобы подключиться к виртуальной машине, щелкните **Работает** в столбце **Состояние** рядом с ее именем.
-3.	На панели команд в нижней части страницы щелкните **Подключиться**.
-4.	Классический портал Azure сообщит, что извлекается RDP-файл. Нажмите кнопку **ОК**.
-5.	Появится диалоговое окно браузера с предложением открыть или сохранить файл имя\_компьютера.rdp с веб-сайта manage.windowsazure.com. Щелкните **Открыть**.
-6.	В диалоговом окне **Подключение к удаленному рабочему столу** нажмите кнопку **Подключиться**.
-7.	В диалоговом окне **Безопасность Windows** выберите **Другая учетная запись**.
-8.	В поле **Имя пользователя** введите имя виртуальной машины и имя пользователя учетной записи локального администратора на этой машине (локальная запись на этом компьютере). Используйте следующий формат: *имя\_компьютера*\*учетная\_запись\_локального\_администратора*.
-9.	В поле **Пароль** введите пароль к учетной записи локального администратора.
-10.	Нажмите кнопку **ОК**.
-11.	В диалоговом окне **Подключение к удаленному рабочему столу** нажмите кнопку **Да**. В окне сеанса удаленного подключения появится рабочий стол нового компьютера.
+Используя предпочитаемый клиент удаленного рабочего стола, создайте подключение к удаленному рабочему столу виртуальной машины, относящейся к первому контроллеру домена. Для подключения используйте DNS интрасети контроллера домена или имя компьютера, а также учетные данные локальной учетной записи администратора.
 
 Теперь добавьте на первый контроллер домена дополнительный диск данных.
 
@@ -127,13 +125,13 @@
 1.	В левой области диспетчера серверов щелкните **Файловые службы и службы хранилища**, а затем выберите **Диски**.
 2.	В области содержимого в группе **Диски** щелкните **диск 2** (при этом для параметра **Раздел** должно быть задано значение **Неизвестный**).
 3.	Щелкните **Задачи**, а затем **Новый том**.
-4.	На странице **Перед началом работы** мастера создания томов нажмите кнопку **Далее**.
-5.	На странице **Выбор сервера или диска** щелкните **Диск 2**, а затем нажмите кнопку **Далее**. При появлении запроса нажмите кнопку **OK**.
-6.	На странице **Выбор размера тома** нажмите кнопку **Далее**.
-7.	На странице **Назначение букве диска или папке** нажмите кнопку **Далее**.
-8.	На странице **Выбор параметров файловой системы** нажмите кнопку **Далее**.
-9.	На странице **Подтверждение выбора** щелкните **Создать**.
-10.	После завершения инициализации щелкните **Закрыть**.
+4.	На странице «Перед началом работы» мастера создания томов щелкните **Далее**.
+5.	На странице «Выбор сервера и диска» щелкните **Диск 2**, а затем щелкните **Далее**. При появлении запроса нажмите кнопку OK.
+6.	На странице «Выбор размера тома» щелкните **Далее**.
+7.	На странице «Назначение букве диска или папке» щелкните **Далее**.
+8.	На странице «Выбор параметров файловой системы» щелкните **Далее**.
+9.	На странице «Подтверждение выбора» щелкните **Создать**.
+10.	После завершения нажмите кнопку **Закрыть**.
 
 Теперь проверьте, доступны ли с контроллера домена ресурсы в сети вашей организации.
 
@@ -142,7 +140,7 @@
 1.	На рабочем столе откройте консоль Windows PowerShell.
 2.	Используйте команду **ping**, чтобы проверить связь с именами и IP-адресами ресурсов в сети организации.
 
-Эта процедура позволяет убедиться в том, что DNS-имена разрешаются правильно (виртуальная машина правильно настроена для работы с локальными DNS-серверами), а пакеты данных можно отправлять в распределенную виртуальную сеть и из нее.
+Эта процедура позволяет убедиться в том, что DNS-имена разрешаются правильно (виртуальная машина правильно настроена для работы с локальными DNS-серверами), а пакеты данных можно отправлять в распределенную виртуальную сеть и из нее. Если базовая проверка возвращает ошибку, обратитесь в ИТ-отдел для устранения неполадок с именами DNS и доставкой пакетов.
 
 Затем в командной строке Windows PowerShell на первом контроллере домена выполните следующие команды:
 
@@ -150,23 +148,43 @@
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSDomainController -InstallDns –DomainName $domname  -DatabasePath "F:\NTDS" -SysvolPath "F:\SYSVOL" -LogPath "F:\Logs"
 
-Компьютер перезапустится.
+Вам будет предложено ввести данные учетной записи администратора домена. Компьютер перезапустится.
 
 ## Настройка второго контроллера домена
 
-Войдите на компьютер второго контроллера домена с помощью учетной записи его локального администратора. Соответствующие инструкции см. в разделе [Вход на виртуальную машину с использованием подключения к удаленному рабочему столу](#logon).
+Используя предпочитаемый клиент удаленного рабочего стола, создайте подключение к удаленному рабочему столу виртуальной машины, относящейся ко второму контроллеру домена. Для подключения используйте DNS интрасети контроллера домена или имя компьютера, а также учетные данные локальной учетной записи администратора.
 
 Теперь добавьте на второй контроллер домена дополнительный диск данных. См. раздел [Инициализация пустого диска](#datadisk).
 
-Теперь проверьте, доступны ли со второго контроллера домена ресурсы в сети вашей организации. См. раздел [Проверка подключения](#testconn). Эта процедура позволяет убедиться в том, что DNS-имена разрешаются правильно (виртуальная машина правильно настроена для работы с локальными DNS-серверами), а пакеты данных можно отправлять в распределенную виртуальную сеть и из нее.
-
-Затем в командной строке Windows PowerShell на втором контроллере домена выполните следующие команды:
+Затем в командной строке Windows PowerShell на втором контроллере домена выполните следующие команды.
 
 	$domname="<DNS domain name of the domain for which this computer will be a domain controller>"
 	Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 	Install-ADDSDomainController -InstallDns –DomainName $domname  -DatabasePath "F:\NTDS" -SysvolPath "F:\SYSVOL" -LogPath "F:\Logs"
 
-Компьютер перезапустится.
+Вам будет предложено ввести данные учетной записи администратора домена. Компьютер перезапустится.
+
+Теперь измените параметры DNS-серверов в своей виртуальной сети: виртуальные машины в среде Azure должны использовать в качестве DNS-серверов IP-адреса двух новых контроллеров домена. Обратите внимание, что для этой процедуры используются значения из таблицы V с параметрами виртуальной сети, а также таблицы M с перечнем виртуальных машин.
+
+1.	На левой панели портала Azure щелкните **Виртуальные сети** и выберите имя своей виртуальной сети (таблица V, элемент 1, столбец «Значение»).
+2.	На панели **Параметры** щелкните **DNS-серверы**.
+3.	На панели **DNS-серверы** введите следующую команду.
+	- Для **основного DNS-сервера** в таблице V в столбце значений см. элемент 6.
+	- Для **дополнительного DNS-сервера** в таблице V в столбце значений см. элемент 7.
+4.	В левой панели на портале Azure щелкните **Виртуальные машины**.
+5.	На панели **Виртуальные машины** щелкните имя первого контроллера домена (в таблице M в столбце имен виртуальных машин см. элемент 1).
+6.	На панели виртуальной машины щелкните **Перезапустить**.
+7.	После запуска первого контроллера домена на панели **Виртуальные машины** щелкните имя второго контроллера домена (в таблице M в столбце имен виртуальных машин см. элемент 2).
+8.	На панели виртуальной машины щелкните **Перезапустить**. Дождитесь запуска второго контроллера домена.
+
+Перезапуск контроллеров необходим для того, чтобы они перестали использовать локальные DNS-серверы. Оба контроллера сами являются DNS-серверами. Поэтому при повышении их уровня до контроллеров домена локальные DNS-серверы были автоматически назначены им в качестве DNS-серверов пересылки.
+
+Теперь необходимо создать сайт репликации Active Directory, чтобы все серверы в виртуальной сети Azure использовали локальные контроллеры домена. Войдите на основной контроллер домена с учетной записью администратора домена и выполните следующие команды из консоли Windows PowerShell с правами администратора.
+
+	$vnet="<Table V – Item 1 – Value column>"
+	$vnetSpace="<Table V – Item 5 – Value column>"
+	New-ADReplicationSite -Name $vnet 
+	New-ADReplicationSubnet –Name $vnetSpace –Site $vnet
 
 ## Настройка учетных записей и разрешений фермы SharePoint
 
@@ -199,53 +217,16 @@
 6.	Щелкните имя своего домена правой кнопкой мыши и выберите **Свойства**.
 7.	В диалоговом окне **Свойства** откройте вкладку **Безопасность** и нажмите кнопку **Дополнительно**.
 8.	В окне **Дополнительные параметры безопасности для домена <YourDomain>** щелкните **Добавить**.
-9.	В окне **Элемент разрешения для <YourDomain>** щелкните **Выберите субъект**.
+9.	В окне **Запись разрешения для <YourDomain>** щелкните **Выберите субъект**.
 10.	В текстовое поле введите **<YourDomain>\\sp\_install** и нажмите кнопку **ОК**.
 11.	Выберите **Разрешить** для права на **создание объектов-компьютеров** и трижды нажмите кнопку **ОК**.
 
-Теперь измените параметры DNS-серверов в своей виртуальной сети: виртуальные машины в среде Azure должны использовать в качестве DNS-серверов IP-адреса двух новых контроллеров домена. Обратите внимание на то, что для этой процедуры используются значения из таблицы V с параметрами виртуальной сети.
-
-1.	На левой панели классического портала Azure щелкните **Сети** и выберите имя своей виртуальной сети (таблица V, элемент 1, столбец "Значение").
-2.	Нажмите **Настроить**.
-3.	В разделе **DNS-серверы** удалите записи для DNS-серверов, расположенных в вашей локальной сети.
-4.	В разделе **DNS-серверы** добавьте две записи с понятными именами и IP-адресами из следующих строк таблицы:
- - Таблица V, элемент 6, столбец «Значение»
- - Таблица V, элемент 7, столбец «Значение»
-5.	На панели команд в нижней части экрана щелкните **Сохранить**.
-6.	В левой области классического портала Azure выберите **Виртуальные машины**, а затем щелкните столбец **Состояние** рядом с именем первого контроллера домена.
-7.	На панели команд нажмите кнопку **Перезапустить**.
-8.	После запуска первого контроллера домена щелкните столбец **Состояние** рядом с именем второго контроллера домена.
-9.	На панели команд нажмите кнопку **Перезапустить**. Дождитесь запуска второго контроллера домена.
-
-Перезапуск контроллеров необходим для того, чтобы они перестали использовать локальные DNS-серверы. Так как оба контроллера сами являются DNS-серверами, при повышении их уровня до контроллеров домена локальные DNS-серверы были автоматически назначены им в качестве DNS-серверов пересылки.
-
-Теперь необходимо создать сайт репликации Active Directory, чтобы все серверы в виртуальной сети Azure использовали локальные контроллеры домена. Войдите на основной контроллер домена с учетной записью sp\_install и выполните следующие команды из консоли Windows PowerShell с правами администратора:
-
-	$vnet="<Table V – Item 1 – Value column>"
-	$vnetSpace="<Table V – Item 5 – Value column>"
-	New-ADReplicationSite -Name $vnet
-	New-ADReplicationSubnet –Name $vnetSpace –Site $vnet
-
-На этой схеме показана конфигурация после успешного выполнения этого этапа (используются заполнители имен компьютеров):
+После успешного выполнения этого этапа у вас должна быть следующая конфигурация (имена компьютеров заменены шаблонными):
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-phase2/workload-spsqlao_02.png)
 
 ## Дальнейшие действия
 
-Дальнейшие действия по настройке этой рабочей нагрузки описаны в статье [Этап 3: настройка инфраструктуры SQL Server](virtual-machines-workload-intranet-sharepoint-phase3.md).
+- Чтобы продолжить настройку этой рабочей нагрузки, см. [этап 3](virtual-machines-workload-intranet-sharepoint-phase3.md).
 
-## Дополнительные ресурсы
-
-[Развертывание среды SharePoint с группами доступности AlwaysOn для SQL Server на платформе Azure](virtual-machines-workload-intranet-sharepoint-overview.md)
-
-[Фермы SharePoint, размещенные в службах инфраструктуры Azure](virtual-machines-sharepoint-infrastructure-services.md)
-
-[Инфографика SharePoint с SQL Server AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=394788)
-
-[Архитектуры Microsoft Azure для SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
-
-[Руководство по реализации служб инфраструктуры Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Службы инфраструктуры Azure: высокодоступное бизнес-приложение](virtual-machines-workload-high-availability-lob-application.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->
