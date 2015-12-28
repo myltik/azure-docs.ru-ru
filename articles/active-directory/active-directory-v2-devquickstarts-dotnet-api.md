@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Предварительная версия модели приложений 2.0: защита веб-API MVC
@@ -57,7 +57,7 @@
 ```
 PM> Install-Package Microsoft.Owin.Security.OAuth -ProjectName TodoListService
 PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TodoListService
-PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
+PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService 
 ```
 
 -	Добавьте класс OWIN Startup в проект TodoListService под именем `Startup.cs`. Щелкните правой кнопкой мыши проект и выберите в контекстном меню **Добавить**, затем **Новый элемент** и найдите OWIN. При запуске приложения промежуточный слой OWIN вызовет метод `Configuration(…)`.
@@ -158,4 +158,4 @@ public IEnumerable<TodoItem> Get()
 
 Дополнительные ресурсы: - [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow: тег azure-active-directory >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

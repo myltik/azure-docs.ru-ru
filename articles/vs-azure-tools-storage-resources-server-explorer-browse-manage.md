@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Обзор ресурсов хранилища с помощью обозревателя сервера и управление ими"
+   pageTitle="Обзор ресурсов хранилища с помощью обозревателя сервера и управление ими | Microsoft Azure"
    description="Обзор ресурсов хранилища с помощью обозревателя сервера и управление ими"
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="storage"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="08/24/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Обзор ресурсов хранилища с помощью обозревателя сервера и управление ими
 
@@ -313,4 +313,4 @@
 
 Дополнительные сведения об использовании служб хранилища Azure см. в статье [Доступ к службам хранилища Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

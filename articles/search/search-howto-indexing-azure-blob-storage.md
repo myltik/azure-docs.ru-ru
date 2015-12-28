@@ -12,12 +12,12 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="12/09/2015"
+ms.date="12/11/2015"
 ms.author="eugenesh" />
 
 # Индексирование документов в хранилище BLOB-объектов Azure с помощью службы поиска Azure
 
-Пользователи службы поиска Azure уже достаточно давно могут «автомагически» индексировать некоторые популярные источники данных с помощью индексаторов [базы данных SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) и [Azure DocumentDB](documentdb-search-indexer.md).
+Пользователи службы поиска Azure уже достаточно давно могут «автоматически» индексировать некоторые популярные источники данных с помощью индексаторов [базы данных SQL Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) и [Azure DocumentDB](../documentdb/documentdb-search-indexer.md).
 
 Теперь мы добавили поддержку индексирования документов, находящихся в хранилище BLOB-объектов Azure. Многие клиенты обращались к нам с просьбами упростить индексирование документов, хранящихся в больших двоичных объектах, включая файлы в формате PDF, документы Office или HTML-страницы. Раньше этот процесс предполагал написание пользовательского кода для извлечения текста и добавления документов в индекс службы поиска Azure.
 
@@ -104,7 +104,7 @@ ms.author="eugenesh" />
 
 Вам не нужно определять поля для всех перечисленных свойств в индексе поиска — достаточно записать свойства, необходимые для приложения.
 
-> [AZURE.NOTE]Как правило, имена полей в существующем индексе отличаются от имен полей, созданных при извлечении документа. Можно использовать **сопоставления полей** для сопоставления имен свойств, предоставленных службой поиска Azure, с именами полей в индексе поиска.
+> [AZURE.NOTE]Как правило, имена полей в существующем индексе отличаются от имен полей, созданных при извлечении документа. Можно использовать **сопоставления полей** для сопоставления имен свойств, предоставленных службой поиска Azure, с именами полей в индексе поиска. Ниже вы увидите пример использования сопоставления полей.
 
 ## Выбор поля ключа документа и работа с разными именами полей
 
@@ -144,17 +144,19 @@ ms.author="eugenesh" />
 	  "parameters" : { "base64EncodeKeys": true }
 	}
 
+> [AZURE.NOTE]Подробнее о сопоставления полей см. в [этой статье](search-indexers-customization.md).
+
 ## Добавочное индексирование и обнаружение удаления
 
-Когда вы настраиваете для индексатора больших двоичных объектов запуск по расписанию, повторно индексируются только измененные большие двоичные объекты. Они определяются меткой времени большого двоичного объекта `LastModified`.
+Когда для индексатора больших двоичных объектов вы настраиваете запуск по расписанию, повторно индексируются только измененные большие двоичные объекты. Они определяются по метке времени большого двоичного объекта `LastModified`.
 
 > [AZURE.NOTE]Нет необходимости указывать политику обнаружения изменений — добавочное индексирование будет активировано автоматически.
 
 Выбрать определенные документы, которые будут удалены из индекса, можно с помощью стратегии обратимого удаления. Вместо удаления соответствующих больших двоичных объектов добавьте свойство пользовательских метаданных, указывающее, что они удалены. Затем настройте политику обнаружения обратимого удаления в источнике данных.
 
-> [AZURE.NOTE]Если вы просто удалите большие двоичные объекты (не используя политику обнаружения удаления), соответствующие документы не будут удалены из индекса поиска.
+> [AZURE.WARNING]Если вы просто удалите большие двоичные объекты (не используя политику обнаружения удаления), соответствующие документы не будут удалены из индекса поиска.
 
-Например, в соответствии с приведенной ниже политикой большой двоичный объект удаляется, если у него есть свойство метаданных `IsDeleted` со значением `true`:
+Например, в соответствии с приведенной ниже политикой большой двоичный объект удаляется, если у него есть свойство метаданных `IsDeleted` со значением `true`.
 
 	PUT https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
 	Content-Type: application/json
@@ -177,189 +179,33 @@ ms.author="eugenesh" />
 
 В таблице ниже содержатся сводные данные обработки для каждого формата документа, а также описание свойств метаданных, извлеченных службой поиска Azure.
 
-<table style="font-size:12">
-
-<tr>
-<th>Формат документа или тип содержимого</th>
-<th>Свойства метаданных определенного типа содержимого</th>
-<th>Сведения об обработке </th>
-</tr>
-
-<tr>
-<td>HTML (`text/html`)</td>
-<td>
-`metadata_content_encoding`<br/>
-`metadata_content_type`<br/>
-`metadata_language`<br/>
-`metadata_description`<br/>
-`metadata_keywords`<br/>
-`metadata_title`
-</td>
-<td>Удаление разметки HTML и извлечение текста</td>
-</tr>
-
-<tr>
-<td>PDF (`application/pdf`)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_language`<br/>
-`metadata_author`<br/>
-`metadata_title`
-</td>
-<td>Извлечение текста, включая внедренные документы (кроме изображений)</td>
-</tr>
-
-<tr>
-<td>DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_character_count`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_page_count`<br/>
-`metadata_word_count`
-</td>
-<td>Извлечение текста, включая внедренные документы</td>
-</tr>
-
-<tr>
-<td>DOC (application/msword)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_character_count`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_page_count`<br/>
-`metadata_word_count`
-</td>
-<td>Извлечение текста, включая внедренные документы</td>
-</tr>
-
-<tr>
-<td>XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`
-</td>
-<td>Извлечение текста, включая внедренные документы</td>
-</tr>
-
-<tr>
-<td>XLS (application/vnd.ms-excel)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`
-</td>
-<td>Извлечение текста, включая внедренные документы</td>
-</tr>
-
-<tr>
-<td>PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_slide_count`<br/>
-`metadata_title`
-</td>
-<td>Извлечение текста, включая внедренные документы</td>
-</tr>
-
-<tr>
-<td>PPT (application/vnd.ms-powerpoint)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_author`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_slide_count`<br/>
-`metadata_title`
-</td>
-<td>Извлечение текста, включая внедренные документы</td>
-</tr>
-
-<tr>
-<td>MSG (application/vnd.ms-outlook)</td>
-<td>
-`metadata_content_type`<br/>
-`metadata_message_from`<br/>
-`metadata_message_to`<br/>
-`metadata_message_cc`<br/>
-`metadata_message_bcc`<br/>
-`metadata_creation_date`<br/>
-`metadata_last_modified`<br/>
-`metadata_subject`
-</td>
-<td>Извлечение текста, включая вложения</td>
-</tr>
-
-<tr>
-<td>ZIP (application/zip)</td>
-<td>
-`metadata_content_type`
-</td>
-<td>Извлечение текста из всех документов в архиве</td>
-</tr>
-
-<tr>
-<td>XML (application/xml)</td>
-<td>
-`metadata_content_type`</br>
-`metadata_content_encoding`</br>
-</td>
-<td>Удаление разметки XML и извлечение текста </td>
-</tr>
-
-<tr>
-<td>JSON (application/json)</td>
-<td>
-`metadata_content_type`</br>
-`metadata_content_encoding`
-</td>
-<td></td>
-</tr>
-
-<tr>
-<td>Обычный текст (text/plain)</td>
-<td>
-`metadata_content_type`</br>
-`metadata_content_encoding`</br>
-</td>
-<td></td>
-</tr>
-</table>
+Формат документа или тип содержимого | Свойства метаданных определенного типа содержимого | Сведения об обработке
+-------------------------------|-------------------------------------------|-------------------
+HTML (`text/html`) | `metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` | Удаление разметки HTML и извлечение текста
+PDF (`application/pdf`) | `metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title`| Извлечение текста, включая внедренные документы (кроме изображений)
+DOCX (application/vnd.openxmlformats-officedocument.wordprocessingml.document) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | Извлечение текста, включая внедренные документы
+DOC (application/msword) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` | Извлечение текста, включая внедренные документы
+XLSX (application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | Извлечение текста, включая внедренные документы
+XLS (application/vnd.ms-excel) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` | Извлечение текста, включая внедренные документы
+PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Извлечение текста, включая внедренные документы
+PPT (application/vnd.ms-powerpoint) | `metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` | Извлечение текста, включая внедренные документы
+MSG (application/vnd.ms-outlook) | `metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_message_bcc`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` | Извлечение текста, включая вложения
+ZIP (application/zip) | `metadata_content_type` | Извлечение текста из всех документов в архиве
+XML (application/xml) | `metadata_content_type`</br>`metadata_content_encoding`</br> | Удаление разметки XML и извлечение текста </td>
+JSON (application/json) | `metadata_content_type`</br>`metadata_content_encoding` | Извлечение текста<br/>Примечание. Если требуется извлечь несколько полей документа из большого двоичного объекта JSON, пожалуйста, проголосуйте за [данное предложение на сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/11113539-extract-document-structure-from-json-blobs).
+Обычный текст (text/plain) | `metadata_content_type`</br>`metadata_content_encoding`</br> | 
 
 <a name="CustomMetadataControl"></a>
 ## Использование пользовательских метаданных для управления извлечением документов
 
 Можно добавить свойства метаданных в большой двоичный объект, чтобы управлять некоторыми аспектами индексирования больших двоичных объектов и извлечения документов. В настоящее время поддерживаются следующие свойства.
 
-<table style="font-size:12">
-
-<tr>
-<th>Имя свойства</th>
-<th>Значение свойства</th>
-<th>Пояснение</th>
-</tr>
-
-<tr>
-<td>AzureSearch_Skip</td>
-<td>True</td>
-<td>Указывает, что индексатор должен полностью пропустить большой двоичный объект. Не будут извлекаться ни метаданные, ни содержимое. Это полезно, если требуется пропустить определенные типы содержимого или когда обработка определенного большого двоичного объекта постоянно завершается сбоем и индексирование прерывается.
-</td>
-</tr>
-
-</table>
+Имя свойства | Значение свойства | Пояснение
+--------------|----------------|------------
+AzureSearch\_Skip | True | Указывает, что индексатор должен полностью пропустить большой двоичный объект. Не будут извлекаться ни метаданные, ни содержимое. Это полезно, если требуется пропустить определенные типы содержимого или когда обработка определенного большого двоичного объекта постоянно завершается сбоем и индексирование прерывается.
 
 ## Помогите нам усовершенствовать службу поиска Azure
 
-Добавить отзыв или запрос на функцию можно на [сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+Если вам нужна какая-либо функция или у вас есть идеи, которые можно было бы реализовать, сообщите об этом на [сайте UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

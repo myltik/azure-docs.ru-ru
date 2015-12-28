@@ -13,12 +13,12 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="brandwe"/>
 
 # Предварительная версия модели приложений 2.0: защита веб-API c помощью Node.js
 
-> [AZURE.NOTE]Эти сведения относятся к общедоступной предварительной версии модели приложений 2.0. Инструкции по интеграции с общедоступной службой Azure AD см. в статье [Руководство разработчика Azure Active Directory](active-directory-developers-guide.md).
+> [AZURE.NOTE] Эти сведения относятся к общедоступной предварительной версии модели приложений 2.0. Инструкции по интеграции с общедоступной службой Azure AD см. в статье [Руководство разработчика Azure Active Directory](active-directory-developers-guide.md).
 
 Модель приложений версии 2.0 позволяет вам защитить веб-API с помощью маркеров доступа [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow), а пользователям входить в систему с помощью личной, рабочей и учебной учетной записи Майкрософт для безопасного доступа к веб-API.
 
@@ -271,7 +271,7 @@ identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-c
 
 *audience* — это универсальный код ресурса (URI) перенаправления с портала.
 
-> [AZURE.NOTE]Мы довольно часто предоставляем свои ключи. Убедитесь, что вы всегда извлекаете данные из URL-адреса openid\_keys и что приложение имеет доступ к Интернету.
+> [AZURE.NOTE] Мы довольно часто предоставляем свои ключи. Убедитесь, что вы всегда извлекаете данные из URL-адреса openid\_keys и что приложение имеет доступ к Интернету.
 
 
 ## Шаг 11. Добавление конфигурации в файл server.js
@@ -853,4 +853,4 @@ Transfer-Encoding: chunked
 
 Дополнительные ресурсы: - [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow: тег azure-active-directory >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

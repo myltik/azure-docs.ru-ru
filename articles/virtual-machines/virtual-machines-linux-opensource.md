@@ -131,7 +131,7 @@ CoreOS — это небольшой оптимизированный дистр
 13. [Основные сведения. RAID](virtual-machines-linux-configure-raid.md)
 14. [Основные сведения. Запись виртуальной машины Linux для создания шаблона](virtual-machines-linux-capture-image.md)
 15. [Основные сведения. Агент Linux для Azure](virtual-machines-linux-agent-user-guide.md)
-16. [Основные сведения. Расширения и компоненты виртуальных машин Azure](http://msdn.microsoft.com/library/azure/dn606311.aspx)
+16. [Основные сведения. Расширения и компоненты виртуальных машин Azure](virtual-machines-extensions-features.md)
 17. [Основные сведения. Включение пользовательских данных в виртуальную машину для использования с пакетом Cloud-init](virtual-machines-how-to-inject-custom-data.md)
 18. [Блог основных сведений. Сборка высокодоступной системы Linux в Azure за 12 шагов](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
 19. [Блог основных сведений. Автоматизация подготовки Linux в Azure с помощью CLI Azure, node.js, jhawk](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
@@ -311,4 +311,4 @@ CoreOS — это небольшой оптимизированный дистр
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

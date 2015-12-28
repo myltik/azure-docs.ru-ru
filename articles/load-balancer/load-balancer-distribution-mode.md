@@ -40,14 +40,14 @@
  
 Добавление конечной точки Azure в виртуальную машину и установка режима распределения балансировщика нагрузки
 
-	Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution “sourceIP”| Update-AzureVM
+	Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 
 >[AZURE.NOTE]Для LoadBalancerDistribution можно задать sourceIP для балансировки нагрузки по 2 кортежам (исходный IP-адрес, IP-адрес назначения), sourceIPProtocol для балансировки нагрузки по 3 кортежам (исходный IP-адрес, IP-адрес назначения, протокол) или none для поведения по умолчанию (балансировка нагрузки по 5 кортежам).
 
 
 Получение конфигурации режима распределения балансировщика нагрузки для конечной точки
 
-	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+	PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
 
 	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
 	LBSetName : MyLoadBalancedSet
@@ -74,7 +74,7 @@
 
 Если набор балансировки нагрузки для конечных точек содержит конечные точки, для него следует установить режим распределения:
 
-	Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution "sourceIP"
+	Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocol TCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 
 ### Настройка облачной службы для изменения режима распределения
 
@@ -99,7 +99,7 @@
 
 ## Пример API
 
-Вы можете настроить распределение подсистемы балансировки нагрузки с помощью API управления службами. Обязательно добавьте заголовок x-ms-version с номером версии 01.09.2014 или более поздним.
+Вы можете настроить распределение балансировщика нагрузки с помощью API управления службами. Обязательно добавьте заголовок `x-ms-version` с номером версии `2014-09-01` или выше.
  
 Обновление конфигурации указанного набора балансировки нагрузки в развертывании
 
@@ -149,4 +149,4 @@ LoadBalancerDistribution может иметь значение sourceIP для 
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

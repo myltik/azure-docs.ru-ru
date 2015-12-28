@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="storage"
@@ -13,23 +13,14 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/16/2015"
 	ms.author="tarcher"/>
 
 # Начало работы с хранилищем очередей и подключенными службами Visual Studio (ASP.NET 5)
 
-> [AZURE.SELECTOR]
-> - [Getting started](vs-storage-aspnet5-getting-started-queues.md)
-> - [What happened](vs-storage-aspnet5-what-happened.md)
-
-> [AZURE.SELECTOR]
-> - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
-> - [Queues](vs-storage-aspnet5-getting-started-queues.md)
-> - [Tables](vs-storage-aspnet5-getting-started-tables.md)
-
 ##Обзор
 
-В этой статье описывается, как приступить к использованию табличного хранилища Azure в Visual Studio после создания учетной записи хранения Azure или указания ссылки на нее в проекте ASP.NET 5 с помощью диалогового окна **Добавление подключенных служб** в Visual Studio. Операция **Добавить подключенные службы** устанавливает соответствующие пакеты NuGet для доступа к хранилищу Azure в вашем проекте и добавляет строку подключения для учетной записи хранения в файлы конфигурации проекта.
+В этой статье описывается, как приступить к использованию хранилища таблиц Azure в Visual Studio после создания учетной записи хранения Azure или указания ссылки на нее в проекте ASP.NET 5 с помощью диалогового окна **Добавление подключенных служб** в Visual Studio. Операция **Добавить подключенные службы** устанавливает соответствующие пакеты NuGet для доступа к службе хранилища Azure в вашем проекте и добавляет строку подключения для учетной записи хранения в файлы конфигурации проекта.
 
 Хранилище очередей Azure — это служба хранения большого количества сообщений, к которым можно получить доступ практически из любой точки мира с помощью вызовов с проверкой подлинности по протоколу HTTP или HTTPS. Одно сообщение очереди может быть размером до 64 КБ, а очередь может содержать миллионы сообщений, ограничиваемых общей емкостью учетной записи хранения.
 
@@ -63,12 +54,12 @@
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-3. Получите объект **CloudQueueClient** для ссылки на объекты очереди в вашей учетной записи хранения.
+3. Используйте объект **CloudQueueClient** для ссылки на объекты очереди в вашей учетной записи хранения.
 
 	    // Create the table client.
     	CloudQuecClient queueClient = storageAccount.CreateCloudTableClient();
 
-4. Получите объект **CloudQueue**, чтобы указать ссылку на определенную очередь.
+4. Используйте объект **CloudQueue**, чтобы указать ссылку на определенную очередь.
 
     	// Get a reference to a table named "messageQueue"
 	    CloudTable messageQueue = queueClient.GetQueueReference("messageQueue");
@@ -78,7 +69,7 @@
 
 ###Создание очереди в коде
 
-Чтобы создать очередь Azure в коде, просто добавьте вызов **CreateIfNotExists**.
+Чтобы создать очередь Azure в коде, просто добавьте вызов **CreateIfNotExistsAsync**.
 
 	// Create the CloudTable if it does not exist.
 	await messageQueue.CreateIfNotExistsAsync();
@@ -185,4 +176,4 @@
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

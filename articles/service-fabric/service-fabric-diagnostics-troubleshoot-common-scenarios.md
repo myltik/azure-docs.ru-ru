@@ -18,10 +18,10 @@
 
 
 # Устранение распространенных неполадок
-При запуске служб на компьютере разработчика можно без труда использовать [средства отладки Visual Studio](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Работу с удаленными кластерами всегда лучше всего начать со знакомства с [отчетами о работоспособности](service-fabric-view-entities-aggregated-health.md). Самым простым способом доступа к этим отчетам является использование PowerShell или [SFX](service-fabric-visualizing-your-cluster.md). В этой статье предполагается, что вы выполняете отладку удаленного кластера и имеете базовые знания об применении этих средств.
+При запуске служб на компьютере разработчика можно без труда использовать [средства отладки Visual Studio](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md). Работу с удаленными кластерами всегда лучше всего начать со знакомства с [отчетами о работоспособности](service-fabric-view-entities-aggregated-health.md). Самым простым способом доступа к этим отчетам является использование PowerShell или [SFX](service-fabric-visualizing-your-cluster.md). В этой статье предполагается, что вы выполняете отладку удаленного кластера и имеете базовые знания о применении этих инструментов.
 
 ##Сбой приложения
-Вывод отчета "Число секций меньше количества целевых реплик или экземпляров" означает, что произошел сбой службы. Чтобы узнать, где произошел отказ, требуется выполнить ряд действий по дополнительному анализу. При работе на требуемом уровне будут незаменимы тщательно продуманные планы действий. Для их формирования и просмотра рекомендуется воспользоваться [WAD](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md).
+Вывод отчета «Число секций меньше количества целевых реплик или экземпляров» означает, что произошел сбой службы. Чтобы узнать, где произошел отказ, требуется выполнить ряд действий по дополнительному анализу. Если служба масштабируется, незаменимыми будут тщательно продуманные трассировки. Для сбора и просмотра данных этих трассировок мы рекомендуем использовать [систему диагностики Azure](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md).
 
 ![Работоспособность секции SFX](./media/service-fabric-diagnostics-troubleshoot-common-scenarios/crashNewApp.png)
 
@@ -30,19 +30,19 @@
 
 | Ошибка | Описание |
 | --- | --- |
-| System.IO.FileNotFoundException | Часто возникает из-за отсутствия зависимостей сборки. Проверьте свойство CopyLocal в Visual Studio или в глобальном кэше сборок для узла.
+| System.IO.FileNotFoundException | Эта ошибка часто возникает из-за отсутствия зависимостей сборки. Проверьте свойство CopyLocal в Visual Studio или в глобальном кэше сборок для узла.
 | System.Runtime.InteropServices.COMException в System.Fabric.Interop.NativeRuntime+IFabricRuntime.RegisterStatefulServiceFactory(IntPtr, IFabricStatefulServiceFactory)|Указывает, что зарегистрированное имя типа службы не соответствует манифесту службы. |
 
-[WAD](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) можно настроить для автоматической отправки журнала событий приложений для всех узлов.
+[Службу диагностики Azure](service-fabric-diagnostics-how-to-setup-wad-operational-insights.md) можно настроить для автоматической отправки журнала событий приложений для всех узлов.
 
 ###RunAsync() или OnActivateAsync()
-Если сбой происходит во время инициализации или выполнения зарегистрированного типа службы или субъекта, Service Fabric создает исключение. Их можно просмотреть у поставщиков EventSource, указанных в разделе "Дальнейшие действия".
+Если сбой происходит во время инициализации или выполнения зарегистрированного типа службы или субъекта, Azure Service Fabric перехватывает исключение. Их можно просмотреть у поставщиков EventSource, указанных в разделе «Дальнейшие действия».
 
 ## Дальнейшие действия
 
 Узнайте больше о существующих видах диагностики, предоставляемых Service Fabric:
 
-* [Диагностика субъектов](service-fabric-reliable-actors-diagnostics.md)
+* [Диагностика Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
 * [Диагностика Reliable Services](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

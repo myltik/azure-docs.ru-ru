@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Предварительная версия модели приложений 2.0: реализация входа в веб-приложении .NET MVC
@@ -49,7 +49,7 @@
 - Введите правильный **URI перенаправления**. Универсальный код ресурса (URI) перенаправления сообщает Azure AD, куда следует направлять ответы аутентификации. Значение по умолчанию в этом руководстве — `https://localhost:44326/`.
 
 ## 2. Настройка в приложении проверки подлинности OWIN
-Здесь мы настроим промежуточный слой OWIN для использования протокола проверки подлинности OpenID Connect. Кроме всего прочего, OWIN будет использоваться для выдачи запросов входа и выхода, управления сеансом пользователя и получения сведений о пользователе.
+Здесь мы настроим промежуточный слой OWIN для использования протокола проверки подлинности OpenID Connect.  Кроме всего прочего, OWIN будет использоваться для выдачи запросов входа и выхода, управления сеансом пользователя и получения сведений о пользователе.
 
 -	Сначала откройте файл `web.config` в корневом каталоге проекта, а затем укажите параметры конфигурации приложения в разделе `<appSettings>`.
     -	`ida:ClientId` — это **идентификатор приложения**, присвоенный приложению на портале регистрации.
@@ -80,7 +80,7 @@ namespace TodoList_WebApp
 	}
 }```
 
--	Open the file `App_Start\Startup.Auth.cs` and implement the `ConfigureAuth(...)` method.  The parameters you provide in `OpenIdConnectAuthenticationOptions` will serve as coordinates for your app to communicate with Azure AD.  You'll also need to set up Cookie Authentication - the OpenID Connect middleware uses cookies underneath the covers.
+-	Откройте файл `App_Start\Startup.Auth.cs` и реализуйте метод `ConfigureAuth(...)`. Параметры, указанные в `OpenIdConnectAuthenticationOptions`, будут служить координатами приложения для взаимодействия с Azure AD. Также будет необходимо настроить проверку подлинности для файлов Cookie — промежуточный слой OpenID Connect использует файлы cookie под обложками.
 
 ```C#
 public void ConfigureAuth(IAppBuilder app)
@@ -100,6 +100,7 @@ public void ConfigureAuth(IAppBuilder app)
 									 Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
 									 RedirectUri = redirectUri,
 									 Scope = "openid",
+									 ResponseType = "id_token",
 									 PostLogoutRedirectUri = redirectUri,
 									 TokenValidationParameters = new TokenValidationParameters
 									 {
@@ -214,4 +215,4 @@ public ActionResult About()
 - [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) 
 - [Тег StackOverflow "azure active directory" >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

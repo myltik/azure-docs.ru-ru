@@ -66,7 +66,7 @@
 	    alert("Error: " + err);
 	});
 
-Если добавить вызов `where` объекта Query и передать объект в качестве параметра, мобильные службы вернут только строки, в которых столбец `complete` содержит значение `false`. Кроме того, посмотрите на приведенный ниже URI запроса и обратите внимание на изменение самой строки запроса:
+Вызывая `where` объекта Query и передавая объект в качестве параметра, мы указываем мобильным службам вернуть только строки, в которых столбец `complete` содержит значение `false`. Кроме того, посмотрите на приведенный ниже URI запроса и обратите внимание на изменение самой строки запроса:
 
 	GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
 
@@ -504,8 +504,7 @@
 	// Start the sign-in process.
 	authenticate();
 
-При этом инициализируется клиент Live Connect, в учетную запись Майкрософт отправляется новый запрос на вход, в мобильные службы отправляется возвращенный маркер проверки подлинности, а затем отображается информация о вошедшем пользователе. Приложение не запустится, пока проверка подлинности не будет пройдена успешно.
-<!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
+При этом инициализируется клиент Live Connect, в учетную запись Майкрософт отправляется новый запрос на вход, в мобильные службы отправляется возвращенный маркер проверки подлинности, а затем отображается информация о вошедшем пользователе. Приложение не запустится, пока проверка подлинности не будет пройдена успешно. <!--- //this guidance may be bad from an XSS vulnerability standpoint. We need to find better guidance for this
 ###Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. We can use [sessionStorage] or [localStorage] to cache the current user identity the first time they log in and every subsequent time we check whether we already have the user identity in our cache. If the cache is empty or calls fail (meaning the current login session has expired), we still need to go through the login process.
 
@@ -666,4 +665,4 @@ In some cases, the call to the login method can be avoided after the first time 
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [справочнике по параметрам системных запросов OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

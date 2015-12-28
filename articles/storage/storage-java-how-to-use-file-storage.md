@@ -212,6 +212,7 @@
 - [Справочник по пакету SDK для клиента хранилища Azure]
 - [REST API службы хранилища Azure]
 - [Блог рабочей группы службы хранилища Azure]
+- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Пакет SDK для службы хранилища Azure для Java]: https://github.com/azure/azure-storage-java
@@ -221,4 +222,4 @@
 [Блог рабочей группы службы хранилища Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

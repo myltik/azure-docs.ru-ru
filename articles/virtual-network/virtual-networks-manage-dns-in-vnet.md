@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/04/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Управление DNS-серверами, используемыми виртуальной сетью
@@ -51,7 +51,7 @@
 
 1. Экспортируйте параметры виртуальной сети в файл конфигурации. Дополнительные сведения об экспортировании параметров конфигурации сети и соответствующие инструкции см. в статье [Экспорт параметров виртуальной сети в файл конфигурации сети](virtual-networks-using-network-configuration-file.md).
 
-1. Укажите данные DNS-сервера для виртуальной сети. Дополнительные сведения об определении DNS-сервера см. в статье [Задание параметров DNS в файле конфигурации виртуальной сети](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md). Дополнительные сведения о файлах конфигурации сети см. в статьях [Схема конфигурации виртуальной сети Windows Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx) и [Настройка виртуальной сети с помощью файлов конфигурации](virtual-networks-using-network-configuration-file.md).
+1. Укажите данные DNS-сервера для виртуальной сети. Дополнительные сведения об определении DNS-сервера см. в статье [Задание параметров DNS в файле конфигурации виртуальной сети](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md). Дополнительные сведения о файлах конфигурации сети см. в статьях [Схема конфигурации виртуальной сети Microsoft Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx) и [Настройка виртуальной сети с помощью файлов конфигурации](virtual-networks-using-network-configuration-file.md).
 
 1. Импортируйте файл конфигурации сети. Дополнительные сведения об импортировании файла конфигурации сети и соответствующие инструкции см. в статье [Импорт файла конфигурации сети](virtual-networks-using-network-configuration-file.md).
 
@@ -65,4 +65,4 @@
 
 [Удаление виртуальной сети](../virtual-networks-delete-vnet)
 
-<!---HONumber=Oct15_HO3-->
+<!----HONumber=AcomDC_1217_2015-->

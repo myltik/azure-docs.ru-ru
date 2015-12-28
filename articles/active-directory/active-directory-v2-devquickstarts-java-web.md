@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="brandwe"/>
 
 # Предварительная версия модели приложений 2.0: реализация входа в веб-приложении NodeJS
@@ -421,4 +421,4 @@ exports.list = function(req, res){
 
 Дополнительные ресурсы: - [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow: тег azure-active-directory >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

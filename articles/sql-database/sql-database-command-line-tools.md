@@ -54,10 +54,9 @@
 
 Создайте группу ресурсов, которая будет содержать сервер. Следующую команду можно изменить, указав любое допустимое расположение.
 
-Список допустимых расположений серверов баз данных SQL Azure можно получить, выполнив следующие командлеты:
+Список допустимых расположений серверов баз данных SQL Azure можно получить, выполнив следующий командлет:
 
-	$AzureSQLLocations = Get-AzureRmLocation | Where-Object Name -Like "*SQL/Servers"
-	$AzureSQLLocations.Locations
+	$AzureSQLLocations = (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Sql'}).Locations
 
 Если у вас уже есть группа ресурсов, вы можете перейти к следующему шагу или выполнить команду ниже, чтобы создать новую группу ресурсов:
 
@@ -128,4 +127,4 @@
 
 - [Командлеты Базы данных SQL Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

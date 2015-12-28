@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="12/14/2015"
    ms.author="v-sharos"/>
 
 # Использование службы диспетчера StorSimple для управления политиками архивации
+
+[AZURE.INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
 
 ## Обзор
 
@@ -55,7 +57,7 @@
 
 ![Доступно видео](./media/storsimple-manage-backup-policies/Video_icon.png) **Доступно видео**
 
-Чтобы просмотреть видео о создании тома StorSimple, щелкните [здесь](http://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
+Чтобы просмотреть видео о создании локальной или облачной политики архивации, щелкните [здесь](http://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/).
 
 
 ## Добавление или изменение расписания
@@ -86,6 +88,6 @@
 
 ## Дальнейшие действия
 
-- Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
+- Узнайте больше об [использовании службы StorSimple Manager для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

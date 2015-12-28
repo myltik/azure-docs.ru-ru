@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="12/15/2015"
 	ms.author="mahender"/>
 
 # Проверка подлинности приложения с помощью единого входа библиотеки проверки подлинности Active Directory
@@ -42,6 +42,7 @@
 
 * XCode 4.5 и iOS 6.0 (или более поздние версии)
 * Выполнение заданий учебника [Приступая к работе с мобильными службами].
+* Выполнение заданий учебника [Регистрация приложений для входа с использованием учетной записи Azure Active Directory].
 * Microsoft Azure Mobile Services SDK
 * Библиотека проверки подлинности [Active Directory для iOS]
 
@@ -95,7 +96,7 @@
         }
 
 
-6. В коде для метода `loginAndGetData` выше замените **INSERT-AUTHORITY-HERE** именем клиента, в котором подготавливалось приложение, используя формат https://login.windows.net/tenant-name.onmicrosoft.com. Это значение можно скопировать со вкладки "Домен" в Azure Active Directory на [классическом портале Azure].
+6. В коде для метода `loginAndGetData` выше замените **INSERT-AUTHORITY-HERE** именем клиента, в котором подготавливалось приложение, используя формат https://login.windows.net/tenant-name.onmicrosoft.com. Это значение можно скопировать с вкладки «Домен» в Azure Active Directory на [классическом портале Azure].
 
 7. В коде для метода `loginAndGetData` выше замените **INSERT-RESOURCE-URI-HERE** значением **URI кода приложения** для своей мобильной службы. Если вы выполнили инструкции из раздела [Регистрация в Azure Active Directory], то URI кода приложения должен быть аналогичен https://todolist.azure-mobile.net/login/aad.
 
@@ -120,9 +121,10 @@
 
 <!-- URLs. -->
 [Приступая к работе с мобильными службами]: mobile-services-dotnet-backend-ios-get-started.md
+[Регистрация приложений для входа с использованием учетной записи Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Регистрация в Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [классическом портале Azure]: https://manage.windowsazure.com/
 [Active Directory для iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 [библиотеку проверки подлинности Active Directory для iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

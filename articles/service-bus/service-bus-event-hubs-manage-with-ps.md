@@ -12,8 +12,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="08/14/2015"
+   ms.workload="na"
+   ms.date="12/09/2015"
    ms.author="sethm"/>
 
 # Управление ресурсами служебной шины и концентраторов событий с помощью PowerShell
@@ -24,9 +24,9 @@ Microsoft Azure PowerShell — это среда сценариев, котор
 
 Для этого потребуются следующие компоненты.
 
-- Подписка Azure. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения], [Предложения для участников] или [Бесплатное пробное использование].
+- Подписка Azure. Azure — это платформа на основе подписок. Дополнительные сведения о получении подписки см. в разделах [Варианты приобретения][], [Предложения для участников][] или [Бесплатное пробное использование][].
 
-- Компьютер с Azure PowerShell. Инструкции см. в разделе [Установка и настройка Azure PowerShell].
+- Компьютер с Azure PowerShell. Инструкции см. в разделе [Установка и настройка Azure PowerShell][].
 
 - Общее представление о сценариях PowerShell, пакетах NuGet и платформе .NET Framework.
 
@@ -253,14 +253,16 @@ catch [System.Exception]
 
 ## Дальнейшие действия
 
-В этой статье описана базовая схема подготовки к работе сущности Service Bus с помощью PowerShell. Количество командлетов PowerShell для управления сущностями обмена сообщениями служебной шины ограничено, но ссылаясь на сборку Microsoft.ServiceBus.dll в сценарии PowerShell, можно выполнить практически любую операцию, которую также можно выполнить с помощью клиентских библиотек .NET.
+В этой статье описана базовая схема подготовки к работе сущностей служебной шины с помощью PowerShell. Количество командлетов PowerShell для управления сущностями обмена сообщениями служебной шины ограничено, но ссылаясь на сборку Microsoft.ServiceBus.dll в сценарии PowerShell, можно выполнить практически любую операцию, которую также можно выполнить с помощью клиентских библиотек .NET.
 
 Более подробные примеры приведены в следующих записях блога:
 
 - [Как создать запросы, разделы и подписки Service Bus с помощью сценария PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [Как создать пространство имен и концентратор событий служебной шины с помощью сценария PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-Некоторые готовые сценарии доступны для скачивания на странице [Сценарии PowerShell для служебной шины](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059).
+Некоторые готовые сценарии доступны для скачивания:
+
+- [Сценарии PowerShell для Service Bus](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->
 
@@ -271,7 +273,7 @@ catch [System.Exception]
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[API .NET для служебной шины]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
+[API .NET для служебной шины]: https://msdn.microsoft.com/ru-RU/library/azure/mt419900.aspx
 [Установка и настройка Azure PowerShell]: ../install-configure-powershell.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Непрерывная доставка в Azure с использованием Git и Visual Studio Team Services" 
+	pageTitle="Непрерывная доставка в Azure с использованием Visual Studio Team Services и Git | Microsoft Azure" 
 	description="Узнайте, как с помощью Git настроить автоматическое создание и развертывание веб-приложений и облачных служб Azure в командных проектах Visual Studio Team Services."
 	services="cloud-services"
 	documentationCenter=".net"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/02/2015"
-	ms.author="kempb"/>
+	ms.author="tarcher"/>
 
 # Непрерывная доставка в Azure с использованием Visual Studio Team Services и Git
 
@@ -273,4 +273,4 @@
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

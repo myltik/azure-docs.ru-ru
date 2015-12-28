@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/10/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Группа безопасности сети
@@ -248,4 +248,4 @@
 - [Развертывание групп безопасности сети в диспетчере ресурсов](virtual-networks-create-nsg-arm-pportal.md).
 - [Управление журналами групп безопасности сети](virtual-network-nsg-manage-log.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

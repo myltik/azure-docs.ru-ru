@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/11/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Обзор зарезервированных IP-адресов
@@ -41,7 +41,7 @@ IP-адреса в Azure делятся на две категории: дина
 
 Прежде чем можно будет использовать зарезервированные IP-адреса, их необходимо добавить к подписке. Чтобы создать зарезервированный IP-адрес из пула общедоступных IP-адресов в *центральной части США*, выполните следующую команду PowerShell:
 
-	New-AzureReservedIP –ReservedIPName MyReservedIP –Location “Central US”
+	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
 
 Обратите внимание, однако, что нельзя указать, какой IP-адрес будет зарезервирован. Чтобы просмотреть, какие IP-адреса зарезервированы в подписке, выполните следующую команду PowerShell и обратите внимание на значения *ReservedIPName* и *Address*:
 
@@ -67,7 +67,7 @@ IP-адреса в Azure делятся на две категории: дина
 ## Связывание зарезервированного IP-адреса с новой облачной службой
 Приведенный ниже сценарий создает новый зарезервированный IP-адрес, а затем связывает его с новой облачной службой с именем *TestService*.
 
-	New-AzureReservedIP –ReservedIPName MyReservedIP –Location “Central US”
+	New-AzureReservedIP –ReservedIPName MyReservedIP –Location "Central US"
 	$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
 	New-AzureVMConfig -Name TestVM -InstanceSize Small -ImageName $image.ImageName `
 	| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
@@ -119,4 +119,4 @@ IP-адреса в Azure делятся на две категории: дина
 
 - Ознакомьтесь с информацией о [REST API зарезервированных IP-адресов](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

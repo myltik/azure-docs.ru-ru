@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn"
    tags="azure-resource-manager"
 />
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Как управлять сетевыми группами безопасности с помощью портала предварительной версии
@@ -56,4 +56,4 @@
 
 ![Портал предварительной версии — новое правило](./media/virtual-networks-create-nsg-arm-pportal/figure5.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
+	ms.date="12/11/2015"
 	ms.author="jroth" />
 
 # Использование PowerShell для создания виртуальной машины Azure с помощью сервера отчетов, работающего в собственном режиме
@@ -705,4 +705,4 @@
 
 [Обзор. SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

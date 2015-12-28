@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 
@@ -225,4 +225,4 @@ return $http.get('/api/tasks');
 - [Azure AD на Stack Overflow >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 - Документация по Azure AD [на сайте Azure.com](http://azure.microsoft.com/documentation/services/active-directory/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

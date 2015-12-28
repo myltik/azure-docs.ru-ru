@@ -62,7 +62,7 @@
 - [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 - [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/ms174283.aspx)
 - DBCC SHRINKLOG
-- DBCC PDW\_SHOWEXECUTIONPLAN
+- [DBCC PDW\_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx)
 - DBCC PDW\_SHOWPARTITIONSTATS
 - DBCC PDW\_SHOWSPACEUSED
 - [DBCC SHOW\_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx)
@@ -116,16 +116,16 @@
 
 
 ## Дальнейшие действия
-Дополнительные примеры TSQL см. в статье [Общие сведения о разработке для хранилища данных SQL][].
+Дополнительные примеры TSQL см. в статье [Проектные решения и методики программирования для хранилища данных SQL][].
 
 <!--Image references-->
 
 <!--Article references-->
-[Общие сведения о разработке для хранилища данных SQL]: sql-data-warehouse-overview-reference.md
+[Проектные решения и методики программирования для хранилища данных SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

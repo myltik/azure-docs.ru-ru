@@ -71,4 +71,4 @@
 [Начало работы с мобильными приложениями]: app-service-mobile-android-get-started.md
 [Начало работы с мобильными службами]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_1210_2015--->
+<!----HONumber=AcomDC_1217_2015-->

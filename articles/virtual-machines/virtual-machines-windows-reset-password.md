@@ -108,10 +108,10 @@
 
 ## Дополнительные ресурсы
 
-[Расширения и компоненты виртуальных машин Azure](http://msdn.microsoft.com/library/azure/dn606311.aspx)
+[Расширения и компоненты виртуальных машин Azure](virtual-machines-extensions-features.md)
 
 [Подключение к виртуальной машине Azure с помощью RDP или SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 [Устранение неполадок с подключением к удаленному рабочему столу виртуальной машины Windows в службе Azure](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

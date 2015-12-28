@@ -3,9 +3,9 @@
    description="Узнайте, как настроить проект облачной службы Azure в Visual Studio в соответствии с требованиями к этому проекту."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/29/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Настройка проекта облачной службы в Visual Studio
 
@@ -61,4 +61,4 @@
 
 Дополнительные сведения о настройке проектов облачной службы Azure в Visual Studio см. в статье [Настройка проекта Azure с помощью нескольких конфигураций службы](vs-azure-tools-multiple-services-project-configurations.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

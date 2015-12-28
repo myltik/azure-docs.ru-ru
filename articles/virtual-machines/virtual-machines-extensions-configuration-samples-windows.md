@@ -17,7 +17,14 @@
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
-# Примеры конфигурации расширения виртуальной машины Windows Azure.
+# Примеры конфигурации расширения виртуальной машины Microsoft Azure.
+
+> [AZURE.SELECTOR]
+- [Azure PowerShell - Template](virtual-machines-extensions-configuration-samples-windows.md)
+- [Azure CLI - Template](virtual-machines-extensions-configuration-samples-linux.md)
+
+<br>
+
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
 
@@ -26,9 +33,9 @@
 В этой статье представлен пример конфигурации для настройки расширений виртуальной машины Azure для виртуальных машин Windows.
 
 
-Чтобы узнать больше об этих расширениях, см. статью [Обзор расширений виртуальных машин Azure.](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+Чтобы узнать больше об этих расширениях, см. статью [Обзор расширений виртуальных машин Azure](virtual-machines-extensions-features.md).
 
-Чтобы узнать больше о разработке шаблонов расширения, см. статью [Разработка шаблонов расширения.](virtual-machines-extensions-authoring-templates.md)
+Чтобы узнать больше о разработке шаблонов расширения, см. статью [Разработка шаблонов расширения](virtual-machines-extensions-authoring-templates.md).
 
 В данной статье содержатся предполагаемые значения конфигурации для некоторых расширений Windows.
 
@@ -285,7 +292,7 @@
 
 ### Диагностика Azure
 
-Дополнительные сведения о том, как настроить диагностику, см. в разделе [Расширение диагностики Azure](virtual-machines-extensions-diagnostics-windows-template.md)
+Дополнительные сведения о том, как настроить диагностику, см. в разделе [Расширение диагностики Azure](virtual-machines-extensions-diagnostics-windows-template.md).
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
@@ -309,4 +316,4 @@
 
 [Расширение Custom Script на виртуальной машине Windows](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=AcomDC_1217_2015-->

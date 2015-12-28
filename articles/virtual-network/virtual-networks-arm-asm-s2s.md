@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="carolz"
+   manager="carmonm"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/18/2015"
+   ms.date="12/11/2015"
    ms.author="telmos" />
 
 # Подключение классических виртуальных сетей к новым виртуальным сетям
@@ -363,4 +363,4 @@
 - Узнайте больше о [поставщике сетевых ресурсов (NRP) для ARM](../resource-groups-networking.md).
 - Просмотрите общие рекомендации по [созданию VPN-подключения S2S между классической виртуальной сетью и виртуальной сетью ARM](../virtual-networks-arm-asm-s2s-howto.md).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

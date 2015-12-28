@@ -109,7 +109,7 @@
 
 3. На портале Azure на странице **Настройка параметров приложения** выполните следующие действия. <br><br>![Единый вход в Azure AD][8] <br>
  
-    а. В текстовом поле **Издатель** введите URL-адрес, используемый пользователями для входа в приложение Litmos (например, **https://azureapptest.litmos.com/account/Login*).
+    а. В текстовом поле **Идентификатор** введите URL-адрес, используемый пользователями для входа в приложение Litmos (например, **https://azureapptest.litmos.com/account/Login*).
      
     b. В текстовое поле **URL-адрес ответа** вставьте значение, скопированное из приложения Litmos на предыдущем шаге.
 
@@ -297,4 +297,4 @@
 [401]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_401.png
 [402]: ./media/active-directory-saas-litmos-tutorial/tutorial_litmos_402.png
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1217_2015-->

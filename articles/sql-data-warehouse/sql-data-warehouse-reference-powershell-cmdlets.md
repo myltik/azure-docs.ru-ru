@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sidneyh"
-   manager="jhubbard"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="12/15/2015"
    ms.author="twounder;sidneyh;barbkess"/>
 
 # Начало работы с командлетами хранилища данных Azure и интерфейсами REST API
 
 Хранилищем данных SQL вы можете управлять с помощью командлетов Azure PowerShell или интерфейсов REST API.
 
-Команды, заданные для **базы данных SQL Azure**, используются также для **хранилища данных SQL**. Текущий список см. в статье [Командлеты SQL Azure](https://msdn.microsoft.com/library/azure/dn546726.aspx). Командлеты **Suspend-AzureSqlDatabase** и **Resume-AzureSqlDatabase** (ниже) — это дополнения, предназначенные для хранилища данных SQL.
+Команды, заданные для **базы данных SQL Azure**, используются также для **хранилища данных SQL**. Текущий список см. в статье [Командлеты SQL Azure](https://msdn.microsoft.com/library/mt574084.aspx). Командлеты **Suspend-AzureSqlDatabase** и **Resume-AzureSqlDatabase** (ниже) — это дополнения, предназначенные для хранилища данных SQL.
 
 Точно так же интерфейсы REST API для **базы данных SQL Azure** можно использовать для экземпляров **хранилища данных SQL**. Текущий список см. в статье [Операции для баз данных Azure SQL](https://msdn.microsoft.com/library/azure/dn505719.aspx).
 
@@ -111,4 +111,4 @@ RestorePointCreationDate |Время создания моментального
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

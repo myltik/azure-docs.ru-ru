@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
+	ms.date="12/11/2015"
 	ms.author="jroth" />
 
 # Использование ReportViewer для веб-сайта, размещенного в Azure
@@ -93,7 +93,7 @@
 
 ## Публикация веб-приложения ASP.NET в Azure
 
-Инструкции по публикации веб-приложения ASP.NET в Azure см. в статьях [Инструкции. Миграция и публикация веб-приложения в Azure из среды Visual Studio](../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) и [Начало работы с веб-приложениями и ASP.NET](../app-service-web/web-sites-dotnet-get-started.md).
+Инструкции по публикации веб-приложения ASP.NET в Azure см. в статьях [Инструкции. Миграция и публикация веб-приложения в облачную службу Azure из среды Visual Studio](../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) и [Начало работы с веб-приложениями и ASP.NET](../app-service-web/web-sites-dotnet-get-started.md).
 
 >[AZURE.IMPORTANT]Если в контекстном меню в обозревателе решений не появилась команда "Добавить проект развертывания Azure" или "Добавить проект облачной службы Azure", может потребоваться изменить целевую платформу для проекта на .NET Framework 4.
 >
@@ -109,4 +109,4 @@
 
 [Элемент управления средства просмотра отчетов Reporting Services и серверы отчетов на основе виртуальных машин Microsoft Azure](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure AD Connect — обновление средства синхронизации Microsoft Azure AD (DirSync) | Microsoft Azure"
-   description="Узнайте, как обновить DirSync до Azure AD Connect. В этой статье описывается процедура обновления текущего средства синхронизации Windows Azure AD (DirSync) до Azure AD Connect."
+   description="Узнайте, как обновить DirSync до Azure AD Connect. В этой статье описывается процедура обновления текущего средства синхронизации Microsoft Azure AD (DirSync) до Azure AD Connect."
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="12/02/2015"
+   ms.date="12/16/2015"
    ms.author="shoatman;billmath"/>
 
 # Обновление службы синхронизации Azure Active Directory sync (DirSync) до Azure AD Connect
@@ -56,16 +56,15 @@
 - Альтернативный идентификатор (UPN)
 - Гибридные параметры синхронизации паролей и Exchange
 - Параметры вашего леса или домена и Azure AD
+- Фильтрация на основе атрибутов пользователя
 
 Следующие изменения обновить невозможно. Обновление будет заблокировано, если внесены следующие изменения.
 
 ![Обновление заблокировано](./media/active-directory-aadconnect-dirsync-upgrade-get-started/analysisblocked.png)
 
-В таких случаях рекомендуется установить новый сервер Azure AD Connect в [промежуточном режиме](active-directory-aadconnectsync-operations.md#staging-mode) и проверить старую конфигурацию DirSync и новую конфигурацию Azure AD Connect. Повторно примените изменения с помощью пользовательской конфигурации, как описано в разделе [Пользовательская конфигурация Azure AD Connect Sync](active-directory-aadconnectsync-whatis.md).
-
+В таких случаях рекомендуется установить новый сервер Azure AD Connect в [промежуточном режиме](active-directory-aadconnectsync-operations.md#staging-mode) и проверить старую конфигурацию DirSync и новую конфигурацию Azure AD Connect. Повторно примените изменения с помощью пользовательской конфигурации, как описано в разделе [Пользовательская конфигурация службы синхронизации Azure AD Connect](active-directory-aadconnectsync-whatis.md).
 
 - Неподдерживаемые изменения DirSync, например удаленные атрибуты и использование пользовательского расширения DLL
-- Фильтрация на основе атрибутов пользователя
 
 Пароли, используемые DirSync для учетных записей служб, невозможно получить и перенести. Эти пароли будут сброшены во время обновления.
 
@@ -170,8 +169,8 @@
 
 ### Удаление DirSync (старый сервер)
 
-- В окне **Программы и компоненты** найдите **Средство синхронизации Windows Azure Active Directory**.
-- Удаление **средства синхронизации Windows Azure Active Directory**
+- В окне **Программы и компоненты** найдите **Средство синхронизации Microsoft Azure Active Directory**.
+- Удаление **средства синхронизации Microsoft Azure Active Directory**
 - Обратите внимание, что удаление может занимать до 15 минут.
 
 После удаления DirSync нет ни одного активного сервера, экспортируемого в Azure AD. Следующий шаг необходимо завершить, прежде чем продолжать синхронизацию изменений вашей локальной службы Active Directory с Azure AD.
@@ -198,4 +197,4 @@ Azure AD Connect теперь является активным сервером
 
 Узнайте больше об [интеграции локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1217_2015-->

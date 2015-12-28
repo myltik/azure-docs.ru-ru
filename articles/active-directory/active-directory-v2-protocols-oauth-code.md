@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/19/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Предварительная версия модели приложений 2.0: протоколы — поток кода авторизации OAuth 2.0
@@ -230,4 +230,4 @@ Content-Type: application/json
 
 ![Поток кода проверки подлинности OAuth](../media/active-directory-v2-flows/convergence_scenarios_native.png)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

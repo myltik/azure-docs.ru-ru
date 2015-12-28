@@ -48,7 +48,7 @@ Azure AD поддерживает общие учетные записи для 
 
 Ниже перечислены компоненты Azure AD, обеспечивающие совместное использование учетных записей.
 
-- [Единый вход по паролю](active-directory-passwords-getting-started.md)
+- [Единый вход по паролю](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)
 - Агент единого входа по паролю
 - [Назначение группы](active-directory-accessmanagement-self-service-group-management.md)
 - Приложения с пользовательским паролем
@@ -72,4 +72,4 @@ Azure AD поддерживает общие учетные записи для 
 - [Защита приложений с помощью условного доступа](active-directory-conditional-access.md)
 - [Самостоятельное управление группами/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -263,7 +263,7 @@
 <!--Link references-->
 [Руководство пользователя агента Linux для Azure]: virtual-machines-linux-agent-user-guide.md
 [Установка и настройка Azure PowerShell]: ../install-configure-powershell.md
-[Расширения и компоненты виртуальных машин Azure]: http://msdn.microsoft.com/library/azure/dn606311.aspx
+[Расширения и компоненты виртуальных машин Azure]: virtual-machines-extensions-features.md
 [Подключение к виртуальной машине Azure с помощью RDP или SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -78,7 +78,7 @@
 Далее приведен список пакетов SDK и интеграций, которые можно использовать с центром IoT:
 
 * [клиент концентраторов событий Java](https://github.com/hdinsight/eventhubs-client);
-* [воронка Apache Storm](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md), ссылка на которую доступна [здесь](https://github.com/apache/storm/tree/master/external/storm-eventhubs);
+* [воронка Apache Storm](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md), Вы можете просмотреть [воронку источника](https://github.com/apache/storm/tree/master/external/storm-eventhubs) на портале GitHub.
 * [интеграция Apache Spark](../hdinsight/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md).
 
 ## Реестр удостоверений устройств
@@ -532,4 +532,4 @@
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_1203_2015--->
+<!----HONumber=AcomDC_1217_2015-->

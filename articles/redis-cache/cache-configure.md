@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Настройка кэша Redis для Azure"
-   description="Обзор конфигурации Redis по умолчанию для кэша Redis для Azure и описание способов настройки экземпляров кэша Redis для Azure"
-   services="redis-cache"
-   documentationCenter="na"
-   authors="steved0x"
-   manager="dwrede"
-   editor="tysonn" />
+	pageTitle="Настройка кэша Redis для Azure"
+	description="Обзор конфигурации Redis по умолчанию для кэша Redis для Azure и описание способов настройки экземпляров кэша Redis для Azure"
+	services="redis-cache"
+	documentationCenter="na"
+	authors="steved0x"
+	manager="dwrede"
+	editor="tysonn" />
 <tags 
-   ms.service="cache"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="tbd"
-   ms.date="12/03/2015"
-   ms.author="sdanie" />
+	ms.service="cache"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="12/11/2015"
+	ms.author="sdanie" />
 
 # Настройка кэша Redis для Azure
 
@@ -116,7 +116,20 @@
 
 Щелкните **ОК** для сохранения конфигурации сохраняемости.
 
->[AZURE.IMPORTANT]Сохраняемость данных Redis доступна только для кэшей категории «Премиум».
+>[AZURE.IMPORTANT]Сохраняемость данных Redis доступна только для кэшей категории «Премиум». Дополнительные сведения см. в разделе [Настройка постоянного хранения для кэша Redis для Azure уровня Премиум](cache-how-to-premium-persistence.md).
+
+## Размер кластера Redis
+
+Щелкните **(PREVIEW) Redis Cluster Size** (Размер кластера Redis (предварительная версия)), чтобы добавить или удалить сегменты работающего кэша категории «Премиум» с включенной кластеризацией.
+
+>[AZURE.NOTE]Обратите внимание, что хотя кэш Redis для Azure категории «Премиум» выпущен для общего доступа, сейчас функция изменения размера кластера Redis находится на этапе предварительной версии.
+
+![Размер кластера Redis](./media/cache-configure/redis-cache-redis-cluster-size.png)
+
+Чтобы изменить число сегментов, используйте ползунок или введите число от 1 до 10 в текстовом поле **Количество сегментов**, затем нажмите кнопку **ОК** для сохранения изменений.
+
+>[AZURE.IMPORTANT]Кластеризация Redis доступна только для кэша категории «Премиум». Дополнительные сведения см. в разделе [Настройка кластеризации для кэша Redis для Azure уровня Премиум](cache-how-to-premium-clustering.md).
+
 
 ## Пользователи и теги
 
@@ -199,4 +212,4 @@
 ## Дальнейшие действия
 -	Дополнительные сведения о работе с командами Redis см. в разделе [Как выполнять команды Redis?](cache-faq.md#how-can-i-run-redis-commands).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

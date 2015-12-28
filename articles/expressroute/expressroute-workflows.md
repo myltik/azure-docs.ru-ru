@@ -86,7 +86,7 @@
 
 После выполнения командлета PowerShell для удаления канала ExpressRoute канал ExpressRoute будет находиться в следующем состоянии:
 
-	ServiceProviderProvisioningState : Provisioning
+	ServiceProviderProvisioningState : Provisioned
 	Status                           : Disabling
 
 Чтобы отозвать канал ExpressRoute, обратитесь к своему поставщику услуг подключения. **Важно!** Майкрософт будет выставлять вам счета за канал, пока вы не выполните командлет PowerShell для его отзыва.
@@ -121,4 +121,4 @@
 	- [Настройка маршрутизации](expressroute-howto-routing-classic.md)
 	- [Связывание виртуальной сети с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

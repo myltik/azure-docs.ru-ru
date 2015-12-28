@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="12/14/2015"
 	ms.author="wesmc"/>
 
 # Использование концентраторов уведомлений для передачи экстренных новостей
@@ -25,9 +25,9 @@
 
 ##Обзор
 
-В этом разделе рассказывается, как использовать центры уведомлений для отправки уведомлений о важных новостях в магазин Windows и приложение Windows 8.1 (без использования Silverlight). Если вы намерены использовать Windows Phone 8.1 Silverlight, см. версию статьи для [Windows Phone](notification-hubs-ios-send-breaking-news.md). По завершении вы сможете зарегистрироваться в интересующих вас категориях экстренных новостей и получать push-уведомления только для этих категорий. Этот сценарий является общим шаблоном для многих приложений, где требуется отправлять уведомления группам пользователей, которые ранее проявили к ним интерес (например, средства чтения RSS, приложения для любителей музыки и т. д.).
+В этом разделе рассказывается, как использовать центры уведомлений для отправки уведомлений о важных новостях в магазин Windows и приложение Windows 8.1 (без использования Silverlight). Если вы намерены использовать Windows Phone 8.1 Silverlight, см. версию статьи для [Windows Phone](notification-hubs-windows-phone-send-breaking-news.md). По завершении вы сможете зарегистрироваться в интересующих вас категориях экстренных новостей и получать push-уведомления только для этих категорий. Этот сценарий является общим шаблоном для многих приложений, где требуется отправлять уведомления группам пользователей, которые ранее проявили к ним интерес (например, средства чтения RSS, приложения для любителей музыки и т. д.).
 
-Широковещательные сценарии реализуются путем включения одного или нескольких _тегов_ при создании регистрации в концентраторе уведомлений. Если уведомления отправляются на тег, их получают все устройства, зарегистрированные для данного тега. Поскольку теги представляют собой обычные строки, их не нужно подготавливать заранее. Дополнительные сведения о тегах см. в разделе [Руководство по использованию концентраторов уведомлений].
+Широковещательные сценарии реализуются путем включения одного или нескольких _тегов_ при создании регистрации в концентраторе уведомлений. Если уведомления отправляются на тег, их получают все устройства, зарегистрированные для данного тега. Поскольку теги представляют собой обычные строки, их не нужно подготавливать заранее. Дополнительную информацию о тегах см. в разделе [Маршрутизация и выражения тегов](notification-hubs-routing-tag-expressions.md).
 
 ##Предварительные требования
 
@@ -78,10 +78,10 @@
             hub = new NotificationHub(hubName, listenConnectionString);
         }
 
-        public async Task StoreCategoriesAndSubscribe(IEnumerable<string> categories)
+        public async Task<Registration> StoreCategoriesAndSubscribe(IEnumerable<string> categories)
         {
             ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
-            await SubscribeToCategories(categories);
+            return await SubscribeToCategories(categories);
         }
 
 		public IEnumerable<string> RetrieveCategories()
@@ -90,19 +90,34 @@
             return categories != null ? categories.Split(','): new string[0];
         }
 
-        public async Task SubscribeToCategories(IEnumerable<string> categories = null)
+        public async Task<Registration> SubscribeToCategories(IEnumerable<string> categories = null)
         {
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
             if (categories == null)
             {
-                IEnumerable<string> categories = RetrieveCategories();
+                categories = RetrieveCategories();
             }
 
-            await hub.RegisterNativeAsync(channel.Uri, categories);
+            // Using a template registration to support notifications across platforms.
+			// Any template notifications that contain messageParam and a corresponding tag expression
+			// will be delivered for this registration.
+
+            const string templateBodyWNS = "<toast><visual><binding template="ToastText01"><text id="1">$(messageParam)</text></binding></visual></toast>";
+
+            return await hub.RegisterTemplateAsync(channel.Uri, templateBodyWNS, "simpleWNSTemplateExample",
+					categories);
         }
 
-    Этот класс использует локальное хранилище для хранения категорий новостей, которые данное устройство должно получать. Он также содержит методы для регистрации этих категорий.
+    Этот класс использует локальное хранилище для хранения категорий новостей, которые данное устройство должно получать. Обратите внимание, что вместо вызова метода *RegisterNativeAsync* мы вызываем метод *RegisterTemplateAsync* для регистрации в категориях с помощью шаблонной регистрации.
+	
+	Мы также предоставляем имя шаблона (simpleWNSTemplateExample), потому что нам может понадобиться зарегистрировать более одного шаблона (например, один для всплывающих уведомлений и один для элементов) и нам нужно назвать их, чтобы иметь возможность обновлять или удалять.
+
+	Обратите внимание, что если устройство регистрирует несколько шаблонов с тем же тегом, одно входящее сообщение для этого тега приведет к передаче нескольких уведомлений на устройство (по одному для каждого шаблона). Это полезно, когда одного логическое сообщение должно привести к нескольким визуальным уведомлениям в приложении Магазина Windows, например в виде эмблемы и во всплывающем окне.
+
+	Подробнее о шаблонах см. в разделе [Шаблоны](notification-hubs-templates.md).
+
+
 
 
 4. В файле проекта App.xaml.cs добавьте следующее свойство к классу **App**:
@@ -131,9 +146,9 @@
             if (ScienceToggle.IsOn) categories.Add("Science");
             if (SportsToggle.IsOn) categories.Add("Sports");
 
-            await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
+            var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(categories);
 
-            var dialog = new MessageDialog("Subscribed to: " + string.Join(",", categories));
+            var dialog = new MessageDialog("Subscribed to: " + string.Join(",", categories) + " on registration Id: " + result.RegistrationId);
             dialog.Commands.Add(new UICommand("OK"));
             await dialog.ShowAsync();
         }
@@ -146,34 +161,40 @@
 
 Эти действия позволяют зарегистрироваться в центре уведомлений при запуске с использованием категорий, сохраненных в локальном хранилище.
 
-> [AZURE.NOTE]Так как универсальный код ресурса (URI) канала, назначенный службой push-уведомлений Windows (MPNS), может измениться в любое время, следует регулярно производить регистрацию для использования уведомлений, чтобы предотвратить сбои уведомлений. В этом примере регистрация для использования уведомлений осуществляется при каждом запуске приложения. Для приложений, которые запускаются чаще одного раза в день, в целях экономии пропускной способности регистрацию можно пропустить, если с момента предыдущей регистрации прошло менее одного дня.
+> [AZURE.NOTE]Так как универсальный код ресурса (URI) канала, назначенный службой push-уведомлений Windows (MPNS), может измениться в любое время, следует регулярно производить регистрацию для использования уведомлений, чтобы предотвратить сбои уведомлений. В этом примере регистрация для использования уведомлений осуществляется при каждом запуске приложения. Для тех приложений, которые запускаются часто, более одного раза в день, возможно, лучше пропустить регистрацию, чтобы сэкономить трафик, если с момента прошлой регистрации прошло меньше суток.
 
-1. Откройте файл App.xaml.cs и добавьте модификатор **async** к методу **OnLaunched**.
+1. Откройте файл App.xaml.cs и обновите метод **InitNotificationsAsync**, чтобы использовать класс `notifications` для подписки по категориям.
 
-2. В методе **OnLaunched** найдите и замените вызов **InitNotificationsAsync** на следующую строчку:
+		// *** Remove or comment out these lines *** 
+	    //var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+	    //var hub = new NotificationHub("your hub name", "your listen connection string");
+	    //var result = await hub.RegisterNativeAsync(channel.Uri);
+	
+	    var result = await notifications.SubscribeToCategories();
 
-		await notifications.SubscribeToCategories();
-
-	Это гарантирует, что при каждом запуске приложения оно извлекает категории из локального хранилища и запрашивает для них регистрацию. Метод **InitNotificationsAsync** был создан в ходе выполнения учебника "Приступая к работе с концентраторами уведомлений", но в данном случае он не нужен.
+	Это гарантирует, что при каждом запуске приложения оно извлекает категории из локального хранилища и запрашивает для них регистрацию. Метод **InitNotificationsAsync** был создан в ходе изучения учебника [Приступая к работе с центрами уведомлений][get-started].
 
 3. В файле проекта MainPage.xaml.cs добавьте следующий код в метод *OnNavigatedTo*:
 
-		var categories = ((App)Application.Current).notifications.RetrieveCategories();
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var categories = ((App)Application.Current).notifications.RetrieveCategories();
 
-        if (categories.Contains("World")) WorldToggle.IsOn = true;
-        if (categories.Contains("Politics")) PoliticsToggle.IsOn = true;
-        if (categories.Contains("Business")) BusinessToggle.IsOn = true;
-        if (categories.Contains("Technology")) TechnologyToggle.IsOn = true;
-        if (categories.Contains("Science")) ScienceToggle.IsOn = true;
-        if (categories.Contains("Sports")) SportsToggle.IsOn = true;
+            if (categories.Contains("World")) WorldToggle.IsOn = true;
+            if (categories.Contains("Politics")) PoliticsToggle.IsOn = true;
+            if (categories.Contains("Business")) BusinessToggle.IsOn = true;
+            if (categories.Contains("Technology")) TechnologyToggle.IsOn = true;
+            if (categories.Contains("Science")) ScienceToggle.IsOn = true;
+            if (categories.Contains("Sports")) SportsToggle.IsOn = true;
+        }
 
 	При этом главная страница обновляется в зависимости от состояния ранее сохраненных категорий.
 
 Теперь приложение готово и может сохранять набор категорий в локальном хранилище устройств и использовать его для регистрации в концентраторе уведомлений всякий раз, когда пользователь изменяет выбранные категории. А сейчас определим серверную часть, которая может отправлять уведомления категорий в это приложение.
 
-##Отправка уведомлений из серверной части
+##Отправка уведомлений с тегами
 
-[AZURE.INCLUDE [notification-hubs-back-end](../../includes/notification-hubs-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ##Запуск приложения и создание уведомлений
 
@@ -207,9 +228,6 @@
 
 	Как расширить возможности приложения экстренных новостей для отправки локализованных уведомлений.
 
-+ [Уведомление пользователей с помощью центров уведомлений]
-
-	Узнайте, как рассылать push-уведомления определенным пользователям, прошедшим проверку подлинности. Это хорошее решение для отправки уведомлений только определенным пользователям.
 
 
 <!-- Anchors. -->
@@ -230,9 +248,9 @@
 <!-- URLs.-->
 [get-started]: /manage/services/notification-hubs/getting-started-windows-dotnet/
 [Использование центров уведомлений для передачи локализованных экстренных новостей]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Уведомление пользователей с помощью центров уведомлений]: /manage/services/notification-hubs/notify-users
+[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
 [Mobile Service]: /develop/mobile/tutorials/get-started/
-[Руководство по использованию концентраторов уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -240,4 +258,4 @@
 
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

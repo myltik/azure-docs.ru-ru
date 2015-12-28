@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="dastrock"/>
 
 # Предварительная версия модели приложений 2.0: вызов веб-API из веб-приложения .NET
@@ -120,8 +120,8 @@ public void ConfigureAuth(IAppBuilder app)
 - Сначала установите предварительную версию ADAL:
 
 ```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
-И добавьте еще одну инструкцию`using` в файл `App_Start\Startup.Auth.cs` для ADAL. 
-- Теперь добавьте новый метод, обработчик событий `OnAuthorizationCodeReceived`. Этот обработчик будет обращаться к ADAL для получения маркера доступа к API списка дел и сохранять этот маркер в кэше маркеров ADAL для последующего использования.
+И добавьте еще одну инструкцию`using` в файл `App_Start\Startup.Auth.cs` для ADAL.
+Теперь добавьте новый метод, обработчик событий `OnAuthorizationCodeReceived`. Этот обработчик будет обращаться к ADAL для получения маркера доступа к API списка дел и сохранять этот маркер в кэше маркеров ADAL для последующего использования.
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -205,6 +205,6 @@ catch (AdalException ee)
 
 Дополнительные ресурсы:
 - [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md)
-- [StackOverflow: тег adal >>](http://stackoverflow.com/questions/tagged/adal)
+- [Тег StackOverflow "adal" >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

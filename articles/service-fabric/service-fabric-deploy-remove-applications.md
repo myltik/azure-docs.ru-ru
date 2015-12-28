@@ -3,7 +3,7 @@
    description="Развертывание и удаление приложений в Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
-   authors="alexwun"
+   authors="seanmck"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/23/2015"
-   ms.author="alexwun"/>
+   ms.date="12/10/2015"
+   ms.author="seanmck"/>
 
 # Развертывание приложения
 
@@ -217,7 +217,7 @@ PS D:\temp>
 
 [Общие сведения о работоспособности Service Fabric](service-fabric-health-introduction.md)
 
-[Диагностика и устранение неполадок службы Service Fabric](service-fabric-diagnose-monitor-your-service-index.md)
+[Диагностика и устранение неполадок службы Service Fabric](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Моделирование приложения в Service Fabric](service-fabric-application-model.md)
 
@@ -225,4 +225,4 @@ PS D:\temp>
 [10]: service-fabric-application-model.md
 [11]: service-fabric-application-upgrade.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

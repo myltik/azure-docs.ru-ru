@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,20 +14,20 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/11/2015"
 	ms.author="josephd"/>
 
 # Ферма SharePoint в интрасети, этап 1: настройка Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Модель развертывания диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
 
 На этом этапе развертывания фермы SharePoint 2013 в интрасети с группами доступности AlwaysOn для SQL Server на базе служб инфраструктуры Azure формируется инфраструктура сети и хранения данных Azure в управлении службами Azure. Его необходимо выполнить, прежде чем переходить к [этапу 2](virtual-machines-workload-intranet-sharepoint-phase2.md). Описания всех этапов см. в разделе [Развертывание среды SharePoint с группами доступности AlwaysOn для SQL Server на платформе Azure](virtual-machines-workload-intranet-sharepoint-overview.md).
 
 В среде Azure необходимо подготовить перечисленные ниже основные сетевые компоненты.
 
-- Распределенная виртуальная сеть с одной подсетью.
-- Три облачных службы Azure.
-- Одна учетная запись хранения Azure для хранения образов виртуальных жестких дисков и дополнительных дисков данных.
+- распределенная виртуальная сеть с одной подсетью для размещения виртуальных машин Azure;
+- Одна учетная запись хранения Azure для хранения образов виртуальных жестких дисков и дополнительных дисков данных
+- четыре группы доступности;
 
 ## Перед началом работы
 
@@ -44,29 +44,36 @@
 5\. | Адресное пространство виртуальной сети | Адресное пространство (один префикс частного адреса) виртуальной сети. Уточните это адресное пространство у специалистов своего ИТ-отдела. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 6\. | Первый последний DNS-сервер | Четвертый возможный IP-адрес адресного пространства подсети виртуальной сети (см. таблицу S). Уточните эти адреса у специалистов своего ИТ-отдела. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 7\. | Второй последний DNS-сервер | Пятый возможный IP-адрес адресного пространства подсети виртуальной сети (см. таблицу S). Уточните эти адреса у специалистов своего ИТ-отдела. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+8\. | Общий ключ IPsec | Строка из 32 случайных букв и цифр для проверки подлинности с обеих сторон VPN-подключения типа «сеть — сеть». Значение ключа можно получить у специалистов вашего ИТ-отдела или отдела безопасности данных. Кроме того, см. статью [Создание случайной строки для общего ключа IPsec](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx).| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Таблица V: конфигурация распределенной виртуальной сети**
 
-Заполните таблицу S параметрами подсети в рамках этого решения. Задайте для подсети понятное имя, одно пространство IP-адресов в рамках адресного пространства виртуальной сети, а также описание. Адресное пространство должно быть указано в формате CIDR (формате префикса сети). Пример: 10.24.64.0/20. Уточните это адресное пространство (на основе адресного пространства виртуальной сети) у специалистов своего ИТ-отдела.
+Заполните таблицу S параметрами подсетей этого решения.
 
-Элемент | Имя подсети | Адресное пространство подсети | Назначение
---- | --- | --- | ---
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+- В первой подсети определите для подсети шлюза Azure 29-разрядное адресное пространство (с длиной префикса 29).
+- Для второй подсети укажите понятное имя, одно пространство IP-адресов в рамках адресного пространства виртуальной сети, а также описание. 
+
+Уточните эти адресные пространства (на основе адресного пространства виртуальной сети) у специалистов своего ИТ-отдела. Оба адресных пространства должны быть указаны в формате CIDR (формат префикса сети). Пример: 10.24.64.0/20.
+
+Элемент | Имя подсети | Адресное пространство подсети | Назначение 
+--- | --- | --- | --- 
+1\. | Подсеть шлюза | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | Подсеть, используемая виртуальными машинами шлюза Azure.
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Таблица S: подсети виртуальной сети**
 
-> [AZURE.NOTE]Для простоты в этой готовой архитектуре используется одна подсеть. Чтобы эмулировать изоляцию подсетей с помощью набора перекрывающихся фильтров трафика, воспользуйтесь [группами безопасности сети](virtual-networks-nsg.md) Azure.
+> [AZURE.NOTE]Для простоты в этой готовой архитектуре используется одна подсеть. Чтобы эмулировать изоляцию подсетей с помощью набора перекрывающихся фильтров трафика, воспользуйтесь [группами безопасности сети](../virtual-network/virtual-networks-nsg.md) Azure.
 
-Заполните таблицу D для двух локальных DNS-серверов, которые планируете использовать на этапе начальной настройки контроллеров домена виртуальной сети. Задайте для каждого из них понятное имя и один IP-адрес. Понятное имя не обязано совпадать с именем узла или компьютера DNS-сервера. В списке предлагаются две записи, однако их число можно увеличить. Составьте его вместе со специалистами своего ИТ-отдела.
+Заполните таблицу D для двух локальных DNS-серверов, которые планируете использовать на этапе начальной настройки контроллеров домена виртуальной сети. Обратите внимание, что показано две пустых записи, но вы можете их добавить. Составьте его вместе со специалистами своего ИТ-отдела.
 
-Элемент | Понятное имя DNS-сервера | IP-адрес DNS-сервера
---- | --- | ---
-1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+Элемент | IP-адрес DNS-сервера
+--- | ---
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Таблица D: локальные DNS-серверы**
 
-Для маршрутизации пакетов из локальной сети в сеть организации через VPN-подключение типа «сеть-сеть» необходимо настроить для виртуальной сети локальную сеть, содержащую список адресных пространств (в формате CIDR) для всех расположений, доступных из сети вашей организации. Список адресных пространств, который задает вашу локальную сеть, не должен включать адресные пространства других виртуальных и локальных сетей или пересекаться с ними. Иными словами, адресные пространства всех настроенных виртуальных и локальных сетей должны быть уникальными.
+Для маршрутизации пакетов из локальной сети в сеть организации через VPN-подключение типа «сеть-сеть» необходимо настроить для виртуальной сети локальную сеть, содержащую список адресных пространств (в формате CIDR) для всех расположений, доступных из сети вашей организации. Список адресных пространств, определяющих вашу локальную сеть, должен быть уникальным. Он не должен пересекаться с адресными пространствами других виртуальных и локальных сетей.
 
 Параметры адресных пространств локальной сети задаются в таблице L. Обратите внимание, что она содержит место для трех записей, хотя в реальности их, скорее всего, потребуется больше. Составьте этот список адресных пространств вместе со специалистами своего ИТ-отдела.
 
@@ -78,78 +85,127 @@
 
 **Таблица L: префиксы адресов локальной сети**
 
-Для создания виртуальной сети с параметрами, приведенными в таблицах V, S, D и L, руководствуйтесь инструкциями из раздела [Создание распределенной виртуальной сети с использованием таблиц конфигурации](virtual-machines-workload-deploy-vnet-config-tables.md).
+> [AZURE.NOTE]Следующая команда задает использование Azure PowerShell 1.0 и более поздней версии. Дополнительные сведения см. в статье [Azure PowerShell 1.0](https://azure.microsoft.com/blog/azps-1-0/).
 
-> [AZURE.NOTE]В этой процедуре описаны все этапы создания виртуальной сети, в которой используется VPN-подключение типа «сеть-сеть». Дополнительные сведения об использовании ExpressRoute в подключении типа «сеть-сеть» см. в разделе [Общие технические сведения об ExpressRoute](../expressroute/expressroute-introduction.md).
+Сначала запустите командную строку Azure PowerShell и войдите в свою учетную запись.
 
-После создания виртуальной сети Azure классический портал Azure определяет:
+	Login-AzureRMAccount
 
-- общедоступный IPv4-адрес VPN-шлюза Azure для виртуальной сети;
-- общий ключ IPsec для VPN-подключения типа «сеть-сеть».
+Получите имя своей подписки, выполнив указанную ниже команду.
 
-Чтобы найти эти параметры на классическом портале Azure после создания виртуальной сети, щелкните **Сети**, выберите имя виртуальной сети, а затем пункт меню **Панель мониторинга**.
+	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-После этого необходимо настроить шлюз виртуальной сети для создания VPN-подключения типа «сеть-сеть». Соответствующие инструкции см. в статье [Настройка шлюза виртуальной сети на классическом портале Azure](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md).
+Настройте свою подписку Azure. Замените все содержимое внутри кавычек, включая символы < and >, на правильные имена.
 
-После этого создайте VPN-подключение типа «сеть-сеть» между новой виртуальной сетью и локальным VPN-устройством. Соответствующие инструкции см. в статье [Настройка шлюза виртуальной сети на классическом портале Azure](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md).
+	$subscr="<subscription name>"
+	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
+
+Затем создайте новую группу ресурсов для фермы SharePoint интрасети. Чтобы вывести список существующих групп ресурсов и выбрать уникальное имя для новой группы, используйте эту команду.
+
+	Get-AzureRMResourceGroup | Sort ResourceGroupName | Select ResourceGroupName
+
+Создайте группу ресурсов, выполнив следующие команды.
+
+	$rgName="<resource group name>"
+	$locName="<an Azure location, such as West US>"
+	New-AzureRMResourceGroup -Name $rgName -Location $locName
+
+Для виртуальных машин на основе диспетчера ресурсов требуется учетная запись хранения на основе диспетчера ресурсов.
+
+Элемент | Имя учетной записи хранения | Назначение 
+--- | --- | ---
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | Учетная запись хранения категории «Стандартный», используемая всеми другими виртуальными машинами в рабочей нагрузке. 
+
+**Таблица ST. Учетные записи хранения**
+
+Это имя понадобятся при создании виртуальных машин на этапах 2, 3 и 4.
+
+Для каждой учетной записи хранения вам нужно выбрать глобально уникальное имя, содержащее только строчные буквы и цифры. Чтобы вывести список существующих учетных записей хранения, используйте эту команду.
+
+	Get-AzureRMStorageAccount | Sort StorageAccountName | Select StorageAccountName
+
+Чтобы создать учетную запись хранения, выполните следующие команды.
+
+	$rgName="<your new resource group name>"
+	$locName="<the location of your new resource group>"
+	$saName="<Table ST – Item 1 - Storage account name column>"
+	New-AzureRMStorageAccount -Name $saName -ResourceGroupName $rgName –Type Standard_LRS -Location $locName
+
+Затем создайте виртуальную сеть Azure, в которой будет размещена ваша ферма SharePoint интрасети.
+
+	$rgName="<name of your new resource group>"
+	$locName="<Azure location of the new resource group>"
+	$vnetName="<Table V – Item 1 – Value column>"
+	$vnetAddrPrefix="<Table V – Item 5 – Value column>"
+	$spSubnetName="<Table S – Item 2 – Subnet name column>"
+	$spSubnetPrefix="<Table S – Item 2 – Subnet address space column>"
+	$gwSubnetPrefix="<Table S – Item 1 – Subnet address space column>"
+	$dnsServers=@( "<Table D – Item 1 – DNS server IP address column>", "<Table D – Item 2 – DNS server IP address column>" )
+	$gwSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $gwSubnetPrefix
+	$spSubnet=New-AzureRMVirtualNetworkSubnetConfig -Name $spSubnetName -AddressPrefix $spSubnetPrefix
+	New-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix $vnetAddrPrefix -Subnet $gwSubnet,$spSubnet -DNSServer $dnsServers
+
+Создайте шлюзы для VPN-подключения типа «сеть — сеть», используя следующие команды.
+
+	$vnetName="<Table V – Item 1 – Value column>"
+	$vnet=Get-AzureRMVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
+	
+	# Attach a virtual network gateway to a public IP address and the gateway subnet
+	$publicGatewayVipName="SPPublicIPAddress"
+	$vnetGatewayIpConfigName="SPPublicIPConfig"
+	New-AzureRMPublicIpAddress -Name $vnetGatewayIpConfigName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$publicGatewayVip=Get-AzureRMPublicIpAddress -Name $vnetGatewayIpConfigName -ResourceGroupName $rgName
+	$vnetGatewayIpConfig=New-AzureRMVirtualNetworkGatewayIpConfig -Name $vnetGatewayIpConfigName -PublicIpAddressId $publicGatewayVip.Id -SubnetId $vnet.Subnets[0].Id
+
+	# Create the Azure gateway
+	$vnetGatewayName="SPAzureGateway"
+	$vnetGateway=New-AzureRMVirtualNetworkGateway -Name $vnetGatewayName -ResourceGroupName $rgName -Location $locName -GatewayType Vpn -VpnType RouteBased -IpConfigurations $vnetGatewayIpConfig
+	
+	# Create the gateway for the local network
+	$localGatewayName="SPLocalNetGateway"
+	$localGatewayIP="<Table V – Item 4 – Value column>"
+	$localNetworkPrefix=@( <comma-separated, double-quote enclosed list of the local network address prefixes from Table L, example: "10.1.0.0/24", "10.2.0.0/24"> )
+	$localGateway=New-AzureRMLocalNetworkGateway -Name $localGatewayName -ResourceGroupName $rgName -Location $locName -GatewayIpAddress $localGatewayIP -AddressPrefix $localNetworkPrefix
+	
+	# Define the Azure virtual network VPN connection
+	$vnetConnectionName="SPS2SConnection"
+	$vnetConnectionKey="<Table V – Item 8 – Value column>"
+	$vnetConnection=New-AzureRMVirtualNetworkGatewayConnection -Name $vnetConnectionName -ResourceGroupName $rgName -Location $locName -ConnectionType IPsec -SharedKey $vnetConnectionKey -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localGateway
+
+После этого настройте локальное VPN-устройство для подключения к VPN-шлюзу Azure. Дополнительные сведения см. в статье [Настройка VPN-устройства](../virtual-networks/vpn-gateway-configure-vpn-gateway-mp.md#configure-your-vpn-device).
+
+Чтобы настроить локальное VPN-устройство, вам потребуются:
+
+- общедоступный IPv4-адрес VPN-шлюза Azure для виртуальной сети (его можно узнать, выполнив команду **Get-AzureRMPublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName**);
+- общий ключ IPsec для VPN-подключения типа «сеть-сеть» (таблица V, элемент 8, столбец «Значение»).
 
 Затем убедитесь в том, что адресное пространство виртуальной сети доступно из вашей локальной сети. Для этого на VPN-устройство обычно добавляется маршрут, соответствующий адресному пространству вашей виртуальной сети, который затем объявляется остальным элементам инфраструктуры маршрутизации корпоративной сети. За дополнительными инструкциями обратитесь к специалистам своего ИТ-отдела.
 
-Затем установите Azure PowerShell на локальном компьютере с помощью инструкций из статьи [Установка и настройка Azure PowerShell](../install-configure-powershell.md). Откройте командную строку Azure PowerShell.
-
-Сначала выберите правильную подписку Azure с помощью следующих команд: Замените все содержимое внутри кавычек, включая символы < and >, на правильные имена.
-
-	$subscr="<Subscription name>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current
-
-Уточнить имя подписки можно в свойстве **SubscriptionName**, которое возвращает команда **Get-AzureSubscription**.
-
-Затем создайте три облачные службы для данной фермы SharePoint. Заполните таблицу C.
-
-Элемент | Назначение | Имя облачной службы
---- | --- | ---
-1\. | Контроллеры домена | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-2\. | Серверы SQL Server | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-3\. | Серверы SharePoint | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-**Таблица C: имена облачных служб**
-
-Для каждой облачной службы необходимо выбрать уникальное имя. *Имя облачной службы может содержать только буквы, цифры и дефисы. Первый и последний символ в поле должны быть буквами или цифрами.*
-
-Например, первую облачную службу можно назвать DCs-*UniqueSequence*, где *UniqueSequence* — это сокращенное название вашей организации. К примеру, если ваша организация называется Tailspin Toys, облачную службу можно назвать DCs-Tailspin.
-
-Уникальность имени можно проверить, выполнив эту команду Azure PowerShell на локальном компьютере.
-
-	Test-AzureName -Service <Proposed cloud service name>
-
-Если команда возвращает значение «False»,имя является уникальным. Затем создайте облачную службу с помощью следующей команды:
-
-	New-AzureService -Service <Unique cloud service name> -Location "<Table V – Item 2 – Value column>"
-
-Занесите фактическое имя созданной облачной службы в таблицу C.
-
-Затем создайте учетную запись хранения для фермы SharePoint. *Необходимо выбрать уникальное имя, содержащее только строчные буквы и цифры.* Проверить уникальность имени учетной записи хранения можно с помощью этой команды Azure PowerShell:
-
-	Test-AzureName -Storage <Proposed storage account name>
-
-Если команда возвращает значение «False»,имя является уникальным. Теперь создайте учетную запись хранения и задайте подписку, для которой она будет использоваться, с помощью следующих команд:
-
-	$staccount="<Unique storage account name>"
-	New-AzureStorageAccount -StorageAccountName $staccount -Location "<Table V – Item 2 – Value column>"
-	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
-
 Затем задайте имена четырех групп доступности. Заполните таблицу A.
 
-Элемент | Назначение | Имя группы доступности
---- | --- | ---
+Элемент | Назначение | Имя группы доступности 
+--- | --- | --- 
 1\. | Контроллеры домена | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 2\. | Серверы SQL Server | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-3\. | Серверы приложений SharePoint | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-4\. | Интерфейсные веб-серверы SharePoint | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+3\. | Серверы приложений | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+4\. | Веб-серверы | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Таблица A: имена групп доступности**
 
 Эти имена понадобятся при создании виртуальных машин на этапах 2, 3 и 4.
+
+Создайте перечисленные наборы доступности, используя следующие команды Azure PowerShell.
+
+	$rgName="<your new resource group name>"
+	$locName="<the Azure location for your new resource group>"
+	$avName="<Table A – Item 1 – Availability set name column>"
+	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
+	$avName="<Table A – Item 2 – Availability set name column>"
+	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
+	$avName="<Table A – Item 3 – Availability set name column>"
+	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
+	$avName="<Table A – Item 4 – Availability set name column>"
+	New-AzureRMAvailabilitySet –Name $avName –ResourceGroupName $rgName -Location $locName
 
 После успешного выполнения этого этапа у вас должна быть следующая конфигурация:
 
@@ -157,20 +213,6 @@
 
 ## Дальнейшие действия
 
-Дальнейшие действия по настройке этой рабочей нагрузки см. в разделе [Этап 2. Настройка контроллеров домена](virtual-machines-workload-intranet-sharepoint-phase2.md).
+- Чтобы продолжить настройку этой рабочей нагрузки, см. [этап 2](virtual-machines-workload-intranet-sharepoint-phase2.md).
 
-## Дополнительные ресурсы
-
-[Развертывание среды SharePoint с группами доступности AlwaysOn для SQL Server на платформе Azure](virtual-machines-workload-intranet-sharepoint-overview.md)
-
-[Фермы SharePoint, размещенные в службах инфраструктуры Azure](virtual-machines-sharepoint-infrastructure-services.md)
-
-[Среда SharePoint с группами доступности AlwaysOn для SQL Server](http://go.microsoft.com/fwlink/?LinkId=394788)
-
-[Архитектуры Microsoft Azure для SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
-
-[Руководство по реализации служб инфраструктуры Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Службы инфраструктуры Azure: высокодоступное бизнес-приложение](virtual-machines-workload-high-availability-lob-application.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

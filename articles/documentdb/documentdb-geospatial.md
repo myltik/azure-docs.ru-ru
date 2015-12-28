@@ -355,4 +355,4 @@ DocumentDB поддерживает следующие встроенные фу
 - Узнайте подробнее о [Запросах в DocumentDB](documentdb-sql-query.md).
 - Узнайте подробнее о [Политиках индексирования DocumentDB](documentdb-indexing-policies.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

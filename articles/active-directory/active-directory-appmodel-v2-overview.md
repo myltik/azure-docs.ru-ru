@@ -22,7 +22,7 @@
 
 Раньше разработчику приложения, поддерживающего как учетные записи Майкрософт, так и Azure Active Directory, необходимо было обеспечивать интеграцию с двумя отдельными системами. Модель приложений версии 2.0 поддерживает вход для пользователей обоих типов учетных записей. Одна простая интеграция позволяет охватить миллионы пользователей личных, рабочих и (или) учебных учетных записей.
 
-Кроме того, приложения могут использовать [набор API REST Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) на основе любого типа учетной записи. В настоящее время в число таких API входят API почтовой службы Outlook, контактов и календарей. В будущем будут добавлены и другие службы.
+Кроме того, приложения могут использовать [набор REST API Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) с помощью учетной записи любого типа. В настоящее время в число таких API входят API почтовой службы Outlook, контактов и календарей. В будущем будут добавлены и другие службы.
 <!-- TODO: customer reference article -->
 <!-- Several apps have already begun to bridge the gap between consumer and enterprise accounts, including: [Boomerang](), [TripIt](), & [Uber](). -->
 
@@ -49,7 +49,7 @@
 - Сообщите нам свое мнение о предварительной версии через сайт [пользовательских мнений](http://feedback.azure.com/forums/169401-azure-active-directory). В заголовке сообщения укажите AppModelv2, чтобы мы смогли его найти.
 - [Справочник по протоколу модели приложений версии 2.0](active-directory-v2-protocols.md)
 - [Справочник по маркеру модели приложений версии 2.0](active-directory-v2-tokens.md)
-- [Справочник по API REST Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
+- [Справочник по API REST Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [Области и разрешения в конечной точке v2](active-directory-v2-scopes.md)
 
 <!-- TODO: These articles
@@ -57,4 +57,4 @@
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

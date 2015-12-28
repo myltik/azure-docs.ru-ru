@@ -1,6 +1,6 @@
 
 
-В своем серверном приложении вам необходимо переключиться на отправку уведомлений шаблона вместо собственных полезных данных. Это упростит серверный код, так как будет не нужно отправлять несколько наборов полезных данных для разных платформ.
+
 
 При отправке уведомлений шаблона необходимо предоставить набор свойств, в нашем случае мы отправим набор свойств, содержащий локализованную версию текущих новостей, например:
 
@@ -11,31 +11,54 @@
 	}
 
 
-В этом разделе показано, как отправлять уведомления двумя способами:
-
-- — используя консольное приложение
-- — используя скрипт мобильных служб
+В этом разделе показано, как отправлять уведомления с помощью консольного приложения.
 
 Включенный код выполняет широковещательную рассылку как для магазина Windows, так и для устройств iOS, поскольку серверный компонент может выполнять широковещательную рассылку на любое из поддерживаемых устройств.
 
 
+### Для отправки уведомлений с помощью консольного приложения C# 
 
-## Для отправки уведомлений с помощью консольного приложения C# ##
+Измените метод `SendTemplateNotificationAsync` в созданном ранее консольном приложении с помощью следующего кода. Обратите внимание, что в данном случае нет необходимости отправлять несколько уведомлений для различных языков и платформ.
 
-Мы просто изменим ваш метод *SendNotificationAsync* путем отправки одного уведомления шаблона.
+        private static async void SendTemplateNotificationAsync()
+        {
+            // Define the notification hub.
+            NotificationHubClient hub = 
+				NotificationHubClient.CreateClientFromConnectionString(
+					"<connection string with full access>", "<hub name>");
 
-	var hub = NotificationHubClient.CreateClientFromConnectionString("<connection string>", "<hub name>");
-    var notification = new Dictionary<string, string>() {
-							{"News_English", "World News in English!"},
-                            {"News_French", "World News in French!"},
-                            {"News_Mandarin", "World News in Mandarin!"}};
-    await hub.SendTemplateNotificationAsync(notification, "World");
+            // Sending the notification as a template notification. All template registrations that contain 
+			// "messageParam" or "News_<local selected>" and the proper tags will receive the notifications. 
+			// This includes APNS, GCM, WNS, and MPNS template registrations.
+            Dictionary<string, string> templateParams = new Dictionary<string, string>();
 
-Обратите внимание, что этот простой вызов будет доставлять правильно локализованную часть новостей на **все** ваши устройства, независимо от платформы, так как концентратор уведомлений создает и доставляет правильные собственные полезные данные на все устройств, подписанные на определенный тег.
+            // Create an array of breaking news categories.
+            var categories = new string[] { "World", "Politics", "Business", "Technology", "Science", "Sports"};
+            var locales = new string[] { "English", "French", "Mandarin" };
 
-### Мобильные службы
+            foreach (var category in categories)
+            {
+                templateParams["messageParam"] = "Breaking " + category + " News!";
 
-В планировщике мобильных служб замените ваш скрипт следующими данными:
+                // Sending localized News for each tag too...
+                foreach( var locale in locales)
+                {
+                    string key = "News_" + locale;
+
+					// Your real localized news content would go here.
+                    templateParams[key] = "Breaking " + category + " News in " + locale + "!";
+                }
+
+                await hub.SendTemplateNotificationAsync(templateParams, category);
+            }
+        }
+
+
+Также обратите внимание, что этот простой вызов будет доставлять правильно локализованную часть новостей на **все** ваши устройства, независимо от платформы, так как центр уведомлений создает и доставляет правильные собственные полезные данные на все устройств, подписанные на определенный тег.
+
+### Отправка уведомления с помощью мобильных служб
+
+В планировщике мобильных служб можно использовать следующий сценарий.
 
 	var azure = require('azure');
     var notificationHubService = azure.createNotificationHubService('<hub name>', '<connection string with full access>');
@@ -50,6 +73,5 @@
 		}
 	});
 	
-Обратите внимание, что в данном случае нет необходимости отправлять несколько уведомлений для различных языков и платформ.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

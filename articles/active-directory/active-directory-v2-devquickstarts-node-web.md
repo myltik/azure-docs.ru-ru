@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/11/2015"
+	ms.date="12/09/2015"
 	ms.author="brandwe"/>
 
 # Предварительная версия модели приложений 2.0: реализация входа в веб-приложении NodeJS
@@ -67,7 +67,7 @@
 - `npm install express-session`
 - `npm install cookie-parser`
 
-- Кроме того, в схему шаблона быстрого запуска мы включили специальный раздел `passport-azure-ad` для предварительной версии.
+- Кроме того, в схему этого шаблона быстрого запуска мы включили специальный раздел `passport-azure-ad` для предварительной версии.
 
 - `npm install passport-azure-ad`
 
@@ -421,4 +421,4 @@ exports.list = function(req, res){
 
 Дополнительные ресурсы: - [Предварительная версия модели приложений 2.0 >>](active-directory-appmodel-v2-overview.md) - [StackOverflow: тег azure-active-directory >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

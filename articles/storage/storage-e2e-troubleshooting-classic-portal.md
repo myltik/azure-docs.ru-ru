@@ -359,9 +359,9 @@ AzCopy можно загрузить на странице [Загрузки Azu
 - [Мониторинг, диагностика и устранение неполадок службы хранилища](storage-monitoring-diagnosing-troubleshooting.md)
 - [Аналитика службы хранилища](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 - [Мониторинг учетной записи хранения](storage-monitor-storage-account.md)
-- [Использование AzCopy со службой хранилища Microsoft Azure](storage-use-azcopy.md)
+- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
 - [Руководство по работе с анализатором сообщений (Майкрософт)](http://technet.microsoft.com/library/jj649776.aspx)
  
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="12/11/2015" 
 	ms.author="wesmc"/>
 
 # Отправка кроссплатформенных уведомлений пользователям с помощью центров уведомлений
@@ -88,9 +88,6 @@
 
 +  В разделе **[Обзор концентраторов уведомлений Azure][Templates]**<br/>содержится более подробная информация о шаблонах.
 
-+  **[Инструкции по использованию концентраторов уведомлений для магазина Windows]**<br/>Включает ссылку на язык выражения шаблона.
-
-
 
 <!-- Anchors. -->
 
@@ -108,6 +105,6 @@
 [Azure Notification Hubs]: http://go.microsoft.com/fwlink/p/?LinkId=314257
 [Уведомление пользователей с помощью концентраторов уведомлений]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
-[Инструкции по использованию концентраторов уведомлений для магазина Windows]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
+[Notification Hub How to for Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1217_2015-->

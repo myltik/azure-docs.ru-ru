@@ -3,9 +3,9 @@
 	description="Узнайте, как можно включить удаленную отладку при использовании непрерывной доставки, чтобы выполнять развертывание на Azure"
 	services="cloud-services"
 	documentationCenter=".net"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
-	editor="tglee"/>
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="10/19/2015"
-	ms.author="kempb"/>
+	ms.author="tarcher"/>
 # Включение удаленной отладки при использовании непрерывной доставки для публикации на Azure
 
 Когда для публикации в Azure используется [непрерывная доставка](cloud-services-dotnet-continuous-delivery.md), в службе Azure можно включить удаленную отладку для облачных служб или виртуальных машин. Для этого следует выполнить рассмотренную ниже процедуру.
@@ -89,5 +89,6 @@
 	</pre>
 
 6. Импортируйте сертификат (.pfx) на машину, на которой имеется Visual Studio с установленным пакетом Azure SDK для .NET.
+ 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

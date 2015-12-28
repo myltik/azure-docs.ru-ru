@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/08/2015" 
+	ms.date="12/15/2015" 
 	ms.author="wesmc"/>
 
 
@@ -25,7 +25,7 @@
 
 В этом разделе показано, как использовать центры уведомлений Azure для рассылки уведомлений об экстренных новостях в приложение Android. По завершении вы сможете зарегистрироваться в интересующих вас категориях экстренных новостей и получать push-уведомления только для этих категорий. Данный сценарий является общеупотребимым шаблоном для многих приложений, где требуется отправлять уведомления группам пользователей, ранее проявивших к ним интерес, например, программы чтения RSS, приложений для музыкальных фанатов и т. д.
 
-Широковещательные сценарии реализуются путем включения одного или нескольких _тегов_ при создании регистрации в концентраторе уведомлений. Если уведомления отправляются на тег, их получают все устройства, зарегистрированные для данного тега. Поскольку теги представляют собой обычные строки, их не нужно подготавливать заранее. Дополнительные сведения о тегах см. в разделе [Руководство по использованию концентраторов уведомлений].
+Широковещательные сценарии реализуются путем включения одного или нескольких _тегов_ при создании регистрации в концентраторе уведомлений. Если уведомления отправляются на тег, их получают все устройства, зарегистрированные для данного тега. Поскольку теги представляют собой обычные строки, их не нужно подготавливать заранее. Дополнительную информацию о тегах см. в разделе [Маршрутизация и выражения тегов](notification-hubs-routing-tag-expressions.md).
 
 
 ##Предварительные требования
@@ -121,13 +121,14 @@
 			private Context context;
 			private String senderId;
 
-			public Notifications(Context context, String senderId) {
-				this.context = context;
-				this.senderId = senderId;
-
-				gcm = GoogleCloudMessaging.getInstance(context);
-		        hub = new NotificationHub(<hub name>, <connection string with listen access>, context);
-			}
+		    public Notifications(Context context, String senderId, String hubName, 
+									String listenConnectionString) {
+		        this.context = context;
+		        this.senderId = senderId;
+		
+		        gcm = GoogleCloudMessaging.getInstance(context);
+		        hub = new NotificationHub(hubName, listenConnectionString, context);
+		    }
 
 			public void storeCategoriesAndSubscribe(Set<String> categories)
 			{
@@ -136,36 +137,42 @@
 			    subscribeToCategories(categories);
 			}
 
-			public void subscribeToCategories(final Set<String> categories) {
-				new AsyncTask<Object, Object, Object>() {
-					@Override
-					protected Object doInBackground(Object... params) {
-						try {
-							String regid = gcm.register(senderId);
-					        hub.register(regid, categories.toArray(new String[categories.size()]));
-						} catch (Exception e) {
-							Log.e("MainActivity", "Failed to register - " + e.getMessage());
-							return e;
-						}
-						return null;
-					}
-
-					protected void onPostExecute(Object result) {
-						String message = "Subscribed for categories: "
-								+ categories.toString();
-						Toast.makeText(context, message,
-								Toast.LENGTH_LONG).show();
-					}
-				}.execute(null, null, null);
+			public Set<String> retrieveCategories() {
+				SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
+				return settings.getStringSet("categories", new HashSet<String>());
 			}
+
+		    public void subscribeToCategories(final Set<String> categories) {
+		        new AsyncTask<Object, Object, Object>() {
+		            @Override
+		            protected Object doInBackground(Object... params) {
+		                try {
+		                    String regid = gcm.register(senderId);
+		
+		                    String templateBodyGCM = "{"data":{"message":"$(messageParam)"}}";
+		
+		                    hub.registerTemplate(regid,"simpleGCMTemplate", templateBodyGCM, 
+								categories.toArray(new String[categories.size()]));
+		                } catch (Exception e) {
+		                    Log.e("MainActivity", "Failed to register - " + e.getMessage());
+		                    return e;
+		                }
+		                return null;
+		            }
+		
+		            protected void onPostExecute(Object result) {
+		                String message = "Subscribed for categories: "
+		                        + categories.toString();
+		                Toast.makeText(context, message,
+		                        Toast.LENGTH_LONG).show();
+		            }
+		        }.execute(null, null, null);
+		    }
 
 		}
 
 	Этот класс использует локальное хранилище для хранения категорий новостей, которые данное устройство должно получать. Он также содержит методы для регистрации этих категорий.
 
-4. В приведенном выше коде замените заполнители `<hub name>` и `<connection string with listen access>` именем центра уведомлений и строкой подключения для *DefaultListenSharedAccessSignature*, полученными ранее.
-
-	> [AZURE.NOTE]Так как учетные данные, которые распространяются с помощью клиентского приложения, обычно небезопасны, с помощью вашего клиентского приложения следует распространять только ключ для доступа к прослушиванию. Доступ к прослушиванию позволяет приложению регистрироваться для использования уведомлений, однако при этом нельзя изменять имеющиеся регистрации и отправлять уведомления. Для отправки уведомлений и изменения существующих регистраций используется ключ полного доступа в защищенной серверной службе.
 
 4. В классе **MainActivity** удалите частные поля для **NotificationHub** и **GoogleCloudMessaging**, после чего добавьте поле для **Notifications**:
 
@@ -173,20 +180,32 @@
 		// private NotificationHub hub;
 		private Notifications notifications;
 
-5. Затем в методе **onCreate** удалите код инициализации поля **hub** и метод **registerWithNotificationHubs**. Затем добавьте следующие строки, инициализирующие экземпляр класса **Notifications**. Метод должен содержать следующие строки:
+5. Затем в методе **onCreate** удалите код инициализации поля **hub** и метод **registerWithNotificationHubs**. Затем добавьте следующие строки, инициализирующие экземпляр класса **Notifications**.
 
-		@Override
-		protected void onCreate(Bundle savedInstanceState) {
-			super.onCreate(savedInstanceState);
-			setContentView(R.layout.activity_main);
 
-			NotificationsManager.handleNotifications(this, SENDER_ID,
-					MyHandler.class);
+	    protected void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+	        setContentView(R.layout.activity_main);
+	        MyHandler.mainActivity = this;
+	
+	        NotificationsManager.handleNotifications(this, SENDER_ID,
+	                MyHandler.class);
+	
+	        notifications = new Notifications(this, SENDER_ID, HubName, HubListenConnectionString);
+	
+	        notifications.subscribeToCategories(notifications.retrieveCategories());
+	    }
 
-			notifications = new Notifications(this, SENDER_ID);
-		}
+	В `HubName` и `HubListenConnectionString` заполнители `<hub name>` и `<connection string with listen access>` уже должны быть заменены именем центра уведомлений и строкой подключения для *DefaultListenSharedAccessSignature*, полученными ранее.
 
-6. Затем добавьте следующий метод:
+	> [AZURE.NOTE]Так как учетные данные, которые распространяются с помощью клиентского приложения, обычно небезопасны, с помощью вашего клиентского приложения следует распространять только ключ для доступа к прослушиванию. Доступ к прослушиванию позволяет приложению регистрироваться для использования уведомлений, однако при этом нельзя изменять имеющиеся регистрации и отправлять уведомления. Полный ключ доступа используется в защищенной серверной службе для отправки уведомлений и смены существующих регистраций.
+
+
+6. Затем добавьте следующие операторы import и метод `subscribe` для обработки события нажатия кнопки «Подписаться».
+		
+		import android.widget.CheckBox;
+		import java.util.HashSet;
+		import java.util.Set;
 
 	    public void subscribe(View sender) {
 			final Set<String> categories = new HashSet<String>();
@@ -223,66 +242,52 @@
 
 > [AZURE.NOTE]Поскольку registrationId, назначенный службой Google Cloud Messaging (GCM), может в любой момент измениться, следует регулярно регистрироваться для получения уведомлений, чтобы предотвратить сбои в их передаче. В этом примере регистрация для использования уведомлений осуществляется при каждом запуске приложения. Для тех приложений, которые запускаются часто, более одного раза в день, возможно, лучше пропустить регистрацию, чтобы сэкономить трафик, если с момента прошлой регистрации прошло меньше суток.
 
-1. Добавьте следующий код в класс **Notifications**:
 
-		public Set<String> retrieveCategories() {
-			SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
-			return settings.getStringSet("categories", new HashSet<String>());
-		}
-
-	Это возвращает категории, определенные в данном классе.
-
-2. Теперь в конце метода **OnCreate** в классе **MainActivity** добавьте следующий код:
+1. В конце метода **OnCreate** в классе **MainActivity** добавьте следующий код.
 
 		notifications.subscribeToCategories(notifications.retrieveCategories());
 
-	Это гарантирует, что при каждом запуске приложения оно извлекает категории из локального хранилища и запрашивает для них регистрацию. Метод **InitNotificationsAsync** был создан в рамках работы с учебником "Приступая к работе с концентраторами уведомлений", однако в данном разделе он не требуется.
+	Это гарантирует, что при каждом запуске приложения оно извлекает категории из локального хранилища и запрашивает для них регистрацию.
 
-3. Затем добавьте в класс **MainActivity** следующий метод:
+2. Затем обновите метод `onStart()` класса `MainActivity` следующим образом.
 
-		@Override
-		protected void onStart() {
-			super.onStart();
+    @Override protected void onStart() { super.onStart(); isVisible = true;
 
-			Set<String> categories = notifications.retrieveCategories();
+        Set<String> categories = notifications.retrieveCategories();
 
-			CheckBox world = (CheckBox) findViewById(R.id.worldBox);
-			world.setChecked(categories.contains("world"));
-			CheckBox politics = (CheckBox) findViewById(R.id.politicsBox);
-			politics.setChecked(categories.contains("politics"));
-			CheckBox business = (CheckBox) findViewById(R.id.businessBox);
-			business.setChecked(categories.contains("business"));
-			CheckBox technology = (CheckBox) findViewById(R.id.technologyBox);
-			technology.setChecked(categories.contains("technology"));
-			CheckBox science = (CheckBox) findViewById(R.id.scienceBox);
-			science.setChecked(categories.contains("science"));
-			CheckBox sports = (CheckBox) findViewById(R.id.sportsBox);
-			sports.setChecked(categories.contains("sports"));
-		}
+        CheckBox world = (CheckBox) findViewById(R.id.worldBox);
+        world.setChecked(categories.contains("world"));
+        CheckBox politics = (CheckBox) findViewById(R.id.politicsBox);
+        politics.setChecked(categories.contains("politics"));
+        CheckBox business = (CheckBox) findViewById(R.id.businessBox);
+        business.setChecked(categories.contains("business"));
+        CheckBox technology = (CheckBox) findViewById(R.id.technologyBox);
+        technology.setChecked(categories.contains("technology"));
+        CheckBox science = (CheckBox) findViewById(R.id.scienceBox);
+        science.setChecked(categories.contains("science"));
+        CheckBox sports = (CheckBox) findViewById(R.id.sportsBox);
+        sports.setChecked(categories.contains("sports"));
+    }
 
 	При этом основное действие обновляется в зависимости от состояния ранее сохраненных категорий.
 
 Теперь приложение готово и может сохранять набор категорий в локальном хранилище устройств и использовать его для регистрации в концентраторе уведомлений всякий раз, когда пользователь изменяет выбранные категории. А сейчас определим серверную часть, которая может отправлять уведомления категорий в это приложение.
 
-##Отправка уведомлений из серверной части
+##Отправка уведомлений с тегами
 
-[AZURE.INCLUDE [notification-hubs-back-end](../../includes/notification-hubs-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ##Запуск приложения и создание уведомлений
 
-1. В Eclipse выполните построение приложения и запустите его на устройстве или в эмуляторе.
+1. В Android Studio выполните сборку приложения и запустите его на устройстве или в эмуляторе.
 
 	Обратите внимание, что в пользовательском интерфейсе присутствует набор переключателей, позволяющий выбрать категории для подписки.
 
 2. Включите переключатели одной или нескольких категорий, затем нажмите **Подписаться**.
 
-	Приложение преобразует выбранные категории в теги и запрашивает у концентратора уведомлений новую регистрацию устройств для выбранных тегов. Зарегистрированные категории возвращаются и отображаются в диалоговом окне.
+	Приложение преобразует выбранные категории в теги и запрашивает у концентратора уведомлений новую регистрацию устройств для выбранных тегов. Зарегистрированные категории возвращаются и отображаются во всплывающем уведомлении.
 
-4. Отправьте новое уведомление из серверной части одним из следующих способов:
-
-	+ **Консольное приложение .NET:** запустите консольное приложение.
-
-	+ **Java/PHP:** запустите приложение или сценарий.
+4. Отправьте новое уведомление, запустив консольное приложение .NET. Кроме того, можно отправлять шаблонные уведомления с тегами с помощью вкладки «Отладка» центра уведомлений на [классическом портале Azure].
 
 	Уведомления для выбранных категорий отображаются в виде всплывающих уведомлений.
 
@@ -294,9 +299,6 @@
 
 	Как расширить возможности приложения экстренных новостей для отправки локализованных уведомлений.
 
-+ [Уведомление пользователей с помощью центров уведомлений]
-
-	Узнайте, как рассылать push-уведомления определенным пользователям, прошедшим проверку подлинности. Это хорошее решение для отправки уведомлений только определенным пользователям.
 
 
 
@@ -307,14 +309,14 @@
 <!-- URLs.-->
 [get-started]: notification-hubs-android-get-started.md
 [Использование центров уведомлений для передачи локализованных экстренных новостей]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Уведомление пользователей с помощью центров уведомлений]: /manage/services/notification-hubs/notify-users
+[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
 [Mobile Service]: /develop/mobile/tutorials/get-started/
-[Руководство по использованию концентраторов уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-
+[классическом портале Azure]: https://manage.windowsazure.com
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

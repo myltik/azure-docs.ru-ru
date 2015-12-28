@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Управление конфигурациями и профилями службы"
+   pageTitle="Как управлять конфигурациями и профилями службы | Microsoft Azure"
    description="Узнайте, как работать с файлами конфигурации службы и файлами профилей, в которых хранятся параметры для сред развертывания и параметры публикации для облачных служб."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="08/13/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Управление конфигурациями и профилями службы
 
@@ -131,4 +131,4 @@
 
 Дополнительные сведения о настройке других частей проекта Azure в Visual Studio см. в статье [Настройка проекта Azure](http://go.microsoft.com/fwlink/p/?LinkID=623075)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

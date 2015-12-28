@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Аварийное восстановление с помощью SQL Server и Azure Site Recovery | Microsoft Azure" 
+	pageTitle="Защита SQL Server с помощью аварийного восстановления SQL Server и Azure Site Recovery | Microsoft Azure" 
 	description="Azure Site Recovery координирует репликацию, отработку отказа и восстановление SQL Server на дополнительный локальный сайт или в Azure." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2015" 
+	ms.date="12/14/2015" 
 	ms.author="raynew"/>
 
 
-# Аварийное восстановление с помощью SQL Server и Azure Site Recovery 
+# Защита SQL Server с помощью аварийного восстановления SQL Server и Azure Site Recovery 
 
 Служба Azure Site Recovery помогает реализовать стратегии непрерывности бизнеса и восстановления после сбоев (BCDR), управляя процессами репликации, отработки отказа и восстановления виртуальных машин и физических серверов. Site Recovery поддерживает ряд механизмов репликации для обеспечения постоянной защиты, репликации и отработку отказа машин в Azure или в дополнительный центр обработки данных. Обзор всех сценариев развертывания см. в статье [Обзор Azure Site Recovery](site-recovery-overview.md).
 
@@ -374,4 +374,4 @@ Site Recovery не поддерживает гостевой кластер пр
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

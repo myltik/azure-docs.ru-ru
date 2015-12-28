@@ -3,9 +3,9 @@
    description="Использование Visual Studio для создания проекта группы ресурсов Azure и развертывания ресурсов в Azure."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tlee" />
+   editor="" />
 <tags
    ms.service="azure-resource-manager"
    ms.devlang="multiple"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="11/13/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Создание и развертывание групп ресурсов Azure с помощью Visual Studio
 
@@ -196,4 +196,4 @@
 
 Сведения о добавлении ресурсов в группу ресурсов Azure в Visual Studio см. в статье [Редактирование шаблонов диспетчера ресурсов с помощью Visual Studio](vs-azure-tools-resource-group-adding-resources.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

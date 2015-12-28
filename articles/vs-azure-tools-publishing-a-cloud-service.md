@@ -3,9 +3,9 @@
    description="Узнайте, как публиковать проекты облачных служб Azure с помощью Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/04/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Публикация облачной службы с помощью инструментов Azure
 
@@ -173,4 +173,4 @@
 
 Дополнительные сведения о публикации в Azure из Visual Studio см. в статье [Мастер публикации приложения Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

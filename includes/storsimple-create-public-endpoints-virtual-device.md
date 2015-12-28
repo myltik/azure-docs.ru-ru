@@ -1,21 +1,23 @@
-#### To create public endpoints on the virtual device
+#### Создание общедоступных конечных точек на виртуальном устройстве
 
-1. Sign in to the Management Portal.
+1. Выполните вход на портал управления.
 
-- Click **Virtual Machines**, and then select the virtual machine that is being used as your virtual device.
+- Щелкните **Виртуальные машины**, а затем выберите виртуальную машину, которая используется как виртуальное устройство.
 
-- Click **Endpoints**. The Endpoints page lists all endpoints for the virtual machine.
+- Нажмите кнопку **Конечные точки**. На странице "Конечные точки" перечислены все конечные точки для виртуальной машины.
 
-- Click **Add**. The Add Endpoint dialog box appears. Click the arrow to continue.
+- Щелкните **Добавить**. Откроется диалоговое окно Добавить конечную точку. Щелкните стрелку для продолжения.
 
-- For the **Name**, type the following name for the endpoint: **WinRMHttps**.
+- В поле **Имя** введите следующее имя конечной точки: **WinRMHttps**.
 
-- For the **Protocol**, specify **TCP**.
+- В поле **Протокол** укажите **TCP**.
 
-- For the **Public Port**, type the port numbers that you want to use for the connection.
+- В поле **Общий порт** введите номера порта, которые хотите использовать для подключения.
 
-- For the **Private Port**, type **5986**.
+- В поле **Частный порт** введите **5986**.
 
-- Click the check mark to create the endpoint.
+- Чтобы создать конечную точку, поставьте галочку.
 
-After the endpoint is created, you can view its details to determine the Public Virtual IP (VIP) address. Record this address.
+После создания конечной точки вы можете просмотреть ее сведения, чтобы определить общедоступный виртуальный IP-адрес. Запишите этот адрес.
+
+<!---HONumber=AcomDC_1217_2015-->

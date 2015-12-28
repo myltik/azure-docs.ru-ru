@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="12/11/2015"
    ms.author="nitinme"/>
 
 # Защита данных, хранимых в хранилище озера данных Azure
@@ -159,9 +159,10 @@
 ## См. также
 
 - [Обзор хранилища озера данных Azure](data-lake-store-overview.md)
+- [Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
 - [Использование аналитики озера данных Azure с хранилищем озера данных](data-lake-analytics-get-started-portal.md)
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Начало работы с хранилищем озера данных с помощью PowerShell](data-lake-store-get-started-powershell.md)
 - [Начало работы с хранилищем озера данных с помощью пакета SDK .NET](data-lake-store-get-started-net-sdk.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

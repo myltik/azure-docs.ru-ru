@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="12/16/2015" 
 	ms.author="juliako"/>
 
 
 
 #Создание приложения для магазина Windows с бесперебойной потоковой передачей
 
-Клиентский пакет SDK для бесперебойной потоковой передачи для Windows 8 позволяет разработчикам создавать приложения для магазина Windows, способные воспроизводить контент по требованию и в режиме реального времени с бесперебойной потоковой передачей. Помимо основных функций воспроизведения контента с бесперебойной потоковой передачей этот пакет SDK также предоставляет богатые возможности, такие как защита Microsoft PlayReady, ограничение уровня качества, Live DVR, переключение потока аудио, прослушивание событий ошибок и обновления состояния (например, изменения уровня качества) и т. д. Дополнительные сведения о поддерживаемых возможностях см. в [заметках к выпуску](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes).
-
-В этом учебном курсе рассматриваются API-интерфейсы. Для поддержки проигрывателя корпорация Майкрософт настоятельно рекомендует использовать [платформу проигрывателя Windows 8](http://playerframework.codeplex.com/). Платформа проигрывателя упрощает создание приложений и предоставляет множество дополнительных функций.
+Клиентский пакет SDK для бесперебойной потоковой передачи для Windows 8 позволяет разработчикам создавать приложения для магазина Windows, способные воспроизводить контент по требованию и в режиме реального времени с бесперебойной потоковой передачей. Помимо основных функций воспроизведения контента с бесперебойной потоковой передачей этот пакет SDK также предоставляет богатые возможности, такие как защита Microsoft PlayReady, ограничение уровня качества, Live DVR, переключение потока аудио, прослушивание событий ошибок и обновления состояния (например, изменения уровня качества) и т. д. Дополнительные сведения о поддерживаемых возможностях см. в [заметках к выпуску](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Дополнительные сведения см. на сайте [Player Framework for Windows 8](http://playerframework.codeplex.com/).
 
 Этот учебный курс состоит из четырех занятий:
 
@@ -32,13 +30,21 @@
 4. Выбор дорожек для бесперебойной потоковой передачи
 
 ##Предварительные требования
+
 - Windows 8 (32-разрядная или 64-разрядная). Можно получить [оценку Windows 8 Enterprise](http://msdn.microsoft.com/evalcenter/jj554510.aspx) из MSDN.
-- Visual Studio 2012 или Visual Studio Express 2012 для Windows 8, установленные в Windows 8. Пробную версию можно получить [здесь](http://www.microsoft.com/visualstudio/11/downloads).
+- Visual Studio 2012 или Visual Studio Express 2012 (либо более поздней версии). Пробную версию можно получить [здесь](http://www.microsoft.com/visualstudio/11/downloads).
 - [Клиентский пакет SDK для бесперебойной потоковой передачи Microsoft для Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)
 
-Готовое решение для каждого урока можно скачать из раздела примеров кода для разработчиков MSDN (коллекция кода): [Урок 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming"), [Урок 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и элементом управления "Ползунок""), [Урок 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и выбором потока") и [Урок 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и выбором дорожки").
+
+Готовое решение для каждого урока можно загрузить из раздела образцов кода для разработчиков MSDN (коллекция кодов):
+
+- [Урок 1.](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming. 
+- [Урок 2.](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и элементом управления «Ползунок». 
+- [Урок 3.](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и выбором потока.  
+- [Урок 4.](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) Простой проигрыватель мультимедиа Windows 8 с потоковой передачей Smooth Streaming и выбором дорожки.
 
 ##Урок 1. Создание базового приложения для магазина с бесперебойной потоковой передачей
+
 На этом занятии предстоит создать приложение для магазина Windows с элементом управления MediaElement для воспроизведения контента с бесперебойной потоковой передачей. Работающее приложение имеет следующий вид:
 
 ![Пример приложения для магазина Windows с бесперебойной потоковой передачей][PlayerApplication]
@@ -980,4 +986,4 @@
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

@@ -293,7 +293,8 @@
 - Посетите [блог команды разработчиков хранилища Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 - См. пример блочного BLOB-объекта РНР по адресу: <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>.
 - См. пример страничного BLOB-объекта PHP по адресу: <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
-
+- [Приступая к работе со служебной программой командной строки AzCopy](storage-use-azcopy)
+ 
 Дополнительные сведения также можно найти в [Центре разработчика PHP](/develop/php/).
 
 
@@ -305,4 +306,4 @@
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

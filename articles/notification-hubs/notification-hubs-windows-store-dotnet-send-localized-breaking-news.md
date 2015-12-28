@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/08/2015" 
+	ms.date="12/15/2015" 
 	ms.author="wesmc"/>
 
 # Использование концентраторов уведомлений для отправки локализованных экстренных новостей
@@ -39,7 +39,7 @@
 
 Вы должны предварительно выполнить учебник [Использование концентраторов уведомлений для передачи экстренных новостей], чтобы у вас был нужный код, так как этот учебник построен непосредственно на этом коде.
 
-Нужен также Visual Studio 2012.
+Также требуется Visual Studio 2012 или более поздняя версия.
 
 
 ##Основные сведения о шаблонах
@@ -56,7 +56,7 @@
 		"News_Mandarin": "..."
 	}
 
-Затем мы убедимся, что устройство зарегистрировано с шаблоном, который ссылается на нужное свойство. Например, приложение Магазина Windows, которое хочет получать простое всплывающее сообщение, будет зарегистрировано для следующего шаблона:
+Затем мы убедимся, что устройство зарегистрировано с шаблоном, который ссылается на нужное свойство. Например, приложение Магазина Windows, которое хочет получать простое всплывающее сообщение, будет зарегистрировано для следующего шаблона с любыми соответствующими тегами.
 
 	<toast>
 	  <visual>
@@ -68,16 +68,12 @@
 
 
 
-Шаблоны — это очень мощная функция, о них можно узнать в [Руководстве по использованию концентраторов уведомлений]. Справки по языку выражения шаблона см. в [Инструкциях по использованию концентраторов уведомлений для Магазина Windows].
+Шаблоны — это очень мощная функция, о них можно узнать больше в нашей статье [Шаблоны](notification-hubs-templates.md).
 
 
 ##Пользовательский интерфейс приложения
 
 Теперь изменим приложение "Экстренные новости", созданное в разделе [Использование концентраторов уведомлений для передачи экстренных новостей] для отправки локализованных экстренных новостей с помощью шаблонов.
-
-
-Для адаптации приложений клиента для получения локализованных сообщений необходимо заменить *собственные* регистрации (т. е. регистрации с указанием шаблона) на регистрации шаблона.
-
 
 В приложении Магазина Windows:
 
@@ -109,29 +105,37 @@
         <ToggleSwitch Header="Technology" Name="TechnologyToggle" Grid.Row="2" Grid.Column="1"/>
         <ToggleSwitch Header="Science" Name="ScienceToggle" Grid.Row="3" Grid.Column="1"/>
         <ToggleSwitch Header="Sports" Name="SportsToggle" Grid.Row="4" Grid.Column="1"/>
-        <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="Button_Click" />
+        <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click" />
     </Grid>
 
 ##Разработка клиентского приложения Магазина Windows
 
 1. В классе Notifications добавьте параметр языкового стандарта к методам *StoreCategoriesAndSubscribe* и *SubscribeToCategories*.
 
-		public async Task StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
+        public async Task<Registration> StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
         {
             ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
             ApplicationData.Current.LocalSettings.Values["locale"] = locale;
-            await SubscribeToCategories(locale, categories);
+            return await SubscribeToCategories(categories);
         }
 
-        public async Task SubscribeToCategories(string locale, IEnumerable<string> categories)
+        public async Task<Registration> SubscribeToCategories(string locale, IEnumerable<string> categories = null)
         {
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-            var template = String.Format(@"<toast><visual><binding template=""ToastText01""><text id=""1"">$(News_{0})</text></binding></visual></toast>", locale);
 
-            await hub.RegisterTemplateAsync(channel.Uri, template, "newsTemplate", categories);
+            if (categories == null)
+            {
+                categories = RetrieveCategories();
+            }
+
+            // Using a template registration. This makes supporting notifications across other platforms much easier.
+            // Using the localized tags based on locale selected.
+            string templateBodyWNS = String.Format("<toast><visual><binding template="ToastText01"><text id="1">$(News_{0})</text></binding></visual></toast>", locale);
+
+            return await hub.RegisterTemplateAsync(channel.Uri, templateBodyWNS, "localizedWNSTemplateExample", categories);
         }
 
-	Обратите внимание, что вместо вызова метода *RegisterNativeAsync* мы вызываем метод *RegisterTemplateAsync*: мы регистрируем специальный формат уведомлений, в котором шаблон зависит от языкового стандарта. Мы также предоставляем имя шаблона ("newsTemplate"), потому что нам может понадобиться зарегистрировать более одного шаблона (например один для всплывающих уведомлений и один для плиток) и нам нужно назвать их, чтобы иметь возможность обновлять или удалять.
+	Обратите внимание, что вместо вызова метода *RegisterNativeAsync* мы вызываем метод *RegisterTemplateAsync*: мы регистрируем специальный формат уведомлений, в котором шаблон зависит от языкового стандарта. Мы также предоставляем имя шаблона (localizedWNSTemplateExample), потому что нам может понадобиться зарегистрировать более одного шаблона (например, один для всплывающих уведомлений и один для элементов) и нам нужно назвать их, чтобы иметь возможность обновлять или удалять.
 
 	Обратите внимание, что если устройство регистрирует несколько шаблонов с тем же тегом, одно входящее сообщение для этого тега приведет к передаче нескольких уведомлений на устройство (по одному для каждого шаблона). Это полезно, когда одного логическое сообщение должно привести к нескольким визуальным уведомлениям в приложении Магазина Windows, например в виде эмблемы и во всплывающем окне.
 
@@ -143,27 +147,44 @@
             return locale != null ? locale : "English";
         }
 
-3. В MainPage.xaml.cs обновите обработчик нажатия кнопки, чтобы он получал текущее значение языкового стандарта (поля со списком Locale) и передавал его в вызове класса Notifications, как показано.
+3. В файле MainPage.xaml.cs обновите обработчик нажатия кнопки, чтобы он получал текущее значение языкового стандарта (поля со списком Locale) и передавал его в вызове класса Notifications, как показано ниже.
 
-		 var locale = (string)Locale.SelectedItem;
+        private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
+        {
+            var locale = (string)Locale.SelectedItem;
 
-         var categories = new HashSet<string>();
-         if (WorldToggle.IsOn) categories.Add("World");
-         if (PoliticsToggle.IsOn) categories.Add("Politics");
-         if (BusinessToggle.IsOn) categories.Add("Business");
-         if (TechnologyToggle.IsOn) categories.Add("Technology");
-         if (ScienceToggle.IsOn) categories.Add("Science");
-         if (SportsToggle.IsOn) categories.Add("Sports");
+            var categories = new HashSet<string>();
+            if (WorldToggle.IsOn) categories.Add("World");
+            if (PoliticsToggle.IsOn) categories.Add("Politics");
+            if (BusinessToggle.IsOn) categories.Add("Business");
+            if (TechnologyToggle.IsOn) categories.Add("Technology");
+            if (ScienceToggle.IsOn) categories.Add("Science");
+            if (SportsToggle.IsOn) categories.Add("Sports");
 
-         await ((App)Application.Current).Notifications.StoreCategoriesAndSubscribe(locale, categories);
+            var result = await ((App)Application.Current).notifications.StoreCategoriesAndSubscribe(locale,
+				 categories);
 
-         var dialog = new MessageDialog(String .Format("Locale: {0}; Subscribed to: {1}", locale, string.Join(",", categories)));
-         dialog.Commands.Add(new UICommand("OK"));
-         await dialog.ShowAsync();
+            var dialog = new MessageDialog("Locale: " + locale + " Subscribed to: " + 
+				string.Join(",", categories) + " on registration Id: " + result.RegistrationId);
+            dialog.Commands.Add(new UICommand("OK"));
+            await dialog.ShowAsync();
+        }
 
-4. Наконец, в файле App.xaml.cs обновите вызов одноэлементного экземпляра Notifications в методе *OnLaunched*.
 
-		Notifications.SubscribeToCategories(Notifications.RetrieveLocale(), Notifications.RetrieveCategories());
+4. Наконец, в файле App.xaml.cs обязательно обновите метод `InitNotificationsAsync`, чтобы получать языковый стандарт и использовать его при подписке.
+
+        private async void InitNotificationsAsync()
+        {
+            var result = await notifications.SubscribeToCategories(notifications.RetrieveLocale());
+
+            // Displays the registration ID so you know it was successful
+            if (result.RegistrationId != null)
+            {
+                var dialog = new MessageDialog("Registration successful: " + result.RegistrationId);
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+            }
+        }
 
 
 ##Отправка локализованных уведомлений из серверной части
@@ -174,9 +195,6 @@
 
 
 
-## Дальнейшие действия
-
-Дополнительную информацию об использовании шаблонов см. в разделах [Уведомление пользователей с помощью центров уведомлений: ASP.NET], [Уведомление пользователей с помощью центров уведомлений: мобильные службы] и [руководстве по использованию центров уведомлений]. Справочник по языку выражений шаблона см. в учебнике [Инструкциях по использованию концентраторов уведомлений для Магазина Windows].
 
 <!-- Anchors. -->
 [Template concepts]: #concepts
@@ -187,30 +205,10 @@
 
 <!-- Images. -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- URLs. -->
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[Уведомление пользователей с помощью центров уведомлений: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Уведомление пользователей с помощью центров уведомлений: мобильные службы]: /manage/services/notification-hubs/notify-users
+[Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
+[Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
 [Использование концентраторов уведомлений для передачи экстренных новостей]: /manage/services/notification-hubs/breaking-news-dotnet
 [Использование центров уведомлений для передачи экстренных новостей]: /manage/services/notification-hubs/breaking-news-dotnet
 
@@ -226,9 +224,8 @@
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Руководстве по использованию концентраторов уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
-[руководстве по использованию центров уведомлений]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[Инструкциях по использованию концентраторов уведомлений для Магазина Windows]: http://msdn.microsoft.com/library/jj927172.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

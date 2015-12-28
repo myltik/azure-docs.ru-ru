@@ -3,9 +3,9 @@
    description="Узнайте, как публиковать решения в среды разработки и тестирования с помощью сценариев Windows PowerShell в Visual Studio."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/08/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Публикация решений в среды разработки и тестирования с помощью сценариев Windows PowerShell
 
@@ -351,4 +351,4 @@ Visual Studio создает в решении папку **PublishScripts**, в
 
 Дополнительные сведения о скриптах PowerShell см. в статье [Работа со скриптами в Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx). Также рекомендуем посетить [центр скриптов](https://azure.microsoft.com/documentation/scripts/) и ознакомиться с другими скриптами Azure PowerShell.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1217_2015-->

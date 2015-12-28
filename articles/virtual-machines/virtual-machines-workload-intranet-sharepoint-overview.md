@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,22 +14,22 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/20/2015"
+	ms.date="12/11/2015"
 	ms.author="josephd"/>
 
 # Развертывание среды SharePoint с группами доступности AlwaysOn для SQL Server на платформе Azure
 
-[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Модель развертывания диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
 
-В этом разделе приведены пошаговые инструкции по развертыванию фермы SharePoint 2013 для интрасети с группами доступности AlwaysOn для SQL Server с помощью классической модели развертывания. В состав фермы входят перечисленные ниже компьютеры.
+В этой статье приведены пошаговые инструкции по развертыванию фермы SharePoint 2013 для интрасети с группами доступности AlwaysOn для SQL Server. В состав фермы входят перечисленные ниже компьютеры.
 
 - Два веб-сервера SharePoint
 - Два сервера приложений SharePoint
 - Два сервера баз данных
 - Один сервер узла большинства кластера
-- Два контроллера домена
+- два контроллера домена.
 
-Вот схема конфигурации (для каждого сервера указаны имена-заполнители):
+Вот схема конфигурации (для каждого сервера указаны шаблонные имена):
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-overview/workload-spsqlao_05.png)
 
@@ -37,7 +37,7 @@
 
 Ниже перечислены этапы развертывания этой конфигурации.
 
-- [Этап 1. Настройка Azure](virtual-machines-workload-intranet-sharepoint-phase1.md). Создание учетной записи хранения, облачных служб и распределенной виртуальной сети.
+- [Этап 1. Настройка Azure](virtual-machines-workload-intranet-sharepoint-phase1.md). Создание учетных записей хранения, групп доступности и распределенной виртуальной сети.
 - [Второй этап: настройка контроллеров домена](virtual-machines-workload-intranet-sharepoint-phase2.md). Создание и настройка реплик контроллеров домена доменных служб Active (AD DS).
 - [Третий этап: настройка инфраструктуры SQL Server](virtual-machines-workload-intranet-sharepoint-phase3.md). Создание и настройка виртуальных машин SQL Server, их подготовка для работы со средой SharePoint и создание кластера.
 - [Четвертый этап: настройка серверов SharePoint](virtual-machines-workload-intranet-sharepoint-phase4.md). Создание и настройка четырех виртуальных машин SharePoint.
@@ -51,7 +51,7 @@
 
 - Если вы являетесь опытным специалистом по внедрению SharePoint, внесите необходимые изменения в этапы 3–5 в соответствии с собственными требованиями к ферме.
 - Если у вас уже есть гибридное облачное развертывание Azure, внесите необходимые изменения в этапы 1–2 (или пропустите их) для создания новой фермы SharePoint в соответствующей подсети.
-- Все серверы расположены в одной подсети виртуальной сети Azure. Для реализации дополнительных мер безопасности, эквивалентных изоляции подсетей, можно воспользоваться [группами безопасности сети](virtual-networks-nsg.md).
+- Все серверы расположены в одной подсети виртуальной сети Azure. Для реализации дополнительных мер безопасности, эквивалентных изоляции подсетей, можно воспользоваться [группами безопасности сети](../virtual-network/virtual-networks-nsg.md).
 
 Инструкции по созданию среды для разработки или тестирования либо экспериментальной проверке этой конфигурации см. в статье [Настройка фермы SharePoint интрасети в гибридном облаке для тестирования](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md).
 
@@ -61,19 +61,6 @@
 
 ## Дальнейшие действия
 
-Начальные действия по настройке этой рабочей нагрузки описаны в разделе [Этап 1. Настройка Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
+- [Этап 1](virtual-machines-workload-intranet-sharepoint-phase1.md). Начальные действия по настройке этой рабочей нагрузки.
 
-
-## Дополнительные ресурсы
-
-[Инфографика SharePoint с SQL Server AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=394788)
-
-[Архитектуры Microsoft Azure для SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
-
-[Фермы SharePoint, размещенные в службах инфраструктуры Azure](virtual-machines-sharepoint-infrastructure-services.md)
-
-[Руководство по реализации служб инфраструктуры Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Службы инфраструктуры Azure: высокодоступное бизнес-приложение](virtual-machines-workload-high-availability-lob-application.md)
-
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

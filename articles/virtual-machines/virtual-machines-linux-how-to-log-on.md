@@ -14,22 +14,19 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="12/08/2015"
 	ms.author="rasquill"/>
-
-
 
 
 #Как войти в виртуальную машину под управлением Linux #
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager deployment model](virtual-machines-linux-tutorial-portal-rm.md).
 
-Для входа на виртуальную машину под управлением операционной системы Linux используется клиент SSH.
-
 Вам понадобится установить клиент SSH на компьютер, который вы будете использовать для входа на виртуальную машину. Существует множество клиентских программ SSH. Вы можете выбрать один из следующих вариантов.
 
 - На компьютере под управлением Windows вы можете использовать такой клиент SSH, как PuTTY. Дополнительные сведения см. на [странице загрузки PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-- На компьютере под управлением Linux вы можете использовать такой клиент SSH, как OpenSSH. Дополнительные сведения см. на странице [OpenSSH](http://www.openssh.org/).
+- Для виртуальной машины под управлением операционной системы Linux используйте клиент Secure Shell (SSH) для входа в систему. Трудно представить дистрибутив, в котором он установлен по умолчанию. Подробнее о Linux см. в разделе [Использование SSH с Linux и Mac в Azure](virtual-machines-linux-use-ssh-key.md).
+
 
 >[AZURE.NOTE]Дополнительную информацию о требованиях и советы по устранению неполадок см. в статье [Подключение к виртуальной машине Azure с помощью RDP или SSH](http://go.microsoft.com/fwlink/p/?LinkId=398294).
 
@@ -56,4 +53,4 @@
 <!-- LINKS -->
 [Как сбросить пароль или ключ SSH в виртуальных машинах Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->

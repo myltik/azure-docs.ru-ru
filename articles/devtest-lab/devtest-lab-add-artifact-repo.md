@@ -1,6 +1,6 @@
     <properties
 	pageTitle="Add a Git artifact repository to your DevTest Lab | Microsoft Azure"
-	description="Add a GitHub or Visual Studio Online Git repository for your custom artifacts to your lab"
+	description="Add a GitHub or Visual Studio Team Services Git repository for your custom artifacts to your lab"
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -20,10 +20,10 @@
 
 ## Обзор
 
-По умолчанию DevTest Lab включает артефакты из официального хранилища артефактов Azure DevTest Lab. Вы можете добавить репозиторий артефактов Git в свою лабораторию и включить в него артефакты, созданные вашей командой. Репозиторий артефактов может находиться в [GitHub](https://github.com) или [Visual Studio Online (VSO)](https://visualstudio.com).
+По умолчанию DevTest Lab включает артефакты из официального хранилища артефактов Azure DevTest Lab. Вы можете добавить репозиторий артефактов Git в свою лабораторию и включить в него артефакты, созданные вашей командой. Репозиторий артефактов может находиться в [GitHub](https://github.com) или [Visual Studio Team Services (VSTS)](https://visualstudio.com).
 
 - Сведения о создании репозитория GitHub см. в статье [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-- Сведения о создании проекта VSO с репозиторием Git см. в статье [Подключение к Visual Studio Online](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+- Сведения о создании проекта Team Services с репозиторием Git см. в статье [Connect to Visual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 Вот как может выглядеть содержащий артефакты репозиторий в GitHub. ![Пример репозитория артефактов GitHub](./media/devtest-lab-add-artifact-repo/devtestlab-github-artifact-repo-home.png)
 
@@ -115,4 +115,4 @@
     3. Введите сохраненный **персональный маркер доступа** в хранилище артефактов.
     4. Нажмите **Сохранить**.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1217_2015-->

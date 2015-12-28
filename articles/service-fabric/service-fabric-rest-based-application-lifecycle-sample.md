@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Пример жизненного цикла приложения REST | Microsoft Azure"
+   pageTitle="Пример жизненного цикла приложения на основе REST | Microsoft Azure"
    description="Пример Microsoft Azure Service Fabric, в котором демонстрируется жизненный цикл приложения с использованием интерфейса REST Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
@@ -18,16 +18,16 @@
 
 # Пример жизненного цикла приложения на основе REST
 
-Это пример жизненного цикла приложения Service Fabric через вызовы API REST. Дополнительные сведения о жизненном цикле приложения Service Fabric см. в статье [Жизненный цикл приложения Service Fabric](service-fabric-application-lifecycle.md).
+Это пример жизненного цикла приложения Service Fabric через вызовы API REST. Дополнительные сведения о жизненном цикле приложения Service Fabric см. в статье [Жизненный цикл приложений Service Fabric](service-fabric-application-lifecycle.md).
 
 В этом примере выполняются следующие действия:
 
-* подготавливается пример WordCount 1.0.0 из пакета приложения WordCount в ImageStore;
+* подготавливается пример **WordCount 1.0.0** из пакета приложения WordCount в хранилище образов;
 * отображается список типов приложений, включая WordCount 1.0.0;
-* создается приложение WordCount как fabric:/WordCount;
+* создается приложение WordCount как **fabric:/WordCount**;
 * отображается список приложений, включая fabric:/WordCount версии 1.0.0;
-* подготавливается версия примера WordCount 1.1.0 из пакета приложения WordCountUpgrade в ImageStore;
-* отображается список типов приложений, включая WordCount 1.0.0 и WordCount 1.1.0;
+* подготавливается версия примера WordCount 1.1.0 из пакета приложения **WordCountUpgrade** в хранилище образов;
+* отображается список типов приложений, включая WordCount 1.0.0 и **WordCount 1.1.0**;
 * приложение WordCount обновляется до версии 1.1.0;
 * отображается список приложений, который включает версию WordCount 1.1.0, но больше не содержит версии WordCount 1.0.0;
 * приложение WordCount удаляется;
@@ -40,21 +40,21 @@
 
 ## Предварительные требования
 
-В этом примере используется [образец WordCount](http://aka.ms/servicefabricsamples) (см. образцы в разделе "Начало работы"). Сначала необходимо выполнить сборку примера приложения WordCount, а затем скопировать два пакета приложений в ImageStore.
+В этом примере используется [пример WordCount](http://aka.ms/servicefabricsamples) (см. примеры в разделе **Начало работы**). Сначала необходимо выполнить сборку примера приложения WordCount, а затем скопировать два пакета приложений в хранилище образов.
 
 |Папка|Описание|
 |------|-----------|
-|WordCount|Пример приложения WordCount. Файл ApplicationManifest.xml содержит запись ApplicationTypeVersion="1.0.0".|
-|WordCountUpgrade|Пример приложения WordCount. Файл ApplicationManifest.xml необходимо изменить на ApplicationTypeVersion="1.1.0", чтобы обновить приложение.|
+|WordCount|Пример приложения WordCount. Файл **ApplicationManifest.xml** содержит запись **ApplicationTypeVersion="1.0.0"**.|
+|WordCountUpgrade|Пример приложения WordCount. В файле ApplicationManifest.xml необходимо ApplicationTypeVersion="1.0.0" изменить на **ApplicationTypeVersion="1.1.0"**, чтобы обновить приложение.|
 
-Чтобы создать пакеты приложений и скопировать их в ImageStore, выполните следующие действия.
+Чтобы создать пакеты приложений и скопировать их в хранилище образов, выполните следующие действия.
 
-1. Скопируйте папку C:\\ServiceFabricSamples\\Services\\WordCount\\WordCount\\pkg\\Debug в C:\\Temp\\WordCount. Будет создан пакет приложения WordCount.
-2. Скопируйте C:\\Temp\\WordCount в папку C:\\Temp\\WordCountUpgrade. Будет создан пакет приложения WordCountUpgrade.
-3. Откройте файл C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml в текстовом редакторе.
-4. В элементе ApplicationManifest измените атрибут ApplicationTypeVersion на "1.1.0". Будет обновлен номер версии приложения.
+1. Скопируйте папку **C:\\ServiceFabricSamples\\Services\\WordCount\\WordCount\\pkg\\Debug** в **C:\\Temp\\WordCount**. Будет создан пакет приложения WordCount.
+2. Скопируйте **C:\\Temp\\WordCount** в папку C:\\Temp\\WordCountUpgrade. Будет создан пакет **приложения WordCountUpgrade**.
+3. Откройте файл **C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml** в текстовом редакторе.
+4. В элементе **ApplicationManifest** измените значение атрибута **ApplicationTypeVersion** на **"1.1.0"**. Будет обновлен номер версии приложения.
 5. Сохраните измененный файл ApplicationManifest.xml.
-6. Запустите следующий сценарий PowerShell как администратор, чтобы скопировать приложения в ImageStore:
+6. Запустите следующий сценарий PowerShell как администратор, чтобы скопировать приложения в хранилище образов.
 
 ```powershell
 # Deploy the WordCount and upgrade applications
@@ -707,6 +707,6 @@ namespace ServiceFabricRestCaller
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Дальнейшие действия
 
-[Жизненный цикл приложения Service Fabric](service-fabric-application-lifecycle.md)
+[Жизненный цикл приложений Service Fabric](service-fabric-application-lifecycle.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1217_2015-->

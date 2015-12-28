@@ -3,9 +3,9 @@
    description="Узнайте, как создавать облачные службы и учетные записи хранения, а также настраивать приложения Azure."
    services="visual-studio-online"
    documentationCenter="na"
-   authors="kempb"
+   authors="TomArcher"
    manager="douge"
-   editor="tglee" />
+   editor="" />
 <tags
    ms.service="multiple"
    ms.devlang="dotnet"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="09/28/2015"
-   ms.author="kempb" />
+   ms.author="tarcher" />
 
 # Подготовка к публикации или развертыванию приложения Azure из Visual Studio
 
@@ -153,4 +153,4 @@
 
 Дополнительные сведения о публикации приложений в Azure из Visual Studio см. в статье [Публикация облачной службы с помощью средств Azure](vs-azure-tools-publishing-a-cloud-service.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1217_2015-->
