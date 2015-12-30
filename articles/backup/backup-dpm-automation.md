@@ -88,7 +88,8 @@ PS C:\> MARSAgentInstaller.exe /?
 | Параметр | Сведения | значение по умолчанию |
 | ---- | ----- | ----- |
 | /q | Тихая установка | - |
-| /p:"местоположение" | Путь к папке установки агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent | | /s:"местоположение" | Путь к папке кэша агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
+| /p:"местоположение" | Путь к папке установки агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent |
+| /s:"местоположение" | Путь к папке кэша агента службы архивации Azure. | C:\\Program Files\\Microsoft Azure Recovery Services Agent\\Scratch |
 | /m | Согласиться на получение обновлений от Майкрософт | - |
 | /nu | Не проверять наличие обновлений после завершения установки | - |
 | /d | Удаляет агент служб восстановления Microsoft Azure | - |
