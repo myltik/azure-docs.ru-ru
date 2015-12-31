@@ -21,7 +21,7 @@
 
 В этой статье показано, как приступить к работе с решениями Docker и [Compose](http://github.com/docker/compose) с целью определения и запуска сложного приложения на виртуальной машине Linux в Azure. Решение Compose (преемник решения *Fig*) позволяет определить приложение, состоящее из нескольких контейнеров Docker, с помощью простого текстового файла. После этого приложение разворачивается с помощью одной команды, которая инициирует все действия, необходимые для его запуска на виртуальной машине. В этой статье показано, как быстро настроить блог WordPress с серверной базой данных SQL MariaDB, однако решение Compose можно использовать для настройки и более сложных приложений.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Модель диспетчера ресурсов](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/).
 
 
 Если вы не знакомы с решением Docker и контейнерами, см. [доску по Docker](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
@@ -49,10 +49,7 @@ $ chmod +x /usr/local/bin/docker-compose
 $ docker-compose --version
 ```
 
-Должен появиться результат, аналогичный
-```
-docker-compose 1.3.2
-```.
+Должен появиться результат, аналогичный `docker-compose 1.4.1`.
 
 
 ## Шаг 3. Создание файла конфигурации docker-compose.yml
@@ -76,19 +73,21 @@ db:
 
 ```
 
-## Шаг 4: Start the containers with Compose
+## Шаг 4: Запуск контейнеров с использованием Compose
 
-In the working directory on your VM, simply run the following command.
+В рабочем каталоге виртуальной машины просто выполните следующую команду.
 
 ```
 $ docker-compose up -d
 
 ```
 
-This starts the Docker containers specified in `docker-compose.yml`. Должен появиться результат, аналогичный:
+Это запускает контейнеры Docker, указанные в `docker-compose.yml`. Вы увидите выходные данные, похожие на следующие:
 
 ```
-Creating wordpress\_db\_1... Creating wordpress\_wordpress\_1... ```
+Creating wordpress\_db\_1...
+Creating wordpress\_wordpress\_1...
+```
 
 >[AZURE.NOTE]При запуске обязательно используйте параметр **-d**, чтобы контейнеры непрерывно выполнялись в фоновом режиме.
 

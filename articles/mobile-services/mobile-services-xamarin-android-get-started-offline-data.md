@@ -51,7 +51,8 @@
 
 ## <a name="review-offline"></a>Обзор кода синхронизации мобильных служб
 
-Мобильные службы Azure с автономной синхронизацией позволяет конечным пользователям взаимодействовать с локальной базой данных в случае, когда сеть недоступна. Для использования этих возможностей в приложении необходимо инициализировать `MobileServiceClient.SyncContext` в локальном хранилище. Затем ссылаетесь на таблицу с помощью интерфейса `IMobileServiceSyncTable`. В этом разделе рассматривается связанный код автономной синхронизации в `ToDoActivity.cs`.
+Мобильные службы Azure с автономной синхронизацией позволяет конечным пользователям взаимодействовать с локальной базой данных в случае, когда сеть недоступна. Для использования этих возможностей в приложении необходимо инициализировать `MobileServiceClient.SyncContext` в локальном хранилище. Затем ссылаетесь на таблицу с помощью интерфейса `IMobileServiceSyncTable`.
+В этом разделе рассматривается связанный код автономной синхронизации в `ToDoActivity.cs`.
 
 1. Откройте в Visual Studio или Xamarin Studio проект, созданный в ходе работы с учебником [Приступая к работе с мобильными службами]. Откройте файл `ToDoActivity.cs`.
 
@@ -168,7 +169,7 @@
 [Приступая к работе с мобильными службами]: mobile-services-android-get-started.md
 [Использование клиентского компонента Xamarin для мобильных служб Azure]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [обратимое удаление]: mobile-services-using-soft-delete.md
-
+[Обратимое удаление]: mobile-services-using-soft-delete.md
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 [Xamarin Studio]: http://xamarin.com/download
