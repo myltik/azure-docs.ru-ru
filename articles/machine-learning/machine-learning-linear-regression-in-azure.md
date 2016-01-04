@@ -21,7 +21,9 @@
 
 > *Кейт Барони* (Kate Baroni) и *Бен Боутмен* (Ben Boatman) — архитекторы корпоративных решений в Научно-инновационном центре анализа данных корпорации Майкрософт. В этой статье они описывают свой опыт миграции существующего набора для регрессионного анализа в облачное решение с помощью Машинного обучения Azure.
 
+
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
 
 ## Цель
 
@@ -157,4 +159,4 @@
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->

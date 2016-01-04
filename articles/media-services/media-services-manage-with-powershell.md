@@ -19,10 +19,12 @@
 
 #Управление учетными записями служб мультимедиа Azure с помощью PowerShell
 
+
 > [AZURE.SELECTOR]
 - [Portal](media-services-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
+
 
 > [AZURE.NOTE]Для создания учетной записи служб мультимедиа Azure необходима учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Бесплатная пробная версия Azure</a>.
 

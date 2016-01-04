@@ -413,6 +413,7 @@
 [Установка набора средств Azure для Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Сходство сеанса]: http://go.microsoft.com/fwlink/?LinkID=699548
 [разгрузка SSL]: http://go.microsoft.com/fwlink/?LinkID=699549
+[Разгрузка SSL]: http://go.microsoft.com/fwlink/?LinkID=699549
 
 <!-- IMG List -->
 
