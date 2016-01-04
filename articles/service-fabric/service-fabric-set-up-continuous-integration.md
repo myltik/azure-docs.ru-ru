@@ -39,6 +39,7 @@
 
 1.	Установите Azure PowerShell.
     - Установите PowerShellGet. Для этого установите платформу [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), в состав которой входит PowerShellGet.
+
     >[AZURE.NOTE]Этот шаг можно пропустить, если вы используете Windows 10 с последними обновлениями.
 
 1.	Установите и обновите модуль AzureRM.
@@ -339,4 +340,4 @@
 
 Дополнительные сведения о непрерывной интеграции с приложениями Service Fabric: [Домашняя страница документации по сборке](https://msdn.microsoft.com/Library/vs/alm/Build/overview); [Развертывание агента сборки](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows); [Создание и настройка определения сборки](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
