@@ -35,6 +35,8 @@
 
 > [AZURE.NOTE]В данном учебнике показано, как создать виртуальную машину Azure, управляемую с помощью API группы ресурсов Azure. Дополнительные сведения см. в [обзоре групп ресурсов Azure](resource-group-overview.md).
 
+</br>
+
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## Выбор образа
@@ -136,4 +138,4 @@
 
 - [Расширение виртуальных машин Docker для Linux в Azure](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
