@@ -138,4 +138,4 @@
 - [Создание образа виртуальной машины для Marketplace](marketplace-publishing-vm-image-creation.md)
 - [Настройка Azure PowerShell](marketplace-publishing-powershell-setup.md)
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->
