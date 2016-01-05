@@ -89,7 +89,7 @@ API возвращает определенный язык и численную
 
 **Пример запроса**
 
-В приведенном ниже вызове запрашиваются ключевые фразы в тексте "It was a wonderful hotel to stay at, with unique decor and friendly staff".
+В приведенном ниже вызове запрашиваются ключевые фразы в тексте "Замечательный отель для проживания, с уникальным декором и доброжелательным персоналом.".
 
 	GET https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases?
 	Text=It+was+a+wonderful+hotel+to+stay+at,+with+unique+decor+and+friendly+staff

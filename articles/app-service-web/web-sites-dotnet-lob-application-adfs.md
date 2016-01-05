@@ -105,6 +105,7 @@
 
 	&lt;/appSettings&gt;
 	</pre>
+
 	Заполните значения ключа на базе данных вашей среды.
 
 7.	Постройте приложение, чтобы убедиться в отсутствии ошибок.
@@ -210,6 +211,7 @@
 			param = "",
 			param = c2.Value);
 	</pre>
+
 	Настраиваемое правило должно выглядеть следующим образом:
 
 	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
@@ -263,7 +265,7 @@
 1. Откройте Controllers\HomeController.cs.
 2. Оформите методы действия `About` и `Contact` по примеру, показанному ниже, используя членства в группе безопасности пользователя, прошедшего аутентификацию.  
 	<pre class="prettyprint">
-<mark>[Authorize(Roles="Тестовая группа")]</mark>
+    <mark>[Authorize(Roles="Тестовая группа")]</mark>
     public ActionResult About()
     {
         ViewBag.Message = "Страница описания вашего приложения.";
@@ -271,9 +273,9 @@
         return View();
     }
 
-<mark>[Authorize(Roles="Администраторы домена")]</mark>
-public ActionResult Contact()
-{
+    <mark>[Authorize(Roles="Администраторы домена")]</mark>
+    public ActionResult Contact()
+    {
     ViewBag.Message = "Ваша страница контактов.";
 
         return View();
@@ -354,4 +356,4 @@ public ActionResult Contact()
  
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1217_2015--->

@@ -35,7 +35,7 @@
 Самый простой способ настройки службы ElasticSearch в Azure — с помощью [**шаблонов ARM Azure**](../resource-group-overview.md). Полнофункциональный [шаблон ARM быстрого запуска для ElasticSearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) можно получить из репозитория шаблонов быстрого запуска Azure. Этот шаблон использует отдельные учетные записи хранения для единиц масштабирования (групп узлов) и может подготавливать отдельные узлы клиента и сервера с различными конфигурациями и различным количеством подключенных дисков с данными.
 
 В этой статье мы будем использовать другой шаблон, который называется **ES-MultiNode** от подразделения [Microsoft Patterns & Practices ELK](https://github.com/mspnp/semantic-logging/tree/elk/). Этот шаблон немного проще в использовании. Он создает кластер ElasticSearch, защищенный обычной проверкой подлинности HTTP по умолчанию. Прежде чем продолжать, скачайте [репозиторий «elk» Microsoft P&P](https://github.com/mspnp/semantic-logging/tree/elk/) с сайта GitHub на свой компьютер (путем клонирования репозитория или загрузки ZIP-файла). Шаблон ES-MultiNode находится в одноименной папке.
->[AZURE.NOTE]Сейчас шаблон ES-MultiNode и связанные скрипты поддерживают выпуск ElasticSearch 1.7. Поддержка ElasticSearch 2.0 будет добавлена позже.
+>[AZURE.NOTE] Сейчас шаблон ES-MultiNode и связанные скрипты поддерживают выпуск ElasticSearch 1.7. Поддержка ElasticSearch 2.0 будет добавлена позже.
 
 ### Подготовка компьютера к выполнению скриптов установки ElasticSearch
 Самый простой способ использования шаблона ES-MultiNode — с помощью готового скрипта PowerShell с именем `CreateElasticSearchCluster`. Чтобы использовать этот скрипт, нужно установить модули Azure PowerShell и средство openssl. Последний необходим для создания SSH-ключа, который может использоваться для удаленного администрирования кластера ElasticSearch.
@@ -246,4 +246,4 @@ namespace Stateless1
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

@@ -40,7 +40,7 @@
 1.	Установите Azure PowerShell.
     - Установите PowerShellGet. Для этого установите платформу [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), в состав которой входит PowerShellGet.
 
-    >[AZURE.NOTE] Этот шаг можно пропустить, если вы используете Windows 10 с последними обновлениями.
+    >[AZURE.NOTE]Этот шаг можно пропустить, если вы используете Windows 10 с последними обновлениями.
 
 1.	Установите и обновите модуль AzureRM.
     1.  Если установлена Azure PowerShell предыдущих версий, удалите ее. Щелкните правой кнопкой мыши кнопку «Пуск» и выберите «Установка и удаление программ». Найдите Azure PowerShell и удалите ее.
@@ -138,7 +138,7 @@
     ```
 
 3.	Если еще нет файла NuGet.config, создайте его со следующим содержимым. На компьютере сборки замените `<path to service fabric SDK>` на путь к пакету SDK для Service Fabric.
->[AZURE.NOTE] По умолчанию `<path to service fabric SDK>` — `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
+>[AZURE.NOTE]По умолчанию `<path to service fabric SDK>` — `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
 
     NuGet.config:
 
@@ -193,8 +193,8 @@
 ### Регистрация агента сборки
 
 1.	Скачайте архив agent.zip. Для этого:
-    1.	Перейдите к командному проекту, например ****https://[your-VSTS-account-name].visualstudio.com**.
-1.	Щелкните значок шестеренки в правом верхнем углу экрана.
+    1.	Перейдите к командному проекту, например **https://[your-VSTS-account-name].visualstudio.com**.
+	1.	Щелкните значок шестеренки в правом верхнем углу экрана.
     1.	На панели управления выберите вкладку **Пулы агентов**.
     1.	Выберите **Скачать агент**, чтобы скачать архив agent.zip.
     1.	Скопируйте архив agent.zip на созданный компьютер сборки.
@@ -340,4 +340,4 @@
 
 Дополнительные сведения о непрерывной интеграции с приложениями Service Fabric: [Домашняя страница документации по сборке](https://msdn.microsoft.com/Library/vs/alm/Build/overview); [Развертывание агента сборки](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows); [Создание и настройка определения сборки](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build).
 
-<!-----HONumber=AcomDC_1217_2015-->
+<!------HONumber=AcomDC_1217_2015-->
