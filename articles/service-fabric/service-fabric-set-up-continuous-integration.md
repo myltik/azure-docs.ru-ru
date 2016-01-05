@@ -40,7 +40,7 @@
 1.	Установите Azure PowerShell.
     - Установите PowerShellGet. Для этого установите платформу [Windows Management Framework 5.0](http://www.microsoft.com/download/details.aspx?id=48729), в состав которой входит PowerShellGet.
 
-    >[AZURE.NOTE]Этот шаг можно пропустить, если вы используете Windows 10 с последними обновлениями.
+    >[AZURE.NOTE] Этот шаг можно пропустить, если вы используете Windows 10 с последними обновлениями.
 
 1.	Установите и обновите модуль AzureRM.
     1.  Если установлена Azure PowerShell предыдущих версий, удалите ее. Щелкните правой кнопкой мыши кнопку «Пуск» и выберите «Установка и удаление программ». Найдите Azure PowerShell и удалите ее.
@@ -138,7 +138,7 @@
     ```
 
 3.	Если еще нет файла NuGet.config, создайте его со следующим содержимым. На компьютере сборки замените `<path to service fabric SDK>` на путь к пакету SDK для Service Fabric.
->[AZURE.NOTE]По умолчанию `<path to service fabric SDK>` — `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
+>[AZURE.NOTE] По умолчанию `<path to service fabric SDK>` — `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
 
     NuGet.config:
 

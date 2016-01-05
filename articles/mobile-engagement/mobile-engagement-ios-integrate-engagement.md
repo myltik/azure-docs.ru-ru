@@ -43,7 +43,7 @@
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
-> [AZURE.NOTE]Среду AdSupport можно удалить. Службе Engagement необходима эта среда для сбора IDFA. Однако сбор IDFA можно отключить (<ios-sdk-engagement-idfa>), чтобы обеспечить соответствие новой политике Apple в отношении этого идентификатора.
+> [AZURE.NOTE] Среду AdSupport можно удалить. Службе Engagement необходима эта среда для сбора IDFA. Однако сбор IDFA можно отключить (\<ios-sdk-engagement-idfa\>), чтобы обеспечить соответствие новой политике Apple в отношении этого идентификатора.
 
 ##Запуск пакета SDK для Engagement
 
