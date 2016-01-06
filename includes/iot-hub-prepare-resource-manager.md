@@ -26,9 +26,9 @@ Install-Module Azure
 3. Воспользуйтесь следующей командой для создания нового приложения Azure Active Directory, заменив в ней заполнители:
 
     - **{Display name}:** отображаемое имя вашего приложения, например **MySampleApp**.
-    - **{Home page URL}:** URL-адрес домашней страницы вашего приложения, например ****http://mysampleapp/home**. Этот URL-адрес необязательно должен указывать на реальное приложение.
-- **{Application identifier}:** уникальный идентификатор, например ****http://mysampleapp**. Этот URL-адрес необязательно должен указывать на реальное приложение.
-- **{Password}:** пароль, который будет использоваться для проверки подлинности в вашем приложении.
+    - **{Home page URL}:** URL-адрес домашней страницы вашего приложения, например **http://mysampleapp/home**. Этот URL-адрес необязательно должен указывать на реальное приложение.
+    - **{Application identifier}:** уникальный идентификатор, например **http://mysampleapp**. Этот URL-адрес необязательно должен указывать на реальное приложение.
+    - **{Password}:** пароль, который будет использоваться для проверки подлинности в вашем приложении.
 
     ```
     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} IdentifierUris {Application identifier} -Password {Password}
@@ -58,4 +58,4 @@ Install-Module Azure
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 [lnk-powershell-install]: https://azure.microsoft.com/ru-RU/blog/azps-1-0-pre/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

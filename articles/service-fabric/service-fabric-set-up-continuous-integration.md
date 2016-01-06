@@ -138,7 +138,9 @@
     ```
 
 3.	Если еще нет файла NuGet.config, создайте его со следующим содержимым. На компьютере сборки замените `<path to service fabric SDK>` на путь к пакету SDK для Service Fabric.
+
 >[AZURE.NOTE]По умолчанию `<path to service fabric SDK>` — `%ProgramFiles%\Microsoft SDKs\Service Fabric`.
+
 
     NuGet.config:
 
@@ -340,4 +342,4 @@
 
 Дополнительные сведения о непрерывной интеграции с приложениями Service Fabric: [Домашняя страница документации по сборке](https://msdn.microsoft.com/Library/vs/alm/Build/overview); [Развертывание агента сборки](https://msdn.microsoft.com/Library/vs/alm/Build/agents/windows); [Создание и настройка определения сборки](https://msdn.microsoft.com/Library/vs/alm/Build/vs/define-build).
 
-<!------HONumber=AcomDC_1217_2015-->
+<!-------HONumber=AcomDC_1217_2015-->
