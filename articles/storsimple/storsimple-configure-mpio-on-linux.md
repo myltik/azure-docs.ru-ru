@@ -466,7 +466,24 @@
 |Тип|Команда|Описание|
 |---|---|---|
 |**iSCSI**|`service iscsid start`|Запуск службы iSCSI|
-||`service iscsid stop`|Остановка службы iSCSI| ||`service iscsid restart`|Перезапуск службы iSCSI| ||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|Обнаружение доступных целевых объектов по указанному адресу| ||`iscsiadm -m node --login -T <TARGET_IQN>`|Вход в целевой объект iSCSI| ||`iscsiadm -m node --logout -p <Target_IP>`|Выход из целевого объекта iSCSI| ||`cat /etc/iscsi/initiatorname.iscsi`|Печать имени инициатора iSCSI| ||`iscsiadm –m session –s <sessionid> -P 3`|Проверка состояния сеанса iSCSI и обнаруженного на узле тома| ||`iscsi –m session`|Отображение всех сеансов iSCSI между узлом и устройством StorSimple| | | | | |**Поддержка нескольких каналов**|`service multipathd start`|Запуск управляющей программы многоканального ввода-вывода| ||`service multipathd stop`|Остановка управляющей программы многоканального ввода-вывода| ||`service multipathd restart`|Перезапуск управляющей программы многоканального ввода-вывода| ||`chkconfig multipathd on` </br> ИЛИ </br> `mpathconf –with_chkconfig y`|Настройка запуска управляющей программы многоканального ввода-вывода во время загрузки системы| ||`multipathd –k`|Запуск интерактивной консоли для устранения неполадок| ||`multipath –l`|Вывод списка многоканальных подключений и устройств| ||`mpathconf --enable`|Создание примера файла mulitpath.conf в расположении `/etc/mulitpath.conf`| ||||
+||`service iscsid stop`|Остановка службы iSCSI|
+||`service iscsid restart`|Перезапуск службы iSCSI|
+||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|Обнаружение доступных целевых объектов по указанному адресу|
+
+||`iscsiadm -m node --login -T <TARGET_IQN>`|Вход в целевой объект iSCSI|
+||`iscsiadm -m node --logout -p <Target_IP>`|Выход из целевого объекта iSCSI|
+||`cat /etc/iscsi/initiatorname.iscsi`|Печать имени инициатора iSCSI|
+||`iscsiadm –m session –s <sessionid> -P 3`|Проверка состояния сеанса iSCSI и обнаруженного на узле тома|
+||`iscsi –m session`|Отображение всех сеансов iSCSI между узлом и устройством StorSimple|
+| | | |
+|**Поддержка нескольких каналов**|`service multipathd start`|Запуск управляющей программы многоканального ввода-вывода|
+||`service multipathd stop`|Остановка управляющей программы многоканального ввода-вывода|
+||`service multipathd restart`|Перезапуск управляющей программы многоканального ввода-вывода|
+||`chkconfig multipathd on` </br> ИЛИ </br> `mpathconf –with_chkconfig y`|Настройка запуска управляющей программы многоканального ввода-вывода во время загрузки системы|
+||`multipathd –k`|Запуск интерактивной консоли для устранения неполадок|
+||`multipath –l`|Вывод списка многоканальных подключений и устройств|
+||`mpathconf --enable`|Создание примера файла mulitpath.conf в расположении `/etc/mulitpath.conf`|
+||||
 
 ## Дальнейшие действия
 
@@ -475,4 +492,4 @@
 - [Настройка MPIO на CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Учебное руководство Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
