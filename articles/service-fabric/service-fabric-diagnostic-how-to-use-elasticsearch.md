@@ -37,7 +37,8 @@
 Самый простой способ настройки службы ElasticSearch в Azure — с помощью [**шаблонов ARM Azure**](../resource-group-overview.md). Полнофункциональный [шаблон ARM быстрого запуска для ElasticSearch](https://github.com/Azure/azure-quickstart-templates/tree/master/elasticsearch) можно получить из репозитория шаблонов быстрого запуска Azure. Этот шаблон использует отдельные учетные записи хранения для единиц масштабирования (групп узлов) и может подготавливать отдельные узлы клиента и сервера с различными конфигурациями и различным количеством подключенных дисков с данными.
 
 В этой статье мы будем использовать другой шаблон, который называется **ES-MultiNode** от подразделения [Microsoft Patterns & Practices ELK](https://github.com/mspnp/semantic-logging/tree/elk/). Этот шаблон немного проще в использовании. Он создает кластер ElasticSearch, защищенный обычной проверкой подлинности HTTP по умолчанию. Прежде чем продолжать, скачайте [репозиторий «elk» Microsoft P&P](https://github.com/mspnp/semantic-logging/tree/elk/) с сайта GitHub на свой компьютер (путем клонирования репозитория или загрузки ZIP-файла). Шаблон ES-MultiNode находится в одноименной папке.  
->[AZURE.NOTE] Сейчас шаблон ES-MultiNode и связанные скрипты поддерживают выпуск ElasticSearch 1.7. Поддержка ElasticSearch 2.0 будет добавлена позже.
+
+>[AZURE.NOTE] Сейчас шаблон ES-MultiNode и связанные скрипты поддерживают выпуск ElasticSearch 1.7. Поддержка ElasticSearch 2.0 будет добавлена позже.  
 
 ### Подготовка компьютера к выполнению скриптов установки ElasticSearch
 Самый простой способ использования шаблона ES-MultiNode — с помощью готового скрипта PowerShell с именем `CreateElasticSearchCluster`. Чтобы использовать этот скрипт, нужно установить модули Azure PowerShell и средство openssl. Последний необходим для создания SSH-ключа, который может использоваться для удаленного администрирования кластера ElasticSearch.
@@ -45,7 +46,8 @@
 Примечание. Скрипт `CreateElasticSearchCluster` предназначен для удобства использования шаблона ES-MultiNode на компьютере Windows. Шаблон можно использовать на компьютерах под управлением других ОС (не Windows), но в этой статье подобные случаи не рассматриваются.
 
 1. Установите [**модули Azure PowerSell**](http://go.microsoft.com/fwlink/p/?linkid=320376) (если они еще не установлены). При появлении запроса щелкните «Запуск», а затем — «Установить».  
->[AZURE.NOTE]В выпуске Azure PowerShell 1.0 готовятся значительные изменения. Скрипт CreateElasticSearchCluster работает только с Azure PowerShell 0.9.8 и не поддерживает предварительную версию Azure PowerShell 1.0. Скрипт, совместимый с Azure PowerShell 1.0, выйдет позже.
+
+>[AZURE.NOTE] В выпуске Azure PowerShell 1.0 готовятся значительные изменения. Скрипт CreateElasticSearchCluster работает только с Azure PowerShell 0.9.8 и не поддерживает предварительную версию Azure PowerShell 1.0. Скрипт, совместимый с Azure PowerShell 1.0, выйдет позже.  
 
 2. Средство **openssl** входит в дистрибутив [**Git для Windows**](http://www.git-scm.com/downloads). Установите [Git для Windows](http://www.git-scm.com/downloads) (параметры установки по умолчанию изменять не нужно), если вы этого еще не сделали.
 
@@ -80,7 +82,7 @@
 CreateElasticSearchCluster -ResourceGroupName <es-group-name>
 ```, где `<es-group-name>` — имя группы ресурсов Azure, в которую будут входить все ресурсы кластера.
 
->[AZURE.NOTE]Если отображается исключение NullReferenceException от командлета Test-AzureResourceGroup, вы не выполнили вход в Azure (`Add-AzureAccount`).
+>[AZURE.NOTE] Если отображается исключение NullReferenceException от командлета Test-AzureResourceGroup, вы не выполнили вход в Azure (`Add-AzureAccount`).
 
 Если возникла ошибка выполнения скрипта и вы определили, что она вызвана неправильным значением параметра шаблона, исправьте файл параметров и снова запустите скрипт с другим именем группы ресурсов. Также можно повторно использовать то же имя группы ресурсов и очистить старое с помощью скрипта. Для этого следует добавить параметр `-RemoveExistingResourceGroup` к вызову скрипта.
 
@@ -248,4 +250,4 @@ namespace Stateless1
 [1]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/listener-lib-references.png
 [2]: ./media/service-fabric-diagnostics-how-to-use-elasticsearch/kibana.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->
