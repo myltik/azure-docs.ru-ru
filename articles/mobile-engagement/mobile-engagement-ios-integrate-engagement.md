@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr"/>
+	ms.author="MehrdadMzfr" />
 
 #Интеграция службы Engagement в iOS
 
@@ -37,13 +37,12 @@
 
 Служба Engagement требует дополнительные среды для работы: в обозревателе проектов откройте панель проекта и выберите правильную цель. Затем откройте вкладку **Этапы сборки** и в меню **Связать двоичные объекты с библиотеками** добавьте следующие инфраструктуры:
 
-> -   `AdSupport.framework`: задайте для связи значение `Optional`
+> -   `AdSupport.framework` : задайте для связи значение `Optional`
 > -   `SystemConfiguration.framework`
 > -   `CoreTelephony.framework`
 > -   `CFNetwork.framework`
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
-
 
 > [AZURE.NOTE] Среду AdSupport можно удалить. Службе Engagement необходима эта среда для сбора IDFA. Однако сбор IDFA можно отключить (\<ios-sdk-engagement-idfa\>), чтобы обеспечить соответствие новой политике Apple в отношении этого идентификатора.
 
