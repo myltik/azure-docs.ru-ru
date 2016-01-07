@@ -132,7 +132,7 @@ HDInsight работает со множеством компонентов Hado
 	
 	- **Имя узла**: имя кластера.
 	- **URL-адрес кластера**.
-	- **Состояние**: возможны варианты "Прервано", "Принято", "Хранилище кластера подготовлено", "Конфигурация виртуальной машины Azure", "Конфигурация HDInsight", "Оперативный", "Выполняется", "Ошибка", "Удаление", "Удалено", "Время ожидания истекло", "Удаление добавлено в очередь", "Истекло время ожидания удаления", "Ошибка удаления", "Исправление добавлено в очередь", "Смена сертификатов в очереди", "Изменение размера поставлено в очередь" и "Настройка кластера".
+	- **Состояние**: возможны варианты Aborted, Accepted, ClusterStorageProvisioned, AzureVMConfiguration, HDInsightConfiguration, Operational, Running, Error, Deleting, Deleted, Timedout, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization.
 	- **Регион**: расположение Azure. Поддерживаемые расположения Azure перечислены в раскрывающемся списке **Регион** на странице [Цены — HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 	- **Дата создания**.
 	- **Операционная система**: **Windows** или **Linux**.
@@ -400,4 +400,4 @@ HDInsight работает со множеством компонентов Hado
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Командная строка Hadoop"
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->

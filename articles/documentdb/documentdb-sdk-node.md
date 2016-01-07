@@ -26,7 +26,14 @@
 
 ##Пакет SDK для Node.js DocumentDB
 
-<table> <tr><td>**Загрузка**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr> <tr><td>**Участие**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr> <tr><td>**Документация**</td><td>[Справочная документация по пакету SDK для Node.js](http://azure.github.io/azure-documentdb-node/)</td></tr> <tr><td>**Примеры**</td><td>[Примеры кода Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr> <tr><td>**Начало работы**</td><td>[Начало работы с пакетом SDK для Node.js](documentdb-nodejs-get-started.md)</td></tr> <tr><td>**Поддерживаемая платформа**</td><td>[Node.js версии 0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js версии 0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js версии 4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr> </table></br>
+<table>
+<tr><td>**Загрузка**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
+<tr><td>**Участие**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
+<tr><td>**Документация**</td><td>[Справочная документация по пакету SDK для Node.js](http://azure.github.io/azure-documentdb-node/)</td></tr>
+<tr><td>**Примеры**</td><td>[Примеры кода Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples)</td></tr>
+<tr><td>**Начало работы**</td><td>[Начало работы с пакетом SDK для Node.js](documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**Поддерживаемая платформа**</td><td>[Node.js версии 0.10](https://nodejs.org/en/blog/release/v0.10.0/)<br/>[Node.js версии 0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/>[Node.js версии 4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)</td></tr>
+</table></br>
 
 ## Заметки о выпуске
 
@@ -114,4 +121,4 @@
 
 Дополнительные сведения о DocumentDB см. на странице документации по [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!----HONumber=AcomDC_1203_2015-->
+<!-----HONumber=AcomDC_1203_2015-->

@@ -26,7 +26,13 @@
 
 ##Пакет SDK Java для DocumentDB
 
-<table> <tr><td>**Загрузить**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr> <tr><td>**Добавить**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr> <tr><td>**Документация**</td><td>[Справочная документация по пакету SDK для Java](http://azure.github.io/azure-documentdb-java/)</td></tr> <tr><td>**Приступая к работе**</td><td>[Приступая к работе с пакетом SDK для Java](documentdb-java-application.md)</td></tr> <tr><td>**Текущая поддерживаемая среда выполнения**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr> </table></br>
+<table>
+<tr><td>**Загрузить**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
+<tr><td>**Добавить**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
+<tr><td>**Документация**</td><td>[Справочная документация по пакету SDK для Java](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**Приступая к работе**</td><td>[Приступая к работе с пакетом SDK для Java](documentdb-java-application.md)</td></tr>
+<tr><td>**Текущая поддерживаемая среда выполнения**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+</table></br>
 
 ## Заметки о выпуске
 
@@ -85,4 +91,4 @@
 
 Дополнительные сведения о DocumentDB см. на странице документации по [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!----HONumber=AcomDC_1210_2015-->
