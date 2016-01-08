@@ -309,7 +309,7 @@
 
 ## Подробнее
 
-- [Масштабирование приложений Windows Azure с использованием рабочих ролей](http://msdn.microsoft.com/library/hh534484.aspx#sec8)
+- [Масштабирование приложений Microsoft Azure с использованием рабочих ролей](http://msdn.microsoft.com/library/hh534484.aspx#sec8)
 - [Выполнение фоновых задач](http://msdn.microsoft.com/library/ff803365.aspx)
 - [Жизненный цикл запуска роли Azure](http://blog.syntaxc4.net/post/2011/04/13/windows-azure-role-startup-life-cycle.aspx) (запись блога)
 - [Жизненный цикл роли облачных служб Azure](http://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Windows-Azure-Cloud-Services-Role-Lifecycle) (видео)
