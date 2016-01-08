@@ -166,8 +166,8 @@
 
 	| Путь к элементу реестра | Ключ реестра | Значение |
 	| ------ | ------- | ------ |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | <i>Новое расположение папки кэша</i> |
-	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Новое расположение папки кэша</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config` | ScratchLocation | <i>Новое расположение папки кэша</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>Новое расположение папки кэша</i> |
 
 
 + Запустите OBEngine, выполнив приведенную далее команду в командной строке с повышенными привилегиями:

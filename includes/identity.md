@@ -60,7 +60,7 @@
 - — Организации, использующие Windows Server Active Directory, могут подключить свой локальный каталог к Azure Active Directory и использовать эту службу для предоставления своим пользователям единого входа в приложения SaaS.
 
 
-[На рис. 2](#fig2) показан первый из этих вариантов, в котором Windows Azure Active Directory обеспечивает все необходимые возможности.
+[На рис. 2](#fig2) показан первый из этих вариантов, в котором Microsoft Azure Active Directory обеспечивает все необходимые возможности.
 
 ![Azure Active Directory на виртуальной машине](./media/identity/identity_02_AD.png)
 

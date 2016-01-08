@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Установка леса Active Directory в виртуальной сети Azure | Microsoft Azure" 
-	description="В этом учебнике объясняется, как создать новый лес Active Directory на виртуальной машине (ВМ) в виртуальной сети Windows Azure." 
+	description="В этом учебнике объясняется, как создать новый лес Active Directory на виртуальной машине (ВМ) в виртуальной сети Microsoft Azure." 
 	services="active-directory, virtual-network" 
 	documentationCenter="" 
 	authors="markusvi" 
