@@ -469,7 +469,6 @@
 ||`service iscsid stop`|Остановка службы iSCSI|
 ||`service iscsid restart`|Перезапуск службы iSCSI|
 ||`iscsiadm -m discovery -t sendtargets -p <TARGET_IP>`|Обнаружение доступных целевых объектов по указанному адресу|
-
 ||`iscsiadm -m node --login -T <TARGET_IQN>`|Вход в целевой объект iSCSI|
 ||`iscsiadm -m node --logout -p <Target_IP>`|Выход из целевого объекта iSCSI|
 ||`cat /etc/iscsi/initiatorname.iscsi`|Печать имени инициатора iSCSI|
@@ -492,4 +491,4 @@
 - [Настройка MPIO на CentOS](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 - [Учебное руководство Linux](http://linux-training.be/files/books/LinuxAdm.pdf)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1203_2015-->
