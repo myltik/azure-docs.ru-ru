@@ -43,7 +43,7 @@
 
 Это даст нам пустую службу без отслеживания состояния, в которой будет размещено приложение веб-API. Мы настроим приложение с нуля, чтобы увидеть, как все компоненты согласуются между собой.
 
-На первом шаге потребуется задействовать некоторые пакеты NuGet для веб-API. Нужный нам пакет — **Microsoft.AspNet.WebApi.OwinSelfHost**. Данный пакет содержит все необходимые пакеты веб-API и пакеты *хоста* — это будет важно в дальнейшем.
+На первом шаге потребуется задействовать некоторые пакеты NuGet для веб-API. Нужный нам пакет — **Microsoft.AspNet.WebApi.OwinSelfHost**. Данный пакет содержит все необходимые пакеты веб-API и пакеты *хоста*— это будет важно в дальнейшем.
 
 ![](media/service-fabric-reliable-services-communication-webapi/webapi-nuget.png)
 
@@ -539,7 +539,7 @@ namespace WebApiService
 Если это еще не сделано, [настройте среду разработки](service-fabric-get-started.md).
 
 
-Теперь можно построить и развернуть службу. Нажмите клавишу **F5** в Visual Studio, чтобы выполнить построение и развертывание приложения. В окне «События диагностики» вы увидите сообщение, указывающее, что веб-сервер открыт на ****http://localhost:80/webapp/api**.
+Теперь можно построить и развернуть службу. Нажмите клавишу **F5** в Visual Studio, чтобы выполнить построение и развертывание приложения. В окне «События диагностики» вы увидите сообщение, указывающее, что веб-сервер открыт на **http://localhost:80/webapp/api**.
 
 
 ![](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
@@ -583,4 +583,4 @@ New-ServiceFabricService -ApplicationName "fabric:/WebServiceApplication" -Servi
 
 [Отладка приложения Service Fabric в Visual Studio](service-fabric-debugging-your-application.md)
 
-<!---HONumber=Nov15_HO4-->
+<!----HONumber=Nov15_HO4-->

@@ -63,7 +63,7 @@
 
 Для задач по созданию ресурсов необходима группа ресурсов (если она еще не создана).
 
-В следующей команде замените *resource group name* именем новой группы ресурсов, а *Azure location* — расположением центра обработки данных Azure, в котором необходимо разместить ресурс. Затем выполните эту команду.
+В следующей команде замените *resource group name* именем новой группы ресурсов, а *Azure location* — расположением центра обработки данных Azure, в котором необходимо разместить ресурс. Затем выполните эту команду.
 
 	New-AzureRmResourceGroup -Name "resource group name" -Location "Azure location"
 
@@ -378,4 +378,4 @@
 
 [Документация по виртуальным машинам](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

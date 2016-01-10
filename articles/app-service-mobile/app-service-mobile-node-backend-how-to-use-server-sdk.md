@@ -430,10 +430,10 @@ Microsoft Azure предоставляет множество механизмо
 
 Свойство доступа может относиться не только к таблице в целом, но и к отдельным операциям. Существует четыре операции:
 
-  - *read* — REST-запрос GET для таблицы;
-  - *insert* — REST-запрос POST для таблицы;
-  - *update* — REST-запрос PATCH для таблицы;
-  - *delete* — REST-запрос DELETE для таблицы.
+  - *read*— REST-запрос GET для таблицы;
+  - *insert*— REST-запрос POST для таблицы;
+  - *update*— REST-запрос PATCH для таблицы;
+  - *delete*— REST-запрос DELETE для таблицы.
 
 Например, вы хотите создать таблицу с доступом только для чтения без проверки подлинности. Для этого можно использовать следующее определение таблицы:
 
@@ -725,4 +725,4 @@ Microsoft Azure предоставляет множество механизмо
 [промежуточного слоя ExpressJS]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
 
-<!---HONumber=AcomDC_1217_2015-->
+<!----HONumber=AcomDC_1217_2015-->

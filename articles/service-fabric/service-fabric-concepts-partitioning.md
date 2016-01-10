@@ -284,7 +284,8 @@ Service Fabric упрощает процесс разработки масшта
     Давайте разберемся в процессе, шаг за шагом. Код считывает первую букву из параметра строки запроса в `lastname` в тип char. Затем он определяет ключ раздела для этой буквы, вычитая шестнадцатеричное значение `A` из шестнадцатеричного значения первой буквы фамилии.
 
     ```CSharp
-    string lastname = context.Request.QueryString["lastname"]; char firstLetterOfLastName = lastname.First(); int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A'; ```
+    string lastname = context.Request.QueryString["lastname"]; char firstLetterOfLastName = lastname.First(); int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+    ```
 
     Помните, что в этом примере мы используем 26 разделов с одним ключом для каждого раздела. Далее мы получим раздел службы `partition` для этого ключа с помощью метода `ResolveAsync` в объекте `servicePartitionResolver`. `servicePartitionResolver` определяется так:
 
@@ -336,4 +337,4 @@ Service Fabric упрощает процесс разработки масшта
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!----HONumber=AcomDC_1125_2015-->
+<!-----HONumber=AcomDC_1125_2015-->
