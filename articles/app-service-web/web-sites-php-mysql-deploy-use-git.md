@@ -213,7 +213,7 @@
 
 		php -S localhost:8000
 
-Теперь можно перейти к ****http://localhost:8000/** для тестирования приложения.
+Теперь можно перейти к **http://localhost:8000/** для тестирования приложения.
 
 
 ##Публикация приложения
@@ -302,4 +302,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!----HONumber=AcomDC_1203_2015-->
