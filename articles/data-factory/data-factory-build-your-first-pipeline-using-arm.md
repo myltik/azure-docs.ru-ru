@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Построение конвейера фабрики данных Azure с помощью Azure PowerShell"
-	description="В этом учебнике вы создадите образец конвейера фабрики данных Azure с помощью Azure PowerShell."
+	pageTitle="Начало работы с фабрикой данных Azure (с помощью шаблона диспетчера ресурсов Azure)"
+	description="Работая с этим руководством, вы создадите образец конвейера фабрики данных Azure с помощью шаблона диспетчера ресурсов Azure."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -25,27 +25,31 @@
 - [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 
-В этой статье описано, как создать конвейер с помощью шаблонов диспетчера ресурсов Azure. В учебнике рассматриваются следующие действия:
+В этой статье вы найдете информацию о том, как создать свою первую фабрику данных Azure с помощью шаблона диспетчера ресурсов Azure (ARM).
 
-1.	Создание фабрики данных.
-2.	Создание связанных служб (хранилищ данных и служб вычислений) и наборов данных.
-3.	Создание конвейера.
-
- 
 
 ## Предварительные требования
 Помимо необходимых компонентов, перечисленных в разделе "Обзор учебника", необходимо установить на компьютер Azure PowerShell.
 
-- **Установка Azure PowerShell**. Чтобы установить последнюю версию Azure PowerShell на локальном компьютере, следуйте указаниям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
-- Здесь не приводятся общие сведения о службе фабрики данных Azure. Подробный обзор службы см. в статье [Введение в фабрику данных Azure](data-factory-introduction.md). 
+- Прежде чем продолжать, **обязательно** прочтите [обзорную статью](data-factory-build-your-first-pipeline.md) по этой теме и выполните предварительные условия. 
+- **Установите Azure PowerShell**. Чтобы установить последнюю версию Azure PowerShell на локальном компьютере, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+- Здесь не приводятся общие сведения о службе фабрики данных Azure. Подробный обзор службы см. в статье [Введение в службу фабрики данных Azure](data-factory-introduction.md). 
 - Сведения о создании шаблонов диспетчера ресурсов см. в статье [Создание шаблонов диспетчера ресурсов Azure](../resource-group-authoring-templates.md). 
  
 
 ## Шаг 1. Создание шаблона диспетчера ресурсов Azure
 
-Создайте файл JSON с именем **ADFTutorialARM.json** в папке **C:\\ADFGetStarted** со следующим содержимым:
+Создайте в папке **C:\\ADFGetStarted** файл JSON с именем **ADFTutorialARM.json** со следующим содержимым:
 
 > [AZURE.IMPORTANT]Измените значения переменных **storageAccountName** и **storageAccountKey**. Измените значение переменной **dataFactoryName**, так как имя должно быть уникальным.
+
+Этот шаблон позволяет создавать следующие сущности фабрики данных:
+
+1. **Фабрика данных** с именем **TutorialDataFactoryARM**. Фабрика данных может иметь один или несколько конвейеров. Конвейер может содержать одно или несколько действий. Это может быть, например, действие копирования, копирующее данные из исходного хранилища данных в конечное, и действие HDInsight Hive для выполнения скрипта Hive, преобразующего входные данные в выходные данные продукта. 
+2. Две **связанные службы**: **StorageLinkedService** и **HDInsightOnDemandLinkedService**. Эти связанные службы связывают учетную запись хранения Azure и кластер Azure HDInsight по запросу с фабрикой данных. В этом примере учетная запись хранения Azure содержит входные и выходные данные для конвейера. Для выполнения скрипта Hive, указанного в действии конвейера, в этом примере используется связанная служба HDInsight. Необходимо определить, какие данные хранилища и службы вычислений используются в сценарии, и связать эти службы с фабрикой данных путем создания связанных служб. 
+3. Два **набора данных** (входной и выходной): **AzureBlobInput** и **AzureBlobOutput**. Эти наборы данных представляют входные и выходные данные для обработки Hive. Эти наборы данных ссылаются на службу **StorageLinkedService**, созданную ранее в ходе работы с этим руководством. Точки связанной службы указывают на учетную запись хранения Azure, а наборы данных указывают контейнер, папку и имя файла в хранилище, в котором содержатся входные и выходные данные.   
+
+Щелкните вкладку **С помощью редактора фабрики данных**, чтобы перейти к статье с подробными сведениями о свойствах JSON, используемых в этом шаблоне.
 
 	{
 	    "contentVersion": "1.0.0.0",
@@ -59,6 +63,7 @@
 	        "apiVersion": "2015-10-01",
 	        "storageLinkedServiceName": "StorageLinkedService",
 	        "hdInsightOnDemandLinkedServiceName": "HDInsightOnDemandLinkedService",
+	        "blobInputDataset": "AzureBlobInput",
 	        "blobOutputDataset": "AzureBlobOutput",
 	        "singleQuote": "'"
 	    },
@@ -105,70 +110,108 @@
 	                        "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'), '/linkedServices/', variables('storageLinkedServiceName'))]"
 	                    ],
 	                    "type": "datasets",
+	                    "name": "[variables('blobInputDataset')]",
+	                    "apiVersion": "[variables('apiVersion')]",
+						    "properties": {
+						        "type": "AzureBlob",
+						        "linkedServiceName": "StoraegLinkedService",
+						        "typeProperties": {
+						            "fileName": "input.log",
+						            "folderPath": "adfgetstarted/inputdata",
+						            "format": {
+						                "type": "TextFormat",
+						                "columnDelimiter": ","
+						            }
+						        },
+						        "availability": {
+						            "frequency": "Month",
+						            "interval": 1
+						        },
+						        "external": true,
+						        "policy": {}
+						    }
+	                    },
+	                {
+	                    "dependsOn": [
+	                        "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]",
+	                        "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'), '/linkedServices/', variables('storageLinkedServiceName'))]"
+	                    ],
+	                    "type": "datasets",
 	                    "name": "[variables('blobOutputDataset')]",
 	                    "apiVersion": "[variables('apiVersion')]",
-	                      "properties": {
-	                        "type": "AzureBlob",
-	                        "linkedServiceName": "StorageLinkedService",
-	                        "typeProperties": {
-	                          "folderPath": "data/partitioneddata",
-	                          "format": {
-	                            "type": "TextFormat",
-	                            "columnDelimiter": ","
-	                          }
-	                        },
-	                        "availability": {
-	                          "frequency": "Month",
-	                          "interval": 1
-	                        }
-	                      }
+						    "properties": {
+						        "published": false,
+						        "type": "AzureBlob",
+						        "linkedServiceName": "StorageLinkedService",
+						        "typeProperties": {
+						            "folderPath": "adfgetstarted/partitioneddata",
+						            "format": {
+						                "type": "TextFormat",
+						                "columnDelimiter": ","
+						            }
+						        },
+						        "availability": {
+						            "frequency": "Month",
+						            "interval": 1
+						        }
+						    }
 	                    },
 	                    {
 	                        "dependsOn": [
 	                            "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'))]",
 	                            "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'), '/linkedServices/', variables('storageLinkedServiceName'))]",
 	                            "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'), '/linkedServices/', variables('hdInsightOnDemandLinkedServiceName'))]",
+	                            "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'), '/datasets/', variables('blobInputDataset'))]",
 	                            "[concat('Microsoft.DataFactory/dataFactories/', variables('dataFactoryName'), '/datasets/', variables('blobOutputDataset'))]"
 	                        ],
 	                        "type": "datapipelines",
 	                        "name": "[variables('dataFactoryName')]",
 	                        "apiVersion": "[variables('apiVersion')]",
-	                        "properties": {
-	                            "description": "My first Azure Data Factory pipeline using ARM",
-	                            "activities": [
-	                              {
-	                                "type": "HDInsightHive",
-	                                "typeProperties": {
-	                                  "scriptPath": "script/partitionweblogs.hql",
-	                                  "scriptLinkedService": "StorageLinkedService",
-	                                  "defines": {
-                                        "partitionedtable": "[concat('wasb://data@', variables('storageAccountName'), '.blob.core.windows.net/partitioneddata')]"	                                  }
-	                                },
-	                                "outputs": [
-	                                  {
-	                                    "name": "[variables('blobOutputDataset')]"
-	                                  }
-	                                ],
-	                                "scheduler": {
-	                                    "frequency": "Month",
-	                                    "interval": 1
-	                                },
-	                                "policy": {
-	                                  "concurrency": 1,
-	                                  "retry": 3
-	                                },
-	                                "name": "RunSampleHiveActivity",
-	                                "linkedServiceName": "HDInsightOnDemandLinkedService"
-	                              }
-	                            ],
-	                            "start": "2014-01-01",
-	                            "end": "2014-01-02"
-	                        }
+						    "properties": {
+						        "description": "My first Azure Data Factory pipeline",
+						        "activities": [
+						            {
+						                "type": "HDInsightHive",
+						                "typeProperties": {
+						                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+						                    "scriptLinkedService": "StorageLinkedService",
+						                    "defines": {
+		                        				"inputtable": "[concat('wasb://adfgetstarted@', variables('storageAccountName'), '.blob.core.windows.net/inputdata')]",
+		                        				"partitionedtable": "[concat('wasb://adfgetstarted@', variables('storageAccountName'), '.blob.core.windows.net/partitioneddata')]"
+						                    }
+						                },
+						                "inputs": [
+						                    {
+						                        "name": "AzureBlobInput"
+						                    }
+						                ],
+						                "outputs": [
+						                    {
+						                        "name": "AzureBlobOutput"
+						                    }
+						                ],
+						                "policy": {
+						                    "concurrency": 1,
+						                    "retry": 3
+						                },
+						                "scheduler": {
+						                    "frequency": "Month",
+						                    "interval": 1
+						                },
+						                "name": "RunSampleHiveActivity",
+						                "linkedServiceName": "HDInsightOnDemandLinkedService"
+						            }
+						        ],
+						        "start": "2014-02-01T00:00:00Z",
+						        "end": "2014-02-02T00:00:00Z",
+						        "isPaused": false
+						    }
 	                    }
 	            ]
 	        }
 	    ]
 	}
+
 
 
 ## Шаг 2: Развертывание сущностей фабрики данных с помощью шаблона диспетчера ресурсов Azure
@@ -185,17 +228,17 @@
  
 1.	Войдя на [портал Azure](http://portal.azure.com/), щелкните **Обзор** и выберите **Фабрики данных**. ![Просмотреть все -> Фабрики данных](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	В колонке **Фабрики данных** выберите созданную фабрику данных (**TutorialFactoryARM**).	
-2.	В колонке **Фабрика данных** для своей фабрики данных щелкните элемент**Схема**. ![Плитка «Схема»](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
+2.	В колонке **Фабрика данных** для своей фабрики данных щелкните элемент **Схема**. ![Плитка «Схема»](./media/data-factory-build-your-first-pipeline-using-arm/DiagramTile.png)
 4.	В **представлении схемы** вы увидите все конвейеры и наборы данных, используемые в этом руководстве.
 	
 	![Представление схемы](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
 8. В представлении схемы дважды щелкните набор данных **AzureBlobOutput**. Вы увидите срез, который обрабатывается в данный момент.
 
 	![Выборка](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. Как только обработка завершится, срез перейдет в состояние **Готово**. Обратите внимание, что создание кластера HDInsight по требованию, как правило, занимает некоторое время. 
+9. Как только обработка завершится, срез перейдет в состояние **Готово**. Обратите внимание, что создание кластера HDInsight по требованию обычно занимает некоторое время (около 20 минут). 
 
 	![Выборка](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)	
-10. Когда срез перейдет в состояние **Готово**, проверьте выходные данные в папке **partitioneddata** контейнера **data** в хранилище BLOB-объектов.  
+10. Когда срез перейдет в состояние **Готово**, проверьте выходные данные в папке **partitioneddata** контейнера **adfgetstarted** в хранилище BLOB-объектов.  
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

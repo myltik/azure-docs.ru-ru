@@ -58,7 +58,7 @@
 Дополнительные сведения о требованиях к Office 365 приведены в следующих документах.
 
 - [Сетевое планирование и настройка производительности для Office 365](http://aka.ms/tune).
-- [Управление сетевым трафиком для Office 365](https://msft.spoppe.com/teams/cpub/teams/IW_Admin/modsquad/_layouts/15/WopiFrame.aspx?sourcedoc=%7b23f09224-0668-4476-8627-aaff30931439%7d&action=edit&source=https%3A%2F%2Fmsft%2Espoppe%2Ecom%2Fteams%2Fcpub%2Fteams%2FIW%5FAdmin%2Fmodsquad%2FSitePages%2FHome%2Easpx).
+- [Управление сетевым трафиком для Office 365.](https://support.office.com/article/Office-365-network-traffic-management-e1da26c6-2d39-4379-af6f-4da213218408)
 - Рекомендации по требованиям к качеству обслуживания и настройкам см. в статье [Требования к качеству обслуживания ExpressRoute](expressroute-qos.md). Обратитесь к своему поставщику услуг подключения, чтобы узнать о доступности различных классов обслуживания вашей сети VPN. 
 
 ## Дальнейшие действия
@@ -71,4 +71,4 @@
 	- [Настройте маршрутизацию](expressroute-howto-routing-classic.md).
 	- [Свяжите виртуальную сеть с каналом ExpressRoute](expressroute-howto-linkvnet-classic.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

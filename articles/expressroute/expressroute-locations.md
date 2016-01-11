@@ -61,7 +61,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Поддерживаются | Поддерживаются | Амстердам, Гонконг, Лондон, Кремниевая долина, Сингапур, Токио, Вашингтон (округ Колумбия) |
 |**China Telecom Global** | Поддерживаются | Не поддерживается | Гонконг |
 |**Cologix** | Скоро | Не поддерживается | Монреаль+, Торонто+ |
-| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Поддерживаются | Поддерживаются | Амстердам, Лондон |
+| **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Поддерживаются | Поддерживаются | Амстердам, Дублин+, Лондон |
 | **Comcast** | Поддерживаются | Не поддерживается | Кремниевая долина, Вашингтон, округ Колумбия |
 | **CoreSite** | Поддерживаются | Поддерживаются | Лос-Анджелес | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Поддерживаются | Поддерживаются | Амстердам, Атланта, Чикаго, Даллас, Гонконг, Лондон, Лос-Анджелес, Мельбурн, Нью-Йорк, Осака, Сан-Пауло, Сиэтл, Кремниевая долина, Сингапур, Сидней, Токио, Вашингтон (округ Колумбия), Торонто+ |
@@ -74,7 +74,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **MTN** | Поддерживаются | Поддерживаются | Лондон |
 | **NEXTDC** | Поддерживаются | Поддерживаются | Мельбурн, Сидней |
 | **NTT Communications** | Поддерживаются | Не поддерживается | Лондон+, Токио |
-| **[Orange](http://www.orange-business.com/)** | Поддерживаются | Не поддерживается | Амстердам, Гонконг, Лондон, Кремниевая долина, Сингапур, Вашингтон, округ Колумбия |
+| **[Orange](http://www.orange-business.com/)** | Поддерживаются | Поддерживаются | Амстердам, Гонконг, Лондон, Кремниевая долина, Сингапур, Вашингтон, округ Колумбия |
 | **PCCW Global Limited** | Поддерживаются | Не поддерживается | Гонконг |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | Поддерживаются | Не поддерживается | Сингапур |
 | **Softbank** | Скоро | Не поддерживается | Осака, Токио | 
@@ -139,4 +139,4 @@ ExpressRoute поддерживается во всех регионах и ра
 - Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 - Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования для ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

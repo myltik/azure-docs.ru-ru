@@ -21,7 +21,6 @@
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
-- [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
@@ -67,4 +66,4 @@
 
 При успешном выполнении запроса возвращается код состояния «200 OK», а результаты поиска сохраняются в формате JSON в тексте ответа. Дополнительные сведения см. в разделе «Ответ» на [этой странице](https://msdn.microsoft.com/library/azure/dn798927.aspx).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

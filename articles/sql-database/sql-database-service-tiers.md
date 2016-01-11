@@ -14,7 +14,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="11/10/2015"
+	ms.date="12/22/2015"
 	ms.author="jroth"/>
 
 # Параметры базы данных SQL и производительность: возможности разных уровней служб
@@ -96,4 +96,4 @@
 Вы узнали об уровнях служб Базы данных SQL. Теперь воспользуйтесь [бесплатной пробной версией](http://azure.microsoft.com/pricing/free-trial/) и узнайте о том, [как создать первую базу данных SQL](sql-database-get-started.md)!
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->
