@@ -28,7 +28,7 @@ ADAL доступна на различных платформах.
 |OS X, iOS|Библиотека проверки подлинности Active Directory (ADAL) для Objective-C|Клиент|[ADAL для Objective-C (CocoaPods)](https://cocoapods.org/?q=adal%20io)|[ADAL для Objective-C (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-objc)|Пример: [NativeClient-iOS (Github)](https://github.com/AzureADSamples/NativeClient-iOS)|
 |Android|Библиотека проверки подлинности Active Directory (ADAL) для Android|Клиент|[ADAL для Android (центральный репозиторий)](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/)|[ADAL для Android (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-android)|Пример: [NativeClient-Android (Github)](https://github.com/AzureADSamples/NativeClient-Android)|
 |Node.js|Библиотека проверки подлинности Active Directory (ADAL) для Node.js|Клиент|[ADAL для Node.js (npm)](https://www.npmjs.com/package/adal-node)|[ADAL для Node.js (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs)|Пример: [WebAPI-Nodejs (Github)](https://github.com/AzureADSamples/WebAPI-Nodejs)|
-|Node.js|Промежуточный слой проверки подлинности Windows Azure Active Directory Passport для Node.js|Клиент|[Azure Active Directory Passport для Node.js (npm)](https://www.npmjs.com/package/passport-azure-ad)|[Azure Active Directory для Node.js (Github)](https://github.com/AzureAD/passport-azure-ad)||
+|Node.js|Промежуточный слой проверки подлинности Microsoft Azure Active Directory Passport для Node.js|Клиент|[Azure Active Directory Passport для Node.js (npm)](https://www.npmjs.com/package/passport-azure-ad)|[Azure Active Directory для Node.js (Github)](https://github.com/AzureAD/passport-azure-ad)||
 |Java|Библиотека проверки подлинности Active Directory (ADAL) для Java|Клиент|[ADAL для Java (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-java)|[ADAL для Java (Github)](https://github.com/AzureAD/azure-activedirectory-library-for-java)||
 |.NET|Расширения протокола удостоверения для платформы Microsoft .NET Framework 4.5|сервер;|[Microsoft.IdentityModel.Protocol.Extensions (NuGet)](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions)|[расширения модели удостоверения Azure AD для .NET (Github)](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet)||
 |.NET|Обработчик веб-маркеров JSON для платформы Microsoft .NET Framework 4.5|сервер;|[System.IdentityModel.Tokens.Jwt (NuGet)](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt)|[расширения модели удостоверения Azure AD для .NET (Github)](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet)||
@@ -63,4 +63,4 @@ ADAL доступна на различных платформах.
 
 [Примеры кода Azure Active Directory](active-directory-code-samples.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->
