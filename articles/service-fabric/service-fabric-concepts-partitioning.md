@@ -284,7 +284,9 @@ Service Fabric упрощает процесс разработки масшта
     Давайте разберемся в процессе, шаг за шагом. Код считывает первую букву из параметра строки запроса в `lastname` в тип char. Затем он определяет ключ раздела для этой буквы, вычитая шестнадцатеричное значение `A` из шестнадцатеричного значения первой буквы фамилии.
 
     ```CSharp
-    string lastname = context.Request.QueryString["lastname"]; char firstLetterOfLastName = lastname.First(); int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+    string lastname = context.Request.QueryString["lastname"];
+    char firstLetterOfLastName = lastname.First();
+    int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
     ```
 
     Помните, что в этом примере мы используем 26 разделов с одним ключом для каждого раздела. Далее мы получим раздел службы `partition` для этого ключа с помощью метода `ResolveAsync` в объекте `servicePartitionResolver`. `servicePartitionResolver` определяется так:
@@ -322,8 +324,10 @@ Service Fabric упрощает процесс разработки масшта
   </Parameters>
   ```
 
-16. После развертывания службу и все ее разделы можно проверить в обозревателе Service Fabric Explorer. ![служба](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
-17. В браузере можно проверить логику секционирования, введя `http://localhost:8090/?lastname=somename`. Вы увидите, что все фамилии, которые начинаются с одинаковой буквы, хранятся в одном разделе. !["Обзор"](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
+16. После развертывания службу и все ее разделы можно проверить в обозревателе Service Fabric Explorer.
+![служба](./media/service-fabric-concepts-partitioning/alphabetservicerunning.png)
+17. В браузере можно проверить логику секционирования, введя `http://localhost:8090/?lastname=somename`. Вы увидите, что все фамилии, которые начинаются с одинаковой буквы, хранятся в одном разделе.
+!["Обзор"](./media/service-fabric-concepts-partitioning/alphabetinbrowser.png)
 
 Весь исходный код этого примера доступен на [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Services/AlphabetPartitions).
 
