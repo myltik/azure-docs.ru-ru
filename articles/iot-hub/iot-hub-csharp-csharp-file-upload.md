@@ -78,7 +78,7 @@
 
 <!-- Links -->
 
-[Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
+[Отправка сообщений "из облака в устройство" с помощью центра IoT]: iot-hub-csharp-csharp-c2d.md
 
 [портала Azure]: https://portal.azure.com/
 
