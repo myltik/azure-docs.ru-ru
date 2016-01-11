@@ -103,9 +103,11 @@
 	
 	Этот код заставляет центр уведомлений отправить push-уведомление после вставки элемента задачи.
 
+4. Повторная публикация серверного проекта
+
 ### <a name="nodejs"></a>Серверный проект Node.js
 
-1. Если это еще не сделано, [загрузите проект быстрого запуска](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) или воспользуйтесь [онлайн-редактором на портале Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+1. [Загрузите проект быстрого запуска](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) или воспользуйтесь [онлайн-редактором на портале Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor), если вы этого еще не сделали.
 
 2. Замените существующий код в файле todoitem.js следующим кодом:
 
@@ -153,10 +155,6 @@
 
 2. При редактировании этого файла на локальном компьютере повторно опубликуйте серверный проект.
 
-## <a name="publish-the-service"></a>Публикация мобильного внутреннего сервера в Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
 ##<a id="update-service"></a>Добавление push-уведомлений в приложение
 
 1. Откройте общий файл проекта **App.xaml.cs** и добавьте следующие операторы `using`:
@@ -202,7 +200,7 @@
 [AZURE.INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
 
-##<a id="more"></a>Подробнее
+##<a id="more"></a>Дополнительные сведения
 
 * Шаблоны обеспечивают гибкость при отправке push-уведомлений локально и между различными платформами. В статье [Использование управляемого клиента для мобильных приложений Azure](app-service-mobile-dotnet-how-to-use-client-library.md#how-to-register-push-templates-to-send-cross-platform-notifications) описано, как зарегистрировать шаблоны.
 * Теги позволяют отправлять push-уведомления клиентам в зависимости от их сегмента. В статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags) показано, как добавлять теги для установки устройства.
@@ -214,4 +212,4 @@
 
 <!-- Images. -->
 
-<!---HONumber=AcomDC_1210_2015--->
+<!----HONumber=AcomDC_1223_2015-->

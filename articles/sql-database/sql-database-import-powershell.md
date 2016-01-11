@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="12/01/2015"
+    ms.date="12/17/2015"
     ms.author="sstein"/>
 
 # Импорт BACPAC-файла для создания новой базы данных SQL Azure с помощью PowerShell
@@ -21,9 +21,10 @@
 **Отдельная база данных**
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-import.md)
+- [Azure Portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
-
+- [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+- [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
 
 В этой статье приведены указания о том, как создать базу данных SQL Azure, импортировав BACPAC-файл с помощью PowerShell.
 
@@ -152,4 +153,4 @@ BACPAC-файл — это файл с расширением .bacpac, кото�
 - [Отработка аварийного восстановления](sql-database-disaster-recovery-drills.md)
 - [База данных SQL — документация](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

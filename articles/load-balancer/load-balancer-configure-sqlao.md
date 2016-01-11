@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/19/2015"
+   ms.date="12/21/2015"
    ms.author="joaoma" />
 
 # Настройка подсистемы балансировки нагрузки для AlwaysOn SQL
@@ -53,7 +53,7 @@
 
 В приведенном выше примере две виртуальные машины с именами sqlsvc1 и sqlsvc2 работают в облачной службе Sqlsvc. Создав ILB с параметром DirectServerReturn, вы добавите конечные точки с балансировкой нагрузки в ILB, чтобы разрешить SQL настраивать прослушиватели для групп доступности.
 
-Дополнительные сведения о создании SQL AlwaysOn см. в статьях [Учебник. Группы доступности AlwaysOn в Azure (графический интерфейс пользователя)](https://msdn.microsoft.com/library/dn249504.aspx) и [Использование коллекции портала](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
+Дополнительные сведения о создании SQL AlwaysOn см. в статьях [Развертывание SQL AlwaysOn с помощью шаблона диспетчера ресурсов Azure](virtual-machines-workload-template-sql-alwayson.md) и [Использование коллекции портала](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx).
 
 
 ## См. также
@@ -67,4 +67,4 @@
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_1223_2015-->

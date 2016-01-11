@@ -50,9 +50,11 @@
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
+4. Повторная публикация серверного проекта
+
 ### <a name="nodejs"></a>Серверный проект Node.js
 
-1. Если это еще не сделано, [загрузите проект быстрого запуска](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) или воспользуйтесь [онлайн-редактором на портале Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+1. [Загрузите проект быстрого запуска](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) или воспользуйтесь [онлайн-редактором на портале Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor), если вы этого еще не сделали.
  
 1. Замените существующий код в файле todoitem.js следующим кодом:
 
@@ -103,4 +105,4 @@
 
 2. При редактировании этого файла на локальном компьютере повторно опубликуйте серверный проект.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

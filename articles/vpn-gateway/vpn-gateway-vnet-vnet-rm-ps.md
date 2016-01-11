@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/14/2015"
+   ms.date="12/18/2015"
    ms.author="cherylmc"/>
 
 # Настройка подключения между виртуальными сетями, входящими в одну и ту же подписку, с помощью диспетчера ресурсов Azure и PowerShell
@@ -35,13 +35,13 @@
 	
 - Если вы хотите подключить виртуальную сеть, созданную по классической модели развертывания, к виртуальной сети, созданной с помощью модели диспетчера ресурсов Azure, см. статью [Подключение классических виртуальных сетей к новым виртуальным сетям](../virtual-network/virtual-networks-arm-asm-s2s.md).
 
-## Схема подключения
+## О подключениях "виртуальная сеть — виртуальная сеть"
 
 Подключение одной виртуальной сети к другой (подключение типа VNet-to-VNet) очень похоже на подключение виртуальной сети к локальному сайту. В обоих типах подключений используется VPN-шлюз для создания защищенного туннеля, использующего IPsec/IKE. Подключаемые виртуальные сети могут находиться в разных регионах. Можно даже комбинировать подключение виртуальных сетей с многосайтовыми конфигурациями. Это позволяет устанавливать сетевые топологии, совмещающие подключения между организациями с подключениями между виртуальными сетями, как показано на схеме ниже.
 
 ![Схема подключения между виртуальными сетями](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727360.png)
  
-## Что может дать связь между виртуальными сетями
+### Что может дать связь между виртуальными сетями
 
 Вам может потребоваться подключить виртуальные сети по следующим причинам.
 
@@ -52,13 +52,8 @@
 - **Региональные многоуровневые приложения с четкой границей изоляции**
 	- В одном регионе можно настроить многоуровневые приложения с использованием нескольких связанных друг с другом виртуальных сетей с сильной изоляцией и защищенной связью между уровнями.
 
-### Примечания
 
-В этой статье будут описаны этапы настройки подключения между двумя виртуальными сетями VNet1 и VNet2. Необходим удобный способ настройки сетей, чтобы подставить диапазоны IP-адресов, которые соответствуют вашим требованиям по проектированию сети.
-
-
-![Подключение между виртуальными сетями](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727361.png)
-
+### Часто задаваемые вопросы о подключениях VNet-VNet
 
 - Виртуальные сети могут быть в одном или разных регионах (расположениях) Azure.
 
@@ -80,20 +75,21 @@
 
 - Трафик между виртуальными сетями проходит через магистральную сеть Azure.
 
-## Перед началом работы
+## Настройка подключения между виртуальными сетями
 
-Перед началом работы убедитесь, что у вас есть следующие компоненты.
+В этой статье будут описаны этапы настройки подключения между двумя виртуальными сетями VNet1 и VNet2. Необходим удобный способ настройки сетей, чтобы подставить диапазоны IP-адресов, которые соответствуют вашим требованиям по проектированию сети.
 
-- Подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрироваться в бесплатной пробной версии](http://azure.microsoft.com/pricing/free-trial/).
+![Подключение между виртуальными сетями](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727361.png)
 
-## Установка модулей PowerShell
-
-Вам потребуется последняя версия командлетов диспетчера ресурсов PowerShell Azure для настройки подключения.
-
-[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
+### Перед началом работы
 
 
-## 1\. Планирование диапазонов IP-адресов
+- Убедитесь в том, что у вас уже есть подписка Azure. Если у вас нет подписки Azure, вы можете [активировать преимущества для подписчиков MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) или [зарегистрироваться в бесплатной пробной версии](http://azure.microsoft.com/pricing/free-trial/).
+
+- Установите модули PowerShell. Вам потребуется последняя версия командлетов диспетчера ресурсов PowerShell Azure для настройки подключения.[AZURE.INCLUDE [vpn-gateway-ps-rm-howto](../../includes/vpn-gateway-ps-rm-howto-include.md)]
+
+
+## Шаг 1. Планирование диапазонов IP-адресов
 
 
 Важно определить диапазоны адресов, которые будут использоваться при настройке сети. С точки зрения сети VNet1 сеть VNet2 представляет собой просто другое VPN-подключение, определенное на платформе Azure. И из сети VNet2 сеть VNet1 является просто еще одним VPN-подключением. Имейте в виду, необходимо убедиться в том, что ни один из диапазонов виртуальных сетей или диапазонов локальных сетей никак не перекрываются.
@@ -121,39 +117,40 @@
 - Подсеть шлюза = 10.2.0.0/28
 - Подсеть 1 = 10.2.1.0/28
 
-## 2\. Подключение к подписке 
+## Шаг 2. Подключение к подписке 
 
 Для работы с командлетами диспетчера ресурсов необходимо перейти в режим PowerShell. Дополнительную информацию см. в разделе [Использование Windows PowerShell с диспетчером ресурсов](../powershell-azure-resource-manager.md).
 
 Откройте консоль PowerShell и подключитесь к своей учетной записи. Для подключения используйте следующий пример.
 
-		    Login-AzureRmAccount
+	Login-AzureRmAccount
 
 Просмотрите подписки учетной записи.
 
-		    Get-AzureRmSubscription 
+	Get-AzureRmSubscription 
 
 Укажите подписку, которую нужно использовать.
 
-		    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
-## 3\. Создать виртуальную сеть
+## Шаг 3. Создание виртуальной сети
 
 
 Используйте приведенный ниже пример, чтобы создать виртуальную сеть и подсеть шлюза. Подставьте собственные значения. В этом примере мы создадим VNet1. Повторите эти действия позже для создания сети VNet2.
 
 Сначала создайте группу ресурсов.
 
-			New-AzureRmResourceGroup -Name testrg1 -Location 'West US'
+	New-AzureRmResourceGroup -Name testrg1 -Location 'West US'
 
 Затем создайте виртуальную сеть. В следующем примере создается виртуальная сеть с именем *VNet1* и две подсети с именами *GatewaySubnet* и *Subnet1*. Важно, чтобы одна из подсетей имела имя *GatewaySubnet*. Если вы используете другое имя, подключение не будет настроено. В приведенном ниже примере используется подсеть шлюза /28. При этом для подсети шлюза можно выбрать сеть меньшего размера до /29. Обратите внимание, что для некоторых функций (такие как существующие одновременно соединения ExpressRoute и соединения типа "сеть — сеть") требуется подсеть большего размера /27, поэтому может потребоваться создать собственную подсеть шлюза для размещения дополнительных функций, которые могут потребоваться в будущем.
 
- 		$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.0.0/28
-		$subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.1.1.0/28'
-		New-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName testrg1 -Location 'West US' -AddressPrefix 10.1.0.0/16 -Subnet $subnet, $subnet1
+ 	$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.1.0.0/28
+	$subnet1 = New-AzureRmVirtualNetworkSubnetConfig -Name 'Subnet1' -AddressPrefix '10.1.1.0/28'
+	New-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName testrg1 -Location 'West US' -AddressPrefix 10.1.0.0/16
+	-Subnet $subnet, $subnet1
 
-## 4\. Запрос общедоступного IP-адреса
+## Шаг 4. Запрос общедоступного IP-адреса
 
 
 Затем вы должны запросить общедоступный IP-адрес, который нужно выделить для шлюза, создаваемого для виртуальной сети. Указать необходимый IP-адрес нельзя; он выделяется для шлюза динамически. Этот IP-адрес будет использоваться на следующем этапе конфигурации.
@@ -161,31 +158,31 @@
 Используйте следующий пример. Для этого адреса нужно использовать метод динамического распределения (Dynamic).
 
 
-		$gwpip= New-AzureRmPublicIpAddress -Name gwpip1 -ResourceGroupName testrg1 -Location 'West US' -AllocationMethod Dynamic
+	$gwpip= New-AzureRmPublicIpAddress -Name gwpip1 -ResourceGroupName testrg1 -Location 'West US' -AllocationMethod Dynamic
 
-## 5\. Создание конфигурации шлюза
+## Шаг 5. Создание конфигурации шлюза
 
 
 Конфигурация шлюза определяет используемые подсеть и общедоступный IP-адрес. Используйте следующий пример, чтобы создать конфигурацию шлюза.
 
 
-		$vnet = Get-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName testrg1
-		$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-		$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
+	$vnet = Get-AzureRmVirtualNetwork -Name VNet1 -ResourceGroupName testrg1
+	$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+	$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id 
 
-## 6\. Создание шлюза
+## Шаг 6. Создание шлюза
 
 
 На этом шаге вы создадите шлюз для своей виртуальной сети. Для подключений типа VNet-to-VNet необходимо использовать тип VPN RouteBased. Создание шлюза может занять некоторое время, поэтому проявите терпение.
 
-		New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+	New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg1 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
-## 7\. Создание сети VNet2
+## Шаг 7. Создание сети VNet2
 
 
 После настройки сети VNet1 повторите предыдущие шаги для настройки сети VNet2 и ее шлюза. После завершения настройки обеих виртуальных сетей и их шлюзов перейдите к разделу **Шаг 8. Подключение шлюзов**.
 
-## 8\. Подключение шлюзов
+## Шаг 8. Подключение шлюзов
 
 На этом шаге вы создадите подключения VPN-шлюзов между шлюзами двух виртуальных сетей. Вы увидите ссылки на общий ключ в примерах. Можно использовать собственные значения для общего ключа. Важно, чтобы общий ключ в обеих конфигурациях был одинаковым.
 
@@ -213,9 +210,9 @@
 
 Сейчас VPN-подключения, созданные с помощью диспетчера ресурсов, не отображаются на портале предварительной версии. Чтобы проверить успешность подключения, используйте команду *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. Позднее мы предоставим отдельный командлет для этого, а также возможность просматривать подключения на портале предварительной версии.
 
-Можно использовать следующий пример командлета. Обязательно измените значения в соответствии с подключением, которое требуется проверить. При появлении запроса выберите ответ *A*, то есть «All» (Все).
+Можно использовать следующий пример командлета. Обязательно измените значения в соответствии с подключением, которое требуется проверить. При появлении запроса выберите ответ *A*, то есть All (Все).
 
-		Get-AzureRmVirtualNetworkGatewayConnection -Name vnet2connection -ResourceGroupName vnet2vnetrg -Debug 
+	Get-AzureRmVirtualNetworkGatewayConnection -Name vnet2connection -ResourceGroupName vnet2vnetrg -Debug 
 
  После завершения работы командлета просмотрите результаты, которые он выдал. В следующем примере показано, что подключение установлено (состояние *Connected*), а также указан объем полученных и отправленных данных в байтах.
 
@@ -254,9 +251,9 @@
 Если требуется добавить подсети шлюза в собственные виртуальные сети, воспользуйтесь образцом ниже, заменив значения на свои. Обязательно присвойте подсети шлюза имя "GatewaySubnet". Если вы используете другое имя, VPN-подключение не будет работать должным образом.
 
 	
-		$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
-		Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
-		Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+	$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName testrg -Name testvnet
+	Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/28 -VirtualNetwork $vnet
+	Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 Проверив правильность настройки подсетей шлюзов, перейдите к разделу **Шаг 4. Запрос общедоступного IP-адреса** и следуйте указаниям.
 
@@ -265,4 +262,4 @@
 
 Установив подключение, можно добавить виртуальные машины в виртуальные сети. Инструкции см. в разделе [Создание виртуальной машины](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

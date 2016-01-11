@@ -14,14 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Подключение к базе данных SQL с помощьюNode.js в операционной системе Windows
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [C#](sql-database-develop-dotnet-simple.md)
+- [PHP](sql-database-develop-php-simple-windows.md)
+- [Python](sql-database-develop-python-simple-windows.md)
+- [Ruby](sql-database-develop-ruby-simple-windows.md)
+- [Java](sql-database-develop-java-simple-windows.md)
+- [Node.js](sql-database-develop-nodejs-simple-windows.md)
 
 
 В этой статье представлен пример кода Node.js, который можно использовать для подключения к базе данных SQL Azure. Программа Node.js запускается на клиентском компьютере Windows. Для управления соединением используется драйвер msnodesql.
@@ -228,4 +234,4 @@
 
 Дополнительную информацию см. в [Центре разработчика Node.js](/develop/nodejs/).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

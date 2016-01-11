@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/04/2015"
+   ms.date="12/19/2015"
    ms.author="tarcher" />
 
 # Публикация облачной службы с помощью инструментов Azure
@@ -173,4 +173,4 @@
 
 Дополнительные сведения о публикации в Azure из Visual Studio см. в статье [Мастер публикации приложения Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

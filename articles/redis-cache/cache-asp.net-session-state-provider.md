@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="12/03/2015"
+   ms.date="12/17/2015"
    ms.author="sdanie" />
 
 # Поставщик состояний сеансов ASP.NET для кэша Redis для Azure
@@ -29,7 +29,7 @@
 
 В поле «Поиск в сети» введите текст **RedisSessionStateProvider**, выберите в списке соответствующий результат и щелкните «Установить».
 
->[AZURE.IMPORTANT]Если вы используете функцию кластеризации на уровне «Премиум», вы увидите [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.0 (или более новую версию) либо будет создано исключение. Это критическое изменение. Дополнительные сведения см. в статье [Подробные сведения о критических изменениях в версии 2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
+>[AZURE.IMPORTANT]Если вы используете функцию кластеризации на уровне "Премиум", вы увидите [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 (или более новую версию) либо будет создано исключение. Это критическое изменение. Дополнительные сведения см. в статье [Подробные сведения о критических изменениях в версии 2.0.0](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
 ![Поставщик состояний сеансов для кэша Redis для Azure](./media/cache-asp.net-session-state-provider/IC751730.png)
 
@@ -106,4 +106,4 @@
 
 Ознакомьтесь со статьей [Поставщик кэша вывода ASP.NET для кэша Redis для Azure](cache-asp.net-output-cache-provider.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

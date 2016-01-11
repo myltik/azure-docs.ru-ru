@@ -28,10 +28,6 @@
 
 ## Предварительные требования
 
->[AZURE.IMPORTANT]Когда кэш Redis создается в подписке с использованием портала Azure впервые, портал регистрирует пространство имен `Microsoft.Cache` для этой подписки. Если первый кэш Redis создается в подписке с использованием PowerShell, необходимо зарегистрировать пространство имен с помощью представленной ниже команды, иначе команды `New-AzureRmRedisCache` и `Get-AzureRmRedisCache` завершатся неудачей.
->
->`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
-
 Если вы уже установили Azure PowerShell, необходимо использовать Azure PowerShell 1.0.0 или более поздней версии. Установленную версию Azure PowerShell можно узнать в командной строке Azure PowerShell с помощью такой команды:
 
 	Get-Module azure | format-table version
@@ -54,7 +50,7 @@
 
 Чтобы использовать Windows PowerShell с диспетчером ресурсов Azure, необходимо следующее:
 
-- Windows PowerShell версии 3.0 или 4.0. Чтобы найти версию Windows PowerShell, введите `$PSVersionTable` и убедитесь, что значение `PSVersion` — 3.0 или 4.0. Чтобы установить совместимую версию, см. статью [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+- Windows PowerShell версии 3.0 или 4.0. Чтобы узнать версию Windows PowerShell, введите `$PSVersionTable` и убедитесь, что значение `PSVersion` — 3.0 или 4.0. Чтобы установить совместимую версию, см. статью [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) или [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
 Чтобы получить подробную справку для любого командлета, встречающегося в этом учебнике, используйте командлет Get-Help.
 
@@ -79,7 +75,7 @@
 | RedisConfiguration | Определяет параметры конфигурации Redis для ключей maxmemory-delta, maxmemory-policy и notify-keyspace-events. Обратите внимание на то, что ключи maxmemory-delta и notify-keyspace-events доступны только для кэшей уровня Standard и Premium. | |
 | EnableNonSslPort | Определяет, включен ли порт без SSL. | Ложь |
 | MaxMemoryPolicy | Этот параметр устарел, вместо него используется параметр RedisConfiguration. | |
-| StaticIP | При размещении кэша в виртуальной сети определяет уникальный IP-адрес подсети для кэша. | |
+| StaticIP | При размещении кэша в виртуальной сети определяет уникальный IP-адрес подсети для кэша. Если IP-адрес не указан, он автоматически выбирается из подсети. | |
 | Подсеть | При размещении кэша в виртуальной сети определяет имя подсети, в которой будет развернут кэш. | |
 | Виртуальная сеть | При размещении кэша в виртуальной сети определяет идентификатор ресурса виртуальной сети, в которой будет развернут кэш. | |
 | KeyType | Определяет, какой ключ доступа будет создаваться повторно при обновлении ключей доступа. Допустимые значения: Primary, Secondary | | | |
@@ -88,6 +84,10 @@
 ## Создание кэша Redis
 
 Новые экземпляры кэша Redis для Azure создаются с помощью командлета [New-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634517.aspx).
+
+>[AZURE.IMPORTANT]Когда кэш Redis создается в подписке с использованием портала Azure впервые, портал регистрирует пространство имен `Microsoft.Cache` для этой подписки. Если первый кэш Redis создается в подписке с использованием PowerShell, необходимо зарегистрировать пространство имен с помощью представленной ниже команды, иначе команды `New-AzureRmRedisCache` и `Get-AzureRmRedisCache` завершатся неудачей.
+>
+>`Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Cache"`
 
 Чтобы увидеть список доступных параметров свойства `New-AzureRmRedisCache` и их описания, выполните следующую команду:
 
@@ -242,15 +242,16 @@
 
 	Set-AzureRmRedisCache -ResourceGroupName "myGroup" -Name "myCache" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random"}
 
-## Масштабирование кэша Redis с помощью PowerShell
+<a name="scale"></a>
+## Масштабирование кэша Redis
 
 `Set-AzureRmRedisCache` можно использовать для масштабирования экземпляров кэша Redis для Azure при изменении свойств `Size`, `Sku` или `ShardCount`.
 
 >[AZURE.NOTE]Масштабирование кэша с помощью PowerShell подчиняется тем же ограничениям и правилам, что и масштабирование кэша на портале Azure. Вы можете выполнить масштабирование до другой ценовой категории со следующими ограничениями.
 >
->-	Вам не удастся выполнить масштабирование кэша до уровня **Premium** или с уровня Premium до другого уровня.
->-	Вам не удастся выполнить масштабирование кэша с уровня **Standard** до уровня **Basic**.
->-	Вы можете выполнить масштабирование кэша с уровня **Basic** до уровня **Standard**, но вам не удастся одновременно с этим изменить размер кэша. Если требуется изменить размер, можно выполнить последующую операцию масштабирования до нужного размера.
+>-	Вы не можете выполнить масштабирование кэша до уровня **Премиум** или с уровня "Премиум" до другого уровня.
+>-	Вы не можете выполнить масштабирование кэша с уровня **Стандартный** до уровня **Базовый**.
+>-	Вы можете выполнить масштабирование кэша с уровня **Базовый** до уровня **Стандартный**, но вам не удастся одновременно с этим изменить размер кэша. Если требуется изменить размер, можно выполнить последующую операцию масштабирования до нужного размера.
 >-	Вам не удастся выполнить масштабирование с большего размера до размера **C0 (250 МБ)**.
 >
 >Дополнительные сведения см. в статье [Масштабирование кэша Redis для Azure](cache-how-to-scale.md).
@@ -294,9 +295,9 @@
 
 ## Получение сведений о кэше Redis
 
-Получить сведения об использовании кэша можно с помощью командлета [Get-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634514.aspx).
+Вы можете получить сведения об использовании кэша с помощью командлета [Get-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634514.aspx).
 
-Чтобы увидеть список доступных параметров свойства `Get-AzureRmRedisCache` и их описания, выполните следующую команду:
+Чтобы увидеть список и описание доступных параметров для свойства `Get-AzureRmRedisCache`, выполните следующую команду:
 
 	PS C:\> Get-Help Get-AzureRmRedisCache -detailed
 	
@@ -371,9 +372,9 @@
 
 ## Получение ключей доступа для кэша Redis
 
-Для получения ключей доступа к кэшу можно использовать командлет [Get AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634516.aspx).
+Для получения ключей доступа к кэшу вы можете использовать командлет [Get-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634516.aspx).
 
-Чтобы увидеть список доступных параметров свойства `Get-AzureRmRedisCacheKey` и их описания, выполните следующую команду:
+Чтобы увидеть список и описание доступных параметров для свойства `Get-AzureRmRedisCacheKey`, выполните следующую команду:
 
 	PS C:\> Get-Help Get-AzureRmRedisCacheKey -detailed
 	
@@ -412,9 +413,9 @@
 
 ## Повторное создание ключей доступа для кэша Redis
 
-Для повторного создания ключей доступа к кэшу можно использовать командлет [New-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634512.aspx).
+Для повторного создания ключей доступа к кэшу вы можете использовать командлет [New-AzureRmRedisCacheKey](https://msdn.microsoft.com/library/azure/mt634512.aspx).
 
-Чтобы увидеть список доступных параметров свойства `New-AzureRmRedisCacheKey` и их описания, выполните следующую команду:
+Чтобы увидеть список и описание доступных параметров для свойства `New-AzureRmRedisCacheKey`, выполните следующую команду:
 
 	PS C:\> Get-Help New-AzureRmRedisCacheKey -detailed
 	
@@ -465,7 +466,7 @@
 
 Для удаления кэша Redis используйте командлет [Remove-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634515.aspx).
 
-Чтобы увидеть список доступных параметров свойства `Remove-AzureRmRedisCache` и их описания, выполните следующую команду:
+Чтобы увидеть список и описание доступных параметров для свойства `Remove-AzureRmRedisCache`, выполните следующую команду:
 
 	PS C:\> Get-Help Remove-AzureRmRedisCache -detailed
 	
@@ -568,4 +569,4 @@
 - [Блог Windows PowerShell](http://blogs.msdn.com/powershell): узнайте о новых возможностях в Windows PowerShell.
 - [Блог "Hey, Scripting Блог](http://blogs.technet.com/b/heyscriptingguy/): реальные советы и рекомендации от сообщества Windows PowerShell.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

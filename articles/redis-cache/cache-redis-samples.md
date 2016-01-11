@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="12/03/2015" 
+	ms.date="12/17/2015" 
 	ms.author="sdanie"/>
 
 # Примеры кэша Redis для Azure 
@@ -35,6 +35,7 @@
 -	работать со списками и отсортированными наборами Redis;
 -	хранить объекты .NET с помощью сериализаторов JsonConvert;
 -	использовать наборы Redis для реализации тегов.
+-	Работа с кластером Redis
 
 Дополнительные сведения см. в документации [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) на сайте github. Дополнительные сценарии использования см. в модульных тестах [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests).
 
@@ -75,4 +76,4 @@
 
 Пример [Монитор пропускной способности](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) позволяет наблюдать за пропускной способностью, используемой на клиентском компьютере. Чтобы измерить пропускную способность, запустите пример на клиентском компьютере кэша, выполните вызовы кэша и отследите пропускную способность, передаваемую примером монитора пропускной способности.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

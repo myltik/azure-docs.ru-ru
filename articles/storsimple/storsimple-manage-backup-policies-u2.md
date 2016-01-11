@@ -15,7 +15,7 @@
    ms.date="12/14/2015"
    ms.author="v-sharos"/>
 
-# Использование службы диспетчера StorSimple для управления политиками архивации
+# Использование службы диспетчера StorSimple для управления политиками архивации (обновление 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-backup-policies](../../includes/storsimple-version-selector-manage-backup-policies.md)]
 
@@ -96,4 +96,4 @@
 
 - Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

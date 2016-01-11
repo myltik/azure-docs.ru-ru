@@ -2,7 +2,7 @@
     pageTitle="Учебник. Интеграция Azure Active Directory с EmpCenter | Microsoft Azure" 
     description="Узнайте, как использовать EmpCenter вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/01/2015" 
-    ms.author="markvi" />
+    ms.date="12/18/2015" 
+    ms.author="jeedes" />
 
 #Руководство. Интеграция Azure Active Directory с EmpCenter
   
@@ -118,4 +118,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_1223_2015-->

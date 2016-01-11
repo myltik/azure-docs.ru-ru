@@ -14,14 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Подключение к базе данных SQL с использованием Node.js с Tedious в Mac OS X
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [Node.js](sql-database-develop-nodejs-simple-mac.md)
+- [Python](sql-database-develop-python-simple-mac-osx.md)
+- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
 
 
 В этом разделе представлен образец кода Node.js для Mac OS X. В нем осуществляется подключение к базе данных SQL Azure с использованием драйвера Tedious.
@@ -33,7 +36,7 @@
 Установите **node**, если он еще не установлен на компьютере.
 
 
-Для быстрой и удобной установки node.js в OSX 10.10 Yosemite можно загрузить готовый бинарный пакет. [Зайдите на nodejs.org](http://nodejs.org/) и нажмите кнопку «Установить», чтобы загрузить последнюю версию пакета.
+Для быстрой и удобной установки node.js в OSX 10.10 Yosemite можно загрузить готовый бинарный пакет. [Зайдите на nodejs.org](http://nodejs.org/) и нажмите кнопку "Установить", чтобы загрузить последнюю версию пакета.
 
 Установите пакет из файла DMG, следуя указаниям мастера. При установке пакета будут установлены как **node**, так и **npm**. npm представляет собой диспетчер пакетов узла. С его помощью удобно устанавливать дополнительные пакеты для node.js.
 
@@ -172,4 +175,4 @@
 
 Дополнительную информацию см. в [Центре разработчика Node.js](/develop/nodejs/).
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

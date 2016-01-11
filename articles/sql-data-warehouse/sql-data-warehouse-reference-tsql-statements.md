@@ -74,6 +74,7 @@
 - [EXCEPT and INTERSECT](https://msdn.microsoft.com/library/ms188055.aspx)
 - EXPLAIN
 - [FROM](https://msdn.microsoft.com/library/ms177634.aspx)
+- [Использование PIVOT и UNPIVOT](https://msdn.microsoft.com/library/ms177410.aspx)
 - [GROUP BY](https://msdn.microsoft.com/library/ms177673.aspx)
 - [HAVING](https://msdn.microsoft.com/library/ms180199.aspx)
 - [ORDER BY](https://msdn.microsoft.com/library/ms188385.aspx)
@@ -128,4 +129,4 @@
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

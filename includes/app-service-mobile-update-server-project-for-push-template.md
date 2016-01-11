@@ -50,9 +50,13 @@
 
 	Дополнительные сведения о шаблонах концентраторов уведомлений см. в статье [Шаблоны](notification-hubs-templates.md).
 
+4. Повторная публикация серверного проекта
+
 ### <a name="nodejs"></a>Серверный проект Node.js
 
-1. Замените существующий код в файле todoitem.js следующим кодом:
+1. [Загрузите проект быстрого запуска](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) или воспользуйтесь [онлайн-редактором на портале Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor), если вы этого еще не сделали.
+
+2. Замените существующий код в файле todoitem.js следующим кодом:
 
 		var azureMobileApps = require('azure-mobile-apps'),
 	    promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -97,4 +101,4 @@
 
 2. При редактировании этого файла на локальном компьютере повторно опубликуйте серверный проект.
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

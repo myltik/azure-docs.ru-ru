@@ -2,7 +2,7 @@
     pageTitle="Учебник. Интеграция Azure Active Directory с Citrix GoToMeeting | Microsoft Azure" 
     description="Узнайте, как использовать Citrix GoToMeeting вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
-    authors="MarkusVi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 
@@ -11,8 +11,8 @@
     ms.devlang="na" ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/01/2015" 
-    ms.author="markvi" />
+    ms.date="12/18/2015" 
+    ms.author="jeedes" />
 
 #Учебник. Интеграция Azure Active Directory с Citrix GoToMeeting  
 Область применения: Azure
@@ -164,4 +164,4 @@
 
 Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

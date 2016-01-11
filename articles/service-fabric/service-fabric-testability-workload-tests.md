@@ -18,12 +18,12 @@
 
 # Моделирование ошибок во время рабочих нагрузок службы
 
-Сценарии, которые поставляются с компонентом Testability, обеспечивают работу с отдельными ошибками. Однако есть сценарии, в которых может потребоваться явное чередование клиентской рабочей нагрузки и сбоев. Чередование клиентской рабочей нагрузки и сбоев обеспечивает выполнение службой необходимых действий в случае сбоя. Учитывая уровень управления тестированием, эти сбои могут наблюдаться именно в точках выполнения рабочей нагрузки. Вызывая таким образом ошибки при различных состояниях приложения, можно находить ошибки и улучшить качество.
+Сценарии тестирования в Azure Service Fabric позволяют разработчикам не беспокоиться об обработке отдельных ошибок. Однако есть сценарии, в которых может потребоваться явное чередование клиентской рабочей нагрузки и сбоев. Чередование клиентской рабочей нагрузки и сбоев обеспечивает выполнение службой необходимых действий в случае сбоя. Учитывая уровень управления тестированием, эти сбои могут наблюдаться именно в точках выполнения рабочей нагрузки. Вызывая таким образом ошибки при различных состояниях приложения, можно находить ошибки и улучшить качество.
 
 ## Пример пользовательского сценария
-В этом тесте показан сценарий чередования рабочей нагрузки бизнеса с [нормальными и ненормальными сбоями](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Сбои следует вызывать посреди операций службы или вычислений для получения оптимальных результатов.
+В этом тесте показан сценарий чередования рабочей нагрузки бизнеса с [нормальными и ненормальными сбоями](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Для получения оптимальных результатов сбои следует вызывать во время выполнения операций службы или вычислений.
 
-Рассмотрим пример службы, которая предоставляет четыре рабочих нагрузки (А, Б, В и Г). Каждая из них соответствует набору рабочих процессов и может представлять из себя вычисления, хранилище или их сочетание. Для простоты рабочие нагрузки в нашем примере абстрагированы. В этом примере вызываются следующие сбои. + RestartNode: ненормальная ошибка для моделирования перезапуска компьютера. + RestartDeployedCodePackage: ненормальная ошибка для моделирования сбоев процессов узла службы. + RemoveReplica: нормальная ошибка для моделирования удаления реплики. + MovePrimary: нормальная ошибка для моделирования перемещения реплик, активированного подсистемой балансировки нагрузки Service Fabric.
+Рассмотрим пример службы, которая предоставляет четыре рабочих нагрузки (А, Б, В и Г). Каждая из них соответствует набору рабочих процессов и может представлять из себя вычисления, хранилище или их сочетание. Для простоты рабочие нагрузки в нашем примере абстрагированы. В этом примере вызываются следующие сбои: + RestartNode — ненормальная ошибка для моделирования перезапуска компьютера; + RestartDeployedCodePackage — ненормальная ошибка для моделирования сбоев процессов узла службы; + RemoveReplica — нормальная ошибка для моделирования удаления реплики; + MovePrimary — нормальная ошибка для моделирования перемещения реплик, активированного подсистемой балансировщика нагрузки Service Fabric.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
@@ -39,7 +39,7 @@ class Test
 {
     public static int Main(string[] args)
     {
-        // Replace these strings with the actual version for your cluster and appliction.
+        // Replace these strings with the actual version for your cluster and application.
         string clusterConnection = "localhost:19000";
         Uri applicationName = new Uri("fabric:/samples/PersistentToDoListApp");
         Uri serviceName = new Uri("fabric:/samples/PersistentToDoListApp/PersistentToDoListService");
@@ -84,33 +84,33 @@ class Test
 
     public static async Task RunTestAsync(string clusterConnection, Uri applicationName, Uri serviceName)
     {
-        // Create FabricClient with connection & security information here.
+        // Create FabricClient with connection and security information here.
         FabricClient fabricClient = new FabricClient(clusterConnection);
-        // Maximum time to wait for a service to stabilize
+        // Maximum time to wait for a service to stabilize.
         TimeSpan maxServiceStabilizationTime = TimeSpan.FromSeconds(120);
 
-        // How many loops of faults you want to execute
+        // How many loops of faults you want to execute.
         uint testLoopCount = 20;
         Random random = new Random();
 
         for (var i = 0; i < testLoopCount; ++i)
         {
             var workload = SelectRandomValue<ServiceWorkloads>(random);
-            // Start workload and while it is running go and induce some fault
+            // Start the workload.
             var workloadTask = RunWorkloadAsync(workload);
 
-            // While task is executing induce faults into the service. It can be ungraceful faults like
-            // RestartNode and RestartDeployedCodePackage or graceful faults like RemoveReplica or MovePrimary
+            // While the task is running, induce faults into the service. They can be ungraceful faults like
+            // RestartNode and RestartDeployedCodePackage or graceful faults like RemoveReplica or MovePrimary.
             var fault = SelectRandomValue<ServiceFabricFaults>(random);
 
-            // Create a replica selector which will select a Primary replica from the given service to test
+            // Create a replica selector, which will select a primary replica from the given service to test.
             var replicaSelector = ReplicaSelector.PrimaryOf(PartitionSelector.RandomOf(serviceName));
-            // Run the selected random fault
+            // Run the selected random fault.
             await RunFaultAsync(applicationName, fault, replicaSelector, fabricClient);
             // Validate the health and stability of the service.
             await fabricClient.ServiceManager.ValidateServiceAsync(serviceName, maxServiceStabilizationTime);
 
-            // Wait for the workload to complete successfully
+            // Wait for the workload to finish successfully.
             await workloadTask;
         }
     }
@@ -137,10 +137,10 @@ class Test
     private static Task RunWorkloadAsync(ServiceWorkloads workload)
     {
         throw new NotImplementedException();
-        // This is where you trigger and complete your service workload
-        // Please note the faults induced while your service workload is running will
-        // fault the Primary service hence you will need to reconnect to complete or check
-        // the status of the workload
+        // This is where you trigger and complete your service workload.
+        // Note that the faults induced while your service workload is running will
+        // fault the primary service. Hence, you will need to reconnect to complete or check
+        // the status of the workload.
     }
 
     private static T SelectRandomValue<T>(Random random)
@@ -151,6 +151,5 @@ class Test
     }
 }
 ```
- 
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_1223_2015-->

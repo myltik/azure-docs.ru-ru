@@ -3,7 +3,7 @@
 	description="Узнайте, как использовать Amazon Web Services (AWS) с Azure Active Directory для реализации единого входа, автоматической подготовки и многого другого."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/30/2015"
-	ms.author="markvi"/>
+	ms.date="12/18/2015"
+	ms.author="jeedes"/>
 
 
 # Учебник. Интеграция Azure Active Directory с Amazon Web Service (AWS)
@@ -320,4 +320,4 @@
 [33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

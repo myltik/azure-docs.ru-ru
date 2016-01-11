@@ -14,11 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="12/08/2015" 
 	ms.author="nitinme"/>
 
 
-# Сервер заданий Spark в кластерах Azure HDInsight
+# Сервер заданий Spark в кластерах Azure HDInsight (Windows)
+
+> [AZURE.NOTE]Теперь HDInsight предоставляет кластеры Spark в Linux; для удаленной отправки заданий в кластер Spark используется Livy. Сведения о том, как использовать Livy с кластерами HDInsight Spark в Linux, см. в разделе [Удаленная отправка заданий Spark с помощью Livy в кластерах Spark в HDInsight (Linux)](hdinsight-apache-spark-livy-rest-interface.md).
 
 В рамках развертывания кластера Apache Spark в Azure HDInight устанавливается сервер заданий Spark. Сервер заданий Spark предоставляет интерфейсы API REST для создания контекста Spark, отправки приложений Spark в контекст, проверки состояния выполнения задания, удаления контекста и т. д. В этой статье приведены несколько примеров использования Curl для выполнения некоторых распространенных задач в кластере Spark с использованием сервера заданий.
 
@@ -64,10 +66,10 @@
 
 ##<a name="seealso"></a>См. также:
 
-* [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
-* [Подготовка Spark в кластере HDInsight](hdinsight-apache-spark-provision-clusters.md)
-* [Выполнение интерактивного анализа данных с использованием Spark в HDInsight с помощью средств бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)
-* [Создание приложений машинного обучения с помощью Spark в HDInsight](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview-v1.md)
+* [Создание Spark в кластере HDInsight](hdinsight-apache-spark-provision-clusters.md)
+* [Выполнение интерактивного анализа данных с использованием Spark в HDInsight с помощью средств бизнес-аналитики](hdinsight-apache-spark-use-bi-tools-v1.md)
+* [Создание приложений машинного обучения с помощью Spark в HDInsight](hdinsight-apache-spark-ipython-notebook-machine-learning-v1.md)
 * [Использование Spark в HDInsight для создания приложений потоковой передачи данных в режиме реального времени](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 * [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 
@@ -82,4 +84,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

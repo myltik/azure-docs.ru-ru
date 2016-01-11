@@ -1,10 +1,25 @@
-<properties pageTitle="Учебник. Интеграция Azure Active Directory с песочницей Salesforce | Microsoft Azure" description="Узнайте, как использовать песочницу Salesforce вместе с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="10/07/2015" ms.author="markvi" />
+<properties 
+    pageTitle="Учебник. Интеграция Azure Active Directory с песочницей Salesforce | Microsoft Azure" description="Узнайте, как использовать песочницу Salesforce вместе с Azure Active Directory для реализации единого входа, автоматической подготовки к работе и многого другого." 
+    services="active-directory" 
+    authors="jeevansd"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="12/18/2015" 
+    ms.author="jeedes" />
+
+
 #Учебник. Интеграция Azure Active Directory с песочницей Salesforce
 >[AZURE.TIP]Чтобы оставить отзыв, щелкните [здесь](http://go.microsoft.com/fwlink/?LinkId=521878).
   
-Цель данного учебника — показать интеграцию Azure и песочницы Salesforce.  
-Песочницы позволяет создать несколько копий организации в отдельных средах для различных целей, например для разработки, тестирования и обучения, не подвергая риску данные и приложения в рабочей организации Salesforce. Дополнительные сведения см.  
+Цель данного учебника — показать интеграцию Azure и песочницы Salesforce.
+Песочницы позволяет создать несколько копий организации в отдельных средах для различных целей, например для разработки, тестирования и обучения, не подвергая риску данные и приложения в рабочей организации Salesforce. Дополнительные сведения см. 
 в статье [Общие сведения о песочнице](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US).
   
 Сценарий, описанный в этом учебнике, предполагает, что у вас уже имеется:
@@ -191,4 +206,4 @@
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](https://msdn.microsoft.com/library/dn308586).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

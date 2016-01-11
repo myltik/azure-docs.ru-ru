@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2015"
+   ms.date="12/17/2015"
    ms.author="masashin"/>
 
 # Руководство по реализации API
@@ -247,26 +247,26 @@
 	...
 	Content-Length: ...
 	{"CustomerID":2,"CustomerName":"Bert","Links":[
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"GET",
-	   "LinkedResourceMIMETypes":["text/xml","application/json"]},
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"PUT",
-	   "LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]},
-	  {"Relationship":"self",
-	   "HRef":"http://adventure-works.com/customers/2",
-	   "Action":"DELETE",
-	   "LinkedResourceMIMETypes":[]},
-	  {"Relationship":"orders",
-	   "HRef":"http://adventure-works.com/customers/2/orders",
-	   "Action":"GET",
-	   "LinkedResourceMIMETypes":["text/xml","application/json"]},
-	  {"Relationship":"orders",
-	   "HRef":"http://adventure-works.com/customers/2/orders",
-	   "Action":"POST",
-	   "LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]}
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"GET",
+	   "types":["text/xml","application/json"]},
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"PUT",
+	   "types":["application/x-www-form-urlencoded"]},
+	  {"rel":"self",
+	   "href":"http://adventure-works.com/customers/2",
+	   "action":"DELETE",
+	   "types":[]},
+	  {"rel":"orders",
+	   "href":"http://adventure-works.com/customers/2/orders",
+	   "action":"GET",
+	   "types":["text/xml","application/json"]},
+	  {"rel":"orders",
+	   "href":"http://adventure-works.com/customers/2/orders",
+	   "action":"POST",
+	   "types":["application/x-www-form-urlencoded"]}
 	]}
 	```
 
@@ -283,10 +283,10 @@
 
 	public class Link
 	{
-    	public string Relationship { get; set; }
-    	public string HRef { get; set; }
+    	public string Rel { get; set; }
+    	public string Href { get; set; }
     	public string Action { get; set; }
-    	public string [] LinkedResourceMIMETypes { get; set; }
+    	public string [] Types { get; set; }
 	}
 	```
 
@@ -294,11 +294,11 @@
 
 	- связь возвращаемого объекта с объектом, описанным в ссылке; в этом случае "self" указывает, что ссылка является ссылкой на сам объект (аналогично указателю `this` во многих языках объектно ориентированного программирования), а "orders" — это имя коллекции со сведениями, связанными с заказом;
 
-	- гиперссылка (`HRef`) для объекта, описываемого в ссылке в виде URI;
+	- гиперссылка (`Href`) для объекта, описываемого в ссылке в виде URI;
 
 	- тип HTTP-запроса (`Action`), который можно отправлять на этот URI;
 
-	- формат данных (`LinkedResourceMIMETypes`), который необходимо предоставить в HTTP-запросе или которые могут быть возвращены в ответе, в зависимости от типа запроса.
+	- формат данных (`Types`), который необходимо предоставить в HTTP-запросе или которые могут быть возвращены в ответе, в зависимости от типа запроса.
 
 	Ссылки HATEOAS, показанные в примере HTTP-ответа, указывают на то, что клиентское приложение может выполнять следующие операции:
 
@@ -406,7 +406,7 @@
 	Cache-Control: max-age=600, private
 	Content-Type: text/json; charset=utf-8
 	Content-Length: ...
-	{"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
+	{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 	```
 
 	В этом примере заголовок Cache-Control указывает, что срок действия возвращенных данных составляет 600 секунд, а сами данные предназначены только для одного клиента и не должны храниться в общем кэше, используемом другими клиентами (параметр _private_). В заголовке Cache-Control должен быть указан параметр _public_ вместо _private_, если требуется, чтобы данные хранились в общем кэше, или же может быть указан параметр _no-store_, чтобы данные **не** кэшировались клиентом. В следующем примере кода показано, как создать заголовок Cache-Control в ответном сообщении:
@@ -514,7 +514,7 @@
 	Content-Type: text/json; charset=utf-8
 	ETag: "2147483648"
 	Content-Length: ...
-	{"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
+	{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 	```
 
 	> [AZURE.TIP]По соображениям безопасности запретите кэширование конфиденциальных данные или данных, возвращаемых через подключение с проверкой подлинности (HTTPS).
@@ -646,7 +646,7 @@
 	...
 	Date: Fri, 12 Sep 2014 09:18:37 GMT
 	Content-Length: ...
-	ProductID=3&Quantity=5&OrderValue=250
+	productID=3&quantity=5&orderValue=250
 	```
 
 	- Операция PUT в веб-API получает текущий ETag для запрошенных данных (заказ 1 в примере выше) и сравнивает его со значением заголовка If-Match.
@@ -1152,4 +1152,4 @@ Azure предоставляет [службу управления API](http://
 - На странице [Проверка кода при помощи модульных тестов](https://msdn.microsoft.com/library/dd264975.aspx) на веб-сайте Майкрософт предоставлены подробные сведения о создании модульных тестов и управлении ими с помощью Visual Studio.
 - На странице [Запуск тестов производительности в приложении](https://msdn.microsoft.com/library/dn250793.aspx) на веб-сайте Майкрософт описывается порядок использования Visual Studio Ultimate для создания веб-тестов производительности и загрузки тестового проекта.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

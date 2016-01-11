@@ -1,4 +1,11 @@
-<properties pageTitle="What happened to my WebApi project (Visual Studio Azure Active Directory connected service) |Microsoft Azure " description="Describes what happens to your MVC project WebApi you connect to Azure AD by using Visual Studio services="active-directory" services="active-directory" documentationCenter="" authors="TomArcher" manager="douge" editor="tglee"/>
+<properties
+	pageTitle="Что произошло с моим проектом WebApi в подключенной службе Visual Studio Azure Active Directory | Microsoft Azure"
+	description="Описывает, что происходит с проектом WebApi при подключении к приложению Azure AD с помощью Visual Studio"
+  services="active-directory"
+	documentationCenter=""
+	authors="TomArcher"
+	manager="douge"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -6,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="12/18/2015"
 	ms.author="tarcher"/>
 
 # Что произошло с моим проектом WebApi в подключенной службе Visual Studio Azure Active Directory
@@ -109,4 +116,4 @@
 
 [Дополнительная информация о службе Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

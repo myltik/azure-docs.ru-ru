@@ -44,10 +44,6 @@
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
-## <a name="publish-the-service"></a>Развертывание серверного проекта в Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
 ## <a id="add-push"></a>Добавление push-уведомлений в приложение
 
 [AZURE.INCLUDE [app-service-mobile-add-push-notifications-to-ios-app.md](../../includes/app-service-mobile-add-push-notifications-to-ios-app.md)]
@@ -58,7 +54,7 @@
 
 ##<a id="more"></a>Дополнительные сведения
 
-* Шаблоны обеспечивают гибкость при отправке push-уведомлений локально и между различными платформами. В статье [Как использовать клиентскую библиотеку iOS для мобильных приложений Azure](app-service-mobile-ios-how-to-use-client-library.md#templates) описано, как регистрировать шаблоны.
+* Шаблоны обеспечивают гибкость при отправке push-уведомлений локально и между различными платформами. В статье [Использование клиентской библиотеки iOS для мобильных приложений Azure](app-service-mobile-ios-how-to-use-client-library.md#templates) описано, как регистрировать шаблоны.
 * Теги позволяют отправлять push-уведомления клиентам в зависимости от их сегмента. В статье [Работа с пакетом SDK для внутреннего сервера .NET для мобильных приложений Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) показано, как добавлять теги для установки устройства.
 
 <!-- Anchors.  -->
@@ -76,4 +72,4 @@
 <!-- URLs. -->
 [быстрому запуску iOS]: app-service-mobile-ios-get-started.md
 
-<!---HONumber=AcomDC_1203_2015--->
+<!----HONumber=AcomDC_1223_2015-->

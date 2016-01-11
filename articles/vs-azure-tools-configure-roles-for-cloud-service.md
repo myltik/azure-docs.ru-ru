@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/08/2015"
+   ms.date="12/19/2015"
    ms.author="tarcher" />
 
 # Настройка ролей для облачной службы Azure в среде Visual Studio
@@ -376,4 +376,4 @@
 ## Дальнейшие действия
 Дополнительные сведения о проектах Azure в Visual Studio см. в статье [Настройка проекта Azure](vs-azure-tools-configuring-an-azure-project.md). Дополнительные сведения о схеме облачной службы см. в статье [Справка по схемам](https://msdn.microsoft.com/library/azure/dd179398).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -57,12 +57,12 @@
 3. Используйте объект **CloudQueueClient** для ссылки на объекты очереди в вашей учетной записи хранения.
 
 	    // Create the table client.
-    	CloudQuecClient queueClient = storageAccount.CreateCloudTableClient();
+    	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
 4. Используйте объект **CloudQueue**, чтобы указать ссылку на определенную очередь.
 
     	// Get a reference to a table named "messageQueue"
-	    CloudTable messageQueue = queueClient.GetQueueReference("messageQueue");
+	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
 
 **ПРИМЕЧАНИЕ.** Вставьте весь код, представленный выше, перед кодом в следующих примерах.
@@ -176,4 +176,4 @@
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

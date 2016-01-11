@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Publish-WebApplicationWebSite (сценарий Windows PowerShell)"
+   pageTitle="Publish-WebApplicationWebSite (сценарий Windows PowerShell) | Microsoft Azure"
    description="Узнайте, как опубликовать веб-проект на веб-сайте Azure. Этот сценарий создает необходимые ресурсы в подписке Azure, если они еще не созданы."
    services="visual-studio-online"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="08/13/2015"
+   ms.date="12/17/2015"
    ms.author="tarcher" />
 
 # Publish-WebApplicationWebSite (сценарий Windows PowerShell)
@@ -129,4 +129,4 @@
 
 Дополнительные сведения см. в статье [Publish-WebApplicationVM (сценарий Windows PowerShell)](vs-azure-tools-publish-webapplicationvm.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

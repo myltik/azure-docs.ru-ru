@@ -6,7 +6,7 @@
 	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/29/2015"
+	ms.date="12/17/2015"
 	ms.author="josephd"/>
 
 # Службы инфраструктуры Azure: интрасетевая ферма SharePoint
 
-[AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]Модель развертывания диспетчера ресурсов.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]Классическая модель развертывания.
 
 Работа с фермой SharePoint в Microsoft Azure имеет целый ряд преимуществ: простота настройки, возможность быстро увеличить емкость фермы или оптимизировать основные функции. Многие фермы SharePoint перерастают из стандартных высокодоступных трехуровневых конфигураций в фермы с десятком, а то и больше серверов, оптимизированных для повышения производительности или выполнения определенных задач (например, распределенное кэширование или поиск).
 
-Виртуальные машины и виртуальная сеть служб инфраструктуры Azure позволяют быстро развернуть и запустить ферму SharePoint, которая прозрачно подключена к локальной сети. Например, вы можете настроить вот такую сеть:
+Виртуальные машины и виртуальная сеть служб инфраструктуры Azure позволяют быстро развернуть и запустить ферму SharePoint, которая прозрачно подключена к локальной сети. Например, вы можете настроить следующее:
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-farm/workload-spsqlao.png)
 
@@ -44,9 +44,9 @@
 - создание исключительно облачной виртуальной сети;
 - создание распределенной виртуальной сети.
 
-Эти среды можно создать бесплатно, используя свою [подписку MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/) или [пробную подписку Azure](http://azure.microsoft.com/pricing/free-trial/).
+Эти среды вы можете создать бесплатно, используя свою [подписку Visual Studio](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/) или [пробную подписку Azure](http://azure.microsoft.com/pricing/free-trial/).
 
-### Исключительно облачная виртуальная сеть
+### создание исключительно облачной виртуальной сети;
 
 Такая виртуальная сеть не соединена с локальной сетью. Если вы хотите быстро создать базовую или высокодоступную ферму SharePoint, см. статью [Создание ферм серверов SharePoint](virtual-machines-sharepoint-farm-azure-preview.md). Базовая конфигурация фермы SharePoint выглядит так:
 
@@ -70,58 +70,19 @@
 
 - интрасетевой фермы SharePoint с двумя серверами в Интернете и уровнями приложений и баз данных;
 - групп доступности SQL Server AlwaysOn с двумя серверами SQL Server и узлом большинства в кластере;
-- службы Azure Active Directory в виртуальной сети с двумя репликами контроллера домена.
+- Два контроллера домена реплики из локального домена Active Directory.
 
 Эта же конфигурация в виде инфографики показана в статье [SharePoint с SQL Server AlwaysOn](http://go.microsoft.com/fwlink/?LinkId=394788).
-
-### Спецификация
-
-Для такой типичной конфигурации требуется следующий набор компонентов и служб Azure:
-
-- девять виртуальных машин;
-- четыре дополнительных диска данных для контроллеров домена и серверов SQL Server;
-- три облачные службы;
-- четыре группы доступности;
-- одна распределенная виртуальная сеть;
-- одна учетная запись хранения;
-- одна подписка Azure.
-
-Вот список виртуальных машин и их размеры по умолчанию для данной конфигурации.
-
-Элемент | Описание виртуальной машины | Образ из коллекции | Размер по умолчанию
---- | --- | --- | ---
-1\. | Первый контроллер домена | Центр обработки данных Windows Server 2012 R2 | A2 (средний)
-2\. | Второй контроллер домена | Центр обработки данных Windows Server 2012 R2 | A2 (средний)
-3\. | Первый сервер базы данных | Microsoft SQL Server 2014 Enterprise — Windows Server 2012 R2 | A5
-4\. | Второй сервер базы данных | Microsoft SQL Server 2014 Enterprise — Windows Server 2012 R2 | A5
-5\. | Узел большинства кластера | Центр обработки данных Windows Server 2012 R2 | A1 (малый)
-6\. | Первый сервер приложений SharePoint | Microsoft SharePoint Server 2013 Trial — Windows Server 2012 R2 | A4 (очень большой)
-7\. | Второй сервер приложений SharePoint | Microsoft SharePoint Server 2013 Trial — Windows Server 2012 R2 | A4 (очень большой)
-8\. | Первый веб-сервер SharePoint | Microsoft SharePoint Server 2013 Trial — Windows Server 2012 R2 | A4 (очень большой)
-9\. | Второй веб-сервер SharePoint | Microsoft SharePoint Server 2013 Trial — Windows Server 2012 R2 | A4 (очень большой)
-
-Чтобы вычислить расчетную стоимость данной конфигурации, см. [Калькулятор цен Azure](https://azure.microsoft.com/pricing/calculator/).
-
-1. В разделе **Модули** выберите параметр **Рассчитать**, а затем щелкните **Виртуальные машины** необходимое число раз, чтобы получился список из девяти виртуальных машин.
-2. Для каждой виртуальной машины укажите следующие параметры:
-	- Необходимый регион
-	- Тип — **Windows**
-	- Уровень цен — **Standard**
-	- **Размер экземпляра** — размер по умолчанию из предыдущей таблицы или предполагаемый размер
-
-> [AZURE.NOTE]Калькулятор цен Azure не включает дополнительные затраты на лицензирование SQL Server для двух виртуальных машин под управлением SQL Server 2014 Enterprise. Дополнительные сведения см. в статье [Цены на виртуальные машины — SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
-
-### Этапы развертывания
 
 Развертывание этой конфигурации выполняется в следующем порядке.
 
 - Этап 1. Настройка Azure.
 
-	С помощью классического портала Azure и Azure PowerShell создайте учетную запись хранения, облачные службы и распределенную виртуальную сеть. Подробные сведения см. в статье, посвященной [этапу 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
+	С помощью Azure PowerShell создайте учетную запись хранения, группы доступности и распределенную виртуальную сеть. Подробные сведения см. в статье, посвященной [этапу 1](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
 - Этап 2. Настройка контроллеров домена.
 
-	Настройте две реплики контроллера домена Azure Active Directory и параметры DNS для виртуальной сети. Подробные сведения см. в статье, посвященной [этапу 2](virtual-machines-workload-intranet-sharepoint-phase2.md).
+	Настройте два контроллера домена реплик Active Directory и параметры DNS для виртуальной сети. Подробные сведения см. в статье, посвященной [этапу 2](virtual-machines-workload-intranet-sharepoint-phase2.md).
 
 - Этап 3. Настройка инфраструктуры сервера SQL Server
 
@@ -137,20 +98,8 @@
 
 Сведения о том, как расширить такую ферму SharePoint, см. в статье [Архитектуры Microsoft Azure для SharePoint 2013](http://technet.microsoft.com/library/dn635309.aspx).
 
-## Дополнительные ресурсы
+## Дальнейшие действия
 
-[Развертывание среды SharePoint с группами доступности AlwaysOn для SQL Server на платформе Azure](virtual-machines-workload-deploy-spsqlao-overview.md)
+- Прежде чем приступить к настройке, ознакомьтесь с [общими сведениями](virtual-machines-workload-intranet-sharepoint-overview.md) о рабочей нагрузке.
 
-[Настройка фермы SharePoint интрасети в гибридном облаке для тестирования](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
-
-[Архитектуры Microsoft Azure для SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
-
-[Среда SharePoint с группами доступности AlwaysOn для SQL Server](http://go.microsoft.com/fwlink/?LinkId=394788)
-
-[Фермы SharePoint, размещенные в службах инфраструктуры Azure](virtual-machines-sharepoint-infrastructure-services.md)
-
-[Руководство по реализации служб инфраструктуры Azure](virtual-machines-infrastructure-services-implementation-guidelines.md)
-
-[Службы инфраструктуры Azure: высокодоступное бизнес-приложение](virtual-machines-workload-high-availability-lob-application.md)
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

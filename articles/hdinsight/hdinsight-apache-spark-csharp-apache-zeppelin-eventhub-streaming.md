@@ -14,11 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="12/08/2015" 
 	ms.author="nitinme"/>
 
 
-# Потоковая передача Spark: обработка событий от концентраторов событий Azure с помощью Apache Spark в HDInsight
+# Потоковая передача Spark: обработка событий от концентраторов событий Azure с помощью Apache Spark в HDInsight (Windows)
+
+> [AZURE.NOTE]Теперь HDInsight предоставляет кластеры Spark в Linux. Сведения о том, как запустить приложение потоковой передачи в кластерах HDInsight Spark в Linux, см. в статье [Потоковая передача Spark. Обработка событий от концентраторов событий с Apache Spark в HDInsight (Linux)](hdinsight-apache-spark-eventhub-streaming.md).
 
 Потоковая передача Spark расширяет возможности основного API Spark по созданию масштабируемых, отказоустойчивых приложений для обработки потоковых данных с высокой пропускной способностью. Данные могут поступать из множества источников. В этой статье для приема данных используются концентраторы событий. Концентраторы событий — это высокомасштабируемая система приема, которая может принимать миллионы событий в секунду
 
@@ -31,8 +33,8 @@
 Необходимо следующее:
 
 - Подписка Azure. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Кластер Apache Spark. Инструкции см. в статье [Подготовка кластеров Apache Spark в Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
-- [Концентратор событий Azure](service-bus-event-hubs-csharp-ephcs-getstarted.md)
+- Кластер Apache Spark. Инструкции см. в разделе [Создание кластеров Apache Spark в Azure HDInsight](hdinsight-apache-spark-provision-clusters.md).
+- [Концентратор событий Azure](service-bus-event-hubs-csharp-ephcs-getstarted.md).
 - Рабочая станция, на которой установлено программное обеспечение Microsoft Visual Studio 2013. Инструкции см. в статье [Установка Visual Studio](https://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ##<a name="createeventhub"></a>Создание концентратора событий Azure
@@ -41,13 +43,13 @@
 
 2. В диалоговом окне **Добавление нового концентратора событий**введите **Имя концентратора событий**, выберите **Регион** для создания в нем концентратора и создайте новое пространство имен или выберите существующее. Щелкните **стрелку** для продолжения.
 
-	![страница мастера 1](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Create.Event.Hub.png "Создание концентратора событий Azure")
+	![страница мастера 1](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.create.event.hub.png "Создание концентратора событий Azure")
 
 	> [AZURE.NOTE]Для сокращения задержек и затрат в поле **Расположение** следует выбрать то же расположение, в котором находится кластер Apache Spark в HDInsight.
 
-3. В диалоговом окне **Настройка концентратора событий** введите значения в полях **Количество разделов** и **Хранение сообщений**, а затем щелкните значок с флажком. В этом примере числу разделов присвойте значение 10, а хранению сообщений — 1. Запомните количество разделов, поскольку это значение понадобится позже.
+3. В диалоговом окне **Настройка концентратора событий** введите значения в полях **Количество разделов** и **Период удержания сообщений**, а затем щелкните значок с флажком. В этом примере числу разделов присвойте значение 10, а хранению сообщений — 1. Запомните количество разделов, поскольку это значение понадобится позже.
 
-	![страница мастера 2](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Create.Event.Hub2.png "Укажите размер раздела и срок хранения в днях для концентратора событий")
+	![страница мастера 2](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.create.event.hub2.png "Укажите размер раздела и срок хранения в днях для концентратора событий")
 
 4. Щелкните созданный концентратор событий, выберите **Настройка**, а затем создайте две политики доступа для концентратора событий.
 
@@ -57,16 +59,16 @@
 <tr><td>myreceivepolicy</td><td>Прослушивание</td></tr>
 </table>После создания разрешений выберите значок **Сохранить** в нижней части страницы. При этом создаются политики совместного доступа, которые будут использоваться для отправки (**mysendpolicy**) сообщений в этот концентратор событий и их прослушивания (**myreceivepolicy**).
 
-	![политики](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policies.png "Создание политик концентратора событий")
+	![политики](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Создание политик концентратора событий")
 
 	
 5. На этой же странице запишите ключи политики, созданные для двух политик. Сохраните эти ключи для использования в дальнейшем.
 
-	![ключи политики](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policy.Keys.png "Сохранение ключей политики")
+	![ключи политики](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.policy.keys.png "Сохранение ключей политики")
 
 6. На странице **Панель мониторинга** в нижней части экрана щелкните **Сведения о подключении**, чтобы получить и сохранить строки подключения для концентратора событий с помощью двух политик.
 
-	![ключи политики](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policy.Connection.Strings.png "Сохранение строк подключения политики")
+	![ключи политики](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.policy.connection.strings.png "Сохранение строк подключения политики")
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-csharp](../../includes/service-bus-event-hubs-get-started-send-csharp.md)]
 
@@ -86,27 +88,27 @@
 * Для Zeppelin необходимо выделить не менее двух ядер.
 * Количество выделенных ядер всегда должно быть в два раза больше количества разделов в концентраторе событий. 
 
-Инструкции о том, как выделять ресурсы в кластере Spark, см. в статье [Управление ресурсами кластера Apache Spark в HDInsight](hdinsight-apache-spark-resource-manager.md).
+Инструкции о том, как выделять ресурсы в кластере Spark, см. в статье [Управление ресурсами кластера Apache Spark в HDInsight](hdinsight-apache-spark-resource-manager-v1.md).
 
 ### Создание приложения потоковой передачи с помощью Zeppelin
 
-1. На начальной панели [портала Azure](https://portal.azure.com/) щелкните элемент кластера Spark (если он закреплен на начальной панели). Кроме того, можно перейти к кластеру, выбрав пункты **Просмотреть все** и **Кластеры HDInsight**.   
+1. На начальной панели [портала предварительной версии Azure](https://portal.azure.com/) щелкните элемент кластера Spark (если он закреплен на начальной панели). Кроме того, вы можете перейти к кластеру, выбрав пункты **Просмотреть все** и **Кластеры HDInsight**.   
 
-2. В колонке кластера Spark щелкните **Быстрые ссылки**, затем в колонке **Панель мониторинга кластера** выберите **Записная книжка Zeppelin**. При появлении запроса введите учетные данные администратора для кластера.
+2. В колонке кластера Spark щелкните **Быстрые ссылки**, затем в колонке **Панель мониторинга кластера** выберите **Zeppelin Notebook**. При появлении запроса введите учетные данные администратора для кластера.
 
-	> [AZURE.NOTE]Также можно открыть Zeppelin Notebook для своего кластера, открыв следующий URL-адрес в браузере. Замените __CLUSTERNAME__ именем кластера.
+	> [AZURE.NOTE]Также можно открыть Zeppelin Notebook для своего кластера, открыв следующий URL-адрес в браузере. Замените __CLUSTERNAME__ именем кластера:
 	>
 	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
 
 2. Создайте новую записную книжку. На панели заголовка щелкните **Notebook** и в раскрывающемся списке выберите пункт **Создать заметку**.
 
-	![Создание новой записной книжки Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.CreateNewNote.png "Создание новой записной книжки Zeppelin")
+	![Создание новой записной книжки Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.createnewnote.png "Создание новой записной книжки Zeppelin")
 
 	На той же странице под заголовком **Notebook** отобразится новая записная книжка с именем, начинающимся с **Заметка XXXXXXXXX**. Щелкните новую записную книжку.
 
 3. На веб-странице для новой записной книжки щелкните заголовок и при необходимости переименуйте записную книжку. Нажмите клавишу ВВОД, чтобы сохранить изменения. Кроме того, убедитесь, что в правом верхнем углу в заголовке записной книжки отображается состояние **Подключено**.
 
-	![Состояния записной книжки Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.NewNote.Connected.png "Состояния записной книжки Zeppelin")
+	![Состояния записной книжки Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.newnote.connected.png "Состояния записной книжки Zeppelin")
 
 4. В пустой абзац новой записной книжки, который создается по умолчанию, вставьте следующий фрагмент кода и замените заполнители на данные из своей конфигурации концентратора событий. Этот фрагмент кода получает поток из концентратора событий и регистрирует поток во временной таблице с именем **mytemptable**. В следующем разделе мы запустим приложение отправителя. После этого данные можно будет считывать непосредственно из таблицы.
 
@@ -143,7 +145,7 @@
 
 	Состояние, которое отображается в правом верхнем углу абзаца, должно изменяться в следующей последовательности: READY (ГОТОВО), PENDING (ОЖИДАЕТ), RUNNING (ВЫПОЛНЯЕТСЯ) и FINISHED (ЗАВЕРШЕНО). Выходные данные будут отображаться в нижней части того же абзаца. Снимок экрана выглядит следующим образом:
 
-	![Выходные данные фрагмента кода](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Zeppelin.Code.Output.png "Выходные данные фрагмента кода")
+	![Выходные данные фрагмента кода](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.zeppelin.code.output.png "Выходные данные фрагмента кода")
 
 2. Запустите проект **Sender** и нажмите клавишу **ВВОД** в окне консоли, чтобы запустить функцию отправки сообщений в концентратор событий.
 
@@ -154,11 +156,11 @@
 
 	На снимке экрана в таблице **mytemptable** показаны полученные сообщения.
 
-	![Получение сообщений в Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Zeppelin.Output.png "Получение сообщений в записной книжке Zeppelin")
+	![Получение сообщений в Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.streaming.event.hub.zeppelin.output.png "Получение сообщений в записной книжке Zeppelin")
 
 4. Перезапустите интерпретатор Spark SQL, чтобы выйти из приложения. Перейдите на вкладку **Интерпретатор** в верхней части окна, а затем для интерпретатора Spark нажмите кнопку **Перезапустить**.
 
-	![Перезапуск интерпретатора Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Zeppelin.Restart.Interpreter.png "Перезапуск интерпретатора Zeppelin")
+	![Перезапуск интерпретатора Zeppelin](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/hdispark.zeppelin.restart.interpreter.png "Перезапуск интерпретатора Zeppelin")
 
 ##<a name="sparkstreamingha"></a>Запуск приложения потоковой передачи с высоким уровнем доступности
 
@@ -169,17 +171,17 @@
 3. Подключитесь к кластеру с помощью удаленного рабочего стола и скопируйте JAR-файл приложения в головной узел кластера.
 3. Подключитесь к кластеру с помощью удаленного рабочего стола и запустите приложение на узле кластера.
 
-Инструкции по выполнению этих действий и пример приложения потоковой передачи можно скачать с сайта GitHub по адресу [https://github.com/hdinsight/hdinsight-spark-examples](https://github.com/hdinsight/hdinsight-spark-examples).
+Инструкции по выполнению этих действий и пример приложения потоковой передачи вы можете скачать с сайта GitHub по адресу [https://github.com/hdinsight/hdinsight-spark-examples](https://github.com/hdinsight/hdinsight-spark-examples).
 
 
 ##<a name="seealso"></a>См. также:
 
 
-* [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview.md)
-* [Быстрый запуск: подготовка Apache Spark в HDInsight и выполнение интерактивных запросов с помощью Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
-* [Создание приложений машинного обучения с помощью Spark в HDInsight](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Выполнение интерактивного анализа данных с использованием Spark в HDInsight с помощью средств бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)
-* [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+* [Обзор: Apache Spark в Azure HDInsight](hdinsight-apache-spark-overview-v1.md)
+* [Быстрый запуск. Подготовка Apache Spark в HDInsight и выполнение интерактивных запросов с помощью Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
+* [Создание приложений машинного обучения с помощью Spark в HDInsight](hdinsight-apache-spark-ipython-notebook-machine-learning-v1.md)
+* [Выполнение интерактивного анализа данных с использованием Spark в HDInsight с помощью средств бизнес-аналитики](hdinsight-apache-spark-use-bi-tools-v1.md)
+* [Управление ресурсами кластера Apache Spark в Azure HDInsight](hdinsight-apache-spark-resource-manager-v1.md)
 
 
 [hdinsight-versions]: ../hdinsight-component-versioning/
@@ -192,4 +194,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

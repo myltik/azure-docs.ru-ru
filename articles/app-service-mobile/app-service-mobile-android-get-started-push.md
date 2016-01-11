@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="12/02/2015"
+	ms.date="12/18/2015"
 	ms.author="yuaxu"/>
 
 # Добавление push-уведомлений в приложение Android
@@ -49,11 +49,9 @@
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
-## <a name="publish-the-service"></a>Публикация мобильного внутреннего сервера в Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
-
 ## Добавление push-уведомлений в приложение
+
+Необходимо убедиться в том, что проект приложения Android готов для обработки push-уведомлений.
 
 ###Проверка версии Android SDK
 
@@ -83,4 +81,4 @@
 [ознакомительного проекта для платформы Android]: app-service-mobile-android-get-started.md
 [ознакомительный проект для платформы Android]: app-service-mobile-android-get-started.md
 
-<!---HONumber=AcomDC_1210_2015--->
+<!----HONumber=AcomDC_1223_2015-->

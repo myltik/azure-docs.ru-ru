@@ -30,33 +30,33 @@
 
 Для тестирования SAP в Azure следует использовать только SLES 11SP4 и SLES 12. В коллекции образов Azure можно найти специальный образ SUSE: "SLES 11 SP3 для SAP CAL", но он не предназначен для общего использования. Он зарезервирован для решения SAP Cloud Appliance Library — SAP "CAL" ( <https://cal.sap.com/> ). Не было никакого смысла скрывать этот образ от общественности. Поэтому просто не пользуйтесь им.
 
-Все новые тесты в Azure должны выполняться с помощью Диспетчера ресурсов Azure. Для поиска образов и версий SUSE SLES с помощью Azure Powershell или интерфейса командной строки используйте следующие команды. Выходные данные затем можно использовать, например, для определения образа ОС в шаблоне JSON для развертывания новой виртуальной машины SUSE Linux:
+Все новые тесты в Azure должны выполняться с помощью Диспетчера ресурсов Azure. Для поиска образов и версий SUSE SLES с помощью Azure Powershell или интерфейса командной строки используйте следующие команды. Выходные данные затем можно использовать, например для определения образа ОС в шаблоне JSON для развертывания новой виртуальной машины SUSE Linux. Для Azure Powershell версии 1.0.1 и выше действительны следующие команды PS:
 
 * поиск существующих издателей, включающих SUSE:
 
    ```
-   PS  : Get-AzureVMImagePublisher -Location "West Europe"  | where-object { $_.publishername -like "*US*"  }
+   PS  : Get-AzureRmVMImagePublisher -Location "West Europe"  | where-object { $_.publishername -like "*US*"  }
    CLI : azure vm image list-publishers westeurope | grep "US"
    ```
 
 * поиск существующих предложений от SUSE:
       
    ```
-   PS  : Get-AzureVMImageOffer -Location "West Europe" -Publisher "SUSE"
+   PS  : Get-AzureRmVMImageOffer -Location "West Europe" -Publisher "SUSE"
    CLI : azure vm image list-offers westeurope SUSE
    ```
       
 * поиск предложений SUSE SLES:
       
    ```
-   PS  : Get-AzureVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
+   PS  : Get-AzureRmVMImageSku -Location "West Europe" -Publisher "SUSE" -Offer "SLES"
    CLI : azure vm image list-skus westeurope SUSE SLES
    ```
       
 * поиск определенной версии SLES SKU:
       
    ```
-   PS  : Get-AzureVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12"
+   PS  : Get-AzureRmVMImage -Location "West Europe" -Publisher "SUSE" -Offer "SLES" -skus "12"
    CLI : azure vm image list westeurope SUSE SLES 12
    ```
      
@@ -76,12 +76,16 @@
 
 ## Отправка виртуальной машины SUSE из локальной среды в Azure
 
-Соответствующие шаги описаны в следующем блоге: <https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-vhd-suse/>
+Соответствующие шаги описаны в следующем блоге:
+
+<https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-vhd-suse/>
 
 Если требуется отправить виртуальную машину без отзыва в конце, например для сохранения существующей установки SAP, а также имени узла, следует проверить следующие элементы:
 
 * Убедитесь, что диск ОС подключен через UUID, а НЕ через идентификатор устройства. Для диска ОС НЕДОСТАТОЧНО изменить UUID только в /etc/fstab. Также не забудьте адаптировать загрузчик, например с помощью YaST или посредством изменения /boot/grub/menu.lst
-* Если вы использовали формат VHDX для диска операционной системы SUSE и преобразовали его в виртуальный жесткий диск для передачи в Azure, весьма вероятно, что сетевое устройство изменилось с eth0 на eth1. Чтобы избежать дальнейших проблем при загрузке в Azure, следует вернуть значение eth0, как описано здесь: <https://dartron.wordpress.com/2013/09/27/fixing-eth1-in-cloned-sles-11-vmware/>
+* Если вы использовали формат VHDX для диска операционной системы SUSE и преобразовали его в виртуальный жесткий диск для передачи в Azure, весьма вероятно, что сетевое устройство изменилось с eth0 на eth1. Чтобы избежать дальнейших проблем при загрузке в Azure, следует вернуть значение eth0, как описано здесь:
+
+<https://dartron.wordpress.com/2013/09/27/fixing-eth1-in-cloned-sles-11-vmware/>
 
 Помимо выполнения описанных в этой статье действий рекомендуется также удалить
 
@@ -89,9 +93,33 @@
 
 Установка waagent должна выполняться без каких-либо проблем, если только не используется несколько сетевых карт.
 
+## Развертывание виртуальной машины SUSE в Azure
+
+Новые виртуальные машины следует создавать с помощью файлов шаблонов json в новой модели диспетчера ресурсов Azure. После создания файла шаблона json виртуальную машину можно развернуть с помощью следующей команды в качестве альтернативы для PowerShell:
+
+   ``` azure group deployment create "<deployment name>" -g "<resource group name>" --template-file "<../../filename.json>"
+   
+   ``` Дополнительные сведения о файлах шаблонов json можно найти здесь:
+
+<https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/>
+
+<https://azure.microsoft.com/documentation/templates/>
+
+Дополнительные сведения об интерфейсе командной строки и диспетчере ресурсов Azure можно найти здесь:
+
+<https://azure.microsoft.com/documentation/articles/xplat-cli-azure-resource-manager/>
+
 ## Ключ оборудования и лицензия SAP
 
 Для официальной сертификации SAP-Windows-Azure был представлен новый механизм для вычисления ключа оборудования SAP, который используется для лицензии SAP. Ядро SAP было адаптировано для использования данного ключа. В текущем ядре SAP для Linux такое изменение кода ОТСУТСТВУЕТ. Поэтому в определенных ситуациях (например, при изменении размера виртуальной машины Azure) ключ оборудования SAP изменяется, что делает лицензию SAP недействительной.
+
+## Пакет SUSE sapconf
+
+В SUSE есть пакет под названием sapconf, который содержит набор параметров SAP. Дополнительные сведения об этом пакете, о том, что он делает и как установить и использовать его, можно найти здесь:
+
+<https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/>
+
+<http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems>
 
 ## Общая папка NFS в распределенных установках SAP
 
@@ -133,4 +161,4 @@
  
 Эта общая тема, которая касается не только Azure. Однако важно разобраться в ней. Существует ограничение поддержки, накладываемое Oracle на Linux в виртуализованных средах. Это означает, что SAP не поддерживает Oracle на SUSE или RedHat в общедоступном облаке, таком как Azure. Клиенты должны обратиться непосредственно в Oracle для обсуждения этого вопроса.
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

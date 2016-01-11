@@ -15,7 +15,7 @@
    ms.date="12/09/2015"
    ms.author="v-sharos" />
 
-# Развертывание локального устройства StorSimple на портале государственных организаций
+# Развертывание локального устройства StorSimple на портале государственных организаций (обновление 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-deploy-gov](../../includes/storsimple-version-selector-deploy-gov.md)]
 
@@ -243,4 +243,4 @@ MPIO представляет собой дополнительный компо
 Для управления устройством StorSimple используется [служба Диспетчера StorSimple](https://msdn.microsoft.com/library/azure/dn772396.aspx).
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->
