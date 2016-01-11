@@ -60,7 +60,8 @@
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-<br/> Теперь мы рассмотрим создание веб-приложения Python Flask с нуля.
+<br/> 
+Теперь мы рассмотрим создание веб-приложения Python Flask с нуля.
 
 ## Шаг 2. Создание нового веб-приложения Python Flask
 

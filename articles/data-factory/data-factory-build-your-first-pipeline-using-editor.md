@@ -80,7 +80,8 @@
 
 	![Кнопка "Развернуть"](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
-   После успешного развертывания связанной службы окно **Draft-1** должно исчезнуть, а в представлении в виде дерева слева должен появиться пункт **StorageLinkedService**. ![Связанная служба хранилища в меню](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
+   После успешного развертывания связанной службы окно **Draft-1** должно исчезнуть, а в представлении в виде дерева слева должен появиться пункт **StorageLinkedService**.
+   	![Связанная служба хранилища в меню](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)
 
  
 ### Создание связанной службы Azure HDInsight
@@ -122,7 +123,7 @@
 
 ### Создание входного набора данных
 
-1. На панели команд **редактора фабрики данных** щелкните **Создать набор данных** и выберите **Хранилище BLOB-объектов Azure**.
+1. На панели команд **редактора фабрики данных** щелкните **Создать набор данных** и выберите **Хранилище BLOB-объектов Azure**.  
 
 	![Новый набор данных](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 2. Вставьте приведенный ниже фрагмент JSON в окно Draft-1. В фрагменте JSON создается набор данных с именем **AzureBlobInput**, представляющий входные данные для действия в конвейере. Кроме того, нужно указать, что входные данные размещаются в контейнере BLOB-объектов **adfgetstarted** и в папке **inputdata**.
