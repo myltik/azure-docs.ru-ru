@@ -13,14 +13,13 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="11/10/2015"
+	ms.date="12/18/2015"
 	ms.author="heidist"/>
 
 # Использование приложения Fiddler для оценки и тестирования интерфейсов API REST "Поиск Azure"
 > [AZURE.SELECTOR]
 - [Overview](search-query-overview.md)
 - [Fiddler](search-fiddler.md)
-- [Postman](search-chrome-postman.md)
 - [.NET](search-query-dotnet.md)
 - [REST](search-query-rest-api.md)
 
@@ -43,7 +42,7 @@
 3. Введите URL-адрес, который задает URL-адрес службы, атрибуты запроса и версию API. Не забывайте:
    + Используйте префикс HTTPS.
    + Атрибут запроса: "/indexes/hotels". В этом случае Поиск создает индекс с именем hotels.
-   + Версия API вводится строчными буквами, в виде "?api-version=2015-02-28". Версии API имеют важное значение, так как обновления Поиска Azure разворачиваются на регулярной основе. В редких случаях обновление службы может привести к нарушению функционирования API. При использовании версий API вы можете продолжать использовать выбранную версию и обновить ее, когда будет удобно.
+   + Версия API вводится строчными буквами, в виде "?api-version=2015-02-28". Версии API имеют важное значение, так как обновления Поиска Azure разворачиваются на регулярной основе. В редких случаях обновление службы может привести к нарушению функционирования API. Поэтому службе поиска Azure требуется версия API каждого запроса, чтобы вы могли полностью контролировать используемый запрос.
 
     Полный URL-адрес должен выглядеть аналогично тому, как показано ниже.
 
@@ -63,7 +62,7 @@
         "fields": [
           {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
           {"name": "baseRate", "type": "Edm.Double"},
-          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false,},
+          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
           {"name": "hotelName", "type": "Edm.String"},
           {"name": "category", "type": "Edm.String"},
           {"name": "tags", "type": "Collection(Edm.String)"},
@@ -225,14 +224,12 @@
 
 5.	Нажмите **Execute (Выполнить)**. Через несколько секунд в списке сеансов появится ответ HTTP 200. Выберите запись, которая сопровождается вашей командой.
 
-6.	Щелкните вкладку**Inspectors** (Инспекторы), затем вкладку **Headers** (Заголовки) и выберите формат JSON. Вы увидите количество документов и занятый ими размер (в килобайтах).
+6.	Щелкните вкладку **Inspectors** (Инспекторы), затем вкладку **Headers** (Заголовки) и выберите формат JSON. Вы увидите количество документов и занятый ими размер (в килобайтах).
 
 ## Дальнейшие действия
 
-Щелкните следующие ссылки, чтобы узнать, как применять службу "Поиск Azure" и управлять ею, не используя код.
+Сведения об управлении службой поиска Azure и ее использовании без написания кода см. в статье [Управление службой поиска в Microsoft Azure](search-manage.md).
 
--  [Управление службой "Поиск Azure"](search-manage.md)
--  [Как использовать приложение Chrome Postman со службой "Поиск Azure"](search-chrome-postman.md)
 
 <!--Image References-->
 [1]: ./media/search-fiddler/AzureSearch_Fiddler1_PutIndex.png
@@ -241,4 +238,4 @@
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

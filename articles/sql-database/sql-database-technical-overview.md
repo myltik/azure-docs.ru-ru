@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/30/2015"
+   ms.date="12/22/2015"
    ms.author="shkurhek"/>
 
 # Что такое база данных SQL? Общие и технические сведения о базе данных SQL, а также описание DTU
@@ -61,4 +61,4 @@ SQL Server обладает традициями надежной защиты �
 
 - Приступите к работе, [создав свою первую базу данных](sql-database-get-started.md). Затем создайте свое первое приложение на [C#](sql-database-connect-query.md), [Java](sql-database-develop-java-simple-windows.md), [Node.js](sql-database-develop-nodejs-simple-windows.md), [PHP](sql-database-develop-php-retry-windows.md), [Python](sql-database-develop-python-simple-windows.md) или [Ruby](sql-database-develop-ruby-simple-linux).
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

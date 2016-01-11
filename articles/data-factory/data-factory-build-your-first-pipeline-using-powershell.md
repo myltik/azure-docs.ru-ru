@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Построение конвейера фабрики данных Azure с помощью Azure PowerShell"
+	pageTitle="Начало работы с фабрикой данных Azure с помощью Azure PowerShell"
 	description="В этом учебнике вы создадите образец конвейера фабрики данных Azure с помощью Azure PowerShell."
 	services="data-factory"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="12/08/2015"
+	ms.date="12/18/2015"
 	ms.author="spelluru"/>
 
-# Построение конвейера фабрики данных Azure с помощью Azure PowerShell
+# Начало работы с фабрикой данных Azure с помощью Azure PowerShell
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -25,20 +25,15 @@
 - [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 
 
-В этой статье описано, как создать конвейер с помощью Azure PowerShell. В учебнике рассматриваются следующие действия:
+Из этой статьи вы узнаете, как создать свою первую фабрику данных с помощью Azure PowerShell.
 
-1.	Создание фабрики данных.
-2.	Создание связанных служб (хранилищ данных и служб вычислений) и наборов данных.
-3.	Создание конвейера.
-
-> [AZURE.IMPORTANT]Здесь не приводятся общие сведения о службе фабрики данных Azure. Подробный обзор службы см. в статье [Введение в фабрику данных Azure](data-factory-introduction.md).
-> 
-> В этой статье рассматриваются не все командлеты фабрики данных. Полную документацию по командлетам фабрики данных см. в [справочнике по командлетам фабрики данных](https://msdn.microsoft.com/library/dn820234.aspx).
 
 ## Предварительные требования
 Помимо необходимых компонентов, перечисленных в разделе "Обзор учебника", необходимо установить на компьютер Azure PowerShell.
 
-- **Azure PowerShell**. Чтобы установить последнюю версию Azure PowerShell на локальном компьютере, следуйте указаниям в разделе [Установка и настройка Azure PowerShell](../powershell-install-configure.md). 
+- Прежде чем продолжать, **обязательно** прочтите [обзорную статью](data-factory-build-your-first-pipeline.md) по этой теме и выполните предварительные условия.
+- **Azure PowerShell**. Чтобы установить последнюю версию Azure PowerShell на локальном компьютере, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](../powershell-install-configure.md).
+- В этой статье рассматриваются не все командлеты фабрики данных (необязательный раздел). Полную документацию по командлетам фабрики данных см. в [справочнике по командлетам фабрики данных](https://msdn.microsoft.com/library/dn820234.aspx). 
 
 Если вы используете Azure PowerShell **более ранней версии, чем 1.0**, используйте командлеты, описанные [здесь][cmdlet-reference]. Перед использованием командлетов фабрики данных также потребуется выполнить следующие команды:
  
@@ -46,12 +41,12 @@
 	1. Выполните командлет **Add-AzureAccount** и введите имя пользователя и пароль, которые используются для входа на портал Azure.
 	2. Выполните командлет **Get-AzureSubscription**, чтобы просмотреть все подписки для этой учетной записи.
 	3. Выполните командлет **Select-AzureSubscription**, чтобы выбрать подписку, с которой вы собираетесь работать. Эта подписка должна совпадать с той, которая используется на портале Azure.
-4. Переключитесь в режим AzureResourceManager, так как командлеты фабрики данных Azure доступны только в этом режиме: **Switch-AzureMode AzureResourceManager**.
+4. Переключитесь в режим AzureResourceManager, так как командлеты фабрики данных Azure доступны только в этом режиме (**Switch-AzureMode AzureResourceManager**).
 
 
-## Шаг 1. Создание фабрики данных
+## Шаг 1. Создание фабрики данных
 
-На этом этапе с помощью Azure PowerShell создается фабрика данных Azure с именем ADFTutorialDataFactoryPSH.
+На этом этапе с помощью Azure PowerShell создается фабрика данных Azure с именем **FirstDataFactoryPSH**. Фабрика данных может иметь один или несколько конвейеров. Конвейер может содержать одно или несколько действий. Это может быть, например, действие копирования, копирующее данные из исходного хранилища данных в конечное, и действие HDInsight Hive для выполнения скрипта Hive, преобразующего входные данные в выходные данные продукта. Начнем с создания фабрики данных.
 
 1. Откройте Azure PowerShell и выполните следующие команды. Не закрывайте Azure PowerShell, пока выполняются описанные в учебнике инструкции. Если закрыть и снова открыть это окно, то придется вновь выполнять эти команды.
 	- Выполните командлет **Login-AzureRmAccount** и введите имя пользователя и пароль, которые используются для входа на портал Azure.  
@@ -62,55 +57,56 @@
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
 	Некоторые действия, описанные в этом учебнике, предполагают, что вы используете группу ресурсов с именем ADFTutorialResourceGroup. Если вы используете другую группу ресурсов, вместо ADFTutorialResourceGroup указывайте на этом уроке выбранную вами группу.
-4. Выполните командлет **New-AzureRmDataFactory**, чтобы создать фабрику данных с именем DataFactoryMyFirstPipelinePSH.  
+4. Выполните командлет **New-AzureRmDataFactory**, чтобы создать фабрику данных с именем **FirstDataFactoryPSH**.  
 
-		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH –Location "West US"
+		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
 
-	> [AZURE.IMPORTANT]Имя фабрики данных Azure должно быть глобально уникальным. Если появится сообщение об ошибке **Имя фабрики данных DataFactoryMyFirstPipelinePSH недоступно**, измените имя (например, используйте ваше\_имя\_ADFTutorialDataFactoryPSH). Используйте это имя вместо ADFTutorialFactoryPSH при выполнении шагов в этом учебнике. Ознакомьтесь с разделом [Фабрика данных — правила именования](data-factory-naming-rules.md), чтобы узнать о правилах именования артефактов фабрики данных.
+	> [AZURE.IMPORTANT]Имя фабрики данных Azure должно быть глобально уникальным. Если появится сообщение об ошибке **Имя фабрики данных FirstDataFactoryPSH недоступно** измените это имя (например, на yournameFirstDataFactoryPSH). Используйте это имя вместо ADFTutorialFactoryPSH при выполнении шагов в этом учебнике. Ознакомьтесь с разделом [Фабрика данных — правила именования](data-factory-naming-rules.md), чтобы узнать о правилах именования артефактов фабрики данных.
 	> 
 	> В будущем имя фабрики данных может быть зарегистрировано в качестве DNS-имени и, следовательно, стать отображаемым.
 
-Из следующих разделов учебника вы узнаете, как создать связанные службы, наборы данных и конвейер.
+Прежде чем создавать конвейер, необходимо создать несколько сущностей фабрики данных. Сначала создайте связанные службы, чтобы связать хранилища данных и вычисления со своим хранилищем данных, и определите входные и выходные наборы данных, которые будут представлять данные в связанных хранилищах. Затем создайте конвейер с действием, в котором используются эти наборы данных.
 
-## Шаг 2. Создание связанных служб и наборов данных
-На этом этапе учетная запись хранения Azure и кластер Azure HDInsight по требованию будут связаны с фабрикой данных. После чего будет создан набор данных, представляющий результаты выполнения сценария Hive.
+## Шаг 2. Создание связанных служб 
+На этом этапе вы свяжете учетную запись службы хранилища Azure и используемый по запросу кластер Azure HDInsight с фабрикой данных. В этом примере учетная запись хранения Azure содержит входные и выходные данные для конвейера. Для выполнения скрипта Hive, указанного в действии конвейера, в этом примере используется связанная служба HDInsight. Необходимо определить, какие данные хранилища и службы вычислений используются в сценарии, и связать эти службы с фабрикой данных путем создания связанных служб.
 
 ### Создание связанной службы хранения Azure
-1.	Создайте в папке C:\\ADFGetStartedPSH JSON-файл с именем StorageLinkedService.json со следующим содержимым. Создайте папку ADFGetStartedPSH, если она еще не существует.
+На этом этапе вы свяжете учетную запись хранения Azure с фабрикой данных. В целях данного руководства используйте одну и ту же учетную запись хранения Azure для хранения входных и выходных данных и файла скрипта HQL.
+
+1. Создайте в папке C:\ADFGetStarted JSON-файл с именем StorageLinkedService.json со следующим содержимым. Создайте папку ADFGetStarted, если она еще не существует.
 
 		{
-		    "name": "StorageLinkedService",
-		    "properties": {
-		        "type": "AzureStorage",
-		        "description": "",
-		        "typeProperties": {
-		            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-		        }
-		    }
+	    	"name": "StorageLinkedService",
+	    	"properties": {
+	        	"type": "AzureStorage",
+	        	"description": "",
+	        	"typeProperties": {
+	            	"connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+	        	}
+	    	}
 		}
 
-	Замените **account name** именем своей учетной записи хранения Azure, а **account key** — ключом доступа к учетной записи хранения Azure. Сведения о получении ключа доступа к хранилищу см. в разделе [Просмотр, копирование и повторное создание ключей доступа к хранилищу](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
+	Замените **account name** именем своей учетной записи хранения Azure, а **account key** — ключом доступа к учетной записи хранения Azure. Сведения о получении ключа доступа к хранилищу см. в разделах о [просмотре, копировании и повторном создании ключей доступа к хранилищу](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
 
-2.	В Azure PowerShell перейдите в папку ADFGetStartedPSH.
-3.	Создать связанную службу можно с помощью командлета **New-AzureRmDataFactoryLinkedService**. В этом командлете и в других командлетах фабрики данных, которые используются в этом учебнике, требуется передача значений для параметров *ResourceGroupName* и *DataFactoryName*. Кроме того, можно использовать командлет **Get-AzureRmDataFactory**, чтобы получить объект и передать объект **DataFactory** без необходимости ввода параметров *ResourceGroupName* и *DataFactoryName* при каждом запуске командлета. Выполните следующую команду, чтобы назначить выходные данные командлета **Get-AzureRmDataFactory** переменной **$df**.
+2. В Azure PowerShell перейдите в папку ADFGetStarted.
+3. Создать связанную службу можно с помощью командлета **New-AzureRmDataFactoryLinkedService**. В этом командлете и в других командлетах фабрики данных, которые используются в этом учебнике, требуется передача значений для параметров *ResourceGroupName* и *DataFactoryName*. Кроме того, можно использовать командлет **Get-AzureRmDataFactory**, чтобы получить и передать объект **DataFactory** без необходимости ввода параметров *ResourceGroupName* и *DataFactoryName* при каждом запуске командлета. Выполните следующую команду, чтобы назначить выходные данные командлета **Get-AzureRmDataFactory** переменной **$df**.
 
-		$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH
+		$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
 
-4.	Теперь выполните командлет **New-AzureRmDataFactoryLinkedService**, чтобы создать связанную службу **StorageLinkedService**.
+4. Теперь выполните командлет **New-AzureRmDataFactoryLinkedService**, чтобы создать связанную службу **StorageLinkedService**.
 
 		New-AzureRmDataFactoryLinkedService $df -File .\StorageLinkedService.json
 
 	Если вы не выполнили командлет **Get-AzureRmDataFactory** и не присвоили выходные данные переменной **$df**, вам нужно указать значения параметров *ResourceGroupName* и *DataFactoryName* следующим образом.
 
-		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
+		New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName FirstDataFactoryPSH -File .\StorageLinkedService.json
 
 	Если вы закроете Azure PowerShell во время выполнения описанных в руководстве инструкций, при следующем запуске Azure PowerShell вам нужно будет запустить командлет **Get-AzureRmDataFactory**, чтобы выполнить инструкции, описанные в руководстве.
 
 ### Создание связанной службы Azure HDInsight
-Теперь будет создана связанная служба для кластера Azure HDInsight по требованию, которая будет использоваться для выполнения сценария Hive.
+На этом этапе вы свяжете используемый по запросу кластер HDInsight с фабрикой данных. Кластер HDInsight автоматически создается в среде выполнения и удаляется после завершения обработки и простоя в течение указанного времени. Вместо используемого по запросу кластера HDInsight можно использовать собственный кластер HDInsight. Дополнительные сведения см. в статье [Связанные службы вычислений](data-factory-compute-linked-services.md).
 
-1.	Создайте в папке C:\\ADFGetStartedPSH JSON-файл HDInsightOnDemandLinkedService.json со следующим содержимым.
-
+1. Создайте в папке **C:\ADFGetStarted** JSON-файл **HDInsightOnDemandLinkedService**.json со следующим содержимым.
 
 		{
 		  "name": "HDInsightOnDemandLinkedService",
@@ -127,21 +123,68 @@
 
 	В следующей таблице приведены описания свойств JSON, используемых в этом фрагменте кода.
 
-	Свойство | Описание
-	-------- | -----------
-	Version (версия) | Указывает, что версия создаваемого кластера HDInsight — 3.2.
-	ClusterSize (размер кластера) | Создает кластер HDInsight с одним узлом.
-	TimeToLive (срок жизни) | Указывает, сколько времени может простаивать кластер HDInsight, прежде чем он будет удален.
-	linkedServiceName (имя связанной службы) | Указывает имя учетной записи хранения, в которой будут храниться журналы, создаваемые HDInsight.
+	| Свойство | Описание |
+	| :------- | :---------- |
+	| Version (версия) | Указывает, что версия создаваемого кластера HDInsight — 3.2. | 
+	| ClusterSize (размер кластера) | Создает кластер HDInsight с одним узлом. | 
+	| TimeToLive (срок жизни) | Указывает, сколько времени может простаивать кластер HDInsight, прежде чем он будет удален. |
+	| linkedServiceName (имя связанной службы) | Указывает имя учетной записи хранения, в которой будут храниться журналы, создаваемые HDInsight. |
+
 2. Выполните командлет **New-AzureRmDataFactoryLinkedService**, чтобы создать связанную службу с именем HDInsightOnDemandLinkedService.
 
 		New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
 
 
-### Создание выходного набора данных
-Теперь вы создадите выходной набор данных, представляющий данные, которые хранятся в хранилище BLOB-объектов Azure.
+## Шаг 3. Создание наборов данных
+На этом этапе вы создадите наборы данных, которые представляют входные и выходные данные для обработки Hive. Эти наборы данных ссылаются на службу **StorageLinkedService**, созданную ранее в ходе работы с этим руководством. Точки связанной службы указывают на учетную запись хранения Azure, а наборы данных указывают контейнер, папку и имя файла в хранилище, в котором содержатся входные и выходные данные.
 
-1.	Создайте в папке C:\\ADFGetStartedPSH JSON-файл с именем EmpSQLTable.json со следующим содержимым.
+### Создание входного набора данных
+1. Создайте в папке **C:\ADFGetStarted** JSON-файл с именем **InputTable.json** со следующим содержимым.
+
+		{
+			"name": "AzureBlobInput",
+		    "properties": {
+		        "type": "AzureBlob",
+		        "linkedServiceName": "StorageLinkedService",
+		        "typeProperties": {
+		            "fileName": "input.log",
+		            "folderPath": "adfgetstarted/inputdata",
+		            "format": {
+		                "type": "TextFormat",
+		                "columnDelimiter": ","
+		            }
+		        },
+		        "availability": {
+		            "frequency": "Month",
+		            "interval": 1
+		        },
+		        "external": true,
+		        "policy": {}
+		    }
+		} 
+
+	В предыдущем примере создается набор данных с именем **AzureBlobOutput**, а указав фрагмент JSON, вы создаете набор данных с именем **AzureBlobInput**, представляющий входные данные для действия в конвейере. Кроме того, нужно указать, что входные данные размещаются в контейнере BLOB-объектов **adfgetstarted** и в папке **inputdata**.
+
+	В следующей таблице приведены описания свойств JSON, используемых в этом фрагменте кода.
+
+	| Свойство | Описание |
+	| :------- | :---------- |
+	| type | Для свойства типа задано значение AzureBlob, так как данные хранятся в хранилище BLOB-объектов Azure. |  
+	| linkedServiceName (имя связанной службы) | Ссылается на созданную ранее службу StorageLinkedService. |
+	| fileName | Это необязательное свойство. Если это свойство не указано, выбираются все файлы из папки folderPath. В этом случае обрабатывается только файл input.log. |
+	| type | Файлы журнала представлены в текстовом формате, поэтому мы используем значение TextFormat. | 
+	| columnDelimiter | Столбцы в файлах журнала разделяются запятыми («,»). |
+	| frequency и interval | Для свойства frequency задано значение Month, а для свойства interval — значение 1. Это означает, что срезы входных данных доступны ежемесячно. | 
+	| external | Это свойство имеет значение true, если входные данные не создаются службой фабрики данных. | 
+
+2. Выполните следующую команду в Azure PowerShell, чтобы создать набор данных фабрики данных.
+
+		New-AzureRmDataFactoryDataset $df -File .\InputTable.json
+
+### Создадите выходной набор данных.
+Теперь создайте выходной набор данных, представляющий выходные данные, которые хранятся в хранилище BLOB-объектов Azure.
+
+1. Создайте в папке **C:\ADFGetStarted** JSON-файл с именем **OutputTable.json** со следующим содержимым.
 
 		{
 		  "name": "AzureBlobOutput",
@@ -149,7 +192,7 @@
 		    "type": "AzureBlob",
 		    "linkedServiceName": "StorageLinkedService",
 		    "typeProperties": {
-		      "folderPath": "data/partitioneddata",
+		      "folderPath": "adfgetstarted/partitioneddata",
 		      "format": {
 		        "type": "TextFormat",
 		        "columnDelimiter": ","
@@ -162,105 +205,119 @@
 		  }
 		}
 
-	В предыдущем примере описано, как создать набор данных с именем **AzureBlobOutput** и определить структуру данных, получаемых с помощью сценария Hive. Кроме того, нужно указать, что результаты будут храниться в контейнере BLOB-объектов с именем **data** в папке с именем **partitioneddata**. В разделе **availability** указывается периодичность создания выходного набора данных — ежемесячно.
+	Этот фрагмент кода JSON создает набор данных с именем **AzureBlobOutput** и определяет структуру данных, получаемых с помощью скрипта Hive. Кроме того, нужно указать, что результаты будут храниться в контейнере больших двоичных объектов с именем **adfgetstarted** и в папке с именем **partitioneddata**. В разделе **availability** указывается частота, с которой будет создаваться выходной набор данных (ежемесячно).
 
 2. Выполните следующую команду в Azure PowerShell, чтобы создать набор данных фабрики данных.
 
 		New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
 
-## Шаг 3. Создание конвейера
-На этом этапе вы создадите свой первый конвейер.
+## Шаг 3. Создание конвейера
+На этом этапе вы создадите свой первый конвейер с действием **HDInsightHive**. Обратите внимание, что срез входных данных создается ежемесячно (frequency: Month, interval: 1), срез выходных данных создается ежемесячно, а свойство scheduler для действия тоже имеет значение Month (см. ниже). Параметры выходного набора данных (outputs) и планировщика действия (scheduler) должны совпадать. В настоящее время расписание активируется с помощью выходного набора данных, поэтому его необходимо создать, даже если действие не создает никаких выходных данных. Если действие не принимает никаких входных данных, входной набор данных можно не создавать. Свойства, используемые в следующем фрагменте JSON, описаны в конце этого раздела.
 
-1.	Создайте в папке C:\\ADFGetStartedPSH JSON-файл MyFirstPipelinePSH.json со следующим содержимым.
+
+1. Создайте в папке C:\ADFGetStarted JSON-файл MyFirstPipelinePSH.json со следующим содержимым.
 
 	> [AZURE.IMPORTANT]В JSON-файле замените свойство **storageaccountname** именем своей учетной записи хранения.
-
+		
 		{
-		  "name": "MyFirstPipeline",
-		  "properties": {
-		    "description": "My first Azure Data Factory pipeline",
-		    "activities": [
-		      {
-		        "type": "HDInsightHive",
-		        "typeProperties": {
-		          "scriptPath": "script/partitionweblogs.hql",
-		          "scriptLinkedService": "StorageLinkedService",
-		          "defines": {
-		            "partitionedtable": "wasb://data@<storageaccountname>.blob.core.windows.net/partitioneddata"
-		          }
-		        },
-		        "outputs": [
-		          {
-		            "name": "AzureBlobOutput"
-		          }
+		    "name": "MyFirstPipeline",
+		    "properties": {
+		        "description": "My first Azure Data Factory pipeline",
+		        "activities": [
+		            {
+		                "type": "HDInsightHive",
+		                "typeProperties": {
+		                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+		                    "scriptLinkedService": "StorageLinkedService",
+		                    "defines": {
+		                        "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+		                        "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+		                    }
+		                },
+		                "inputs": [
+		                    {
+		                        "name": "AzureBlobInput"
+		                    }
+		                ],
+		                "outputs": [
+		                    {
+		                        "name": "AzureBlobOutput"
+		                    }
+		                ],
+		                "policy": {
+		                    "concurrency": 1,
+		                    "retry": 3
+		                },
+		                "scheduler": {
+		                    "frequency": "Month",
+		                    "interval": 1
+		                },
+		                "name": "RunSampleHiveActivity",
+		                "linkedServiceName": "HDInsightOnDemandLinkedService"
+		            }
 		        ],
-		        "policy": {
-		          "concurrency": 1,
-		          "retry": 3
-		        },
-		        "name": "RunSampleHiveActivity",
-		        "linkedServiceName": "HDInsightOnDemandLinkedService"
-		      }
-		    ],
-		    "start": "2014-01-01",
-		    "end": "2014-01-02"
-		  }
+		        "start": "2014-02-01T00:00:00Z",
+		        "end": "2014-02-02T00:00:00Z",
+		        "isPaused": false
+		    }
 		}
 
-	В предыдущем примере описано, как создать конвейер, содержащий одно действие. Это действие использует Hive для обработки данных в кластере HDInsight.
+	Этот фрагмент создает конвейер из одного действия, использующего Hive для обработки данных в кластере HDInsight.
+	
+	Файл **partitionweblogs.hql** скрипта Hive хранится в учетной записи хранения Azure (указывается с помощью свойства scriptLinkedService с именем **StorageLinkedService**) в папке **script** в контейнере **adfgetstarted**.
 
-	Файл partitionweblogs.hql сценария Hive хранится в учетной записи хранения Azure (указывается с помощью свойства scriptLinkedService с именем StorageLinkedService) в контейнере с именем **script**.
-
-	Раздел **defines** используется для настройки параметров среды выполнения, которые будут переданы в сценарий Hive в качестве значений конфигурации (например, ${hiveconf:PartitionedData}).
+	Раздел **defines** используется для настройки параметров среды выполнения, которые будут переданы в скрипт Hive в качестве значений конфигурации Hive (например, ${hiveconf:inputtable}, ${hiveconf:partitionedtable}).
 
 	Активный период конвейера задается с помощью свойств **start** и **end**.
 
-	В действии JSON вы указываете, что сценарий Hive будет выполняться на компьютере, определяемом связанной службой **HDInsightOnDemandLinkedService**.
-2. Выполните следующую команду для создания таблицы фабрики данных.
+	В JSON действия укажите, что скрипт Hive будет выполняться в среде вычислений, указанной в свойстве **linkedServiceName**, — **HDInsightOnDemandLinkedService**.
+2.  Убедитесь, что файл **input.log** отображается в папке **adfgetstarted/inputdata** в хранилище BLOB-объектов Azure, и выполните следующую команду, чтобы развернуть конвейер. Так как время в свойствах **start** и **end** задано в прошлом, а для свойства **isPaused** задано значение false, конвейер (действие в конвейере) запускается сразу после развертывания. 
 
 		New-AzureRmDataFactoryPipeline $df -File .\MyFirstPipelinePSH.json
 5. Поздравляем! Вы создали свой первый конвейер с помощью Azure PowerShell!
 
-### <a name="MonitorDataSetsAndPipeline"></a> Мониторинг наборов данных и конвейера
+### <a name="MonitorDataSetsAndPipeline"></a> Мониторинг конвейера и наборов данных
 На этом этапе Azure PowerShell будет использоваться для мониторинга процессов в фабрике данных Azure.
 
-1.	Выполните командлет **Get-AzureRmDataFactory** и назначьте выходные данные переменной **$df**.
+1. Выполните командлет **Get-AzureRmDataFactory** и назначьте выходные данные переменной **$df**.
 
-		$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH
+		$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
 
-2.	Выполните командлет **Get-AzureRmDataFactorySlice**, чтобы получить сведения обо всех срезах в таблице **EmpSQLTable** (выходной таблице конвейера).
+2. Выполните командлет **Get-AzureRmDataFactorySlice**, чтобы получить сведения обо всех срезах в таблице **EmpSQLTable** (выходной таблице конвейера).
 
-		Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2014-01-01
+		Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2014-02-01
 
 	Обратите внимание, здесь указывается то же значение StartDateTime, что и в JSON конвейера. Вы должны увидеть результат, аналогичный приведенному ниже.
 
 		ResourceGroupName : ADFTutorialResourceGroup
-		DataFactoryName   : DataFactoryMyFirstPipelinePSH
-		TableName         : AzureBlobOutput
-		Start             : 1/1/2014 12:00:00 AM
-		End               : 2/1/2014 12:00:00 AM
+		DataFactoryName   : FirstDataFactoryPSH
+		DatasetName       : AzureBlobOutput
+		Start             : 2/1/2014 12:00:00 AM
+		End               : 3/1/2014 12:00:00 AM
 		RetryCount        : 0
-		Status            : InProgress
+		State             : InProgress
+		SubState          :
 		LatencyStatus     :
 		LongRetryCount    : 0
 
-3.	Выполните командлет **Get-AzureRmDataFactoryRun**, чтобы получить сведения о действиях, выполняемых для конкретного среза.
 
-		Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2014-01-01
+3. Выполните командлет **Get-AzureRmDataFactoryRun**, чтобы получить сведения о действиях, выполняемых для конкретного среза.
+
+		Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2014-02-01
 
 	Вы должны увидеть результат, аналогичный приведенному ниже.
-
-		Id                  : 4dbc6a07-537d-4005-a53e-6b9a4b844089_635241312000000000_635268096000000000_AzureBlobOutput
+		
+		Id                  : 0f6334f2-d56c-4d48-b427-d4f0fb4ef883_635268096000000000_635292288000000000_AzureBlobOutput
 		ResourceGroupName   : ADFTutorialResourceGroup
-		DataFactoryName     : DataFactoryMyFirstPipelinePSH
-		TableName           : AzureBlobOutput
-		ProcessingStartTime : 7/7/2015 1:14:18 AM
+		DataFactoryName     : FirstDataFactoryPSH
+		DatasetName         : AzureBlobOutput
+		ProcessingStartTime : 12/18/2015 4:50:33 AM
 		ProcessingEndTime   : 12/31/9999 11:59:59 PM
 		PercentComplete     : 0
-		DataSliceStart      : 1/1/2014 12:00:00 AM
-		DataSliceEnd        : 2/1/2014 12:00:00 AM
+		DataSliceStart      : 2/1/2014 12:00:00 AM
+		DataSliceEnd        : 3/1/2014 12:00:00 AM
 		Status              : AllocatingResources
-		Timestamp           : 7/7/2015 1:14:18 AM
+		Timestamp           : 12/18/2015 4:50:33 AM
 		RetryAttempt        : 0
 		Properties          : {}
 		ErrorMessage        :
@@ -268,16 +325,21 @@
 		PipelineName        : MyFirstPipeline
 		Type                : Script
 
-	Вы можете выполнять этот командлет до тех пор, пока не увидите срез со статусом Ready (Готово) или Failed (Сбой). Когда срез будет в состоянии Ready (Готово), проверьте выходные данные в папке partitioneddata контейнера data в хранилище BLOB-объектов. Обратите внимание, что создание кластера HDInsight по требованию занимает некоторое время.
+	Вы можете выполнять этот командлет до тех пор, пока не увидите срез со статусом **Ready** (Готово) или **Failed** (Сбой). Когда срез перейдет в состояние «Готово», проверьте выходные данные в папке **partitioneddata** контейнера **adfgetstarted** в хранилище BLOB-объектов. Обратите внимание, что создание кластера HDInsight по требованию занимает некоторое время.
 
-Полную документацию по командлетам фабрики данных см. в [справочнике по командлетам фабрики данных](https://msdn.microsoft.com/library/azure/dn820234.aspx).
-
-
-
+	![выходные данные](./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png)
 ## Дальнейшие действия
-В этой статье описывается создание конвейера с помощью действия преобразования (действие HDInsight), которое по требованию выполняет сценарий Hive в кластере Azure HDInsight. Инструкции по копированию данных из хранилища BLOB-объектов Azure в SQL Azure с помощью действия копирования см. в статье [Руководство по копированию данных из хранилища BLOB-объектов Azure в Azure SQL](./data-factory-get-started.md).
+В этой статье описывается создание конвейера с помощью действия преобразования (действие HDInsight), которое по требованию выполняет сценарий Hive в кластере Azure HDInsight. Сведения о том, как копировать данные из хранилища BLOB-объектов Azure в SQL Azure с помощью действия копирования, см. в статье [Учебник. Копирование данных из хранилища BLOB-объектов Azure в Azure SQL](./data-factory-get-started.md).
 
+### Ссылки
+| Раздел | Описание |
+| :---- | :---- |
+| [Справочник по командлетам фабрики данных](https://msdn.microsoft.com/library/azure/dn820234.aspx) | См. полную документацию по командлетам фабрики данных. |
+| [Конвейеры](data-factory-create-pipelines.md) | Эта статья поможет вам понять сущность конвейеров и действий в фабрике данных Azure, а также научиться с их помощью создавать комплексные рабочие процессы, управляемые данными, для конкретных бизнес-сценариев. |
+| [Наборы данных](data-factory-create-datasets.md) | Эта статья поможет вам понять, что такое наборы данных в фабрике данных Azure.
+| [Планирование и выполнение](data-factory-scheduling-and-execution.md) | Здесь объясняются аспекты планирования и исполнения в модели приложений фабрики данных. |
+| [Мониторинг конвейеров фабрики данных Azure и управление ими](data-factory-monitor-manage-pipelines.md) | В этой статье описываются мониторинг, управление и отладка конвейеров. В ней также приводятся инструкции по настройке оповещений в случае сбоев. |
 
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->
