@@ -1,6 +1,6 @@
 <properties
-   	pageTitle="Создание кластеров Hadoop, HBase и Storm на платформе Linux в HDInsight с помощью cURL и REST API Azure | Microsoft Azure"
-   	description="Узнайте, как создавать кластеры Hadoop, HBase и Storm на платформе Linux в HDInsight с помощью cURL и REST API Azure."
+   	pageTitle="Создание кластеров Hadoop, HBase, Storm или Spark на платформе Linux в HDInsight с помощью пакета SDK для HDInsight .NET | Microsoft Azure"
+   	description="Узнайте, как создавать кластеры Hadoop, HBase, Storm или Spark на платформе Linux в HDInsight с помощью пакета SDK для HDInsight .NET."
    	services="hdinsight"
    	documentationCenter=""
    	authors="mumian"
@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="10/23/2015"
+   	ms.date="12/08/2015"
    	ms.author="jgao"/>
 
 #Создание кластеров под управлением Linux в HDInsight с помощью пакета SDK для .NET
@@ -203,4 +203,12 @@
 * [Использование компонентов Python в Storm в HDInsight](hdinsight-storm-develop-python.md)
 * [Развертывание и мониторинг топологий с помощью Storm в HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=Nov15_HO1-->
+###Кластеры Spark
+
+* [Создание автономного приложения с использованием Scala](hdinsight-apache-spark-create-standalone-application.md)
+* [Удаленный запуск заданий с помощью Livy в кластере Spark](hdinsight-apache-spark-livy-rest-interface.md)
+* [Использование Spark со средствами бизнес-аналитики. Выполнение интерактивного анализа данных с использованием Spark в HDInsight с помощью средств бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)
+* [Использование Spark с машинным обучением. Использование Spark в HDInsight для прогнозирования результатов контроля качества пищевых продуктов](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Потоковая передача Spark. Использование Spark в HDInsight для сборки приложений потоковой передачи данных в режиме реального времени](hdinsight-apache-spark-eventhub-streaming.md)
+
+<!---HONumber=AcomDC_1223_2015-->

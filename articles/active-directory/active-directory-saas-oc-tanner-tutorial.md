@@ -3,7 +3,7 @@
 	description="Узнайте, как настроить единый вход между Azure Active Directory и O.C. Tanner — AppreciateHub."
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="jeevansd"
 	manager="stevenpo"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
-	ms.author="markusvi"/>
+	ms.date="12/18/2015"
+	ms.author="jeedes"/>
 
 
 # Руководство. Интеграция Azure Active Directory с O.C. Tanner — AppreciateHub
@@ -223,4 +223,4 @@
 [204]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_205.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

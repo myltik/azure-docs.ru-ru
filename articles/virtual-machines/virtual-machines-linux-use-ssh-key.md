@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/28/2015" 
+	ms.date="12/15/2015" 
 	ms.author="rasquill"/>
 
 #Использование SSH с Linux и Mac в Azure
@@ -86,7 +86,7 @@
 
 ### Пример. Создание виртуальной машины с помощью файла id\_rsa.pub
 
-Чаще всего этот файл используется при создании виртуальной машины или передаче шаблона для создания виртуальной машины. В следующем примере кода показано создание новой безопасной виртуальной машины Linux в Azure путем передачи имени файла открытого ключа (в данном случае это файл `~/.ssh/id_rsa` по умолчанию) в команду `azure vm create`. (Другие аргументы были созданы ранее.)
+Чаще всего этот файл используется при создании виртуальной машины или передаче шаблона для создания виртуальной машины. В следующем примере кода показано создание новой безопасной виртуальной машины Linux в Azure путем передачи имени файла открытого ключа (в данном случае это файл `~/.ssh/id_rsa.pub` по умолчанию) в команду `azure vm create`. (Другие аргументы были созданы ранее.)
 
 	azure vm create \
 	--nic-name testnic \
@@ -96,7 +96,7 @@
 	--storage-account-name computeteststore 
 	--image-urn canonical:UbuntuServer:14.04.3-LTS:latest \
 	--username ops \
-	-ssh-publickey-file ~/.ssh/id_rsa \
+	-ssh-publickey-file ~/.ssh/id_rsa.pub \
 	testrg testvm westeurope linux
 
 В следующем примере показано использование формата **ssh-rsa** с шаблоном диспетчера ресурсов и интерфейсом командной строки Azure для создания виртуальной машины Ubuntu, для защиты которой используется имя пользователя и содержимое `~/.ssh/id_rsa.pub` в виде строки. (Здесь указан сокращенный вариант строки открытого ключа для удобства восприятия.)
@@ -264,7 +264,7 @@
 	Are you sure you want to continue connecting (yes/no)? yes
 	Warning: Permanently added 'testpemasm.cloudapp.net,40.83.178.221' (RSA) to the list of known hosts.
 	Saving password to keychain failed
-	Identity added: /Users/rasquill/.ssh/id_rsa (/Users/rasquill/.ssh/id_rsa)
+	Identity added: /Users/user/.ssh/id_rsa.pub (/Users/user/.ssh/id_rsa.pub)
 	Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.19.0-28-generic x86_64)
 
 	* Documentation:  https://help.ubuntu.com/
@@ -298,4 +298,4 @@
  
 Теперь, когда вы подключились к виртуальной машине, обновите выбранный дистрибутив, перед тем как использовать его дальше.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

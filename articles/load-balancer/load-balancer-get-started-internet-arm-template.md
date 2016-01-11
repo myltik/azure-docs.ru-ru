@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="11/20/2015"
+   ms.date="12/18/2015"
    ms.author="joaoma" />
 
 # Начало работы по созданию балансировщика нагрузки для Интернета с использованием шаблона ARM
@@ -37,27 +37,18 @@
 Чтобы развернуть шаблон ARM, загруженный с помощью PowerShell, выполните описанные ниже действия.
 
 1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
-2. Выполните командлет **Switch-AzureMode**, чтобы включить режим диспетчера ресурсов, как показано ниже.
 
-		Switch-AzureMode AzureResourceManager
+2. Выполните командлет **New-AzureRmResourceGroup**, чтобы создать группу ресурсов с помощью этого шаблона.
 
-	Вот результат, ожидаемый для указанной выше команды:
-
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
-	>[AZURE.WARNING]Командлет Switch-AzureMode является устаревшим. По этой причине все командлеты диспетчера ресурсов вскоре будут переименованы.
-
-3. Выполните командлет **New-AzureResourceGroup**, чтобы создать группу ресурсов с помощью этого шаблона.
-
-		New-AzureResourceGroup -Name TestRG -Location uswest `
-		    -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.json' `
-		    -TemplateParameterFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.parameters.json'	
+		New-AzureRmResourceGroup -Name TestRG -Location uswest `
+		    -TemplateFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' `
+		    -TemplateParameterFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json'	
 
 ## Развертывание шаблона ARM с помощью интерфейса командной строки Azure
 
 Чтобы развернуть шаблон ARM с помощью интерфейса командной строки Azure, выполните следующие действия.
 
-1. Если вы еще не пользовались Azure CLI, см. статью [Установка и настройка CLI Azure](xplat-cli.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
+1. Если вы никогда не использовали Azure CLI, см. статью [Установка и настройка CLI Azure](xplat-cli.md) и следуйте инструкциям в ней вплоть до момента выбора своей учетной записи и подписки Azure.
 2. Выполните команду **azure config mode**, чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
 
 		azure config mode arm
@@ -66,10 +57,10 @@
 
 		info:    New mode is arm
 
-3. В браузере перейдите к ****https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.parameters.json**, скопируйте содержимое JSON-файла и вставьте его в новый файл на своем компьютере. В данном сценарии вы бы копировали указанные ниже значения в файл **c:\\lb\\azuredeploy.parameters.json**.
+3. В браузере перейдите к ****https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json**, скопируйте содержимое JSON-файла и вставьте его в новый файл на своем компьютере. В данном сценарии скопируйте указанные ниже значения в файл **c:\\lb\\azuredeploy.parameters.json**.
 4. Выполните командлет **azure group deployment create**, чтобы развернуть новый балансировщик нагрузки с помощью данного шаблона и файлов параметров, которые вы скачали и изменили ранее. В списке, который откроется после выполнения команды, будут указаны используемые параметры.
 
-		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-natrules/azuredeploy.json' -e 'c:\lb\azuredeploy.parameters.json'
+		azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' -e 'c:\lb\azuredeploy.parameters.json'
 
 ## Дальнейшие действия
 
@@ -79,4 +70,4 @@
 
 [Настройка параметров времени ожидания простоя TCP для подсистемы балансировки нагрузки](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

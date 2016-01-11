@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
+   ms.date="12/18/2015"
    ms.author="tarcher" />
 
 # Обзор ресурсов хранилища с помощью обозревателя сервера и управление ими
@@ -313,4 +313,4 @@
 
 Дополнительные сведения об использовании служб хранилища Azure см. в статье [Доступ к службам хранилища Azure](https://msdn.microsoft.com/library/azure/ee405490.aspx).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

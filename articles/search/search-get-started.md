@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="12/18/2015" 
 	ms.author="heidist"/>
 
 # Начало работы со службой поиска Azure
@@ -78,7 +78,7 @@
 
 **Шаг 1. Создание новой службы стандартной ценовой категории**
 
-1. Перейдите на [классический портал Azure](https://portal.azure.com) с помощью существующей подписки. 
+1. Войдите на [портал Azure](https://portal.azure.com) с помощью существующей подписки. 
 
 2. В нижней части страницы щелкните **Создать**.
 
@@ -310,7 +310,7 @@
 
 Если вы хотите освежить в памяти сведения о том, где найти страницы конфигурации, выполните следующие действия, чтобы найти панель мониторинга службы.
 
-1.	Перейдите на [классический портал Azure](https://portal.azure.com) с помощью существующей подписки. 
+1.	Войдите на [портал Azure](https://portal.azure.com) с помощью существующей подписки. 
 2.	Перейдите на вкладку **Главная**, а затем щелкните плитку службы поиска.
 
  	![][22]
@@ -378,4 +378,4 @@
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

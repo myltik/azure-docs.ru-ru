@@ -14,14 +14,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Подключение к базе данных SQL с помощью Python в ОС Mac
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [Node.js](sql-database-develop-nodejs-simple-mac.md)
+- [Python](sql-database-develop-python-simple-mac-osx.md)
+- [Ruby](sql-database-develop-ruby-simple-mac-osx.md)
 
 
 В этом разделе представлен пример кода, написанный на Python. Пример кода запускается на компьютере с ОС Mac. Этот пример подключается к базе данных SQL Azure с помощью драйвера **pymssql**. Кроме того, посмотрите наш видеоролик [Начало работы с Python на компьютере Mac](https://www.youtube.com/watch?v=OMpugPTwnTI) в качестве дополнения к этой документации.
@@ -43,7 +46,7 @@
 
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-**2) FreeTDS:** выполните указанную ниже команду из терминала. Она запустит загрузку FreeTDS на компьютер. FreeTDS требуется для работы Pymmsql.
+**2) FreeTDS**: выполните указанную ниже команду из терминала. Она запустит загрузку FreeTDS на компьютер. FreeTDS требуется для работы Pymmsql.
 
     brew install FreeTDS
 
@@ -84,7 +87,7 @@
 
 ## Шаг 4. Вставка строки
 
-В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от [внедрения кода SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
+В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от внедрения кода SQL (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
 
 
 
@@ -121,6 +124,6 @@
 
 ## Дальнейшие действия
 
-Дополнительную информацию можно найти в [Центре разработчика Python](/develop/python/).
+Дополнительные сведения см. в [Центре разработчика Python](/develop/python/).
 
-<!-----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

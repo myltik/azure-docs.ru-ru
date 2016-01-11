@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/08/2015"
+   ms.date="12/19/2015"
    ms.author="tarcher" />
 
 # Управление ролями в проектах облачных служб Azure с помощью Visual Studio
@@ -58,4 +58,4 @@
 
 Сведения о настройке ролей в Visual Studio см. в статье [Настройка ролей для облачной службы Azure с помощью Visual Studio](vs-azure-tools-configure-roles-for-cloud-service.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

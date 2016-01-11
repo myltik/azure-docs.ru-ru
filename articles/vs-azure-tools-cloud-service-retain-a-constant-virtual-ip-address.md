@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="09/08/2015"
+   ms.date="12/19/2015"
    ms.author="tarcher" />
 
 # Сохранение постоянного виртуального IP-адреса облачной службы
@@ -45,4 +45,4 @@
 
 Дополнительные сведения о публикации в Azure в среде Visual Studio см. в статье [Мастер публикации приложений Azure](vs-azure-tools-publish-azure-application-wizard.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

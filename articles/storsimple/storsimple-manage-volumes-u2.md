@@ -15,7 +15,7 @@
    ms.date="12/15/2015"
    ms.author="v-sharos" />
 
-# Использование службы диспетчера StorSimple для управления томами
+# Использование службы диспетчера StorSimple для управления томами (обновление 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
 
@@ -291,4 +291,4 @@
 
  
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

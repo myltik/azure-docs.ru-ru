@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Локальное профилирование облачной службы в эмуляторе вычислений" 
+	pageTitle="Локальное профилирование облачной службы в эмуляторе вычислений | Microsoft Azure" 
 	services="cloud-services"
 	description="Анализ проблем производительности в облачных службах с помощью профилировщика Visual Studio" 
 	documentationCenter=""
 	authors="TomArcher" 
 	manager="douge" 
-	editor="tglee"
+	editor=""
 	tags="" 
 	/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="12/21/2015" 
 	ms.author="tarcher"/>
 
 # Локальное тестирование производительности облачной службы в эмуляторе вычислений Azure с помощью профилировщика Visual Studio
@@ -186,4 +186,4 @@
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

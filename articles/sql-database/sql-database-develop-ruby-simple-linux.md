@@ -14,13 +14,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="andrela"/>
 
 
 # Подключение к Базе данных SQL с помощью Ruby в ОС Ubuntu Linux
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+
+> [AZURE.SELECTOR]
+- [Python](sql-database-develop-python-simple-ubuntu-linux.md)
+- [Node.js](sql-database-develop-nodejs-simple-linux.md)
+- [Ruby](sql-database-develop-ruby-simple-linux.md)
+
 
 Этот раздел содержит пример кода Ruby, выполняемого на клиентском компьютере Ubuntu Linux для подключения к Базе данных SQL Azure.
 
@@ -66,7 +71,7 @@
 
 ## Шаг 2. Подключение
 
-Функция [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) используется для подключения к базе данных SQL.
+Функция [TinyTDS::Client](https://github.com/rails-sqlserver/tiny_tds) используется для подключения к Базе данных SQL.
 
     require 'tiny_tds'
     client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword',
@@ -75,7 +80,7 @@
 
 ## Шаг 3. Выполнение запроса
 
-Функция [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) используется для извлечения результирующего набора из запроса к базе данных SQL. Эта функция принимает запрос и возвращает результирующий набор. По результирующему набору выполняется итерация с помощью [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds).
+Функция [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) используется для извлечения результирующего набора из запроса к Базе данных SQL. Эта функция принимает запрос и возвращает результирующий набор. По результирующему набору выполняется итерация с помощью [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds).
 
     require 'tiny_tds'  
     print 'test'     
@@ -89,11 +94,11 @@
 
 ## Шаг 4. Вставка строки
 
-В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от [внедрения кода SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
+В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от внедрения кода SQL (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
 
 Чтобы использовать TinyTDS с Azure, рекомендуем выполнить несколько инструкций `SET`, чтобы изменить способ обработки определенной информации в текущем сеансе. Рекомендуемые инструкции `SET` предоставлены в примере кода. Например, инструкция `SET ANSI_NULL_DFLT_ON` позволяет использовать нулевые значения в новых столбцах, даже если допустимость нулевых значений в столбце не указана явным образом.
 
-Для согласования с форматом [datetime](http://msdn.microsoft.com/library/ms187819.aspx) Microsoft SQL Server, используйте функцию [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) для преобразования в соответствующий формат даты и времени.
+Для согласования с форматом [datetime](http://msdn.microsoft.com/library/ms187819.aspx) Microsoft SQL Server используйте функцию [strftime](http://ruby-doc.org/core-2.2.0/Time.html#method-i-strftime) для преобразования в соответствующий формат даты и времени.
 
     require 'tiny_tds'
     client = TinyTds::Client.new username: 'yourusername@yourserver', password: 'yourpassword',
@@ -116,4 +121,4 @@
     puts row
     end
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

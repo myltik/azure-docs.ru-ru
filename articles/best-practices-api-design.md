@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/17/2015"
    ms.author="masashin"/>
 
 # Руководство по проектированию API
@@ -51,14 +51,14 @@ GET http://adventure-works.com/orders HTTP/1.1
 ...
 ```
 
-В ответе, приведенном ниже, заказы закодированы в виде структуры XML-списка. Список содержит 7 заказов:
+В ответе, приведенном ниже, заказы закодированы в виде структуры JSON-списка.
 
 ```HTTP
 HTTP/1.1 200 OK
 ...
 Date: Fri, 22 Aug 2014 08:49:02 GMT
 Content-Length: ...
-<OrderList xmlns:i="..." xmlns="..."><Order><OrderID>1</OrderID><OrderValue>99.90</OrderValue><ProductID>1</ProductID><Quantity>1</Quantity></Order><Order><OrderID>2</OrderID><OrderValue>10.00</OrderValue><ProductID>4</ProductID><Quantity>2</Quantity></Order><Order><OrderID>3</OrderID><OrderValue>16.60</OrderValue><ProductID>2</ProductID><Quantity>4</Quantity></Order><Order><OrderID>4</OrderID><OrderValue>25.90</OrderValue><ProductID>3</ProductID><Quantity>1</Quantity></Order><Order><OrderID>7</OrderID><OrderValue>99.90</OrderValue><ProductID>1</ProductID><Quantity>1</Quantity></Order></OrderList>
+[{"orderId":1,"orderValue":99.90,"productId":1,"quantity":1},{"orderId":2,"orderValue":10.00,"productId":4,"quantity":2},{"orderId":3,"orderValue":16.60,"productId":2,"quantity":4},{"orderId":4,"orderValue":25.90,"productId":3,"quantity":1},{"orderId":5,"orderValue":99.90,"productId":1,"quantity":1}]
 ```
 Для получения отдельного заказа требуется указать его идентификатор из ресурса _orders_, например _/orders/2_:
 
@@ -72,11 +72,10 @@ HTTP/1.1 200 OK
 ...
 Date: Fri, 22 Aug 2014 08:49:02 GMT
 Content-Length: ...
-<Order xmlns:i="..." xmlns="...">
-<OrderID>2</OrderID><OrderValue>10.00</OrderValue><ProductID>4</ProductID><Quantity>2</Quantity></Order>
+{"orderId":2,"orderValue":10.00,"productId":4,"quantity":2}
 ```
 
-> [AZURE.NOTE]Для простоты сведения в этих примерах возвращаются в виде текстовых XML-данных. Однако ресурсы вполне могут содержать другие типы данных, поддерживаемые HTTP, например двоичные или зашифрованные данные. Тип данных указывается в строке "content-type" в HTTP-ответе. Кроме того, модель REST может возвращать одни и те же данные в разных форматах, таких как XML или JSON. В этом случае веб-служба должна иметь возможность согласовать содержимое с клиентским приложением, отправившим запрос. Запрос может включать заголовок _Accept_, указывающий на предпочтительный для клиентского приложения формат получения, а веб-служба должна попытаться по возможности выполнить это требование.
+> [AZURE.NOTE]Для простоты сведения в этих примерах возвращаются в виде текстовых JSON-данных. Однако ресурсы вполне могут содержать другие типы данных, поддерживаемые HTTP, например двоичные или зашифрованные данные. Тип данных указывается в строке "content-type" в HTTP-ответе. Кроме того, модель REST может возвращать одни и те же данные в разных форматах, таких как XML или JSON. В этом случае веб-служба должна иметь возможность согласовать содержимое с клиентским приложением, отправившим запрос. Запрос может включать заголовок _Accept_, указывающий на предпочтительный для клиентского приложения формат получения, а веб-служба должна попытаться по возможности выполнить это требование.
 
 Обратите внимание, что в ответе на запрос REST используются стандартные коды состояния HTTP. Например, запрос, возвращающий допустимые данные, должен включать код HTTP-ответа 200 (ОК), в то время как запрос, по которому не удалось найти или удалить указанный ресурс, должен вернуть ответ, включающий код состояния HTTP 404 (не найдено).
 
@@ -166,10 +165,10 @@ Content-Type: application/json; charset=utf-8
 ...
 Date: Fri, 22 Aug 2014 09:18:37 GMT
 Content-Length: ...
-{"OrderID":2,"ProductID":4,"Quantity":2,"OrderValue":10.00}
+{"orderID":2,"productID":4,"quantity":2,"orderValue":10.00}
 ```
 
-Если веб-сервер не поддерживает запрашиваемый тип носителя, он может отправить данные в другом формате. В любом случае он должен указать тип носителя (например, _text/xml_) в заголовке "Content-Type". Клиентское приложение отвечает за анализ ответного сообщения и правильную интерпретацию результатов в тексте сообщения.
+Если веб-сервер не поддерживает запрашиваемый тип носителя, он может отправить данные в другом формате. В любом случае он должен указать тип носителя (например, _application/json_) в заголовке Content-Type. Клиентское приложение отвечает за анализ ответного сообщения и правильную интерпретацию результатов в тексте сообщения.
 
 Обратите внимание, что в этом примере веб-сервер успешно получает запрашиваемые данные и сообщает об успешном завершении операции путем передачи кода состояния 200 в заголовке ответа. Если соответствующие данные не обнаружены, веб-сервер должен вернуть код состояния 404 (не найдено), а текст ответного сообщения может содержать дополнительные сведения. Формат этих сведений указывается в заголовке "Content-Type", как показано в следующем примере:
 
@@ -189,7 +188,7 @@ Content-Type: application/json; charset=utf-8
 ...
 Date: Fri, 22 Aug 2014 09:18:37 GMT
 Content-Length: ...
-{"Message":"No such order"}
+{"message":"No such order"}
 ```
 
 При отправке HTTP-запроса PUT для обновления ресурса приложение указывает универсальный код ресурса (URI) и предоставляет изменяемые данные в тексте запроса. Приложение также должно указать формат этих данных с помощью заголовка "Content-Type". Для текстовой информации часто используется формат _application/x-www-form-urlencoded_, включающий набор пар "имя-значение", разделенных символом &. В следующем примере показан HTTP-запрос PUT, изменяющий сведения в заказе 1:
@@ -229,7 +228,7 @@ Content-Type: application/x-www-form-urlencoded
 ...
 Date: Fri, 22 Aug 2014 09:18:37 GMT
 Content-Length: ...
-ProductID=5&Quantity=15&OrderValue=400
+productID=5&quantity=15&orderValue=400
 ```
 
 При успешном выполнении запроса веб-сервер должен отправить ответное сообщение с кодом состояния HTTP 201 (создано). Заголовок "Location" должен содержать универсальный код (URI) созданного ресурса, а текст ответа — копию нового ресурса. Заголовок "Content-Type" указывает формат этих данных:
@@ -242,7 +241,7 @@ Location: http://adventure-works.com/orders/99
 ...
 Date: Fri, 22 Aug 2014 09:18:37 GMT
 Content-Length: ...
-{"OrderID":99,"ProductID":5,"Quantity":15,"OrderValue":400}
+{"orderID":99,"productID":5,"quantity":15,"orderValue":400}
 ```
 
 > [AZURE.TIP]Если данные в запросе PUT или POST неверны, веб-сервер должен отправить ответное сообщение с кодом состояния HTTP 400 (неверный запрос). Текст этого сообщения может содержать дополнительные сведения о проблеме, связанной с запросом, и ожидаемых форматах, либо ссылку на URL-адрес с дополнительными сведениями.
@@ -289,7 +288,7 @@ Date: Fri, 22 Aug 2014 09:18:37 GMT
 Один ресурс может содержать большие двоичные поля, такие как файлы или изображения. Чтобы преодолеть проблемы передачи, вызванные ненадежными и непостоянными соединениями, и сократить время ответа, вы можете предоставить операции, позволяющие клиентскому приложению получать такие ресурсы поблочно. Для этого веб-API должен поддерживать заголовок "Accept-Ranges" для запросов GET по большим ресурсам, а в идеале также реализовывать HTTP-запросы HEAD для этих ресурсов. Заголовок "Accept-Ranges" указывает, что операция GET поддерживает частичные результаты и что клиентское приложение может отправлять запросы GET, возвращающие подмножество ресурса, указанное в виде диапазона байтов. Запрос HEAD аналогичен запросу GET с тем исключением, что он возвращает только заголовок, описывающий ресурс, и пустое сообщение. Клиентское приложение может отправить запрос HEAD, чтобы определить необходимость получения ресурса с помощью частичных запросов GET. В следующем примере показан запрос HEAD, получающий сведения об изображении продукта:
 
 ```HTTP
-HEAD http://adventure-works.com/products/10?fields=ProductImage HTTP/1.1
+HEAD http://adventure-works.com/products/10?fields=productImage HTTP/1.1
 ...
 ```
 
@@ -307,7 +306,7 @@ Content-Length: 4580
 Клиентское приложение может использовать эти сведения, чтобы создать ряд операций GET для получения изображения небольшими блоками. Первый запрос возвращает первые 2500 байт с помощью заголовка "Range":
 
 ```HTTP
-GET http://adventure-works.com/products/10?fields=ProductImage HTTP/1.1
+GET http://adventure-works.com/products/10?fields=productImage HTTP/1.1
 Range: bytes=0-2499
 ...
 ```
@@ -328,7 +327,7 @@ _{binary data not shown}_
 Последующий запрос от клиентского приложения может получить оставшуюся часть ресурса с помощью соответствующего заголовка "Range":
 
 ```HTTP
-GET http://adventure-works.com/products/10?fields=ProductImage HTTP/1.1
+GET http://adventure-works.com/products/10?fields=productImage HTTP/1.1
 Range: bytes=2500-
 ...
 ```
@@ -359,7 +358,7 @@ Accept: application/json
 ...
 ```
 
-Текст ответного сообщения содержит массив `Links` (выделен в примере кода), указывающий характер связи (_клиент_), универсальный код ресурса (URI) клиента (\__http://adventure-works.com/customers/3_), способ получения сведений об этом клиенте (_GET_), и MIME-типы, поддерживаемые веб-сервером для получения этих сведений (_text/xml_ и _application/json_). Это все сведения, необходимые клиентскому приложению для получения сведений о клиенте. Помимо этого, массив "Links" также включает ссылки для других возможных операций, таких как PUT (для изменения клиента, включая формат, который веб-сервер ожидает получить от клиентского приложения) и DELETE.
+Текст ответного сообщения содержит массив `links` (выделен в примере кода), указывающий характер связи (_клиент_), универсальный код ресурса (URI) клиента (\__http://adventure-works.com/customers/3_), способ получения сведений об этом клиенте (_GET_), и MIME-типы, поддерживаемые веб-сервером для получения этих сведений (_text/xml_ и _application/json_). Это все сведения, необходимые клиентскому приложению для получения сведений о клиенте. Помимо этого, массив "Links" также включает ссылки для других возможных операций, таких как PUT (для изменения клиента, включая формат, который веб-сервер ожидает получить от клиентского приложения) и DELETE.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -367,8 +366,8 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-{"OrderID":3,"ProductID":2,"Quantity":4,"OrderValue":16.60,"Links":[(some links omitted){"Relationship":"customer","HRef":" http://adventure-works.com/customers/3", "Action":"GET","LinkedResourceMIMETypes":["text/xml","application/json"]},{"Relationship":"
-customer","HRef":" http://adventure-works.com /customers/3", "Action":"PUT","LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]},{"Relationship":"customer","HRef":" http://adventure-works.com /customers/3","Action":"DELETE","LinkedResourceMIMETypes":[]}]}
+{"orderID":3,"productID":2,"quantity":4,"orderValue":16.60,"links":[(some links omitted){"rel":"customer","href":" http://adventure-works.com/customers/3", "action":"GET","types":["text/xml","application/json"]},{"rel":"
+customer","href":" http://adventure-works.com /customers/3", "action":"PUT","types":["application/x-www-form-urlencoded"]},{"rel":"customer","href":" http://adventure-works.com /customers/3","action":"DELETE","types":[]}]}
 ```
 
 Для полноты массив "Links" также должен включать автореферентные сведения, относящиеся к полученному ресурсу. Эти ссылки опущены в предыдущем примере, но выделены в следующем коде. Обратите внимание, что связь _self_ в этих ссылках используется для указания на то, что это ссылка на ресурс, возвращаемый операцией:
@@ -379,8 +378,8 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-{"OrderID":3,"ProductID":2,"Quantity":4,"OrderValue":16.60,"Links":[{"Relationship":"self","HRef":" http://adventure-works.com/orders/3", "Action":"GET","LinkedResourceMIMETypes":["text/xml","application/json"]},{"Relationship":" self","HRef":" http://adventure-works.com /orders/3", "Action":"PUT","LinkedResourceMIMETypes":["application/x-www-form-urlencoded"]},{"Relationship":"self","HRef":" http://adventure-works.com /orders/3", "Action":"DELETE","LinkedResourceMIMETypes":[]},{"Relationship":"customer",
-"HRef":" http://adventure-works.com /customers/3", "Action":"GET","LinkedResourceMIMETypes":["text/xml","application/json"]},{"Relationship":" customer" (customer links omitted)}]}
+{"orderID":3,"productID":2,"quantity":4,"orderValue":16.60,"links":[{"rel":"self","href":" http://adventure-works.com/orders/3", "action":"GET","types":["text/xml","application/json"]},{"rel":" self","href":" http://adventure-works.com /orders/3", "action":"PUT","types":["application/x-www-form-urlencoded"]},{"rel":"self","href":" http://adventure-works.com /orders/3", "action":"DELETE","types":[]},{"rel":"customer",
+"href":" http://adventure-works.com /customers/3", "action":"GET","types":["text/xml","application/json"]},{"rel":" customer" (customer links omitted)}]}
 ```
 
 Чтобы такой подход оказался эффективным, клиентские приложения должны быть готовы к получению и анализу этих дополнительных сведений.
@@ -395,7 +394,7 @@ Content-Length: ...
 
 Эта простейший подход, приемлемый для некоторых внутренних API. Масштабные изменения можно представлять в виде новых ресурсов или ссылок. Добавление содержимого к существующим ресурсам не всегда является значительным изменением, поскольку клиентские приложения, не ожидающие увидеть это содержимое, просто пропустят его.
 
-Например, запрос на универсальный код ресурса (URI) \__http://adventure-works.com/customers/3_ должен вернуть сведения одного клиента с полями `Id`, `Name` и `Address`, ожидаемыми клиентским приложением.
+Например, запрос на универсальный код ресурса (URI) \__http://adventure-works.com/customers/3_ должен вернуть сведения одного клиента с полями `id`, `name` и `address`, ожидаемыми клиентским приложением.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -403,7 +402,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-[{"Id":3,"Name":"Contoso LLC","Address":"1 Microsoft Way Redmond WA 98053"}]
+{"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
 > [AZURE.NOTE]Для простоты и понятности примеры ответов в этом разделе не содержат ссылок HATEOAS.
@@ -416,7 +415,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-[{"Id":3,"Name":"Contoso LLC","DateCreated":"2014-09-04T12:11:38.0376089Z","Address":"1 Microsoft Way Redmond WA 98053"}]
+{"id":3,"name":"Contoso LLC","dateCreated":"2014-09-04T12:11:38.0376089Z","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
 Существующие клиентские приложения могут продолжить работать без ошибок, если они могут пропускать нераспознанные поля, в то время как при проектировании новых клиентских приложений можно обеспечить поддержку новых полей. Однако внесение более серьезных изменений в схему ресурсов (таких как удаление или переименование полей) или изменение связей между ресурсами могут быть значительными изменениями, мешающими корректной работе существующих клиентских приложений. В такой ситуации вам следует рассмотреть один из следующих подходов.
@@ -425,7 +424,7 @@ Content-Length: ...
 
 При каждом изменении веб-API или схемы ресурсов вы добавляете номер версии в универсальный код (URI) каждого ресурса. Уже существующие универсальные коды ресурсов (URI) должны продолжить функционировать без изменений, возвращая ресурсы, соответствующие их исходной схеме.
 
-Расширим предыдущий пример. Если изменить структуру поля `Address` и добавить подполя, содержащие каждую составляющую часть адреса (например, `StreetAddress`, `City`, `State` и `ZipCode`), эту версию ресурса можно предоставить посредством универсального кода ресурса (URI) с номером версии, например http://adventure-works.com/v2/customers/3:
+Расширим предыдущий пример. Если изменить структуру поля `address` и добавить подполя, содержащие каждую составляющую часть адреса (например, `streetAddress`, `city`, `state` и `zipCode`), эту версию ресурса можно предоставить посредством универсального кода ресурса (URI) с номером версии, например http://adventure-works.com/v2/customers/3:
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -433,7 +432,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-[{"Id":3,"Name":"Contoso LLC","DateCreated":"2014-09-04T12:11:38.0376089Z","Address":{"StreetAddress":"1 Microsoft Way","City":"Redmond","State":"WA","ZipCode":98053}}]
+{"id":3,"name":"Contoso LLC","dateCreated":"2014-09-04T12:11:38.0376089Z","address":{"streetAddress":"1 Microsoft Way","city":"Redmond","state":"WA","zipCode":98053}}
 ```
 
 Этот механизм управления версиями очень прост, но для него требуется, чтобы сервер направлял запрос к соответствующей конечной точке. Однако этот подход может стать чрезмерно сложным по мере прохождения веб-API через несколько итераций и необходимости поддержки сервером нескольких различных версий. Кроме того, c пуристической точки зрения, во всех случаях клиентские приложения получают одни и те же данные (клиент 3), поэтому универсальный код ресурса (URI) фактически не должен отличаться в зависимости от версии. Эта схема также усложняет реализацию HATEOAS, поскольку потребуется включать номер версии в универсальные коды ресурсов (URI) всех ссылок.
@@ -465,7 +464,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-[{"Id":3,"Name":"Contoso LLC","Address":"1 Microsoft Way Redmond WA 98053"}]
+{"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
 Версия 2:
@@ -483,7 +482,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 ...
 Content-Length: ...
-[{"Id":3,"Name":"Contoso LLC","DateCreated":"2014-09-04T12:11:38.0376089Z","Address":{"StreetAddress":"1 Microsoft Way","City":"Redmond","State":"WA","ZipCode":98053}}]
+{"id":3,"name":"Contoso LLC","dateCreated":"2014-09-04T12:11:38.0376089Z","address":{"streetAddress":"1 Microsoft Way","city":"Redmond","state":"WA","zipCode":98053}}
 ```
 
 Обратите внимание, что, как и в двух предыдущих подходах, для реализации HATEOAS потребуется включать соответствующий пользовательский заголовок во все ссылки.
@@ -507,7 +506,7 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.adventure-works.v1+json; charset=utf-8
 ...
 Content-Length: ...
-[{"Id":3,"Name":"Contoso LLC","Address":"1 Microsoft Way Redmond WA 98053"}]
+{"id":3,"name":"Contoso LLC","address":"1 Microsoft Way Redmond WA 98053"}
 ```
 
 Если в заголовке "Accept" не указан ни один из известных типов носителя, веб-сервер может отправить ответное сообщение с кодом HTTP 406 (неприемлемо) или вернуть сообщение с типом носителя по умолчанию.
@@ -518,9 +517,9 @@ Content-Length: ...
 
 > Механизмы управления версиями через заголовок и тип носителя, как правило, требуют дополнительной логики для проверки значений в пользовательском заголовке или заголовке "Accept". Использование многочисленными клиентами разных версий веб-API в крупномасштабной среде может привести к образованию большого объема повторяющихся данных в кэше на стороне сервера. Эта проблема может усложниться, если клиентское приложение обменивается данными с веб-сервером через прокси-сервер, реализующий кэширование, который перенаправляет запрос на веб-сервер лишь в том случае, если в его кэше на текущий момент не содержится копия запрашиваемых данных.
 
-## Подробнее
+## Дополнительные сведения
 
 - [Подробная инструкция по RESTful](http://restcookbook.com/) содержит общие сведения о создании API RESTful.
 - [Контрольный список веб-API](https://mathieu.fenniak.net/the-api-checklist/) содержит полезный список элементов, которые следует учесть при проектировании и реализации веб-API.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -23,8 +23,7 @@
 
 Расширения виртуальной машины разработаны корпорацией Майкрософт и доверенными сторонними компаниями для расширения функциональных возможностей виртуальной машины. Общие сведения о расширениях виртуальных машин см. в статье [Расширения и компоненты виртуальных машин Azure](virtual-machines-extensions-features.md).
 
-Ссылка:
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Модель диспетчера ресурсов](virtual-machines-extensions-customscript%20-with%20template.md).
+Ссылка:[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] [Resource Manager model](virtual-machines-extensions-customscript%20-with%20template.md).
 
 
 ## Общие сведения о расширении Custom Script
@@ -34,7 +33,7 @@
 ### Предварительные требования для запуска расширения Custom Script
 
 1. Установите командлеты Azure PowerShell версии 0.8.0 или более поздней, скачав их <a href="http://azure.microsoft.com/downloads" target="_blank">здесь</a>.
-2. Если сценарии будут запускаться на существующей виртуальной машине, убедитесь, что на ней включен агент виртуальной машины. Если агент не включен, установите его, следуя указаниям в этой <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">статье</a>.
+2. Если сценарии будут запускаться на существующей виртуальной машине, убедитесь, что на ней включен агент виртуальной машины. Если агент не включен, установите его, следуя указаниям в этой <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">статье</a>. (При подготовке виртуальной машины из коллекции Azure агенты виртуальных машин включаются по умолчанию, включать их вручную не нужно.)
 3. Передайте сценарии, которые требуется запускать на виртуальной машине, в службу хранилища Azure. Сценарии могут поступать как из одного, так и из нескольких контейнеров хранилища.
 4. Сценарий должен быть создан таким образом, чтобы запущенный с помощью расширения первый сценарий запускал в свою очередь другие сценарии.
 
@@ -87,10 +86,9 @@
 
 ### Использование расширения Custom Script с шаблонами
 
-Чтобы узнать об использовании расширения Custom Script с шаблонами, ознакомьтесь с документацией [здесь](virtual-machines-extensions-customscript-with template.md).
+Чтобы узнать об использовании расширения Custom Script с шаблонами диспетчера ресурсов Azure, обратитесь к документации [здесь](virtual-machines-extensions-customscript%20-with%20template.md).
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=AcomDC_1203_2015-->
-
+<!---HONumber=AcomDC_1223_2015-->

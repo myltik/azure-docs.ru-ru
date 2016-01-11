@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="12/01/2015" 
+	ms.date="12/18/2015" 
 	ms.author="wesmc"/>
 
 # Добавление push-уведомлений в приложение Xamarin.iOS
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
-&nbsp;  
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services](../../includes/app-service-mobile-note-mobile-services.md)]
 
 ##Обзор
 
@@ -55,17 +53,15 @@
 
 2. В колонке «Создание концентратора уведомлений» нажмите кнопку **Создать**.
 
-3. Выберите **Push-уведомления** > **Apple (APNS)** > **Отправка сертификата**. Отправьте экспортированный ранее P12-файл сертификата push-уведомлений. Если вы создали сертификат push-уведомлений для разработки и тестирования, не забудьте выбрать параметр **Песочница**. В противном случае выберите параметр **Рабочая среда**. Теперь ваша служба настроена для работы с push-уведомлениями в iOS!
+3. Выберите **Push-уведомления** > **Apple (APNS)** > **Отправка сертификата**. Отправьте экспортированный ранее P12-файл сертификата push-уведомлений. Если вы создали сертификат push-уведомлений для разработки и тестирования, не забудьте выбрать параметр **Песочница**. В противном случае выберите параметр **Рабочая среда**.
 
 	![](./media/app-service-mobile-xamarin-ios-get-started-push/mobile-app-upload-apns-cert.png)
+
+Теперь ваша служба настроена для работы с push-уведомлениями в iOS.
 
 ##Обновление серверного проекта для отправки push-уведомлений
 
 [AZURE.INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
-
-##Развертывание серверного проекта в Azure
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service](../../includes/app-service-mobile-dotnet-backend-publish-service.md)]
 
 ##Настройка проекта Xamarin.iOS
 
@@ -110,7 +106,7 @@
 
 3. В том же файле переопределите событие **RegisteredForRemoteNotifications**. В этом коде регистрируется простое шаблонное уведомление, которое будет рассылаться сервером по всем поддерживаемым платформам.
  
-	Дополнительные сведения о шаблонах концентраторов уведомлений см. в статье [Шаблоны](../notification-hubs/notification-hubs-templates.md).
+	Дополнительные сведения о шаблонах центров уведомлений см. в статье [Шаблоны](../notification-hubs/notification-hubs-templates.md).
 
 
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -157,7 +153,7 @@
 	
 	> [AZURE.NOTE]Необходимо явно разрешить прием push-уведомлений от вашего приложения. Этот запрос отображается только при первом запуске приложения.
 
-2. В приложении введите задачу, а затем щелкните значок плюса (**+**).
+2. В приложении введите задачу, а затем щелкните значок "плюс" (**+**).
 
 3. Убедитесь, что уведомление получено, а затем нажмите кнопку **ОК**, чтобы закрыть его.
 
@@ -176,4 +172,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015--->
+<!---HONumber=AcomDC_1223_2015-->

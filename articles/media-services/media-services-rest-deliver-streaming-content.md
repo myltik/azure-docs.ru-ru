@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/05/2015"  
+	ms.date="12/17/2015"  
 	ms.author="juliako"/>
 
 
@@ -46,6 +46,7 @@
    		
 	Если вы планируете последовательное скачивание, получите имена MP4-файлов в ресурсе. 
    4. Создайте URL-адрес файла манифеста или URL-адреса MP4-файлов. 
+   5. Обратите внимание на то, что указатель потоковой передачи невозможно создать с использованием политики доступа, включающей разрешения на запись или удаление.
 
 
 ###Создание политики доступа
@@ -186,4 +187,8 @@ URL: **Путь** + имя MP4-файла ресурса
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_1210_2015-->
+##См. также
+
+[Настройка политики доставки для ресурса-контейнера](media-services-rest-configure-asset-delivery-policy.md)
+
+<!---HONumber=AcomDC_1223_2015-->

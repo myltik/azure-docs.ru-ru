@@ -11,8 +11,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/11/2015" 
-	ms.author="sergkanz"/>
+	ms.date="12/17/2015" 
+	ms.author="abaranch"/>
  
 # Заметки о выпуске пакета SDK Application Insights для .NET
 
@@ -35,7 +35,17 @@
 
 ## Версия 2.0.0-beta3
 
-- [Адаптивная выборка](app-insights-sampling.md)
+- [Адаптивная выборка](app-insights-sampling.md) включена по умолчанию в канале телеметрии сервера. 
+- Исправлена подпись ```UseSampling```, чтобы разрешить объединение в цепочки с другими вызовами для использования ```Use``` с обработчиками данных телеметрии.  
+- Свойство ```Request.ID``` возвращается обратно. ```OperationContext``` теперь имеет свойство ```ParentId``` для сквозной корреляции.
+- ```TimestampTelemetryInitializer``` удален. Метка времени будет добавляться ```TelemetryClient``` автоматически.
+- ```OperationCorrelationTelemetryInitializer``` добавляется по умолчанию, чтобы включить корреляцию операций.
+- ```OperationCorrelationTelemetryInitializer``` используется вместо ```OperationIdTelemetryInitializer```.
+- По умолчанию сбор данных для агента пользователя не выполняется. Инициализатор телеметрии агента пользователя был удален.
+- Данные поля ```DependencyTelemetry.Async``` не будут собираться модулем телеметрии сборщика зависимостей. 
+- Запросы статического содержимого и диагностики не будут собираться модулем телеметрии запросов. Используйте ```HandlersToFilter``` из коллекции ```RequestTrackingTelemetryModule``` для фильтрации запросов, создаваемых определенными обработчиками HTTP-данных. 
+- Автоматически созданная телеметрия запроса доступна посредством метода расширения HttpContext: System.Web.HttpContextExtension.GetRequestTelemetry.  
+
 
 ## Версия 2.0.0-beta2
 - Добавлена поддержка для ITelemetryProcessor и возможность настройки с помощью кода или конфигурации. [Включает настраиваемую фильтрацию в пакете SDK](app-insights-api-telemetry-processors/#telemetry-processors)
@@ -56,7 +66,7 @@
 - Свойство ```Count``` в классе DependencyTelemetry помечено как устаревшее. Вместо него используйте ```SamplingPercentage```.
 - Представлен новый класс ```CloudContext```, в который перемещены свойства ```RoleName``` и ```RoleInstance``` из класса ```DeviceContext```.
 - Добавлено свойство ```AuthenticatedUserId``` для класса ```UserContext```, позволяющее указать удостоверение прошедшего проверку подлинности пользователя.
-- Добавлены классы `Microsoft.ApplicationInsights.Web.AccountIdTelemetryInitializer`и `Microsoft.ApplicationInsights.Web.AuthenticatedUserIdTelemetryInitializer`, которые инициализируют контекст прошедшего проверку подлинности пользователя согласно настройкам пакета SDK для JavaScript.
+- Добавлены классы `Microsoft.ApplicationInsights.Web.AccountIdTelemetryInitializer` и `Microsoft.ApplicationInsights.Web.AuthenticatedUserIdTelemetryInitializer`, которые инициализируют контекст прошедшего проверку подлинности пользователя согласно настройкам пакета SDK для JavaScript.
 - Добавлен класс `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor` и поддержка фиксированной частоты выборки в качестве его реализации.
 - Добавлен класс `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.TelemetryChannelBuilder`, который позволяет создавать канал `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` с набором объектов `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ITelemetryProcessor`.
 
@@ -84,7 +94,7 @@
 - Из имен инициализаторов и модулей телеметрии удален префикс Web, так как он уже присутствует в имени пространства имен `Microsoft.ApplicationInsights.Extensibility.Web`.
 - Класс `DeviceContextInitializer` перемещен из сборки `Microsoft.ApplicationInsights` в сборку `Microsoft.ApplicationInsights.Extensibility.Web` и преобразован в `ITelemetryInitializer`.
 - Имена пространств имен и сборок изменены с `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry` на `Microsoft.ApplicationInsights.Extensibility.DependencyCollector` для согласования с именем пакета NuGet.
-- Модуль `RemoteDependencyModule` переименован в `DependencyTrackingTelemetryModule`.
+- Класс `RemoteDependencyModule` переименован в `DependencyTrackingTelemetryModule`.
 - Класс `CustomPerformanceCounterCollectionRequest` переименован в `PerformanceCounterCollectionRequest`.
 
 ## Версия 0.17
@@ -114,4 +124,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

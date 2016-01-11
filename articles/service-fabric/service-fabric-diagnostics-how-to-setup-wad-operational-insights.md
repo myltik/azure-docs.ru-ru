@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Сбор журналов с помощью WAD и оперативной аналитики | Microsoft Azure"
-   description="В этой статье описывается, как можно настроить систему диагностики Microsoft Azure и оперативную аналитику для сбора журналов из кластера Service Fabric, запущенного в Azure."
+   pageTitle="Сбор журналов с помощью системы диагностики Azure и оперативной аналитики Azure | Microsoft Azure"
+   description="В этой статье описывается, как настроить систему диагностики Azure и оперативную аналитику Azure для сбора журналов из кластера Service Fabric, запущенного в Azure."
    services="service-fabric"
    documentationCenter=".net"
    authors="kunaldsingh"
@@ -17,43 +17,49 @@
    ms.author="kunalds"/>
 
 
-# Сбор журналов из кластера Service Fabric в Azure с помощью системы диагностики Microsoft Azure (WAD) и оперативная аналитика
+# Сбор журналов из кластера Service Fabric с помощью системы диагностики Azure и оперативной аналитики
 
-Во время работы кластера Service Fabric в Azure вам может понадобиться собирать журналы из всех узлов в центральном расположении. Если все журналы находятся в одном расположении, это упрощает анализ и устранение неполадок, которые могут возникнуть в кластере или приложениях и службах, работающих в этом кластере. Для передачи и сбора журналов рекомендуется использовать расширение WAD (система диагностики Microsoft Azure), которое отправляет журналы в хранилище таблиц Azure. Оперативная аналитика (часть пакета Microsoft Operations Management Suite) является решением SaaS, которое позволяет легко анализировать журналы и выполнять в них поиск. Следующие шаги описывают, как настроить WAD на входящих в кластер виртуальных машинах для отправки журналов в центральное хранилище. После чего вы сможете настроить оперативную аналитику для извлечения журналов с их последующим просмотром на портале оперативной аналитики. Оперативная аналитика определяет источники журналов разных типов, отправленных из кластера Service Fabric, по именам таблиц хранилища Azure, в которых они хранятся. Поэтому WAD нужно настроить для передачи журналов в таблицы хранилища Azure с именами, которые ищет оперативная аналитика. Примеры настроек конфигурации в этом документе покажут вам, какими должны быть имена таблиц хранилища.
+Во время работы кластера Azure Service Fabric рекомендуется централизованно собирать журналы со всех узлов. Если все журналы хранятся централизованно, это упрощает анализ и устранение неполадок в кластере, а также в приложениях и службах, работающих в этом кластере. Для отправки и сбора журналов рекомендуется использовать расширение системы диагностики Azure, которое отправляет журналы в службу хранилища Azure.
+
+Оперативная аналитика Azure (входит в пакет Microsoft Operations Management Suite) является решением типа SaaS (программное обеспечение как услуга), которое позволяет легко анализировать журналы и выполнять в них поиск. Ниже описано, как настроить расширение системы диагностики Azure на виртуальных машинах в кластере для отправки журналов в центральное хранилище. Затем вы сможете настроить оперативную аналитику для извлечения журналов с их последующим просмотром на портале оперативной аналитики.
+
+Оперативная аналитика определяет источники журналов разных типов, отправленных из кластера Service Fabric, по именам таблиц хранилища, в которых они хранятся. Поэтому расширение системы диагностики Azure нужно настроить для отправки журналов в таблицы хранилища с именами, которые будет искать оперативная аналитика. На примерах настроек конфигурации в этом документе вы увидите, какими должны быть имена таблиц хранилища.
 
 ## Материалы для чтения
-* [Система диагностики Microsoft Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) (относится к облачным службам, но содержит нужную информацию и хорошие примеры)
+* [Система диагностики Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) (статья посвящена облачным службам Azure, но содержит нужную информацию и примеры).
 * [Operational Insights;](https://azure.microsoft.com/services/operational-insights/)
-* [Диспетчер ресурсов Azure](https://azure.microsoft.com/documentation/articles/resource-group-overview/)
+* [Диспетчер ресурсов Azure](https://azure.microsoft.com/resource-group-overview/)
 
 ## Предварительные требования
-Эти средства будут использоваться для выполнения некоторых операций в этом документе: * [Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) * [клиент ARM](https://github.com/projectkudu/ARMClient).
+Для выполнения некоторых операций в этом документе будут использоваться следующие средства: [Azure PowerShell](https://azure.microsoft.com/powershell-install-configure/), [клиент диспетчера ресурсов Azure](https://github.com/projectkudu/ARMClient).
 
 ## Различные источники журналов, которые вы можете собирать
-1. Журналы Service Fabric — генерируются платформой в стандартные каналы трассировки событий Windows и EventSource. Это могут быть журналы следующих типов.
-  - Рабочие события — это журналы операций, выполняемых платформой Service Fabric. Примеры включают создание приложения и службы, изменения состояния узла и сведения об обновлении.
-  - [События модели программирования на основе субъектов](https://azure.microsoft.com/documentation/articles/service-fabric-reliable-actors-diagnostics/).
-  - [События модели программирования на основе Reliable Services](https://azure.microsoft.com/documentation/articles/service-fabric-reliable-services-diagnostics/).
-2. События приложения — события, генерируемые кодом служб и записанные с помощью вспомогательного класса EventSource, предоставленного в шаблонах Visual Studio. Дополнительные сведения о способах записи журналов из приложения см. в этой [статье](https://azure.microsoft.com/documentation/articles/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/).
+1. **Журналы Service Fabric**. Генерируются платформой в стандартные каналы трассировки событий Windows (ETW) и EventSource. Журналы могут принадлежать к одному из следующих типов.
+  - Рабочие события. Это журналы операций, выполняемых платформой Service Fabric. Некоторые примеры: создание приложений и служб, изменение состояния узлов и сведения об обновлении.
+  - [События модели программирования на основе субъектов.](https://azure.microsoft.com/service-fabric-reliable-actors-diagnostics/)
+  - [События модели программирования на основе Reliable Services.](https://azure.microsoft.com/service-fabric-reliable-services-diagnostics/)
+2. **События приложения**. Это события, которые генерируются кодом служб и записываются с помощью вспомогательного класса EventSource, предоставленного в шаблонах Visual Studio. Дополнительные сведения о способах записи журналов из приложения см. [в статье о мониторинге и диагностике служб при настройке локального компьютера](https://azure.microsoft.com/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/).
 
 
-## Развертывание WAD (системы диагностики Microsoft Azure) в кластере Service Fabric для сбора и передачи журналов
-Первым действием по сбору журналов будет развертывание расширения WAD на каждой виртуальной машине в кластере Service Fabric. WAD будет собирать журналы на каждой виртуальной машине и передавать их в указанную учетную запись хранения. Действия могут немного отличаться в зависимости от следующих факторов: вы используете портал или ARM, развертывание выполняется в ходе создания кластера или для уже существующего кластера. Рассмотрим действия для каждого сценария.
+## Развертывание расширения системы диагностики в кластере Service Fabric для сбора и отправки журналов
+Первым шагом при сборе журналов является развертывание расширения системы диагностики на каждой виртуальной машине в кластере Service Fabric. Расширение системы диагностики собирает журналы на каждой виртуальной машине и отправляет их в указанную учетную запись хранения. Действия могут немного отличаться в зависимости от следующих факторов: вы используете портал Azure или диспетчер ресурсов Azure, развертывание выполняется в ходе создания кластера или для уже существующего кластера. Рассмотрим действия для каждого сценария.
 
-### Развертывание WAD в ходе создания кластера с помощью портала
-Для развертывания WAD на виртуальных машинах в кластере в ходе его создания используется параметр системы диагностики, показанный на рисунке ниже. По умолчанию этот параметр включен. ![Параметр WAD на портале для создания кластера](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/portal-cluster-creation-diagnostics-setting.png)
+### Развертывание расширения системы диагностики в ходе создания кластера с помощью портала
+Для развертывания расширения системы диагностики на виртуальных машинах в кластере во время его создания используется параметр системы диагностики, показанный на рисунке ниже. По умолчанию этот параметр **включен**. ![Настройка системы диагностики Azure на портале для создания кластера](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/portal-cluster-creation-diagnostics-setting.png)
 
-### Развертывание WAD в ходе создания кластера с помощью ARM
-Чтобы создать кластер с помощью ARM, добавьте конфигурацию JSON для WAD в полный шаблон ARM кластера перед созданием кластера. Мы предоставляем пример шаблона ARM для кластера из пяти виртуальных машин с конфигурацией WAD (добавлено как часть наших примеров шаблона ARM). Вы можете найти шаблон в его расположении в коллекции примеров Azure: [Кластер из пяти узлов с примером шаблона ARM для WAD](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-cluster-5-node-1-nodetype-wad).
+### Развертывание расширения системы диагностики в ходе создания кластера с помощью диспетчера ресурсов Azure
+Чтобы создать кластер с помощью диспетчера ресурсов, добавьте JSON-файл конфигурации системы диагностики в полный шаблон диспетчера ресурсов кластера перед созданием кластера. Мы предоставляем пример шаблона диспетчера ресурсов для кластера из пяти виртуальных машин с конфигурацией системы диагностики (эта конфигурация входит в примеры шаблонов диспетчера ресурсов). Этот шаблон можно найти в коллекции примеров Azure. См. статью [Пример шаблона диспетчера ресурсов — кластер из пяти узлов с системой диагностики](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-cluster-5-node-1-nodetype-wad).
 
-Чтобы просмотреть параметр WAD в шаблоне ARM, выполните поиск по слову WadCfg. Чтобы создать кластер с помощью этого шаблона, нажмите кнопку «Развернуть для Azure», которая доступна по ссылке выше. Или вы можете загрузить образец ARM, внести в него изменения и создать кластер с измененным шаблоном с помощью команды `New-AzureResourceGroupDeployment` в окне Azure Powershell. Ниже приведены параметры, которые необходимо передать в команду. Кроме того, перед вызовом этой команды развертывания может потребоваться выполнить некоторые настройки, в том числе добавить учетную запись Azure (`Add-AzureAccount`), выбрать подписку (`Select-AzureSubscription`), переключиться в режим ARM (`Switch-AzureMode AzureResourceManager`) и создать группу ресурсов, если вы еще не создали ее (`New-AzureResourceGroup`).
+Чтобы просмотреть параметр системы диагностики в шаблоне диспетчера ресурсов, найдите запись **WadCfg.** Чтобы создать кластер с помощью этого шаблона, нажмите кнопку **Развернуть в Azure**, которая доступна по ссылке выше. Также можно скачать пример шаблона диспетчера ресурсов, внести в него изменения и создать кластер на основе измененного шаблона с помощью команды `New-AzureResourceGroupDeployment` в окне Azure PowerShell. Ниже приведены параметры, которые необходимо передать в команду.
+
+Кроме того, перед вызовом этой команды развертывания может потребоваться выполнить некоторые настройки: добавить учетную запись Azure (`Add-AzureAccount`), выбрать подписку (`Select-AzureSubscription`), переключиться в режим диспетчера ресурсов (`Switch-AzureMode AzureResourceManager`) и создать группу ресурсов, если она еще не создана (`New-AzureResourceGroup`).
 
 ```powershell
 New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToARMConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
-### <a name="deploywadarm"></a>Развертывание WAD в существующем кластере
-Если у вас есть кластер, в котором не развернута система WAD, вы можете добавить WAD, выполнив описанные ниже действия. Создайте два файла WadConfigUpdate.json и WadConfigUpdateParams.json с помощью JSON ниже.
+### <a name="deploywadarm"></a>Развертывание расширения системы диагностики в существующем кластере
+Если у вас есть кластер, в котором не развернута система диагностики, ее можно добавить, выполнив следующие действия. Создайте два файла — WadConfigUpdate.json и WadConfigUpdateParams.json — с помощью приведенного ниже кода JSON.
 
 ##### WadConfigUpdate.json
 ```json
@@ -117,7 +123,7 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
                     "StorageAccount": "[parameters('applicationDiagnosticsStorageAccountNamee')]"
                 },
                 "protectedSettings": {
-                    "storageAccountName": "[parameters('applicationDiagnosticsStorageAccountNamee')]",
+                    "storageAccountName": "[parameters('applicationDiagnosticsStorageAccountName')]",
                     "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('applicationDiagnosticsStorageAccountName')),'2015-05-01-preview').key1]",
                     "storageAccountEndPoint": "https://core.windows.net/"
                 }
@@ -135,7 +141,7 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
 ```
 
 ##### WadConfigUpdateParams.json
-Замените vmNamePrefix префиксом, который вы выбрали для имен виртуальных машин во время создания кластера, и измените vmStorageAccountName для учетной записи хранения, в которую будут передаваться журналы из виртуальных машин. ```json
+Замените vmNamePrefix префиксом, который вы выбрали для имен виртуальных машин при создании кластера. Затем замените vmStorageAccountName именем учетной записи хранения, в которую будут отправляться журналы с виртуальных машин. ```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
@@ -151,29 +157,34 @@ New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $de
         }
     }
 }
-``` После создания файлов json, следуя инструкциям выше, измените их с учетом особенностей вашей среды и вызовите эту команду. Для этого передайте имя группы ресурсов для кластера Service Fabric. После успешного выполнения этой команды система WAD будет развернута на всех виртуальных машинах и начнет отправлять журналы из кластера в таблицы в указанной учетной записи хранения Azure. Кроме того, перед вызовом этой команды развертывания может потребоваться выполнить некоторые настройки, в том числе добавить учетную запись Azure (`Add-AzureAccount`), выбрать подписку (`Select-AzureSubscription`) и переключиться в режим ARM (`Switch-AzureMode AzureResourceManager`). ```powershell
+```
+
+После создания JSO-файлов, как указано выше, внесите в них изменения с учетом особенностей вашей среды. Затем вызовите следующую команду, передав имя группы ресурсов для кластера Service Fabric. После успешного выполнения этой команды система диагностики будет развернута на всех виртуальных машинах и начнет отправлять журналы из кластера в таблицы в указанной учетной записи хранения Azure.
+
+Кроме того, перед вызовом этой команды развертывания может потребоваться выполнить некоторые настройки: добавить учетную запись Azure (`Add-AzureAccount`), выбрать подписку (`Select-AzureSubscription`) и переключиться в режим диспетчера ресурсов (`Switch-AzureMode AzureResourceManager`). ```powershell
 New-AzureResourceGroupDeployment -ResourceGroupName $resourceGroupName -Name $deploymentName -TemplateFile $pathToWADConfigJsonFile -TemplateParameterFile $pathToParameterFile –Verbose
 ```
 
 ## Настройка оперативной аналитики для просмотра журналов кластера и поиска в них
-Теперь, после того как система WAD установлена в кластере и отправляет журналы в учетную запись хранилища, нужно настроить оперативную аналитику. Вы сможете просматривать все журналы кластера, выполнять в них поиск и отправлять в них запросы через пользовательский интерфейс портала оперативной аналитики.
+Когда система диагностики будет установлена в кластере и начнет отправлять журналы в учетную запись хранения, нужно настроить оперативную аналитику. Это позволит вам просматривать все журналы кластера, выполнять в них поиск и отправлять в них запросы через портал оперативной аналитики.
 
 ### Создание рабочей области оперативной аналитики
-Действия по созданию рабочей области оперативной аналитики см. в статье ниже. Обратите внимание, что статья описывает два способа создания рабочей области. Выберите подход с использованием портала Azure и подписки. В следующих разделах этого документа вам потребуется имя рабочей области оперативной аналитики. Создавайте рабочую область оперативной аналитики с помощью той же подписки, которую вы использовали для создания всех ресурсов кластера, в том числе учетных записей хранилища.
+Шаги по созданию рабочей области оперативной аналитики см. в указанной ниже статье. Обратите внимание, что в ней описаны два разных способа создания рабочей области. Выберите вариант с использованием портала Azure и подписки. В следующих разделах этого документа вам потребуется имя рабочей области оперативной аналитики. Создавайте рабочую область оперативной аналитики с помощью той же подписки, которую вы использовали для создания всех ресурсов кластера, в том числе учетных записей хранения.
 
 [Процесс внедрения оперативной аналитики](https://technet.microsoft.com/library/mt484118.aspx)
 
-### Настройка рабочей области оперативной аналитики для отображения журнала кластера
-После создания рабочей области оперативной аналитики, как описано выше, вы можете перейти к настройке рабочей области для извлечения журналов из таблиц Azure, в которые WAD отправляет журналы из кластера. В настоящее время портал оперативной аналитики не поддерживает эту конфигурацию, поэтому ее можно реализовать только с помощью команд Powershell. Запустите этот сценарий Powershell. ```powershell <# Этот сценарий настраивает рабочую область Operations Management Suite (она же — рабочая область оперативной аналитики) для чтения системы диагностики Microsoft Azure из учетной записи хранения Azure.
+### Настройка рабочей области оперативной аналитики для отображения журналов кластера
+Создав рабочую область оперативной аналитики по приведенным выше инструкциям, можно приступать к настройке рабочей области для извлечения журналов из таблиц в службе хранилища Azure, в которые расширение системы диагностики отправляет журналы из кластера. Сейчас настройка через портал оперативной аналитики не поддерживается. Ее можно выполнить только с помощью команд PowerShell. Запустите этот скрипт PowerShell: ```powershell <# Он настраивает рабочую область Operations Management Suite (она же — рабочая область оперативной аналитики) для чтения системы диагностики из учетной записи хранения Azure.
 
     It will enable all supported data types (currently Windows Event Logs, Syslog, Service Fabric Events, ETW Events and IIS Logs).
 
-    It supports both classic and ARM storage accounts.
+    It supports both classic and Resource Manager storage accounts.
 
     If you have more than one OMS workspace you will be prompted for the workspace to configure.
 
     If you have more than one storage account you will be prompted for which storage account to configure.
 #>
+
 Add-AzureAccount
 
 Switch-AzureMode -Name AzureResourceManager.
@@ -240,41 +251,43 @@ try { $existingConfig = Get-AzureOperationalInsightsStorageInsight -Workspace $w
 
 if ($existingConfig) { Set-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -Tables $validTables -Containers $validContainers
 
-} else { if ($storageAccount.ResourceType -eq "Microsoft.ClassicStorage/storageAccounts") { Switch-AzureMode -Name AzureServiceManagement $key = (Get-AzureStorageKey -StorageAccountName $storageAccount.Name).Primary Switch-AzureMode -Name AzureResourceManager } else { $key = (Get-AzureStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.Name).Key1 } New-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -StorageAccountResourceId $storageAccount.ResourceId -StorageAccountKey $key -Tables $validTables -Containers $validContainers } ``` Once you have configured the Operational Insights workspace to read from the Azure Tables in your storage account, you should log into the Azure Portal, and look up the Storage tab for the Operational Insights resource. Должно отобразиться примерно следующее: ![Настройка хранилища оперативной аналитики на портале Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
+} else { if ($storageAccount.ResourceType -eq "Microsoft.ClassicStorage/storageAccounts") { Switch-AzureMode -Name AzureServiceManagement $key = (Get-AzureStorageKey -StorageAccountName $storageAccount.Name).Primary Switch-AzureMode -Name AzureResourceManager } else { $key = (Get-AzureStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.Name).Key1 } New-AzureOperationalInsightsStorageInsight -Workspace $workspace -Name $insightsName -StorageAccountResourceId $storageAccount.ResourceId -StorageAccountKey $key -Tables $validTables -Containers $validContainers } ``` Настроив рабочую область оперативной аналитики для чтения таблиц Azure из учетной записи хранения, необходимо войти на портал Azure и на вкладке **Хранилище** найти ресурс оперативной аналитики. Должно отобразиться примерно следующее: ![Настройка хранилища оперативной аналитики на портале Azure](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/oi-connected-tables-list.png)
 
-### Просмотр журналов в оперативной аналитике и выполнение поиска в них
-После настройки рабочей области оперативной аналитики для чтения журналов из указанной учетной записи хранения журналы отобразятся в пользовательском интерфейсе оперативной аналитики только через 10 минут. Чтобы генерировались новые журналы, разверните приложение Service Fabric в кластере: оно будет генерировать рабочие события с платформы Service Fabric.
+### Просмотр журналов и поиск в них с помощью оперативной аналитики
+После того как вы настроите рабочую область оперативной аналитики для чтения журналов из указанной учетной записи хранения, журналы отобразятся в пользовательском интерфейсе оперативной аналитики только через 10 минут. Чтобы генерировались новые журналы, рекомендуем развернуть приложение Service Fabric в кластере: оно будет генерировать рабочие события из платформы Service Fabric.
 
-1. Чтобы просмотреть журналы, выберите LogSearch на главной странице портала оперативной аналитики. ![Поиск по журналу в оперативной аналитике](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/log-search-button-oi.png)
+1. Чтобы просмотреть журналы, выберите **Поиск по журналам** на главной странице портала оперативной аналитики. ![Поиск по журналам в оперативной аналитике](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/log-search-button-oi.png)
 
-2. На странице поиска журнала используйте запрос Type=ServiceFabricOperationalEvent, чтобы просмотреть рабочие журналы из кластера, как показано ниже. Для просмотра всех журналов модели программирования на основе субъектов используйте запрос Type=ServiceFabricReliableActorEvent. Чтобы просмотреть все журналы модели программирования на основе Reliable Services, используйте запрос Type=ServiceFabricReliableServiceEven. ![Просмотр журнала в оперативной аналитике и отправка запроса в него](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/view-logs-oi.png)
+2. На странице поиска по журналам введите запрос **Type=ServiceFabricOperationalEvent**, чтобы просмотреть операционные журналы из кластера, как показано ниже. Чтобы просмотреть все журналы модели программирования на основе субъектов, используйте запрос **Type=ServiceFabricReliableActorEvent**. Чтобы просмотреть все журналы в модели программирования на основе Reliable Services, введите **Type=ServiceFabricReliableServiceEvent**. ![Просмотр журнала в оперативной аналитике и отправка запроса в него](./media/service-fabric-diagnostics-how-to-setup-wad-operational-insights/view-logs-oi.png)
 
 ### Примеры запросов для устранения проблем
 Ниже приведены примеры нескольких сценариев и запросов, которые можно использовать для устранения неполадок.
 
-1. Узнайте, вызывала ли платформа Service Fabric команду RunAsync для конкретной службы. Вам может понадобиться эта информация, чтобы узнать, был ли сбой во время запуска службы. Чтобы получить эту информацию, выполните поиск с помощью запроса, похожего на запрос ниже, заменив имя службы и приложения именем развернутых службы и приложения, и проверьте, возвращаются ли результаты.
+1. **Узнайте, вызывала ли платформа Service Fabric команду RunAsync для конкретной службы.** Вам может понадобиться эта информация, чтобы узнать, был ли сбой во время запуска службы. Чтобы получить эту информацию, выполните поиск с помощью запроса, похожего на приведенный ниже, заменив имя службы и приложения именем развернутых службы и приложения, и проверьте, возвращаются ли результаты.
 
     ```
     Type=ServiceFabricReliableServiceEvent AND ServiceName="fabric:/Application2/Stateless1" AND "RunAsync has been invoked"
     ```
 
-2. Если вы запустили службу с отслеживанием состояния и хотите знать, выдавала ли она исключения, отмеченные Service Fabric как сбои, найдите эти события с помощью похожего запроса.
+2. **Если вы запустили службу с отслеживанием состояния и хотите знать, выдавала ли она исключения, отмеченные Service Fabric как сбои**, найдите эти события с помощью следующего запроса:
 
     ```
     Type=ServiceFabricReliableServiceEvent AND ServiceName="fabric:/Application2/Stateful1" AND TaskName=StatefulRunAsyncFailure
     ```
 
-3. Чтобы найти события, соответствующие исключениям, выданным методами субъектов во всех развернутых приложениях и службах, используйте запрос, приведенный ниже.
+3. **Чтобы найти события, соответствующие исключениям, выданным методами субъектов во всех развернутых приложениях и службах**, используйте следующий запрос.
 
     ```
     Type=ServiceFabricReliableActorEvent AND TaskName=ActorMethodThrewException
     ```
 
-## Обновление WAD для сбора и передачи журналов из новых каналов EventSource
-Чтобы обновить WAD для сбора журналов из новых каналов EventSource, представляющих новое приложение, которое вы собираетесь развертывать, выполните действия из [раздела выше](#deploywadarm), которые описывают настройку WAD для существующего кластера. Вам нужно будет обновить раздел EtwEventSourceProviderConfiguration в файле WadConfigUpdate.json, чтобы добавить записи для нового канала EventSources до обновления конфигурации с помощью команды ARM. Для передачи будет использоваться та же таблица (ETWEventTable), так как эта таблица настроена в оперативной аналитике для чтения событий из приложения ETW.
+## Обновление службы диагностики для сбора и отправки журналов из новых каналов EventSource
+Чтобы обновить службу диагностики для сбора журналов из новых каналов EventSource, представляющих новое приложение, которое вы собираетесь развернуть, выполните шаги из [раздела выше](#deploywadarm), в которых описана настройка службы диагностики для существующего кластера.
+
+В файле WadConfigUpdate.json вам нужно будет добавить в раздел EtwEventSourceProviderConfiguration записи для нового канала EventSources. Это нужно сделать до того, как вы обновите конфигурацию с помощью команды диспетчера ресурсов. Для отправки будет использоваться та же таблица (ETWEventTable), так как она настроена в оперативной аналитике для чтения событий ETW из приложения.
 
 
 ## Дальнейшие действия
-Ознакомьтесь с событиями диагностики, выпущенными для [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) и [Reliable Services](service-fabric-reliable-services-diagnostics.md), чтобы лучше понять, на какие события необходимо обратить внимание во время устранения неполадок.
+Ознакомьтесь с диагностическими событиями, которые создаются для [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) и [Reliable Services](service-fabric-reliable-services-diagnostics.md), чтобы лучше понять, на какие события необходимо обращать внимание во время устранения неполадок.
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

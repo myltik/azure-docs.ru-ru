@@ -12,16 +12,21 @@
 	ms.service="sql-database" 
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/30/2015" 
+	ms.date="12/17/2015" 
 	ms.author="genemi"/>
 
 
 # Пример кода: логика повторов в C# для подключения к базе данных SQL
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+
+> [AZURE.SELECTOR]
+- [PHP](sql-database-develop-php-retry-windows.md)
+- [C#](sql-database-develop-csharp-retry-windows.md)
+- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
+
 
 
 Этот раздел содержит пример кода C#, демонстрирующий пользовательскую логику повторных попыток. Логика повторов предназначена для корректной обработки временных ошибок или *временных сбоев*, которые обычно исчезают, если программа ждет несколько секунд и выполняет повторную попытку.
@@ -93,7 +98,7 @@
 Вставьте этот код в ваш файл **Program.cs**.
 
 
-После этого следует изменить строки для имени сервера, пароля и т. д. Эти строки можно найти в методе с именем **GetSqlConnectionStringBuilder**.
+После этого следует изменить строки для имени сервера, пароля и т. д. Эти строки вы можете найти в методе с именем **GetSqlConnectionStringBuilder**.
 
 
 ```
@@ -282,4 +287,6 @@ filetable_updates_2105058535    2105058535
 
 - [Простые примеры кода клиентских приложений для работы с базой данных SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+- [Руководство по базам данных SQL. Создание Базы данных SQL с помощью C# и библиотеки Базы данных SQL для .NET](sql-database-get-started-csharp.md)
+
+<!---HONumber=AcomDC_1223_2015-->

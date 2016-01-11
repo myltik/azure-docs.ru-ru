@@ -3,7 +3,7 @@
 	description="Статья описывает шаги, необходимые для ручного обновления сценария PowerShell, входящего в состав проекта развертывания группы ресурсов Azure."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
 	editor="tlee" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="11/20/2015"
-	ms.author="kempb" />
+	ms.author="tarcher" />
 
 # Обновление сценария PowerShell для проекта группы ресурсов Azure
 
@@ -229,4 +229,4 @@ New-AzureRMResourceGroupDeployment `
 
 ```
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

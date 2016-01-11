@@ -1,6 +1,6 @@
 <properties
-   	pageTitle="Создание кластеров Hadoop, HBase и Storm на платформе Linux в HDInsight с помощью портала | Microsoft Azure"
-   	description="Узнайте, как создавать кластеры Hadoop, HBase и Storm на платформе Linux в HDInsight с помощью браузера и портала Azure."
+   	pageTitle="Создание кластеров Hadoop, HBase, Storm или Spark на платформе Linux в HDInsight с помощью портала | Microsoft Azure"
+   	description="Узнайте, как создавать кластеры Hadoop, HBase, Storm или Spark на платформе Linux в HDInsight с помощью браузера и портала предварительной версии Azure."
    	services="hdinsight"
    	documentationCenter=""
    	authors="nitinme"
@@ -14,29 +14,29 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="11/16/2015"
+   	ms.date="12/08/2015"
    	ms.author="nitinme"/>
 
 
-#Создание кластеров под управлением Linux в HDInsight с помощью портала Azure
+#Создание кластеров под управлением Linux в HDInsight с помощью портала предварительной версии Azure
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Портал Azure — это веб-средство управления службами и ресурсами, размещенными в облаке Microsoft Azure. С помощью сведений, содержащихся в этом документе, вы сможете создать новый кластер HDInsight под управлением Linux с помощью портала и веб-браузера.
+Портал предварительной версии Azure — это веб-средство управления службами и ресурсами, размещенными в облаке Microsoft Azure. Используйте сведения, приведенные в этом документе, чтобы создать новый кластер HDInsight под управлением Linux с помощью портала предварительной версии и веб-браузера.
 
 ##Предварительные требования
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-- __Современный браузер__. Портал Azure использует HTML5 и Javascript и может работать неправильно в старых браузерах.
+- __Современный браузер__. Портал предварительной версии Azure использует HTML5 и Javascript и может работать неправильно в старых браузерах.
 
 ##Создание кластера
 
-1. Войдите на [портал Azure](https://portal.azure.com).
+1. Войдите в [портал предварительной версии Azure](https://portal.azure.com).
 
 2. Щелкните **СОЗДАТЬ**, **Анализ данных**, а затем — **HDInsight**.
 
-    ![Создание нового кластера на портале Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Создание нового кластера на портале Azure")
+    ![Создание нового кластера на портале предварительной версии Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.1.png "Создание нового кластера на портале предварительной версии Azure")
 
 3. Введите **Имя кластера**, выберите **Hadoop** в качестве **Типа кластера** и в раскрывающемся списке **Операционная система кластера** выберите **Ubuntu**. Если имя кластера доступно, рядом с ним появится зеленый флажок.
 
@@ -144,7 +144,7 @@
 
 	* **Пользователи** (![значок "пользователи"](./media/hdinsight-hadoop-create-linux-cluster-portal/users.png)). Здесь можно указать разрешения на доступ к _порталу управления_ этого кластера для других пользователей в своей подписке Azure.
 
-		> [AZURE.IMPORTANT]Этот параметр влияет _только_ на права доступа к этому кластеру и его разрешения на портале Azure. Он не влияет на то, кто может подключаться к кластеру HDInsight или отправлять в него задания.
+		> [AZURE.IMPORTANT]Этот параметр влияет _только_ на права доступа к этому кластеру на портале предварительной версии Azure. Параметр не влияет на то, кто может подключаться к кластеру HDInsight или отправлять в него задания.
 
 	* **Теги** (![значок "теги"](./media/hdinsight-hadoop-create-linux-cluster-portal/tags.png)): позволяют задавать пары «ключ — значение» для определения пользовательской таксономии облачных служб. Например, можно создать ключ с именем __project__, а затем использовать общее значение для всех служб, связанных с определенным проектом.
 
@@ -169,4 +169,12 @@
 * [Использование компонентов Python в Storm в HDInsight](hdinsight-storm-develop-python.md)
 * [Развертывание и мониторинг топологий с помощью Storm в HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+###Кластеры Spark
+
+* [Создание автономного приложения с использованием Scala](hdinsight-apache-spark-create-standalone-application.md)
+* [Удаленный запуск заданий с помощью Livy в кластере Spark](hdinsight-apache-spark-livy-rest-interface.md)
+* [Использование Spark со средствами бизнес-аналитики. Выполнение интерактивного анализа данных с использованием Spark в HDInsight с помощью средств бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)
+* [Использование Spark с машинным обучением. Использование Spark в HDInsight для прогнозирования результатов контроля качества пищевых продуктов](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Потоковая передача Spark. Использование Spark в HDInsight для сборки приложений потоковой передачи данных в режиме реального времени](hdinsight-apache-spark-eventhub-streaming.md)
+
+<!---HONumber=AcomDC_1223_2015-->

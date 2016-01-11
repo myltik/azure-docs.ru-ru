@@ -79,7 +79,7 @@ Azure SDK для PHP включает компоненты для разрабо
 		pear channel-discover pear.windowsazure.com
 3. Установите пакет PEAR:
 
-		pear install pear.windowsazure.com/WindowsAzure-0.4.0
+		pear install pear.windowsazure.com/WindowsAzure-0.4.1
 
 После завершения установки можно ссылаться на библиотеки классов из приложения.
 
@@ -130,4 +130,4 @@ CLI Azure — это набор команд для развертывания �
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

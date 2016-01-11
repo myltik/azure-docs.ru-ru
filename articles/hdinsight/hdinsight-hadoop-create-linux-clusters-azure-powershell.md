@@ -1,9 +1,9 @@
 <properties
-   	pageTitle="Создание кластеров Hadoop, HBase и Storm на платформе Linux в HDInsight с помощью Azure PowerShell | Microsoft Azure"
-   	description="Узнайте, как с помощью Azure PowerShell создавать кластеры Hadoop, HBase или Storm на платформе Linux для HDInsight."
+   	pageTitle="Создание кластеров Hadoop, HBase, Storm или Spark на платформе Linux в HDInsight с помощью Azure CLI | Microsoft Azure"
+   	description="Узнайте, как создавать кластеры Hadoop, HBase, Storm или Spark на платформе Linux для HDInsight с помощью Azure CLI."
    	services="hdinsight"
    	documentationCenter=""
-   	authors="mumian"
+   	authors="nitinme"
    	manager="paulettm"
    	editor="cgronlun"
 	tags="azure-portal"/>
@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="11/16/2015"
+   	ms.date="12/08/2015"
    	ms.author="nitinme"/>
 
 #Создание кластеров под управлением Linux в HDInsight с помощью Azure PowerShell
@@ -25,12 +25,11 @@ Azure PowerShell — это полнофункциональная среда с
 
 > [AZURE.NOTE]Оболочка Azure PowerShell доступна только для клиентов Windows. Если вы используете клиент Linux, Unix или Mac OS X, информацию об использовании Azure CLI для создания кластера см. в разделе [Создание кластера HDInsight под управлением Linux с помощью Azure CLI](hdinsight-hadoop-create-linux-cluster-azure-cli.md).
 
-###Предварительные требования
+##Предварительные требования
 
 - **Подписка Azure.**. См. [Бесплатная пробная версия Azure](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 - __Azure PowerShell__. Информацию о настройке рабочей станции для запуска командлетов HDInsight Windows PowerShell см. в статье [Как установить и настроить Azure PowerShell](../install-configure-powershell.md). Дополнительную информацию об использовании Azure PowerShell с HDInsight см. в статье [Администрирование HDInsight с использованием PowerShell](hdinsight-administer-use-powershell.md). Список командлетов HDInsight PowerShell см. в разделе [Справочная документация по командлетам PowerShell для HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
-
 
 ##Создание кластера
 
@@ -128,4 +127,12 @@ Azure PowerShell — это полнофункциональная среда с
 * [Использование компонентов Python в Storm в HDInsight](hdinsight-storm-develop-python.md)
 * [Развертывание и мониторинг топологий с помощью Storm в HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+###Кластеры Spark
+
+* [Создание автономного приложения с использованием Scala](hdinsight-apache-spark-create-standalone-application.md)
+* [Удаленный запуск заданий с помощью Livy в кластере Spark](hdinsight-apache-spark-livy-rest-interface.md)
+* [Использование Spark со средствами бизнес-аналитики. Выполнение интерактивного анализа данных с использованием Spark в HDInsight с помощью средств бизнес-аналитики](hdinsight-apache-spark-use-bi-tools.md)
+* [Использование Spark с машинным обучением. Использование Spark в HDInsight для прогнозирования результатов контроля качества пищевых продуктов](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Потоковая передача Spark. Использование Spark в HDInsight для сборки приложений потоковой передачи данных в режиме реального времени](hdinsight-apache-spark-eventhub-streaming.md)
+
+<!---HONumber=AcomDC_1223_2015-->

@@ -5,8 +5,15 @@
    documentationCenter="na"
    authors="TomArcher"
    manager="douge"
-   editor="tlee" />
-<tags  ms.service="visual-studio-online"" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="visual-studio-online" ms.date="08/12/2015" ms.author="tarcher" />
+   editor="" />
+<tags 
+   ms.service="visual-studio-online"
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="visual-studio-online"
+   ms.date="12/16/2015"
+   ms.author="tarcher" />
 
 # Добавление Azure Active Directory с помощью подключенных служб в Visual Studio 
 
@@ -24,9 +31,9 @@ Azure Active Directory (Azure AD) позволяет обеспечить еди
 
 ### Подключение к Azure AD с помощью диалогового окна подключенных служб
 
-1. Убедитесь в наличии учетной записи Azure. Если у вас нет учетной записи Azure, вы можете зарегистрироваться и получить [бесплатную пробную версию](http://go.microsoft.com/fwlink/?LinkId=518146).
+1. Убедитесь в наличии учетной записи Azure. Если у вас ее нет, вы можете зарегистрироваться и получить [бесплатную пробную версию](http://go.microsoft.com/fwlink/?LinkId=518146).
 
-1. В Visual Studio откройте контекстное меню узда **Ссылки** в своем проекте и выберите пункт **Добавить подключенные службы**.
+1. В Visual Studio откройте контекстное меню узла **Ссылки** в своем проекте и выберите пункт **Добавить подключенные службы**.
 1. Выберите **проверку подлинности Azure AD** и нажмите кнопку **Настроить**.
 
     ![Выберите "Добавить проверку подлинности Azure AD"](./media/vs-azure-tools-connected-services-add-active-directory/connected-services-add-active-directory.png)
@@ -48,7 +55,7 @@ Azure Active Directory (Azure AD) позволяет обеспечить еди
 
 1. Нажмите кнопку **Готово**. Диалоговое окно добавляет код конфигурации и ссылки, необходимые для включения проверки подлинности Azure AD в вашем проекте. Домен AD появится на портале Azure.
 
-1. Просмотрите открывшуюся в браузере страницу "Приступая к работе". Здесь приведена информация о дальнейших действиях. Сведения о том, какие изменения внесены в ваш проект, приведены в статье "Что произошло". Если вы хотите убедиться, что все сработало, откройте один из измененных файлов конфигурации и убедитесь, что в нем есть все параметры, упомянутые в статье "Что произошло". Например, в основной файл web.config проекта ASP.NET MVC будут добавлены следующие параметры:
+1. Просмотрите открывшуюся в браузере страницу «Приступая к работе». Здесь приведена информация о дальнейших действиях. Сведения о том, какие изменения внесены в ваш проект, приведены в статье «Что произошло». Если вы хотите убедиться, что все сработало, откройте один из измененных файлов конфигурации и убедитесь, что в нем есть все параметры, упомянутые в статье «Что произошло». Например, в основной файл web.config проекта ASP.NET MVC будут добавлены следующие параметры:
 
         <appSettings> 
             <add key="ida:ClientId" value="ClientId from the new Azure AD App" />
@@ -72,4 +79,4 @@ Azure Active Directory (Azure AD) позволяет обеспечить еди
 
  - [Записи блога: общие сведения об Azure AD](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -3,7 +3,7 @@
 	description="В этой статье объясняется, как использовать обозреватель хранилищ Microsoft Azure (предварительная версия) для создания ресурсов хранилища Azure и управления ими."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="kempb"
+	authors="TomArcher"
 	manager="douge"
 	editor="tlee" />
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
 	ms.date="11/17/2015"
-	ms.author="kempb" />
+	ms.author="tarcher" />
 
 # Управление ресурсами хранилища Azure с помощью обозревателя хранилищ (предварительная версия)
 
@@ -182,4 +182,4 @@
 [19]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS3c.png
 [20]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageSAS4c.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

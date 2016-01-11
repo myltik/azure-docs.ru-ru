@@ -13,12 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/01/2015" 
+	ms.date="12/18/2015" 
 	ms.author="tarcher"/>
-
-
-
-
 
 # Создание приложения для разговора Node.js с Socket.IO в облачной службе Azure
 
@@ -174,4 +170,4 @@ Socket.IO обеспечивает связь в режиме реального
   
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

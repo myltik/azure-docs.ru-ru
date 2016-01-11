@@ -8,13 +8,13 @@
 
 2. В обозревателе решений щелкните правой кнопкой мыши проект **CreateDeviceIdentity** и выберите пункт **Управление пакетами NuGet**.
 
-3. В окне **Диспетчер пакетов NuGet** убедитесь, что флажок **Включить предварительные выпуски** установлен. Затем найдите **Устройства Microsoft Azure**, щелкните **Установить** и примите условия использования.
+3. В окне **Диспетчер пакетов NuGet** убедитесь, что флажок **Включить предварительные выпуски** установлен. Затем найдите **Устройства Microsoft Azure**, щелкните **Установить**, чтобы установить пакет **Microsoft.Azure.Devices**, и примите условия использования.
 
 	![][11]
 
-4. После этого будут выполнены скачивание, установка и добавление ссылки на пакет NuGet [Пакет SDK для устройств Microsoft Azure][lnk-nuget-device-sdk].
+4. После этого пакет NuGet [пакета SDK для службы IoT Microsoft Azure][lnk-nuget-service-sdk] будет загружен, установлен, и затем будет добавлена ссылка на него.
 
-4. Добавьте следующие инструкции `using` в начало файла **Program.cs**.
+4. Добавьте следующие инструкции `using` в начало файла **Program.cs**:
 
 		using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Common.Exceptions;
@@ -117,7 +117,7 @@
 [lnk-servicebus-nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 [lnk-event-hubs-overview]: event-hubs-overview.md
 
-[lnk-nuget-device-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-processd2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
 <!-- Images -->
@@ -125,4 +125,4 @@
 [11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="lodipalm"
    manager="barbkess"
-   editor="jrowlandjones"/>
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/02/2015"
+   ms.date="12/17/2015"
    ms.author="lodipalm;barbkess"/>
 
 # Загрузка данных в хранилище данных SQL
@@ -181,8 +181,8 @@ create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 
 <!--Article references-->
 [Load data with bcp]: sql-data-warehouse-load-with-bcp.md
-[загрузке данных с помощью PolyBase]: sql-data-warehouse-load-with-polybase.md
-[загрузке с помощью PolyBase]: sql-data-warehouse-load-with-polybase.md
+[загрузке данных с помощью PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
+[загрузке с помощью PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
 [solution partners]: sql-data-warehouse-solution-partners.md
 [Общие сведения о разработке]: sql-data-warehouse-overview-develop.md
 [схеме миграции]: sql-data-warehouse-migrate-schema.md
@@ -202,4 +202,4 @@ create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 [документации хранилища Azure]: https://azure.microsoft.com/ru-RU/documentation/articles/storage-create-storage-account/
 [документации по ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_1223_2015-->

@@ -14,14 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="12/08/2015"
+	ms.date="12/17/2015"
 	ms.author="meetb"/>
 
 
 # Подключение к базе данных SQL с помощью приложения PHP в операционной системе Windows
 
 
-[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
+> [AZURE.SELECTOR]
+- [C#](sql-database-develop-dotnet-simple.md)
+- [PHP](sql-database-develop-php-simple-windows.md)
+- [Python](sql-database-develop-python-simple-windows.md)
+- [Ruby](sql-database-develop-ruby-simple-windows.md)
+- [Java](sql-database-develop-java-simple-windows.md)
+- [Node.js](sql-database-develop-nodejs-simple-windows.md)
 
 
 В этом разделе объясняется, как подключиться к базе данных SQL Azure из клиентского приложения PHP, которое запущено в ОС Windows.
@@ -95,7 +101,7 @@
 
 ## Шаг 4. Вставка строки
 
-В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от [внедрения кода SQL](https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
+В приведенном примере показано, как выполнять инструкцию [INSERT](https://msdn.microsoft.com/library/ms174335.aspx), передавать параметры в режиме защиты от внедрения кода SQL (https://technet.microsoft.com/library/ms161953(v=sql.105).aspx) и извлекать автоматически созданные значения [первичного ключа](https://msdn.microsoft.com/library/ms179610.aspx).
 
 
 	function InsertData()
@@ -180,4 +186,4 @@
 
 Дополнительные сведения об установке и использовании PHP см. в статье [Доступ к базам данных SQL Server с помощью PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
-<!------HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_1223_2015-->

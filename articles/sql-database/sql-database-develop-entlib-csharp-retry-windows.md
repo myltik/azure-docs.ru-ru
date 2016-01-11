@@ -14,11 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/16/2015" 
+	ms.date="12/17/2015" 
 	ms.author="genemi"/>
 
 
 # Образец кода: логика повторных попыток из библиотеки Enterprise Library 6 в C&#x23; для подключения к Базе данных SQL
+
+
+> [AZURE.SELECTOR]
+- [PHP](sql-database-develop-php-retry-windows.md)
+- [C#](sql-database-develop-csharp-retry-windows.md)
+- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
 
 
 В этом разделе представлен полный образец кода, демонстрирующий Enterprise Library (EntLib). EntLib упрощает многие задачи для клиентских программ, которые взаимодействуют с облачными службами, такими как База данных SQL Azure. В нашем примере решается важная задача по включению логики повторов для временных сбоев.
@@ -29,7 +35,11 @@
 - ошибки, которые не устраняются без вмешательства пользователя, такие как неправильное написание имени сервера;
 - временные сбои, такие как задержка приема новых подключений со стороны сервера, при сбалансированной системной нагрузке Azure.
 
+
 Enterprise Library 6 (EntLib60) является последней версией и была выпущена в апреле 2013 года.
+
+- Корпорация Майкрософт сделала исходный код общедоступным.
+- Корпорация Майкрософт не планирует дальнейшую поддержку исходного кода.
 
 
 ## Предварительные требования
@@ -82,16 +92,16 @@ EntLib60 включает несколько DLL-файлов сборки, им
 Классы EntLib используются для создания других классов EntLib. В данном примере последовательность создания и использования классов выглядит следующим образом:
 
 
-1. создание объекта **ExponentialBackoff**;
+1. cоздание объекта **ExponentialBackoff**;
 2. создание объекта **SqlDatabaseTransientErrorDetectionStrategy**;
 3. создание объекта **RetryPolicy**. Входные параметры:
  - объект **ExponentialBackoff**;
- - объект **SqlDatabaseTransientErrorDetectionStrategy**.
-4. Создание объекта **ReliableSqlConnection** Входные параметры:
+ - объект **SqlDatabaseTransientErrorDetectionStrategy**;
+4. объект **ReliableSqlConnection**. Входные параметры:
  - объект **Строка** с именем сервера и другими сведениями о подключении.
  - Объект **RetryPolicy**.
 5. Вызов подключения, выполненный с помощью метода **RetryPolicy .ExecuteAction**.
-6. Вызов метода **ReliableSqlConnection. CreateCommand**.
+6. Вызов метода **ReliableSqlConnection .CreateCommand**.
  - Возвращение объекта **System.SqlClient.Data.DbCommand**, который является частью ADO.NET.
 7. Вызов запроса, выполненный с помощью метода **RetryPolicy .ExecuteAction**.
 
@@ -303,7 +313,7 @@ SELECT TOP 3
 
 
 - [Enterprise Library 6 — апрель 2013 г.](http://msdn.microsoft.com/library/dn169621.aspx) — многочисленные ссылки на дополнительную информацию.
- - Если вы хотите увидеть исходный код, нажмите кнопку, предлагающую [загрузить исходный код EntLib60](http://go.microsoft.com/fwlink/p/?LinkID=290898), вверху страницы.
+ - Если вы хотите увидеть исходный код, нажмите кнопку, предлагающую [загрузить исходный код EntLib60](http://go.microsoft.com/fwlink/p/?LinkID=290898), вверху раздела.
 
 
 - Бесплатная электронная книга в формате PDF от корпорации Майкрософт — [руководство разработчика по Microsoft Enterprise Library, 2-е издание](http://www.microsoft.com/download/details.aspx?id=41145).
@@ -320,4 +330,4 @@ SELECT TOP 3
 
 - [Простые примеры кода клиентских приложений для работы с базой данных SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_1223_2015-->

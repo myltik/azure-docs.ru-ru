@@ -99,6 +99,7 @@
 - Fluendo SA
 - GIGABYTE Technology
 - Guangdong OPPO Mobile Telecommunications Corp., Ltd.
+- HANDAN BroadInfoCom Co., Ltd.
 - Infomir GMBH
 - Inside Secure
 - Irdeto USA Inc.
@@ -125,7 +126,6 @@
 - Vestel Elektronik Sanayi ve Ticaret A.S.
 - ОАО «Вымпелком»
 - VisualOn, Inc.
-- WOOJEON & HANDAN Co., Ltd
 - ZTE Corporation
 
 ##Обладатели лицензий на конечный продукт пакета для портирования клиента Microsoft Smooth Streaming
@@ -150,6 +150,7 @@
 - Fluendo SA
 - GIGABYTE Technology
 - Guangdong OPPO Mobile Telecommunications Corp., Ltd.
+- HANDAN BroadInfoCom Co., Ltd.
 - Hisense International Co., Ltd
 - Homecast Co.,Ltd
 - Hon Hai Precision Industry Co., Ltd.
@@ -181,7 +182,6 @@
 - Virgin Media Limited
 - VIZIO, Inc.
 - Wistron Corporation
-- WOOJEON & HANDAN Co., Ltd
 - WOOX Innovations Limited
 - ZTE Corporation
 
@@ -193,4 +193,4 @@
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_1223_2015-->

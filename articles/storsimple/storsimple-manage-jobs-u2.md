@@ -15,7 +15,7 @@
    ms.date="12/14/2015"
    ms.author="alkohli" />
 
-# Использование службы управления StorSimple для просмотра заданий StorSimple и управления ими
+# Использование службы управления StorSimple для просмотра заданий StorSimple и управления ими (обновление 2)
 
 [AZURE.INCLUDE [storsimple-version-selector-manage-jobs](../../includes/storsimple-version-selector-manage-jobs.md)]
 
@@ -93,4 +93,4 @@
 
 - Узнайте об [использовании службы StorSimple Manager для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_1223_2015-->
