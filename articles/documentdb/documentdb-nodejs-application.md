@@ -183,7 +183,8 @@
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP]createCollection принимает необязательный параметр requestOptions, который может использоваться для указания типа предложения для коллекции. Если значение requestOptions.offerType не указано, коллекция будет создана с использованием типа предложения по умолчанию. Дополнительные сведения о типах предложений DocumentDB см. в статье [Уровни производительности DocumentDB](documentdb-performance-levels.md)
+> [AZURE.TIP]createCollection принимает необязательный параметр requestOptions, который может использоваться для указания типа предложения для коллекции. Если значение requestOptions.offerType не указано, коллекция будет создана с использованием типа предложения по умолчанию. 
+> Дополнительные сведения о типах предложений DocumentDB см. в статье [Уровни производительности DocumentDB](documentdb-performance-levels.md)
 		
 3. Сохраните и закройте файл **docdbUtils.js**.
 

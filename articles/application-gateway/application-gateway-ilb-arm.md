@@ -161,7 +161,7 @@
 
 Настройка размера экземпляра шлюза приложений
 
->[AZURE.NOTE]Значение параметра *InstanceCount* по умолчанию — 2 (максимальное значение — 10). По умолчанию для параметра *GatewaySize* используется значение Medium. Можно выбрать Standard\_Small, Standard\_Medium или Standard\_Large.
+>[AZURE.NOTE]Значение параметра *InstanceCount* по умолчанию — 2 (максимальное значение — 10). По умолчанию для параметра *GatewaySize* используется значение Medium. Можно выбрать Standard_Small, Standard_Medium или Standard_Large.
 
 ## Создание шлюза приложений при помощи New-AzureApplicationGateway
 
