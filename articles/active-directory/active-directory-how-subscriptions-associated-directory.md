@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 # Связь между подписками Azure и Azure Active Directory
@@ -35,7 +35,7 @@
 Например, здесь пользователь с учетной записью Майкрософт входит на классический портал Azure.
 
 > [AZURE.NOTE]
->  Для входа на классический портал Azure учетная запись msmith@hotmail.com должна иметь подписку на Azure. Учетная запись должна относиться либо к администратору службы, либо к соадминистратору подписки.
+> Для входа на классический портал Azure учетная запись msmith@hotmail.com должна иметь подписку на Azure. Учетная запись должна относиться либо к администратору службы, либо к соадминистратору подписки.
 
 ![][1]
 
@@ -126,4 +126,4 @@
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

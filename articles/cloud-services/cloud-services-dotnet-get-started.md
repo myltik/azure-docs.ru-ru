@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/01/2015"
+	ms.date="12/28/2015"
 	ms.author="tdykstra"/>
 
 # Начало работы с облачными службами Azure и ASP.NET
@@ -58,9 +58,9 @@
 Инструкции руководства применимы со следующими продуктами:
 
 * Visual Studio 2013
-* Visual Studio 2013 Express для Web
+* Visual Studio 2015
 
-Если у вас нет одного из них, Visual Studio 2013 Express for Web установится автоматически, когда будет установлен Azure SDK.
+Если у вас нет ни одного из этих продуктов, Visual Studio 2015 будет установлен автоматически при установке пакета SDK для Azure.
 
 ## Архитектура приложения
 
@@ -72,7 +72,7 @@
 
 ![Архитектура Contoso Ads](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
-[AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk](../../includes/install-sdk-2015-2013.md)]
 
 ## Загрузка и запуск готового решения
 
@@ -87,6 +87,8 @@
 	По умолчанию Visual Studio автоматически запускает содержимое пакета NuGet, которое не включено в файл *.zip* Если пакеты не восстановлены, установите их вручную, перейдя к диалоговому окну **Управление пакетами NuGet для решения** и нажав кнопку **Восстановить** вверху справа.
 
 3. В **обозревателе решений** убедитесь, что **ContosoAdsCloudService** выбран в качестве запускаемого проекта.
+
+2. Если вы используете Visual Studio 2015, измените строку подключения SQL Server в файле приложения *Web.config* в проекте ContosoAdsWeb и в файле *ServiceConfiguration.Local.cscfg* проекта ContosoAdsCloudService. В каждом файле измените (localdb)\\v11.0 на (localdb)\\MSSQLLocalDB.
 
 1. Для запуска приложения нажмите сочетание клавиш CTRL+F5.
 
@@ -201,7 +203,7 @@
 
 	Территориальные группы Azure обеспечивают механизм для минимизации расстояния между ресурсами в центре обработки данных, что позволяет уменьшить задержку. В этом учебнике территориальные группы не используются. Дополнительные сведения см. в разделе [Создание территориальной группы в Azure](http://msdn.microsoft.com/library/jj156209.aspx).
 
-6. В раскрывающемся списке **Репликация** установите значение **Локально избыточное**.
+6. В раскрывающемся списке **Репликация ** установите значение **Локально избыточное**.
 
 	При включении георепликации для учетной записи хранения хранящиеся данные реплицируются в дополнительный центр обработки данных для обеспечения возможности отработки отказа в это расположение в случае крупной аварии в основном расположении. Георепликация может потребовать дополнительных затрат. Для учетных записей тестирования и разработки оплачивать георепликацию обычно не требуется. Дополнительные сведения см. в разделе [Создание, удаление учетной записи хранения или управление ей](../storage-create-storage-account/#replication-options).
 
@@ -252,7 +254,7 @@
 
 7. Измените **конфигурацию службы** на **Облако**.
 
-7. Выберите текст в параметре `ContosoAdsDbConnectionString` и вставьте строку подключения, которую скопировали в предыдущем разделе учебника.
+7. Выберите поле **Значение** для параметра `ContosoAdsDbConnectionString` и вставьте строку подключения, которую скопировали в предыдущем разделе учебника.
 
 	![Строка подключения базы данных для рабочей роли](./media/cloud-services-dotnet-get-started/workerdbcs.png)
 
@@ -341,7 +343,7 @@
 
 	![Окно журнал действий Azure](./media/cloud-services-dotnet-get-started/waal.png)
 
-1. После завершения развертывания щелкните элемент **URL-адрес веб-сайта** для запуска приложения.
+1. После завершения развертывания щелкните **URL-адрес веб-приложения** для запуска приложения.
 
 9. Теперь можно протестировать приложение, создавая, просматривая и редактируя некоторые элементы рекламы так же, как это происходило при локальном запуске приложения.
 
@@ -387,7 +389,7 @@
 
 9. в **обозревателе решений** щелкните правой кнопкой мыши решение (не проект) и выберите **Добавить новый проект**.
 
-11. В диалоговом окне **Добавление нового проекта** выберите **Настольная ОС Windows** в разделе **Visual C#** на панели слева, а затем щелкните шаблон **Библиотека классов**.
+11. В диалоговом окне **Добавление нового проекта** выберите **Windows** в разделе **Visual C#** на панели слева, а затем щелкните шаблон **Библиотека классов**.
 
 10. Присвойте проекту имя *ContosoAdsCommon* и нажмите кнопку **ОК**.
 
@@ -397,15 +399,13 @@
 
 11. Откройте диалоговое окно **Управление пакетами NuGet** для решения.
 
-12. В левой области щелкните **Обновления**.
+12. В верхней части окна выберите пункт **Обновления**.
 
-13. Найдите пакет *WindowsAzure.Storage*, а если его нет в списке, щелкните **Обновить** для получения последней версии клиентской библиотеки хранилища.
-
-	![Обновление SCL](./media/cloud-services-dotnet-get-started/updstg.png)
+13. Найдите пакет *WindowsAzure.Storage* и, если он есть в списке, выберите его и выберите веб-проект и проект рабочей роли для обновления пакета в этих проектах, а затем нажмите кнопку **Обновить**.
 
 	Клиентская библиотека хранилища обновляется чаще, чем шаблоны проектов Visual Studio, поэтому часто происходит так, что версию во вновь создаваемых проектах необходимо обновить.
 
-14. В левой области щелкните **В сети**.
+14. В верхней части окна выберите пункт **Обзор**.
 
 16. Найдите пакет NuGet *EntityFramework* и установите его во все проекты.
 
@@ -433,6 +433,8 @@
 		  <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
 		</connectionStrings>
 
+	Если вы используете Visual Studio 2015, замените v11.0 на MSSQLLocalDB.
+
 3. Сохраните изменения.
 
 2. В проекте ContosoAdsCloudService щелкните правой кнопкой мыши ContosoAdsWeb в разделе **Роли**, а затем щелкните **Свойства**.
@@ -443,7 +445,7 @@
 
 	Оставьте **конфигурацию службы** установленной как **Все конфигурации**.
 
-4. Добавьте новую настройку с именем *StorageConnectionString*. Задайте **Тип** как *ConnectionString* и установите **Значение** как *UseDevelopmentStorage=true*.
+4. Добавьте новую настройку с именем *StorageConnectionString*. Задайте **Тип** как *ConnectionString* и установите **Значение ** как *UseDevelopmentStorage=true*.
 
 	![Новая строка подключения](./media/cloud-services-dotnet-get-started/scall.png)
 
@@ -455,7 +457,7 @@
 
 	* Имя: ContosoAdsDbConnectionString
 	* Тип: строка
-	* Значение: вставьте ту же строку подключения, что была использована для проекта веб-роли.
+	* Значение. Вставьте ту же строку подключения, которая была использована для проекта веб-роли. (Этот пример предназначен для Visual Studio 2013, не забудьте изменить источник данных при копировании этого примера для Visual Studio 2015.)
 
 			Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;
 
@@ -469,10 +471,10 @@
 
 3. В проекте ContosoAdsCommon добавьте следующие файлы из загруженного проекта.
 	- *Global.asax.cs*.  
-	- В папку *Views\\Shared*: файл <em>\_Layout.cshtml</em>.
-	- В папку *Views\\Home*: файл *Index.cshtml*.
+	- В папку *Views\Shared*: файл <em>\_Layout.cshtml</em>.
+	- В папку *Views\Home*: файл *Index.cshtml*.
 	- В папку *Controllers*: *AdController.cs*
-	- В папку *Views\\Ad* (вначале создайте эту папку): пять файлов *.cshtml*.
+	- В папку *Views\Ad* (вначале создайте эту папку): пять файлов *.cshtml*.
 
 3. В проекте ContosoAdsCommon добавьте *WorkerRole.cs* из загруженного проекта.
 
@@ -575,11 +577,11 @@
 
 ### ContosoAdsWeb - \_Layout.cshtml
 
-Файл *\_Layout.cshtml* устанавливает имя приложения в заголовке и нижнем колонтитуле и создает запись меню "Ads".
+Файл *_Layout.cshtml* устанавливает имя приложения в заголовке и нижнем колонтитуле и создает запись меню "Ads".
 
-### ContosoAdsWeb - Views\\Home\\Index.cshtml
+### ContosoAdsWeb - Views\Home\Index.cshtml
 
-Файл *Views\\Home\\Index.cshtml* выводит ссылки категорий на домашней странице. Ссылки передают целочисленное значение перечисляемого типа `Category` в переменную querystring на странице индекса Ads.
+Файл *Views\Home\Index.cshtml* выводит ссылки категорий на домашней странице. Ссылки передают целочисленное значение перечисляемого типа `Category` в переменную querystring на странице индекса Ads.
 
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -593,13 +595,13 @@
 Затем код получает ссылку на контейнер больших двоичных объектов *images*, как показано ранее в *Global.asax.cs*. При этом он устанавливает [политику повторения](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) по умолчанию, подходящую для веб-приложения. Политика повторения с экспоненциальной задержкой по умолчанию может застопорить веб-приложение более чем на минуту при повторяющихся повторах во время кратковременного сбоя. Политика повторения здесь указывает ожидание в 3 секунды после каждой попытки, всего до 3 повторений.
 
 		var blobClient = storageAccount.CreateCloudBlobClient();
-		blobClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
+		blobClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesBlobContainer = blobClient.GetContainerReference("images");
 
 Аналогичный код получает ссылку на очередь *images*.
 
 		CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-		queueClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
+		queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesQueue = queueClient.GetQueueReference("images");
 
 Большая часть кода контроллера обычна для работы с моделью данных Entity Framework с использованием класса DbContext. Исключением является метод `Create` HttpPost, который отправляет файл и сохраняет его в хранилище больших двоичных объектов. Связыватель модели предоставляет объект [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) для метода.
@@ -668,7 +670,7 @@
 		    await blobToDelete.DeleteAsync();
 		}
 
-### ContosoAdsWeb - Views\\Ad\\Index.cshtml и Details.cshtml
+### ContosoAdsWeb - Views\Ad\Index.cshtml и Details.cshtml
 
 Файл *Index.cshtml* выводит эскиз с другими данными рекламы.
 
@@ -678,7 +680,7 @@
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\\Ad\\Create.cshtml и Edit.cshtml
+### ContosoAdsWeb - Views\Ad\Create.cshtml и Edit.cshtml
 
 Файлы *Create.cshtml* и *Edit.cshtml* указывают кодирование формы, которое дает возможность контроллеру получить объект `HttpPostedFileBase`.
 
@@ -800,7 +802,7 @@
 Есть несколько примеров приложений облачной службы, которые демонстрируют более жизненные примеры кодирования — от менее сложных к более сложным:
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Похоже на Contoso Ads, но реализует больше функций и больше примеров реального кода.
-* [Многоуровневое облачное приложение Azure с таблицами, квотами, и большими двоичными объектами](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Описание таблицы службы хранилища Azure наряду с большими двоичными объектами и очередями, поставляется с [пошаговым руководством](../cloud-services-dotnet-multi-tier-app-storage-1-overview.md).
+* [Многоуровневое облачное приложение Azure с таблицами, квотами, и большими двоичными объектами](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Представляет таблицы, а также большие двоичные объекты и очереди службы хранилища Azure. Этот пример основан на более старой версии пакета SDK для Azure для .NET, поэтому для работы с текущей версией потребуются некоторые изменения.
 * [Основы облачных служб в Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Полный пример для демонстрации широкого набора приемов, применяемых группой Microsoft Patterns and Practices.
 
 Общую информацию об облачной разработке см. в разделе [Разработка реальных облачных приложений в Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
@@ -813,4 +815,4 @@
 * [Управление облачными службами](cloud-services-how-to-manage.md)
 * [Хранилище Azure](/documentation/services/storage/)
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

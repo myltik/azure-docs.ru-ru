@@ -1,20 +1,20 @@
 <properties
-    pageTitle="Создание запроса в службу поддержки для хранилища данных SQL | Microsoft Azure"
-    description="Порядок создания запроса в службу поддержки для хранилища данных SQL Azure"
-    services="sql-data-warehouse"
-    documentationCenter="NA"
-    authors="sahaj08"
-    manager="barbkess"
-    editor=""/>
+   pageTitle="Создание запроса в службу поддержки для хранилища данных SQL | Microsoft Azure"
+   description="Порядок создания запроса в службу поддержки для хранилища данных SQL Azure"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sahaj08"
+   manager="barbkess"
+   editor=""/>
 
 <tags
-    ms.service="sql-data-warehouse"
-    ms.devlang="NA"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="data-services"
-    ms.date="10/20/2015"
-    ms.author="sahaj08"/>
+   ms.service="sql-data-warehouse"
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="01/04/2016"
+   ms.author="sahaj08"/>
 
 # Создание запроса в службу поддержки для хранилища данных SQL
  В этой статье показано, как создать запрос в службу поддержки для хранилища данных SQL.
@@ -84,4 +84,4 @@
 [Переполнение стека]: http://stackoverflow.com/questions/tagged/azure-sqldw/
 [форуме MSDN, посвященном хранилищу данных SQL Azure]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

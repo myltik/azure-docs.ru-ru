@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/20/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm"/>
 
 # Создание хранилища данных SQL с помощью Powershell
@@ -71,4 +71,4 @@
 [firewall rules]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-database-configure-firewall-settings/
 [Установка и настройка Azure PowerShell]: powershell-install-configure.md
 
-<!-----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,19 +1,20 @@
 <properties
-	pageTitle="Создание базы данных хранилища данных SQL на портале Azure | Microsoft Azure"
-	description="Узнайте, как создать хранилище данных SQL на портале Azure."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="Создание базы данных хранилища данных SQL на портале Azure | Microsoft Azure"
+   description="Узнайте, как создать хранилище данных SQL на портале Azure."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
+
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/15/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm;barbkess"/>
 
 # Создание хранилища данных SQL
@@ -130,9 +131,8 @@
 
 После настройки брандмауэра можно подключаться с компьютера к базе данных хранилища данных SQL Azure, которую вы только что создали.
 
-
 ## Дальнейшие действия
 
 Теперь, когда создан пример базы данных для хранилища данных SQL, вы можете [подключиться](./sql-data-warehouse-get-started-connect.md) к этой базе данных.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

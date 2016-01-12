@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
 	ms.workload="na"
-	ms.date="09/16/2015"
+	ms.date="12/24/2015"
 	ms.author="cfowler"/>
 
 # Присоединение веб-приложения в службе приложений Azure к кэшу Redis при помощи протокола Memcache
@@ -22,7 +22,7 @@
 
 Веб-приложения службы приложений разрешают сценарий этого приложения с оболочкой совместимости веб-приложений Memcache, которая является локальным сервером Memcache, действующим как прокси-сервер Memcache для кэширования вызовов в кэш Redis для Azure. Это позволяет любому приложению, которое передает данные при помощи протокола Memcache, кэшировать данные в кэше Redis. Эта оболочка совместимости Memcache работает на уровне протокола, поэтому ее может использовать любое приложение или любая исполняющая среда, при условии использования протокола Memcache для связи.
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## Предварительные требования
 
@@ -30,8 +30,8 @@
 
 Выполните шаги, описанные в следующих статьях:
 
-* [Подготовка экземпляра службы кэша Redis для Azure][1]
-* [Развертывание масштабируемого сайта WordPress в Azure][0]
+* [Подготовка экземпляра службы кэша Redis для Azure][0]
+* [Развертывание масштабируемого сайта WordPress в Azure][1]
 
 После развертывания масштабируемого сайта WordPress и создания экземпляра кэша Redis можно продолжить включение оболочки совместимости Memcache в веб-приложениях службы приложений Azure.
 
@@ -41,31 +41,31 @@
 
 ![Колонка параметров кэша Redis для Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
-### Добавление параметра приложения REDIS\_HOST
+### Добавление параметра приложения REDIS_HOST
 
-Сначала нужно создать параметр приложения **REDIS\_HOST**. Этот параметр определяет назначение, к которому оболочка совместимости направляет данные кэша. Значение, необходимое для параметра приложения REDIS\_HOST, можно получить в колонке **Свойства** вашего экземпляра кэша Redis.
+Сначала нужно создать параметр приложения **REDIS\_HOST**. Этот параметр определяет назначение, к которому оболочка совместимости направляет данные кэша. Значение, необходимое для параметра приложения REDIS_HOST, можно получить в колонке **Свойства** вашего экземпляра кэша Redis.
 
 ![Имя хоста кэша Redis для Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/2-azure-redis-cache-hostname.png)
 
 Задайте ключ параметра приложения **REDIS\_HOST** и значение параметра приложения **hostname** для экземпляра кэша Redis.
 
-![Параметр веб-приложения REDIS\_HOST](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
+![Параметр веб-приложения REDIS_HOST](./media/web-sites-connect-to-redis-using-memcache-protocol/3-azure-website-appsettings-redis-host.png)
 
-### Добавление параметра приложения REDIS\_KEY
+### Добавление параметра приложения REDIS_KEY
 
-Затем необходимо создать параметр приложения **REDIS\_KEY**. Этот параметр предоставляет маркер аутентификации для получения безопасного доступа к экземпляру кэша Redis. Значение, необходимое для параметра REDIS\_KEY, можно получить в колонке **Ключи доступа** экземпляра кэша Redis.
+Затем необходимо создать параметр приложения **REDIS\_KEY**. Этот параметр предоставляет маркер аутентификации для получения безопасного доступа к экземпляру кэша Redis. Значение, необходимое для параметра REDIS_KEY, можно получить в колонке **Ключи доступа** экземпляра кэша Redis.
 
 ![Первичный ключ кэша Redis для Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/4-azure-redis-cache-primarykey.png)
 
 Задайте ключ параметра приложения **REDIS\_KEY** и значение параметра приложения **Primary Key** для экземпляра кэша Redis.
 
-![Параметр веб-приложения REDIS\_KEY](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
+![Параметр веб-приложения REDIS_KEY](./media/web-sites-connect-to-redis-using-memcache-protocol/5-azure-website-appsettings-redis-primarykey.png)
 
-### Добавление параметра приложения MEMCACHESHIM\_REDIS\_ENABLE
+### Добавление параметра приложения MEMCACHESHIM_REDIS_ENABLE
 
-Последний параметр приложения используется для включения оболочки совместимости Memcache в веб-приложениях, которые будут использовать параметры REDIS\_HOST и REDIS\_KEY для подключения к кэшу Redis для Azure и переадресовывать вызовы кэша. Задайте ключ параметра приложения **MEMCACHESHIM\_REDIS\_ENABLE** и значение **true**.
+Последний параметр приложения используется для включения оболочки совместимости Memcache в веб-приложениях, которые будут использовать параметры REDIS_HOST и REDIS_KEY для подключения к кэшу Redis для Azure и переадресовывать вызовы кэша. Задайте ключ параметра приложения **MEMCACHESHIM\_REDIS\_ENABLE** и значение **true**.
 
-![Параметр веб-приложения MEMCACHESHIM\_REDIS\_ENABLE](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
+![Параметр веб-приложения MEMCACHESHIM_REDIS_ENABLE](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
 
 После добавления трех (3) параметров приложения щелкните **Сохранить**.
 
@@ -73,9 +73,9 @@
 
 Чтобы приложение использовало протокол Memcache, установите расширение Memcache в PHP — языковой платформе вашего сайта WordPress.
 
-### Загрузка расширения php\_memcache
+### Загрузка расширения php_memcache
 
-Перейдите в раздел [PECL][6]. В категории кэширования выберите [memcache][7]. В столбце загрузок щелкните ссылку DLL.
+Перейдите в раздел [PECL][6]. В категории кэширования щелкните [memcache][7]. В столбце загрузок щелкните ссылку DLL.
 
 ![Веб-сайт PHP PECL](./media/web-sites-connect-to-redis-using-memcache-protocol/7-php-pecl-website.png)
 
@@ -83,20 +83,20 @@
 
 ![Пакет Memcache веб-сайта PHP PECL](./media/web-sites-connect-to-redis-using-memcache-protocol/8-php-pecl-memcache-package.png)
 
-### Включение расширения php\_memcache
+### Включение расширения php_memcache
 
-После скачивания файла распакуйте его и добавьте файл **php\_memcache.dll** в каталог **d:\\home\\site\\wwwroot\\bin\\ext\**. После загрузки файла php\_memcache.dll в веб-приложение необходимо включить расширение в среде выполнения PHP. Чтобы включить расширение Memcache на портале Azure, откройте колонку **Параметры приложения** для веб-приложения, затем добавьте новый параметр приложения с ключом **PHP\_EXTENSIONS** и значением **bin\\ext\\php\_memcache.dll**.
+После скачивания файла распакуйте его и добавьте файл **php\_memcache.dll** в каталог **d:\\home\\site\\wwwroot\\bin\\ext\\**. После загрузки файла php_memcache.dll в веб-приложение необходимо включить расширение в среде выполнения PHP. Чтобы включить расширение Memcache на портале Azure, откройте колонку **Параметры приложения** для веб-приложения, затем добавьте новый параметр приложения с ключом **PHP\_EXTENSIONS** и значением **bin\\ext\\php_memcache.dll**.
 
 
-> [AZURE.NOTE]Если для веб-приложения необходимо загрузить несколько расширений PHP, значение параметра PHP\_EXTENSIONS должно быть списком относительных путей к DLL-файлам с разделителями-запятыми.
+> [AZURE.NOTE]Если для веб-приложения необходимо загрузить несколько расширений PHP, значение параметра PHP_EXTENSIONS должно быть списком относительных путей к DLL-файлам с разделителями-запятыми.
 
-![Параметр веб-приложения PHP\_EXTENSIONS](./media/web-sites-connect-to-redis-using-memcache-protocol/9-azure-website-appsettings-php-extensions.png)
+![Параметр веб-приложения PHP_EXTENSIONS](./media/web-sites-connect-to-redis-using-memcache-protocol/9-azure-website-appsettings-php-extensions.png)
 
 По завершении щелкните **Сохранить**.
 
 ## Установка подключаемого модуля Memcache WordPress
 
-> [AZURE.NOTE]На сайте WordPress.org. можно также скачать подключаемый модуль [Memcached Object Cache](https://wordpress.org/plugins/memcached/).
+> [AZURE.NOTE]На сайте WordPress.org. можно также загрузить подключаемый модуль [Memcached Object Cache](https://wordpress.org/plugins/memcached/).
 
 На странице подключаемых модулей WordPress нажмите кнопку **Добавить новый**.
 
@@ -124,7 +124,7 @@ $memcached_servers = array(
 
 После вставки этого фрагмента кода функция monaco автоматически сохранит документ.
 
-Следующим действием будет включение подключаемого модуля кэша объектов. Для этого перетащите файл **object-cache.php** из папки **wp-content/memcached** в папку **wp-content**, чтобы включить функциональность кэша объектов Memcache.
+Следующим действием будет включение подключаемого модуля кэша объектов. Для этого перетащите файл **object-cache.php** из папки **wp-content/plugins/memcached** в папку **wp-content**, чтобы включить функциональность кэша объектов Memcache.
 
 ![Поиск расположения подключаемого модуля memcache object-cache.php](./media/web-sites-connect-to-redis-using-memcache-protocol/13-locate-memcache-object-cache-plugin.png)
 
@@ -166,7 +166,7 @@ $memcached_servers = array(
 redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –p 6379
 ```
 
-Замените **<hostname-for-redis-cache>** фактическим именем хоста xxxxx.redis.cache.windows.net, а **<primary-key-for-redis-cache>** — ключом доступа для кэша, после чего нажмите клавишу **ВВОД**. После подключения CLI к экземпляру кэша Redis запустите любую команду redis. На снимке экрана ниже я выбрал список ключей.
+Замените **&lt;hostname-for-redis-cache&gt;** фактическим именем узла xxxxx.redis.cache.windows.net, а **&lt;primary-key-for-redis-cache&gt;** — ключом доступа для кэша, после чего нажмите клавишу **Ввод**. После подключения CLI к экземпляру кэша Redis запустите любую команду redis. На снимке экрана ниже я выбрал список ключей.
 
 ![Подключение к кэшу Redis для Azure через интерфейс командной строки Redis в терминале](./media/web-sites-connect-to-redis-using-memcache-protocol/19-redis-cli-terminal.png)
 
@@ -182,7 +182,7 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в статье [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 
-[0]: http://bit.ly/1F0m3tw
+[0]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache
 [1]: http://bit.ly/1t0KxBQ
 [2]: http://manage.windowsazure.com
 [3]: http://portal.azure.com
@@ -197,4 +197,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

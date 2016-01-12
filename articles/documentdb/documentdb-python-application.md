@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="12/23/2015"
+    ms.date="01/05/2016"
     ms.author="ryancraw"/>
 
 # Разработка веб-приложений Python Flask с использованием DocumentDB
@@ -43,6 +43,7 @@
 
 Перед выполнением инструкций, приведенных в этой статье, следует убедиться, что установлены следующие компоненты:
 
+- Активная учетная запись Azure. Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure](https://azure.microsoft.com/pricing/free-trial/).
 - [Visual Studio 2013](http://www.visualstudio.com/) или более поздней версии либо [Visual Studio Express]() (бесплатная версия Visual Studio). Инструкции в этом руководстве предназначены для работы с Visual Studio 2015. 
 - Средства Python для Visual Studio с сайта [GitHub](http://microsoft.github.io/PTVS/). В этом руководстве используются средства Python для VS 2015. 
 - Пакет Azure SDK Python для Visual Studio версии 2.4 или выше с сайта [azure.com](https://azure.microsoft.com/downloads/). Мы использовали пакет Microsoft Azure SDK для Python 2.7.
@@ -60,7 +61,7 @@
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-<br/> 
+<br/>
 Теперь мы рассмотрим создание веб-приложения Python Flask с нуля.
 
 ## Шаг 2. Создание нового веб-приложения Python Flask
@@ -161,7 +162,7 @@ class VoteForm(Form):
 
 ### Создание базы данных, коллекции и документа
 
-- Добавьте в конец файла **views.py** следующий код: Он отвечает за создание базы данных, используемой формой. Не удаляйте существующий код в файле **views.py**. Просто переместите его в конец.
+- Добавьте в конец файла **views.py** следующий код: Он отвечает за создание базы данных, используемой формой. Не удаляйте код в файле **views.py**. Просто переместите его в конец.
 
 ```python
 @app.route('/create')
@@ -198,7 +199,7 @@ def create():
         message='You just created a new database, collection, and document.  Your old votes have been deleted')
 ```
 
-> [AZURE.TIP]Метод **CreateCollection** имеет третий, необязательный параметр **RequestOptions**. Его можно использовать для указания типа предложения коллекции. Если значение типа предложения не указано, будет создана коллекция с использованием типа предложения по умолчанию. Дополнительные сведения о типах предложений DocumentDB см. в статье [Уровни производительности в DocumentDB](documentdb-performance-levels.md).
+> [AZURE.TIP]Метод **CreateCollection** имеет третий необязательный параметр **RequestOptions**. Его можно использовать для указания типа предложения коллекции. Если значение типа предложения не указано, будет создана коллекция с использованием типа предложения по умолчанию. Дополнительные сведения о типах предложений DocumentDB см. в статье [Уровни производительности в DocumentDB](documentdb-performance-levels.md).
 
 
 ### Чтение базы данных, коллекции и документа и отправка формы
@@ -422,7 +423,7 @@ def vote():
 
 Чтобы узнать, как добавить дополнительные функции в веб-приложение, ознакомьтесь с доступными API-интерфейсами в [пакете SDK для Python в DocumentDB](documentdb-sdk-python.md).
 
-Дополнительные сведения об Azure, Visual Studio и Python см. в [центре разработчиков Python](/develop/python/).
+Дополнительные сведения об Azure, Visual Studio и Python см. в [центре разработчиков Python](https://azure.microsoft.com/develop/python/).
 
 Дополнительные руководства по Python Flask: [Мегаруководство по Flask, часть I. Привет, мир!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
 
@@ -432,4 +433,4 @@ def vote():
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -33,11 +33,6 @@
 Если вы разворачиваете шаблон ARM непосредственно из GitHub без внесения каких-либо изменений, не используйте приведенные в этой статье инструкции.
 
 
->[AZURE.IMPORTANT]Прежде чем приступить к работе с ресурсами Azure, обратите внимание на то, что в настоящее время Azure имеет две модели развертывания: классическую и диспетчер ресурсов. Обязательно изучите [модели и средства развертывания](azure-classic-rm.md), прежде чем начинать работать с какими бы то ни было ресурсами Azure. Документацию для различных средств см. на соответствующих вкладках в верхней части этой статьи. В данном документе рассказывается, как создать шлюз приложения с помощью развертывания Диспетчера ресурсов Azure. Сведения об использовании классической модели развертывания см. в статье [Создание классического развертывания шлюза приложений с помощью PowerShell](application-gateway-create-gateway.md).
-
-
-
-
 ## Сценарий
 
 В рамках этой статьи вам предстоит:
@@ -80,7 +75,7 @@
 
 >[AZURE.IMPORTANT]Шаблоны ARM, хранящиеся в Github, со временем могут изменяться. Перед использованием шаблона обязательно его проверьте.
 	
-6. Проверьте содержимое раздела **resources** и обратите внимание на следующие параметры.
+6. Проверьте содержимое раздела **resources** и обратите внимание на следующие параметры:
 
 	- **type**. Тип ресурса, который создается шаблоном. В этом случае используется тип **Microsoft.Network/applicationGateways**. Он представляет шлюз приложений.
 	- **name**. Имя ресурса. Обратите внимание на фрагмент кода **[parameters('applicationGatewayName')]**, означающий, что имя будет предоставлено пользователем или взято из файла параметров в процессе развертывания.
@@ -121,20 +116,36 @@
  
 ## Развертывание шаблона ARM с помощью PowerShell
 
-1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md) до момента входа в Azure и выбора подписки.
-2. В командной строке Azure PowerShell выполните командлет **Switch-AzureMode**, чтобы включить режим диспетчера ресурсов, как показано ниже.
+1. Если вы ранее не использовали Azure PowerShell, следуйте инструкциям в статье [Установка и настройка Azure PowerShell](powershell-install-configure.md) до этапа входа в Azure и выбора подписки.
 
-		Switch-AzureMode AzureResourceManager
+### Шаг 1
+
+		Login-AzureRmAccount
+
+
+
+### Шаг 2
+
+Проверка подписок для учетной записи
+
+		get-AzureRmSubscription 
+
+Вам будет предложено пройти проверку подлинности с вашими учетными данными.<BR>
+
+### Шаг 3. 
+
+Выберите, какие подписки Azure будут использоваться. <BR>
+
+
+		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+
+
+### Шаг 4.
+
 	
-Ожидаемые выходные данные:
+При необходимости создайте новую группу ресурсов с помощью командлета `New-AzureResourceGroup`. В приведенном ниже примере создается группа ресурсов с именем AppgatewayRG, расположенная в регионе «Восток США».
 
-		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
-
->[AZURE.WARNING]Командлет Switch-AzureMode является устаревшим. По этой причине все командлеты диспетчера ресурсов вскоре будут переименованы.
-	
-3. При необходимости создайте новую группу ресурсов с помощью командлета `New-AzureResourceGroup`. В приведенном ниже примере создается группа ресурсов с именем AppgatewayRG, расположенная в регионе «Восток США».
-
-		PS C:\> New-AzureResourceGroup -Name AppgatewayRG -Location "East US"
+	 New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
 
 
@@ -149,9 +160,9 @@
 
 		ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
-4. Выполните командлет New-AzureResourceGroupDeployment, чтобы развернуть новую виртуальную сеть с помощью файлов, которые вы скачали и изменили раньше (шаблон и параметры).
+4. Выполните командлет New-AzureRmResourceGroupDeployment, чтобы развернуть новую виртуальную сеть с помощью шаблона и файлов параметров, которые вы скачали и изменили раньше.
 
-		New-AzureResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+		New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
  		   -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
 
 Выходные данные командной строки будут выглядеть так:
@@ -180,7 +191,7 @@
 
 Чтобы развернуть шаблон ARM, скачанный с помощью Azure CLI, выполните описанные ниже действия.
 
-1. Если вы никогда не использовали Azure CLI, см. статью [Установка и настройка CLI Azure](xplat-cli-install.md) и следуйте инструкциям в ней вплоть до момента выбора учетной записи и подписки Azure.
+1. Если вы еще не пользовались интерфейсом командной строки Azure, см. статью [Установка и настройка интерфейса командной строки Azure](xplat-cli-install.md) и следуйте инструкциям вплоть до выбора учетной записи Azure и подписки.
 2. Выполните команду **azure config mode**, чтобы переключиться в режим диспетчера ресурсов, как показано ниже.
 
 		azure config mode arm
@@ -264,13 +275,13 @@
  
 ## Дальнейшие действия
 
-Сведения о настройке разгрузки SSL см. в статье [Настройка шлюза приложений для разгрузки SSL](application-gateway-ssl.md).
+Указания по настройке разгрузки SSL см. в статье [Настройка шлюза приложений для разгрузки SSL](application-gateway-ssl.md).
 
-Сведения о настройке шлюза приложений для использования внутреннего балансировщика нагрузки см. в статье [Создание шлюза приложений с внутренним балансировщиком нагрузки (ILB)](application-gateway-ilb.md).
+Указания по настройке шлюза приложений для использования с ILB см. в статье [Создание шлюза приложений с внутренней подсистемой балансировки нагрузки (ILB)](application-gateway-ilb.md).
 
 Дополнительные сведения о параметрах балансировки нагрузки в целом см. в статьях:
 
 - [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->
