@@ -471,13 +471,11 @@
 -   Требуется более подробное руководство по NoSQL для ASP.NET MVC? См. статью [Создание веб-приложения ASP.NET MVC с использованием DocumentDB](documentdb-dotnet-application.md).
 -	Узнайте, как [контролировать учетную запись DocumentDB](documentdb-monitor-accounts.md).
 -	Отправьте запросы образцу набора данных в [Площадке для запросов](https://www.documentdb.com/sql/demo).
--	Дополнительные сведения о модели программирования см. в разделе «Разработка» [на странице документации DocumentDB](../../services/documentdb/).
+-	Дополнительные сведения о модели программирования см. в разделе «Разработка» [на странице документации DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
-[doc-landing-page]: ../../services/documentdb/
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
-
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

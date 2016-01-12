@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/01/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 # Добавление собственного имени домена в Azure Active Directory
@@ -212,4 +212,4 @@ Azure AD использует запись DNS, созданную на сайт
 - [Регистрация организации в Azure](sign-up-organization.md)
 - [Управление доменами в Azure AD](https://msdn.microsoft.com/library/azure/dn919677.aspx)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

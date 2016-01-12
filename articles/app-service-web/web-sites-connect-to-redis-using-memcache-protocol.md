@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
 	ms.workload="na"
-	ms.date="09/16/2015"
+	ms.date="12/24/2015"
 	ms.author="cfowler"/>
 
 # Присоединение веб-приложения в службе приложений Azure к кэшу Redis при помощи протокола Memcache
@@ -30,8 +30,8 @@
 
 Выполните шаги, описанные в следующих статьях:
 
-* [Подготовка экземпляра службы кэша Redis для Azure][1]
-* [Развертывание масштабируемого сайта WordPress в Azure][0]
+* [Подготовка экземпляра службы кэша Redis для Azure][0]
+* [Развертывание масштабируемого сайта WordPress в Azure][1]
 
 После развертывания масштабируемого сайта WordPress и создания экземпляра кэша Redis можно продолжить включение оболочки совместимости Memcache в веб-приложениях службы приложений Azure.
 
@@ -75,7 +75,7 @@
 
 ### Загрузка расширения php\_memcache
 
-Перейдите в раздел [PECL][6]. В категории кэширования выберите [memcache][7]. В столбце загрузок щелкните ссылку DLL.
+Перейдите в раздел [PECL][6]. В категории кэширования щелкните [memcache][7]. В столбце загрузок щелкните ссылку DLL.
 
 ![Веб-сайт PHP PECL](./media/web-sites-connect-to-redis-using-memcache-protocol/7-php-pecl-website.png)
 
@@ -96,7 +96,7 @@
 
 ## Установка подключаемого модуля Memcache WordPress
 
-> [AZURE.NOTE]На сайте WordPress.org. можно также скачать подключаемый модуль [Memcached Object Cache](https://wordpress.org/plugins/memcached/).
+> [AZURE.NOTE]На сайте WordPress.org. можно также загрузить подключаемый модуль [Memcached Object Cache](https://wordpress.org/plugins/memcached/).
 
 На странице подключаемых модулей WordPress нажмите кнопку **Добавить новый**.
 
@@ -124,7 +124,7 @@ $memcached_servers = array(
 
 После вставки этого фрагмента кода функция monaco автоматически сохранит документ.
 
-Следующим действием будет включение подключаемого модуля кэша объектов. Для этого перетащите файл **object-cache.php** из папки **wp-content/memcached** в папку **wp-content**, чтобы включить функциональность кэша объектов Memcache.
+Следующим действием будет включение подключаемого модуля кэша объектов. Для этого перетащите файл **object-cache.php** из папки **wp-content/plugins/memcached** в папку **wp-content**, чтобы включить функциональность кэша объектов Memcache.
 
 ![Поиск расположения подключаемого модуля memcache object-cache.php](./media/web-sites-connect-to-redis-using-memcache-protocol/13-locate-memcache-object-cache-plugin.png)
 
@@ -166,7 +166,7 @@ $memcached_servers = array(
 redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –p 6379
 ```
 
-Замените **<hostname-for-redis-cache>** фактическим именем хоста xxxxx.redis.cache.windows.net, а **<primary-key-for-redis-cache>** — ключом доступа для кэша, после чего нажмите клавишу **ВВОД**. После подключения CLI к экземпляру кэша Redis запустите любую команду redis. На снимке экрана ниже я выбрал список ключей.
+Замените **&lt;hostname-for-redis-cache&gt;** фактическим именем узла xxxxx.redis.cache.windows.net, а **&lt;primary-key-for-redis-cache&gt;** — ключом доступа для кэша, после чего нажмите клавишу **Ввод**. После подключения CLI к экземпляру кэша Redis запустите любую команду redis. На снимке экрана ниже я выбрал список ключей.
 
 ![Подключение к кэшу Redis для Azure через интерфейс командной строки Redis в терминале](./media/web-sites-connect-to-redis-using-memcache-protocol/19-redis-cli-terminal.png)
 
@@ -182,7 +182,7 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в статье [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 
-[0]: http://bit.ly/1F0m3tw
+[0]: ../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache
 [1]: http://bit.ly/1t0KxBQ
 [2]: http://manage.windowsazure.com
 [3]: http://portal.azure.com
@@ -197,4 +197,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

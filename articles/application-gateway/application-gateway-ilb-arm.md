@@ -35,9 +35,9 @@
 
 - **Пул внутренних серверов.** Список IP-адресов внутренних серверов. Указанные IP-адреса должны относиться к подсети виртуальной сети либо представлять собой общедоступные или виртуальные IP-адреса. 
 - **Параметры пула внутренних серверов.** Каждый пул имеет такие параметры, как порт, протокол и сходство на основе файлов cookie. Эти параметры привязываются к пулу и применяются ко всем серверам в этом пуле.
-- **Внешний порт.** Общий порт, открытый в шлюзе приложений. Трафик поступает в этот порт, а затем перенаправляется на один из внутренних серверов.
+- **Внешний порт**: общедоступный порт, открытый в шлюзе приложений. Трафик поступает в этот порт, а затем перенаправляется на один из внутренних серверов.
 - **Прослушиватель.** Прослушиватель имеет внешний порт, протокол (HTTP или HTTPS, с учетом регистра) и имя SSL-сертификата (если настраивается разгрузка SSL). 
-- **Правило.** Правило связывает прослушиватель и пул внутренних серверов и определяет, в какой пул внутренних серверов должен направляться трафик, попадающий в определенный прослушиватель. Сейчас поддерживается только *основное* правило. *Основное* правило предусматривает циклическое распределение нагрузки.
+- **Правило.** Правило связывает прослушиватель и пул внутренних серверов и определяет, в какой пул внутренних серверов должен направляться трафик, попадающий в определенный прослушиватель. Сейчас поддерживается только *основное* правило. *Основное*правило предусматривает циклический перебор при распределении нагрузки.
 
 
  
@@ -56,7 +56,7 @@
 
 ## Создание группы ресурсов для диспетчера ресурсов
 
-Убедитесь, что выбран режим PowerShell для использования командлетов ARM. Дополнительную информацию см. в статье "Использование [Windows PowerShell с диспетчером ресурсов](powershell-azure-resource-manager.md)".
+Убедитесь, что выбран режим PowerShell для использования командлетов ARM. Дополнительные сведения см. в статье [Использование Windows PowerShell с диспетчером ресурсов](powershell-azure-resource-manager.md).
 
 ### Шаг 1
 
@@ -102,9 +102,9 @@
 	
 	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 
-Создание виртуальной сети с именем appgwvnet в группе ресурсов appw-rg для региона запада США при помощи префикса 10.0.0.0/16 с подсетью 10.0.0.0/24
+Создается виртуальная сеть с именем appgwvnet в группе ресурсов appgw-rg для региона "Запад США" при помощи префикса 10.0.0.0/16 с подсетью 10.0.0.0/24.
 	
-### Шаг 3.
+### Шаг 3.
 
 	$subnet=$vnet.subnets[0]
 
@@ -161,49 +161,13 @@
 
 Настройка размера экземпляра шлюза приложений
 
->[AZURE.NOTE]Значение *InstanceCount* (Количество экземпляров) по умолчанию — 2 (максимальное значение — 10). Значение *GatewaySize* (Размер шлюза) по умолчанию — Medium (Средний). Можно выбрать Standard\_Small, Standard\_Medium или Standard\_Large.
+>[AZURE.NOTE]Значение параметра *InstanceCount* по умолчанию — 2 (максимальное значение — 10). По умолчанию для параметра *GatewaySize* используется значение Medium. Можно выбрать Standard\_Small, Standard\_Medium или Standard\_Large.
 
 ## Создание шлюза приложений при помощи New-AzureApplicationGateway
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
 Создание шлюза приложений со всеми элементами конфигурации, описанными выше. В этом примере шлюз приложений называется appgwtest.
-
-
-
-## Запуск шлюза
-
-Настроенный шлюз можно запустить с помощью командлета `Start-AzureRmApplicationGateway`. Выставление счетов для шлюза приложений начинается после запуска шлюза.
-
-
-**Примечание**. Выполнение командлета `Start-AzureRmApplicationGateway` занимает до 15–20 минут.
-
-В приведенном далее примере шлюз приложений называется appgwtest, а группа ресурсов называется appgw-rg:
-
-
-### Шаг 1
-
-Получение объекта шлюза приложений и связывание его с переменной $getgw.
- 
-	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
-
-### Шаг 2
-	 
-Запустите шлюз приложений с помощью командлета `Start-AzureRmApplicationGateway`.
-
-	PS C:\> Start-AzureRmApplicationGateway -ApplicationGateway $getgw  
-
-	PS C:\> Start-AzureRmApplicationGateway AppGwTest 
-
-	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
-	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
-	----       ----------------     ------------                             ----
-	Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
-
-## Проверьте состояние шлюза приложений
-
-Проверьте состояние шлюза с помощью командлета `Get-AzureRmApplicationGateway`. Если командлет *Start-AzureApplicationGateway* на предыдущем этапе был выполнен успешно, параметр State должен получить значение *Running*.
 
 
 ## Удаление шлюза приложений
@@ -224,7 +188,7 @@
 
 ### Шаг 2
 	 
-Остановите шлюз приложений с помощью командлета `Stop-AzureRmApplicationGateway`.
+Остановите шлюз приложений с помощью `Stop-AzureRmApplicationGateway`.
 
 	PS C:\> Stop-AzureRmApplicationGateway -ApplicationGateway $getgw  
 
@@ -234,7 +198,7 @@
 	----       ----------------     ------------                             ----
 	Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 
-Когда вы увидите, что шлюз остановлен, удалите службу с помощью командлета `Remove-AzureRmApplicationGateway`.
+Когда шлюз перейдет в состояние Stopped (Остановлен), удалите службу с помощью командлета `Remove-AzureRmApplicationGateway`.
 
 
 	PS C:\> Remove-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
@@ -246,9 +210,9 @@
 	Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
 >[AZURE.NOTE]Используйте ключ -force, чтобы не выводить запрос о подтверждении удаления
->
 
-Проверьте, удалена ли служба, с помощью командлета `Get-AzureRmApplicationGateway`. Этот шаг не является обязательным.
+
+Для проверки того, удалена ли служба, используйте командлет `Get-AzureRmApplicationGateway`. Этот шаг не является обязательным.
 
 
 	PS C:\>Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
@@ -266,7 +230,7 @@
 
 Дополнительные сведения о параметрах балансировки нагрузки в целом см. в статьях:
 
-- [Подсистема балансировки нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
+- [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Диспетчер трафика Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

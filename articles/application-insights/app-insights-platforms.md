@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="12/07/2015"
+	ms.date="12/21/2015"
 	ms.author="awills"/>
 
 # Application Insights: языки, платформы, интеграция
@@ -49,6 +49,7 @@
 + [J2EE — для приложений, которые уже доступны в Интернете](app-insights-java-live.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
++ [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 + [C#|VB для Магазина Windows](app-insights-windows-get-started.md)
 + [C++ для Магазина Windows](app-insights-windows-cpp.md)
 + [Классические приложения, службы и рабочие роли Windows](app-insights-windows-desktop.md)
@@ -83,4 +84,4 @@
 
 Если для языка или платформы, которые вы используете, не существует пакета SDK, возможно, вы захотите создать его. Просмотрите код существующих пакетов SDK, перечисленных в описании [проекта пакета SDK для Application Insights на GitHub](https://github.com/Microsoft/AppInsights-Home).
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

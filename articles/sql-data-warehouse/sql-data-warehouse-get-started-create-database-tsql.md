@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Создание хранилища данных SQL с помощью TSQL | Microsoft Azure"
-	description="Сведения о создании хранилища данных SQL Azure с помощью TSQL"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="Создание хранилища данных SQL с помощью TSQL | Microsoft Azure"
+   description="Сведения о создании хранилища данных SQL Azure с помощью TSQL"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm"/>
 
 # Создание базы данных хранилища данных SQL с помощью Transact-SQL (TSQL)
@@ -61,4 +61,4 @@
 [загрузить демонстрационные данные]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [странице цен]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

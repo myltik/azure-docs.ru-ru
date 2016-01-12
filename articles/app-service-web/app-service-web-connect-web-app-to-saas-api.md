@@ -13,12 +13,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na" 
-	ms.date="09/15/2015"
+	ms.date="12/24/2015"
 	ms.author="cfowler"/>
 
 # Подключение веб-приложения к приложению API в службе приложений Azure
 
-В этом учебнике показано, как использовать приложение API из ASP.NET, размещенное в [службе приложений](../app-service.md).
+В этом учебнике показано, как использовать приложение API из ASP.NET, размещенное в [службе приложений](https://azure.microsoft.com/services/app-service/).
 
 ## Предварительные требования
 
@@ -28,11 +28,6 @@
 3. [Развертывание приложения API Azure](../app-service-dotnet-deploy-api-app)
 4. [Отладка приложения API Azure](../app-service-dotnet-remotely-debug-api-app)
 
-## Превращение приложения API в общедоступное
-
-На [портале Azure](http://go.microsoft.com/fwlink/?LinkId=529715) выберите приложение API. На панели команд нажмите кнопку **Параметры**. В колонке **Параметры приложения** измените **уровень доступа** на **Общедоступный (с проверкой подлинности)**.
-
-![](./media/app-service-web-connect-web-app-to-saas-api/4-5-Change-Access-Level-To-Public.png)
 
 ## Создание приложения ASP.NET MVC в Visual Studio
 
@@ -44,11 +39,11 @@
 
 	![Новое приложение ASP.NET](./media/app-service-web-connect-web-app-to-saas-api/2-Change-Auth-To-No-Auth.png)
 
-1. В обозревателе решений щелкните правой кнопкой мыши только что созданный проект веб-приложения и выберите пункт **Добавить ссылку на приложение Azure**.
+1. В обозревателе решений щелкните правой кнопкой мыши только что созданный проект веб-приложения и выберите **Добавить** > **Клиент API REST...**.
 
 	![Добавьте ссылку на приложение API Azure...](./media/app-service-web-connect-web-app-to-saas-api/3-Add-Azure-API-App-SDK.png)
 
-1. В раскрывающемся списке **Существующие приложения API** выберите приложение API, к которому хотите подключиться.
+1. В окне **Добавление клиента API REST** выберите скачивание из приложения API Microsoft Azure и нажмите кнопку "Обзор". Выберите приложение API, к которому вы хотите подключиться.
 
 	![Выберите существующее приложение API.](./media/app-service-web-connect-web-app-to-saas-api/4-Add-Azure-API-App-SDK-Dialog.png)
 
@@ -57,33 +52,30 @@
 1. Чтобы использовать созданный код API, откройте файл HomeController.cs и замените действие `Contact` следующим:
 
 	    public async Task<ActionResult> Contact()
-	    {
-	        ViewBag.Message = "Your contact page.";
-	
-	        var contacts = new ContactsList();
-	        var response = await contacts.Contacts.GetAsync();
-	        var contactList = response.Body;
-	
-	        return View(contactList);
-	    }
+        {
+            ViewBag.Message = "Your contact page.";
+
+            var contacts = new ContactsList12242015();
+            var contactList = await contacts.Contacts.GetAsync();
+            
+            return View(contactList);
+        }
 
 	![Обновления кода HomeController.cs](./media/app-service-web-connect-web-app-to-saas-api/5-Write-Code-Which-Leverages-Swagger-Generated-Code.png)
 
 1. Обновите представление `Contact` для отражения динамического списка контактов с помощью следующего кода:
 	<pre>// Добавьте в самое начало файла представления
-	@model IList&lt;MyContactsList.Web.Models.Contact&gt;
-	
-	// Замените электронные адреса по умолчанию на следующие
-    &lt;h3&gt;Public Contacts&lt;/h3&gt;
-    &lt;ul&gt;
-        @foreach (var contact in Model)
-        {
-            &lt;li&gt;&lt;a href=&quot;mailto:@contact.EmailAddress&quot;&gt;@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a&gt;&lt;/li&gt;
-        }
-    &lt;/ul&gt; 
-	</pre>
+@model IList&lt;MyContactsList.Web.Models.Contact>
 
-	![Обновления кода Contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
+// Замените электронные адреса по умолчанию на следующие
+&lt;h3>Общие контакты &lt;/h3>
+&lt;ul>
+    @foreach (var contact in Model)
+    {
+        &lt;li>&lt;a href="mailto:@contact.EmailAddress">@contact.Name &amp;lt;@contact.EmailAddress&amp;gt;&lt;/a>&lt;/li>
+    }
+&lt;/ul> 
+</pre>![Обновления кода Contact.cshtml](./media/app-service-web-connect-web-app-to-saas-api/6-Update-View-To-Reflect-Changes.png)
 
 ## Развертывание веб-приложения в веб-приложениях в службе приложений
 
@@ -95,4 +87,4 @@
 * Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->
