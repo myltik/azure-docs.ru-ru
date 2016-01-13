@@ -220,7 +220,7 @@ Service Fabric упрощает процесс разработки масшта
       }
     ```
 
-    `ProcessInternalRequest` reads the values of the query string parameter used to call the partition and calls `AddUserAsync` to add the lastname to the reliable dictionary `m_name`.    
+    `ProcessInternalRequest` считывает значения параметра строки запроса, который используется для вызова раздела, и вызывает метод `AddUserAsync` для добавления lastname в надежный словарь `m_name`.
 
 10. Добавим в проект службу без отслеживания состояния, чтобы посмотреть, как можно вызвать определенный раздел. Эта служба выступает в качестве простого веб-интерфейса, который принимает фамилию как параметр строки запроса, определяет ключ секции и отправляет его на обработку в службу Alphabet.Processing.
 11. В диалоговом окне **Создание службы** выберите службу **без отслеживания состояния** и назовите ее Alphabet.WebApi, как показано ниже. ![Снимок экрана, на котором изображена служба без отслеживания состояния](./media/service-fabric-concepts-partitioning/alphabetstatelessnew.png)
@@ -290,10 +290,13 @@ Service Fabric упрощает процесс разработки масшта
       }
       ```
 
-    Let's walk through it step by step. The code reads the first letter of the query string parameter `lastname` into a char. Then, it determines the partition key for this letter by subtracting the hexadecimal value of `A` from the hexadecimal value of the last names' first letter.
+    Давайте разберемся в процессе, шаг за шагом. Код считывает первую букву из параметра строки запроса в `lastname` в тип char. Затем он определяет ключ раздела для этой буквы, вычитая шестнадцатеричное значение `A` из шестнадцатеричного значения первой буквы фамилии.
 
     ```CSharp
-    string lastname = context.Request.QueryString["lastname"]; char firstLetterOfLastName = lastname.First(); int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A'; ```
+    string lastname = context.Request.QueryString["lastname"];
+    char firstLetterOfLastName = lastname.First();
+    int partitionKey = Char.ToUpper(firstLetterOfLastName) - 'A';
+    ```
 
     Напоминаем, что в этом примере мы используем 26 секций с одним ключом на секцию. Далее для этого ключа мы получаем секцию службы `partition`. Для этого мы используем метод `ResolveAsync` в объекте `servicePartitionResolver`. `servicePartitionResolver` определяется так:
 
@@ -347,4 +350,4 @@ Service Fabric упрощает процесс разработки масшта
 
 [wikipartition]: https://en.wikipedia.org/wiki/Partition_(database)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->
