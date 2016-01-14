@@ -36,7 +36,8 @@
 | Пакетная служба | Да | Да | [Пакетная служба (REST)](https://msdn.microsoft.com/library/azure/dn820158.aspx) | | [Microsoft.Batch](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Batch%22&type=Code) |
 | Службы жизненного цикла Dynamics | Да | | | | [Microsoft.DynamicsLcs](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DynamicsLcs%22&type=Code)
 | Service Fabric (предварительная версия) | Да | | [Service Fabric Rest](https://msdn.microsoft.com/library/azure/dn707692.aspx) | | [Microsoft.ServiceFabric](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceFabric%22&type=Code) |
-| Виртуальные машины (классические) | Ограничена | Частично (см. ниже) | - | - | | Удаленное приложение | Нет | - | - | - |
+| Виртуальные машины (классические) | Ограничена | Частично (см. ниже) | - | - |
+| Удаленное приложение | Нет | - | - | - |
 
 Пункт "Виртуальные машины (классические)" относится к ресурсам, которые были развернуты с помощью классической модели развертывания, а не через модель развертывания диспетчера ресурсов. Как правило эти ресурсы не поддерживают операции диспетчера ресурсов, однако некоторые операции стали доступны. Дополнительные сведения об этих моделях развертывания вы найдете в статье [Общие сведения о развертывании диспетчера ресурсов и классическом развертывании](resource-manager-deployment-model.md).
 
@@ -63,7 +64,8 @@
 | База данных SQL | Да | Да | [Создание базы данных](https://msdn.microsoft.com/library/azure/mt163685.aspx) | [2014-04-01-preview](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01-preview/Microsoft.Sql.json) | [Microsoft.Sql](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Sql%22&type=Code) |
 | Поиск | Да | Да | [Поиск REST](https://msdn.microsoft.com/library/azure/dn798935.aspx) | | [Microsoft.Search](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.Search%22&type=Code) |
 | Хранилище данных SQL | Да | | | |
-| StorSimple | Нет | - | - | - | | Управляемый кэш | Нет | - | - | - |
+| StorSimple | Нет | - | - | - |
+| Управляемый кэш | Нет | - | - | - |
 
 ## Интернет и мобильные устройства
 
@@ -89,7 +91,8 @@
 | Анализ потока | Да | | [Steam Analytics REST](https://msdn.microsoft.com/library/azure/dn835031.aspx) | | [Microsoft.StreamAnalytics](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.StreamAnalytics%22&type=Code) |
 | HDInsights | Да | Да | [Создать кластер](https://msdn.microsoft.com/library/azure/mt622302.aspx) | | [Microsoft.HDInsight](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.HDInsight%22&type=Code) |
 | Фабрика данных | Да | Да | [Создание фабрики данных](https://msdn.microsoft.com/library/azure/dn906717.aspx) | | [Microsoft.DataFactory](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.DataFactory%22&type=Code) |
-| Машинное обучение | Нет | - | - | - | | Каталог данных | Нет | - | - | - |
+| Машинное обучение | Нет | - | - | - |
+| Каталог данных | Нет | - | - | - |
 
 ## Мультимедиа и CDN
 
@@ -105,13 +108,16 @@
 | ------- | ------- | -------------- | -------- | ------ | ------ |
 | Службы BizTalk | Да | | | [2014-04-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2014-04-01/Microsoft.BizTalkServices.json) | [Microsoft.BizTalkServices](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.BizTalkServices%22&type=Code) |
 | Service Bus | Да | | [REST служебной шины](https://msdn.microsoft.com/library/azure/hh780717.aspx) | | [Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
-| Служба архивации| Нет | - | - | - | | Site Recovery | Нет | - | - | - |
+| Служба архивации| Нет | - | - | - |
+| Site Recovery | Нет | - | - | - |
 
 ## Управление удостоверениями и доступом 
 
 | служба | Доступность диспетчера ресурсов | Перемещение ресурсов | Интерфейс REST API | Схема | Шаблоны быстрого запуска |
 | ------- | ------- | -------------- | -------- | ------ | ------ |
-| Azure Active Directory | Нет | - | - | - | | Azure Actice Directory B2C | Нет | - | - | - | | Multi-Factor Authentication | Нет | - | - | - |
+| Azure Active Directory | Нет | - | - | - |
+| Azure Actice Directory B2C | Нет | - | - | - |
+| Multi-Factor Authentication | Нет | - | - | - |
 
 ## Службы разработки 
 
@@ -239,4 +245,4 @@
 - Сведения о создании шаблонов диспетчера ресурсов см. в статье [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 - Сведения о развертывании ресурсов см. в статье [Развертывание приложения с использованием шаблона диспетчера ресурсов Azure](resource-group-template-deploy.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->

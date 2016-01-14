@@ -514,4 +514,4 @@ _Рисунок 10. Предлагаемая структура в хранил
 [Что такое поиск Azure]: search/search-what-is-azure-search.md
 [Что такое База данных SQL Azure]: sql-database/sql-database-technical-overview.md
 
-<!----HONumber=AcomDC_1223_2015-->
+<!-----HONumber=AcomDC_1223_2015-->
