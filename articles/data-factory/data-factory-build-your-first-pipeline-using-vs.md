@@ -307,6 +307,7 @@
 
 	![Выборка](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. Как только обработка завершится, срез перейдет в состояние **Готово**.
+
 	>[AZURE.IMPORTANT]Создание используемого по требованию кластера HDInsight обычно занимает некоторое время (около 20 минут).  
 
 	![Выборка](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)
@@ -340,4 +341,4 @@
 В этой статье вы создали конвейер с действием преобразования (действие HDInsight), которое выполняет сценарий Hive в кластере HDInsight по требованию. Сведения о том, как копировать данные из хранилища BLOB-объектов Azure в SQL Azure с помощью действия копирования, см. в статье [Учебник. Копирование данных из хранилища BLOB-объектов Azure в Azure SQL](data-factory-get-started.md).
   
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->

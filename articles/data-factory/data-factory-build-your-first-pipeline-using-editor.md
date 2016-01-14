@@ -291,7 +291,7 @@
 
 	![Выборка](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 9. Как только обработка завершится, срез перейдет в состояние **Готово**.
-	>[AZURE.IMPORTANT]Создание используемого по требованию кластера HDInsight обычно занимает некоторое время (около 20 минут).  
+>[AZURE.IMPORTANT]Создание используемого по требованию кластера HDInsight обычно занимает некоторое время (около 20 минут).  
 
 	![Выборка](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
 	
@@ -313,4 +313,4 @@
 
   
 
-<!---HONumber=AcomDC_1223_2015-->
+<!----HONumber=AcomDC_1223_2015-->
