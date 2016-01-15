@@ -290,7 +290,8 @@
 12. В **представлении схемы** дважды щелкните набор данных **AzureBlobOutput**. Вы увидите срез, который обрабатывается в данный момент.
 
 	![Выборка](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. Как только обработка завершится, срез перейдет в состояние **Готово**.
+9. Как только обработка завершится, срез перейдет в состояние **Готово**.  
+
 	>[AZURE.IMPORTANT]Создание используемого по требованию кластера HDInsight обычно занимает некоторое время (около 20 минут).  
 
 	![Выборка](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)
