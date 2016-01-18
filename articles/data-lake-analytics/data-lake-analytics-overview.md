@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="10/28/2015"
+   ms.date="01/06/2016"
    ms.author="jgao"/>
 
 # Обзор аналитики озера данных Microsoft Azure
@@ -61,7 +61,7 @@
 - U-SQL и разработка
     - [Начало работы с языком U-SQL в аналитике озера данных Azure](data-lake-analytics-u-sql-get-started.md)
     - [Использование оконных функций U-SQL для заданий в службе аналитики озера данных Azure](data-lake-analytics-use-window-functions.md)
-    - [Разработка пользовательских операторов U-SQL для заданий аналитики озера данных](data-lake-analtyics-u-sql-develop-user-defined-operators.md)
+    - [Разработка пользовательских операторов U-SQL для заданий аналитики озера данных](data-lake-analytics-u-sql-develop-user-defined-operators.md)
     
 - управления
     - [Управление аналитикой озера данных Azure с помощью портала Azure](data-lake-analytics-manage-use-portal.md)
@@ -77,4 +77,4 @@
     - [Отправить запрос на функцию](http://aka.ms/adlafeedback)
     - [Получить помощь на форумах](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -8,14 +8,14 @@
     manager="stevenpo"
     editor=""/>
 
-   <tags
-      ms.service="active-directory"
-      ms.devlang="na"
-      ms.topic="article"
-      ms.tgt_pltfrm="na"
-      ms.workload="identity"
-      ms.date="12/01/2015"
-      ms.author="curtand"/>
+<tags
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="01/05/2016"
+    ms.author="curtand"/>
 
 # Интеграция единого входа Azure Active Directory с приложениями SaaS  
 
@@ -68,4 +68,4 @@ Azure AD предоставляет несколько настраиваемы�
 
 В библиотеке Azure.com представлена более подробная информация обо всех этих аспектах, начиная с раздела [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

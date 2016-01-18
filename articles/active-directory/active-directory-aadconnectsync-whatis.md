@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/13/2015"
+	ms.date="01/04/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -37,7 +37,7 @@
 - Сведения о том, как изменить конфигурацию по умолчанию, см. в статье [Рекомендации по изменению конфигурации по умолчанию](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
 - Дополнительные сведения о работе сервера синхронизации приведены в статье [Рабочие задачи и рекомендации](active-directory-aadconnectsync-operations.md)
 - Сведения об атрибутах, которые синхронизируются с Azure AD, приведены в статье [Атрибуты, синхронизируемые с Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md).
-- Дополнительные сведения о декларативной подготовке приведены в статье [Общие сведения о выражениях декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+- Больше о декларативной подготовке можно узнать в статье [Выражения декларативной подготовки](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 - Ознакомиться с функциями декларативной подготовки можно в [справочнике по функциям](active-directory-aadconnectsync-functions-reference.md).
 
 
@@ -45,4 +45,4 @@
 
 * [Интеграция локальных удостоверений с Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="01/05/2016" 
 	ms.author="awills"/>
 
 #  Application Insights: примеры кода и пошаговые руководства
@@ -42,7 +42,9 @@
 
 ## Автоматизация задач
 
+* [Отправка данных системы диагностики Azure в Application Insights с помощью PowerShell](app-insights-powershell.md)
 * [Сценарий для создания нового ресурса Application Insights](app-insights-powershell-script-create-resource.md)
+* [Отправка данных системы диагностики Azure в Application Insights с помощью PowerShell](app-insights-powershell-azure-diagnostics.md)
 
 
 
@@ -53,4 +55,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

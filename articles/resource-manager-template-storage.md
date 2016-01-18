@@ -1,6 +1,6 @@
 <properties
    pageTitle="Шаблон диспетчера ресурсов для службы хранилища | Microsoft Azure"
-   description="Статья описывает схему диспетчера ресурсов для учетных записей хранения."
+   description="Демонстрирует схему диспетчера ресурсов для развертывания учетных записей хранения с помощью шаблона."
    services="azure-resource-manager,storage"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
 # Учетная запись хранения — схема шаблона
@@ -78,9 +78,22 @@
 	    "outputs": {}
     }
 
+## Шаблоны быстрого запуска
+
+Существует много шаблонов быстрого запуска, включающих учетную запись хранения. Следующие шаблоны иллюстрируют некоторые распространенные сценарии:
+
+- [Создание стандартной учетной записи хранения](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create)
+- [Простое развертывание виртуальной машины Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
+- [Простое развертывание виртуальной машины Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
+- [Создание профиля CDN, конечной точки сети CDN с помощью учетной записи хранения в качестве источника](https://github.com/Azure/azure-quickstart-templates/tree/master/201-cdn-with-storage-account)
+- [Создание фермы высокой доступности SharePoint с 9 виртуальными машинами с помощью расширения Powershell DSC](https://github.com/Azure/azure-quickstart-templates/tree/master/sharepoint-server-farm-ha)
+- [Простое развертывание защищенного кластера Service Fabric с 5 узлами с включенной системой диагностики Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad)
+- [Создание виртуальной машины на основе образа Windows с 4 пустыми дисками данных](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk)
+
+
 ## Дальнейшие действия
 
 - Дополнительные сведения о службе хранилища см. в статье [Знакомство со службой хранилища Microsoft Azure](./storage/storage-introduction.md).
 - Примеры шаблонов для использования новой учетной записи хранения на виртуальной машине см. в статьях [Развертывание простой виртуальной машины Linux](https://azure.microsoft.com/documentation/templates/101-simple-linux-vm/) и [Развертывание простой виртуальной машины Windows](https://azure.microsoft.com/documentation/templates/101-simple-windows-vm/).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

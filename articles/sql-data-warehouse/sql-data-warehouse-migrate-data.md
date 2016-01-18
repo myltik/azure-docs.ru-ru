@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/17/2015"
+   ms.date="01/04/2016"
    ms.author="barbkess"/>
 
 # Перенос данных
@@ -194,4 +194,4 @@ PolyBase также поддерживает так называемую фун�
 [Адаптер загрузки данных ADO.NET]: https://msdn.microsoft.com/library/bb934041.aspx
 [документации по службам SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="12/29/2015"
 	ms.author="jgao"/>
 
 
@@ -123,8 +123,7 @@ Azure PowerShell — это среда сценариев, которую мо�
 		Select-AzureSubscription $subscriptionName
 
 		# Get the storage account key
-		$storageaccountkey = get-azurestoragekey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{$_.Primary}
-
+		$storageAccountKey = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
 		# Create the storage context object
 		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
 
@@ -178,10 +177,10 @@ AzCopy — это программа командной строки, кото�
 
 | Клиент | Linux | OS X | Windows |
 | ------ |:-----:|:----:|:-------:|
-| [Azure Storage Explorer](http://storageexplorer.com/); | ✔ | ✔ | ✔ |
-| [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/); | | | ✔ |
-| [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer); | | | ✔ |
-| [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx); | | | ✔ |
+| [Azure Storage Explorer;](http://storageexplorer.com/) | ✔ | ✔ | ✔ |
+| [Cloud Storage Studio 2;](http://www.cerebrata.com/Products/CloudStorageStudio/) | | | ✔ |
+| [CloudXplorer;](http://clumsyleaf.com/products/cloudxplorer) | | | ✔ |
+| [Azure Explorer;](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | | ✔ |
 | [Zudio](https://zudio.co/) | ✔ | ✔ | ✔ |
 | [Cyberduck](https://cyberduck.io/) | | ✔ | ✔ |
 
@@ -285,4 +284,4 @@ Sqoop — это средство, предназначенное для пер�
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

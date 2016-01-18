@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Начало работы с прозрачным шифрованием данных (TDE) хранилища данных SQL TSQL | Microsoft Azure" 
-	description="Начало работы с прозрачным шифрованием данных (TDE) хранилища данных SQL TSQL | Microsoft Azure" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="Начало работы с прозрачным шифрованием данных (TDE) хранилища данных SQL TSQL | Microsoft Azure" 
+   description="Начало работы с прозрачным шифрованием данных (TDE) хранилища данных SQL TSQL | Microsoft Azure" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/21/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-data-warehouse" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/04/2016" 
+   ms.author="twounder"/>
  
 # Начало работы с прозрачным шифрованием данных (TDE)
 > [AZURE.SELECTOR]
@@ -73,4 +73,4 @@ FROM
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

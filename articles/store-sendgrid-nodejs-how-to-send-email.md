@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="01/05/2016" 
 	ms.author="erikre"/>
 # Как отправлять электронную почту с помощью SendGrid из Node.js
 
@@ -180,12 +180,6 @@ SendGrid поддерживает различные веб-интерфейсы
 
 -   Репозиторий модуля Node.js SendGrid: [sendgrid-nodejs][]
 -   Документация по интерфейсу API SendGrid: <https://sendgrid.com/docs>
--   Специальное предложение SendGrid для клиентов Azure: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
-  [специальное предложение]: https://sendgrid.com/windowsazure.html
-  [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
-  [параметры фильтра]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
-  [документация по API SendGrid]: https://sendgrid.com/docs
-  [облачная служба электронной почты]: https://sendgrid.com/email-solutions
-  [доставка электронной почты]: https://sendgrid.com/transactional-email
+-   Специальное предложение SendGrid для клиентов Azure: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html) [специальное предложение]: https://sendgrid.com/windowsazure.html [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs [параметры фильтра]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html [документация по API SendGrid]: https://sendgrid.com/docs [облачная служба электронной почты]: https://sendgrid.com/email-solutions [доставка электронной почты]: https://sendgrid.com/transactional-email
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

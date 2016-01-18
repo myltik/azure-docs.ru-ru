@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/01/2015" ms.author="aashishr";"trinadhk" />
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/06/2016" ms.author="aashishr";"trinadhk" />
 
 
 # Развертывание резервной копии виртуальной машины Azure с помощью PowerShell и управление ею
@@ -75,11 +75,11 @@ Cmdlet          Wait-AzureRmBackupJob                              1.0.1      Az
 Вы можете создать новое хранилище архивации с помощью командлета **New-AzureRMBackupVault**. Хранилище архивов представляет собой ресурс ARM, поэтому вам потребуется разместить его в группе ресурсов. В консоли Azure PowerShell с повышенными привилегиями выполните следующие команды:
 
 ```
-PS C:\> New-AzureRMResourceGroup –Name “test-rg” –Region “West US”
+PS C:\> New-AzureRMResourceGroup –Name “test-rg” –Location “West US”
 PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GeoRedundant
 ```
 
-Чтобы получить список всех хранилищ архивации в данной подписке, используйте командлет **Get-AzureRMBackupVault**.
+Чтобы получить список всех хранилищ службы архивации в данной подписке, используйте командлет **Get-AzureRMBackupVault**.
 
 > [AZURE.NOTE]Объект хранилища службы архивации удобно хранить в переменной. Объект хранилища используется в качестве входных данных для многих командлетов службы архивации Azure.
 
@@ -110,7 +110,7 @@ DefaultPolicy             AzureVM            Daily              26-Aug-15 12:30:
 
 Политика резервного копирования связана по крайней мере с одной политикой хранения. Политика хранения определяет продолжительность хранения точки восстановления в службе архивации Azure. Командлет **New-AzureRMBackupRetentionPolicy** создает объекты PowerShell, которые содержат сведения о политике хранения. Эти объекты политики хранения используются в качестве входных данных для командлета *New-AzureRMBackupProtectionPolicy* или используются непосредственно с командлетом *Enable-AzureRMBackupProtection*.
 
-Политика резервного копирования определяет время и частоту резервного копирования элемента. Командлет **New-AzureRMBackupProtectionPolicy** создает объект PowerShell, который содержит сведения о политике архивации. Политика архивации используется в качестве входных данных для командлета *Enable-AzureRMBackupProtection*.
+Политика резервного копирования определяет время и частоту резервного копирования элемента. Командлет **New-AzureRMBackupProtectionPolicy** создает объект PowerShell, который содержит сведения о политике резервного копирования. Политика архивации используется в качестве входных данных для командлета *Enable-AzureRMBackupProtection*.
 
 ```
 PS C:\> $Daily = New-AzureRMBackupRetentionPolicyObject -DailyRetention -Retention 30
@@ -325,6 +325,6 @@ for( $i = 1; $i -le $numberofdays; $i++ )
 $DAILYBACKUPSTATS | Out-GridView
 ```
 
-Если вы хотите добавить в выходные данные этого отчета возможности построения графиков, обратитесь к статье [Charting with Powershell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx) в блоге TechNet.
+Если вы хотите добавить в выходные данные этого отчета возможности построения графиков, обратитесь к статье [Построение графиков с помощью PowerShell](http://blogs.technet.com/b/richard_macdonald/archive/2009/04/28/3231887.aspx) в блоге TechNet.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

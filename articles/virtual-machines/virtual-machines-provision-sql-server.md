@@ -1,33 +1,32 @@
-<properties 
-	pageTitle="Подготовка виртуальной машины SQL Server | Microsoft Azure" 
-	description="В этом руководстве объясняется, как создавать и настраивать виртуальные машины SQL Server в Azure." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="rothja" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Подготовка виртуальной машины SQL Server | Microsoft Azure"
+	description="В этом руководстве объясняется, как создавать и настраивать виртуальные машины SQL Server в Azure."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="rothja"
+	manager="jeffreyg"
 	editor="monicar"
-	tags="azure-service-management"
-	/>
+	tags="azure-service-management"	/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows-sql-server" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/26/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/22/2015"
 	ms.author="jroth"/>
 
 # Подготовка виртуальной машины SQL Server в Azure
 
 > [AZURE.SELECTOR]
-- [Azure classic portal](virtual-machines-provision-sql-server.md)
+- [Classic portal](virtual-machines-provision-sql-server.md)
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
+- [Azure Resource Manager portal](virtual-machines-sql-server-provision-resource-manager.md)
 
 ## Обзор
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]Модель диспетчера ресурсов.
-
 
 Коллекция виртуальных машин в Azure включает в себя несколько образов, содержащих Microsoft SQL Server. Можно выбрать один из образов виртуальных машин из коллекции и несколькими щелчками подготовить виртуальную машину в среде Azure.
 
@@ -50,7 +49,7 @@
 
 	![Выбор образа](./media/virtual-machines-provision-sql-server/choose-sql-vm.png)
 
-Последние сведения о поддерживаемых образах SQL Server в Azure см. в статье [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md).
+Самую последнюю информацию о поддерживаемых образах SQL Server в Azure см. в статье [Общие сведения об SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-infrastructure-services.md).
 
 >[AZURE.NOTE]Виртуальную машину, созданную с помощью ознакомительной версии образа платформы SQL Server, нельзя обновить в коллекции до образа с поминутной оплатой. Можно выбрать один из двух вариантов:
 >
@@ -61,9 +60,9 @@
 	- **ДАТА ВЫПУСКА ВЕРСИИ**. Если доступно несколько образов, выберите самый последний из них.
 	- Уникальное **ИМЯ ВИРТУАЛЬНОЙ МАШИНЫ**.
 	- В окне **НОВОЕ ИМЯ ПОЛЬЗОВАТЕЛЯ** введите уникальное имя пользователя для учетной записи локального администратора компьютера.
-	- В поле **НОВЫЙ ПАРОЛЬ** введите надежный пароль. 
+	- В поле **НОВЫЙ ПАРОЛЬ** введите надежный пароль.
 	- В поле **ПОДТВЕРЖДЕНИЕ ПАРОЛЯ** введите пароль еще раз.
-	- Выберите соответствующий **РАЗМЕР** из раскрывающегося списка. 
+	- Выберите соответствующий **РАЗМЕР** из раскрывающегося списка.
 
 	![Конфигурация виртуальной машины](./media/virtual-machines-provision-sql-server/4VM-Config.png)
 
@@ -76,13 +75,13 @@
 
 5. На второй странице **Конфигурации виртуальной машины** настройте ресурсы сети, хранилища и доступность:
 	- В окне **Облачная служба** выберите **Создать новую облачную службу**.
-	- В поле **DNS-имя облачной службы** укажите первую часть выбранного DNS-имени таким образом, чтобы общее имя соответствовало формату **TESTNAME.cloudapp.net** 
+	- В поле **DNS-имя облачной службы** укажите первую часть выбранного DNS-имени таким образом, чтобы общее имя соответствовало формату **TESTNAME.cloudapp.net**
 	- Выберите значение в поле **ПОДПИСКА**, если у вас имеется выбор из нескольких подписок. Этот выбор определяет доступные **учетные записи хранения**.
-	- В поле **РЕГИОН, ТЕРРИТОРИАЛЬНАЯ ГРУППА, ВИРТУАЛЬНАЯ СЕТЬ** выберите регион, где будет размещаться этот виртуальный образ.
-	- В окне **Учетная запись хранения** создайте учетную запись автоматически или выберите ее из списка. Измените значение **ПОДПИСКА** для просмотра дополнительных учетных записей. 
+- В поле **РЕГИОН, ТЕРРИТОРИАЛЬНАЯ ГРУППА, ВИРТУАЛЬНАЯ СЕТЬ** выберите регион, где будет размещаться этот виртуальный образ.
+	- В окне **Учетная запись хранения** создайте учетную запись автоматически или выберите ее из списка. Измените значение **ПОДПИСКА** для просмотра дополнительных учетных записей.
 	- В поле **ГРУППА ДОСТУПНОСТИ** выберите **(нет)**.
 	- Прочтите и примите условия.
-	
+
 
 6. Щелкните стрелку "Далее" для продолжения.
 
@@ -96,7 +95,7 @@
 	- **Запуск (подготовка)**
 	- **Выполнение (подготовка)**
 	- **Выполнение**
-	
+
 
 ##<a id="RemoteDesktop">Открытие виртуальной машины с помощью удаленного рабочего стола для завершения настройки</a>
 
@@ -118,7 +117,27 @@
 
 ##<a id="SSMS">Подключение к экземпляру виртуальной машины SQL Server в среде SSMS на другом компьютере</a>
 
+Ниже показано, как подключиться к экземпляру SQL Server через Интернет с помощью SQL Server Management Studio (SSMS). Однако, чтобы сделать виртуальную машину SQL Server доступной для приложений, выполняющихся как локально, так и в классической модели развертывания Azure, необходимо выполнить те же действия. При развертывании виртуальной машины в модели диспетчера ресурсов см. раздел [Подключение к виртуальной машине SQL Server в Azure (диспетчер ресурсов)](virtual-machines-sql-server-connectivity-resource-manager.md).
+
+Чтобы подключиться к экземпляру SQL Server из другой виртуальной машины или через Интернет, необходимо выполнить задачи, описанные в следующих разделах:
+
+- [Создание конечной точки TCP для виртуальной машины](#create-a-tcp-endpoint-for-the-virtual-machine)
+- [Открытие портов TCP в брандмауэре Windows](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
+- [Настройка SQL Server для прослушивания через протокол TCP](#configure-sql-server-to-listen-on-the-tcp-protocol)
+- [Настройка SQL Server для аутентификации в смешанном режиме](#configure-sql-server-for-mixed-mode-authentication)
+- [Создание имен входа для аутентификации SQL Server](#create-sql-server-authentication-logins)
+- [Определение DNS-имени виртуальной машины](#determine-the-dns-name-of-the-virtual-machine)
+- [Подключение к ядру СУБД с другого компьютера](#connect-to-the-database-engine-from-another-computer)
+
+Процедура подключения показана на следующей схеме:
+
+![Подключение к виртуальной машине SQL Server](../../includes/media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
+
+[AZURE.INCLUDE [Подключение к SQL Server на виртуальной машине (классическое развертывание с конечной точкой TCP)](../../includes/virtual-machines-sql-server-connection-steps-classic-tcp-endpoint.md)]
+
 [AZURE.INCLUDE [Подключение к SQL Server на виртуальной машине](../../includes/virtual-machines-sql-server-connection-steps.md)]
+
+[AZURE.INCLUDE [Подключение к SQL Server на виртуальной машине (классическое развертывание)](../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
 ## <a id="cdea">Подключение к ядру СУБД из приложения</a>
 
@@ -156,4 +175,4 @@
 
 - [Шаблоны приложений и стратегии разработки для SQL Server на виртуальных машинах Azure](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

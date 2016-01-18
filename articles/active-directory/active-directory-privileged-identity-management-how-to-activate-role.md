@@ -20,8 +20,8 @@
 
 ## Активация и деактивация роли
 
-1. Войдите на портал [http://portal.azure.com](http://portal.azure.com).
-2. Следуйте указаниям в статье [Начало работы с функцией управления привилегированными пользователями Azure](active-directory-privileged-identity-management-getting-started.md), чтобы разместить эту функцию на панели мониторинга портала.
+1. Войдите на [портал Azure](http://portal.azure.com).
+2. Следуйте указаниям в статье [Начало работы с функцией управления привилегированными пользователями Azure](active-directory-privileged-identity-management-getting-started.md), чтобы разместить эту функцию на панели мониторинга портала Azure.
 3. После выполнения необходимых действий в мастере защиты отобразится главное меню управления привилегированными пользователями Azure.
 4. Щелкните **Активировать мою роль**.
 5. Отобразится список назначенных вам ролей.
@@ -38,4 +38,4 @@
 ## Дальнейшие действия
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

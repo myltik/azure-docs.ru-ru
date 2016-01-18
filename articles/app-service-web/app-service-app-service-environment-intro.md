@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/06/2015"
+	ms.date="01/05/2016"
 	ms.author="stefsch"/>
 
 # Введение в среду службы приложения
@@ -74,7 +74,7 @@
 
 Обзор сетевой архитектуры среды службы приложений см. в статье [Общие сведения об архитектуре сетевых сред службы приложений][NetworkArchitectureOverview].
 
-Дополнительные сведения об использовании среды службы приложений совместно с ExpressRoute см. в статье [Сведения о конфигурации сети для сред службы приложений с Express Route][NetworkConfigDetailsForExpressRoute].
+Дополнительные сведения об использовании среды службы приложений совместно с ExpressRoute см. в статье [Сведения о конфигурации сети для сред службы приложений с ExpressRoute][NetworkConfigDetailsForExpressRoute].
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -104,4 +104,4 @@
 
 <!-- IMAGES -->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

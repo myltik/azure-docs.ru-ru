@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Логика повторов в EntLib для подключения к Базе данных SQL | Microsoft Azure"
 	description="Библиотека Enterprise Library упрощает решение ряда задач для клиентских программ облачных служб, включая интеграцию логики повторов при временных сбоях."
 	services="sql-database"
@@ -8,23 +8,19 @@
 	editor="" />
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="12/17/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="12/17/2015"
 	ms.author="genemi"/>
 
 
 # Образец кода: логика повторных попыток из библиотеки Enterprise Library 6 в C&#x23; для подключения к Базе данных SQL
 
-
-> [AZURE.SELECTOR]
-- [PHP](sql-database-develop-php-retry-windows.md)
-- [C#](sql-database-develop-csharp-retry-windows.md)
-- [C# EntLib6](sql-database-develop-entlib-csharp-retry-windows.md)
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 В этом разделе представлен полный образец кода, демонстрирующий Enterprise Library (EntLib). EntLib упрощает многие задачи для клиентских программ, которые взаимодействуют с облачными службами, такими как База данных SQL Azure. В нашем примере решается важная задача по включению логики повторов для временных сбоев.
@@ -96,7 +92,7 @@ EntLib60 включает несколько DLL-файлов сборки, им
 2. создание объекта **SqlDatabaseTransientErrorDetectionStrategy**;
 3. создание объекта **RetryPolicy**. Входные параметры:
  - объект **ExponentialBackoff**;
- - объект **SqlDatabaseTransientErrorDetectionStrategy**;
+ - объект **SqlDatabaseTransientErrorDetectionStrategy**.
 4. объект **ReliableSqlConnection**. Входные параметры:
  - объект **Строка** с именем сервера и другими сведениями о подключении.
  - Объект **RetryPolicy**.
@@ -330,4 +326,4 @@ SELECT TOP 3
 
 - [Простые примеры кода клиентских приложений для работы с базой данных SQL](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="12/14/2015" 
+	ms.date="12/30/2015" 
 	ms.author="jeffstok"
 />
 
@@ -57,11 +57,11 @@
 
     ![stream analytics машинное обучение руководство обозреватель сервера](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-server-explorer.png)
 
-2.	Разверните только что подключенное хранилище, выберите **Создать контейнер больших двоичных объектов** и укажите логическое имя. После создания дважды щелкните контейнер, чтобы просмотреть содержимое (на этом этапе он будет пустым).
+2.	Разверните только что подключенное хранилище, выберите **Создать контейнер BLOB-объектов** и укажите логическое имя. После создания дважды щелкните контейнер, чтобы просмотреть содержимое (на этом этапе он будет пустым).
 
     ![stream analytics машинное обучение руководство создание blob-объекта](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-create-blob.png)
 
-3.	Передайте CSV-файл, щелкнув значок **Отправить BLOB-объект**, и выберите **файл на локальном диске**.
+3.	Отправьте CSV-файл, щелкнув значок **Отправить BLOB-объект**, и выберите **файл с локального диска**.
 
 ## Добавление модели анализа мнений Sentiment Analytics из коллекции Cortana Analytics
 
@@ -150,4 +150,4 @@
 
     ![stream analytics машинное обучение руководство отслеживание машинного обучения просмотр](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-ml-monitor-view.png)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Триггеры приложения API службы приложений Azure" 
-	description="В этой статье показан способ реализации триггеров в приложении API" 
+	pageTitle="Триггеры приложения API службы приложений |Microsoft Azure" 
+	description="Как реализовать триггеры в приложении API в службе приложений Azure" 
 	services="app-service\logic" 
 	documentationCenter=".net" 
 	authors="guangyang"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/15/2015" 
+	ms.date="01/04/2016" 
 	ms.author="guayan"/>
 
 # Триггеры приложения API службы приложений Azure
@@ -341,4 +341,4 @@
     }
  
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

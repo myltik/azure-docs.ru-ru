@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/17/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm;barbkess"/>
 
 # Загрузка данных в хранилище данных SQL
@@ -62,7 +62,7 @@ Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name>
 
 Ниже подробно рассказано о том, как переместить данные из локальной в учетную запись хранения Azure с помощью AZCopy. При отсутствии учетной записи хранения Azure в том же регионе можно создать ее, следуя [документации хранилища Azure][]. Можно также загрузить данные из учетной записи хранения в другом регионе, но производительность в этом случае не будет оптимальной.
 
-> [AZURE.NOTE]В этой документации предполагается, что вы установили программу командной строки AZCopy и можете запустить ее с помощью Powershell. Если это не так, следуйте [инструкциям по установке AzCopy][].
+> [AZURE.NOTE]В этой документации предполагается, что вы установили программу командной строки AZCopy и можете запустить ее с помощью Powershell. Если это не так, следуйте [инструкциям по установке AZCopy][].
 
 Теперь, имея набор файлов, созданный с помощью программы BCP, AzCopy можно просто запустить из Azure Powershell или путем запуска сценария Powershell. На высоком уровне строки, необходимые для запуска AZCopy, будут иметь вид:
 
@@ -75,7 +75,7 @@ AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Stor
 
 + **Одновременные подключения**: помимо увеличения числа операций AzCopy, выполняемых одновременно, саму операцию AzCopy можно дополнительно параллелизовать, задав параметр /NC, который открывает несколько одновременных подключений к точке назначения. Хотя максимальное значение параметра — 512, мы выяснили, что оптимальная передача данных осуществляется при значении 256, и рекомендуем проверить несколько значений для получения оптимальной конфигурации.
 
-+ **ExpressRoute**: как уже говорилось выше, этот процесс можно ускорить, если включен ExpressRoute. Обзор ExpressRoute и шаги по его настройке можно найти в [документации по ExpressRoute][].
++ **ExpressRoute**: как уже говорилось выше, этот процесс можно ускорить, если включен ExpressRoute. Обзор Express Route и шаги для настройки можно найти в [документации по ExpressRoute][].
 
 + **Структура папок**: для упрощения переноса с помощью PolyBase убедитесь, что каждая таблица сопоставлена собственной папке. Позже это сведет к минимуму и упростит шаги при загрузке с помощью PolyBase. Учитывая это, нет разницы, разбивается ли таблица на несколько файлов или даже каталогов в папке.
 	 
@@ -196,10 +196,10 @@ create statistics [<another name>] on [<Table Name>] ([<Another Column Name>]);
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 <!--Other Web references-->
-[инструкциям по установке AzCopy]: https://azure.microsoft.com/ru-RU/documentation/articles/storage-use-azcopy/
+[инструкциям по установке AZCopy]: https://azure.microsoft.com/ru-RU/documentation/articles/storage-use-azcopy/
 [Microsoft Command Line Utilities для SQL Server]: http://www.microsoft.com/ru-RU/download/details.aspx?id=36433
 [Импорт и экспорт]: https://azure.microsoft.com/ru-RU/documentation/articles/storage-import-export-service/
 [документации хранилища Azure]: https://azure.microsoft.com/ru-RU/documentation/articles/storage-create-storage-account/
 [документации по ExpressRoute]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

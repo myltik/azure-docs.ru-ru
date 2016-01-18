@@ -22,7 +22,7 @@
 ## Введение 
 Конвейер в фабрике данных Azure обрабатывает данные в связанной службе хранилища с помощью связанных вычислительных служб. В нем содержится последовательность действий, каждое из которых выполняет определенную операцию обработки. В этой статье описывается использование действия MapReduce в HDInsight.
  
-Дополнительную информацию о запуске сценариев Pig и Hive в кластере HDInsight на базе Windows или Linux из конвейера фабрики данных Azure с помощью действий Pig и Hive в HDInsight см. в статьях [Pig](data-factory-pig-activity) и [Hive](data-factory-hive-activity.md).
+Дополнительную информацию о запуске сценариев Pig и Hive в кластере HDInsight на базе Windows или Linux из конвейера фабрики данных Azure с помощью действий Pig и Hive в HDInsight см. в статьях [Pig](data-factory-pig-activity.md) и [Hive](data-factory-hive-activity.md).
 
 ## JSON для действия MapReduce в HDInsight 
 
@@ -221,4 +221,4 @@ linkedServiceName (имя связанной службы) | Указывает 
 [Azure Classic Portal]: http://portal.azure.com
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

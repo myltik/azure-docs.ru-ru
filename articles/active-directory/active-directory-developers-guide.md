@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/10/2015"
+   ms.date="01/06/2016"
    ms.author="mbaldwin"/>
 
 
@@ -31,12 +31,12 @@ Azure Active Directory является платформой для управл
 
 1. [Azure Active Directory Graph API](active-directory-graph-api.md): используйте Azure Active Directory Graph API для программного доступа к Azure Active Directory через конечные точки REST API. Обратите внимание, что API Graph Azure AD также доступен через [Microsoft Graph](https://graph.microsoft.io/) — унифицированный API, обеспечивающий доступ к нескольким API облачной службы Майкрософт через одну конечную точку REST API и с использованием единого маркера доступа.
 
-1. [Библиотеки проверки подлинности Azure Active Directory](active-directory-authentication-libraries.md). Выполняйте проверку подлинности пользователей, которым требуются маркеры доступа, с помощью библиотек проверки подлинности Azure для [.NET](https://msdn.microsoft.com/library/azure/mt417579.aspx), [JavaScript](https://github.com/AzureAD/azure-activedirectory-library-for-js), [Objective-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc), [Android](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/o) и [др.](active-directory-authentication-libraries.md).
+1. [Библиотеки проверки подлинности Azure Active Directory](active-directory-authentication-libraries.md). Выполняйте проверку подлинности пользователей, которым требуются маркеры доступа, с помощью библиотек проверки подлинности Azure AD для .NET, JavaScript, Objective-C, Android и т. д.
 
 
 ## Приступая к работе
 
-Эти учебники предназначены для нескольких платформ и помогут вам быстро приступить к разработке приложений с помощью Azure Active Directory. Для выполнения дальнейших действий вам необходим [клиент Azure Active Directory](active-directory-howto-tenant.md).
+Эти учебники предназначены для нескольких платформ и помогут вам быстро приступить к разработке приложений с помощью Azure Active Directory. Вам необходим [клиент Azure Active Directory](active-directory-howto-tenant.md).
 
 ### Руководства по быстрому запуску мобильных приложений и приложений для ПК
 
@@ -60,7 +60,7 @@ Azure Active Directory является платформой для управл
 
 | [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md)|
 |:--:|
-|[API Graph](active-directory-graph-api-quickstart.md)|
+|[Graph API](active-directory-graph-api-quickstart.md)|
 
 ## Инструкции
 
@@ -80,20 +80,20 @@ Azure Active Directory является платформой для управл
 Эти статьи содержат основные справочники по REST и API библиотек проверки подлинности, протоколам, ошибкам, образцам кода и конечных точкам.
 
 ###  Поддержка
-- [Вопросы с тегами](http://stackoverflow.com/questions/tagged/azure-active-directory). Найдите решения Azure Active Directory, связанные с переполнением стека, по тегам [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) и [adal](http://stackoverflow.com/questions/tagged/adal).
+- [Вопросы с тегами](http://stackoverflow.com/questions/tagged/azure-active-directory). Здесь вы найдете решения Azure Active Directory, связанные с переполнением стека, по тегам [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) и [adal](http://stackoverflow.com/questions/tagged/adal).
 
 ### Код
 
 - [Библиотеки Azure Active Directory с открытым исходным кодом](http://github.com/AzureAD). Чтобы быстро найти исходный код библиотеки, воспользуйтесь нашим [списком библиотек](active-directory-authentication-libraries.md).
 
-- [Примеры кода Azure Active Directory](https://github.com/azure-samples?query=active-directory). Чтобы быстро перемещаться по списку примеров, воспользуйтесь [указателем примеров кода](active-directory-code-samples.md).
+- [Примеры кода Azure Active Directory ](https://github.com/azure-samples?query=active-directory). Самый простой способ навигации по списку примеров — это [индекс примеров кода](active-directory-code-samples.md).
 
 
 ### API Graph
 
 - [Справочник по API Graph](https://msdn.microsoft.com/library/azure/hh974476.aspx). Справочник по REST для API Graph для Azure Active Directory. [Просмотрите интерактивный справочник по API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-- [Области разрешений API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes). Области разрешений OAuth 2.0, которые необходимы для управления доступом приложения к данным каталога в клиенте.
+- [Области разрешений API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes). Области разрешений OAuth 2.0, которые необходимы для управления доступом приложения к данным каталога в клиенте.
 
 ### Библиотеки проверки подлинности
 
@@ -101,13 +101,13 @@ Azure Active Directory является платформой для управл
 
 ### Протоколы проверки подлинности
 
-- [Справочник по протоколу SAML 2.0](https://msdn.microsoft.com/library/azure/dn195591.aspx). Протокол SAML 2.0 позволяет приложениям использовать единый вход для пользователей.
+- [Справочник по протоколу SAML 2.0](https://msdn.microsoft.com/library/azure/dn195591.aspx): протокол SAML 2.0 позволяет приложениям предоставлять пользователям единый вход.
 
 
 - [Справочник по протоколу OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx). Протокол OAuth 2.0 позволяет предоставлять доступ к веб-приложениям и интерфейсам веб-API в клиенте Azure Active Directory.
 
 
-- [Справочник по протоколу OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx). Протокол OpenID Connect 1.0 позволяет применять OAuth 2.0 в качестве протокола проверки подлинности.
+- [Справочник по протоколу OpenID Connect 1.0](https://msdn.microsoft.com/library/azure/dn645541.aspx): протокол OpenID Connect 1.0 расширяет OAuth 2.0, позволяя использовать его как протокол проверки подлинности.
 
 
 - [Справочник по протоколу WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx). Протокол WS-Federation 1.2 описан в спецификации федерации веб-служб версии 1.2.
@@ -125,7 +125,7 @@ Azure Active Directory является платформой для управл
 - [Разработка современных приложений в машинном коде с помощью Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)
 
 ### Azure, пятница
-[Пятница с Azure](http://azure.microsoft.com/documentation/videos/azure-friday/) — это еженедельная серия коротких (10–15 минут) видеоинтервью дин на один со специалистами на разные темы, связанные с Azure. Используйте функцию фильтра служб на странице, чтобы просмотреть все видео Azure Active Directory.
+[Azure, пятница](http://azure.microsoft.com/documentation/videos/azure-friday/) — это еженедельная серия коротких (10–15 минут) видеоинтервью со специалистами на разные темы, связанные с Azure. Используйте функцию фильтра служб на странице, чтобы просмотреть все видео Azure Active Directory.
 
 - [Удостоверение Azure 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)
 - [Удостоверение Azure 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)
@@ -137,8 +137,8 @@ Azure Active Directory является платформой для управл
 
 - [Блог группы Azure Active Directory Graph](http://blogs.msdn.com/b/aadgraphteam). Информация об Azure Active Directory, связанная с API Graph.
 
-- [Облачные учетные данные](http://www.cloudidentity.net). Что такое управление удостоверениями как служба? Об этом расскажет главный руководитель программы Azure Active Directory.
+- [Облачная идентификация](http://www.cloudidentity.net). Соображения об управлении удостоверениями от главного руководителя программы Azure Active Directory.
 
 - [Azure Active Directory в Твиттере](https://twitter.com/azuread). Объявления Azure Active Directory длиной не более 140 знаков.
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

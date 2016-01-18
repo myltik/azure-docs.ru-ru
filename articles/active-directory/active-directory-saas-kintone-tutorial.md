@@ -2,7 +2,7 @@
     pageTitle="Руководство. Интеграция Azure Active Directory с Kintone | Microsoft Azure" 
     description="Узнайте, как использовать Kintone вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/20/2015" 
-    ms.author="markvi" />
+    ms.date="01/05/2016" 
+    ms.author="jeedes" />
 
 #Руководство. Интеграция Azure Active Directory с Kintone
   
@@ -51,7 +51,7 @@
 
     ![Добавление приложения](./media/active-directory-saas-kintone-tutorial/IC749321.png "Добавление приложения")
 
-5.  В диалоговом окне **Что необходимо сделать?** щелкните **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
     ![Добавить приложение из коллекции](./media/active-directory-saas-kintone-tutorial/IC749322.png "Добавить приложение из коллекции")
 
@@ -72,7 +72,7 @@
 
     ![Настройка единого входа](./media/active-directory-saas-kintone-tutorial/IC785872.png "Настройка единого входа")
 
-2.  На странице **Как пользователи должны входить в Kintone** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
+2.  На странице **Как пользователи должны входить в Kintone?** выберите **Единый вход Microsoft Azure AD** и нажмите кнопку **Далее**.
 
     ![Настройка единого входа](./media/active-directory-saas-kintone-tutorial/IC785873.png "Настройка единого входа")
 
@@ -90,7 +90,7 @@
 
     ![данных](./media/active-directory-saas-kintone-tutorial/IC785879.png "данных")
 
-7.  Щелкните **Администрирование пользователей и системы**.
+7.  Нажмите **Администрирование пользователей и системы**.
 
     ![Администрирование пользователей и системы](./media/active-directory-saas-kintone-tutorial/IC785880.png "Администрирование пользователей и системы")
 
@@ -126,7 +126,7 @@
 
     ![данных](./media/active-directory-saas-kintone-tutorial/IC785879.png "данных")
 
-3.  Щелкните **Администрирование пользователей и системы**.
+3.  Нажмите **Администрирование пользователей и системы**.
 
     ![Администрирование пользователей и системы](./media/active-directory-saas-kintone-tutorial/IC785880.png "Администрирование пользователей и системы")
 
@@ -138,7 +138,7 @@
 
     ![Новые пользователи](./media/active-directory-saas-kintone-tutorial/IC785889.png "Новые пользователи")
 
-6.  В разделе **Новый пользователь** сделайте следующее:
+6.  В разделе **New User** (Новый пользователь) выполните следующие действия.
 
     ![Новые пользователи](./media/active-directory-saas-kintone-tutorial/IC785890.png "Новые пользователи")
 
@@ -159,10 +159,10 @@
 
     ![Назначить пользователей](./media/active-directory-saas-kintone-tutorial/IC785891.png "Назначить пользователей")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да** для подтверждения назначения.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
     ![Да](./media/active-directory-saas-kintone-tutorial/IC767830.png "Да")
   
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

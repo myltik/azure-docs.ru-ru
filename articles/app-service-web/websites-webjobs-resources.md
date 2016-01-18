@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="12/14/2015" 
 	ms.author="tdykstra"/>
 
 # Документация по веб-заданиям Azure
 
 ## Обзор
 
-В данной теме содержатся ссылки на документацию о том, как применять веб-задания Azure и SDK веб-заданий Azure. Веб-задания Azure предоставляют простой способ запуска скриптов и программ в виде фоновых процессов [веб-приложений службы приложений](http://go.microsoft.com/fwlink/?LinkId=529714). Можно загружать и запускать исполняемые файлы, например cmd, bat, exe (.NET), ps1, sh, php, py, js и jar. Эти программы могут работать как веб-задания по расписанию (cron) или постоянно.
+В данной теме содержатся ссылки на документацию о том, как применять веб-задания Azure и SDK веб-заданий Azure. Веб-задания Azure предоставляют простой способ запуска сценариев и программ в виде фоновых процессов в контексте [веб-приложений службы приложений, приложений API или мобильных приложений](../app-service/app-service-value-prop-what-is.md). Можно загружать и запускать исполняемые файлы, например cmd, bat, exe (.NET), ps1, sh, php, py, js и jar. Эти программы могут работать как веб-задания по расписанию (cron) или постоянно.
 
-Пакет SDK веб-заданий упрощает использование хранилища Azure. Пакет SDK веб-заданий имеет систему привязки и запуска, которая работает совместно с хранилищем Microsoft Azure для BLOB-объектов, очередей и таблиц, а также очередей служебной шины.
+Назначение [веб-заданий SDK](websites-webjobs-resources.md) — упрощение кода, с помощью которого веб-задание выполняет такие общие задачи, как обработка изображений, обработка очереди, объединение RSS, обслуживание файлов и отправка сообщений электронной почты. Пакет SDK для веб-заданий имеет встроенные функции для работы с хранилищем Azure и служебной шиной для планирования задач и обработки ошибок, а также других распространенных сценариев. Этот пакет расширяемый; также существует [репозиторий открытого кода для расширений](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
 Создание, развертывание веб-заданий и управление ими средствами Visual Studio не вызовет проблем. Веб-задания можно создавать из шаблонов, публиковать их и управлять ими (запуск/остановка/мониторинг/jnkflrf).
 
@@ -35,12 +35,13 @@
 * [Компоненты веб-заданий Azure](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [Информация о пакете SDK веб-заданий](websites-dotnet-webjobs-sdk.md)
 * [Руководство по фоновым заданиям на основе шаблонов и рекомендаций от Майкрософт](https://github.com/mspnp/azure-guidance/blob/master/Background-Jobs.md)
-* [Объявление о выпуске SDK веб-заданий Microsoft Azure версии 1.0.0 RTM](/blog/2014/10/25/announcing-the-1-0-0-rtm-of-microsoft-azure-webjobs-sdk/)
-* [Начало работы с пакетом SDK веб-заданий Azure](websites-dotnet-webjobs-sdk-get-started.md)
+* [Объявление о выпуске SDK веб-заданий Microsoft Azure версии 1.1.0 RTM](/blog/azure-webjobs-sdk-1-1-0-rtm/)
+* [Начало работы с пакетом SDK для Azure для веб-заданий](websites-dotnet-webjobs-sdk-get-started.md)
 * [Использование пакета SDK веб-заданий для работы с хранилищем очередей Azure](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
 * [Использование хранилища больших двоичных объектов Azure с пакетом SDK веб-заданий](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 * [Использование табличного хранилища Azure с пакетом SDK веб-заданий](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [Использование служебной шины Azure с пакетом SDK веб-заданий](websites-dotnet-webjobs-sdk-service-bus.md)
+* [Использование веб-перехватчиков с помощью пакета SDK веб-заданий с примерами для GitHub, IFTTT и HTTP](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/WebHooks-Walkthrough)
 * [Краткий справочник по пакету SDK веб-заданий (скачиваемый PDF-файл)](http://go.microsoft.com/fwlink/?LinkID=524028&clcid=0x409)
 * [Документация по настройке веб-заданий в GitHub](https://github.com/projectkudu/kudu/wiki/Web-jobs).
 * Видеоролики
@@ -48,6 +49,7 @@
 	* [Серия видеопрограмм по веб-заданиям Azure на канале 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 	* [Введение в средства для работы с веб-заданиями для Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster) 
 	* [Средства для работы с веб-заданиями и удаленная отладка](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster)
+	* [Обновление веб-заданий Azure с Пранавом Растоги. Расширяемость в выпуске 1.1](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-183-Azure-WebJobs-Update-with-Pranav-Rastogi)
 
 См. также разделы [Развертывание веб-заданий](#deploy) и [Тестирование и отладка веб-заданий](#debug).
 
@@ -69,6 +71,7 @@
 * [Создание запланированного веб-задания на портале Azure](web-sites-create-web-jobs.md#CreateScheduled)
 * [Подключение задания планировщика к веб-заданию](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [Планирование веб-заданий Azure с помощью выражений cron](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
+* [Планирование отдельных функций веб-задания с помощью TimerTrigger из пакета SDK веб-заданий](websites-dotnet-webjobs-sdk.md#schedule)
 
 ##<a name="debug"></a>Проверка и отладка веб-заданий
 
@@ -78,7 +81,6 @@
 * [Удаленная отладка веб-заданий](web-sites-dotnet-troubleshoot-visual-studio.md#remotedebugwj)
 * [Кто записал этот большой двоичный объект?](http://blogs.msdn.com/b/jmstall/archive/2014/02/19/who-wrote-that-blob.aspx) 
 * [Размещение интерактивного кода в облаке](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
-* [Получение панели мониторинга для локальной разработки с помощью пакета SDK веб-заданий](http://blogs.msdn.com/b/jmstall/archive/2014/01/27/getting-a-dashboard-for-local-development-with-the-webjobs-sdk.aspx)
 * [Добавление трассировки в веб-задания Azure](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)
 * [Наблюдение, диагностика и устранение неисправностей хранилища Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting/)
 * Видеоролики
@@ -106,9 +108,9 @@
 
 ##<a name="additionalsdk"></a>Дополнительные ресурсы по пакету SDK для веб-заданий
 
+* [Заметки о выпуске пакета SDK веб-заданий](https://github.com/Azure/azure-webjobs-sdk/wiki/Release-Notes)
+* [Репозиторий открытого кода для расширений пакета SDK веб-заданий](https://github.com/Azure/azure-webjobs-sdk-extensions) с [подробным руководством по модели расширения](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).  
 * [Исходный код пакета SDK веб-заданий](https://github.com/Azure/azure-webjobs-sdk)
-* [Как работает [BlobTrigger]](http://blogs.msdn.com/b/jmstall/archive/2014/04/17/how-does-blobinput-work.aspx) 
-* [Расширенные привязки с помощью SDK веб-заданий Azure](http://victorhurdugaci.com/advanced-bindings-with-the-windows-azure-web-jobs-sdk/)
 * [Веб-задания по загрузке файлов FREB в службу хранилища Azure с помощью пакета SDK для веб-заданий](http://thenextdoorgeek.com/post/WAWS-WebJob-to-upload-FREB-files-to-Azure-Storage-using-the-WebJobs-SDK)
 * [Размещение веб-заданий Azure вне Azure с преимуществами ведения журнала из веб-заданий, размещенных на Azure](http://bypassion.dk/?p=510)
 * [Создание средства импорта данных с помощью веб-заданий Azure](http://www.freshconsulting.com/building-data-import-tool-azure-webjobs/)
@@ -137,9 +139,4 @@
 * [Twitter](http://twitter.com/). Используйте хештег #AzureWebJobs.
 * [Сообщение об ошибке или проблеме в веб-задании](https://github.com/projectkudu/kudu/wiki/Reporting-WebJobs-issues)
 
-## Изменения
-* Указания по изменениям при переходе от веб-сайтов к службе приложений см. в разделе [Служба приложений Azure и ее влияние на существующие службы Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
-* Руководство по смене старого портала на новый портал см. в разделе [Справочник по навигации на предварительной версии портала](http://go.microsoft.com/fwlink/?LinkId=529715).
- 
-
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

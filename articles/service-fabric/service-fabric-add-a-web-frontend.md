@@ -107,6 +107,10 @@ Service Fabric позволяет пользователям самим опре
 2. Найдите класс, который наследуется от `StatefulService`, например `MyStatefulService`, и выполните его расширение для реализации интерфейса `ICounter`.
 
     ```c#
+    using MyStatefulService.Interfaces;
+
+    ...
+
     public class MyStatefulService : StatefulService, ICounter
     {        
           // ...
@@ -136,9 +140,13 @@ Service Fabric позволяет пользователям самим опре
 
 >[AZURE.NOTE]Эквивалентный метод для открытия коммуникационного канала для службы без отслеживания состояния называется `CreateServiceInstanceListeners`.
 
-В нашем случае мы воспользуемся методом `ServiceRemotingListener`, который создает конечную точку RPC, вызываемую из клиентов с помощью `ServiceProxy`.
+В нашем случае мы заменим существующий метод `CreateServiceReplicaListeners` и укажем метод `ServiceRemotingListener`, который создает конечную точку RPC, вызываемую с клиентов с помощью `ServiceProxy`.
 
 ```c#
+using Microsoft.ServiceFabric.Services.Remoting.Runtime;
+
+...
+
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
 {
     return new List<ServiceReplicaListener>()
@@ -162,6 +170,11 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 3. В папке Controllers откройте класс `ValuesController`. Обратите внимание, что сейчас метод `Get` просто возвращает жестко запрограммированный массив строк значений value1 и value2, соответствующих тем, которые мы видели ранее в браузере. Замените эту реализацию следующим кодом:
 
     ```c#
+    using MyStatefulService.Interfaces;
+    using Microsoft.ServiceFabric.Services.Remoting.Client;
+
+    ...
+
     public async Task<IEnumerable<string>> Get()
     {
         ICounter counter =
@@ -221,4 +234,4 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 [vs-services-nuget-package]: ./media/service-fabric-add-a-web-frontend/vs-services-nuget-package.png
 [browser-aspnet-counter-value]: ./media/service-fabric-add-a-web-frontend/browser-aspnet-counter-value.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="Интерфейс командной строки Azure с диспетчером ресурсов | Microsoft Azure"
 	description="Использование интерфейса командной строки Azure для Mac, Linux и Windows для развертывания нескольких ресурсов в группе ресурсов."
@@ -68,7 +69,7 @@
 
 	azure group create -n "testRG" -l "West US"
 
-После выполнения этой команды в эту группу можно добавлять ресурсы и использовать ее для настройки новой виртуальной машины.
+Развертывание в этой группе ресурсов testRG будет выполняться позже при использовании шаблона для запуска виртуальной машины Ubuntu. Создав группу ресурсов, вы можете добавить в нее ресурсы, такие как виртуальные машины и сети или хранилища.
 
 
 ## Использование шаблонов групп ресурсов
@@ -79,48 +80,50 @@
 
 Создание нового шаблона выходит за рамки данной статьи, поэтому для начала воспользуемся шаблоном _101-simple-vm-from-image_, который есть на сайте [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm). По умолчанию при его использовании создается одна виртуальная машина Ubuntu 14.04.2-LTS в новой виртуальной сети с одной подсетью в регионе "Запад США". Для использования этого шаблона достаточно указать следующие параметры:
 
-* уникальное имя учетной записи хранения;
-* имя пользователя администратора виртуальной машины;
-* пароль;
-* имя домена для виртуальной машины.
+* имя пользователя администратора виртуальной машины (`adminUsername`);
+* пароль (`adminPassword`);
+* имя домена для виртуальной машины (`dnsLabelPrefix`).
 
 >[AZURE.TIP]Следующие действия показывают лишь один из возможных способов использования шаблона виртуальной машины с интерфейсом командной строки Azure. Другие примеры см. в статье [Развертывание виртуальных машин и управление ими с помощью шаблонов диспетчера ресурсов Azure и интерфейса командной строки Azure](../virtual-machines/virtual-machines-deploy-rmtemplates-azure-cli.md).
 
-1. Загрузите файлы azuredeploy.json и azuredeploy.parameters.json с сайта [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-linux-vm) в рабочую папку на локальном компьютере.
+1. Загрузите файлы azuredeploy.json и azuredeploy.parameters.json с сайта [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) в рабочую папку на локальном компьютере.
 
 2. Откройте файл azuredeploy.parameters.json в текстовом редакторе и введите значения параметров для своей среды (не меняйте значение **ubuntuOSVersion**).
 
-		{
-	  	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	  	"contentVersion": "1.0.0.0",
-	  	"parameters": {
-		    "newStorageAccountName": {
-		      "value": "MyStorageAccount"
-		    },
-		    "adminUsername": {
-		      "value": "MyUserName"
-		    },
-		    "adminPassword": {
-		      "value": "MyPassword"
-		    },
-		    "dnsNameForPublicIP": {
-		      "value": "MyDomainName"
-		    },
-		    "ubuntuOSVersion": {
-		      "value": "14.04.2-LTS"
-		    }
-		  }
-		}
-	```
-3. После сохранения файла azuredeploy.params.json создайте новую группу ресурсов на основе шаблона с помощью следующей команды. В параметре `-e` указывается файл azuredeploy.parameters.json, измененный в предыдущем действии. Вместо *testRG* укажите имя нужной группы, а вместо *testDeploy* — имя развертывания. Расположение должно быть тем же, что указано в файле параметров шаблона.
 
-		azure group create "testRG" "West US" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
+```
+			{
+			  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+			  "contentVersion": "1.0.0.0",
+			  "parameters": {
+			    "adminUsername": {
+			      "value": "azureUser"
+			    },
+			    "adminPassword": {
+			      "value": "GEN-PASSWORD"
+			    },
+			    "dnsLabelPrefix": {
+			      "value": "GEN-UNIQUE"
+			    },
+			    "ubuntuOSVersion": {
+			      "value": "14.04.2-LTS"
+			    }
+			  }
+			}
+
+```
+
+3.  Изменив нужные параметры развертывания, вы можете выполнить развертывание виртуальной машины Ubuntu в группе ресурсов, которая была создана ранее. Выберите имя для развертывания, а затем используйте следующую команду для его запуска.
+
+		azure group deployment create -f azuredeploy.json -e azuredeploy.parameters.json testRG testRGdeploy
+
+	В этом примере создается развертывание с именем _testRGDeploy_, которое выполняется в группе ресурсов _testRG_. В параметре `-e` указывается файл azuredeploy.parameters.json, измененный в предыдущем действии. Параметр `-f` указывает файл шаблона azuredeploy.json.
 
 	Эта команда возвращает значение ОК после передачи развертывания на сервер, но до его применения к ресурсам в группе.
 
 4. Чтобы проверить состояние развертывания, используйте следующую команду.
 
-		azure group deployment show "testRG" "testDeploy"
+		azure group deployment show "testRG" "testRGDeploy"
 
 	**ProvisioningState** показывает состояние развертывания.
 
@@ -210,4 +213,4 @@
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

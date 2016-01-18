@@ -20,7 +20,7 @@
 
 Если необходимо реализовать эффективные возможности поиска в данных DocumentDB, рекомендуется использовать индексатор службы поиска Azure для DocumentDB. В этой статье будет показано, как интегрировать Azure DocumentDB со службой поиска Azure без написания кода для поддержки инфраструктуры индексирования.
 
-Для этого необходимо [настроить учетную запись службы Поиск Azure](../search-get-started.md#start-with-the-free-service) (не требуется выполнять обновление до стандартного поиска), а затем вызвать [REST API службы Поиск Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) для создания **источника данных** DocumentDB и **индексатора** для него.
+Для этого необходимо [настроить учетную запись службы Поиск Azure](../search/search-get-started.md#start-with-the-free-service) (не требуется выполнять обновление до стандартного поиска), а затем вызвать [REST API службы Поиск Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx) для создания **источника данных** DocumentDB и **индексатора** для него.
 
 ##<a id="Concepts"></a>Понятия индексатора в службе Поиск Azure
 
@@ -121,7 +121,7 @@
 
 ##<a id="CreateIndex"></a>Шаг 2. Создание индекса
 
-Создайте целевой индекс поиска Azure, если это еще не сделано. Создать индекс можно с помощью [пользовательского интерфейса классического портала Azure](../search-get-started.md#test-service-operations) или [API создания индекса](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Создайте целевой индекс поиска Azure, если это еще не сделано. Создать индекс можно с помощью [пользовательского интерфейса классического портала Azure](../search/search-get-started.md#test-service-operations) или [API создания индекса](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -265,9 +265,9 @@
 
 Поздравляем! Вы только что узнали, как интегрировать Azure DocumentDB со службой поиска Azure с помощью индексатора для DocumentDB.
 
- - Дополнительные сведения об Azure DocumentDB можно узнать [здесь](/services/documentdb/).
+ - Дополнительные сведения об Azure DocumentDB см. на странице документации по [службе DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
- - Дополнительные сведения о службе Поиск Azure можно узнать [здесь](/services/search/).
+ - Дополнительные сведения о поиске Azure см. на странице документации по [службе поиска](https://azure.microsoft.com/ru-RU/services/search/).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

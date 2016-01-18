@@ -1,6 +1,6 @@
 <properties
    pageTitle="Шаблон диспетчера ресурсов для связывания ресурсов | Microsoft Azure"
-   description="Показывает схему шаблона диспетчера ресурсов для создания связей между связанными ресурсами."
+   description="Демонстрирует схему диспетчера ресурсов для развертывания связей между связанными ресурсами с помощью шаблона."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/09/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
 # Связи ресурсов — схема шаблона
@@ -124,9 +124,20 @@
         "outputs": {}
     }
 
+## Шаблоны быстрого запуска
+
+Следующие шаблоны быстрого запуска служат для развертывания ресурсов с помощью связей.
+
+- [Оповещение для очереди с помощью приложения логики](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+- [Оповещение для Slack с помощью приложения логики](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+- [Подготовка приложения API с помощью существующего шлюза](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-existing)
+- [Подготовка приложения API с помощью нового шлюза](https://github.com/Azure/azure-quickstart-templates/tree/master/201-api-app-gateway-new)
+- [Создание приложения логики и приложения API с помощью шаблона](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-api-app-create)
+- [Приложение логики, которое отправляет текстовое сообщение при возникновении предупреждения](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
+
 
 ## Дальнейшие действия
 
 - Сведения о структуре шаблона см. в разделе [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,11 +1,13 @@
-To create a local network gateway, follow the steps below:
+Для создания сетевого шлюза выполните следующие действия:
 
-1. Use **Browse** and fildter to locate the **Local network gateways** blade, then click **Add**.
-2. On the **Create local network gateways blade**, **Name** your local network gateway object. For this example, we'll name the local network gateway *GW1LocalNet*.
-3. Configure an **IP address** for your gateway. This is the IP address of the external VPN device that you want to connect to. It cannot be behind NAT and has to be reachable by Azure. This is the device IP address that your Azure gateway will connect to.
-4. **Address Space** refers to the address ranges on your local (typically on-premises) network. You can add multiple address space ranges. The ranges that you enter here cannot overlap any of the address space ranges that you are using for any of the virtual networks that will communicate through the gateway.  You will need to coordinate with your on-premises configuration as well as with your Azure virtual network address spaces. 
-5. For **Subscription**, verify that the correct subscription is showing.
-6. For **Resource Group**, select the resource group that you want to use. You can either create a new resource group, or select one that you have already created. To create a new resource group, type the name in the box. To select a resource group that you've already created, click **Resource Group** to open the **Resource group** blade, and then select the resource group that you want to use.
-7. For **Location**, verify that the location is the same as the virtual network gateway that you will associate this with.
-8. Leave "Pin to dashboard" selected if you want to find this local network gateway easily from the dashboard.
-9. Click **Create** to create the local network gateway. You'll see "Deploying Local network gateway" on your dashboard. This shouldn't take very long to create.
+1. С помощью кнопки **Обзор** и фильтра найдите колонку **Локальные сетевые шлюзы**, затем нажмите кнопку **Добавить**.
+2. В колонке **Создание локальных сетевых шлюзов** укажите **Имя** объекта сетевого шлюза. В этом примере объект сетевого шлюза имеет имя *GW1LocalNet*.
+3. Настройте **IP-адрес** для вашего шлюза. Это IP-адрес внешнего VPN-устройства, к которому вы хотите подключиться. Это устройство не может быть скрыто за NAT и должно быть доступно для Azure. Это IP-адрес устройства, к которому подключится шлюз Azure.
+4. В разделе **Пространство адресов** указываются диапазоны адресов в локальной сети. Можно добавить несколько диапазонов пространства адресов. Указываемые здесь диапазоны не могут перекрывать никаких диапазонов пространства адресов, использующихся для любых виртуальных сетей, которые будут взаимодействовать через шлюз. Эту конфигурацию необходимо согласовывать с локальной конфигурацией, а также с пространствами адресов виртуальной сети Azure. 
+5. Убедитесь, что в поле **Подписка** отображается правильная подписка.
+6. В поле **Группа ресурсов** выберите группу ресурсов, которую хотите использовать. Можно создать новую группу ресурсов или выбрать уже созданную. Чтобы создать новую группу ресурсов, введите ее имя в поле. Для выбора группы ресурсов, созданной ранее, щелкните **Группа ресурсов**, чтобы открыть колонку **Группа ресурсов**, а затем выберите группу ресурсов, которую хотите использовать.
+7. Убедитесь, что содержимое поля **Расположение** соответствует виртуальному сетевому шлюзу, с которым она будет связана.
+8. Оставьте флажок "Закрепить панель мониторинга" выбранным, если хотите, чтобы локальный сетевой шлюз был доступен на панели мониторинга.
+9. Щелкните **Создать** для создания локального сетевого шлюза. Вы увидите сообщение "Развертывание локального сетевого шлюза" на панели мониторинга. Создание не должно занять много времени.
+
+<!---HONumber=AcomDC_0107_2016-->

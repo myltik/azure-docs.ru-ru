@@ -1,23 +1,23 @@
 <properties 
-	pageTitle="Приступая к работе с аудитом базы данных хранилища данных SQL | Microsoft Azure" 
-	description="Приступая к работе с аудитом базы данных хранилища данных SQL" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="Приступая к работе с аудитом базы данных хранилища данных SQL | Microsoft Azure" 
+   description="Приступая к работе с аудитом базы данных хранилища данных SQL" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-data-warehouse" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/06/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-data-warehouse" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/04/2016" 
+   ms.author="twounder"/>
  
 # Приступая к работе с аудитом базы данных хранилища данных SQL 
-<p> Аудит хранилища данных SQL Azure отслеживает события базы данных и записывает их в журнал аудита, расположенный в учетной записи хранения Azure.
+Аудит хранилища данных SQL Azure отслеживает события базы данных и записывает их в журнал аудита, расположенный в учетной записи хранения Azure.
 
 Аудит может помочь вам соблюсти требования нормативов, проанализировать работу с базой данных и получить представление о расхождениях и аномалиях, которые могут указывать на бизнес-проблемы или предполагаемые нарушения безопасности.
 
@@ -141,4 +141,4 @@
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

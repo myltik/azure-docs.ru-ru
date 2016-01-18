@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/01/2015"
+   ms.date="01/05/2016"
    ms.author="curtand"/>
 
 #Управление каталогом для подписки Office 365 в Azure
@@ -70,4 +70,4 @@
 ##Дальнейшие действия
 Дополнительные сведения о связях между подписками и каталогами см. в разделе [Как подписки Azure связаны с Azure AD](active-directory-how-subscriptions-associated-directory.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

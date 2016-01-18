@@ -18,7 +18,7 @@
 
 # Защита доступа к данным DocumentDB #
 
-В этой статье приведены общие сведения о защите доступа к данным, хранящимся в [Microsoft Azure DocumentDB](../../services/documentdb/).
+В этой статье приведены общие сведения о защите доступа к данным, хранящимся в [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
 Прочитав этот обзор, вы сможете ответить на следующие вопросы.
 
@@ -163,4 +163,4 @@ DocumentDB содержит понятия первого класса, позв
 - Сведения о создании маркеров авторизации DocumentDB можно узнать [здесь](https://msdn.microsoft.com/library/azure/dn783368.aspx).
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor=""/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="01/06/2016"
 	ms.author="swkrish"/>
 
 # Предварительная версия Azure Active Directory B2C: регистрация и вход потребителей в приложения
@@ -28,7 +28,7 @@
 
 Чтобы создать приложение, в котором можно выполнять регистрацию и вход потребителей, сначала необходимо зарегистрировать его для использования клиента Azure Active Directory B2C. Получите собственный клиент, как описано в этой [статье](active-directory-b2c-get-started.md).
 
-Вы можете создать приложение для службы Azure Active Directory B2C, выбрав отправку сообщений протокола напрямую, с помощью [OAuth 2.0](active-directory-b2c-protocols.md#oauth2-authorization-code-flow), [Open ID Connect](active-directory-b2c-protocols.md#openid-connect-sign-in-flow) или наших библиотек. Выберите ниже избранную платформу и приступите к работе.
+Вы можете создать приложение для службы Azure Active Directory B2C, выбрав отправку сообщений протокола напрямую, с помощью [OAuth 2.0](active-directory-b2c-reference-protocols.md#oauth2-authorization-code-flow), [Open ID Connect](active-directory-b2c-reference-protocols.md#openid-connect-sign-in-flow) или наших библиотек. Выберите ниже избранную платформу и приступите к работе.
 
 [AZURE.INCLUDE [active-directory-b2c-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
@@ -43,7 +43,7 @@
 
 Узнайте, как использовать отдельные функции предварительной версии Azure Active Directory B2C:
 
-- Настройте учетные записи ([Facebook](active-directory-b2c-setup-fb-app.md), [Google +](active-directory-b2c-setup-goog-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) и [LinkedIn](active-directory-b2c-setup-li-app.md)) для использования в потребительских приложениях.
+- Настройте учетные записи ([Facebook](active-directory-b2c-setup-fb-app.md), [Google+](active-directory-b2c-setup-goog-app.md), [учетная запись Майкрософт](active-directory-b2c-setup-msa-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) и [LinkedIn](active-directory-b2c-setup-li-app.md)) для использования в потребительских приложениях.
 - [Используйте настраиваемые атрибуты для сбора данных о потребителях](active-directory-b2c-reference-custom-attr.md).
 - [Включите многофакторную проверку подлинности в потребительских приложениях](active-directory-b2c-reference-mfa.md).
 - [Настройте самостоятельный сброс паролей для потребителей](active-directory-b2c-reference-sspr.md).
@@ -63,4 +63,4 @@
 - [Часто задаваемые вопросы о Azure Active Directory B2C](active-directory-b2c-faqs.md)
 - [Регистрация запросов на поддержку для Azure Active Directory B2C](active-directory-b2c-support.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0107_2016-->

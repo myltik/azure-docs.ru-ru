@@ -25,7 +25,7 @@
 
 Проверка подлинности SAS в служебной шине предусматривает настройку соответствующих прав для криптографического ключа в ресурсе служебной шины. Клиенты запрашивают доступ к ресурсам служебной шины, предоставляя маркер SAS. В маркере указывается URI ресурса, к которому требуется доступ, и срок действия. Маркер подписывается настроенным ключом.
 
-Вы можете настраивать правила авторизации подписанного URL-адреса для [ретрансляторов](service-bus-fundamentals-hybrid-solutions.md/#relays), [очередей](service-bus-fundamentals-hybrid-solutions.md/#queues), [разделов](service-bus-fundamentals-hybrid-solutions.md/#topics) и [концентраторов событий](https://azure.microsoft.com/documentation/services/event-hubs/) служебной шины.
+Вы можете настраивать правила авторизации подписанного URL-адреса для [ретрансляторов](service-bus-fundamentals-hybrid-solutions.md#relays), [очередей](service-bus-fundamentals-hybrid-solutions.md#queues), [разделов](service-bus-fundamentals-hybrid-solutions.md#topics) и [концентраторов событий](https://azure.microsoft.com/documentation/services/event-hubs/) служебной шины.
 
 При проверке подлинности SAS используются следующие элементы.
 
@@ -258,4 +258,4 @@ sendClient.Send(helloMessage);
 
 [классического портала Azure]: http://manage.windowsazure.com
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

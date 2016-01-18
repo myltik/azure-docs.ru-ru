@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="01/04/2016"
    ms.author="sahajs"/>
 
 # Анализ данных с помощью машинного обучения Azure
@@ -139,4 +139,4 @@
 [загрузить демонстрационные данные вручную]: sql-data-warehouse-get-started-manually-load-samples.md
 [Создание хранилища данных SQL]: sql-data-warehouse-get-started-provision.md
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

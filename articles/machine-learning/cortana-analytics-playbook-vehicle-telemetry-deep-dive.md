@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/02/2015" 
+	ms.date="01/05/2015" 
 	ms.author="bradsev" />
 
 
@@ -30,7 +30,7 @@
 Это решение предусматривает использование двух разных источников данных:
 
 - **имитированные сигналы автомобиля и набор диагностических данных**; 
-- **каталог автомобилей**.
+- **каталог автомобилей.**
 
 В это решение входит симулятор телематики автомобиля. Оно выдает диагностическую информацию и сигналы, соответствующие состоянию автомобиля и манере вождения в определенный момент времени. Щелкните [здесь](http://go.microsoft.com/fwlink/?LinkId=717075), чтобы скачать **решение Visual Studio симулятора телематики автомобиля** для настройки в соответствии со своими требованиями. Каталог автомобилей содержит справочный набор данных для сопоставления идентификационного номера (VIN) с моделью автомобиля.
 
@@ -106,7 +106,12 @@ XUF99EW9OIQOMV7Q7 | Семейный седан
 3.	Запустите приложение **CarEventGenerator.exe**.
 
 ### Ссылки
-[Решение Visual Studio симулятора телематики автомобиля](http://go.microsoft.com/fwlink/?LinkId=717075) [Концентратор событий Azure](http://azure.microsoft.com/services/event-hubs/) [Фабрика данных Azure](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+
+[Решение Visual Studio "Симулятор телематики автомобиля"](http://go.microsoft.com/fwlink/?LinkId=717075)
+
+[Концентратор событий Azure](http://azure.microsoft.com/services/event-hubs/)
+
+[Фабрика данных Azure](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 
 
 ## Прием
@@ -149,7 +154,12 @@ XUF99EW9OIQOMV7Q7 | Семейный седан
 *Рис. 10. Вывод PrepareSampleDataPipeline*
 
 ### Ссылки
-[Пакет SDK для концентратора событий Azure для приема потока](event-hubs-csharp-ephcs-getstarted.md) [Возможности перемещения данных фабрики данных Azure](data-factory-data-movement-activities.md) [Действия DotNet фабрики данных Azure](data-factory-use-custom-activities.md) [Решение Visual Studio действия DotNet фабрики данных Azure для подготовки образца данных](http://go.microsoft.com/fwlink/?LinkId=717077)
+
+[Пакет SDK концентратора событий Azure для приема потока](event-hubs-csharp-ephcs-getstarted.md)
+
+[Возможности перемещения данных фабрики данных Azure](data-factory-data-movement-activities.md) [Действие DotNet фабрики данных Azure](data-factory-use-custom-activities.md)
+
+[Решение Visual Studio "Действие DotNet фабрики данных Azure" для подготовки примера данных](http://go.microsoft.com/fwlink/?LinkId=717077)
 
 
 ## Подготовка.
@@ -696,4 +706,4 @@ Power BI предоставляет для этого решения расши
 
 Этот документ содержит подробные сведения о решении для аналитики телеметрии автомобилей. Здесь показан шаблон лямбда-архитектуры для анализа в режиме реального времени и пакетного анализа с прогнозами и действиями. Этот шаблон подходит для самых разнообразных сценариев использования, в которых требуется использование «горячего» (в режиме реального времени) и «холодного» (пакетного) анализа.
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

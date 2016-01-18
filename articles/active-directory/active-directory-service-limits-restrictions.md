@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="09/21/2015"
+	ms.date="01/05/2016"
 	ms.author="curtand"/>
 
 # Ограничения службы Azure AD
@@ -27,4 +27,4 @@
 - [Как подписки Azure связаны с Azure AD](active-directory-how-subscriptions-associated-directory.md)
 - [Терминология Azure Active Directory](active-directory-terminology.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

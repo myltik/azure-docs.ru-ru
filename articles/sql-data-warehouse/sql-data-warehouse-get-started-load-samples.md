@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/21/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm;barbkess"/>
 
 # Загрузка образца данных в хранилище данных SQL
@@ -73,14 +73,14 @@
 
 
 ## Дальнейшие действия
-Теперь, когда вы немного разобрались с образцом данных, узнайте, как [разрабатывать][], [загружать][] или [переносить][].
+Теперь, когда вы разобрались с образцом данных, узнайте, как [разрабатывать хранилища данных][], [загружать данные][] и [переносить готовые решения][].
 
 <!--Image references-->
 
 <!--Article references-->
-[переносить]: ./sql-data-warehouse-overview-migrate.md
-[разрабатывать]: ./sql-data-warehouse-overview-develop.md
-[загружать]: ./sql-data-warehouse-overview-load.md
+[переносить готовые решения]: ./sql-data-warehouse-overview-migrate.md
+[разрабатывать хранилища данных]: ./sql-data-warehouse-overview-develop.md
+[загружать данные]: ./sql-data-warehouse-overview-load.md
 [подключению и запросам]: ./sql-data-warehouse-get-started-connect.md
 [Перенос кода]: ./sql-data-warehouse-migrate-code.md
 [образец данных можно будет загрузить вручную]: ./sql-data-warehouse-get-started-manually-load-samples.md
@@ -95,4 +95,4 @@
 <!--Other Web references-->
 [Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip/
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm"/>
 
 
@@ -61,4 +61,4 @@
 [разработки]: https://azure.microsoft.com/ru-RU/documentation/articles/sql-data-warehouse-overview-develop/
 [здесь]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=Nov15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

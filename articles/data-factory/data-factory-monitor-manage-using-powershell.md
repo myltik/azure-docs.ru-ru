@@ -94,7 +94,7 @@
 		  		}
 			}
 
-	Замените **accountname** на имя вашей учетной записи хранения, а **accountkey** — на ключ учетной записи хранения Azure.
+	Замените **accountname** и **accountkey** на имя вашей учетной записи хранения Azure и ее ключ, соответственно.
 2.	В **Azure PowerShell** перейдите в папку **ADFGetStartedPSH**. 
 3.	Чтобы создать связанную службу, можно использовать командлет **New-AzureRmDataFactoryLinkedService**. В этом командлете и в других командлетах фабрики данных, которые используются в этом учебнике, требуется передача значений для параметров **ResourceGroupName** и **DataFactoryName**. Кроме того, можно использовать командлет **Get-AzureRmDataFactory**, чтобы получить объект DataFactory и передать этот объект без необходимости ввода параметров ResourceGroupName и DataFactoryName при каждом запуске командлета. Выполните следующую команду, чтобы назначить выходные данные командлета **Get-AzureRmDataFactory** переменной **$df**. 
 
@@ -159,7 +159,7 @@
         John, Doe
 		Jane, Doe
 				
-2. При помощи таких средств, как [Обозреватель хранилища Azure](https://azurestorageexplorer.codeplex.com/), создайте контейнер **adftutorial** и загрузите файл **emp.txt** в этот контейнер.
+2. При помощи таких средств, как [обозреватель хранилища Azure](https://azurestorageexplorer.codeplex.com/), создайте контейнер **adftutorial** и загрузите файл **emp.txt** в этот контейнер.
 
     ![Обозреватель хранилищ Azure][image-data-factory-get-started-storage-explorer]
 3. Используйте следующий скрипт SQL, чтобы создать таблицу **emp** в базе данных SQL Azure.  
@@ -217,7 +217,7 @@
 	
 	Обратите внимание на следующее.
 	
-	- Для параметра **type** набора данных задано значение **AzureBlob**.
+	- для параметра **type** набора данных задано значение **AzureBlob**;
 	- Для **LinkedServiceName** задано значение **StorageLinkedService**. 
 	- В качестве значения **FolderPath** установлен контейнер **adftutorial**. 
 	- Для параметра **fileName** задано значение **emp.txt**. Если имя большого двоичного объекта не указано, данные из всех больших двоичных объектов в контейнере считаются входными данными.  
@@ -279,7 +279,7 @@
 
      Обратите внимание на следующее.
 	
-	* Для параметра **type** набора данных задано значение **AzureSqlTable**.
+	* Для параметра **type** набора данных задано значение **AzureSQLTable**.
 	* **LinkedServiceName** имеет значение **AzureSqlLinkedService**.
 	* **Tablename** имеет значение **emp**.
 	* В таблице emp базы данных имеются три столбца: **ID**, **FirstName** и **LastName**, но ID — это столбец идентификаторов, поэтому здесь необходимо задать только **FirstName** и **LastName**.
@@ -431,7 +431,6 @@
 [cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234.aspx
 [old-cmdlet-reference]: https://msdn.microsoft.com/library/azure/dn820234(v=azure.98).aspx
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[data-factory-create-storage]: ../storage-create-storage-account.md
 
 [adf-get-started]: data-factory-get-started.md
 [azure-portal]: http://portal.azure.com
@@ -440,7 +439,7 @@
 
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-monitor-manage-using-powershell/getstarted-storage-explorer.png
 
-[sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
+[sql-management-studio]: ../sql-database/sql-database-manage-azure-ssms.md
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Поддержка клиентов прежних версий хранилища данных SQL для аудита данных | Microsoft Azure" 
-	description="Сведения о поддержке клиентов прежних версий хранилища данных SQL для аудита данных" 
-	services="sql-data-warehouse" 
-	documentationCenter="" 
-	authors="twounder" 
-	manager="" 
-	editor=""/>
+   pageTitle="Поддержка клиентов прежних версий хранилища данных SQL для аудита данных | Microsoft Azure" 
+   description="Сведения о поддержке клиентов прежних версий хранилища данных SQL для аудита данных" 
+   services="sql-data-warehouse" 
+   documentationCenter="" 
+   authors="twounder" 
+   manager="" 
+   editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="10/06/2015" 
-	ms.author="twounder"/>
+   ms.service="sql-database" 
+   ms.workload="data-management" 
+   ms.tgt_pltfrm="na" 
+   ms.devlang="na" 
+   ms.topic="article" 
+   ms.date="01/04/2016" 
+   ms.author="twounder"/>
  
 # Хранилище данных SQL — поддержка клиентов прежних версий для аудита и динамического маскирования данных 
 
@@ -40,4 +40,4 @@
 
  
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/23/2015"
+   ms.date="01/04/2016"
    ms.author="barbkess;JRJ@BigBangData.co.uk;mausher;nicw"/>
 
 # Общие сведения о производительности и масштабируемости
@@ -53,11 +53,11 @@
 
 Приведенные ниже статьи помогут вам понять такие дополнительные ключевые концепции производительности и масштабируемости:
 
-- [производительность и масштабируемость][];
-- [модель параллелизма][];
-- [создание таблиц][];
-- [выбор ключа распределения хэша для таблицы][];
-- [статистика для повышения производительности][].
+- [производительность и масштабируемость;][]
+- [модель параллелизма;][]
+- [создание таблиц;][]
+- [выбор ключа распределения хэша для таблицы;][]
+- [статистика для повышения производительности.][]
 
 ## Дальнейшие действия
 Чтобы ознакомиться с рекомендациями по созданию собственного решения на основе хранилища данных SQL, обратитесь к статье, содержащей [общие сведения о разработке][].
@@ -66,15 +66,15 @@
 
 <!--Article references-->
 
-[производительность и масштабируемость]: sql-data-warehouse-performance-scale.md
-[модель параллелизма]: sql-data-warehouse-develop-concurrency.md
-[создание таблиц]: sql-data-warehouse-develop-table-design.md
-[выбор ключа распределения хэша для таблицы]: sql-data-warehouse-develop-hash-distribution-key
-[статистика для повышения производительности]: sql-data-warehouse-develop-statistics.md
+[производительность и масштабируемость;]: sql-data-warehouse-performance-scale.md
+[модель параллелизма;]: sql-data-warehouse-develop-concurrency.md
+[создание таблиц;]: sql-data-warehouse-develop-table-design.md
+[выбор ключа распределения хэша для таблицы;]: sql-data-warehouse-develop-hash-distribution-key
+[статистика для повышения производительности.]: sql-data-warehouse-develop-statistics.md
 [общие сведения о разработке]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other web references-->
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0107_2016-->

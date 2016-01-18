@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/16/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Создание приложений, использующих разделы и подписки служебной шины
@@ -148,6 +148,6 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 
 ## Дальнейшие действия
 
-Сведения об использовании очередей в сценарии розничных точек продаж см. в статье [Создание приложений, использующих разделы и подписки служебной шины](service-bus-create-topics-subscriptions.md).
+Сведения об использовании очередей в сценарии розничных точек продаж см. в статье [Создание приложений, использующих очереди служебной шины](service-bus-create-queues.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

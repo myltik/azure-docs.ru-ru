@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="09/17/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tarcher"/>
 
 # Приступая к работе с мобильным приложением Javascript после добавления мобильных служб Azure с помощью подключенных служб Visual Studio
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-mobile-services-javascript-getting-started.md)
-> - [What Happened](vs-mobile-services-javascript-what-happened.md)
 
 Первое действие, необходимое для использования этих примеров кода, зависит от типа мобильной службы, к которой вы подключились.
 
@@ -80,7 +76,7 @@
             todoItems.splice(todoItems.indexOf(item), 1, item);
         });
 
-#####Удаление записи
+##Удаление записи
 
 Удалите строку из таблицы данных. Вызовите метод [done]() для возвращенного объекта [Promise](https://msdn.microsoft.com/library/dn802826.aspx), чтобы получить копию вставленного объекта и обработать какие-либо ошибки.
 
@@ -92,4 +88,4 @@
 
 [Дополнительные сведения о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

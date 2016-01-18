@@ -2,7 +2,7 @@
     pageTitle="Руководство. Интеграция Azure Active Directory с Cherwell | Microsoft Azure" 
     description="Узнайте, как использовать Cherwell вместе с Azure Active Directory для реализации единого входа, автоматической подготовки пользователей и выполнения других задач." 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
     manager="stevenpo"/>
 <tags 
@@ -11,8 +11,8 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="10/20/2015" 
-    ms.author="markvi" />
+    ms.date="01/05/2016" 
+    ms.author="jeedes" />
 
 #Руководство. Интеграция Azure Active Directory с Cherwell
 
@@ -51,7 +51,7 @@
 
     ![Добавление приложения](./media/active-directory-saas-cherwell-tutorial/IC749321.png "Добавление приложения")
 
-5.  В диалоговом окне **Что необходимо сделать?** выберите **Добавить приложение из коллекции**.
+5.  В диалоговом окне **Что необходимо сделать?** нажмите **Добавить приложение из коллекции**.
 
     ![Добавить приложение из коллекции](./media/active-directory-saas-cherwell-tutorial/IC749322.png "Добавить приложение из коллекции")
 
@@ -79,7 +79,7 @@
     ![Настройка URL-адреса приложения](./media/active-directory-saas-cherwell-tutorial/IC798992.png "Настройка URL-адреса приложения")
 
     1.  В текстовом поле **URL-адрес единого входа** введите URL-адрес, используемый для входа в **Cherwell** (например: **https://pictdev.cherwellondemand.com/cherwellclient*).
-    2.  Нажмите кнопку **Далее**.
+2.  Нажмите кнопку **Далее**.
 
 4.  На странице **Настройка единого входа в Cherwell** выполните следующие действия.
 
@@ -115,10 +115,10 @@
 
     ![Назначить пользователей](./media/active-directory-saas-cherwell-tutorial/IC798995.png "Назначить пользователей")
 
-3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем **Да** для подтверждения назначения.
+3.  Выберите тестового пользователя, нажмите кнопку **Назначить**, а затем — **Да**, чтобы подтвердить назначение.
 
     ![Да](./media/active-directory-saas-cherwell-tutorial/IC767830.png "Да")
 
 Если вы хотите проверить параметры единого входа, откройте панель доступа. Дополнительные сведения о панели доступа см. в статье [Общие сведения о панели доступа](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

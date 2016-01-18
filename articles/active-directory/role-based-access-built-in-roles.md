@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="12/04/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 #RBAC: встроенные роли
@@ -133,9 +133,7 @@
 | **Действия** ||
 | ------- | ------ |
 | * | Создание ресурсов всех типов и управление ими |
-| ****Не действия |  |
-| Microsoft.Authorization/*/Write | Не может создавать роли и назначения ролей |
-| Microsoft.Authorization/*/Delete | Не может удалять роли и назначения ролей |
+| ****Не действия | | | Microsoft.Authorization/*/Write | Не может создавать роли и назначения ролей | | Microsoft.Authorization/*/Delete | Не может удалять роли и назначения ролей |
 
 ### Участник фабрики данных
 Может управлять фабриками данных
@@ -381,8 +379,7 @@
 
 | **Действия** ||
 | ------- | ------ |
-| */read | Чтение ресурсов всех типов, кроме секретов. |
-| Microsoft.Authorization/* | Авторизация на чтение |
+| */read | Чтение ресурсов всех типов, кроме секретов. | | Microsoft.Authorization/* | Авторизация на чтение |
 | Microsoft.Support/* | Создание запросов в службу поддержки и управление ими |
 
 ### Участник классической виртуальной машины
@@ -483,4 +480,4 @@
 ## Разделы о RBAC
 [AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!----HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->
