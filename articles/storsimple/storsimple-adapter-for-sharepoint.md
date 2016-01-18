@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="01/04/2016"
    ms.author="v-sharos" />
 
 # Установка и настройка адаптера StorSimple для SharePoint
@@ -197,7 +197,7 @@
 
 При удалении объектов с сайта SharePoint они не удаляются из тома хранилища RBS автоматически. Вместо этого асинхронная фоновая программа обслуживания удаляет потерянные большие двоичные объекты из файлового хранилища. Системные администраторы могут запланировать периодический запуск этого процесса или запускать его при необходимости.
 
-Программа обслуживания (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) автоматически устанавливается на всех интерфейсных веб-серверах SharePoint и серверах приложений при включении RBS. Программа устанавливается в следующий каталог: <boot drive>:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\.
+Программа обслуживания (Microsoft.Data.SqlRemoteBlobs.Maintainer.exe) автоматически устанавливается на всех интерфейсных веб-серверах SharePoint и серверах приложений при включении RBS. Программа устанавливается в следующий каталог: *загрузочный диск*:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\.
 
 Сведения о настройке и использовании программы обслуживания см. в разделе [Обслуживание RBS в SharePoint Server 2013][8].
 
@@ -308,4 +308,4 @@
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/ru-RU/library/ff943565.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

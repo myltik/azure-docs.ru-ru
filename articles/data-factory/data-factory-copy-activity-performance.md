@@ -218,10 +218,10 @@
 Ниже приведены некоторые справочные материалы по мониторингу и настройке производительности для нескольких поддерживаемых хранилищ данных.
 
 - Служба хранилища Azure (включая хранилища Blob-объектов Azure и таблиц Azure): [Целевые показатели масштабируемости службы хранилища](../storage/storage-scalability-targets.md) и [Контрольный список производительности и масштабируемости хранилища Azure](../storage//storage-performance-checklist.md).
-- База данных SQL Azure: вы можете [наблюдать за производительностью](../sql-database/sql-database-service-tiers.md?rnd=1#monitoring-performance) и проверять процент использования пропускной способности базы данных (DTU).
-- Хранилище данных SQL Azure: его возможности измеряются в единицах использования хранилища данных (DWU). См. статью [Эластичная производительность и масштабирование в хранилище данных SQL](../sql-data-warehouse/sql-data-warehouse-performance-scale/).
-- Azure DocumentDB: [Уровень производительности в DocumentDB](../documentdb/documentdb-performance-levels/).
+- База данных SQL Azure: вы можете [наблюдать за производительностью](../sql-database/sql-database-service-tiers.md#monitoring-performance) и проверять процент использования пропускной способности базы данных (DTU).
+- Хранилище данных SQL Azure: его возможности измеряются в единицах использования хранилища данных (DWU). См. статью [Эластичная производительность и масштабирование в хранилище данных SQL](../sql-data-warehouse/sql-data-warehouse-performance-scale.md).
+- Azure DocumentDB: [Уровень производительности в DocumentDB](../documentdb/documentdb-performance-levels.md).
 - Локальный SQL Server: [Мониторинг и настройка производительности](https://msdn.microsoft.com/library/ms189081.aspx).
 - Локальный файловый сервер: [Настройка производительности для файловых серверов](https://msdn.microsoft.com/library/dn567661.aspx).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

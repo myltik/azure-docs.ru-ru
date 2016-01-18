@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2015" 
+	ms.date="12/29/2015" 
 	ms.author="nitinme"/>
 
 
@@ -61,13 +61,13 @@
 
 	![страница мастера 2](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.create.event.hub2.png "Укажите размер раздела и срок хранения в днях для концентратора событий")
 
-4. Щелкните созданный концентратор событий, выберите **Настройка**, а затем создайте для него две политики доступа.
+4. Щелкните созданный концентратор событий, выберите **Настройка**, а затем создайте две политики доступа для концентратора событий.
 
 	<table>
 <tr><th>Имя</th><th>Разрешения</th></tr>
 <tr><td>mysendpolicy</td><td>Отправка</td></tr>
 <tr><td>myreceivepolicy</td><td>Прослушивание</td></tr>
-</table>После создания разрешений выберите значок **Сохранить** в нижней части страницы. При этом создаются политики общего доступа, которые будут использоваться для отправки (**mysendpolicy**) сообщений в этот концентратор событий и их прослушивания (**myreceivepolicy**).
+</table>После создания разрешений выберите значок **Сохранить** в нижней части страницы. При этом создаются политики совместного доступа, которые будут использоваться для отправки (**mysendpolicy**) сообщений в этот концентратор событий и их прослушивания (**myreceivepolicy**).
 
 	![политики](./media/hdinsight-apache-spark-eventhub-streaming/hdispark.streaming.event.hub.policies.png "Создание политик концентратора событий")
 
@@ -95,7 +95,7 @@
 
 ## Обновление приложения потоковой передачи Scala для приема событий
 
-Пример приложения Scala для приема событий и их перенаправления в различные назначения доступен по адресу [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples). Выполните действия ниже, чтобы обновить приложение и создать выходной JAR-файл.
+Пример приложения Scala для приема событий и их перенаправления в различные места назначения доступен по адресу [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples). Выполните действия ниже, чтобы обновить приложение и создать выходной JAR-файл.
 
 1. Запустите IntelliJ IDEA и на экране запуска щелкните **Check out from Version Control** («Извлечь из системы управления версиями») и выберите пункт **Git**.
 		
@@ -110,7 +110,7 @@
 
 	![Представление проекта](./media/hdinsight-apache-spark-eventhub-streaming/project-view.png)
 	
-2. Откройте узел pom.xml, чтобы убедиться, что используется правильная версия Spark. В узле <properties> найдите фрагмент кода ниже и проверьте версию Spark.
+4. Откройте узел pom.xml, чтобы убедиться, что используется правильная версия Spark. В узле <properties> найдите фрагмент кода ниже и проверьте версию Spark.
 
 		<scala.version>2.10.4</scala.version>
     	<scala.compat.version>2.10.4</scala.compat.version>
@@ -119,7 +119,7 @@
 
 	Убедитесь, что для параметра **spark.version** указано значение **1.5.1**.
 
-3. Для приложения требуется два JAR-файла зависимостей:
+5. Для приложения требуется два JAR-файла зависимостей:
 
 	* **JAR-файл для приема из концентратора событий**. Этот файл необходим для приема сообщений из концентратора событий в приложении Spark. Этот JAR-файл доступен в кластере Spark на платформе Linux в каталоге `/usr/hdp/current/spark-client/lib/spark-streaming-eventhubs-example-1.5.1.2.3.2.1-12-jar-with-dependencies.jar`. Его можно скопировать на локальный компьютер с помощью приложения командной строки PSCP.
 
@@ -128,22 +128,23 @@
 		В результате выполнения команды выше JAR-файл будет скопирован из кластера Spark на локальный компьютер.
 
 	* **JAR-файл драйвера JDBC**. Этот файл необходим для записи сообщений, полученных из концентратора событий, в базу данных SQL Azure. Этот JAR-файл версии 4.1 или более поздней можно скачать [здесь](https://msdn.microsoft.com/ru-RU/sqlserver/aa937724.aspx).
-
-	Добавьте ссылку на эти JAR-файлы в библиотеке проекта. Выполните следующие действия:
-
-	1. В окне IntelliJ IDEA, где открыто приложение, щелкните **File** («Файл»), выберите **Project Structure** («Структура проекта») и щелкните **Libraries** («Библиотеки»). 
-
-		![добавление отсутствующих зависимостей](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Добавление отсутствующих JAR-файлов зависимостей")
-
-		Щелкните значок «Добавить» (![добавление значка](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), выберите **Java** и перейдите в папку, куда вы скачали JAR-файл для приема из концентратора событий. Следуйте инструкциям, чтобы добавить JAR-файл в библиотеку проектов.
-
-	2. Повторите предыдущий шаг, чтобы добавить в библиотеку проекта JAR-файл драйвера JDBC.
 	
-		![добавление отсутствующих зависимостей](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Добавление отсутствующих JAR-файлов зависимостей")
 
-	3. Нажмите кнопку **Применить**.
+		Добавьте ссылку на эти JAR-файлы в библиотеке проекта. Выполните следующие действия:
 
-4. Создайте выходной JAR-файл. Выполните следующие действия:
+		1. В окне IntelliJ IDEA, где открыто приложение, щелкните **File** («Файл»), выберите **Project Structure** («Структура проекта») и щелкните **Libraries** («Библиотеки»). 
+
+			![добавление отсутствующих зависимостей](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Добавление отсутствующих JAR-файлов зависимостей")
+
+			Щелкните значок «Добавить» (![добавление значка](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), выберите **Java** и перейдите в папку, куда вы скачали JAR-файл для приема из концентратора событий. Следуйте инструкциям, чтобы добавить JAR-файл в библиотеку проектов.
+
+		1. Повторите предыдущий шаг, чтобы добавить в библиотеку проекта JAR-файл драйвера JDBC.
+	
+			![добавление отсутствующих зависимостей](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "Добавление отсутствующих JAR-файлов зависимостей")
+
+		1. Нажмите кнопку **Применить**.
+
+6. Создайте выходной JAR-файл. Выполните следующие действия:
 	1. В диалоговом окне **Project Structure** («Структура проекта») выберите **Artifacts** («Артефакты») и щелкните знак плюса. Во всплывающем диалоговом окне щелкните **JAR**, а затем выберите **From modules with dependencies** («На основе модулей с зависимостями»).
 
 		![Создание JAR-файла](./media/hdinsight-apache-spark-eventhub-streaming/create-jar-1.png)
@@ -350,7 +351,7 @@
 
 ### расширения.
 
-* [Использование записной книжки Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [Использование записных книжек Zeppelin с кластером Spark в HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
 * [Ядра, доступные для записной книжки Jupyter в кластере Spark в HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
@@ -369,4 +370,4 @@
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

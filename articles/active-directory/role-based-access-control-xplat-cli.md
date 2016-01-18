@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="01/04/2016"
 	ms.author="inhenk"/>
 
 # Управление доступом на основе ролей с помощью интерфейса командной строки Azure (Azure CLI) #
@@ -151,4 +151,4 @@ RBAC работает только с диспетчером ресурсов Az
 - [Настройка управления доступом на основе ролей с помощью Windows PowerShell](role-based-access-control-powershell.md)
 - [Устранение неполадок управления доступом на основе ролей](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -69,7 +69,7 @@
 	{
 	"username":"currentusername",
 	"password":"newpassword",
-	"expiration":"2016-01-01",
+	"expiration":"2016-01-01"
 	}
 
 Шаг 2. Запустите эту команду, подставив имя вашей виртуальной машины вместо "vmname".
@@ -82,7 +82,7 @@
 
 	{
 	"username":"currentusername",
-	"ssh_key":"contentofsshkey",
+	"ssh_key":"contentofsshkey"
 	}
 
 Шаг 2. Запустите эту команду, подставив имя вашей виртуальной машины вместо "vmname".
@@ -96,7 +96,7 @@
 	{
 	"username":"currentusername",
 	"ssh_key":"contentofsshkey",
-	"password":"newpassword",
+	"password":"newpassword"
 	}
 
 Шаг 2. Запустите эту команду, подставив имя вашей виртуальной машины вместо "vmname".
@@ -122,7 +122,7 @@
 Шаг 1. Создайте файл с именем PrivateConf.json с таким содержанием.
 
 	{
-	"reset_ssh":"True",
+	"reset_ssh":"True"
 	}
 
 Шаг 2. Запустите эту команду, подставив имя вашей виртуальной машины вместо "vmname".
@@ -136,7 +136,7 @@
 Шаг 1. Создайте файл с именем PrivateConf.json с таким содержимым, подставив значение заполнителя.
 
 	{
-	"remove_user":"usernametoremove",
+	"remove_user":"usernametoremove"
 	}
 
 Шаг 2. Запустите эту команду, подставив имя вашей виртуальной машины вместо "vmname".
@@ -266,4 +266,4 @@
 [Расширения и компоненты виртуальных машин Azure]: virtual-machines-extensions-features.md
 [Подключение к виртуальной машине Azure с помощью RDP или SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -14,7 +14,7 @@ description="Узнайте, как создавать и использоват
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/05/2015" 
+	ms.date="01/04/2016" 
 	ms.author="rasquill"/>
 
 #Использование SSH с Windows в Azure
@@ -48,7 +48,7 @@ description="Узнайте, как создавать и использоват
 Ниже приведены сценарии развертывания и типы используемых в них файлов.
 
 1. Ключи **ssh-rsa** нужны для любого развертывания с использованием [портала предварительной версии](https://portal.azure.com) независимо от модели развертывания.
-2. PEM-файл нужен для создания виртуальных машин с использованием [классического портала](https://manage.windowsazure.com). PEM-файлы также поддерживаются в классических развертываниях с использованием [интерфейса командной строки Azure](xplat-cli-install.md).
+2. PEM-файл нужен для создания виртуальных машин с использованием [классического портала](https://manage.windowsazure.com). PEM-файлы также поддерживаются в классических развертываниях с использованием [интерфейса командной строки Azure](../xplat-cli-install.md).
 
 > [AZURE.NOTE]Если вы планируете управлять службой, развернутой с помощью классической модели развертывания, может потребоваться создать **CER-**файл для передачи на портал, хотя это не связано с использованием протокола **ssh** или подключением к виртуальным машинам Linux, о которых идет речь в этой статье. Чтобы создать эти файлы на Linux или Mac, введите
 
@@ -70,21 +70,21 @@ description="Узнайте, как создавать и использоват
 
 > [AZURE.NOTE]При выполнении указанных команд `openssl` может возникнуть следующая ошибка.
 
-			Unable to load config info from /usr/local/ssl/openssl.cnf
-	<!-- -->
-		The easiest way to resolve this is to set the `OPENSSL_CONF` environment variable. The process for setting this variable will vary depending on the shell that you have configured in Github:
-	<!-- -->
-		**Powershell:**
-	<!-- -->
-			$Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
-	<!-- -->
-		**CMD:**
-	<!-- -->
-			set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
-	<!-- -->
-		**Git Bash:**
-	<!-- -->
-			export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
+        Unable to load config info from /usr/local/ssl/openssl.cnf
+
+Наиболее простым решением этой проблемы будет задать переменную среды `OPENSSL_CONF`. Процесс задания этой переменной будет зависеть от настроенной вами в Github оболочки:
+
+**Powershell:**
+
+        $Env:OPENSSL_CONF="$Env:GITHUB_GIT\ssl\openssl.cnf"
+
+**CMD:**
+
+        set OPENSSL_CONF=%GITHUB_GIT%\ssl\openssl.cnf
+
+**Git Bash:**
+
+        export OPENSSL_CONF=$GITHUB_GIT/ssl/openssl.cnf
 	
 
 ###Использование Cygwin###
@@ -155,4 +155,4 @@ description="Узнайте, как создавать и использоват
 5.	Щелкните **Открыть**, чтобы подключится к виртуальной машине.
  
 
-<!---HONumber=Nov15_HO1-->
+<!---HONumber=AcomDC_0107_2016-->

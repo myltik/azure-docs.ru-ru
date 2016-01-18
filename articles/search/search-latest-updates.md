@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="11/04/2015" 
+	ms.date="12/23/2015" 
 	ms.author="heidist"/>
 
 #Обзор последнего обновления Поиска Azure#
@@ -53,7 +53,7 @@
 Исключены:
 
 - [Индексаторы](http://go.microsoft.com/fwlink/p/?LinkId=528173) (этот компонент больше не исключен в версии 0.10.0-preview).
-- [Интерфейс API REST для управления](https://msdn.microsoft.com/library/azure/dn832684.aspx).
+- [Интерфейс API REST для управления.](https://msdn.microsoft.com/library/azure/dn832684.aspx)
 - Компоненты версии [2015-02-28-Preview](search-api-2015-02-28-Preview.md) (в настоящий момент компоненты предварительной версии включают обработчики естественного языка Майкрософт и `moreLikeThis`).
 
 Руководство по установке и использованию пакета SDK см. в статье [Использование Поиска Azure в .NET](http://go.microsoft.com/fwlink/p/?LinkId=528088).
@@ -125,4 +125,4 @@
 
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

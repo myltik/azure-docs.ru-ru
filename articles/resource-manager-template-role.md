@@ -1,6 +1,6 @@
 <properties
    pageTitle="Шаблон диспетчера ресурсов для назначения ролей | Microsoft Azure"
-   description="Показывает схему диспетчера ресурсов для создания назначения ролей во время развертывания."
+   description="Демонстрирует схему диспетчера ресурсов для развертывания назначения ролей с помощью шаблона."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="11/10/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
 # Назначения ролей — схема шаблона
@@ -58,7 +58,7 @@
 | scope | string | Да | Для группы ресурсов:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}**<br /><br />Для ресурса:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** | Область, в которой применяется это назначение роли. |
 
 
-## Использование ресурса блокировки
+## Использование ресурсов назначения роли
 
 Вы добавляете назначение ролей к шаблону, если нужно добавить к роли пользователя, группу или субъекта-службу во время развертывания. Назначения ролей наследуются с более высоких уровней области, поэтому если субъект уже добавлен к роли на уровне подписки, то не нужно повторно назначать его для группы ресурсов или ресурса.
 
@@ -119,10 +119,17 @@
         "outputs": {}
     }
 
+## Шаблоны быстрого запуска
+
+Следующие шаблоны демонстрируют использование ресурса назначения роли:
+
+- [Назначение встроенной роли группе ресурсов](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-resourcegroup)
+- [Назначение встроенной роли существующей виртуальной машине](https://github.com/Azure/azure-quickstart-templates/tree/master/101-rbac-builtinrole-virtualmachine)
+- [Назначение встроенной роли нескольким существующим виртуальным машинам](https://github.com/Azure/azure-quickstart-templates/tree/master/201-rbac-builtinrole-multipleVMs)
 
 ## Дальнейшие действия
 
 - Сведения о структуре шаблона см. в разделе [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 - Дополнительные сведения об управлении доступом на основе ролей см. в статье [Контроль доступа на основе ролей в Azure Active Directory](active-directory/role-based-access-control-configure.md).
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

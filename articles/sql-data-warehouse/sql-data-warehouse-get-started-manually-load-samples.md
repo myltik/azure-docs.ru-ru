@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="11/02/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm;barbkess"/>
 
 #Загрузка образца данных в хранилище данных SQL
@@ -84,4 +84,4 @@
 <!--Other Web references-->
 [примеры сценариев Adventure Works для хранилища данных SQL]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksSQLDW2012.zip
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0107_2016-->

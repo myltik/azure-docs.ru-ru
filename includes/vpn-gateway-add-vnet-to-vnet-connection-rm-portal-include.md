@@ -1,11 +1,13 @@
-When adding a VNet-to-VNet connection, verify that both of your virtual networks have a virtual network gateway and that your virtual networks do not have any overlapping address ranges.
+При добавлении подключения "сеть-сеть" убедитесь, что обе виртуальные сети имеют виртуальный сетевой шлюз и что диапазоны адресов виртуальных сетей не перекрываются.
 
-1. From the **Virtual networks** blade, locate your virtual network and click to open the blade. On the blade, you will see your gateway listed as a *Connected device*. You can also configure settings directly from your virtual network gateway without first expanding the VNet.
-2. From the virtual network gateway settings, click **Connections**, and then **Add**.
-3. **Name** your Connection. 
-4. For **Connection type**, select **VNet-to-VNet**
-5. For **Virtual network gateway**, the value is fixed because you are connecting from this gateway.
-6. For **Second virtual network gateway**, select the gateway you want to create a connection to from this gateway.
-8. The remaining values for **Subscription**, **Resource Group**, and **Location** are fixed.
-9. Click **OK** to create your connection. You'll see *Creating Connection* flash on the screen.
-10. When the connection is complete, you'll see it appear in the **Connections** blade for your Gateway.
+1. В колонке **Виртуальные сети** найдите виртуальную сеть и щелкните, чтобы открыть колонку. В колонке вы увидите свой шлюз с пометкой *Подключенное устройство*. Также можно настроить параметры непосредственно из виртуального сетевого шлюза, не разворачивая виртуальную сеть.
+2. В параметрах виртуального сетевого шлюза щелкните **Подключения**, а затем **Добавить**.
+3. Укажите **Имя** для своего подключения. 
+4. В качестве **Типа подключения** выберите **Сеть-сеть**.
+5. Значение параметра **Виртуальный сетевой шлюз** является фиксированным, так как вы подключаетесь из этого шлюза.
+6. В поле **Второй виртуальный сетевой шлюз** выберите шлюз, с которым необходимо создать подключение из этого шлюза.
+8. Значения остальных параметров **Подписка**, **Группа ресурсов** и **Расположение** являются фиксированными.
+9. Щелкните **ОК** для создания подключения. На экране появится надпись *Создание подключения*.
+10. После создания подключения оно появится в колонке **Подключения** для шлюза.
+
+<!---HONumber=AcomDC_0107_2016-->

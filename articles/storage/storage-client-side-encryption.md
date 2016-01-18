@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/07/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tamram"/>
 
 
@@ -244,9 +244,9 @@
 
 ## Дальнейшие действия
 
-Скачайте [клиентскую библиотеку службы хранилища Azure для пакета NuGet для .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0).
-Скачайте [клиентскую библиотеку хранилища Azure для исходного кода .NET](https://github.com/Azure/azure-storage-net) из GitHub.
-Скачайте пакеты NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) и [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/)
-для хранилища ключей Azure. Просмотрите [документацию по хранилищу ключей Azure](../articles/key-vault-whatis.md).
+Скачайте [клиентскую библиотеку службы хранилища Azure для пакета NuGet для .NET](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0). 
+Скачайте [клиентскую библиотеку хранилища Azure для исходного кода .NET](https://github.com/Azure/azure-storage-net) из GitHub. 
+Скачайте пакеты NuGet [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) и [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) для хранилища ключей Azure. 
+Просмотрите [документацию по хранилищу ключей Azure](../articles/key-vault-whatis.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

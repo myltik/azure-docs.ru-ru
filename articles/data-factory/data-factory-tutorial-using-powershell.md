@@ -31,7 +31,7 @@ Contoso — это компания, которая создает игры дл
 
 	В этой статье рассматриваются не все командлеты фабрики данных. Полную документацию по командлетам фабрики данных см. в [справочнике по командлетам фабрики данных](https://msdn.microsoft.com/library/dn820234.aspx).
     
-	Если вы используете версию Azure PowerShell **более раннюю, чем 1.0**, используйте командлеты, описанные [здесь][old-cmdlet-reference]. Перед использованием командлетов фабрики данных также потребуется выполнить следующие команды:
+	Если вы используете Azure PowerShell **более ранней версии, чем 1.0**, используйте командлеты, описанные [здесь][old-cmdlet-reference]. Перед использованием командлетов фабрики данных также потребуется выполнить следующие команды:
 
 	1. Выполните командлет **Add-AzureAccount** и введите имя пользователя и пароль, которые используются для входа на портал Azure.
 	2. Выполните командлет **Get-AzureSubscription**, чтобы просмотреть все подписки для этой учетной записи.
@@ -131,7 +131,7 @@ Contoso — это компания, которая создает игры дл
 	
 	Или вы можете использовать файлы в папке C:\\ADFWalkthrough\\Scripts для отправки сценариев или примеров файлов Pig либо Hive в контейнер adfwalkthrough в хранилище больших двоичных объектов. Кроме того, вы можете создать таблицу MarketingCampaignEffectiveness в базе данных MarketingCamapaigns Azure SQL.
    
-2. Убедитесь, что вашему локальному компьютеру разрешен доступ к базе данных SQL Azure. Чтобы разрешить доступ, примените [классический портал Azure](http://manage.windowsazure.com) или процедуру **sp\_set\_firewall\_rule** в базе данных master, чтобы создать правило брандмауэра для IP-адреса своего компьютера. Может потребоваться до пяти минут, чтобы это изменение вступило в силу. См. раздел [Настройка правил брандмауэра для SQL Azure][azure-sql-firewall].
+2. Убедитесь, что вашему локальному компьютеру разрешен доступ к базе данных SQL Azure. Чтобы разрешить доступ, используйте [классический портал Azure](http://manage.windowsazure.com) или процедуру **sp\_set\_firewall\_rule** в базе данных master, чтобы создать правило брандмауэра для IP-адреса вашего компьютера. Может потребоваться до пяти минут, чтобы это изменение вступило в силу. См. раздел [Настройка правил брандмауэра для SQL Azure][azure-sql-firewall].
 4. В Azure PowerShell перейдите в расположение, в которое вы извлекли примеры файлов (например, **C:\\ADFWalkthrough**).
 5. Запустите **uploadSampleDataAndScripts.ps1**. 
 6. Если сценарий выполнится успешно, вы увидите следующее:
@@ -454,16 +454,6 @@ Contoso — это компания, которая создает игры дл
 [image-data-factory-tutorial-analyze-marketing-campaign-pipeline]: ./media/data-factory-tutorial-using-powershell/AnalyzeMarketingCampaignPipeline.png
 
 
-[image-data-factory-tutorial-egress-to-onprem-pipeline]: ./media/data-factory-tutorial-using-powershell/EgreeDataToOnPremPipeline.png
-
-[image-data-factory-tutorial-set-firewall-rules-azure-db]: ./media/data-factory-tutorial-using-powershell/SetFirewallRuleForAzureDatabase.png
-
-[image-data-factory-tutorial-portal-new-everything]: ./media/data-factory-tutorial-using-powershell/PortalNewEverything.png
-
-[image-data-factory-tutorial-datastorage-cache-backup]: ./media/data-factory-tutorial-using-powershell/DataStorageCacheBackup.png
-
-[image-data-factory-tutorial-dataservices-blade]: ./media/data-factory-tutorial-using-powershell/DataServicesBlade.png
-
 [image-data-factory-tutorial-new-datafactory-blade]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryBlade.png
 
 [image-data-factory-tutorial-resourcegroup-blade]: ./media/data-factory-tutorial-using-powershell/ResourceGroupBlade.png
@@ -514,10 +504,6 @@ Contoso — это компания, которая создает игры дл
 
 [image-data-factory-monitoring-activity-run-details]: ./media/data-factory-tutorial-using-powershell/MonitoringActivityRunDetails.png
 
-[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-using-powershell/DataManagementGatewayConfigurationManager.png
-
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial-using-powershell/NewDataFactoryMenu.png
 
-[image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
-
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

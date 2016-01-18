@@ -1,6 +1,6 @@
 <properties
    pageTitle="Шаблон диспетчера ресурсов для блокировок ресурсов | Microsoft Azure"
-   description="Показана схема диспетчера ресурсов для блокировок ресурсов."
+   description="Демонстрирует схему диспетчера ресурсов для развертывания блокировок ресурсов с помощью шаблона."
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/25/2015"
+   ms.date="01/04/2016"
    ms.author="tomfitz"/>
 
 # Блокировки ресурсов — схема шаблона
@@ -135,4 +135,4 @@
 - Сведения о структуре шаблона см. в разделе [Создание шаблонов диспетчера ресурсов Azure](resource-group-authoring-templates.md).
 - Дополнительные сведения о блокировках см. в разделе [Блокировка ресурсов с использованием диспетчера ресурсов Azure](resource-group-lock-resources.md).
 
-<!----HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0107_2016-->

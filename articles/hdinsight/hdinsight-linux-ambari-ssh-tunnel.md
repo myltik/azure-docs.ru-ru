@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="11/02/2015"
+ms.date="01/05/2015"
 ms.author="larryfr"/>
 
 #Использование туннелирования SSH для доступа к веб-интерфейсу Ambari, ResourceManager, JobHistory, NameNode, Oozie и другим веб-интерфейсам
@@ -44,7 +44,7 @@ ms.author="larryfr"/>
 
 При использовании туннеля SSH для веб-трафика необходимо иметь следующее:
 
-* Клиент SSH. В дистрибутивах Linux и Unix и Macintosh OS X команда `ssh` входит в состав операционной системы. Для Windows рекомендуем воспользоваться [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+* Клиент SSH. В дистрибутивах Linux и Unix и Macintosh OS X команда `ssh` входит в состав операционной системы. Для Windows рекомендуем воспользоваться [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 	> [AZURE.NOTE]Если вы планируете использовать клиент SSH, отличный от `ssh` или PuTTY, обратитесь к документации своего клиента за информацией о настройке туннеля SSH.
 
@@ -149,6 +149,11 @@ ms.author="larryfr"/>
 	* **Шаблон URL-адреса** — ***internal.cloudapp.net***. Определяет шаблон, который соответствует внутреннему полному доменному имени узлов кластера.
 
 	![шаблон FoxyProxy](./media/hdinsight-linux-ambari-ssh-tunnel/foxypattern.png)
+    
+    Если вы используете Storm в кластере HDInsight, следует также добавить шаблон со следующими значениями:
+    
+    * **Имя шаблона** — **worker nodes**
+    * **Шаблон URL-адреса** — ***10.0.0***. Позволяет пользовательскому интерфейсу Storm получать доступ к данным в рабочих узлах по IP-адресу.
 
 4. Нажмите кнопку **ОК**, чтобы добавить прокси-сервер и закрыть окно **Параметры прокси-сервера**.
 
@@ -197,4 +202,4 @@ ms.author="larryfr"/>
 
 * [Использование SSH с Hadoop под управлением Linux в HDInsight в Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-<!---HONumber=Nov15_HO2-->
+<!---HONumber=AcomDC_0107_2016-->

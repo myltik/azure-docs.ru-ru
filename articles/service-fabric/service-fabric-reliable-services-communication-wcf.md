@@ -1,6 +1,6 @@
 <properties
    pageTitle="Стек связи WCF Reliable Services | Microsoft Azure"
-   description="Встроенный стек связи WCF в Services Fabric обеспечивает связь со службой клиента WCF для Reliable Services."
+   description="Встроенный стек связи WCF в Service Fabric обеспечивает связь со службой клиента WCF для Reliable Services."
    services="service-fabric"
    documentationCenter=".net"
    authors="BharatNarasimman"
@@ -16,11 +16,11 @@
    ms.date="11/17/2015"
    ms.author="bharatn@microsoft.com"/>
 
-# Стек связи на основе WCF для надежных служб
-Платформа надежных служб позволяет разработчикам служб решать, какой стек связи следует использовать в службе. Любой стек связи можно подключить с помощью команды `ICommunicationListener`, возвращаемой методами [CreateServiceReplicaListeners или CreateServiceInstanceListeners](service-fabric-reliable-service-communication.md). Платформа предоставляет реализацию стека связи на основе WCF для разработчиков служб, которым требуется использовать связь на основе WCF.
+# Коммуникационный стек WCF для надежных служб
+Платформа надежных служб Reliable Services позволяет разработчикам служб решать, какой стек связи следует использовать в службе. Любой стек связи можно подключить с помощью интерфейса **ICommunicationListener**, возвращаемого методами [CreateServiceReplicaListeners или CreateServiceInstanceListeners](service-fabric-reliable-service-communication.md). Платформа предоставляет реализацию стека связи на основе Windows Communication Foundation (WCF) для разработчиков служб, которым требуется использовать связь на основе WCF.
 
 ## Прослушиватель связи WCF
-Ориентированная на WCF реализация `ICommunicationListener` предоставляется классом `Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener`.
+Реализация интерфейса **ICommunicationListener**, ориентированная на WCF, обеспечивается классом **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener**.
 
 ```csharp
 
@@ -32,7 +32,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
         {
             //
             // The name of the endpoint configured in the ServiceManifest under the Endpoints section
-            // which identifies the endpoint that the wcf servicehost should listen on.
+            // that identifies the endpoint that the WCF ServiceHost should listen on.
             //
             EndpointResourceName = "ServiceEndpoint",
 
@@ -47,7 +47,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 ```
 
 ## Написание клиентов для стека связи WCF
-Для написания клиентов для взаимодействия со службами с помощью WCF платформа предоставляет `WcfClientCommunicationFactory` — ориентированную на WCF реализацию [`ClientCommunicationFactoryBase`](service-fabric-reliable-service-communication.md).
+Для написания клиентов для взаимодействия со службами с помощью WCF платформа предоставляет объект **WcfClientCommunicationFactory**, который является ориентированной на WCF реализацией [ClientCommunicationFactoryBase](service-fabric-reliable-service-communication.md).
 
 ```csharp
 
@@ -60,7 +60,7 @@ public WcfCommunicationClientFactory(
 
 ```
 
-Доступ к каналу связи WCF можно получить из объекта `WcfCommunicationClient`, созданного `WcfCommunicationClientFactory`
+К каналу связи WCF можно обращаться из клиента **WcfCommunicationClient**, созданного объектом **WcfCommunicationClientFactory**.
 
 ```csharp
 
@@ -72,7 +72,7 @@ public class WcfCommunicationClient<TChannel> : ICommunicationClient where TChan
 
 ```
 
-Чтобы определить конечную точку службы и обеспечить взаимодействие со службой, в клиентском коде можно использовать `WcfCommunicationClientFactory` вместе с `ServicePartitionClient`.
+Клиентский код может использовать **WcfCommunicationClientFactory** вместе с **ServicePartitionClient** для определения конечной точки службы и взаимодействия со службой.
 
 ```csharp
 
@@ -90,11 +90,11 @@ var clientFactory = new WcfCommunicationClientFactory<ICalculator>(
     serviceResolver,// ServicePartitionResolver
     binding,        // Client binding
     null,           // Callback object
-    null);          // donot retry Exception types
+    null);          // do not retry Exception types
 
 
 //
-// Create a client for communicating with the calc service which has been created with
+// Create a client for communicating with the calc service that has been created with the
 // Singleton partition scheme.
 //
 var calculatorServicePartitionClient = new ServicePartitionClient<WcfCommunicationClient<ICalculator>>(
@@ -108,10 +108,10 @@ var result = calculatorServicePartitionClient.InvokeWithRetryAsync(
     client => client.Channel.AddAsync(2, 3)).Result;
 
 ```
- 
+
 ## Дальнейшие действия
 * [Удаленный вызов процедур с использованием удаленного взаимодействия Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 
 * [Веб-интерфейс API с OWIN в Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0107_2016-->

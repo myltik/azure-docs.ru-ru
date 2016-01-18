@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/01/2015"
+   ms.date="01/05/2016"
    ms.author="curtand;kenhoff"/>
 
 # Приступая к работе со средством создания отчетов Azure Active Directory
@@ -156,4 +156,4 @@ Azure Active Directory (Azure AD) формирует отчеты о безоп�
 
 > [AZURE.TIP]Дополнительную документацию по Azure AD Reporting см. в статье [Просмотр отчетов о доступе и использовании](active-directory-view-access-usage-reports.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

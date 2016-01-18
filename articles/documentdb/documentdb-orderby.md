@@ -125,7 +125,7 @@ DocumentDB поддерживает сортировку по одиночном
         });
 
 ## Примеры
-Обратите внимание на этот [проект образцов Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy), который показывает, как использовать Order By, включая создание политик индексации и разбиение по страницам с помощью Order By. Образцы содержат открытый исходный код, и мы рекомендуем вам отправлять запросы с материалами, которые могут принести пользу другим разработчикам DocumentDB. Инструкции о том, как принять участие, см. в разделе [Рекомендации по участию](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md).
+Обратите внимание на этот [проект образцов Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries), который показывает, как использовать Order By, включая создание политик индексации и разбиение по страницам с помощью Order By. Образцы содержат открытый исходный код, и мы рекомендуем вам отправлять запросы с материалами, которые могут принести пользу другим разработчикам DocumentDB. Инструкции о том, как принять участие, см. в разделе [Рекомендации по участию](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md).
 
 ## Что дальше?
 
@@ -168,13 +168,13 @@ DocumentDB поддерживает сортировку по одиночном
 
 ## Дальнейшие действия
 
-Скопируйте [проект образцов Github](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy) и запустите упорядочение данных!
+Скопируйте [проект образцов Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) и запустите упорядочение данных!
 
 ## Ссылки
 * [Справочник по запросам DocumentDB](documentdb-sql-query.md)
 * [Справочник по политике индексации DocumentDB](documentdb-indexing-policies.md)
 * [Справочник по языку SQL DocumentDB](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-* [Образцы Order By в DocumentDB](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/Queries.OrderBy)
+* [Образцы Order By в DocumentDB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries)
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

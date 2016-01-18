@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="12/15/2015"
+	ms.date="01/05/2016"
 	ms.author="spelluru"/>
 
 # Использование настраиваемых действий в конвейере фабрики данных Azure
@@ -66,7 +66,7 @@
 	- **linkedServices** — это перечисляемый список связанных служб, которые связывают источники входных и выходных данных (например, хранилище BLOB-объектов Azure) с фабрикой данных. В этом примере присутствует только одна связанная служба (служба хранилища Azure), которая используется для входных и выходных данных. 
 	- **datasets** — это перечисляемый список наборов данных. Этот параметр можно использовать для получения расположений и схем, которые определяются входными и выходными наборами данных.
 	- **activity** — этот параметр представляет текущую вычислительную сущность (в этом примере — Azure HDInsight).
-	- **logger** — средство ведения журнала позволяет писать комментарии отладки, которые отобразятся в виде пользовательского журнала для конвейера. 
+	- **logger** — средство ведения журнала позволяет записывать комментарии отладки, которые отобразятся в виде пользовательского журнала для конвейера. 
 
 - Этот метод возвращает словарь, который можно использовать для создания цепочки из пользовательских действий. В этом примере решения мы не будем использовать эту функцию.
 
@@ -126,6 +126,18 @@
             Activity activity,
             IActivityLogger logger)
         {
+			// to get extended properties (for example: SliceStart)
+			DotNetActivity dotNetActivity = (DotNetActivity)activity.TypeProperties;
+            string sliceStartString = dotNetActivity.ExtendedProperties["SliceStart"];
+
+			// to log all extended properties			
+			IDictionary<string, string> extendedProperties = dotNetActivity.ExtendedProperties;
+			logger.Write("Logging extended properties if any...");
+			foreach (KeyValuePair<string, string> entry in extendedProperties)
+			{
+				logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
+			}
+		
 
             // declare types for input and output data stores
             AzureStorageLinkedService inputLinkedService;
@@ -360,7 +372,7 @@
 
 ## Создание фабрики данных
 
-В разделе **Создание пользовательского действия** вы создали пользовательское действие и отправили ZIP-файл с двоичными файлами и PDB-файлом в контейнер больших двоичных объектов Azure. В этом разделе вы создадите **фабрику данных** Azure с **конвейером**, который использует **пользовательское действие**.
+В разделе **Создание настраиваемого действия** вы создали настраиваемое действие и отправили ZIP-файл с двоичными файлами и PDB-файлом в контейнер больших двоичных объектов Azure. В этом разделе вы создадите **фабрику данных** Azure с **конвейером**, который использует **настраиваемое действие**.
  
 Входной набор данных для пользовательского действия представляет собой большие двоичные объекты (файлы) во входной папке (mycontainer\\inputfolder) в хранилище BLOB-объектов. Выходной набор данных для пользовательского действия представляет собой выходные большие двоичные объекты в выходной папке (mycontainer\\outputfolder) в хранилище BLOB-объектов.
 
@@ -401,7 +413,7 @@
 
 #### Создание связанной службы хранения Azure
 
-1.	В колонке **Фабрика данных** для **CustomActivityFactory** щелкните элемент **Создание и развертывание**. Откроется редактор фабрики данных.
+1.	В колонке **ФАБРИКА ДАННЫХ** для **CustomActivityFactory** щелкните элемент **Создание и развертывание**. Откроется редактор фабрики данных.
 2.	На панели команд щелкните **Создание хранилища данных** и выберите **Служба хранилища Azure**. В редакторе отобразится сценарий JSON для создания связанной службы хранилища Azure.
 3.	Замените **account name** именем своей учетной записи хранения Azure, а **account key** — ключом доступа к учетной записи хранения Azure. Сведения о получении ключа доступа к хранилищу см. в разделах о [просмотре, копировании и повторном создании ключей доступа к хранилищу](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 4.	Чтобы развернуть эту службу, нажмите кнопку **Развернуть** на панели команд.
@@ -627,7 +639,7 @@
 
 	В файле inputfolder/2015-11-16-00/file.txt найдено 2 вхождения условия поиска Microsoft.
 
-10.	Используйте [портал Azure][azure-preview-portal] или командлеты Azure PowerShell для отслеживания состояния фабрики данных, конвейеров и наборов данных. Вы можете просмотреть сообщения **ActivityLogger** в коде для пользовательского действия в журналах (а именно — user-0.log), которые можно скачать на портале или с помощью командлетов.
+10.	Используйте [портал Azure][azure-preview-portal] или командлеты Azure PowerShell для отслеживания состояния фабрики данных, конвейеров и наборов данных. Вы можете просматривать сообщения **ActivityLogger** о настраиваемом действии в журналах (а именно — user-0.log), которые можно скачать на портале или с помощью командлетов.
 
 	![скачивание журналов из настраиваемого действия][image-data-factory-download-logs-from-custom-activity]
 
@@ -657,6 +669,37 @@
 ## Обновление пользовательского действия
 Если вы обновляете код для настраиваемого действия, создайте его и отправьте ZIP-файл, содержащий новые двоичные файлы, в службу хранилища больших двоичных объектов.
 
+## Доступ к расширенным свойствам
+Вы можете объявить расширенные свойства в действии JSON, как показано ниже.
+
+	"typeProperties": {
+	  "AssemblyName": "MyDotNetActivity.dll",
+	  "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
+	  "PackageLinkedService": "StorageLinkedService",
+	  "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
+	  "extendedProperties": {
+	    "SliceStart": "$$Text.Format('{0:yyyyMMddHH-mm}', Time.AddMinutes(SliceStart, 0))",
+		"DataFactoryName": "CustomActivityFactory"
+	  }
+	},
+
+В приведенном выше примере имеются два расширенных свойства: **SliceStart** и **DataFactoryName**. Значение свойства SliceStart основано на системной переменной SliceStart. Список поддерживаемых системных переменных см. в разделе [Системные переменные](data-factory-scheduling-and-execution.md#data-factory-system-variables). Значение свойства DataFactoryName жестко задано как CustomActivityFactory.
+
+Для доступа к этим расширенным свойствам в методе **Execute** используйте код, аналогичный приведенному ниже:
+
+	// to get extended properties (for example: SliceStart)
+	DotNetActivity dotNetActivity = (DotNetActivity)activity.TypeProperties;
+	string sliceStartString = dotNetActivity.ExtendedProperties["SliceStart"];
+
+	// to log all extended properties                               
+    IDictionary<string, string> extendedProperties = dotNetActivity.ExtendedProperties;
+    logger.Write("Logging extended properties if any...");
+    foreach (KeyValuePair<string, string> entry in extendedProperties)
+    {
+    	logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
+	}
+
+
 ## <a name="AzureBatch"></a>Использование связанной пакетной службы Azure
 > [AZURE.NOTE]В статье [Основные сведения о пакетной службе Azure][batch-technical-overview] представлен обзор пакетной службы Azure, а статья [Начало работы с библиотекой Пакетной службы Azure для .NET][batch-get-started] поможет быстро начать работу с пакетной службой Azure.
 
@@ -674,7 +717,7 @@
 1. На [портале Azure](http://manage.windowsazure.com) создайте учетную запись пакетной службы Azure. Инструкции см. в статье [Создание учетной записи пакетной службы Azure и управление ею][batch-create-account]. Запишите ключ и имя учетной записи Пакетной службы Azure.
 
 	Для создания учетной записи Пакетной службы Azure можно также воспользоваться командлетом [New-AzureBatchAccount][new-azure-batch-account]. Подробные инструкции по использованию этого командлета см. в записи блога [Использование Azure PowerShell для управления учетной записью Пакетной службы Azure][azure-batch-blog].
-2. Создайте пул Пакетной службы Azure. Для этого можно скачать исходный код [обозревателя пакетной службы Azure][batch-explorer], скомпилировать и использовать его или воспользоваться [библиотекой пакетной службы Azure для .NET][batch-net-library]. Пошаговые инструкции по использованию обозревателя Пакетной службы Azure приведены в записи блога [Пошаговое руководство по обозревателю Пакетной службы Azure][batch-explorer-walkthrough].
+2. Создайте пул Пакетной службы Azure. Для этого можно скачать исходный код [инструмента Azure Batch Explorer][batch-explorer], выполнить компиляцию и использовать его или воспользоваться [библиотекой пакетной службы Azure для .NET][batch-net-library]. Пошаговые инструкции по использованию обозревателя Пакетной службы Azure приведены в записи блога [Пошаговое руководство по обозревателю Пакетной службы Azure][batch-explorer-walkthrough].
 
 	Для создания пула пакетной службы Azure можно также воспользоваться командлетом [New-AzureRmBatchPool](https://msdn.microsoft.com/library/mt628690.aspx).
 
@@ -760,4 +803,4 @@
 
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

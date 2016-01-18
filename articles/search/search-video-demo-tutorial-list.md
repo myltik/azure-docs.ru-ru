@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Видео, примеры и руководства, в которых описывается использование Поиска Azure | Microsoft Azure | Размещенная облачная служба поиска"
+	pageTitle="Видео, примеры и руководства, в которых описывается использование поиска Azure | Microsoft Azure | Размещенная облачная служба поиска"
 	description="Центральный список всех видеороликов, примеров, демонстраций и руководств, созданных для Поиска Azure — размещенной облачной службы в Microsoft Azure."
 	services="search"
 	documentationCenter=""
@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="11/04/2015"
+	ms.date="12/23/2015"
 	ms.author="heidist"/>
 
 #Службы поиска Azure: учебники, видео, демоверсии и примеры
@@ -67,32 +67,35 @@
 [Учебник по созданию профиля повышения](search-get-started-scoring-profiles.md)|Тестовый выпуск профиля повышения с помощью консольного приложения.
 [Учебник по API REST управления службой поиска Azure](search-get-started-management-api.md)|Как использовать API REST управления для подготовки службы и управления ключами API администрирования или запросов.
 
-##Примеры кода
+##Сайты с примерами кода
 
-[****https://github.com/liamca/AzureSearchDemos**](https://github.com/liamca/AzureSearchDemos) — это репозиторий GitHub, который содержит примеры кода, созданные Лиэмом Кавана (Liam Cavanagh). В этом репозитории можно найти следующие примеры:
+На следующих сайтах представлены примеры кода для службы поиска Azure:
 
-- [AdventureWorksWP8]() — это приложение для Windows Phone.
-- [AzSearchAutoScaleWeb](https://github.com/liamca/AzureSearchDemos/tree/master/AzSearchAutoScaleWeb) 
-- [BabyNameJS](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS) — это файл index.html, который предоставляет данные в руководстве.
-- [DotNetSample](https://github.com/liamca/AzureSearchDemos/tree/master/DotNetSample) представляет собой приложение ASP.NET MVC для службы "Поиск Azure".
-- [NYCJobs.NET](https://github.com/liamca/AzureSearchDemos/tree/master/NYCJobs.NET) содержит исходный код для демонстрационного веб-сайта NYCJobs.
-- [Recommendations](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations) использует фабрику активных данных, Базу данных SQL, хранилище BLOB-объектов и HDInsight для реализации рекомендаций продуктов, основанных на частоте совместной покупки продуктов.
+- [https://github.com/Azure-Samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&query=+only%3Asources+search)
+- [https://github.com/AzureSearch](https://github.com/AzureSearch) 
+- [https://github.com/liamca/AzureSearchDemos](https://github.com/liamca/AzureSearchDemos)
+- [https://github.com/MicrosoftLearning/AzureSearch-MVA](https://github.com/MicrosoftLearning/AzureSearch-MVA)
 
-[****https://github.com/AzureSearch**](https://github.com/AzureSearch) — это еще один репозиторий GitHub для службы "Поиск Azure", содержащий примеры кода от команды разработчиков этой службы. Вы можете перейти в репозиторий, чтобы ознакомиться со всем содержимым. Или же можно воспользоваться ссылками ниже, чтобы сразу перейти к конкретным примерам.
+##Список примеров кода
 
-- [**JavaIndexerDemo**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)
-- [**NodeJSIndexerDemo**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)
-- [**.NET-2015-02-28-Sample**](https://github.com/AzureSearch/.NET-2015-02-28-Sample) — это приложение ASP.NET MVC 5, использующее клиентскую библиотеку .NET для операций поиска.
+- [**пример кода для клиентской библиотеки .NET-2015-02-28**](https://github.com/AzureSearch/.NET-2015-02-28-Sample) — это приложение ASP.NET MVC 5, использующее клиентскую библиотеку .NET для операций поиска.
+- [**пример кода для начала работы с поиском Azure в пошаговом руководстве Java**](https://github.com/Azure-Samples/search-java-getting-started)
+- [**пример кода для учебника "Начало работы с поиском Azure"**](https://github.com/Azure-Samples/search-dotnet-getting-started)
+- [**пример кода для демонстрации индексатора Java**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)
+- [**пример кода для демонстрации индексатора NodeJS**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)
+- [**Пример создания веб-сайта заданий NYC с помощью ASP.NET MVC**](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) демонстрирует создание работающей демоверсии сайта поиска Azure с использованием данных заданий NYC.
+- [**search-dotnet-management-api**](https://github.com/Azure-Samples/search-dotnet-management-api/) — это консольное приложение Windows, использующее REST API управления.
+- [**Пример распознавания речи с помощью Cortana для Windows Phone**](https://github.com/Azure-Samples/search-dotnet-windows-phone-cortana-speech) демонстрирует использование функции распознавания речи в Windows Phone для выполнения поисковых запросов в службе поиска Azure.
+- В примере [**рекомендации "С этим товаром часто покупают"**](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations) используется фабрика активных данных, база данных SQL, хранилище BLOB-объектов и HDInsight для реализации рекомендаций продуктов, основанных на частоте совместной покупки товаров.
+- [**AzSearchAutoScaleWeb**](https://github.com/liamca/AzureSearchDemos/tree/master/AzSearchAutoScaleWeb) — это пример кода, демонстрирующий автоматическое масштабирование службы поиска Azure.
+- [**BabyNameJS**](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS) — это файл index.html, который предоставляет данные в руководстве.
 
-[**Учебные материалы Microsoft Virtual Academy об использовании службы поиска Azure**](https://github.com/MicrosoftLearning/AzureSearch-MVA) находятся в отдельном репозитории GitHub. Он включает несколько примеров, используемых в курсе в части 7.
+На сайте CodePlex доступно несколько старых примеров, опубликованных в ходе тестирования общедоступной предварительной версии. Эти примеры все еще актуальны для текущей версии.
 
-На сайте CodePlex доступны несколько примеров, опубликованных в ходе тестирования общедоступной предварительной версии. Эти примеры все еще актуальны для текущей версии.
-
-- [**Демонстрационная версия REST API управления**](https://azuresearchmgmtapi.codeplex.com/) — это собой консольное приложение Windows, использующее REST API управления.
 - [**Демонстрационная версия AdventureWorks Demo**](https://azuresearchadventureworksdemo.codeplex.com/) — это приложение ASP.NET MVC 4.
 - [**Демонстрационная версия функции предложений**](https://azsearchsuggestions.codeplex.com/SourceControl/latest) — это приложение ASP.NET MVC 4.
 - [**Пример использования функции геопространственного поиска**](https://azuresearchgeospatial.codeplex.com/) — это приложение ASP.NET MVC 4.
 - [**Пример синхронизации SQL Server со службой "Поиск Azure"**](http://sqlserver2azuresearch.codeplex.com/) — это консольное приложение Windows, которое загружает набор строк SQL Server из внедренной локальной базы данных.
 - [**Демонстрационная версия профилей повышения**](https://azuresearchscoringprofiles.codeplex.com/) — это консольное приложение Windows, которое определяет, выполняет и обновляет профиль повышения для настройки результатов поиска.
 
-<!---HONumber=Nov15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

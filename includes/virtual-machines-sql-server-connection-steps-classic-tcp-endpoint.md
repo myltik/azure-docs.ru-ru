@@ -1,20 +1,22 @@
-### Create a TCP endpoint for the virtual machine
+### Создайте конечную точку TCP для виртуальной машины
 
-In order to access SQL Server from the internet, the virtual machine must have an endpoint to listen for incoming TCP communication. This Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.
+Для доступа к SQL Server из Интернета на виртуальной машине должна быть настроена конечная точка для прослушивания входящих TCP-подключений. На данном этапе настройки Azure направляет входящий трафик TCP-порта на TCP-порт, доступный для виртуальной машины.
 
->[AZURE.NOTE] If you are connecting within the same cloud service or virtual network, you do not have to create a publically accessible endpoint. In that case, you could continue to the next step. For more information, see [Connection Scenarios](../articles/virtual-machines/virtual-machines-sql-server-connectivity.md#connection-scenarios).
+>[AZURE.NOTE]При подключении в пределах той же облачной службы или виртуальной сети не нужно создавать общедоступную конечную точку. В этом случае можно перейти к следующему шагу. Дополнительные сведения см. в статье [Сценарии подключения](../articles/virtual-machines/virtual-machines-sql-server-connectivity.md#connection-scenarios).
 
-1. On the Azure Management Portal, click on **VIRTUAL MACHINES**.
+1. На портале управления Azure щелкните **ВИРТУАЛЬНЫЕ МАШИНЫ**.
 	
-2. Click on your newly created virtual machine. Information about your virtual machine is presented.
+2. Щелкните только что созданную виртуальную машину. Отображаются сведения о вашей виртуальной машине.
 	
-3. Near the top of the page, select the **ENDPOINTS** page, and then at the bottom of the page, click **ADD**.
+3. В верхней части страницы выберите **КОНЕЧНЫЕ ТОЧКИ**, а в нижней части щелкните **ДОБАВИТЬ**.
 	
-4. On the **Add an Endpoint to a Virtual Machine** page, click **Add a Stand-alone Endpoint**, and then click the Next arrow to continue.
+4. На странице **Добавление конечной точки для виртуальной машины** нажмите кнопку **Добавить автономную конечную точку**, а затем щелкните стрелку "Далее" для продолжения.
 	
-5. On the **Specify the details of the endpoint** page, provide the following information.
+5. На странице **Укажите подробные сведения конечной точки** введите следующую информацию.
 
-	- In the **NAME** box, provide a name for the endpoint.
-	- In the **PROTOCOL** box, select **TCP**. You may type **57500** in the **PUBLIC PORT** box. Similarly, you may type SQL Server's default listening port **1433** in the **Private Port** box. Note that many organizations select different port numbers to avoid malicious security attacks. 
+	- В поле **ИМЯ** укажите имя конечной точки.
+	- В поле **ПРОТОКОЛ** выберите **TCP**. В поле **ОБЩИЙ ПОРТ** можно ввести значение **57500**. Аналогичным образом в поле **Частный порт** можно указать значение **1433** для порта прослушивания SQL Server по умолчанию. Обратите внимание, что многие организации предпочитают использовать различные номера портов для предотвращения вредоносных атак. 
 
-6. Click the check mark to continue. The endpoint is created.
+6. Установите флажок для продолжения. Конечная точка создана.
+
+<!---HONumber=AcomDC_0107_2016-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="11/13/2015"
+   ms.date="01/04/2016"
    ms.author="nitinme"/>
 
 # Начало работы с хранилищем озера данных Azure с помощью пакета SDK .NET
@@ -49,24 +49,27 @@
 
 4. Нажмите кнопку **ОК**, чтобы создать проект.
 
-5. Добавьте пакет Nuget в проект.
+5. Добавьте пакеты Nuget в проект.
 
 	1. В обозревателе решений щелкните правой кнопкой мыши имя проекта и выберите пункт **Управление пакетами NuGet**.
 	2. На вкладке **Диспетчер пакетов NuGet** в поле **Источник пакета** задайте значение **nuget.org** и установите флажок **Включить предварительный выпуск**.
-	3. Найдите и установите следующие пакеты:
+	3. Найдите и установите следующие пакеты хранилища озера данных:
 	
-		* Microsoft.Azure.Common.Authentication
 		* Microsoft.Azure.Management.DataLake.Store
 		* Microsoft.Azure.Management.DataLake.StoreFileSystem
 		* Microsoft.Azure.Management.DataLake.StoreUploader
 
 		![Добавление источника Nuget](./media/data-lake-store-get-started-net-sdk/ADL.Install.Nuget.Package.png "Создание новой учетной записи озера данных Azure")
 
+	4. Следует также установить пакет **Microsoft.Azure.Common.Authentication**. Это тоже предварительная версия пакета, которая требуется для проверки подлинности в хранилище озера данных Azure.
+
+		![Добавление источника Nuget](./media/data-lake-store-get-started-net-sdk/adl.install.azure.auth.png "Создание новой учетной записи озера данных Azure")
+
 	4. Закройте **Диспетчер пакетов Nuget**.
 
 7. Откройте файл **Program.cs** и замените существующий блок кода следующим. Кроме того, укажите значения для параметров в фрагменте кода.
 
-	Этот код используется в процессе создания хранилища озера данных, создания папок в хранилище, отправки и загрузки файлов и, наконец, удаления учетной записи. Если у вас нет под рукой подходящих для этих целей данных, передайте папку **Ambulance Data** из [репозитория Git для озера данных Azure](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+	Этот код используется в процессе создания хранилища озера данных, создания папок в хранилище, отправки и загрузки файлов и, наконец, удаления учетной записи. Если у вас нет под рукой подходящих для этих целей данных, передайте папку **Ambulance Data** из [репозитория Git для озера данных Azure](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 	
 		using System;
 		using System.Collections.Generic;
@@ -224,4 +227,4 @@
 - [Использование аналитики озера данных Azure с хранилищем озера данных](data-lake-analytics-get-started-portal.md)
 - [Использование Azure HDInsight с хранилищем озера данных](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

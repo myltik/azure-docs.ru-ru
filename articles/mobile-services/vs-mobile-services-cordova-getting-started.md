@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Приступая к работе с проектом мобильных служб Cordova (подключенные службы Visual Studio)"
+	pageTitle="Приступая к работе с проектом мобильных служб Cordova (подключенные службы Visual Studio) | Microsoft Azure"
 	description="Описывает первые шаги, которые можно выполнить после подключения проекта Cordova к мобильным службам Azure с помощью подключенных служб Visual Studio."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,19 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/17/2015"
+	ms.date="01/05/2016"
 	ms.author="tarcher"/>
 
 # Приступая к работе с мобильными службами (проекты Cordova)
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
-
-&nbsp;
-
-
-> [AZURE.SELECTOR]
-> - [Getting Started](vs-mobile-services-cordova-getting-started.md)
-> - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
 ##Первые шаги
 Первое действие, необходимое для использования этих примеров кода, зависит от типа мобильной службы, к которой вы подключились.
@@ -33,8 +26,6 @@
 - Для серверной мобильной службы JavaScript создайте таблицу под названием TodoItem. Чтобы создать таблицу, найдите мобильную службу в узле Azure (в обозревателе сервера), щелкните узел этой службы правой кнопкой мыши, чтобы открыть контекстное меню, и выберите команду **Создать таблицу**. Введите имя таблицы TodoItem.
 
 - Если у вас есть серверная мобильная служба .NET, то в среде Visual Studio уже создана в шаблоне проекта по умолчанию таблица TodoItem, но ее нужно опубликовать в Azure. Чтобы опубликовать таблицу, откройте контекстное меню проекта мобильной службы в обозревателе решений и выберите команду **Опубликовать веб-сайт**. Примите предлагаемые по умолчанию параметры и нажмите кнопку **Опубликовать**.
-
-
 
 ##Создание ссылки на таблицу
 
@@ -99,4 +90,4 @@
 
 [Дополнительные сведения о мобильных службах](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

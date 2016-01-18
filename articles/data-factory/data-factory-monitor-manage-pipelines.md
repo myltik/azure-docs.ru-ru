@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/20/2015" 
+	ms.date="01/04/2016" 
 	ms.author="spelluru"/>
 
 # Мониторинг конвейеров фабрики данных Azure и управление ими
@@ -59,11 +59,11 @@
 ### Просмотр состояния действий в конвейере
 Вы можете просмотреть текущее состояние отдельного действия, отобразив состояние любого созданного им набора данных.
 
-В примере ниже действие **BlobPartitionHiveActivity** успешно выполнено и создан набор данных **PartitionedProductsUsageTable** с состоянием **Ready** (Готов).
+В примере ниже действие **BlobPartitionHiveActivity** успешно выполнено и создан набор данных **PartitionedProductsUsageTable** с состоянием **Ready** (готово).
 
 ![Состояние конвейера](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
-Чтобы отобразить все срезы, созданные в рамках отдельных циклов выполнения действия в конвейере, дважды щелкните **PartitionedProductsUsageTable** в представлении схемы. Вы увидите, что действие **BlobPartitionHiveActivity** успешно выполнялось раз в месяц последние восемь месяцев и созданные срезы имеют состояние **Ready** (Готов).
+Чтобы отобразить все срезы, созданные в рамках отдельных циклов выполнения действия в конвейере, дважды щелкните **PartitionedProductsUsageTable** в представлении схемы. Можно заметить, что действие **BlobPartitionHiveActivity** успешно выполнялось раз в месяц последние восемь месяцев и созданные срезы имеют состояние **Ready** (Готово).
 
 Срезы наборов данных в фабрике данных могут находиться в одном из следующих состояний:
 
@@ -137,7 +137,7 @@
 
 ![Сведения о цикле выполнения действия](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-Если срез не находится в состоянии **Готов**, вы можете увидеть восходящие срезы, которые не находятся в состоянии готовности и блокируют выполнение текущего среза в списке **Неготовые восходящие срезы**. Это очень полезно, когда срез находится в состоянии **Ожидание** и требуется просмотреть восходящие зависимости, влияющие на состояние текущего неготового среза.
+Если срез не находится в состоянии **Готов**, вы можете увидеть восходящие срезы, которые не находятся в состоянии готовности и блокируют выполнение текущего среза в списке **Неготовые восходящие срезы**. Это позволяет просмотреть вышестоящие зависимости, если срез находится в состоянии **Waiting**.
 
 ![Вышестоящие срезы в состоянии, отличном от Ready](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -194,7 +194,7 @@
 2.	В колонке **Наборы данных с ошибками** щелкните интересующую вас таблицу.
 
 	![Колонка "Наборы данных с ошибками"](./media/data-factory-monitor-manage-pipelines/datasets-with-errors-blade.png)
-3.	В колонке **ТАБЛИЦА** щелкните проблемный срез, для которого в поле **СОСТОЯНИЕ** указано значение **Ошибка**.
+3.	В колонке **ТАБЛИЦА** щелкните проблемный срез с **СОСТОЯНИЕМ** **Failed** (Сбой).
 
 	![Колонка "Таблица" с проблемным срезом](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
 4.	В колонке **СРЕЗ ДАННЫХ** щелкните цикл выполнения действия, который завершился ошибкой.
@@ -206,9 +206,6 @@
 
 #### Отладка ошибок с помощью PowerShell
 1.	Запустите **Azure PowerShell**.
-2.	Перейдите в режим **AzureResourceManager**, так как командлеты фабрики данных доступны только в нем.
-
-		switch-azuremode AzureResourceManager
 3.	Выполните команду **Get-AzureRmDataFactorySlice**, чтобы просмотреть срезы и их состояние. Вы должны увидеть срез с состоянием **Ошибка**.
 
 		Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
@@ -322,7 +319,7 @@ Azure регистрирует пользовательские события, 
 	                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
 	                        "operationName": "RunFinished",
 	                        "status": "Failed",
-	                            "subStatus": "FailedExecution"   
+	                        "subStatus": "FailedExecution"   
 	                    }
 	                },
 	                "action": 
@@ -354,9 +351,9 @@ OnDemandClusterDeleted | Succeeded
 Подробные сведения об элементах JSON, используемых в примере выше, см. в разделе [Создание правила оповещения](https://msdn.microsoft.com/library/azure/dn510366.aspx).
 
 #### Развертывание оповещения 
-Для развертывания оповещения используйте командлет Azure PowerShell **New-AzureResourceGroupDeployment**, как показано в следующем примере:
+Для развертывания оповещения используйте командлет Azure PowerShell **New-AzureRmResourceGroupDeployment**, как показано в следующем примере:
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf     -TemplateFile .\ADFAlertFailedSlice.json  
+	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\ADFAlertFailedSlice.json  
 
 После успешного завершения развертывания группы ресурсов вы увидите следующие сообщения:
 
@@ -376,9 +373,9 @@ OnDemandClusterDeleted | Succeeded
 	Outputs           :
 
 #### Получение списка развертываний групп ресурсов Azure
-Чтобы получить список развертываний групп ресурсов Azure, используйте командлет **Get-AzureResourceGroupDeployment**, как показано в следующем примере:
+Чтобы получить список развертываний групп ресурсов Azure, используйте командлет **Get-AzureRmResourceGroupDeployment**, как показано в следующем примере:
 
-	Get-AzureResourceGroupDeployment -ResourceGroupName adf
+	Get-AzureRmResourceGroupDeployment -ResourceGroupName adf
 	
 	DeploymentName    : ADFAlertFailedSlice
 	ResourceGroupName : adf
@@ -395,7 +392,7 @@ OnDemandClusterDeleted | Succeeded
 
 - Вы можете просмотреть все созданные события, щелкнув элемент **Операции**, и настроить уведомления для любых операций, отображаемых в колонке **События**.
 
-![Операции](./media/data-factory-monitor-manage-pipelines/operations.png)
+	![Операции](./media/data-factory-monitor-manage-pipelines/operations.png)
 
 
 - Сведения о командлетах PowerShell, которые можно использовать для добавления, получения и удаления предупреждений, см. в статье [Командлеты Azure Insight](https://msdn.microsoft.com/library/mt282452.aspx). Далее приведено несколько примеров использования командлета **Get-AlertRule**.
@@ -479,7 +476,7 @@ OnDemandClusterDeleted | Succeeded
 
 ### Настройка оповещений по метрикам
 
-Чтобы настроить оповещения о метриках, в колонке «Фабрика данных» выберите **Мониторинг** > **Метрика** > **Добавить оповещение** > **Добавить правило оповещения**.
+Чтобы настроить оповещения по метрикам, в колонке «Фабрика данных» выберите **Мониторинг** -> **Метрика** -> **Добавить оповещение** -> **Добавить правило оповещения**.
 
 Введите необходимые сведения для правила, укажите электронные адреса, на которые будут отправляться оповещения, и нажмите кнопку **ОК**.
 
@@ -542,15 +539,15 @@ OnDemandClusterDeleted | Succeeded
  
 Замените subscriptionId, resourceGroupName и dataFactoryName в приведенном выше примере на соответствующие значения.
 
-Сейчас для *metricName* можно указать только два значения:
+Сейчас для *metricName* можно указать только 2 значения:
 - FailedRuns или
 - SuccessfulRuns.
 
 **Развертывание оповещения**
 
-Для развертывания оповещения используйте командлет Azure PowerShell **New-AzureResourceGroupDeployment**, как показано в следующем примере:
+Для развертывания оповещения используйте командлет Azure PowerShell **New-AzureRmResourceGroupDeployment**, как показано в следующем примере:
 
-	New-AzureResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
+	New-AzureRmResourceGroupDeployment -ResourceGroupName adf -TemplateFile .\FailedRunsGreaterThan5.json
 
 В случае успешного развертывания вы увидите следующее сообщение:
 
@@ -568,4 +565,7 @@ OnDemandClusterDeleted | Succeeded
 	Parameters        :
 	Outputs           
 
-<!---HONumber=AcomDC_1217_2015-->
+
+Вы также можете использовать командлет **Add-AlertRule**, чтобы выполнить развертывание правила оповещения. Дополнительные сведения и примеры см. в разделе [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx).
+
+<!---HONumber=AcomDC_0107_2016-->

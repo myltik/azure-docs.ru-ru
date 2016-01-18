@@ -14,13 +14,13 @@
 
 1. На интерфейсном веб-сервере откройте консоль управления SharePoint 2013 от имени администратора.
 
-2. Перейдите в папку <boot drive>:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer.
+2. Перейдите в папку *загрузочный диск*:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer.
 
 3. Переименуйте **Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config** в **web.config**.
 
 4. Используйте `aspnet_regiis -pdf connectionStrings` для расшифровки файла web.config.
 
-5. В расшифрованном файле web.config в узле **<connectionStrings>** добавьте строку подключения для вашего экземпляра SQL Server и имя базы данных содержимого. См. указанный ниже пример.
+5. В расшифрованном файле web.config в узле `connectionStrings` добавьте строку подключения для вашего экземпляра SQL Server и имя базы данных содержимого. См. указанный ниже пример.
 
     `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=";Remote Blob Storage Maintainer for WSS_Content";" providerName="System.Data.SqlClient" />`
 
@@ -64,4 +64,4 @@
 
 2. На интерфейсном веб-сервере в разделе **Центр администрирования** измените **Общие параметры веб-приложения** для необходимой базы данных содержимого, чтобы снова включить корзину. Чтобы сделать это, щелкните **Центр администрирования** > **Управление приложением** > **Веб-приложения (управление веб-приложениями)** > **SharePoint - 80** > **Общие параметры приложения**. Для параметра «Состояние корзины» задайте значение **ВКЛ.**.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

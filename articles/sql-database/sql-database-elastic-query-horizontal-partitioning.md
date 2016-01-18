@@ -4,7 +4,7 @@
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
-    authors="sidneyh"/>
+    authors="torsteng"/>
 
 <tags
     ms.service="sql-database"
@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="10/15/2015"
+    ms.date="01/06/2016"
     ms.author="sidneyh;torsteng" />
 
 # Запросы к эластичным базам данных на сегментирование (горизонтальное секционирование)
 
 В этой статье объясняется, как настраивать запросы к эластичным базам данных в сценариях горизонтального секционирования и как выполнять такие запросы. Определение сценария горизонтального секционирования см. в статье [Обзор запросов к эластичным базам данных (предварительная версия)](sql-database-elastic-query-overview.md).
+
+![Запрос по сегментам][1]
 
 Рассматриваемые функции по умолчанию включены в [набор функций эластичной базы данных](sql-database-elastic-scale.md) SQL Azure.
  
@@ -236,6 +238,7 @@
 
 
 <!--Image references-->
+[1]: ./media/sql-database-elastic-query-horizontal-partitioning/horizontalpartitioning.png
 <!--anchors-->
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

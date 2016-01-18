@@ -257,7 +257,7 @@
 **MergeFiles**: объединяет все файлы из исходной папки в один файл. Если указано имя файла или большого двоичного объекта, именем объединенного файла будет указанное имя; в противном случае имя файла будет автоматически сформировано.
  
 ## Новое свойство getDebugInfo для всех действий HDInsight
-Действия HDInsight (Hive, Pig, MapReduce, потоковая передача Hadoop) поддерживают новое свойство **getDebugInfo**. Свойство **GetDebugInfo** является необязательным элементом. Если для него установлено значение**Failure**, журналы скачиваются только при сбое выполнения. Если для него установлено значение **All**, журналы скачиваются всегда, независимо от состояния выполнения. Если для него установлено значение **None**, журналы не скачиваются.
+Действия HDInsight (Hive, Pig, MapReduce, потоковая передача Hadoop) поддерживают новое свойство **getDebugInfo**. Свойство **GetDebugInfo** является необязательным элементом. Если для него установлено значение**Failure**, журналы загружаются только при сбое выполнения. Если для него установлено значение **All**, журналы скачиваются всегда, независимо от состояния выполнения. Если для него установлено значение **None**, журналы не загружаются.
 
   
      
@@ -280,12 +280,12 @@
 ## Заметки о выпуске фабрики данных от 31 марта 2015 г.
 - Обновленный пакет установки **шлюза управления данными** добавлен в [центр загрузки Майкрософт][adf-gateway-download].
 - Добавлена поддержка копирования из **локальной файловой системы в большой двоичный объект Azure**. Дополнительные сведения см. в таких статьях:
-	-  [Связанная служба локальной файловой системы](https://msdn.microsoft.com/library/dn930836.aspx).
-	-  [Свойства OnPremisesFileSystemLocation в JSON-файле таблицы](https://msdn.microsoft.com/library/dn894089.aspx#OnPremFileSystem).
+	-  [Связанная служба локальной файловой системы.](https://msdn.microsoft.com/library/dn930836.aspx)
+	-  [Свойства OnPremisesFileSystemLocation в JSON-файле таблицы.](https://msdn.microsoft.com/library/dn894089.aspx#OnPremFileSystem)
 	-  [Поддерживаемые источники и приемники](https://msdn.microsoft.com/library/dn894007.aspx). См. обновленную таблицу копирования и свойства **FileSystemSource**. 
 -  Добавлена поддержка копирования из **локальной базы данных Oracle в большой двоичный объект Azure**. Дополнительные сведения см. в таких статьях: 
-	-  [Связанная служба локальной базы данных Oracle](https://msdn.microsoft.com/library/dn948537.aspx).
-	-  [Свойства OnPremisesOracleTableLocation в таблице JSON](https://msdn.microsoft.com/library/dn894089.aspx#Oracle). 
+	-  [Связанная служба локальной базы данных Oracle.](https://msdn.microsoft.com/library/dn948537.aspx)
+	-  [Свойства OnPremisesOracleTableLocation в таблице JSON.](https://msdn.microsoft.com/library/dn894089.aspx#Oracle) 
 	-  [Поддерживаемые источники и приемники](https://msdn.microsoft.com/library/dn894007.aspx). См. обновленную таблицу копирования и свойства **OracleSource**.
 -  Добавлена возможность выбора кодировки для текстовых файлов в большом двоичном объекте Azure. См. сведения о новом [свойстве encodingName](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob). 
 - При копировании в приемник SQL можно вызвать хранимую процедуру с дополнительными параметрами.    
@@ -341,7 +341,7 @@
     
   		Пошаговое руководство по созданию настраиваемого действия и использованию его в конвейере фабрики данных Azure см. в разделе [Использование настраиваемых действий в конвейере фабрики данных Azure][adf-custom-activities].
 
-[adf-azure-ml]: data-factory-create-predictive-pipelines.md
+[adf-azure-ml]: data-factory-azure-ml-batch-execution-activity.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
 [adf-editor]: data-factory-editor.md
 
@@ -357,4 +357,4 @@
 
  
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

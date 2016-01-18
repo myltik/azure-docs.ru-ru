@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/03/2015"
+   ms.date="01/04/2016"
    ms.author="v-darmi"/>
 
 
@@ -264,4 +264,9 @@
 ## Сводка
 Служба управления API Azure предоставляет гибкие политики, выборочно применяемые к HTTP-трафику, и позволяет формировать серверные службы. Если вы хотите усовершенствовать имеющийся шлюз API за счет функций оповещения, проверки или создать новые сложные ресурсы на основе нескольких серверных служб, `send-request` и связанные политики предоставят вам широкий диапазон новых возможностей.
 
-<!---HONumber=AcomDC_1210_2015-->
+## Посмотрите видеообзор этих политик.
+Дополнительные сведения о политиках [отправки одностороннего запроса](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [запроса на отправку](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) и [возврата ответа](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse), которые рассматриваются в этой статье, см. в следующем видеоролике.
+
+> [AZURE.VIDEO send-request-and-return-response-policies]
+
+<!---HONumber=AcomDC_0107_2016-->

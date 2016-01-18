@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/28/2015"
+   ms.date="12/28/2015"
    ms.author="masashin"/>
 
 # Конкретные рекомендации по использованию механизма повторов
@@ -1121,4 +1121,4 @@ var result = await policy.ExecuteAsync(() => authContext.AcquireTokenAsync(resou
 | **Линейный (фиксированный интервал)** | retryCount<br />retryInterval<br />fastFirstRetry<br /> | 10<br />1 секунда<br />true | Количество повторных попыток.<br />Задержка между попытками.<br />Будет ли первая попытка повтора выполнена немедленно. |
 Примеры использования блока приложения для обработки временной ошибки смотрите в разделах Примеры, приведенные ранее в этом руководстве для базы данных SQL Azure с помощью ADO.NET и Azure Active Directory.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

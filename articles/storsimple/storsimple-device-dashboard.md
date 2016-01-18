@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="12/30/2015"
    ms.author="alkohli" />
 
 # Использование панели мониторинга устройств диспетчера StorSimple
@@ -21,7 +21,7 @@
 
 Панель мониторинга устройств диспетчера StorSimple предоставляет общие сведения для конкретного устройства StorSimple в отличие от панели мониторинга службы, которая предоставляет сведения обо всех устройствах, включенных в решение Microsoft Azure StorSimple.
 
-![Страница панели мониторинга устройства](./media/storsimple-device-dashboard/HCS_DeviceDashboardPage.png)
+![Страница панели мониторинга устройства](./media/storsimple-device-dashboard/StorSimple_DeviceDashbaord1M.png)
 
 Панель мониторинга содержит следующие сведения:
 
@@ -100,4 +100,4 @@
 - Узнайте больше о [панели мониторинга службы диспетчера StorSimple](storsimple-service-dashboard.md).
 - Узнайте больше об [использовании службы диспетчера StorSimple для администрирования устройства StorSimple](storsimple-manager-service-administration.md).
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

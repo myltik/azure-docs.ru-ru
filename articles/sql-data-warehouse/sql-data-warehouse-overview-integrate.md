@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="lodipalm"/>
 
 #Интеграция других служб с хранилищем данных SQL
@@ -71,4 +71,4 @@ Azure Stream Analytics — это сложная полностью управ�
 
 <!--Other Web references-->
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

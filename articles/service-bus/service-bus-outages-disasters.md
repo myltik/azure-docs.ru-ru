@@ -109,4 +109,4 @@
   [Обеспечение непрерывности работы базы данных SQL Azure]: https://msdn.microsoft.com/library/azure/hh852669.aspx
   [Техническое руководство по непрерывности бизнес-процессов для Azure]: https://msdn.microsoft.com/library/azure/hh873027.aspx
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

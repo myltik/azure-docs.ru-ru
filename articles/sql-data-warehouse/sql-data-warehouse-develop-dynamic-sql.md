@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # Динамический SQL в хранилище данных SQL
@@ -31,6 +31,7 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 
 Если строка короткая, [sp\_executesql][] можно использовать как обычно.
 
+> [AZURE.NOTE]К инструкциям, выполняемым как динамический код SQL, по-прежнему будут применяться все правила проверки TSQL.
 
 ## Дальнейшие действия
 Дополнительные советы по разработке см. в статье [Общие сведения о разработке][].
@@ -45,4 +46,4 @@ EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

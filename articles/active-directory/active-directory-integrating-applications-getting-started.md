@@ -67,24 +67,24 @@
 ### Интеграция приложений с Azure AD
 В следующих статьях рассматриваются разные способы интеграции приложений с Azure AD и приводятся некоторые рекомендации.
 
-- [Администрирование каталога Azure AD](active-directory-administer.md).
-- [Интеграция с существующими приложениями](active-directory-sso-integrate-existing-apps.md).
-- [Публикация приложений с помощью прокси приложения Azure AD](active-directory-application-proxy-configure.md).
+- [Администрирование каталога Azure AD.](active-directory-administer.md)
+- [Интеграция с существующими приложениями.](active-directory-sso-integrate-existing-apps.md)
+- [Публикация приложений с помощью прокси приложения Azure AD.](active-directory-application-proxy-configure.md)
 - [Что такое доступ к приложениям и единый вход с помощью Azure Active Directory?](active-directory-appssoaccess-whatis.md/#get-started-with-the-azure-ad-application-gallery.md)
-- [Список учебников по интеграции приложений SaaS с Azure Active Directory](active-directory-saas-tutorial-list.md).
+- [Список учебников по интеграции приложений SaaS с Azure Active Directory.](active-directory-saas-tutorial-list.md)
 
 ## Управление доступом к приложениям
-В следующих статьях описываются способы управления доступом к приложениям после интеграции с Azure AD с помощью соединителей Azure AD и Azure AD на портале Azure.
+В следующих статьях описываются способы управления доступом к приложениям после интеграции с Azure AD с помощью соединителей Azure AD и Azure AD.
 
-- [Управление доступом к приложениям с помощью Azure AD](active-directory-managing-access-to-apps.md).
-- [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS в Azure Active Directory](active-directory-saas-app-provisioning.md).
-- [Назначение пользователей приложению](active-directory-applications-guiding-developers-assigning-users.md) на портале Azure.
-- [Назначение групп приложению](active-directory-applications-guiding-developers-assigning-groups.md) на портале Azure.
-- [Совместное использование учетных записей](active-directory-sharing-accounts.md).
+- [Управление доступом к приложениям с помощью Azure AD.](active-directory-managing-access-to-apps.md)
+- [Автоматическая подготовка пользователей и ее отзыв для приложений SaaS в Azure Active Directory.](active-directory-saas-app-provisioning.md)
+- [Назначение пользователей для приложения](active-directory-applications-guiding-developers-assigning-users.md)
+- [Назначение групп для приложения](active-directory-applications-guiding-developers-assigning-groups.md)
+- [Совместное использование учетных записей.](active-directory-sharing-accounts.md)
 
 ## Интеграция пользовательских приложений
 Если вы создаете новое приложение и хотите помочь разработчикам в использовании мощных возможностей Azure AD, см. статью [Руководство для разработчиков](active-directory-applications-guiding-developers-for-lob-applications.md).
 
 Если вы хотите добавить пользовательское приложение в коллекцию приложений Azure, см. статью[Поддержка приложений с помощью конфигурации самообслуживания Azure AD SAML](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
 
-<!---HONumber=Oct15_HO4-->
+<!---HONumber=AcomDC_0107_2016-->

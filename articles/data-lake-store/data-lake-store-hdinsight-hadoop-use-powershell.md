@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Настройка кластера HDInsight и хранилища озера данных с помощью Azure PowerShell | Azure" 
-   description="Настройте кластер HDInsight Hadoop для работы с озером данных Azure, используя Azure PowerShell." 
+   pageTitle="Создание кластеров HDInsight с хранилищем озера данных с помощью Azure PowerShell | Azure" 
+   description="Создание кластеров HDInsight Hadoop для работы с озером данных Azure с помощью Azure PowerShell." 
    services="data-lake" 
    documentationCenter="" 
    authors="nitinme" 
@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="12/04/2015"
+   ms.date="01/06/2016"
    ms.author="nitinme"/>
 
-# Подготовка кластера HDInsight и хранилища озера данных с помощью Azure PowerShell
+# Создание кластера HDInsight с хранилищем озера данных с помощью Azure PowerShell
 
 > [AZURE.SELECTOR]
 - [Using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
 
-Узнайте, как с помощью Azure PowerShell настроить кластер HDInsight (Hadoop, HBase или Storm) для работы с хранилищем озера данных Azure. Важные сведения, которые следует учитывать при работе с данным выпуском.
+Узнайте, как с помощью Azure PowerShell настроить кластер HDInsight (Hadoop, HBase или Storm) с доступом к хранилищу озера данных Azure. Важные сведения, которые следует учитывать при работе с данным выпуском.
 
 * **В кластерах Hadoop и Storm (Windows и Linux)** хранилище озера данных может использоваться только как дополнительная учетная запись хранения. Учетной записью хранения по умолчанию для таких кластеров по-прежнему будут BLOB-объекты хранилища Azure (WASB).
 
@@ -118,7 +118,7 @@
 
 	Результат должен иметь значение **True**.
 
-4. Отправьте пример данных в озеро данных Azure. Позже мы проверим, доступны ли эти данные из кластера HDInsight. Если у вас нет под рукой подходящих для этих целей данных, передайте папку **Ambulance Data** из [репозитория Git для озера данных Azure](https://github.com/MicrosoftBigData/AzureDataLake/tree/master/SQLIPSamples/SampleData/AmbulanceData).
+4. Отправьте пример данных в озеро данных Azure. Позже мы проверим, доступны ли эти данные из кластера HDInsight. Если у вас нет под рукой подходящих для этих целей данных, передайте папку **Ambulance Data** из [репозитория Git для озера данных Azure](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 
 		
 		$myrootdir = "/"
@@ -296,9 +296,9 @@
 
 Настроив в кластере HDInsight параметры для работы с хранилищем озера данных, используйте для доступа к хранилищу команды оболочки HDFS.
 
-1. Войдите на новый [портал Azure](https://portal.azure.com).
+1. Перейдите на новый [портал Azure](https://portal.azure.com).
 
-2. Последовательно щелкните **Обзор** и **Кластеры HDInsight**, а затем выберите кластер HDInsight, который вы создали.
+2. Последовательно щелкните **Обзор** и **Кластеры HDInsight**, а затем выберите созданный кластер HDInsight.
 
 3. В колонке кластера нажмите кнопку **Удаленный рабочий стол**, а затем в колонке **Удаленный рабочий стол** щелкните **Подключиться**.
 
@@ -316,7 +316,7 @@
 		Found 1 items
 		-rwxrwxrwx   0 NotSupportYet NotSupportYet     671388 2015-09-16 22:16 adl://mydatalakestore.azuredatalakestore.net:443/vehicle1_09142014.csv
 
-	С помощью команды `hdfs dfs -put` вы можете отправить файлы в озеро данных Azure, а затем с помощью команды `hdfs dfs -ls` проверить, успешно ли они передались.
+	С помощью команды `hdfs dfs -put` вы можете отправить в озеро данных Azure новые файлы, а затем с помощью команды `hdfs dfs -ls` проверить, успешно ли они передались.
 
 ## См. также
 
@@ -325,4 +325,4 @@
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -1,14 +1,14 @@
-### To verify your connection using the Azure portal
+### Проверка подключения с помощью портала Azure
 
-You can verify a VPN connection in the Azure Portal by navigating to **Virtual network gateways** -> ***click your gateway name*** -> **Settings** -> **Connections**. By selecting the name of the connection, you can view more information in the **Connection** blade.  
+VPN-подключение на портале Azure можно проверить, выбрав **Шлюзы виртуальной сети** -> ***имя шлюза*** -> **Параметры** -> **Подключения**. Выбрав имя подключения, можно просмотреть дополнительные сведения в колонке **Подключение**.
 
-### To verify your connection using PowerShell
+### Проверка подключения с помощью PowerShell
 
-It is also possible to verify that your connection succeeded by using *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. In the future, we'll have a cmdlet for this. You can use the following cmdlet example, configuring the values to match your own. When prompted, select *A* in order to run All.
+Подключение также можно проверить командой *Get-AzureRmVirtualNetworkGatewayConnection –Debug*. В будущем мы создадим соответствующий командлет. Вы можете использовать командлет из следующего примера, заменив значения теми, которые используются у вас. При появлении запроса выберите ответ *A*, то есть All (Все).
 
 	Get-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Debug
 
- After the cmdlet has finished, scroll through to view the values. In the example below, the connection status shows as *Connected* and you can see ingress and egress bytes.
+ После завершения работы командлета просмотрите результаты, которые он выдал. В следующем примере показано, что подключение установлено (состояние *Connected*), а также указан объем полученных и отправленных данных в байтах.
 
 	Body:
 	{
@@ -36,3 +36,5 @@ It is also possible to verify that your connection succeeded by using *Get-Azure
 	    "ingressBytesTransferred": 33509044,
 	    "egressBytesTransferred": 4142431
 	  }
+
+<!---HONumber=AcomDC_0107_2016-->

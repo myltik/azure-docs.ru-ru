@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/26/2015" 
+	ms.date="01/05/2016" 
 	ms.author="tamram"/>
 
 # Управление анонимным доступом на чтение к контейнерам и большим двоичным объектам
@@ -155,4 +155,4 @@
 - [Подписи общего доступа: общие сведения о модели SAS](storage-dotnet-shared-access-signature-part-1.md)
 - [Делегирование доступа с помощью подписанного URL-адреса](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

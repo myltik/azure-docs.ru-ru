@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="01/04/2016"
 	ms.author="swkrish"/>
 
 # Предварительная версия Azure Active Directory B2C: регистрация запросов на поддержку для Azure Active Directory B2C
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-Вы можете регистрировать запросы на поддержку для Azure Active Directory (AD) B2C на портале предварительной версии Azure, выполнив следующее:
+Вы можете регистрировать запросы на поддержку для Azure Active Directory (AD) B2C на портале Azure, выполнив следующие действия:
 
-1. [Откройте колонку функций B2C на портале предварительной версии Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Выполните следующие действия, чтобы перейти к колонке функций B2C на портале Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Переключитесь с вашего клиента B2C на другой клиент, с которым сопоставлена подписка Azure. Это может быть клиент вашего сотрудника или клиент по умолчанию, который был создан, когда вы зарегистрировались для получения подписки Azure. Прочитайте [эту статью](active-directory-how-subscriptions-associated-directory.md#how-an-azure-subscription-is-related-to-azure-ad), чтобы больше узнать о связи между подписками Azure и каталогами Azure AD.
 
     > [AZURE.IMPORTANT]
@@ -52,4 +52,4 @@
 
 ![Поддержка — нет подписки](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

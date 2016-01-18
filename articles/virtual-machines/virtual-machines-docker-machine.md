@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="09/22/2015"
+   ms.date="01/04/2016"
    ms.author="rasquill"/>
 
 # Использование docker-machine в Azure
@@ -28,7 +28,7 @@
 Есть некоторые предварительные требования к изучению этого учебника. Кроме этого, понадобится установить следующее ПО.
 
 1. [npm](https://docs.npmjs.com/) и [Node.js](http://nodejs.org/).
-2. [CLI Azure](https://github.com/Azure/azure-xplat-cli).
+2. [CLI Azure.](https://github.com/Azure/azure-xplat-cli)
 3. [Клиент Docker](https://docs.docker.com/installation/).
 
 Если вы установите все эти элементы в указанном порядке, ваш компьютер под управлением Ubuntu будет готов к работе по учебнику. (Указания в этом учебнике должны во многом совпадать с шагами аналогичного процесса для любого другого дистрибутива на основе dpkg, например Debian. Сообщите нам в комментариях, если обнаружите дополнительные требования или шаги.)
@@ -201,7 +201,7 @@
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Дальнейшие действия
-Перейдите к [руководству пользователя Docker](https://docs.docker.com/userguide/) и узнайте, как создавать некоторые приложения в Microsoft Azure. Вы также можете воспользоваться [**Docker** и Swarm](https://github.com/docker/swarm) в Azure (virtual-machines-docker-swarm), чтобы узнать, как использовать Swarm с помощью Docker и Azure.
+Перейдите к [руководству пользователя Docker](https://docs.docker.com/userguide/) и узнайте, как создавать некоторые приложения в Microsoft Azure. Вы также можете воспользоваться [**Docker** и Swarm](https://github.com/docker/swarm) в Azure (virtual-machines-docker-swarm.md), чтобы узнать, как использовать Swarm с помощью Docker и Azure.
 
 <!--Image references-->
 [nginx]: ./media/virtual-machines-docker-machine/nginxondocker.png
@@ -214,4 +214,4 @@
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

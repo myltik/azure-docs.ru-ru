@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure"
-	ms.date="10/04/2015"
+	ms.date="01/04/2016"
 	ms.author="rasquill"/>
 
 # Как быстро приступить к работе с Docker в Azure Marketplace
@@ -25,7 +25,7 @@
 
 Вы можете немедленно подключиться к виртуальной машине через SSH и начать работу с Docker напрямую, без выполнения каких-либо других действий.
 
-> [AZURE.NOTE]Виртуальная машина, созданная с помощью шаблона Azure Marketplace, не имеет удаленного API Docker для управления удаленным клиентом Docker. Чтобы включить удаленное управление узлом Docker в этой виртуальной машине, см. [статью о запуске Docker с использованием HTTPS](https://docs.docker.com/articles/https/) или выполните действия, описанные в статье [Использование расширения виртуальных машин Docker на классическом портале Azure](virtual-machines-docker-with-portal.md) или [Использование расширения виртуальных машин Docker в CLI Azure](virtual-machines-docker-with-xplat-cli-install.md). <!-- --> Если нужно автоматизировать виртуальную машину Docker Azure из Windows, можно [установить панель элементов Docker Toolbox](https://docs.docker.com/installation/windows/) или получить Docker.exe [из Chocolatey](https://chocolatey.org/packages/docker).
+> [AZURE.NOTE]Виртуальная машина, созданная с помощью шаблона Azure Marketplace, не имеет удаленного API Docker для управления удаленным клиентом Docker. Чтобы включить удаленное управление узлом Docker в этой виртуальной машине, см. [статью о запуске Docker с использованием HTTPS](https://docs.docker.com/articles/https/) или выполните действия, описанные в статье [Использование расширения виртуальных машин Docker на классическом портале Azure](virtual-machines-docker-with-portal.md) или [Использование расширения виртуальных машин Docker в CLI Azure](virtual-machines-docker-with-xplat-cli.md). <!-- --> Если нужно автоматизировать виртуальную машину Docker Azure из Windows, можно [установить панель элементов Docker Toolbox](https://docs.docker.com/installation/windows/) или получить Docker.exe [из Chocolatey](https://chocolatey.org/packages/docker).
 
 ## Вход на портал
 
@@ -78,4 +78,4 @@
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="swkrish"
 	manager="msmbaldwin"
-	editor="curtand"/>
+	editor="bryanla"/>
 
 <tags
 	ms.service="active-directory-b2c"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/08/2015"
+	ms.date="01/06/2016"
 	ms.author="swkrish"/>
 
 # Предварительная версия Azure Active Directory (AD) B2C: организация регистрации и входа для потребителей с учетными записями Google+
@@ -25,13 +25,13 @@
 Чтобы использовать Google+ в качестве поставщика удостоверений в Azure Active Directory (AD) B2C, необходимо сначала создать приложение Google+ и задать в нем правильные параметры. Для этого потребуется учетная запись Google+. Если у вас ее нет, вы можете получить ее, перейдя по адресу [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
 
 1. Перейдите на сайт [Google Developers Console](https://console.developers.google.com/) и выполните вход с учетной записью Google+.
-2. Щелкните **Create Project** (Создать проект), введите **имя проекта** в соответствующее поле, примите условия предоставления услуг и нажмите кнопку **Create** (Создать).
+2. Щелкните **Создать проект**, введите **Имя проекта** и щелкните **Создать**.
 
     ![G+ — приступая к работе](./media/active-directory-b2c-setup-goog-app/google-get-started.png)
 
     ![G+ — новый проект](./media/active-directory-b2c-setup-goog-app/google-new-project.png)
 
-3. В левой области навигации щелкните **APIs & auth** (Интерфейсы API и аутентификация), а затем щелкните **Credentials** (Учетные данные).
+3. В левой области навигации щелкните **Менеджер API**, а затем **Учетные данные**.
 4. Щелкните вкладку **OAuth consent screen** (Экран согласия OAuth) вверху.
 
     ![G+ — учетные данные](./media/active-directory-b2c-setup-goog-app/google-add-cred.png)
@@ -48,21 +48,21 @@
 
     ![G+ — экран согласия OAuth](./media/active-directory-b2c-setup-goog-app/google-web-app.png)
 
-8. В поле **Name** (Имя) введите имя вашего приложения, в поле **Authorized redirect URIs** (Авторизованные URI перенаправления) — адрес [https://login.microsoftonline.com](https://login.microsoftonline.com), а в поле **Authorized redirect URIs** (Авторизованные URI перенаправления) — адрес [https://login.microsoftonline.com/te/{клиент}/oauth2/authresp](https://login.microsoftonline.com/te/{tenant}/oauth2/authresp), заменив **{клиент}** именем своего клиента (например, contosob2c.onmicrosoft.com). Щелкните **Создать**.
+8. В поле **Имя** введите имя вашего приложения, в поле **Авторизованные источники JavaScript** — адрес [https://login.microsoftonline.com](https://login.microsoftonline.com), а в поле **Авторизованные URI перенаправления** — адрес `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`, заменив **{клиент}** именем своего клиента (например contosob2c.onmicrosoft.com). Щелкните **Создать**.
 
-    > [AZURE.NOTE]В значении **{клиент}** необходимо учитывать регистр.
+> [AZURE.NOTE]В значении **{клиент}** необходимо учитывать регистр.
 
-    ![G+ — создание идентификатора клиента](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
+    ![G+ - Create client ID](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
 
 9. Скопируйте значения **Client ID** (Идентификатор клиента) и **Client secret** (Секрет клиента). Оба значения необходимы для настройки Google+ в качестве поставщика удостоверений в вашем клиенте.
 
-    > [AZURE.NOTE]**Секрет клиента** — это важные учетные данные безопасности.
+> [AZURE.NOTE]**Секрет клиента** — это важные учетные данные безопасности.
 
-    ![G+ — секрет клиента](./media/active-directory-b2c-setup-goog-app/google-client-secret.png)
+    ![G+ - Client secret](./media/active-directory-b2c-setup-goog-app/google-client-secret.png)
 
 ## Настройка Google+ в качестве поставщика удостоверений в клиенте
 
-1. [Перейдите к колонке функций B2C на портале предварительной версии Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
+1. [Выполните следующие действия, чтобы перейти к колонке функций B2C на портале Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. В колонке функций B2C щелкните **Поставщики удостоверений**.
 3. Нажмите **+Добавить** в верхней части колонки.
 4. Укажите понятное **имя** конфигурации поставщика удостоверений. Например, введите G+.
@@ -70,4 +70,4 @@
 6. Щелкните **Настроить этот поставщик удостоверений** и введите **идентификатор клиента** и **секрет клиента** ранее созданного приложения Google+.
 7. Нажмите кнопку **ОК**, а затем — **Создать**, чтобы сохранить конфигурацию Google+.
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

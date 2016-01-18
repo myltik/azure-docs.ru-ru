@@ -1,12 +1,14 @@
-When adding a site-to-site connection to your virtual network gateway, you first need to create a local network gateway in order to refer to it from your configuration. Verify that you have a local network gateway configured. You can look for local network gateways by using **Browse** and filtering for **Local network gateways**.
+При добавлении подключения "сеть-сеть" необходимо сначала создать локальный сетевой шлюз, чтобы указать его в своей конфигурации. Убедитесь, что локальный сетевой шлюз настроен. Локальные сетевые шлюзы можно найти с помощью кнопки **Обзор** и фильтрации в разделе **Локальные сетевые шлюзы**.
 
-1. From the **Virtual networks** blade, locate your virtual network and click to open the blade. On the blade, you will see your gateway listed as a *Connected device*.
-2. Click on the ***name of your virtual network gateway*** -> **Virtual network gateway** -> **Settings** -> **Connections** and then click **Add**.
-3. **Name** your Connection. For the purposes of this example, we'll use *GW1S2S*
-4. For **Connection type**, select **Site-to-site(IPSec)**
-5. For **Virtual network gateway**, the value is fixed because you are connecting from this gateway.
-6. For **Local network gateway**, click **Choose a local network gateway** and select the local network gateway that you want to use. For this example, we'll use *GW1LocalNet*
-7. For **Shared Key**, the values here must match what you have for your local VPN device. If your VPN device on your local network doesn't provide a shared key, you can make one up and input it here and on your local device. The important thing is that they both match.
-8. The remaining values for **Subscription**, **Resource Group**, and **Location** are fixed.
-9. Click **OK** to create your connection. You'll see *Creating Connection* flash on the screen.
-10. When the connection is complete, you'll see it appear in the **Connections** blade for your Gateway.
+1. В колонке **Виртуальные сети** найдите виртуальную сеть и щелкните, чтобы открыть колонку. В колонке вы увидите свой шлюз с пометкой *Подключенное устройство*.
+2. Щелкните ***имя шлюза виртуальной сети*** -> **Виртуальный сетевой шлюз** -> **Параметры** -> **Подключения** и нажмите кнопку **Добавить**.
+3. Укажите **Имя** для своего подключения. В этом примере мы будем использовать имя *GW1S2S*
+4. В поле **Тип подключения** выберите **Сеть-сеть (IPSec)**
+5. Значение параметра **Виртуальный сетевой шлюз** является фиксированным, так как вы подключаетесь из этого шлюза.
+6. В разделе **Локальный сетевой шлюз** щелкните кнопку **Выбрать локальный сетевой шлюз** и выберите локальный сетевой шлюз, который вы хотите использовать. В этом примере мы будем использовать *GW1LocalNet*.
+7. Значение в поле **Общий ключ** должно соответствовать ключу локального VPN-устройства. Если VPN-устройство локальной сети не предоставляет общего ключа, можно придумать воображаемый ключ и ввести его здесь и на локальном устройстве. Важно, чтобы оба ключа совпадали.
+8. Значения остальных параметров **Подписка**, **Группа ресурсов** и **Расположение** являются фиксированными.
+9. Щелкните **ОК** для создания подключения. На экране появится надпись *Создание подключения*.
+10. После создания подключения оно появится в колонке **Подключения** для шлюза.
+
+<!---HONumber=AcomDC_0107_2016-->

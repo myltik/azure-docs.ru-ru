@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/18/2015"
+   ms.date="12/28/2015"
    ms.author="sethm" />
 
 # Объединение в цепочки сущностей служебной шины с помощью автоматической пересылки
@@ -59,7 +59,7 @@ namespaceManager.CreateSubscription(srcSubscription));
 - [QueueDescription][]
 - [SubscriptionDescription][]
 
-Дополнительные сведения об улучшении производительности служебной шины см. в статье [Секционирование сущностей обмена сообщениями][].
+Дополнительные сведения об улучшении производительности служебной шины см. в статье [Секционированные сущности обмена сообщениями][].
 
   [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
   [SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
@@ -67,6 +67,6 @@ namespaceManager.CreateSubscription(srcSubscription));
   [SubscriptionDescription]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.aspx
   [0]: ./media/service-bus-auto-forwarding/IC628631.gif
   [1]: ./media/service-bus-auto-forwarding/IC628632.gif
-  [Секционирование сущностей обмена сообщениями]: service-bus-partitioning.md
+  [Секционированные сущности обмена сообщениями]: service-bus-partitioning.md
 
-<!---HONumber=Oct15_HO3-->
+<!---HONumber=AcomDC_0107_2016-->

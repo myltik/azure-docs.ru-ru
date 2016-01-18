@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="12/01/2015"
+   ms.date="01/05/2016"
    ms.author="curtand"/>
 
 # Добавление нескольких каталогов Azure Active Directory и управление ими
@@ -40,4 +40,4 @@
 
 Общие сведения о лицензировании Azure AD и рекомендации по работе с этой службой см. в статье [Общие сведения о лицензировании Azure Active Directory](active-directory-licensing-what-is.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

@@ -3,6 +3,7 @@
    description="В статье описаны распространенные проблемы развертывания ресурсов, созданных с помощью модели развертывания диспетчера ресурсов, и показано, как обнаружить и устранить эти проблемы."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
+   tags="top-support-issue"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="10/14/2015"
+   ms.date="01/06/2016"
    ms.author="tomfitz;rasquill"/>
 
 # Устранение неполадок при развертывании групп ресурсов в Azure
@@ -260,7 +261,7 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 ### Интерфейс REST API
         
-Для API REST см. [Получение сведений о поставщике ресурсов](https://msdn.microsoft.com/library/azure/dn790534.aspx).
+Для API-интерфейса REST см. [Получение сведений о поставщике ресурсов](https://msdn.microsoft.com/library/azure/dn790534.aspx).
 
 ## Создание уникальных имен ресурсов
 
@@ -296,7 +297,7 @@ API-Интерфейс REST диспетчера ресурсов содержи
 <!-- -->
 Например, чтобы точно указать количество ядер, можно проверить регионы, для которых необходимо оценить квоту, с помощью следующей команды. Эта команда передает данные средству **jq** для анализа JSON.
 <!-- -->
-        azure provider show Microsoft.Compute --json | jq '.resourceTypes[] | select(.name == "virtualMachines") | { name,apiVersions, locations}'
+ 	azure provider show Microsoft.Compute --json | jq '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' 
         {
           "name": "virtualMachines",
           "apiVersions": [
@@ -414,7 +415,7 @@ API-Интерфейс REST диспетчера ресурсов содержи
 При работе с ресурсами Azure из командной строки вы воспользуетесь набором инструментов, который поможет выполнить необходимые задачи. Шаблоны группы ресурсов Azure представляют собой документы JSON, а API диспетчера ресурсов Azure принимает и возвращает JSON, поэтому средства анализа JSON станут одними из первых инструментов, которые вы будете использовать для просмотра сведений о ресурсах и для разработки шаблонов и файлов параметров шаблонов и взаимодействия с ними.
 
 ### Средства Mac, Linux и Windows
-Если вы используете интерфейс командной строки Azure для Mac, Linux или Windows, то, скорее всего, вы уже знакомы со стандартными средствами для загрузки, такими как **[curl](http://curl.haxx.se/)**, **[wget](https://www.gnu.org/software/wget/)** или **[Resty](https://github.com/beders/Resty)**, со служебными программами JSON, например **[jq](http://stedolan.github.io/jq/download/)** и **[jsawk](https://github.com/micha/jsawk)**, а также с библиотеками языков, которые хорошо обрабатывают JSON. (Многие из этих средств, например [wget](http://gnuwin32.sourceforge.net/packages/wget.htm), также портированы в Windows; фактически сделать так, чтобы программы для Linux и другие программные средства с открытым исходным кодом также работали в Windows, можно несколькими способами.)
+Если вы используете интерфейс командной строки Azure для Mac, Linux или Windows, то, скорее всего, вы уже знакомы со стандартными средствами для загрузки, такими как **[curl](http://curl.haxx.se/)**, **[wget](https://www.gnu.org/software/wget/)** или **[Resty](https://github.com/beders/Resty)**, со служебными программами JSON, например **[jq](http://stedolan.github.io/jq/download/)** и **[jsawk](https://github.com/micha/jsawk)**, а также с библиотеками языков, которые хорошо обрабатывают JSON. (Многие из этих средств, например [wget](http://gnuwin32.sourceforge.net/packages/wget.htm), также портированы в Windows; на самом деле, сделать так, чтобы программы для Linux и другие программные средства с открытым исходным кодом также работали в Windows, можно несколькими способами.)
 
 Этот раздел содержит некоторые команды CLI Azure, которые вы можете использовать с **jq** для эффективного получения именно тех сведений, которые вам нужны. Чтобы лучше понять, как используются ресурсы Azure, выберите тот набор инструментов, к которому вы привыкли.
 
@@ -434,4 +435,4 @@ API-Интерфейс REST диспетчера ресурсов содержи
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0107_2016-->

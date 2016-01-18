@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Высокий уровень доступности и аварийное восстановление для SQL Server | Microsoft Azure"
-	description="В этом руководстве используются ресурсы, созданные с помощью классической модели развертывания, и обсуждаются различные типы стратегий HADR для SQL Server на виртуальных машинах Azure."
+	description="Обсуждение различных типов стратегий HADR для SQL Server на виртуальных машинах Azure."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="11/13/2015"
+	ms.date="01/07/2015"
 	ms.author="jroth" />
 
 # Высокий уровень доступности и аварийное восстановление для SQL Server на виртуальных машинах Azure
@@ -39,6 +39,7 @@
 - [Зеркальное отображение базы данных](https://technet.microsoft.com/library/ms189852.aspx)
 - [Доставка журналов](https://technet.microsoft.com/library/ms187103.aspx)
 - [Резервное копирование и восстановление с помощью службы хранилища больших двоичных объектов Azure](https://msdn.microsoft.com/library/jj919148.aspx)
+- [Экземпляры отказоустойчивого кластера AlwaysOn](https://technet.microsoft.com/library/ms189134.aspx) 
 
 Эти технологии можно объединить, чтобы реализовать решение SQL Server, поддерживающее возможности высокого уровня доступности и аварийного восстановления. В зависимости от используемой технологии для гибридного развертывания может потребоваться VPN-туннель с виртуальной сетью Azure. В разделах ниже приведено несколько примеров архитектур развертывания.
 
@@ -48,8 +49,9 @@
 
 |Технология|Примеры архитектур|
 |---|---|
-|**Группы доступности AlwaysOn**|Все реплики доступности, выполняемые на виртуальных машинах Azure для обеспечения высокого уровня доступности в одном регионе. Необходимо настроить контроллер домена в дополнение к виртуальным машинам SQL Server, так как для отказоустойчивой кластеризации Windows Server (WSFC) требуется домен Active Directory.<br/> ![Группы доступности AlwaysOn](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_always_on.gif)<br/>Дополнительные сведения см. в статье [Настройка групп доступности AlwaysOn в Azure (графический пользовательский интерфейс)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).|
+|**Группы доступности AlwaysOn**|Все реплики доступности, выполняемые на виртуальных машинах Azure для обеспечения высокого уровня доступности в одном регионе. Необходимо настроить виртуальную машину контроллера домена, так как для отказоустойчивой кластеризации Windows Server (WSFC) требуется домен Active Directory.<br/> ![Группы доступности AlwaysOn](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_always_on.gif)<br/>Дополнительные сведения см. в статье [Настройка групп доступности AlwaysOn в Azure (графический пользовательский интерфейс)](virtual-machines-sql-server-alwayson-availability-groups-gui.md).|
 |**Зеркальное отображение базы данных**|Основной, зеркальный и следящий серверы работают в одном центре обработки данных Azure для обеспечения высокой доступности. Для развертывания можно использовать контроллер домена.<br/>![Зеркальное отображение базы данных](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_dbmirroring1.gif)<br/>Вы также можете развернуть ту же конфигурацию зеркального отображения базы данных без контроллера домена, используя сертификаты сервера.<br/>![Зеркальное отображение базы данных](./media/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions/azure_only_ha_dbmirroring2.gif)|
+|**Экземпляры отказоустойчивого кластера AlwaysOn**|Экземпляры отказоустойчивого кластера (FCI), которые требуют наличия общего хранилища, можно создавать двумя способами.<br/><br/>1. Экземпляр FCI в кластере WSFC с двумя узлами, выполняющемся на виртуальных машинах Azure, с хранилищем, поддерживаемым сторонним решением кластеризации. Конкретный пример, в котором используется SIOS DataKeeper, см. в статье [Обеспечение высокой доступности для общей папки с помощью WSFC и стороннего программного обеспечения SIOS Datakeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).<br/><br/>2. Экземпляр FCI в кластере WSFC с двумя узлами, выполняющемся на виртуальных машинах Azure, с удаленным общим хранилищем блоков цели iSCSI через ExpressRoute. Например, решение NetApp Private Storage (NPS) предоставляет цели iSCSI через ExpressRoute с Equinix для виртуальных машин Azure.<br/><br/>По любым вопросам, связанным с доступом к данным при отработке отказа, касающимся сторонних решений репликации данных и общих хранилищ, следует обратиться к их поставщикам.<br/><br/>Обратите внимание, что использование экземпляра FCI поверх [хранилища файлов Azure](https://azure.microsoft.com/services/storage/files/) пока не поддерживается, поскольку это решение не использует хранилище Premium. Мы работаем над тем, чтобы обеспечить поддержку этого сценария в ближайшее время.|
 
 ## Только в Azure: решения аварийного восстановления
 
@@ -152,4 +154,4 @@
 - [Установка нового леса Active Directory в виртуальной сети Azure](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Создание кластера WSFC для групп доступности AlwaysOn на виртуальной машине Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->

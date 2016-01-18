@@ -5,8 +5,8 @@
 	documentationCenter=""
 	authors="danielsollondon"
 	manager="jeffreyg"
-   editor="monicar"    
-   tags="azure-service-management"/>
+	editor="monicar"    
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="10/02/2015"
+	ms.date="01/06/2015"
 	ms.author="jroth"/>
 
 # Использование хранилища Azure Premium Storage с SQL Server на виртуальных машинах
@@ -395,7 +395,7 @@
 
 ![DeploymentUseAlwaysOn2][7]
 
-> [AZURE.NOTE]Перед началом проверки следует остановить все экземпляры SQL Server, в которых используются пулы носителей.
+> [AZURE.NOTE] Перед началом проверки следует остановить все экземпляры SQL Server, в которых используются пулы носителей.
 ##### Шаги высокого уровня
 
 1. Создайте два новых сервера SQL в новой облачной службе с присоединенным хранилищем Premium.
@@ -1151,4 +1151,4 @@
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!----HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0107_2016-->
