@@ -267,7 +267,7 @@
 
  - Дополнительные сведения об Azure DocumentDB см. на странице документации по [службе DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
- - Дополнительные сведения о поиске Azure см. на странице документации по [службе поиска](https://azure.microsoft.com/ru-RU/services/search/).
+ - Дополнительные сведения о поиске Azure см. на странице документации по [службе поиска](https://azure.microsoft.com/services/search/).
  
 
-<!---HONumber=AcomDC_0107_2016-->
+<!----HONumber=AcomDC_0107_2016-->
