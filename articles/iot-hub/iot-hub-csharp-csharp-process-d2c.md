@@ -98,6 +98,7 @@
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 
 
+[Обработка временного сбоя]: https://msdn.microsoft.com/ru-RU/library/hh680901(v=pandp.50).aspx
 
 [руководстве для разработчиков центра IoT Azure, посвященному передаче сообщений с устройства в облако]: https://azure.microsoft.com/ru-RU/documentation/articles/iot-hub-devguide/#d2c
 
@@ -107,6 +108,7 @@
 
 
 [Отправка сообщений с облака на устройства в центре IoT]: iot-hub-csharp-csharp-c2d.md
+[Обработка сообщений, передаваемых с устройства в облако]: iot-hub-csharp-csharp-process-d2c.md
 [Передача файлов с устройств]: iot-hub-csharp-csharp-file-upload.md
 
 [Обзор центра IoT]: iot-hub-what-is-iot-hub.md

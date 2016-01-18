@@ -96,7 +96,6 @@
 <td>ValidationRetry</td><td>Ожидание повторения проверки.</td>
 </tr>
 <tr>
-&lt;tr
 <td rowspan="2">InProgress</td><td>Validating</td><td>Проверка выполняется.</td>
 </tr>
 <td></td>
@@ -540,7 +539,9 @@ OnDemandClusterDeleted | Succeeded
  
 Замените subscriptionId, resourceGroupName и dataFactoryName в приведенном выше примере на соответствующие значения.
 
-Сейчас для *metricName* можно указать только 2 значения: FailedRuns или SuccessfulRuns.
+Сейчас для *metricName* можно указать только 2 значения:
+- FailedRuns или
+- SuccessfulRuns.
 
 **Развертывание оповещения**
 

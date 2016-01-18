@@ -93,20 +93,20 @@
 Теперь откройте файл MySetup.bat и добавьте следующие команды.
 
 ~~~
-REM Set a system environment variable. This requires administrator privilege
+REM Задайте системную переменную среды. Для этого требуется привилегия администратора privilege
 setx -m TestVariable "MyValue"
-echo System TestVariable set to > test.txt
+echo System TestVariable со значением > test.txt
 echo %TestVariable% >> test.txt
 
-REM To delete this system variable us
-REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
+REM Чтобы удалить эту системную переменную, используйте
+REM REG delete "HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment" /v TestVariable /f
 ~~~
 
 Затем скомпилируйте и разверните решение в кластере локальной разработки. После запуска службы (отображено в обозревателе Service Fabric) вы можете убедиться в успешном выполнении файла MySetup.bat двумя способами. Откройте командную строку PowerShell и введите следующую команду.
 
 ~~~
-PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
-MyValue
+PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine") MyValue
+
 ~~~
 
 Запишите имя узла с развернутой и запущенной службой в обозревателе Service Fabric (например, Node 1). Затем перейдите в рабочую папку экземпляра приложения и найдите файл out.txt, который показывает значение **TestVariable**. Например, если служба была развернута на узле Node 2, можно перейти по этому пути для **MyApplicationType**.

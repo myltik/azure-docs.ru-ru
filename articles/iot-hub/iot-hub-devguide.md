@@ -254,7 +254,7 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 
 В обоих случаях поле пароля содержит маркер, как описано в разделе [Формат маркера](#tokenformat).
 
-> [AZURE.NOTE][Пакеты SDK центра IoT Azure][lnk-apis-sdks] автоматически создают маркеры при подключении к службе. В некоторых случаях пакеты SDK поддерживают не все протоколы или не все методы проверки подлинности.
+> [AZURE.NOTE] [Пакеты SDK центра IoT Azure][lnk-apis-sdks] автоматически создают маркеры при подключении к службе. В некоторых случаях пакеты SDK поддерживают не все протоколы или не все методы проверки подлинности.
 
 #### Сравнение SASL PLAIN с CBS
 
@@ -542,4 +542,4 @@ Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy nam
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 [lnk-iotdev]: https://azure.microsoft.com/develop/iot/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0107_2016--->
