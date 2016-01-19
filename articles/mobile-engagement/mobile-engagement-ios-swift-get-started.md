@@ -2,7 +2,7 @@
 	pageTitle="Начало работы с Azure Mobile Engagement для iOS в Swift"
 	description="Узнайте, как использовать Azure Mobile Engagement с аналитическими функциями и push-уведомлениями для приложений iOS."
 	services="mobile-engagement"
-	documentationCenter="Mobile"
+	documentationCenter="ios"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -112,7 +112,7 @@
 
 	`class ViewController : EngagementViewController {`
 
-##<a id="monitor"></a>Подключение приложения с наблюдением в режиме реального времени
+##<a id="monitor"></a>Подключение приложения с мониторингом в режиме реального времени
 
 [AZURE.INCLUDE [Подключение приложения с возможностью его отслеживания в режиме реального времени](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
@@ -209,4 +209,4 @@ Mobile Engagement позволяет взаимодействовать и св�
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 [6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

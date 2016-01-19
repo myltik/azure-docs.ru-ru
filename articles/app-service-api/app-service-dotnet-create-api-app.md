@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="10/08/2015"
+	ms.date="01/08/2016" 
 	ms.author="tdykstra"/>
 
 # Создание приложения API ASP.NET в службе приложений Azure
@@ -46,7 +46,7 @@
 
 Теперь ваше приложение API готово к развертыванию, и вы можете перейти к учебнику [Развертывание приложения API](app-service-dotnet-deploy-api-app.md).
 
-Сведения об использовании автоматически создаваемого кода клиента для вызова приложений API см. в статье [Использование приложения API из клиента .NET](app-service-api-dotnet-consume.md).
+Сведения об использовании автоматически создаваемого клиентского кода для вызова приложений API см. в статье [Использование приложения API из клиента .NET](app-service-api-dotnet-consume.md).
 
 Сведения о настройке автоматически созданных метаданных Swagger для приложения API см. в статье [Настройка определений API, созданных Swashbuckle](app-service-api-dotnet-swashbuckle-customize.md).
 
@@ -56,4 +56,4 @@
 
 Сведения о функциях приложений API см. в статье [Что такое приложения API?](app-service-api-apps-why-best-platform.md).
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

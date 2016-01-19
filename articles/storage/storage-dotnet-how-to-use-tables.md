@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Как использовать табличное хранилище из .NET | Microsoft Azure"
-	description="Вы узнаете дополнительные сведения об использовании табличного хранилища Microsoft Azure для создания и удаления таблиц, вставки данных в таблицы и создания запросов."
+	description="Используйте хранилище таблиц для хранения бессхемных неструктурированных данных. Хранилище таблиц представляет собой хранилище ключей (атрибутов) NoSQL. Клиентская библиотека хранилища для .NET предоставляет API-интерфейсы для создания и удаления таблиц, а также для вставки, обновления, удаления и запрашивания данных."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
-	manager="adinah"
-	editor=""/>
+	manager="carmonm"
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/04/2015"
+	ms.date="01/07/2016"
 	ms.author="tamram"/>
 
 
@@ -440,4 +440,4 @@
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [How to: Programmatically access Table storage]: #tablestorage
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

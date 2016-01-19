@@ -1,20 +1,20 @@
 <properties
-	pageTitle="Загрузка данных с помощью фабрики данных Azure | Microsoft Azure"
-	description="Сведения о том, как загружать данные с помощью фабрики данных Azure."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="Загрузка данных с помощью фабрики данных Azure | Microsoft Azure"
+   description="Сведения о том, как загружать данные с помощью фабрики данных Azure."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 # Загрузка данных с помощью фабрики данных Azure
 
@@ -206,4 +206,4 @@
 	}
 	
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,20 +1,20 @@
 <properties
 	pageTitle="Использование хранилища очередей из .NET | Microsoft Azure"
-	description="Вы узнаете дополнительные сведения об использовании службы очередей Microsoft Azure для создания и удаления очередей, вставки, получения и удаления сообщений."
+	description="Узнайте, как использовать хранилище очередей для создания и удаления очередей, а также для вставки, просмотра, получения и удаления сообщений в очереди."
 	services="storage"
 	documentationCenter=".net"
 	authors="robinsh"
 	manager="carmonm"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="12/04/2015"
-	ms.author="robinsh"/>
+	ms.author="gusapost"/>
 
 # Использование хранилища очередей из .NET
 
@@ -246,7 +246,7 @@
     - [Справочник по REST API](http://msdn.microsoft.com/library/azure/dd179355)
 - Узнайте, как упростить код, предназначенный для работы со службой хранилища Azure, с помощью [пакета SDK для веб-заданий Azure](../websites-dotnet-webjobs-sdk/).
 - Просмотрите дополнительные руководства, чтобы изучить дополнительные возможности хранения данных в Azure.
-    - Использование [Табличного хранилища](storage-dotnet-how-to-use-tables.md) для хранения структурированных данных. 
+    - Использование [Табличного хранилища](storage-dotnet-how-to-use-tables.md) для хранения структурированных данных.
     - Использование [Хранилища Blob-объектов](storage-dotnet-how-to-use-blobs.md) для хранения неструктурированных данных.
     - Использование [Базы данных SQL](sql-database-dotnet-how-to-use.md) для хранения реляционных данных.
 
@@ -259,6 +259,5 @@
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
- 
 
-<!---HONumber=AcomDC_1210_2015-->
+<!---HONumber=AcomDC_0114_2016-->

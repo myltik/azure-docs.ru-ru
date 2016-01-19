@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="11/19/2015" 
+	ms.date="01/11/2016" 
 	ms.author="billmath"/>
 
 # Приступая к работе с сервером Azure Multi-Factor Authentication
@@ -23,15 +23,14 @@
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
-Теперь, когда мы определили, нужно ли использовать локальную многофакторную проверку подлинности, давайте приступим к работе. На этой странице рассматривается процедура установки сервера и его настройка в локальной службе Active Directory. Если сервер Phonefactor уже установлен и вы ищете информацию о том, как его настроить, см. статью «Обновление до сервера Azure Multi-Factor Authentication». Если же вам нужна информация только об установке веб-службы, см. статью «Развертывание веб-службы мобильного приложения сервера Azure Multi-Factor Authentication».
-
+Теперь, когда мы определили, нужно ли использовать локальную многофакторную проверку подлинности, давайте приступим к работе. На этой странице рассматривается процедура установки сервера и его настройка в локальной службе Active Directory. Если сервер PhoneFactor уже установлен и вы ищете информацию о том, как установить новую версию, см. статью [Переход с агента PhoneFactor на сервер Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-upgrade.md). Если же вам нужна информация только об установке веб-службы, см. статью [Приступая к работе с веб-службой мобильного приложения сервера Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md).
 
 
 ## Загрузка сервера Azure Multi-Factor Authentication
 
 
 
-Существует два разных способа загрузки сервера Azure Multi-Factor Authentication: Оба выполняются через портал Azure. Первый способ — это управление поставщиком многофакторной проверки подлинности напрямую. Второй — через параметры службы. Для второго варианта требуется либо поставщик многофакторной проверки подлинности, либо лицензия Azure AD Premium.
+Существует два разных способа загрузки сервера Azure Multi-Factor Authentication: Оба выполняются через портал Azure. Первый способ — это управление поставщиком многофакторной проверки подлинности напрямую. Второй — через параметры службы. Для второго варианта требуется либо поставщик Multi-Factor Authentication, либо лицензия Azure MFA, Azure AD Premium или Enterprise Mobility Suite.
 
 
 ### Загрузка сервера Azure Multi-Factor Authentication с портала Azure
@@ -39,7 +38,7 @@
 
 1. Войдите на портал Azure с учетной записью администратора.
 2. Выберите слева элемент Active Directory.
-3. На странице Active Directory вверху щелкните **Поставщики многофакторной проверки подлинности**.
+3. На странице Active Directory вверху выберите вкладку **Поставщики многофакторной проверки подлинности**.
 4. В нижней части страницы щелкните **Управление**.
 5. Откроется новая страница. Выберите элемент **Загрузки** ![Загрузить](./media/multi-factor-authentication-sdk/download.png)
 6. Над элементом **Создать учетные данные для активации** щелкните **Загрузить** ![Загрузить](./media/multi-factor-authentication-get-started-server/download4.png)
@@ -55,7 +54,7 @@
 3. Дважды щелкните свой экземпляр Azure AD.
 4. В верхней части экрана щелкните ссылку **Настроить** ![Загрузить](./media/multi-factor-authentication-sdk/download2.png)
 5. В разделе многофакторной проверки подлинности выберите **Управление параметрами службы**.
-6. На странице параметров службы в нижней части экрана щелкните ссылку **Перейти на портал**. ![Загрузить](./media/multi-factor-authentication-sdk/download3.png)
+6. На странице параметров службы в нижней части экрана щелкните ссылку **Перейти на портал**. ![Загрузить](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 7. Откроется новая страница. Щелкните **Загрузить**.
 8. Над элементом **Создать учетные данные для активации** щелкните **Загрузить**.
 9. Сохраните загружаемый файл.
@@ -186,4 +185,4 @@ IP-подсеть|Маска сети|Диапазон IP-адресов
 [Синхронизация с Active Directory Windows Server](multi-factor-authentication-get-started-server-dirint.md)|Сведения об установке и настройке синхронизации между Active Directory и сервером Azure Multi-Factor Authentication.
 [Развертывание веб-службы мобильных приложений сервера Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md)|Сведения об установке и настройке веб-службы сервера Azure Multi-Factor Authentication.
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->
