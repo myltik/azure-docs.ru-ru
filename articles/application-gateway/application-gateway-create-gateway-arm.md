@@ -255,6 +255,6 @@
 Дополнительные сведения о параметрах балансировки нагрузки в целом см. в статьях:
 
 - [Подсистема балансировщика нагрузки Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
-- [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
+- [Диспетчер трафика Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
 <!---HONumber=AcomDC_0114_2016-->
