@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager=""
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="twounder;barbkess"/>
+   ms.date="01/07/2016"
+   ms.author="mausher;barbkess;sonyama"/>
 
 # Подключение и создание запросов с помощью Visual Studio
 
@@ -34,7 +34,7 @@
 
 ## Получение полного имени сервера Azure SQL
 
-Для подключения к базе данных требуется полное имя сервера ( ***имя\_сервера**.database.windows.net* ), содержащее базу данных, к которой необходимо подключиться.
+Для подключения к базе данных требуется полное имя сервера (****имя\_сервера**.database.windows.net*), содержащее базу данных, к которой необходимо подключиться.
 
 1. Перейдите на [портал Azure](https://portal.azure.com).
 2. Перейдите к базе данных, к которой нужно подключиться.
@@ -91,4 +91,4 @@
 [3]: ./media/sql-data-warehouse-get-started-connect-query/connection-dialog.png
 [4]: ./media/sql-data-warehouse-get-started-connect-query/new-query.png
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

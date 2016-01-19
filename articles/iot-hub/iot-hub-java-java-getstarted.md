@@ -1,19 +1,19 @@
 <properties
 	pageTitle="Приступая к работе с центром Azure IoT | Microsoft Azure"
-	description="Следуйте указаниям этого учебника, чтобы приступить к работе с центром IoT Azure с помощью C#."
+	description="Следуйте указаниям этого руководства, чтобы приступить к работе с центром IoT Azure с помощью Java."
 	services="iot-hub"
-	documentationCenter=".net"
+	documentationCenter="java"
 	authors="dominicbetts"
 	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="dotnet"
+     ms.devlang="java"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="12/14/2015"
+     ms.date="12/21/2015"
      ms.author="dobett"/>
 
 # Учебник: начало работы с центром IoT
@@ -32,19 +32,21 @@
 
 - Создание центра IoT с помощью портала Azure.
 - Создание удостоверения устройства в центре IoT.
-- Создание виртуального устройства, которое взаимодействует с серверной частью облака, отправляя туда данные телеметрии и получая оттуда команды.
+- Создание виртуального устройства, отправляющего данные телеметрии в серверную часть облачного решения.
 
-В конце этого учебника у вас будет три консольных приложения Windows:
+В конце этого руководства у вас будет три консольных приложения Java:
 
-* **CreateDeviceIdentity** — создает удостоверение устройства и соответствующий ключ безопасности для подключения к виртуальному устройству;
-* **ReadDeviceToCloudMessages** — отображает данные телеметрии, отправленные виртуальным устройством.
-* **SimulatedDevice** — подключается к центру IoT с созданным ранее удостоверением устройства и отправляет сообщения с частотой один раз в секунду.
+* **create-device-identity** — создает удостоверение устройства и соответствующий ключ безопасности для подключения к виртуальному устройству;
+* **read-d2c-messages** — отображает данные телеметрии, отправляемые виртуальным устройством;
+* **simulated-device** — подключается к центру IoT с созданным ранее удостоверением устройства и отправляет сообщения телеметрии с частотой один раз в секунду.
 
 > [AZURE.NOTE]Статья [Пакеты SDK для центра IoT][lnk-hub-sdks] содержит сведения о разных пакетах SDK, которые можно использовать для создания приложений, которые будут запущены на устройствах и в серверной части решения.
 
 Для работы с этим руководством требуется:
 
-+ Microsoft Visual Studio 2015.
++ Java SE 8. <br/> В статье о [подготовке среды разработки][lnk-dev-setup] описывается, как установить Java для целей этого руководства в ОС Windows или Linux.
+
++ Maven 3. <br/> В статье о [подготовке среды разработки][lnk-dev-setup] описывается, как установить Maven для целей этого руководства в ОС Windows или Linux.
 
 + Активная учетная запись Azure. <br/>Если ее нет, можно создать бесплатную пробную учетную запись всего за несколько минут. Дополнительные сведения см. в разделе [Бесплатная пробная версия Azure][lnk-free-trial].
 
@@ -79,24 +81,36 @@
 
     ![][5]
 
-Теперь у вас есть центр IoT, а также имя узла и строка подключения, необходимые для завершения работы с этим руководством.
+7. В колонке «Центр IoT» щелкните **Параметры**, а затем в колонке **Параметры** щелкните **Обмен сообщениями**. Когда откроется колонка **Обмен сообщениями**, запишите значения в полях **Имя, совместимое с концентраторами событий** и **Конечная точка, совместимая с концентраторами событий**. Эти значения потребуются при создании приложения **read-d2c-messages**.
 
-[AZURE.INCLUDE [iot-hub-get-started-cloud-csharp](../../includes/iot-hub-get-started-cloud-csharp.md)]
+    ![][6]
+
+Вы создали центр IoT, и у вас есть все необходимое для выполнения оставшейся части этого руководства: имя узла центра IoT, строка подключения к центру IoT, имя и конечная точка, совместимые с концентраторами событий.
+
+[AZURE.INCLUDE [iot-hub-get-started-cloud-java](../../includes/iot-hub-get-started-cloud-java.md)]
 
 
-[AZURE.INCLUDE [iot-hub-get-started-device-csharp](../../includes/iot-hub-get-started-device-csharp.md)]
+[AZURE.INCLUDE [iot-hub-get-started-device-java](../../includes/iot-hub-get-started-device-java.md)]
 
 ## Запуск приложений
 
 Теперь все готово к запуску приложений.
 
-1.	В обозревателе решений Visual Studio щелкните правой кнопкой мыши решение и выберите пункт **Назначить запускаемым проектом**. Выберите **Несколько запускаемых проектов**, а затем выберите **Запуск** в качестве **действия** для проектов **ReadDeviceToCloudMessages** и **SimulatedDevice**.
+1. В командной строке в папке read-d2c выполните следующую команду, чтобы начать мониторинг центра IoT:
 
-   	![][41]
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
+    ```
 
-2.	Нажмите клавишу **F5**, чтобы запустить оба приложения. Вывод консоли приложения **SimulatedDevice** отображает сообщения, которые виртуальное устройство отправляет в центр IoT; вывод консоли приложения **ReadDeviceToCloudMessages** отображает сообщения, которые получает центр IoT.
+    ![][7]
 
-   	![][42]
+2. В командной строке в папке simulated-device выполните следующую команду, чтобы начать отправку данных телеметрии в центр IoT:
+
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
+    ```
+
+    ![][8]
 
 ## Дальнейшие действия
 
@@ -115,15 +129,17 @@
 * [Центр разработчика IoT Azure][lnk-dev-center]
 
 <!-- Images. -->
-[1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
-[2]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub2.png
-[3]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub3.png
-[4]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub4.png
-[5]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub5.png
-[41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
-[42]: ./media/iot-hub-csharp-csharp-getstarted/run-apps2.png
+[1]: ./media/iot-hub-java-java-getstarted/create-iot-hub1.png
+[2]: ./media/iot-hub-java-java-getstarted/create-iot-hub2.png
+[3]: ./media/iot-hub-java-java-getstarted/create-iot-hub3.png
+[4]: ./media/iot-hub-java-java-getstarted/create-iot-hub4.png
+[5]: ./media/iot-hub-java-java-getstarted/create-iot-hub5.png
+[6]: ./media/iot-hub-java-java-getstarted/create-iot-hub6.png
+[7]: ./media/iot-hub-java-java-getstarted/runapp1.png
+[8]: ./media/iot-hub-java-java-getstarted/runapp2.png
 
 <!-- Links -->
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/java/device/doc/devbox_setup.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md

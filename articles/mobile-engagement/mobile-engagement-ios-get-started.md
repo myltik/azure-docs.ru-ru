@@ -2,7 +2,7 @@
 	pageTitle="Начало работы с Azure Mobile Engagement для iOS в Objective C"
 	description="Узнайте, как использовать Azure Mobile Engagement с данными аналитики и push-уведомлениями для приложений iOS."
 	services="mobile-engagement"
-	documentationCenter="Mobile"
+	documentationCenter="ios"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -53,7 +53,7 @@
 
 ###Подключение приложения к серверной части Mobile Engagement
 
-1. Скачайте [пакет SDK iOS для Mobile Engagement].
+1. Скачайте пакет [Mobile Engagement iOS SDK].
 2. Извлеките файл .tar.gz в папку на компьютере.
 3. Щелкните правой кнопкой мыши проект и выберите пункт **Добавить файлы в**.
 
@@ -94,7 +94,7 @@
 
 Чтобы начать отправку данных и убедиться, что пользователи активны, отправьте по крайней мере один экран (действие) в серверную часть Mobile Engagement.
 
-1. Откройте файл **ViewController.h** и импортируйте **EngagementViewController.h**.
+1. Откройте файл **ViewController.h** и импортируйте **EngagementViewController.h**:
 
     `# import "EngagementViewController.h"`
 
@@ -177,7 +177,7 @@ Mobile Engagement позволяет взаимодействовать и св�
 
 <!-- URLs. -->
 [Mobile Engagement iOS SDK]: http://aka.ms/qk2rnj
-[пакет SDK iOS для Mobile Engagement]: http://aka.ms/qk2rnj
+[Mobile Engagement iOS SDK]: http://aka.ms/qk2rnj
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-ios-get-started/xcode-add-files.png
@@ -185,4 +185,4 @@ Mobile Engagement позволяет взаимодействовать и св�
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
 
-<!---HONumber=AcomDC_1217_2015-->
+<!---HONumber=AcomDC_0114_2016-->

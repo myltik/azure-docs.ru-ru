@@ -2,7 +2,7 @@
 	pageTitle="Приступая к работе с Azure Mobile Engagement для универсальных приложений для Windows"
 	description="Узнайте, как использовать Azure Mobile Engagement с аналитическими функциями и push-уведомлениями для универсальных приложений для Windows."
 	services="mobile-engagement"
-	documentationCenter="mobile"
+	documentationCenter="windows"
 	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
@@ -114,7 +114,7 @@
 
 		using Microsoft.Azure.Engagement.Overlay;
 
-2. Измените базовый класс **MainPage** с **Page** на **EngagementPageOverlay**.
+2. Замените на базовый класс **MainPage** из **Page** для **EngagementPage**.
 
 		class MainPage : EngagementPageOverlay
 
@@ -181,7 +181,7 @@ Mobile Engagement позволяет взаимодействовать и св�
 
 	![][6]
 
-8. Наконец вам нужно связать свое приложение Visual Studio и созданное приложение в магазине приложений. Для этого в Visual Studio щелкните **Связать приложение с Магазином**.
+8. Наконец вам нужно связать свое приложение Visual Studio и созданное приложение в магазине приложений. Для этого щелкните в Visual Studio **Связать приложение с магазином**.
 
 	![][7]
 
@@ -213,4 +213,4 @@ Mobile Engagement позволяет взаимодействовать и св�
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
 
-<!---HONumber=AcomDC_1125_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -60,21 +60,21 @@
 2. Перейдите в папку или каталог, где вы хотите сохранить приложение Node.js.
 3. Создайте два пустых файла JavaScript с помощью следующих команд:
 	- Windows:    
-	    * **fsutil file createnew app.js 0**
-        * **fsutil file createnew config.js 0**
+	    * ```fsutil file createnew app.js 0```
+        * ```fsutil file createnew config.js 0```
 	- Linux или OS X: 
-	    * **touch app.js**
-        * **touch config.js**
+	    * ```touch app.js```
+        * ```touch config.js```
 4. Установите модуль documentdb через npm. Используйте следующую команду:
-    * **npm install documentdb --save**
+    * ```npm install documentdb --save```
 
 Отлично! Теперь, когда настройка завершена, можно начать писать код.
 
 ##<a id="Config"></a> Шаг 3. Настройка конфигурации приложения
 
-Откройте файл *config.js* в предпочитаемом текстовом редакторе.
+Откройте файл ```config.js``` в предпочитаемом текстовом редакторе.
 
-Затем создайте пустой объект с именем *config* и задайте свойства *config.endpoint* и *config.authKey* для конечной точки и ключа авторизации DocumentDB. Обе эти конфигурации можно найти на [портале Azure](https://portal.azure.com).
+Создайте пустой объект с именем ```config``` и задайте свойства ```config.endpoint``` и ```config.authKey``` для конечной точки и ключа авторизации DocumentDB. Обе эти конфигурации можно найти на [портале Azure](https://portal.azure.com).
 
 ![Снимок экрана портала Azure, на котором отображена учетная запись DocumentDB с выделенным АКТИВНЫМ концентратором, выделенной кнопкой «Ключи» в колонке учетной записи DocumentDB и выделенными универсальным кодом ресурса, ПЕРВИЧНЫМ КЛЮЧОМ И ВТОРИЧНЫМ КЛЮЧОМ в колонке «Ключи».][keys]
 
@@ -83,7 +83,7 @@
     config.endpoint = "https://YOUR_ENDPOINT_URI.documents.azure.com:443/";
     config.authKey = "oqTveZeWlbtnJQ2yMj23HOAViIr0ya****YOUR_AUTHORIZATION_KEY****ysadfbUV+wUdxwDAZlCfcVzWp0PQg==";
 
-Теперь добавим *идентификатор базы данных*, *идентификатор коллекции* и *документы JSON* в объект *config*. Указав свойства *config.endpoint* и *config.authKey*, добавьте приведенный ниже код. Если у вас уже есть данные, которые необходимо хранить в базе данных, вместо добавления определений документа можно использовать [средство переноса данных](documentdb-import-data.md) в DocumentDB.
+Теперь добавим ```database id```, ```collection id``` и ```JSON documents``` в объект ```config```. Ниже, задавая свойства ```config.endpoint``` и ```config.authKey```, добавьте следующий код. Если у вас уже есть данные, которые необходимо хранить в базе данных, вместо добавления определений документа можно использовать [средство переноса данных](documentdb-import-data.md) в DocumentDB.
 
     config.dbDefinition = {"id": "FamilyRegistry"};
     config.collDefinition = {"id": "FamilyCollection"};
@@ -163,27 +163,27 @@
 
     config.docsDefinitions = documents;
 
-База данных, коллекция и определения документа будут выступать в качестве *идентификатора базы данных*, *идентификатора коллекции* и данных документов в DocumentDB.
+База данных, коллекция и определения документа будут выступать в качестве ```database id```, ```collection id``` и данных документов в DocumentDB.
 
-Наконец, экспортируйте объект *config*, чтобы на него можно ссылаться в файле *app.js*.
+Наконец экспортируйте объект ```config```, чтобы на него можно было ссылаться в файле ```app.js```.
 
     module.exports = config;
 
-##<a id="Connect"></a> Шаг 4. Подключение к учетной записи DocumentDB
+##<a id="Connect"></a> Шаг 4. Подключение к учетной записи DocumentDB
 
-Откройте пустой файл *app.js* в текстовом редакторе. Импортируйте модуль *documentdb* и только что созданный модуль *config*.
+Откройте пустой файл ```app.js``` в текстовом редакторе. Импортируйте модуль ```documentdb``` и только что созданный модуль ```config```.
 
     var documentClient = require("documentdb").DocumentClient;
     var config = require("./config");
 
-Теперь создайте DocumentClient, используя ранее сохраненные значения *config.endpoint* и *config.authKey*.
+Теперь создайте DocumentClient, используя ранее сохраненные значения ```config.endpoint``` и ```config.authKey```.
 
     var client = new documentClient(config.endpoint, {"masterKey": config.authKey});
 
 После того как вы подключились к учетной записи DocumentDB, рассмотрим принципы работы с ресурсами DocumentDB.
 
 ## Шаг 5. Создание базы данных
-[Базу данных](documentdb-resources.md#databases) можно создать, используя функцию [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) класса **DocumentClient**. База данных представляет собой логический контейнер для хранения документов, разделенных между коллекциями. Добавьте функцию, чтобы создать новую базу данных в файле app.js с *идентификатором*, указанным в объекте *config*. Сначала мы убедимся в том, что база данных с таким же идентификатором *FamilyRegistry* не существует. Если она существует, мы вернем ее вместо создания новой базы данных.
+[Базу данных](documentdb-resources.md#databases) можно создать, используя функцию [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) класса **DocumentClient**. База данных представляет собой логический контейнер для хранения документов, разделенных между коллекциями. Добавьте функцию создания новой базы данных в файле app.js с ```id```, указанным в объекте ```config```. Сначала мы убедимся в том, что база данных с таким же идентификатором ```FamilyRegistry``` еще не создана. Если она существует, мы вернем ее вместо создания новой базы данных.
 
     var getOrCreateDatabase = function(callback) {
         var querySpec = {
@@ -214,7 +214,7 @@
 
 > [AZURE.WARNING]Элемент **CreateDocumentCollectionAsync** создаст новую коллекцию S1, с которой связаны ценовые требования. Дополнительные сведения см. на нашей [странице цен](https://azure.microsoft.com/pricing/details/documentdb/).
 
-Вы можете создать [коллекцию](documentdb-resources.md#collections), используя функцию [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) класса **DocumentClient**. Коллекция представляет собой контейнер документов JSON и связанную с ними логику в виде приложения JavaScript. Созданная коллекция будет сопоставлена с [уровнем производительности S1](documentdb-performance-levels.md). Добавьте функцию, чтобы создать новую коллекцию в файле app.js с *идентификатором*, указанным в объекте *config*. Теперь нужно снова убедиться в том, что коллекция с таким же идентификатором *FamilyCollection* не существует. Если она существует, мы вернем ее вместо создания новой коллекции.
+Вы можете создать [коллекцию](documentdb-resources.md#collections), используя функцию [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) класса **DocumentClient**. Коллекция представляет собой контейнер документов JSON и связанную с ними логику в виде приложения JavaScript. Созданная коллекция будет сопоставлена с [уровнем производительности S1](documentdb-performance-levels.md). Добавьте функцию создания новой коллекции в файле app.js с ```id```, указанным в объекте ```config```. Теперь нужно снова убедиться в том, что коллекция с таким идентификатором ```FamilyCollection``` еще не создана. Если она существует, мы вернем ее вместо создания новой коллекции.
 
     var getOrCreateCollection = function(callback) {
 
@@ -244,9 +244,9 @@
     };
 
 ##<a id="CreateDoc"></a>Шаг 7. Создание документа
-[Документ](documentdb-resources.md#documents) можно создать с помощью функции [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) класса **DocumentClient**. Документы относятся к пользовательскому (произвольному) содержимому JSON. Теперь можно вставить документ в DocumentDB.
+Вы можете создать [документ](documentdb-resources.md#documents) с помощью функции [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) класса **DocumentClient**. Документы относятся к пользовательскому (произвольному) содержимому JSON. Теперь можно вставить документ в DocumentDB.
 
-Затем добавьте функцию в файл app.js для создания документов, содержащих данные JSON, сохраненные в объекте *config*. Теперь нужно снова убедиться в том, что документ с таким идентификатором не существует.
+Затем добавьте в файл app.js функцию создания документов, содержащих данные JSON, сохраненные в объекте ```config```. Теперь нужно снова убедиться в том, что документ с таким идентификатором не существует.
 
     var getOrCreateDocument = function(document, callback) {
         var querySpec = {
@@ -278,9 +278,9 @@
 
 ![Схема, иллюстрирующая иерархические отношения между учетной записью, базой данных, коллекцией и документами](./media/documentdb-nodejs-get-started/node-js-tutorial-account-database.png)
 
-##<a id="Query"></a>Шаг 8. Запросы ресурсов DocumentDB
+##<a id="Query"></a>Шаг 8. Запросы к ресурсам DocumentDB
 
-DocumentDB поддерживает [полнофункциональные запросы](documentdb-sql-query.md) к документам JSON, хранящимся в каждой коллекции. В следующем примере кода показан выполняемый запрос к документам в коллекции. Добавьте в файл *app.js* следующую функцию. DocumentDB поддерживает SQL-подобные запросы, как показано ниже. Дополнительные сведения о построении сложных запросов см. на [площадке для запросов](https://www.documentdb.com/sql/demo) и в [документации по запросам](documentdb-sql-query.md).
+DocumentDB поддерживает [полнофункциональные запросы](documentdb-sql-query.md) к документам JSON, хранящимся в каждой коллекции. В следующем примере кода показан выполняемый запрос к документам в коллекции. Добавьте в файл ```app.js``` следующую функцию. DocumentDB поддерживает SQL-подобные запросы, как показано ниже. Дополнительные сведения о построении сложных запросов см. на [площадке для запросов](https://www.documentdb.com/sql/demo) и в [документации по запросам](documentdb-sql-query.md).
 
     var queryCollection = function(documentId, callback) {
       var querySpec = {
@@ -325,7 +325,7 @@ DocumentDB поддерживает [полнофункциональные за
 
 Порядок вызова функций будет следующим: * *getOrCreateDatabase* * *getOrCreateCollection* * *getOrCreateDocument* * *getOrCreateDocument* * *queryCollection* * *cleanup*
 
-Добавьте следующий фрагмент кода в конец файла *app.js*.
+Добавьте следующий фрагмент кода в конец файла ```app.js```.
 
     getOrCreateDatabase(function(err, db) {
         if(err) return console.log(err);
@@ -361,7 +361,7 @@ DocumentDB поддерживает [полнофункциональные за
 
 Теперь все готово к запуску приложения Node.js.
 
-В окне терминала перейдите к файлу *app.js* и выполните команду **node app.js**.
+В окне терминала перейдите к файлу ```app.js``` и выполните команду ```node app.js```.
 
 Должны отобразиться выходные данные вашего приложения. Выходные данные должны соответствовать примеру текста ниже.
 
@@ -425,9 +425,9 @@ DocumentDB поддерживает [полнофункциональные за
 -   [учетная запись DocumentDB][documentdb-create-account];
 -   решение [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started), доступное в GitHub.
 
-Установите модуль **documentdb** с помощью npm. Используйте следующую команду: * **npm install documentdb --save**.
+Установите модуль **documentdb** с помощью npm. Используйте следующую команду: * ```npm install documentdb --save```
 
-Затем в файле *config.js* обновите значения config.endpoint и config.authKey, как описано в разделе [Шаг 3. Настройка конфигурации приложения](#Config).
+Затем в файле ```config.js``` обновите значения config.endpoint и config.authKey, как описано в разделе [Шаг 3. Настройка конфигурации приложения](#Config).
 
 ## Дальнейшие действия
 
@@ -442,4 +442,4 @@ DocumentDB поддерживает [полнофункциональные за
 
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
-<!---HONumber=AcomDC_1203_2015-->
+<!---HONumber=AcomDC_0114_2016-->

@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Создание хранилища данных SQL с помощью TSQL | Microsoft Azure"
-	description="Сведения о создании хранилища данных SQL Azure с помощью TSQL"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
-	editor=""
-	tags="azure-sql-data-warehouse"/>
+   pageTitle="Создание хранилища данных SQL с помощью TSQL | Microsoft Azure"
+   description="Сведения о создании хранилища данных SQL Azure с помощью TSQL"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""
+   tags="azure-sql-data-warehouse"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="01/04/2016"
-   ms.author="lodipalm"/>
+   ms.date="01/07/2016"
+   ms.author="lodipalm;barbkess;sonyama"/>
 
 #Создание хранилища данных SQL с помощью TSQL 
 
@@ -51,7 +51,7 @@
 + 40 960 ГБ
 + 51 200 ГБ
 
-Значение SERVICE_OBJECTIVE определяет количество DWU, с которым начнет работать экземпляр, и принимает следующие значения:
+Значение SERVICE\_OBJECTIVE определяет количество DWU, с которым начнет работать экземпляр, и принимает следующие значения:
 
 + DW100
 + DW200
@@ -76,4 +76,4 @@
 [загрузить демонстрационные данные]: ./sql-data-warehouse-get-started-manually-load-samples.md
 [странице цен]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 
-<!---HONumber=AcomDC_0107_2016-->
+<!---HONumber=AcomDC_0114_2016-->

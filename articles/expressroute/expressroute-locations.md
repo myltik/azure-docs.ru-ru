@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/02/2015"
+   ms.date="01/08/2015"
    ms.author="cherylmc" />
 
 # Партнеры и одноранговые расположения ExpressRoute
@@ -69,7 +69,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **[InterCloud](https://www.intercloud.com/)** | Поддерживаются | Поддерживаются | Амстердам, Лондон, Сингапур, Вашингтон, округ Колумбия |
 | **Internet Solutions - Cloud Connect** | Поддерживаются | Поддерживаются | Амстердам, Лондон |
 | **Interxion** | Поддерживаются | Поддерживаются | Амстердам |
-| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Поддерживаются | Поддерживаются | Амстердам, Чикаго, Даллас, Лондон, Сиэтл, Кремниевая долина, Вашингтон, округ Колумбия |
+| **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Поддерживаются | Поддерживаются | Амстердам, Чикаго, Даллас, Лондон, Сиэтл, Кремниевая долина, Вашингтон, округ Колумбия |
 | **Megaport** | Поддерживаются | Поддерживаются | Мельбурн, Сидней |
 | **MTN** | Поддерживаются | Поддерживаются | Лондон |
 | **NEXTDC** | Поддерживаются | Поддерживаются | Мельбурн, Сидней |
@@ -85,7 +85,7 @@ ExpressRoute поддерживается во всех регионах и ра
 | **Vodafone** | Поддерживаются | Не поддерживается | Лондон | 
 | **[Zayo Group](http://www.zayo.com/)** | Поддерживаются | Поддерживаются | Чикаго, Лос-Анджелес, Нью-Йорк, Кремниевая долина, Вашингтон (округ Колумбия) |
 
- Символ **+** означает «скоро»
+ Знак **+** означает "скоро"
 
 ### Национальные облачные среды
 
@@ -133,10 +133,12 @@ ExpressRoute поддерживается во всех регионах и ра
 |---|---|
 |**[Nimbo](http://www.nimbo.com/)**|США||
 |**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**|EMEA|
+|**[Project Leadership](http://www.projectleadership.net/azure)** | США |
+|**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | США |
 
 ## Дальнейшие действия
 
 - Дополнительную информацию об ExpressRoute см. в статье [Часто задаваемые вопросы об ExpressRoute](expressroute-faqs.md).
 - Убедитесь, что выполнены все необходимые условия. См. статью [Предварительные требования для ExpressRoute](expressroute-prerequisites.md).
 
-<!---HONumber=AcomDC_1223_2015-->
+<!---HONumber=AcomDC_0114_2016-->
