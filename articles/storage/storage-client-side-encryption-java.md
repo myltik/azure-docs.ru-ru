@@ -232,6 +232,8 @@
 Обратите внимание, что шифрование результатов анализа данных хранилища отрицательно влияет на производительность. Ключ содержимого и вектор инициализации необходимо создать, само содержимое — зашифровать, а дополнительные метаданные — отформатировать и передать. Эти издержки зависят от объема шифруемых данных. Мы рекомендуем клиентам всегда тестировать свои приложения для повышения производительности во время разработки.
 
 ## Дальнейшие действия  
-Скачайте [клиентскую библиотеку службы хранилища Azure для пакета Java Maven](<fix URL>). Скачайте [клиентскую библиотеку службы хранилища Azure для исходного кода Java из GitHub](https://github.com/Azure/azure-storage-java). Скачайте пакеты Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) и [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) для хранилища ключей Azure. Просмотрите [документацию по хранилищу ключей Azure](../articles/key-vault-whatis.md).
+Скачайте [клиентскую библиотеку службы хранилища Azure для пакета Java Maven](<fix URL>).
+Скачайте [клиентскую библиотеку службы хранилища Azure для исходного кода Java из GitHub](https://github.com/Azure/azure-storage-java).
+Скачайте пакеты Maven [Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [Client](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) и [Extensions](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) для хранилища ключей Azure. Просмотрите [документацию по хранилищу ключей Azure](../articles/key-vault-whatis.md).
 
-<!---HONumber=AcomDC_0107_2016-->
+<!----HONumber=AcomDC_0107_2016-->
