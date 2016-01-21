@@ -30,6 +30,7 @@
 
     ![Поддержка — переключение каталогов](./media/active-directory-b2c-support/support-switch-dir.png)
 
+    
 3. После переключения каталогов щелкните **Справка и поддержка**.
 
     ![Поддержка — поддержка](./media/active-directory-b2c-support/support-support.png)
